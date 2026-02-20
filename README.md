@@ -1,647 +1,184 @@
-# finance - 金融市場分析・コンテンツ発信支援ライブラリ
+# note-finance
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![uv](https://img.shields.io/badge/uv-latest-green.svg)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![CI](https://github.com/YH-05/finance/actions/workflows/ci.yml/badge.svg)](https://github.com/YH-05/finance/actions/workflows/ci.yml)
 
-金融市場の分析と note.com での金融・投資コンテンツ発信を効率化する Python ライブラリです。
+[note.com](https://note.com/) での金融コンテンツ発信を支援する Python ツールキット。RSSフィードからの金融ニュース自動収集、AI要約によるGitHub Issue投稿、週次マーケットレポート生成、記事執筆支援までを一貫して提供します。
 
 ## 主要機能
 
-- **市場データ取得・分析**: Yahoo Finance (yfinance) を使用した株価・為替・指標データの取得と分析
-- **金融ニュース自動収集**: RSSフィードからニュースを収集し、AI要約・GitHub Issue作成まで自動化
-- **チャート・グラフ生成**: 分析結果の可視化と図表作成
-- **記事生成支援**: 分析結果を元に記事下書きを生成
-- **データベースインフラ**: SQLite (OLTP) + DuckDB (OLAP) のデュアルデータベース構成
+- **金融ニュース自動収集** — 34のRSSフィードから記事を収集し、本文抽出・AI要約・GitHub Project投稿を自動化
+- **週次マーケットレポート** — 市場データとニュースを集約し、テンプレートベースのレポートを自動生成
+- **記事執筆ワークフロー** — トピック提案・初稿生成・批評（事実/構成/読みやすさ/コンプライアンス）・修正の全工程を支援
+- **RSS MCP Server** — Claude Code からRSSフィードを直接操作できるMCPサーバー
 
-## 📰 金融ニュース収集 CLI
-
-RSSフィードから金融ニュースを収集し、GitHub Projectに自動投稿するCLIツールです。
-
-### 基本コマンド
-
-```bash
-# 基本実行（全ステータス対象）
-uv run python -m news.scripts.finance_news_workflow
-
-# ドライラン（GitHub Issue作成をスキップ）
-uv run python -m news.scripts.finance_news_workflow --dry-run
-
-# 特定ステータスのみ収集
-uv run python -m news.scripts.finance_news_workflow --status index,stock
-
-# 記事数を制限
-uv run python -m news.scripts.finance_news_workflow --max-articles 10
-
-# 詳細ログ出力
-uv run python -m news.scripts.finance_news_workflow --verbose
-```
-
-### オプション一覧
-
-| オプション | 説明 | デフォルト |
-|-----------|------|-----------|
-| `--config` | 設定ファイルパス | `data/config/news-collection-config.yaml` |
-| `--dry-run` | Issue作成をスキップ | False |
-| `--status` | フィルタ対象ステータス（カンマ区切り） | 全て |
-| `--max-articles` | 処理する最大記事数 | 無制限 |
-| `--verbose`, `-v` | DEBUGレベルログ出力 | False |
-
-### 出力
-
-- **コンソール**: 処理結果サマリー（収集数、抽出数、要約数、公開数、重複数、経過時間）
-- **ログファイル**: `logs/news-workflow-{日付}.log`
-- **GitHub**: Project #15 にIssueとして投稿
-
-## パッケージ構成
-
-| パッケージ | 説明 |
-|-----------|------|
-| `database` | 共通データベースインフラ（SQLite/DuckDB）、ユーティリティ、ロギング |
-| `market` | 市場データ取得機能（yfinance, FRED, Bloomberg）、キャッシュ、エクスポート |
-| `edgar` | SEC Filings抽出パッケージ（edgartoolsラッパー、テキスト・セクション抽出、並列処理） |
-| `analyze` | 市場データ分析機能（テクニカル、統計、セクター分析、可視化） |
-| `rss` | RSSフィード管理・監視・記事抽出・MCP統合 |
-| `factor` | ファクター投資・分析（バリュー、モメンタム、クオリティ等） |
-| `strategy` | 投資戦略構築・リスク管理・ポートフォリオ分析 |
-| `news` | ニュース処理パイプライン |
-| `market_analysis` | 市場分析統合モジュール |
-| `utils_core` | 共通ユーティリティ・ロギング |
-
-## 🚀 セットアップ
-
-### 基本セットアップ
+## セットアップ
 
 ```bash
 # 依存関係のインストール
 uv sync --all-extras
 
-# Pythonバージョンの固定（推奨）
-uv python pin 3.12  # または 3.13
-```
+# Python バージョンの固定
+uv python pin 3.12
 
-### MCP Server Setup
+# 環境変数の設定
+cp .env.example .env
+# .env を編集し ANTHROPIC_API_KEY を設定
 
-このプロジェクトは複数のMCPサーバーを使用して外部サービスと連携します。
-
-#### 1. 設定ファイルの作成
-
-```bash
+# MCP サーバーの設定（任意）
 cp .mcp.json.template .mcp.json
+# .mcp.json を編集し API キーを設定
 ```
 
-#### 2. APIキーの設定
+## 金融ニュース収集
 
-`.mcp.json` を編集し、以下のAPIキーを設定してください：
+RSSフィードから金融ニュースを収集し、GitHub Project #15 にIssueとして投稿するパイプライン。
 
-- **Notion API Key** - Notion統合用（任意）
-- **Slack Bot Token** - Slackワークスペース連携用（任意）
-- **Tavily API Key** - Web検索API用（任意）
-- **SEC EDGAR User-Agent** - SEC EDGAR API用（必須：名前とメールアドレス）
+### パイプライン概要
 
-詳細な設定手順は [docs/mcp-setup.md](docs/mcp-setup.md) を参照してください。
+```
+RSS収集 → 本文抽出 (trafilatura) → AI要約 (Claude) → カテゴリ別グルーピング → GitHub Issue投稿
+```
 
-**セキュリティ注意:**
-- `.mcp.json` は機密情報を含むため、Gitで追跡されません
-- APIキーは安全に管理し、定期的にローテーションしてください
+6カテゴリに分類: 株価指数 / 個別銘柄 / セクター / マクロ経済 / AI関連 / 金融
 
-## ⚠️ よくある問題とトラブルシューティング
-
-### Python バージョンの問題
-
-このプロジェクトは**Python 3.12以上**をサポートしています。3.12未満のバージョンを使用すると、型チェックや CI/CD で問題が発生する場合があります。
-
-**問題の症状：**
-
--   pyright が「Template string literals (t-strings) require Python 3.14 or newer」などのエラーを報告
--   GitHub CI の lint ジョブが失敗
--   ローカルでは問題ないのに CI で失敗する
-
-**原因：**
-
--   システムに複数の Python バージョンがインストールされている場合、意図しないバージョン（例: Python 3.14）が使用される可能性があります
--   pyright がプロジェクトのターゲットバージョンと異なる標準ライブラリをチェックしようとしてエラーが発生
-
-**解決方法：**
-
-1. **Python バージョンを明示的に指定：**
-
-    ```bash
-    uv python pin 3.12  # または 3.13 など
-    ```
-
-    これにより`.python-version`ファイルが作成され、uv が指定したバージョンを使用するようになります。
-
-2. **仮想環境を再構築：**
-
-    ```bash
-    uv sync --all-extras
-    ```
-
-3. **pre-commit フックを確認：**
-    ```bash
-    uv run pre-commit run --all-files
-    ```
-
-**予防策：**
-
--   プロジェクトのセットアップ時に`uv python pin 3.12`（または `3.13` 等）を実行
--   `.python-version`ファイルを gitignore から除外することを検討（チームで統一するため）
--   CI/CD ワークフローでは Python 3.12 と 3.13 の両方でテストを実行（すでに`.github/workflows/ci.yml`で設定済み）
-
-### その他のトラブルシューティング
-
-**依存関係のエラー：**
+### CLI
 
 ```bash
-# 依存関係をクリーンインストール
-uv sync --reinstall
+# 全カテゴリを収集・投稿
+uv run python -m news.scripts.finance_news_workflow
+
+# ドライラン（GitHub投稿をスキップ）
+uv run python -m news.scripts.finance_news_workflow --dry-run
+
+# 特定カテゴリのみ
+uv run python -m news.scripts.finance_news_workflow --status index,macro
+
+# 記事数を制限
+uv run python -m news.scripts.finance_news_workflow --max-articles 10
+
+# 詳細ログ
+uv run python -m news.scripts.finance_news_workflow --verbose
 ```
 
-**pre-commit フックのエラー：**
+| オプション | 説明 | デフォルト |
+|-----------|------|-----------|
+| `--config` | 設定ファイルパス | `data/config/news-collection-config.yaml` |
+| `--dry-run` | Issue作成をスキップ | `False` |
+| `--status` | カテゴリフィルタ（カンマ区切り） | 全カテゴリ |
+| `--max-articles` | 最大記事数 | 無制限 |
+| `--verbose`, `-v` | DEBUGログ出力 | `False` |
+
+### 出力
+
+- **コンソール**: 収集・抽出・要約・投稿件数のサマリー
+- **ログ**: `logs/news-workflow-{日付}.log`
+- **GitHub**: Project #15 にIssue投稿（カテゴリ別Statusフィールド付き）
+- **Markdown**: `data/exports/news-workflow/` にエクスポート
+
+## Claude Code ワークフロー
+
+`.claude/` 配下にスラッシュコマンド・スキル・サブエージェントを定義し、コンテンツ制作を自動化します。
+
+### コマンド一覧
+
+| コマンド | 説明 |
+|----------|------|
+| `/finance-suggest-topics` | 金融記事のトピックを提案・スコアリング |
+| `/new-finance-article` | 新規記事フォルダを作成（テンプレートから） |
+| `/finance-edit` | 記事編集ワークフロー（初稿 → 批評 → 修正） |
+| `/finance-full` | 記事作成の全工程を一括実行 |
+| `/generate-market-report` | 週次マーケットレポートを自動生成 |
+| `/ai-research-collect` | AI投資バリューチェーン（77社・10カテゴリ）の収集 |
+
+### 記事編集の流れ
+
+1. `/finance-suggest-topics` — トピック候補をスコアリング
+2. `/new-finance-article` — フォルダ・テンプレート生成
+3. `/finance-edit` — 初稿生成 → 5つの批評エージェント（事実/構成/データ/読みやすさ/コンプライアンス）→ 修正
+
+### 週次レポートの流れ
+
+`/generate-market-report` が以下をチーム制御:
+1. ニュース集約（GitHub Projectから）
+2. データ集約（指数・MAG7・セクター）
+3. コメント生成（テンプレート + LLM）
+4. テンプレート埋め込み
+5. 品質検証 → Issue投稿
+
+## パッケージ構成
+
+```
+src/
+├── rss/           # RSSフィード管理
+│   ├── core/      #   パーサー、HTTPクライアント、差分検知
+│   ├── services/  #   フィード管理、記事抽出、バッチスケジューラ
+│   ├── mcp/       #   MCP Server（7ツール）
+│   ├── storage/   #   JSON永続化
+│   └── cli/       #   CLIインターフェース
+├── news/          # ニュース処理パイプライン
+│   ├── orchestrator.py  # ワークフローオーケストレータ
+│   ├── collectors/      # RSS収集
+│   ├── extractors/      # 本文抽出（trafilatura / Playwright）
+│   ├── summarizer.py    # AI要約（Anthropic Claude）
+│   ├── grouper.py       # カテゴリ別グルーピング
+│   ├── publisher.py     # GitHub Issue投稿
+│   └── config/          # YAML設定ローダー
+└── automation/    # Claude Agent SDK による自動実行
+```
+
+## 設定ファイル
+
+| ファイル | 説明 |
+|---------|------|
+| `data/config/news-collection-config.yaml` | ニュース収集パイプラインの主設定（カテゴリマッピング、抽出、要約、GitHub） |
+| `data/config/rss-presets.json` | RSSフィード一覧（34フィード、6カテゴリ） |
+| `data/config/finance-news-themes.json` | テーマ別フィード割り当て（11テーマ） |
+| `data/config/finance-news-filter.json` | ドメインフィルタリング・キーワード設定 |
+
+## 開発
 
 ```bash
-# pre-commitキャッシュをクリア
-uv run pre-commit clean
-uv run pre-commit install --install-hooks
+# 全チェック（format → lint → typecheck → test）
+make check-all
+
+# 個別実行
+make format       # Ruff フォーマット
+make lint         # Ruff リント（自動修正付き）
+make typecheck    # pyright 型チェック
+make test         # pytest テスト
+
+# 単一テスト
+uv run pytest tests/rss/unit/test_parser.py::TestClass::test_method -v
+
+# パッケージ別テスト
+uv run pytest tests/rss/ -v
+uv run pytest tests/news/ -v
 ```
 
-**型チェックエラー：**
-
-```bash
-# pyright設定の確認
-uv run pyright --version
-# pyproject.tomlのpyright設定を確認
-```
-
-## 📁 プロジェクト構造
-
-<!-- AUTO-GENERATED: DIRECTORY -->
-
-```
-finance/                                     # Project root
-├── .claude/                                 # Claude Code configuration (79 agents + 19 commands + 48 skills)
-│   ├── agents/                              # (79) Specialized agents
-│   │   └── deep-research/                   # ディープリサーチエージェント群（11個）
-│   ├── commands/                            # (19) Slash commands
-│   ├── rules/                               # Shared rule definitions
-│   ├── skills/                              # (48) Skill modules
-│   └── agents.md
-├── .github/                                 # GitHub configuration
-│   ├── ISSUE_TEMPLATE/                      # Issue templates
-│   └── workflows/                           # GitHub Actions workflows
-├── data/                                    # Data storage layer
-│   ├── config/                              # Configuration files
-│   ├── duckdb/                              # DuckDB OLAP database
-│   ├── sqlite/                              # SQLite OLTP database
-│   ├── raw/                                 # Raw data (Parquet format)
-│   │   ├── fred/indicators/                 # FRED経済指標
-│   │   ├── rss/                             # RSS feed subscriptions
-│   │   └── yfinance/                        # stocks, forex, indices
-│   ├── processed/                           # Processed data (daily/aggregated)
-│   ├── exports/                             # Exported data (csv/json)
-│   └── schemas/                             # JSON schemas
-├── docs/                                    # Repository documentation
-│   ├── code-analysis-report/                # Code analysis reports
-│   ├── plan/                                # Project plans
-│   ├── pr-review/                           # PR review reports
-│   └── project/                             # Project documentation
-│       ├── project-7/                       # エージェント開発
-│       ├── project-11/                      # note金融コンテンツ発信強化
-│       ├── project-14/                      # 金融ニュース収集
-│       ├── project-16/                      # src_sample Migration
-│       ├── project-17/                      # スキル開発
-│       ├── project-18/                      # ワークフロー改善
-│       ├── project-20/                      # ナレッジ管理システム
-│       ├── project-21/                      # 新規プロジェクト
-│       └── project-25/                      # 週次レポート
-├── src/                                     # Source code
-│   ├── database/                            # Core infrastructure
-│   │   ├── db/                              # Database layer (SQLite + DuckDB)
-│   │   │   └── migrations/                  # Database schema migrations
-│   │   ├── utils/                           # Utilities (logging, date utils)
-│   │   ├── types.py
-│   │   └── py.typed
-│   ├── market/                              # Market data fetching
-│   │   ├── yfinance/                        # Yahoo Finance fetcher
-│   │   ├── fred/                            # FRED fetcher
-│   │   ├── bloomberg/                       # Bloomberg fetcher
-│   │   ├── cache/                           # Data caching
-│   │   ├── export/                          # Data export
-│   │   ├── utils/                           # Utilities
-│   │   └── py.typed
-│   ├── analyze/                             # Market analysis
-│   │   ├── returns/                         # Returns calculation
-│   │   ├── sector/                          # Sector analysis
-│   │   ├── technical/                       # Technical indicators
-│   │   ├── statistics/                      # Statistical analysis
-│   │   ├── earnings/                        # Earnings calendar
-│   │   ├── visualization/                   # Chart generation
-│   │   ├── reporting/                       # Report generation
-│   │   └── py.typed
-│   ├── rss/                                 # RSS feed monitoring package
-│   │   ├── cli/                             # CLI interface
-│   │   ├── core/                            # Parser, HTTP client, diff detector
-│   │   ├── mcp/                             # MCP server integration
-│   │   ├── services/                        # Service layer (ArticleExtractor)
-│   │   ├── storage/                         # JSON persistence
-│   │   ├── validators/                      # URL validation
-│   │   ├── utils/                           # Logging
-│   │   └── py.typed
-│   ├── factor/                              # Factor analysis library
-│   │   ├── core/                            # Core algorithms
-│   │   ├── factors/                         # Factor implementations
-│   │   │   ├── macro/                       # Macro factors
-│   │   │   ├── price/                       # Momentum factors
-│   │   │   ├── quality/                     # Quality factors
-│   │   │   ├── size/                        # Size factors
-│   │   │   └── value/                       # Value factors
-│   │   ├── providers/                       # Data providers
-│   │   ├── validation/                      # Factor validation
-│   │   └── py.typed
-│   ├── strategy/                            # Strategy library
-│   │   ├── core/                            # Core strategy
-│   │   ├── output/                          # Output formatter
-│   │   ├── rebalance/                       # Rebalancing
-│   │   ├── risk/                            # Risk management
-│   │   ├── integration/                     # market/analyze/factor integration
-│   │   ├── providers/                       # Data providers
-│   │   ├── visualization/                   # Portfolio charts
-│   │   └── py.typed
-│   ├── news/                                # News processing pipeline
-│   │   ├── config/                          # Configuration
-│   │   ├── core/                            # Core processors
-│   │   ├── processors/                      # News processors
-│   │   ├── sinks/                           # Output sinks
-│   │   ├── sources/                         # Data sources
-│   │   └── utils/                           # Utilities
-│   ├── market_analysis/                     # Market analysis integration
-│   │   ├── analysis/                        # Analysis modules
-│   │   ├── api/                             # API layer
-│   │   ├── core/                            # Core functionality
-│   │   ├── export/                          # Export functionality
-│   │   └── visualization/                   # Visualization
-│   └── utils_core/                          # Shared utilities
-│       └── logging/                         # Logging configuration
-├── tests/                                   # Test suite
-│   ├── database/                            # Database package tests
-│   │   ├── unit/                            # Unit tests
-│   │   └── property/                        # Property tests
-│   ├── market/                              # Market package tests
-│   │   ├── unit/                            # Unit tests
-│   │   └── property/                        # Property tests
-│   ├── analyze/                             # Analyze package tests
-│   │   ├── unit/                            # Unit tests
-│   │   └── integration/                     # Integration tests
-│   ├── rss/                                 # RSS package tests
-│   │   ├── unit/                            # Unit tests
-│   │   ├── property/                        # Property tests
-│   │   └── integration/                     # Integration tests
-│   ├── factor/                              # Factor analysis tests
-│   │   ├── unit/                            # Unit tests
-│   │   ├── property/                        # Property tests
-│   │   └── integration/                     # Integration tests
-│   ├── strategy/                            # Strategy tests
-│   │   ├── unit/                            # Unit tests
-│   │   ├── property/                        # Property tests
-│   │   └── integration/                     # Integration tests
-│   ├── news/                                # News package tests
-│   └── market_analysis/                     # Market analysis tests
-├── template/                                # Reference templates (read-only)
-│   ├── src/template_package/                # Package structure template
-│   ├── tests/                               # Test structure template
-│   └── {article_id}-theme-name-en/          # Article template
-├── articles/                                # 金融記事ワークスペース
-│   └── weekly_report/                       # 週次レポート
-├── research/                                # ディープリサーチワークスペース
-├── snippets/                                # Reusable content (disclaimers, etc.)
-├── scripts/                                 # Utility scripts
-├── CLAUDE.md                                # Project instructions
-├── README.md                                # Project overview
-├── Makefile                                 # Build automation
-├── pyproject.toml                           # Python project config
-└── uv.lock                                  # Dependency lock file
-```
-
-<!-- END: DIRECTORY -->
-
-## 📚 ドキュメント階層
-
-### 🎯 主要ドキュメント
-
--   **[CLAUDE.md](CLAUDE.md)** - プロジェクト全体の包括的なガイド
-    -   プロジェクト概要とコーディング規約
-    -   よく使うコマンドと GitHub 操作
-    -   型ヒント、テスト戦略、セキュリティ
-
-## 🔗 依存関係図
-
-<!-- AUTO-GENERATED: DEPENDENCY -->
-
-### Pythonパッケージ依存関係
-
-```mermaid
-graph TB
-    subgraph "Core Layer"
-        database["database<br/>(コアインフラ)"]
-    end
-
-    subgraph "Data Layer"
-        market["market<br/>(市場データ取得)"]
-        edgar["edgar<br/>(SEC Filings抽出)"]
-        rss["rss<br/>(RSS管理)"]
-    end
-
-    subgraph "Analysis Layer"
-        analyze["analyze<br/>(市場分析)"]
-        factor["factor<br/>(ファクター分析)"]
-    end
-
-    subgraph "Strategy Layer"
-        strategy["strategy<br/>(投資戦略)"]
-    end
-
-    database --> market
-    database --> edgar
-    database --> rss
-    market --> analyze
-    edgar --> analyze
-    analyze --> factor
-    factor --> strategy
-    market --> strategy
-```
-
-### コマンド → スキル → エージェント 依存関係
-
-```mermaid
-graph LR
-    subgraph "Commands"
-        cmd_commit["/commit-and-pr"]
-        cmd_news["/finance-news-workflow"]
-        cmd_research["/finance-research"]
-        cmd_project["/new-project"]
-        cmd_issue["/issue"]
-        cmd_test["/write-tests"]
-        cmd_index["/index"]
-    end
-
-    subgraph "Skills"
-        skill_commit["commit-and-pr"]
-        skill_news["finance-news-workflow"]
-        skill_research["deep-research"]
-        skill_project["new-project"]
-        skill_issue["issue-creation"]
-        skill_tdd["tdd-development"]
-        skill_index["index"]
-    end
-
-    subgraph "Agents"
-        agent_quality["quality-checker"]
-        agent_simplifier["code-simplifier"]
-        agent_news_orch["finance-news-orchestrator"]
-        agent_news_themes["テーマ別エージェント x6"]
-        agent_research["リサーチエージェント x14"]
-        agent_design["設計エージェント x6"]
-        agent_task["task-decomposer"]
-        agent_test["test-orchestrator"]
-        agent_explore["Explore"]
-        agent_readme["package-readme-updater"]
-    end
-
-    cmd_commit --> skill_commit
-    cmd_news --> skill_news
-    cmd_research --> skill_research
-    cmd_project --> skill_project
-    cmd_issue --> skill_issue
-    cmd_test --> skill_tdd
-    cmd_index --> skill_index
-
-    skill_commit --> agent_quality
-    skill_commit --> agent_simplifier
-    skill_news --> agent_news_orch
-    agent_news_orch --> agent_news_themes
-    skill_research --> agent_research
-    skill_project --> agent_design
-    skill_project --> agent_task
-    skill_tdd --> agent_test
-    skill_index --> agent_explore
-    skill_index --> agent_readme
-```
-
-### 金融ニュース収集ワークフロー
-
-```mermaid
-graph TB
-    subgraph "Orchestrator"
-        orch["finance-news-orchestrator"]
-    end
-
-    subgraph "Parallel Agents"
-        index["finance-news-index<br/>(株価指数)"]
-        stock["finance-news-stock<br/>(個別銘柄)"]
-        sector["finance-news-sector<br/>(セクター)"]
-        macro["finance-news-macro<br/>(マクロ経済)"]
-        ai["finance-news-ai<br/>(AI/テクノロジー)"]
-        fin["finance-news-finance<br/>(金融/財務)"]
-    end
-
-    subgraph "Output"
-        gh["GitHub Project Issues"]
-    end
-
-    orch --> index
-    orch --> stock
-    orch --> sector
-    orch --> macro
-    orch --> ai
-    orch --> fin
-
-    index --> gh
-    stock --> gh
-    sector --> gh
-    macro --> gh
-    ai --> gh
-    fin --> gh
-```
-
-### 金融リサーチパイプライン
-
-```mermaid
-graph TB
-    subgraph "Phase 1: Data Collection"
-        query["finance-query-generator"]
-        web["finance-web"]
-        wiki["finance-wiki"]
-    end
-
-    subgraph "Phase 2: Analysis"
-        source["finance-source"]
-        claims["finance-claims"]
-        analyzer["finance-claims-analyzer"]
-    end
-
-    subgraph "Phase 3: Verification"
-        fact["finance-fact-checker"]
-        decisions["finance-decisions"]
-    end
-
-    subgraph "Phase 4: Market Data"
-        market["finance-market-data"]
-        technical["finance-technical-analysis"]
-        economic["finance-economic-analysis"]
-        sec["finance-sec-filings"]
-        sentiment["finance-sentiment-analyzer"]
-    end
-
-    subgraph "Phase 5: Output"
-        visualize["finance-visualize"]
-        output["report.md"]
-    end
-
-    query --> web
-    query --> wiki
-    web --> source
-    wiki --> source
-    source --> claims
-    claims --> analyzer
-    analyzer --> fact
-    fact --> decisions
-    decisions --> market
-    market --> technical
-    market --> economic
-    market --> sec
-    market --> sentiment
-    technical --> visualize
-    economic --> visualize
-    sec --> visualize
-    sentiment --> visualize
-    visualize --> output
-```
-
-### Deep Research パイプライン
-
-```mermaid
-graph TB
-    subgraph "Orchestration"
-        orch["dr-orchestrator<br/>(ワークフロー制御)"]
-    end
-
-    subgraph "Data Collection"
-        src["dr-source-aggregator<br/>(マルチソース収集)"]
-    end
-
-    subgraph "Analysis (Parallel)"
-        macro["dr-macro-analyzer<br/>(マクロ経済)"]
-        stock["dr-stock-analyzer<br/>(個別銘柄)"]
-        sector["dr-sector-analyzer<br/>(セクター)"]
-        theme["dr-theme-analyzer<br/>(テーマ)"]
-    end
-
-    subgraph "Validation"
-        cross["dr-cross-validator<br/>(クロス検証)"]
-        bias["dr-bias-detector<br/>(バイアス検出)"]
-        conf["dr-confidence-scorer<br/>(信頼度算出)"]
-    end
-
-    subgraph "Output"
-        report["dr-report-generator<br/>(レポート生成)"]
-        viz["dr-visualizer<br/>(可視化)"]
-    end
-
-    orch --> src
-    src --> macro
-    src --> stock
-    src --> sector
-    src --> theme
-    macro --> cross
-    stock --> cross
-    sector --> cross
-    theme --> cross
-    cross --> bias
-    bias --> conf
-    conf --> report
-    conf --> viz
-```
-
-<!-- END: DEPENDENCY -->
-
-## 🤖 Claude Code 開発フロー
-
-このプロジェクトでは、スラッシュコマンド、スキル、サブエージェントを組み合わせて開発を進めます。
-
-### コマンド・スキル・エージェントの違い
-
-| 種類               | 説明                                                       | 定義場所           |
-| ------------------ | ---------------------------------------------------------- | ------------------ |
-| スラッシュコマンド | `/xxx` で直接呼び出す開発タスク                            | `.claude/commands/` |
-| スキル             | コマンドから自動的に呼び出されるドキュメント生成・管理機能 | `.claude/skills/`   |
-| サブエージェント   | 品質検証・レビューを行う自律エージェント                   | `.claude/agents/`   |
-
-### 開発フェーズと使用するコマンド
-
-#### フェーズ 1: 初期化
-
-| コマンド              | 用途                                   |
-| --------------------- | -------------------------------------- |
-| `/setup-repository` | テンプレートリポジトリの初期化（初回のみ） |
-
-#### フェーズ 2: 企画・設計
-
-| コマンド       | 用途                                   | 関連スキル/エージェント                              |
-| -------------- | -------------------------------------- | ---------------------------------------------------- |
-| `/new-package <package_name>` | 新規Pythonパッケージ作成（project.md含む） | -                                                    |
-| `/new-project @src/<package_name>/docs/project.md` | プロジェクトファイルからLRD・設計ドキュメントを作成 | prd-writing, functional-design, architecture-design 等 |
-| `/review-docs` | ドキュメントの品質レビュー             | doc-reviewer エージェント                            |
-
-#### フェーズ 3: 実装
-
-| コマンド                          | 用途                               | 関連スキル/エージェント                |
-| --------------------------------- | ---------------------------------- | -------------------------------------- |
-| `/issue @src/<package_name>/docs/project.md` | Issue管理・タスク分解・GitHub同期 | task-decomposer, feature-implementer |
-| `/write-tests`                    | TDDによるテスト作成                | -                                      |
-
-#### フェーズ 4: 品質管理
-
-| コマンド          | 用途                                   |
-| ----------------- | -------------------------------------- |
-| `/ensure-quality` | format→lint→typecheck→testの自動修正   |
-| `/safe-refactor`  | テストカバレッジを維持したリファクタリング |
-| `/analyze`        | コード分析レポート出力（改善は行わない） |
-| `/improve`        | エビデンスベースの改善実装             |
-| `/scan`           | セキュリティ・品質の包括的検証         |
-
-#### フェーズ 5: デバッグ・完了
-
-| コマンド          | 用途                   |
-| ----------------- | ---------------------- |
-| `/troubleshoot`   | 体系的なデバッグ       |
-| `/task`           | 複雑なタスクの分解・管理 |
-| `/commit-and-pr`  | コミットとPR作成       |
-
-### 典型的なワークフロー例
-
-#### 新機能開発
-
-1. `/new-package <package_name>` - 新規パッケージを作成
-2. `/new-project @src/<package_name>/docs/project.md` - project.md作成 → LRD・設計ドキュメントを作成
-3. `/review-docs` - 設計ドキュメントをレビュー
-4. `/issue @src/<package_name>/docs/project.md` - Issueを作成・管理し、feature-implementerで実装
-5. `/ensure-quality` - 品質チェック・自動修正
-6. `/commit-and-pr` - PRを作成
-
-#### バグ修正
-
-1. `/troubleshoot --fix` - 原因特定と修正
-2. `/ensure-quality` - 品質チェック
-3. `/commit-and-pr` - PRを作成
-
-#### パフォーマンス改善
-
-1. `/analyze --perf` - パフォーマンス分析
-2. `/improve --perf` - 改善を実装
-3. `/scan --validate` - 品質検証
-
-### 詳細情報
-
-すべてのコマンドの詳細は `/index` コマンドで確認できます。
+### CI/CD
+
+GitHub Actions (`ci.yml`) が以下を実行:
+- **Lint**: Ruff + pre-commit + Bandit + pip-audit
+- **Type Check**: pyright (Python 3.12)
+- **Unit Tests**: pytest（`-m "not integration"`）
+- **Integration Tests**: mainブランチpush時のみ（Anthropic APIキー必要）
+
+## 技術スタック
+
+| カテゴリ | ツール |
+|---------|--------|
+| 言語 | Python 3.12+ |
+| パッケージ管理 | uv |
+| HTTP | httpx |
+| RSS解析 | feedparser |
+| 本文抽出 | trafilatura, Playwright（フォールバック） |
+| AI要約 | Anthropic Claude API |
+| 構造化ログ | structlog |
+| バリデーション | Pydantic |
+| テスト | pytest, Hypothesis, pytest-asyncio |
+| リンター | Ruff |
+| 型チェック | pyright |
+| MCP | FastMCP |
