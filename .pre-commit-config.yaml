@@ -1,0 +1,94 @@
+repos:
+  # Standard hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^(notebook_sample|src_sample)/
+      - id: end-of-file-fixer
+        exclude: ^(notebook_sample|src_sample)/|\.gitkeep$
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+        exclude: ^(notebook_sample|src_sample|\.vscode_example)/
+      - id: check-added-large-files
+      - id: check-merge-conflict
+        exclude: ^\.claude/commands/analyze-conflicts\.md$
+      - id: debug-statements
+        exclude: ^(notebook_sample|src_sample)/
+
+  # Python formatting and linting
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.9
+    hooks:
+      - id: ruff
+        args: [--fix, --config=pyproject.toml]
+        exclude: ^(notebook_sample|src_sample|src/.*/sample)/
+      - id: ruff-format
+        exclude: ^(notebook_sample|src_sample|src/.*/sample)/
+
+  # Type checking
+  - repo: local
+    hooks:
+      - id: pyright
+        name: pyright
+        entry: uv run pyright src tests
+        language: system
+        pass_filenames: false
+        types: [python]
+
+  # Security
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.3
+    hooks:
+      - id: bandit
+        args: [-c, pyproject.toml]
+        additional_dependencies: ["bandit[toml]"]
+        exclude: ^(notebook_sample|src_sample)/
+
+  # Dependency vulnerability scanning
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.7.3
+    hooks:
+      - id: pip-audit
+        # CVE-2026-0994: protobuf DoS vulnerability - no fix available yet (2026-01-25)
+        args: [--desc, --fix, --ignore-vuln, CVE-2026-0994]
+
+  # Secret detection (optional - uncomment if needed)
+  # - repo: https://github.com/Yelp/detect-secrets
+  #   rev: v1.5.0
+  #   hooks:
+  #     - id: detect-secrets
+  #       args: [--baseline, .secrets.baseline]
+
+  # Marimo notebook conversion
+  - repo: local
+    hooks:
+      - id: marimo-convert
+        name: marimo-convert
+        entry: uv run python scripts/convert_notebooks.py
+        language: system
+        pass_filenames: false
+        types: [jupyter]
+        stages: [pre-commit]
+
+  # Project synchronization check (pre-push)
+  - repo: local
+    hooks:
+      - id: check-project-sync
+        name: check-project-sync
+        entry: uv run python scripts/check_project_sync.py
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+        always_run: true
+        verbose: true
+
+      - id: check-circular-deps
+        name: check-circular-deps
+        entry: uv run python scripts/check_circular_deps.py
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+        always_run: true
+        verbose: true

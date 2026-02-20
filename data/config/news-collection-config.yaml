@@ -1,0 +1,230 @@
+version: "1.0"
+
+# ===========================================
+# カテゴリ → GitHub Status マッピング（共通）
+# ===========================================
+# RSSのcategoryフィールド、yfinanceのティッカーカテゴリ
+# いずれも同じマッピングを使用
+
+status_mapping:
+  # GitHub Project Status一覧
+  # index: 3925acc3, stock: f762022e, sector: 48762504
+  # macro: 730034a5, ai: 6fbb43d0, finance: ac4a91b1
+
+  # RSSカテゴリ（rss-presets.json の category フィールド）
+  tech: "ai"
+  market: "index"
+  finance: "finance"
+
+  # 新規追加（RSSカテゴリ用）
+  stock: "stock"
+  sector: "sector"
+  macro: "macro"
+  economy: "macro"      # economyカテゴリもmacroにマップ
+  earnings: "stock"     # 決算ニュースはstockにマップ
+  etfs: "sector"        # ETFニュースはsectorにマップ
+
+  # yfinanceカテゴリ
+  yf_index: "index"       # ^GSPC, ^DJI 等の指数
+  yf_stock: "stock"       # 一般的な個別株
+  yf_ai_stock: "ai"       # NVDA, AMD 等のAI関連株
+  yf_sector_etf: "sector" # XLF, XLK 等のセクターETF
+  yf_macro: "macro"       # マクロ経済関連
+
+# GitHub Status ID（自動解決用）
+github_status_ids:
+  index: "3925acc3"
+  stock: "f762022e"
+  sector: "48762504"
+  macro: "730034a5"
+  ai: "6fbb43d0"
+  finance: "ac4a91b1"
+
+# ===========================================
+# 情報源設定
+# ===========================================
+
+# RSS設定
+rss:
+  presets_file: "data/config/rss-presets.json"
+  # rss-presets.json の category フィールドを status_mapping で解決
+
+  # User-Agent ローテーション（ボット検出回避）
+  # 各RSSフィードリクエストでリストからランダムに1つを選択
+  user_agent_rotation:
+    enabled: true
+    user_agents:
+      # Chrome (Windows)
+      - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      # Chrome (macOS)
+      - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      # Firefox (Windows)
+      - "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0"
+      # Safari (macOS)
+      - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15"
+      # Chrome (Linux)
+      - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+# yfinance設定（将来用）
+yfinance:
+  enabled: false
+  tickers:
+    # 指数
+    - symbol: "^GSPC"
+      category: "yf_index"
+    - symbol: "^DJI"
+      category: "yf_index"
+    - symbol: "^IXIC"
+      category: "yf_index"
+
+    # AI関連株
+    - symbol: "NVDA"
+      category: "yf_ai_stock"
+    - symbol: "AMD"
+      category: "yf_ai_stock"
+    - symbol: "GOOGL"
+      category: "yf_ai_stock"
+    - symbol: "MSFT"
+      category: "yf_ai_stock"
+
+    # 一般個別株
+    - symbol: "AAPL"
+      category: "yf_stock"
+    - symbol: "AMZN"
+      category: "yf_stock"
+    - symbol: "TSLA"
+      category: "yf_stock"
+
+    # セクターETF
+    - symbol: "XLF"
+      category: "yf_sector_etf"
+    - symbol: "XLK"
+      category: "yf_sector_etf"
+
+# ===========================================
+# 処理設定
+# ===========================================
+
+# 本文抽出設定
+extraction:
+  concurrency: 5           # 並列抽出数（5-10が推奨）
+  timeout_seconds: 30      # 1記事あたりのタイムアウト
+  min_body_length: 200     # 最小本文長（短すぎる場合は失敗扱い）
+  max_retries: 3           # リトライ回数
+
+  # [Phase 10] Playwrightフォールバック設定
+  # trafilaturaでコンテンツ取得できない場合にPlaywrightでJS実行後のDOMから抽出
+  # 動的コンテンツやJavaScript依存のサイトに有効
+  playwright_fallback:
+    enabled: true            # true: フォールバック有効, false: trafilaturaのみ
+    browser: "chromium"      # chromium, firefox, webkit から選択
+    headless: true           # true: ヘッドレスモード（推奨）
+    timeout_seconds: 30      # Playwright固有のタイムアウト
+
+  # [Phase 10] User-Agent ローテーション
+  # ボット検出を回避するため、複数のUser-Agentをランダムに使用
+  # 各リクエストでリストからランダムに1つを選択
+  user_agent_rotation:
+    enabled: true            # true: ローテーション有効, false: デフォルトUA使用
+    user_agents:
+      # Chrome (Windows)
+      - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      # Chrome (macOS)
+      - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      # Firefox (Windows)
+      - "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0"
+      # Safari (macOS)
+      - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15"
+      # Chrome (Linux)
+      - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+# 要約設定
+summarization:
+  concurrency: 5
+  timeout_seconds: 60
+  max_retries: 3
+  prompt_template: |
+    以下の金融ニュース記事を分析し、日本語で構造化された要約を作成してください。
+
+    ## 記事情報
+    **タイトル**: {title}
+    **ソース**: {source}
+    **公開日**: {published}
+
+    **本文**:
+    {body}
+
+    ## 出力形式 (JSON)
+    {{
+      "overview": "記事の主旨を1-2文で要約",
+      "key_points": ["重要なポイント1", "重要なポイント2"],
+      "market_impact": "投資家・市場への影響",
+      "related_info": "関連する背景情報（なければnull）"
+    }}
+
+# GitHub設定
+github:
+  project_number: 15
+  project_id: "PVT_kwHOBoK6AM4BMpw_"
+  status_field_id: "PVTSSF_lAHOBoK6AM4BMpw_zg739ZE"
+  published_date_field_id: "PVTF_lAHOBoK6AM4BMpw_zg8BzrI"
+  repository: "YH-05/finance"
+  duplicate_check_days: 7  # 重複チェック対象期間
+  dry_run: false
+
+# ===========================================
+# [Phase 10] ドメインフィルタリング
+# ===========================================
+# HTTP 401/403エラーやコンテンツ抽出困難なサイトを
+# 事前にブロックすることで処理効率を向上
+
+# ブロックするドメイン（記事収集対象外）
+# サブドメイン（www.wsj.com等）も自動的にブロック対象
+blocked_domains:
+  # ペイウォール（HTTP 401: Unauthorized）
+  - wsj.com           # Wall Street Journal
+  - reuters.com       # Reuters
+  - ft.com            # Financial Times
+  - bloomberg.com     # Bloomberg
+  - barrons.com       # Barron's
+
+  # ボット検出（HTTP 403: Forbidden）
+  - seekingalpha.com  # Seeking Alpha
+
+  # その他（抽出困難なサイト）
+  - twitter.com       # X/Twitter（動的コンテンツ）
+  - x.com             # X（動的コンテンツ）
+
+# ドメインフィルタリング設定
+domain_filtering:
+  enabled: true        # true: フィルタリング有効, false: 全ドメイン許可
+  log_blocked: true    # true: ブロック時にログ出力（デバッグ用）
+
+# フィルタリング
+filtering:
+  max_age_hours: 168  # 7日
+
+# 出力設定
+output:
+  # 結果JSONの出力先（デフォルト）
+  result_dir: "data/exports/news-workflow"
+  # ファイル名パターン: workflow-result-{timestamp}.json
+
+# ===========================================
+# カテゴリ別Issue発行設定
+# ===========================================
+
+# 発行形式設定
+publishing:
+  format: "per_category"                    # "per_category": カテゴリ別, "per_article": 記事別
+  export_markdown: true                     # カテゴリ別Markdownエクスポート
+  export_dir: "data/exports/news-workflow"  # エクスポート先ディレクトリ
+
+# カテゴリラベル（日本語表示名）
+category_labels:
+  index: "株価指数"
+  stock: "個別銘柄"
+  sector: "セクター"
+  macro: "マクロ経済"
+  ai: "AI関連"
+  finance: "金融"
