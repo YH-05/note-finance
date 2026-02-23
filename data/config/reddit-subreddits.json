@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "description": "Reddit 金融トピック収集ワークフロー用 subreddit グループ定義・フィルタ設定・カテゴリマッピング",
+  "groups": {
+    "general_investing": {
+      "name": "General Investing",
+      "name_ja": "投資全般",
+      "description": "株式・ETF・長期投資など総合的な投資トピックを扱うコミュニティ",
+      "subreddits": [
+        "investing",
+        "stocks",
+        "ValueInvesting"
+      ]
+    },
+    "trading": {
+      "name": "Trading",
+      "name_ja": "トレーディング",
+      "description": "短期売買・テクニカル分析・オプション取引など積極的な売買戦略を扱うコミュニティ",
+      "subreddits": [
+        "wallstreetbets",
+        "options",
+        "Daytrading"
+      ]
+    },
+    "macro_economics": {
+      "name": "Macro Economics",
+      "name_ja": "マクロ経済",
+      "description": "金融政策・経済指標・地政学リスクなどマクロ経済動向を扱うコミュニティ",
+      "subreddits": [
+        "Economics",
+        "econmonitor"
+      ]
+    },
+    "deep_analysis": {
+      "name": "Deep Analysis",
+      "name_ja": "詳細分析",
+      "description": "企業分析・財務モデル・定量分析など深い調査・分析を扱うコミュニティ",
+      "subreddits": [
+        "SecurityAnalysis",
+        "quant"
+      ]
+    },
+    "sector_specific": {
+      "name": "Sector Specific",
+      "name_ja": "セクター特化",
+      "description": "テクノロジー・AI・エネルギーなど特定セクターのトピックを扱うコミュニティ",
+      "subreddits": [
+        "technology",
+        "artificialintelligence"
+      ]
+    }
+  },
+  "filters": {
+    "min_score": 50,
+    "min_comments": 10,
+    "posts_per_subreddit": 10,
+    "time_filter": "week",
+    "exclude_flairs": [
+      "Meme",
+      "Shitpost",
+      "Satire",
+      "Not News"
+    ]
+  },
+  "category_mapping": {
+    "general_investing": "market_report",
+    "trading": "stock_analysis",
+    "macro_economics": "economic_indicators",
+    "deep_analysis": "quant_analysis",
+    "sector_specific": "market_report"
+  }
+}
