@@ -329,7 +329,7 @@ class TestNewsWorkflowOrchestrator:
 
             orchestrator = NewsWorkflowOrchestrator(config=integration_config)
             # Filter to only "index" status (market category maps to index)
-            result = await orchestrator.run(statuses=["index"])
+            await orchestrator.run(statuses=["index"])
 
             # Should only process 2 market articles (out of 4 total)
             # market category -> index status
@@ -374,7 +374,7 @@ class TestNewsWorkflowOrchestrator:
 
             orchestrator = NewsWorkflowOrchestrator(config=integration_config)
             # Limit to 2 articles
-            result = await orchestrator.run(max_articles=2)
+            await orchestrator.run(max_articles=2)
 
             # Should only process 2 articles
             assert mock_extractor.extract.call_count == 2
@@ -466,7 +466,7 @@ class TestNewsWorkflowOrchestrator:
             # Verify JSON content structure
             import json
 
-            with open(json_files[0], encoding="utf-8") as f:
+            with json_files[0].open(encoding="utf-8") as f:
                 data = json.load(f)
             assert "total_collected" in data
             assert "total_extracted" in data

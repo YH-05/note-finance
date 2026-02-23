@@ -117,9 +117,24 @@ def setup_logging(
     date_str = datetime.now().strftime("%Y-%m-%d")
     log_file = log_dir / f"news-workflow-{date_str}.log"
 
-    # Setup logging using news._logging
-    from news._logging import _ensure_basic_config
-    _ensure_basic_config()
+    # Setup logging with console and file handlers
+    from news._logging import setup_logging as _setup_logging
+
+    _setup_logging(
+        level=file_level,  # Root logger to DEBUG to capture all levels
+        format="console",
+        log_file=str(log_file),
+        force=True,
+    )
+
+    # Set console handler to appropriate level
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.DEBUG)
+    for handler in root_logger.handlers:
+        if isinstance(handler, logging.StreamHandler) and not isinstance(
+            handler, logging.FileHandler
+        ):
+            handler.setLevel(getattr(logging, console_level))
 
     logger.info(
         "Logging initialized",
