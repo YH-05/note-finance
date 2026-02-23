@@ -30,6 +30,7 @@ dev = [
     "pip-audit>=2.9.0",
     "yfinance>=0.2.0",
     "bandit>=1.8.0",
+    "cssselect>=1.2.0",
 ]
 mcp = ["fastmcp>=2.14.3", "mcp>=1.0.0"]
 cli = ["click>=8.1.0"]
