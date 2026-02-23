@@ -193,8 +193,8 @@ WebSearch クエリ例:
 
 ## 出力形式
 
-処理結果を以下の JSON 形式で `.tmp/reddit-topics/analyzed-{timestamp}.json` に出力します。
-ファイルが既に存在する場合は `analyzed_topics` と `article_proposals` に追記します。
+処理結果を以下の JSON 形式で `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json` に出力します。
+カテゴリごとに独立したファイルを新規作成します（追記は行いません）。
 
 ```json
 {
@@ -233,7 +233,7 @@ WebSearch クエリ例:
       "topic_id": "T003",
       "post_id": "xyz789",
       "title": "スキップされた投稿タイトル",
-      "reason": "get_post_content 失敗: rate limit exceeded"
+      "reason": "fetch_failed"
     }
   ],
   "stats": {
@@ -265,7 +265,7 @@ WebSearch クエリ例:
 | `web_search_summary` | 任意 | WebSearch 補足調査結果（null 許容） |
 | `article_proposal` | **必須** | 記事化提案オブジェクト |
 
-#### article_proposals[] のフィールド（article_proposal オブジェクト）
+#### article_proposal オブジェクトのフィールド
 
 | フィールド | 必須 | 説明 |
 |-----------|------|------|
@@ -280,27 +280,33 @@ WebSearch クエリ例:
 
 | エラー | 対処 |
 |--------|------|
-| `get_post_content` 失敗 | `skipped` に記録し次のトピックへ継続（**処理は止めない**） |
-| 本文不十分（100 文字未満） | `skipped` に記録し次のトピックへ継続 |
+| `get_post_content` 失敗 | `skipped` に `reason: "fetch_failed"` を記録し次のトピックへ継続（**処理は止めない**） |
+| 本文不十分（100 文字未満） | `skipped` に `reason: "insufficient_content"` を記録し次のトピックへ継続 |
 | `WebSearch` 失敗 | `web_search_summary` を `null` に設定して継続 |
-| 出力ファイル書き込み失敗 | エラー詳細を出力し処理中断 |
+| 出力ファイル書き込み失敗 | 処理済み結果を親（SKILL.md E005）に返して終了 |
 | 入力ファイル読み込み失敗 | エラー詳細を出力し処理中断 |
 
 **重要**: `get_post_content` の失敗は非常に頻繁に発生します（レート制限、削除済み投稿など）。
 このエラーが発生しても**他のトピックの処理を継続**し、最終的に処理できたトピックの結果を返すこと。
 
+**エラー reason の分類**:
+- `fetch_failed`: `get_post_content` の API 呼び出し失敗（rate limit / 削除済み / ネットワークエラー等）
+- `insufficient_content`: 本文が 100 文字未満
+- `parse_error`: データ解析エラー
+
 ## 出力先ファイル
 
-処理結果は以下のパスに保存します:
+処理結果は以下のパスに**新規作成**します（既存ファイルへの追記は行いません）:
 
 ```
-.tmp/reddit-topics/analyzed-{timestamp}.json
+.tmp/reddit-topics/analyzed-{timestamp}-{category}.json
 ```
 
-`{timestamp}` は入力ファイルの `session_id` から抽出します（例: `reddit-collection-2026-02-23T12-00-00` → `2026-02-23T12-00-00`）。
+- `{timestamp}`: 入力ファイルの `session_id` から抽出（例: `reddit-collection-2026-02-23T12-00-00` → `2026-02-23T12-00-00`）
+- `{category}`: 入力ファイルの `category` フィールド（例: `general_investing`）
 
-ファイルが存在しない場合は新規作成し、存在する場合は `analyzed_topics` と `skipped` の配列に追記します。
-`stats` は全追記が完了した後に再計算して更新します。
+各カテゴリが独立したファイルを持つため、複数カテゴリを逐次処理しても I/O 競合は発生しません。
+全カテゴリの集約は SKILL.md Phase 2.2 のオーケストレーターが担当します。
 
 ## 注意事項
 
@@ -313,7 +319,8 @@ WebSearch クエリ例:
 ## 関連ファイル
 
 - 入力設定: `data/config/reddit-subreddits.json`
-- 入力データ: `.tmp/reddit-topics/{timestamp}.json`
-- 出力データ: `.tmp/reddit-topics/analyzed-{timestamp}.json`
+- 入力データ: `.tmp/reddit-topics/{timestamp}-{category}.json`（SKILL.md Phase 2 が生成）
+- 出力データ: `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json`（カテゴリ別独立ファイル）
+- 集約元スキル: `.claude/skills/reddit-finance-topics/SKILL.md`（Phase 2.2 で全カテゴリを集約）
 - 参照元 frontmatter: `.claude/agents/ai-research-article-fetcher.md`
 - Reddit MCP パターン: `.claude/agents_sample/research-reddit.md`

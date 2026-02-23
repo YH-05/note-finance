@@ -17,6 +17,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read  # 全ジョブのデフォルト権限を読み取りのみに制限
+
 env:
   PYTHON_VERSION: "3.12"  # デフォルトバージョン（lint/typecheck用）
   UV_CACHE_DIR: /tmp/.uv-cache
