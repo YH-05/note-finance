@@ -1286,7 +1286,7 @@ class TestWorkflowResultWithCategories:
             json_files = list(tmp_path.glob("workflow-result-*.json"))
             assert len(json_files) == 1
 
-            with open(json_files[0], encoding="utf-8") as f:
+            with json_files[0].open(encoding="utf-8") as f:
                 data = json.load(f)
 
             assert "category_results" in data

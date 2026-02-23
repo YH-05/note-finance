@@ -476,13 +476,15 @@ class TestSetupLogging:
         setup_logging(verbose=False, log_dir=log_dir)
 
         # Get a logger and log a message
-        import logging; get_logger = logging.getLogger
+        import logging
+
+        get_logger = logging.getLogger
 
         test_logger = get_logger("test_console_output")
         test_logger.info("Test console message")
 
         # Verify console output
-        captured = capfd.readouterr()
+        capfd.readouterr()
         # Note: structlog may or may not show message depending on configuration
         # At minimum, logging should not raise exceptions
 
@@ -586,8 +588,6 @@ output:
 """
         config_file = tmp_path / "test_config.yaml"
         config_file.write_text(config_content)
-
-        log_dir = tmp_path / "logs"
 
         with (
             patch(

@@ -300,7 +300,7 @@ class TestArticleExtractorExtract:
             patch(
                 "rss.services.article_extractor.trafilatura.fetch_url",
                 return_value=mock_html,
-            ) as mock_fetch,
+            ) as _mock_fetch,
             patch(
                 "rss.services.article_extractor.trafilatura.bare_extraction",
                 return_value=mock_result,

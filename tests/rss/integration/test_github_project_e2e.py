@@ -6,15 +6,17 @@ filtering, to GitHub Issue creation and Project posting.
 
 import asyncio
 import json
+import logging
 from pathlib import Path
 from typing import Any
 from unittest.mock import MagicMock, patch
 
 import pytest
 from pytest_httpserver import HTTPServer  # type: ignore[import-untyped]
-import logging; get_logger = logging.getLogger
 
-from rss import FeedFetcher, FeedManager, FeedReader
+get_logger = logging.getLogger
+
+from rss import FeedFetcher, FeedManager, FeedReader  # noqa: E402
 
 logger = get_logger(__name__)
 

@@ -5,22 +5,24 @@ fetching, saving, and searching items.
 """
 
 import asyncio
+import logging
 import threading
 import time
 from pathlib import Path
 
 import pytest
 from pytest_httpserver import HTTPServer  # type: ignore[import-untyped]
-import logging; get_logger = logging.getLogger
 
-from rss import (
+get_logger = logging.getLogger
+
+from rss import (  # noqa: E402
     FeedFetcher,
     FeedManager,
     FeedReader,
     FetchResult,
     FileLockError,
 )
-from rss.storage.lock_manager import LockManager
+from rss.storage.lock_manager import LockManager  # noqa: E402
 
 logger = get_logger(__name__)
 

@@ -1,0 +1,254 @@
+# PRレビューレポート
+# 生成日時: 2026-02-23 00:00:00
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-02-23 00:00:00"
+  pr_number: 4
+  pr_title: "feat: Reddit金融トピック収集ワークフロー実装 (#3645-#3649)"
+  base_branch: "main"
+  head_branch: "feature/prj58"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 6
+  additions: 1038
+  deletions: 0
+  changed_files:
+    - path: ".claude/agents/reddit-topic-analyzer.md"
+      additions: 319
+      deletions: 0
+    - path: ".claude/commands/reddit-finance-topics.md"
+      additions: 87
+      deletions: 0
+    - path: ".claude/skills/reddit-finance-topics/SKILL.md"
+      additions: 557
+      deletions: 0
+    - path: ".github/workflows/ci.yml"
+      additions: 2
+      deletions: 0
+    - path: "CLAUDE.md"
+      additions: 1
+      deletions: 0
+    - path: "data/config/reddit-subreddits.json"
+      additions: 72
+      deletions: 0
+
+scores:
+  code_quality: 76   # (82×0.35 + 72×0.40 + 72×0.25)
+  security: 65       # (62×0.60 + 70×0.40)
+  test: 76           # (72×0.50 + 80×0.50)
+  overall: 72        # (76×0.40 + 65×0.35 + 76×0.25)
+
+  breakdown:
+    readability: 82
+    design: 72
+    performance: 72
+    security_code: 62
+    security_infra: 70
+    test_coverage: 72
+    test_quality: 80
+
+code_quality:
+  strengths:
+    - "3フェーズアーキテクチャ（収集→深掘り→記事化）がASCIIアートで視覚化されており、全体像が即座に把握できる"
+    - "エラーハンドリングがE001〜E006として体系的にコード化されている"
+    - "入出力のJSONスキーマが具体例付きで定義されており、フィールドの必須/任意が明示されている"
+    - "data/config/reddit-subreddits.json による設定の外部化（グループ・フィルタ・カテゴリマッピング一元管理）"
+    - "逐次処理設計でAPIレート制限を適切に回避している"
+    - "seen_ids = set() による O(1) 重複除去"
+
+  issues:
+    critical: []
+
+    high:
+      - file: ".claude/agents/reddit-topic-analyzer.md"
+        line: 98
+        description: "article_proposals[] と article_proposal の命名矛盾（処理フローとJSONスキーマで不一致）"
+        recommendation: "出力JSONスキーマを正として処理フロー98行目を修正、ヘッダ268行目も統一"
+
+      - file: ".claude/skills/reddit-finance-topics/SKILL.md"
+        line: 423
+        description: "Phase 3で selected_topic['group_key'] を参照しているが、Phase 1でこのフィールドを付与するコードが存在しない"
+        recommendation: "ステップ1.7のトピックIDループ内で post['group_key'] = group_key を明示的に追記"
+
+      - file: ".claude/skills/reddit-finance-topics/SKILL.md"
+        line: 62
+        description: "パラメータ解析ロジックがコマンドとスキルの両方に完全重複（DRY違反）"
+        recommendation: "スキル側にパース責務を集約し、コマンドは薄いラッパーに限定"
+
+      - file: ".claude/skills/reddit-finance-topics/SKILL.md"
+        line: 95
+        description: "SRP違反: AskUserQuestionがスキル内部に存在し、収集処理とUI対話が混在"
+        recommendation: "AskUserQuestionをコマンド層に移動し、スキルは解決済みのgroups_listを受け取る設計に"
+
+    medium:
+      - file: ".claude/agents/reddit-topic-analyzer.md"
+        line: 37
+        description: "入力ファイルパスが {timestamp}.json と記載されているが実際は {timestamp}-{group_key}.json"
+        recommendation: "入力ファイルパスの記述を .tmp/reddit-topics/{timestamp}-{category}.json に修正"
+
+      - file: ".claude/skills/reddit-finance-topics/SKILL.md"
+        line: 101
+        description: "analyzed-{timestamp}.json へのRead-Modify-Write追記パターンがO(n²)のI/Oコスト"
+        recommendation: "グループ別個別ファイル出力（analyzed-{timestamp}-{group_key}.json）＋オーケストレーター集約に変更"
+
+      - file: ".claude/skills/reddit-finance-topics/SKILL.md"
+        line: 56
+        description: "設定ファイルの posts_per_subreddit がスキルで未使用（--top-n パラメータと役割重複・未整合）"
+        recommendation: "設定ファイルから削除するか、--top-n とのフォールバック関係を明記"
+
+      - file: ".claude/skills/reddit-finance-topics/SKILL.md"
+        line: 362
+        description: "print() と絵文字（✅）の使用。プロジェクト規約（structlog/絵文字禁止）に違反"
+        recommendation: "logger.info('分析完了', group=group_key) 形式に変更"
+
+    low:
+      - file: ".claude/skills/reddit-finance-topics/SKILL.md"
+        line: 7
+        description: "allowed-tools に WebSearch があるがオーケストレーター自身は使用していない"
+        recommendation: "未使用なら allowed-tools から除外"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 2
+    medium: 6
+    low: 4
+
+  findings:
+    - id: "SEC-001"
+      severity: "HIGH"
+      category: "A03 / A05"
+      location: ".claude/agents/reddit-topic-analyzer.md:4-10"
+      description: "bypassPermissions + Bash + WebSearch の組み合わせによるプロンプトインジェクションリスク（Redditユーザー生成コンテンツがWebSearchクエリ経由でBash実行コンテキストに到達する経路）"
+      recommendation: "reddit-topic-analyzerのtools から Bash を削除し Read + Write + ToolSearch + WebSearch に限定"
+      cwe_id: "CWE-77"
+
+    - id: "INFRA-001"
+      severity: "HIGH"
+      category: "A08 (既存問題)"
+      location: ".mcp.json"
+      description: "TavilyのAPIキーが.mcp.jsonにハードコードされた状態でgit追跡されている（本PRの変更外だが既存の重大問題）"
+      recommendation: "即時: APIキーを無効化・再発行。git rm --cached .mcp.json。TAVILY_API_KEY を環境変数参照に変更"
+      cwe_id: "CWE-798"
+
+    - id: "SEC-002"
+      severity: "MEDIUM"
+      category: "A05"
+      location: ".claude/skills/reddit-finance-topics/SKILL.md:128-151"
+      description: "エラーメッセージ内にReddit API認証情報の設定スキーマが埋め込まれている（情報開示）"
+      recommendation: "docs/setup/reddit-mcp.md への参照リンクに置き換える"
+      cwe_id: "CWE-209"
+
+    - id: "SEC-003"
+      severity: "MEDIUM"
+      category: "A03"
+      location: ".claude/skills/reddit-finance-topics/SKILL.md:345"
+      description: "group_keyがホワイトリスト検証なしにファイルパスとプロンプトに使用されている"
+      recommendation: "VALID_GROUP_KEYS セットによるホワイトリスト検証を追加"
+      cwe_id: "CWE-22"
+
+    - id: "SEC-004"
+      severity: "MEDIUM"
+      category: "A04"
+      location: ".claude/agents/reddit-topic-analyzer.md:113-117"
+      description: "API生エラーメッセージが出力JSONに永続化されている（情報過剰開示）"
+      recommendation: "詳細エラーはlogger、出力JSONにはカテゴリ（fetch_failed等）のみ"
+      cwe_id: "CWE-209"
+
+    - id: "INFRA-002"
+      severity: "MEDIUM"
+      category: "A06"
+      location: ".mcp.json"
+      description: "mcp-server-reddit がバージョン未固定でuvx実行。SKILL.mdとのパッケージ名不一致（mcp-reddit vs mcp-server-reddit）"
+      recommendation: "バージョン固定: mcp-server-reddit==0.2.0。ファイル間でパッケージ名統一"
+      cwe_id: "CWE-1104"
+
+    - id: "INFRA-003"
+      severity: "MEDIUM"
+      category: "A06"
+      location: ".mcp.json"
+      description: "notebooklm-mcp が git+https からコミットハッシュなしで取得されている"
+      recommendation: "コミットハッシュを明示して固定: git+https://github.com/YH-05/notebooklm-mcp@<hash>"
+      cwe_id: "CWE-829"
+
+    - id: "SEC-005"
+      severity: "LOW"
+      category: "A05"
+      location: ".github/workflows/ci.yml"
+      description: "ワークフロー全体のトップレベル permissions 宣言なし（最小権限原則が不完全）"
+      recommendation: "permissions: contents: read をワークフロートップレベルに追加"
+      cwe_id: "CWE-250"
+
+test:
+  coverage_assessment: "FAIR"
+  assessment_rationale: "Python変更ゼロのため従来のカバレッジ計測対象外。reddit-subreddits.jsonのスキーマ検証テストが欠落"
+  edge_cases_covered: false
+
+  missing_tests:
+    - file: "tests/data/config/test_reddit_subreddits.py"
+      description: "reddit-subreddits.jsonのスキーマ・整合性検証テスト（groups/category_mappingの整合、フィルタ値検証等）"
+      priority: "MEDIUM"
+
+  test_quality:
+    json_syntax: "PASS"
+    json_internal_consistency: "PASS"
+    checklist_completeness: "WARN"
+    error_case_coverage: "WARN"
+    cross_component_consistency: "PASS"
+
+  quality_issues:
+    - severity: "MEDIUM"
+      description: "Phase 2の完了条件（analyzed-{timestamp}.json生成確認）がSKILL.mdのチェックリストに不在"
+    - severity: "MEDIUM"
+      description: "--groupsへの無効キー指定（E007相当）のエラーハンドリングが未定義"
+    - severity: "MEDIUM"
+      description: "agent内「書き込み失敗→中断」とSKILL.md E005「agent失敗→スキップ継続」の矛盾"
+
+solid_compliance:
+  single_responsibility: "WARN"
+  open_closed: "WARN"
+  liskov_substitution: "PASS"
+  interface_segregation: "PASS"
+  dependency_inversion: "WARN"
+
+recommended_actions:
+  required:
+    - priority: 1
+      action: "reddit-topic-analyzer.md の Bash ツールを削除（セキュリティ：bypassPermissions+Bash+WebSearchの組み合わせ解消）"
+      related_issues: ["SEC-001", "INFRA-004"]
+    - priority: 2
+      action: "article_proposals[] vs article_proposal の命名矛盾を解消（可読性・正確な動作のため）"
+      related_issues: ["名称不一致バグ"]
+    - priority: 3
+      action: "group_key フィールドの付与処理をPhase 1に明示（Phase 3の記事化ブリッジが機能不全になるため）"
+      related_issues: ["group_key付与漏れ"]
+    - priority: 4
+      action: ".mcp.json のTavily APIキー漏洩対応（本PR外の既存問題だが重大: キーローテーション＋git管理除外）"
+      related_issues: ["INFRA-001"]
+
+  suggested:
+    - priority: 1
+      action: "パラメータ解析責務をスキル側に一元化（コマンドとスキルの重複解消）"
+    - priority: 2
+      action: "analyzed-{timestamp}.json の追記パターンをグループ別ファイルに変更（O(n²)→O(n)改善）"
+    - priority: 3
+      action: "reddit-subreddits.jsonのスキーマ検証テストを tests/data/config/ に追加"
+    - priority: 4
+      action: "group_keyのホワイトリスト検証を追加（パストラバーサル防止）"
+    - priority: 5
+      action: "GitHub Workflowにトップレベル permissions: contents: read を追加"
+    - priority: 6
+      action: "mcp-server-reddit のバージョンを固定（==0.2.0）"
+    - priority: 7
+      action: "--deep時のtop-n推奨値（5件程度）をドキュメントに明記（5〜10分のAPI負荷を事前案内）"
+
+summary:
+  verdict: "REQUEST_CHANGES"
+  comment: |
+    全体的に3フェーズアーキテクチャが明確で設定外部化も適切。
+    ただし、(1) セキュリティ上の懸念（bypassPermissions+Bash+WebSearchの組み合わせ）、
+    (2) article_proposals命名矛盾とgroup_key付与漏れによる動作不全リスク、
+    (3) 既存の.mcp.jsonへのAPIキーハードコードの3点は
+    マージ前の対処が推奨される。

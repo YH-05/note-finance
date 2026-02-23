@@ -98,7 +98,7 @@ class TestRSSCollectorCollect:
     ) -> None:
         """collect should fetch articles from RSS feeds."""
         with (
-            patch.object(Path, "read_text") as mock_read,
+            patch.object(Path, "read_text") as _mock_read,
             patch("json.loads") as mock_loads,
             patch("httpx.AsyncClient") as mock_client_class,
         ):

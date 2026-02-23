@@ -208,7 +208,7 @@ class TestOrchestratorInit:
             patch("news.orchestrator.Summarizer") as mock_summarizer,
             patch("news.orchestrator.Publisher") as mock_publisher,
         ):
-            orchestrator = NewsWorkflowOrchestrator(config=sample_config)
+            _orchestrator = NewsWorkflowOrchestrator(config=sample_config)
 
             mock_collector.assert_called_once_with(sample_config)
             mock_extractor.assert_called_once_with(
@@ -380,7 +380,7 @@ class TestOrchestratorStatusFilter:
 
             orchestrator = NewsWorkflowOrchestrator(config=sample_config)
             # Filter to only "index" status (market category maps to index)
-            result = await orchestrator.run(statuses=["index"])
+            await orchestrator.run(statuses=["index"])
 
             # Should only process market articles (2 of 3)
             assert mock_extractor.extract.call_count == 2
@@ -432,7 +432,7 @@ class TestOrchestratorMaxArticles:
 
             orchestrator = NewsWorkflowOrchestrator(config=sample_config)
             # Limit to 2 articles
-            result = await orchestrator.run(max_articles=2)
+            await orchestrator.run(max_articles=2)
 
             # Should only process 2 articles
             assert mock_extractor.extract.call_count == 2
@@ -557,7 +557,7 @@ class TestOrchestratorSuccessFiltering:
             mock_publisher_cls.return_value = mock_publisher
 
             orchestrator = NewsWorkflowOrchestrator(config=sample_config)
-            result = await orchestrator.run()
+            await orchestrator.run()
 
             # Summarizer should only receive successful extractions
             call_args = mock_summarizer.summarize_batch.call_args
@@ -634,7 +634,7 @@ class TestOrchestratorSuccessFiltering:
             mock_publisher_cls.return_value = mock_publisher
 
             orchestrator = NewsWorkflowOrchestrator(config=sample_config)
-            result = await orchestrator.run()
+            await orchestrator.run()
 
             # Publisher should only receive successful summaries
             call_args = mock_publisher.publish_batch.call_args
@@ -1100,7 +1100,7 @@ class TestOrchestratorSaveResult:
             assert output_path.suffix == ".json"
 
             # Verify content
-            with open(output_path, encoding="utf-8") as f:
+            with output_path.open(encoding="utf-8") as f:
                 saved_data = json.load(f)
             assert saved_data["total_collected"] == 10
             assert saved_data["total_extracted"] == 8
@@ -1778,7 +1778,7 @@ class TestOrchestratorRunSavesResult:
             mock_publisher_cls.return_value = mock_publisher
 
             orchestrator = NewsWorkflowOrchestrator(config=sample_config)
-            result = await orchestrator.run()
+            await orchestrator.run()
 
             # Verify JSON file was created
             json_files = list(tmp_path.glob("workflow-result-*.json"))
@@ -1848,7 +1848,7 @@ class TestOrchestratorFeedErrors:
             mock_publisher_cls.return_value = mock_publisher
 
             orchestrator = NewsWorkflowOrchestrator(config=sample_config)
-            result = await orchestrator.run()
+            await orchestrator.run()
 
             captured = capsys.readouterr()
             assert "フィードエラー: 2件" in captured.out
@@ -1896,7 +1896,7 @@ class TestOrchestratorFeedErrors:
             mock_publisher_cls.return_value = mock_publisher
 
             orchestrator = NewsWorkflowOrchestrator(config=sample_config)
-            result = await orchestrator.run()
+            await orchestrator.run()
 
             captured = capsys.readouterr()
             assert "フィードエラー" not in captured.out

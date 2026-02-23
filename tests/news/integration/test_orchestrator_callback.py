@@ -340,7 +340,7 @@ class TestCustomCallbackIntegration:
                 config=callback_test_config,
                 progress_callback=mock_callback,
             )
-            result = await orchestrator.run()
+            await orchestrator.run()
 
             # Verify on_stage_start was called for each pipeline stage
             # per_article format: 4 stages (collection, extraction, summarization, publishing)
