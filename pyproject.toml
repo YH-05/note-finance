@@ -62,6 +62,11 @@ include = ["src", "tests"]
 pythonVersion = "3.12"
 typeCheckingMode = "basic"
 
+[tool.bandit]
+# B311: random はレート制限ジッターやサンプリング等の非セキュリティ用途で使用（誤検知）
+# B607: gh / playwright 等の信頼済みコマンドを PATH 経由で起動（誤検知）
+skips = ["B311", "B607"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
