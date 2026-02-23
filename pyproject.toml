@@ -16,7 +16,6 @@ dependencies = [
     "jinja2>=3.1.0",
     "tenacity>=9.1.2",
     "tqdm>=4.67.2",
-    "finance",
 ]
 
 [project.optional-dependencies]
@@ -46,9 +45,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/rss", "src/news", "src/automation"]
-
-[tool.uv.sources]
-finance = { path = "../finance", editable = true }
 
 [tool.ruff]
 line-length = 88
