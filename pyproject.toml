@@ -27,6 +27,8 @@ dev = [
     "hypothesis>=6.150.2",
     "pyright>=1.1.403",
     "ruff>=0.14.11",
+    "pip-audit>=2.9.0",
+    "yfinance>=0.2.0",
 ]
 mcp = ["fastmcp>=2.14.3", "mcp>=1.0.0"]
 cli = ["click>=8.1.0"]
