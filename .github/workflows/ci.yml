@@ -26,6 +26,8 @@ jobs:
   changes:
     name: Detect Changes
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     outputs:
       python: ${{ steps.filter.outputs.python }}
     steps:
