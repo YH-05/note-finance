@@ -82,15 +82,17 @@ deep = False    # --deep フラグが指定された場合 True
 
 `data/config/reddit-subreddits.json` を Read で読み込み、対象グループ・subreddit・フィルタ設定を取得する。
 
-グループキー一覧（`data/config/reddit-subreddits.json` の `groups` オブジェクト）:
+グループキー一覧（`data/config/reddit-subreddits.json` の `groups` オブジェクトを Read で参照すること）:
 
-| グループキー | グループ名（日本語） | subreddit 例 |
-|-------------|---------------------|-------------|
-| `general_investing` | 投資全般 | r/investing, r/stocks, r/ValueInvesting |
-| `trading` | トレーディング | r/wallstreetbets, r/options, r/Daytrading |
-| `macro_economics` | マクロ経済 | r/Economics, r/econmonitor |
-| `deep_analysis` | 詳細分析 | r/SecurityAnalysis, r/quant |
-| `sector_specific` | セクター特化 | r/technology, r/artificialintelligence |
+| グループキー | グループ名（日本語） |
+|-------------|---------------------|
+| `general_investing` | 投資全般 |
+| `trading` | トレーディング |
+| `macro_economics` | マクロ経済 |
+| `deep_analysis` | 詳細分析 |
+| `sector_specific` | セクター特化 |
+
+**注意**: 各グループの subreddit リストは `data/config/reddit-subreddits.json` を動的に参照すること（ハードコード禁止）。
 
 ### ステップ 1.3: AskUserQuestion でグループ選択
 
@@ -98,13 +100,15 @@ deep = False    # --deep フラグが指定された場合 True
 AskUserQuestion:
   質問: 以下のグループから対象を選択してください。
 
-  利用可能なグループ:
-  1. general_investing（投資全般）: r/investing, r/stocks, r/ValueInvesting
-  2. trading（トレーディング）: r/wallstreetbets, r/options, r/Daytrading
-  3. macro_economics（マクロ経済）: r/Economics, r/econmonitor
-  4. deep_analysis（詳細分析）: r/SecurityAnalysis, r/quant
-  5. sector_specific（セクター特化）: r/technology, r/artificialintelligence
+  利用可能なグループ（data/config/reddit-subreddits.json から動的に生成）:
+  1. general_investing（投資全般）
+  2. trading（トレーディング）
+  3. macro_economics（マクロ経済）
+  4. deep_analysis（詳細分析）
+  5. sector_specific（セクター特化）
   0. 全グループ（all）
+
+  ※ 各グループの subreddit は data/config/reddit-subreddits.json を参照
 
   番号を入力（カンマ区切りで複数選択可）: 例: "1,3" または "0"（--groups 引数で指定済みの場合はスキップ）
 ```
@@ -360,7 +364,6 @@ for group_key, group_data in session_data["groups"].items():
 """
     )
     analyzed_groups.append(group_key)
-    logger.info("Category analysis completed", group_key=group_key)
 ```
 
 ### ステップ 2.2: 深掘り結果の集約表示
@@ -375,13 +378,9 @@ for group_key in analyzed_groups:
     if Path(analyzed_file).exists():
         with open(analyzed_file, encoding="utf-8") as f:
             data = json.load(f)
-        for topic in data.get("analyzed_topics", []):
-            proposal = topic.get("article_proposal", {})
+        for proposal in data.get("article_proposals", []):
             if proposal:
                 all_proposals.append({
-                    "topic_id": topic["topic_id"],
-                    "title": topic["title"],
-                    "subreddit": topic["subreddit"],
                     "group_key": group_key,
                     **proposal
                 })

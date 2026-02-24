@@ -63,10 +63,10 @@
     ]
   },
   "category_mapping": {
-    "general_investing": "stock",
-    "trading": "stock",
-    "macro_economics": "macro",
-    "deep_analysis": "stock",
-    "sector_specific": "sector"
+    "general_investing": "stock_analysis",
+    "trading": "stock_analysis",
+    "macro_economics": "economic_indicators",
+    "deep_analysis": "stock_analysis",
+    "sector_specific": "market_report"
   }
 }

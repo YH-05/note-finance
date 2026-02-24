@@ -30,7 +30,7 @@ ToolSearch('reddit')
 2. **日本語要約生成**: タイトル翻訳・要約・キーポイント・センチメント分析
 3. **補足調査**: `WebSearch` で関連情報・最新状況を調査
 4. **記事化提案生成**: note.com 記事として適切な提案を生成
-5. **結果出力**: 分析結果を `.tmp/reddit-topics/analyzed-{timestamp}.json` に追記
+5. **結果出力**: 分析結果を `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json` に新規書き込み
 
 ## 入力形式
 
@@ -40,7 +40,7 @@ ToolSearch('reddit')
 
 ```json
 {
-  "timestamp": "20260224_120000",
+  "timestamp": "2026-02-24T12:00:00.000000",
   "category": "general_investing",
   "topics": [
     {
@@ -86,7 +86,7 @@ ToolSearch('reddit')
   8. analyzed_topics[] と article_proposals[] に結果を追加
 
 全トピック処理完了後:
-  9. 結果を .tmp/reddit-topics/analyzed-{timestamp}.json に追記（書き込み）
+  9. 結果を .tmp/reddit-topics/analyzed-{timestamp}-{category}.json に新規書き込み
 ```
 
 ### ステップ 1: get_post_content で投稿本文を取得
@@ -180,13 +180,13 @@ WebSearch クエリ例:
 
 ## 出力形式
 
-処理結果を以下の JSON 形式で `.tmp/reddit-topics/analyzed-{timestamp}.json` に出力します。
+処理結果を以下の JSON 形式で `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json` に出力します（`category` は入力 JSON の `category` フィールド値）。
 
 ### 出力 JSON スキーマ
 
 ```json
 {
-  "timestamp": "20260224_120000",
+  "timestamp": "2026-02-24T12:00:00.000000",
   "category": "general_investing",
   "analyzed_topics": [
     {
@@ -230,7 +230,7 @@ WebSearch クエリ例:
 | フィールド | 必須 | 説明 |
 |-----------|------|------|
 | `title` | **必須** | note.com 記事タイトル案 |
-| `category` | **必須** | 金融カテゴリ（`stock`/`macro`/`crypto`/`index`/`sector`/`ai` 等） |
+| `category` | **必須** | `finance-full` カテゴリ（`stock_analysis`/`economic_indicators`/`market_report`/`investment_education`/`quant_analysis`）|
 | `hook` | **必須** | 冒頭フック文（50-100文字） |
 | `outline` | **必須** | 章立て（配列、3-6セクション） |
 | `finance_full_command` | **必須** | `/finance-full` コマンド文字列 |
@@ -241,12 +241,13 @@ WebSearch クエリ例:
 # 出力ディレクトリ確認・作成
 mkdir -p .tmp/reddit-topics
 
-# 結果を .tmp/reddit-topics/analyzed-{timestamp}.json に書き込み
+# 結果を .tmp/reddit-topics/analyzed-{timestamp}-{category}.json に新規書き込み
 # timestamp は入力 JSON の timestamp フィールドと同じ値を使用
+# category は入力 JSON の category フィールド値を使用（例: general_investing）
 ```
 
-- ファイルが既に存在する場合、`analyzed_topics[]` と `article_proposals[]` に追記する
-- ファイルが存在しない場合、新規作成する
+- ファイルは常に新規作成する（既存ファイルは上書き）
+- ファイルパス例: `.tmp/reddit-topics/analyzed-2026-02-24T12-00-00.000000-general_investing.json`
 
 ## エラーハンドリング
 
@@ -273,8 +274,8 @@ mkdir -p .tmp/reddit-topics
 
 ## 関連ファイル
 
-- 入力データ: `.tmp/reddit-topics/{timestamp}.json`（Phase 1 が生成）
-- 出力データ: `.tmp/reddit-topics/analyzed-{timestamp}.json`
+- 入力データ: `.tmp/reddit-topics/{timestamp}-{category}.json`（Phase 1 が生成）
+- 出力データ: `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json`
 - 集約元スキル: `.claude/skills/reddit-finance-topics/SKILL.md`
 - 参照元 frontmatter: `.claude/agents/ai-research-article-fetcher.md`
 - Reddit MCP パターン: `.claude/agents_sample/research-reddit.md`
