@@ -81,8 +81,9 @@ ToolSearch('reddit')
   3. 日本語タイトル翻訳・要約・キーポイント生成
   4. センチメント分析（bullish/bearish/neutral）
   5. 関連性スコア算出（0.0-1.0）
-  6. WebSearch で関連情報・最新状況を補足調査
-  7. 記事化提案を生成
+     → relevance_score < 0.7 の場合: analyzed_topics[] に記録のみ、WebSearch・記事化提案をスキップして次のトピックへ
+  6. WebSearch で関連情報・最新状況を補足調査（relevance_score >= 0.7 のみ）
+  7. 記事化提案を生成（relevance_score >= 0.7 のみ、priority フィールド必須）
   8. analyzed_topics[] と article_proposals[] に結果を追加
 
 全トピック処理完了後:
@@ -154,9 +155,17 @@ if not content or len(content.strip()) < 100:
 | 0.4-0.6 | ニッチな話題・専門的すぎる内容 |
 | 0.0-0.4 | 日本の読者には関連性が低い |
 
-### ステップ 6: WebSearch で補足調査
+### ステップ 6: WebSearch で補足調査（relevance_score >= 0.7 のみ）
 
-投稿タイトルを日本語に翻訳し、関連する最新情報を検索:
+**前提条件**: ステップ 5 で算出した `relevance_score` が 0.7 未満の場合は、このステップおよびステップ 7 をスキップして次のトピックの処理へ進む:
+
+```python
+if relevance_score < 0.7:
+    analyzed_topics.append({...step3-5のデータのみ...})
+    continue  # WebSearch・article_proposals 追加をスキップ
+```
+
+relevance_score >= 0.7 のトピックに対して、投稿タイトルを日本語に翻訳し関連する最新情報を検索:
 
 ```
 WebSearch クエリ例:
@@ -205,7 +214,8 @@ WebSearch クエリ例:
       "category": "stock",
       "hook": "冒頭フック文",
       "outline": ["セクション1", "セクション2"],
-      "finance_full_command": "/finance-full --category stock --topic '...' "
+      "finance_full_command": "/finance-full --category stock --topic '...' ",
+      "priority": "high"
     }
   ]
 }
@@ -234,16 +244,33 @@ WebSearch クエリ例:
 | `hook` | **必須** | 冒頭フック文（50-100文字） |
 | `outline` | **必須** | 章立て（配列、3-6セクション） |
 | `finance_full_command` | **必須** | `/finance-full` コマンド文字列 |
+| `priority` | **必須** | 記事化優先度（`high` / `medium` / `low`）。優先度判定基準はステップ 7 を参照 |
 
 ## ファイル出力処理
 
-```bash
-# 出力ディレクトリ確認・作成
-mkdir -p .tmp/reddit-topics
+```python
+import re
 
-# 結果を .tmp/reddit-topics/analyzed-{timestamp}-{category}.json に新規書き込み
-# timestamp は入力 JSON の timestamp フィールドと同じ値を使用
-# category は入力 JSON の category フィールド値を使用（例: general_investing）
+# 入力バリデーション（パストラバーサル・インジェクション防止）
+ALLOWED_CATEGORIES = {
+    "general_investing", "trading", "macro_economics",
+    "deep_analysis", "sector_specific"
+}
+if category not in ALLOWED_CATEGORIES:
+    raise ValueError(f"Invalid category: {category!r}. Allowed: {ALLOWED_CATEGORIES}")
+
+TIMESTAMP_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+$")
+if not TIMESTAMP_PATTERN.match(timestamp):
+    raise ValueError(f"Invalid timestamp format: {timestamp!r}")
+
+# ファイル名用タイムスタンプ変換（: → - 、tz suffix 除去）
+file_timestamp = timestamp.replace(":", "-").split("+")[0]
+
+# 出力ディレクトリ確認・作成
+# mkdir -p .tmp/reddit-topics
+
+# 結果を .tmp/reddit-topics/analyzed-{file_timestamp}-{category}.json に新規書き込み
+# category は許可リストで検証済み、file_timestamp は安全な文字（数字・ハイフン・ドット）のみ
 ```
 
 - ファイルは常に新規作成する（既存ファイルは上書き）
