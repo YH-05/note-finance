@@ -9,7 +9,7 @@
       "subreddits": [
         "investing",
         "stocks",
-        "ValueInvesting"
+        "StockMarket"
       ]
     },
     "trading": {
@@ -18,8 +18,7 @@
       "description": "短期売買・テクニカル分析・オプション取引など積極的な売買戦略を扱うコミュニティ",
       "subreddits": [
         "wallstreetbets",
-        "options",
-        "Daytrading"
+        "options"
       ]
     },
     "macro_economics": {
@@ -27,8 +26,8 @@
       "name_ja": "マクロ経済",
       "description": "金融政策・経済指標・地政学リスクなどマクロ経済動向を扱うコミュニティ",
       "subreddits": [
-        "Economics",
-        "econmonitor"
+        "economics",
+        "finance"
       ]
     },
     "deep_analysis": {
@@ -37,7 +36,7 @@
       "description": "企業分析・財務モデル・定量分析など深い調査・分析を扱うコミュニティ",
       "subreddits": [
         "SecurityAnalysis",
-        "quant"
+        "ValueInvesting"
       ]
     },
     "sector_specific": {
@@ -46,27 +45,30 @@
       "description": "テクノロジー・AI・エネルギーなど特定セクターのトピックを扱うコミュニティ",
       "subreddits": [
         "technology",
-        "artificialintelligence"
+        "RealEstate",
+        "CryptoCurrency"
       ]
     }
   },
   "filters": {
     "min_score": 50,
     "min_comments": 10,
-    "posts_per_subreddit": 10,
+    "posts_per_subreddit": 15,
     "time_filter": "week",
     "exclude_flairs": [
       "Meme",
+      "YOLO",
       "Shitpost",
+      "Loss",
       "Satire",
       "Not News"
     ]
   },
   "category_mapping": {
-    "general_investing": "market_report",
+    "general_investing": "stock_analysis",
     "trading": "stock_analysis",
     "macro_economics": "economic_indicators",
-    "deep_analysis": "quant_analysis",
+    "deep_analysis": "stock_analysis",
     "sector_specific": "market_report"
   }
 }

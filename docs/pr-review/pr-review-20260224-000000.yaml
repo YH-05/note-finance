@@ -1,0 +1,215 @@
+# PRレビューレポート
+# 生成日時: 2026-02-24 00:00:00
+# 生成スキル: review-pr
+# PR番号: 6
+
+metadata:
+  generated_at: "2026-02-24 00:00:00"
+  pr_number: 6
+  pr_title: "feat: Reddit金融トピック収集ワークフロー実装 (#3645-#3649)"
+  base_branch: "main"
+  head_branch: "feature/prj58"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 4
+  additions: 149
+  deletions: 193
+  changed_files:
+    - path: ".claude/agents/reddit-topic-analyzer.md"
+      additions: 108
+      deletions: 153
+    - path: ".claude/skills/reddit-finance-topics/SKILL.md"
+      additions: 24
+      deletions: 20
+    - path: "data/config/reddit-subreddits.json"
+      additions: 12
+      deletions: 12
+    - path: "tests/rss/integration/test_github_project_e2e.py"
+      additions: 5
+      deletions: 8
+
+scores:
+  code_quality: 70  # (readability:72 × 0.35) + (design:62 × 0.40) + (performance:78 × 0.25)
+  security: 66      # (code:72 × 0.60) + (infra:58 × 0.40)
+  test: 52          # (coverage:42 × 0.50) + (quality:62 × 0.50)
+  overall: 64       # (code_quality:70 × 0.40) + (security:66 × 0.35) + (test:52 × 0.25)
+
+  detail:
+    readability: 72
+    design: 62
+    performance: 78
+    code_security: 72
+    infra_security: 58
+    test_coverage: 42
+    test_quality: 62
+
+code_quality:
+  strengths:
+    - "設定ファイル外部化: subreddit定義・フィルタ設定・category_mappingをdata/config/reddit-subreddits.jsonに完全外部化し、SKILL.mdでのハードコード禁止を明示"
+    - "Phase-Pipeline分離: 収集・分析・記事化を独立したフェーズに分け、ファイルI/Oで疎結合接続"
+    - "カテゴリ別独立ファイル出力: analyzed-{timestamp}-{category}.jsonにより並列書き込みI/O競合を構造的に排除"
+    - "Error Continuationパターン: get_post_content失敗時の継続処理が明示設計でレジリエンスが高い"
+    - "逐次処理の明示: Reddit APIレート制限対応のための並列禁止が設計に正しく反映されている"
+
+  issues:
+    critical: []
+
+    high:
+      - location: ".claude/agents/reddit-topic-analyzer.md:203"
+        category: "readability / design"
+        issue: "出力JSONスキーマ例のarticle_proposals[].categoryが'stock'だが、フィールド定義表では'stock_analysis'/'economic_indicators'等が有効値。スキーマ例と定義が矛盾しエージェントが仕様違反値を出力するリスク"
+        suggestion: "スキーマ例の 'stock' を 'stock_analysis' に修正する"
+
+      - location: ".claude/skills/reddit-finance-topics/SKILL.md:398-403"
+        category: "readability"
+        issue: "集約表示テーブルのヘッダーに 'トピックID' と 'subreddit' 列が残っているが、集約コード（383-386行）ではarticle_proposalsを直接展開しており両フィールドは存在しない。実行時KeyErrorが発生する"
+        suggestion: "テーブルヘッダーをarticle_proposalsの実際のフィールド（title, category, hook等）に更新する"
+
+      - location: ".claude/skills/reddit-finance-topics/SKILL.md:340 / .claude/agents/reddit-topic-analyzer.md:42"
+        category: "design（インターフェース不整合）"
+        issue: "SKILL.mdがエージェント入力ファイルにsession_id・category_name_ja・configを書き込んでいるが、reddit-topic-analyzer.mdの入力スキーマにはこれらが定義されていない。送受信スキーマの乖離"
+        suggestion: "(A) エージェント入力スキーマにsession_id/category_name_ja/configを任意フィールドとして追記、または(B) SKILL.mdのcategory_input生成からこれら3フィールドを除去"
+
+      - location: ".claude/skills/reddit-finance-topics/SKILL.md:334"
+        category: "design（DRY違反）"
+        issue: "timestamp = session_data['session_id'].replace('reddit-collection-', '') という文字列逆変換。session_data['timestamp']が既に存在するのに文字列操作で再導出している"
+        suggestion: "timestamp = session_data['timestamp'] に変更し、ファイル名生成時にフォーマット変換を明示する"
+
+    medium:
+      - location: ".claude/agents/reddit-topic-analyzer.md:188-211"
+        issue: "出力JSONスキーマにskippedフィールドが定義されていないが、処理フローとステップ1・2の疑似コードではskipped配列への書き込みが明示されている"
+        suggestion: "出力スキーマにskippedフィールドを追加する"
+
+      - location: ".claude/skills/reddit-finance-topics/SKILL.md:388-390"
+        issue: "priority_orderソートコードが存在するが、article_proposalsにpriorityフィールドが定義されておらず常にデフォルト'low'として機能する"
+        suggestion: "article_proposalsにpriorityフィールドを追加するか、priority_orderソートを削除してrelevance_scoreベースのソートに変更"
+
+      - location: "tests/rss/integration/test_github_project_e2e.py:17,234,239,430"
+        issue: "structlog KVスタイルから標準logging %sフォーマットへの変更。プロジェクト規約（CLAUDE.md）でstructlog必須と定義されている"
+        suggestion: "structlogスタイルに戻すか、テストファイルのロガーをrss._logging.get_loggerに変更してstructlog.BoundLoggerを使用する"
+
+      - location: "data/config/reddit-subreddits.json:65"
+        issue: "deep_analysisのcategory_mappingが'quant_analysis'から'stock_analysis'に変更され、2グループが同一カテゴリにマッピングされている"
+        suggestion: "意図的な変更であればコメントで根拠を明記する。quant_analysisが有効カテゴリの場合は元に戻す"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 3
+    medium: 6
+    low: 4
+
+  findings:
+    - id: "SEC-001"
+      severity: "HIGH"
+      category: "A03 インジェクション（CWE-22/CWE-78）"
+      location: ".claude/agents/reddit-topic-analyzer.md:240-247"
+      description: "入力JSONのcategoryとtimestampが無検証でファイルパス構築に使用される。パストラバーサル・コマンドインジェクションのリスク"
+      recommendation: "categoryを許可リスト検証し、timestampをISO 8601正規表現で検証する"
+
+    - id: "SEC-002"
+      severity: "HIGH"
+      category: "A04 安全でない設計（CWE-250）"
+      location: ".claude/agents/reddit-topic-analyzer.md:10"
+      description: "permissionMode: bypassPermissionsが設定されたエージェントが外部コンテンツ（Reddit投稿）を無検証でファイルシステムに書き込む。bypassPermissionsが最小権限原則に反しリスクを増幅"
+      recommendation: "permissionModeをdefaultまたはacceptEditsに変更し、外部コンテンツのサニタイズ基準を明文化"
+
+    - id: "INF-001"
+      severity: "HIGH"
+      category: "A06 脆弱なコンポーネント（CWE-1395）"
+      location: ".mcp.json:11-14"
+      description: "mcp-server-redditのバージョンが未固定。uvx mcp-server-redditは常に最新版を自動インストールするため、脆弱性を含む新バージョンが自動採用されるリスク"
+      recommendation: "'args': ['mcp-server-reddit==<バージョン>'] でバージョンを固定する"
+
+    - id: "INF-003"
+      severity: "MEDIUM"
+      category: "A06 脆弱なコンポーネント（CWE-502）"
+      location: ".venv/lib/python3.12/site-packages/diskcache"
+      description: "diskcache 5.6.3にCVE-2025-69872（pickleデシリアライズによる任意コード実行）。推移依存として存在。修正版未リリース"
+      recommendation: "修正版リリース時に即アップグレード。.tmp/ディレクトリの書き込み権限を最小化"
+
+    - id: "INF-005"
+      severity: "MEDIUM"
+      category: "A08 コンテンツ整合性（CWE-693）"
+      location: "data/config/reddit-subreddits.json:58-64"
+      description: "exclude_flairsから'Satire'と'Not News'が削除され、風刺・非ニュースコンテンツが収集対象になった"
+      recommendation: "'Satire'と'Not News'をexclude_flairsに復元する"
+
+test:
+  coverage_assessment: "FAIR"
+  edge_cases_covered: false
+
+  missing_tests:
+    - "get_post_content失敗時のスキップ継続ロジックのテスト"
+    - "本文100文字未満の品質チェック境界値テスト"
+    - "category_mappingに存在しないキーが渡された場合のデフォルト値テスト"
+    - "article_proposals出力JSONスキーマ構造検証テスト"
+    - "filters.time_filterフィールドの存在確認テスト"
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "WARN"
+    readability: "PASS"
+
+  key_issues:
+    - "テストファイルのロガーが標準logging.Loggerを使用（structlogとの不整合）"
+    - "test_正常系_GitHub_CLI呼び出しがモックの呼び出し引数を検証していない"
+    - "filter_configフィクスチャが相対パスで実ファイルに依存（CI/CD不安定リスク）"
+
+recommended_actions:
+  required:
+    - priority: 1
+      action: "article_proposals[].categoryのJSONスキーマ例を 'stock' → 'stock_analysis' に修正（SKILL.md定義・category_mappingと一致）"
+      files:
+        - ".claude/agents/reddit-topic-analyzer.md:203"
+
+    - priority: 2
+      action: "SKILL.md集約表示テーブルのヘッダーをarticle_proposalsの実フィールドに更新（KeyError防止）"
+      files:
+        - ".claude/skills/reddit-finance-topics/SKILL.md:398-403"
+
+    - priority: 3
+      action: "SKILL.mdとreddit-topic-analyzer.mdの入力スキーマを一致させる（session_id/category_name_ja/configの扱いを統一）"
+      files:
+        - ".claude/skills/reddit-finance-topics/SKILL.md:340"
+        - ".claude/agents/reddit-topic-analyzer.md:42"
+
+    - priority: 4
+      action: "SKILL.mdのtimestamp逆変換をsession_data['timestamp']の直接参照に修正"
+      files:
+        - ".claude/skills/reddit-finance-topics/SKILL.md:334"
+
+    - priority: 5
+      action: "テストファイルのロガーをstructlogに戻す（or %sフォーマット維持ならrogerをrss._logging.get_loggerに変更）"
+      files:
+        - "tests/rss/integration/test_github_project_e2e.py:17,234,239,430"
+
+  suggested:
+    - priority: 1
+      action: "relevance_score < 0.7のトピックにWebSearchを実行しないようステップ5-6間にフィルタを追加（API呼び出し削減）"
+
+    - priority: 2
+      action: "article_proposals[]にpriorityフィールドを追加するか、SKILL.mdのpriority_orderソートを削除"
+
+    - priority: 3
+      action: "categoryとtimestampの入力バリデーション追加（許可リスト + 正規表現）"
+
+    - priority: 4
+      action: "mcp-server-redditのバージョンを.mcp.jsonで固定"
+
+    - priority: 5
+      action: "exclude_flairsに'Satire'と'Not News'を復元"
+
+summary:
+  verdict: "REQUEST_CHANGES"
+  comment: |
+    Reddit金融トピック収集ワークフローの実装PRです。アーキテクチャ設計（Phase分離・設定外部化・エラー継続処理）は
+    適切な方向性ですが、スキーマ変更が複数ファイルにまたがる際の整合性確認が不十分です。
+
+    特にarticle_proposals[].categoryのスキーマ例矛盾（'stock' vs 'stock_analysis'）、
+    SKILL.md集約テーブルのKeyErrorリスク、入力スキーマの送受信不整合（3フィールド）は
+    マージ前に修正が必要です。
+
+    テストファイルのstructlog→標準loggingへの変更もプロジェクト規約違反であり、
+    根本原因（ロガー型の誤り）の解消が求められます。

@@ -27,41 +27,32 @@ ToolSearch('reddit')
 ## 役割
 
 1. **トピック詳細取得**: `get_post_content` で各トピックの投稿本文を取得
-2. **日本語要約生成**: 金融投資家向けの日本語要約を生成
+2. **日本語要約生成**: タイトル翻訳・要約・キーポイント・センチメント分析
 3. **補足調査**: `WebSearch` で関連情報・最新状況を調査
 4. **記事化提案生成**: note.com 記事として適切な提案を生成
-5. **結果出力**: 分析結果を `.tmp/reddit-topics/analyzed-{timestamp}.json` に追記
+5. **結果出力**: 分析結果を `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json` に新規書き込み
 
 ## 入力形式
 
 `.tmp/reddit-topics/{timestamp}.json` からカテゴリ別トピック情報を読み込みます。
 
+### 入力 JSON スキーマ
+
 ```json
 {
-  "session_id": "reddit-collection-2026-02-23T12-00-00",
-  "timestamp": "2026-02-23T12:00:00+09:00",
+  "timestamp": "2026-02-24T12:00:00.000000",
   "category": "general_investing",
-  "category_name_ja": "投資全般",
   "topics": [
     {
-      "topic_id": "T001",
-      "post_id": "abc123",
-      "title": "投稿タイトル",
-      "url": "https://reddit.com/r/investing/comments/abc123",
+      "post_id": "xxx",
+      "title": "...",
       "subreddit": "investing",
       "score": 1234,
-      "num_comments": 456,
-      "created_at": "2026-02-22T10:30:00Z",
-      "summary": "投稿の概要テキスト（Phase 1 で生成）",
-      "flair": "Discussion",
-      "relevance": "high"
+      "num_comments": 56,
+      "url": "https://reddit.com/r/investing/comments/xxx",
+      "created_utc": 1234567890
     }
-  ],
-  "config": {
-    "min_score": 50,
-    "min_comments": 10,
-    "time_filter": "week"
-  }
+  ]
 }
 ```
 
@@ -71,34 +62,32 @@ ToolSearch('reddit')
 
 | フィールド | 必須 | 説明 |
 |-----------|------|------|
-| `topic_id` | **必須** | トピックの一意識別子（T001, T002...） |
 | `post_id` | **必須** | Reddit 投稿 ID（`get_post_content` で使用） |
 | `title` | **必須** | 投稿タイトル |
-| `url` | **必須** | Reddit 投稿 URL |
 | `subreddit` | **必須** | サブレディット名 |
 | `score` | **必須** | Reddit スコア（upvotes） |
 | `num_comments` | **必須** | コメント数 |
-| `created_at` | **必須** | 投稿日時（ISO 8601） |
-| `summary` | 任意 | Phase 1 で生成した概要 |
-| `flair` | 任意 | Reddit フレア |
-| `relevance` | 任意 | 関連度（high/medium/low） |
+| `url` | **必須** | Reddit 投稿 URL |
+| `created_utc` | **必須** | 投稿日時（Unix タイムスタンプ） |
 
 ## 処理フロー
 
 ```
 各トピックに対して:
   1. get_post_content で投稿本文を取得
-     → 失敗時: topic_id を skipped に記録して次のトピックへ（エラーは継続）
+     → 失敗時: post_id を skipped に記録して次のトピックへ（エラーは継続）
   2. 投稿本文の品質チェック（最低 100 文字）
      → 不十分: skipped に記録して次のトピックへ
-  3. 日本語要約を生成（金融投資家向け）
-  4. WebSearch で関連情報・最新状況を補足調査
-     → 検索クエリ: 投稿タイトルの日本語訳 + 関連キーワード
-  5. 記事化提案を生成
-  6. analyzed_topics[] と article_proposals[] に結果を追加
+  3. 日本語タイトル翻訳・要約・キーポイント生成
+  4. センチメント分析（bullish/bearish/neutral）
+  5. 関連性スコア算出（0.0-1.0）
+     → relevance_score < 0.7 の場合: analyzed_topics[] に記録のみ、WebSearch・記事化提案をスキップして次のトピックへ
+  6. WebSearch で関連情報・最新状況を補足調査（relevance_score >= 0.7 のみ）
+  7. 記事化提案を生成（relevance_score >= 0.7 のみ、priority フィールド必須）
+  8. analyzed_topics[] と article_proposals[] に結果を追加
 
 全トピック処理完了後:
-  7. 結果を .tmp/reddit-topics/analyzed-{timestamp}.json に追記（書き込み）
+  9. 結果を .tmp/reddit-topics/analyzed-{timestamp}-{category}.json に新規書き込み
 ```
 
 ### ステップ 1: get_post_content で投稿本文を取得
@@ -109,7 +98,6 @@ mcp__reddit__get_post_content を呼び出し:
 
 失敗時の処理:
   skipped.append({
-    "topic_id": topic["topic_id"],
     "post_id": topic["post_id"],
     "title": topic["title"],
     "reason": "get_post_content 失敗: {error_message}"
@@ -119,13 +107,14 @@ mcp__reddit__get_post_content を呼び出し:
 
 **重要**: `get_post_content` が失敗した場合は、そのトピックをスキップして処理を継続する。
 エラーは `skipped` に記録するが、他のトピックの処理を止めてはならない。
+失敗の原因は多様（レート制限・削除済み投稿・ネットワークエラー等）であり、頻繁に発生する。
 
 ### ステップ 2: 投稿本文の品質チェック
 
 ```python
 if not content or len(content.strip()) < 100:
     skipped.append({
-        "topic_id": topic["topic_id"],
+        "post_id": topic["post_id"],
         "url": topic["url"],
         "title": topic["title"],
         "reason": "本文不十分（100文字未満）"
@@ -133,33 +122,50 @@ if not content or len(content.strip()) < 100:
     continue
 ```
 
-### ステップ 3: 日本語要約を生成
+### ステップ 3: 日本語タイトル翻訳・要約・キーポイント生成
 
-投稿本文（`content`）を元に、金融投資家向けの日本語要約を生成:
+投稿本文（`content`）を元に、金融投資家向けの日本語情報を生成:
 
-```markdown
-### 概要
-[議論の主題・結論を箇条書きで 3-5 行]
-[具体的な銘柄名・指標・数値があれば必ず含める]
+- **title_ja**: 英語タイトルを自然な日本語に翻訳
+  - 固有名詞（企業名・ティッカーシンボル・製品名）はそのまま維持
+  - 意味を正確に伝える日本語にする
+- **summary_ja**: 投稿内容を 200 文字以内で日本語要約
+  - 推測・創作は禁止。投稿・コメントに書かれた内容のみ記載
+  - 情報がない場合は「[記載なし]」と明記
+- **key_points**: 重要ポイントを 3-5 個の配列で抽出
 
-### 主要な議論ポイント
-[コメント欄で盛り上がった主要な視点・意見を 2-4 点]
-[投資判断に関連する内容を優先]
+### ステップ 4: センチメント分析
 
-### 投資家への示唆
-[この議論から得られる投資示唆・注目点]
-[具体的なアクションや注意事項]
+投稿本文・コメント傾向から以下を判定:
+
+| センチメント | 基準 |
+|-------------|------|
+| `bullish` | 強気・上昇期待・買いシグナル等のポジティブな内容 |
+| `bearish` | 弱気・下落懸念・売りシグナル等のネガティブな内容 |
+| `neutral` | 中立・情報共有・議論・不確実性が高い内容 |
+
+### ステップ 5: 関連性スコア算出
+
+日本の note.com 読者（個人投資家・金融関心層）への関連性を 0.0-1.0 で評価:
+
+| スコア範囲 | 基準 |
+|-----------|------|
+| 0.8-1.0 | 日本市場への直接影響大・タイムリー・高エンゲージメント |
+| 0.6-0.8 | 一般的な投資教育・グローバルトレンド |
+| 0.4-0.6 | ニッチな話題・専門的すぎる内容 |
+| 0.0-0.4 | 日本の読者には関連性が低い |
+
+### ステップ 6: WebSearch で補足調査（relevance_score >= 0.7 のみ）
+
+**前提条件**: ステップ 5 で算出した `relevance_score` が 0.7 未満の場合は、このステップおよびステップ 7 をスキップして次のトピックの処理へ進む:
+
+```python
+if relevance_score < 0.7:
+    analyzed_topics.append({...step3-5のデータのみ...})
+    continue  # WebSearch・article_proposals 追加をスキップ
 ```
 
-**要約ルール**:
-- 各セクション 100 文字以上（概要は 200 文字以上）
-- 推測・創作は禁止。投稿・コメントに書かれた内容のみ記載
-- 情報がないセクションは「[記載なし]」と明記
-- 英語の固有名詞（企業名・指標名）は原則そのまま使用
-
-### ステップ 4: WebSearch で補足調査
-
-投稿タイトルを日本語に翻訳し、関連する最新情報を検索:
+relevance_score >= 0.7 のトピックに対して、投稿タイトルを日本語に翻訳し関連する最新情報を検索:
 
 ```
 WebSearch クエリ例:
@@ -168,21 +174,11 @@ WebSearch クエリ例:
   - "{議論テーマ} 日本 投資家"
 ```
 
-検索結果から補足情報を `web_search_summary` に格納。
-関連情報が見つからない場合は `null` を設定。
+関連情報が見つからない場合はスキップして継続。
 
-### ステップ 5: 記事化提案を生成
+### ステップ 7: 記事化提案を生成
 
-分析内容を元に note.com 記事化のための提案を生成:
-
-| フィールド | 内容 |
-|-----------|------|
-| `article_title` | 記事タイトル案（日本語、50 文字以内） |
-| `article_angle` | 記事の切り口・訴求ポイント（1〜2 文） |
-| `target_reader` | 想定読者層 |
-| `key_insights` | 記事化すべき重要な洞察（3 点） |
-| `estimated_length` | 推定記事文字数（short: 1000〜2000 / medium: 2000〜4000 / long: 4000+） |
-| `priority` | 記事化優先度（high / medium / low） |
+`relevance_score >= 0.7` のトピックを中心に、note.com 記事化のための提案を生成:
 
 **優先度判定基準**:
 | 優先度 | 基準 |
@@ -193,57 +189,35 @@ WebSearch クエリ例:
 
 ## 出力形式
 
-処理結果を以下の JSON 形式で `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json` に出力します。
-カテゴリごとに独立したファイルを新規作成します（追記は行いません）。
+処理結果を以下の JSON 形式で `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json` に出力します（`category` は入力 JSON の `category` フィールド値）。
+
+### 出力 JSON スキーマ
 
 ```json
 {
-  "session_id": "reddit-collection-2026-02-23T12-00-00",
-  "analyzed_at": "2026-02-23T14:00:00+09:00",
+  "timestamp": "2026-02-24T12:00:00.000000",
   "category": "general_investing",
-  "category_name_ja": "投資全般",
   "analyzed_topics": [
     {
-      "topic_id": "T001",
-      "post_id": "abc123",
-      "title": "投稿タイトル",
-      "url": "https://reddit.com/r/investing/comments/abc123",
-      "subreddit": "investing",
-      "score": 1234,
-      "num_comments": 456,
-      "created_at": "2026-02-22T10:30:00Z",
-      "japanese_summary": "### 概要\n...\n\n### 主要な議論ポイント\n...\n\n### 投資家への示唆\n...",
-      "web_search_summary": "補足調査結果のテキスト（最大 500 文字）",
-      "article_proposal": {
-        "article_title": "米国個人投資家が注目するバリュー株投資の再評価",
-        "article_angle": "Reddit の投資家コミュニティで盛んな議論から、日本の投資家が参考にできる視点を紹介する",
-        "target_reader": "米国株投資に興味のある日本人投資家",
-        "key_insights": [
-          "バリュー株への回帰が個人投資家の間で加速している",
-          "金利環境の変化が成長株 vs バリュー株の議論を再燃させた",
-          "コミュニティ内では特定セクターへの集中が話題"
-        ],
-        "estimated_length": "medium",
-        "priority": "high"
-      }
+      "post_id": "xxx",
+      "title": "...",
+      "title_ja": "日本語タイトル",
+      "summary_ja": "日本語要約",
+      "key_points": ["ポイント1", "ポイント2"],
+      "sentiment": "bullish|bearish|neutral",
+      "relevance_score": 0.85
     }
   ],
-  "skipped": [
+  "article_proposals": [
     {
-      "topic_id": "T003",
-      "post_id": "xyz789",
-      "title": "スキップされた投稿タイトル",
-      "reason": "fetch_failed"
+      "title": "note記事タイトル案",
+      "category": "stock",
+      "hook": "冒頭フック文",
+      "outline": ["セクション1", "セクション2"],
+      "finance_full_command": "/finance-full --category stock --topic '...' ",
+      "priority": "high"
     }
-  ],
-  "stats": {
-    "total_topics": 5,
-    "analyzed": 4,
-    "skipped": 1,
-    "high_priority_proposals": 2,
-    "medium_priority_proposals": 1,
-    "low_priority_proposals": 1
-  }
+  ]
 }
 ```
 
@@ -253,60 +227,68 @@ WebSearch クエリ例:
 
 | フィールド | 必須 | 説明 |
 |-----------|------|------|
-| `topic_id` | **必須** | 入力から引き継ぐ一意識別子 |
-| `post_id` | **必須** | Reddit 投稿 ID |
+| `post_id` | **必須** | Reddit 投稿 ID（入力から引き継ぎ） |
 | `title` | **必須** | 元の投稿タイトル（英語のまま） |
-| `url` | **必須** | Reddit 投稿 URL |
-| `subreddit` | **必須** | サブレディット名 |
-| `score` | **必須** | Reddit スコア |
-| `num_comments` | **必須** | コメント数 |
-| `created_at` | **必須** | 投稿日時 |
-| `japanese_summary` | **必須** | 3 セクション構成の日本語要約 |
-| `web_search_summary` | 任意 | WebSearch 補足調査結果（null 許容） |
-| `article_proposal` | **必須** | 記事化提案オブジェクト |
+| `title_ja` | **必須** | 日本語翻訳タイトル |
+| `summary_ja` | **必須** | 日本語要約（200文字以内） |
+| `key_points` | **必須** | 重要ポイント（配列、3-5個） |
+| `sentiment` | **必須** | `bullish` / `bearish` / `neutral` |
+| `relevance_score` | **必須** | 関連性スコア（0.0-1.0） |
 
-#### article_proposal オブジェクトのフィールド
+#### article_proposals[] のフィールド
 
 | フィールド | 必須 | 説明 |
 |-----------|------|------|
-| `article_title` | **必須** | 記事タイトル案（50 文字以内） |
-| `article_angle` | **必須** | 記事の切り口・訴求ポイント |
-| `target_reader` | **必須** | 想定読者層 |
-| `key_insights` | **必須** | 重要な洞察（配列、3 点） |
-| `estimated_length` | **必須** | short / medium / long |
-| `priority` | **必須** | high / medium / low |
+| `title` | **必須** | note.com 記事タイトル案 |
+| `category` | **必須** | `finance-full` カテゴリ（`stock_analysis`/`economic_indicators`/`market_report`/`investment_education`/`quant_analysis`）|
+| `hook` | **必須** | 冒頭フック文（50-100文字） |
+| `outline` | **必須** | 章立て（配列、3-6セクション） |
+| `finance_full_command` | **必須** | `/finance-full` コマンド文字列 |
+| `priority` | **必須** | 記事化優先度（`high` / `medium` / `low`）。優先度判定基準はステップ 7 を参照 |
+
+## ファイル出力処理
+
+```python
+import re
+
+# 入力バリデーション（パストラバーサル・インジェクション防止）
+ALLOWED_CATEGORIES = {
+    "general_investing", "trading", "macro_economics",
+    "deep_analysis", "sector_specific"
+}
+if category not in ALLOWED_CATEGORIES:
+    raise ValueError(f"Invalid category: {category!r}. Allowed: {ALLOWED_CATEGORIES}")
+
+TIMESTAMP_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+$")
+if not TIMESTAMP_PATTERN.match(timestamp):
+    raise ValueError(f"Invalid timestamp format: {timestamp!r}")
+
+# ファイル名用タイムスタンプ変換（: → - 、tz suffix 除去）
+file_timestamp = timestamp.replace(":", "-").split("+")[0]
+
+# 出力ディレクトリ確認・作成
+# mkdir -p .tmp/reddit-topics
+
+# 結果を .tmp/reddit-topics/analyzed-{file_timestamp}-{category}.json に新規書き込み
+# category は許可リストで検証済み、file_timestamp は安全な文字（数字・ハイフン・ドット）のみ
+```
+
+- ファイルは常に新規作成する（既存ファイルは上書き）
+- ファイルパス例: `.tmp/reddit-topics/analyzed-2026-02-24T12-00-00.000000-general_investing.json`
 
 ## エラーハンドリング
 
 | エラー | 対処 |
 |--------|------|
-| `get_post_content` 失敗 | `skipped` に `reason: "fetch_failed"` を記録し次のトピックへ継続（**処理は止めない**） |
-| 本文不十分（100 文字未満） | `skipped` に `reason: "insufficient_content"` を記録し次のトピックへ継続 |
-| `WebSearch` 失敗 | `web_search_summary` を `null` に設定して継続 |
-| 出力ファイル書き込み失敗 | 処理済み結果を親（SKILL.md E005）に返して終了 |
+| `get_post_content` 失敗 | `skipped` に reason を記録し次のトピックへ継続（**処理は止めない**） |
+| 本文不十分（100 文字未満） | `skipped` に reason を記録し次のトピックへ継続 |
+| `WebSearch` 失敗 | スキップして要約のみで記事化提案を生成 |
+| 出力ファイル書き込み失敗 | エラー詳細を出力して処理中断 |
 | 入力ファイル読み込み失敗 | エラー詳細を出力し処理中断 |
+| `ToolSearch('reddit')` 失敗 | エラーを出力して処理中断（Reddit MCP なしでは処理不可） |
 
 **重要**: `get_post_content` の失敗は非常に頻繁に発生します（レート制限、削除済み投稿など）。
 このエラーが発生しても**他のトピックの処理を継続**し、最終的に処理できたトピックの結果を返すこと。
-
-**エラー reason の分類**:
-- `fetch_failed`: `get_post_content` の API 呼び出し失敗（rate limit / 削除済み / ネットワークエラー等）
-- `insufficient_content`: 本文が 100 文字未満
-- `parse_error`: データ解析エラー
-
-## 出力先ファイル
-
-処理結果は以下のパスに**新規作成**します（既存ファイルへの追記は行いません）:
-
-```
-.tmp/reddit-topics/analyzed-{timestamp}-{category}.json
-```
-
-- `{timestamp}`: 入力ファイルの `session_id` から抽出（例: `reddit-collection-2026-02-23T12-00-00` → `2026-02-23T12-00-00`）
-- `{category}`: 入力ファイルの `category` フィールド（例: `general_investing`）
-
-各カテゴリが独立したファイルを持つため、複数カテゴリを逐次処理しても I/O 競合は発生しません。
-全カテゴリの集約は SKILL.md Phase 2.2 のオーケストレーターが担当します。
 
 ## 注意事項
 
@@ -314,13 +296,13 @@ WebSearch クエリ例:
 2. **get_post_content 失敗時の継続**: エラーをスキップして他のトピックを処理し続けること
 3. **URL 保持**: `url` フィールドは入力値をそのまま使用し、変更しないこと
 4. **推測禁止**: 日本語要約は投稿本文・コメントの内容のみ記述すること
-5. **カテゴリ別最適化**: `data/config/reddit-subreddits.json` の `category_mapping` を参照し、カテゴリに応じた分析視点を適用すること
+5. **JSON 形式厳守**: 出力は必ず有効な JSON 形式で書き込むこと
+6. **タイムスタンプ一致**: 出力ファイルのタイムスタンプは入力 JSON の `timestamp` と同じ値を使用すること
 
 ## 関連ファイル
 
-- 入力設定: `data/config/reddit-subreddits.json`
-- 入力データ: `.tmp/reddit-topics/{timestamp}-{category}.json`（SKILL.md Phase 2 が生成）
-- 出力データ: `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json`（カテゴリ別独立ファイル）
-- 集約元スキル: `.claude/skills/reddit-finance-topics/SKILL.md`（Phase 2.2 で全カテゴリを集約）
+- 入力データ: `.tmp/reddit-topics/{timestamp}-{category}.json`（Phase 1 が生成）
+- 出力データ: `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json`
+- 集約元スキル: `.claude/skills/reddit-finance-topics/SKILL.md`
 - 参照元 frontmatter: `.claude/agents/ai-research-article-fetcher.md`
 - Reddit MCP パターン: `.claude/agents_sample/research-reddit.md`
