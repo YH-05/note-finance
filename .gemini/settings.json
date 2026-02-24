@@ -1,0 +1,69 @@
+{
+    "mcpServers": {
+        "memory": {
+            "command": "npx",
+            "args": ["-y", "@modelcontextprotocol/server-memory"],
+            "env": {
+                "MEMORY_FILE_PATH": "./memory-mcp/memory.jsonl"
+            }
+        },
+        "fetch": {
+            "command": "uvx",
+            "args": ["mcp-server-fetch"],
+            "env": {
+                "PYTHONIOENCODING": "utf-8"
+            }
+        },
+        "time": {
+            "command": "uvx",
+            "args": ["mcp-server-time"],
+            "env": {
+                "LOCAL_TIMEZONE": "Asia/Tokyo"
+            }
+        },
+        "reddit": {
+            "command": "uvx",
+            "args": ["mcp-server-reddit"]
+        },
+        "wikipedia": {
+            "command": "uvx",
+            "args": ["wikipedia-mcp"]
+        },
+        "notion": {
+            "command": "npx",
+            "args": ["-y", "@ramidecodes/mcp-server-notion@latest"],
+            "env": {
+                "NOTION_API_KEY": "${NOTION_API_KEY}"
+            }
+        },
+        "sec-edgar-mcp": {
+            "command": "uvx",
+            "args": ["--with", "pyrate-limiter<4.0", "sec-edgar-mcp"],
+            "env": {
+                "SEC_EDGAR_USER_AGENT": "youxitiankaggle@gmail.com"
+            }
+        },
+        "rss": {
+            "command": "uv",
+            "args": ["run", "rss-mcp"],
+            "env": {
+                "RSS_DATA_DIR": "./data/raw/rss"
+            }
+        },
+        "slack": {
+            "command": "uvx",
+            "args": ["mcp-slack"],
+            "env": {
+                "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}"
+            }
+        },
+        "notebooklm": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/YH-05/notebooklm-mcp",
+                "notebooklm-mcp"
+            ]
+        }
+    }
+}

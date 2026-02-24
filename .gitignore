@@ -72,6 +72,7 @@ articles/
 
 # Large log files (logs/ directory is tracked)
 !logs/**
+logs/.DS_Store
 
 # FRED indicator cache data (large JSON files)
 data/raw/fred/indicators/*.json
