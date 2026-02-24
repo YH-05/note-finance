@@ -231,15 +231,12 @@ class TestRSSToGitHubE2E:
 
             # Check if matches financial keywords
             if not matches_financial_keywords(item_text, filter_config):
-                logger.info(
-                    "Item filtered out (no keyword match)",
-                    title=item.title,
-                )
+                logger.info("Item filtered out (no keyword match): %s", item.title)
                 continue
 
             # Check if should be excluded
             if is_excluded(item_text, filter_config):
-                logger.info("Item excluded", title=item.title)
+                logger.info("Item excluded: %s", item.title)
                 continue
 
             filtered_items.append(item)
@@ -430,9 +427,9 @@ class TestRSSToGitHubE2E:
                     }
                 )
                 logger.error(
-                    "Failed to create GitHub issue",
-                    title=item.title,
-                    error=str(e),
+                    "Failed to create GitHub issue: %s, error: %s",
+                    item.title,
+                    str(e),
                 )
 
         # Verify error was caught
