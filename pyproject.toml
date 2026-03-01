@@ -16,6 +16,7 @@ dependencies = [
     "jinja2>=3.1.0",
     "tenacity>=9.1.2",
     "tqdm>=4.67.2",
+    "finance",
 ]
 
 [project.optional-dependencies]
@@ -93,3 +94,6 @@ skips = ["B311", "B607"]
 testpaths = ["tests"]
 pythonpath = ["src", "scripts"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]
+
+[tool.uv.sources]
+finance = { git = "https://github.com/YH-05/finance.git" }
