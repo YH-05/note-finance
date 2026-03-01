@@ -54,8 +54,8 @@ logger = get_logger(__name__, module="convert_scraped_news")
 
 # AIDEV-NOTE: Keys match the ``category`` field in scraped article JSON.
 # Values are the standard categories used by the weekly report pipeline.
-CATEGORY_MAP: dict[str, str] = {
-    # CNBC categories
+# Split by source to avoid key collisions (e.g. "Technology" vs "technology").
+CNBC_CATEGORY_MAP: dict[str, str] = {
     "economy": "macro",
     "finance": "finance",
     "investing": "indices",
@@ -69,7 +69,10 @@ CATEGORY_MAP: dict[str, str] = {
     "autos": "sectors",
     "top_news": "indices",
     "business": "finance",
-    # NASDAQ categories
+    "markets": "indices",
+}
+
+NASDAQ_CATEGORY_MAP: dict[str, str] = {
     "Markets": "indices",
     "Earnings": "mag7",
     "Economy": "macro",
@@ -105,6 +108,11 @@ KEYWORD_MAP: list[tuple[str, str]] = [
     (r"AI|artificial intelligence|machine learning|semiconductor|chip|GPU", "tech"),
     # finance (catch-all for financial topics)
     (r"bank|fund|ETF|hedge|portfolio|dividend|IPO|merger|acquisition|M&A", "finance"),
+]
+
+# Pre-compiled keyword patterns for performance (avoid re-compiling on every call)
+_COMPILED_KEYWORD_MAP: list[tuple[re.Pattern[str], str]] = [
+    (re.compile(pattern, re.IGNORECASE), cat) for pattern, cat in KEYWORD_MAP
 ]
 
 # Valid output categories
@@ -146,20 +154,22 @@ def _map_category(category: str | None, title: str, summary: str | None) -> str:
     >>> _map_category("unknown_key", "Random article", None)
     'other'
     """
-    # Direct map lookup
+    # Direct map lookup (CNBC first, then NASDAQ)
     if category is not None:
-        mapped = CATEGORY_MAP.get(category)
+        mapped = CNBC_CATEGORY_MAP.get(category) or NASDAQ_CATEGORY_MAP.get(category)
         if mapped is not None:
             logger.debug(
                 "Category mapped via CATEGORY_MAP", raw=category, mapped=mapped
             )
             return mapped
 
-    # Keyword fallback on title + summary
+    # Keyword fallback on title + summary (pre-compiled patterns)
     text = title + " " + (summary or "")
-    for pattern, cat in KEYWORD_MAP:
-        if re.search(pattern, text, re.IGNORECASE):
-            logger.debug("Category mapped via keywords", pattern=pattern, mapped=cat)
+    for pattern, cat in _COMPILED_KEYWORD_MAP:
+        if pattern.search(text):
+            logger.debug(
+                "Category mapped via keywords", pattern=str(pattern.pattern), mapped=cat
+            )
             return cat
 
     logger.debug("Category unmapped, defaulting to 'other'", raw=category, title=title)
@@ -538,6 +548,26 @@ def convert(
 # ---------------------------------------------------------------------------
 
 
+def _validate_input_paths(args: argparse.Namespace) -> str | None:
+    """Validate that the input file or directory exists.
+
+    Parameters
+    ----------
+    args : argparse.Namespace
+        Parsed CLI arguments.
+
+    Returns
+    -------
+    str | None
+        Human-readable error message if validation fails, else ``None``.
+    """
+    if args.input is not None and not args.input.exists():
+        return f"入力ファイルが見つかりません: {args.input}"
+    if args.input_dir is not None and not args.input_dir.exists():
+        return f"入力ディレクトリが見つかりません: {args.input_dir}"
+    return None
+
+
 def _parse_args() -> argparse.Namespace:
     """Parse command line arguments.
 
@@ -647,15 +677,9 @@ def main() -> int:
         return 1
 
     # Validate input paths
-    if args.input is not None and not args.input.exists():
-        print(f"エラー: 入力ファイルが見つかりません: {args.input}", file=sys.stderr)
-        return 1
-
-    if args.input_dir is not None and not args.input_dir.exists():
-        print(
-            f"エラー: 入力ディレクトリが見つかりません: {args.input_dir}",
-            file=sys.stderr,
-        )
+    path_error = _validate_input_paths(args)
+    if path_error is not None:
+        print(f"エラー: {path_error}", file=sys.stderr)
         return 1
 
     try:

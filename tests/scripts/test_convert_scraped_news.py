@@ -9,15 +9,13 @@ and ``_build_statistics``.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
-from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 import pytest
-
-# Make scripts/ importable
-sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
-
 from convert_scraped_news import (
     VALID_CATEGORIES,
     _build_by_category,

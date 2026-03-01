@@ -28,13 +28,13 @@ True
 
 from __future__ import annotations
 
-import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 import httpx
 
 from news_scraper._logging import get_logger
-from news_scraper.types import Article, ScraperConfig, deduplicate_by_url, get_delay
+from news_scraper.types import Article, ScraperConfig, deduplicate_by_url
 
 logger = get_logger(__name__, module="nasdaq")
 
@@ -52,6 +52,9 @@ NASDAQ_API_CATEGORIES: list[str] = [
     "Stocks",
     "ETFs",
 ]
+
+# Frozenset for O(1) whitelist check in _fetch_category
+NASDAQ_API_CATEGORIES_SET: frozenset[str] = frozenset(NASDAQ_API_CATEGORIES)
 
 # Default HTTP headers to mimic a browser request
 DEFAULT_HEADERS: dict[str, str] = {
@@ -217,11 +220,16 @@ def _fetch_category(
     list[Article]
         List of articles for the category (may be empty on error).
     """
-    url = f"{NASDAQ_API_BASE}/category?category={category}&limit={max_per_source}"
+    if category not in NASDAQ_API_CATEGORIES_SET:
+        logger.warning("Invalid NASDAQ category, skipping", category=category)
+        return []
+
+    params = {"category": category, "limit": max_per_source}
+    url = f"{NASDAQ_API_BASE}/category"
     logger.debug("Fetching NASDAQ category", category=category, url=url)
 
     try:
-        response = client.get(url)
+        response = client.get(url, params=params)
         response.raise_for_status()
         rows = _extract_rows_from_response(response.json())
         articles = []
@@ -297,7 +305,6 @@ def collect_news(
         config = ScraperConfig()
 
     categories_to_fetch = categories if categories else NASDAQ_API_CATEGORIES
-    delay = get_delay(config)
     max_per_source = config.max_articles_per_source
 
     logger.info(
@@ -313,11 +320,13 @@ def collect_news(
         headers=DEFAULT_HEADERS,
         follow_redirects=True,
     ) as client:
-        for i, category in enumerate(categories_to_fetch):
-            if i > 0:
-                time.sleep(delay)
 
-            all_articles.extend(_fetch_category(client, category, max_per_source))
+        def _task(cat: str) -> list[Article]:
+            return _fetch_category(client, cat, max_per_source)
+
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            for result in executor.map(_task, categories_to_fetch):
+                all_articles.extend(result)
 
     deduplicated = deduplicate_by_url(all_articles)
     logger.info(

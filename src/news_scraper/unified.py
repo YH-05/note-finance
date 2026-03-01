@@ -20,6 +20,7 @@ True
 
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING
 
@@ -235,14 +236,19 @@ def collect_financial_news(
     all_articles: list[Article] = []
     started_at = datetime.now(timezone.utc)
 
-    for source_name in enabled_sources:
+    def _collect_source(source_name: SourceName) -> tuple[SourceName, list[Article]]:
         collector = SOURCE_REGISTRY.get(source_name)
         if collector is None:
             logger.warning("Unknown source, skipping", source=source_name)
-            continue
-
+            return source_name, []
         try:
-            source_articles = collector(config)
+            articles = collector(config)
+            logger.info(
+                "Source collection complete",
+                source=source_name,
+                source_articles=len(articles),
+            )
+            return source_name, articles
         except Exception as e:
             logger.error(
                 "Source collection failed",
@@ -250,15 +256,11 @@ def collect_financial_news(
                 error=str(e),
                 exc_info=True,
             )
-            continue
+            return source_name, []
 
-        all_articles.extend(source_articles)
-        logger.info(
-            "Source collection complete",
-            source=source_name,
-            source_articles=len(source_articles),
-            total_so_far=len(all_articles),
-        )
+    with ThreadPoolExecutor(max_workers=len(enabled_sources)) as executor:
+        for _, source_articles in executor.map(_collect_source, enabled_sources):
+            all_articles.extend(source_articles)
 
     # Cross-source deduplication by URL
     all_articles = deduplicate_by_url(all_articles)

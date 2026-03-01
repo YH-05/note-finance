@@ -21,7 +21,7 @@ True
 
 from __future__ import annotations
 
-import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from typing import Any
@@ -29,7 +29,7 @@ from typing import Any
 import feedparser
 
 from news_scraper._logging import get_logger
-from news_scraper.types import Article, ScraperConfig, deduplicate_by_url, get_delay
+from news_scraper.types import Article, ScraperConfig, deduplicate_by_url
 
 logger = get_logger(__name__, module="cnbc")
 
@@ -237,7 +237,6 @@ def collect_news(
         config = ScraperConfig()
 
     feeds_to_fetch = categories if categories else list(CNBC_FEEDS.keys())
-    delay = get_delay(config)
     max_per_source = config.max_articles_per_source
 
     logger.info(
@@ -246,22 +245,14 @@ def collect_news(
         max_articles_per_source=max_per_source,
     )
 
-    all_articles: list[Article] = []
-
-    for i, category in enumerate(feeds_to_fetch):
+    def _task(category: str) -> list[Article]:
         feed_url = CNBC_FEEDS.get(category)
         if not feed_url:
             logger.warning("Unknown CNBC category, skipping", category=category)
-            continue
-
-        if i > 0:
-            time.sleep(delay)
-
+            return []
         logger.debug("Fetching CNBC feed", category=category, url=feed_url)
-
         try:
             feed = feedparser.parse(feed_url)
-
             if feed.bozo and not feed.entries:
                 logger.warning(
                     "CNBC feed parse error",
@@ -270,24 +261,16 @@ def collect_news(
                     if hasattr(feed, "bozo_exception")
                     else "unknown",
                 )
-                continue
-
-            category_articles: list[Article] = []
+                return []
+            articles: list[Article] = []
             for entry in feed.entries:
-                if len(category_articles) >= max_per_source:
+                if len(articles) >= max_per_source:
                     break
                 article = _entry_to_article(entry, category)
                 if article is not None:
-                    category_articles.append(article)
-
-            all_articles.extend(category_articles)
-            logger.info(
-                "CNBC feed fetched",
-                category=category,
-                count=len(category_articles),
-                total=len(all_articles),
-            )
-
+                    articles.append(article)
+            logger.info("CNBC feed fetched", category=category, count=len(articles))
+            return articles
         except Exception as e:
             logger.error(
                 "Failed to fetch CNBC feed",
@@ -295,7 +278,12 @@ def collect_news(
                 error=str(e),
                 exc_info=True,
             )
-            continue
+            return []
+
+    all_articles: list[Article] = []
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        for result in executor.map(_task, feeds_to_fetch):
+            all_articles.extend(result)
 
     deduplicated = deduplicate_by_url(all_articles)
     logger.info(

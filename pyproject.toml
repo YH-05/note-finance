@@ -91,5 +91,5 @@ skips = ["B311", "B607"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["src", "scripts"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]

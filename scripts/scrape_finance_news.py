@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -51,6 +52,33 @@ DEFAULT_NAS_OUTPUT = Path("/Volumes/personal_folder/finance-news")
 DEFAULT_LOCAL_FALLBACK = Path("data/scraped")
 DEFAULT_SOURCES = ["cnbc", "nasdaq"]
 DEFAULT_CLEANUP_DAYS = 30
+
+
+def _positive_int(value: str) -> int:
+    """Validate that a CLI argument is a positive integer.
+
+    Parameters
+    ----------
+    value : str
+        String value from the command line.
+
+    Returns
+    -------
+    int
+        Parsed positive integer.
+
+    Raises
+    ------
+    argparse.ArgumentTypeError
+        If the value is not a positive integer.
+    """
+    try:
+        ivalue = int(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(f"{value!r} は整数で指定してください") from exc
+    if ivalue <= 0:
+        raise argparse.ArgumentTypeError(f"{value} は 1 以上の整数を指定してください")
+    return ivalue
 
 
 def _parse_args() -> argparse.Namespace:
@@ -96,14 +124,14 @@ Examples:
     )
     parser.add_argument(
         "--cleanup-days",
-        type=int,
+        type=_positive_int,
         default=None,
         metavar="DAYS",
         help=f"Delete output directories older than DAYS days (default: {DEFAULT_CLEANUP_DAYS})",
     )
     parser.add_argument(
         "--max-articles",
-        type=int,
+        type=_positive_int,
         default=50,
         metavar="N",
         help="Maximum articles per source (default: 50)",
@@ -177,7 +205,9 @@ def _create_dated_output_dir(base_dir: Path, date: datetime) -> Path:
     return dated_dir
 
 
-def _save_articles_json(articles_json: list[dict], output_dir: Path, timestamp: datetime) -> Path:
+def _save_articles_json(
+    articles_json: list[dict], output_dir: Path, timestamp: datetime
+) -> Path:
     """Save articles to a JSON file in the output directory.
 
     Parameters
@@ -263,8 +293,6 @@ def _cleanup_old_data(base_dir: Path, max_age_days: int) -> int:
 
         age_days = (now - dir_date).days
         if age_days > max_age_days:
-            import shutil
-
             shutil.rmtree(subdir)
             deleted_count += 1
             logger.info(

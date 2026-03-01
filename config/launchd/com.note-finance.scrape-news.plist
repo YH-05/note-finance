@@ -35,12 +35,12 @@ note-finance 金融ニューススクレイピング launchd エージェント
         <string>run</string>
         <string>python</string>
         <!-- IMPORTANT: このパスは環境に合わせて変更してください -->
-        <string>/Users/yukihata/Desktop/note-finance/scripts/scrape_finance_news.py</string>
+        <string>/Users/YOUR_USERNAME/Desktop/note-finance/scripts/scrape_finance_news.py</string>
     </array>
 
     <!-- 作業ディレクトリ（IMPORTANT: 環境に合わせて変更してください） -->
     <key>WorkingDirectory</key>
-    <string>/Users/yukihata/Desktop/note-finance</string>
+    <string>/Users/YOUR_USERNAME/Desktop/note-finance</string>
 
     <!-- 実行スケジュール: 6時間ごと（0:00, 6:00, 12:00, 18:00） -->
     <key>StartCalendarInterval</key>
@@ -73,11 +73,11 @@ note-finance 金融ニューススクレイピング launchd エージェント
 
     <!-- 標準出力ログ（IMPORTANT: 環境に合わせて変更してください） -->
     <key>StandardOutPath</key>
-    <string>/Users/yukihata/Desktop/note-finance/logs/scrape-news.log</string>
+    <string>/Users/YOUR_USERNAME/Desktop/note-finance/logs/scrape-news.log</string>
 
     <!-- 標準エラーログ（IMPORTANT: 環境に合わせて変更してください） -->
     <key>StandardErrorPath</key>
-    <string>/Users/yukihata/Desktop/note-finance/logs/scrape-news-error.log</string>
+    <string>/Users/YOUR_USERNAME/Desktop/note-finance/logs/scrape-news-error.log</string>
 
     <!-- 環境変数 -->
     <key>EnvironmentVariables</key>
