@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+note-finance 金融ニューススクレイピング launchd エージェント
+=============================================================
+
+インストール手順:
+  1. プロジェクトルートのパスを確認する
+       $ pwd  # note-finance ディレクトリで実行
+  2. plist をコピーする
+       $ cp config/launchd/com.note-finance.scrape-news.plist ~/Library/LaunchAgents/
+  3. launchd に登録する
+       $ launchctl load ~/Library/LaunchAgents/com.note-finance.scrape-news.plist
+  4. 登録確認
+       $ launchctl list | grep com.note-finance.scrape-news
+
+アンインストール手順:
+  $ launchctl unload ~/Library/LaunchAgents/com.note-finance.scrape-news.plist
+  $ rm ~/Library/LaunchAgents/com.note-finance.scrape-news.plist
+
+注意:
+  - WorkingDirectory はこのマシンの note-finance プロジェクトルートに変更してください
+  - ログファイルのパスも同様に変更してください
+-->
+<plist version="1.0">
+<dict>
+    <!-- ジョブの識別子 -->
+    <key>Label</key>
+    <string>com.note-finance.scrape-news</string>
+
+    <!-- 実行するプログラムと引数 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>uv</string>
+        <string>run</string>
+        <string>python</string>
+        <!-- IMPORTANT: このパスは環境に合わせて変更してください -->
+        <string>/Users/yukihata/Desktop/note-finance/scripts/scrape_finance_news.py</string>
+    </array>
+
+    <!-- 作業ディレクトリ（IMPORTANT: 環境に合わせて変更してください） -->
+    <key>WorkingDirectory</key>
+    <string>/Users/yukihata/Desktop/note-finance</string>
+
+    <!-- 実行スケジュール: 6時間ごと（0:00, 6:00, 12:00, 18:00） -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>0</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>6</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>12</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>18</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <!-- 標準出力ログ（IMPORTANT: 環境に合わせて変更してください） -->
+    <key>StandardOutPath</key>
+    <string>/Users/yukihata/Desktop/note-finance/logs/scrape-news.log</string>
+
+    <!-- 標準エラーログ（IMPORTANT: 環境に合わせて変更してください） -->
+    <key>StandardErrorPath</key>
+    <string>/Users/yukihata/Desktop/note-finance/logs/scrape-news-error.log</string>
+
+    <!-- 環境変数 -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <!-- uv, python などが見つかるように PATH を設定 -->
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <!-- macOS ログイン時に自動実行しない -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <!-- スケジュール実行のみ（プロセス終了後の自動再起動なし） -->
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>
