@@ -42,11 +42,6 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-# Add src to path for imports when running as a script
-_project_root = Path(__file__).parent.parent
-if str(_project_root / "src") not in sys.path:
-    sys.path.insert(0, str(_project_root / "src"))
-
 import structlog
 
 from news_scraper._logging import get_logger
@@ -535,13 +530,6 @@ def convert(
         by_category={cat: len(items) for cat, items in by_category.items()},
     )
 
-    # Print human-readable summary to stdout
-    stat_parts = ", ".join(
-        f"{cat}={count}" for cat, count in statistics.items() if count > 0
-    )
-    print(f"変換完了: {len(news)} 件 → {output_path}")
-    print(f"カテゴリ別: {stat_parts or '(なし)'}")
-
     return output_path
 
 
@@ -671,7 +659,7 @@ def main() -> int:
         return 1
 
     try:
-        convert(
+        output_path = convert(
             input_file=args.input,
             input_dir=args.input_dir,
             output_dir=args.output,
@@ -686,6 +674,14 @@ def main() -> int:
         logger.error("Conversion IO error", error=str(exc))
         print(f"エラー: ファイル書き込みに失敗しました: {exc}", file=sys.stderr)
         return 1
+
+    # Print human-readable summary to stdout
+    data = json.loads(output_path.read_text(encoding="utf-8"))
+    stat_parts = ", ".join(
+        f"{cat}={count}" for cat, count in data["statistics"].items() if count > 0
+    )
+    print(f"変換完了: {data['total_count']} 件 → {output_path}")
+    print(f"カテゴリ別: {stat_parts or '(なし)'}")
 
     return 0
 

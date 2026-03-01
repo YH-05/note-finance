@@ -39,11 +39,6 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-# Add src to path for imports when running as a script
-_project_root = Path(__file__).parent.parent
-if str(_project_root / "src") not in sys.path:
-    sys.path.insert(0, str(_project_root / "src"))
-
 import structlog
 
 from news_scraper import ScraperConfig, collect_financial_news

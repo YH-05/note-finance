@@ -34,7 +34,7 @@ from datetime import datetime, timezone
 import httpx
 
 from news_scraper._logging import get_logger
-from news_scraper.types import Article, ScraperConfig, get_delay
+from news_scraper.types import Article, ScraperConfig, deduplicate_by_url, get_delay
 
 logger = get_logger(__name__, module="nasdaq")
 
@@ -307,7 +307,6 @@ def collect_news(
     )
 
     all_articles: list[Article] = []
-    seen_urls: set[str] = set()
 
     with httpx.Client(
         timeout=config.request_timeout,
@@ -318,14 +317,11 @@ def collect_news(
             if i > 0:
                 time.sleep(delay)
 
-            category_articles = _fetch_category(client, category, max_per_source)
-            for article in category_articles:
-                if article.url not in seen_urls:
-                    seen_urls.add(article.url)
-                    all_articles.append(article)
+            all_articles.extend(_fetch_category(client, category, max_per_source))
 
+    deduplicated = deduplicate_by_url(all_articles)
     logger.info(
         "NASDAQ news collection complete",
-        total_articles=len(all_articles),
+        total_articles=len(deduplicated),
     )
-    return all_articles
+    return deduplicated

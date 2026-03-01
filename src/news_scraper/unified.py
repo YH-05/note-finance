@@ -21,14 +21,39 @@ True
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Callable, Iterator
 
 from news_scraper._logging import get_logger
-from news_scraper.types import Article, ScraperConfig, SourceName
+from news_scraper.types import Article, ScraperConfig, SourceName, deduplicate_by_url
 
 logger = get_logger(__name__, module="unified")
 
 # AIDEV-NOTE: Lazy imports to avoid import errors when optional sources are
 # not configured or when running in test environments with mocked HTTP calls.
+# Each collector function lazily imports its source module at call time.
+
+
+def _collect_cnbc(config: ScraperConfig) -> list[Article]:
+    from news_scraper.cnbc import collect_news as _collect
+
+    return _collect(config=config)
+
+
+def _collect_nasdaq(config: ScraperConfig) -> list[Article]:
+    from news_scraper.nasdaq import collect_news as _collect
+
+    return _collect(config=config)
+
+
+# Registry maps source names to collector functions.
+# Add new sources here without modifying collect_financial_news().
+SOURCE_REGISTRY: dict[SourceName, Callable[[ScraperConfig], list[Article]]] = {
+    "cnbc": _collect_cnbc,
+    "nasdaq": _collect_nasdaq,
+}
 
 
 class NewsDataFrame:
@@ -66,7 +91,7 @@ class NewsDataFrame:
         """Return number of articles."""
         return len(self._articles)
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Article]:
         """Iterate over articles."""
         return iter(self._articles)
 
@@ -208,27 +233,16 @@ def collect_financial_news(
     )
 
     all_articles: list[Article] = []
-    seen_urls: set[str] = set()
     started_at = datetime.now(timezone.utc)
 
     for source_name in enabled_sources:
-        source_articles: list[Article] = []
+        collector = SOURCE_REGISTRY.get(source_name)
+        if collector is None:
+            logger.warning("Unknown source, skipping", source=source_name)
+            continue
 
         try:
-            if source_name == "cnbc":
-                from news_scraper.cnbc import collect_news as collect_cnbc
-
-                source_articles = collect_cnbc(config=config)
-
-            elif source_name == "nasdaq":
-                from news_scraper.nasdaq import collect_news as collect_nasdaq
-
-                source_articles = collect_nasdaq(config=config)
-
-            else:
-                logger.warning("Unknown source, skipping", source=source_name)
-                continue
-
+            source_articles = collector(config)
         except Exception as e:
             logger.error(
                 "Source collection failed",
@@ -238,21 +252,16 @@ def collect_financial_news(
             )
             continue
 
-        # Deduplicate by URL
-        new_count = 0
-        for article in source_articles:
-            if article.url not in seen_urls:
-                seen_urls.add(article.url)
-                all_articles.append(article)
-                new_count += 1
-
+        all_articles.extend(source_articles)
         logger.info(
             "Source collection complete",
             source=source_name,
             source_articles=len(source_articles),
-            new_articles=new_count,
             total_so_far=len(all_articles),
         )
+
+    # Cross-source deduplication by URL
+    all_articles = deduplicate_by_url(all_articles)
 
     # Sort by published date (newest first)
     all_articles.sort(key=lambda a: a.published, reverse=True)

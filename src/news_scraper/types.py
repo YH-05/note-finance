@@ -31,18 +31,32 @@ from pydantic import BaseModel, Field
 # Valid source names for collect_financial_news()
 type SourceName = Literal["cnbc", "nasdaq"]
 
-# Valid NASDAQ categories
-NASDAQ_CATEGORIES: list[str] = [
-    "Markets",
-    "Earnings",
-    "Economy",
-    "Commodities",
-    "Currencies",
-    "Technology",
-    "Stocks",
-    "ETFs",
-    "Personal-Finance",
-]
+
+def deduplicate_by_url(articles: list[Article]) -> list[Article]:
+    """Return articles with duplicate URLs removed, preserving order.
+
+    Parameters
+    ----------
+    articles : list[Article]
+        Articles to deduplicate.
+
+    Returns
+    -------
+    list[Article]
+        Articles with the first occurrence of each URL kept.
+
+    Examples
+    --------
+    >>> # Articles with duplicate URLs are deduplicated
+    >>> # Only the first occurrence of each URL is kept
+    """
+    seen: set[str] = set()
+    result: list[Article] = []
+    for article in articles:
+        if article.url not in seen:
+            seen.add(article.url)
+            result.append(article)
+    return result
 
 
 def get_delay(config: ScraperConfig | None) -> float:

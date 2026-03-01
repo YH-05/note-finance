@@ -29,7 +29,7 @@ from typing import Any
 import feedparser
 
 from news_scraper._logging import get_logger
-from news_scraper.types import Article, ScraperConfig, get_delay
+from news_scraper.types import Article, ScraperConfig, deduplicate_by_url, get_delay
 
 logger = get_logger(__name__, module="cnbc")
 
@@ -247,7 +247,6 @@ def collect_news(
     )
 
     all_articles: list[Article] = []
-    seen_urls: set[str] = set()
 
     for i, category in enumerate(feeds_to_fetch):
         feed_url = CNBC_FEEDS.get(category)
@@ -273,27 +272,19 @@ def collect_news(
                 )
                 continue
 
-            category_count = 0
+            category_articles: list[Article] = []
             for entry in feed.entries:
-                if category_count >= max_per_source:
+                if len(category_articles) >= max_per_source:
                     break
-
                 article = _entry_to_article(entry, category)
-                if article is None:
-                    continue
+                if article is not None:
+                    category_articles.append(article)
 
-                if article.url in seen_urls:
-                    logger.debug("Skipping duplicate URL", url=article.url)
-                    continue
-
-                seen_urls.add(article.url)
-                all_articles.append(article)
-                category_count += 1
-
+            all_articles.extend(category_articles)
             logger.info(
                 "CNBC feed fetched",
                 category=category,
-                count=category_count,
+                count=len(category_articles),
                 total=len(all_articles),
             )
 
@@ -306,8 +297,9 @@ def collect_news(
             )
             continue
 
+    deduplicated = deduplicate_by_url(all_articles)
     logger.info(
         "CNBC news collection complete",
-        total_articles=len(all_articles),
+        total_articles=len(deduplicated),
     )
-    return all_articles
+    return deduplicated
