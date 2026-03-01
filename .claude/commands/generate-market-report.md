@@ -1,6 +1,6 @@
 ---
 description: 週次マーケットレポートを自動生成します（データ収集→ニュース検索→レポート作成→Issue投稿）
-argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] [--no-search]
+argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] [--no-search] [--news-json <path>] [--news-dir <dir>]
 ---
 
 # /generate-market-report - マーケットレポート生成
@@ -49,6 +49,19 @@ argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] 
 # GitHub Project のみ使用（追加検索なし）
 /generate-market-report --weekly --no-search
 
+# ========== ローカル news_scraper JSON 使用 ==========
+
+# NAS のディレクトリを指定してレポート生成（GitHub Project フローをスキップ）
+/generate-market-report --weekly --date 2026-03-01 \
+    --news-dir /Volumes/personal_folder/finance-news/
+
+# 単一 JSON ファイルを指定してレポート生成
+/generate-market-report --weekly --date 2026-03-01 \
+    --news-json /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json
+
+# --news-json / --news-dir 省略で従来の GitHub Project フロー
+/generate-market-report --weekly --date 2026-03-01
+
 # ========== 出力先指定 ==========
 
 # 出力先を指定
@@ -73,6 +86,8 @@ argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] 
 | --weekly-comment | - | false | 週次コメント生成モード（Issue 自動投稿、旧形式） |
 | --project | - | 15 | GitHub Project 番号（--weekly モード時のみ有効） |
 | --no-search | - | false | 追加検索を無効化（--weekly モード時のみ有効、GitHub Project のニュースのみ使用） |
+| --news-json | No | - | 単一の news_scraper JSON ファイルパス（指定時は GitHub Project フローをスキップ） |
+| --news-dir | No | - | news_scraper JSON ディレクトリ（期間内全ファイルをマージして使用） |
 
 ### 日付と期間の計算
 
@@ -154,16 +169,23 @@ Phase 3: 仮説生成（★新規）
 └── hypotheses_{YYYYMMDD-HHMM}.json に出力
 
 Phase 4: ニュース調査（★仮説ベース検索）
-├── GitHub Project から既存ニュース取得
-│   └── weekly-report-news-aggregator → news_from_project.json
-├── 仮説ベースの追加検索（--no-search でスキップ可能）
-│   ├── hypotheses.json の検索クエリを優先度順に実行
-│   ├── RSS MCP / Tavily で検索
-│   └── 検索結果を仮説IDと紐づけ
+├── [条件分岐] --news-json 指定あり
+│   └── 指定 JSON ファイルをニュースソースとして使用（GitHub Project スキップ）
+├── [条件分岐] --news-dir 指定あり
+│   └── ディレクトリ内の全 JSON をマージしてニュースソースとして使用（GitHub Project スキップ）
+├── [条件分岐] --news-json / --news-dir 指定なし（従来フロー）
+│   ├── GitHub Project から既存ニュース取得
+│   │   └── weekly-report-news-aggregator → news_from_project.json
+│   └── 仮説ベースの追加検索（--no-search でスキップ可能）
+│       ├── hypotheses.json の検索クエリを優先度順に実行
+│       ├── RSS MCP / Tavily で検索
+│       └── 検索結果を仮説IDと紐づけ
 └── news_with_context.json に出力（仮説との関連付き）
 
-Phase 5: レポート生成（サブエージェント）
-├── weekly-report-writer 呼び出し
+Phase 5: レポート生成（weekly-report-lead へ委譲）
+├── weekly-report-lead 起動時に以下を渡す:
+│   ├── news_json_path: --news-json の値（指定時のみ）
+│   └── news_json_dir: --news-dir の値（指定時のみ）
 ├── データ集約（weekly-data-aggregation スキル）
 ├── コメント生成（weekly-comment-generation スキル）
 │   └── 仮説と検索結果を統合してコメント作成

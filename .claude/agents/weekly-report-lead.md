@@ -59,6 +59,8 @@ weekly-report-lead (リーダー)
 | skip_validation | No | 品質検証スキップ（デフォルト: false） |
 | skip_publish | No | Issue 投稿スキップ（デフォルト: false） |
 | target_characters | No | 目標文字数（デフォルト: 5700） |
+| news_json_path | No | 単一 JSON ファイルパス（wr-news-aggregator に渡す） |
+| news_json_dir | No | ディレクトリパス（wr-news-aggregator に渡す） |
 
 ## 処理フロー
 
@@ -90,6 +92,49 @@ TeamCreate:
 
 ```yaml
 # task-1: ニュース集約（独立タスク）
+# news_json_path / news_json_dir の指定有無に応じて description を切り替える
+
+# パターン A: news_json_path 指定時
+TaskCreate:
+  subject: "ニュース集約: {start_date} 〜 {end_date}"
+  description: |
+    ローカル JSON ファイルからニュースデータを取得し、対象期間のニュースを集約する。
+
+    ## 入力
+    - 期間: {start_date} 〜 {end_date}
+
+    ## ニュースソース
+    news_json_path: {news_json_path}
+    （GitHub Project はスキップ）
+
+    ## 出力ファイル
+    {report_dir}/data/news_from_project.json
+
+    ## 出力形式
+    JSON形式のニュースデータ（カテゴリ分類済み）
+  activeForm: "ニュースを集約中"
+
+# パターン B: news_json_dir 指定時
+TaskCreate:
+  subject: "ニュース集約: {start_date} 〜 {end_date}"
+  description: |
+    ローカル JSON ディレクトリからニュースデータを取得し、対象期間のニュースを集約する。
+
+    ## 入力
+    - 期間: {start_date} 〜 {end_date}
+
+    ## ニュースソース
+    news_json_dir: {news_json_dir}
+    （GitHub Project はスキップ）
+
+    ## 出力ファイル
+    {report_dir}/data/news_from_project.json
+
+    ## 出力形式
+    JSON形式のニュースデータ（カテゴリ分類済み）
+  activeForm: "ニュースを集約中"
+
+# パターン C: パラメータ省略時（従来フロー）
 TaskCreate:
   subject: "ニュース集約: {start_date} 〜 {end_date}"
   description: |
@@ -268,6 +313,80 @@ TaskUpdate:
 Task ツールでチームメイトを起動し、タスクを割り当てます。
 
 #### 3.1 wr-news-aggregator の起動
+
+`news_json_path` / `news_json_dir` の指定有無に応じてプロンプトを切り替える。
+
+**パターン A: news_json_path 指定時**
+
+```yaml
+Task:
+  subagent_type: "wr-news-aggregator"
+  team_name: "weekly-report-team"
+  name: "news-aggregator"
+  description: "ニュース集約を実行"
+  prompt: |
+    あなたは weekly-report-team の news-aggregator です。
+    TaskList でタスクを確認し、割り当てられたニュース集約タスクを実行してください。
+
+    ## 手順
+    1. TaskList で割り当てタスクを確認
+    2. TaskUpdate(status: in_progress) でタスクを開始
+    3. ローカル JSON ファイルからニュースを取得
+    4. カテゴリ分類して {report_dir}/data/news_from_project.json に書き出し
+    5. TaskUpdate(status: completed) でタスクを完了
+    6. リーダーに SendMessage で完了通知
+
+    ## 期間
+    {start_date} 〜 {end_date}
+
+    ## ニュースソース
+    news_json_path: {news_json_path}
+    （GitHub Project はスキップ）
+
+    ## 出力先
+    {report_dir}/data/news_from_project.json
+
+TaskUpdate:
+  taskId: "<task-1-id>"
+  owner: "news-aggregator"
+```
+
+**パターン B: news_json_dir 指定時**
+
+```yaml
+Task:
+  subagent_type: "wr-news-aggregator"
+  team_name: "weekly-report-team"
+  name: "news-aggregator"
+  description: "ニュース集約を実行"
+  prompt: |
+    あなたは weekly-report-team の news-aggregator です。
+    TaskList でタスクを確認し、割り当てられたニュース集約タスクを実行してください。
+
+    ## 手順
+    1. TaskList で割り当てタスクを確認
+    2. TaskUpdate(status: in_progress) でタスクを開始
+    3. ローカル JSON ディレクトリからニュースを取得
+    4. カテゴリ分類して {report_dir}/data/news_from_project.json に書き出し
+    5. TaskUpdate(status: completed) でタスクを完了
+    6. リーダーに SendMessage で完了通知
+
+    ## 期間
+    {start_date} 〜 {end_date}
+
+    ## ニュースソース
+    news_json_dir: {news_json_dir}
+    （GitHub Project はスキップ）
+
+    ## 出力先
+    {report_dir}/data/news_from_project.json
+
+TaskUpdate:
+  taskId: "<task-1-id>"
+  owner: "news-aggregator"
+```
+
+**パターン C: パラメータ省略時（従来フロー）**
 
 ```yaml
 Task:

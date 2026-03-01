@@ -80,11 +80,16 @@ Phase 3: 仮説生成（★新規）
 └── hypotheses_{YYYYMMDD-HHMM}.json 出力
 
 Phase 4: ニュース調査（★仮説ベース検索）
-├── GitHub Project から既存ニュース取得
-├── 仮説ベースの追加検索（--no-search でスキップ可能）
+├── [条件分岐] --news-json / --news-dir 指定あり
+│   ├── --news-json: 指定 JSON ファイルをそのまま使用（GitHub Project スキップ）
+│   └── --news-dir: ディレクトリ内の全 JSON をマージして使用（GitHub Project スキップ）
+├── [条件分岐] --news-json / --news-dir 指定なし（従来フロー）
+│   ├── GitHub Project から既存ニュース取得
+│   └── 仮説ベースの追加検索（--no-search でスキップ可能）
 └── news_with_context.json（仮説との関連付き）
 
 Phase 5: レポート生成（サブエージェント）
+├── weekly-report-lead へ委譲（news_json_path / news_json_dir を渡す）
 ├── weekly-data-aggregation スキル
 ├── weekly-comment-generation スキル（仮説+検索結果を統合）
 ├── weekly-template-rendering スキル
@@ -110,8 +115,22 @@ Phase 8: 完了処理
 | `--weekly-comment` | false | 週次コメント生成（旧形式） |
 | `--project` | 15 | GitHub Project 番号（--weekly時） |
 | `--no-search` | false | 追加検索を無効化（--weekly時） |
+| `--news-json` | - | 単一の news_scraper JSON ファイルパス（指定時は GitHub Project フローをスキップ） |
+| `--news-dir` | - | news_scraper JSON ディレクトリ（期間内全ファイルをマージして使用） |
 
 **注意**: `--weekly` および `--weekly-comment` モードでは、レポート生成後に自動的に GitHub Issue が作成され、`report` ラベルが付与されて Project #15 に「Weekly Report」ステータスで登録されます。
+
+### --news-json / --news-dir の動作
+
+`--news-json` または `--news-dir` を指定すると、GitHub Project からのニュース取得をスキップし、ローカル JSON ファイルをニュースソースとして使用します。
+
+| 条件 | ニュースソース |
+|------|--------------|
+| `--news-json` / `--news-dir` 省略 | 従来どおり GitHub Project フロー |
+| `--news-json <path>` 指定 | 指定した単一 JSON ファイルを使用 |
+| `--news-dir <dir>` 指定 | ディレクトリ内の全 JSON ファイルをマージして使用 |
+
+weekly-report-lead 起動時に `news_json_path` / `news_json_dir` パラメータとして渡します。
 
 ### 日付と期間の計算
 
@@ -195,6 +214,42 @@ articles/weekly_report/{YYYY-MM-DD}/
 1. 2026-01-20 を終了日として設定
 2. 開始日を 2026-01-13（7日前）に自動計算
 3. 2026-01-13 〜 2026-01-20 の期間でレポートを生成
+
+---
+
+### 例4: NAS ディレクトリを指定してレポート生成
+
+**状況**: NAS に保存した news_scraper の JSON ファイルを使用したい
+
+**コマンド**:
+```bash
+/generate-market-report --weekly --date 2026-03-01 \
+    --news-dir /Volumes/personal_folder/finance-news/
+```
+
+**処理**:
+1. ディレクトリ内の全 JSON ファイルをマージ
+2. GitHub Project フローをスキップ
+3. ローカル JSON をニュースソースとして使用
+4. レポートを生成して GitHub Issue に投稿
+
+---
+
+### 例5: 単一 JSON ファイルを指定してレポート生成
+
+**状況**: 特定の news_scraper JSON ファイルを直接指定したい
+
+**コマンド**:
+```bash
+/generate-market-report --weekly --date 2026-03-01 \
+    --news-json /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json
+```
+
+**処理**:
+1. 指定した単一 JSON ファイルを使用
+2. GitHub Project フローをスキップ
+3. ローカル JSON をニュースソースとして使用
+4. レポートを生成して GitHub Issue に投稿
 
 ## 関連リソース
 
