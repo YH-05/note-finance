@@ -62,6 +62,7 @@ ignore = ["E501", "F401", "PLR0913", "PLR2004", "PLC0415", "PLC2401", "RUF001", 
 include = ["src", "tests"]
 pythonVersion = "3.12"
 typeCheckingMode = "basic"
+extraPaths = ["scripts"]
 # AIDEV-NOTE: 以下は claude-agent-sdk API変更・feedparser型スタブ不整合等による
 # 既存のpyright警告ファイル。独立したIssueとして修正予定のため一時的に除外。
 exclude = [
