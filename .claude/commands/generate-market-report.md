@@ -9,13 +9,13 @@ argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] 
 
 ## モード比較
 
-| モード | 説明 | GitHub Project 連携 | Issue 投稿 | 出力形式 |
-|--------|------|-------------------|-----------|---------|
-| 基本モード | 指定日のレポート生成 | なし | なし | 簡易レポート |
-| `--weekly-comment` | 火曜〜火曜の週次コメント | **あり** | **自動** | 3000字以上のコメント |
-| `--weekly` | **フル週次レポート（推奨）** | **あり** | **自動** | 5700字以上の詳細レポート |
+| モード | 説明 | ニュースソース | Issue 投稿 | 出力形式 |
+|--------|------|--------------|-----------|---------|
+| 基本モード | 指定日のレポート生成 | RSS/Tavily | なし | 簡易レポート |
+| `--weekly-comment` | 火曜〜火曜の週次コメント | RSS/Tavily | **自動** | 3000字以上のコメント |
+| `--weekly` | **フル週次レポート（推奨）** | **ローカルJSON（必須）** | **自動** | 5700字以上の詳細レポート |
 
-`--weekly` は `--weekly-comment` の上位互換であり、GitHub Project からのニュース集約機能が追加されています。
+`--weekly` は `--weekly-comment` の上位互換であり、`news_scraper` パッケージで収集済みのローカルJSONをニュースソースとして使用します。`--news-dir` または `--news-json` の指定が必須です。
 
 **注意**: `--weekly` および `--weekly-comment` モードでは、レポート生成後に自動的に GitHub Issue が作成され、Project #15 に「Weekly Report」ステータスで登録されます。
 
@@ -37,30 +37,17 @@ argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] 
 
 # ========== 週次レポートモード（推奨） ==========
 
-# フル週次レポート生成（GitHub Project連携 + Issue自動投稿）
-/generate-market-report --weekly
-
-# 特定日付でフル週次レポート生成
-/generate-market-report --weekly --date 2026-01-20
-
-# 別の GitHub Project を使用
-/generate-market-report --weekly --project 20
-
-# GitHub Project のみ使用（追加検索なし）
-/generate-market-report --weekly --no-search
-
-# ========== ローカル news_scraper JSON 使用 ==========
-
-# NAS のディレクトリを指定してレポート生成（GitHub Project フローをスキップ）
+# NAS のディレクトリを指定してフル週次レポート生成（推奨）
 /generate-market-report --weekly --date 2026-03-01 \
     --news-dir /Volumes/personal_folder/finance-news/
 
-# 単一 JSON ファイルを指定してレポート生成
+# 単一 JSON ファイルを指定してフル週次レポート生成
 /generate-market-report --weekly --date 2026-03-01 \
     --news-json /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json
 
-# --news-json / --news-dir 省略で従来の GitHub Project フロー
-/generate-market-report --weekly --date 2026-03-01
+# ローカルフォールバックディレクトリを使用
+/generate-market-report --weekly --date 2026-03-01 \
+    --news-dir data/scraped/
 
 # ========== 出力先指定 ==========
 
@@ -82,12 +69,10 @@ argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] 
 |-----------|------|-----------|------|
 | --date | - | 今日の日付 | **レポート終了日（YYYY-MM-DD形式）。この日付から1週間前が開始日となる** |
 | --output | - | articles/market_report_{date} または articles/weekly_report/{date} | 出力ディレクトリ |
-| --weekly | - | false | **フル週次レポート生成モード（GitHub Project 連携 + Issue 自動投稿、推奨）** |
+| --weekly | - | false | **フル週次レポート生成モード（Issue 自動投稿、推奨）** |
 | --weekly-comment | - | false | 週次コメント生成モード（Issue 自動投稿、旧形式） |
-| --project | - | 15 | GitHub Project 番号（--weekly モード時のみ有効） |
-| --no-search | - | false | 追加検索を無効化（--weekly モード時のみ有効、GitHub Project のニュースのみ使用） |
-| --news-json | No | - | 単一の news_scraper JSON ファイルパス（指定時は GitHub Project フローをスキップ） |
-| --news-dir | No | - | news_scraper JSON ディレクトリ（期間内全ファイルをマージして使用） |
+| --news-json | `--weekly` 時必須 | - | 単一の news_scraper JSON ファイルパス（`--news-dir` と排他） |
+| --news-dir | `--weekly` 時必須 | - | news_scraper JSON ディレクトリ（期間内全ファイルをマージして使用、`--news-json` と排他） |
 
 ### 日付と期間の計算
 
@@ -158,55 +143,38 @@ Phase 2: 市場データ収集（★PerformanceAnalyzer4Agent使用）
 │   └── all_performance_{YYYYMMDD-HHMM}.json（統合）
 └── データ鮮度チェック（日付ズレ警告）
 
-Phase 3: 仮説生成（★新規）
-├── market-hypothesis-generator サブエージェント呼び出し
-├── パターン検出:
-│   ├── 期間間乖離（1D vs 1W, トレンド継続/反転）
-│   ├── グループ間比較（MAG7 vs SPX, Growth vs Value）
-│   └── セクターローテーション
-├── 仮説生成（背景要因の推測）
-├── 検索クエリ計画
-└── hypotheses_{YYYYMMDD-HHMM}.json に出力
+Phase 3: ニュース取得（news_scraper ローカルJSON）
+├── --news-json 指定時: 単一ファイルをソースとして使用
+│   └── convert_scraped_news.py --input {news_json_path}
+├── --news-dir 指定時: ディレクトリ内の全JSONをマージ
+│   └── convert_scraped_news.py --input-dir {news_json_dir}
+├── どちらも未指定: エラー終了（--news-dir または --news-json が必須）
+└── news_from_project.json に出力（カテゴリ分類済み）
 
-Phase 4: ニュース調査（★仮説ベース検索）
-├── [条件分岐] --news-json 指定あり
-│   └── 指定 JSON ファイルをニュースソースとして使用（GitHub Project スキップ）
-├── [条件分岐] --news-dir 指定あり
-│   └── ディレクトリ内の全 JSON をマージしてニュースソースとして使用（GitHub Project スキップ）
-├── [条件分岐] --news-json / --news-dir 指定なし（従来フロー）
-│   ├── GitHub Project から既存ニュース取得
-│   │   └── weekly-report-news-aggregator → news_from_project.json
-│   └── 仮説ベースの追加検索（--no-search でスキップ可能）
-│       ├── hypotheses.json の検索クエリを優先度順に実行
-│       ├── RSS MCP / Tavily で検索
-│       └── 検索結果を仮説IDと紐づけ
-└── news_with_context.json に出力（仮説との関連付き）
-
-Phase 5: レポート生成（weekly-report-lead へ委譲）
+Phase 4: レポート生成（weekly-report-lead へ委譲）
 ├── weekly-report-lead 起動時に以下を渡す:
-│   ├── news_json_path: --news-json の値（指定時のみ）
-│   └── news_json_dir: --news-dir の値（指定時のみ）
+│   ├── news_json_path: --news-json の値（指定時）
+│   └── news_json_dir: --news-dir の値（指定時）
 ├── データ集約（weekly-data-aggregation スキル）
 ├── コメント生成（weekly-comment-generation スキル）
-│   └── 仮説と検索結果を統合してコメント作成
 ├── テンプレート埋め込み（weekly-template-rendering スキル）
 ├── 品質検証（weekly-report-validation スキル）
 └── 02_edit/weekly_report.md に出力
 
-Phase 6: 品質検証
+Phase 5: 品質検証
 ├── 文字数確認（目標: 3200字以上）
 ├── セクション別文字数確認
 ├── データ整合性チェック
 └── validation_result.json に結果出力
 
-Phase 7: Issue 投稿（自動実行）
+Phase 6: Issue 投稿（自動実行）
 ├── weekly-report-publisher 呼び出し
 ├── GitHub Issue 作成（`--label "report"` 付与）
-├── Project #{project} に追加（Status: Weekly Report）
+├── Project #15 に追加（Status: Weekly Report）
 ├── 公開日時フィールドを設定
 └── Issue URL を出力
 
-Phase 8: 完了処理
+Phase 7: 完了処理
 └── 結果サマリー表示
 ```
 
@@ -806,52 +774,51 @@ uv run python scripts/weekly_comment_data.py \
 }
 ```
 
-### Phase 3: GitHub Project ニュース取得
+### Phase 3: ニュース取得（news_scraper ローカルJSON）
 
-```python
-# weekly-report-news-aggregator サブエージェントを呼び出し
-Task(
-    subagent_type="weekly-report-news-aggregator",
-    description="GitHub Project からニュース取得",
-    prompt=f"""
-GitHub Project #{project_number} から対象期間のニュースを取得してください。
+`--news-json` または `--news-dir` で指定されたローカル JSON を `convert_scraped_news.py` で変換します。どちらも未指定の場合はエラー終了します。
 
-## 入力パラメータ
+```bash
+# --news-json 指定時（単一ファイル）
+uv run python scripts/convert_scraped_news.py \
+    --input {NEWS_JSON_PATH} \
+    --output {OUTPUT_DIR}/data \
+    --start {START_DATE} \
+    --end {END_DATE}
 
-start: {START_DATE}
-end: {END_DATE}
-project_number: {project_number}
+# --news-dir 指定時（ディレクトリ）
+uv run python scripts/convert_scraped_news.py \
+    --input-dir {NEWS_DIR} \
+    --output {OUTPUT_DIR}/data \
+    --start {START_DATE} \
+    --end {END_DATE}
+```
 
-## 出力先
-
-{OUTPUT_DIR}/data/news_from_project.json
-
-## 期待される処理
-
-1. gh project item-list {project_number} で Issue を取得
-2. 対象期間でフィルタリング（{START_DATE} 〜 {END_DATE}）
-3. カテゴリ分類（indices/mag7/sectors/macro/tech/finance）
-4. JSON 形式で出力
-"""
-)
+**バリデーション**:
+```
+--news-json と --news-dir の両方が未指定の場合:
+  エラー: --weekly モードでは --news-json または --news-dir の指定が必須です
+  対処法:
+    uv run python scripts/scrape_finance_news.py でニュースを収集してから
+    --news-dir /Volumes/personal_folder/finance-news/ を指定してください
 ```
 
 **出力形式（news_from_project.json）**:
 ```json
 {
   "period": {"start": "2026-01-14", "end": "2026-01-21"},
-  "project_number": 15,
   "generated_at": "2026-01-22T09:35:00Z",
   "total_count": 25,
   "news": [
     {
-      "issue_number": 171,
+      "issue_number": 1,
       "title": "Fed signals potential rate pause",
       "category": "macro",
-      "url": "https://github.com/YH-05/finance/issues/171",
+      "url": "https://www.cnbc.com/...",
+      "original_url": "https://www.cnbc.com/...",
       "created_at": "2026-01-15T08:30:00Z",
       "summary": "FRBが利上げ停止の可能性を示唆...",
-      "original_url": "https://..."
+      "source": "cnbc"
     }
   ],
   "by_category": {
@@ -875,61 +842,7 @@ project_number: {project_number}
 }
 ```
 
-### Phase 4: 追加ニュース検索
-
-`--no-search` オプションが指定されていない場合、カテゴリ別の件数を確認し、
-不足しているカテゴリについて追加検索を実行します。
-
-**判定基準**:
-| カテゴリ | 最低件数 | 不足時の対処 |
-|---------|---------|-------------|
-| indices | 2件 | RSS/Tavily で追加検索 |
-| mag7 | 3件 | RSS/Tavily で追加検索 |
-| sectors | 2件 | RSS/Tavily で追加検索 |
-| macro | 2件 | RSS/Tavily で追加検索 |
-
-```python
-# 追加検索が必要な場合
-if not no_search:
-    for category, min_count in CATEGORY_MIN_COUNTS.items():
-        if news_statistics[category] < min_count:
-            # RSS MCP で検索
-            rss_results = rss_search(CATEGORY_KEYWORDS[category])
-
-            # 不足が続く場合は Tavily で補完
-            if len(rss_results) < min_count:
-                tavily_results = tavily_search(CATEGORY_KEYWORDS[category])
-
-    # 結果を news_supplemental.json に保存
-```
-
-**出力形式（news_supplemental.json）**:
-```json
-{
-  "searched_at": "2026-01-22T09:40:00Z",
-  "reason": "カテゴリ別ニュース補完",
-  "search_queries": [
-    {"category": "sectors", "query": "sector rotation energy healthcare"},
-    {"category": "macro", "query": "Federal Reserve interest rate policy"}
-  ],
-  "results": [
-    {
-      "category": "sectors",
-      "title": "Energy sector leads market rally",
-      "source": "RSS Feed",
-      "url": "https://...",
-      "published": "2026-01-20T14:00:00Z",
-      "summary": "エネルギーセクターが市場上昇をリード..."
-    }
-  ],
-  "statistics": {
-    "sectors": 2,
-    "macro": 1
-  }
-}
-```
-
-### Phase 5: レポート生成（Agent Teams）
+### Phase 4: レポート生成（Agent Teams）
 
 Phase 1（初期化）完了後に `weekly-report-lead` エージェントに制御を委譲し、Agent Teams ワークフローでレポートを生成します。
 
@@ -994,7 +907,7 @@ Phase 5 で生成された `validation_result.json` を確認します。
 | D | 60-69 | 要改善 |
 | F | 0-59 | 不合格 |
 
-### Phase 7: Issue 投稿（自動実行）
+### Phase 6: Issue 投稿（自動実行）
 
 レポート生成後、自動的に GitHub Issue として投稿します。
 
@@ -1009,7 +922,7 @@ Task(
 ## 入力パラメータ
 
 report_dir: {OUTPUT_DIR}
-project_number: {project_number}
+project_number: 15
 
 ## 期待される処理（必須）
 
@@ -1017,21 +930,21 @@ project_number: {project_number}
 2. {OUTPUT_DIR}/02_edit/weekly_report.md からレポート読み込み
 3. Issue 本文を生成
 4. **GitHub Issue を作成（`--label "report"` を必ず付与）**
-5. **GitHub Project #{project_number} に追加（`gh project item-add` 実行）**
+5. **GitHub Project #15 に追加（`gh project item-add` 実行）**
 6. **Status を "Weekly Report" に設定（GraphQL API 実行）**
 7. **公開日時フィールドを設定**
 
 ## 重要な確認事項
 
 - [ ] Issue に `report` ラベルが付与されているか確認
-- [ ] Issue が Project #{project_number} に追加されているか確認
+- [ ] Issue が Project #15 に追加されているか確認
 - [ ] Status が "Weekly Report" に設定されているか確認
 - [ ] 結果出力に Project 登録情報（Item ID, Status）を含める
 """
 )
 ```
 
-### Phase 8: 完了処理
+### Phase 7: 完了処理
 
 **成功時の出力**:
 ```markdown
@@ -1111,47 +1024,45 @@ project_number: {project_number}
 
 ## --weekly モードのエラーハンドリング
 
-### E010: GitHub Project アクセスエラー
+### E010: ニュースソース未指定エラー
 
 **発生条件**:
-- Project が存在しない
-- アクセス権限がない
+- `--news-dir` と `--news-json` の両方が未指定
 
 **対処法**:
 ```
-エラー: GitHub Project #15 にアクセスできません
-
-確認項目:
-1. Project の存在確認:
-   gh project list --owner @me
-
-2. Project 番号の確認:
-   gh project view 15 --owner @me
-
-3. 別の Project を指定:
-   /generate-market-report --weekly --project 20
-```
-
-### E011: ニュース取得件数不足
-
-**発生条件**:
-- GitHub Project にニュースが少ない
-- 対象期間にニュースがない
-
-**対処法**:
-```
-警告: GitHub Project からのニュースが不足しています
-
-取得件数: 3件（推奨: 10件以上）
+エラー: --weekly モードでは --news-dir または --news-json の指定が必須です
 
 対処法:
-1. 追加検索を有効化:
-   /generate-market-report --weekly  # --no-search なしで実行
+1. news_scraper でニュースを収集:
+   uv run python scripts/scrape_finance_news.py
 
-2. 期間を拡大（手動でデータ追加）
+2. 収集済みディレクトリを指定:
+   /generate-market-report --weekly --news-dir /Volumes/personal_folder/finance-news/
 
-3. 続行（不足したまま）:
-   現在の状態でレポート生成を続行しますか？ [y/N]
+3. ローカルフォールバックを使用:
+   /generate-market-report --weekly --news-dir data/scraped/
+```
+
+### E011: ニュースJSON変換エラー
+
+**発生条件**:
+- 指定したファイル/ディレクトリが存在しない
+- `convert_scraped_news.py` の実行に失敗
+
+**対処法**:
+```
+エラー: ニュースJSONの変換に失敗しました
+
+確認項目:
+1. ファイル/ディレクトリの存在確認:
+   ls --news-dir で指定したパス
+
+2. スクリプトを直接実行してエラーを確認:
+   uv run python scripts/convert_scraped_news.py --input-dir {path} --output .tmp --start {start} --end {end}
+
+3. ニュースファイルの形式を確認:
+   cat {path}/*/news_*.json | head -50
 ```
 
 ### E012: レポート生成エラー
