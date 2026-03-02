@@ -55,12 +55,12 @@ weekly-report-lead (リーダー)
 | report_dir | Yes | レポート出力ディレクトリ（例: `articles/weekly_report/2026-01-22`） |
 | start_date | Yes | 対象期間の開始日（YYYY-MM-DD） |
 | end_date | Yes | 対象期間の終了日（YYYY-MM-DD） |
-| project_number | No | GitHub Project 番号（デフォルト: 15） |
+| project_number | No | GitHub Project 番号（Issue 投稿先、デフォルト: 15） |
 | skip_validation | No | 品質検証スキップ（デフォルト: false） |
 | skip_publish | No | Issue 投稿スキップ（デフォルト: false） |
 | target_characters | No | 目標文字数（デフォルト: 5700） |
-| news_json_path | No | 単一 JSON ファイルパス（wr-news-aggregator に渡す） |
-| news_json_dir | No | ディレクトリパス（wr-news-aggregator に渡す） |
+| news_json_path | いずれか必須 | 単一 JSON ファイルパス（wr-news-aggregator に渡す；news_json_dir と排他） |
+| news_json_dir | いずれか必須 | ディレクトリパス（wr-news-aggregator に渡す；news_json_path と排他） |
 
 ## 処理フロー
 
@@ -134,22 +134,9 @@ TaskCreate:
     JSON形式のニュースデータ（カテゴリ分類済み）
   activeForm: "ニュースを集約中"
 
-# パターン C: パラメータ省略時（従来フロー）
-TaskCreate:
-  subject: "ニュース集約: {start_date} 〜 {end_date}"
-  description: |
-    GitHub Project #{project_number} から対象期間のニュースを集約する。
-
-    ## 入力
-    - GitHub Project #{project_number}
-    - 期間: {start_date} 〜 {end_date}
-
-    ## 出力ファイル
-    {report_dir}/data/news_from_project.json
-
-    ## 出力形式
-    JSON形式のニュースデータ（カテゴリ分類済み）
-  activeForm: "ニュースを集約中"
+# パターン B または A の指定が必須（どちらも未指定の場合はエラー）
+# news_json_path と news_json_dir の両方が未指定のときは
+# wr-news-aggregator に渡す前にエラーを報告する
 
 # task-2: データ集約（task-1 に依存）
 TaskCreate:
@@ -386,36 +373,7 @@ TaskUpdate:
   owner: "news-aggregator"
 ```
 
-**パターン C: パラメータ省略時（従来フロー）**
-
-```yaml
-Task:
-  subagent_type: "wr-news-aggregator"
-  team_name: "weekly-report-team"
-  name: "news-aggregator"
-  description: "ニュース集約を実行"
-  prompt: |
-    あなたは weekly-report-team の news-aggregator です。
-    TaskList でタスクを確認し、割り当てられたニュース集約タスクを実行してください。
-
-    ## 手順
-    1. TaskList で割り当てタスクを確認
-    2. TaskUpdate(status: in_progress) でタスクを開始
-    3. GitHub Project #{project_number} から {start_date} 〜 {end_date} のニュースを取得
-    4. カテゴリ分類して {report_dir}/data/news_from_project.json に書き出し
-    5. TaskUpdate(status: completed) でタスクを完了
-    6. リーダーに SendMessage で完了通知
-
-    ## 期間
-    {start_date} 〜 {end_date}
-
-    ## 出力先
-    {report_dir}/data/news_from_project.json
-
-TaskUpdate:
-  taskId: "<task-1-id>"
-  owner: "news-aggregator"
-```
+**パターン A または B のいずれかが必須。未指定の場合はエラーを出力してワークフローを終了する。**
 
 #### 3.2 wr-data-aggregator の起動
 

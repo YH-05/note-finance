@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import sys
 from datetime import datetime, timezone
@@ -47,9 +48,13 @@ from news_scraper._logging import get_logger
 
 logger = get_logger(__name__, module="scrape_finance_news")
 
-# Default paths
-DEFAULT_NAS_OUTPUT = Path("/Volumes/personal_folder/finance-news")
-DEFAULT_LOCAL_FALLBACK = Path("data/scraped")
+# Default paths (overridable via environment variables)
+# FINANCE_NEWS_NAS_DIR  : NAS マウントパス（優先）
+# FINANCE_NEWS_LOCAL_DIR: NAS 未マウント時のローカルフォールバック
+DEFAULT_NAS_OUTPUT = Path(
+    os.environ.get("FINANCE_NEWS_NAS_DIR", "/Volumes/personal_folder/finance-news")
+)
+DEFAULT_LOCAL_FALLBACK = Path(os.environ.get("FINANCE_NEWS_LOCAL_DIR", "data/scraped"))
 DEFAULT_SOURCES = ["cnbc", "nasdaq"]
 DEFAULT_CLEANUP_DAYS = 30
 

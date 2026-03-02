@@ -85,6 +85,12 @@ note-finance 金融ニューススクレイピング launchd エージェント
         <!-- uv, python などが見つかるように PATH を設定 -->
         <key>PATH</key>
         <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <!-- ニュース保存先（任意）: デフォルトは /Volumes/personal_folder/finance-news -->
+        <!-- <key>FINANCE_NEWS_NAS_DIR</key> -->
+        <!-- <string>/Volumes/personal_folder/finance-news</string> -->
+        <!-- ローカルフォールバック（任意）: デフォルトは data/scraped -->
+        <!-- <key>FINANCE_NEWS_LOCAL_DIR</key> -->
+        <!-- <string>data/scraped</string> -->
     </dict>
 
     <!-- macOS ログイン時に自動実行しない -->
