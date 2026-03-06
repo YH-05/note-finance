@@ -1,0 +1,41 @@
+{
+    "version": "1.0",
+    "themes": {
+        "nisa": {
+            "name_ja": "NISA制度",
+            "keywords_ja": ["NISA", "つみたて", "非課税", "積立投資"],
+            "target_sources": ["fsa", "morningstar_jp", "emaxis"]
+        },
+        "fund_selection": {
+            "name_ja": "ファンド選び",
+            "keywords_ja": ["インデックス", "ファンド", "信託報酬", "eMAXIS", "オルカン"],
+            "target_sources": ["emaxis", "morningstar_jp"]
+        },
+        "asset_allocation": {
+            "name_ja": "資産配分",
+            "keywords_ja": ["資産配分", "ポートフォリオ", "分散投資", "リバランス"],
+            "target_sources": ["daiwa", "morningstar_jp"]
+        },
+        "ideco": {
+            "name_ja": "iDeCo・企業型DC",
+            "keywords_ja": ["iDeCo", "確定拠出年金", "DC", "節税"],
+            "target_sources": ["fsa", "morningstar_jp"]
+        },
+        "market_basics": {
+            "name_ja": "市場の基礎知識",
+            "keywords_ja": ["株式市場", "経済指標", "為替", "債券", "金利"],
+            "target_sources": ["jpx", "boj", "daiwa"]
+        },
+        "simulation": {
+            "name_ja": "資産形成シミュレーション",
+            "keywords_ja": ["複利", "積立", "シミュレーション", "老後資金"],
+            "target_sources": ["fsa", "daiwa"]
+        }
+    },
+    "content_rules": {
+        "target_audience": "beginner",
+        "required_snippets": ["not-advice", "investment-risk"],
+        "note_char_range": [2000, 4000],
+        "x_char_limit": 280
+    }
+}

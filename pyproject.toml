@@ -17,6 +17,8 @@ dependencies = [
     "tenacity>=9.1.2",
     "tqdm>=4.67.2",
     "finance",
+    "authlib>=1.6.7",
+    "lxml-html-clean>=0.4.4",
     "pyyaml>=6.0.3",
 ]
 
@@ -102,3 +104,8 @@ addopts = ["-ra", "--strict-markers", "--strict-config"]
 
 [tool.uv.sources]
 finance = { git = "https://github.com/YH-05/finance.git" }
+
+[dependency-groups]
+dev = [
+    "freezegun>=1.5.5",
+]
