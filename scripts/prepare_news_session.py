@@ -39,8 +39,10 @@ from session_utils import (
     ArticleData,
     BlockedArticle,
     SessionStats,
+    configure_logging,
     filter_by_date,
-    get_logger as _get_structlog,
+    get_logger as _get_logger,
+    load_json_config,
     select_top_n,
     write_session_file,
 )
@@ -78,7 +80,7 @@ URL_PATTERN = re.compile(r"https?://[^\s<>\"\)]+")
 # Logger
 # ---------------------------------------------------------------------------
 
-logger = _get_structlog(__name__)
+logger = _get_logger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -254,13 +256,7 @@ def load_theme_config(config_path: Path = THEME_CONFIG_PATH) -> dict[str, Any]:
     json.JSONDecodeError
         If configuration file is not valid JSON.
     """
-    logger.info("loading_theme_configuration", config_path=str(config_path))
-
-    with open(config_path) as f:
-        config = json.load(f)
-
-    logger.debug("loaded_themes", count=len(config.get("themes", {})))
-    return config
+    return load_json_config(config_path)
 
 
 # ---------------------------------------------------------------------------
@@ -778,12 +774,7 @@ def main(args: list[str] | None = None) -> int:
     parsed = parse_args(args)
 
     # Configure logging
-    if parsed.verbose:
-        import structlog
-
-        structlog.configure(
-            wrapper_class=structlog.make_filtering_bound_logger(logging.DEBUG),
-        )
+    configure_logging(parsed.verbose)
 
     # Parse themes
     themes_filter: list[str] | None = None

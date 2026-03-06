@@ -10,6 +10,8 @@ from datetime import datetime, timedelta, timezone
 from typing import TYPE_CHECKING, Any
 from unittest.mock import MagicMock
 
+from freezegun import freeze_time
+
 if TYPE_CHECKING:
     from pathlib import Path
 
@@ -17,11 +19,21 @@ from session_utils import (
     ArticleData,
     BlockedArticle,
     SessionStats,
+    configure_logging,
     filter_by_date,
     get_logger,
+    load_json_config,
     select_top_n,
     write_session_file,
 )
+
+# ---------------------------------------------------------------------------
+# Constants
+# ---------------------------------------------------------------------------
+
+FROZEN_TIME = "2026-03-06T12:00:00+00:00"
+"""Fixed time for deterministic tests."""
+
 
 # ---------------------------------------------------------------------------
 # Pydantic Models
@@ -55,6 +67,13 @@ class TestArticleData:
         )
         dumped = article.model_dump()
         assert isinstance(dumped, dict)
+        assert set(dumped.keys()) == {
+            "url",
+            "title",
+            "summary",
+            "feed_source",
+            "published",
+        }
         assert dumped["url"] == "https://example.com/1"
 
 
@@ -69,6 +88,8 @@ class TestBlockedArticle:
             reason="paywall detected",
         )
         assert blocked.url == "https://example.com/blocked"
+        assert blocked.title == "Blocked Article"
+        assert blocked.summary == "Blocked summary"
         assert blocked.reason == "paywall detected"
 
 
@@ -90,9 +111,11 @@ class TestSessionStats:
 class TestFilterByDate:
     """filter_by_date 関数のテスト。"""
 
-    def _make_item(self, days_ago: int) -> dict[str, Any]:
-        """指定日数前の published を持つアイテムを生成。"""
-        dt = datetime.now(timezone.utc) - timedelta(days=days_ago)
+    @staticmethod
+    def _make_item(days_ago: int) -> dict[str, Any]:
+        """指定日数前の published を持つアイテムを生成（固定基準時刻）。"""
+        base = datetime(2026, 3, 6, 12, 0, 0, tzinfo=timezone.utc)
+        dt = base - timedelta(days=days_ago)
         return {
             "title": f"Article {days_ago} days ago",
             "link": f"https://example.com/{days_ago}",
@@ -100,6 +123,7 @@ class TestFilterByDate:
             "summary": "test",
         }
 
+    @freeze_time(FROZEN_TIME)
     def test_正常系_期間内の記事のみ返す(self) -> None:
         items = [
             self._make_item(1),  # 1日前 → 含まれる
@@ -109,6 +133,7 @@ class TestFilterByDate:
         result = filter_by_date(items, days=7)
         assert len(result) == 2
 
+    @freeze_time(FROZEN_TIME)
     def test_正常系_全て期間外なら空リスト(self) -> None:
         items = [self._make_item(30), self._make_item(60)]
         result = filter_by_date(items, days=7)
@@ -133,6 +158,13 @@ class TestFilterByDate:
         ]
         result = filter_by_date(items, days=7)
         assert result == []
+
+    @freeze_time(FROZEN_TIME)
+    def test_境界値_top_n_1で1件のみ返す(self) -> None:
+        items = [self._make_item(1), self._make_item(2)]
+        filtered = filter_by_date(items, days=7)
+        result = select_top_n(filtered, top_n=1)
+        assert len(result) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -173,6 +205,15 @@ class TestSelectTopN:
         result = select_top_n([], top_n=5)
         assert result == []
 
+    def test_境界値_top_n_1で1件のみ返す(self) -> None:
+        items = [
+            {"title": "A", "published": "2026-01-01T00:00:00+00:00"},
+            {"title": "B", "published": "2026-02-01T00:00:00+00:00"},
+        ]
+        result = select_top_n(items, top_n=1)
+        assert len(result) == 1
+        assert result[0]["title"] == "B"
+
 
 # ---------------------------------------------------------------------------
 # write_session_file
@@ -183,8 +224,6 @@ class TestWriteSessionFile:
     """write_session_file 関数のテスト。"""
 
     def test_正常系_JSONファイルが作成される(self, tmp_path: Path) -> None:
-        # AIDEV-NOTE: NewsSession は prepare_news_session.py に残るため、
-        # ここでは write_session_file のインターフェースに合わせたモックを使う
         session = MagicMock()
         session.model_dump.return_value = {
             "session_id": "news-20260306-120000",
@@ -224,3 +263,52 @@ class TestGetLogger:
     def test_正常系_ロガーが返される(self) -> None:
         log = get_logger("test_module")
         assert log is not None
+        assert hasattr(log, "info")
+        assert hasattr(log, "debug")
+        assert hasattr(log, "error")
+
+
+# ---------------------------------------------------------------------------
+# configure_logging
+# ---------------------------------------------------------------------------
+
+
+class TestConfigureLogging:
+    """configure_logging 関数のテスト。"""
+
+    def test_正常系_verbose_falseでエラーなし(self) -> None:
+        # Should not raise
+        configure_logging(verbose=False)
+
+    def test_正常系_verbose_trueでエラーなし(self) -> None:
+        # Should not raise
+        configure_logging(verbose=True)
+
+
+# ---------------------------------------------------------------------------
+# load_json_config
+# ---------------------------------------------------------------------------
+
+
+class TestLoadJsonConfig:
+    """load_json_config 関数のテスト。"""
+
+    def test_正常系_JSONファイルを読み込める(self, tmp_path: Path) -> None:
+        config = {"key": "value", "nested": {"a": 1}}
+        config_path = tmp_path / "config.json"
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+
+        result = load_json_config(config_path)
+
+        assert result == config
+
+    def test_異常系_ファイルが存在しない(self, tmp_path: Path) -> None:
+        with __import__("pytest").raises(FileNotFoundError):
+            load_json_config(tmp_path / "nonexistent.json")
+
+    def test_異常系_不正なJSON(self, tmp_path: Path) -> None:
+        bad_path = tmp_path / "bad.json"
+        bad_path.write_text("{invalid json", encoding="utf-8")
+
+        with __import__("pytest").raises(json.JSONDecodeError):
+            load_json_config(bad_path)

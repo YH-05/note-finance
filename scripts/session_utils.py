@@ -21,6 +21,7 @@ Models
 from __future__ import annotations
 
 import json
+import logging
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -48,6 +49,50 @@ def get_logger(name: str) -> structlog.stdlib.BoundLogger:
         Configured bound logger instance.
     """
     return structlog.get_logger(name)
+
+
+def configure_logging(verbose: bool) -> None:
+    """Configure structlog verbosity.
+
+    Parameters
+    ----------
+    verbose : bool
+        If True, set log level to DEBUG.
+    """
+    if verbose:
+        structlog.configure(
+            wrapper_class=structlog.make_filtering_bound_logger(logging.DEBUG),
+        )
+
+
+def load_json_config(config_path: Path) -> dict[str, Any]:
+    """Load a JSON configuration file.
+
+    Parameters
+    ----------
+    config_path : Path
+        Path to the JSON file.
+
+    Returns
+    -------
+    dict[str, Any]
+        Parsed JSON data.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the file does not exist.
+    json.JSONDecodeError
+        If the file is not valid JSON.
+    """
+    _logger = get_logger(__name__)
+    _logger.info("loading_config", config_path=str(config_path))
+
+    with open(config_path) as f:
+        data = json.load(f)
+
+    _logger.debug("config_loaded", key_count=len(data) if isinstance(data, dict) else 0)
+    return data
 
 
 # ---------------------------------------------------------------------------

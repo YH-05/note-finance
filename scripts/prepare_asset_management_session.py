@@ -18,9 +18,8 @@ Output
 from __future__ import annotations
 
 import argparse
-import json
-import logging
 import sys
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -32,8 +31,10 @@ from pydantic import BaseModel, Field
 
 from session_utils import (
     ArticleData,
+    configure_logging,
     filter_by_date,
-    get_logger as _get_structlog,
+    get_logger as _get_logger,
+    load_json_config,
     select_top_n,
     write_session_file,
 )
@@ -60,12 +61,21 @@ RSS_PRESETS_JP_PATH = Path("data/config/rss-presets-jp.json")
 TMP_DIR = Path(".tmp")
 """Temporary directory for session files."""
 
+FEED_READ_LIMIT = 100
+"""Maximum number of items to fetch from FeedReader per search call."""
+
+MAX_DAYS = 365
+"""Maximum allowed value for --days argument."""
+
+MAX_TOP_N = 100
+"""Maximum allowed value for --top-n argument."""
+
 
 # ---------------------------------------------------------------------------
 # Logger
 # ---------------------------------------------------------------------------
 
-logger = _get_structlog(__name__)
+logger = _get_logger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -183,43 +193,27 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
         help="Enable verbose logging",
     )
 
-    return parser.parse_args(args)
+    parsed = parser.parse_args(args)
+
+    # Validate ranges
+    if parsed.days <= 0 or parsed.days > MAX_DAYS:
+        parser.error(f"--days must be between 1 and {MAX_DAYS}")
+    if parsed.top_n < 0 or parsed.top_n > MAX_TOP_N:
+        parser.error(f"--top-n must be between 0 and {MAX_TOP_N}")
+
+    # Validate output path
+    if parsed.output:
+        output_path = Path(parsed.output).resolve()
+        allowed_base = Path(".tmp").resolve()
+        if not str(output_path).startswith(str(allowed_base)):
+            parser.error(f"Output path must be within .tmp/: {parsed.output}")
+
+    return parsed
 
 
 # ---------------------------------------------------------------------------
 # Configuration Loading
 # ---------------------------------------------------------------------------
-
-
-def load_theme_config(
-    config_path: Path = THEME_CONFIG_PATH,
-) -> dict[str, Any]:
-    """Load asset management theme configuration from JSON file.
-
-    Parameters
-    ----------
-    config_path : Path
-        Path to the theme configuration file.
-
-    Returns
-    -------
-    dict[str, Any]
-        Theme configuration data.
-
-    Raises
-    ------
-    FileNotFoundError
-        If configuration file does not exist.
-    json.JSONDecodeError
-        If configuration file is not valid JSON.
-    """
-    logger.info("loading_theme_configuration", config_path=str(config_path))
-
-    with open(config_path) as f:
-        config = json.load(f)
-
-    logger.debug("loaded_themes", count=len(config.get("themes", {})))
-    return config
 
 
 def load_rss_presets(
@@ -244,11 +238,7 @@ def load_rss_presets(
     json.JSONDecodeError
         If configuration file is not valid JSON.
     """
-    logger.info("loading_rss_presets", presets_path=str(presets_path))
-
-    with open(presets_path) as f:
-        data = json.load(f)
-
+    data = load_json_config(presets_path)
     presets = data.get("presets", [])
     enabled = [p for p in presets if p.get("enabled", True)]
 
@@ -305,6 +295,55 @@ def match_keywords(
 # RSS Feed Fetching by Source
 # ---------------------------------------------------------------------------
 
+# Map URL patterns to source keys used in theme config
+URL_TO_SOURCE_KEY: dict[str, str] = {
+    "fsa.go.jp": "fsa",
+    "boj.or.jp": "boj",
+    "dir.co.jp": "daiwa",
+    "jpx.co.jp": "jpx",
+    "emaxis": "emaxis",
+    "morningstar": "morningstar_jp",
+}
+"""Mapping from URL domain patterns to source keys."""
+
+
+def resolve_source_key(url: str) -> str:
+    """Resolve a source key from a URL using domain pattern matching.
+
+    Parameters
+    ----------
+    url : str
+        RSS feed URL.
+
+    Returns
+    -------
+    str
+        Resolved source key, or ``"unknown"`` if no pattern matched.
+    """
+    for pattern, key in URL_TO_SOURCE_KEY.items():
+        if pattern in url:
+            return key
+    return "unknown"
+
+
+def _extract_domain(url: str) -> str:
+    """Extract domain from a URL.
+
+    Parameters
+    ----------
+    url : str
+        URL string.
+
+    Returns
+    -------
+    str
+        Domain part of the URL, or empty string on failure.
+    """
+    try:
+        return url.split("/")[2]
+    except (IndexError, AttributeError):
+        return ""
+
 
 def fetch_items_by_source(
     presets: list[dict[str, Any]],
@@ -325,86 +364,66 @@ def fetch_items_by_source(
     dict[str, list[dict[str, Any]]]
         RSS items keyed by source key.
     """
-    # AIDEV-NOTE: We use httpx/feedparser-like approach but since the project
-    # uses rss.services.feed_reader.FeedReader which reads from local JSON
-    # files, we import and use it here.  However, for JP feeds that may not
-    # have local data yet, we fall back to fetching directly.
+    # AIDEV-NOTE: We use rss.services.feed_reader.FeedReader which reads
+    # from local JSON files. For JP feeds that may not have local data yet,
+    # items will simply be empty.
     from rss.services.feed_reader import FeedReader
 
     logger.info("fetching_items_by_source", preset_count=len(presets))
 
-    # Map URL patterns to source keys used in theme config
-    url_to_source: dict[str, str] = {
-        "fsa.go.jp": "fsa",
-        "boj.or.jp": "boj",
-        "dir.co.jp": "daiwa",
-        "jpx.co.jp": "jpx",
-        "emaxis": "emaxis",
-        "morningstar": "morningstar_jp",
-    }
+    items_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
-    items_by_source: dict[str, list[dict[str, Any]]] = {}
-
-    # Try reading from local RSS data first
-    data_dir = Path("data/raw/rss")
-    reader: FeedReader | None = None
-    if data_dir.exists():
-        try:
-            reader = FeedReader(data_dir)
-        except Exception as e:
-            logger.warning("feed_reader_init_failed", error=str(e))
-
+    # Build a set of (source_key, domain) pairs from presets
+    preset_mapping: list[tuple[str, str, str]] = []
     for preset in presets:
         url = preset.get("url", "")
         title = preset.get("title", "Unknown")
+        source_key = resolve_source_key(url)
+        domain = _extract_domain(url)
+        preset_mapping.append((source_key, domain, title))
 
-        # Determine source key from URL
-        source_key = "unknown"
-        for pattern, key in url_to_source.items():
-            if pattern in url:
-                source_key = key
-                break
+    # Try reading from local RSS data - fetch all items once (N+1 fix)
+    data_dir = Path("data/raw/rss")
+    if data_dir.exists():
+        try:
+            reader = FeedReader(data_dir)
+            all_items = reader.search_items(query="", limit=FEED_READ_LIMIT)
 
-        if source_key not in items_by_source:
-            items_by_source[source_key] = []
+            # Index items by domain
+            items_by_domain: dict[str, list[Any]] = defaultdict(list)
+            for fi in all_items:
+                if fi.link:
+                    item_domain = _extract_domain(fi.link)
+                    items_by_domain[item_domain].append(fi)
 
-        # Try to get items from local storage via FeedReader
-        if reader is not None:
-            try:
-                feed_items = reader.search_items(
-                    query="",
-                    limit=100,
-                )
-                for fi in feed_items:
-                    # Only include items from this feed's domain
-                    if fi.link and any(p in fi.link for p in [source_key, url.split("/")[2]]):
-                        items_by_source[source_key].append(
-                            {
-                                "item_id": fi.item_id,
-                                "title": fi.title,
-                                "link": fi.link,
-                                "published": fi.published,
-                                "summary": fi.summary or "",
-                                "content": fi.content,
-                                "author": fi.author,
-                                "fetched_at": fi.fetched_at,
-                                "feed_source": title,
-                            }
-                        )
-            except Exception as e:
-                logger.warning(
-                    "failed_to_read_local_feed",
-                    source_key=source_key,
-                    error=str(e),
-                )
+            # Assign items to source keys based on domain matching
+            for source_key, domain, title in preset_mapping:
+                for fi in items_by_domain.get(domain, []):
+                    items_by_source[source_key].append(
+                        {
+                            "item_id": fi.item_id,
+                            "title": fi.title,
+                            "link": fi.link,
+                            "published": fi.published,
+                            "summary": fi.summary or "",
+                            "content": fi.content,
+                            "author": fi.author,
+                            "fetched_at": fi.fetched_at,
+                            "feed_source": title,
+                        }
+                    )
 
+        except (OSError, ValueError) as e:
+            logger.warning("feed_reader_failed", error=str(e))
+
+    for source_key, _, _ in preset_mapping:
         logger.debug(
             "source_items_fetched",
             source_key=source_key,
             count=len(items_by_source.get(source_key, [])),
         )
 
-    return items_by_source
+    return dict(items_by_source)
 
 
 # ---------------------------------------------------------------------------
@@ -418,7 +437,7 @@ def process_themes(
     days: int,
     top_n: int,
     selected_themes: list[str] | None,
-) -> dict[str, dict[str, Any]]:
+) -> tuple[dict[str, dict[str, Any]], int, int]:
     """Process RSS items for each theme with date filtering and keyword matching.
 
     Parameters
@@ -436,8 +455,9 @@ def process_themes(
 
     Returns
     -------
-    dict[str, dict[str, Any]]
-        Processed theme results with ``articles`` and ``name_ja`` keys.
+    tuple[dict[str, dict[str, Any]], int, int]
+        Tuple of (theme results, total date-filtered count, total
+        keyword-matched count).
     """
     logger.info(
         "processing_themes",
@@ -447,6 +467,8 @@ def process_themes(
     )
 
     results: dict[str, dict[str, Any]] = {}
+    total_date_filtered = 0
+    total_keyword_matched = 0
 
     for theme_key, theme_data in themes_config.items():
         # Skip if not in selected themes
@@ -479,6 +501,7 @@ def process_themes(
 
         # Filter by date
         date_filtered = filter_by_date(theme_items, days)
+        total_date_filtered += len(date_filtered)
         logger.debug(
             "after_date_filter",
             theme=theme_key,
@@ -490,6 +513,7 @@ def process_themes(
         keyword_matched = [
             item for item in date_filtered if match_keywords(item, keywords)
         ]
+        total_keyword_matched += len(keyword_matched)
         logger.debug(
             "after_keyword_filter",
             theme=theme_key,
@@ -512,7 +536,7 @@ def process_themes(
             article_count=len(selected),
         )
 
-    return results
+    return results, total_date_filtered, total_keyword_matched
 
 
 # ---------------------------------------------------------------------------
@@ -533,6 +557,7 @@ def generate_session_id() -> str:
 
 
 def build_session(
+    session_id: str,
     theme_results: dict[str, dict[str, Any]],
     total_fetched: int,
     total_filtered: int,
@@ -542,6 +567,8 @@ def build_session(
 
     Parameters
     ----------
+    session_id : str
+        Pre-generated session ID.
     theme_results : dict[str, dict[str, Any]]
         Processed theme results.
     total_fetched : int
@@ -577,7 +604,7 @@ def build_session(
         )
 
     return AssetManagementSession(
-        session_id=generate_session_id(),
+        session_id=session_id,
         timestamp=datetime.now(timezone.utc).isoformat(),
         themes=themes,
         stats=AssetManagementStats(
@@ -586,23 +613,6 @@ def build_session(
             matched=total_matched,
         ),
     )
-
-
-# ---------------------------------------------------------------------------
-# Output
-# ---------------------------------------------------------------------------
-
-
-def get_default_output_path() -> Path:
-    """Get default output path in .tmp directory.
-
-    Returns
-    -------
-    Path
-        Default output file path.
-    """
-    session_id = generate_session_id()
-    return TMP_DIR / f"{session_id}.json"
 
 
 # ---------------------------------------------------------------------------
@@ -634,8 +644,11 @@ def run(
     int
         Exit code (0 for success).
     """
+    # Generate session ID once for consistency
+    session_id = generate_session_id()
+
     # Load configurations
-    theme_config = load_theme_config()
+    theme_config = load_json_config(THEME_CONFIG_PATH)
     themes_config = theme_config.get("themes", {})
 
     presets = load_rss_presets()
@@ -647,8 +660,8 @@ def run(
     total_fetched = sum(len(items) for items in items_by_source.values())
     logger.info("total_items_fetched", count=total_fetched)
 
-    # Process themes
-    theme_results = process_themes(
+    # Process themes (returns separate date-filtered and keyword-matched counts)
+    theme_results, total_filtered, total_matched = process_themes(
         items_by_source=items_by_source,
         themes_config=themes_config,
         days=days,
@@ -656,15 +669,10 @@ def run(
         selected_themes=themes_filter,
     )
 
-    # Calculate stats
-    total_filtered = sum(
-        len(data.get("articles", []))
-        for data in theme_results.values()
+    # Build session with pre-generated ID
+    session = build_session(
+        session_id, theme_results, total_fetched, total_filtered, total_matched,
     )
-    total_matched = total_filtered  # After keyword matching
-
-    # Build session
-    session = build_session(theme_results, total_fetched, total_filtered, total_matched)
 
     # Write output
     write_session_file(session, output_path)
@@ -703,20 +711,15 @@ def main(args: list[str] | None = None) -> int:
     parsed = parse_args(args)
 
     # Configure logging
-    if parsed.verbose:
-        import structlog
-
-        structlog.configure(
-            wrapper_class=structlog.make_filtering_bound_logger(logging.DEBUG),
-        )
+    configure_logging(parsed.verbose)
 
     # Parse themes
     themes_filter: list[str] | None = None
     if parsed.themes != "all":
         themes_filter = [t.strip() for t in parsed.themes.split(",")]
 
-    # Determine output path
-    output_path = Path(parsed.output) if parsed.output else get_default_output_path()
+    # Determine output path (use session_id-based default)
+    output_path = Path(parsed.output) if parsed.output else TMP_DIR / f"{generate_session_id()}.json"
 
     # Run processing
     return run(
