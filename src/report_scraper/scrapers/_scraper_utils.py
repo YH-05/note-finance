@@ -111,6 +111,72 @@ def find_pdf_links(elements: Any, base_url: str) -> list[str]:
     return pdf_links
 
 
+def default_parse_listing_item(
+    element: Any,
+    base_url: str,
+    *,
+    source_key: str,
+    tags: tuple[str, ...] = (),
+    pdf_selector: str | None = None,
+) -> Any | None:
+    """Shared parse_listing_item logic for HTML/SPA scrapers.
+
+    Extracts href + title from an element, resolves the URL, optionally
+    detects a PDF link, and returns a ``ReportMetadata``.
+
+    Parameters
+    ----------
+    element : Any
+        A Scrapling element matched by ``article_selector``.
+    base_url : str
+        Base URL for resolving relative links.
+    source_key : str
+        Source identifier for the metadata.
+    tags : tuple[str, ...]
+        Tags to attach to the metadata.
+    pdf_selector : str | None
+        Optional CSS selector for finding PDF links within the element.
+
+    Returns
+    -------
+    ReportMetadata | None
+        Parsed metadata, or ``None`` if the element should be skipped.
+    """
+    from datetime import datetime, timezone
+
+    from report_scraper.types import ReportMetadata
+
+    href = element.attrib.get("href", "")
+    title = element.text or ""
+
+    if not href or not title:
+        return None
+
+    url = resolve_url(href, base_url)
+
+    pdf_url: str | None = None
+    if pdf_selector is not None:
+        try:
+            pdf_elements = element.css(pdf_selector)
+            pdf_links = find_pdf_links(pdf_elements, base_url)
+            if pdf_links:
+                pdf_url = pdf_links[0]
+        except Exception:
+            pass
+
+    if pdf_url is None and is_pdf_url(url):
+        pdf_url = url
+
+    return ReportMetadata(
+        url=url,
+        title=title.strip(),
+        published=datetime.now(timezone.utc),
+        source_key=source_key,
+        pdf_url=pdf_url,
+        tags=tags,
+    )
+
+
 def extract_links_by_css(
     response: Any,
     selector: str,

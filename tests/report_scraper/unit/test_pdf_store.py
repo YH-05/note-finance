@@ -42,8 +42,18 @@ class TestPdfStoreGetSourceDir:
 
     def test_異常系_パストラバーサルでValueError(self, tmp_path: Path) -> None:
         store = PdfStore(tmp_path / "pdfs")
-        with pytest.raises(ValueError, match="path traversal"):
+        with pytest.raises(ValueError, match="Invalid source_key"):
             store.get_source_dir("../../../etc")
+
+    def test_異常系_不正文字を含むsource_keyでValueError(self, tmp_path: Path) -> None:
+        store = PdfStore(tmp_path / "pdfs")
+        with pytest.raises(ValueError, match="must be alphanumeric"):
+            store.get_source_dir("bad-key")
+
+    def test_異常系_空のsource_keyでValueError(self, tmp_path: Path) -> None:
+        store = PdfStore(tmp_path / "pdfs")
+        with pytest.raises(ValueError, match="must be alphanumeric"):
+            store.get_source_dir("")
 
 
 class TestPdfStoreListPdfs:

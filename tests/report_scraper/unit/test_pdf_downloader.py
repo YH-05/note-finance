@@ -22,6 +22,7 @@ import pytest
 from report_scraper.exceptions import FetchError
 from report_scraper.services.pdf_downloader import (
     PdfDownloader,
+    _is_private_ip,
     find_pdf_links,
     is_pdf_url,
 )
@@ -245,6 +246,51 @@ class TestPdfDownloaderDownload:
                 "https://example.com/slow.pdf",
                 tmp_path,
             )
+
+    @pytest.mark.asyncio
+    async def test_異常系_プライベートIPでFetchError(self, tmp_path: Path) -> None:
+        downloader = PdfDownloader()
+        with pytest.raises(FetchError, match="private/internal address"):
+            await downloader.download(
+                "https://127.0.0.1/report.pdf",
+                tmp_path,
+            )
+
+    @pytest.mark.asyncio
+    async def test_異常系_不正スキームでFetchError(self, tmp_path: Path) -> None:
+        downloader = PdfDownloader()
+        with pytest.raises(FetchError, match="Unsupported URL scheme"):
+            await downloader.download(
+                "ftp://example.com/report.pdf",
+                tmp_path,
+            )
+
+
+# ---------------------------------------------------------------------------
+# _is_private_ip tests
+# ---------------------------------------------------------------------------
+
+
+class TestIsPrivateIp:
+    """Tests for _is_private_ip utility function."""
+
+    def test_正常系_ループバックIPを検出(self) -> None:
+        assert _is_private_ip("127.0.0.1") is True
+
+    def test_正常系_プライベートIPを検出_10系(self) -> None:
+        assert _is_private_ip("10.0.0.1") is True
+
+    def test_正常系_プライベートIPを検出_172系(self) -> None:
+        assert _is_private_ip("172.16.0.1") is True
+
+    def test_正常系_プライベートIPを検出_192系(self) -> None:
+        assert _is_private_ip("192.168.1.1") is True
+
+    def test_正常系_パブリックIPでFalse(self) -> None:
+        assert _is_private_ip("8.8.8.8") is False
+
+    def test_正常系_空文字でFalse(self) -> None:
+        assert _is_private_ip("") is False
 
 
 # ---------------------------------------------------------------------------

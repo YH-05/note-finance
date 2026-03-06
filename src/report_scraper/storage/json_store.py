@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING, Any
 
@@ -33,6 +34,9 @@ if TYPE_CHECKING:
     from report_scraper.types import CollectResult, ScrapedReport
 
 logger = get_logger(__name__, module="json_store")
+
+_SOURCE_KEY_RE = re.compile(r"^[a-zA-Z0-9_]+$")
+"""Allowed characters for source_key: alphanumeric and underscore."""
 
 
 class JsonReportStore:
@@ -284,7 +288,12 @@ class JsonReportStore:
             )
             return
 
-        source_dir = self.data_dir / "text" / report.metadata.source_key
+        source_key = report.metadata.source_key
+        if not _SOURCE_KEY_RE.match(source_key):
+            raise ValueError(
+                f"Invalid source_key (must be alphanumeric/underscore): {source_key}"
+            )
+        source_dir = self.data_dir / "text" / source_key
         source_dir.mkdir(parents=True, exist_ok=True)
 
         # Use URL hash as filename to avoid filesystem issues

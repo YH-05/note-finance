@@ -26,7 +26,9 @@ False
 
 from __future__ import annotations
 
+import ipaddress
 import re
+import socket
 from typing import TYPE_CHECKING, Any
 from urllib.parse import urljoin, urlparse
 
@@ -65,6 +67,35 @@ MAX_PDF_SIZE = 100 * 1024 * 1024  # 100 MB
 # ---------------------------------------------------------------------------
 # Standalone utility functions
 # ---------------------------------------------------------------------------
+
+
+def _is_private_ip(hostname: str) -> bool:
+    """Check if a hostname resolves to a private or reserved IP address.
+
+    Parameters
+    ----------
+    hostname : str
+        Hostname or IP address to check.
+
+    Returns
+    -------
+    bool
+        ``True`` if the address is private, loopback, or reserved.
+    """
+    try:
+        addr = ipaddress.ip_address(hostname)
+        return addr.is_private or addr.is_loopback or addr.is_reserved
+    except ValueError:
+        pass
+    try:
+        resolved = socket.getaddrinfo(hostname, None, socket.AF_UNSPEC)
+        for _, _, _, _, sockaddr in resolved:
+            addr = ipaddress.ip_address(sockaddr[0])
+            if addr.is_private or addr.is_loopback or addr.is_reserved:
+                return True
+    except (socket.gaierror, OSError):
+        pass
+    return False
 
 
 def is_pdf_url(url: str) -> bool:
@@ -243,6 +274,14 @@ class PdfDownloader:
         if parsed_url.scheme not in ALLOWED_URL_SCHEMES:
             raise FetchError(
                 f"Unsupported URL scheme '{parsed_url.scheme}' (allowed: {', '.join(sorted(ALLOWED_URL_SCHEMES))})",
+                url=url,
+            )
+
+        # SSRF protection: block private/internal IP ranges
+        hostname = parsed_url.hostname or ""
+        if _is_private_ip(hostname):
+            raise FetchError(
+                f"Download blocked: private/internal address detected ({hostname})",
                 url=url,
             )
 

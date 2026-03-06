@@ -32,6 +32,7 @@ Examples
 
 from __future__ import annotations
 
+import asyncio
 import warnings
 from abc import abstractmethod
 from typing import TYPE_CHECKING, Any, ClassVar
@@ -40,6 +41,9 @@ from urllib.parse import urlparse
 from report_scraper._logging import get_logger
 from report_scraper.core.base_scraper import BaseReportScraper
 from report_scraper.exceptions import FetchError
+from report_scraper.scrapers._scraper_utils import (
+    default_parse_listing_item as _default_parse_listing_item,
+)
 from report_scraper.scrapers._scraper_utils import (
     extract_links_by_css as _extract_links_by_css,
 )
@@ -221,7 +225,7 @@ class SpaReportScraper(BaseReportScraper):
             fetcher = DynamicFetcher()
             # AIDEV-NOTE: DynamicFetcher.fetch() renders JS via Playwright
             # and handles Cloudflare Turnstile automatically.
-            response = fetcher.fetch(self.listing_url)
+            response = await asyncio.to_thread(fetcher.fetch, self.listing_url)
         except ImportError as exc:
             # Playwright not installed - provide helpful message
             logger.error(
@@ -336,3 +340,28 @@ class SpaReportScraper(BaseReportScraper):
         report_scraper.scrapers._scraper_utils.extract_links_by_css
         """
         return _extract_links_by_css(response, selector, base_url)
+
+    def default_parse_listing_item(
+        self,
+        element: Any,
+        base_url: str,
+        *,
+        tags: tuple[str, ...] = (),
+        pdf_selector: str | None = None,
+    ) -> ReportMetadata | None:
+        """Default parse_listing_item using shared utility logic.
+
+        Subclasses can call this from their ``parse_listing_item()``
+        to avoid duplicating the common extract-validate-resolve pattern.
+
+        See Also
+        --------
+        report_scraper.scrapers._scraper_utils.default_parse_listing_item
+        """
+        return _default_parse_listing_item(
+            element,
+            base_url,
+            source_key=self.source_key,
+            tags=tags,
+            pdf_selector=pdf_selector,
+        )

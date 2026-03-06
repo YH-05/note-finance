@@ -25,6 +25,7 @@ Examples
 
 from __future__ import annotations
 
+import asyncio
 from abc import abstractmethod
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -118,7 +119,7 @@ class RssReportScraper(BaseReportScraper):
         logger.info("Fetching RSS feed", source_key=self.source_key, url=self.feed_url)
 
         try:
-            parsed = feedparser.parse(self.feed_url)
+            parsed = await asyncio.to_thread(feedparser.parse, self.feed_url)
         except Exception as exc:
             logger.error(
                 "Failed to parse RSS feed",

@@ -19,6 +19,7 @@ PosixPath('data/raw/report-scraper/pdfs/blackrock')
 
 from __future__ import annotations
 
+import re
 from typing import TYPE_CHECKING, Any
 
 from report_scraper._logging import get_logger
@@ -37,6 +38,9 @@ logger = get_logger(__name__, module="pdf_store")
 
 DEFAULT_PDF_DIR = "data/raw/report-scraper/pdfs"
 """Default base directory for PDF storage."""
+
+_SOURCE_KEY_RE = re.compile(r"^[a-zA-Z0-9_]+$")
+"""Allowed characters for source_key: alphanumeric and underscore."""
 
 
 # ---------------------------------------------------------------------------
@@ -111,13 +115,18 @@ class PdfStore:
         return source_dir
 
     def _validate_source_key(self, source_key: str) -> None:
-        """Validate that source_key does not escape the base directory.
+        """Validate source_key format and path safety.
 
         Raises
         ------
         ValueError
-            If the source_key would resolve outside base_dir.
+            If the source_key contains invalid characters or would
+            resolve outside base_dir (path traversal).
         """
+        if not _SOURCE_KEY_RE.match(source_key):
+            raise ValueError(
+                f"Invalid source_key (must be alphanumeric/underscore): {source_key}"
+            )
         candidate = self.base_dir / source_key
         if not candidate.resolve().is_relative_to(self.base_dir.resolve()):
             raise ValueError(

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
 from typing import TYPE_CHECKING
+from unittest.mock import patch
 
 import pytest
 
@@ -12,6 +13,13 @@ if TYPE_CHECKING:
 
 from report_scraper.services.dedup_tracker import DedupTracker
 from report_scraper.storage.json_store import JsonReportStore
+
+# ---------------------------------------------------------------------------
+# Fixed reference time for deterministic tests
+# ---------------------------------------------------------------------------
+
+FIXED_NOW = datetime(2026, 3, 6, 12, 0, 0, tzinfo=timezone.utc)
+"""Fixed reference time used across all tests."""
 
 
 @pytest.fixture
@@ -35,14 +43,13 @@ def tracker(store: JsonReportStore) -> DedupTracker:
 @pytest.fixture
 def populated_store(store: JsonReportStore) -> JsonReportStore:
     """Create a store with pre-populated index data."""
-    now = datetime.now(timezone.utc)
     index = {
         "reports": {
             "https://example.com/report/1": {
                 "title": "Report 1",
                 "source_key": "source_a",
                 "published": "2026-02-01T12:00:00+00:00",
-                "collected_at": now.isoformat(),
+                "collected_at": FIXED_NOW.isoformat(),
                 "author": "Author A",
                 "has_content": True,
             },
@@ -50,7 +57,7 @@ def populated_store(store: JsonReportStore) -> JsonReportStore:
                 "title": "Report 2",
                 "source_key": "source_a",
                 "published": "2026-02-15T12:00:00+00:00",
-                "collected_at": now.isoformat(),
+                "collected_at": FIXED_NOW.isoformat(),
                 "author": "Author B",
                 "has_content": False,
             },
@@ -58,7 +65,7 @@ def populated_store(store: JsonReportStore) -> JsonReportStore:
                 "title": "Report 3",
                 "source_key": "source_b",
                 "published": "2026-03-01T12:00:00+00:00",
-                "collected_at": now.isoformat(),
+                "collected_at": FIXED_NOW.isoformat(),
                 "author": None,
                 "has_content": True,
             },
@@ -77,35 +84,55 @@ def populated_tracker(populated_store: JsonReportStore) -> DedupTracker:
 class TestDedupTrackerIsSeen:
     """Tests for DedupTracker.is_seen method."""
 
-    def test_正常系_既知URLが検出される(self, populated_tracker: DedupTracker) -> None:
+    @patch("report_scraper.services.dedup_tracker.datetime")
+    def test_正常系_既知URLが検出される(
+        self, mock_dt: object, populated_tracker: DedupTracker
+    ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         assert populated_tracker.is_seen("source_a", "https://example.com/report/1")
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_未知URLが新規として扱われる(
-        self, populated_tracker: DedupTracker
+        self, mock_dt: object, populated_tracker: DedupTracker
     ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         assert not populated_tracker.is_seen(
             "source_a", "https://example.com/report/new"
         )
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_異なるソースキーの既知URLが検出される(
-        self, populated_tracker: DedupTracker
+        self, mock_dt: object, populated_tracker: DedupTracker
     ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         assert populated_tracker.is_seen("source_b", "https://example.com/report/3")
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_ソースキーが異なっても同一URLを検出(
-        self, populated_tracker: DedupTracker
+        self, mock_dt: object, populated_tracker: DedupTracker
     ) -> None:
-        # URL "report/1" is registered under source_a, but is_seen checks
-        # URL existence regardless of source_key mismatch (URL is the dedup key)
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         assert populated_tracker.is_seen("source_b", "https://example.com/report/1")
 
-    def test_正常系_空インデックスで未知扱い(self, tracker: DedupTracker) -> None:
+    @patch("report_scraper.services.dedup_tracker.datetime")
+    def test_正常系_空インデックスで未知扱い(
+        self, mock_dt: object, tracker: DedupTracker
+    ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         assert not tracker.is_seen("source_a", "https://example.com/report/1")
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_期間外のURLが新規として扱われる(
-        self, store: JsonReportStore
+        self, mock_dt: object, store: JsonReportStore
     ) -> None:
-        old_date = (datetime.now(timezone.utc) - timedelta(days=60)).isoformat()
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
+        old_date = (FIXED_NOW - timedelta(days=60)).isoformat()
         index = {
             "reports": {
                 "https://example.com/old-report": {
@@ -122,8 +149,13 @@ class TestDedupTrackerIsSeen:
         tracker = DedupTracker(store, dedup_days=30)
         assert not tracker.is_seen("source_a", "https://example.com/old-report")
 
-    def test_正常系_期間内のURLは既知として検出(self, store: JsonReportStore) -> None:
-        recent_date = (datetime.now(timezone.utc) - timedelta(days=10)).isoformat()
+    @patch("report_scraper.services.dedup_tracker.datetime")
+    def test_正常系_期間内のURLは既知として検出(
+        self, mock_dt: object, store: JsonReportStore
+    ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
+        recent_date = (FIXED_NOW - timedelta(days=10)).isoformat()
         index = {
             "reports": {
                 "https://example.com/recent-report": {
@@ -144,26 +176,38 @@ class TestDedupTrackerIsSeen:
 class TestDedupTrackerMarkSeen:
     """Tests for DedupTracker.mark_seen method."""
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_新規URLをマーク後に既知として検出(
-        self, tracker: DedupTracker
+        self, mock_dt: object, tracker: DedupTracker
     ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         url = "https://example.com/new-report"
         assert not tracker.is_seen("source_a", url)
         tracker.mark_seen("source_a", url)
         assert tracker.is_seen("source_a", url)
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_マーク後にインデックスに永続化される(
-        self, tracker: DedupTracker, store: JsonReportStore
+        self, mock_dt: object, tracker: DedupTracker, store: JsonReportStore
     ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         url = "https://example.com/persisted"
         tracker.mark_seen("source_a", url)
+        # Invalidate cache to force reload
+        store._index_cache = None
         index = store.load_index()
         assert url in index["reports"]
         assert index["reports"][url]["source_key"] == "source_a"
+        assert index["reports"][url]["collected_at"] == FIXED_NOW.isoformat()
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_既存URLを再マークしてもエラーにならない(
-        self, populated_tracker: DedupTracker
+        self, mock_dt: object, populated_tracker: DedupTracker
     ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         url = "https://example.com/report/1"
         populated_tracker.mark_seen("source_a", url)
         assert populated_tracker.is_seen("source_a", url)
@@ -172,10 +216,14 @@ class TestDedupTrackerMarkSeen:
 class TestDedupTrackerGetHistory:
     """Tests for DedupTracker.get_history method."""
 
-    def test_正常系_指定日数内のエントリを取得(self, store: JsonReportStore) -> None:
-        now = datetime.now(timezone.utc)
-        recent = (now - timedelta(days=5)).isoformat()
-        old = (now - timedelta(days=60)).isoformat()
+    @patch("report_scraper.services.dedup_tracker.datetime")
+    def test_正常系_指定日数内のエントリを取得(
+        self, mock_dt: object, store: JsonReportStore
+    ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
+        recent = (FIXED_NOW - timedelta(days=5)).isoformat()
+        old = (FIXED_NOW - timedelta(days=60)).isoformat()
         index = {
             "reports": {
                 "https://example.com/recent": {
@@ -203,25 +251,37 @@ class TestDedupTrackerGetHistory:
         assert "https://example.com/recent" in urls
         assert "https://example.com/old" not in urls
 
-    def test_正常系_空インデックスで空リスト(self, tracker: DedupTracker) -> None:
+    @patch("report_scraper.services.dedup_tracker.datetime")
+    def test_正常系_空インデックスで空リスト(
+        self, mock_dt: object, tracker: DedupTracker
+    ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         history = tracker.get_history(days=30)
         assert history == []
 
+    @patch("report_scraper.services.dedup_tracker.datetime")
     def test_正常系_全エントリが期間内の場合すべて返却(
-        self, populated_tracker: DedupTracker
+        self, mock_dt: object, populated_tracker: DedupTracker
     ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         history = populated_tracker.get_history(days=90)
         assert len(history) == 3
 
-    def test_正常系_日数パラメータで期間を制御(self, store: JsonReportStore) -> None:
-        now = datetime.now(timezone.utc)
+    @patch("report_scraper.services.dedup_tracker.datetime")
+    def test_正常系_日数パラメータで期間を制御(
+        self, mock_dt: object, store: JsonReportStore
+    ) -> None:
+        mock_dt.now.return_value = FIXED_NOW  # type: ignore[union-attr]
+        mock_dt.fromisoformat = datetime.fromisoformat  # type: ignore[union-attr]
         index = {
             "reports": {
                 f"https://example.com/report/{i}": {
                     "title": f"Report {i}",
                     "source_key": "source_a",
                     "published": "2026-03-01T00:00:00+00:00",
-                    "collected_at": (now - timedelta(days=i * 10)).isoformat(),
+                    "collected_at": (FIXED_NOW - timedelta(days=i * 10)).isoformat(),
                     "author": None,
                     "has_content": True,
                 }
