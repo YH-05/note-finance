@@ -14,7 +14,9 @@ from report_scraper.types import (
     CollectResult,
     ExtractedContent,
     ReportMetadata,
+    ReportScraperConfig,
     ScrapedReport,
+    SourceConfig,
 )
 
 
@@ -98,3 +100,201 @@ class TestCollectCommand:
     def test_異常系_sourceオプション未指定(self, runner: CliRunner) -> None:
         result = runner.invoke(cli, ["collect"])
         assert result.exit_code != 0
+
+
+# ---------------------------------------------------------------------------
+# Fixtures for list / test-source commands
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def sample_config() -> ReportScraperConfig:
+    """Create a sample ReportScraperConfig with multiple sources."""
+    return ReportScraperConfig(
+        sources=[
+            SourceConfig(
+                key="advisor_perspectives",
+                name="Advisor Perspectives",
+                tier="aggregator",
+                listing_url="https://www.advisorperspectives.com/articles",
+                rendering="static",
+                tags=["macro", "equity"],
+                max_reports=15,
+            ),
+            SourceConfig(
+                key="blackrock_bii",
+                name="BlackRock Investment Institute",
+                tier="buy_side",
+                listing_url="https://www.blackrock.com/corporate/insights",
+                rendering="static",
+                tags=["macro", "weekly"],
+            ),
+            SourceConfig(
+                key="schwab",
+                name="Charles Schwab",
+                tier="sell_side",
+                listing_url="https://www.schwab.com/learn/market-commentary",
+                rendering="static",
+                tags=["macro", "equity", "sector"],
+            ),
+        ],
+    )
+
+
+# ---------------------------------------------------------------------------
+# Tests: list command
+# ---------------------------------------------------------------------------
+
+
+class TestListCommand:
+    """Tests for the list command."""
+
+    def test_正常系_ヘルプ表示(self, runner: CliRunner) -> None:
+        result = runner.invoke(cli, ["list", "--help"])
+        assert result.exit_code == 0
+        assert "--tier" in result.output
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_全ソース一覧表示(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["list"])
+        assert result.exit_code == 0
+        # AIDEV-NOTE: Rich Table may truncate long text in narrow terminals.
+        # Check for source keys which are short and always visible.
+        assert "advisor_perspectives" in result.output
+        assert "blackrock_bii" in result.output
+        assert "schwab" in result.output
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_tierフィルタでbuy_side(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["list", "--tier", "buy_side"])
+        assert result.exit_code == 0
+        assert "BlackRock" in result.output
+        # buy_side 以外は表示されないこと
+        assert "Advisor Perspectives" not in result.output
+        assert "Schwab" not in result.output
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_tierフィルタでsell_side(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["list", "--tier", "sell_side"])
+        assert result.exit_code == 0
+        assert "Schwab" in result.output
+        assert "BlackRock" not in result.output
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_tierフィルタでaggregator(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["list", "--tier", "aggregator"])
+        assert result.exit_code == 0
+        assert "advisor_perspectives" in result.output
+        assert "blackrock_bii" not in result.output
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_tierフィルタで該当なし(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+    ) -> None:
+        config = ReportScraperConfig(
+            sources=[
+                SourceConfig(
+                    key="test",
+                    name="Test",
+                    tier="sell_side",
+                    listing_url="https://example.com",
+                    rendering="static",
+                ),
+            ],
+        )
+        mock_load_config.return_value = config
+        result = runner.invoke(cli, ["list", "--tier", "buy_side"])
+        assert result.exit_code == 0
+        assert "No sources found" in result.output
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_テーブルにkey列とtier列が含まれる(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["list"])
+        assert result.exit_code == 0
+        # AIDEV-NOTE: Rich may truncate "aggregator" to "aggrega..." in narrow terminal.
+        # Check for key (always visible) and partial tier match.
+        assert "advisor_perspectives" in result.output
+        assert "aggrega" in result.output
+
+
+# ---------------------------------------------------------------------------
+# Tests: test-source command
+# ---------------------------------------------------------------------------
+
+
+class TestTestSourceCommand:
+    """Tests for the test-source command."""
+
+    def test_正常系_ヘルプ表示(self, runner: CliRunner) -> None:
+        result = runner.invoke(cli, ["test-source", "--help"])
+        assert result.exit_code == 0
+        assert "key" in result.output.lower()
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_存在するソースでdry_run(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["test-source", "advisor_perspectives"])
+        assert result.exit_code == 0
+        assert "advisor_perspectives" in result.output
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_異常系_存在しないソースキー(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["test-source", "nonexistent_source"])
+        assert result.exit_code != 0
+
+    @patch("report_scraper.cli.main.load_config")
+    def test_正常系_ソース設定詳細が表示される(
+        self,
+        mock_load_config: MagicMock,
+        runner: CliRunner,
+        sample_config: ReportScraperConfig,
+    ) -> None:
+        mock_load_config.return_value = sample_config
+        result = runner.invoke(cli, ["test-source", "blackrock_bii"])
+        assert result.exit_code == 0
+        assert "BlackRock Investment Institute" in result.output
+        assert "buy_side" in result.output
+        assert "static" in result.output

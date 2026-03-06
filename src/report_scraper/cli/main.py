@@ -1,7 +1,7 @@
 """Report Scraper CLI with Click.
 
-Provides the ``report-scraper`` command-line interface with a ``collect``
-subcommand for collecting investment reports from configured sources.
+Provides the ``report-scraper`` command-line interface with subcommands
+for collecting, listing, and testing report sources.
 
 Functions
 ---------
@@ -9,12 +9,19 @@ cli
     Click group (entry point).
 collect
     Collect reports from a specified source.
+list_sources
+    List configured report sources with optional tier filter.
+test_source
+    Dry-run a single source to verify configuration.
 
 Examples
 --------
 CLI usage::
 
     $ report-scraper collect --source advisor_perspectives
+    $ report-scraper list
+    $ report-scraper list --tier buy_side
+    $ report-scraper test-source advisor_perspectives
     $ report-scraper --data-dir /tmp/reports collect --source advisor_perspectives
 """
 
@@ -30,9 +37,10 @@ from rich.console import Console
 from rich.table import Table
 
 from report_scraper._logging import get_logger
+from report_scraper.config.loader import load_config
 
 if TYPE_CHECKING:
-    from report_scraper.types import CollectResult
+    from report_scraper.types import CollectResult, ReportScraperConfig, SourceConfig
 
 logger = get_logger(__name__, module="cli")
 
@@ -42,6 +50,9 @@ logger = get_logger(__name__, module="cli")
 
 DEFAULT_DATA_DIR = Path("data/scraped/reports")
 """Default data directory for report storage."""
+
+DEFAULT_CONFIG_PATH = Path("data/config/report-scraper-config.yaml")
+"""Default path to the YAML configuration file."""
 
 # AIDEV-NOTE: Known scrapers are registered here. When new scrapers are added,
 # update this registry.
@@ -243,6 +254,202 @@ def collect(ctx: click.Context, source: str, max_reports: int) -> None:
         reports=len(result.reports),
         errors=len(result.errors),
         duration=round(result.duration, 2),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Helper: load config with error handling
+# ---------------------------------------------------------------------------
+
+
+def _load_config_or_exit(config_path: Path | None = None) -> ReportScraperConfig:
+    """Load configuration file or exit with an error message.
+
+    Parameters
+    ----------
+    config_path : Path | None
+        Path to the config file. Defaults to ``DEFAULT_CONFIG_PATH``.
+
+    Returns
+    -------
+    ReportScraperConfig
+        Validated configuration object.
+    """
+    path = config_path or DEFAULT_CONFIG_PATH
+    try:
+        return load_config(path)
+    except Exception as exc:
+        console.print(f"[red]Error: Failed to load config: {exc}[/red]")
+        logger.error("Failed to load config", path=str(path), error=str(exc))
+        sys.exit(1)
+
+
+def _filter_sources_by_tier(
+    sources: list[SourceConfig],
+    tier: str | None,
+) -> list[SourceConfig]:
+    """Filter sources by tier if specified.
+
+    Parameters
+    ----------
+    sources : list[SourceConfig]
+        All configured sources.
+    tier : str | None
+        Tier to filter by, or ``None`` for no filtering.
+
+    Returns
+    -------
+    list[SourceConfig]
+        Filtered list of sources.
+    """
+    if tier is None:
+        return sources
+    return [s for s in sources if s.tier == tier]
+
+
+# ---------------------------------------------------------------------------
+# list command
+# ---------------------------------------------------------------------------
+
+
+@cli.command("list")
+@click.option(
+    "--tier",
+    type=click.Choice(["buy_side", "sell_side", "aggregator"]),
+    default=None,
+    help="Filter sources by tier (buy_side, sell_side, aggregator)",
+)
+@click.option(
+    "--config",
+    "config_path",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Path to config file (default: data/config/report-scraper-config.yaml)",
+)
+def list_sources(tier: str | None, config_path: Path | None) -> None:
+    """List configured report sources.
+
+    Displays a table of all configured sources with key, name, tier,
+    rendering method, and tags. Supports filtering by tier.
+    """
+    logger.debug("Listing sources", tier=tier)
+
+    config = _load_config_or_exit(config_path)
+    filtered = _filter_sources_by_tier(config.sources, tier)
+
+    if not filtered:
+        tier_msg = f" for tier '{tier}'" if tier else ""
+        console.print(f"[yellow]No sources found{tier_msg}.[/yellow]")
+        return
+
+    table = Table(title="Configured Report Sources")
+    table.add_column("Key", style="cyan", no_wrap=True)
+    table.add_column("Name", style="green")
+    table.add_column("Tier", style="magenta")
+    table.add_column("Rendering")
+    table.add_column("Tags")
+    table.add_column("Max Reports", justify="right")
+
+    for source in filtered:
+        max_rpt = str(source.max_reports) if source.max_reports else "-"
+        tags_str = ", ".join(source.tags) if source.tags else "-"
+        table.add_row(
+            source.key,
+            source.name,
+            source.tier,
+            source.rendering,
+            tags_str,
+            max_rpt,
+        )
+
+    console.print(table)
+    console.print(f"\n[bold]{len(filtered)}[/bold] source(s) listed.")
+
+    logger.info(
+        "Sources listed",
+        total=len(filtered),
+        tier_filter=tier,
+    )
+
+
+# ---------------------------------------------------------------------------
+# test-source command
+# ---------------------------------------------------------------------------
+
+
+@cli.command("test-source")
+@click.argument("key")
+@click.option(
+    "--config",
+    "config_path",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Path to config file (default: data/config/report-scraper-config.yaml)",
+)
+def test_source(key: str, config_path: Path | None) -> None:
+    """Dry-run a single source to verify its configuration.
+
+    Looks up the source KEY in the configuration and displays its
+    settings without actually fetching any reports.
+    """
+    logger.debug("Testing source", source_key=key)
+
+    config = _load_config_or_exit(config_path)
+
+    # Find the source by key
+    source: SourceConfig | None = None
+    for s in config.sources:
+        if s.key == key:
+            source = s
+            break
+
+    if source is None:
+        available_keys = [s.key for s in config.sources]
+        console.print(f"[red]Error: Source '{key}' not found in config.[/red]")
+        console.print(f"Available sources: {', '.join(sorted(available_keys))}")
+        logger.warning(
+            "Source not found for test",
+            source_key=key,
+            available=available_keys,
+        )
+        sys.exit(1)
+
+    # Display source configuration details
+    console.print(f"\n[bold]Source Configuration: {key}[/bold]\n")
+
+    detail_table = Table(show_header=False, box=None, padding=(0, 2))
+    detail_table.add_column("Field", style="bold cyan")
+    detail_table.add_column("Value")
+
+    detail_table.add_row("Key", source.key)
+    detail_table.add_row("Name", source.name)
+    detail_table.add_row("Tier", source.tier)
+    detail_table.add_row("Listing URL", source.listing_url)
+    detail_table.add_row("Rendering", source.rendering)
+    detail_table.add_row("Tags", ", ".join(source.tags) if source.tags else "-")
+    detail_table.add_row(
+        "Max Reports",
+        str(source.max_reports)
+        if source.max_reports
+        else f"(global: {config.global_config.max_reports_per_source})",
+    )
+    detail_table.add_row(
+        "Article Selector",
+        source.article_selector or "-",
+    )
+    detail_table.add_row(
+        "PDF Selector",
+        source.pdf_selector or "-",
+    )
+
+    console.print(detail_table)
+    console.print("\n[green]Configuration is valid.[/green]")
+
+    logger.info(
+        "Source test completed",
+        source_key=key,
+        tier=source.tier,
+        rendering=source.rendering,
     )
 
 
