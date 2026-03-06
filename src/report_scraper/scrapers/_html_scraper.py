@@ -32,14 +32,26 @@ Examples
 
 from __future__ import annotations
 
-import re
 import warnings
 from abc import abstractmethod
 from typing import TYPE_CHECKING, Any, ClassVar
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urlparse
 
+from report_scraper._logging import get_logger
 from report_scraper.core.base_scraper import BaseReportScraper
 from report_scraper.exceptions import FetchError
+from report_scraper.scrapers._scraper_utils import (
+    extract_links_by_css as _extract_links_by_css,
+)
+from report_scraper.scrapers._scraper_utils import (
+    find_pdf_links as _find_pdf_links,
+)
+from report_scraper.scrapers._scraper_utils import (
+    is_pdf_url as _is_pdf_url,
+)
+from report_scraper.scrapers._scraper_utils import (
+    resolve_url as _resolve_url,
+)
 
 if TYPE_CHECKING:
     from report_scraper.types import ReportMetadata, ScrapedReport, SourceConfig
@@ -63,32 +75,7 @@ except ImportError:
         stacklevel=2,
     )
 
-# ---------------------------------------------------------------------------
-# Logger
-# ---------------------------------------------------------------------------
-
-
-def _get_logger() -> Any:
-    """Get logger with lazy initialization to avoid circular imports."""
-    try:
-        from report_scraper._logging import get_logger
-
-        return get_logger(__name__, module="html_scraper")
-    except ImportError:
-        import logging
-
-        return logging.getLogger(__name__)
-
-
-logger: Any = _get_logger()
-
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
-
-PDF_URL_PATTERN = re.compile(r"\.pdf(\?.*)?$", re.IGNORECASE)
-"""Regex pattern matching URLs that end with ``.pdf``."""
-
+logger = get_logger(__name__, module="html_scraper")
 
 # ---------------------------------------------------------------------------
 # HtmlReportScraper
@@ -202,6 +189,14 @@ class HtmlReportScraper(BaseReportScraper):
             )
             raise ImportError(msg)
 
+        # SSRF protection: validate listing_url scheme
+        parsed_listing = urlparse(self.listing_url)
+        if parsed_listing.scheme not in {"https", "http"}:
+            raise FetchError(
+                f"Invalid listing_url scheme: {parsed_listing.scheme}",
+                url=self.listing_url,
+            )
+
         logger.info(
             "Fetching listing page",
             source_key=self.source_key,
@@ -209,7 +204,7 @@ class HtmlReportScraper(BaseReportScraper):
         )
 
         try:
-            if StealthyFetcher is None:  # noqa: E711
+            if StealthyFetcher is None:
                 raise FetchError(
                     "Scrapling is not installed. Install with: uv add 'scrapling[fetchers]'",
                     url=self.listing_url,
@@ -274,92 +269,37 @@ class HtmlReportScraper(BaseReportScraper):
         )
         return results
 
-    # -- Helper methods ------------------------------------------------------
+    # -- Helper methods (delegated to _scraper_utils) -------------------------
 
     @staticmethod
     def resolve_url(relative_url: str, base_url: str) -> str:
         """Resolve a potentially relative URL against a base URL.
 
-        Parameters
-        ----------
-        relative_url : str
-            URL that may be relative.
-        base_url : str
-            Base URL for resolution.
-
-        Returns
-        -------
-        str
-            Absolute URL.
-
-        Examples
+        See Also
         --------
-        >>> HtmlReportScraper.resolve_url("/reports/q4.pdf", "https://example.com/page")
-        'https://example.com/reports/q4.pdf'
-        >>> HtmlReportScraper.resolve_url("https://cdn.example.com/q4.pdf", "https://example.com")
-        'https://cdn.example.com/q4.pdf'
+        report_scraper.scrapers._scraper_utils.resolve_url
         """
-        parsed = urlparse(relative_url)
-        if parsed.scheme:
-            return relative_url
-        return urljoin(base_url, relative_url)
+        return _resolve_url(relative_url, base_url)
 
     @staticmethod
     def is_pdf_url(url: str) -> bool:
         """Check if a URL points to a PDF file.
 
-        Parameters
-        ----------
-        url : str
-            URL to check.
-
-        Returns
-        -------
-        bool
-            ``True`` if the URL ends with ``.pdf`` (case-insensitive).
-
-        Examples
+        See Also
         --------
-        >>> HtmlReportScraper.is_pdf_url("https://example.com/report.pdf")
-        True
-        >>> HtmlReportScraper.is_pdf_url("https://example.com/report.pdf?token=abc")
-        True
-        >>> HtmlReportScraper.is_pdf_url("https://example.com/report.html")
-        False
+        report_scraper.scrapers._scraper_utils.is_pdf_url
         """
-        parsed = urlparse(url)
-        return bool(
-            PDF_URL_PATTERN.search(
-                parsed.path + ("?" + parsed.query if parsed.query else "")
-            )
-        )
+        return _is_pdf_url(url)
 
     @staticmethod
     def find_pdf_links(elements: Any, base_url: str) -> list[str]:
         """Extract PDF links from a collection of anchor elements.
 
-        Parameters
-        ----------
-        elements : Any
-            Iterable of Scrapling elements (or any objects with
-            ``attrib`` dict containing ``"href"``).
-        base_url : str
-            Base URL for resolving relative links.
-
-        Returns
-        -------
-        list[str]
-            List of absolute PDF URLs found.
+        See Also
+        --------
+        report_scraper.scrapers._scraper_utils.find_pdf_links
         """
-        pdf_links: list[str] = []
-        for el in elements:
-            href = el.attrib.get("href", "")
-            if not href:
-                continue
-            absolute = HtmlReportScraper.resolve_url(href, base_url)
-            if HtmlReportScraper.is_pdf_url(absolute):
-                pdf_links.append(absolute)
-        return pdf_links
+        return _find_pdf_links(elements, base_url)
 
     def extract_links_by_css(
         self,
@@ -369,24 +309,8 @@ class HtmlReportScraper(BaseReportScraper):
     ) -> list[str]:
         """Extract all href links matching a CSS selector.
 
-        Parameters
-        ----------
-        response : Any
-            Scrapling response object.
-        selector : str
-            CSS selector to find anchor elements.
-        base_url : str
-            Base URL for resolving relative links.
-
-        Returns
-        -------
-        list[str]
-            List of absolute URLs.
+        See Also
+        --------
+        report_scraper.scrapers._scraper_utils.extract_links_by_css
         """
-        elements = response.css(selector)
-        links: list[str] = []
-        for el in elements:
-            href = el.attrib.get("href", "")
-            if href:
-                links.append(self.resolve_url(href, base_url))
-        return links
+        return _extract_links_by_css(response, selector, base_url)

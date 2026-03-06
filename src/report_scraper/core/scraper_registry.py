@@ -26,24 +26,9 @@ if TYPE_CHECKING:
     from report_scraper.types import SourceConfig
 
 
-# ---------------------------------------------------------------------------
-# Logger
-# ---------------------------------------------------------------------------
+from report_scraper._logging import get_logger
 
-
-def _get_logger() -> Any:
-    """Get logger with lazy initialization to avoid circular imports."""
-    try:
-        from report_scraper._logging import get_logger
-
-        return get_logger(__name__, module="scraper_registry")
-    except ImportError:
-        import logging
-
-        return logging.getLogger(__name__)
-
-
-logger: Any = _get_logger()
+logger = get_logger(__name__, module="scraper_registry")
 
 
 # ---------------------------------------------------------------------------
@@ -51,51 +36,44 @@ logger: Any = _get_logger()
 # ---------------------------------------------------------------------------
 
 
-class _DefaultScraper:
-    """Minimal scraper created from SourceConfig for unregistered sources.
+class _StubScraper:
+    """Stub scraper that returns empty listings for unregistered sources.
 
-    This is used by ``register_from_configs`` when no custom scraper
-    has been registered for a source. It stores the config and delegates
-    to ``BaseReportScraper.collect_latest`` (via ``fetch_listing`` +
-    ``extract_report``).
+    Used by ``register_from_configs`` as a placeholder for sources without
+    custom scraper implementations. Accepts config at init time, avoiding
+    dynamic class creation on every call.
     """
 
     def __init__(self, config: SourceConfig) -> None:
-        from report_scraper.core.base_scraper import BaseReportScraper
-        from report_scraper.types import CollectResult, ReportMetadata, ScrapedReport
-
         self._config = config
 
-        # Create a dynamic subclass of BaseReportScraper
-        cfg = config
-
-        class _DynScraper(BaseReportScraper):
-            @property
-            def source_key(self) -> str:
-                return cfg.key
-
-            @property
-            def source_config(self) -> SourceConfig:
-                return cfg
-
-            async def fetch_listing(self) -> list[ReportMetadata]:
-                # AIDEV-NOTE: Default scraper returns empty listing.
-                # Real scraping logic is in concrete scraper subclasses.
-                return []
-
-            async def extract_report(
-                self, meta: ReportMetadata
-            ) -> ScrapedReport | None:
-                return ScrapedReport(metadata=meta)
-
-        self._scraper = _DynScraper()
+    @property
+    def source_key(self) -> str:
+        return self._config.key
 
     @property
-    def scraper(self) -> BaseReportScraper:
-        """Return the underlying BaseReportScraper instance."""
-        from report_scraper.core.base_scraper import BaseReportScraper
+    def source_config(self) -> SourceConfig:
+        return self._config
 
-        return self._scraper
+    async def fetch_listing(self) -> list[Any]:
+        # AIDEV-NOTE: Default scraper returns empty listing.
+        # Real scraping logic is in concrete scraper subclasses.
+        return []
+
+    async def extract_report(self, meta: Any) -> Any:
+        from report_scraper.types import ScrapedReport
+
+        return ScrapedReport(metadata=meta)
+
+    async def collect_latest(self, max_reports: int = 20) -> Any:
+        from report_scraper.types import CollectResult
+
+        return CollectResult(
+            source_key=self.source_key,
+            reports=(),
+            errors=(),
+            duration=0.0,
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -196,8 +174,8 @@ class ScraperRegistry:
                 )
                 continue
 
-            default = _DefaultScraper(config)
-            self._scrapers[config.key] = default.scraper
+            stub = _StubScraper(config)
+            self._scrapers[config.key] = stub  # type: ignore[assignment]
             count += 1
             logger.info(
                 "Default scraper registered from config",

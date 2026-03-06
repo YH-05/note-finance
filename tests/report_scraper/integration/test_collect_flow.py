@@ -143,15 +143,14 @@ def data_dir(tmp_path: Path) -> Path:
 class TestCollectFlowE2E:
     """End-to-end tests for the collect pipeline."""
 
-    def test_正常系_完全パイプラインで収集から保存まで成功(
+    @pytest.mark.asyncio
+    async def test_正常系_完全パイプラインで収集から保存まで成功(
         self,
         httpserver: HTTPServer,
         mock_source_config: SourceConfig,
         data_dir: Path,
     ) -> None:
         """Collect -> extract -> dedup -> save in one pass."""
-        import asyncio
-
         # -- Set up mock HTTP endpoints --
         base_url = httpserver.url_for("")
 
@@ -210,11 +209,9 @@ class TestCollectFlowE2E:
             concurrency=2,
         )
 
-        summary = asyncio.run(
-            engine.collect(
-                sources=["mock_source"],
-                registry=registry,
-            )
+        summary = await engine.collect(
+            sources=["mock_source"],
+            registry=registry,
         )
 
         # -- Assertions on RunSummary --
@@ -269,15 +266,14 @@ class TestCollectFlowE2E:
         new_url = f"{base_url}/articles/new-report"
         assert dedup_tracker.is_seen("mock_source", new_url) is False
 
-    def test_正常系_空のリスティングで0件収集(
+    @pytest.mark.asyncio
+    async def test_正常系_空のリスティングで0件収集(
         self,
         httpserver: HTTPServer,
         mock_source_config: SourceConfig,
         data_dir: Path,
     ) -> None:
         """Engine handles empty source listing gracefully."""
-        import asyncio
-
         base_url = httpserver.url_for("")
 
         httpserver.expect_request("/listing.json").respond_with_json({"articles": []})
@@ -303,22 +299,19 @@ class TestCollectFlowE2E:
             pdf_store=pdf_store,
         )
 
-        summary = asyncio.run(
-            engine.collect(sources=["mock_source"], registry=registry)
-        )
+        summary = await engine.collect(sources=["mock_source"], registry=registry)
 
         assert summary.total_reports == 0
         assert summary.total_errors == 0
 
-    def test_正常系_保存後のインデックスに全メタデータが含まれる(
+    @pytest.mark.asyncio
+    async def test_正常系_保存後のインデックスに全メタデータが含まれる(
         self,
         httpserver: HTTPServer,
         mock_source_config: SourceConfig,
         data_dir: Path,
     ) -> None:
         """Index entries contain expected metadata fields after save."""
-        import asyncio
-
         base_url = httpserver.url_for("")
         article_url = f"{base_url}/articles/metadata-check"
 
@@ -360,9 +353,7 @@ class TestCollectFlowE2E:
             pdf_store=pdf_store,
         )
 
-        summary = asyncio.run(
-            engine.collect(sources=["mock_source"], registry=registry)
-        )
+        summary = await engine.collect(sources=["mock_source"], registry=registry)
 
         assert summary.total_reports == 1
         result = summary.results[0]

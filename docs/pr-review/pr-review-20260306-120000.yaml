@@ -1,0 +1,185 @@
+# PRレビューレポート
+# 生成日時: 2026-03-06 12:00:00
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-06 12:00:00"
+  pr_number: 33
+  pr_title: "feat(report-scraper): report_scraper パッケージ実装（Project #67 全14 Issue）"
+  base_branch: "main"
+  head_branch: "feature/prj67"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 82
+  additions: 16557
+  deletions: 27
+  changed_files:
+    - path: "src/report_scraper/**"
+      additions: 16557
+      deletions: 0
+
+scores:
+  code_quality: 77
+  security: 64
+  test: 80
+  overall: 73
+
+code_quality:
+  readability_score: 88
+  design_score: 72
+  performance_score: 68
+
+  strengths:
+    - "一貫したNumPy形式のDocstring（カバレッジ90%以上）"
+    - "PEP 695準拠の型ヒント（Python 3.12+スタイル）"
+    - "structlogベースの構造化ロギングが全モジュールに実装"
+    - "Pydanticモデル + frozen dataclassの適切な使い分け"
+    - "BaseReportScraper → 3中間ベースクラス → 16具象の明確な階層設計"
+    - "ScraperEngineのDI（依存性注入）パターン"
+    - "asyncio.Semaphoreによる並行制御"
+
+  issues:
+    critical: []
+    high:
+      - severity: "HIGH"
+        category: "dry"
+        location: "src/report_scraper/scrapers/*.py"
+        description: "_get_logger()が22ファイルで完全に重複"
+        recommendation: "共通のlogger factory関数に統一し、各モジュールでは `logger = get_module_logger(__name__)` のみ"
+      - severity: "HIGH"
+        category: "dry"
+        location: "_html_scraper.py, _spa_scraper.py, pdf_downloader.py"
+        description: "resolve_url/is_pdf_url/find_pdf_links/PDF_URL_PATTERNが3箇所で重複"
+        recommendation: "report_scraper.utils.url_helpers モジュールに集約"
+      - severity: "HIGH"
+        category: "design"
+        location: "src/report_scraper/cli/main.py:59-61"
+        description: "KNOWN_SCRAPERSにAdvisorPerspectivesのみ登録（16中1）。ScraperRegistryと連携していない"
+        recommendation: "CLIからScraperRegistryを使用するよう統合"
+    medium:
+      - severity: "MEDIUM"
+        category: "dry"
+        location: "src/report_scraper/scrapers/*.py"
+        description: "parse_listing_item()が15スクレーパーでほぼ同一のパターン"
+        recommendation: "共通パースロジックをベースクラスに引き上げ、設定のみサブクラスで定義"
+      - severity: "MEDIUM"
+        category: "performance"
+        location: "_html_scraper.py:218, _spa_scraper.py:229, _rss_scraper.py"
+        description: "StealthyFetcher.fetch()/DynamicFetcher.fetch()/feedparser.parse()が同期的でasyncioイベントループをブロック"
+        recommendation: "asyncio.to_thread()でラップするか、asyncio-compatibleな代替を使用"
+    low:
+      - severity: "LOW"
+        category: "readability"
+        location: "src/report_scraper/scrapers/*.py"
+        description: "datetime.now(timezone.utc)がparse_listing_itemで使用されているが、実際の公開日が不明な場合のフォールバック"
+        recommendation: "明示的にNoneを使用し、呼び出し元でデフォルト値を設定"
+
+  solid_compliance:
+    single_responsibility: "PASS"
+    open_closed: "WARN"
+    liskov_substitution: "PASS"
+    interface_segregation: "PASS"
+    dependency_inversion: "PASS"
+
+security:
+  code_security_score: 65
+  infra_security_score: 62
+
+  vulnerability_count:
+    critical: 0
+    high: 1
+    medium: 3
+    low: 2
+
+  findings:
+    - id: "SEC-001"
+      severity: "HIGH"
+      category: "A10-SSRF"
+      location: "src/report_scraper/services/pdf_downloader.py:228-232"
+      description: "PdfDownloaderがfollow_redirects=Trueで任意URLにアクセス。内部サービスへのリダイレクト攻撃の可能性"
+      recommendation: "ホストのallowlist検証を追加し、プライベートIPレンジ（10.x, 172.16-31.x, 192.168.x, 127.x）へのリダイレクトをブロック"
+      cwe_id: "CWE-918"
+    - id: "SEC-002"
+      severity: "MEDIUM"
+      category: "A06-Vulnerable Components"
+      location: ".github/workflows/ci.yml:88-93"
+      description: "pip-auditで6件のCVEをignoreしている（protobuf, pip, diskcache, authlib, lxml-html-clean）"
+      recommendation: "各CVEの影響を定期的に再評価し、修正版がリリースされ次第ignore解除"
+      cwe_id: "CWE-1104"
+    - id: "SEC-003"
+      severity: "MEDIUM"
+      category: "A05-Security Misconfiguration"
+      location: "src/report_scraper/scrapers/_html_scraper.py, _spa_scraper.py"
+      description: "Scrapling StealthyFetcher/DynamicFetcherのTLS証明書検証設定が明示的でない"
+      recommendation: "TLS証明書検証が有効であることを明示的に確認・設定"
+      cwe_id: "CWE-295"
+    - id: "SEC-004"
+      severity: "MEDIUM"
+      category: "A04-Insecure Design"
+      location: "src/report_scraper/storage/json_store.py"
+      description: "source_keyやURLハッシュからファイルパスを構築。source_keyにパス区切り文字が含まれる場合のディレクトリトラバーサルリスク"
+      recommendation: "source_keyのバリデーションで英数字とアンダースコアのみに制限"
+      cwe_id: "CWE-22"
+    - id: "SEC-005"
+      severity: "LOW"
+      category: "A09-Logging"
+      location: "全モジュール"
+      description: "構造化ロギングは実装済みだが、セキュリティイベント（不正URL検出、レート制限等）の専用ログレベル/カテゴリがない"
+      recommendation: "セキュリティ関連イベント用のログカテゴリを追加"
+      cwe_id: "CWE-778"
+    - id: "SEC-006"
+      severity: "LOW"
+      category: "A05-Security Misconfiguration"
+      location: "pyproject.toml:96"
+      description: "banditのB311(random)スキップ。report_scraperパッケージでrandomを使用する場合のリスク"
+      recommendation: "report_scraper固有のスキップ設定を検討"
+      cwe_id: "CWE-330"
+
+test:
+  coverage_assessment: "GOOD"
+  edge_cases_covered: false
+  missing_tests:
+    - "dedup_tracker: None/無効なcollected_atの処理"
+    - "json_store: OSError発生時の振る舞い"
+    - "pdf_downloader: HTTPError各種ステータスコード"
+    - "content_extractor: 巨大HTML入力のパフォーマンス"
+    - "scraper_engine: セマフォ競合状態"
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "WARN"
+    readability: "PASS"
+
+  quality_issues:
+    - severity: "MEDIUM"
+      description: "dedup_trackerテストがdatetime.now()に依存し、時刻固定されていない"
+      recommendation: "freezegunまたはtime-machineで時刻を固定"
+    - severity: "LOW"
+      description: "テストファイルで一部conftest.pyフィクスチャが重複定義"
+      recommendation: "共通フィクスチャをconftest.pyに集約"
+
+recommended_actions:
+  required:
+    - priority: 1
+      action: "KNOWN_SCRAPERS辞書を全16スクレーパーに更新するか、ScraperRegistryとCLIを統合する"
+      related_issues: ["HIGH: CLI/Registry disconnect"]
+    - priority: 2
+      action: "PdfDownloaderにURL検証（プライベートIPレンジブロック）を追加"
+      related_issues: ["SEC-001: SSRF"]
+
+  suggested:
+    - priority: 1
+      action: "_get_logger()の重複を解消し、共通ヘルパーに統合"
+    - priority: 2
+      action: "URL関連ユーティリティ（resolve_url, is_pdf_url等）をutils.url_helpersに集約"
+    - priority: 3
+      action: "同期ブロッキング呼び出し（StealthyFetcher.fetch等）をasyncio.to_thread()でラップ"
+    - priority: 4
+      action: "source_keyのバリデーション強化（英数字+アンダースコアのみ）"
+    - priority: 5
+      action: "dedup_trackerテストにfreezegunを導入"
+
+summary:
+  verdict: "COMMENT"
+  comment: "report_scraperパッケージの初期実装として良好な品質。アーキテクチャ設計（ABC階層、DI、並行制御）は堅実。DRY違反の解消、CLI/Registry統合、SSRF対策が主要な改善ポイント。16ソース16スクレーパーの包括的な実装は印象的だが、共通パターンの抽出でコード量を大幅に削減できる。テストは約312件で基本カバレッジは良好だが、エッジケースの追加が推奨される。"

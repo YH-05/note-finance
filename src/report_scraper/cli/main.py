@@ -58,6 +58,21 @@ DEFAULT_CONFIG_PATH = Path("data/config/report-scraper-config.yaml")
 # update this registry.
 KNOWN_SCRAPERS: dict[str, str] = {
     "advisor_perspectives": "report_scraper.scrapers.advisor_perspectives.AdvisorPerspectivesScraper",
+    "bank_of_america": "report_scraper.scrapers.bank_of_america.BankOfAmericaScraper",
+    "blackrock_bii": "report_scraper.scrapers.blackrock.BlackRockScraper",
+    "deutsche_bank": "report_scraper.scrapers.deutsche_bank.DeutscheBankScraper",
+    "fidelity": "report_scraper.scrapers.fidelity.FidelityScraper",
+    "goldman_sachs": "report_scraper.scrapers.goldman_sachs.GoldmanSachsScraper",
+    "invesco": "report_scraper.scrapers.invesco.InvescoScraper",
+    "jpmorgan": "report_scraper.scrapers.jpmorgan.JPMorganScraper",
+    "morgan_stanley": "report_scraper.scrapers.morgan_stanley.MorganStanleyScraper",
+    "pimco": "report_scraper.scrapers.pimco.PimcoScraper",
+    "schroders": "report_scraper.scrapers.schroders.SchrodersScraper",
+    "schwab": "report_scraper.scrapers.schwab.SchwabScraper",
+    "state_street": "report_scraper.scrapers.state_street.StateStreetScraper",
+    "t_rowe_price": "report_scraper.scrapers.t_rowe_price.TRowePriceScraper",
+    "vanguard": "report_scraper.scrapers.vanguard.VanguardScraper",
+    "wells_fargo": "report_scraper.scrapers.wells_fargo.WellsFargoScraper",
 }
 """Registry of known scraper source keys to class paths."""
 

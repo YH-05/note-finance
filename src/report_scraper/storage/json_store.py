@@ -70,6 +70,7 @@ class JsonReportStore:
         self.data_dir.mkdir(parents=True, exist_ok=True)
         (self.data_dir / "runs").mkdir(exist_ok=True)
         (self.data_dir / "text").mkdir(exist_ok=True)
+        self._index_cache: dict[str, Any] | None = None
         logger.debug("JsonReportStore initialized", data_dir=str(data_dir))
 
     # -- Index operations ---------------------------------------------------
@@ -90,10 +91,14 @@ class JsonReportStore:
         >>> store.load_index()
         {'reports': {}}
         """
+        if self._index_cache is not None:
+            return self._index_cache
+
         index_path = self.data_dir / "index.json"
         if not index_path.exists():
             logger.debug("Index file not found, returning empty index")
-            return {"reports": {}}
+            self._index_cache = {"reports": {}}
+            return self._index_cache
 
         try:
             with index_path.open(encoding="utf-8") as f:
@@ -103,15 +108,18 @@ class JsonReportStore:
                     "Index loaded",
                     report_count=len(data["reports"]),
                 )
-                return data  # type: ignore[no-any-return]
+                self._index_cache = data
+                return self._index_cache  # type: ignore[return-value]
             logger.warning("Index file has unexpected structure, returning empty index")
-            return {"reports": {}}
+            self._index_cache = {"reports": {}}
+            return self._index_cache
         except (json.JSONDecodeError, OSError) as exc:
             logger.warning(
                 "Failed to load index, returning empty index",
                 error=str(exc),
             )
-            return {"reports": {}}
+            self._index_cache = {"reports": {}}
+            return self._index_cache
 
     def save_index(self, index: dict[str, Any]) -> None:
         """Save the report index to ``index.json``.
@@ -130,6 +138,7 @@ class JsonReportStore:
         try:
             with index_path.open("w", encoding="utf-8") as f:
                 json.dump(index, f, ensure_ascii=False, indent=2)
+            self._index_cache = index
             logger.debug(
                 "Index saved",
                 report_count=len(index.get("reports", {})),

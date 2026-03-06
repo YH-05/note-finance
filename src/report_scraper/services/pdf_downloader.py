@@ -49,6 +49,12 @@ logger = get_logger(__name__, module="pdf_downloader")
 PDF_URL_PATTERN = re.compile(r"\.pdf(\?.*)?$", re.IGNORECASE)
 """Regex pattern matching URLs ending with ``.pdf``."""
 
+_FILENAME_SANITIZE_RE = re.compile(r"[^\w\-.]")
+"""Regex for characters not allowed in derived filenames."""
+
+ALLOWED_URL_SCHEMES = frozenset({"https", "http"})
+"""Allowed URL schemes for download targets (SSRF protection)."""
+
 DEFAULT_TIMEOUT = 60.0
 """Default HTTP timeout in seconds for PDF downloads."""
 
@@ -179,11 +185,27 @@ class PdfDownloader:
         """
         self.timeout = timeout
         self.max_size = max_size
+        self._client: httpx.AsyncClient | None = None
         logger.debug(
             "PdfDownloader initialized",
             timeout=timeout,
             max_size_mb=round(max_size / (1024 * 1024), 1),
         )
+
+    async def _get_client(self) -> httpx.AsyncClient:
+        """Get or create a reusable async HTTP client."""
+        if self._client is None or self._client.is_closed:
+            self._client = httpx.AsyncClient(
+                timeout=self.timeout,
+                follow_redirects=True,
+            )
+        return self._client
+
+    async def close(self) -> None:
+        """Close the underlying HTTP client."""
+        if self._client is not None and not self._client.is_closed:
+            await self._client.aclose()
+            self._client = None
 
     async def download(
         self,
@@ -216,6 +238,14 @@ class PdfDownloader:
         """
         from report_scraper.types import PdfMetadata as PdfMeta
 
+        # SSRF protection: validate URL scheme
+        parsed_url = urlparse(url)
+        if parsed_url.scheme not in ALLOWED_URL_SCHEMES:
+            raise FetchError(
+                f"Unsupported URL scheme '{parsed_url.scheme}' (allowed: {', '.join(sorted(ALLOWED_URL_SCHEMES))})",
+                url=url,
+            )
+
         logger.info("Downloading PDF", url=url)
 
         if filename is None:
@@ -224,53 +254,60 @@ class PdfDownloader:
         output_dir.mkdir(parents=True, exist_ok=True)
         output_path = output_dir / filename
 
+        client = await self._get_client()
+
         try:
-            async with httpx.AsyncClient(
-                timeout=self.timeout,
-                follow_redirects=True,
-            ) as client:
-                response = await client.get(url)
+            # AIDEV-NOTE: Stream download to avoid loading entire PDF into memory
+            size = 0
+            async with client.stream("GET", url) as response:
+                if response.status_code != 200:
+                    logger.warning(
+                        "Non-200 status for PDF download",
+                        url=url,
+                        status=response.status_code,
+                    )
+                    raise FetchError(
+                        f"HTTP {response.status_code} downloading PDF from {url}",
+                        url=url,
+                        status_code=response.status_code,
+                    )
+
+                with output_path.open("wb") as f:
+                    async for chunk in response.aiter_bytes(chunk_size=65536):
+                        size += len(chunk)
+                        if size > self.max_size:
+                            logger.warning(
+                                "PDF exceeds maximum size",
+                                url=url,
+                                size_bytes=size,
+                                max_bytes=self.max_size,
+                            )
+                            raise FetchError(
+                                f"PDF exceeds maximum size (>{self.max_size} bytes)",
+                                url=url,
+                            )
+                        f.write(chunk)
+        except FetchError:
+            # Clean up partial file on error
+            if output_path.exists():
+                output_path.unlink(missing_ok=True)
+            raise
         except httpx.TimeoutException as exc:
+            if output_path.exists():
+                output_path.unlink(missing_ok=True)
             logger.error("PDF download timed out", url=url, error=str(exc))
             raise FetchError(
                 f"PDF download timed out: {exc}",
                 url=url,
             ) from exc
         except httpx.HTTPError as exc:
+            if output_path.exists():
+                output_path.unlink(missing_ok=True)
             logger.error("PDF download failed", url=url, error=str(exc))
             raise FetchError(
                 f"PDF download failed: {exc}",
                 url=url,
             ) from exc
-
-        if response.status_code != 200:
-            logger.warning(
-                "Non-200 status for PDF download",
-                url=url,
-                status=response.status_code,
-            )
-            raise FetchError(
-                f"HTTP {response.status_code} downloading PDF from {url}",
-                url=url,
-                status_code=response.status_code,
-            )
-
-        content = response.content
-        size = len(content)
-
-        if size > self.max_size:
-            logger.warning(
-                "PDF exceeds maximum size",
-                url=url,
-                size_bytes=size,
-                max_bytes=self.max_size,
-            )
-            raise FetchError(
-                f"PDF exceeds maximum size ({size} > {self.max_size} bytes)",
-                url=url,
-            )
-
-        output_path.write_bytes(content)
 
         logger.info(
             "PDF downloaded successfully",
@@ -311,7 +348,9 @@ class PdfDownloader:
 
         if path:
             name = path.split("/")[-1]
-            if name:
+            # Sanitize filename to prevent path traversal
+            name = _FILENAME_SANITIZE_RE.sub("_", name)
+            if name and name not in (".", ".."):
                 if not name.lower().endswith(".pdf"):
                     name += ".pdf"
                 return name

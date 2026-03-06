@@ -2315,7 +2315,7 @@ requires-dist = [
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "rich", specifier = ">=13.7.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.14.11" },
-    { name = "scrapling", extras = ["fetchers"], marker = "extra == 'scraper'", specifier = ">=0.4" },
+    { name = "scrapling", extras = ["fetchers"], marker = "extra == 'scraper'", specifier = ">=0.4,<1.0" },
     { name = "structlog", specifier = ">=25.4.0" },
     { name = "tenacity", specifier = ">=9.1.2" },
     { name = "tqdm", specifier = ">=4.67.2" },

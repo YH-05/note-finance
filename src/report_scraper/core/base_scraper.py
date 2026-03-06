@@ -39,24 +39,9 @@ if TYPE_CHECKING:
     )
 
 
-# ---------------------------------------------------------------------------
-# Logger
-# ---------------------------------------------------------------------------
+from report_scraper._logging import get_logger
 
-
-def _get_logger() -> Any:
-    """Get logger with lazy initialization to avoid circular imports."""
-    try:
-        from report_scraper._logging import get_logger
-
-        return get_logger(__name__, module="base_report_scraper")
-    except ImportError:
-        import logging
-
-        return logging.getLogger(__name__)
-
-
-logger: Any = _get_logger()
+logger = get_logger(__name__, module="base_report_scraper")
 
 
 # ---------------------------------------------------------------------------

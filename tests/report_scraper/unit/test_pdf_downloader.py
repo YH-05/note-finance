@@ -11,7 +11,7 @@ Tests cover:
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from unittest.mock import AsyncMock, MagicMock, patch
 
 if TYPE_CHECKING:
@@ -137,30 +137,48 @@ class TestDeriveFilename:
 # ---------------------------------------------------------------------------
 
 
+def _make_mock_client(
+    *,
+    status_code: int = 200,
+    content: bytes = b"",
+) -> MagicMock:
+    """Create a mock httpx.AsyncClient with streaming support."""
+    response = MagicMock()
+    response.status_code = status_code
+
+    async def _aiter_bytes(chunk_size: int = 65536) -> Any:
+        for i in range(0, len(content), chunk_size):
+            yield content[i : i + chunk_size]
+
+    response.aiter_bytes = _aiter_bytes
+
+    # stream() returns a sync context manager (not async in terms of __aenter__
+    # being a coroutine). httpx.AsyncClient.stream returns an async CM.
+    stream_cm = MagicMock()
+    stream_cm.__aenter__ = AsyncMock(return_value=response)
+    stream_cm.__aexit__ = AsyncMock(return_value=False)
+
+    client = MagicMock()
+    client.stream.return_value = stream_cm
+    client.is_closed = False
+    return client
+
+
 class TestPdfDownloaderDownload:
     """Tests for PdfDownloader.download."""
 
     @pytest.mark.asyncio
     async def test_正常系_PDFをダウンロードして保存できる(self, tmp_path: Path) -> None:
         pdf_content = b"%PDF-1.4 fake pdf content" * 100
-        mock_response = MagicMock()
-        mock_response.status_code = 200
-        mock_response.content = pdf_content
+        mock_client = _make_mock_client(status_code=200, content=pdf_content)
 
-        mock_client = AsyncMock()
-        mock_client.get.return_value = mock_response
-        mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-        mock_client.__aexit__ = AsyncMock(return_value=False)
+        downloader = PdfDownloader()
+        downloader._client = mock_client
 
-        with patch(
-            "report_scraper.services.pdf_downloader.httpx.AsyncClient",
-            return_value=mock_client,
-        ):
-            downloader = PdfDownloader()
-            result = await downloader.download(
-                "https://example.com/report.pdf",
-                tmp_path,
-            )
+        result = await downloader.download(
+            "https://example.com/report.pdf",
+            tmp_path,
+        )
 
         assert isinstance(result, PdfMetadata)
         assert result.url == "https://example.com/report.pdf"
@@ -171,91 +189,62 @@ class TestPdfDownloaderDownload:
     @pytest.mark.asyncio
     async def test_正常系_カスタムファイル名で保存できる(self, tmp_path: Path) -> None:
         pdf_content = b"%PDF-1.4 content"
-        mock_response = MagicMock()
-        mock_response.status_code = 200
-        mock_response.content = pdf_content
+        mock_client = _make_mock_client(status_code=200, content=pdf_content)
 
-        mock_client = AsyncMock()
-        mock_client.get.return_value = mock_response
-        mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-        mock_client.__aexit__ = AsyncMock(return_value=False)
+        downloader = PdfDownloader()
+        downloader._client = mock_client
 
-        with patch(
-            "report_scraper.services.pdf_downloader.httpx.AsyncClient",
-            return_value=mock_client,
-        ):
-            downloader = PdfDownloader()
-            result = await downloader.download(
-                "https://example.com/download?id=123",
-                tmp_path,
-                filename="custom-report.pdf",
-            )
+        result = await downloader.download(
+            "https://example.com/download?id=123",
+            tmp_path,
+            filename="custom-report.pdf",
+        )
 
         assert result.local_path.name == "custom-report.pdf"
 
     @pytest.mark.asyncio
     async def test_異常系_非200ステータスでFetchError(self, tmp_path: Path) -> None:
-        mock_response = MagicMock()
-        mock_response.status_code = 404
+        mock_client = _make_mock_client(status_code=404, content=b"")
 
-        mock_client = AsyncMock()
-        mock_client.get.return_value = mock_response
-        mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-        mock_client.__aexit__ = AsyncMock(return_value=False)
+        downloader = PdfDownloader()
+        downloader._client = mock_client
 
-        with patch(
-            "report_scraper.services.pdf_downloader.httpx.AsyncClient",
-            return_value=mock_client,
-        ):
-            downloader = PdfDownloader()
-            with pytest.raises(FetchError, match="HTTP 404"):
-                await downloader.download(
-                    "https://example.com/missing.pdf",
-                    tmp_path,
-                )
+        with pytest.raises(FetchError, match="HTTP 404"):
+            await downloader.download(
+                "https://example.com/missing.pdf",
+                tmp_path,
+            )
 
     @pytest.mark.asyncio
     async def test_異常系_サイズ超過でFetchError(self, tmp_path: Path) -> None:
         large_content = b"x" * 1000
-        mock_response = MagicMock()
-        mock_response.status_code = 200
-        mock_response.content = large_content
+        mock_client = _make_mock_client(status_code=200, content=large_content)
 
-        mock_client = AsyncMock()
-        mock_client.get.return_value = mock_response
-        mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-        mock_client.__aexit__ = AsyncMock(return_value=False)
+        downloader = PdfDownloader(max_size=500)
+        downloader._client = mock_client
 
-        with patch(
-            "report_scraper.services.pdf_downloader.httpx.AsyncClient",
-            return_value=mock_client,
-        ):
-            downloader = PdfDownloader(max_size=500)
-            with pytest.raises(FetchError, match="exceeds maximum size"):
-                await downloader.download(
-                    "https://example.com/huge.pdf",
-                    tmp_path,
-                )
+        with pytest.raises(FetchError, match="exceeds maximum size"):
+            await downloader.download(
+                "https://example.com/huge.pdf",
+                tmp_path,
+            )
 
     @pytest.mark.asyncio
     async def test_異常系_タイムアウトでFetchError(self, tmp_path: Path) -> None:
         import httpx
 
-        mock_client = AsyncMock()
-        mock_client.get.side_effect = httpx.TimeoutException("timeout")
-        mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-        mock_client.__aexit__ = AsyncMock(return_value=False)
+        mock_client = MagicMock()
+        mock_client.stream.side_effect = httpx.TimeoutException("timeout")
+        mock_client.is_closed = False
 
-        with patch(
-            "report_scraper.services.pdf_downloader.httpx.AsyncClient",
-            return_value=mock_client,
-        ):
-            downloader = PdfDownloader()
-            with pytest.raises(FetchError, match="timed out"):
-                await downloader.download(
-                    "https://example.com/slow.pdf",
-                    tmp_path,
-                )
+        downloader = PdfDownloader()
+        downloader._client = mock_client
+
+        with pytest.raises(FetchError, match="timed out"):
+            await downloader.download(
+                "https://example.com/slow.pdf",
+                tmp_path,
+            )
 
 
 # ---------------------------------------------------------------------------

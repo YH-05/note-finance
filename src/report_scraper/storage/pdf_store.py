@@ -92,6 +92,12 @@ class PdfStore:
         Path
             Directory path for the source's PDFs.
 
+        Raises
+        ------
+        ValueError
+            If ``source_key`` resolves outside the base directory
+            (path traversal protection).
+
         Examples
         --------
         >>> from pathlib import Path
@@ -99,9 +105,24 @@ class PdfStore:
         >>> store.get_source_dir("blackrock")
         PosixPath('/tmp/pdfs/blackrock')
         """
+        self._validate_source_key(source_key)
         source_dir = self.base_dir / source_key
         source_dir.mkdir(parents=True, exist_ok=True)
         return source_dir
+
+    def _validate_source_key(self, source_key: str) -> None:
+        """Validate that source_key does not escape the base directory.
+
+        Raises
+        ------
+        ValueError
+            If the source_key would resolve outside base_dir.
+        """
+        candidate = self.base_dir / source_key
+        if not candidate.resolve().is_relative_to(self.base_dir.resolve()):
+            raise ValueError(
+                f"Invalid source_key (path traversal detected): {source_key}"
+            )
 
     def list_pdfs(self, source_key: str) -> list[Path]:
         """List all PDF files for a given source.
@@ -116,6 +137,7 @@ class PdfStore:
         list[Path]
             Sorted list of PDF file paths.
         """
+        self._validate_source_key(source_key)
         source_dir = self.base_dir / source_key
         if not source_dir.exists():
             return []
@@ -143,6 +165,7 @@ class PdfStore:
         bool
             ``True`` if the file exists.
         """
+        self._validate_source_key(source_key)
         return (self.base_dir / source_key / filename).exists()
 
     async def download_and_store(

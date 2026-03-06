@@ -21,27 +21,11 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING, Any, ClassVar
 
+from report_scraper._logging import get_logger
 from report_scraper.scrapers._html_scraper import HtmlReportScraper
 from report_scraper.types import ReportMetadata, ScrapedReport, SourceConfig
 
-# ---------------------------------------------------------------------------
-# Logger
-# ---------------------------------------------------------------------------
-
-
-def _get_logger() -> Any:
-    """Get logger with lazy initialization to avoid circular imports."""
-    try:
-        from report_scraper._logging import get_logger
-
-        return get_logger(__name__, module="blackrock_scraper")
-    except ImportError:
-        import logging
-
-        return logging.getLogger(__name__)
-
-
-logger: Any = _get_logger()
+logger = get_logger(__name__, module="blackrock_scraper")
 
 
 # ---------------------------------------------------------------------------
