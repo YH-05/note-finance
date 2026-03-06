@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from pathlib import Path
+from typing import TYPE_CHECKING
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 from click.testing import CliRunner
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 from report_scraper.cli.main import cli
 from report_scraper.types import (
@@ -298,3 +301,61 @@ class TestTestSourceCommand:
         assert "BlackRock Investment Institute" in result.output
         assert "buy_side" in result.output
         assert "static" in result.output
+
+
+# ---------------------------------------------------------------------------
+# Tests: history command
+# ---------------------------------------------------------------------------
+
+
+class TestHistoryCommand:
+    """Tests for the history command."""
+
+    def test_正常系_ヘルプ表示(self, runner: CliRunner) -> None:
+        result = runner.invoke(cli, ["history", "--help"])
+        assert result.exit_code == 0
+        assert "--days" in result.output
+
+    def test_正常系_履歴なしでメッセージ表示(
+        self,
+        runner: CliRunner,
+        tmp_path: Path,
+    ) -> None:
+        result = runner.invoke(
+            cli,
+            ["--data-dir", str(tmp_path / "empty"), "history", "--days", "7"],
+        )
+        assert result.exit_code == 0
+        assert "No reports collected" in result.output
+
+    def test_正常系_履歴ありでテーブル表示(
+        self,
+        runner: CliRunner,
+        tmp_path: Path,
+    ) -> None:
+        # Pre-populate index with a recent entry
+        from report_scraper.services.dedup_tracker import DedupTracker
+        from report_scraper.storage.json_store import JsonReportStore
+
+        data_dir = tmp_path / "history_test"
+        store = JsonReportStore(data_dir)
+        tracker = DedupTracker(store, dedup_days=30)
+        tracker.mark_seen("test_source", "https://example.com/report-1")
+
+        # Update the entry to have a title
+        index = store.load_index()
+        index["reports"]["https://example.com/report-1"]["title"] = "Test Report Title"
+        store.save_index(index)
+
+        result = runner.invoke(
+            cli,
+            ["--data-dir", str(data_dir), "history", "--days", "7"],
+        )
+        assert result.exit_code == 0
+        assert "1" in result.output  # at least "1 report(s)"
+        assert "test_source" in result.output
+
+    def test_正常系_daysオプションのデフォルトは7(self, runner: CliRunner) -> None:
+        result = runner.invoke(cli, ["history", "--help"])
+        assert result.exit_code == 0
+        assert "7" in result.output

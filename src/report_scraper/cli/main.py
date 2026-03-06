@@ -453,5 +453,79 @@ def test_source(key: str, config_path: Path | None) -> None:
     )
 
 
+# ---------------------------------------------------------------------------
+# history command
+# ---------------------------------------------------------------------------
+
+
+@cli.command("history")
+@click.option(
+    "--days",
+    type=int,
+    default=7,
+    help="Number of days to look back (default: 7)",
+)
+@click.pass_context
+def history(ctx: click.Context, days: int) -> None:
+    """Show collection history for the specified period.
+
+    Displays a Rich table of reports collected within the last ``--days``
+    days, reading from the JSON index maintained by ``JsonReportStore``.
+    """
+    data_dir: Path = ctx.obj.get("data_dir", DEFAULT_DATA_DIR)
+    logger.debug("Showing history", days=days, data_dir=str(data_dir))
+
+    from report_scraper.services.dedup_tracker import DedupTracker
+    from report_scraper.storage.json_store import JsonReportStore
+
+    store = JsonReportStore(data_dir)
+    tracker = DedupTracker(store, dedup_days=days)
+    entries = tracker.get_history(days=days)
+
+    if not entries:
+        console.print(
+            f"[yellow]No reports collected in the last {days} day(s).[/yellow]"
+        )
+        logger.info("No history entries found", days=days)
+        return
+
+    # Sort by collected_at descending
+    entries.sort(key=lambda e: e.get("collected_at", ""), reverse=True)
+
+    table = Table(title=f"Collection History (last {days} day(s))")
+    table.add_column("Collected At", style="cyan", no_wrap=True)
+    table.add_column("Source", style="magenta")
+    table.add_column("Title", style="green", max_width=50)
+    table.add_column("URL", style="dim", max_width=60)
+
+    for entry in entries:
+        collected_at = entry.get("collected_at", "-")
+        # Truncate ISO timestamp to date + time (no microseconds / tz)
+        if len(collected_at) > 19:
+            collected_at = collected_at[:19]
+
+        title = entry.get("title", "")
+        title_display = title[:47] + "..." if len(title) > 50 else title
+
+        url = entry.get("url", "")
+        url_display = url[:57] + "..." if len(url) > 60 else url
+
+        table.add_row(
+            collected_at,
+            entry.get("source_key", "-"),
+            title_display,
+            url_display,
+        )
+
+    console.print(table)
+    console.print(f"\n[bold]{len(entries)}[/bold] report(s) in the last {days} day(s).")
+
+    logger.info(
+        "History displayed",
+        days=days,
+        entries=len(entries),
+    )
+
+
 if __name__ == "__main__":
     cli()
