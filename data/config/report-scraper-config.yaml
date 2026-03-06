@@ -84,3 +84,65 @@ sources:
     rendering: "playwright"
     tags: ["fixed_income", "macro", "outlook"]
     article_selector: "div.coveo-result-cell a, div.CoveoResult a, a.coveo-result-link, div.insight-card a"
+
+  - key: "state_street"
+    name: "State Street Global Advisors"
+    tier: "buy_side"
+    listing_url: "https://www.ssga.com/us/en/intermediary/insights"
+    rendering: "static"
+    tags: ["macro", "etf", "research"]
+    article_selector: "div.insights-listing a, div.article-card a, a.insight-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "fidelity"
+    name: "Fidelity Investments"
+    tier: "buy_side"
+    listing_url: "https://www.fidelity.com/learning-center/trading-investing/overview"
+    rendering: "static"
+    tags: ["macro", "equity", "retirement"]
+    article_selector: "div.article-listing a, div.content-card a, a.article-link"
+
+  - key: "t_rowe_price"
+    name: "T. Rowe Price"
+    tier: "buy_side"
+    listing_url: "https://www.troweprice.com/personal-investing/resources/insights/global-markets-weekly-update"
+    rendering: "static"
+    tags: ["macro", "equity", "weekly"]
+    article_selector: "div.article-list a, div.insight-card a, a.content-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "invesco"
+    name: "Invesco"
+    tier: "buy_side"
+    listing_url: "https://www.invesco.com/us/en/insights.html"
+    rendering: "static"
+    tags: ["macro", "etf", "outlook"]
+    article_selector: "div.insights-list a, div.article-card a, a.insight-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "schroders"
+    name: "Schroders"
+    tier: "buy_side"
+    listing_url: "https://www.schroders.com/en-us/us/individual/insights/"
+    rendering: "static"
+    tags: ["macro", "equity", "outlook"]
+    article_selector: "div.insights-listing a, div.article-card a, a.insight-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "deutsche_bank"
+    name: "Deutsche Bank Research"
+    tier: "sell_side"
+    listing_url: "https://www.db.com/news/in-the-press"
+    rendering: "static"
+    tags: ["macro", "fx", "research"]
+    article_selector: "div.article-listing a, div.news-item a, a.article-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "bank_of_america"
+    name: "Bank of America Research"
+    tier: "sell_side"
+    listing_url: "https://business.bofa.com/en-us/content/market-strategies-insights.html"
+    rendering: "static"
+    tags: ["macro", "equity", "strategy"]
+    article_selector: "div.article-listing a, div.insight-card a, a.article-link"
+    pdf_selector: "a[href$='.pdf']"
