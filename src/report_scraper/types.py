@@ -190,6 +190,44 @@ class GlobalConfig(BaseModel):
     )
 
 
+class ReportScraperConfig(BaseModel):
+    """Top-level configuration combining global settings and source definitions.
+
+    Attributes
+    ----------
+    global_config : GlobalConfig
+        Global scraper settings (output dirs, timeouts, etc.).
+    sources : list[SourceConfig]
+        List of report source configurations.
+
+    Examples
+    --------
+    >>> cfg = ReportScraperConfig(
+    ...     global_config=GlobalConfig(),
+    ...     sources=[
+    ...         SourceConfig(
+    ...             key="example",
+    ...             name="Example",
+    ...             tier="sell_side",
+    ...             listing_url="https://example.com",
+    ...             rendering="static",
+    ...         )
+    ...     ],
+    ... )
+    >>> len(cfg.sources)
+    1
+    """
+
+    global_config: GlobalConfig = Field(
+        default_factory=GlobalConfig,
+        alias="global",
+        description="Global scraper settings",
+    )
+    sources: list[SourceConfig] = Field(
+        ..., min_length=1, description="List of report source configurations"
+    )
+
+
 # ---------------------------------------------------------------------------
 # Frozen dataclass models
 # ---------------------------------------------------------------------------

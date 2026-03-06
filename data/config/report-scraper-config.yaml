@@ -1,0 +1,21 @@
+# report_scraper 設定ファイル
+# YAML設定 → Pydantic ReportScraperConfig でバリデーション
+
+global:
+  output_dir: "data/scraped/reports"
+  pdf_dir: "data/scraped/pdfs"
+  max_reports_per_source: 20
+  timeouts:
+    connect: 10
+    read: 30
+  dedup_days: 30
+
+sources:
+  - key: "advisor_perspectives"
+    name: "Advisor Perspectives"
+    tier: "aggregator"
+    listing_url: "https://www.advisorperspectives.com/articles"
+    rendering: "static"
+    tags: ["macro", "equity", "fixed_income"]
+    article_selector: "div.article-list-item"
+    max_reports: 15
