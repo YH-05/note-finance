@@ -24,8 +24,7 @@ import logging
 import re
 import subprocess
 import sys
-from dataclasses import dataclass, field
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -36,6 +35,15 @@ from pydantic import BaseModel, Field
 
 from rss.services.feed_reader import FeedReader
 from rss.utils.url_normalizer import normalize_url
+from session_utils import (
+    ArticleData,
+    BlockedArticle,
+    SessionStats,
+    filter_by_date,
+    get_logger as _get_structlog,
+    select_top_n,
+    write_session_file,
+)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -70,27 +78,7 @@ URL_PATTERN = re.compile(r"https?://[^\s<>\"\)]+")
 # Logger
 # ---------------------------------------------------------------------------
 
-
-def _get_logger() -> logging.Logger:
-    """Get logger with console output.
-
-    Returns
-    -------
-    logging.Logger
-        Configured logger instance.
-    """
-    logger = logging.getLogger(__name__)
-    if not logger.handlers:
-        handler = logging.StreamHandler()
-        handler.setFormatter(
-            logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-        )
-        logger.addHandler(handler)
-        logger.setLevel(logging.INFO)
-    return logger
-
-
-logger = _get_logger()
+logger = _get_structlog(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -137,49 +125,7 @@ class ThemeConfig(BaseModel):
     github_status_id: str
 
 
-class ArticleData(BaseModel):
-    """Article data for accessible articles.
-
-    Attributes
-    ----------
-    url : str
-        Article URL.
-    title : str
-        Article title.
-    summary : str
-        Article summary from RSS feed.
-    feed_source : str
-        Name of the RSS feed source.
-    published : str
-        Publication timestamp in ISO 8601 format.
-    """
-
-    url: str
-    title: str
-    summary: str
-    feed_source: str
-    published: str
-
-
-class BlockedArticle(BaseModel):
-    """Article data for blocked articles.
-
-    Attributes
-    ----------
-    url : str
-        Article URL.
-    title : str
-        Article title.
-    summary : str
-        Article summary from RSS feed.
-    reason : str
-        Reason for blocking (e.g., paywall detected).
-    """
-
-    url: str
-    title: str
-    summary: str
-    reason: str
+# AIDEV-NOTE: ArticleData, BlockedArticle are imported from session_utils
 
 
 class ThemeData(BaseModel):
@@ -200,22 +146,7 @@ class ThemeData(BaseModel):
     theme_config: ThemeConfig
 
 
-class SessionStats(BaseModel):
-    """Session statistics.
-
-    Attributes
-    ----------
-    total : int
-        Total number of articles fetched from RSS.
-    duplicates : int
-        Number of duplicate articles filtered.
-    accessible : int
-        Number of accessible articles.
-    """
-
-    total: int
-    duplicates: int
-    accessible: int
+# AIDEV-NOTE: SessionStats is imported from session_utils
 
 
 class NewsSession(BaseModel):
@@ -323,12 +254,12 @@ def load_theme_config(config_path: Path = THEME_CONFIG_PATH) -> dict[str, Any]:
     json.JSONDecodeError
         If configuration file is not valid JSON.
     """
-    logger.info("Loading theme configuration from %s", config_path)
+    logger.info("loading_theme_configuration", config_path=str(config_path))
 
     with open(config_path) as f:
         config = json.load(f)
 
-    logger.debug("Loaded %d themes", len(config.get("themes", {})))
+    logger.debug("loaded_themes", count=len(config.get("themes", {})))
     return config
 
 
@@ -368,7 +299,7 @@ def extract_urls_from_issues(issues: list[dict[str, Any]]) -> set[str]:
             if normalized:
                 urls.add(normalized)
 
-    logger.debug("Extracted %d unique URLs from %d issues", len(urls), len(issues))
+    logger.debug("extracted_urls", unique_count=len(urls), issue_count=len(issues))
     return urls
 
 
@@ -394,9 +325,9 @@ def get_existing_issues_with_urls(
         Tuple of (issues list, extracted URLs set).
     """
     logger.info(
-        "Fetching existing issues from Project #%d (last %d days)",
-        project_number,
-        days_back,
+        "fetching_existing_issues",
+        project_number=project_number,
+        days_back=days_back,
     )
 
     try:
@@ -436,19 +367,19 @@ def get_existing_issues_with_urls(
                     }
                 )
 
-        logger.info("Found %d existing issues", len(issues))
+        logger.info("found_existing_issues", count=len(issues))
 
         # Extract URLs
         urls = extract_urls_from_issues(issues)
-        logger.info("Extracted %d unique article URLs", len(urls))
+        logger.info("extracted_unique_article_urls", count=len(urls))
 
         return issues, urls
 
     except subprocess.CalledProcessError as e:
-        logger.warning("Failed to fetch project items: %s", e.stderr)
+        logger.warning("failed_to_fetch_project_items", error=e.stderr)
         return [], set()
     except json.JSONDecodeError as e:
-        logger.warning("Failed to parse project items: %s", e)
+        logger.warning("failed_to_parse_project_items", error=str(e))
         return [], set()
 
 
@@ -478,7 +409,7 @@ def fetch_rss_items_by_theme(
     dict[str, list[dict[str, Any]]]
         RSS items keyed by theme key.
     """
-    logger.info("Fetching RSS items by theme from %s", data_dir)
+    logger.info("fetching_rss_items_by_theme", data_dir=str(data_dir))
 
     reader = FeedReader(data_dir)
     items_by_theme: dict[str, list[dict[str, Any]]] = {}
@@ -514,107 +445,18 @@ def fetch_rss_items_by_theme(
                         }
                     )
             except Exception as e:
-                logger.warning("Failed to fetch items from feed %s: %s", feed_id, e)
+                logger.warning("failed_to_fetch_feed_items", feed_id=feed_id, error=str(e))
 
         items_by_theme[theme_key] = theme_items
-        logger.debug("Fetched %d items for theme %s", len(theme_items), theme_key)
+        logger.debug("fetched_theme_items", theme=theme_key, count=len(theme_items))
 
     return items_by_theme
 
 
-# ---------------------------------------------------------------------------
-# Date Filtering
-# ---------------------------------------------------------------------------
+# AIDEV-NOTE: filter_by_date is imported from session_utils
 
 
-def filter_by_date(
-    items: list[dict[str, Any]],
-    days: int,
-) -> list[dict[str, Any]]:
-    """Filter items to only those published within specified days.
-
-    Parameters
-    ----------
-    items : list[dict[str, Any]]
-        List of RSS items.
-    days : int
-        Number of days to look back.
-
-    Returns
-    -------
-    list[dict[str, Any]]
-        Filtered list of items.
-    """
-    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
-    filtered: list[dict[str, Any]] = []
-
-    for item in items:
-        published_str = item.get("published")
-        if not published_str:
-            continue
-
-        try:
-            # Parse ISO 8601 timestamp
-            published = datetime.fromisoformat(published_str.replace("Z", "+00:00"))
-
-            if published >= cutoff:
-                filtered.append(item)
-        except (ValueError, TypeError) as e:
-            logger.debug("Failed to parse date %s: %s", published_str, e)
-
-    logger.debug(
-        "Date filter: %d -> %d items (last %d days)",
-        len(items),
-        len(filtered),
-        days,
-    )
-
-    return filtered
-
-
-# ---------------------------------------------------------------------------
-# Top-N Selection
-# ---------------------------------------------------------------------------
-
-
-def select_top_n(
-    items: list[dict[str, Any]],
-    top_n: int,
-) -> list[dict[str, Any]]:
-    """Select top N articles sorted by published date (newest first).
-
-    Parameters
-    ----------
-    items : list[dict[str, Any]]
-        List of RSS items.
-    top_n : int
-        Maximum number of articles to return.
-
-    Returns
-    -------
-    list[dict[str, Any]]
-        Top N articles sorted by newest first.
-    """
-    if top_n <= 0:
-        return items
-
-    # Sort by published date descending (newest first)
-    sorted_items = sorted(
-        items,
-        key=lambda x: x.get("published", ""),
-        reverse=True,
-    )
-
-    selected = sorted_items[:top_n]
-
-    logger.debug(
-        "Top-N selection: %d -> %d items (top %d)",
-        len(items),
-        len(selected),
-        top_n,
-    )
-
-    return selected
+# AIDEV-NOTE: select_top_n is imported from session_utils
 
 
 # ---------------------------------------------------------------------------
@@ -656,9 +498,9 @@ def check_duplicates(
                 existing_urls.add(normalized)
 
     logger.debug(
-        "Duplicate check: %d unique, %d duplicates",
-        len(unique),
-        len(duplicates),
+        "duplicate_check_completed",
+        unique_count=len(unique),
+        duplicate_count=len(duplicates),
     )
 
     return unique, duplicates
@@ -805,24 +647,7 @@ def get_default_output_path() -> Path:
     return TMP_DIR / f"{session_id}.json"
 
 
-def write_session_file(session: NewsSession, output_path: Path) -> None:
-    """Write session data to JSON file.
-
-    Parameters
-    ----------
-    session : NewsSession
-        Session data to write.
-    output_path : Path
-        Output file path.
-    """
-    # Ensure directory exists
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    # Write JSON with proper encoding
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(session.model_dump(), f, ensure_ascii=False, indent=2)
-
-    logger.info("Session file written to %s", output_path)
+# AIDEV-NOTE: write_session_file is imported from session_utils
 
 
 # ---------------------------------------------------------------------------
@@ -878,15 +703,15 @@ async def run_async(
     total_duplicates = 0
 
     for theme_key, items in items_by_theme.items():
-        logger.info("Processing theme: %s (%d items)", theme_key, len(items))
+        logger.info("processing_theme", theme=theme_key, item_count=len(items))
         total_fetched += len(items)
 
         # Filter by date
         date_filtered = filter_by_date(items, days)
         logger.debug(
-            "After date filter: %d -> %d items",
-            len(items),
-            len(date_filtered),
+            "after_date_filter",
+            input_count=len(items),
+            output_count=len(date_filtered),
         )
 
         # Check duplicates
@@ -902,12 +727,12 @@ async def run_async(
         }
 
         logger.info(
-            "Theme %s: %d articles (%d duplicates, top %d of %d unique)",
-            theme_key,
-            len(selected),
-            len(duplicates),
-            top_n,
-            len(unique),
+            "theme_processing_complete",
+            theme=theme_key,
+            article_count=len(selected),
+            duplicate_count=len(duplicates),
+            top_n=top_n,
+            unique_count=len(unique),
         )
 
     # Calculate stats
@@ -954,7 +779,11 @@ def main(args: list[str] | None = None) -> int:
 
     # Configure logging
     if parsed.verbose:
-        logger.setLevel(logging.DEBUG)
+        import structlog
+
+        structlog.configure(
+            wrapper_class=structlog.make_filtering_bound_logger(logging.DEBUG),
+        )
 
     # Parse themes
     themes_filter: list[str] | None = None
