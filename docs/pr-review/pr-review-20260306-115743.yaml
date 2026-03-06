@@ -1,0 +1,314 @@
+# PRレビューレポート
+# 生成日時: 2026-03-06 11:57:43
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-06 11:57:43"
+  pr_number: 33
+  pr_title: "feat(report-scraper): report_scraper パッケージ実装（Project #67 全14 Issue）"
+  base_branch: "main"
+  head_branch: "feature/prj67"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 83
+  additions: 16557
+  deletions: 27
+  changed_files:
+    - path: ".github/workflows/ci.yml"
+      additions: 3
+      deletions: 1
+    - path: "pyproject.toml"
+      additions: 7
+      deletions: 2
+    - path: "data/config/report-scraper-config.yaml"
+      additions: 148
+      deletions: 0
+    - path: "src/report_scraper/"
+      additions: 5765  # 概算（全パッケージ）
+      deletions: 0
+    - path: "tests/report_scraper/"
+      additions: 5982  # 概算（332テスト）
+      deletions: 0
+
+scores:
+  code_quality: 79  # readability(88)×0.35 + design(76)×0.40 + performance(72)×0.25
+  security: 76      # code_security(79)×0.60 + infra_security(72)×0.40
+  test: 83          # coverage(78)×0.50 + quality(88)×0.50
+  overall: 79       # code_quality(79)×0.40 + security(76)×0.35 + test(83)×0.25
+
+# ─────────────────────────────────────────────
+# コード品質
+# ─────────────────────────────────────────────
+code_quality:
+  readability_score: 88
+  design_score: 76
+  performance_score: 72
+
+  strengths:
+    - "全モジュールにNumPy形式のdocstringとモジュールレベルdocstringが整備されている"
+    - "型ヒント（Python 3.12+ スタイル、PEP 695）を全publicメソッドに適用（推定カバレッジ95%）"
+    - "structlogによる構造化ログが全コードに一貫して実装されている"
+    - "Template Method + Registry + DI パターンを適切に組み合わせた拡張性の高いアーキテクチャ"
+    - "frozen dataclass（データモデル）と Pydantic（設定バリデーション）の役割分担が明確"
+    - "asyncio.Semaphore(5) + asyncio.gather() による適切な並列制御"
+    - "AIDEV-NOTE アンカーコメントが適切な箇所に使用されている"
+    - "CollectResult/RunSummary の errors/reports フィールドが tuple で不変性を保証"
+
+  issues:
+    critical: []
+
+    high:
+      # 可読性
+      - category: "readability"
+        location: "src/report_scraper/cli/main.py:59-62"
+        description: "KNOWN_SCRAPERS に1エントリのみ（advisor_perspectives）しか登録されておらず、16スクレイパー実装済みなのにCLI経由では1つしか呼べない実装ギャップ"
+        suggestion: "全16スクレイパーを KNOWN_SCRAPERS に追加するか、ScraperRegistry を活用した自動ディスカバリ機構を導入する"
+      # 設計
+      - category: "design/dry"
+        location: "src/report_scraper/scrapers/_html_scraper.py:280-392 / _spa_scraper.py:302-410"
+        description: "resolve_url / is_pdf_url / find_pdf_links / extract_links_by_css の4メソッドが _html_scraper.py と _spa_scraper.py で完全に重複（さらに pdf_downloader.py にも PDF_URL_PATTERN が重複、計3箇所）"
+        suggestion: "_scraper_utils.py にユーティリティ関数として抽出し、HTML/SPA/PdfDownloader の3ファイルから参照する"
+      - category: "design/dry"
+        location: "src/report_scraper/core/base_scraper.py:47-59（および計22ファイル）"
+        description: "_get_logger() 関数（12行）が22ファイルに重複定義。content_extractor.py のみ直接インポート方式で適切に実装済み"
+        suggestion: "全ファイルを content_extractor.py 方式（from report_scraper._logging import get_logger）に統一する"
+
+    medium:
+      # 可読性
+      - category: "readability"
+        location: "src/report_scraper/core/scraper_registry.py:54-98"
+        description: "_DefaultScraper クラスの __init__ 内で _DynScraper という動的サブクラスを定義しており、型チェッカーが解析できずデバッグ時にクラス名が不明瞭"
+        suggestion: "モジュールレベルの _DefaultDynScraper として定義し、__init__ ではインスタンス化するだけにする"
+      - category: "readability"
+        location: "src/report_scraper/scrapers/blackrock.py:155-157 (他6スクレイパー)"
+        description: "bare except（except Exception: pass）でエラーをサイレントに無視しており、ログ出力がない"
+        suggestion: "logger.debug('CSS selection failed', error=str(exc)) を追加して運用可視性を確保する"
+      # 設計
+      - category: "design/solid"
+        location: "src/report_scraper/core/scraper_engine.py:106-121"
+        description: "ScraperEngine が5つのサービス（content_extractor / pdf_downloader / dedup_tracker等）を保持しているが、現在の collect() 実装では直接使用されていない（scraper.collect_latest() に委譲するのみ）"
+        suggestion: "未使用サービスをScraperEngineから外すか、後処理ステップとして _post_process() に明示的に切り出す"
+      - category: "design/abstraction"
+        location: "src/report_scraper/scrapers/vanguard.py:148-153（HTMLスクレイパー15ファイル）"
+        description: "HTMLスクレイパーで published=datetime.now() をハードコードしている。RSSスクレイパーの _parse_date() による正確な日付抽出と抽象レベルが非対称"
+        suggestion: "HtmlReportScraper の fetch_listing() レベルで公開日取得方針を定義し、実装漏れを基底クラスが検出できるようにする"
+      # パフォーマンス
+      - category: "performance/io"
+        location: "src/report_scraper/services/dedup_tracker.py:101,156,194"
+        description: "is_seen() / mark_seen() / get_history() がそれぞれ独立して load_index() を呼び出し、N件のURL処理で2N回のファイル読み込みが発生する"
+        suggestion: "インスタンス変数としてインメモリキャッシュを保持し、mark_seen() 後のみ保存する"
+      - category: "performance/io"
+        location: "src/report_scraper/storage/json_store.py:187"
+        description: "is_known_url() が毎回 load_index() を呼び出すため、ループ内使用でN+1ファイルI/Oが発生"
+        suggestion: "load_index() 結果をインスタンス変数にキャッシュし、save_index() 時にキャッシュ更新する"
+      - category: "performance/memory"
+        location: "src/report_scraper/services/pdf_downloader.py:228,258"
+        description: "httpx.AsyncClient を download() 呼び出しごとに生成・破棄しTCPコネクションプールが再利用されない。また response.content でPDF全体をメモリにロード（Semaphore(5)で最大~500MB同時使用）"
+        suggestion: "AsyncClient をコンストラクタで生成・保持し、PDFはストリーミングダウンロードに変更する"
+
+    low:
+      - category: "design"
+        location: "src/report_scraper/scrapers/_html_scraper.py:211-215 / _spa_scraper.py:220-225"
+        description: "_scrapling_available フラグチェックの直後に None 比較ガードが二重に存在する"
+        suggestion: "try ブロック内の None チェックを削除し、_scrapling_available フラグによる一元的なガードに統一する"
+      - category: "design"
+        location: "src/report_scraper/scrapers/_rss_scraper.py:101-116 / _html_scraper.py:138-175"
+        description: "BaseReportScraper の @abstractmethod を中間基底クラスで再宣言しており冗長（Python は継承した abstractmethod を自動維持する）"
+        suggestion: "中間基底クラスでの abstractmethod 再宣言を削除する"
+
+  solid_compliance:
+    single_responsibility: "WARN"
+    open_closed: "PASS"
+    liskov_substitution: "PASS"
+    interface_segregation: "PASS"
+    dependency_inversion: "PASS"
+
+# ─────────────────────────────────────────────
+# セキュリティ
+# ─────────────────────────────────────────────
+security:
+  code_security_score: 79
+  infra_security_score: 72
+
+  vulnerability_count:
+    critical: 0
+    high: 0
+    medium: 4  # コード2件 + インフラ2件
+    low: 6     # コード3件 + インフラ3件
+
+  findings:
+    # コードセキュリティ（OWASP A01-A05）
+    - id: "SEC-001"
+      severity: "MEDIUM"
+      category: "A04: 安全でない設計（CWE-22 パストラバーサル）"
+      location: "src/report_scraper/storage/pdf_store.py:102"
+      description: "source_key をパスコンポーネントとして直接使用しており、将来的に外部入力が source_key に渡された場合のパストラバーサルリスク"
+      recommendation: "source_dir.resolve().is_relative_to(self.base_dir.resolve()) で解決後のパスを検証する"
+      cwe_id: "CWE-22"
+
+    - id: "SEC-002"
+      severity: "MEDIUM"
+      category: "A04: 安全でない設計（CWE-22 パストラバーサル）"
+      location: "src/report_scraper/services/pdf_downloader.py:309-317"
+      description: "_derive_filename が外部URLのパスコンポーネントを直接ファイル名として使用。'..'等の特殊成分が残る可能性がある"
+      recommendation: "re.sub(r'[^\\w\\-.]', '_', name) でファイル名をサニタイズし、'.' や '..' の場合はデフォルト名を使用する"
+      cwe_id: "CWE-22"
+
+    - id: "SEC-003"
+      severity: "LOW"
+      category: "A05: セキュリティの設定ミス（CWE-390）"
+      location: "src/report_scraper/scrapers/blackrock.py:155（他6スクレイパー）"
+      description: "except Exception: pass でサイレントに例外を抑制しており、予期しない例外も無視される可能性がある"
+      recommendation: "logger.debug('CSS selection failed', error=str(exc)) を追加する"
+      cwe_id: "CWE-390"
+
+    - id: "SEC-004"
+      severity: "LOW"
+      category: "A02: 暗号化の失敗（CWE-319）"
+      location: "src/report_scraper/services/pdf_downloader.py:228"
+      description: "follow_redirects=True の設定でHTTPS→HTTPへのリダイレクトダウングレードが発生する可能性がある"
+      recommendation: "最終URLが http:// の場合に FetchError を上げるガード処理を追加する"
+      cwe_id: "CWE-319"
+
+    - id: "SEC-005"
+      severity: "LOW"
+      category: "A05: 設計上のリスク（CWE-470）"
+      location: "src/report_scraper/cli/main.py:89-97"
+      description: "importlib.import_module で動的ロードしているが、KNOWN_SCRAPERS がハードコードされており現状は問題なし。将来的な設定ファイル化の際のリスクとして記録"
+      recommendation: "KNOWN_SCRAPERS の値が外部入力に由来しないことをコメントで明示する"
+      cwe_id: "CWE-470"
+
+    # インフラセキュリティ（OWASP A06-A10）
+    - id: "INFRA-001"
+      severity: "MEDIUM"
+      category: "A10: SSRF"
+      location: "src/report_scraper/services/pdf_downloader.py:232"
+      description: "download() が任意のURLを検証なしに httpx.AsyncClient.get() に渡す。follow_redirects=True も設定されている"
+      recommendation: "URLスキーム検証とホスト検証を追加し、プライベートIPレンジをブロックする"
+
+    - id: "INFRA-002"
+      severity: "MEDIUM"
+      category: "A10: SSRF"
+      location: "src/report_scraper/scrapers/_html_scraper.py:218 / _spa_scraper.py:229"
+      description: "listing_url のスキーム検証がなく、将来的なサブクラスオーバーライドや設定経由の変更で外部入力がフェッチURLになり得る"
+      recommendation: "fetch_listing() 冒頭に listing_url のスキーム検証を追加する"
+
+    - id: "INFRA-003"
+      severity: "LOW"
+      category: "A06: 脆弱で古いコンポーネント"
+      location: "pyproject.toml:42"
+      description: "scrapling[fetchers]>=0.4 が上限バージョンなしのオープンレンジ指定"
+      recommendation: "scrapling[fetchers]>=0.4,<1.0 として上限を指定する"
+
+    - id: "INFRA-004"
+      severity: "LOW"
+      category: "A09: セキュリティログとモニタリング"
+      location: "src/report_scraper/services/pdf_downloader.py:219"
+      description: "URLをそのままログに出力しており、クエリパラメータに認証トークンが含まれる場合に機密情報が漏えいする可能性"
+      recommendation: "URLログ出力前にクエリパラメータをマスクする関数を追加する"
+
+    - id: "INFRA-005"
+      severity: "LOW"
+      category: "A06: CVE除外（要対応）"
+      location: ".github/workflows/ci.yml:93"
+      description: "authlib CVE-2026-28802（修正版1.6.7存在）とlxml-html-clean CVE-2026-28348/28350（修正版0.4.4存在）が --ignore-vuln で除外されている。暫定措置として正当だがマージ後に速やかにアップデートすべき"
+      recommendation: "authlib を 1.6.7 に、lxml-html-clean を 0.4.4 にアップデートし除外エントリを削除する"
+
+  bandit_skip_justified: true
+  bandit_skip_notes: "B101（assert）はオプショナルインポートガード用途、B110（try/except/pass）はPDF検出等のオプショナル処理で意図的使用。いずれも pyproject.toml でコメント付きで説明されており正当"
+
+# ─────────────────────────────────────────────
+# テスト
+# ─────────────────────────────────────────────
+test:
+  coverage_score: 78
+  quality_score: 88
+
+  coverage_assessment: "GOOD"
+  edge_cases_covered: false  # 一部未カバーあり
+  property_tests_present: false
+  integration_tests_present: true
+
+  missing_tests:
+    - priority: "HIGH"
+      file: "tests/report_scraper/unit/test_advisor_perspectives.py"
+      description: "advisor_perspectives.py のユニットテストファイルが存在しない"
+    - priority: "HIGH"
+      file: "tests/report_scraper/unit/storage/test_pdf_store.py"
+      description: "PdfStore クラスのユニットテストが存在しない"
+    - priority: "MEDIUM"
+      location: "tests/report_scraper/unit/test_dedup_tracker.py"
+      description: "DedupTracker.is_seen() の collected_at=None / 不正フォーマット分岐が未テスト"
+    - priority: "MEDIUM"
+      location: "tests/report_scraper/unit/services/test_content_extractor.py"
+      description: "PAYWALL_TEXT_PATTERNS の残り3パターン（sign_in_to_continue等）が未検証"
+    - priority: "LOW"
+      location: "tests/report_scraper/integration/test_collect_flow.py"
+      description: "HTTPサーバー 4xx/5xx / タイムアウト時のパイプライン挙動が未検証"
+
+  test_quality:
+    naming_convention: "PASS"  # 日本語命名規約（test_正常系_〜）が全テストで準拠
+    assertion_quality: "WARN"  # 一部 is not None / 部分一致チェックで終わるテストあり
+    mock_usage: "PASS"
+    isolation: "PASS"
+    reproducibility: "WARN"  # 相対パスハードコード・asyncio.sleep タイミング依存が一部あり
+
+  fixture_quality: "PASS"
+
+  notable_issues:
+    - location: "tests/report_scraper/integration/test_collect_flow.py:213"
+      description: "統合テスト3件が asyncio.run() を直接使用しており @pytest.mark.asyncio と不統一"
+      suggestion: "@pytest.mark.asyncio + async def に統一する"
+    - location: "tests/report_scraper/unit/test_config_loader.py:209-295"
+      description: "BaseReportScraper のテストが test_config_loader.py に混在（ファイル対応規則違反）"
+      suggestion: "tests/report_scraper/unit/core/test_base_scraper.py として独立させる"
+
+# ─────────────────────────────────────────────
+# 推奨アクション
+# ─────────────────────────────────────────────
+recommended_actions:
+  required:  # マージ前に対応推奨
+    - priority: 1
+      action: "SEC-001/SEC-002: pdf_store.py / pdf_downloader.py のパストラバーサルガード追加"
+    - priority: 2
+      action: "INFRA-001/INFRA-002: PdfDownloader.download() と listing_url に URLスキーム検証を追加（SSRF対策）"
+    - priority: 3
+      action: "テスト: advisor_perspectives.py と pdf_store.py のユニットテスト追加（HIGH優先度）"
+    - priority: 4
+      action: "CLI: KNOWN_SCRAPERS に全16スクレイパーを登録する"
+
+  suggested:  # マージ後に対応推奨
+    - priority: 1
+      action: "authlib→1.6.7 / lxml-html-clean→0.4.4 にアップデートし、CI の --ignore-vuln 除外エントリを削除"
+    - priority: 2
+      action: "DRY違反解消: _scraper_utils.py を作成し、resolve_url等の4ヘルパーを一元化"
+    - priority: 3
+      action: "DRY違反解消: _get_logger() を全22ファイルで直接インポート方式に統一"
+    - priority: 4
+      action: "DedupTracker / JsonReportStore にインメモリキャッシュを追加し、N+1ファイルI/Oを解消"
+    - priority: 5
+      action: "PdfDownloader を AsyncClient 再利用 + ストリーミングダウンロードに改善"
+    - priority: 6
+      action: "統合テスト3件の asyncio.run() を @pytest.mark.asyncio に統一"
+    - priority: 7
+      action: "scrapling[fetchers]>=0.4,<1.0 として上限バージョンを追加"
+
+# ─────────────────────────────────────────────
+# 総合評価
+# ─────────────────────────────────────────────
+summary:
+  verdict: "REQUEST_CHANGES"
+  comment: |
+    全体的に高い品質水準のPRです（総合スコア79/100）。
+    アーキテクチャ設計（Template Method + Registry + DI）は優秀で、型システムの活用も堅実。
+    332件のテストが整備されており、主要クラスのカバレッジも良好です。
+
+    マージ前に対応してほしい主な点：
+    1. PDF保存パスのパストラバーサルガード（SEC-001/SEC-002）
+    2. HTTP フェッチのSSRF対策（INFRA-001/INFRA-002）
+    3. advisor_perspectives.py と pdf_store.py のテスト追加
+    4. CLI KNOWN_SCRAPERS への全スクレイパー登録
+
+    これらを修正した後は APPROVE できる水準です。
+    DRY違反（_get_logger重複・HTMLヘルパー重複）はマージ後の改善タスクとして問題ありません。

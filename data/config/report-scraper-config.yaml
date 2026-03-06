@@ -1,0 +1,148 @@
+# report_scraper 設定ファイル
+# YAML設定 → Pydantic ReportScraperConfig でバリデーション
+
+global:
+  output_dir: "data/scraped/reports"
+  pdf_dir: "data/scraped/pdfs"
+  max_reports_per_source: 20
+  timeouts:
+    connect: 10
+    read: 30
+  dedup_days: 30
+
+sources:
+  - key: "advisor_perspectives"
+    name: "Advisor Perspectives"
+    tier: "aggregator"
+    listing_url: "https://www.advisorperspectives.com/articles"
+    rendering: "static"
+    tags: ["macro", "equity", "fixed_income"]
+    article_selector: "div.article-list-item"
+    max_reports: 15
+
+  - key: "blackrock_bii"
+    name: "BlackRock Investment Institute"
+    tier: "buy_side"
+    listing_url: "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/archives"
+    rendering: "static"
+    tags: ["macro", "weekly"]
+    article_selector: "div.archive-item a, article a.archive-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "schwab"
+    name: "Charles Schwab"
+    tier: "sell_side"
+    listing_url: "https://www.schwab.com/learn/market-commentary"
+    rendering: "static"
+    tags: ["macro", "equity", "sector"]
+    article_selector: "div.article-listing a, div.content-card a.card-link"
+
+  - key: "morgan_stanley"
+    name: "Morgan Stanley Investment Management"
+    tier: "sell_side"
+    listing_url: "https://www.morganstanley.com/im/en-us/institutional-investor/insights/all-insights.html"
+    rendering: "static"
+    tags: ["macro", "equity", "fixed_income"]
+    article_selector: "div.insights-list a.insight-card, div.article-list a, a.insight-link"
+
+  - key: "wells_fargo"
+    name: "Wells Fargo Investment Institute"
+    tier: "sell_side"
+    listing_url: "https://www.wellsfargoadvisors.com/research-analysis/strategy/weekly.htm"
+    rendering: "static"
+    tags: ["macro", "strategy", "weekly"]
+    article_selector: "div.article-list a, div.research-item a, a.report-link"
+
+  - key: "vanguard"
+    name: "Vanguard"
+    tier: "buy_side"
+    listing_url: "https://advisors.vanguard.com/insights/article/series/market-perspectives"
+    rendering: "static"
+    tags: ["macro", "market_perspectives"]
+    article_selector: "div.article-list a, div.card-list a.card-link, a.article-link"
+
+  - key: "goldman_sachs"
+    name: "Goldman Sachs Research"
+    tier: "sell_side"
+    listing_url: "https://www.goldmansachs.com/insights/goldman-sachs-research"
+    rendering: "playwright"
+    tags: ["macro", "equity", "research"]
+    article_selector: "div.article-card a, div.insight-card a, a.research-link"
+
+  - key: "jpmorgan"
+    name: "JP Morgan Markets & Economy"
+    tier: "sell_side"
+    listing_url: "https://www.jpmorgan.com/insights/markets-and-economy"
+    rendering: "playwright"
+    tags: ["macro", "markets", "economy"]
+    article_selector: "div.article-item a, div.card-item a, a.insight-link, div.content-card a.card-link"
+
+  - key: "pimco"
+    name: "PIMCO Insights"
+    tier: "buy_side"
+    listing_url: "https://www.pimco.com/gbl/en/insights"
+    rendering: "playwright"
+    tags: ["fixed_income", "macro", "outlook"]
+    article_selector: "div.coveo-result-cell a, div.CoveoResult a, a.coveo-result-link, div.insight-card a"
+
+  - key: "state_street"
+    name: "State Street Global Advisors"
+    tier: "buy_side"
+    listing_url: "https://www.ssga.com/us/en/intermediary/insights"
+    rendering: "static"
+    tags: ["macro", "etf", "research"]
+    article_selector: "div.insights-listing a, div.article-card a, a.insight-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "fidelity"
+    name: "Fidelity Investments"
+    tier: "buy_side"
+    listing_url: "https://www.fidelity.com/learning-center/trading-investing/overview"
+    rendering: "static"
+    tags: ["macro", "equity", "retirement"]
+    article_selector: "div.article-listing a, div.content-card a, a.article-link"
+
+  - key: "t_rowe_price"
+    name: "T. Rowe Price"
+    tier: "buy_side"
+    listing_url: "https://www.troweprice.com/personal-investing/resources/insights/global-markets-weekly-update"
+    rendering: "static"
+    tags: ["macro", "equity", "weekly"]
+    article_selector: "div.article-list a, div.insight-card a, a.content-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "invesco"
+    name: "Invesco"
+    tier: "buy_side"
+    listing_url: "https://www.invesco.com/us/en/insights.html"
+    rendering: "static"
+    tags: ["macro", "etf", "outlook"]
+    article_selector: "div.insights-list a, div.article-card a, a.insight-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "schroders"
+    name: "Schroders"
+    tier: "buy_side"
+    listing_url: "https://www.schroders.com/en-us/us/individual/insights/"
+    rendering: "static"
+    tags: ["macro", "equity", "outlook"]
+    article_selector: "div.insights-listing a, div.article-card a, a.insight-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "deutsche_bank"
+    name: "Deutsche Bank Research"
+    tier: "sell_side"
+    listing_url: "https://www.db.com/news/in-the-press"
+    rendering: "static"
+    tags: ["macro", "fx", "research"]
+    article_selector: "div.article-listing a, div.news-item a, a.article-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "bank_of_america"
+    name: "Bank of America Research"
+    tier: "sell_side"
+    listing_url: "https://business.bofa.com/en-us/content/market-strategies-insights.html"
+    rendering: "static"
+    tags: ["macro", "equity", "strategy"]
+    article_selector: "div.article-listing a, div.insight-card a, a.article-link"
+    pdf_selector: "a[href$='.pdf']"
