@@ -31,6 +31,7 @@ argument-hint: [カテゴリ] [--count N]
    economic_indicators: 2
    investment_education: 1
    quant_analysis: 0
+   asset_management: 0
    ```
 
 ### Phase 2: トピック提案の生成
@@ -56,6 +57,7 @@ argument-hint: [カテゴリ] [--count N]
    - economic_indicators: 2件
    - investment_education: 1件
    - quant_analysis: 0件
+   - asset_management: 0件
 
    ---
 
