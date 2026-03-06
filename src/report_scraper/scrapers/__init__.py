@@ -4,6 +4,8 @@ Modules
 -------
 _rss_scraper
     RSS-based intermediate base class.
+_html_scraper
+    HTML-based intermediate base class using Scrapling StealthyFetcher.
 advisor_perspectives
     Advisor Perspectives scraper.
 
@@ -16,6 +18,9 @@ Examples
 """
 
 from report_scraper.scrapers._rss_scraper import RssReportScraper
+
+# AIDEV-NOTE: HtmlReportScraper uses optional scrapling dependency.
+# Import is deferred to avoid ImportWarning when scrapling is not installed.
 from report_scraper.scrapers.advisor_perspectives import AdvisorPerspectivesScraper
 
 __all__ = [
