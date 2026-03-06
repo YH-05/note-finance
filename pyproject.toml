@@ -39,18 +39,20 @@ cli = ["click>=8.1.0"]
 playwright = ["playwright>=1.49.0,<2.0.0"]
 automation = ["claude-agent-sdk>=0.1.22", "anyio>=4.0.0"]
 scheduler = ["apscheduler>=3.10.0"]
+scraper = ["scrapling[fetchers]>=0.4"]
 
 [project.scripts]
 rss-mcp = "rss.mcp.server:main"
 rss-cli = "rss.cli.main:cli"
 collect-finance-news = "automation.news_collector:main"
+report-scraper = "report_scraper.cli.main:cli"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/rss", "src/news", "src/automation", "src/news_scraper"]
+packages = ["src/rss", "src/news", "src/automation", "src/news_scraper", "src/report_scraper"]
 
 [tool.ruff]
 line-length = 88
