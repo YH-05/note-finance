@@ -60,3 +60,27 @@ sources:
     rendering: "static"
     tags: ["macro", "market_perspectives"]
     article_selector: "div.article-list a, div.card-list a.card-link, a.article-link"
+
+  - key: "goldman_sachs"
+    name: "Goldman Sachs Research"
+    tier: "sell_side"
+    listing_url: "https://www.goldmansachs.com/insights/goldman-sachs-research"
+    rendering: "playwright"
+    tags: ["macro", "equity", "research"]
+    article_selector: "div.article-card a, div.insight-card a, a.research-link"
+
+  - key: "jpmorgan"
+    name: "JP Morgan Markets & Economy"
+    tier: "sell_side"
+    listing_url: "https://www.jpmorgan.com/insights/markets-and-economy"
+    rendering: "playwright"
+    tags: ["macro", "markets", "economy"]
+    article_selector: "div.article-item a, div.card-item a, a.insight-link, div.content-card a.card-link"
+
+  - key: "pimco"
+    name: "PIMCO Insights"
+    tier: "buy_side"
+    listing_url: "https://www.pimco.com/gbl/en/insights"
+    rendering: "playwright"
+    tags: ["fixed_income", "macro", "outlook"]
+    article_selector: "div.coveo-result-cell a, div.CoveoResult a, a.coveo-result-link, div.insight-card a"
