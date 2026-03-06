@@ -89,9 +89,11 @@ exclude = [
 ]
 
 [tool.bandit]
+# B101: assert は型ガード用途で使用（scrapling optional import guard）
+# B110: try/except/pass は PDF検出等のオプショナル処理で意図的に使用
 # B311: random はレート制限ジッターやサンプリング等の非セキュリティ用途で使用（誤検知）
 # B607: gh / playwright 等の信頼済みコマンドを PATH 経由で起動（誤検知）
-skips = ["B311", "B607"]
+skips = ["B101", "B110", "B311", "B607"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

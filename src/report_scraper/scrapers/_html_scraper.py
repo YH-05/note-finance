@@ -209,7 +209,11 @@ class HtmlReportScraper(BaseReportScraper):
         )
 
         try:
-            assert StealthyFetcher is not None  # guarded by _scrapling_available check
+            if StealthyFetcher is None:  # noqa: E711
+                raise FetchError(
+                    "Scrapling is not installed. Install with: uv add 'scrapling[fetchers]'",
+                    url=self.listing_url,
+                )
             fetcher = StealthyFetcher()
             response = fetcher.fetch(self.listing_url)
         except Exception as exc:

@@ -218,7 +218,11 @@ class SpaReportScraper(BaseReportScraper):
         )
 
         try:
-            assert DynamicFetcher is not None  # guarded by _dynamic_fetcher_available
+            if DynamicFetcher is None:  # noqa: E711
+                raise ImportError(
+                    "Scrapling DynamicFetcher is not installed. "
+                    "Install with: uv add 'scrapling[fetchers]'"
+                )
             fetcher = DynamicFetcher()
             # AIDEV-NOTE: DynamicFetcher.fetch() renders JS via Playwright
             # and handles Cloudflare Turnstile automatically.
