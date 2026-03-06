@@ -1,0 +1,84 @@
+{
+    "version": "1.0",
+    "presets": [
+        {
+            "url": "https://www.fsa.go.jp/fsaNewsListAll_rss2.xml",
+            "title": "金融庁 新着情報",
+            "category": "regulation",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.boj.or.jp/rss/whatsnew.xml",
+            "title": "日本銀行 新着情報",
+            "category": "macro",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.boj.or.jp/rss/statistics.xml",
+            "title": "日本銀行 統計",
+            "category": "macro",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.dir.co.jp/feed/economics.atom",
+            "title": "大和総研 経済分析",
+            "category": "macro",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.dir.co.jp/feed/asset.atom",
+            "title": "大和総研 資産運用・投資主体",
+            "category": "asset_management",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.dir.co.jp/feed/capital-mkt.atom",
+            "title": "大和総研 金融資本市場分析",
+            "category": "market",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.dir.co.jp/feed/finance.atom",
+            "title": "大和総研 金融ビジネス・金融IT",
+            "category": "finance",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.jpx.co.jp/rss/jpx-news.xml",
+            "title": "JPX お知らせ",
+            "category": "market",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.jpx.co.jp/rss/markets_news.xml",
+            "title": "JPX マーケットニュース",
+            "category": "market",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://emaxis.jp/special/rss/index.html",
+            "title": "eMAXIS レポート",
+            "category": "asset_management",
+            "fetch_interval": "daily",
+            "enabled": false,
+            "note": "ランディングページへの301リダイレクト（emaxis.am.mufg.jp）のため無効化。RSS配信なし"
+        },
+        {
+            "url": "https://www.morningstar.co.jp/news/blog/rss.html",
+            "title": "モーニングスタージャパン",
+            "category": "asset_management",
+            "fetch_interval": "daily",
+            "enabled": false,
+            "note": "ibbotson.co.jpへ301リダイレクト。RSS配信終了"
+        }
+    ]
+}
