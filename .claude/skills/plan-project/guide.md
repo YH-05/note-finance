@@ -510,6 +510,7 @@ task-breakdown.json の各タスクについて：
 ```bash
 # Issue 作成
 ISSUE_URL=$(gh issue create \
+  --repo YH-05/note-finance \
   --title "{title}" \
   --body "$(cat <<'EOF'
 {issue_body}
@@ -519,8 +520,7 @@ ISSUE_URL=$(gh issue create \
 - GitHub Project: [#{project_number}]({project_url})
 EOF
 )" \
-  --label "{label}" \
-  --json url --jq '.url')
+  --label "{label}")
 
 # Project に追加
 gh project item-add {project_number} --owner @me --url "$ISSUE_URL"
