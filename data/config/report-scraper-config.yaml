@@ -19,3 +19,44 @@ sources:
     tags: ["macro", "equity", "fixed_income"]
     article_selector: "div.article-list-item"
     max_reports: 15
+
+  - key: "blackrock_bii"
+    name: "BlackRock Investment Institute"
+    tier: "buy_side"
+    listing_url: "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/archives"
+    rendering: "static"
+    tags: ["macro", "weekly"]
+    article_selector: "div.archive-item a, article a.archive-link"
+    pdf_selector: "a[href$='.pdf']"
+
+  - key: "schwab"
+    name: "Charles Schwab"
+    tier: "sell_side"
+    listing_url: "https://www.schwab.com/learn/market-commentary"
+    rendering: "static"
+    tags: ["macro", "equity", "sector"]
+    article_selector: "div.article-listing a, div.content-card a.card-link"
+
+  - key: "morgan_stanley"
+    name: "Morgan Stanley Investment Management"
+    tier: "sell_side"
+    listing_url: "https://www.morganstanley.com/im/en-us/institutional-investor/insights/all-insights.html"
+    rendering: "static"
+    tags: ["macro", "equity", "fixed_income"]
+    article_selector: "div.insights-list a.insight-card, div.article-list a, a.insight-link"
+
+  - key: "wells_fargo"
+    name: "Wells Fargo Investment Institute"
+    tier: "sell_side"
+    listing_url: "https://www.wellsfargoadvisors.com/research-analysis/strategy/weekly.htm"
+    rendering: "static"
+    tags: ["macro", "strategy", "weekly"]
+    article_selector: "div.article-list a, div.research-item a, a.report-link"
+
+  - key: "vanguard"
+    name: "Vanguard"
+    tier: "buy_side"
+    listing_url: "https://advisors.vanguard.com/insights/article/series/market-perspectives"
+    rendering: "static"
+    tags: ["macro", "market_perspectives"]
+    article_selector: "div.article-list a, div.card-list a.card-link, a.article-link"
