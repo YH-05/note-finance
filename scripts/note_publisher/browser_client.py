@@ -24,12 +24,14 @@ from __future__ import annotations
 import asyncio
 import json
 import random
-from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import structlog
 
-from note_publisher.types import ContentBlock, NotePublisherConfig
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    from note_publisher.types import ContentBlock, NotePublisherConfig
 
 logger = structlog.get_logger(__name__)
 
@@ -145,12 +147,15 @@ class NoteBrowserClient:
             timeout_ms=self._config.timeout_ms,
         )
 
-        self._playwright = await _async_playwright().start()
-        self._browser = await self._playwright.chromium.launch(
+        pw = await _async_playwright().start()
+        self._playwright = pw
+        browser = await pw.chromium.launch(
             headless=self._config.headless,
         )
-        self._context = await self._browser.new_context()
-        self._page = await self._context.new_page()
+        self._browser = browser
+        context = await browser.new_context()
+        self._context = context
+        self._page = await context.new_page()
 
         logger.info("browser_client_started")
         return self
@@ -272,17 +277,16 @@ class NoteBrowserClient:
             timeout_sec=timeout_sec,
         )
 
-        deadline = asyncio.get_event_loop().time() + timeout_sec
-        while asyncio.get_event_loop().time() < deadline:
+        loop = asyncio.get_running_loop()
+        deadline = loop.time() + timeout_sec
+        while loop.time() < deadline:
             if await self._is_logged_in():
                 logger.info("manual_login_succeeded")
                 await self._save_session()
                 return
             await asyncio.sleep(2)
 
-        raise TimeoutError(
-            f"Manual login not completed within {timeout_sec} seconds"
-        )
+        raise TimeoutError(f"Manual login not completed within {timeout_sec} seconds")
 
     async def _save_session(self) -> None:
         """Persist the current browser context storage state to disk.
@@ -560,8 +564,8 @@ class NoteBrowserClient:
         ``typing_delay_ms`` (higher delay -> longer pause).
         """
         base = self._config.typing_delay_ms / 1000.0
-        jitter = random.uniform(0.1, 0.3)  # noqa: S311
+        jitter = random.uniform(0.1, 0.3)
         await asyncio.sleep(base * jitter)
 
 
-__all__ = ["NoteBrowserClient", "_SELECTORS"]
+__all__ = ["_SELECTORS", "NoteBrowserClient"]

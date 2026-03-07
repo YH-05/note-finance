@@ -32,7 +32,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import structlog
-
 from note_publisher.browser_client import NoteBrowserClient
 from note_publisher.config import load_config
 from note_publisher.markdown_parser import parse_draft
@@ -148,12 +147,11 @@ class DraftPublisher:
 
         # --- Step 1: Locate the draft file (E001) ---
         draft_path = article_dir / _DRAFT_RELATIVE_PATH
-        if not draft_path.exists():
-            error_msg = (
-                f"E001: revised_draft.md が見つかりません: {draft_path}"
-            )
+        try:
+            self._validate_draft_exists(draft_path)
+        except FileNotFoundError as exc:
             logger.error("publish_draft_not_found", path=str(draft_path))
-            return PublishResult(success=False, error_message=error_msg)
+            return PublishResult(success=False, error_message=str(exc))
 
         # --- Step 2: Parse the draft (E002) ---
         try:
@@ -191,9 +189,7 @@ class DraftPublisher:
             ``E001`` if the file does not exist.
         """
         if not draft_path.exists():
-            error_msg = (
-                f"E001: revised_draft.md が見つかりません: {draft_path}"
-            )
+            error_msg = f"E001: revised_draft.md が見つかりません: {draft_path}"
             logger.error("draft_not_found", path=str(draft_path))
             raise FileNotFoundError(error_msg)
 
@@ -213,44 +209,35 @@ class DraftPublisher:
         PublishResult
             Outcome of the browser publish operation.
         """
-        # --- Step 3: Launch browser (E003) ---
         try:
-            client = NoteBrowserClient(self._config)
-            browser_ctx = client.__aenter__()
-            client_instance = await browser_ctx
+            async with NoteBrowserClient(self._config) as client:
+                # --- Step 4: Authenticate (E004) ---
+                try:
+                    session_ok = await client._restore_session()
+                    if not session_ok:
+                        await client.wait_for_manual_login()
+                except (TimeoutError, Exception) as exc:
+                    error_msg = f"E004: note.com ログインエラー: {exc}"
+                    logger.error("publish_login_error", error=str(exc))
+                    return PublishResult(success=False, error_message=error_msg)
+
+                # --- Step 5: Create draft and insert content (E005) ---
+                try:
+                    await client.create_new_draft()
+                    await client.set_title(draft.title)
+
+                    for block in draft.body_blocks:
+                        await client.insert_block(block)
+
+                    draft_url = await client.save_draft()
+                except Exception as exc:
+                    error_msg = f"E005: 下書き保存エラー: {exc}"
+                    logger.error("publish_save_error", error=str(exc))
+                    return PublishResult(success=False, error_message=error_msg)
         except (ConnectionError, OSError, ImportError, Exception) as exc:
             error_msg = f"E003: ブラウザ起動/接続エラー: {exc}"
             logger.error("publish_browser_error", error=str(exc))
             return PublishResult(success=False, error_message=error_msg)
-
-        try:
-            # --- Step 4: Authenticate (E004) ---
-            try:
-                session_ok = await client_instance._restore_session()
-                if not session_ok:
-                    await client_instance.wait_for_manual_login()
-            except (TimeoutError, Exception) as exc:
-                error_msg = f"E004: note.com ログインエラー: {exc}"
-                logger.error("publish_login_error", error=str(exc))
-                return PublishResult(success=False, error_message=error_msg)
-
-            # --- Step 5: Create draft and insert content (E005) ---
-            try:
-                await client_instance.create_new_draft()
-                await client_instance.set_title(draft.title)
-
-                for block in draft.body_blocks:
-                    await client_instance.insert_block(block)
-
-                draft_url = await client_instance.save_draft()
-            except Exception as exc:
-                error_msg = f"E005: 下書き保存エラー: {exc}"
-                logger.error("publish_save_error", error=str(exc))
-                return PublishResult(success=False, error_message=error_msg)
-
-        finally:
-            # --- Step 6: Cleanup ---
-            await client.__aexit__(None, None, None)
 
         logger.info("publish_completed", draft_url=draft_url)
         return PublishResult(success=True, draft_url=draft_url)

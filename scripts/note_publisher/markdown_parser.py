@@ -26,13 +26,14 @@ Examples
 from __future__ import annotations
 
 import re
-from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import structlog
 import yaml
-
 from note_publisher.types import ArticleDraft, ContentBlock
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 logger = structlog.get_logger(__name__)
 
@@ -171,84 +172,27 @@ def _parse_body(
 
     i = 0
     while i < len(lines):
-        line = lines[i]
-        stripped = line.strip()
+        stripped = lines[i].strip()
 
-        # Skip empty lines
         if not stripped:
             i += 1
             continue
 
-        # Check for table (lines containing '|')
         if _is_table_line(stripped):
-            table_lines_end = _consume_table(lines, i)
-            image_path = base_dir / "tables" / f"table_{table_count}.png"
-            table_count += 1
-
-            if not image_path.exists():
-                logger.warning(
-                    "Table image not found",
-                    expected_path=str(image_path),
-                )
-
-            block = ContentBlock(
-                block_type="image",
-                content="",
-                image_path=image_path,
+            i, table_count = _handle_table(
+                lines,
+                i,
+                base_dir,
+                table_count,
+                blocks,
+                image_paths,
             )
+            continue
+
+        block, consumed = _parse_line(stripped, base_dir, image_paths)
+        if block is not None:
             blocks.append(block)
-            image_paths.append(image_path)
-            i = table_lines_end
-            continue
-
-        # Heading: # , ## , ###
-        if stripped.startswith("#"):
-            block = _parse_heading(stripped)
-            if block is not None:
-                blocks.append(block)
-            i += 1
-            continue
-
-        # Separator: --- (standalone, not in frontmatter)
-        if stripped == "---":
-            blocks.append(ContentBlock(block_type="separator", content=""))
-            i += 1
-            continue
-
-        # Image: ![alt](path)
-        image_match = _IMAGE_PATTERN.match(stripped)
-        if image_match:
-            alt_text = image_match.group(1)
-            img_rel_path = image_match.group(2)
-            img_path = base_dir / img_rel_path
-            blocks.append(
-                ContentBlock(
-                    block_type="image",
-                    content=alt_text,
-                    image_path=img_path,
-                )
-            )
-            image_paths.append(img_path)
-            i += 1
-            continue
-
-        # List item: - text
-        if stripped.startswith("- "):
-            content = stripped[2:]
-            blocks.append(ContentBlock(block_type="list_item", content=content))
-            i += 1
-            continue
-
-        # Blockquote: > text
-        if stripped.startswith("> "):
-            content = stripped[2:]
-            blocks.append(ContentBlock(block_type="blockquote", content=content))
-            i += 1
-            continue
-
-        # Paragraph: everything else
-        blocks.append(ContentBlock(block_type="paragraph", content=stripped))
-        i += 1
+        i += consumed
 
     logger.debug(
         "Body parsed",
@@ -257,6 +201,64 @@ def _parse_body(
         table_count=table_count,
     )
     return blocks, image_paths
+
+
+def _handle_table(
+    lines: list[str],
+    i: int,
+    base_dir: Path,
+    table_count: int,
+    blocks: list[ContentBlock],
+    image_paths: list[Path],
+) -> tuple[int, int]:
+    """Process a Markdown table and convert it to an image block."""
+    table_lines_end = _consume_table(lines, i)
+    image_path = base_dir / "tables" / f"table_{table_count}.png"
+
+    if not image_path.exists():
+        logger.warning("Table image not found", expected_path=str(image_path))
+
+    blocks.append(ContentBlock(block_type="image", content="", image_path=image_path))
+    image_paths.append(image_path)
+    return table_lines_end, table_count + 1
+
+
+def _parse_line(
+    stripped: str,
+    base_dir: Path,
+    image_paths: list[Path],
+) -> tuple[ContentBlock | None, int]:
+    """Parse a single non-empty line into a ContentBlock.
+
+    Returns
+    -------
+    tuple[ContentBlock | None, int]
+        The parsed block (or None for unrecognised headings) and the
+        number of lines consumed (always 1).
+    """
+    if stripped.startswith("#"):
+        return _parse_heading(stripped), 1
+
+    if stripped == "---":
+        return ContentBlock(block_type="separator", content=""), 1
+
+    image_match = _IMAGE_PATTERN.match(stripped)
+    if image_match:
+        img_path = base_dir / image_match.group(2)
+        image_paths.append(img_path)
+        return ContentBlock(
+            block_type="image",
+            content=image_match.group(1),
+            image_path=img_path,
+        ), 1
+
+    if stripped.startswith("- "):
+        return ContentBlock(block_type="list_item", content=stripped[2:]), 1
+
+    if stripped.startswith("> "):
+        return ContentBlock(block_type="blockquote", content=stripped[2:]), 1
+
+    return ContentBlock(block_type="paragraph", content=stripped), 1
 
 
 def _is_table_line(line: str) -> bool:
@@ -314,17 +316,11 @@ def _parse_heading(line: str) -> ContentBlock | None:
         the heading level exceeds 3.
     """
     if line.startswith("### "):
-        return ContentBlock(
-            block_type="heading", content=line[4:].strip(), level=3
-        )
+        return ContentBlock(block_type="heading", content=line[4:].strip(), level=3)
     if line.startswith("## "):
-        return ContentBlock(
-            block_type="heading", content=line[3:].strip(), level=2
-        )
+        return ContentBlock(block_type="heading", content=line[3:].strip(), level=2)
     if line.startswith("# "):
-        return ContentBlock(
-            block_type="heading", content=line[2:].strip(), level=1
-        )
+        return ContentBlock(block_type="heading", content=line[2:].strip(), level=1)
     return None
 
 
