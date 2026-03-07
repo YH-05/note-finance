@@ -1,0 +1,195 @@
+# ===========================================
+# Knowledge Graph Schema Definition
+# ===========================================
+# Neo4j に投入するナレッジグラフのスキーマ定義。
+# save-to-graph スキルおよび emit_graph_queue.py が参照する。
+#
+# Neo4j 5 Community Edition の制約:
+#   - 複合一意制約が使えないため、Topic / Entity に連結キーを導入
+#   - UNIQUE 制約は単一プロパティのみ対応
+
+version: "1.0"
+
+# ===========================================
+# ノード定義
+# ===========================================
+nodes:
+
+  # -------------------------------------------
+  # Source: 情報ソース（ニュース記事、レポート等）
+  # -------------------------------------------
+  Source:
+    description: "収集した情報ソース（ニュース記事、レポート、Reddit投稿等）"
+    id:
+      property: source_id
+      type: string
+      description: "uuid5(NAMESPACE_URL, url) で生成される決定論的ID"
+      unique: true
+    properties:
+      url:
+        type: string
+        required: true
+        unique: true
+        description: "ソースの元URL"
+      title:
+        type: string
+        required: true
+        description: "ソースのタイトル"
+      source_type:
+        type: string
+        required: true
+        description: "ソース種別（rss, report, reddit, yfinance 等）"
+      collected_at:
+        type: datetime
+        required: true
+        description: "ソースが収集・調査された日時"
+      published_at:
+        type: datetime
+        required: false
+        description: "ソースの公開日時（元記事の公開日）"
+      summary:
+        type: string
+        required: false
+        description: "ソースの要約テキスト"
+      category:
+        type: string
+        required: false
+        description: "カテゴリ（index, stock, sector, macro, ai, finance）"
+      command_source:
+        type: string
+        required: false
+        description: "生成元コマンド（finance-news-workflow, generate-market-report 等）"
+      meta:
+        type: map
+        required: false
+        description: "任意のメタデータ（コマンド固有の追加情報を格納）"
+
+  # -------------------------------------------
+  # Topic: トピック（テーマ・話題）
+  # -------------------------------------------
+  Topic:
+    description: "情報のトピック・テーマ（株価指数、AI投資、マクロ経済等）"
+    id:
+      property: topic_id
+      type: string
+      description: "uuid5(NAMESPACE_URL, 'topic:{name}:{category}') で生成される決定論的ID"
+      unique: true
+    properties:
+      name:
+        type: string
+        required: true
+        description: "トピック名（例: 'S&P 500', 'AI半導体', '米国金利'）"
+      category:
+        type: string
+        required: true
+        description: "カテゴリ（stock, sector, macro, ai, finance）"
+      topic_key:
+        type: string
+        required: true
+        unique: true
+        description: "連結キー '{name}::{category}'。Neo4j CE で複合一意制約の代替として使用"
+
+  # -------------------------------------------
+  # Entity: エンティティ（企業・人物・指標等）
+  # -------------------------------------------
+  Entity:
+    description: "固有名詞エンティティ（企業名、人物名、経済指標名等）"
+    id:
+      property: entity_id
+      type: string
+      description: "uuid5(NAMESPACE_URL, 'entity:{name}:{entity_type}') で生成される決定論的ID"
+      unique: true
+    properties:
+      name:
+        type: string
+        required: true
+        description: "エンティティ名（例: 'NVIDIA', 'Jerome Powell', 'CPI'）"
+      entity_type:
+        type: string
+        required: true
+        description: "エンティティ種別（company, person, index, indicator, sector, etf）"
+      entity_key:
+        type: string
+        required: true
+        unique: true
+        description: "連結キー '{name}::{entity_type}'。Neo4j CE で複合一意制約の代替として使用"
+
+  # -------------------------------------------
+  # Claim: 主張・事実（記事から抽出された情報）
+  # -------------------------------------------
+  Claim:
+    description: "ソースから抽出された主張・事実・データポイント"
+    id:
+      property: claim_id
+      type: string
+      description: "sha256(content)[:16] で生成されるコンテンツベースID"
+      unique: true
+    properties:
+      content:
+        type: string
+        required: true
+        description: "主張・事実の内容テキスト"
+      claim_type:
+        type: string
+        required: false
+        description: "主張の種別（fact, opinion, prediction, data_point）"
+      confidence:
+        type: float
+        required: false
+        description: "信頼度スコア（0.0-1.0）"
+
+# ===========================================
+# リレーション定義
+# ===========================================
+relations:
+
+  # Source -[:TAGGED]-> Topic
+  TAGGED:
+    description: "ソースがトピックにタグ付けされている"
+    from: Source
+    to: Topic
+    properties: {}
+
+  # Source -[:MAKES_CLAIM]-> Claim
+  MAKES_CLAIM:
+    description: "ソースが主張・事実を含んでいる"
+    from: Source
+    to: Claim
+    properties: {}
+
+  # Claim -[:ABOUT]-> Entity
+  ABOUT:
+    description: "主張・事実が特定のエンティティに関するものである"
+    from: Claim
+    to: Entity
+    properties: {}
+
+# ===========================================
+# 制約・インデックス定義（Neo4j Cypher）
+# ===========================================
+# save-to-graph スキルの初回セットアップで使用
+constraints:
+  - name: unique_source_id
+    cypher: "CREATE CONSTRAINT unique_source_id IF NOT EXISTS FOR (s:Source) REQUIRE s.source_id IS UNIQUE"
+  - name: unique_source_url
+    cypher: "CREATE CONSTRAINT unique_source_url IF NOT EXISTS FOR (s:Source) REQUIRE s.url IS UNIQUE"
+  - name: unique_topic_id
+    cypher: "CREATE CONSTRAINT unique_topic_id IF NOT EXISTS FOR (t:Topic) REQUIRE t.topic_id IS UNIQUE"
+  - name: unique_topic_key
+    cypher: "CREATE CONSTRAINT unique_topic_key IF NOT EXISTS FOR (t:Topic) REQUIRE t.topic_key IS UNIQUE"
+  - name: unique_entity_id
+    cypher: "CREATE CONSTRAINT unique_entity_id IF NOT EXISTS FOR (e:Entity) REQUIRE e.entity_id IS UNIQUE"
+  - name: unique_entity_key
+    cypher: "CREATE CONSTRAINT unique_entity_key IF NOT EXISTS FOR (e:Entity) REQUIRE e.entity_key IS UNIQUE"
+  - name: unique_claim_id
+    cypher: "CREATE CONSTRAINT unique_claim_id IF NOT EXISTS FOR (c:Claim) REQUIRE c.claim_id IS UNIQUE"
+
+indexes:
+  - name: idx_source_category
+    cypher: "CREATE INDEX idx_source_category IF NOT EXISTS FOR (s:Source) ON (s.category)"
+  - name: idx_source_collected_at
+    cypher: "CREATE INDEX idx_source_collected_at IF NOT EXISTS FOR (s:Source) ON (s.collected_at)"
+  - name: idx_topic_category
+    cypher: "CREATE INDEX idx_topic_category IF NOT EXISTS FOR (t:Topic) ON (t.category)"
+  - name: idx_entity_type
+    cypher: "CREATE INDEX idx_entity_type IF NOT EXISTS FOR (e:Entity) ON (e.entity_type)"
