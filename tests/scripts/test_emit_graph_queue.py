@@ -24,6 +24,7 @@ from emit_graph_queue import (
     generate_queue_id,
     generate_source_id,
     generate_topic_id,
+    main,
     map_ai_research,
     map_asset_management,
     map_finance_full,
@@ -406,6 +407,27 @@ class TestMapFinanceNews:
         r2 = map_finance_news(batch)
         assert r1["sources"][0]["source_id"] == r2["sources"][0]["source_id"]
 
+    def test_正常系_claimのcategoryがテーマから解決される(self) -> None:
+        batch = _news_batch(theme_key="macro_cnbc")
+        result = map_finance_news(batch)
+        assert result["claims"][0]["category"] == "macro"
+
+    def test_正常系_summaryが空の記事ではclaimが生成されない(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/no-summary",
+                    "title": "No Summary Article",
+                    "summary": "",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T10:00:00+00:00",
+                }
+            ]
+        )
+        result = map_finance_news(batch)
+        assert len(result["sources"]) == 1
+        assert len(result["claims"]) == 0
+
     def test_エッジケース_空のarticlesで空結果(self) -> None:
         batch = _news_batch(articles=[])
         result = map_finance_news(batch)
@@ -442,6 +464,40 @@ class TestMapAiResearch:
         r2 = map_ai_research(batch)
         assert r1["entities"][0]["entity_id"] == r2["entities"][0]["entity_id"]
 
+    def test_正常系_entity_typeがcompanyに設定される(self) -> None:
+        batch = _ai_research_batch()
+        result = map_ai_research(batch)
+
+        assert len(result["entities"]) == 1
+        assert result["entities"][0]["entity_type"] == "company"
+
+    def test_正常系_tickerがentityに含まれる(self) -> None:
+        batch = _ai_research_batch()
+        result = map_ai_research(batch)
+
+        assert result["entities"][0]["ticker"] == "NVDA"
+
+    def test_正常系_batch_labelがaiに設定される(self) -> None:
+        batch = _ai_research_batch()
+        result = map_ai_research(batch)
+        assert result["batch_label"] == "ai"
+
+    def test_正常系_URLなしのcompanyではsourceが生成されない(self) -> None:
+        batch = _ai_research_batch(
+            companies=[
+                {
+                    "company_name": "TestCorp",
+                    "ticker": "TST",
+                    "url": "",
+                    "title": "TestCorp Report",
+                    "published": "2026-03-07T08:00:00+00:00",
+                }
+            ]
+        )
+        result = map_ai_research(batch)
+        assert len(result["entities"]) == 1
+        assert len(result["sources"]) == 0
+
     def test_エッジケース_空のcompaniesで空結果(self) -> None:
         batch = _ai_research_batch(companies=[])
         result = map_ai_research(batch)
@@ -476,6 +532,47 @@ class TestMapMarketReport:
         result = map_market_report(data)
         assert result["session_id"] == "market-report-20260307"
 
+    def test_正常系_batch_labelがmarket_reportに設定される(self) -> None:
+        data = _market_report_data()
+        result = map_market_report(data)
+        assert result["batch_label"] == "market-report"
+
+    def test_正常系_重複URLが除外される(self) -> None:
+        data = {
+            "session_id": "market-report-dedup",
+            "sections": [
+                {
+                    "title": "Section A",
+                    "content": "Content A",
+                    "sources": [
+                        {
+                            "url": "https://example.com/same",
+                            "title": "A",
+                            "published": "",
+                        },
+                    ],
+                },
+                {
+                    "title": "Section B",
+                    "content": "Content B",
+                    "sources": [
+                        {
+                            "url": "https://example.com/same",
+                            "title": "A dup",
+                            "published": "",
+                        },
+                    ],
+                },
+            ],
+        }
+        result = map_market_report(data)
+        assert len(result["sources"]) == 1
+
+    def test_正常系_claimのcategoryがmacroに設定される(self) -> None:
+        data = _market_report_data()
+        result = map_market_report(data)
+        assert result["claims"][0]["category"] == "macro"
+
 
 # ---------------------------------------------------------------------------
 # map_asset_management
@@ -503,6 +600,36 @@ class TestMapAssetManagement:
         batch = _asset_management_batch()
         result = map_asset_management(batch)
         assert result["session_id"] == "asset-mgmt-20260307-120000"
+
+    def test_正常系_batch_labelがasset_managementに設定される(self) -> None:
+        batch = _asset_management_batch()
+        result = map_asset_management(batch)
+        assert result["batch_label"] == "asset-management"
+
+    def test_正常系_topic_idが決定論的(self) -> None:
+        batch = _asset_management_batch()
+        r1 = map_asset_management(batch)
+        r2 = map_asset_management(batch)
+        assert r1["topics"][0]["topic_id"] == r2["topics"][0]["topic_id"]
+
+    def test_正常系_topicのcategoryがasset_managementに設定される(self) -> None:
+        batch = _asset_management_batch()
+        result = map_asset_management(batch)
+        assert result["topics"][0]["category"] == "asset-management"
+
+    def test_エッジケース_URLなしのarticleではsourceが生成されない(self) -> None:
+        batch = {
+            "session_id": "test",
+            "themes": {
+                "nisa": {
+                    "articles": [{"url": "", "title": "No URL article"}],
+                    "name_ja": "NISA制度",
+                }
+            },
+        }
+        result = map_asset_management(batch)
+        assert len(result["sources"]) == 0
+        assert len(result["topics"]) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -532,6 +659,42 @@ class TestMapRedditTopics:
         result = map_reddit_topics(batch)
         assert result["session_id"] == "reddit-topics-20260307"
 
+    def test_正常系_batch_labelがredditに設定される(self) -> None:
+        batch = _reddit_topics_batch()
+        result = map_reddit_topics(batch)
+        assert result["batch_label"] == "reddit"
+
+    def test_正常系_sourceにscoreが含まれる(self) -> None:
+        batch = _reddit_topics_batch()
+        result = map_reddit_topics(batch)
+        assert result["sources"][0]["score"] == 245
+
+    def test_正常系_sourceにsubredditが含まれる(self) -> None:
+        batch = _reddit_topics_batch()
+        result = map_reddit_topics(batch)
+        assert result["sources"][0]["subreddit"] == "r/investing"
+
+    def test_正常系_topicのcategoryがredditに設定される(self) -> None:
+        batch = _reddit_topics_batch()
+        result = map_reddit_topics(batch)
+        assert result["topics"][0]["category"] == "reddit"
+
+    def test_エッジケース_URLなしのtopicではsourceが生成されない(self) -> None:
+        batch = {
+            "session_id": "test",
+            "topics": [
+                {
+                    "name": "No URL Topic",
+                    "url": "",
+                    "title": "Test",
+                    "subreddit": "r/test",
+                }
+            ],
+        }
+        result = map_reddit_topics(batch)
+        assert len(result["topics"]) == 1
+        assert len(result["sources"]) == 0
+
 
 # ---------------------------------------------------------------------------
 # map_finance_full
@@ -559,6 +722,33 @@ class TestMapFinanceFull:
         data = _finance_full_data()
         result = map_finance_full(data)
         assert result["session_id"] == "finance-full-20260307"
+
+    def test_正常系_batch_labelがfinance_fullに設定される(self) -> None:
+        data = _finance_full_data()
+        result = map_finance_full(data)
+        assert result["batch_label"] == "finance-full"
+
+    def test_正常系_claimにsource_urlが含まれる(self) -> None:
+        data = _finance_full_data()
+        result = map_finance_full(data)
+        assert result["claims"][0]["source_url"] == "https://example.com/source1"
+
+    def test_正常系_claimにcategoryが含まれる(self) -> None:
+        data = _finance_full_data()
+        result = map_finance_full(data)
+        assert result["claims"][0]["category"] == "stock"
+
+    def test_正常系_source_idが決定論的(self) -> None:
+        data = _finance_full_data()
+        r1 = map_finance_full(data)
+        r2 = map_finance_full(data)
+        assert r1["sources"][0]["source_id"] == r2["sources"][0]["source_id"]
+
+    def test_正常系_claim_idが決定論的(self) -> None:
+        data = _finance_full_data()
+        r1 = map_finance_full(data)
+        r2 = map_finance_full(data)
+        assert r1["claims"][0]["claim_id"] == r2["claims"][0]["claim_id"]
 
 
 # ---------------------------------------------------------------------------
@@ -788,6 +978,52 @@ class TestRun:
             assert exit_code == 0, f"Command {cmd} failed"
             output_files = list(output_dir.glob(f"{cmd}/*.json"))
             assert len(output_files) == 1, f"Expected 1 output file for {cmd}"
+
+
+# ---------------------------------------------------------------------------
+# main (CLI entry point)
+# ---------------------------------------------------------------------------
+
+
+class TestMain:
+    """main 関数のテスト。"""
+
+    def test_異常系_存在しない入力ファイルでSystemExit(self, tmp_path: Path) -> None:
+        nonexistent = tmp_path / "nonexistent.json"
+        exit_code = main(
+            ["--command", "finance-news-workflow", "--input", str(nonexistent)]
+        )
+        assert exit_code == 1
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_有効な入力ファイルでexit0(self, tmp_path: Path) -> None:
+        input_file = tmp_path / "input.json"
+        input_file.write_text(
+            json.dumps(_news_batch(), ensure_ascii=False),
+            encoding="utf-8",
+        )
+        output_dir = tmp_path / "output"
+        # main() uses DEFAULT_OUTPUT_BASE, so we use run() to specify output_base
+        exit_code = run(
+            command="finance-news-workflow",
+            input_path=input_file,
+            output_base=output_dir,
+            cleanup=False,
+        )
+        assert exit_code == 0
+
+    def test_異常系_不正なJSONファイルでexit1(self, tmp_path: Path) -> None:
+        invalid_file = tmp_path / "invalid.json"
+        invalid_file.write_text("not valid json{{{", encoding="utf-8")
+        output_dir = tmp_path / "output"
+
+        exit_code = run(
+            command="finance-news-workflow",
+            input_path=invalid_file,
+            output_base=output_dir,
+            cleanup=False,
+        )
+        assert exit_code == 1
 
 
 # ---------------------------------------------------------------------------
