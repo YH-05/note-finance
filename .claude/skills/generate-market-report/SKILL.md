@@ -14,7 +14,7 @@ allowed-tools: Read, Write, Glob, Grep, Bash, Task, WebSearch
 
 - **3種類のレポートモード**: 基本レポート、週次コメント（旧形式）、フル週次レポート（推奨）
 - **自動データ収集**: yfinance/FRED 経由の市場データ収集
-- **ニュース統合**: GitHub Project / RSS / Tavily からのニュース収集と統合
+- **ニュース統合**: GitHub Project / RSS / Web検索からのニュース収集と統合（ツール選択は `.claude/skills/web-search/SKILL.md` 参照）
 - **品質検証**: 文字数・フォーマット・データ整合性の自動検証
 
 ## いつ使用するか

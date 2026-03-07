@@ -1,0 +1,2 @@
+prompt = "Activate the AI Research workflow by following the instructions in `.agents/workflows/ai-research-collect.md`."
+description = "AI投資バリューチェーンのブログ/リリースを収集し、要約してGitHub Projectに投稿します。"

@@ -1,0 +1,228 @@
+# Knowledge Graph Schema Definition
+# Neo4j graph database schema for finance knowledge management
+#
+# Usage:
+#   - This file defines the canonical graph schema
+#   - mcp-neo4j-data-modeling can import/export compatible models
+#   - Schema changes should be made here first, then applied to Neo4j
+
+version: "1.0"
+
+# ============================================================
+# Node Definitions
+# ============================================================
+nodes:
+  Source:
+    description: "Information source (web page, news article, PDF report, original article)"
+    properties:
+      source_id:
+        type: string
+        unique: true
+        required: true
+        description: "Unique identifier (UUID)"
+      title:
+        type: string
+        required: true
+        indexed: true
+      url:
+        type: string
+        indexed: true
+        description: "Source URL (null for local documents)"
+      source_type:
+        type: string
+        required: true
+        enum: [web, news, pdf, original]
+        indexed: true
+        description: "web=website, news=news article, pdf=report PDF, original=self-authored"
+      publisher:
+        type: string
+        indexed: true
+        description: "Publisher or organization name"
+      published_at:
+        type: datetime
+        indexed: true
+      fetched_at:
+        type: datetime
+        required: true
+      language:
+        type: string
+        default: "ja"
+      file_path:
+        type: string
+        description: "Local file path (for PDF and original documents)"
+
+  Fact:
+    description: "Objectively verifiable information extracted from sources"
+    properties:
+      fact_id:
+        type: string
+        unique: true
+        required: true
+      content:
+        type: string
+        required: true
+        description: "Fact statement"
+      fact_type:
+        type: string
+        enum: [statistic, event, data_point, quote]
+        indexed: true
+        description: "statistic=numerical data, event=occurrence, data_point=metric, quote=direct citation"
+      confidence:
+        type: float
+        description: "Extraction confidence (0.0-1.0)"
+      as_of_date:
+        type: date
+        indexed: true
+        description: "Date the fact refers to"
+      created_at:
+        type: datetime
+        required: true
+
+  Claim:
+    description: "Subjective assertions, opinions, or predictions from sources"
+    properties:
+      claim_id:
+        type: string
+        unique: true
+        required: true
+      content:
+        type: string
+        required: true
+        description: "Claim statement"
+      claim_type:
+        type: string
+        enum: [opinion, prediction, recommendation, analysis]
+        indexed: true
+        description: "opinion=viewpoint, prediction=forecast, recommendation=buy/sell/hold, analysis=interpretation"
+      sentiment:
+        type: string
+        enum: [bullish, bearish, neutral]
+        indexed: true
+      created_at:
+        type: datetime
+        required: true
+
+  Entity:
+    description: "Named entities referenced in facts and claims (companies, indices, sectors, etc.)"
+    properties:
+      entity_id:
+        type: string
+        unique: true
+        required: true
+      name:
+        type: string
+        required: true
+        indexed: true
+      entity_type:
+        type: string
+        required: true
+        enum: [company, index, sector, indicator, currency, commodity, person, organization]
+        indexed: true
+      ticker:
+        type: string
+        indexed: true
+        description: "Stock ticker symbol (if applicable)"
+      aliases:
+        type: string[]
+        description: "Alternative names"
+
+  Author:
+    description: "Author or publishing organization"
+    properties:
+      author_id:
+        type: string
+        unique: true
+        required: true
+      name:
+        type: string
+        required: true
+        indexed: true
+      author_type:
+        type: string
+        required: true
+        enum: [person, sell_side, buy_side, consultant, media, self]
+        indexed: true
+        description: "person=individual, sell_side=investment bank, buy_side=asset manager, consultant=consulting firm, media=news outlet, self=own content"
+      organization:
+        type: string
+        indexed: true
+
+  Topic:
+    description: "Topic or theme tag"
+    properties:
+      topic_id:
+        type: string
+        unique: true
+        required: true
+      name:
+        type: string
+        required: true
+        indexed: true
+      category:
+        type: string
+        enum: [macro, sector, stock, ai, finance, geopolitics, policy]
+        indexed: true
+
+# ============================================================
+# Relationship Definitions
+# ============================================================
+relationships:
+  # Core: Source -> Fact / Claim
+  STATES_FACT:
+    from: Source
+    to: Fact
+    description: "Source states an objective fact"
+    properties:
+      extracted_at:
+        type: datetime
+      page_or_section:
+        type: string
+        description: "Page number or section reference"
+
+  MAKES_CLAIM:
+    from: Source
+    to: Claim
+    description: "Source makes a subjective claim"
+    properties:
+      extracted_at:
+        type: datetime
+      page_or_section:
+        type: string
+
+  # Evidence chain: Claim -> Fact
+  SUPPORTED_BY:
+    from: Claim
+    to: Fact
+    description: "Claim is supported by this fact as evidence"
+
+  # Contradiction: Claim <-> Claim
+  CONTRADICTS:
+    from: Claim
+    to: Claim
+    description: "Two claims that contradict each other"
+    properties:
+      noted_at:
+        type: datetime
+
+  # Entity linking
+  RELATES_TO:
+    from: Fact
+    to: Entity
+    description: "Fact references this entity"
+
+  ABOUT:
+    from: Claim
+    to: Entity
+    description: "Claim is about this entity"
+
+  # Authorship
+  AUTHORED_BY:
+    from: Source
+    to: Author
+    description: "Source is authored by this person/organization"
+
+  # Topic tagging
+  TAGGED:
+    from: Source
+    to: Topic
+    description: "Source is tagged with this topic"

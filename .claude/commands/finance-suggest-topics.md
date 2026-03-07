@@ -36,12 +36,22 @@ argument-hint: [カテゴリ] [--count N]
 
 ### Phase 2: トピック提案の生成
 
-4. **finance-topic-suggester 実行**
+4. **topic-discovery スキルの実行**
+
+   topic-discovery スキル（`.claude/skills/topic-discovery/SKILL.md`）を使用してトピックを生成する。
+
+   - カテゴリ指定がある場合: `--category {category}` を渡す
+   - count 指定がある場合: `--count {count}` を渡す
+   - Phase 1 の既存記事情報を入力として渡す
+
    ```
-   Task: finance-topic-suggester
-   Input: existing_articles, category (optional), count
-   Output: suggestions (JSON)
+   スキル: topic-discovery
+   入力: existing_articles, category (optional), count
+   出力: suggestions (JSON) + search_insights + content_gaps
    ```
+
+   **注意**: `--no-search` オプションが指定された場合は、従来通り
+   finance-topic-suggester エージェントを直接呼び出す（Web検索なし）。
 
 ### Phase 3: 結果の整形と表示
 

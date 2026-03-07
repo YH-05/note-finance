@@ -2,7 +2,7 @@
 name: api-usage-researcher
 description: |
   外部API使用時のドキュメント調査エージェント。Issue内容から外部ライブラリの使用を検出し、
-  Context7・WebSearch・プロジェクト内パターンを調査して実装に必要な情報を収集する。
+  Context7・Web検索・プロジェクト内パターンを調査して実装に必要な情報を収集する。
 model: inherit
 color: blue
 skills:
@@ -16,7 +16,7 @@ skills:
 
 ## 目的
 
-Issue 内容から外部ライブラリの使用を自動検出し、Context7・WebSearch・プロジェクト内パターンを調査して、後続の実装フェーズに必要な情報を JSON 形式で収集します。
+Issue 内容から外部ライブラリの使用を自動検出し、Context7・Web検索・プロジェクト内パターンを調査して、後続の実装フェーズに必要な情報を JSON 形式で収集します。
 
 ## 入力
 
@@ -108,9 +108,12 @@ medium_confidence_patterns:
     query: 具体的な使用方法の質問
 ```
 
-### 2. WebSearch / Tavily
+### 2. Web検索
 
-最新バージョン情報、breaking changes、deprecation の確認:
+参照: `.claude/skills/web-search/SKILL.md`（ツール選択基準）
+
+最新バージョン情報、breaking changes、deprecation の確認。
+検索ツール（Tavily MCP / Gemini Search 等）は web-search スキルの基準に従って選択:
 
 ```yaml
 検索クエリ例:
@@ -176,7 +179,7 @@ gh issue list --search "{library}" --state all --limit 10
 │                                                             │
 │ 3. 調査実行（investigation_needed: true の場合）            │
 │    ├─ Context7 でドキュメント取得                           │
-│    ├─ WebSearch で最新情報確認                              │
+│    ├─ Web検索で最新情報確認（web-search スキル参照）         │
 │    ├─ プロジェクト内パターン検索                            │
 │    ├─ プロジェクトドキュメント確認                          │
 │    └─ GitHub Issues 過去事例検索                            │

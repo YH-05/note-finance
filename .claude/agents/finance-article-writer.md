@@ -35,10 +35,8 @@ color: blue
 3. **リスク開示** (末尾): snippets/investment-risk.md を使用
 
 ### 禁止表現
-- 「絶対に」「必ず」「間違いなく」
-- 「買うべき」「売るべき」
-- 「推奨」「お勧め」
-- 過度に断定的な将来予測
+
+参照: `.claude/resources/critique-criteria/compliance-standards.md`（禁止表現リスト・代替表現）
 
 ## カテゴリ別テンプレート
 

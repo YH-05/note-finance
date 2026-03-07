@@ -1,0 +1,2 @@
+prompt = "Activate the Finance Full workflow by following the instructions in `.agents/workflows/finance-full.md`."
+description = "記事作成の全工程（フォルダ作成→リサーチ→執筆）を一括実行します。"

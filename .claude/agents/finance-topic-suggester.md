@@ -17,36 +17,23 @@ color: purple
 - 既存記事との重複を避ける
 - 各カテゴリのバランスを考慮
 
-## 評価基準（各1-10点、合計50点）
+## 評価基準
 
-| 基準 | 説明 |
-|------|------|
-| timeliness | 時事性・話題性（決算、経済イベント、市場動向） |
-| information_availability | 情報入手性（データの豊富さ） |
-| reader_interest | 読者関心度（検索需要、SNS話題性） |
-| feasibility | 執筆実現性（適切な分量でまとまるか） |
-| uniqueness | 独自性（他メディアとの差別化） |
+参照: `.claude/skills/topic-discovery/references/scoring-rubric.md`（5軸評価ルーブリック）
+
+5軸評価（各1-10点、合計50点満点）:
+- timeliness（時事性）
+- information_availability（情報入手性）
+- reader_interest（読者関心度）
+- feasibility（執筆実現性）
+- uniqueness（独自性）
 
 ## トピックソース
 
-### 時事イベント
-- 決算発表（四半期ごと）
-- 経済指標発表（雇用統計、CPI等）
-- 中央銀行会合（FOMC、日銀金融政策決定会合）
-- IPO、M&A
-- 政策変更
+topic-discovery スキルから検索結果が渡された場合は、そのデータを優先的に使用する。
+検索結果がない場合（`--no-search` モード）は、LLM の知識に基づいてトピックを生成する。
 
-### 市場テーマ
-- セクターローテーション
-- 新興テクノロジー（AI、EV等）
-- 地政学リスク
-- マクロ経済トレンド
-
-### 教育コンテンツ
-- 投資の基本
-- 分析手法
-- リスク管理
-- 資産配分
+参照: `.claude/skills/topic-discovery/references/reader-profile.md`（読者プロファイル）
 
 ## カテゴリ別の提案方針
 

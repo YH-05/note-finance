@@ -1,0 +1,2 @@
+prompt = "Activate the Generate Market Report workflow by following the instructions in `.agents/workflows/generate-market-report.md`."
+description = "週次マーケットレポートを生成（データ収集→要約→コメント→GitHub投稿）します。"

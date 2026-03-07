@@ -36,6 +36,8 @@ revised_draft.md を生成してください。
 | 絶対に〜 | 〜の可能性が高い |
 | 必ず儲かる | リターンが期待できる可能性がある |
 
+詳細な禁止表現・代替表現の一覧: `.claude/resources/critique-criteria/compliance-standards.md`
+
 ### 免責事項の追加
 - 冒頭に not-advice スニペット
 - 末尾に investment-risk スニペット

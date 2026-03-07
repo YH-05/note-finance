@@ -210,3 +210,4 @@ ls -t data/market/all_performance_*.json | head -1
 - 入力: `data/market/all_performance_{YYYYMMDD-HHMM}.json`
 - 入力: `src/analyze/reporting/performance_agent.py`
 - 出力: `{report_dir}/data/hypotheses_{YYYYMMDD-HHMM}.json`
+- 参照: `.claude/resources/search-templates/`（検索クエリテンプレート集）
