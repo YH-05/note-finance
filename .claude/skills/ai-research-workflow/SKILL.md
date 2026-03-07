@@ -47,6 +47,7 @@ AIバリューチェーン全体（LLM開発、GPU、データセンター、電
         +-- カテゴリ別統計
         +-- ティア別成功率
         +-- スクレイピング統計サマリー
+        +-- Step 3.2: graph-queue 出力（任意）
 ```
 
 ### finance-news-workflow との比較
@@ -261,6 +262,17 @@ for category in categories:
 
 カテゴリ別統計に加え、ティア別のスクレイピング成功率レポートを含む。
 
+### Step 3.2: graph-queue 出力（任意）
+
+```bash
+for batch_file in .tmp/ai-research-batches/*.json; do
+  python scripts/emit_graph_queue.py \
+    --command ai-research-collect \
+    --input "$batch_file"
+done
+echo "graph-queue files generated. Run /save-to-graph to ingest."
+```
+
 ## パラメータ一覧
 
 | パラメータ | デフォルト | 説明 |
@@ -304,6 +316,8 @@ for category in categories:
 | CompanyScraperRegistry | `src/rss/services/company_scrapers/registry.py` |
 | GitHub Project #44 | https://github.com/users/YH-05/projects/44 |
 | プロジェクト計画 | `docs/project/ai-research-tracking/project.md` |
+| graph-queue 出力スクリプト | `scripts/emit_graph_queue.py` |
+| graph-queue 取込コマンド | `/save-to-graph` |
 | フォーク元スキル | `.claude/skills/finance-news-workflow/` |
 
 ## エラーハンドリング
