@@ -68,16 +68,16 @@ MERGE ベースの Cypher クエリにより冪等性を保証する。
 
 1. **Neo4j が起動していること**
    ```bash
-   # Docker での起動例
+   # Docker での起動例（パスワードは環境変数で設定すること）
    docker run -d --name neo4j \
-     -p 7474:7474 -p 7687:7687 \
-     -e NEO4J_AUTH=neo4j/password \
+     -p 127.0.0.1:7474:7474 -p 127.0.0.1:7687:7687 \
+     -e NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:?NEO4J_PASSWORD is required} \
      neo4j:5-community
    ```
 
 2. **cypher-shell が使用可能であること**
    ```bash
-   cypher-shell -u neo4j -p password "RETURN 1"
+   cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" "RETURN 1"
    ```
 
 3. **初回セットアップが完了していること**
@@ -96,7 +96,7 @@ MERGE ベースの Cypher クエリにより冪等性を保証する。
 # 環境変数から接続情報を取得（デフォルト値あり）
 NEO4J_URI="${NEO4J_URI:-bolt://localhost:7687}"
 NEO4J_USER="${NEO4J_USER:-neo4j}"
-NEO4J_PASSWORD="${NEO4J_PASSWORD:-password}"
+NEO4J_PASSWORD="${NEO4J_PASSWORD:?NEO4J_PASSWORD is required}"
 
 # 接続テスト
 cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
@@ -295,7 +295,7 @@ MERGE (c)-[:ABOUT]->(e)
 |--------|-----------|------|
 | NEO4J_URI | bolt://localhost:7687 | Neo4j Bolt プロトコル URI |
 | NEO4J_USER | neo4j | Neo4j ユーザー名 |
-| NEO4J_PASSWORD | password | Neo4j パスワード |
+| NEO4J_PASSWORD | (必須、デフォルトなし) | Neo4j パスワード |
 
 ## 関連リソース
 

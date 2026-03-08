@@ -38,9 +38,12 @@ import os
 import sys
 import time
 import uuid
+from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 
 # ---------------------------------------------------------------------------
 # Logger
@@ -56,15 +59,8 @@ logger = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-COMMANDS: list[str] = [
-    "finance-news-workflow",
-    "ai-research-collect",
-    "generate-market-report",
-    "asset-management",
-    "reddit-finance-topics",
-    "finance-full",
-]
-"""Supported command names."""
+COMMANDS: list[str] = []  # Populated after COMMAND_MAPPERS definition
+"""Supported command names (derived from COMMAND_MAPPERS)."""
 
 DEFAULT_OUTPUT_BASE = Path(".tmp/graph-queue")
 """Default base directory for output queue files."""
@@ -204,6 +200,78 @@ def resolve_category(theme_key: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Mapping helpers (DRY)
+# ---------------------------------------------------------------------------
+
+
+def _make_source(url: str, title: str = "", published: str = "", **extra: Any) -> dict[str, Any]:
+    """Build a Source dict with a deterministic ``source_id``.
+
+    Parameters
+    ----------
+    url : str
+        Source URL.
+    title : str
+        Source title.
+    published : str
+        Publication datetime (ISO 8601).
+    **extra : Any
+        Additional fields merged into the result.
+
+    Returns
+    -------
+    dict[str, Any]
+        Source dict ready for graph-queue output.
+    """
+    return {
+        "source_id": generate_source_id(url),
+        "url": url,
+        "title": title,
+        "published": published,
+        **extra,
+    }
+
+
+def _mapped_result(
+    data: dict[str, Any],
+    batch_label: str,
+    *,
+    sources: list[dict[str, Any]] | None = None,
+    topics: list[dict[str, Any]] | None = None,
+    claims: list[dict[str, Any]] | None = None,
+    entities: list[dict[str, Any]] | None = None,
+    relations: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Build the standard 7-key mapper result dict.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Original input data (used to extract ``session_id``).
+    batch_label : str
+        Label for this batch.
+    sources, topics, claims, entities : list[dict] | None
+        Node lists (default to empty lists).
+    relations : dict | None
+        Relation dict (default to empty dict).
+
+    Returns
+    -------
+    dict[str, Any]
+        Standardised result dict with all 7 keys.
+    """
+    return {
+        "session_id": data.get("session_id", ""),
+        "batch_label": batch_label,
+        "sources": sources or [],
+        "claims": claims or [],
+        "topics": topics or [],
+        "entities": entities or [],
+        "relations": relations or {},
+    }
+
+
+# ---------------------------------------------------------------------------
 # Mapping functions
 # ---------------------------------------------------------------------------
 
@@ -231,13 +299,12 @@ def map_finance_news(data: dict[str, Any]) -> dict[str, Any]:
         source_id = generate_source_id(url)
 
         sources.append(
-            {
-                "source_id": source_id,
-                "url": url,
-                "title": article.get("title", ""),
-                "published": article.get("published", ""),
-                "feed_source": article.get("feed_source", ""),
-            }
+            _make_source(
+                url,
+                title=article.get("title", ""),
+                published=article.get("published", ""),
+                feed_source=article.get("feed_source", ""),
+            )
         )
 
         summary = article.get("summary", "")
@@ -251,15 +318,12 @@ def map_finance_news(data: dict[str, Any]) -> dict[str, Any]:
                 }
             )
 
-    return {
-        "session_id": data.get("session_id", ""),
-        "batch_label": data.get("batch_label", ""),
-        "sources": sources,
-        "claims": claims,
-        "topics": [],
-        "entities": [],
-        "relations": {},
-    }
+    return _mapped_result(
+        data,
+        data.get("batch_label", ""),
+        sources=sources,
+        claims=claims,
+    )
 
 
 def map_ai_research(data: dict[str, Any]) -> dict[str, Any]:
@@ -297,23 +361,14 @@ def map_ai_research(data: dict[str, Any]) -> dict[str, Any]:
         # Create source
         if url:
             sources.append(
-                {
-                    "source_id": generate_source_id(url),
-                    "url": url,
-                    "title": company.get("title", ""),
-                    "published": company.get("published", ""),
-                }
+                _make_source(
+                    url,
+                    title=company.get("title", ""),
+                    published=company.get("published", ""),
+                )
             )
 
-    return {
-        "session_id": data.get("session_id", ""),
-        "batch_label": "ai",
-        "sources": sources,
-        "claims": [],
-        "topics": [],
-        "entities": entities,
-        "relations": {},
-    }
+    return _mapped_result(data, "ai", sources=sources, entities=entities)
 
 
 def map_market_report(data: dict[str, Any]) -> dict[str, Any]:
@@ -342,12 +397,11 @@ def map_market_report(data: dict[str, Any]) -> dict[str, Any]:
             if url and url not in seen_urls:
                 seen_urls.add(url)
                 sources.append(
-                    {
-                        "source_id": generate_source_id(url),
-                        "url": url,
-                        "title": source.get("title", ""),
-                        "published": source.get("published", ""),
-                    }
+                    _make_source(
+                        url,
+                        title=source.get("title", ""),
+                        published=source.get("published", ""),
+                    )
                 )
 
         # Create claim from section content
@@ -362,15 +416,7 @@ def map_market_report(data: dict[str, Any]) -> dict[str, Any]:
                 }
             )
 
-    return {
-        "session_id": data.get("session_id", ""),
-        "batch_label": "market-report",
-        "sources": sources,
-        "claims": claims,
-        "topics": [],
-        "entities": [],
-        "relations": {},
-    }
+    return _mapped_result(data, "market-report", sources=sources, claims=claims)
 
 
 def map_asset_management(data: dict[str, Any]) -> dict[str, Any]:
@@ -410,24 +456,15 @@ def map_asset_management(data: dict[str, Any]) -> dict[str, Any]:
             url = article.get("url", "")
             if url:
                 sources.append(
-                    {
-                        "source_id": generate_source_id(url),
-                        "url": url,
-                        "title": article.get("title", ""),
-                        "published": article.get("published", ""),
-                        "feed_source": article.get("feed_source", ""),
-                    }
+                    _make_source(
+                        url,
+                        title=article.get("title", ""),
+                        published=article.get("published", ""),
+                        feed_source=article.get("feed_source", ""),
+                    )
                 )
 
-    return {
-        "session_id": data.get("session_id", ""),
-        "batch_label": "asset-management",
-        "sources": sources,
-        "claims": [],
-        "topics": topics,
-        "entities": [],
-        "relations": {},
-    }
+    return _mapped_result(data, "asset-management", sources=sources, topics=topics)
 
 
 def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
@@ -465,25 +502,16 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
         # Create source from Reddit post
         if url:
             sources.append(
-                {
-                    "source_id": generate_source_id(url),
-                    "url": url,
-                    "title": topic.get("title", ""),
-                    "published": topic.get("published", ""),
-                    "subreddit": topic.get("subreddit", ""),
-                    "score": topic.get("score", 0),
-                }
+                _make_source(
+                    url,
+                    title=topic.get("title", ""),
+                    published=topic.get("published", ""),
+                    subreddit=topic.get("subreddit", ""),
+                    score=topic.get("score", 0),
+                )
             )
 
-    return {
-        "session_id": data.get("session_id", ""),
-        "batch_label": "reddit",
-        "sources": sources,
-        "claims": [],
-        "topics": topics,
-        "entities": [],
-        "relations": {},
-    }
+    return _mapped_result(data, "reddit", sources=sources, topics=topics)
 
 
 def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:
@@ -507,12 +535,11 @@ def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:
     for source in input_sources:
         url = source.get("url", "")
         sources.append(
-            {
-                "source_id": generate_source_id(url),
-                "url": url,
-                "title": source.get("title", ""),
-                "published": source.get("published", ""),
-            }
+            _make_source(
+                url,
+                title=source.get("title", ""),
+                published=source.get("published", ""),
+            )
         )
 
     for claim in input_claims:
@@ -526,22 +553,14 @@ def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:
             }
         )
 
-    return {
-        "session_id": data.get("session_id", ""),
-        "batch_label": "finance-full",
-        "sources": sources,
-        "claims": claims,
-        "topics": [],
-        "entities": [],
-        "relations": {},
-    }
+    return _mapped_result(data, "finance-full", sources=sources, claims=claims)
 
 
 # ---------------------------------------------------------------------------
 # Command → Mapper dispatch
 # ---------------------------------------------------------------------------
 
-COMMAND_MAPPERS: dict[str, Any] = {
+COMMAND_MAPPERS: dict[str, MapperFn] = {
     "finance-news-workflow": map_finance_news,
     "ai-research-collect": map_ai_research,
     "generate-market-report": map_market_report,
@@ -550,6 +569,8 @@ COMMAND_MAPPERS: dict[str, Any] = {
     "finance-full": map_finance_full,
 }
 """Dispatch table mapping command names to their mapper functions."""
+
+COMMANDS = list(COMMAND_MAPPERS.keys())
 
 
 # ---------------------------------------------------------------------------
@@ -645,6 +666,116 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
 # ---------------------------------------------------------------------------
 
 
+def _load_and_parse(command: str, input_path: Path) -> dict[str, Any] | None:
+    """Load input JSON and map it through the appropriate command mapper.
+
+    Parameters
+    ----------
+    command : str
+        Source command name (one of :data:`COMMANDS`).
+    input_path : Path
+        Path to the input JSON file.
+
+    Returns
+    -------
+    dict[str, Any] | None
+        Mapped data, or ``None`` on failure (error already logged).
+    """
+    if not input_path.exists():
+        logger.error("Input path does not exist: %s", input_path)
+        print(f"Error: Input path does not exist: {input_path}", file=sys.stderr)
+        return None
+
+    try:
+        with input_path.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as exc:
+        logger.error("Invalid JSON in %s: %s", input_path, exc)
+        print(f"Error: Invalid JSON in {input_path}: {exc}", file=sys.stderr)
+        return None
+
+    mapper = COMMAND_MAPPERS.get(command)
+    if mapper is None:
+        logger.error("Unknown command: %s", command)
+        print(f"Error: Unknown command: {command}", file=sys.stderr)
+        return None
+
+    logger.info("Mapping data for command: %s", command)
+    return mapper(data)
+
+
+def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
+    """Build the graph-queue document from mapped data.
+
+    Parameters
+    ----------
+    command : str
+        Source command name.
+    mapped : dict[str, Any]
+        Output from a mapper function.
+
+    Returns
+    -------
+    dict[str, Any]
+        Complete graph-queue document ready for serialisation.
+    """
+    queue_id = generate_queue_id()
+    now = datetime.now(timezone.utc)
+
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "queue_id": queue_id,
+        "created_at": now.isoformat(),
+        "command_source": command,
+        "session_id": mapped.get("session_id", ""),
+        "batch_label": mapped.get("batch_label", ""),
+        "sources": mapped.get("sources", []),
+        "topics": mapped.get("topics", []),
+        "claims": mapped.get("claims", []),
+        "entities": mapped.get("entities", []),
+        "relations": mapped.get("relations", {}),
+    }
+
+
+def _write_output(
+    queue_doc: dict[str, Any],
+    command: str,
+    output_base: Path,
+    *,
+    cleanup: bool = False,
+) -> Path:
+    """Write the queue document to disk.
+
+    Parameters
+    ----------
+    queue_doc : dict[str, Any]
+        Graph-queue document to write.
+    command : str
+        Source command name (used as subdirectory).
+    output_base : Path
+        Base directory for output queue files.
+    cleanup : bool
+        If ``True``, delete files older than 7 days before writing.
+
+    Returns
+    -------
+    Path
+        Path to the written queue file.
+    """
+    output_dir = output_base / command
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    if cleanup:
+        cleanup_old_files(output_dir, max_age_days=DEFAULT_MAX_AGE_DAYS)
+
+    output_file = output_dir / f"{queue_doc['queue_id']}.json"
+    with output_file.open("w", encoding="utf-8") as f:
+        json.dump(queue_doc, f, ensure_ascii=False, indent=2)
+
+    logger.info("Queue file written: %s", output_file)
+    return output_file
+
+
 def run(
     *,
     command: str,
@@ -670,66 +801,14 @@ def run(
     int
         Exit code — ``0`` for success, ``1`` for failure.
     """
-    # Validate input
-    if not input_path.exists():
-        logger.error("Input path does not exist: %s", input_path)
-        print(f"Error: Input path does not exist: {input_path}", file=sys.stderr)
+    mapped = _load_and_parse(command, input_path)
+    if mapped is None:
         return 1
 
-    # Read input data
-    try:
-        with input_path.open(encoding="utf-8") as f:
-            data = json.load(f)
-    except json.JSONDecodeError as exc:
-        logger.error("Invalid JSON in %s: %s", input_path, exc)
-        print(f"Error: Invalid JSON in {input_path}: {exc}", file=sys.stderr)
-        return 1
+    queue_doc = _build_queue_doc(command, mapped)
+    output_file = _write_output(queue_doc, command, output_base, cleanup=cleanup)
 
-    # Get mapper
-    mapper = COMMAND_MAPPERS.get(command)
-    if mapper is None:
-        logger.error("Unknown command: %s", command)
-        print(f"Error: Unknown command: {command}", file=sys.stderr)
-        return 1
-
-    # Map data
-    logger.info("Mapping data for command: %s", command)
-    mapped = mapper(data)
-
-    # Build queue document
-    queue_id = generate_queue_id()
-    now = datetime.now(timezone.utc)
-
-    queue_doc: dict[str, Any] = {
-        "schema_version": SCHEMA_VERSION,
-        "queue_id": queue_id,
-        "created_at": now.isoformat(),
-        "command_source": command,
-        "session_id": mapped.get("session_id", ""),
-        "batch_label": mapped.get("batch_label", ""),
-        "sources": mapped.get("sources", []),
-        "topics": mapped.get("topics", []),
-        "claims": mapped.get("claims", []),
-        "entities": mapped.get("entities", []),
-        "relations": mapped.get("relations", {}),
-    }
-
-    # Output directory
-    output_dir = output_base / command
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    # Cleanup old files if requested
-    if cleanup:
-        cleanup_old_files(output_dir, max_age_days=DEFAULT_MAX_AGE_DAYS)
-
-    # Write queue file
-    output_file = output_dir / f"{queue_id}.json"
-    with output_file.open("w", encoding="utf-8") as f:
-        json.dump(queue_doc, f, ensure_ascii=False, indent=2)
-
-    logger.info("Queue file written: %s", output_file)
     print(f"Queue file: {output_file}")
-
     return 0
 
 
