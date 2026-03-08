@@ -60,13 +60,35 @@ ls -d articles/*/ 2>/dev/null
 不足しているカテゴリがあれば提案
 ```
 
-### 4. 次のアクション案内
+### 4. 結果の保存（自動実行）
+
+提案結果を以下に自動保存する:
+
+- **セッションファイル**: `.tmp/topic-suggestions/{YYYY-MM-DD}_{HHMM}.json`（完全な提案データ）
+- **履歴追記**: `data/topic-history/suggestions.jsonl`（セッション要約を1行追記）
+
+セッション JSON の主要フィールド:
+- `session_id`: セッション識別子
+- `search_insights`: Web検索で収集したトレンド情報
+- `content_gaps`: ギャップ分析結果
+- `suggestions[]`: 各提案（スコア・理由・キーポイント含む）
+- `suggestions[].selected`: 採用状態（null=未決定, true=採用, false=不採用）
+
+### 5. 次のアクション案内
 
 選択されたトピックで記事を作成する場合:
 
 - `/new-finance-article` ワークフローへ誘導
+- トピック採用時、セッションファイルの `selected` が自動更新される
+
+## 保存先
+
+| 保存先 | パス | 用途 |
+|--------|------|------|
+| セッションファイル | `.tmp/topic-suggestions/{YYYY-MM-DD}_{HHMM}.json` | 完全な提案データ（検索結果含む） |
+| 履歴ファイル | `data/topic-history/suggestions.jsonl` | セッション要約の追記ログ |
 
 ## 関連ワークフロー
 
-- `/new-finance-article` - 記事フォルダ作成
+- `/new-finance-article` - 記事フォルダ作成（トピック採用時に履歴を自動更新）
 - `/finance-full` - 記事作成の全工程

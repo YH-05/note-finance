@@ -112,6 +112,28 @@ argument-hint: [カテゴリ] [--count N]
    /new-finance-article "2025年1月第2週 米国市場週間レビュー"
    ```
 
+### Phase 4: 結果の保存（自動実行）
+
+6. **セッションファイルの保存**
+
+   topic-discovery スキルの Phase 5 に従い、以下のファイルを自動保存:
+
+   - **セッションファイル**: `.tmp/topic-suggestions/{YYYY-MM-DD}_{HHMM}.json`
+   - **履歴追記**: `data/topic-history/suggestions.jsonl`
+
+   表示例:
+   ```markdown
+   ---
+
+   ### 保存済み
+
+   - **セッション**: `.tmp/topic-suggestions/2025-01-12_1430.json`
+   - **履歴**: `data/topic-history/suggestions.jsonl` に追記済み
+
+   過去の提案履歴を確認:
+   cat data/topic-history/suggestions.jsonl | python3 -m json.tool --json-lines
+   ```
+
 ## 出力フォーマット
 
 ### テーブル形式（簡易）

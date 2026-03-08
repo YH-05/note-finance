@@ -72,6 +72,18 @@ cp -r template/{category}/* articles/{article_id}/
 - article_id, topic, category, symbols, date_range 等を設定
 - status = "research"
 - human_feedback の初期化
+- suggestion_session_id（トピック提案セッションとの紐付け、該当なしなら null）
+
+### 8.5. トピック提案履歴の更新（該当する場合）
+
+トピック名が直近のトピック提案セッション（`.tmp/topic-suggestions/` 内の最新ファイル）の
+suggestions に一致する場合、自動的に以下を更新:
+
+1. セッションファイルの該当 suggestion の `selected` を `true` に変更
+2. `data/topic-history/suggestions.jsonl` の該当行の `selected_topics` にトピック名を追加
+3. `article-meta.json` の `suggestion_session_id` にセッション ID を記録
+
+一致するセッションがない場合はスキップ。
 
 ### 9. 完了報告
 

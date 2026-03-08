@@ -153,6 +153,7 @@ argument-hint: [トピック名]
         "status": "research",
         "created_at": "{YYYY-MM-DD}",
         "updated_at": "{YYYY-MM-DD}",
+        "suggestion_session_id": "{session_id or null}",
         "human_feedback": {
             "hf1_topic_approved": true,
             "hf3_claims_reviewed": false,
@@ -162,6 +163,35 @@ argument-hint: [トピック名]
         "workflow": { ... }
     }
     ```
+
+### Phase 4.5: トピック提案履歴の更新（該当する場合）
+
+11.5. **提案セッションとの紐付け**
+
+    トピック名が直近のトピック提案セッションの suggestions に一致する場合、
+    自動的に以下を更新する:
+
+    1. **セッションファイルの更新**: `.tmp/topic-suggestions/` の最新ファイルで
+       該当 suggestion の `selected` を `true` に変更
+
+       ```bash
+       # 最新のセッションファイルを検索
+       ls -t .tmp/topic-suggestions/*.json 2>/dev/null | head -1
+       ```
+
+       一致判定: `suggestions[].topic` がトピック名と完全一致または部分一致
+
+    2. **履歴ファイルの更新**: `data/topic-history/suggestions.jsonl` の該当行の
+       `selected_topics` 配列にトピック名を追加
+
+       ```python
+       # JSONL の該当行を更新（session_id で特定）
+       # selected_topics にトピック名を追加
+       ```
+
+    3. **article-meta.json に session_id を記録**: `suggestion_session_id` フィールド
+
+    **一致するセッションがない場合**: スキップ（`suggestion_session_id` は `null`）
 
 12. **空ファイルの article_id 更新**
 
