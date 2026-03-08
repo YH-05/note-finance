@@ -642,19 +642,19 @@ ls .tmp/plan-project-*/workflow-status.json
 
 - Phase 1 で `.agents/agents/` の全エージェントをスキャン
 - Phase 2 で frontmatter 構造、スキル参照、入出力を設計
-- GEMINI.md のエージェント一覧テーブル更新を file_map に含める
+- CLAUDE.md のエージェント一覧テーブル更新を file_map に含める
 
 ### skill タイプ
 
 - Phase 1 で `.agents/skills/` の全スキルをスキャン
 - Phase 2 で SKILL.md/guide.md/templates/ の構造を設計
-- GEMINI.md のスキル一覧テーブル更新を file_map に含める
+- CLAUDE.md のスキル一覧テーブル更新を file_map に含める
 
 ### command タイプ
 
 - Phase 1 で `.agents/commands/` の全コマンドをスキャン
 - Phase 2 で frontmatter（description, argument-hint）を設計
-- GEMINI.md のコマンド一覧テーブル更新を file_map に含める
+- CLAUDE.md のコマンド一覧テーブル更新を file_map に含める
 
 ### workflow タイプ
 

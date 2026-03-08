@@ -1,3 +1,12 @@
+---
+name: investment-research
+description: |
+  特定の投資テーマについてマルチソースで深掘りリサーチし、記事素材を集めるスキル。
+  Web検索・RSS・Reddit・SEC Edgarを組み合わせたファクト収集と論点抽出を行う。
+  Use PROACTIVELY when 投資テーマのリサーチ、銘柄分析、マクロ経済調査が必要な場合。
+allowed-tools: Read, Write, Bash, Glob, Grep, ToolSearch
+---
+
 # investment-research スキル
 
 特定の投資テーマについてマルチソースで深掘りリサーチし、記事素材を集めるスキル。

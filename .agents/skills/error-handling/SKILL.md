@@ -335,5 +335,5 @@ result = retry_with_backoff(
 
 ## 参考資料
 
-- `GEMINI.md`: プロジェクト全体のガイドライン
+- `CLAUDE.md`: プロジェクト全体のガイドライン
 - `.agents/rules/common-instructions.md`: ロギング・エラーハンドリングの共通指示

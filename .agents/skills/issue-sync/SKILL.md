@@ -295,6 +295,6 @@ gh project item-edit \
 
 ## 参考資料
 
-- `GEMINI.md`: プロジェクト全体のガイドライン
+- `CLAUDE.md`: プロジェクト全体のガイドライン
 - `.agents/commands/sync-issue.md`: /sync-issue コマンド定義
 - `docs/guidelines/github-projects-automation.md`: GitHub Projects 自動化

@@ -73,5 +73,5 @@ Gemini Search 利用不可時:
 
 | リソース | パス |
 |---------|------|
-| Web検索使い分けガイド | `.claude/skills/web-search/SKILL.md` |
-| Gemini Search コマンド | `.claude/commands/gemini-search.md` |
+| Web検索使い分けガイド | `.agents/skills/web-search/SKILL.md` |
+| Gemini Search コマンド | `.agents/commands/gemini-search.md` |

@@ -270,9 +270,9 @@ ToolSearch(query="+fetch")
 
 | リソース | パス |
 |---------|------|
-| Gemini Search スキル | `.claude/skills/gemini-search/SKILL.md` |
-| Gemini Search コマンド | `.claude/commands/gemini-search.md` |
-| 検索テンプレート | `.claude/resources/search-templates/` |
-| 投資リサーチ検索戦略 | `.claude/skills/investment-research/references/search-strategy.md` |
-| トピック発掘検索戦略 | `.claude/skills/topic-discovery/references/search-strategy.md` |
-| マーケットレポート | `.claude/commands/generate-market-report.md` |
+| Gemini Search スキル | `.agents/skills/gemini-search/SKILL.md` |
+| Gemini Search コマンド | `.agents/commands/gemini-search.md` |
+| 検索テンプレート | `.agents/resources/search-templates/` |
+| 投資リサーチ検索戦略 | `.agents/skills/investment-research/references/search-strategy.md` |
+| トピック発掘検索戦略 | `.agents/skills/topic-discovery/references/search-strategy.md` |
+| マーケットレポート | `.agents/commands/generate-market-report.md` |

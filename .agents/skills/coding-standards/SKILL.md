@@ -387,6 +387,6 @@ async def process_order(order: Order) -> ProcessedOrder:
 
 ## 参考資料
 
-- `GEMINI.md`: プロジェクトガイドライン
+- `CLAUDE.md`: プロジェクトガイドライン
 - `.agents/rules/coding-standards.md`: ルールファイル
 - `template/src/template_package/`: 実装テンプレート

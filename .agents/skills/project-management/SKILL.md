@@ -460,7 +460,7 @@ gh auth refresh -s project
 
 ## 参考資料
 
-- `GEMINI.md`: プロジェクト全体のガイドライン
+- `CLAUDE.md`: プロジェクト全体のガイドライン
 - `docs/guidelines/github-projects-automation.md`: GitHub Projects 自動化の詳細
 - `.agents/commands/new-project.md`: /new-project コマンドの詳細
 - `.agents/commands/project-refine.md`: /project-refine コマンドの詳細

@@ -1,6 +1,7 @@
 ---
 name: finance-topic-suggestion
 description: 金融・投資記事のトピックを提案します。既存記事のカテゴリ分布、最新のRSSニュース、Redditのセンチメント、SEC EDGARの企業動向を分析し、最適な執筆候補をスコアリングして提示します。
+allowed-tools: Read, Bash, Glob, ToolSearch
 ---
 
 # 金融記事トピック提案スキル

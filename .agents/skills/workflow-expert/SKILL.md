@@ -543,7 +543,7 @@ Phase 3: test-integration-writer
 
 ## 参考資料
 
-- `GEMINI.md`: プロジェクト全体のガイドライン
+- `CLAUDE.md`: プロジェクト全体のガイドライン
 - `.agents/rules/subagent-data-passing.md`: サブエージェントへのデータ渡しルール
 - `.agents/commands/issue-implement.md`: シーケンシャル + ルーターパターンの実装例
 - `.agents/commands/collect-finance-news.md`: ファンアウト/ファンインパターンの実装例

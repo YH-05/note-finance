@@ -1,3 +1,12 @@
+---
+name: competitor-analysis
+description: |
+  note.com金融カテゴリの競合分析とコンテンツギャップ発見。
+  競合記事収集、差別化スコアリング、機会レポート生成を行う。
+  Use PROACTIVELY when planning new articles, discovering content opportunities, or analyzing competitor trends.
+allowed-tools: Bash, Read, Write, Glob, Grep
+---
+
 # competitor-analysis スキル
 
 note.com 金融カテゴリの競合状況を分析し、コンテンツ機会を発見するスキル。

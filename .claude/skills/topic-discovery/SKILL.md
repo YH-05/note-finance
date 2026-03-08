@@ -1,3 +1,11 @@
+---
+name: topic-discovery
+description: |
+  記事トピック発掘のオーケストレーター。Web検索ベースのトレンドリサーチ、既存記事ギャップ分析、finance-topic-suggesterによるスコアリングでデータ駆動のトピック提案を生成。
+  Use PROACTIVELY when suggesting article topics, discovering content gaps, or planning new finance articles.
+allowed-tools: Read, Bash, Glob, Grep, Task
+---
+
 # topic-discovery スキル
 
 記事トピック発掘のオーケストレータースキル。Web検索ベースのトレンドリサーチで、データ駆動のトピック提案を生成する。
