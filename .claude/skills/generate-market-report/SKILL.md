@@ -102,7 +102,8 @@ Phase 7: Issue 投稿（自動実行）
 └── weekly-report-publisher → GitHub Issue 作成（report ラベル）& Project #15 追加
 
 Phase 8: 完了処理
-└── 結果サマリー表示
+├── 結果サマリー表示
+└── Step 8.2: graph-queue 出力（任意）
 ```
 
 ## 入力パラメータ
@@ -251,6 +252,15 @@ articles/weekly_report/{YYYY-MM-DD}/
 3. ローカル JSON をニュースソースとして使用
 4. レポートを生成して GitHub Issue に投稿
 
+### Step 8.2: graph-queue 出力（任意）
+
+```bash
+python scripts/emit_graph_queue.py \
+  --command generate-market-report \
+  --input "articles/weekly_report/${date}/data/"
+echo "graph-queue files generated. Run /save-to-graph to ingest."
+```
+
 ## 関連リソース
 
 ### サブエージェント（--weekly モード用）
@@ -282,6 +292,8 @@ articles/weekly_report/{YYYY-MM-DD}/
 |-----------|------|
 | `scripts/market_report_data.py` | 基本モード用データ収集 |
 | `scripts/weekly_comment_data.py` | 週次モード用データ収集 |
+| `scripts/emit_graph_queue.py` | graph-queue 出力スクリプト |
+| `/save-to-graph` | graph-queue 取込コマンド |
 
 ## エラーハンドリング
 
