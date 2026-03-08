@@ -1,6 +1,6 @@
 ---
 description: 金融記事の編集ワークフローを実行します。初稿作成→批評→修正の一連の処理を自動化します。
-argument-hint: --article <article_id> [--mode quick|full]
+argument-hint: @<filepath> [--mode quick|full]
 ---
 
 金融記事の編集ワークフローを実行します。
@@ -9,9 +9,50 @@ argument-hint: --article <article_id> [--mode quick|full]
 
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
-| --article | ○ | - | 記事ID |
+| @filepath | ○※ | - | 記事ファイルのパス（`@` で指定。first_draft.md 等） |
+| --article | ○※ | - | 記事ID（`@filepath` 未指定時に使用） |
 | --mode | - | full | 編集モード（quick/full） |
 | --skip-draft | - | false | 初稿作成をスキップ（既存の場合） |
+
+※ `@filepath` と `--article` はいずれか一方を指定
+
+## 引数の解釈ルール
+
+`$ARGUMENTS` を以下の優先順で解釈する:
+
+### 1. ファイルパス指定（`@filepath`）
+
+ユーザーが `@` でファイルを指定した場合、そのパスから記事ディレクトリを自動特定する。
+
+```
+/finance-edit @articles/asset_management/index-investing-portfolio-allocation/02_edit/first_draft.md
+```
+
+**パス解決ロジック:**
+1. 指定されたファイルの絶対パスを取得する
+2. パスに `/02_edit/` が含まれる場合 → その親ディレクトリを記事ルートとする
+3. パスに `/01_research/` や `/03_published/` が含まれる場合 → 同様に親ディレクトリを記事ルートとする
+4. 指定パスがディレクトリの場合 → そのディレクトリを記事ルートとする
+5. 記事ルート内の `02_edit/first_draft.md` を編集対象とする
+
+**例:**
+| 指定パス | 記事ルート |
+|---------|-----------|
+| `@.../02_edit/first_draft.md` | `.../` |
+| `@.../02_edit/revised_draft.md` | `.../` |
+| `@.../index-investing-portfolio-allocation/` | `.../index-investing-portfolio-allocation/` |
+
+### 2. 記事ID指定（従来方式）
+
+```
+/finance-edit --article asset-mgmt-index-portfolio-allocation
+```
+
+`articles/` 配下から該当する `article_id` を持つディレクトリを検索する。
+
+### 3. 引数なし
+
+引数が指定されていない場合は、ユーザーに記事ファイルのパスまたは記事IDの入力を求める。
 
 ## 編集モード
 

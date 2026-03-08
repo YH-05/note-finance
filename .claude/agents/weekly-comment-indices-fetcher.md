@@ -41,10 +41,10 @@ Phase 1: 初期化
 ├── MCPツールロード
 └── 入力データ解析
 
-Phase 2: ニュース検索
+Phase 2: ニュース検索（検索ツール選択は web-search スキル参照）
 ├── RSS検索（mcp__rss__rss_search_items）
 │   └── キーワード: S&P 500, stock market, equity index
-└── Tavily検索（mcp__tavily__tavily-search）[RSS結果不足時]
+└── 追加検索 [RSS結果不足時]
     └── クエリ: "US stock market weekly {period}"
 
 Phase 3: 分析・整理
@@ -103,11 +103,14 @@ Phase 4: 出力
 }
 ```
 
-## 検索優先順位
+## 検索ツール選択
 
-1. **RSS MCP** (`mcp__rss__rss_search_items`) - 登録済みフィード検索
-2. **Tavily** (`mcp__tavily__tavily-search`) - Web全体検索
-3. **WebSearch** (フォールバック)
+参照: `.claude/skills/web-search/SKILL.md`（選択フローチャート・フォールバック戦略）
+
+本エージェントは英語金融ニュースが対象のため、以下の優先順位で検索:
+1. **RSS MCP** (`mcp__rss__rss_search_items`) - 登録済みフィード検索（最速）
+2. **Tavily MCP** (`mcp__tavily__tavily_search`) - 構造化されたWeb検索結果
+3. **Gemini Search** - フォールバック（`gemini --prompt "WebSearch: ..."` via Bash）
 
 ## 実行例
 
@@ -135,23 +138,13 @@ VTV: +1.2%
 
 ## エラーハンドリング
 
+フォールバック戦略は `.claude/skills/web-search/SKILL.md` を参照。
+
 ```python
-# RSS検索失敗時
-try:
-    rss_results = mcp__rss__rss_search_items(keywords="S&P 500")
-except Exception:
-    rss_results = []
-    log("RSS検索失敗、Tavilyにフォールバック")
-
-# Tavily検索失敗時
-try:
-    tavily_results = mcp__tavily__tavily-search(query="US stock market")
-except Exception:
-    tavily_results = []
-    log("Tavily検索失敗、WebSearchにフォールバック")
-
+# RSS検索失敗時 → Tavily MCP にフォールバック
+# Tavily検索失敗時 → Gemini Search にフォールバック
 # 全検索失敗時
-if not rss_results and not tavily_results:
+if not search_results:
     return {
         "error": "ニュース検索に失敗しました",
         "commentary_draft": "（ニュースソースなしでパフォーマンスデータのみで生成）"
@@ -170,3 +163,4 @@ if not rss_results and not tavily_results:
 - **週次コメントコマンド**: `.claude/commands/generate-market-report.md`
 - **データ収集スクリプト**: `scripts/weekly_comment_data.py`
 - **テンプレート**: `template/market_report/weekly_comment_template.md`
+- **検索クエリテンプレート**: `.claude/resources/search-templates/index-market.md`

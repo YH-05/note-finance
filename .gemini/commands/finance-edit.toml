@@ -1,0 +1,2 @@
+prompt = "Activate the Finance Edit workflow by following the instructions in `.agents/workflows/finance-edit.md`."
+description = "金融記事の編集ワークフロー（初稿→批評→修正）を自動化します。"

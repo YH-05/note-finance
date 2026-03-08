@@ -40,6 +40,25 @@ services:
 
     working_dir: /app
 
+  neo4j:
+    image: neo4j:5-community
+    container_name: finance-neo4j
+    ports:
+      - "7474:7474"  # Browser UI
+      - "7687:7687"  # Bolt protocol
+    volumes:
+      - /Volumes/NeoData/neo4j/data:/data
+      - /Volumes/NeoData/neo4j/logs:/logs
+      - /Volumes/NeoData/neo4j/plugins:/plugins
+      - /Volumes/NeoData/neo4j/import:/var/lib/neo4j/import
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+    restart: unless-stopped
+
 volumes:
   claude-config:  # Claude Code 設定の永続化
   venv:           # Python 仮想環境の隔離

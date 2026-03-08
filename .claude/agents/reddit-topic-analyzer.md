@@ -28,7 +28,7 @@ ToolSearch('reddit')
 
 1. **トピック詳細取得**: `get_post_content` で各トピックの投稿本文を取得
 2. **日本語要約生成**: タイトル翻訳・要約・キーポイント・センチメント分析
-3. **補足調査**: `WebSearch` で関連情報・最新状況を調査
+3. **補足調査**: Web検索で関連情報・最新状況を調査（ツール選択は `.claude/skills/web-search/SKILL.md` 参照）
 4. **記事化提案生成**: note.com 記事として適切な提案を生成
 5. **結果出力**: 分析結果を `.tmp/reddit-topics/analyzed-{timestamp}-{category}.json` に新規書き込み
 
@@ -81,8 +81,8 @@ ToolSearch('reddit')
   3. 日本語タイトル翻訳・要約・キーポイント生成
   4. センチメント分析（bullish/bearish/neutral）
   5. 関連性スコア算出（0.0-1.0）
-     → relevance_score < 0.7 の場合: analyzed_topics[] に記録のみ、WebSearch・記事化提案をスキップして次のトピックへ
-  6. WebSearch で関連情報・最新状況を補足調査（relevance_score >= 0.7 のみ）
+     → relevance_score < 0.7 の場合: analyzed_topics[] に記録のみ、Web検索・記事化提案をスキップして次のトピックへ
+  6. Web検索で関連情報・最新状況を補足調査（relevance_score >= 0.7 のみ、web-search スキル参照）
   7. 記事化提案を生成（relevance_score >= 0.7 のみ、priority フィールド必須）
   8. analyzed_topics[] と article_proposals[] に結果を追加
 
@@ -155,23 +155,26 @@ if not content or len(content.strip()) < 100:
 | 0.4-0.6 | ニッチな話題・専門的すぎる内容 |
 | 0.0-0.4 | 日本の読者には関連性が低い |
 
-### ステップ 6: WebSearch で補足調査（relevance_score >= 0.7 のみ）
+### ステップ 6: Web検索で補足調査（relevance_score >= 0.7 のみ）
+
+参照: `.claude/skills/web-search/SKILL.md`（ツール選択基準）
+日本語クエリは Gemini Search、英語クエリは Tavily MCP が推奨。
 
 **前提条件**: ステップ 5 で算出した `relevance_score` が 0.7 未満の場合は、このステップおよびステップ 7 をスキップして次のトピックの処理へ進む:
 
 ```python
 if relevance_score < 0.7:
     analyzed_topics.append({...step3-5のデータのみ...})
-    continue  # WebSearch・article_proposals 追加をスキップ
+    continue  # Web検索・article_proposals 追加をスキップ
 ```
 
 relevance_score >= 0.7 のトピックに対して、投稿タイトルを日本語に翻訳し関連する最新情報を検索:
 
 ```
-WebSearch クエリ例:
-  - "{投稿タイトルの日本語訳} 2026"
-  - "{企業名 or 銘柄名} 最新動向"
-  - "{議論テーマ} 日本 投資家"
+検索クエリ例:
+  - "{投稿タイトルの日本語訳} 2026"      → Gemini Search（日本語）
+  - "{企業名 or 銘柄名} 最新動向"         → Gemini Search（日本語）
+  - "{議論テーマ} 日本 投資家"            → Gemini Search（日本語）
 ```
 
 関連情報が見つからない場合はスキップして継続。
@@ -282,7 +285,7 @@ file_timestamp = timestamp.replace(":", "-").split("+")[0]
 |--------|------|
 | `get_post_content` 失敗 | `skipped` に reason を記録し次のトピックへ継続（**処理は止めない**） |
 | 本文不十分（100 文字未満） | `skipped` に reason を記録し次のトピックへ継続 |
-| `WebSearch` 失敗 | スキップして要約のみで記事化提案を生成 |
+| Web検索失敗 | フォールバック（web-search スキル参照）→ それも失敗ならスキップして要約のみで記事化提案を生成 |
 | 出力ファイル書き込み失敗 | エラー詳細を出力して処理中断 |
 | 入力ファイル読み込み失敗 | エラー詳細を出力し処理中断 |
 | `ToolSearch('reddit')` 失敗 | エラーを出力して処理中断（Reddit MCP なしでは処理不可） |

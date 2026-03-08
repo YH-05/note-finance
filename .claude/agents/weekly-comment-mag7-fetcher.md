@@ -134,11 +134,14 @@ Phase 4: 出力
 }
 ```
 
-## 検索優先順位
+## 検索ツール選択
 
-1. **RSS MCP** (`mcp__rss__rss_search_items`) - 登録済みフィード検索
-2. **Tavily** (`mcp__tavily__tavily-search`) - Web全体検索
-3. **WebSearch** (フォールバック)
+参照: `.claude/skills/web-search/SKILL.md`（選択フローチャート・フォールバック戦略）
+
+本エージェントは英語金融ニュースが対象のため、以下の優先順位で検索:
+1. **RSS MCP** (`mcp__rss__rss_search_items`) - 登録済みフィード検索（最速）
+2. **Tavily MCP** (`mcp__tavily__tavily_search`) - 構造化されたWeb検索結果
+3. **Gemini Search** - フォールバック（`gemini --prompt "WebSearch: ..."` via Bash）
 
 ## 検索ロジック
 
@@ -161,13 +164,10 @@ def search_stock_news(ticker: str, name: str, performance: float):
         limit=5
     )
 
-    # 結果不足時はTavily検索
+    # 結果不足時は追加検索（ツール選択は web-search スキル参照）
     if len(rss_results) < 3:
-        tavily_results = mcp__tavily__tavily-search(
-            query=f"{name} stock news January 2026",
-            max_results=5
-        )
-        rss_results.extend(tavily_results)
+        additional = web_search(f"{name} stock news January 2026", max_results=5)
+        rss_results.extend(additional)
 
     return rss_results[:5]
 ```

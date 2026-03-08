@@ -1,0 +1,2 @@
+prompt = "Activate the Finance Suggest Topics workflow by following the instructions in `.agents/workflows/finance-suggest-topics.md`."
+description = "金融記事のトピックを提案します（カテゴリ、時事性、関心度によるスコアリング）。"

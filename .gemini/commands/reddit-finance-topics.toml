@@ -1,0 +1,2 @@
+prompt = "Activate the Reddit Finance Topics workflow by following the instructions in `.agents/workflows/reddit-finance-topics.md`."
+description = "Reddit金融コミュニティからトピック・センチメントを収集し、投資視点で整理します。"

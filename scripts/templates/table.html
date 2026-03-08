@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: transparent;
+    display: inline-block;
+  }
+
+  .table-container {
+    display: inline-block;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    font-size: {{ font_size }}px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  {% if title %}
+  .table-title {
+    padding: 16px 24px 8px;
+    font-size: {{ (font_size * 1.15)|round|int }}px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  {% endif %}
+
+  table {
+    border-collapse: collapse;
+    margin: 0;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 12px 20px;
+    text-align: left;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  th:last-child, td:last-child {
+    border-right: none;
+  }
+
+  th {
+    background: {{ theme_color }};
+    color: #fff;
+    font-weight: 700;
+    font-size: {{ font_size }}px;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  /* First header cell rounded top-left only if no title */
+  {% if not title %}
+  th:first-child { border-top-left-radius: 12px; }
+  th:last-child { border-top-right-radius: 12px; }
+  {% endif %}
+
+  td {
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+  }
+
+  td:last-child {
+    border-right: none;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8f9fa;
+  }
+
+  .cell-bold {
+    font-weight: 700;
+    color: {{ theme_color }};
+  }
+
+  .cell-right {
+    text-align: right;
+  }
+
+  {% if caption %}
+  .table-caption {
+    padding: 8px 24px 16px;
+    font-size: {{ (font_size * 0.8)|round|int }}px;
+    color: #888;
+    line-height: 1.5;
+  }
+  {% endif %}
+</style>
+</head>
+<body>
+  <div class="table-container">
+    {% if title %}
+    <div class="table-title">{{ title }}</div>
+    {% endif %}
+    <table>
+      <thead>
+        <tr>
+          {% for header in headers %}
+          <th>{{ header }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          {% for cell in row %}
+          <td class="{% if cell.bold %}cell-bold {% endif %}{% if cell.align == 'right' %}cell-right{% endif %}">{{ cell.text }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if caption %}
+    <div class="table-caption">{{ caption }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>

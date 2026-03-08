@@ -1,0 +1,2 @@
+prompt = "Activate the New Finance Article workflow by following the instructions in `.agents/workflows/new-finance-article.md`."
+description = "新規金融記事フォルダを作成し、テンプレートから初期構造を生成します。"

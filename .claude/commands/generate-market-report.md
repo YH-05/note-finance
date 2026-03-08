@@ -232,16 +232,18 @@ MCPSearch: query="rss", max_results=5
 警告表示（RSS検索スキップ）→ 他の検索手段で続行
 ```
 
-#### Tavily ツール確認
+#### Web検索ツール確認
+
+参照: `.claude/skills/web-search/SKILL.md`（フォールバック戦略）
 
 ```
 MCPSearch: query="tavily", max_results=3
 
-↓ ツールが見つかった場合
-成功 → 次へ
+↓ Tavily MCP が見つかった場合
+成功 → Tavily MCP を使用
 
 ↓ 見つからない場合
-警告表示（Tavily検索スキップ）→ 他の検索手段で続行
+Gemini Search にフォールバック → それも失敗 → 警告表示して続行
 ```
 
 #### GitHub CLI 確認
@@ -323,12 +325,13 @@ uv run python scripts/market_report_data.py --output "${OUTPUT_DIR}/data"
 
 ## Phase 3: ニュース検索
 
-### 3.1 検索優先順位
+### 3.1 検索ツール選択
 
-1. **RSS MCP**: `mcp__rss__rss_search_items`（33フィード、高速）
-2. **Tavily**: `mcp__tavily__tavily-search`（Web全体検索）
-3. **Gemini Search**: `/gemini-search` スキル（バックアップ）
-4. **Fetch**: `mcp__fetch__fetch`（特定URL取得）
+参照: `.claude/skills/web-search/SKILL.md`（選択フローチャート・フォールバック戦略）
+
+1. **RSS MCP**: `mcp__rss__rss_search_items`（33フィード、最速）
+2. **Web検索**: Tavily MCP / Gemini Search（web-search スキルの基準に従って選択）
+3. **Fetch**: `mcp__fetch__fetch`（特定URL取得）
 
 ### 3.2 カテゴリ別ニュース検索
 
@@ -562,14 +565,13 @@ ${OUTPUT_DIR}/02_edit/report.md
 - 3秒待機して再試行（自動）
 - 2回失敗した場合は警告を表示し、他の検索手段で続行
 
-### E003: Tavily ツールエラー
+### E003: Web検索ツールエラー
 
 **発生条件**:
-- Tavily MCPツールが設定されていない
-- APIキーが無効
+- Tavily MCP / Gemini CLI のいずれも利用不可
 
 **対処法**:
-- 警告を表示し、他の検索手段で続行
+- フォールバック戦略に従い他の検索手段で続行（`.claude/skills/web-search/SKILL.md` 参照）
 
 ### E004: テンプレートエラー
 
