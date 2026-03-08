@@ -1,0 +1,76 @@
+prompt = """
+.claude/ と .gemini/ のスキル・コマンド・ワークフローを双方向に同期します。
+
+## 実行手順
+
+### 1. 差分検出
+
+以下のコマンドで差分を確認:
+```bash
+diff <(ls .claude/commands/ | sed 's/\\.md$//' | sort) <(ls .gemini/commands/ | sed 's/\\.toml$//' | sort)
+```
+
+### 2. 不足ファイルの同期
+
+#### Claude → Gemini 同期
+
+Claude にのみ存在するコマンドについて `.gemini/commands/{name}.toml` を作成:
+
+**参照先の決定ロジック**:
+1. `.agents/skills/{name}/SKILL.md` が存在 → `prompt = "Activate the \\`{name}\\` skill by following the instructions in \\`.agents/skills/{name}/SKILL.md\\`."`
+2. `.agents/workflows/{name}.md` が存在 → `prompt = "Activate the {Title} workflow by following the instructions in \\`.agents/workflows/{name}.md\\`."`
+3. どちらでもない → コマンド内容を要約して prompt に記述
+
+**TOML 形式**:
+```toml
+prompt = "Activate the `{name}` skill by following the instructions in `.agents/skills/{name}/SKILL.md`."
+description = "{日本語の説明}"
+```
+
+#### Gemini → Claude 同期
+
+Gemini にのみ存在するコマンドについて `.claude/commands/{name}.md` を作成:
+
+**Markdown 形式**:
+```markdown
+---
+description: {description}
+---
+
+# {タイトル}
+
+{説明}
+
+> **スキル参照**: `.claude/skills/{name}/SKILL.md` または `.agents/skills/{name}/SKILL.md`
+```
+
+### 3. 共有スキルの同期
+
+`.claude/skills/*/SKILL.md` が更新された場合、`.agents/skills/*/SKILL.md` にも反映。
+
+### 4. 検証
+
+```bash
+# 差分が空になることを確認
+diff <(ls .claude/commands/ | sed 's/\\.md$//' | sort) <(ls .gemini/commands/ | sed 's/\\.toml$//' | sort)
+
+# TOML 構文チェック
+for f in .gemini/commands/*.toml; do
+  python3 -c "import tomllib; tomllib.load(open('$f', 'rb'))" 2>&1 && echo "OK: $f" || echo "ERROR: $f"
+done
+```
+
+### 5. 結果報告
+
+同期結果をテーブル形式で報告:
+- 方向（Claude→Gemini / Gemini→Claude）
+- 作成・更新・スキップ件数
+- 作成/更新されたファイル一覧
+
+## 注意事項
+
+- `.claude/agents/` はClaude固有のため同期対象外
+- `.claude/rules/` はClaude固有のため同期対象外
+- `.gemini/settings.json` はGemini固有のため同期対象外
+"""
+description = ".claude/ と .gemini/ のスキル・コマンド・ワークフローを双方向に同期します。"
