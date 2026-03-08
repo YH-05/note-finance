@@ -6,10 +6,13 @@ This module tests the DraftPublisher class to ensure:
 - Error codes E001-E005 are properly handled and returned as
   ``PublishResult(success=False, error_message=...)``
 - markdown_parser and browser_client are correctly orchestrated
+- ``_update_article_meta()`` updates article-meta.json correctly
+- ``_copy_to_published()`` copies revised_draft.md to 03_published/
 """
 
 from __future__ import annotations
 
+import json
 from typing import TYPE_CHECKING
 from unittest.mock import AsyncMock, patch
 
@@ -422,3 +425,220 @@ class TestPublish:
 
         mock_load.assert_called_once()
         assert result.success is True
+
+    @pytest.mark.asyncio
+    async def test_正常系_publish成功後にupdate_metaが呼ばれる(
+        self,
+        article_dir: Path,
+        sample_draft: ArticleDraft,
+    ) -> None:
+        """publish should call _update_article_meta and _copy_to_published on success."""
+        # Create article-meta.json
+        meta = {
+            "article_id": "test",
+            "status": "ready_for_publish",
+            "workflow": {
+                "publishing": {"final_review": "pending", "published": "pending"}
+            },
+        }
+        (article_dir / "article-meta.json").write_text(
+            json.dumps(meta, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+        mock_client_instance = AsyncMock()
+        mock_client_instance.__aenter__ = AsyncMock(return_value=mock_client_instance)
+        mock_client_instance.__aexit__ = AsyncMock(return_value=False)
+        mock_client_instance._restore_session = AsyncMock(return_value=True)
+        mock_client_instance.create_new_draft = AsyncMock()
+        mock_client_instance.set_title = AsyncMock()
+        mock_client_instance.insert_block = AsyncMock()
+        mock_client_instance.save_draft = AsyncMock(
+            return_value="https://note.com/drafts/12345"
+        )
+
+        publisher = DraftPublisher()
+
+        with (
+            patch(
+                "note_publisher.draft_publisher.parse_draft",
+                return_value=sample_draft,
+            ),
+            patch(
+                "note_publisher.draft_publisher.NoteBrowserClient",
+                return_value=mock_client_instance,
+            ),
+        ):
+            result = await publisher.publish(article_dir, update_meta=True)
+
+        assert result.success is True
+
+        # Verify article-meta.json was updated
+        updated_meta = json.loads(
+            (article_dir / "article-meta.json").read_text(encoding="utf-8")
+        )
+        assert updated_meta["status"] == "published"
+        assert "published_at" in updated_meta
+        assert updated_meta["draft_url"] == "https://note.com/drafts/12345"
+        assert updated_meta["workflow"]["publishing"]["published"] == "done"
+
+        # Verify 03_published/article.md was created
+        published_article = article_dir / "03_published" / "article.md"
+        assert published_article.exists()
+
+    @pytest.mark.asyncio
+    async def test_正常系_update_meta_falseでメタデータ更新なし(
+        self,
+        article_dir: Path,
+        sample_draft: ArticleDraft,
+    ) -> None:
+        """publish with update_meta=False should not update article-meta.json."""
+        meta = {"article_id": "test", "status": "ready_for_publish"}
+        (article_dir / "article-meta.json").write_text(
+            json.dumps(meta, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+        mock_client_instance = AsyncMock()
+        mock_client_instance.__aenter__ = AsyncMock(return_value=mock_client_instance)
+        mock_client_instance.__aexit__ = AsyncMock(return_value=False)
+        mock_client_instance._restore_session = AsyncMock(return_value=True)
+        mock_client_instance.create_new_draft = AsyncMock()
+        mock_client_instance.set_title = AsyncMock()
+        mock_client_instance.insert_block = AsyncMock()
+        mock_client_instance.save_draft = AsyncMock(
+            return_value="https://note.com/drafts/12345"
+        )
+
+        publisher = DraftPublisher()
+
+        with (
+            patch(
+                "note_publisher.draft_publisher.parse_draft",
+                return_value=sample_draft,
+            ),
+            patch(
+                "note_publisher.draft_publisher.NoteBrowserClient",
+                return_value=mock_client_instance,
+            ),
+        ):
+            result = await publisher.publish(article_dir, update_meta=False)
+
+        assert result.success is True
+
+        # article-meta.json should NOT be updated
+        unchanged_meta = json.loads(
+            (article_dir / "article-meta.json").read_text(encoding="utf-8")
+        )
+        assert unchanged_meta["status"] == "ready_for_publish"
+
+
+# ---------------------------------------------------------------------------
+# Tests: _update_article_meta
+# ---------------------------------------------------------------------------
+
+
+class TestUpdateArticleMeta:
+    """Tests for DraftPublisher._update_article_meta()."""
+
+    def test_正常系_メタデータが正しく更新される(self, tmp_path: Path) -> None:
+        """_update_article_meta should update status, published_at, and draft_url."""
+        article_dir = tmp_path / "test_article"
+        article_dir.mkdir()
+        meta = {
+            "article_id": "test-article",
+            "status": "ready_for_publish",
+            "updated_at": "2026-01-01T00:00:00Z",
+            "workflow": {
+                "publishing": {"final_review": "pending", "published": "pending"}
+            },
+        }
+        (article_dir / "article-meta.json").write_text(
+            json.dumps(meta, ensure_ascii=False, indent=4) + "\n",
+            encoding="utf-8",
+        )
+
+        DraftPublisher._update_article_meta(
+            article_dir, "https://note.com/drafts/99999"
+        )
+
+        updated = json.loads(
+            (article_dir / "article-meta.json").read_text(encoding="utf-8")
+        )
+        assert updated["status"] == "published"
+        assert "published_at" in updated
+        assert updated["draft_url"] == "https://note.com/drafts/99999"
+        assert updated["workflow"]["publishing"]["published"] == "done"
+        assert updated["workflow"]["publishing"]["final_review"] == "done"
+
+    def test_正常系_article_meta_jsonがない場合スキップ(self, tmp_path: Path) -> None:
+        """_update_article_meta should skip gracefully if file doesn't exist."""
+        article_dir = tmp_path / "nonexistent_article"
+        article_dir.mkdir()
+
+        # Should not raise
+        DraftPublisher._update_article_meta(article_dir, "https://note.com/drafts/1")
+
+    def test_正常系_draft_urlがNoneの場合もstatus更新(self, tmp_path: Path) -> None:
+        """_update_article_meta should update status even if draft_url is None."""
+        article_dir = tmp_path / "test_article"
+        article_dir.mkdir()
+        meta = {"article_id": "test", "status": "ready_for_publish", "workflow": {}}
+        (article_dir / "article-meta.json").write_text(
+            json.dumps(meta), encoding="utf-8"
+        )
+
+        DraftPublisher._update_article_meta(article_dir, None)
+
+        updated = json.loads(
+            (article_dir / "article-meta.json").read_text(encoding="utf-8")
+        )
+        assert updated["status"] == "published"
+        assert "draft_url" not in updated
+
+
+# ---------------------------------------------------------------------------
+# Tests: _copy_to_published
+# ---------------------------------------------------------------------------
+
+
+class TestCopyToPublished:
+    """Tests for DraftPublisher._copy_to_published()."""
+
+    def test_正常系_revised_draftが03_publishedにコピーされる(
+        self, tmp_path: Path
+    ) -> None:
+        """_copy_to_published should copy revised_draft.md to 03_published/article.md."""
+        article_dir = tmp_path / "test_article"
+        edit_dir = article_dir / "02_edit"
+        edit_dir.mkdir(parents=True)
+        draft_content = "# タイトル\n\n本文です。"
+        (edit_dir / "revised_draft.md").write_text(draft_content, encoding="utf-8")
+
+        DraftPublisher._copy_to_published(article_dir)
+
+        published = article_dir / "03_published" / "article.md"
+        assert published.exists()
+        assert published.read_text(encoding="utf-8") == draft_content
+
+    def test_正常系_03_publishedが既存でも上書きコピー(self, tmp_path: Path) -> None:
+        """_copy_to_published should overwrite existing article.md."""
+        article_dir = tmp_path / "test_article"
+        edit_dir = article_dir / "02_edit"
+        edit_dir.mkdir(parents=True)
+        pub_dir = article_dir / "03_published"
+        pub_dir.mkdir(parents=True)
+        (pub_dir / "article.md").write_text("old content", encoding="utf-8")
+        (edit_dir / "revised_draft.md").write_text("new content", encoding="utf-8")
+
+        DraftPublisher._copy_to_published(article_dir)
+
+        assert (pub_dir / "article.md").read_text(encoding="utf-8") == "new content"
+
+    def test_正常系_revised_draftがない場合スキップ(self, tmp_path: Path) -> None:
+        """_copy_to_published should skip if revised_draft.md doesn't exist."""
+        article_dir = tmp_path / "test_article"
+        article_dir.mkdir()
+
+        # Should not raise
+        DraftPublisher._copy_to_published(article_dir)

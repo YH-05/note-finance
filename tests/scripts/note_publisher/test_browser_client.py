@@ -53,6 +53,11 @@ def mock_page() -> MagicMock:
     page.close = AsyncMock()
     page.evaluate = AsyncMock()
 
+    # keyboard mock for heading toolbar operations
+    keyboard_mock = MagicMock()
+    keyboard_mock.press = AsyncMock()
+    page.keyboard = keyboard_mock
+
     # AIDEV-NOTE: locator() returns a Locator mock that supports
     # .first and async .inner_text() so that _is_logged_in()
     # can check for a logged-in indicator element.

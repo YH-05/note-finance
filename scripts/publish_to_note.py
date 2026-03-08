@@ -87,7 +87,7 @@ async def run_login_only() -> int:
     """
     config = load_config()
     async with NoteBrowserClient(config) as client:
-        await client.wait_for_manual_login()
+        await client.wait_for_manual_login(timeout_sec=300)
     logger.info("login_session_saved")
     return 0
 

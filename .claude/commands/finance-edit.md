@@ -260,8 +260,10 @@ Step 3: 修正
 ### 次のステップ
 
 1. revised_draft.md を最終確認
-2. 問題なければ 03_published/ に移動
-3. note.com に公開
+2. note.com に下書き投稿:
+   ```
+   /publish-to-note @articles/{article_id}/
+   ```
 ```
 
 ## エラーハンドリング

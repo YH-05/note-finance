@@ -261,17 +261,14 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
    cat articles/{article_id}/02_edit/revised_draft.md
    ```
 
-2. **公開準備**
-   ```bash
-   cp articles/{article_id}/02_edit/revised_draft.md \
-      articles/{article_id}/03_published/article.md
+2. **note.com に下書き投稿**
    ```
-
-3. **note.com に公開**
-   - revised_draft.md の内容をコピー
-   - note.com で記事を作成
-   - 画像やチャートをアップロード
-   - 公開後、article-meta.json の status を "published" に更新
+   /publish-to-note @articles/{article_id}/
+   ```
+   - revised_draft.md をパースし自動投稿
+   - 画像も自動アップロード
+   - article-meta.json の status を "published" に自動更新
+   - 03_published/article.md に最終版を自動コピー
 
 ### ワークフロー状態
 

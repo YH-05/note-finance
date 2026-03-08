@@ -1,0 +1,2 @@
+prompt = "Activate the `save-to-graph` skill to ingest entities and relations from the graph-queue JSON files into the Neo4j database."
+description = "graph-queueのデータをNeo4jに冪等投入します（ノード→リレーション→完了処理）。"

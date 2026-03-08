@@ -29,6 +29,9 @@ Examples
 
 from __future__ import annotations
 
+import json
+import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 
 import structlog
@@ -130,7 +133,9 @@ class DraftPublisher:
             ``article_dir / "02_edit" / "revised_draft.md"``.
         update_meta : bool
             Whether to update article metadata after publishing.
-            Defaults to ``True``.  (Reserved for future use.)
+            When ``True``, updates ``article-meta.json`` (status,
+            published_at, draft_url) and copies the draft to
+            ``03_published/article.md``.  Defaults to ``True``.
 
         Returns
         -------
@@ -168,7 +173,14 @@ class DraftPublisher:
         )
 
         # --- Step 3-6: Browser operations ---
-        return await self._execute_browser_publish(draft)
+        result = await self._execute_browser_publish(draft)
+
+        # --- Step 7: Update article metadata ---
+        if result.success and update_meta:
+            self._update_article_meta(article_dir, result.draft_url)
+            self._copy_to_published(article_dir)
+
+        return result
 
     # ------------------------------------------------------------------
     # Private helpers
@@ -192,6 +204,77 @@ class DraftPublisher:
             error_msg = f"E001: revised_draft.md が見つかりません: {draft_path}"
             logger.error("draft_not_found", path=str(draft_path))
             raise FileNotFoundError(error_msg)
+
+    @staticmethod
+    def _update_article_meta(article_dir: Path, draft_url: str | None) -> None:
+        """Update article-meta.json after successful publish.
+
+        Sets ``status`` to ``"published"``, records ``published_at``
+        timestamp, stores the ``draft_url``, and marks
+        ``workflow.publishing.published`` as ``"done"``.
+
+        Parameters
+        ----------
+        article_dir : Path
+            Path to the article directory.
+        draft_url : str | None
+            URL of the created draft on note.com.
+        """
+        meta_path = article_dir / "article-meta.json"
+        if not meta_path.exists():
+            logger.warning("article_meta_not_found", path=str(meta_path))
+            return
+
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as exc:
+            logger.error("article_meta_read_error", error=str(exc))
+            return
+
+        now = datetime.now(timezone.utc).isoformat()
+        meta["status"] = "published"
+        meta["published_at"] = now
+        meta["updated_at"] = now
+        if draft_url:
+            meta["draft_url"] = draft_url
+
+        # Update workflow.publishing
+        workflow = meta.get("workflow", {})
+        publishing = workflow.get("publishing", {})
+        publishing["published"] = "done"
+        publishing["final_review"] = "done"
+        workflow["publishing"] = publishing
+        meta["workflow"] = workflow
+
+        try:
+            meta_path.write_text(
+                json.dumps(meta, ensure_ascii=False, indent=4) + "\n",
+                encoding="utf-8",
+            )
+            logger.info("article_meta_updated", path=str(meta_path), status="published")
+        except OSError as exc:
+            logger.error("article_meta_write_error", error=str(exc))
+
+    @staticmethod
+    def _copy_to_published(article_dir: Path) -> None:
+        """Copy revised_draft.md to 03_published/article.md.
+
+        Parameters
+        ----------
+        article_dir : Path
+            Path to the article directory.
+        """
+        src = article_dir / "02_edit" / "revised_draft.md"
+        dest_dir = article_dir / "03_published"
+        dest = dest_dir / "article.md"
+
+        if not src.exists():
+            logger.warning("revised_draft_not_found_for_copy", path=str(src))
+            return
+
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+        logger.info("draft_copied_to_published", src=str(src), dest=str(dest))
 
     async def _execute_browser_publish(
         self,

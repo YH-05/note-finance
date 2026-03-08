@@ -473,7 +473,7 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
     Parameters
     ----------
     data : dict[str, Any]
-        Input data with ``topics[]``, ``session_id``.
+        Input data with ``groups.{key}.topics[]`` or ``topics[]``, ``session_id``.
 
     Returns
     -------
@@ -481,12 +481,23 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
         Mapped components with ``sources[]`` from Reddit posts and
         ``topics[]`` from discussion topics.
     """
-    input_topics = data.get("topics", [])
+    input_topics: list[dict[str, Any]] = []
+
+    # Handle nested topics in groups
+    groups = data.get("groups", {})
+    if groups:
+        for group_data in groups.values():
+            input_topics.extend(group_data.get("topics", []))
+    else:
+        # Fallback to root topics
+        input_topics = data.get("topics", [])
+
     sources: list[dict[str, Any]] = []
     topics: list[dict[str, Any]] = []
 
     for topic in input_topics:
-        name = topic.get("name", "")
+        # Use title as name if name is missing (Reddit posts have title)
+        name = topic.get("name", topic.get("title", ""))
         url = topic.get("url", "")
 
         # Create topic
@@ -505,13 +516,13 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
                 _make_source(
                     url,
                     title=topic.get("title", ""),
-                    published=topic.get("published", ""),
+                    published=topic.get("created_at", ""),
                     subreddit=topic.get("subreddit", ""),
                     score=topic.get("score", 0),
                 )
             )
 
-    return _mapped_result(data, "reddit", sources=sources, topics=topics)
+    return _mapped_result(data, "reddit-finance-topics", sources=sources, topics=topics)
 
 
 def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:

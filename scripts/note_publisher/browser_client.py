@@ -83,6 +83,12 @@ _SELECTORS: dict[str, str] = {
     "save_button": 'button:has-text("下書き保存"), [data-testid="save-draft"]',
     "image_upload": 'input[type="file"]',
     "new_draft_url": "https://note.com/notes/new",
+    # AIDEV-NOTE: Heading toolbar selectors for note.com editor.
+    # note.com uses a floating toolbar with heading format buttons.
+    "heading_h2": 'button:has-text("大見出し"), [data-testid="heading-2"]',
+    "heading_h3": 'button:has-text("小見出し"), [data-testid="heading-3"]',
+    "add_content_button": 'button[data-testid="add-content"], button.o-editorAdd',
+    "image_add_button": 'button:has-text("画像"), [data-testid="add-image"]',
 }
 
 
@@ -149,9 +155,24 @@ class NoteBrowserClient:
 
         pw = await _async_playwright().start()
         self._playwright = pw
-        browser = await pw.chromium.launch(
-            headless=self._config.headless,
-        )
+
+        # AIDEV-NOTE: Use channel="chrome" to launch the user's installed
+        # Chrome browser instead of Playwright's bundled Chromium.  This
+        # prevents Google OAuth from blocking login with "This browser or
+        # app may not be secure".  Falls back to bundled Chromium if
+        # Chrome is not installed.
+        launch_kwargs: dict[str, Any] = {"headless": self._config.headless}
+        if not self._config.headless:
+            launch_kwargs["channel"] = "chrome"
+
+        try:
+            browser = await pw.chromium.launch(**launch_kwargs)
+        except Exception:
+            logger.warning("chrome_channel_launch_failed_falling_back_to_chromium")
+            browser = await pw.chromium.launch(
+                headless=self._config.headless,
+            )
+
         self._browser = browser
         context = await browser.new_context()
         self._context = context
@@ -280,10 +301,26 @@ class NoteBrowserClient:
         loop = asyncio.get_running_loop()
         deadline = loop.time() + timeout_sec
         while loop.time() < deadline:
-            if await self._is_logged_in():
-                logger.info("manual_login_succeeded")
-                await self._save_session()
-                return
+            try:
+                # AIDEV-NOTE: After OAuth (e.g. Google login), the browser
+                # may be on a third-party domain.  Check hostname (not
+                # substring) because Google OAuth URLs often include
+                # note.com in query parameters like ?continue=...note.com/...
+                current_url = self._page.url
+                if not current_url.startswith("https://note.com"):
+                    logger.debug(
+                        "not_on_note_com",
+                        current_url=current_url,
+                    )
+                    await asyncio.sleep(3)
+                    continue
+
+                if await self._is_logged_in():
+                    logger.info("manual_login_succeeded")
+                    await self._save_session()
+                    return
+            except Exception:
+                logger.debug("login_poll_error", exc_info=True)
             await asyncio.sleep(2)
 
         raise TimeoutError(f"Manual login not completed within {timeout_sec} seconds")
@@ -403,6 +440,10 @@ class NoteBrowserClient:
     async def upload_image(self, image_path: Path) -> None:
         """Upload an image file via the editor's file input.
 
+        First tries to find an existing file input element.  If not
+        found, clicks the "add content" / "image" button to trigger the
+        file input, then retries.
+
         Parameters
         ----------
         image_path : Path
@@ -423,6 +464,11 @@ class NoteBrowserClient:
         file_input = await self._page.query_selector(
             _SELECTORS["image_upload"],
         )
+
+        # If no file input is visible, try clicking the add-image button
+        if file_input is None:
+            file_input = await self._trigger_image_upload()
+
         if file_input is None:
             logger.warning("image_upload_input_not_found")
             return
@@ -431,6 +477,38 @@ class NoteBrowserClient:
         await self._random_delay()
 
         logger.info("image_uploaded", path=str(image_path))
+
+    async def _trigger_image_upload(self) -> Any:
+        """Click the add-image button to make the file input available.
+
+        Returns
+        -------
+        Any
+            The file input element if found after clicking, else ``None``.
+        """
+        assert self._page is not None
+
+        # Try the add content button first, then the image button
+        for selector_key in ("add_content_button", "image_add_button"):
+            try:
+                btn = await self._page.wait_for_selector(
+                    _SELECTORS[selector_key],
+                    timeout=2000,
+                )
+                if btn:
+                    await btn.click()
+                    await self._random_delay()
+            except Exception:
+                logger.debug("button_not_found", selector=selector_key)
+
+        # Now look for the file input again
+        try:
+            return await self._page.wait_for_selector(
+                _SELECTORS["image_upload"],
+                timeout=3000,
+            )
+        except Exception:
+            return None
 
     async def save_draft(self) -> str:
         """Click the save-draft button and return the draft URL.
@@ -464,6 +542,10 @@ class NoteBrowserClient:
     async def _insert_heading(self, block: ContentBlock) -> None:
         """Insert a heading block.
 
+        Tries toolbar-based formatting first (click heading button after
+        typing text).  Falls back to markdown-style ``## text`` if the
+        toolbar button is not found.
+
         Parameters
         ----------
         block : ContentBlock
@@ -472,20 +554,88 @@ class NoteBrowserClient:
         assert self._page is not None
 
         body_selector = _SELECTORS["editor_body"]
-        await self._page.click(body_selector)
-
-        # AIDEV-NOTE: note.com's editor uses Enter to create new lines.
-        # Headings can be typed as "## text" in some editors, but note.com
-        # typically requires formatting buttons. Here we type markdown-style
-        # and press Enter as a pragmatic approach.
         level = block.level or 2
-        prefix = "#" * level + " "
+
+        # AIDEV-NOTE: note.com supports h2 (大見出し) and h3 (小見出し).
+        # h1 is treated as h2 because note.com reserves h1 for the title.
+        toolbar_applied = await self._try_toolbar_heading(block.content, level)
+
+        if not toolbar_applied:
+            # Fallback: type markdown-style and let the editor auto-convert
+            await self._page.click(body_selector)
+            prefix = "#" * min(level, 3) + " "
+            await self._page.type(
+                body_selector,
+                prefix + block.content,
+                delay=self._config.typing_delay_ms,
+            )
+
+        await self._page.press(body_selector, "Enter")
+
+    async def _try_toolbar_heading(self, content: str, level: int) -> bool:
+        """Try to insert a heading using the editor toolbar.
+
+        Types the text, selects it, then clicks the heading button.
+
+        Parameters
+        ----------
+        content : str
+            Heading text.
+        level : int
+            Heading level (1-3). 1 is mapped to h2 on note.com.
+
+        Returns
+        -------
+        bool
+            ``True`` if toolbar heading was applied, ``False`` if the
+            toolbar button was not found.
+        """
+        assert self._page is not None
+
+        # Map level to selector: note.com only has h2 (大見出し) and h3 (小見出し)
+        selector_key = "heading_h3" if level >= 3 else "heading_h2"
+        heading_selector = _SELECTORS[selector_key]
+
+        body_selector = _SELECTORS["editor_body"]
+
+        # Type the content first
+        await self._page.click(body_selector)
         await self._page.type(
             body_selector,
-            prefix + block.content,
+            content,
             delay=self._config.typing_delay_ms,
         )
-        await self._page.press(body_selector, "Enter")
+
+        # Select the typed text (Ctrl/Cmd+A selects within the block on most editors)
+        await self._page.keyboard.press("Home")
+        await self._page.keyboard.press("Shift+End")
+
+        # Try to click the heading toolbar button
+        try:
+            heading_btn = await self._page.wait_for_selector(
+                heading_selector,
+                timeout=2000,
+            )
+            if heading_btn:
+                await heading_btn.click()
+                logger.debug("toolbar_heading_applied", level=level)
+                # Move cursor to end of line
+                await self._page.keyboard.press("End")
+                return True
+        except Exception:
+            logger.debug(
+                "toolbar_heading_not_found",
+                selector=heading_selector,
+                level=level,
+            )
+
+        # Undo the typed text so fallback can re-type with markdown prefix
+        await self._page.keyboard.press("End")
+        await self._page.keyboard.press("Home")
+        await self._page.keyboard.press("Shift+End")
+        await self._page.keyboard.press("Backspace")
+
+        return False
 
     async def _insert_paragraph(self, block: ContentBlock) -> None:
         """Insert a paragraph block.
