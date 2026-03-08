@@ -1,0 +1,38 @@
+{
+    "stock_performance": {
+        "symbol": "VZ",
+        "price_2024_gain": "13.14%",
+        "price_2025_gain": "8.92%",
+        "recent_high_2026": "$49.46",
+        "current_valuation": {
+            "pe_ratio": 13.0,
+            "dividend_yield": "5.3% - 6.9% (at different price points)",
+            "payout_ratio": "<60%"
+        }
+    },
+    "comparables": {
+        "peer_comparison": [
+            {
+                "ticker": "VZ",
+                "yield": "5.3%",
+                "pe": 13.0,
+                "payout": "59%",
+                "outlook": "Strong Buy"
+            },
+            {
+                "ticker": "T",
+                "yield": "6.8%",
+                "pe": 14.8,
+                "payout": "77%",
+                "outlook": "Neutral"
+            },
+            {
+                "ticker": "TMUS",
+                "yield": "Low",
+                "pe": 21.6,
+                "payout": "N/A",
+                "outlook": "Growth/Neutral"
+            }
+        ]
+    }
+}

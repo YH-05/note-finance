@@ -1,0 +1,33 @@
+{
+    "article_id": "economic_indicators_002_boj-rate-hike-takaichi-trade-yen-scenario",
+    "topic": "日銀利上げと「高市トレード」の行方：2026年春闘・FOMC後の円相場シナリオ",
+    "category": "economic_indicators",
+    "queries": {
+        "web_search": [
+            "日銀 金融政策決定会合 2026年3月 政策金利 据え置き 利上げ 植田総裁",
+            "2026年 春闘 賃上げ率 連合 集中回答日 中小企業",
+            "高市トレード 衆院選 自民圧勝 株高 円安 消費税ゼロ 2026",
+            "FOMC March 2026 rate decision Kevin Warsh nomination Fed chair",
+            "日銀 4月利上げ 可能性 高田委員 26年度物価見通し",
+            "高市政権 財政政策 消費税 減税 日米為替協調",
+            "超長期国債 金利上昇 日銀QT 定額減税",
+            "中東情勢 原油価格 日銀 金融政策 影響"
+        ],
+        "financial_data": {
+            "fred_series": ["FEDFUNDS", "DFF", "DEXJPUS"],
+            "date_range": {
+                "start": "2025-01-01",
+                "end": "2026-03-08"
+            },
+            "market_data_points": [
+                "日経平均株価（Nikkei 225）",
+                "TOPIX",
+                "10年国債利回り",
+                "超長期（30年・40年）国債利回り",
+                "ドル円為替レート",
+                "円実効為替レート（REER）"
+            ]
+        }
+    },
+    "search_executed_at": "2026-03-08T13:00:00+09:00"
+}

@@ -1,0 +1,308 @@
+{
+  "generated_at": "2026-02-23T12:00:00+09:00",
+  "source_data": "user-provided market summary (2026-02-14 to 2026-02-21)",
+  "market_summary": {
+    "overall_trend": "bullish",
+    "trend_strength": "moderate",
+    "notable_patterns": [
+      "MAG7がS&P500をアウトパフォーム（MAG7平均+2.11% vs SPX+0.97%）",
+      "グロース > バリュー（VUG+1.20% vs VTV+0.50%）",
+      "エネルギー・コミュニケーションサービスがセクタートップ（各+2.10%）",
+      "ディフェンシブセクター（不動産・生活必需品・ヘルスケア）が下位 → リスクオン",
+      "長期金利低下（10Y -10bp, 30Y -12bp）が株式を支援",
+      "等ウェイト(RSP)+0.78% < 時価加重(SPX)+0.97% → 大型株主導",
+      "MAG7内で二極化：AMZN/GOOGL突出 vs AAPL/TSLA横ばい",
+      "円安進行（USD/JPY +1.53%）",
+      "来週NVIDIA決算（2/25）・CPI（2/24）が控える"
+    ]
+  },
+  "detected_patterns": [
+    {
+      "pattern_type": "group_comparison",
+      "pattern_name": "MAG7 > SPX",
+      "detail": "MAG7平均週間リターン+2.11%がS&P500+0.97%をアウトパフォーム",
+      "significance": "大型テック主導の相場"
+    },
+    {
+      "pattern_type": "group_comparison",
+      "pattern_name": "Growth > Value",
+      "detail": "VUG+1.20% vs VTV+0.50%、グロースがバリューを0.70pt上回る",
+      "significance": "グロース選好継続"
+    },
+    {
+      "pattern_type": "group_comparison",
+      "pattern_name": "SPX > RSP",
+      "detail": "S&P500(時価加重)+0.97% > RSP(等ウェイト)+0.78%",
+      "significance": "大型株集中、ブレッドスの狭さ"
+    },
+    {
+      "pattern_type": "sector_rotation",
+      "pattern_name": "エネルギー・コミュニケーション主導",
+      "detail": "XLE+2.10%, XLC+2.10%がセクタートップ。XLRE-0.86%, XLP-0.35%が下位",
+      "significance": "リスクオン的セクターローテーション"
+    },
+    {
+      "pattern_type": "sector_rotation",
+      "pattern_name": "ディフェンシブ劣後",
+      "detail": "Real Estate-0.86%, Consumer Staples-0.35%, Healthcare-0.35%が下位",
+      "significance": "リスク回避需要の減退"
+    },
+    {
+      "pattern_type": "individual_stock",
+      "pattern_name": "AMZN/GOOGL突出",
+      "detail": "AMZN+4.45%, GOOGL+4.29%がMAG7内トップ",
+      "significance": "個別材料による上昇の可能性"
+    },
+    {
+      "pattern_type": "individual_stock",
+      "pattern_name": "AAPL/TSLA横ばい",
+      "detail": "AAPL+0.27%, TSLA+0.29%がMAG7内下位",
+      "significance": "成長懸念または個別悪材料"
+    },
+    {
+      "pattern_type": "macro",
+      "pattern_name": "金利低下",
+      "detail": "10Y -10bp(4.08%), 30Y -12bp(4.70%), 2Y -5bp(3.47%)",
+      "significance": "利下げ期待・インフレ鈍化期待が株式を支援"
+    },
+    {
+      "pattern_type": "fx",
+      "pattern_name": "円安進行",
+      "detail": "USD/JPY+1.53%、全通貨ペアで円安方向",
+      "significance": "日米金利差維持・リスクオン"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H001",
+      "pattern": "AMZN 1W +4.45%、MAG7内トップパフォーマー",
+      "hypothesis": "AWS関連の好材料（クラウド需要拡大、AI関連サービス発表）、またはeコマース事業の好調な業績見通しが株価を押し上げた可能性",
+      "confidence": "medium",
+      "related_symbols": ["AMZN"],
+      "search_queries": [
+        "Amazon AWS cloud revenue growth 2026",
+        "AMZN stock rally February 2026 reason",
+        "Amazon AI services announcement 2026",
+        "Amazon e-commerce market share Q1 2026"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "H002",
+      "pattern": "GOOGL 1W +4.29%、MAG7内2位",
+      "hypothesis": "Google Cloud成長加速、AI搭載製品（Gemini等）の普及、またはYouTube広告収入増加への期待が材料視された可能性",
+      "confidence": "medium",
+      "related_symbols": ["GOOGL"],
+      "search_queries": [
+        "Alphabet Google Cloud AI growth February 2026",
+        "GOOGL stock price catalyst this week",
+        "Google Gemini adoption enterprise 2026",
+        "YouTube advertising revenue trend 2026"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "H003",
+      "pattern": "NVDA 1W +2.62%、SOX +1.53%、来週2/25決算",
+      "hypothesis": "NVIDIA決算（2/25）への期待買いが進行中。AI/データセンター向けGPU需要の強さが確認される見通し。SOXも連れ高",
+      "confidence": "high",
+      "related_symbols": ["NVDA"],
+      "search_queries": [
+        "NVIDIA earnings Q4 2026 expectations",
+        "NVDA earnings preview February 25 2026",
+        "AI GPU demand datacenter capex 2026",
+        "semiconductor industry outlook Q1 2026",
+        "NVIDIA Blackwell chip demand backlog"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "H004",
+      "pattern": "VUG > VTV (1W +1.20% vs +0.50%)、金利低下と連動",
+      "hypothesis": "長期金利低下（10Y -10bp）がグロース株のバリュエーション改善を促進。利下げ期待の高まりがデュレーションの長いグロース株を選好させている",
+      "confidence": "high",
+      "related_symbols": ["VUG", "VTV"],
+      "search_queries": [
+        "growth value rotation interest rates February 2026",
+        "Fed rate cut expectations 2026 CME FedWatch",
+        "Treasury yield decline impact growth stocks",
+        "value growth spread historical 2026"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "H005",
+      "pattern": "Energy +2.10%がセクタートップタイ、ディフェンシブ劣後",
+      "hypothesis": "原油価格上昇またはOPEC+減産維持の見通しがエネルギーセクターを支援。一方で金利低下環境でも不動産が下落しており、商業不動産リスクまたはオフィス需要低迷が重し",
+      "confidence": "medium",
+      "related_symbols": ["XLE", "XLRE", "XLP", "XLV"],
+      "search_queries": [
+        "oil price OPEC production February 2026",
+        "energy sector rally catalyst February 2026",
+        "commercial real estate risk office vacancy 2026",
+        "defensive sectors underperformance reason 2026",
+        "crude oil supply demand balance Q1 2026"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "H006",
+      "pattern": "10Y金利 -10bp (4.08%)、30Y -12bp (4.70%)、イールドカーブ正常化",
+      "hypothesis": "インフレ鈍化を示す経済指標の発表、またはFRBの利下げ姿勢維持の示唆が金利低下をもたらした。来週CPI（2/24）が注目され、市場はインフレ減速を織り込んでいる可能性",
+      "confidence": "high",
+      "related_symbols": [],
+      "search_queries": [
+        "US inflation data February 2026 CPI preview",
+        "Fed monetary policy February 2026 rate expectations",
+        "Treasury yield decline reason this week",
+        "US economic data releases February 2026",
+        "CPI forecast February 24 2026 consensus"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "H007",
+      "pattern": "USD/JPY +1.53%（円安）、全クロス円で円安方向",
+      "hypothesis": "日銀の利上げペースへの慎重姿勢、または米国金利が依然高水準（FF金利3.64%）で日米金利差が維持されている。リスクオン環境での円キャリートレード復活の可能性も",
+      "confidence": "medium",
+      "related_symbols": [],
+      "search_queries": [
+        "日銀 金融政策 2026年2月 利上げ見通し",
+        "USD JPY yen weakness February 2026",
+        "Japan BOJ interest rate policy outlook 2026",
+        "yen carry trade risk-on February 2026"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "H008",
+      "pattern": "SPX+0.97% > RSP+0.78%、MAG7平均+2.11% >> SPX",
+      "hypothesis": "市場の上昇がMAG7に集中しており、市場のブレッドス（breadth）は依然として狭い。AI関連の大型テック主導の相場構造が継続。中小型株は相対的に出遅れ",
+      "confidence": "high",
+      "related_symbols": ["RSP"],
+      "search_queries": [
+        "market breadth S&P 500 concentration February 2026",
+        "equal weight vs cap weight performance 2026",
+        "small cap underperformance large cap 2026",
+        "Magnificent 7 market dominance concentration risk"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "H009",
+      "pattern": "AAPL +0.27%, TSLA +0.29%、MAG7内最下位グループ",
+      "hypothesis": "Apple: iPhone需要減速懸念や中国市場での競争激化。Tesla: EV需要鈍化、自動運転規制リスク、またはイーロン・マスクのDOGE関連活動による経営リソース分散懸念",
+      "confidence": "medium",
+      "related_symbols": ["AAPL", "TSLA"],
+      "search_queries": [
+        "Apple iPhone sales China competition 2026",
+        "AAPL stock underperformance reason February 2026",
+        "Tesla EV demand slowdown 2026",
+        "Elon Musk DOGE Tesla impact stock",
+        "Tesla FSD autonomous driving regulatory update"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "H010",
+      "pattern": "来週注目イベント：CPI(2/24), NVDA決算(2/25), PPI(2/27), BRK決算(2/28)",
+      "hypothesis": "来週はインフレ指標（CPI/PPI）とNVDA決算が集中するイベントウィーク。CPIが予想以上なら金利上昇・株安リスク、NVDAの決算ガイダンスがAIセクター全体のセンチメントを左右する可能性が高い",
+      "confidence": "high",
+      "related_symbols": ["NVDA", "BRK-B"],
+      "search_queries": [
+        "CPI February 24 2026 forecast consensus estimate",
+        "NVIDIA earnings February 25 2026 analyst expectations",
+        "PPI February 27 2026 inflation data preview",
+        "Berkshire Hathaway earnings Q4 2025 Warren Buffett",
+        "Home Depot earnings housing market February 2026",
+        "market volatility event week inflation earnings"
+      ],
+      "priority": 1
+    }
+  ],
+  "search_plan": {
+    "total_queries": 47,
+    "queries_by_priority": [
+      {
+        "priority": 1,
+        "category": "high_impact",
+        "description": "市場を動かす主要テーマ（NVDA決算、CPI、MAG7個別材料）",
+        "query_count": 19,
+        "queries": [
+          "Amazon AWS cloud revenue growth 2026",
+          "AMZN stock rally February 2026 reason",
+          "Amazon AI services announcement 2026",
+          "Amazon e-commerce market share Q1 2026",
+          "Alphabet Google Cloud AI growth February 2026",
+          "GOOGL stock price catalyst this week",
+          "Google Gemini adoption enterprise 2026",
+          "YouTube advertising revenue trend 2026",
+          "NVIDIA earnings Q4 2026 expectations",
+          "NVDA earnings preview February 25 2026",
+          "AI GPU demand datacenter capex 2026",
+          "semiconductor industry outlook Q1 2026",
+          "NVIDIA Blackwell chip demand backlog",
+          "US inflation data February 2026 CPI preview",
+          "Fed monetary policy February 2026 rate expectations",
+          "Treasury yield decline reason this week",
+          "US economic data releases February 2026",
+          "CPI forecast February 24 2026 consensus",
+          "market volatility event week inflation earnings"
+        ]
+      },
+      {
+        "priority": 2,
+        "category": "sector_macro",
+        "description": "セクターローテーション、金利動向、為替",
+        "query_count": 13,
+        "queries": [
+          "growth value rotation interest rates February 2026",
+          "Fed rate cut expectations 2026 CME FedWatch",
+          "Treasury yield decline impact growth stocks",
+          "value growth spread historical 2026",
+          "oil price OPEC production February 2026",
+          "energy sector rally catalyst February 2026",
+          "commercial real estate risk office vacancy 2026",
+          "defensive sectors underperformance reason 2026",
+          "crude oil supply demand balance Q1 2026",
+          "日銀 金融政策 2026年2月 利上げ見通し",
+          "USD JPY yen weakness February 2026",
+          "Japan BOJ interest rate policy outlook 2026",
+          "yen carry trade risk-on February 2026"
+        ]
+      },
+      {
+        "priority": 3,
+        "category": "breadth_laggards",
+        "description": "市場のブレッドス、出遅れ銘柄の分析",
+        "query_count": 15,
+        "queries": [
+          "market breadth S&P 500 concentration February 2026",
+          "equal weight vs cap weight performance 2026",
+          "small cap underperformance large cap 2026",
+          "Magnificent 7 market dominance concentration risk",
+          "Apple iPhone sales China competition 2026",
+          "AAPL stock underperformance reason February 2026",
+          "Tesla EV demand slowdown 2026",
+          "Elon Musk DOGE Tesla impact stock",
+          "Tesla FSD autonomous driving regulatory update",
+          "NVIDIA earnings February 25 2026 analyst expectations",
+          "PPI February 27 2026 inflation data preview",
+          "Berkshire Hathaway earnings Q4 2025 Warren Buffett",
+          "Home Depot earnings housing market February 2026",
+          "CPI February 24 2026 forecast consensus estimate",
+          "market volatility event week inflation earnings"
+        ]
+      }
+    ],
+    "by_category": {
+      "mag7_individual": 13,
+      "macro_rates": 10,
+      "sectors": 5,
+      "fx_japan": 4,
+      "breadth_market_structure": 4,
+      "upcoming_events": 6,
+      "ai_semiconductor": 5
+    }
+  }
+}

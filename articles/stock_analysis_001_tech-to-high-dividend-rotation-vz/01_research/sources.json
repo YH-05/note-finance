@@ -1,0 +1,32 @@
+{
+    "sources": [
+        {
+            "id": "SEC-10K-2025",
+            "type": "official",
+            "title": "Verizon Communications Inc. 2025 Annual Report (Form 10-K)",
+            "url": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000007-index.html",
+            "summary": "2025年度の通期決算報告。売上138.2Bドル、調整後EPS 4.71ドル、営業CF 37.1Bドル。消費者部門の堅調さとビジネス部門の苦戦を記録。"
+        },
+        {
+            "id": "DAIWA-UPGRADE-2026",
+            "type": "analyst",
+            "title": "Daiwa Capital Upgrades Verizon to 'Buy'",
+            "url": "https://www.gurufocus.com/news/8633368/vz-daiwa-capital-upgrades-verizon-to-buy-with-raised-price-target-vz-stock-news",
+            "summary": "2026年2月に大和キャピタルが投資判断を『買い』に引き上げ、目標株価を58ドルに設定。"
+        },
+        {
+            "id": "FRONTIER-ACQ-2025",
+            "type": "news",
+            "title": "Verizon's $20 billion acquisition resets dividend outlook",
+            "url": "https://www.aol.com/finance/verizons-20-billion-acquisition-resets-003245503.html",
+            "summary": "Frontier Communicationsの買収によるファイバー網拡大と配当の安全性について解説。"
+        },
+        {
+            "id": "SECTOR-ROTATION-2025",
+            "type": "market_analysis",
+            "title": "The 2025 Stock Market Rotation: What it Means for Investors",
+            "url": "https://www.finsyn.com/the-2025-stock-market-rotation-what-it-means-for-investors/",
+            "summary": "2024-2025年のハイテクからバリュー・高配当株への資金シフトの背景を分析。"
+        }
+    ]
+}

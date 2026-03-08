@@ -1,0 +1,85 @@
+{
+    "article_id": "economic_indicators_002_boj-rate-hike-takaichi-trade-yen-scenario",
+    "claims": [
+        {
+            "id": "C01",
+            "claim": "日銀は2026年3月会合で政策金利0.75%を据え置く",
+            "confidence": "high",
+            "sources": ["S01", "S02"],
+            "verification": "verified",
+            "note": "複数の報道機関・関係筋情報で一致"
+        },
+        {
+            "id": "C02",
+            "claim": "日銀の次回利上げは最速4月、メインシナリオは9月",
+            "confidence": "medium",
+            "sources": ["S03", "S04"],
+            "verification": "partial",
+            "note": "アナリスト見解が分かれている。OISベースでは6月までの利上げ確率約50%"
+        },
+        {
+            "id": "C03",
+            "claim": "2026年春闘の賃上げ率は3年連続5%台を達成する見通し",
+            "confidence": "high",
+            "sources": ["S06", "S07", "S08"],
+            "verification": "partial",
+            "note": "各シンクタンク予測と要求水準から推定。集中回答日（3/18）に確定"
+        },
+        {
+            "id": "C04",
+            "claim": "高市自民は衆院選で316議席（3分の2超）を獲得して圧勝",
+            "confidence": "high",
+            "sources": ["S09", "S10", "S11"],
+            "verification": "verified",
+            "note": "選挙結果として確定済み"
+        },
+        {
+            "id": "C05",
+            "claim": "高市政権は飲食料品の消費税ゼロ（2年限定）を検討している",
+            "confidence": "medium",
+            "sources": ["S12", "S17", "S18"],
+            "verification": "partial",
+            "note": "施政方針演説で言及も、法案提出の具体的タイムラインは不明"
+        },
+        {
+            "id": "C06",
+            "claim": "FOMCは3月会合で据え置き、年内1-2回の利下げ見通し",
+            "confidence": "high",
+            "sources": ["S13", "S14", "S15"],
+            "verification": "partial",
+            "note": "3月据え置きは99%織り込み済み。利下げ回数は不確定"
+        },
+        {
+            "id": "C07",
+            "claim": "ケビン・ウォーシュのFRB議長承認確率は93%",
+            "confidence": "medium",
+            "sources": ["S14"],
+            "verification": "partial",
+            "note": "予測市場（Polymarket）ベース。上院での承認手続きは流動的"
+        },
+        {
+            "id": "C08",
+            "claim": "超長期国債利回り（30年）が1999年以来の高水準2.38%に接近",
+            "confidence": "high",
+            "sources": ["S11", "S12"],
+            "verification": "verified",
+            "note": "市場データで確認可能"
+        },
+        {
+            "id": "C09",
+            "claim": "日銀の3月会合（3/13-14）とFOMC（3/17-18）が連続し、為替市場の転換点となりうる",
+            "confidence": "medium",
+            "sources": ["S03", "S13"],
+            "verification": "analysis",
+            "note": "著者の分析。過去の日米同時政策変更時の相場変動パターンが根拠"
+        },
+        {
+            "id": "C10",
+            "claim": "春闘結果が5%超なら日銀4月利上げの材料になる",
+            "confidence": "medium",
+            "sources": ["S03", "S06"],
+            "verification": "analysis",
+            "note": "日銀ウォッチャーの見解を総合した分析"
+        }
+    ]
+}

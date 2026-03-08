@@ -1,0 +1,28 @@
+{
+    "key_findings": [
+        {
+            "category": "Financials",
+            "claim": "Verizon's 2025 Free Cash Flow (FCF) reached $20.1 billion, the highest in the industry.",
+            "evidence": "2025 10-K report and industry comparison reports.",
+            "impact": "High dividend sustainability and debt reduction capacity."
+        },
+        {
+            "category": "Dividends",
+            "claim": "Dividend yield reached ~7% in late 2025 with 19-21 consecutive years of growth.",
+            "evidence": "Official dividend history and market price data.",
+            "impact": "Attractive to income investors seeking safety from tech volatility."
+        },
+        {
+            "category": "Growth Strategy",
+            "claim": "Frontier Communications acquisition ($20B) accelerates fiber broadband expansion.",
+            "evidence": "Strategic announcement and Q3 2025 performance showing 20% fiber growth.",
+            "impact": "Shifts narrative from legacy telecom to broadband/5G infrastructure leader."
+        },
+        {
+            "category": "Risks",
+            "claim": "Business segment revenue declined by ~2.8% due to legacy wireline weakness.",
+            "evidence": "Q3 2025 segment results.",
+            "impact": "Need for continued cost transformation and portfolio rationalization."
+        }
+    ]
+}

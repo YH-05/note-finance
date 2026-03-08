@@ -1,0 +1,29 @@
+{
+  "article_id": "economic_indicators_001_private-credit-bank-shadow-banking-risk",
+  "topic": "シャドーバンキングの再来か？：プライベートクレジットと大手銀行の「危険な抱擁」",
+  "category": "economic_indicators",
+  "theme_name_en": "private-credit-bank-shadow-banking-risk",
+  "symbols": [],
+  "fred_series": ["TOTLL", "NFBL", "H8"],
+  "date_range": {
+    "start_date": "2021-01-01",
+    "end_date": "2026-03-01"
+  },
+  "status": "ready_for_publish",
+  "target_audience": "intermediate",
+  "human_feedback": {
+    "initial_intent": "プライベートクレジット市場の急拡大と、 銀行との相互接続性によるシステミックリスクを分析する。",
+    "additional_requests": [],
+    "hf6_final_approved": true
+  },
+  "workflow": {
+    "research": {
+        "decisions": "done"
+    },
+    "writing": {
+        "revised_draft": "done"
+    }
+  },
+  "created_at": "2026-03-07T12:00:00Z",
+  "updated_at": "2026-03-08T00:00:00Z"
+}

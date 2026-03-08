@@ -1,0 +1,150 @@
+{
+    "article_id": "economic_indicators_002_boj-rate-hike-takaichi-trade-yen-scenario",
+    "collected_at": "2026-03-08T13:00:00+09:00",
+    "sources": [
+        {
+            "id": "S01",
+            "title": "日銀、3月会合で政策金利据え置く可能性 利上げ姿勢は維持＝関係筋",
+            "url": "https://jp.reuters.com/world/japan/6AVJQAAMUNKMDO3YENUMOJXHWI-2026-03-03/",
+            "type": "news",
+            "category": "boj_policy",
+            "reliability": "high"
+        },
+        {
+            "id": "S02",
+            "title": "日銀、政策金利0.75%で据え置き決定 26年度物価見通しを上方修正",
+            "url": "https://www.nikkei.com/article/DGXZQOUB2055Z0Q6A120C2000000/",
+            "type": "news",
+            "category": "boj_policy",
+            "reliability": "high"
+        },
+        {
+            "id": "S03",
+            "title": "日銀総裁記者会見：次回の利上げ時期と長期金利上昇への対応（NRI 木内登英）",
+            "url": "https://www.nri.com/jp/media/column/kiuchi/20260123_2.html",
+            "type": "analysis",
+            "category": "boj_policy",
+            "reliability": "high"
+        },
+        {
+            "id": "S04",
+            "title": "日銀「4月利上げ」可能性高まる（ダイヤモンド）",
+            "url": "https://diamond.jp/articles/-/382591",
+            "type": "analysis",
+            "category": "boj_policy",
+            "reliability": "medium"
+        },
+        {
+            "id": "S05",
+            "title": "総裁記者会見（2026年1月26日）- 日本銀行",
+            "url": "https://www.boj.or.jp/about/press/kaiken_2026/kk260126a.pdf",
+            "type": "primary",
+            "category": "boj_policy",
+            "reliability": "high"
+        },
+        {
+            "id": "S06",
+            "title": "春闘賃上げ率は3年連続の5％台か（第一生命経済研究所）",
+            "url": "https://www.dlri.co.jp/files/macro/581063.pdf",
+            "type": "analysis",
+            "category": "shunto",
+            "reliability": "high"
+        },
+        {
+            "id": "S07",
+            "title": "2026年・春闘賃上げ率の見通し（改定版）5.45％予測（第一生命経済研究所）",
+            "url": "https://www.dlri.co.jp/report/macro/575588.html",
+            "type": "analysis",
+            "category": "shunto",
+            "reliability": "high"
+        },
+        {
+            "id": "S08",
+            "title": "連合、春闘賃上げ要求は平均5.94％（ロイター）",
+            "url": "https://jp.reuters.com/markets/japan/XG3A3DPBFRL7TDH4EUVLYQ66IQ-2026-03-05/",
+            "type": "news",
+            "category": "shunto",
+            "reliability": "high"
+        },
+        {
+            "id": "S09",
+            "title": "「ここまで勝つのは予想外」高市トレード再加速期待（毎日新聞）",
+            "url": "https://mainichi.jp/articles/20260209/k00/00m/020/423000c",
+            "type": "news",
+            "category": "takaichi_trade",
+            "reliability": "high"
+        },
+        {
+            "id": "S10",
+            "title": "高市自民圧勝で株高期待、積極財政と成長政策（Bloomberg/Yahoo）",
+            "url": "https://finance.yahoo.co.jp/news/detail/011cc4821e3e3a3322d05a853f8e47ac65381da1",
+            "type": "analysis",
+            "category": "takaichi_trade",
+            "reliability": "high"
+        },
+        {
+            "id": "S11",
+            "title": "与党「地滑り的勝利」で高市トレード再開へ、日経6万円視野（ロイター）",
+            "url": "https://jp.reuters.com/markets/japan/TGKHRZB3PROGNITHEDOWTMGWWI-2026-02-08/",
+            "type": "analysis",
+            "category": "takaichi_trade",
+            "reliability": "high"
+        },
+        {
+            "id": "S12",
+            "title": "日本：高市首相の地滑り的勝利が意味するもの（アリアンツGI）",
+            "url": "https://j-money.jp/article/189973/",
+            "type": "analysis",
+            "category": "takaichi_trade",
+            "reliability": "high"
+        },
+        {
+            "id": "S13",
+            "title": "Fed Holds Firm in March as Markets Price Two Cuts by Year-End",
+            "url": "https://mlq.ai/prediction/brief/fed/fed-holds-firm-in-march-as-markets-price-two-cuts-by-year-end-2026-03-05/",
+            "type": "analysis",
+            "category": "fomc",
+            "reliability": "medium"
+        },
+        {
+            "id": "S14",
+            "title": "Warsh Nomination Odds Surge Amid Senate Standoff",
+            "url": "https://mlq.ai/prediction/brief/fed/fed-rates-markets-brief-march-02-2026-warsh-nomination-odds-surge-amid-senate-st-2026-03-02/",
+            "type": "analysis",
+            "category": "fomc",
+            "reliability": "medium"
+        },
+        {
+            "id": "S15",
+            "title": "Odds of early Warsh-led Fed rate cuts slide（Reuters）",
+            "url": "https://www.reuters.com/business/odds-early-warsh-led-fed-rate-cuts-slide-with-bullish-outlook-2026-02-26/",
+            "type": "news",
+            "category": "fomc",
+            "reliability": "high"
+        },
+        {
+            "id": "S16",
+            "title": "中東情勢を注視、中心的見通し実現すれば政策金利引き上げ＝植田日銀総裁",
+            "url": "https://jp.reuters.com/economy/bank-of-japan/BKT4CFKSNBINNBU2P5XEPWCIIA-2026-03-04/",
+            "type": "news",
+            "category": "boj_policy",
+            "reliability": "high"
+        },
+        {
+            "id": "S17",
+            "title": "市場の警告どこ吹く風「消費減税」競う与野党（朝日新聞）",
+            "url": "https://www.asahi.com/articles/ASV1X1P92V1XULFA01FM.html",
+            "type": "analysis",
+            "category": "fiscal_policy",
+            "reliability": "high"
+        },
+        {
+            "id": "S18",
+            "title": "第221回国会における高市内閣総理大臣施政方針演説",
+            "url": "https://www.kantei.go.jp/jp/105/statement/2026/0220shiseihoshin.html",
+            "type": "primary",
+            "category": "fiscal_policy",
+            "reliability": "high"
+        }
+    ]
+}

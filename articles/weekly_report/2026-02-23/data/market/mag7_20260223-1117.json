@@ -1,0 +1,253 @@
+{
+  "group": "mag7",
+  "subgroup": null,
+  "generated_at": "2026-02-23T11:17:37.103158",
+  "periods": [
+    "1D",
+    "WoW",
+    "1W",
+    "MTD",
+    "1M",
+    "3M",
+    "6M",
+    "YTD",
+    "1Y",
+    "3Y",
+    "5Y"
+  ],
+  "symbols": {
+    "AAPL": {
+      "1D": 1.54,
+      "1W": 1.09,
+      "1M": 6.94,
+      "3M": -0.98,
+      "6M": 17.29,
+      "1Y": 8.52,
+      "3Y": 75.2,
+      "5Y": 100.67,
+      "WoW": -3.33,
+      "MTD": -1.92,
+      "YTD": -2.28
+    },
+    "AMZN": {
+      "1D": 2.56,
+      "1W": 5.27,
+      "1M": -9.17,
+      "3M": -5.59,
+      "6M": -6.12,
+      "1Y": -7.29,
+      "3Y": 110.74,
+      "5Y": 28.21,
+      "WoW": 1.52,
+      "MTD": -13.52,
+      "YTD": -7.24
+    },
+    "GOOGL": {
+      "1D": 4.01,
+      "1W": 1.94,
+      "1M": -4.08,
+      "3M": 10.87,
+      "6M": 58.27,
+      "1Y": 70.68,
+      "3Y": 235.19,
+      "5Y": 202.96,
+      "WoW": -1.13,
+      "MTD": -8.35,
+      "YTD": -0.05
+    },
+    "META": {
+      "1D": 1.69,
+      "1W": 0.9,
+      "1M": 6.97,
+      "3M": 9.79,
+      "6M": -12.18,
+      "1Y": -6.54,
+      "3Y": 267.86,
+      "5Y": 144.08,
+      "WoW": -2.25,
+      "MTD": -7.18,
+      "YTD": 0.81
+    },
+    "MSFT": {
+      "1D": -0.31,
+      "1W": -0.92,
+      "1M": -10.35,
+      "3M": -19.22,
+      "6M": -21.0,
+      "1Y": -3.3,
+      "3Y": 49.78,
+      "5Y": 69.36,
+      "WoW": -3.66,
+      "MTD": -5.96,
+      "YTD": -15.82
+    },
+    "NVDA": {
+      "1D": 1.02,
+      "1W": 1.54,
+      "1M": 3.55,
+      "3M": 4.67,
+      "6M": 8.23,
+      "1Y": 36.37,
+      "3Y": 727.17,
+      "5Y": 1172.31,
+      "WoW": 0.68,
+      "MTD": 2.27,
+      "YTD": 0.51
+    },
+    "TSLA": {
+      "1D": 0.03,
+      "1W": -1.26,
+      "1M": -4.55,
+      "3M": 2.63,
+      "6M": 27.14,
+      "1Y": 14.22,
+      "3Y": 96.81,
+      "5Y": 51.38,
+      "WoW": -3.15,
+      "MTD": -2.37,
+      "YTD": -5.99
+    }
+  },
+  "summary": {
+    "best_performer": {
+      "symbol": "NVDA",
+      "period": "5Y",
+      "return_pct": 1172.31
+    },
+    "worst_performer": {
+      "symbol": "MSFT",
+      "period": "6M",
+      "return_pct": -21.0
+    },
+    "period_averages": {
+      "1D": 1.51,
+      "WoW": -1.62,
+      "1W": 1.22,
+      "MTD": -5.29,
+      "1M": -1.53,
+      "3M": 0.31,
+      "6M": 10.23,
+      "YTD": -4.29,
+      "1Y": 16.09,
+      "3Y": 223.25,
+      "5Y": 252.71
+    },
+    "period_best": {
+      "1D": {
+        "symbol": "GOOGL",
+        "return_pct": 4.01
+      },
+      "WoW": {
+        "symbol": "AMZN",
+        "return_pct": 1.52
+      },
+      "1W": {
+        "symbol": "AMZN",
+        "return_pct": 5.27
+      },
+      "MTD": {
+        "symbol": "NVDA",
+        "return_pct": 2.27
+      },
+      "1M": {
+        "symbol": "META",
+        "return_pct": 6.97
+      },
+      "3M": {
+        "symbol": "GOOGL",
+        "return_pct": 10.87
+      },
+      "6M": {
+        "symbol": "GOOGL",
+        "return_pct": 58.27
+      },
+      "YTD": {
+        "symbol": "META",
+        "return_pct": 0.81
+      },
+      "1Y": {
+        "symbol": "GOOGL",
+        "return_pct": 70.68
+      },
+      "3Y": {
+        "symbol": "NVDA",
+        "return_pct": 727.17
+      },
+      "5Y": {
+        "symbol": "NVDA",
+        "return_pct": 1172.31
+      }
+    },
+    "period_worst": {
+      "1D": {
+        "symbol": "MSFT",
+        "return_pct": -0.31
+      },
+      "WoW": {
+        "symbol": "MSFT",
+        "return_pct": -3.66
+      },
+      "1W": {
+        "symbol": "TSLA",
+        "return_pct": -1.26
+      },
+      "MTD": {
+        "symbol": "AMZN",
+        "return_pct": -13.52
+      },
+      "1M": {
+        "symbol": "MSFT",
+        "return_pct": -10.35
+      },
+      "3M": {
+        "symbol": "MSFT",
+        "return_pct": -19.22
+      },
+      "6M": {
+        "symbol": "MSFT",
+        "return_pct": -21.0
+      },
+      "YTD": {
+        "symbol": "MSFT",
+        "return_pct": -15.82
+      },
+      "1Y": {
+        "symbol": "AMZN",
+        "return_pct": -7.29
+      },
+      "3Y": {
+        "symbol": "MSFT",
+        "return_pct": 49.78
+      },
+      "5Y": {
+        "symbol": "AMZN",
+        "return_pct": 28.21
+      }
+    }
+  },
+  "latest_dates": {
+    "AAPL": "2026-02-20",
+    "GOOGL": "2026-02-20",
+    "AMZN": "2026-02-20",
+    "MSFT": "2026-02-20",
+    "TSLA": "2026-02-20",
+    "NVDA": "2026-02-20",
+    "META": "2026-02-20"
+  },
+  "data_freshness": {
+    "newest_date": "2026-02-20",
+    "oldest_date": "2026-02-20",
+    "has_date_gap": false,
+    "symbols_by_date": {
+      "2026-02-20": [
+        "AAPL",
+        "GOOGL",
+        "AMZN",
+        "MSFT",
+        "TSLA",
+        "NVDA",
+        "META"
+      ]
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+    "article_id": "economic_indicators_002_boj-rate-hike-takaichi-trade-yen-scenario",
+    "evaluated_at": "2026-03-08T13:44:00+09:00",
+    "mode": "full",
+    "overall_score": 78,
+    "critics": {
+        "fact_check": {
+            "score": 82,
+            "status": "pass",
+            "issues": [
+                {
+                    "severity": "minor",
+                    "location": "section1, line 17",
+                    "issue": "高田審議委員のフルネームが「高田創」とされているが、リサーチソースでは姓のみ確認。フルネーム正確性を要確認",
+                    "suggestion": "確認できない場合は「高田審議委員」に統一する",
+                    "claim_ref": "C01"
+                },
+                {
+                    "severity": "minor",
+                    "location": "section1, line 23",
+                    "issue": "「4月会合（4月30日-5月1日）」の日程は2026年の日銀会合スケジュール未確認。正確な日程を要確認",
+                    "suggestion": "「4月会合」と記載し、具体的日程は省略するか確認後に追記"
+                },
+                {
+                    "severity": "info",
+                    "location": "section4, line 77",
+                    "issue": "「各25bp」の利下げ幅は市場コンセンサスとして明示的ソースがない。CME FedWatchでは25bpと50bpが混在",
+                    "suggestion": "「各25-50bp」または単に「計50-100bp」に修正",
+                    "claim_ref": "C06"
+                }
+            ]
+        },
+        "structure": {
+            "score": 80,
+            "status": "pass",
+            "issues": [
+                {
+                    "severity": "medium",
+                    "location": "全体",
+                    "issue": "セクション1-4が「解説」に偏り、セクション5のシナリオ分析が突然登場する印象。各セクション末に「円相場への含意」を1文ずつ加えるとシナリオへの導線が強化される",
+                    "suggestion": "各セクション末尾に円相場との関連を示すブリッジ文を追加"
+                },
+                {
+                    "severity": "minor",
+                    "location": "section3",
+                    "issue": "「消費税ゼロの衝撃」「日銀との軋轢」のサブセクションは内容が充実しているが、「三位一体のトレード」のサブセクションがやや短い。株価・為替・債券の具体的な動きを充実させると良い",
+                    "suggestion": "日経平均の具体的な水準推移やイベント前後の変動率を追加"
+                },
+                {
+                    "severity": "info",
+                    "location": "まとめ",
+                    "issue": "イベントカレンダーは有用だが、結論としてのメッセージがやや弱い。「最も注視すべき指標は何か」を1文で明示すると読後感が向上する",
+                    "suggestion": "「最も注目すべきは3/18の春闘回答——これが日銀政策の方向感を決する」のような締めを追加"
+                }
+            ]
+        },
+        "compliance": {
+            "score": 85,
+            "status": "pass",
+            "issues": [
+                {
+                    "severity": "minor",
+                    "location": "section5",
+                    "issue": "シナリオに確率を付与（45%/30%/25%）しているが、これは主観的な予測であることを明示すべき",
+                    "suggestion": "「筆者の見立てでは」や「市場コンセンサスを踏まえた主観的な確率配分」を注記する"
+                },
+                {
+                    "severity": "minor",
+                    "location": "section5, シナリオB",
+                    "issue": "「160円は日本政府にとって介入ラインと見なされており」は断定的すぎる。政府は公式に介入ラインを明示していない",
+                    "suggestion": "「160円は市場参加者の間で介入警戒ラインと見なされがちだが、政府は特定の水準を公表していない」に修正"
+                },
+                {
+                    "severity": "info",
+                    "location": "disclaimer",
+                    "issue": "免責事項の表現は適切。ただし金商法の観点では、note記事の場合「著者は金融の専門家ではありません」の追記が望ましい場合がある",
+                    "suggestion": "対象読者・プラットフォームの性質に応じて判断"
+                }
+            ]
+        },
+        "data_accuracy": {
+            "score": 72,
+            "status": "pass_with_warnings",
+            "issues": [
+                {
+                    "severity": "medium",
+                    "location": "section1",
+                    "issue": "「26年度消費者物価見通し2.4%」はsources.jsonのS02に基づくが、この数値が「生鮮食品除く」か「総合」かが不明確。日銀は通常「生鮮食品を除く消費者物価指数」で見通しを公表",
+                    "suggestion": "「消費者物価指数（生鮮食品を除く）の前年度比見通し」と正式表記を使用"
+                },
+                {
+                    "severity": "medium",
+                    "location": "section3",
+                    "issue": "「年間数兆円規模の税収減」の根拠が不明。消費税の飲食料品分（軽減税率8%→0%）の減収は概算で2-3兆円程度だが、正確な試算へのソースが必要",
+                    "suggestion": "具体的な試算額を引用するか、「兆円単位の税収減」に抽象化"
+                },
+                {
+                    "severity": "minor",
+                    "location": "section2",
+                    "issue": "「過去30年超で最高水準」の表現。2024年の5.28%（連合最終）が1993年以降最高であったことを踏まえると正確だが、明示的なソース参照があるとより信頼性が高まる",
+                    "suggestion": "脚注や括弧で「連合調べ、93年以来」等の補足を追加"
+                }
+            ]
+        },
+        "readability": {
+            "score": 75,
+            "status": "pass_with_warnings",
+            "issues": [
+                {
+                    "severity": "medium",
+                    "location": "全体",
+                    "issue": "文体が全般的に硬め。ターゲット読者（intermediate）を考慮すると、もう少し平易な表現を混ぜると良い。特に「OIS（翌日物金利スワップ）」「QT（量的引き締め＝国債保有の減額）」は括弧内説明があるが、初出時に「聞き慣れない指標かもしれませんが」等の導入があると親切",
+                    "suggestion": "専門用語の初出時に読者への配慮コメントを追加。ただしover-simplifyは避ける"
+                },
+                {
+                    "severity": "minor",
+                    "location": "リード",
+                    "issue": "リードが3段落に及び、やや長い。1-2段落でインパクトある導入に凝縮すると読者の離脱を防げる",
+                    "suggestion": "2段落目と3段落目を統合し、リードを2段落に圧縮"
+                },
+                {
+                    "severity": "minor",
+                    "location": "section5",
+                    "issue": "各シナリオが確率→前提条件→解説の構成で統一されており読みやすいが、シナリオ名（A/B/C）が無味乾燥。読者に印象に残る名前を付けると記憶に残りやすい",
+                    "suggestion": "例：A=「凪相場」、B=「円安一段高」、C=「日銀サプライズ」等"
+                }
+            ]
+        }
+    },
+    "summary": {
+        "critical_issues": 0,
+        "medium_issues": 4,
+        "minor_issues": 8,
+        "info_issues": 3,
+        "total_issues": 15,
+        "recommendation": "critical問題なし。medium 4件を優先修正すれば大幅な品質向上が見込める。compliance は pass で出版可能レベル。"
+    }
+}

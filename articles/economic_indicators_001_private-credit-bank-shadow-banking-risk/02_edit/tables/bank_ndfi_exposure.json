@@ -1,0 +1,16 @@
+{
+  "title": "大手銀行の非銀行金融機関（NDFI）向け融資内訳（2025年末推計）",
+  "columns": [
+    {"header": "銀行名", "key": "bank"},
+    {"header": "NDFI向け融資総額", "key": "total_ndfi"},
+    {"header": "PE/アセットマネージャー向け割合", "key": "pe_ratio"},
+    {"header": "主な用途", "key": "main_use"}
+  ],
+  "data": [
+    {"bank": "ウェルズ・ファーゴ", "total_ndfi": "2,080億ドル", "pe_ratio": "41% ($850億ドル)", "main_use": "サブスクリプション・ライン"},
+    {"bank": "U.S.バンコープ", "total_ndfi": "500億ドル", "pe_ratio": "30% ($150億ドル)", "main_use": "PEサブスクリプション・ライン"},
+    {"bank": "M&Tバンク", "total_ndfi": "126億ドル", "pe_ratio": "26% ($33億ドル)", "main_use": "サブスクリプション・ライン"},
+    {"bank": "フィフス・サード", "total_ndfi": "95億ドル", "pe_ratio": "18% ($17億ドル)", "main_use": "サブスクリプション・ライン"}
+  ],
+  "source": "Adam Josephson, Substack / Bank filings 2025"
+}

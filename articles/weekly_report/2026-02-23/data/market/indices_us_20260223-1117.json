@@ -1,0 +1,268 @@
+{
+  "group": "indices",
+  "subgroup": "us",
+  "generated_at": "2026-02-23T11:17:35.159924",
+  "periods": [
+    "1D",
+    "WoW",
+    "1W",
+    "MTD",
+    "1M",
+    "3M",
+    "6M",
+    "YTD",
+    "1Y",
+    "3Y",
+    "5Y"
+  ],
+  "symbols": {
+    "^DJI": {
+      "1D": 0.47,
+      "1W": 0.35,
+      "1M": 1.12,
+      "3M": 7.67,
+      "6M": 10.43,
+      "1Y": 11.2,
+      "3Y": 45.58,
+      "5Y": 57.75,
+      "WoW": -1.12,
+      "MTD": 0.44,
+      "YTD": 2.57
+    },
+    "^GSPC": {
+      "1D": 0.69,
+      "1W": 1.12,
+      "1M": 0.49,
+      "3M": 4.42,
+      "6M": 8.03,
+      "1Y": 12.46,
+      "3Y": 67.05,
+      "5Y": 75.6,
+      "WoW": -0.47,
+      "MTD": -0.96,
+      "YTD": 0.74
+    },
+    "^IXIC": {
+      "1D": 0.9,
+      "1W": 1.28,
+      "1M": -1.46,
+      "3M": 2.02,
+      "6M": 8.09,
+      "1Y": 14.11,
+      "3Y": 91.35,
+      "5Y": 62.36,
+      "WoW": -0.94,
+      "MTD": -2.99,
+      "YTD": -1.5
+    },
+    "^NDX": {
+      "1D": 0.87,
+      "1W": 1.32,
+      "1M": -1.24,
+      "3M": 2.08,
+      "6M": 7.58,
+      "1Y": 12.79,
+      "3Y": 98.66,
+      "5Y": 81.15,
+      "WoW": -0.46,
+      "MTD": -2.82,
+      "YTD": -0.77
+    },
+    "^RUA": {
+      "1D": 0.62,
+      "1W": 1.23,
+      "1M": 0.31,
+      "3M": 4.95,
+      "6M": 8.31,
+      "1Y": 12.13,
+      "3Y": 63.93,
+      "5Y": 65.98,
+      "WoW": -0.48,
+      "MTD": -0.68,
+      "YTD": 1.04
+    },
+    "^RUI": {
+      "1D": 0.65,
+      "1W": 1.2,
+      "1M": 0.39,
+      "3M": 4.57,
+      "6M": 7.91,
+      "1Y": 11.93,
+      "3Y": 65.66,
+      "5Y": 68.6,
+      "WoW": -0.47,
+      "MTD": -0.76,
+      "YTD": 0.8
+    },
+    "^RUT": {
+      "1D": -0.05,
+      "1W": 1.83,
+      "1M": -1.27,
+      "3M": 13.41,
+      "6M": 17.38,
+      "1Y": 16.71,
+      "3Y": 37.31,
+      "5Y": 16.35,
+      "WoW": -0.6,
+      "MTD": 0.89,
+      "YTD": 6.2
+    },
+    "^SOX": {
+      "1D": 1.07,
+      "1W": 2.17,
+      "1M": 2.72,
+      "3M": 26.09,
+      "6M": 46.7,
+      "1Y": 55.57,
+      "3Y": 164.62,
+      "5Y": 156.55,
+      "WoW": 1.89,
+      "MTD": 1.55,
+      "YTD": 12.12
+    }
+  },
+  "summary": {
+    "best_performer": {
+      "symbol": "^SOX",
+      "period": "3Y",
+      "return_pct": 164.62
+    },
+    "worst_performer": {
+      "symbol": "^IXIC",
+      "period": "MTD",
+      "return_pct": -2.99
+    },
+    "period_averages": {
+      "1D": 0.65,
+      "WoW": -0.33,
+      "1W": 1.31,
+      "MTD": -0.67,
+      "1M": 0.13,
+      "3M": 8.15,
+      "6M": 14.3,
+      "YTD": 2.65,
+      "1Y": 18.36,
+      "3Y": 79.27,
+      "5Y": 73.04
+    },
+    "period_best": {
+      "1D": {
+        "symbol": "^SOX",
+        "return_pct": 1.07
+      },
+      "WoW": {
+        "symbol": "^SOX",
+        "return_pct": 1.89
+      },
+      "1W": {
+        "symbol": "^SOX",
+        "return_pct": 2.17
+      },
+      "MTD": {
+        "symbol": "^SOX",
+        "return_pct": 1.55
+      },
+      "1M": {
+        "symbol": "^SOX",
+        "return_pct": 2.72
+      },
+      "3M": {
+        "symbol": "^SOX",
+        "return_pct": 26.09
+      },
+      "6M": {
+        "symbol": "^SOX",
+        "return_pct": 46.7
+      },
+      "YTD": {
+        "symbol": "^SOX",
+        "return_pct": 12.12
+      },
+      "1Y": {
+        "symbol": "^SOX",
+        "return_pct": 55.57
+      },
+      "3Y": {
+        "symbol": "^SOX",
+        "return_pct": 164.62
+      },
+      "5Y": {
+        "symbol": "^SOX",
+        "return_pct": 156.55
+      }
+    },
+    "period_worst": {
+      "1D": {
+        "symbol": "^RUT",
+        "return_pct": -0.05
+      },
+      "WoW": {
+        "symbol": "^DJI",
+        "return_pct": -1.12
+      },
+      "1W": {
+        "symbol": "^DJI",
+        "return_pct": 0.35
+      },
+      "MTD": {
+        "symbol": "^IXIC",
+        "return_pct": -2.99
+      },
+      "1M": {
+        "symbol": "^IXIC",
+        "return_pct": -1.46
+      },
+      "3M": {
+        "symbol": "^IXIC",
+        "return_pct": 2.02
+      },
+      "6M": {
+        "symbol": "^NDX",
+        "return_pct": 7.58
+      },
+      "YTD": {
+        "symbol": "^IXIC",
+        "return_pct": -1.5
+      },
+      "1Y": {
+        "symbol": "^DJI",
+        "return_pct": 11.2
+      },
+      "3Y": {
+        "symbol": "^RUT",
+        "return_pct": 37.31
+      },
+      "5Y": {
+        "symbol": "^RUT",
+        "return_pct": 16.35
+      }
+    }
+  },
+  "latest_dates": {
+    "^GSPC": "2026-02-20",
+    "^SOX": "2026-02-20",
+    "^IXIC": "2026-02-20",
+    "^DJI": "2026-02-20",
+    "^RUA": "2026-02-20",
+    "^NDX": "2026-02-20",
+    "^RUT": "2026-02-20",
+    "^RUI": "2026-02-20"
+  },
+  "data_freshness": {
+    "newest_date": "2026-02-20",
+    "oldest_date": "2026-02-20",
+    "has_date_gap": false,
+    "symbols_by_date": {
+      "2026-02-20": [
+        "^GSPC",
+        "^SOX",
+        "^IXIC",
+        "^DJI",
+        "^RUA",
+        "^NDX",
+        "^RUT",
+        "^RUI"
+      ]
+    }
+  }
+}

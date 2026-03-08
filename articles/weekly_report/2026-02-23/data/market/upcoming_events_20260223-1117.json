@@ -1,0 +1,85 @@
+{
+  "group": "upcoming_events",
+  "generated_at": "2026-02-23T02:18:32.635894+00:00",
+  "period": {
+    "start": "2026-02-24",
+    "end": "2026-03-02"
+  },
+  "earnings": [
+    {
+      "symbol": "HD",
+      "name": "Home Depot, Inc. (The)",
+      "earnings_date": "2026-02-24",
+      "source": "earnings_dates"
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "earnings_date": "2026-02-25",
+      "source": "earnings_dates"
+    },
+    {
+      "symbol": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "earnings_date": "2026-02-28",
+      "source": "earnings_dates"
+    }
+  ],
+  "economic_releases": [
+    {
+      "release_id": 21,
+      "name": "Consumer Price Index",
+      "name_ja": "消費者物価指数",
+      "release_date": "2026-02-24",
+      "importance": "high"
+    },
+    {
+      "release_id": 328,
+      "name": "Personal Income and Outlays",
+      "name_ja": "個人所得・支出",
+      "release_date": "2026-02-24",
+      "importance": "medium"
+    },
+    {
+      "release_id": 328,
+      "name": "Personal Income and Outlays",
+      "name_ja": "個人所得・支出",
+      "release_date": "2026-02-25",
+      "importance": "medium"
+    },
+    {
+      "release_id": 328,
+      "name": "Personal Income and Outlays",
+      "name_ja": "個人所得・支出",
+      "release_date": "2026-02-26",
+      "importance": "medium"
+    },
+    {
+      "release_id": 46,
+      "name": "Producer Price Index",
+      "name_ja": "生産者物価指数",
+      "release_date": "2026-02-27",
+      "importance": "medium"
+    },
+    {
+      "release_id": 328,
+      "name": "Personal Income and Outlays",
+      "name_ja": "個人所得・支出",
+      "release_date": "2026-02-27",
+      "importance": "medium"
+    },
+    {
+      "release_id": 328,
+      "name": "Personal Income and Outlays",
+      "name_ja": "個人所得・支出",
+      "release_date": "2026-03-02",
+      "importance": "medium"
+    }
+  ],
+  "summary": {
+    "earnings_count": 3,
+    "economic_release_count": 7,
+    "high_importance_count": 1,
+    "busiest_date": "2026-02-24"
+  }
+}

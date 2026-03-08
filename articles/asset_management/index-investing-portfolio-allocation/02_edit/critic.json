@@ -1,0 +1,58 @@
+{
+  "article_id": "asset-mgmt-index-portfolio-allocation",
+  "generated_at": "2026-03-06",
+  "critics": {
+    "fact": {
+      "score": 61,
+      "status": "warning",
+      "issues_count": 7,
+      "high_issues": ["F001: 個人向け国債はNISA購入不可なのに購入可能と記載", "F002: 積立計算値に4.6%の誤差（差額9.1%過大表示）"],
+      "medium_issues": ["F003: 一括投資計算の軽微誤差", "F004: つみたて投資枠の債券ファンド記述不正確", "F005: Reddit会員数がやや古い"],
+      "low_issues": ["F006: ボーグルの「教祖」表現", "F007: 全世界株式の米国比率「約60%」がやや低い"]
+    },
+    "compliance": {
+      "score": 76,
+      "status": "warning",
+      "issues_count": 7,
+      "medium_issues": ["CP001: 「最強の投資法」断定表現", "CP002: 「最強の投資戦略」断定表現", "CP003: ポートフォリオ配分比率の提示が投資助言リスク", "CP004: 年7%想定利回りの根拠・計算前提不明", "CP007: 将来見通しの包括的免責事項欠落"],
+      "low_issues": ["CP005: FAQ Q2の「基本的にはYes」", "CP006: 冒頭の断定的引用"]
+    },
+    "structure": {
+      "score": 82,
+      "status": "pass",
+      "issues_count": 7,
+      "high_issues": ["ST002: FA手数料セクションへの遷移が唐突", "ST009: 専門用語7語が説明なし"],
+      "medium_issues": ["ST001: 導入部の読者ベネフィット弱い", "ST003: FA手数料セクションがテーマ逸脱", "ST004: 3原則と実践ステップの対応不明瞭", "ST006: パターンBの実質米国比率90%の説明欠落"],
+      "low_issues": ["ST010: タイトルの問いへの回答がまとめ冒頭にない"]
+    },
+    "data_accuracy": {
+      "score": 79,
+      "status": "warning",
+      "issues_count": 6,
+      "high_issues": ["DA003: 積立7%の計算方式不一致", "DA004: 積立5.7%の計算方式不一致（7%側と異なる方式）", "DA005: 差額2,579万円が過大（正確は約2,365万円）"],
+      "medium_issues": ["DA001: 一括5.7%の値が約6万円の誤差", "DA002: 一括差額が約6万円の誤差"],
+      "low_issues": ["DA006: 全世界株式の米国比率"]
+    },
+    "readability": {
+      "score": 82,
+      "status": "pass",
+      "issues_count": 10,
+      "high_issues": ["RD006: ティッカーシンボル（VT/VTI/VXUS/VOO）説明なし", "RD007: 金融専門用語8語が説明なし"],
+      "medium_issues": ["RD001: 冒頭の読者共感不足", "RD002: 「この記事でわかること」リスト欠落", "RD004: 冒頭の視覚的変化乏しい", "RD009: ファンド例に具体的商品名なし"],
+      "low_issues": ["RD003: FA手数料セクションの焦点ぼやけ", "RD005: 長い段落", "RD008: Reddit直接引用なし", "RD010: 締めのCTA弱い"]
+    }
+  },
+  "overall_score": 76,
+  "priority_fixes": [
+    {"rank": 1, "ids": ["F001"], "severity": "high", "fix": "個人向け国債はNISA購入不可。パターンCの説明文を修正"},
+    {"rank": 2, "ids": ["F002", "DA003", "DA004", "DA005"], "severity": "high", "fix": "手数料比較表の複利計算を名目月利方式で統一再計算"},
+    {"rank": 3, "ids": ["CP001", "CP002"], "severity": "medium", "fix": "「最強の投資法/戦略」の断定表現を修正"},
+    {"rank": 4, "ids": ["ST009", "RD006", "RD007"], "severity": "high", "fix": "専門用語（VT/VTI/VXUS/VOO/ETF/REIT/リバランス等）に初出時の説明追加"},
+    {"rank": 5, "ids": ["ST002", "ST003"], "severity": "high", "fix": "FA手数料セクションの遷移改善・圧縮"},
+    {"rank": 6, "ids": ["CP003", "CP004"], "severity": "medium", "fix": "ポートフォリオ例と利回り想定に注記・免責事項追加"},
+    {"rank": 7, "ids": ["F004"], "severity": "medium", "fix": "つみたて投資枠の債券ファンド記述を正確に修正"},
+    {"rank": 8, "ids": ["ST001", "RD001", "RD002"], "severity": "medium", "fix": "導入部の読者ベネフィット・共感・記事サマリー追加"},
+    {"rank": 9, "ids": ["CP007"], "severity": "medium", "fix": "将来見通しの免責事項追加"},
+    {"rank": 10, "ids": ["F007", "DA006"], "severity": "low", "fix": "全世界株式の米国比率を「約60-65%」に更新"}
+  ]
+}

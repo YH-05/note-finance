@@ -1,0 +1,24 @@
+{
+  "claims": [
+    {
+      "claim": "銀行はプライベート・クレジット・ファンドへの融資（サブスクリプション・ライン等）を通じて、間接的に巨大なリスクを抱え込んでいる。",
+      "evidence": "ウェルズ・ファーゴのNDFI向け融資850億ドルのうち41%がアセットマネージャー向け、U.S.バンコープの30%がPE向けという具体データ。",
+      "source_url": "https://adamjosephson.substack.com/p/bank-lending-to-private-equity-funds"
+    },
+    {
+      "claim": "FRBのストレステスト（リスクなし）とIMFの警告（夜も眠れない懸念）の間に深刻な認識の乖離が存在する。",
+      "evidence": "2025年6月のFRBストレステスト結果と、2025年10月のIMFゲオルギエバ総裁の発言。",
+      "source_url": "https://www.imf.org/en/publications/gfsr"
+    },
+    {
+      "claim": "PIK（Payment-in-Kind）の急増は、高金利下でのデフォルトリスクの「先送り」を示唆している。",
+      "evidence": "2026年に向けたPIK残高の増加と、BofA等によるデフォルト圧力の警告。",
+      "source_url": "https://www.swissinfo.ch/eng/private-credits-rising-pile-of-bad-pik-points-to-default-woes/90258272"
+    }
+  ],
+  "decisions": {
+    "target_audience": "intermediate",
+    "tone": "analytical and cautious",
+    "main_focus": "Interconnectedness between banks and private credit"
+  }
+}

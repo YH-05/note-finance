@@ -1,0 +1,37 @@
+{
+  "compliance": {
+    "status": "pass",
+    "score": 95,
+    "findings": [
+      {
+        "severity": "low",
+        "category": "not-advice",
+        "message": "冒頭に適切な免責事項スニペットが含まれています。",
+        "location": "L3-L5"
+      },
+      {
+        "severity": "low",
+        "category": "risk-disclosure",
+        "message": "末尾に適切なリスク開示スニペットが含まれています。",
+        "location": "L100-L102"
+      },
+      {
+        "severity": "low",
+        "category": "deterministic-judgement",
+        "message": "「絶対」「必ず」といった断定的表現は避けられており、リスクの可能性に言及しています。",
+        "location": "全体"
+      },
+      {
+        "severity": "medium",
+        "category": "investment-advice",
+        "message": "年代別のおすすめファンドとして特定のカテゴリを提示していますが、一般的な戦略の解説に留まっており、特定の個別投資信託商品名（例：三菱UFJ...など）は出していないため、投資助言には当たらないと判断します。ただし、『おすすめファンド』という見出しはやや強い印象を与えるため、ライフステージに応じた『選択肢の例』といったニュアンスを強調するとより安全です。",
+        "location": "L40, L55, L70, L85"
+      }
+    ]
+  },
+  "quality": {
+    "status": "pass",
+    "score": 90,
+    "feedback": "ターゲット読者（初心者）に配慮した分かりやすい構成です。人的資本という概念を持ち出すことで、なぜ年齢で戦略が変わるのかという根拠が明確になっています。"
+  }
+}
