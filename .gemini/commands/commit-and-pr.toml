@@ -1,0 +1,2 @@
+prompt = "Activate the `commit-and-pr` skill by following the instructions in `.agents/skills/commit-and-pr/SKILL.md`."
+description = "変更のコミットとPR作成を一括実行します。品質確認、コミット、プッシュ、PR作成、CIチェックを自動化。"

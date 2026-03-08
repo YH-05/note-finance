@@ -1,0 +1,53 @@
+{
+  "total_collected": 1,
+  "total_extracted": 1,
+  "total_summarized": 1,
+  "total_published": 0,
+  "total_duplicates": 0,
+  "total_early_duplicates": 0,
+  "extraction_failures": [],
+  "summarization_failures": [],
+  "publication_failures": [],
+  "started_at": "2026-03-08T04:05:56.996194Z",
+  "finished_at": "2026-03-08T04:05:56.997325Z",
+  "elapsed_seconds": 0.001131,
+  "published_articles": [],
+  "feed_errors": [],
+  "category_results": [],
+  "stage_metrics": [
+    {
+      "stage": "collection",
+      "elapsed_seconds": 0.0,
+      "item_count": 1
+    },
+    {
+      "stage": "extraction",
+      "elapsed_seconds": 0.0,
+      "item_count": 1
+    },
+    {
+      "stage": "summarization",
+      "elapsed_seconds": 0.0,
+      "item_count": 1
+    },
+    {
+      "stage": "grouping",
+      "elapsed_seconds": 0.0,
+      "item_count": 1
+    },
+    {
+      "stage": "export",
+      "elapsed_seconds": 0.0,
+      "item_count": 1
+    }
+  ],
+  "domain_extraction_rates": [
+    {
+      "domain": "cnbc.com",
+      "total": 1,
+      "success": 1,
+      "failed": 0,
+      "success_rate": 100.0
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+prompt = "Activate the `gemini-search` skill by following the instructions in `.agents/skills/gemini-search/SKILL.md`. Search query: $ARGUMENTS"
+description = "Gemini CLIを使用してWeb検索を実行します。"

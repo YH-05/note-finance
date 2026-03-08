@@ -1,0 +1,2 @@
+prompt = "Activate the `merge-pr` skill by following the instructions in `.agents/skills/merge-pr/SKILL.md`. PR number: $ARGUMENTS"
+description = "PRのコンフリクトチェック・CI確認・マージを実行します。"

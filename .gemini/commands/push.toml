@@ -1,0 +1,2 @@
+prompt = "Activate the `push` skill by following the instructions in `.agents/skills/push/SKILL.md`."
+description = "変更をコミットしてリモートにプッシュします。"

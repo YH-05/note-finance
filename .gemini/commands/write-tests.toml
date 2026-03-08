@@ -1,0 +1,2 @@
+prompt = "Activate the Write Tests workflow by following the instructions in `.agents/workflows/write-tests.md`. Target: $ARGUMENTS"
+description = "t-wada流TDDによるテスト作成を実行します。Red→Green→Refactorサイクルに基づく高品質なテスト。"

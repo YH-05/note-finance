@@ -1,0 +1,2 @@
+prompt = "Activate the Publish to Note workflow by following the instructions in `.agents/workflows/publish-to-note.md`. Arguments: $ARGUMENTS"
+description = "記事をnote.comに下書き投稿します。revised_draft.mdをパースし、Playwrightでnote.comエディタに自動入力します。"

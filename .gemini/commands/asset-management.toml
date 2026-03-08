@@ -1,0 +1,2 @@
+prompt = "Activate the Asset Management workflow by following the instructions in `.agents/workflows/asset-management.md`."
+description = "資産形成コンテンツ（note記事+X投稿）を自動生成します。JP RSSソース収集→記事生成→コンプライアンスチェック→結果報告。"

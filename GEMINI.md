@@ -1,5 +1,9 @@
 # GEMINI.md
 
+> **Note**: プロジェクト共通の指示は `AGENTS.md` に統合されました。
+> Gemini CLI は `.gemini/settings.json` の `contextFileName` 設定により `AGENTS.md` を自動読み込みします。
+> このファイルは Antigravity 固有の追加情報を提供します。
+
 This file provides guidance to Antigravity (Gemini Agent) when working with code in this repository.
 
 ## Project Overview
@@ -67,25 +71,32 @@ MCP Server (`rss.mcp.server`) で RSSフィード操作可能。7ツール: list
 
 ### Antigravity Integration (`.agents/`)
 
-| ディレクトリ | 内容                                                       |
-| ------------ | ---------------------------------------------------------- |
-| `workflows/` | 7ワークフロー（記事編集、レポート生成、リサーチ収集等）    |
-| `skills/`    | スキルファイル（ニュース収集、レポート生成、データ集約等） |
+| ディレクトリ | 内容                                                              |
+| ------------ | ----------------------------------------------------------------- |
+| `workflows/` | 10ワークフロー（記事編集、レポート生成、リサーチ収集、テスト等） |
+| `skills/`    | 36スキル（ニュース収集、レポート生成、データ集約、Git操作等）    |
 
 ### MCP Servers (`.gemini/settings.json`)
 
-| サーバー        | 用途                                                |
-| --------------- | --------------------------------------------------- |
-| `rss`           | プロジェクト内RSSフィード管理（`uv run rss-mcp`）   |
-| `memory`        | 永続メモリ（`@modelcontextprotocol/server-memory`） |
-| `fetch`         | URL取得（`mcp-server-fetch`）                       |
-| `time`          | タイムゾーン管理（`Asia/Tokyo`）                    |
-| `reddit`        | Reddit情報収集                                      |
-| `wikipedia`     | Wikipedia検索                                       |
-| `notion`        | Notion API連携                                      |
-| `sec-edgar-mcp` | SEC EDGAR企業情報                                   |
-| `slack`         | Slack連携                                           |
-| `notebooklm`    | NotebookLM連携                                      |
+| サーバー             | 用途                                                |
+| -------------------- | --------------------------------------------------- |
+| `rss`                | プロジェクト内RSSフィード管理（`uv run rss-mcp`）   |
+| `git`                | Git操作（`mcp-server-git`）                         |
+| `filesystem`         | ファイルシステム操作                                |
+| `sequential-thinking`| 逐次思考（`@modelcontextprotocol/server-sequential-thinking`） |
+| `memory`             | 永続メモリ（`@modelcontextprotocol/server-memory`） |
+| `fetch`              | URL取得（`mcp-server-fetch`）                       |
+| `time`               | タイムゾーン管理（`Asia/Tokyo`）                    |
+| `reddit`             | Reddit情報収集                                      |
+| `wikipedia`          | Wikipedia検索                                       |
+| `sec-edgar-mcp`      | SEC EDGAR企業情報                                   |
+| `slack`              | Slack連携                                           |
+| `notebooklm`         | NotebookLM連携                                      |
+| `context7`           | ライブラリドキュメント検索                          |
+| `tavily`             | Web検索（Tavily API）                               |
+| `playwright`         | ブラウザ自動化                                      |
+| `neo4j-cypher`       | Neo4j Cypherクエリ                                  |
+| `neo4j-data-modeling` | Neo4jデータモデリング                              |
 
 ### Data Layout
 
@@ -109,16 +120,36 @@ MCP Server (`rss.mcp.server`) で RSSフィード操作可能。7ツール: list
 - **コミット**: Conventional Commits形式（`feat(scope): 説明`）。PR/Issueは日本語
 - **アンカーコメント**: `AIDEV-NOTE:`, `AIDEV-TODO:`, `AIDEV-QUESTION:`
 
-## Workflows
+## Commands & Workflows
 
-以下のワークフローが `.agents/workflows/` に定義されている。スラッシュコマンドとして実行可能。
+以下のコマンドが `.gemini/commands/` に定義されている。スラッシュコマンドとして実行可能。
 
-| コマンド                  | 説明                                           |
-| ------------------------- | ---------------------------------------------- |
-| `/finance-suggest-topics` | 金融記事のトピックを提案                       |
-| `/new-finance-article`    | 新規記事フォルダを作成                         |
-| `/finance-edit`           | 記事編集ワークフロー（初稿→批評→修正）         |
-| `/finance-full`           | 記事作成の全工程を一括実行                     |
-| `/generate-market-report` | 週次マーケットレポートを自動生成               |
-| `/ai-research-collect`    | AI投資バリューチェーン収集                     |
-| `/reddit-finance-topics`  | Reddit金融コミュニティからトピック発見・記事化 |
+### 金融コンテンツ
+
+| コマンド                  | ワークフロー | 説明                                           |
+| ------------------------- | ------------ | ---------------------------------------------- |
+| `/finance-suggest-topics` | ✓            | 金融記事のトピックを提案                       |
+| `/new-finance-article`    | ✓            | 新規記事フォルダを作成                         |
+| `/finance-edit`           | ✓            | 記事編集ワークフロー（初稿→批評→修正）         |
+| `/finance-full`           | ✓            | 記事作成の全工程を一括実行                     |
+| `/publish-to-note`        | ✓            | 記事をnote.comに下書き投稿                     |
+| `/asset-management`       | ✓            | 資産形成コンテンツ（note記事+X投稿）を自動生成 |
+
+### リサーチ・レポート
+
+| コマンド                  | ワークフロー | 説明                                           |
+| ------------------------- | ------------ | ---------------------------------------------- |
+| `/generate-market-report` | ✓            | 週次マーケットレポートを自動生成               |
+| `/ai-research-collect`    | ✓            | AI投資バリューチェーン収集                     |
+| `/reddit-finance-topics`  | ✓            | Reddit金融コミュニティからトピック発見・記事化 |
+
+### 開発ツール
+
+| コマンド          | スキル参照 | 説明                                  |
+| ----------------- | ---------- | ------------------------------------- |
+| `/write-tests`    | ✓          | t-wada流TDDによるテスト作成           |
+| `/commit-and-pr`  | ✓          | 変更のコミットとPR作成を一括実行      |
+| `/push`           | ✓          | 変更をコミットしてリモートにプッシュ   |
+| `/merge-pr`       | ✓          | PRのコンフリクトチェック・CI確認・マージ |
+| `/gemini-search`  | ✓          | Gemini CLIを使用してWeb検索           |
+| `/save-to-graph`  | ✓          | graph-queueのデータをNeo4jに投入     |
