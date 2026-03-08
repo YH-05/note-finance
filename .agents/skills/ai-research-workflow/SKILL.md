@@ -257,7 +257,7 @@ for category in categories:
 
 ### サマリー出力形式
 
-テンプレート: `.claude/skills/ai-research-workflow/templates/summary-template.md` を参照。
+テンプレート: `.agents/skills/ai-research-workflow/templates/summary-template.md` を参照。
 
 カテゴリ別統計に加え、ティア別のスクレイピング成功率レポートを含む。
 
@@ -298,13 +298,13 @@ for category in categories:
 |---------|------|
 | Python CLI前処理 | `scripts/prepare_ai_research_session.py` |
 | 企業定義マスタ | `data/config/ai-research-companies.json` |
-| ai-research-article-fetcher | `.claude/agents/ai-research-article-fetcher.md` |
+| ai-research-article-fetcher | `.agents/agents/ai-research-article-fetcher.md` |
 | RobustScraper | `src/rss/services/company_scrapers/robust_scraper.py` |
 | BaseCompanyScraper | `src/rss/services/company_scrapers/base.py` |
 | CompanyScraperRegistry | `src/rss/services/company_scrapers/registry.py` |
 | GitHub Project #44 | https://github.com/users/YH-05/projects/44 |
 | プロジェクト計画 | `docs/project/ai-research-tracking/project.md` |
-| フォーク元スキル | `.claude/skills/finance-news-workflow/` |
+| フォーク元スキル | `.agents/skills/finance-news-workflow/` |
 
 ## エラーハンドリング
 

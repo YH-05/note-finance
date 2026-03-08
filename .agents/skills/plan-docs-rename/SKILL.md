@@ -36,7 +36,7 @@ YYYY-MM-DD_内容名.md
 - `2026-02-16_notebooklm-mcp-server-plan.md`
 - `2026-02-09_nasdaq-stock-screener-implementation-plan.md`
 
-この規則は `.claude/skills/agent-memory/memories/conventions/plan-file-naming.md` で定義されています。
+この規則は `.agents/skills/agent-memory/memories/conventions/plan-file-naming.md` で定義されています。
 
 ## プロセス
 
@@ -191,5 +191,5 @@ docs/plan/ 内のファイル:
 
 ## 関連リソース
 
-- **命名規則メモリ**: `.claude/skills/agent-memory/memories/conventions/plan-file-naming.md`
+- **命名規則メモリ**: `.agents/skills/agent-memory/memories/conventions/plan-file-naming.md`
 - **既存のプラン例**: `docs/plan/2026-*-*.md`

@@ -352,7 +352,7 @@ Phase 1 ──[出力A]──→ Phase 2 ──[出力B]──→ Phase 3
 | **一時ファイル活用** | 大量データは `.tmp/` に保存 |
 | **トレーサビリティ** | セッションIDで追跡可能に |
 
-参照: `.claude/rules/subagent-data-passing.md`
+参照: `.agents/rules/subagent-data-passing.md`
 
 ---
 
@@ -771,7 +771,7 @@ Task 3:
 **症状**: 後続Phaseでデータが欠落
 
 **解決策**:
-1. データ渡しルールを厳守（`.claude/rules/subagent-data-passing.md`）
+1. データ渡しルールを厳守（`.agents/rules/subagent-data-passing.md`）
 2. 一時ファイルを使用
 3. データ検証ステップを追加
 
@@ -808,8 +808,8 @@ Task 3:
 
 | ワークフロー | パターン | 参照先 |
 |-------------|---------|--------|
-| Issue自動実装 | シーケンシャル + ルーター | `.claude/commands/issue-implement.md` |
-| ニュース収集 | ファンアウト/ファンイン | `.claude/commands/collect-finance-news.md` |
-| 記事執筆 | 批評・修正ループ | `.claude/commands/finance-full.md` |
-| テスト作成 | オーケストレーター | `.claude/agents/test-orchestrator.md` |
-| PRレビュー | ファンアウト/ファンイン | `.claude/commands/review-pr.md` |
+| Issue自動実装 | シーケンシャル + ルーター | `.agents/commands/issue-implement.md` |
+| ニュース収集 | ファンアウト/ファンイン | `.agents/commands/collect-finance-news.md` |
+| 記事執筆 | 批評・修正ループ | `.agents/commands/finance-full.md` |
+| テスト作成 | オーケストレーター | `.agents/agents/test-orchestrator.md` |
+| PRレビュー | ファンアウト/ファンイン | `.agents/commands/review-pr.md` |

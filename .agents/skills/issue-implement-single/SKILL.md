@@ -151,9 +151,9 @@ Task ツールを使わずに直接実装した場合、そのワークフロー
      - 上記以外 → python
 
   2. キーワード判定（ラベルなし時）:
-     - ".claude/agents/" パスへの言及 → agent
-     - ".claude/commands/" パスへの言及 → command
-     - ".claude/skills/" パスへの言及 → skill
+     - ".agents/agents/" パスへの言及 → agent
+     - ".agents/commands/" パスへの言及 → command
+     - ".agents/skills/" パスへの言及 → skill
      - 上記以外 → python
 ```
 

@@ -296,8 +296,8 @@ Thought 6: 仮説の検証と最終確認
 
 ```bash
 # 既存の類似ワークフローを調査
-ls -la .claude/commands/
-cat .claude/commands/similar-workflow.md
+ls -la .agents/commands/
+cat .agents/commands/similar-workflow.md
 ```
 
 **確認項目**:
@@ -543,9 +543,9 @@ Phase 3: test-integration-writer
 
 ## 参考資料
 
-- `CLAUDE.md`: プロジェクト全体のガイドライン
-- `.claude/rules/subagent-data-passing.md`: サブエージェントへのデータ渡しルール
-- `.claude/commands/issue-implement.md`: シーケンシャル + ルーターパターンの実装例
-- `.claude/commands/collect-finance-news.md`: ファンアウト/ファンインパターンの実装例
-- `.claude/commands/finance-full.md`: 批評・修正パターンの実装例
-- `.claude/agents/test-orchestrator.md`: オーケストレーターパターンの実装例
+- `GEMINI.md`: プロジェクト全体のガイドライン
+- `.agents/rules/subagent-data-passing.md`: サブエージェントへのデータ渡しルール
+- `.agents/commands/issue-implement.md`: シーケンシャル + ルーターパターンの実装例
+- `.agents/commands/collect-finance-news.md`: ファンアウト/ファンインパターンの実装例
+- `.agents/commands/finance-full.md`: 批評・修正パターンの実装例
+- `.agents/agents/test-orchestrator.md`: オーケストレーターパターンの実装例

@@ -389,4 +389,4 @@ articles/weekly_report/2026-01-22/02_edit/
 ## 参考資料
 
 - `docs/project/project-21/project.md`: 週次レポートプロジェクト計画
-- `.claude/templates/weekly-report-issue.md`: Issue投稿テンプレート
+- `.agents/templates/weekly-report-issue.md`: Issue投稿テンプレート

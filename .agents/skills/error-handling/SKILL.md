@@ -335,5 +335,5 @@ result = retry_with_backoff(
 
 ## 参考資料
 
-- `CLAUDE.md`: プロジェクト全体のガイドライン
-- `.claude/rules/common-instructions.md`: ロギング・エラーハンドリングの共通指示
+- `GEMINI.md`: プロジェクト全体のガイドライン
+- `.agents/rules/common-instructions.md`: ロギング・エラーハンドリングの共通指示

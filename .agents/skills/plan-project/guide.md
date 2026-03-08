@@ -640,21 +640,21 @@ ls .tmp/plan-project-*/workflow-status.json
 
 ### agent タイプ
 
-- Phase 1 で `.claude/agents/` の全エージェントをスキャン
+- Phase 1 で `.agents/agents/` の全エージェントをスキャン
 - Phase 2 で frontmatter 構造、スキル参照、入出力を設計
-- CLAUDE.md のエージェント一覧テーブル更新を file_map に含める
+- GEMINI.md のエージェント一覧テーブル更新を file_map に含める
 
 ### skill タイプ
 
-- Phase 1 で `.claude/skills/` の全スキルをスキャン
+- Phase 1 で `.agents/skills/` の全スキルをスキャン
 - Phase 2 で SKILL.md/guide.md/templates/ の構造を設計
-- CLAUDE.md のスキル一覧テーブル更新を file_map に含める
+- GEMINI.md のスキル一覧テーブル更新を file_map に含める
 
 ### command タイプ
 
-- Phase 1 で `.claude/commands/` の全コマンドをスキャン
+- Phase 1 で `.agents/commands/` の全コマンドをスキャン
 - Phase 2 で frontmatter（description, argument-hint）を設計
-- CLAUDE.md のコマンド一覧テーブル更新を file_map に含める
+- GEMINI.md のコマンド一覧テーブル更新を file_map に含める
 
 ### workflow タイプ
 
@@ -676,7 +676,7 @@ ls .tmp/plan-project-*/workflow-status.json
 
 ## サブエージェントデータ渡しルール
 
-**重要**: `.claude/rules/subagent-data-passing.md` に準拠。
+**重要**: `.agents/rules/subagent-data-passing.md` に準拠。
 
 - 全データは JSON 形式で一時ファイル経由で受け渡し
 - ファイルパスは完全パスで記載（省略禁止）
@@ -687,12 +687,12 @@ ls .tmp/plan-project-*/workflow-status.json
 
 | ファイル | 説明 |
 |---------|------|
-| `.claude/skills/plan-project/SKILL.md` | スキル定義 |
-| `.claude/skills/plan-project/templates/project-template.md` | project.md テンプレート |
-| `.claude/skills/plan-project/templates/issue-template.md` | Issue 本文テンプレート |
-| `.claude/agents/project-researcher.md` | リサーチエージェント |
-| `.claude/agents/project-planner.md` | 計画エージェント |
-| `.claude/agents/project-decomposer.md` | タスク分解エージェント |
-| `.claude/commands/plan-project.md` | コマンド定義 |
-| `.claude/rules/subagent-data-passing.md` | データ渡しルール |
-| `.claude/skills/task-decomposition/SKILL.md` | タスク分解スキル（参照） |
+| `.agents/skills/plan-project/SKILL.md` | スキル定義 |
+| `.agents/skills/plan-project/templates/project-template.md` | project.md テンプレート |
+| `.agents/skills/plan-project/templates/issue-template.md` | Issue 本文テンプレート |
+| `.agents/agents/project-researcher.md` | リサーチエージェント |
+| `.agents/agents/project-planner.md` | 計画エージェント |
+| `.agents/agents/project-decomposer.md` | タスク分解エージェント |
+| `.agents/commands/plan-project.md` | コマンド定義 |
+| `.agents/rules/subagent-data-passing.md` | データ渡しルール |
+| `.agents/skills/task-decomposition/SKILL.md` | タスク分解スキル（参照） |

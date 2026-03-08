@@ -277,7 +277,7 @@ for theme in themes:
 |---------|------|
 | Python CLI前処理 | `scripts/prepare_news_session.py` |
 | テーマ設定 | `data/config/finance-news-themes.json` |
-| news-article-fetcher | `.claude/agents/news-article-fetcher.md` |
+| news-article-fetcher | `.agents/agents/news-article-fetcher.md` |
 | GitHub Project | https://github.com/users/YH-05/projects/15 |
 
 ## エラーハンドリング

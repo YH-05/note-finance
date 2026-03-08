@@ -4,11 +4,11 @@
 
 | カテゴリ | 回数 | テンプレート参照 | 目的 |
 |---------|------|----------------|------|
-| 市場トレンド | 3 | `.claude/resources/search-templates/index-market.md` | 主要指数の動向、Bull/Bear判定 |
-| セクター動向 | 2 | `.claude/resources/search-templates/sectors.md` | セクターローテーション、注目セクター |
-| AI・テクノロジー | 2 | `.claude/resources/search-templates/ai-tech.md` | AI関連ニュース、半導体需要 |
-| 日本市場 | 2 | `.claude/resources/search-templates/japan-market.md` | 国内市場、新NISA、個人投資家 |
-| コンテンツギャップ | 1-3 | `.claude/resources/search-templates/competitor-content.md` | note.com の競合状況 |
+| 市場トレンド | 3 | `.agents/resources/search-templates/index-market.md` | 主要指数の動向、Bull/Bear判定 |
+| セクター動向 | 2 | `.agents/resources/search-templates/sectors.md` | セクターローテーション、注目セクター |
+| AI・テクノロジー | 2 | `.agents/resources/search-templates/ai-tech.md` | AI関連ニュース、半導体需要 |
+| 日本市場 | 2 | `.agents/resources/search-templates/japan-market.md` | 国内市場、新NISA、個人投資家 |
+| コンテンツギャップ | 1-3 | `.agents/resources/search-templates/competitor-content.md` | note.com の競合状況 |
 
 ## 検索実行ルール
 

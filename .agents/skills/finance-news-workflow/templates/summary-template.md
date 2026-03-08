@@ -287,6 +287,6 @@
 
 ## 参照
 
-- **スキル定義**: `.claude/skills/finance-news-workflow/SKILL.md`
+- **スキル定義**: `.agents/skills/finance-news-workflow/SKILL.md`
 - **Issue作成テンプレート**: `./issue-template.md`
-- **共通処理ガイド**: `.claude/agents/finance_news_collector/common-processing-guide.md`
+- **共通処理ガイド**: `.agents/agents/finance_news_collector/common-processing-guide.md`

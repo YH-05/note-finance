@@ -15,11 +15,14 @@
 ### Phase 1: マルチソース検索
 
 参照: `references/search-strategy.md`（テーマ種別ごとのソース優先順位）
+参照: `.agents/skills/web-search/SKILL.md`（Web検索ツール選択基準）
 
 テーマの種別を判定し、最適なソース組み合わせで検索:
 
-1. **WebSearch**: 最新ニュース・分析記事を検索
-   - `.claude/resources/search-templates/` のテンプレートを活用
+1. **Web検索**: 最新ニュース・分析記事を検索（ツール選択は web-search スキル参照）
+   - 日本語テーマ → Gemini Search 推奨
+   - 英語テーマ → Tavily MCP 推奨
+   - `.agents/resources/search-templates/` のテンプレートを活用
 2. **RSS MCP** (`mcp__rss__rss_search_items`): 登録済みフィードからテーマ関連記事を検索
    - ToolSearch でロード、利用不可時はスキップ
 3. **Reddit MCP** (`mcp__reddit__*`): 投資家コミュニティの議論を収集
@@ -52,12 +55,14 @@
 
 ## MCP フォールバック戦略
 
+参照: `.agents/skills/web-search/SKILL.md`（フォールバック戦略）
+
 MCPツールは ToolSearch でロードを試みる。利用不可の場合:
-- RSS MCP → WebSearch で代替（フィードURLを直接検索）
-- Reddit MCP → WebSearch で `site:reddit.com` クエリ
-- SEC Edgar MCP → WebSearch で `site:sec.gov` クエリ
+- RSS MCP → Web検索で代替（フィードURLを直接検索）
+- Reddit MCP → Web検索で `site:reddit.com` クエリ
+- SEC Edgar MCP → Web検索で `site:sec.gov` クエリ
 
 深度別の最低検索回数:
-- quick: WebSearch のみでも5回以上
-- standard: WebSearch のみでも10回以上
-- deep: WebSearch のみでも15回以上
+- quick: 5回以上
+- standard: 10回以上
+- deep: 15回以上

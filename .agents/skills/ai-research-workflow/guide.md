@@ -731,13 +731,13 @@ except json.JSONDecodeError as e:
 
 ## 参考資料
 
-- **SKILL.md**: `.claude/skills/ai-research-workflow/SKILL.md`
-- **Issue作成テンプレート**: `.claude/skills/ai-research-workflow/templates/issue-template.md`
-- **サマリーテンプレート**: `.claude/skills/ai-research-workflow/templates/summary-template.md`
-- **ai-research-article-fetcher**: `.claude/agents/ai-research-article-fetcher.md`
+- **SKILL.md**: `.agents/skills/ai-research-workflow/SKILL.md`
+- **Issue作成テンプレート**: `.agents/skills/ai-research-workflow/templates/issue-template.md`
+- **サマリーテンプレート**: `.agents/skills/ai-research-workflow/templates/summary-template.md`
+- **ai-research-article-fetcher**: `.agents/agents/ai-research-article-fetcher.md`
 - **企業定義マスタ**: `data/config/ai-research-companies.json`
 - **Python CLI前処理**: `scripts/prepare_ai_research_session.py`
 - **RobustScraper**: `src/rss/services/company_scrapers/robust_scraper.py`
 - **プロジェクト計画**: `docs/project/ai-research-tracking/project.md`
 - **GitHub Project #44**: https://github.com/users/YH-05/projects/44
-- **データ渡しルール**: `.claude/rules/subagent-data-passing.md`
+- **データ渡しルール**: `.agents/rules/subagent-data-passing.md`

@@ -287,14 +287,14 @@ revised_draft.md を出力してください。"""
 | Python CLI前処理 | `scripts/prepare_asset_management_session.py` |
 | テーマ設定 | `data/config/asset-management-themes.json` |
 | JP RSSプリセット | `data/config/rss-presets-jp.json` |
-| 記事ライター | `.claude/agents/asset-management-writer.md` |
-| コンプライアンス批評 | `.claude/agents/finance-critic-compliance.md` |
-| 軽量リバイザー | `.claude/agents/asset-management-reviser.md` |
+| 記事ライター | `.agents/agents/asset-management-writer.md` |
+| コンプライアンス批評 | `.agents/agents/finance-critic-compliance.md` |
+| 軽量リバイザー | `.agents/agents/asset-management-reviser.md` |
 | 記事テンプレート | `template/asset_management/` |
 | 免責事項スニペット | `snippets/not-advice.md` |
 | リスク開示スニペット | `snippets/investment-risk.md` |
 | NISA免責スニペット | `snippets/nisa-disclaimer.md` |
-| 詳細ガイド | `.claude/skills/asset-management-workflow/guide.md` |
+| 詳細ガイド | `.agents/skills/asset-management-workflow/guide.md` |
 
 ## エラーハンドリング
 

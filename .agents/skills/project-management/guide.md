@@ -188,7 +188,7 @@ gh issue edit {number} --body "{updated_body}"
 
 ### 含むもの
 - 変更範囲: [新規のみ / 既存修正のみ / 両方]
-- 影響ディレクトリ: [.claude/ / src/ / tests/ / docs/]
+- 影響ディレクトリ: [.agents/ / src/ / tests/ / docs/]
 
 ### 含まないもの
 - [スコープ外の項目]

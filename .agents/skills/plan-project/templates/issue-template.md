@@ -54,7 +54,7 @@ Issue タイトルは日本語で記述し、Wave 番号をプレフィックス
 例：
 - `[Wave1] project-researcher エージェント定義の作成`
 - `[Wave2] 詳細ガイド（guide.md）の作成`
-- `[Wave3] CLAUDE.md への登録と /new-project 非推奨化`
+- `[Wave3] GEMINI.md への登録と /new-project 非推奨化`
 
 ## ラベル自動判定
 

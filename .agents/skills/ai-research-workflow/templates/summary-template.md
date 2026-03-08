@@ -369,7 +369,7 @@
 
 ## 参照
 
-- **スキル定義**: `.claude/skills/ai-research-workflow/SKILL.md`
+- **スキル定義**: `.agents/skills/ai-research-workflow/SKILL.md`
 - **Issue作成テンプレート**: `./issue-template.md`
-- **詳細ガイド**: `.claude/skills/ai-research-workflow/guide.md`
-- **ai-research-article-fetcher**: `.claude/agents/ai-research-article-fetcher.md`
+- **詳細ガイド**: `.agents/skills/ai-research-workflow/guide.md`
+- **ai-research-article-fetcher**: `.agents/agents/ai-research-article-fetcher.md`

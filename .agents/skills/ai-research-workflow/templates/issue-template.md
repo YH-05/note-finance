@@ -278,8 +278,8 @@ Issue作成後、以下を設定:
 
 ## 参照
 
-- **スキル定義**: `.claude/skills/ai-research-workflow/SKILL.md`
-- **詳細ガイド**: `.claude/skills/ai-research-workflow/guide.md`
+- **スキル定義**: `.agents/skills/ai-research-workflow/SKILL.md`
+- **詳細ガイド**: `.agents/skills/ai-research-workflow/guide.md`
 - **サマリーテンプレート**: `./summary-template.md`
-- **ai-research-article-fetcher**: `.claude/agents/ai-research-article-fetcher.md`
+- **ai-research-article-fetcher**: `.agents/agents/ai-research-article-fetcher.md`
 - **企業定義マスタ**: `data/config/ai-research-companies.json`

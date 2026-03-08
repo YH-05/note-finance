@@ -21,9 +21,9 @@ Agent Teams を活用した「リサーチ→設計→タスク分解→GitHub P
 |--------|---------|-----------|
 | **package** | `@src/*` 引数 | `src/` 配下の Python パッケージ |
 | **from_plan_file** | `@docs/plan/*` 引数 | プランファイルから推測したタイプ（Phase 4 でプランファイルを `original-plan.md` として移動） |
-| **agent** | `--type agent` | `.claude/agents/` 配下のエージェント定義 |
-| **skill** | `--type skill` | `.claude/skills/` 配下のスキル定義 |
-| **command** | `--type command` | `.claude/commands/` 配下のコマンド定義 |
+| **agent** | `--type agent` | `.agents/agents/` 配下のエージェント定義 |
+| **skill** | `--type skill` | `.agents/skills/` 配下のスキル定義 |
+| **command** | `--type command` | `.agents/commands/` 配下のコマンド定義 |
 | **workflow** | `--type workflow` | スキル+エージェント+コマンドの組み合わせ |
 | **docs** | `--type docs` | `docs/` 配下のドキュメント |
 | **general** | 引数なし or テキスト | タイプ混合の汎用プロジェクト |
@@ -78,9 +78,9 @@ Phase 4: GitHub Project・Issue 登録 (plan-lead 直接) ─── 完了レポ
 | メンバー | エージェントタイプ | 役割 |
 |---------|------------------|------|
 | **plan-lead** | メイン会話（スキル読込） | HF ゲート管理、GitHub操作、全体制御 |
-| **project-researcher** | `.claude/agents/project-researcher.md` | コードベース探索、パターン識別、ギャップ分析 |
-| **project-planner** | `.claude/agents/project-planner.md` | アーキテクチャ設計、ファイルマップ、リスク評価 |
-| **project-decomposer** | `.claude/agents/project-decomposer.md` | タスク分解、依存関係、Wave グルーピング |
+| **project-researcher** | `.agents/agents/project-researcher.md` | コードベース探索、パターン識別、ギャップ分析 |
+| **project-planner** | `.agents/agents/project-planner.md` | アーキテクチャ設計、ファイルマップ、リスク評価 |
+| **project-decomposer** | `.agents/agents/project-decomposer.md` | タスク分解、依存関係、Wave グルーピング |
 
 ## データフロー
 

@@ -477,11 +477,11 @@ cat {article_dir}/02_edit/critic.json | python3 -m json.tool
 
 ## 参考資料
 
-- **SKILL.md**: `.claude/skills/asset-management-workflow/SKILL.md`
+- **SKILL.md**: `.agents/skills/asset-management-workflow/SKILL.md`
 - **テーマ設定**: `data/config/asset-management-themes.json`
 - **JP RSSプリセット**: `data/config/rss-presets-jp.json`
-- **記事ライター**: `.claude/agents/asset-management-writer.md`
-- **コンプライアンス批評**: `.claude/agents/finance-critic-compliance.md`
-- **軽量リバイザー**: `.claude/agents/asset-management-reviser.md`
+- **記事ライター**: `.agents/agents/asset-management-writer.md`
+- **コンプライアンス批評**: `.agents/agents/finance-critic-compliance.md`
+- **軽量リバイザー**: `.agents/agents/asset-management-reviser.md`
 - **記事テンプレート**: `template/asset_management/`
 - **プロジェクト計画**: `docs/project/project-4/project.md`

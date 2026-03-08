@@ -2,7 +2,7 @@
 
 ## 検索フェーズ
 
-参照: `.claude/resources/search-templates/competitor-content.md`（クエリテンプレート）
+参照: `.agents/resources/search-templates/competitor-content.md`（クエリテンプレート）
 
 ### Phase 1: note.com カテゴリスキャン
 

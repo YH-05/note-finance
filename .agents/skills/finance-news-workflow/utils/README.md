@@ -102,7 +102,7 @@ uv run pytest tests/skills/finance_news_workflow/unit/test_filtering.py -v
 
 ### コーディング規約
 
-`.claude/rules/coding-standards.md` に準拠:
+`.agents/rules/coding-standards.md` に準拠:
 - NumPy形式のDocstring
 - PEP 695型ヒント
 - snake_case命名規則

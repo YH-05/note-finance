@@ -362,4 +362,4 @@ for item in large_list:
 
 - `src/finance/utils/logging_config.py`: ロギング設定
 - `src/market_analysis/core/fetcher.py`: データ取得のログ
-- `.claude/rules/common-instructions.md`: ロギングの共通指示
+- `.agents/rules/common-instructions.md`: ロギングの共通指示

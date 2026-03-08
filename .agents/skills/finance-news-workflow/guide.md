@@ -661,7 +661,7 @@ if args.resume:
 
 テンプレート: `.github/ISSUE_TEMPLATE/news-article.yml`（GitHub UI用）
 
-**プログラムによるIssue作成**: HEREDOCで直接ボディを生成（`.claude/skills/finance-news-workflow/templates/issue-template.md` 参照）
+**プログラムによるIssue作成**: HEREDOCで直接ボディを生成（`.agents/skills/finance-news-workflow/templates/issue-template.md` 参照）
 
 ```markdown
 ## 概要
@@ -928,10 +928,10 @@ gh auth status
 
 ## 参考資料
 
-- **SKILL.md**: `.claude/skills/finance-news-workflow/SKILL.md`
-- **コマンド**: `.claude/commands/collect-finance-news.md`
-- **オーケストレーター**: `.claude/agents/finance-news-orchestrator.md`
-- **共通処理ガイド**: `.claude/agents/finance_news_collector/common-processing-guide.md`
+- **SKILL.md**: `.agents/skills/finance-news-workflow/SKILL.md`
+- **コマンド**: `.agents/commands/collect-finance-news.md`
+- **オーケストレーター**: `.agents/agents/finance-news-orchestrator.md`
+- **共通処理ガイド**: `.agents/agents/finance_news_collector/common-processing-guide.md`
 - **テーマ設定**: `data/config/finance-news-themes.json`
 - **GitHub Project**: https://github.com/users/YH-05/projects/15
-- **データ渡しルール**: `.claude/rules/subagent-data-passing.md`
+- **データ渡しルール**: `.agents/rules/subagent-data-passing.md`

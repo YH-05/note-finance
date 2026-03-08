@@ -394,4 +394,4 @@ articles/weekly_report/2026-01-22/data/
 ## 参考資料
 
 - `docs/project/project-21/project.md`: 週次レポートプロジェクト計画
-- `.claude/agents/weekly-report-news-aggregator.md`: ニュース集約エージェント
+- `.agents/agents/weekly-report-news-aggregator.md`: ニュース集約エージェント
