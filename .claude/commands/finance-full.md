@@ -45,7 +45,8 @@ Phase 3: 記事執筆
 │   ├── [HF5] 初稿レビュー
 │   ├── 批評（並列）
 │   └── 修正
-└── [HF6] 最終確認
+├── [HF6] 最終確認
+└── Step 3.2: graph-queue 出力（任意）
 ```
 
 ## 実行手順
@@ -198,6 +199,15 @@ Phase 3: 記事執筆
     - 承認: 「承認」と入力 → status = "ready_for_publish"
     - 追加修正: 「修正」と入力 → 編集プロセスに戻る
     ```
+
+### Step 3.2: graph-queue 出力（任意）
+
+```bash
+python scripts/emit_graph_queue.py \
+  --command finance-full \
+  --input "articles/${article_id}/01_research/"
+echo "graph-queue files generated. Run /save-to-graph to ingest."
+```
 
 ## 完了報告
 

@@ -1,0 +1,205 @@
+# PRレビューレポート
+# 生成日時: 2026-03-08 01:05:00
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-08 01:05:00"
+  pr_number: 51
+  pr_title: "feat: ナレッジグラフ連携パイプラインの実装 (Project #74, #44-#50)"
+  base_branch: "main"
+  head_branch: "feature/prj74"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 13
+  additions: 4310
+  deletions: 4
+
+scores:
+  code_quality: 79    # (78×0.35) + (78×0.40) + (82×0.25) = 27.3 + 31.2 + 20.5 = 79.0
+  security: 72        # (72×0.60) + (72×0.40) = 43.2 + 28.8 = 72.0
+  test: 88            # (88×0.50) + (88×0.50) = 44.0 + 44.0 = 88.0
+  overall: 79         # (79×0.40) + (72×0.35) + (88×0.25) = 31.6 + 25.2 + 22.0 = 78.8
+
+code_quality:
+  readability_score: 78
+  design_score: 78
+  performance_score: 82
+
+  strengths:
+    - "命名規則100%準拠 - PascalCase/snake_case/UPPER_SNAKE 全て遵守"
+    - "型ヒント100%カバレッジ - 3ファイル151シグネチャ全てに型ヒント付与"
+    - "COMMAND_MAPPERS ディスパッチテーブルによる Strategy パターン採用"
+    - "parse_args / run / main の適切な分離でテスト容易性を確保"
+    - "決定論的ID生成 (UUID5 + SHA-256) で冪等性保証"
+    - "全関数の複雑度が最大7と低く、認知的負荷が小さい"
+
+  issues:
+    medium:
+      - category: "solid/dry"
+        file: "scripts/emit_graph_queue.py"
+        description: "run()関数が86行と肥大化。読込・変換・書込・クリーンアップの4責務が混在"
+        recommendation: "_load_and_parse() / _build_queue_doc() / _write_output() に分割"
+
+      - category: "dry"
+        file: "scripts/emit_graph_queue.py"
+        description: "source dict組み立てパターンが5マッパー関数で重複"
+        recommendation: "_make_source() ヘルパー関数に共通変換を切り出す"
+
+      - category: "dry"
+        file: "scripts/emit_graph_queue.py"
+        description: "全6マッパーの return dict構造(7キー)が同一パターンで重複"
+        recommendation: "_mapped_result() ファクトリ関数を定義"
+
+      - category: "solid"
+        file: "scripts/emit_graph_queue.py"
+        description: "COMMANDS リストと COMMAND_MAPPERS 辞書の二重管理"
+        recommendation: "COMMANDS = list(COMMAND_MAPPERS.keys()) で単一ソースに"
+
+      - category: "docstrings"
+        file: "tests/scripts/test_emit_graph_queue.py"
+        description: "テストメソッド91件中90件(99%)がdocstring未設定"
+        recommendation: "複雑な統合テスト(TestRun等)に1行docstringを追加"
+
+    low:
+      - category: "type_hints"
+        file: "scripts/emit_graph_queue.py:544"
+        description: "COMMAND_MAPPERS の型が dict[str, Any] と過度に緩い"
+        recommendation: "dict[str, Callable[[dict[str, Any]], dict[str, Any]]] に変更"
+
+      - category: "logging"
+        file: "scripts/emit_graph_queue.py:49"
+        description: "標準logging使用。CLAUDE.md規約ではstructlog必須"
+        recommendation: "スクリプト独立性を維持するか規約準拠するか判断が必要"
+
+  solid_compliance:
+    single_responsibility: "WARN"
+    open_closed: "WARN"
+    liskov_substitution: "PASS"
+    interface_segregation: "PASS"
+    dependency_inversion: "WARN"
+
+security:
+  code_security_score: 72
+  infra_security_score: 72
+
+  vulnerability_count:
+    critical: 0
+    high: 1
+    medium: 3
+    low: 3
+
+  findings:
+    - id: "SEC-001"
+      severity: "HIGH"
+      category: "A05/A06"
+      location: ".claude/skills/save-to-graph/SKILL.md:80, guide.md:28"
+      description: "Neo4jデフォルトパスワード'password'がドキュメントに平文記述"
+      recommendation: "環境変数参照に統一し、デフォルト値を除去"
+      cwe_id: "CWE-798"
+
+    - id: "SEC-002"
+      severity: "MEDIUM"
+      category: "A02"
+      location: "scripts/emit_graph_queue.py:166"
+      description: "Claim ID の SHA-256先頭16文字(64bit)のみ使用、衝突リスク"
+      recommendation: "SHA-256フルハッシュ(64文字)使用を推奨"
+      cwe_id: "CWE-327"
+
+    - id: "SEC-003"
+      severity: "MEDIUM"
+      category: "A03"
+      location: ".claude/skills/save-to-graph/guide.md:548"
+      description: "Cypherテンプレート例が文字列直接埋め込み形式でインジェクションリスク"
+      recommendation: "--param フラグ付きパラメータ化形式に統一"
+      cwe_id: "CWE-89"
+
+    - id: "SEC-004"
+      severity: "MEDIUM"
+      category: "A04/A09"
+      location: "scripts/emit_graph_queue.py:673"
+      description: "--input パスのバリデーション不足、パス情報のログ出力"
+      recommendation: "resolve()で正規化し許容ディレクトリ内の検証を追加"
+      cwe_id: "CWE-22"
+
+    - id: "SEC-005"
+      severity: "LOW"
+      category: "A06"
+      location: "pyproject.toml (推移的依存)"
+      description: "diskcache 5.6.3にCVE-2025-69872 (pickle経由の任意コード実行)"
+      recommendation: "py_key_value_aio依存の要否確認、不要なら除去"
+      cwe_id: "CWE-502"
+
+    - id: "SEC-006"
+      severity: "LOW"
+      category: "A07"
+      location: ".claude/skills/save-to-graph/SKILL.md:83"
+      description: "Dockerポートが0.0.0.0バインドで外部公開リスク"
+      recommendation: "127.0.0.1にバインド変更"
+      cwe_id: "CWE-923"
+
+test:
+  coverage_score: 88
+  quality_score: 88
+
+  coverage_assessment: "GOOD"
+  measured_coverage: "96%"
+  edge_cases_covered: true
+
+  missing_tests:
+    - target: "cleanup_old_files (OSErrorパス)"
+      priority: "MEDIUM"
+      description: "ファイル削除失敗時のwarningログ出力と継続動作"
+
+    - target: "cleanup_old_files (サブディレクトリskip)"
+      priority: "LOW"
+      description: "is_file()==Falseの分岐"
+
+    - target: "run() (未知コマンド)"
+      priority: "LOW"
+      description: "COMMAND_MAPPERSに存在しないcommandでのエラーパス"
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "PASS"
+    readability: "PASS"
+
+  quality_issues:
+    - severity: "MEDIUM"
+      description: "暗黙的hex検証 (int(result, 16)) が明示的アサーションでない"
+    - severity: "MEDIUM"
+      description: "assert len() >= 1 の緩いアサーション (== 1 が適切)"
+    - severity: "LOW"
+      description: "TestMain.test_異常系名がSystemExitだが実装はexit_code検証"
+
+recommended_actions:
+  required: []  # マージブロッカーなし
+
+  suggested:
+    - priority: 1
+      action: "SKILL.md/guide.mdのデフォルトパスワード'password'を環境変数プレースホルダーに変更"
+      related_issues: ["SEC-001"]
+
+    - priority: 2
+      action: "run()関数を3内部関数に分割してSRP準拠"
+      related_issues: ["design-MEDIUM"]
+
+    - priority: 3
+      action: "_make_source()と_mapped_result()ヘルパーでDRY改善"
+      related_issues: ["design-MEDIUM"]
+
+    - priority: 4
+      action: "COMMANDS = list(COMMAND_MAPPERS.keys())で二重管理解消"
+      related_issues: ["design-MEDIUM"]
+
+    - priority: 5
+      action: "guide.mdのCypherテンプレートをパラメータ化形式に統一"
+      related_issues: ["SEC-003"]
+
+summary:
+  verdict: "APPROVE"
+  comment: >
+    全体として設計品質の高いPR。決定論的ID生成による冪等性設計、
+    Dispatch Tableパターン、テストカバレッジ96%と充実。
+    マージブロッカーとなるCRITICALな問題はなし。
+    デフォルトパスワードのドキュメント記述とDRY改善が主な推奨事項。
