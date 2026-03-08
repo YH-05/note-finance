@@ -9,9 +9,10 @@
 3. [ID 生成戦略](#id-生成戦略)
 4. [Cypher テンプレート](#cypher-テンプレート)
 5. [ノード投入詳細](#ノード投入詳細)
-6. [リレーション投入詳細](#リレーション投入詳細)
-7. [冪等性の仕組み](#冪等性の仕組み)
-8. [エラーハンドリング詳細](#エラーハンドリング詳細)
+6. [Phase 3a: ファイル内リレーション投入詳細](#phase-3a-ファイル内リレーション投入詳細)
+7. [Phase 3b: クロスファイルリレーション投入詳細](#phase-3b-クロスファイルリレーション投入詳細)
+8. [冪等性の仕組み](#冪等性の仕組み)
+9. [エラーハンドリング詳細](#エラーハンドリング詳細)
 
 ---
 
@@ -597,12 +598,12 @@ SET s.url = src.url,
 
 ---
 
-## リレーション投入詳細
+## Phase 3a: ファイル内リレーション投入詳細
 
-### リレーション推論戦略
+### リレーション推論戦略（ファイル内）
 
 graph-queue JSON には現在 `relations` フィールドが空オブジェクト `{}` として出力されます。
-リレーションは以下のルールで推論します:
+ファイル内リレーションは以下のルールで推論します:
 
 #### TAGGED リレーション
 
@@ -650,8 +651,213 @@ for claim in claims:
 
 ### 注意: リレーションの精度
 
-現在のクロス結合戦略は粗い粒度です。将来的に `relations` フィールドに
+ファイル内のクロス結合戦略は粗い粒度です。`relations` フィールドに
 明示的な紐付けが定義された場合は、そちらを優先使用してください。
+
+---
+
+## Phase 3b: クロスファイルリレーション投入詳細
+
+Phase 2 で投入したノードを、DB 内の既存ノードとリレーションで接続する。
+`--skip-cross-link` 指定時はこのフェーズ全体をスキップする。
+
+### 設計原則
+
+1. **カテゴリマッチング**: Source と Topic は `category` フィールドの一致で接続
+2. **コンテンツマッチング**: Claim と Entity は `content CONTAINS name` で接続
+3. **双方向**: 新ノード→既存ノード、既存ノード→新ノードの両方向を処理
+4. **冪等性**: 全クエリが MERGE ベースのため、重複リレーションは作成されない
+
+### ステップ 3b.1: TAGGED カテゴリマッチング
+
+#### 新 Source → 既存 Topic
+
+今回投入した Source の `category` と一致する Topic（既存含む）を接続する。
+
+```cypher
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})
+MATCH (t:Topic {category: s.category})
+MERGE (s)-[:TAGGED]->(t)
+```
+
+**実行方法（cypher-shell）**:
+
+```bash
+cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
+  --param "source_ids => ['uuid-1', 'uuid-2', 'uuid-3']" \
+  "UNWIND \$source_ids AS sid
+   MATCH (s:Source {source_id: sid})
+   MATCH (t:Topic {category: s.category})
+   MERGE (s)-[:TAGGED]->(t)"
+```
+
+#### 新 Topic → 既存 Source
+
+今回投入した Topic の `category` と一致する Source（既存含む）を接続する。
+
+```cypher
+UNWIND $topic_ids AS tid
+MATCH (t:Topic {topic_id: tid})
+MATCH (s:Source {category: t.category})
+MERGE (s)-[:TAGGED]->(t)
+```
+
+#### マッチングの仕組み
+
+```
+Source.category  ←→  Topic.category
+    "stock"      →   Topics where category = "stock"
+    "index"      →   Topics where category = "index"
+    "macro"      →   Topics where category = "macro"
+```
+
+カテゴリは `batch_label` → `category` 変換テーブルに基づく:
+
+| batch_label | category |
+|------------|----------|
+| index | index |
+| stock | stock |
+| sector | sector |
+| macro_cnbc | macro |
+| ai_cnbc | ai |
+| finance_cnbc | finance |
+| nisa, ideco, tsumitate | asset-management |
+
+### ステップ 3b.2: ABOUT コンテンツマッチング
+
+#### 新 Claim → 既存 Entity
+
+今回投入した Claim の `content` に、既存 Entity の `name` が含まれる場合に接続する。
+
+```cypher
+UNWIND $claim_ids AS cid
+MATCH (c:Claim {claim_id: cid})
+MATCH (e:Entity)
+WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+MERGE (c)-[:ABOUT]->(e)
+```
+
+#### 新 Entity → 既存 Claim
+
+今回投入した Entity の `name` が、既存 Claim の `content` に含まれる場合に接続する。
+
+```cypher
+UNWIND $entity_ids AS eid
+MATCH (e:Entity {entity_id: eid})
+MATCH (c:Claim)
+WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+MERGE (c)-[:ABOUT]->(e)
+```
+
+#### マッチング条件の詳細
+
+| 条件 | 理由 |
+|------|------|
+| `size(e.name) >= 2` | 1文字の Entity 名（例: "A"）による偽陽性を防止 |
+| `CONTAINS` | 完全一致ではなく部分一致（Entity 名が文中に出現すれば接続） |
+
+#### 偽陽性の考慮
+
+`CONTAINS` による部分一致は偽陽性のリスクがある:
+
+| Entity.name | Claim.content | 判定 | 備考 |
+|------------|---------------|------|------|
+| "NVIDIA" | "NVIDIA reported strong earnings" | 正（真陽性） | |
+| "AI" | "NVIDIA's AI chip demand surges" | 正（真陽性） | |
+| "AI" | "said the chairman" | 偽（偽陽性） | 2文字だが意味的に無関係 |
+
+現時点では `size >= 2` のガードのみ。将来的にフルテキストインデックスや
+正規表現（`=~ '(?i).*\\bNVIDIA\\b.*'`）の導入を検討。
+
+### パフォーマンス考慮
+
+#### TAGGED（カテゴリマッチング）
+
+- Topic ノード数は通常少ない（数十〜数百）→ 問題なし
+- `idx_topic_category` インデックスが効く
+
+#### ABOUT（コンテンツマッチング）
+
+- Claim ノードが増加すると `CONTAINS` の全走査コストが増大
+- 対策: 新 Entity → 既存 Claim のクエリは Claim 数が多い場合に重くなるため、
+  以下の制限を検討:
+
+```cypher
+// Claim 数が多い場合、直近30日の Claim に限定
+UNWIND $entity_ids AS eid
+MATCH (e:Entity {entity_id: eid})
+MATCH (c:Claim)
+WHERE size(e.name) >= 2
+  AND c.content CONTAINS e.name
+  AND c.created_at > datetime() - duration('P30D')
+MERGE (c)-[:ABOUT]->(e)
+```
+
+> **注意**: Claim に `created_at` プロパティが必要。未設定の場合は全件走査にフォールバック。
+
+### 実行フロー（擬似コード）
+
+```python
+def phase_3b_cross_file_relations(
+    source_ids: list[str],
+    topic_ids: list[str],
+    claim_ids: list[str],
+    entity_ids: list[str],
+    skip_cross_link: bool = False,
+) -> dict:
+    """Phase 3b: クロスファイルリレーション投入。"""
+    if skip_cross_link:
+        return {"skipped": True, "reason": "--skip-cross-link"}
+
+    stats = {"tagged_cross": 0, "about_cross": 0}
+
+    # 3b.1: TAGGED カテゴリマッチング
+    if source_ids:
+        result = run_cypher("""
+            UNWIND $source_ids AS sid
+            MATCH (s:Source {source_id: sid})
+            MATCH (t:Topic {category: s.category})
+            MERGE (s)-[r:TAGGED]->(t)
+            RETURN count(r) AS cnt
+        """, source_ids=source_ids)
+        stats["tagged_cross"] += result["cnt"]
+
+    if topic_ids:
+        result = run_cypher("""
+            UNWIND $topic_ids AS tid
+            MATCH (t:Topic {topic_id: tid})
+            MATCH (s:Source {category: t.category})
+            MERGE (s)-[r:TAGGED]->(t)
+            RETURN count(r) AS cnt
+        """, topic_ids=topic_ids)
+        stats["tagged_cross"] += result["cnt"]
+
+    # 3b.2: ABOUT コンテンツマッチング
+    if claim_ids:
+        result = run_cypher("""
+            UNWIND $claim_ids AS cid
+            MATCH (c:Claim {claim_id: cid})
+            MATCH (e:Entity)
+            WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+            MERGE (c)-[r:ABOUT]->(e)
+            RETURN count(r) AS cnt
+        """, claim_ids=claim_ids)
+        stats["about_cross"] += result["cnt"]
+
+    if entity_ids:
+        result = run_cypher("""
+            UNWIND $entity_ids AS eid
+            MATCH (e:Entity {entity_id: eid})
+            MATCH (c:Claim)
+            WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+            MERGE (c)-[r:ABOUT]->(e)
+            RETURN count(r) AS cnt
+        """, entity_ids=entity_ids)
+        stats["about_cross"] += result["cnt"]
+
+    return stats
+```
 
 ---
 

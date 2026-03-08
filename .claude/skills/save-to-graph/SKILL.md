@@ -26,10 +26,14 @@ MERGE ベースの Cypher クエリにより冪等性を保証する。
   |     +-- Source ノード MERGE
   |     +-- Claim ノード MERGE
   |
-  +-- Phase 3: リレーション投入（MERGE）
-  |     +-- TAGGED リレーション MERGE（Source -> Topic）
-  |     +-- MAKES_CLAIM リレーション MERGE（Source -> Claim）
-  |     +-- ABOUT リレーション MERGE（Claim -> Entity）
+  +-- Phase 3a: ファイル内リレーション投入（MERGE）
+  |     +-- TAGGED リレーション MERGE（Source -> Topic）[同一ファイル内]
+  |     +-- MAKES_CLAIM リレーション MERGE（Source -> Claim）[source_id ベース]
+  |     +-- ABOUT リレーション MERGE（Claim -> Entity）[同一ファイル内]
+  |
+  +-- Phase 3b: クロスファイルリレーション（DB既存ノードとの接続）
+  |     +-- TAGGED: カテゴリマッチング（新Source↔既存Topic, 新Topic↔既存Source）
+  |     +-- ABOUT: コンテンツマッチング（新Claim↔既存Entity, 新Entity↔既存Claim）
   |
   +-- Phase 4: 完了処理
         +-- 処理済みファイルの削除 or 移動（--keep で保持）
@@ -61,6 +65,7 @@ MERGE ベースの Cypher クエリにより冪等性を保証する。
 |-----------|-----------|------|
 | --source | all | 対象コマンドソース（finance-news-workflow, ai-research-collect 等） |
 | --dry-run | false | Cypher クエリを表示するが実行しない |
+| --skip-cross-link | false | Phase 3b（クロスファイルリレーション）をスキップする |
 | --file | - | 特定の graph-queue JSON ファイルを指定（--source と排他） |
 | --keep | false | 処理済みファイルを削除せず保持する |
 
@@ -194,9 +199,11 @@ SET c.content = $content,
           SET s.url = "https://...", s.title = "..."
 ```
 
-## Phase 3: リレーション投入（MERGE）
+## Phase 3a: ファイル内リレーション投入（MERGE）
 
-### ステップ 3.1: TAGGED リレーション
+同一 graph-queue ファイル内のノード間にリレーションを作成する。
+
+### ステップ 3a.1: TAGGED リレーション
 
 graph-queue JSON の `relations.tagged` 配列、または Source と Topic の紐付けから生成。
 
@@ -206,7 +213,7 @@ MATCH (t:Topic {topic_id: $topic_id})
 MERGE (s)-[:TAGGED]->(t)
 ```
 
-### ステップ 3.2: MAKES_CLAIM リレーション
+### ステップ 3a.2: MAKES_CLAIM リレーション
 
 Claim の `source_id` フィールドから Source との紐付けを生成。
 
@@ -216,7 +223,7 @@ MATCH (c:Claim {claim_id: $claim_id})
 MERGE (s)-[:MAKES_CLAIM]->(c)
 ```
 
-### ステップ 3.3: ABOUT リレーション
+### ステップ 3a.3: ABOUT リレーション
 
 Claim と Entity の紐付けを生成。
 
@@ -224,6 +231,68 @@ Claim と Entity の紐付けを生成。
 MATCH (c:Claim {claim_id: $claim_id})
 MATCH (e:Entity {entity_id: $entity_id})
 MERGE (c)-[:ABOUT]->(e)
+```
+
+## Phase 3b: クロスファイルリレーション（DB既存ノードとの接続）
+
+Phase 2 で投入したノードを、DB 内の既存ノードとリレーションで接続する。
+`--skip-cross-link` 指定時はスキップ。
+
+### ステップ 3b.1: TAGGED カテゴリマッチング
+
+今回投入した Source を、DB 内の同カテゴリの既存 Topic と接続する。
+逆方向も同様に、今回投入した Topic を、DB 内の同カテゴリの既存 Source と接続する。
+
+```cypher
+// 新 Source → 既存 Topic（カテゴリ一致）
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})
+MATCH (t:Topic {category: s.category})
+MERGE (s)-[:TAGGED]->(t)
+```
+
+```cypher
+// 新 Topic → 既存 Source（カテゴリ一致）
+UNWIND $topic_ids AS tid
+MATCH (t:Topic {topic_id: tid})
+MATCH (s:Source {category: t.category})
+MERGE (s)-[:TAGGED]->(t)
+```
+
+### ステップ 3b.2: ABOUT コンテンツマッチング
+
+今回投入した Claim を、DB 内の既存 Entity と内容ベースで接続する。
+逆方向も同様に、今回投入した Entity を、DB 内の既存 Claim と接続する。
+
+**マッチング条件**: Entity 名が2文字以上 かつ Claim.content に Entity.name が含まれる。
+
+```cypher
+// 新 Claim → 既存 Entity（コンテンツに Entity 名を含む）
+UNWIND $claim_ids AS cid
+MATCH (c:Claim {claim_id: cid})
+MATCH (e:Entity)
+WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+MERGE (c)-[:ABOUT]->(e)
+```
+
+```cypher
+// 新 Entity → 既存 Claim（コンテンツに Entity 名を含む）
+UNWIND $entity_ids AS eid
+MATCH (e:Entity {entity_id: eid})
+MATCH (c:Claim)
+WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+MERGE (c)-[:ABOUT]->(e)
+```
+
+### ドライランモード
+
+`--dry-run` 指定時は、クロスファイルマッチングの対象数を表示するが実行しない:
+
+```
+[DRY-RUN] Cross-link TAGGED: 5 new Sources × 12 existing Topics (category match)
+[DRY-RUN] Cross-link TAGGED: 0 new Topics × 0 existing Sources (category match)
+[DRY-RUN] Cross-link ABOUT: 8 new Claims × 3 existing Entities (content match)
+[DRY-RUN] Cross-link ABOUT: 0 new Entities × 0 existing Claims (content match)
 ```
 
 ## Phase 4: 完了処理
@@ -249,9 +318,11 @@ MERGE (c)-[:ABOUT]->(e)
 | 投入 Topic ノード | {topic_count} |
 | 投入 Entity ノード | {entity_count} |
 | 投入 Claim ノード | {claim_count} |
-| 投入 TAGGED リレーション | {tagged_count} |
+| 投入 TAGGED リレーション（ファイル内） | {tagged_intra_count} |
 | 投入 MAKES_CLAIM リレーション | {makes_claim_count} |
-| 投入 ABOUT リレーション | {about_count} |
+| 投入 ABOUT リレーション（ファイル内） | {about_intra_count} |
+| クロスリンク TAGGED | {tagged_cross_count} |
+| クロスリンク ABOUT | {about_cross_count} |
 | スキップ（検証エラー） | {skipped_count} |
 
 ### ファイル別統計
@@ -319,6 +390,14 @@ MERGE (c)-[:ABOUT]->(e)
 | finance-full | 記事執筆 | Source, Claim |
 
 ## 変更履歴
+
+### 2026-03-08: クロスファイルリレーション追加
+
+- Phase 3 を 3a（ファイル内）と 3b（クロスファイル）に分割
+- TAGGED: カテゴリマッチングで Source↔Topic を接続
+- ABOUT: コンテンツマッチングで Claim↔Entity を接続
+- `--skip-cross-link` パラメータ追加
+- 統計サマリーにクロスリンク件数を追加
 
 ### 2026-03-07: 初版作成（Issue #47）
 
