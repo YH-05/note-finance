@@ -810,6 +810,241 @@ rm .tmp/graph-queue/finance-news-workflow/gq-xxx.json
 
 ---
 
+## E2E 検証手順
+
+save-to-graph パイプラインの全体検証手順。graph-queue 生成から Neo4j 投入、冪等性確認までを実施する。
+
+### 前提条件
+
+- Neo4j が起動済み（Docker or ローカル）
+- 初回セットアップ（制約・インデックス作成）が完了済み
+- `scripts/emit_graph_queue.py` が利用可能
+
+### Step 1: graph-queue ファイル生成
+
+finance-news-workflow の実データからキューファイルを生成する。
+
+```bash
+# 実データが .tmp/news-batches/ にある場合
+python3 scripts/emit_graph_queue.py \
+  --command finance-news-workflow \
+  --input .tmp/news-batches/index.json
+
+# 複数テーマを連続生成
+for theme in index stock sector macro_cnbc ai_cnbc finance_cnbc; do
+  input_file=".tmp/news-batches/${theme}.json"
+  if [ -f "$input_file" ]; then
+    python3 scripts/emit_graph_queue.py \
+      --command finance-news-workflow \
+      --input "$input_file"
+  fi
+done
+
+# 生成結果を確認
+ls -la .tmp/graph-queue/finance-news-workflow/
+```
+
+### Step 2: キューファイルのフォーマット検証
+
+生成された JSON が graph-queue 標準フォーマットに準拠しているか確認する。
+
+```bash
+# 必須フィールドの確認
+python3 -c "
+import json, sys, glob
+
+required = {'schema_version', 'queue_id', 'created_at', 'command_source',
+            'session_id', 'batch_label', 'sources', 'topics', 'claims',
+            'entities', 'relations'}
+
+for path in glob.glob('.tmp/graph-queue/**/*.json', recursive=True):
+    data = json.load(open(path))
+    missing = required - set(data.keys())
+    status = 'OK' if not missing else f'MISSING: {missing}'
+    sources = len(data.get('sources', []))
+    topics = len(data.get('topics', []))
+    entities = len(data.get('entities', []))
+    claims = len(data.get('claims', []))
+    print(f'{path}: {status} (S:{sources} T:{topics} E:{entities} C:{claims})')
+"
+```
+
+### Step 3: dry-run 実行
+
+`/save-to-graph --dry-run` でキューファイルの検証のみ実行する。
+実際の Neo4j への投入は行わず、生成される Cypher クエリを確認する。
+
+```bash
+/save-to-graph --dry-run
+```
+
+期待される出力:
+
+```
+[DRY-RUN] MERGE (s:Source {source_id: "..."}) SET s.url = "...", ...
+[DRY-RUN] MERGE (c:Claim {claim_id: "..."}) SET c.content = "...", ...
+```
+
+### Step 4: Neo4j への投入
+
+```bash
+# 全キューファイルを投入
+/save-to-graph
+
+# 特定コマンドソースのみ投入
+/save-to-graph --source finance-news-workflow
+
+# 処理済みファイルを保持したい場合
+/save-to-graph --keep
+```
+
+### Step 5: 検証クエリ
+
+投入結果を Cypher クエリで確認する。
+
+#### Source タイプ別統計
+
+```cypher
+MATCH (s:Source)
+RETURN s.source_type AS type, s.command_source AS command, count(s) AS count
+ORDER BY count DESC
+```
+
+#### Source -> Topic 統計
+
+```cypher
+MATCH (s:Source)-[:TAGGED]->(t:Topic)
+RETURN t.name AS topic, t.category AS category, count(s) AS source_count
+ORDER BY source_count DESC
+```
+
+#### Entity 一覧
+
+```cypher
+MATCH (e:Entity)
+RETURN e.name AS name, e.entity_type AS type, e.ticker AS ticker
+ORDER BY e.name
+```
+
+#### Claim -> Source 統計（MAKES_CLAIM）
+
+```cypher
+MATCH (s:Source)-[:MAKES_CLAIM]->(c:Claim)
+RETURN s.title AS source_title, count(c) AS claim_count
+ORDER BY claim_count DESC
+LIMIT 20
+```
+
+#### Claim -> Entity 統計（ABOUT）
+
+```cypher
+MATCH (c:Claim)-[:ABOUT]->(e:Entity)
+RETURN e.name AS entity, count(c) AS claim_count
+ORDER BY claim_count DESC
+```
+
+#### ノード総数の確認
+
+```cypher
+CALL {
+  MATCH (s:Source) RETURN 'Source' AS label, count(s) AS count
+  UNION ALL
+  MATCH (t:Topic) RETURN 'Topic' AS label, count(t) AS count
+  UNION ALL
+  MATCH (e:Entity) RETURN 'Entity' AS label, count(e) AS count
+  UNION ALL
+  MATCH (c:Claim) RETURN 'Claim' AS label, count(c) AS count
+}
+RETURN label, count ORDER BY label
+```
+
+#### リレーション総数の確認
+
+```cypher
+CALL {
+  MATCH ()-[r:TAGGED]->() RETURN 'TAGGED' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:MAKES_CLAIM]->() RETURN 'MAKES_CLAIM' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:ABOUT]->() RETURN 'ABOUT' AS type, count(r) AS count
+}
+RETURN type, count ORDER BY type
+```
+
+### Step 6: 冪等性確認
+
+同じデータを再投入して、ノード・リレーションが重複しないことを確認する。
+
+```bash
+# Step 6.1: 投入前のノード数を記録
+cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
+  "MATCH (n) RETURN labels(n)[0] AS label, count(n) AS count ORDER BY label"
+
+# Step 6.2: 同じキューファイルを再生成して再投入
+python3 scripts/emit_graph_queue.py \
+  --command finance-news-workflow \
+  --input .tmp/news-batches/index.json
+
+/save-to-graph --source finance-news-workflow
+
+# Step 6.3: 再投入後のノード数を確認（Step 6.1 と同じであること）
+cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
+  "MATCH (n) RETURN labels(n)[0] AS label, count(n) AS count ORDER BY label"
+```
+
+**冪等性の確認ポイント**:
+
+| 確認項目 | 期待結果 |
+|---------|---------|
+| Source ノード数 | 変化なし |
+| Topic ノード数 | 変化なし |
+| Entity ノード数 | 変化なし |
+| Claim ノード数 | 変化なし |
+| TAGGED リレーション数 | 変化なし |
+| MAKES_CLAIM リレーション数 | 変化なし |
+| ABOUT リレーション数 | 変化なし |
+
+冪等性が保証される理由:
+1. 全 ID は入力データから**決定論的**に生成される（UUID5 / SHA-256）
+2. 全 Cypher クエリは **MERGE** ベース（存在すれば更新、なければ作成）
+3. 同じ URL / content / name からは常に同じ ID が生成される
+
+### Step 7: 処理済みファイルの確認
+
+```bash
+# デフォルト: 処理済みファイルは削除されている
+ls .tmp/graph-queue/finance-news-workflow/
+# → 空であること
+
+# --keep 使用時: .processed/ に移動されている
+ls .tmp/graph-queue/.processed/
+```
+
+### 自動テストの実行
+
+E2E テストスイートでフォーマット準拠・冪等性を自動検証する:
+
+```bash
+# E2E テストのみ実行
+uv run pytest tests/scripts/test_e2e_graph_pipeline.py -v
+
+# 全テスト（単体 + E2E）
+uv run pytest tests/scripts/ -v
+```
+
+テストスイートの検証内容:
+
+| テストクラス | 検証内容 | テスト数 |
+|-------------|---------|---------|
+| `TestGraphQueueFormatCompliance` | 全6コマンドのフォーマット準拠 | 14 |
+| `TestIdempotency` | ID 生成の決定論性・冪等性 | 8 |
+| `TestMultiCommandPipeline` | マルチコマンド整合性 | 3 |
+| `TestNodeCounts` | ノード数の入出力一致 | 5 |
+| `TestRelationInference` | リレーション推論データの整合性 | 3 |
+| `TestSourceIdUniqueness` | source_id の URL ユニーク性 | 2 |
+
+---
+
 ## 関連リソース
 
 | リソース | パス | 説明 |
@@ -818,4 +1053,5 @@ rm .tmp/graph-queue/finance-news-workflow/gq-xxx.json
 | スラッシュコマンド | `.claude/commands/save-to-graph.md` | コマンド定義 |
 | graph-queue 生成 | `scripts/emit_graph_queue.py` | JSON 生成スクリプト |
 | graph-queue テスト | `tests/scripts/test_emit_graph_queue.py` | 生成スクリプトのテスト |
+| E2E テスト | `tests/scripts/test_e2e_graph_pipeline.py` | E2E 検証・冪等性テスト |
 | KG スキーマ定義 | `data/config/knowledge-graph-schema.yaml` | ノード・リレーション・制約の定義 |
