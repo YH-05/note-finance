@@ -166,5 +166,6 @@
     "claude-md-management@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true
   },
-  "plansDirectory": "docs/plan"
+  "plansDirectory": "docs/plan",
+  "enableAllProjectMcpServers": true
 }
