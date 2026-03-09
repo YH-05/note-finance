@@ -1,0 +1,76 @@
+{
+    "synthesized_at": "2026-03-09T18:30:00+09:00",
+    "theme": "sidehustle",
+    "pattern_name": "30代前半男性・既存スキル×AI活用による高単価副業確立型",
+    "selected_sources": [
+        {
+            "source_type": "reddit",
+            "title": "My “side hustle” started because I was bored at 11pm",
+            "url": "https://www.reddit.com/r/sidehustle/comments/1rodj5e/my_side_hustle_started_because_i_was_bored_at_11pm/",
+            "contribution": "偶然の成功体験ときっかけの捉え方"
+        },
+        {
+            "source_type": "reddit",
+            "title": "Helped someone restore their grandma's photo for free, somehow turned it into $800/month",
+            "url": "https://www.reddit.com/r/sidehustle/comments/1rlbz24/helped_someone_restore_their_grandmas_photo_for/",
+            "contribution": "スキルのマネタイズとプロセスのテンプレート化"
+        },
+        {
+            "source_type": "reddit",
+            "title": "What I learned running a specialized service business for 4 months",
+            "url": "https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/",
+            "contribution": "AI活用と高単価・継続案件へのポジショニング"
+        },
+        {
+            "source_type": "web_search",
+            "title": "月収5万円：Webライティング × AI効率化",
+            "url": "https://note.com/example/writing-ai",
+            "contribution": "AIによる執筆効率化と文字単価アップの具体策"
+        },
+        {
+            "source_type": "web_search",
+            "title": "失敗談：AI丸投げによる信頼失墜",
+            "url": "https://note.com/example/ai-failure",
+            "contribution": "AI活用の落とし穴と人間によるチェックの重要性"
+        }
+    ],
+    "common_pattern": {
+        "trigger": "隙間時間の有効活用への興味 + たまたま見つけた中古品の転売成功がきっかけ",
+        "struggle": "単価の低い案件（ライティング等）の繰り返しで疲弊、AIを丸投げで使ってしまいクオリティが安定しない時期があった",
+        "turning_point": "自分の得意分野（写真、分析、執筆）にAIを『効率化ツール』として導入し、事前のリサーチや計画に時間を割くようにしたこと",
+        "outcome": "月収5万円を数ヶ月で達成し、現在は10万円前後を安定して稼げる高単価・継続案件を確保。副業を単なる労働ではなく、自分のスキル資産として捉えられるようになった",
+        "lessons": [
+            "AIは下書きや作業効率化に使い、最終確認は必ず人間が行うこと",
+            "稼げるジャンルではなく、自分が継続できる（興味のある）分野を選ぶこと",
+            "実際の制作時間よりも、事前のリサーチやムードボード作成に時間をかける方が効率が良い",
+            "単発案件ではなく、サブスクリプション型や継続案件への移行を目指す"
+        ]
+    },
+    "spec_card": {
+        "age_range": "30代前半",
+        "gender": "男性",
+        "occupation": "IT企業 営業職",
+        "income_range": "本業年収400-500万台 / 副業月収10万円前後",
+        "area": "政令指定都市",
+        "duration": "約半年〜1年",
+        "outcome": "継続収入の確立",
+        "keyword_tags": ["#30代前半", "#男性", "#AI活用", "#副業成功", "#スキル資産化"]
+    },
+    "embed_candidates": [
+        {
+            "section": "迷走期",
+            "resource_type": "note",
+            "url": "https://note.com/search?q=%E5%89%AF%E6%A5%AD%20AI%20%E5%A4%B1%E6%95%97",
+            "title": "AI副業で失敗しないための3つの鉄則",
+            "context": "AI丸投げで信頼を失いかけた時期に、正しい活用の境界線を学んだ記事"
+        },
+        {
+            "section": "転機",
+            "resource_type": "youtube",
+            "url": "https://www.youtube.com/results?search_query=AI%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90%20%E5%89%AF%E6%A5%AD%20%E5%8A%B9%E7%8E%87%E5%8C%96",
+            "title": "【2026年版】制作フローにAIを組み込む方法",
+            "context": "制作時間の半分以上をリサーチに充てる重要性を理解した動画"
+        }
+    ],
+    "anonymization_notes": "年齢: 実際のソース27-35歳から30代前半に。エピソード: Redditの家具転売の『偶然の成功』と写真修復の『プロセスのテンプレート化』、Web検索の『AI活用と失敗談』を1人の会社員の体験談として統合。職業は営業職に設定し、リサーチや対人交渉スキルの活用という文脈を付与した。"
+}
