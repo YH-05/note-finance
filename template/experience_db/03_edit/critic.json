@@ -1,0 +1,34 @@
+{
+    "critique_date": "",
+    "pattern_id": "",
+    "agents": {
+        "reality": {
+            "score": null,
+            "weight": 0.30,
+            "findings": [],
+            "suggestions": []
+        },
+        "empathy": {
+            "score": null,
+            "weight": 0.30,
+            "findings": [],
+            "suggestions": []
+        },
+        "embed": {
+            "score": null,
+            "weight": 0.15,
+            "findings": [],
+            "suggestions": []
+        },
+        "balance": {
+            "score": null,
+            "weight": 0.25,
+            "findings": [],
+            "suggestions": []
+        }
+    },
+    "total_score": null,
+    "pass": false,
+    "pass_threshold": 70,
+    "top_improvements": []
+}

@@ -1,0 +1,91 @@
+{
+  "criticized_at": "2026-03-09",
+  "article_file": "03_edit/first_draft.md",
+  "critics": [
+    {
+      "aspect": "reality",
+      "weight": 0.30,
+      "score": 82,
+      "grade": "B",
+      "strengths": [
+        "心理変化が9段階にわたって自然に描かれている",
+        "時給換算の数字が正直かつ段階的に提示されている",
+        "ATM残高、帰りの電車、編集ソフト起動時の戸惑いなど五感描写が豊か",
+        "10件連続不採用→11件目採用→修正3回→時給100円の流れがリアル",
+        "低単価案件を断る場面で「手が少し震えた」が効果的"
+      ],
+      "key_issues": [
+        {"severity": "medium", "id": "RL001", "description": "クラウドソーシングのプラットフォーム名が伏せられている"},
+        {"severity": "medium", "id": "RL002", "description": "無料編集ソフト名が不明"},
+        {"severity": "medium", "id": "RL005", "description": "1ヶ月目の時系列整合（学習期間vs初案件）にやや齟齬"},
+        {"severity": "low", "id": "RL003", "description": "無料ソフト→有料ソフトの移行タイミングが不明瞭"},
+        {"severity": "low", "id": "RL004", "description": "現在の運用セクションに五感描写が不足"}
+      ]
+    },
+    {
+      "aspect": "empathy",
+      "weight": 0.30,
+      "score": 82,
+      "grade": "B",
+      "strengths": [
+        "冒頭の給料日ATMシーンが強力な共感フック",
+        "試行錯誤期の「時給100円」「10件連続不採用」が非常にリアル",
+        "母親との電話エピソードが副業の孤独感を見事に表現",
+        "最後の段落が冒頭の通帳シーンと呼応し感情弧を美しく閉じている",
+        "弱さの開示が6箇所と充実"
+      ],
+      "key_issues": [
+        {"severity": "medium", "id": "EM001", "description": "転機セクションの感情的な「山」が行動描写に偏り、内面感情が薄い"},
+        {"severity": "medium", "id": "EM002", "description": "きっかけ末尾の読者への直接的問いかけがやや唐突"},
+        {"severity": "medium", "id": "EM005", "description": "数字セクションが感情弧の流れを中断させる"},
+        {"severity": "low", "id": "EM003", "description": "現在の運用セクションに弱さの開示が不足"},
+        {"severity": "low", "id": "EM004", "description": "アドバイスセクションがハウツー記事化の兆候"}
+      ]
+    },
+    {
+      "aspect": "embed",
+      "weight": 0.15,
+      "score": 45,
+      "grade": "D",
+      "strengths": [
+        "試行錯誤期の1件は体験の時系列に自然に組み込まれている",
+        "リンク先のテーマが記事内容と完全に合致"
+      ],
+      "key_issues": [
+        {"severity": "critical", "id": "EB001", "description": "転機セクションに [EMBED] マーカー相当のリソースが完全に欠落"},
+        {"severity": "high", "id": "EB002", "description": "試行錯誤期リンク後の影響描写が不十分"},
+        {"severity": "high", "id": "EB003", "description": "リソース種類が1種類のみ（note記事）。最低2種類必要"},
+        {"severity": "medium", "id": "EB004", "description": "URLベタ打ちでタイトル・説明なし"}
+      ]
+    },
+    {
+      "aspect": "balance",
+      "weight": 0.25,
+      "score": 82,
+      "grade": "B",
+      "strengths": [
+        "総文字量6,449字がターゲットレンジ内",
+        "全6セクションがガイドライン範囲内",
+        "試行錯誤期と転機に最大の紙幅を割く配分が適切",
+        "平均文長29.6字でスマホ最適化が高水準"
+      ],
+      "key_issues": [
+        {"severity": "medium", "id": "BL002", "description": "「これから始める人へ」が上限超過でハウツー化傾向"},
+        {"severity": "low", "id": "BL001", "description": "きっかけセクションが下限ぎりぎり（800字）"},
+        {"severity": "low", "id": "BL004", "description": "転機セクション中盤に長段落が3連続"}
+      ]
+    }
+  ],
+  "total_score": 76.95,
+  "total_grade": "B",
+  "score_calculation": "82*0.30 + 82*0.30 + 45*0.15 + 82*0.25 = 24.6 + 24.6 + 6.75 + 20.5 = 76.45 ≈ 77",
+  "priority_fixes": [
+    "【critical】転機セクションに埋め込みリンクを追加（YouTube動画 or Web記事）",
+    "【high】試行錯誤期の既存リンク後に行動変化の描写を追加",
+    "【high】リソース種類を2種類以上に（note以外を追加）",
+    "【medium】クラウドソーシング名・編集ソフト名を具体的に記載",
+    "【medium】1ヶ月目の時系列整合を修正",
+    "【medium】転機セクションに内面感情の描写を追加",
+    "【medium】「これから始める人へ」を圧縮しハウツー化を防止"
+  ]
+}

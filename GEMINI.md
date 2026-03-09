@@ -41,3 +41,7 @@
 | `/merge-pr` | ✓ | PRのコンフリクトチェック・CI確認・マージ |
 | `/gemini-search` | ✓ | Gemini CLIを使用してWeb検索 |
 | `/save-to-graph` | ✓ | graph-queueのデータをNeo4jに投入 |
+
+## Obsidian 操作ルール
+
+Obsidian を操作する際は `obsidian` コマンド（`/Applications/Obsidian.app/Contents/MacOS/obsidian`）のみを使用すること。ファイルの読み書きや検索等も `obsidian` CLI 経由で行う。

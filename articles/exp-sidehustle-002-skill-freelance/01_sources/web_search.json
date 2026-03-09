@@ -1,0 +1,159 @@
+{
+  "collection_date": "2026-03-09",
+  "theme": "sidehustle",
+  "pattern_focus": "動画編集副業（未経験→月5万達成型）",
+  "sources": [
+    {
+      "source_type": "web_search",
+      "query": "動画編集 副業 体験談 未経験 月5万",
+      "title": "【体験談つき】動画編集の副業で月5万円稼ぐには？成功のポイントと失敗のリスク・注意点",
+      "url": "https://chaptertwo.co.jp/media/movie-sidejob-50000/",
+      "summary": "動画編集で月5万稼ぐには約10本/月（1本5000円）が必要。1本あたり5時間程度の編集時間。初心者は3ヶ月程度の学習期間が必要。74%の副業動画編集者は月5万未満、25%が5万以上達成。",
+      "relevance_score": 0.95,
+      "key_data": {
+        "income_target": "月5万円",
+        "work_volume": "10本/月",
+        "unit_price": "5000円/本",
+        "time_per_video": "5時間",
+        "learning_period": "3ヶ月",
+        "success_rate": "25%が月5万以上"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "動画編集 副業 体験記 クラウドワークス note",
+      "title": "【動画編集×クラウドワークス副業】は稼げる？初心者が実際にやってみたリアルな収入と体験談",
+      "url": "https://www.morethanhead.com/%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86x%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9%E5%89%AF%E6%A5%AD%E3%81%AF%E7%A8%BC%E3%81%92%E3%82%8B%EF%BC%9F/",
+      "summary": "完全未経験から動画編集副業を開始。テスト採用案件では労働報酬が割に合わず、初心者は1本の短い動画制作に3日かかる現実。単価1000円案件からスタートするのが現実的。",
+      "relevance_score": 0.90,
+      "key_data": {
+        "starting_price": "1000円/本",
+        "initial_time": "3日/本（初心者）",
+        "platform": "クラウドワークス"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "動画編集 副業 note 体験記",
+      "title": "クラウドワークスで動画編集をやってみた！月5万円は稼げる？",
+      "url": "https://note.com/kokoshiridouga/n/nf500cb3d4323",
+      "summary": "クラウドワークスでの動画編集副業の実体験記。月1万円達成までの作業時間は月20-25時間、週5-6時間。完全未経験から3ヶ月で月20万円になった事例もあるが稀。",
+      "relevance_score": 0.88,
+      "key_data": {
+        "monthly_hours_1man": "20-25時間",
+        "weekly_hours": "5-6時間",
+        "exceptional_case": "3ヶ月で月20万（稀）"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "動画編集 副業 note 初案件",
+      "title": "【副業動画編集で０→１達成】初案件獲得当時使っていた営業文とポートフォリオ",
+      "url": "https://note.com/pumpum_video/n/n41255cee896d",
+      "summary": "副業動画編集で初案件を獲得するまでの体験記。提案文テンプレートとポートフォリオの実例を公開。0→1の壁を越えるための具体的なアプローチ。",
+      "relevance_score": 0.85,
+      "key_data": {
+        "focus": "初案件獲得プロセス",
+        "tools": "営業文テンプレート、ポートフォリオ"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "動画編集 副業 1年 体験",
+      "title": "動画編集の副業を1年間やってみた！時間はかかるけど月に5万円は稼げる！",
+      "url": "https://chaptertwo-school.com/media/perform-movieediting-sidejob/",
+      "summary": "1年間の動画編集副業の体験。9ヶ月の学習と案件応募を経て月5万達成。スクール費用の回収にも時間がかかった。継続が鍵。",
+      "relevance_score": 0.92,
+      "key_data": {
+        "duration": "1年間",
+        "learning_period": "9ヶ月",
+        "monthly_income_after_1yr": "約5万円",
+        "investment": "スクール費用あり"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "動画編集 フリーランス 低収入 無理",
+      "title": "【悲報】動画編集で初心者がフリーランスになるのは無理【低収入】",
+      "url": "https://321web.link/videoedit-freelance/",
+      "summary": "動画編集フリーランスの厳しい現実。スクール受講しても収益化に失敗しポートフォリオすら作れず挫折する例。低単価案件の消耗戦。",
+      "relevance_score": 0.80,
+      "key_data": {
+        "failure_pattern": "スクール→挫折",
+        "issue": "低単価消耗、ポートフォリオ未完成"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "video editing freelance side hustle journey",
+      "title": "37-year-old mom makes up to $12,000/month editing videos on Fiverr",
+      "url": "https://www.cnbc.com/2023/01/13/how-jessica-herring-makes-up-to-12k/month-editing-videos-on-fiverr.html",
+      "summary": "Jessica Herring: Fiverr動画編集で月$5,000-$12,000。初心者は$20-40/時間、経験者は$60-100/時間。無料ソフト（DaVinci Resolve）でスタート可能。",
+      "relevance_score": 0.75,
+      "key_data": {
+        "income_range": "$5,000-$12,000/月",
+        "beginner_rate": "$20-40/時間",
+        "free_software": "DaVinci Resolve"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "副業 クラウドソーシング 動画編集 相場",
+      "title": "クラウドワークスで動画編集の単価は？初心者でも副業で稼げるのか",
+      "url": "https://digital-hacks.jp/blog/archives/13148",
+      "summary": "YouTube動画編集の相場は1件3000-5000円。手数料10-20%差し引かれる。初心者可の募集が多い。ショート動画は1件1000-3000円。",
+      "relevance_score": 0.85,
+      "key_data": {
+        "youtube_rate": "3000-5000円/件",
+        "short_video_rate": "1000-3000円/件",
+        "platform_fee": "10-20%"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "副業 平均月収 2025",
+      "title": "副業の平均月収は65,093円！おすすめ副業や効率的に稼ぐコツを紹介",
+      "url": "https://freelance.levtech.jp/guide/detail/1754/",
+      "summary": "パーソルキャリア調査：副業の平均月収65,093円（2022年比+13,000円）。パーソル総研2025年調査：副業時給の平均3,617円、中央値2,083円。",
+      "relevance_score": 0.70,
+      "key_data": {
+        "average_monthly": "65,093円",
+        "average_hourly": "3,617円",
+        "median_hourly": "2,083円"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "side hustle $30000 year experience",
+      "title": "I made over $30,000 from my side hustles this year",
+      "url": "https://www.yahoo.com/lifestyle/articles/made-over-30-000-side-150201158.html",
+      "summary": "年間$30,411をフリーランス執筆で稼いだ体験。フリーランスは税金が高い（Social Security + Medicare）。常に働いている感覚。バーンアウトのリスク。",
+      "relevance_score": 0.65,
+      "key_data": {
+        "annual_income": "$30,411",
+        "burnout_risk": "高い",
+        "tax_burden": "自営業税が追加"
+      }
+    },
+    {
+      "source_type": "web_search",
+      "query": "from zero skills to earning online 90 days",
+      "title": "From Zero Skills to Earning Online in 90 Days — My 2025 Side Hustle Journey",
+      "url": "https://vocal.media/motivation/from-zero-skills-to-earning-online-in-90-days-my-2025-side-hustle-journey",
+      "summary": "スキルゼロから90日でオンライン収入を得るまでの旅。2本目の記事で$20獲得、75日目に5人のリピートクライアント獲得。段階的成長モデル。",
+      "relevance_score": 0.70,
+      "key_data": {
+        "timeline": "90日",
+        "first_earning": "$20（2本目の記事）",
+        "milestone": "75日目に5人リピートクライアント"
+      }
+    }
+  ],
+  "stats": {
+    "total_collected": 11,
+    "by_source": {
+      "web_search_jp": 7,
+      "web_search_en": 4
+    }
+  }
+}

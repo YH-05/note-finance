@@ -25,3 +25,7 @@
 | `/ai-research-collect` | AI投資バリューチェーン収集 |
 | `/asset-management` | 資産形成コンテンツ（note記事+X投稿）を自動生成 |
 | `/reddit-finance-topics` | Reddit金融コミュニティからトピック発見・記事化 |
+
+## Obsidian 操作ルール
+
+Obsidian を操作する際は `obsidian` コマンド（`/Applications/Obsidian.app/Contents/MacOS/obsidian`）のみを使用すること。ファイルの読み書きや検索等も `obsidian` CLI 経由で行う。

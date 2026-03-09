@@ -1,0 +1,74 @@
+{
+    "article_id": "exp-sidehustle-002",
+    "pattern_id": "exp-sidehustle-002",
+    "theme": "sidehustle",
+    "title": "20代後半会社員・動画編集未経験から月5万達成までの試行錯誤型",
+    "category": "experience_db",
+    "tags": ["#20代後半", "#男性", "#会社員", "#動画編集", "#月5万", "#クラウドソーシング", "#未経験スタート", "#副業"],
+    "status": "revised",
+    "created_at": "2026-03-09",
+    "updated_at": "2026-03-09",
+    "spec_card": {
+        "age_range": "20代後半〜30代前半",
+        "gender": "男性",
+        "occupation": "会社員（事務系・IT系）",
+        "income_range": "年収300〜400万台",
+        "area": "首都圏・都市部",
+        "duration": "約1年",
+        "outcome": "月5万円前後を安定達成",
+        "keyword_tags": ["#20代後半", "#男性", "#会社員", "#動画編集", "#月5万", "#クラウドソーシング", "#未経験スタート", "#副業"]
+    },
+    "workflow": {
+        "collecting": {
+            "reddit": "done",
+            "rss": "done",
+            "note_com": "skipped",
+            "web_search": "done",
+            "source_count": 136,
+            "filtered_count": 19
+        },
+        "synthesis": {
+            "pattern_extraction": "done",
+            "anonymization": "done",
+            "spec_card": "done"
+        },
+        "writing": {
+            "first_draft": "done",
+            "embed_resources": "done",
+            "wordcount": 6449
+        },
+        "critique": {
+            "reality": "done",
+            "empathy": "done",
+            "embed": "done",
+            "balance": "done",
+            "total_score": 77
+        },
+        "revision": {
+            "revised_draft": "done",
+            "wordcount": 7331
+        },
+        "publishing": {
+            "neo4j_saved": "done",
+            "final_review": "pending",
+            "published": "pending"
+        }
+    },
+    "neo4j": {
+        "pattern_node_id": "exp-sidehustle-002",
+        "source_node_ids": [
+            "exsrc-web-chaptertwo",
+            "exsrc-web-morethan",
+            "exsrc-web-chapter2s",
+            "exsrc-web-321web",
+            "exsrc-web-notepump",
+            "exsrc-reddit-1rlbz24",
+            "exsrc-reddit-1rnyv5u",
+            "exsrc-reddit-1rh3dqp"
+        ],
+        "embed_resource_ids": [
+            "res-sidehustle-002-001",
+            "res-sidehustle-002-002"
+        ]
+    }
+}

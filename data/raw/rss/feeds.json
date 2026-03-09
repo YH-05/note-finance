@@ -492,6 +492,114 @@
       "last_fetched": "2026-01-29T02:57:10.985828+00:00",
       "last_status": "success",
       "enabled": true
+    },
+    {
+      "feed_id": "ad96b6c9-d34e-4053-b64c-e49a2abddafe",
+      "url": "https://news.google.com/rss/search?q=%E5%A9%9A%E6%B4%BB+%E4%BD%93%E9%A8%93%E8%AB%87&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - 婚活体験談",
+      "category": "experience-db-konkatsu",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:13:49.428595+00:00",
+      "updated_at": "2026-03-09T08:15:39.800417+00:00",
+      "last_fetched": "2026-03-09T08:15:39.800410+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "e7913f20-8dc6-4ebf-acb7-e4448b9d86b5",
+      "url": "https://news.google.com/rss/search?q=%E3%83%9E%E3%83%83%E3%83%81%E3%83%B3%E3%82%B0%E3%82%A2%E3%83%97%E3%83%AA+%E6%88%90%E5%A9%9A+%E4%BD%93%E9%A8%93&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - マッチングアプリ成婚体験",
+      "category": "experience-db-konkatsu",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:13:49.440705+00:00",
+      "updated_at": "2026-03-09T08:15:47.477864+00:00",
+      "last_fetched": "2026-03-09T08:15:47.477860+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "3a3ab759-bf43-4745-8330-a16a7a48f43b",
+      "url": "https://news.google.com/rss/search?q=%E5%89%AF%E6%A5%AD+%E4%BD%93%E9%A8%93%E8%AB%87+%E5%8F%8E%E5%85%A5&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - 副業体験談・収入",
+      "category": "experience-db-sidehustle",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:13:50.866311+00:00",
+      "updated_at": "2026-03-09T08:15:40.757743+00:00",
+      "last_fetched": "2026-03-09T08:15:40.757737+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "bb93d6cb-614e-4c2d-921e-596ba68e2839",
+      "url": "https://news.google.com/rss/search?q=Web%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC+%E6%9C%AA%E7%B5%8C%E9%A8%93+%E4%BD%93%E9%A8%93%E8%A8%98&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - Webライター未経験体験記",
+      "category": "experience-db-sidehustle",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:13:53.501186+00:00",
+      "updated_at": "2026-03-09T08:15:49.280905+00:00",
+      "last_fetched": "2026-03-09T08:15:49.280898+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "f0934099-ad6a-4759-9577-f45e9484f7aa",
+      "url": "https://news.google.com/rss/search?q=NISA+%E6%8A%95%E8%B3%87+%E4%BD%93%E9%A8%93+%E9%81%8B%E7%94%A8%E5%A0%B1%E5%91%8A&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - NISA投資体験・運用報告",
+      "category": "experience-db-shisan",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:13:56.248097+00:00",
+      "updated_at": "2026-03-09T08:15:41.374586+00:00",
+      "last_fetched": "2026-03-09T08:15:41.374580+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "3a952fdd-df2b-49f2-a49b-ebbfa3662db3",
+      "url": "https://news.google.com/rss/search?q=%E6%9A%B4%E8%90%BD+%E7%8B%BC%E7%8B%BD%E5%A3%B2%E3%82%8A+%E6%8A%95%E8%B3%87+%E4%BD%93%E9%A8%93&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - 暴落・狼狽売り体験",
+      "category": "experience-db-shisan",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:13:58.724722+00:00",
+      "updated_at": "2026-03-09T08:15:50.649080+00:00",
+      "last_fetched": "2026-03-09T08:15:50.649075+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "68f841c6-2729-4024-bf0b-fba0fbaf404d",
+      "url": "https://news.google.com/rss/search?q=%E8%B3%87%E7%94%A3%E5%BD%A2%E6%88%90+%E4%BD%93%E9%A8%93+%E3%83%96%E3%83%AD%E3%82%B0&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - 資産形成体験ブログ",
+      "category": "experience-db-shisan",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:14:05.586413+00:00",
+      "updated_at": "2026-03-09T08:15:51.904071+00:00",
+      "last_fetched": "2026-03-09T08:15:51.904067+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "11273fc3-4936-4dcb-bf58-240e3078063f",
+      "url": "https://news.google.com/rss/search?q=%E7%B5%90%E5%A9%9A%E7%9B%B8%E8%AB%87%E6%89%80+%E6%88%90%E5%A9%9A+%E4%BD%93%E9%A8%93%E8%AB%87&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - 結婚相談所成婚体験談",
+      "category": "experience-db-konkatsu",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:14:07.799737+00:00",
+      "updated_at": "2026-03-09T08:15:52.427981+00:00",
+      "last_fetched": "2026-03-09T08:15:52.427970+00:00",
+      "last_status": "success",
+      "enabled": true
+    },
+    {
+      "feed_id": "f699d24d-555a-4a58-baa2-88739e9cd2bb",
+      "url": "https://news.google.com/rss/search?q=%E5%89%AF%E6%A5%AD+%E5%A7%8B%E3%82%81%E3%81%A6+%E6%9C%88%E5%8F%8E+%E4%B8%87%E5%86%86&hl=ja&gl=JP&ceid=JP:ja",
+      "title": "Google News - 副業月収報告",
+      "category": "experience-db-sidehustle",
+      "fetch_interval": "daily",
+      "created_at": "2026-03-09T08:14:10.043362+00:00",
+      "updated_at": "2026-03-09T08:15:54.026389+00:00",
+      "last_fetched": "2026-03-09T08:15:54.026382+00:00",
+      "last_status": "success",
+      "enabled": true
     }
   ]
 }

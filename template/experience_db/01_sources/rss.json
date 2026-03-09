@@ -1,0 +1,31 @@
+{
+    "collected_at": "",
+    "theme": "",
+    "feed_category": "",
+    "stories": [
+        {
+            "source": "rss",
+            "feed_id": "",
+            "feed_name": "",
+            "item_id": "",
+            "title": "",
+            "link": "",
+            "published": "",
+            "summary": "",
+            "attributes": {
+                "age_range": "",
+                "gender": "",
+                "duration": "",
+                "outcome": "",
+                "has_numbers": false,
+                "first_person": false
+            },
+            "relevance_score": 0,
+            "selected": false
+        }
+    ],
+    "stats": {
+        "total_fetched": 0,
+        "passed_filter": 0
+    }
+}
