@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-09",
+    "article_path": "docs/plan/SideBusiness/csa-sidehustle-001_ai-solo-startup-analysis.md",
+    "template_type": "C",
+    "template_label": "AI一人スタートアップ事例分析",
+    "critique_type": "case_study",
+    "revision": 2,
+    "previous_overall": 61.6
+  },
+  "scores": {
+    "data_accuracy": 62,
+    "analysis_depth": 72,
+    "actionability": 78,
+    "structure": 72,
+    "overall": 70.2
+  },
+  "verdict": "publish_not_recommended",
+  "details": {
+    "data_accuracy": {
+      "score": 62,
+      "grade": "C",
+      "category_scores": {"numerical": 60, "source": 65, "timeline": 70, "exaggeration": 55},
+      "key_issues": [
+        "ShipFastとCodeFastはPieter Levelsではなく Marc Louのプロダクト（事実誤認）",
+        "Carta 2017年ソロ創業者比率15%の具体的ソース不明",
+        "MicroConf 2024調査の正確な出典が特定不能",
+        "Midjourney評価額100億ドルの時期・ソースが曖昧",
+        "30件以上の事例分析の根拠が記事中に示されていない"
+      ],
+      "data_points": {"total": 48, "verified": 30, "unverifiable": 12, "likely_incorrect": 6}
+    },
+    "analysis_depth": {
+      "score": 72,
+      "grade": "C",
+      "category_scores": {"pattern_extraction": 78, "causal_reasoning": 68, "comparison": 75, "insight": 65},
+      "key_issues": [
+        "Base44の因果推論が浅い（タイミングが重なった結果で止まっている）",
+        "パターン3が3事例からの帰納ではなく外部情報の付加に見える",
+        "日本市場セクションでパターンとの対応関係が弱い",
+        "成功者がやらなかったことの分析が失敗事例セクションに集約されすぎ"
+      ],
+      "analysis_vs_description": {"ratio": 0.55, "assessment": "balanced"}
+    },
+    "actionability": {
+      "score": 78,
+      "grade": "B",
+      "category_scores": {"reproducibility": 76, "conditions": 80, "steps": 74, "grounding": 82},
+      "key_issues": [
+        "Phase 2-3の行動ステップが抽象的で実行不能レベル",
+        "日本の個人レベル成功事例がゼロ",
+        "収益モデルの具体数字（価格×人数等）が一切ない",
+        "退屈な業界×AIの副業規模参入例が不足"
+      ],
+      "likely_reader_reaction": "inspired_but_lost"
+    },
+    "structure": {
+      "score": 72,
+      "grade": "C",
+      "category_scores": {"template_compliance": 78, "section_distribution": 70, "density": 75, "pacing": 65},
+      "key_issues": [
+        "パターン分析2,520字で基準上限1,800字を40%超過",
+        "総文字量9,687字が上限9,000字を超過",
+        "事例2が1,124字で基準下限1,200字を下回る",
+        "長文段落が4段落連続する箇所あり"
+      ],
+      "total_wordcount": 9687,
+      "section_wordcounts": {
+        "導入": 1019,
+        "事例1": 1322,
+        "事例2": 1124,
+        "事例3": 1284,
+        "パターン分析": 2520,
+        "日本市場への示唆": 1045,
+        "アクションプラン": 717,
+        "まとめ": 656
+      }
+    }
+  },
+  "all_issues_by_severity": {
+    "critical": ["ShipFast/CodeFastの誤帰属（Marc Louのプロダクト）", "Phase 2-3のアクションステップが抽象的すぎ"],
+    "high": ["パターン分析が基準上限40%超過", "総文字量9,000字超過", "Carta/MicroConfソース特定不能", "Base44因果推論の浅さ", "日本の個人レベル成功事例ゼロ", "収益モデル具体数字なし"],
+    "medium": ["事例2が基準下限未満", "Midjourneyの一人スタートアップとしての正当化不足", "パターン3の帰納的導出不足", "長文段落4連続", "退屈な業界の副業参入例不足", "Phase 1の時間投資目安不明"],
+    "low": ["為替レート一律適用", "Discord人数の表記揺れ", "補助事例が名前のみ", "コミュニティ紹介の活発度情報なし"]
+  },
+  "improvement_priorities": [
+    "ShipFast/CodeFast の誤帰属を即時修正",
+    "パターン分析を1,800字以内に圧縮（総文字量も解消）",
+    "日本の個人開発者成功事例を1-2件追加",
+    "Phase 2-3に具体的ステップ・収益モデルを追加",
+    "事例2（Levels）を1,200字以上に拡充"
+  ]
+}
