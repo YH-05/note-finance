@@ -4,10 +4,19 @@ Defines the ``@runtime_checkable`` Protocol that all LLM provider
 implementations must satisfy. Provides extension points for PDF-to-Markdown
 conversion, table extraction, and knowledge graph extraction.
 
+Also provides ISP-compliant sub-protocols:
+
+- :class:`MarkdownProvider`: required by :class:`~pdf_pipeline.core.markdown_converter.MarkdownConverter`
+- :class:`TableProvider`: required by :class:`~pdf_pipeline.core.table_reconstructor.TableReconstructor`
+
 Classes
 -------
+MarkdownProvider
+    Narrow Protocol for PDF→Markdown conversion (ISP).
+TableProvider
+    Narrow Protocol for table JSON extraction (ISP).
 LLMProvider
-    Runtime-checkable Protocol for LLM provider implementations.
+    Full runtime-checkable Protocol (backward compatible, extends both).
 
 Examples
 --------
@@ -28,6 +37,104 @@ True
 from __future__ import annotations
 
 from typing import Protocol, runtime_checkable
+
+
+class MarkdownProvider(Protocol):
+    """Narrow Protocol for PDF→Markdown conversion.
+
+    Used by :class:`~pdf_pipeline.core.markdown_converter.MarkdownConverter`.
+    Satisfies the Interface Segregation Principle: converters only need
+    ``convert_pdf_to_markdown`` and ``is_available``.
+
+    Methods
+    -------
+    convert_pdf_to_markdown(pdf_path)
+        Convert a PDF file to Markdown text.
+    is_available()
+        Check whether this provider is currently available.
+
+    Examples
+    --------
+    >>> class MockMarkdownProvider:
+    ...     def convert_pdf_to_markdown(self, pdf_path: str) -> str:
+    ...         return "# Mock"
+    ...     def is_available(self) -> bool:
+    ...         return True
+    """
+
+    def convert_pdf_to_markdown(self, pdf_path: str) -> str:
+        """Convert a PDF file to Markdown text.
+
+        Parameters
+        ----------
+        pdf_path : str
+            Absolute or relative path to the PDF file.
+
+        Returns
+        -------
+        str
+            Markdown-formatted text extracted from the PDF.
+        """
+        ...
+
+    def is_available(self) -> bool:
+        """Check whether this provider is currently available.
+
+        Returns
+        -------
+        bool
+            ``True`` if the provider can be used; ``False`` otherwise.
+        """
+        ...
+
+
+class TableProvider(Protocol):
+    """Narrow Protocol for table JSON extraction.
+
+    Used by :class:`~pdf_pipeline.core.table_reconstructor.TableReconstructor`.
+    Satisfies the Interface Segregation Principle: reconstructors only need
+    ``extract_table_json`` and ``is_available``.
+
+    Methods
+    -------
+    extract_table_json(text)
+        Extract structured table data as JSON from text.
+    is_available()
+        Check whether this provider is currently available.
+
+    Examples
+    --------
+    >>> class MockTableProvider:
+    ...     def extract_table_json(self, text: str) -> str:
+    ...         return '{"table_type": "unknown"}'
+    ...     def is_available(self) -> bool:
+    ...         return True
+    """
+
+    def extract_table_json(self, text: str) -> str:
+        """Extract structured table data from text as JSON.
+
+        Parameters
+        ----------
+        text : str
+            Text containing table data to extract.
+
+        Returns
+        -------
+        str
+            JSON-encoded table data.
+        """
+        ...
+
+    def is_available(self) -> bool:
+        """Check whether this provider is currently available.
+
+        Returns
+        -------
+        bool
+            ``True`` if the provider can be used; ``False`` otherwise.
+        """
+        ...
 
 
 @runtime_checkable

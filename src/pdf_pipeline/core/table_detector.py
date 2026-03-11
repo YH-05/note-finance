@@ -75,17 +75,27 @@ class TableDetector:
     # Public API
     # ------------------------------------------------------------------
 
-    def detect(self, pdf_path: str) -> list[RawTable]:
+    def detect(
+        self,
+        pdf_path: str,
+        doc: fitz.Document | None = None,
+    ) -> list[RawTable]:
         """Detect tables in a PDF and return Tier-1 RawTable objects.
 
-        Opens the PDF, iterates over each page, locates tables using
-        ``page.find_tables()``, crops each table region to a PNG, and
-        populates a :class:`~pdf_pipeline.schemas.tables.RawTable` for each.
+        Opens the PDF (or reuses a pre-opened document), iterates over
+        each page, locates tables using ``page.find_tables()``, crops each
+        region to a PNG, and populates a
+        :class:`~pdf_pipeline.schemas.tables.RawTable` for each.
 
         Parameters
         ----------
         pdf_path : str
             Path to the PDF file to process.
+        doc : fitz.Document | None
+            Optional pre-opened ``fitz.Document``.  When provided the
+            method uses it directly and **does not close it** — the caller
+            retains ownership.  When ``None`` (default) the method opens
+            the file itself and closes it before returning.
 
         Returns
         -------
@@ -109,19 +119,22 @@ class TableDetector:
         logger.info("Starting table detection", pdf_path=pdf_path)
         raw_tables: list[RawTable] = []
 
-        try:
-            doc = fitz.open(pdf_path)
-        except Exception as exc:
-            msg = f"Failed to open PDF for table detection: {pdf_path}"
-            logger.error(msg, error=str(exc))
-            raise PdfPipelineError(msg) from exc
+        caller_owns_doc = doc is not None
+        if doc is None:
+            try:
+                doc = fitz.open(pdf_path)
+            except Exception as exc:
+                msg = f"Failed to open PDF for table detection: {pdf_path}"
+                logger.error(msg, error=str(exc))
+                raise PdfPipelineError(msg) from exc
 
         try:
             for page in doc:
                 page_tables = self._process_page(page, pdf_path=pdf_path)
                 raw_tables.extend(page_tables)
         finally:
-            doc.close()
+            if not caller_owns_doc:
+                doc.close()
 
         logger.info(
             "Table detection complete",

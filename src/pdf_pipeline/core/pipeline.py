@@ -54,6 +54,7 @@ if TYPE_CHECKING:
     from pdf_pipeline.core.pdf_scanner import PdfScanner
     from pdf_pipeline.core.table_detector import TableDetector
     from pdf_pipeline.core.table_reconstructor import TableReconstructor
+    from pdf_pipeline.core.text_extractor import TextExtractor
     from pdf_pipeline.services.state_manager import StateManager
     from pdf_pipeline.types import PipelineConfig
 
@@ -98,6 +99,10 @@ class PdfPipeline:
         Phase 5 component for Markdown section chunking.
     state_manager : StateManager
         State persistence component for idempotency tracking.
+    text_extractor : TextExtractor | None
+        Component for raw text extraction from PDFs (DIP boundary).
+        When ``None`` (default), a :class:`~pdf_pipeline.core.text_extractor.FitzTextExtractor`
+        is created automatically.
 
     Examples
     --------
@@ -130,6 +135,7 @@ class PdfPipeline:
         table_reconstructor: TableReconstructor,
         chunker: MarkdownChunker,
         state_manager: StateManager,
+        text_extractor: TextExtractor | None = None,
     ) -> None:
         self.config = config
         self.scanner = scanner
@@ -139,6 +145,15 @@ class PdfPipeline:
         self.table_reconstructor = table_reconstructor
         self.chunker = chunker
         self.state_manager = state_manager
+
+        if text_extractor is None:
+            from pdf_pipeline.core.text_extractor import (
+                FitzTextExtractor,
+            )
+
+            self.text_extractor: TextExtractor = FitzTextExtractor()
+        else:
+            self.text_extractor = text_extractor
 
         # Ensure the output directory exists
         self.config.output_dir.mkdir(parents=True, exist_ok=True)
@@ -276,7 +291,18 @@ class PdfPipeline:
 
         try:
             # -- Phase 2: Extract raw text + noise filter --------------------
-            raw_text = self._extract_raw_text(pdf_path)
+            # Use extract_with_doc when available to avoid opening the PDF
+            # twice (once for text extraction, once for table detection).
+            from pdf_pipeline.core.text_extractor import (
+                FitzTextExtractor,
+            )
+
+            fitz_doc = None
+            if isinstance(self.text_extractor, FitzTextExtractor):
+                raw_text, fitz_doc = self.text_extractor.extract_with_doc(pdf_path)
+            else:
+                raw_text = self.text_extractor.extract(pdf_path)
+
             filtered_text = self.noise_filter.filter_text(raw_text)
 
             # -- Phase 3: PDF → Markdown conversion --------------------------
@@ -286,7 +312,13 @@ class PdfPipeline:
             )
 
             # -- Phase 4a: Table detection -----------------------------------
-            raw_tables = self.table_detector.detect(str(pdf_path))
+            # Pass the already-open document when available so fitz.open is
+            # not called a second time for the same PDF.
+            raw_tables = self.table_detector.detect(str(pdf_path), doc=fitz_doc)
+            if fitz_doc is not None:
+                with contextlib.suppress(Exception):
+                    fitz_doc.close()
+                fitz_doc = None
 
             # -- Phase 4b: Table reconstruction (only if tables found) -------
             if raw_tables:
@@ -334,6 +366,11 @@ class PdfPipeline:
                 exc_info=True,
             )
 
+            # Ensure any open fitz.Document is closed on error
+            if fitz_doc is not None:  # type: ignore[possibly-undefined]
+                with contextlib.suppress(Exception):
+                    fitz_doc.close()
+
             self.state_manager.record_status(source_hash, "failed")
             with contextlib.suppress(Exception):
                 self.state_manager.save()
@@ -345,48 +382,6 @@ class PdfPipeline:
             }
 
     # -- Internal helpers ----------------------------------------------------
-
-    def _extract_raw_text(self, pdf_path: Path) -> str:
-        """Extract raw text from a PDF file using PyMuPDF.
-
-        Parameters
-        ----------
-        pdf_path : Path
-            Path to the PDF file.
-
-        Returns
-        -------
-        str
-            All text extracted from the PDF, pages joined by newlines.
-        """
-        try:
-            import fitz  # PyMuPDF
-
-            doc = fitz.open(str(pdf_path))
-            texts: list[str] = []
-            for page in doc:
-                texts.append(str(page.get_text()))
-            doc.close()
-            result = "\n".join(texts)
-            logger.debug(
-                "Raw text extracted",
-                pdf_path=str(pdf_path),
-                char_count=len(result),
-            )
-            return result
-        except ImportError:
-            logger.warning(
-                "PyMuPDF not available, using empty text",
-                pdf_path=str(pdf_path),
-            )
-            return ""
-        except Exception as exc:
-            logger.warning(
-                "Failed to extract raw text",
-                pdf_path=str(pdf_path),
-                error=str(exc),
-            )
-            return ""
 
     def _save_chunks(self, *, source_hash: str, chunks: list[dict[str, Any]]) -> None:
         """Save chunks to ``{output_dir}/{source_hash}/chunks.json``.

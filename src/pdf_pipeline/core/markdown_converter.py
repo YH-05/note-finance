@@ -2,7 +2,7 @@
 
 Converts PDF documents to structured Markdown by combining the original
 PDF (for visual fidelity) with pre-filtered text (to guide the LLM away
-from noise).  Delegates to an ``LLMProvider`` via its
+from noise).  Delegates to a ``MarkdownProvider`` via its
 ``convert_pdf_to_markdown`` method and provides utilities for parsing
 the resulting Markdown into sections.
 
@@ -14,8 +14,8 @@ MarkdownConverter
 Examples
 --------
 >>> from unittest.mock import MagicMock
->>> from pdf_pipeline.services.llm_provider import LLMProvider
->>> provider = MagicMock(spec=LLMProvider)
+>>> from pdf_pipeline.services.llm_provider import MarkdownProvider
+>>> provider = MagicMock(spec=MarkdownProvider)
 >>> provider.is_available.return_value = True
 >>> provider.convert_pdf_to_markdown.return_value = "# Report\\n\\n## Section\\n\\nContent."
 >>> converter = MarkdownConverter(provider)
@@ -34,7 +34,7 @@ from pdf_pipeline.exceptions import LLMProviderError
 if TYPE_CHECKING:
     from pathlib import Path
 
-    from pdf_pipeline.services.llm_provider import LLMProvider
+    from pdf_pipeline.services.llm_provider import MarkdownProvider
 
 logger = get_logger(__name__, module="markdown_converter")
 
@@ -42,34 +42,35 @@ logger = get_logger(__name__, module="markdown_converter")
 class MarkdownConverter:
     """Converts a PDF to section-split Markdown via a dual-input LLM.
 
-    Accepts an ``LLMProvider`` and uses its ``convert_pdf_to_markdown``
+    Accepts a ``MarkdownProvider`` and uses its ``convert_pdf_to_markdown``
     method.  The filtered text (output of :class:`NoiseFilter`) is
     embedded in the prompt to help the LLM skip noise content.
 
     Parameters
     ----------
-    provider : LLMProvider
-        An LLM provider that implements the ``LLMProvider`` Protocol,
+    provider : MarkdownProvider
+        An LLM provider that implements the ``MarkdownProvider`` Protocol,
         e.g. ``ProviderChain``, ``GeminiCLIProvider``, or a mock.
+        The full ``LLMProvider`` Protocol also satisfies this type.
 
     Examples
     --------
     >>> from unittest.mock import MagicMock
-    >>> from pdf_pipeline.services.llm_provider import LLMProvider
-    >>> p = MagicMock(spec=LLMProvider)
+    >>> from pdf_pipeline.services.llm_provider import MarkdownProvider
+    >>> p = MagicMock(spec=MarkdownProvider)
     >>> p.convert_pdf_to_markdown.return_value = "# Title\\n\\nContent."
     >>> converter = MarkdownConverter(p)
     >>> converter.provider is p
     True
     """
 
-    def __init__(self, provider: LLMProvider) -> None:
-        """Initialize MarkdownConverter with an LLM provider.
+    def __init__(self, provider: MarkdownProvider) -> None:
+        """Initialize MarkdownConverter with a MarkdownProvider.
 
         Parameters
         ----------
-        provider : LLMProvider
-            LLM provider instance satisfying the ``LLMProvider`` Protocol.
+        provider : MarkdownProvider
+            LLM provider instance satisfying the ``MarkdownProvider`` Protocol.
         """
         self.provider = provider
         logger.debug(

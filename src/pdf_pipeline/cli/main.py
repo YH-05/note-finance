@@ -26,7 +26,6 @@ CLI usage::
 
 from __future__ import annotations
 
-import hashlib
 import re
 import sys
 from pathlib import Path
@@ -288,8 +287,8 @@ def process(ctx: click.Context, pdf_path: Path) -> None:
 
     console.print(f"[bold blue]Processing PDF:[/bold blue] {pdf_path}")
 
-    # Compute SHA-256 hash of the PDF
-    source_hash = hashlib.sha256(pdf_path.read_bytes()).hexdigest()
+    # Compute SHA-256 hash via PdfScanner (uses 64 KiB chunked reads)
+    source_hash = PdfScanner(input_dir=pdf_path.parent).compute_sha256(pdf_path)
     console.print(f"[dim]SHA-256:[/dim] {source_hash}")
 
     # Build pipeline with the PDF's parent directory as input
