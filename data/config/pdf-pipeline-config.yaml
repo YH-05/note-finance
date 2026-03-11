@@ -1,0 +1,36 @@
+# PDF to Knowledge Graph Pipeline Configuration
+#
+# This file configures the pdf_pipeline processing pipeline.
+# See src/pdf_pipeline/types.py for the full schema (PipelineConfig).
+#
+# Usage:
+#   from pathlib import Path
+#   from pdf_pipeline.config.loader import load_config
+#   config = load_config(Path("data/config/pdf-pipeline-config.yaml"))
+
+# LLM provider configuration
+llm:
+  provider: "anthropic"
+  model: "claude-opus-4-5"
+  max_tokens: 4096
+  temperature: 0.0
+
+# Noise filtering during text extraction
+noise_filter:
+  # Minimum number of characters a chunk must have to be retained
+  min_chunk_chars: 50
+  # Regex patterns — chunks matching any pattern are discarded
+  skip_patterns:
+    - "^\\s*$"          # blank lines
+    - "^\\d+\\s*$"      # page numbers only
+    - "^\\s*\\d+\\s*$"  # isolated numbers
+
+# Input directories containing PDF files to process
+input_dirs:
+  - "data/raw/pdfs"
+
+# Output directory for processed results
+output_dir: "data/processed"
+
+# Number of PDFs to process per batch
+batch_size: 10
