@@ -27,6 +27,7 @@ CLI usage::
 from __future__ import annotations
 
 import hashlib
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -46,6 +47,8 @@ logger = get_logger(__name__, module="cli")
 # ---------------------------------------------------------------------------
 
 DEFAULT_OUTPUT_DIR = Path("data/processed")
+
+_SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 """Default output directory for processed PDFs."""
 
 DEFAULT_CONFIG_PATH = Path("data/config/pdf-pipeline-config.yaml")
@@ -319,8 +322,7 @@ def status(ctx: click.Context) -> None:
 
     state_manager = _get_state_manager(output_dir)
 
-    # AIDEV-NOTE: _sha256_to_status is the internal dict backing all status queries.
-    all_statuses: dict[str, str] = dict(state_manager._sha256_to_status)
+    all_statuses: dict[str, str] = state_manager.get_all_statuses()
 
     if not all_statuses:
         console.print("[yellow]No PDFs have been tracked yet.[/yellow]")
@@ -346,11 +348,14 @@ def status(ctx: click.Context) -> None:
 
     console.print(table)
 
+    from collections import Counter
+
+    counts = Counter(all_statuses.values())
     total = len(all_statuses)
-    completed = sum(1 for s in all_statuses.values() if s == "completed")
-    failed = sum(1 for s in all_statuses.values() if s == "failed")
-    processing = sum(1 for s in all_statuses.values() if s == "processing")
-    pending = sum(1 for s in all_statuses.values() if s == "pending")
+    completed = counts["completed"]
+    failed = counts["failed"]
+    processing = counts["processing"]
+    pending = counts["pending"]
 
     console.print(
         f"\n[bold]Total:[/bold] {total}  "
@@ -393,6 +398,12 @@ def reprocess(ctx: click.Context, source_hash: str) -> None:
     """
     output_dir: Path = ctx.obj["output_dir"]
     config_path: Path = ctx.obj["config_path"]
+
+    if not _SHA256_RE.fullmatch(source_hash):
+        console.print(
+            "[red]Error: --hash must be a 64-character lowercase hex string (SHA-256)[/red]"
+        )
+        sys.exit(1)
 
     logger.info(
         "Starting reprocessing",

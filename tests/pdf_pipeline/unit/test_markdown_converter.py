@@ -169,7 +169,7 @@ class TestMarkdownConverterConvert:
         provider = _make_mock_provider("# Content")
         converter = MarkdownConverter(provider)
 
-        with pytest.raises((FileNotFoundError, ValueError, LLMProviderError)):
+        with pytest.raises(FileNotFoundError):
             converter.convert(pdf_path=nonexistent_pdf, filtered_text="Some text.")
 
 

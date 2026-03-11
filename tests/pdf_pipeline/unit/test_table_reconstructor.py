@@ -176,11 +176,11 @@ class TestTableReconstructorReconstruct:
         with pytest.raises(PdfPipelineError):
             reconstructor.reconstruct(pdf_path="report.pdf", raw_tables=[raw])
 
-    def test_正常系_空のraw_tablesでExtractedTablesにするとValidationError回避(
+    def test_異常系_空のraw_tablesでValueErrorが発生する(
         self,
     ) -> None:
         """reconstruct with no raw_tables raises ValueError before LLM is called."""
         mock_chain = MagicMock()
         reconstructor = TableReconstructor(provider_chain=mock_chain)
-        with pytest.raises((ValueError, PdfPipelineError)):
+        with pytest.raises(ValueError, match="raw_tables must not be empty"):
             reconstructor.reconstruct(pdf_path="report.pdf", raw_tables=[])

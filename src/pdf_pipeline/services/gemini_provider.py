@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 from pdf_pipeline._logging import get_logger
@@ -44,6 +45,7 @@ class GeminiCLIProvider:
 
     Uses ``shutil.which`` to check CLI availability and
     ``subprocess.run`` to execute extraction commands.
+    This class is stateless except for the cached availability result.
 
     Examples
     --------
@@ -53,10 +55,14 @@ class GeminiCLIProvider:
     True
     """
 
+    def __init__(self) -> None:
+        self._available: bool | None = None
+
     def is_available(self) -> bool:
         """Check whether the ``gemini`` CLI is available.
 
         Uses ``shutil.which`` to locate the binary in the system PATH.
+        Result is cached after the first call.
 
         Returns
         -------
@@ -69,13 +75,15 @@ class GeminiCLIProvider:
         >>> isinstance(provider.is_available(), bool)
         True
         """
-        available = shutil.which(_CLI_COMMAND) is not None
+        if self._available is not None:
+            return self._available
+        self._available = shutil.which(_CLI_COMMAND) is not None
         logger.debug(
             "GeminiCLIProvider availability check",
             command=_CLI_COMMAND,
-            available=available,
+            available=self._available,
         )
-        return available
+        return self._available
 
     def convert_pdf_to_markdown(self, pdf_path: str) -> str:
         """Convert a PDF file to Markdown using the Gemini CLI.
@@ -104,13 +112,19 @@ class GeminiCLIProvider:
         >>> isinstance(result, str)
         True
         """
+        resolved = str(Path(pdf_path).resolve())
+        if not resolved.endswith(".pdf"):
+            raise LLMProviderError(
+                f"pdf_path must have a .pdf extension: {pdf_path}",
+                provider="GeminiCLIProvider",
+            )
         logger.debug(
             "Converting PDF to Markdown",
             provider="GeminiCLIProvider",
-            pdf_path=pdf_path,
+            pdf_path=resolved,
         )
         return self._run_command(
-            [_CLI_COMMAND, "convert-pdf", pdf_path],
+            [_CLI_COMMAND, "convert-pdf", resolved],
             operation="convert_pdf_to_markdown",
         )
 

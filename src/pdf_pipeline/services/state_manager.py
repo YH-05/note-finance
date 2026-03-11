@@ -188,6 +188,23 @@ class StateManager:
             if status == "completed"
         }
 
+    def get_all_statuses(self) -> dict[str, ProcessingStatus]:
+        """Return a copy of all SHA-256 hashes and their processing statuses.
+
+        Returns
+        -------
+        dict[str, ProcessingStatus]
+            Mapping of SHA-256 hash to processing status for all tracked PDFs.
+
+        Examples
+        --------
+        >>> manager.record_status("hash1", "completed")
+        >>> manager.record_status("hash2", "pending")
+        >>> manager.get_all_statuses()
+        {'hash1': 'completed', 'hash2': 'pending'}
+        """
+        return dict(self._sha256_to_status)
+
     # -----------------------------------------------------------------------
     # Public API: batch manifest management
     # -----------------------------------------------------------------------

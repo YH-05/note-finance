@@ -184,7 +184,10 @@ class TestPdfPipelineProcessPdf:
         with patch.object(
             mocks["noise_filter"], "filter_text", return_value="filtered"
         ):
-            pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+            result = pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+
+        mocks["state_manager"].record_status.assert_called()
+        assert result["source_hash"] == "abc123"
 
     def test_正常系_Phase2ノイズフィルターが呼ばれる(self, tmp_path: Path) -> None:
         pipeline, mocks = self._make_pipeline(tmp_path)
@@ -219,7 +222,9 @@ class TestPdfPipelineProcessPdf:
         pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
         mocks["chunker"].chunk.assert_called()
 
-    def test_正常系_stateManagerのrecord_statusが呼ばれる(self, tmp_path: Path) -> None:
+    def test_正常系_state_managerのrecord_statusが呼ばれる(
+        self, tmp_path: Path
+    ) -> None:
         pipeline, mocks = self._make_pipeline(tmp_path)
         pdf_path = tmp_path / "report.pdf"
         pdf_path.write_bytes(b"%PDF-1.4")
