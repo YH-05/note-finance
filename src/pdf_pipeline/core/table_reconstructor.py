@@ -306,7 +306,36 @@ class TableReconstructor:
         data: dict,
         output: list[TimeSeriesTable],
     ) -> None:
-        """Promote a RawTable to TimeSeriesTable if data is valid."""
+        """Promote a RawTable to TimeSeriesTable if data is valid.
+
+        Parses ``data["periods"]`` and ``data["metrics"]`` from the LLM JSON
+        response and constructs a :class:`~pdf_pipeline.schemas.tables.TimeSeriesTable`.
+        On any parse or validation error the promotion is silently skipped and
+        the Tier-1 fallback is preserved.
+
+        Parameters
+        ----------
+        raw : RawTable
+            The Tier-1 source table to promote.
+        data : dict
+            Parsed JSON dict returned by the LLM.  Must contain ``"periods"``
+            (list of period labels) and ``"metrics"`` (list of metric dicts
+            with keys ``name``, ``value``, and optionally ``unit``, ``period``,
+            ``notes``).
+        output : list[TimeSeriesTable]
+            Accumulator list to which the promoted table is appended on success.
+
+        Returns
+        -------
+        None
+            The method appends to ``output`` in-place and returns ``None``.
+
+        Raises
+        ------
+        None
+            All exceptions are caught internally; failures are logged as warnings
+            and the method returns without raising.
+        """
         try:
             metrics = [
                 FinancialMetric(
@@ -338,7 +367,37 @@ class TableReconstructor:
         data: dict,
         output: list[EstimateChangeTable],
     ) -> None:
-        """Promote a RawTable to EstimateChangeTable if data is valid."""
+        """Promote a RawTable to EstimateChangeTable if data is valid.
+
+        Reads ``metric_name``, ``previous_estimate``, ``new_estimate``, and
+        ``change_rate`` from the LLM JSON response and constructs an
+        :class:`~pdf_pipeline.schemas.tables.EstimateChangeTable`.
+        On any parse or validation error the promotion is silently skipped and
+        the Tier-1 fallback is preserved.
+
+        Parameters
+        ----------
+        raw : RawTable
+            The Tier-1 source table to promote.
+        data : dict
+            Parsed JSON dict returned by the LLM.  Must contain
+            ``"metric_name"`` (str), ``"previous_estimate"`` (numeric),
+            ``"new_estimate"`` (numeric), and ``"change_rate"`` (numeric).
+            Optionally may include ``"period"`` (str).
+        output : list[EstimateChangeTable]
+            Accumulator list to which the promoted table is appended on success.
+
+        Returns
+        -------
+        None
+            The method appends to ``output`` in-place and returns ``None``.
+
+        Raises
+        ------
+        None
+            All exceptions are caught internally; failures are logged as warnings
+            and the method returns without raising.
+        """
         try:
             et = EstimateChangeTable(
                 raw_table=raw,
@@ -363,7 +422,34 @@ class TableReconstructor:
         data: dict,
         output: list[KeyValueTable],
     ) -> None:
-        """Promote a RawTable to KeyValueTable if data is valid."""
+        """Promote a RawTable to KeyValueTable if data is valid.
+
+        Reads ``entries`` from the LLM JSON response and constructs a
+        :class:`~pdf_pipeline.schemas.tables.KeyValueTable`.
+        On any parse or validation error the promotion is silently skipped and
+        the Tier-1 fallback is preserved.
+
+        Parameters
+        ----------
+        raw : RawTable
+            The Tier-1 source table to promote.
+        data : dict
+            Parsed JSON dict returned by the LLM.  Must contain ``"entries"``
+            (dict mapping string keys to string or numeric values).
+        output : list[KeyValueTable]
+            Accumulator list to which the promoted table is appended on success.
+
+        Returns
+        -------
+        None
+            The method appends to ``output`` in-place and returns ``None``.
+
+        Raises
+        ------
+        None
+            All exceptions are caught internally; failures are logged as warnings
+            and the method returns without raising.
+        """
         try:
             kv = KeyValueTable(
                 raw_table=raw,

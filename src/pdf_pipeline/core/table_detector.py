@@ -134,7 +134,7 @@ class TableDetector:
     # Private helpers
     # ------------------------------------------------------------------
 
-    def _process_page(self, page: Any, *, pdf_path: str) -> list[RawTable]:
+    def _process_page(self, page: fitz.Page, *, pdf_path: str) -> list[RawTable]:
         """Process a single PDF page and extract tables.
 
         Parameters
@@ -149,8 +149,8 @@ class TableDetector:
         list[RawTable]
             Tables found on this page, as RawTable instances.
         """
-        page_number_1based = int(page.number) + 1  # pymupdf uses 0-based indexing
-        finder = page.find_tables()
+        page_number_1based = int(page.number) + 1  # type: ignore[arg-type]  # pymupdf uses 0-based indexing
+        finder = page.find_tables()  # type: ignore[attr-defined]
         if not finder.tables:
             logger.debug(
                 "No tables found on page",
@@ -179,7 +179,7 @@ class TableDetector:
     def _extract_table(
         self,
         *,
-        page: Any,
+        page: fitz.Page,
         table: Any,
         page_number: int,
         table_idx: int,
@@ -247,7 +247,7 @@ class TableDetector:
     def _save_table_image(
         self,
         *,
-        page: Any,
+        page: fitz.Page,
         bbox: list[float],
         page_number: int,
         table_idx: int,

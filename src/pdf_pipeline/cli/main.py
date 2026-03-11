@@ -30,7 +30,7 @@ import hashlib
 import re
 import sys
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import click
 from rich.console import Console
@@ -39,6 +39,11 @@ from rich.table import Table
 from pdf_pipeline._logging import get_logger
 from pdf_pipeline.config.loader import load_config
 from pdf_pipeline.core.pdf_scanner import PdfScanner
+
+if TYPE_CHECKING:
+    from pdf_pipeline.core.pipeline import PdfPipeline
+    from pdf_pipeline.services.state_manager import StateManager
+    from pdf_pipeline.types import ProcessingStatus
 
 logger = get_logger(__name__, module="cli")
 
@@ -66,7 +71,7 @@ def _build_pipeline_for_dir(
     input_dir: Path,
     output_dir: Path,
     config_path: Path,
-) -> Any:
+) -> "PdfPipeline":
     """Build a fully wired PdfPipeline instance for a given input directory.
 
     Constructs all pipeline components using the loaded configuration,
@@ -133,7 +138,7 @@ def _build_pipeline_for_dir(
     )
 
 
-def _get_state_manager(output_dir: Path) -> Any:
+def _get_state_manager(output_dir: Path) -> "StateManager":
     """Get a StateManager instance for the given output directory.
 
     Parameters
@@ -322,7 +327,7 @@ def status(ctx: click.Context) -> None:
 
     state_manager = _get_state_manager(output_dir)
 
-    all_statuses: dict[str, str] = state_manager.get_all_statuses()
+    all_statuses: dict[str, ProcessingStatus] = state_manager.get_all_statuses()
 
     if not all_statuses:
         console.print("[yellow]No PDFs have been tracked yet.[/yellow]")

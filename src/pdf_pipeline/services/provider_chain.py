@@ -20,7 +20,7 @@ True
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Callable, TypeVar
+from typing import TYPE_CHECKING, Callable
 
 from pdf_pipeline._logging import get_logger
 from pdf_pipeline.exceptions import LLMProviderError
@@ -29,8 +29,6 @@ if TYPE_CHECKING:
     from pdf_pipeline.services.llm_provider import LLMProvider
 
 logger = get_logger(__name__, module="provider_chain")
-
-T = TypeVar("T")
 
 # ---------------------------------------------------------------------------
 # ProviderChain class
