@@ -1,7 +1,8 @@
 """Exception hierarchy for the pdf_pipeline package.
 
 Provides a structured exception hierarchy for error handling across
-the PDF processing pipeline: scanning, state management, and configuration.
+the PDF processing pipeline: scanning, conversion, state management,
+and configuration.
 
 Classes
 -------
@@ -9,10 +10,14 @@ PdfPipelineError
     Base exception for all pdf_pipeline errors.
 ConfigError
     Raised when configuration is invalid.
+ConversionError
+    Raised when PDF conversion or extraction fails.
 ScanError
     Raised when PDF directory scanning fails.
 StateError
     Raised when state persistence operations fail.
+LLMProviderError
+    Raised when an LLM provider operation fails.
 PathTraversalError
     Raised when a path traversal attack is detected.
 
@@ -41,8 +46,8 @@ class ConfigError(PdfPipelineError):
 
     Attributes
     ----------
-    field : str
-        The configuration field that caused the error.
+    field : str | None
+        The configuration field that caused the error, or ``None`` if unspecified.
 
     Examples
     --------
@@ -53,9 +58,34 @@ class ConfigError(PdfPipelineError):
     Field: path, Error: Config file not found
     """
 
-    def __init__(self, message: str, *, field: str) -> None:
+    def __init__(self, message: str, *, field: str | None = None) -> None:
         super().__init__(message)
         self.field = field
+
+
+class ConversionError(PdfPipelineError):
+    """Raised when PDF conversion or text extraction fails.
+
+    Attributes
+    ----------
+    path : str
+        The PDF file path that failed to convert.
+    step : str | None
+        The conversion step that failed, or ``None`` if unspecified.
+
+    Examples
+    --------
+    >>> try:
+    ...     raise ConversionError("Text extraction failed", path="/tmp/report.pdf")
+    ... except ConversionError as e:
+    ...     print(f"Path: {e.path}, Error: {e}")
+    Path: /tmp/report.pdf, Error: Text extraction failed
+    """
+
+    def __init__(self, message: str, *, path: str, step: str | None = None) -> None:
+        super().__init__(message)
+        self.path = path
+        self.step = step
 
 
 class ScanError(PdfPipelineError):
