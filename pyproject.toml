@@ -97,8 +97,11 @@ exclude = [
 # B101: assert は型ガード用途で使用（scrapling optional import guard）
 # B110: try/except/pass は PDF検出等のオプショナル処理で意図的に使用
 # B311: random はレート制限ジッターやサンプリング等の非セキュリティ用途で使用（誤検知）
+# B404: subprocess は GeminiCLIProvider で shutil.which 経由の信頼済みコマンドのみ使用
+# B603: subprocess.run はリスト渡し（shell=False）で安全に使用（shell=True は使用していない）
 # B607: gh / playwright 等の信頼済みコマンドを PATH 経由で起動（誤検知）
-skips = ["B101", "B110", "B311", "B607"]
+# B112: ProviderChain._try_providers でフォールバック用の意図的な try/except/continue
+skips = ["B101", "B110", "B311", "B404", "B603", "B607", "B112"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
