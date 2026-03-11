@@ -102,6 +102,28 @@ class StateError(PdfPipelineError):
         self.state_file = state_file
 
 
+class LLMProviderError(PdfPipelineError):
+    """Raised when an LLM provider operation fails.
+
+    Attributes
+    ----------
+    provider : str | None
+        Name of the provider that raised the error, or ``None`` if unspecified.
+
+    Examples
+    --------
+    >>> try:
+    ...     raise LLMProviderError("Gemini CLI failed", provider="GeminiCLIProvider")
+    ... except LLMProviderError as e:
+    ...     print(f"Provider: {e.provider}, Error: {e}")
+    Provider: GeminiCLIProvider, Error: Gemini CLI failed
+    """
+
+    def __init__(self, message: str, *, provider: str | None = None) -> None:
+        super().__init__(message)
+        self.provider = provider
+
+
 class PathTraversalError(PdfPipelineError):
     """Raised when a path traversal attack is detected.
 
