@@ -30,21 +30,15 @@ Examples
 
 from __future__ import annotations
 
-import re
 from typing import TYPE_CHECKING, Any
 
 from pdf_pipeline._logging import get_logger
+from pdf_pipeline.core._patterns import _HEADING_PATTERN
 
 if TYPE_CHECKING:
     from pdf_pipeline.schemas.tables import RawTable
 
 logger = get_logger(__name__, module="chunker")
-
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
-
-_HEADING_PATTERN = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
 
 # ---------------------------------------------------------------------------
 # MarkdownChunker

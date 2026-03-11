@@ -25,10 +25,10 @@ True
 
 from __future__ import annotations
 
-import re
 from typing import TYPE_CHECKING
 
 from pdf_pipeline._logging import get_logger
+from pdf_pipeline.core._patterns import _HEADING_PATTERN
 from pdf_pipeline.exceptions import LLMProviderError
 
 if TYPE_CHECKING:
@@ -37,32 +37,6 @@ if TYPE_CHECKING:
     from pdf_pipeline.services.llm_provider import LLMProvider
 
 logger = get_logger(__name__, module="markdown_converter")
-
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
-
-# Regex matching ATX headings (# / ## / ###)
-_HEADING_PATTERN = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
-
-# Prompt template for dual-input conversion
-_CONVERSION_PROMPT_TEMPLATE = """\
-You are a financial document analyst. Convert the provided PDF document into
-well-structured Markdown, preserving the heading hierarchy (H1/H2/H3).
-
-Guidelines:
-- Use # for top-level section titles
-- Use ## for major sections
-- Use ### for subsections
-- Preserve tables in Markdown table format where possible
-- DO NOT include headers, footers, page numbers, or disclaimer boilerplate
-- Use the filtered text below as a reference to focus on content
-
-Filtered text (noise-removed):
-{filtered_text}
-
-Output clean, structured Markdown only.
-"""
 
 
 class MarkdownConverter:
@@ -155,26 +129,12 @@ class MarkdownConverter:
             logger.error(msg, pdf_path=str(pdf_path))
             raise ValueError(msg)
 
-        # Build a prompt hint that embeds the filtered text
-        prompt_hint = _CONVERSION_PROMPT_TEMPLATE.format(
-            filtered_text=filtered_text[:4000] if filtered_text else "(none)",
-        )
-
         logger.debug(
             "Starting PDF to Markdown conversion",
             pdf_path=str(pdf_path),
             filtered_text_length=len(filtered_text),
-            prompt_hint_length=len(prompt_hint),
         )
 
-        # The provider receives the PDF path; the prompt hint is prepended
-        # to the path string using a conventional separator so that
-        # Gemini/Claude CLI providers can parse it, or mock providers
-        # simply return their pre-configured output.
-        # AIDEV-NOTE: The provider.convert_pdf_to_markdown signature accepts
-        # a path string; we encode the prompt hint via a decorated path arg
-        # when the provider implementation supports it.  For ProviderChain /
-        # mock providers the pdf_path string is what matters.
         try:
             result: str = self.provider.convert_pdf_to_markdown(str(pdf_path))
         except LLMProviderError:
