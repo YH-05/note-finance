@@ -21,6 +21,7 @@ dependencies = [
     "lxml-html-clean>=0.4.4",
     "pyyaml>=6.0.3",
     "neo4j>=6.1.0",
+    "gspread>=6.2.1",
 ]
 
 [project.optional-dependencies]

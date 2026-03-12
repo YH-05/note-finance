@@ -1,0 +1,2613 @@
+{
+  "金融全般": [
+    {
+      "ブログ名 / Author": "Zero Hedge",
+      "URL": "zerohedge.com",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "市場速報・地政学・代替視点",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "市場・地政学のシニカル分析。FeedSpot 2025年1位。ヘッジファンド界の定番。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Marginal Revolution",
+      "URL": "marginalrevolution.com",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "経済学全般・政策・行動経済",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "Tyler Cowen/Alex Tabarrokの経済学議論。FeedSpot 2025年3位。政策・文化交差がXで議論。",
+      "RSS": "https://marginalrevolution.com/feed"
+    },
+    {
+      "ブログ名 / Author": "The Big Picture (Barry Ritholtz)",
+      "URL": "ritholtz.com/blog",
+      "テーマカテゴリ": "#N/A",
+      "詳細テーマ": "市場解説・マクロ・行動ファイナンス",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "#N/A",
+      "RSS": "http://ritholtz.com/feed/"
+    },
+    {
+      "ブログ名 / Author": "Of Dollars and Data",
+      "URL": "ofdollarsanddata.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "データ駆動投資・統計分析",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "Nick Maggiulliのデータ駆動投資。Sharesight 2025年3位。書籍化でXブーム。",
+      "RSS": "https://ofdollarsanddata.com/feed/"
+    },
+    {
+      "ブログ名 / Author": "A Wealth of Common Sense",
+      "URL": "awealthofcommonsense.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "行動ファイナンス・ポートフォリオ",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "Ben Carlsonの行動ファイナンス。Reddit/Xで高評価。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Naked Capitalism",
+      "URL": "nakedcapitalism.com",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "金融制度批判・銀行・格差",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "金融危機・格差論。FeedSpot 2025年4位。ジャーナリスト間で引用多。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Alpha Architect",
+      "URL": "alphaarchitect.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "ファクター投資・学術的定量投資",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "ファクター投資研究。Occam Investing 2025年推薦。学術的深み。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Greg Mankiw's Blog",
+      "URL": "gregmankiw.blogspot.com",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "マクロ経済・教科書的解説",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "ハーバード教授のマクロ経済考察。Intelligent Economist 2025年上位。教科書作者の信頼性。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Mises Institute",
+      "URL": "mises.org",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "オーストリア学派・自由主義経済",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "オーストリア学派経済。FeedSpot 2025年2位。リバタリアン投資家に人気。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "VoxEU",
+      "URL": "voxeu.org",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "アカデミック経済研究・政策",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "CEPRの欧州経済研究。Intelligent Economist 2025年上位。データ駆動型でアカデミック。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "IMF Blog",
+      "URL": "blogs.imf.org",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "グローバルマクロ・新興国",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "国際通貨基金のグローバル経済見解。2025年公式ブログ。政策影響大。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Liberty Street Economics",
+      "URL": "libertystreeteconomics.newyorkfed.org",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "米連銀公式マクロ・金融政策",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "NY連銀の米経済分析。Intelligent Economist 2025年リスト。データ豊富。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "The Penny Hoarder",
+      "URL": "thepennyhoarder.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "パーソナルファイナンス・節約",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "日常の節約・副業Tips。FeedSpot 2025年パーソナルファイナンス1位。Xで初心者投資家に推薦多。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Money Talks News",
+      "URL": "moneytalksnews.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "パーソナルファイナンス・ニュース",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "ニュース・節税Tips。FeedSpot 2025年2位。25年以上の実績で信頼高。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "The College Investor",
+      "URL": "thecollegeinvestor.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "若者投資・学生ローン・サイドハッスル",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "若者向け投資教育。FeedSpot 2025年上位。学生ローン解消法がXで話題。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Monevator",
+      "URL": "monevator.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "UKパッシブ投資・インデックス",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "UKバリュー投資。Stratton Craig 2025年3位。パッシブ戦略詳解。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Mostly Economics",
+      "URL": "mostlyeconomics.wordpress.com",
+      "テーマカテゴリ": "経済（マクロ経済・政策分析中心）",
+      "詳細テーマ": "インド・グローバル経済",
+      "完全無料？": "◯",
+      "備考": "完全無料",
+      "説明": "インド・グローバル経済。FeedSpot 2025年上位。エマージング市場視点。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Net Interest",
+      "URL": "netinterest.substack.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "金融セクター（銀行・保険・フィンテック）",
+      "完全無料？": "×",
+      "備考": "30–40%無料",
+      "説明": "元ヘッジファンドマネージャーの金融セクター分析。Snippet Finance 2025年1位。X投資家推薦No.1。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "The Diff",
+      "URL": "the-diff.co",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "テック×ファイナンス・ビジネスモデル",
+      "完全無料？": "×",
+      "備考": "約50%無料",
+      "説明": "テック・ファイナンスのインフレクション分析。XでEdwin Dorseyが推薦。プロ投資家向け。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Doomberg",
+      "URL": "doomberg.substack.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "エネルギー・コモディティ・地政学",
+      "完全無料？": "×",
+      "備考": "ほぼ有料",
+      "説明": "エネルギー・金融の洞察。X投資家リスト常連。地政学連動。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Klement on Investing",
+      "URL": "klementoninvesting.substack.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "投資哲学・行動ファイナンス",
+      "完全無料？": "×",
+      "備考": "約50%無料",
+      "説明": "Joachim Klementの投資戦略。Sharesight 2025年1位。欧州視点が新鮮。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Behind the Balance Sheet",
+      "URL": "behindthebalancesheet.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "会計分析・バリュー投資",
+      "完全無料？": "×",
+      "備考": "ほぼ有料",
+      "説明": "元ヘッジファンドのバリューアイデア。XでEdwin Dorsey推薦。プロ向け。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Pernas Research",
+      "URL": "pernasresearch.substack.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "ロングショート個別株アイデア",
+      "完全無料？": "×",
+      "備考": "ほぼ有料",
+      "説明": "L/Sエクイティアイデア。Xの2025年アンダーレイテッドリスト1位。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Overlooked Alpha",
+      "URL": "overlookedalpha.substack.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "中小型株・見過ごされた銘柄",
+      "完全無料？": "×",
+      "備考": "約60%無料",
+      "説明": "見過ごされ株アイデア。XでDalius推薦。小中型株特化。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Clark Square Cap",
+      "URL": "clarksquarecap.substack.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "特殊状況・マイクロキャップ",
+      "完全無料？": "×",
+      "備考": "ほぼ有料",
+      "説明": "特殊状況株。Xでマイクロキャップ投資家共有。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "John Hempton (Bronte Capital)",
+      "URL": "brontezephyr.substack.com",
+      "テーマカテゴリ": "#N/A",
+      "詳細テーマ": "ヘッジファンド視点・ショート",
+      "完全無料？": "×",
+      "備考": "ほぼ有料",
+      "説明": "#N/A",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Bits about Money",
+      "URL": "bitsaboutmoney.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "決済システム・フィンテック",
+      "完全無料？": "△",
+      "備考": "70%無料",
+      "説明": "フィンテック・暗号通貨。Snippet Finance 2025年2位。テック投資家間でホット。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "This Week in Fintech",
+      "URL": "thisweekinfintech.substack.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "フィンテック週刊まとめ",
+      "完全無料？": "×",
+      "備考": "一部無料",
+      "説明": "週刊フィンテックまとめ。Snippet Finance 2025年3位。速報性高くXで共有。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Clever Girl Finance",
+      "URL": "clevergirlfinance.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "女性向けパーソナルファイナンス",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料",
+      "説明": "女性向けファイナンス教育。LendEDU 2025年トップ。自信構築に特化、Xでモチベーション共有。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Afford Anything",
+      "URL": "affordanything.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "不動産・FIRE・資産形成",
+      "完全無料？": "△",
+      "備考": "ブログ無料",
+      "説明": "不動産・資産構築戦略。Sharesight 2025年リスト入り。ポッドキャスト連動で人気。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Good Financial Cents",
+      "URL": "goodfinancialcents.com",
+      "テーマカテゴリ": "金融（パーソナルファイナンス・フィンテック中心）",
+      "詳細テーマ": "退職計画・保険",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料",
+      "説明": "ファイナンシャルプランナーの視点。Stylehills 2025年推薦。退職計画に強い。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Contrarian Edge",
+      "URL": "contrarianedge.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "バリュー投資・ストーリー投資",
+      "完全無料？": "×",
+      "備考": "ほぼ有料",
+      "説明": "Vitaliy Katsenelsonのバリュー投資。Moneywise 2025年トップ。Forbes称賛。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "The Dividend Guy Blog",
+      "URL": "thedividendguyblog.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "配当成長投資",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料",
+      "説明": "配当株特化。Moneywise 2025年2位。ポートフォリオ構築に実践的。",
+      "RSS": ""
+    },
+    {
+      "ブログ名 / Author": "Altay Capital",
+      "URL": "altaycapital.substack.com",
+      "テーマカテゴリ": "投資（株式・ポートフォリオ戦略中心）",
+      "詳細テーマ": "日本株バリュー投資",
+      "完全無料？": "×",
+      "備考": "ほぼ有料",
+      "説明": "日本株バリュー。Xリスト入り。アジア投資に有用。",
+      "RSS": ""
+    }
+  ],
+  "市場ニュース": [
+    {
+      "メディア/ブログ名": "CNBC",
+      "URL": "cnbc.com",
+      "主なテーマカテゴリ": "Market News (グローバル市場速報)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "リアルタイム株・為替ニュース。RSS: https://www.cnbc.com/rss-feeds/",
+      "RSS": "https://www.cnbc.com/rss-feeds/"
+    },
+    {
+      "メディア/ブログ名": "MarketWatch",
+      "URL": "marketwatch.com",
+      "主なテーマカテゴリ": "Market News (US市場・株価更新)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次市場解説・企業速報。RSS: https://www.marketwatch.com/rss",
+      "RSS": "https://www.marketwatch.com/rss"
+    },
+    {
+      "メディア/ブログ名": "Investing.com",
+      "URL": "investing.com",
+      "主なテーマカテゴリ": "Stock Updates (株・商品チャート)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "ライブデータ・ニュース。RSS: https://www.investing.com/webmaster-tools/rss",
+      "RSS": "https://www.investing.com/webmaster-tools/rss"
+    },
+    {
+      "メディア/ブログ名": "Seeking Alpha",
+      "URL": "seekingalpha.com",
+      "主なテーマカテゴリ": "Stock Updates (株分析・速報)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "ユーザー寄稿ニュース。RSS: https://seekingalpha.com/api/sa/combined/seeking_alpha.rss",
+      "RSS": "https://seekingalpha.com/api/sa/combined/seeking_alpha.rss"
+    },
+    {
+      "メディア/ブログ名": "Yahoo Finance",
+      "URL": "finance.yahoo.com",
+      "主なテーマカテゴリ": "Market News (株価・経済ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "無料ポートフォリオツール連動。RSS: https://finance.yahoo.com/rss/",
+      "RSS": "https://finance.yahoo.com/rss/"
+    },
+    {
+      "メディア/ブログ名": "Reuters Business",
+      "URL": "reuters.com/business",
+      "主なテーマカテゴリ": "Economic Indicators (マクロデータ)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "グローバル経済速報。RSS: https://www.reuters.com/arc/outboundfeeds/news-rss/",
+      "RSS": "https://www.reuters.com/arc/outboundfeeds/news-rss/"
+    },
+    {
+      "メディア/ブログ名": "Bloomberg Markets",
+      "URL": "bloomberg.com/markets",
+      "主なテーマカテゴリ": "Market News (市場全体動向)",
+      "完全無料？": "△",
+      "備考（RSSフィード）": "基本ニュース無料（一部有料）。RSS: https://feeds.bloomberg.com/markets/news.rss",
+      "RSS": "https://feeds.bloomberg.com/markets/news.rss"
+    },
+    {
+      "メディア/ブログ名": "The Motley Fool Stock News",
+      "URL": "fool.com/investing/stock-market",
+      "主なテーマカテゴリ": "Stock Updates (株ピック・ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次株ニュース。RSS: https://www.fool.com/feeds/stock-news.rss",
+      "RSS": "https://www.fool.com/feeds/stock-news.rss"
+    },
+    {
+      "メディア/ブログ名": "Nasdaq News",
+      "URL": "nasdaq.com/news-and-insights",
+      "主なテーマカテゴリ": "Stock Updates (上場企業ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "リアルタイム企業発表。RSS: https://www.nasdaq.com/feed/rss",
+      "RSS": "https://www.nasdaq.com/feed/rss"
+    },
+    {
+      "メディア/ブログ名": "Financial Times Markets",
+      "URL": "ft.com/markets",
+      "主なテーマカテゴリ": "Economic Indicators (為替・債券)",
+      "完全無料？": "△",
+      "備考（RSSフィード）": "市場分析（基本無料）。RSS: https://www.ft.com/markets?format=rss",
+      "RSS": "https://www.ft.com/markets?format=rss"
+    },
+    {
+      "メディア/ブログ名": "Fortune Business News",
+      "URL": "fortune.com/section/business-news",
+      "主なテーマカテゴリ": "Overall Daily Updates (企業・市場)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次ビジネスまとめ。RSS: https://fortune.com/feed",
+      "RSS": "https://fortune.com/feed"
+    },
+    {
+      "メディア/ブログ名": "Wall Street Journal Markets",
+      "URL": "wsj.com/market-data",
+      "主なテーマカテゴリ": "Market News (US株・指数)",
+      "完全無料？": "△",
+      "備考（RSSフィード）": "基本ニュース無料。RSS: https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+      "RSS": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"
+    },
+    {
+      "メディア/ブログ名": "BBC Business News",
+      "URL": "bbc.com/news/business",
+      "主なテーマカテゴリ": "Economic Indicators (グローバル経済)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "国際市場ニュース。RSS: https://feeds.bbci.co.uk/news/business/rss.xml",
+      "RSS": "https://feeds.bbci.co.uk/news/business/rss.xml"
+    },
+    {
+      "メディア/ブログ名": "Investopedia News",
+      "URL": "investopedia.com/news",
+      "主なテーマカテゴリ": "Overall Daily Updates (教育ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "市場用語解説連動。RSS: https://www.investopedia.com/feed/news.xml",
+      "RSS": "https://www.investopedia.com/feed/news.xml"
+    },
+    {
+      "メディア/ブログ名": "Benzinga",
+      "URL": "benzinga.com",
+      "主なテーマカテゴリ": "Stock Updates (株速報・アラート)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "リアルタイム株ニュース。RSS: https://www.benzinga.com/rss",
+      "RSS": "https://www.benzinga.com/rss"
+    },
+    {
+      "メディア/ブログ名": "Zacks News",
+      "URL": "zacks.com/stock/news",
+      "主なテーマカテゴリ": "Stock Updates (株ランクニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次株推奨。RSS: https://www.zacks.com/feed/",
+      "RSS": "https://www.zacks.com/feed/"
+    },
+    {
+      "メディア/ブログ名": "Barron's",
+      "URL": "barrons.com",
+      "主なテーマカテゴリ": "Market News (市場予測・ニュース)",
+      "完全無料？": "△",
+      "備考（RSSフィード）": "基本無料。RSS: https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+      "RSS": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"
+    },
+    {
+      "メディア/ブログ名": "AlphaSense Blog",
+      "URL": "alphasense.com/blog",
+      "主なテーマカテゴリ": "Overall Daily Updates (リサーチニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "市場インサイト。RSS: https://www.alphasense.com/rss/blog.xml",
+      "RSS": "https://www.alphasense.com/rss/blog.xml"
+    },
+    {
+      "メディア/ブログ名": "The Street",
+      "URL": "thestreet.com",
+      "主なテーマカテゴリ": "Stock Updates (株・オプション)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次トレードニュース。RSS: https://www.thestreet.com/rss",
+      "RSS": "https://www.thestreet.com/rss"
+    },
+    {
+      "メディア/ブログ名": "Kiplinger",
+      "URL": "kiplinger.com",
+      "主なテーマカテゴリ": "Economic Indicators (個人ファイナンス)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "経済データ解説。RSS: https://www.kiplinger.com/rss/news",
+      "RSS": "https://www.kiplinger.com/rss/news"
+    },
+    {
+      "メディア/ブログ名": "NerdWallet News",
+      "URL": "nerdwallet.com/article/investing",
+      "主なテーマカテゴリ": "Overall Daily Updates (投資ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "初心者向け市場まとめ。RSS: https://www.nerdwallet.com/blog/feed/",
+      "RSS": "https://www.nerdwallet.com/blog/feed/"
+    },
+    {
+      "メディア/ブログ名": "U.S. News Money",
+      "URL": "money.usnews.com",
+      "主なテーマカテゴリ": "Market News (US経済ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次市場動向。RSS: https://money.usnews.com/rss/money",
+      "RSS": "https://money.usnews.com/rss/money"
+    },
+    {
+      "メディア/ブログ名": "SmartBrief Finance",
+      "URL": "smartbrief.com/finance",
+      "主なテーマカテゴリ": "Economic Indicators (財務速報)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "週次/日次まとめ。RSS: https://www.smartbrief.com/servlet/rss?guid=finance",
+      "RSS": "https://www.smartbrief.com/servlet/rss?guid=finance"
+    },
+    {
+      "メディア/ブログ名": "HuffPost Business",
+      "URL": "huffpost.com/business",
+      "主なテーマカテゴリ": "Overall Daily Updates (ビジネスニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "市場社会影響。RSS: https://www.huffpost.com/section/business/feed",
+      "RSS": "https://www.huffpost.com/section/business/feed"
+    },
+    {
+      "メディア/ブログ名": "CBS News Money",
+      "URL": "cbsnews.com/money",
+      "主なテーマカテゴリ": "Stock Updates (株・企業ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次企業速報。RSS: https://www.cbsnews.com/latest/rss/money",
+      "RSS": "https://www.cbsnews.com/latest/rss/money"
+    },
+    {
+      "メディア/ブログ名": "Politico Finance",
+      "URL": "politico.com/finance",
+      "主なテーマカテゴリ": "Economic Indicators (政策影響ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "規制・市場ニュース。RSS: https://www.politico.com/rss/finance.xml",
+      "RSS": "https://www.politico.com/rss/finance.xml"
+    },
+    {
+      "メディア/ブログ名": "The Hill Finance",
+      "URL": "thehill.com/policy/finance",
+      "主なテーマカテゴリ": "Market News (政治・市場)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次政策速報。RSS: https://thehill.com/rss/syndicator/19117",
+      "RSS": "https://thehill.com/rss/syndicator/19117"
+    },
+    {
+      "メディア/ブログ名": "Time Money",
+      "URL": "time.com/money",
+      "主なテーマカテゴリ": "Overall Daily Updates (経済トレンド)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "市場ライフスタイル。RSS: https://time.com/feed/money",
+      "RSS": "https://time.com/feed/money"
+    },
+    {
+      "メディア/ブログ名": "Forbes Markets",
+      "URL": "forbes.com/sites/investor-hub",
+      "主なテーマカテゴリ": "Stock Updates (投資家ニュース)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "日次株動向。RSS: https://www.forbes.com/markets/feed/",
+      "RSS": "https://www.forbes.com/markets/feed/"
+    },
+    {
+      "メディア/ブログ名": "Business Insider Markets",
+      "URL": "markets.businessinsider.com",
+      "主なテーマカテゴリ": "Market News (リアルタイム市場)",
+      "完全無料？": "◯",
+      "備考（RSSフィード）": "グローバル株速報。RSS: https://markets.businessinsider.com/rss",
+      "RSS": "https://markets.businessinsider.com/rss"
+    }
+  ],
+  "CNBC RSS": [
+    {
+      "category": "Top News",
+      "RSS": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114"
+    },
+    {
+      "category": "World News",
+      "RSS": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362"
+    },
+    {
+      "category": "US News",
+      "RSS": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15837362"
+    },
+    {
+      "category": "Asia News",
+      "RSS": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390"
+    },
+    {
+      "category": "Europe News",
+      "RSS": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19794221"
+    },
+    {
+      "category": "Business",
+      "RSS": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147"
+    }
+  ],
+  "Fortune Business RSS": [
+    {
+      "cite": "Fortune",
+      "RSS": "https://fortune.com/feed/fortune-feeds/?id=3230629"
+    }
+  ],
+  "一般消費財": [
+    {
+      "ブログ名 / Author": "The Grocer",
+      "URL": "thegrocer.co.uk",
+      "主なテーマカテゴリ": "Food & Beverage (UK食品小売)",
+      "完全無料？": "◯",
+      "備考": "FMCGニュース・株分析、FeedSpot 2025年FMCG1位"
+    },
+    {
+      "ブログ名 / Author": "KamCity",
+      "URL": "kamcity.com",
+      "主なテーマカテゴリ": "Food & Beverage (インドFMCG)",
+      "完全無料？": "◯",
+      "備考": "食品・飲料投資トレンド、FeedSpot 2025年2位"
+    },
+    {
+      "ブログ名 / Author": "FMCG Gurus Blog",
+      "URL": "fmcggurus.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (FMCG戦略)",
+      "完全無料？": "◯",
+      "備考": "消費者洞察・投資機会、FeedSpot 2025年3位"
+    },
+    {
+      "ブログ名 / Author": "Vertex Resourcing Blog",
+      "URL": "vertexresourcing.co.uk/blog",
+      "主なテーマカテゴリ": "Food & Beverage (人材・サプライチェーン)",
+      "完全無料？": "◯",
+      "備考": "FMCG投資・雇用トレンド、FeedSpot 2025年4位"
+    },
+    {
+      "ブログ名 / Author": "Falcon Gallant Blog",
+      "URL": "falcongallant.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (アジアFMCG)",
+      "完全無料？": "◯",
+      "備考": "市場分析・株ピック、FeedSpot 2025年5位"
+    },
+    {
+      "ブログ名 / Author": "Wabel",
+      "URL": "wabel.com",
+      "主なテーマカテゴリ": "Food & Beverage (グローバルFMCG)",
+      "完全無料？": "◯",
+      "備考": "消費者トレンド投資、FeedSpot 2025年6位"
+    },
+    {
+      "ブログ名 / Author": "ESR Research Blog",
+      "URL": "esrresearch.com/blog",
+      "主なテーマカテゴリ": "Retail Staples (小売研究)",
+      "完全無料？": "◯",
+      "備考": "必需品小売・株戦略、FeedSpot 2025年7位"
+    },
+    {
+      "ブログ名 / Author": "Progressive Grocer",
+      "URL": "progressivegrocer.com",
+      "主なテーマカテゴリ": "Retail Staples (US食品小売)",
+      "完全無料？": "◯",
+      "備考": "スーパー投資・トレンド、2025年トップ"
+    },
+    {
+      "ブログ名 / Author": "Supermarket News",
+      "URL": "supermarketnews.com",
+      "主なテーマカテゴリ": "Retail Staples (小売ニュース)",
+      "完全無料？": "◯",
+      "備考": "必需品チェーン分析、Motley Fool推薦"
+    },
+    {
+      "ブログ名 / Author": "Consumer Goods Technology",
+      "URL": "consumergoods.com",
+      "主なテーマカテゴリ": "Overall Strategy (テック統合)",
+      "完全無料？": "◯",
+      "備考": "FMCGイノベ・投資、2025年リスト"
+    },
+    {
+      "ブログ名 / Author": "Motley Fool Consumer Staples",
+      "URL": "fool.com/investing/stock-market/market-sectors/consumer-staples",
+      "主なテーマカテゴリ": "Food & Beverage (株ピック)",
+      "完全無料？": "◯",
+      "備考": "PG・KO分析、2025年ベスト株ガイド"
+    },
+    {
+      "ブログ名 / Author": "Zacks Consumer Staples",
+      "URL": "zacks.com/stock/news/2798191/buy-these-3-consumer-staple-stocks-to-navigate-market-volatility",
+      "主なテーマカテゴリ": "Household Products (低ベータ株)",
+      "完全無料？": "◯",
+      "備考": "MNST・COCO推奨、2025年ボラティリティ対策"
+    },
+    {
+      "ブログ名 / Author": "NerdWallet Consumer Staples",
+      "URL": "nerdwallet.com/investing/learn/consumer-staples-stocks",
+      "主なテーマカテゴリ": "Overall Strategy (トップ株)",
+      "完全無料？": "◯",
+      "備考": "WMT・DLTRパフォーマンス、2025年11月リスト"
+    },
+    {
+      "ブログ名 / Author": "Bullish Bears Staples List",
+      "URL": "bullishbears.com/consumer-staples-list",
+      "主なテーマカテゴリ": "Retail Staples (ETF・株リスト)",
+      "完全無料？": "◯",
+      "備考": "XLP・VDCガイド、2025年リスト"
+    },
+    {
+      "ブログ名 / Author": "Investing.com Staples",
+      "URL": "investing.com/news/stock-market-news/top-5-us-consumer-staples-stocks-according-to-bofa-global-research-93CH-4281987",
+      "主なテーマカテゴリ": "Food & Beverage (BofAピック)",
+      "完全無料？": "◯",
+      "備考": "KO・トップ5、2025年Q3推奨"
+    },
+    {
+      "ブログ名 / Author": "Finviz Staples",
+      "URL": "finviz.com/news/231577/buy-5-consumer-staples-stocks-despite-the-sectors-weak-show-in-2025",
+      "主なテーマカテゴリ": "Household Products (Zacks Rank)",
+      "完全無料？": "◯",
+      "備考": "PEP・MNST、2025年弱含み対策"
+    },
+    {
+      "ブログ名 / Author": "Yahoo Finance Staples",
+      "URL": "finance.yahoo.com/news/buy-3-consumer-staple-stocks-140800653.html",
+      "主なテーマカテゴリ": "Overall Strategy (低ベータ)",
+      "完全無料？": "◯",
+      "備考": "SCI・低リスク株、2025年ボラ対策"
+    },
+    {
+      "ブログ名 / Author": "Nasdaq Validea Staples",
+      "URL": "nasdaq.com/articles/valideas-top-consumer-staples-stocks-based-peter-lynch-11-28-2025",
+      "主なテーマカテゴリ": "Food & Beverage (Lynchモデル)",
+      "完全無料？": "◯",
+      "備考": "DOLE・NGVC、2025年11月トップ"
+    },
+    {
+      "ブログ名 / Author": "Mezzi ETF Comparison",
+      "URL": "mezzi.com/blog/xlp-vs-vdc-vs-fsta-consumer-staples-etf-recession-defense",
+      "主なテーマカテゴリ": "Retail Staples (ETF比較)",
+      "完全無料？": "◯",
+      "備考": "XLP・VDC、2025年リセッション防衛"
+    },
+    {
+      "ブログ名 / Author": "TIKR XLP Holdings",
+      "URL": "tikr.com/blog/the-consumer-staples-select-sector-spdr-fund-xlp-top-25-holdings",
+      "主なテーマカテゴリ": "Overall Strategy (XLP分析)",
+      "完全無料？": "◯",
+      "備考": "2025年YTDリターン、トップ25"
+    },
+    {
+      "ブログ名 / Author": "MarketBeat Staples",
+      "URL": "marketbeat.com/stocks/sectors/consumer-staples",
+      "主なテーマカテゴリ": "Household Products (トップ50株)",
+      "完全無料？": "◯",
+      "備考": "PG・KOリスト、2025年アップグレード"
+    },
+    {
+      "ブログ名 / Author": "First Trust Economics Blog",
+      "URL": "ftportfolios.com/economicsblog",
+      "主なテーマカテゴリ": "Overall Strategy (経済データ)",
+      "完全無料？": "◯",
+      "備考": "消費財インフレ・小売、2025年CPI"
+    },
+    {
+      "ブログ名 / Author": "Consumer Reports Top Picks",
+      "URL": "consumerreports.org/money/2025-top-picks-shopping-a6242063320",
+      "主なテーマカテゴリ": "Retail Staples (製品レビュー)",
+      "完全無料？": "◯",
+      "備考": "2025年必需品ピック、投資インサイト"
+    },
+    {
+      "ブログ名 / Author": "Reddit ValueInvesting Staples",
+      "URL": "reddit.com/r/ValueInvesting/comments/1c6rn35/consumer_staple_names",
+      "主なテーマカテゴリ": "Food & Beverage (バリュー株)",
+      "完全無料？": "◯",
+      "備考": "XLPアンダーバリュー議論、2025年"
+    },
+    {
+      "ブログ名 / Author": "Moomoo Staples Analysis",
+      "URL": "moomoo.com/community/feed/how-i-would-consider-consumer-staples-short-term-and-long-114752488472982",
+      "主なテーマカテゴリ": "Overall Strategy (短期長期)",
+      "完全無料？": "◯",
+      "備考": "ディフェンシブ株ガイド、2025年"
+    },
+    {
+      "ブログ名 / Author": "Seeking Alpha Staples",
+      "URL": "seekingalpha.com/sector/consumer-staples",
+      "主なテーマカテゴリ": "Household Products (株分析)",
+      "完全無料？": "△",
+      "備考": "プレミアムインサイト、2025年推奨"
+    },
+    {
+      "ブログ名 / Author": "Investopedia Staples",
+      "URL": "investopedia.com/terms/c/consumerstaples.asp",
+      "主なテーマカテゴリ": "Overall Strategy (セクター概要)",
+      "完全無料？": "◯",
+      "備考": "投資基礎・ETF、2025年更新"
+    },
+    {
+      "ブログ名 / Author": "ETF Database Staples",
+      "URL": "etfdb.com/etfs/sector/consumer-staples",
+      "主なテーマカテゴリ": "Retail Staples (ETFデータ)",
+      "完全無料？": "◯",
+      "備考": "XLP・VDC比較、2025年リターン"
+    },
+    {
+      "ブログ名 / Author": "Barron's Staples Coverage",
+      "URL": "barrons.com/topics/consumer-staples",
+      "主なテーマカテゴリ": "Food & Beverage (市場ニュース)",
+      "完全無料？": "△",
+      "備考": "株アップデート、2025年Q4"
+    },
+    {
+      "ブログ名 / Author": "McKinsey Consumer Insights",
+      "URL": "mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/consumer-insights",
+      "主なテーマカテゴリ": "Global Consumer Behavior (グローバルトレンド)",
+      "完全無料？": "◯",
+      "備考": "2025年消費者センチメント・支出予測、McKinsey 2025年トップ"
+    },
+    {
+      "ブログ名 / Author": "Euromonitor Consumer Trends",
+      "URL": "blog.euromonitor.com",
+      "主なテーマカテゴリ": "Global Consumer Behavior (市場リサーチ)",
+      "完全無料？": "◯",
+      "備考": "グローバル消費データ・2025年展望、FeedSpot 2025年1位"
+    },
+    {
+      "ブログ名 / Author": "Nielsen Consumer Insights",
+      "URL": "nielsen.com/insights",
+      "主なテーマカテゴリ": "Global Consumer Behavior (メディア消費)",
+      "完全無料？": "◯",
+      "備考": "消費行動・デジタルシフト、FeedSpot 2025年2位"
+    },
+    {
+      "ブログ名 / Author": "Kantar Consumer Trends",
+      "URL": "us.kantar.com/inspiration/consumer-trends",
+      "主なテーマカテゴリ": "Global Consumer Behavior (ブランド洞察)",
+      "完全無料？": "◯",
+      "備考": "2025年消費者価値観、Xで@trendwatchers推薦"
+    },
+    {
+      "ブログ名 / Author": "Exploding Topics Consumer Trends",
+      "URL": "explodingtopics.com/blog/consumer-trends",
+      "主なテーマカテゴリ": "Global Consumer Behavior (トレンド予測)",
+      "完全無料？": "◯",
+      "備考": "2025年急上昇消費トレンド、Exploding Topics 2025年リスト"
+    },
+    {
+      "ブログ名 / Author": "Trendwatching",
+      "URL": "trendwatching.com",
+      "主なテーマカテゴリ": "Global Consumer Behavior (イノベ消費)",
+      "完全無料？": "◯",
+      "備考": "グローバル消費者インサイト、FeedSpot 2025年3位"
+    },
+    {
+      "ブログ名 / Author": "PSFK Consumer Trends",
+      "URL": "psfk.com/topics/consumer-trends",
+      "主なテーマカテゴリ": "Global Consumer Behavior (未来消費)",
+      "完全無料？": "◯",
+      "備考": "2025年ポストパンデミック行動、PSFK 2025年トップ"
+    },
+    {
+      "ブログ名 / Author": "Springwise Consumer Innovations",
+      "URL": "springwise.com",
+      "主なテーマカテゴリ": "Sustainable Consumption (持続可能トレンド)",
+      "完全無料？": "◯",
+      "備考": "グリーン消費イノベ、FeedSpot 2025年4位"
+    },
+    {
+      "ブログ名 / Author": "GreenBiz Consumer Sustainability",
+      "URL": "greenbiz.com/topic/consumer-sustainability",
+      "主なテーマカテゴリ": "Sustainable Consumption (エコ消費)",
+      "完全無料？": "◯",
+      "備考": "2025年持続可能支出、Xで共有多"
+    },
+    {
+      "ブログ名 / Author": "Treehugger Sustainable Living",
+      "URL": "treehugger.com",
+      "主なテーマカテゴリ": "Sustainable Consumption (ライフスタイル)",
+      "完全無料？": "◯",
+      "備考": "消費者のエコシフト、FeedSpot 2025年5位"
+    },
+    {
+      "ブログ名 / Author": "The Sustainable Consumer",
+      "URL": "thesustainableconsumer.com",
+      "主なテーマカテゴリ": "Sustainable Consumption (ゼロウェイスト)",
+      "完全無料？": "◯",
+      "備考": "2025年サステナブルトレンド、X推薦"
+    },
+    {
+      "ブログ名 / Author": "EcoWatch Consumer Eco-Trends",
+      "URL": "ecowatch.com/category/consumer",
+      "主なテーマカテゴリ": "Sustainable Consumption (グリーン製品)",
+      "完全無料？": "◯",
+      "備考": "環境意識消費、2025年リスト"
+    },
+    {
+      "ブログ名 / Author": "Bain & Company Luxury Report",
+      "URL": "bain.com/insights/topics/luxury",
+      "主なテーマカテゴリ": "Luxury & Emerging Markets (ラグジュアリー消費)",
+      "完全無料？": "◯",
+      "備考": "2025年グローバルラグジュアリー、McKinsey連携"
+    },
+    {
+      "ブログ名 / Author": "Boston Consulting Group Consumer",
+      "URL": "bcg.com/capabilities/marketing-sales/consumer-insights",
+      "主なテーマカテゴリ": "Luxury & Emerging Markets (新興市場)",
+      "完全無料？": "◯",
+      "備考": "アジア消費成長、BCG 2025年レポート"
+    },
+    {
+      "ブログ名 / Author": "Deloitte Global Consumer Trends",
+      "URL": "deloitte.com/global/en/issues/consumer.html",
+      "主なテーマカテゴリ": "Luxury & Emerging Markets (ミレニアル消費)",
+      "完全無料？": "◯",
+      "備考": "2025年新興国トレンド、Deloitte 2025年"
+    },
+    {
+      "ブログ名 / Author": "PwC Consumer Intelligence",
+      "URL": "pwc.com/gx/en/industries/consumer-markets.html",
+      "主なテーマカテゴリ": "Luxury & Emerging Markets (グローバル支出)",
+      "完全無料？": "◯",
+      "備考": "2025年消費者インテリジェンス、PwCトップ"
+    },
+    {
+      "ブログ名 / Author": "World Economic Forum Consumer",
+      "URL": "weforum.org/agenda/consumer-trends",
+      "主なテーマカテゴリ": "Luxury & Emerging Markets (経済影響)",
+      "完全無料？": "◯",
+      "備考": "グローバル消費格差、WEF 2025年"
+    },
+    {
+      "ブログ名 / Author": "Harvard Business Review Consumer",
+      "URL": "hbr.org/topic/subject/consumer-behavior",
+      "主なテーマカテゴリ": "Overall Strategy (行動経済)",
+      "完全無料？": "◯",
+      "備考": "消費戦略・洞察、HBR 2025年必須"
+    },
+    {
+      "ブログ名 / Author": "Forrester Consumer Insights",
+      "URL": "forrester.com/blogs/category/consumer-insights",
+      "主なテーマカテゴリ": "Overall Strategy (デジタル消費)",
+      "完全無料？": "◯",
+      "備考": "2025年消費者ジャーニー、Forresterリスト"
+    },
+    {
+      "ブログ名 / Author": "Gartner Consumer Trends",
+      "URL": "gartner.com/en/marketing/insights/consumer-trends",
+      "主なテーマカテゴリ": "Overall Strategy (AI消費影響)",
+      "完全無料？": "◯",
+      "備考": "2025年マーケティングトレンド、Gartner 2025年"
+    },
+    {
+      "ブログ名 / Author": "Accenture Consumer Pulse",
+      "URL": "accenture.com/us-en/insights/consumer-goods-services/consumer-pulse",
+      "主なテーマカテゴリ": "Overall Strategy (パルス調査)",
+      "完全無料？": "◯",
+      "備考": "グローバル消費パルス、Accenture 2025年"
+    },
+    {
+      "ブログ名 / Author": "Boston Globe Consumer Trends",
+      "URL": "bostonglobe.com/consumer-trends",
+      "主なテーマカテゴリ": "Overall Strategy (USグローバル)",
+      "完全無料？": "◯",
+      "備考": "2025年消費ニュース、メディア推薦"
+    },
+    {
+      "ブログ名 / Author": "The Guardian Consumer Society",
+      "URL": "theguardian.com/business/consumer",
+      "主なテーマカテゴリ": "Overall Strategy (社会消費)",
+      "完全無料？": "◯",
+      "備考": "持続可能・グローバル、Guardian 2025年"
+    },
+    {
+      "ブログ名 / Author": "Fast Company Consumer Innovation",
+      "URL": "fastcompany.com/section/consumer-innovation",
+      "主なテーマカテゴリ": "Overall Strategy (イノベ消費)",
+      "完全無料？": "◯",
+      "備考": "2025年消費者イノベ、Fast Companyトップ"
+    },
+    {
+      "ブログ名 / Author": "Ad Age Consumer Trends",
+      "URL": "adage.com/article/consumer-trends",
+      "主なテーマカテゴリ": "Overall Strategy (広告消費)",
+      "完全無料？": "◯",
+      "備考": "マーケティング洞察、Ad Age 2025年"
+    },
+    {
+      "ブログ名 / Author": "Campaign Live Consumer",
+      "URL": "campaignlive.com/category/consumer",
+      "主なテーマカテゴリ": "Overall Strategy (ブランド消費)",
+      "完全無料？": "◯",
+      "備考": "グローバルキャンペーン、2025年リスト"
+    },
+    {
+      "ブログ名 / Author": "Marketing Week Consumer",
+      "URL": "marketingweek.com/category/consumer",
+      "主なテーマカテゴリ": "Overall Strategy (UKグローバル)",
+      "完全無料？": "◯",
+      "備考": "2025年消費者行動、Marketing Week推薦"
+    },
+    {
+      "ブログ名 / Author": "WARC Consumer Insights",
+      "URL": "warc.com/consumer-insights",
+      "主なテーマカテゴリ": "Overall Strategy (ケーススタディ)",
+      "完全無料？": "△",
+      "備考": "グローバル消費ケース、WARC 2025年"
+    },
+    {
+      "ブログ名 / Author": "Contagious Consumer Culture",
+      "URL": "contagious.com/consumer-culture",
+      "主なテーマカテゴリ": "Overall Strategy (カルチャー消費)",
+      "完全無料？": "◯",
+      "備考": "2025年文化トレンド、Contagiousトップ"
+    },
+    {
+      "ブログ名 / Author": "Journal of Consumer Research",
+      "URL": "academic.oup.com/jcr",
+      "主なテーマカテゴリ": "Overall Strategy (学術消費)",
+      "完全無料？": "△",
+      "備考": "研究論文・トレンド、2025年更新"
+    }
+  ],
+  "不動産": [
+    {
+      "ブログ名 / Author": "BiggerPockets Blog",
+      "URL": "biggerpockets.com/blog",
+      "主なテーマカテゴリ": "Residential (住宅・別荘投資)",
+      "完全無料？": "◯",
+      "備考": "初心者向けレンタル戦略・多世帯住宅、2025年トップ投資ブログ"
+    },
+    {
+      "ブログ名 / Author": "Mashvisor Blog",
+      "URL": "mashvisor.com/blog",
+      "主なテーマカテゴリ": "Residential (データ駆動住宅投資)",
+      "完全無料？": "◯",
+      "備考": "Airbnb/長期レンタル分析ツール連動"
+    },
+    {
+      "ブログ名 / Author": "InvestFourMore",
+      "URL": "investfourmore.com",
+      "主なテーマカテゴリ": "Residential (家・別荘ポートフォリオ)",
+      "完全無料？": "◯",
+      "備考": "パッシブインカム・別荘投資Tips"
+    },
+    {
+      "ブログ名 / Author": "Minut Blog",
+      "URL": "minut.com/blog",
+      "主なテーマカテゴリ": "Residential (長期レンタル市場)",
+      "完全無料？": "◯",
+      "備考": "2025年トップレンタル都市分析"
+    },
+    {
+      "ブログ名 / Author": "The Close Real Estate Blog",
+      "URL": "theclose.com/real-estate-blogs",
+      "主なテーマカテゴリ": "Residential (住宅市場トレンド)",
+      "完全無料？": "◯",
+      "備考": "2025年必須リソース、別荘投資ガイド"
+    },
+    {
+      "ブログ名 / Author": "Norada Real Estate Investing",
+      "URL": "noradarealestate.com/blog",
+      "主なテーマカテゴリ": "Residential (ターンキー投資)",
+      "完全無料？": "◯",
+      "備考": "キャッシュフロー物件・別荘市場"
+    },
+    {
+      "ブログ名 / Author": "Concreit Blog",
+      "URL": "concreit.com/blog",
+      "主なテーマカテゴリ": "Residential (フラクショナル所有)",
+      "完全無料？": "◯",
+      "備考": "分割投資・別荘多様なポートフォリオ"
+    },
+    {
+      "ブログ名 / Author": "Best Ever CRE Blog",
+      "URL": "bestevercre.com/blog",
+      "主なテーマカテゴリ": "Office (商業オフィス投資)",
+      "完全無料？": "◯",
+      "備考": "CREニュース・オフィス戦略、Xでホット"
+    },
+    {
+      "ブログ名 / Author": "CBRE Insights",
+      "URL": "cbre.com/insights",
+      "主なテーマカテゴリ": "Office (市場展望・変換戦略)",
+      "完全無料？": "◯",
+      "備考": "2025年オフィス回復予測・M&A"
+    },
+    {
+      "ブログ名 / Author": "Old Republic Title CRE Trends",
+      "URL": "oldrepublictitle.com/blog/2025-cre-trends",
+      "主なテーマカテゴリ": "Office (ハイブリッドオフィス)",
+      "完全無料？": "◯",
+      "備考": "2025年トレンド・オフィス安定化"
+    },
+    {
+      "ブログ名 / Author": "Rentastic Blog",
+      "URL": "rentastic.io/blog",
+      "主なテーマカテゴリ": "Office (オフィス回復・変換)",
+      "完全無料？": "◯",
+      "備考": "2025年展望・オフィスto住宅変換"
+    },
+    {
+      "ブログ名 / Author": "Jones Aur Blog",
+      "URL": "jonesaur.com/emerging-commercial-real-estate-trends-for-2025",
+      "主なテーマカテゴリ": "Office (郊外オフィスシフト)",
+      "完全無料？": "◯",
+      "備考": "2025年トレンド・オフィスレイアウト"
+    },
+    {
+      "ブログ名 / Author": "RPSSAC Blog",
+      "URL": "rpssac.com/top-commercial-real-estate-trends-to-watch-in-2025",
+      "主なテーマカテゴリ": "Office (適応再利用)",
+      "完全無料？": "◯",
+      "備考": "オフィス空室対策・変換投資"
+    },
+    {
+      "ブログ名 / Author": "CRE Daily",
+      "URL": "thecredaily.com",
+      "主なテーマカテゴリ": "Logistics (倉庫・ラストマイル)",
+      "完全無料？": "◯",
+      "備考": "産業ロジスティクス変換、Xで話題"
+    },
+    {
+      "ブログ名 / Author": "Property Week",
+      "URL": "propertyweek.com",
+      "主なテーマカテゴリ": "Logistics (倉庫価値・都市開発)",
+      "完全無料？": "◯",
+      "備考": "ラストマイル倉庫取引、X推薦"
+    },
+    {
+      "ブログ名 / Author": "Northeast Logistics News",
+      "URL": "nelogisticsind.com",
+      "主なテーマカテゴリ": "Logistics (産業AI・生産性)",
+      "完全無料？": "◯",
+      "備考": "AI駆動ロジスティクス、X共有"
+    },
+    {
+      "ブログ名 / Author": "Edison CRE Blog",
+      "URL": "edisoncre.com/blog",
+      "主なテーマカテゴリ": "Logistics (IOS・屋外ストレージ)",
+      "完全無料？": "◯",
+      "備考": "産業屋外投資、Xで成長予測"
+    },
+    {
+      "ブログ名 / Author": "Chris Ramsey Blog (SMB RE)",
+      "URL": "chrisramseyre.com/blog",
+      "主なテーマカテゴリ": "Logistics (コントラクターガレージ)",
+      "完全無料？": "◯",
+      "備考": "倉庫変換・小規模産業、Xで人気"
+    },
+    {
+      "ブログ名 / Author": "Forbes Real Estate",
+      "URL": "forbes.com/real-estate",
+      "主なテーマカテゴリ": "Overall Strategy (市場分析)",
+      "完全無料？": "◯",
+      "備考": "投資洞察・ラグジュアリー、トップソース"
+    },
+    {
+      "ブログ名 / Author": "RISMedia",
+      "URL": "rismedia.com",
+      "主なテーマカテゴリ": "Overall Strategy (業界ニュース)",
+      "完全無料？": "◯",
+      "備考": "エージェント向け戦略・トレンド"
+    },
+    {
+      "ブログ名 / Author": "National Real Estate Investor",
+      "URL": "nreionline.com",
+      "主なテーマカテゴリ": "Overall Strategy (商業全体)",
+      "完全無料？": "◯",
+      "備考": "CREトレンド分析・投資ガイド"
+    },
+    {
+      "ブログ名 / Author": "The Robert Weiler Company Blog",
+      "URL": "rweiler.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (商業投資リソース)",
+      "完全無料？": "◯",
+      "備考": "書籍・ポッドキャスト連動"
+    },
+    {
+      "ブログ名 / Author": "AgentFire Blog",
+      "URL": "agentfire.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (プロ向け洞察)",
+      "完全無料？": "◯",
+      "備考": "2025年43選・商業/住宅"
+    },
+    {
+      "ブログ名 / Author": "Wexford Insights",
+      "URL": "wexfordins.com/post/commercial-real-estate-trends-in-2025",
+      "主なテーマカテゴリ": "Overall Strategy (投資機会)",
+      "完全無料？": "◯",
+      "備考": "2025年トレンド・多セクター"
+    },
+    {
+      "ブログ名 / Author": "NAR Commercial Insights",
+      "URL": "nar.realtor/commercial-real-estate-market-insights",
+      "主なテーマカテゴリ": "Overall Strategy (月次市場)",
+      "完全無料？": "◯",
+      "備考": "オフィス/ロジスティクスデータ"
+    },
+    {
+      "ブログ名 / Author": "NuWire Investor",
+      "URL": "nuwireinvestor.com",
+      "主なテーマカテゴリ": "Overall Strategy (投資Tips)",
+      "完全無料？": "◯",
+      "備考": "商業/住宅戦略、トップ10ブログ"
+    },
+    {
+      "ブログ名 / Author": "RealWealth Blog",
+      "URL": "realwealth.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (ポートフォリオ)",
+      "完全無料？": "◯",
+      "備考": "ターンキー投資・多様な不動産"
+    },
+    {
+      "ブログ名 / Author": "The American Genius",
+      "URL": "theamericangenius.com",
+      "主なテーマカテゴリ": "Overall Strategy (ニュース・Tips)",
+      "完全無料？": "◯",
+      "備考": "投資ミス回避・戦略"
+    },
+    {
+      "ブログ名 / Author": "A Student of The Real Estate Game",
+      "URL": "studentoftherealestategame.com",
+      "主なテーマカテゴリ": "Overall Strategy (ゲーム理論投資)",
+      "完全無料？": "◯",
+      "備考": "長期戦略・住宅/商業"
+    },
+    {
+      "ブログ名 / Author": "World Property Journal",
+      "URL": "worldpropertyjournal.com",
+      "主なテーマカテゴリ": "Overall Strategy (国際不動産)",
+      "完全無料？": "◯",
+      "備考": "住宅/商業/別荘ニュース"
+    }
+  ],
+  "エネルギー": [
+    {
+      "ブログ名 / Author": "OilPrice.com",
+      "URL": "oilprice.com",
+      "主なテーマカテゴリ": "Oil & Gas (市場ニュース・株分析)",
+      "完全無料？": "◯",
+      "備考": "石油価格・地政学影響、2025年トップO&Gブログ"
+    },
+    {
+      "ブログ名 / Author": "Rigzone",
+      "URL": "rigzone.com",
+      "主なテーマカテゴリ": "Oil & Gas (業界ニュース・投資)",
+      "完全無料？": "◯",
+      "備考": "掘削・生産投資トレンド、FeedSpot上位"
+    },
+    {
+      "ブログ名 / Author": "Oil & Gas Investments Bulletin",
+      "URL": "oilandgas-investments.com",
+      "主なテーマカテゴリ": "Oil & Gas (投資機会・税優遇)",
+      "完全無料？": "◯",
+      "備考": "直接投資・ロイヤリティ、Xで推薦"
+    },
+    {
+      "ブログ名 / Author": "Oil & Gas 360",
+      "URL": "oilgas360.com",
+      "主なテーマカテゴリ": "Oil & Gas (M&A・株ピック)",
+      "完全無料？": "◯",
+      "備考": "業界分析・2025年予測"
+    },
+    {
+      "ブログ名 / Author": "BOE Report",
+      "URL": "boereport.com",
+      "主なテーマカテゴリ": "Oil & Gas (カナダO&G株)",
+      "完全無料？": "◯",
+      "備考": "生産データ・投資インサイト"
+    },
+    {
+      "ブログ名 / Author": "American Oil & Gas Reporter",
+      "URL": "aogr.com",
+      "主なテーマカテゴリ": "Oil & Gas (技術・投資戦略)",
+      "完全無料？": "◯",
+      "備考": "探査投資・税Tips"
+    },
+    {
+      "ブログ名 / Author": "RBN Energy",
+      "URL": "rbnergy.com",
+      "主なテーマカテゴリ": "Oil & Gas (ミッドストリーム投資)",
+      "完全無料？": "◯",
+      "備考": "パイプライン・LNGトレンド"
+    },
+    {
+      "ブログ名 / Author": "Fieldvest Blog",
+      "URL": "energyfieldinvest.com/blog",
+      "主なテーマカテゴリ": "Oil & Gas (税優遇・直接投資)",
+      "完全無料？": "◯",
+      "備考": "2025年13Tips、初心者向け"
+    },
+    {
+      "ブログ名 / Author": "King Operating Blog",
+      "URL": "kingoperating.com/blog",
+      "主なテーマカテゴリ": "Oil & Gas (テキサス投資機会)",
+      "完全無料？": "◯",
+      "備考": "ニュース・ロイヤリティ"
+    },
+    {
+      "ブログ名 / Author": "SmartBrief Energy",
+      "URL": "smartbrief.com/energy",
+      "主なテーマカテゴリ": "Oil & Gas (速報・投資ニュース)",
+      "完全無料？": "◯",
+      "備考": "業界まとめ、Upkeep推薦"
+    },
+    {
+      "ブログ名 / Author": "The Oil and Gas Journal",
+      "URL": "ogj.com",
+      "主なテーマカテゴリ": "Oil & Gas (グローバル市場)",
+      "完全無料？": "◯",
+      "備考": "探査・生産投資"
+    },
+    {
+      "ブログ名 / Author": "Energy Industry Today",
+      "URL": "energyindustrytoday.com",
+      "主なテーマカテゴリ": "Oil & Gas (ニュース・株動向)",
+      "完全無料？": "◯",
+      "備考": "2025年予測"
+    },
+    {
+      "ブログ名 / Author": "Genscape",
+      "URL": "genscape.com",
+      "主なテーマカテゴリ": "Oil & Gas (データ駆動投資)",
+      "完全無料？": "◯",
+      "備考": "リアルタイム市場"
+    },
+    {
+      "ブログ名 / Author": "Renewable Energy World",
+      "URL": "renewableenergyworld.com",
+      "主なテーマカテゴリ": "Renewables (太陽光・風力投資)",
+      "完全無料？": "◯",
+      "備考": "プロジェクト・株分析、トップブログ"
+    },
+    {
+      "ブログ名 / Author": "CleanTechnica",
+      "URL": "cleantechnica.com",
+      "主なテーマカテゴリ": "Renewables (クリーン投資トレンド)",
+      "完全無料？": "◯",
+      "備考": "EV・太陽光株、投資家向け"
+    },
+    {
+      "ブログ名 / Author": "Recharge News",
+      "URL": "rechargenews.com",
+      "主なテーマカテゴリ": "Renewables (オフショア風力投資)",
+      "完全無料？": "◯",
+      "備考": "グローバル資金調達"
+    },
+    {
+      "ブログ名 / Author": "GreenBiz",
+      "URL": "greenbiz.com",
+      "主なテーマカテゴリ": "Renewables (持続可能投資)",
+      "完全無料？": "◯",
+      "備考": "ビジネス・ESG戦略"
+    },
+    {
+      "ブログ名 / Author": "Enkonn Solar Blog",
+      "URL": "enkonnsolar.com/renewable-energy-blogs",
+      "主なテーマカテゴリ": "Renewables (太陽光投資機会)",
+      "完全無料？": "◯",
+      "備考": "2025年トップ10リスト"
+    },
+    {
+      "ブログ名 / Author": "Energy Central",
+      "URL": "energycentral.com",
+      "主なテーマカテゴリ": "Renewables (ユーティリティ投資)",
+      "完全無料？": "◯",
+      "備考": "グリッド・再生可能ニュース"
+    },
+    {
+      "ブログ名 / Author": "Alternative Energy Stocks",
+      "URL": "alternativeenergyinvestor.com",
+      "主なテーマカテゴリ": "Renewables (クリーン株ピック)",
+      "完全無料？": "◯",
+      "備考": "投資ポートフォリオ"
+    },
+    {
+      "ブログ名 / Author": "reNews",
+      "URL": "renews.biz",
+      "主なテーマカテゴリ": "Renewables (風力・海洋投資)",
+      "完全無料？": "◯",
+      "備考": "プロジェクト資金調達"
+    },
+    {
+      "ブログ名 / Author": "Clean Techies",
+      "URL": "cleantechies.com",
+      "主なテーマカテゴリ": "Renewables (スタートアップ投資)",
+      "完全無料？": "◯",
+      "備考": "イノベ・VCトレンド"
+    },
+    {
+      "ブログ名 / Author": "S&P Global Energy Transition Blog",
+      "URL": "spglobal.com/commodity-insights/en/news-research/blog/energy-transition",
+      "主なテーマカテゴリ": "Energy Transition (転換投資テーマ)",
+      "完全無料？": "◯",
+      "備考": "2025年6大テーマ"
+    },
+    {
+      "ブログ名 / Author": "BloombergNEF Energy Transition",
+      "URL": "about.bnef.com/insights/finance/energy-transition-investment-trends",
+      "主なテーマカテゴリ": "Energy Transition (グローバル投資)",
+      "完全無料？": "◯",
+      "備考": "2025年トレンドレポート"
+    },
+    {
+      "ブログ名 / Author": "Energy Transitions Commission Blog",
+      "URL": "energy-transitions.org/blog",
+      "主なテーマカテゴリ": "Energy Transition (政策・投資)",
+      "完全無料？": "◯",
+      "備考": "1兆ドルスケール戦略"
+    },
+    {
+      "ブログ名 / Author": "DNV Energy Blogs",
+      "URL": "dnv.com/energy/articles/blogs",
+      "主なテーマカテゴリ": "Energy Transition (オフショア投資)",
+      "完全無料？": "◯",
+      "備考": "標準・安全投資"
+    },
+    {
+      "ブログ名 / Author": "EDF Renewables Blog",
+      "URL": "edf-re.com/news/blog",
+      "主なテーマカテゴリ": "Energy Transition (ブレード管理投資)",
+      "完全無料？": "◯",
+      "備考": "最適化・ROI洞察"
+    },
+    {
+      "ブログ名 / Author": "Enverus Blog",
+      "URL": "enverus.com/blog",
+      "主なテーマカテゴリ": "Energy Transition (勝者・敗者分析)",
+      "完全無料？": "◯",
+      "備考": "投資機会・リスク"
+    },
+    {
+      "ブログ名 / Author": "Doomberg",
+      "URL": "doomberg.substack.com",
+      "主なテーマカテゴリ": "Overall Strategy (エネルギー金融)",
+      "完全無料？": "×",
+      "備考": "Xで最高推薦、石油・転換"
+    },
+    {
+      "ブログ名 / Author": "Bison Interests",
+      "URL": "bisoninterests.substack.com",
+      "主なテーマカテゴリ": "Overall Strategy (O&Gコメント)",
+      "完全無料？": "×",
+      "備考": "石油ガス専門、X推薦"
+    },
+    {
+      "ブログ名 / Author": "Tortoise Capital Insights",
+      "URL": "tortoisecapital.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (インフラ投資)",
+      "完全無料？": "◯",
+      "備考": "2025年アドバイザーガイド"
+    },
+    {
+      "ブログ名 / Author": "Pulse Energy Blog",
+      "URL": "pulseenergy.io/blog",
+      "主なテーマカテゴリ": "Overall Strategy (持続可能投資)",
+      "完全無料？": "◯",
+      "備考": "2025年エネルギー未来"
+    },
+    {
+      "ブログ名 / Author": "Jakson Renewables Blog",
+      "URL": "jakson.com/blogs",
+      "主なテーマカテゴリ": "Overall Strategy (再生可能機会)",
+      "完全無料？": "◯",
+      "備考": "2025年投資ガイド"
+    },
+    {
+      "ブログ名 / Author": "RatedPower Blog",
+      "URL": "ratedpower.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (イノベ開発)",
+      "完全無料？": "◯",
+      "備考": "2025年10大イノベ"
+    },
+    {
+      "ブログ名 / Author": "GreenPortfolio Blog",
+      "URL": "greenportfolio.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (クリーンリターン)",
+      "完全無料？": "◯",
+      "備考": "化石燃料超え分析"
+    },
+    {
+      "ブログ名 / Author": "KPMG Energy Transition Outlook",
+      "URL": "kpmg.com/insights/business-transformation-insights",
+      "主なテーマカテゴリ": "Overall Strategy (投資展望)",
+      "完全無料？": "◯",
+      "備考": "2025年1400人調査"
+    }
+  ],
+  "金融セクター": [
+    {
+      "ブログ名 / Author": "Net Interest",
+      "URL": "netinterest.substack.com",
+      "主なテーマカテゴリ": "Banking (金融セクター深掘り)",
+      "完全無料？": "△",
+      "備考": "元ヘッジファンド視点の銀行・保険分析、Snippet Finance 2025年1位"
+    },
+    {
+      "ブログ名 / Author": "Bits about Money",
+      "URL": "bitsaboutmoney.com",
+      "主なテーマカテゴリ": "Fintech (決済・フィンテック)",
+      "完全無料？": "△",
+      "備考": "フィンテックインフラ投資、Snippet Finance 2025年2位"
+    },
+    {
+      "ブログ名 / Author": "This Week in Fintech",
+      "URL": "thisweekinfintech.substack.com",
+      "主なテーマカテゴリ": "Fintech (週刊まとめ・VC)",
+      "完全無料？": "×",
+      "備考": "フィンテックニュース・投資機会、Snippet Finance 2025年3位"
+    },
+    {
+      "ブログ名 / Author": "Timyan (Phil Timyan)",
+      "URL": "timyan.substack.com",
+      "主なテーマカテゴリ": "Banking (銀行株特化)",
+      "完全無料？": "×",
+      "備考": "銀行株アイデア、Xで@StockJabber推薦"
+    },
+    {
+      "ブログ名 / Author": "Mostly Metrics (CFO視点)",
+      "URL": "mostlymetrics.substack.com",
+      "主なテーマカテゴリ": "Overall Strategy (財務指標)",
+      "完全無料？": "×",
+      "備考": "CFOが語る金融メトリクス、X推薦"
+    },
+    {
+      "ブログ名 / Author": "Finextra",
+      "URL": "finextra.com",
+      "主なテーマカテゴリ": "Fintech (業界ニュース)",
+      "完全無料？": "◯",
+      "備考": "銀行・フィンテック分析、TheCFOClub 2025年トップ"
+    },
+    {
+      "ブログ名 / Author": "The Financial Brand",
+      "URL": "thefinancialbrand.com",
+      "主なテーマカテゴリ": "Banking (銀行戦略)",
+      "完全無料？": "◯",
+      "備考": "銀行・フィンテック融合、TheCFOClub推薦"
+    },
+    {
+      "ブログ名 / Author": "Chris Skinner's Finanser",
+      "URL": "thefinanser.com",
+      "主なテーマカテゴリ": "Fintech (グローバルトレンド)",
+      "完全無料？": "◯",
+      "備考": "フィンテック・銀行イノベ、Mint Studios 2025年1位"
+    },
+    {
+      "ブログ名 / Author": "QED Investors Blog",
+      "URL": "qedinvestors.com/blog",
+      "主なテーマカテゴリ": "Fintech (VC・予測)",
+      "完全無料？": "◯",
+      "備考": "2025年フィンテック予測、Mint Studios推薦"
+    },
+    {
+      "ブログ名 / Author": "Leda Writes on Fintech Futures",
+      "URL": "ledascribe.com",
+      "主なテーマカテゴリ": "Fintech (未来トレンド)",
+      "完全無料？": "◯",
+      "備考": "フィンテック・保険イノベ、Mint Studios 2025年3位"
+    },
+    {
+      "ブログ名 / Author": "FintechOS Blog",
+      "URL": "fintechos.com/blog",
+      "主なテーマカテゴリ": "Fintech (プラットフォーム投資)",
+      "完全無料？": "◯",
+      "備考": "フィンテックOS・銀行変革、Mint Studios 2025年2位"
+    },
+    {
+      "ブログ名 / Author": "Accenture Banking Blog",
+      "URL": "bankingblog.accenture.com",
+      "主なテーマカテゴリ": "Banking (デジタル変革)",
+      "完全無料？": "◯",
+      "備考": "銀行リスク・投資戦略、2025年トップ"
+    },
+    {
+      "ブログ名 / Author": "FinTech Magazine",
+      "URL": "fintechmagazine.com",
+      "主なテーマカテゴリ": "Overall Strategy (セクター全体)",
+      "完全無料？": "◯",
+      "備考": "銀行・保険・フィンテックニュース、ChannelV 2025年1位"
+    },
+    {
+      "ブログ名 / Author": "Fintech and Digital Assets Blog",
+      "URL": "fintechanddigitalassets.com",
+      "主なテーマカテゴリ": "Fintech (デジタル資産投資)",
+      "完全無料？": "◯",
+      "備考": "フィンテック規制・トレンド、2025年推奨"
+    },
+    {
+      "ブログ名 / Author": "FinTech Weekly",
+      "URL": "fintechweekly.com",
+      "主なテーマカテゴリ": "Fintech (ニュース・ブロックチェーン)",
+      "完全無料？": "◯",
+      "備考": "保険テック・投資まとめ、2025年必須"
+    },
+    {
+      "ブログ名 / Author": "Fintech Labs Blog",
+      "URL": "fintechlabs.com/blog",
+      "主なテーマカテゴリ": "Fintech (Regtech・イベント)",
+      "完全無料？": "◯",
+      "備考": "2025年Regtechカンファレンス、Fintech Labs 2025年トップ"
+    },
+    {
+      "ブログ名 / Author": "CFO Corner (Rydoo)",
+      "URL": "rydoo.com/cfo-corner",
+      "主なテーマカテゴリ": "Overall Strategy (CFO視点)",
+      "完全無料？": "◯",
+      "備考": "財務・投資メトリクス、Rydoo 2025年1位"
+    },
+    {
+      "ブログ名 / Author": "The CFO Club",
+      "URL": "thecfoclub.com",
+      "主なテーマカテゴリ": "Overall Strategy (CFOコミュニティ)",
+      "完全無料？": "◯",
+      "備考": "財務戦略・フィンテック、Rydoo推薦"
+    },
+    {
+      "ブログ名 / Author": "Corporate Finance Lab",
+      "URL": "corporatefinancelab.org",
+      "主なテーマカテゴリ": "Banking (コーポレートファイナンス)",
+      "完全無料？": "◯",
+      "備考": "銀行融資・投資、Rydoo 2025年5位"
+    },
+    {
+      "ブログ名 / Author": "A Wealth of Common Sense",
+      "URL": "awealthofcommonsense.com",
+      "主なテーマカテゴリ": "Overall Strategy (行動ファイナンス)",
+      "完全無料？": "◯",
+      "備考": "金融セクター行動分析、Sharesight 2025年"
+    },
+    {
+      "ブログ名 / Author": "The Big Picture (Barry Ritholtz)",
+      "URL": "ritholtz.com/blog",
+      "主なテーマカテゴリ": "Overall Strategy (市場・金融)",
+      "完全無料？": "◯",
+      "備考": "金融政策・銀行トレンド、Sharesight 2025年2位"
+    },
+    {
+      "ブログ名 / Author": "Klement on Investing",
+      "URL": "klementoninvesting.substack.com",
+      "主なテーマカテゴリ": "Overall Strategy (投資哲学)",
+      "完全無料？": "×",
+      "備考": "金融セクター哲学、Sharesight 2025年1位"
+    },
+    {
+      "ブログ名 / Author": "Money Crashers",
+      "URL": "moneycrashers.com",
+      "主なテーマカテゴリ": "Insurance (パーソナル保険投資)",
+      "完全無料？": "◯",
+      "備考": "保険・銀行Tips、Stratton Craig 2025年US1位"
+    },
+    {
+      "ブログ名 / Author": "Afford Anything",
+      "URL": "affordanything.com",
+      "主なテーマカテゴリ": "Insurance (資産保護投資)",
+      "完全無料？": "◯",
+      "備考": "保険・金融自由、Stratton Craig 2025年US2位"
+    },
+    {
+      "ブログ名 / Author": "Nutmegonomics",
+      "URL": "nutmeg.com/nutmegonomics",
+      "主なテーマカテゴリ": "Banking (UK投資管理)",
+      "完全無料？": "◯",
+      "備考": "銀行・フィンテックUK視点、Stratton Craig 2025年UK1位"
+    },
+    {
+      "ブログ名 / Author": "Monevator",
+      "URL": "monevator.com",
+      "主なテーマカテゴリ": "Overall Strategy (UK金融)",
+      "完全無料？": "◯",
+      "備考": "金融セクター低コスト投資、Stratton Craig 2025年UK3位"
+    },
+    {
+      "ブログ名 / Author": "Motley Fool",
+      "URL": "fool.com",
+      "主なテーマカテゴリ": "Overall Strategy (株・金融)",
+      "完全無料？": "△",
+      "備考": "銀行・保険株ピック、AlphaGamma 2025年15位"
+    },
+    {
+      "ブログ名 / Author": "MarketWatch",
+      "URL": "marketwatch.com",
+      "主なテーマカテゴリ": "Banking (リアルタイム金融ニュース)",
+      "完全無料？": "◯",
+      "備考": "銀行・保険市場、AlphaGamma 2025年13位"
+    },
+    {
+      "ブログ名 / Author": "WallStreetZen Ideas",
+      "URL": "wallstreetzen.com/ideas",
+      "主なテーマカテゴリ": "Overall Strategy (株ピック)",
+      "完全無料？": "◯",
+      "備考": "金融セクターアイデア、WallStreetZen 2025年1位"
+    },
+    {
+      "ブログ名 / Author": "Seeking Alpha Premium",
+      "URL": "seekingalpha.com",
+      "主なテーマカテゴリ": "Banking (株分析)",
+      "完全無料？": "×",
+      "備考": "銀行・保険プレミアムインサイト、WallStreetZen 2025年3位"
+    }
+  ],
+  "AI": [
+    {
+      "ブログ名 / Author": "OpenAI Blog",
+      "URL": "openai.com/blog",
+      "主なテーマカテゴリ": "AI研究・モデル更新・安全",
+      "完全無料？": "◯",
+      "備考": "完全無料、GPT/oシリーズの洞察"
+    },
+    {
+      "ブログ名 / Author": "Google DeepMind Blog",
+      "URL": "deepmind.google/blog/",
+      "主なテーマカテゴリ": "AI研究・科学応用・エージェント",
+      "完全無料？": "◯",
+      "備考": "完全無料、Gemini/AlphaFold中心"
+    },
+    {
+      "ブログ名 / Author": "Berkeley AI Research (BAIR) Blog",
+      "URL": "bair.berkeley.edu/blog/",
+      "主なテーマカテゴリ": "AI研究・RL・ビジョン",
+      "完全無料？": "◯",
+      "備考": "完全無料、学術論文要約"
+    },
+    {
+      "ブログ名 / Author": "Andrej Karpathy Blog",
+      "URL": "karpathy.ai/blog",
+      "主なテーマカテゴリ": "AI研究・LLM基礎・教育",
+      "完全無料？": "◯",
+      "備考": "完全無料、Neural nets解説"
+    },
+    {
+      "ブログ名 / Author": "Sebastian Raschka Blog",
+      "URL": "sebastianraschka.com/blog/",
+      "主なテーマカテゴリ": "ML実践・LLMチュートリアル",
+      "完全無料？": "◯",
+      "備考": "完全無料、コード例豊富"
+    },
+    {
+      "ブログ名 / Author": "Lil’Log (Lilian Weng)",
+      "URL": "lilianweng.github.io/posts/",
+      "主なテーマカテゴリ": "AI研究・エージェント・RLHF",
+      "完全無料？": "◯",
+      "備考": "完全無料、OpenAI元VP視点"
+    },
+    {
+      "ブログ名 / Author": "Hugging Face Blog",
+      "URL": "huggingface.co/blog",
+      "主なテーマカテゴリ": "ML実践・オープンソース・RAG",
+      "完全無料？": "◯",
+      "備考": "完全無料、ツール・モデル更新"
+    },
+    {
+      "ブログ名 / Author": "AI Snake Oil (Arvind Narayanan & Sayash Kapoor)",
+      "URL": "www.aisnakeoil.com/",
+      "主なテーマカテゴリ": "AI倫理・政策・評価",
+      "完全無料？": "◯",
+      "備考": "完全無料、AIの「蛇油」検証"
+    },
+    {
+      "ブログ名 / Author": "Import AI (Jack Clark)",
+      "URL": "importai.org/",
+      "主なテーマカテゴリ": "AIニュース・トレンド・政策",
+      "完全無料？": "◯",
+      "備考": "完全無料、週刊まとめ"
+    },
+    {
+      "ブログ名 / Author": "The Batch (DeepLearning.AI)",
+      "URL": "read.deeplearning.ai/the-batch/",
+      "主なテーマカテゴリ": "AIニュース・トレンド・教育",
+      "完全無料？": "◯",
+      "備考": "完全無料、Andrew Ng監修"
+    },
+    {
+      "ブログ名 / Author": "Machine Learning Mastery (Jason Brownlee)",
+      "URL": "machinelearningmastery.com/blog/",
+      "主なテーマカテゴリ": "ML実践・チュートリアル・Python",
+      "完全無料？": "◯",
+      "備考": "完全無料、初心者向け実装"
+    },
+    {
+      "ブログ名 / Author": "Distill.pub",
+      "URL": "distill.pub/",
+      "主なテーマカテゴリ": "AI研究・ビジュアル説明・インタラクティブ",
+      "完全無料？": "◯",
+      "備考": "完全無料、論文の視覚化"
+    },
+    {
+      "ブログ名 / Author": "Fast.ai Blog",
+      "URL": "blog.fast.ai/",
+      "主なテーマカテゴリ": "ML実践・実践的深層学習",
+      "完全無料？": "◯",
+      "備考": "完全無料、無料コース連動"
+    },
+    {
+      "ブログ名 / Author": "Towards AI",
+      "URL": "towardsai.net/",
+      "主なテーマカテゴリ": "AI応用・業界・データサイエンス",
+      "完全無料？": "◯",
+      "備考": "完全無料、多様な寄稿"
+    },
+    {
+      "ブログ名 / Author": "MIT Technology Review AI Section",
+      "URL": "technologyreview.com/topic/artificial-intelligence/",
+      "主なテーマカテゴリ": "AIニュース・トレンド・倫理",
+      "完全無料？": "◯",
+      "備考": "完全無料、MITの深掘り記事"
+    },
+    {
+      "ブログ名 / Author": "Interconnects (Nathan Lambert)",
+      "URL": "www.interconnects.ai/",
+      "主なテーマカテゴリ": "AI研究・オープンソース・アライメント",
+      "完全無料？": "×",
+      "備考": "50%無料、Substack有料"
+    },
+    {
+      "ブログ名 / Author": "Chip Huyen Blog",
+      "URL": "chipro.net/",
+      "主なテーマカテゴリ": "ML実践・MLOps・生産システム",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料、Stanford講師"
+    },
+    {
+      "ブログ名 / Author": "Eugene Yan Blog",
+      "URL": "eugene-yan.com/",
+      "主なテーマカテゴリ": "AI応用・データサイエンス・推薦システム",
+      "完全無料？": "◯",
+      "備考": "完全無料、Amazon元"
+    },
+    {
+      "ブログ名 / Author": "Philipp Schmid Blog",
+      "URL": "philipp-schmid.de/",
+      "主なテーマカテゴリ": "ML実践・LLMデプロイ・AWS",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料、Hugging Face元"
+    },
+    {
+      "ブログ名 / Author": "Jason Liu Blog",
+      "URL": "jasonliu.ca/",
+      "主なテーマカテゴリ": "AI応用・LLMツール・コンサル視点",
+      "完全無料？": "◯",
+      "備考": "完全無料、実践レッスン"
+    },
+    {
+      "ブログ名 / Author": "Hamel Husain Blog",
+      "URL": "hamel.dev/",
+      "主なテーマカテゴリ": "ML実践・MLOps・ファインチューニング",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料、GitHub元"
+    },
+    {
+      "ブログ名 / Author": "Exponential View (Azeem Azhar)",
+      "URL": "www.exponentialview.co/",
+      "主なテーマカテゴリ": "AIニュース・トレンド・ビジネス",
+      "完全無料？": "×",
+      "備考": "約40%無料、Substack"
+    },
+    {
+      "ブログ名 / Author": "SemiAnalysis (Dylan Patel)",
+      "URL": "semianalysis.com/",
+      "主なテーマカテゴリ": "AI応用・ハードウェア・インフラ",
+      "完全無料？": "×",
+      "備考": "ほぼ有料、AIチップ分析"
+    },
+    {
+      "ブログ名 / Author": "Latent Space (Swyx)",
+      "URL": "www.latentspace.com/",
+      "主なテーマカテゴリ": "AIニュース・ポッドキャスト・エンジニアリング",
+      "完全無料？": "×",
+      "備考": "60%無料、Substack"
+    },
+    {
+      "ブログ名 / Author": "The Algorithmic Bridge (Alberto Romero)",
+      "URL": "www.thealgorithmicbridge.com/",
+      "主なテーマカテゴリ": "AI倫理・政策・ニュース",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料、バランス視点"
+    },
+    {
+      "ブログ名 / Author": "Ahead of AI (Sebastian Raschka)",
+      "URL": "newsletter.sebastianraschka.com/",
+      "主なテーマカテゴリ": "AIニュース・研究まとめ",
+      "完全無料？": "◯",
+      "備考": "完全無料、論文レビュー"
+    },
+    {
+      "ブログ名 / Author": "Deep (Learning) Focus (Cameron Wolfe)",
+      "URL": "cameronrwolfe.substack.com/",
+      "主なテーマカテゴリ": "AI研究・モデル最適化",
+      "完全無料？": "×",
+      "備考": "約50%無料、Substack"
+    },
+    {
+      "ブログ名 / Author": "Artificial Fintelligence (Finbarr Timbers)",
+      "URL": "artificialfintelligence.substack.com/",
+      "主なテーマカテゴリ": "AIニュース・ML研究ラウンドアップ",
+      "完全無料？": "×",
+      "備考": "ほぼ有料、インサイド"
+    },
+    {
+      "ブログ名 / Author": "Rising Tide (Helen Toner)",
+      "URL": "helen-toner.substack.com/",
+      "主なテーマカテゴリ": "AI倫理・政策・地政学",
+      "完全無料？": "×",
+      "備考": "約30%無料、独立思考家"
+    },
+    {
+      "ブログ名 / Author": "The AI Frontier (Joseph Gonzalez)",
+      "URL": "theaifrontier.substack.com/",
+      "主なテーマカテゴリ": "AI研究・LLMインサイト",
+      "完全無料？": "×",
+      "備考": "50%無料、ビルダー視点"
+    },
+    {
+      "ブログ名 / Author": "AI: A Guide for Thinking Humans (Melanie Mitchell)",
+      "URL": "melanie.ai/",
+      "主なテーマカテゴリ": "AI倫理・評価・人間中心",
+      "完全無料？": "◯",
+      "備考": "ほぼ無料、信頼性高"
+    },
+    {
+      "ブログ名 / Author": "VentureBeat AI",
+      "URL": "venturebeat.com/category/ai/",
+      "主なテーマカテゴリ": "AI応用・ビジネス・エンタープライズ",
+      "完全無料？": "◯",
+      "備考": "完全無料、業界戦略"
+    },
+    {
+      "ブログ名 / Author": "MIT News AI",
+      "URL": "news.mit.edu/topic/artificial-intelligence-9",
+      "主なテーマカテゴリ": "AI研究・ブレークスルー",
+      "完全無料？": "◯",
+      "備考": "完全無料、キャンパス発見"
+    },
+    {
+      "ブログ名 / Author": "I/O Fund (Beth Kindig)",
+      "URL": "io-fund.com",
+      "主なテーマカテゴリ": "AI株分析・ポートフォリオ戦略",
+      "完全無料？": "◯",
+      "備考": "週刊AI株ピック、NVIDIA早期コールで有名"
+    },
+    {
+      "ブログ名 / Author": "Exponential View (Azeem Azhar)",
+      "URL": "exponentialview.co",
+      "主なテーマカテゴリ": "AIトレンド・バブル分析",
+      "完全無料？": "◯",
+      "備考": "AI生産性・投資圧力点のフレームワーク"
+    },
+    {
+      "ブログ名 / Author": "Import AI (Jack Clark)",
+      "URL": "importai.org",
+      "主なテーマカテゴリ": "AIニュース・政策投資",
+      "完全無料？": "◯",
+      "備考": "週刊AI投資・スタートアップまとめ"
+    },
+    {
+      "ブログ名 / Author": "The Batch (DeepLearning.AI)",
+      "URL": "read.deeplearning.ai/the-batch",
+      "主なテーマカテゴリ": "AIニュース・エンタープライズ投資",
+      "完全無料？": "◯",
+      "備考": "Andrew Ng監修、AIツール投資洞察"
+    },
+    {
+      "ブログ名 / Author": "MIT Technology Review AI",
+      "URL": "technologyreview.com/topic/artificial-intelligence",
+      "主なテーマカテゴリ": "AI倫理・市場影響投資",
+      "完全無料？": "◯",
+      "備考": "MITのAI株・規制投資分析"
+    },
+    {
+      "ブログ名 / Author": "VentureBeat AI",
+      "URL": "venturebeat.com/category/ai",
+      "主なテーマカテゴリ": "AIビジネス・エンタープライズ投資",
+      "完全無料？": "◯",
+      "備考": "AI企業戦略・M&A投資"
+    },
+    {
+      "ブログ名 / Author": "Towards Data Science",
+      "URL": "towardsdatascience.com",
+      "主なテーマカテゴリ": "AIデータサイエンス・株モデル",
+      "完全無料？": "◯",
+      "備考": "Medium寄稿、AIアルゴ投資実装"
+    },
+    {
+      "ブログ名 / Author": "Stratechery (Ben Thompson)",
+      "URL": "stratechery.com",
+      "主なテーマカテゴリ": "AIセクター戦略・競争力",
+      "完全無料？": "△",
+      "備考": "一部無料、NVIDIA/Google AIモート分析"
+    },
+    {
+      "ブログ名 / Author": "SemiAnalysis (Dylan Patel)",
+      "URL": "semianalysis.com",
+      "主なテーマカテゴリ": "AIハードウェア・インフラ投資",
+      "完全無料？": "×",
+      "備考": "ほぼ有料、AIチップTCOモデル"
+    },
+    {
+      "ブログ名 / Author": "Latent Space (Swyx)",
+      "URL": "latentspace.com",
+      "主なテーマカテゴリ": "AIエンジニアリング・スタートアップ",
+      "完全無料？": "×",
+      "備考": "60%無料、AI VC・ポッドキャスト連動"
+    },
+    {
+      "ブログ名 / Author": "AI Snake Oil (Arvind Narayanan)",
+      "URL": "aisnakeoil.com",
+      "主なテーマカテゴリ": "AI評価・リスク投資",
+      "完全無料？": "◯",
+      "備考": "AI「バブル」検証、投資家向け"
+    },
+    {
+      "ブログ名 / Author": "AlphaSense Blog",
+      "URL": "alphasense.com/blog",
+      "主なテーマカテゴリ": "AI投資リサーチツール",
+      "完全無料？": "◯",
+      "備考": "NLP・決算分析ツール投資"
+    },
+    {
+      "ブログ名 / Author": "RockFlow AI Investing",
+      "URL": "rockflow.ai/blog/category/ai%20investing",
+      "主なテーマカテゴリ": "AI投資プラットフォーム",
+      "完全無料？": "◯",
+      "備考": "初心者AI株ピッカー比較"
+    },
+    {
+      "ブログ名 / Author": "Danelfin Blog",
+      "URL": "danelfin.com/blog",
+      "主なテーマカテゴリ": "AI株ピッキング・予測",
+      "完全無料？": "◯",
+      "備考": "AIスコアベースの株選定"
+    },
+    {
+      "ブログ名 / Author": "Prospero.ai Blog",
+      "URL": "prospero.ai/blog",
+      "主なテーマカテゴリ": "AI株アイデア・日次インサイト",
+      "完全無料？": "◯",
+      "備考": "トレンド信号・技術指標投資"
+    },
+    {
+      "ブログ名 / Author": "Magnifi Blog",
+      "URL": "magnifi.com/blog",
+      "主なテーマカテゴリ": "AIポートフォリオ分析",
+      "完全無料？": "◯",
+      "備考": "検索駆動AI投資アドバイス"
+    },
+    {
+      "ブログ名 / Author": "TrendSpider Blog",
+      "URL": "trendspider.com/blog",
+      "主なテーマカテゴリ": "AIチャート・パターン投資",
+      "完全無料？": "◯",
+      "備考": "自動化AIトレーディング"
+    },
+    {
+      "ブログ名 / Author": "The Gradient",
+      "URL": "thegradient.pub",
+      "主なテーマカテゴリ": "AI研究・イノベーション投資",
+      "完全無料？": "◯",
+      "備考": "学術AI株影響分析"
+    },
+    {
+      "ブログ名 / Author": "Chip Huyen Blog",
+      "URL": "chipro.net",
+      "主なテーマカテゴリ": "MLOps・生産AI投資",
+      "完全無料？": "◯",
+      "備考": "Stanford視点のAIスケーリング投資"
+    },
+    {
+      "ブログ名 / Author": "Eugene Yan Blog",
+      "URL": "eugene-yan.com",
+      "主なテーマカテゴリ": "応用AI・推薦システム投資",
+      "完全無料？": "◯",
+      "備考": "Amazon元、AIデータ投資"
+    },
+    {
+      "ブログ名 / Author": "Interconnects (Nathan Lambert)",
+      "URL": "interconnects.ai",
+      "主なテーマカテゴリ": "AIアライメント・オープンソース投資",
+      "完全無料？": "×",
+      "備考": "50%無料、AIエコシステム"
+    },
+    {
+      "ブログ名 / Author": "Rising Tide (Helen Toner)",
+      "URL": "helen-toner.substack.com",
+      "主なテーマカテゴリ": "AI政策・地政学投資",
+      "完全無料？": "×",
+      "備考": "30%無料、規制リスク投資"
+    },
+    {
+      "ブログ名 / Author": "Artificial Fintelligence (Finbarr Timbers)",
+      "URL": "artificialfintelligence.substack.com",
+      "主なテーマカテゴリ": "ML研究・ラウンドアップ投資",
+      "完全無料？": "×",
+      "備考": "ほぼ有料、インサイダーAI株"
+    },
+    {
+      "ブログ名 / Author": "Deep (Learning) Focus (Cameron Wolfe)",
+      "URL": "cameronrwolfe.substack.com",
+      "主なテーマカテゴリ": "AIモデル最適化・ハード投資",
+      "完全無料？": "×",
+      "備考": "50%無料、トレーニングコスト"
+    },
+    {
+      "ブログ名 / Author": "Ahead of AI (Sebastian Raschka)",
+      "URL": "newsletter.sebastianraschka.com",
+      "主なテーマカテゴリ": "AI研究まとめ・投資トレンド",
+      "完全無料？": "◯",
+      "備考": "論文レビュー、AI株影響"
+    },
+    {
+      "ブログ名 / Author": "The Algorithmic Bridge (Alberto Romero)",
+      "URL": "thealgorithmicbridge.com",
+      "主なテーマカテゴリ": "AIニュース・バランス投資",
+      "完全無料？": "◯",
+      "備考": "楽観的AI市場分析"
+    },
+    {
+      "ブログ名 / Author": "Distill.pub",
+      "URL": "distill.pub",
+      "主なテーマカテゴリ": "AIビジュアル・インタラクティブ投資",
+      "完全無料？": "◯",
+      "備考": "論文視覚化、AIイノベ投資"
+    },
+    {
+      "ブログ名 / Author": "Beth Kindig Medium",
+      "URL": "medium.com/@bethkindig",
+      "主なテーマカテゴリ": "AI株・2025戦略",
+      "完全無料？": "◯",
+      "備考": "I/O Fund連動、トークン成長分析"
+    },
+    {
+      "ブログ名 / Author": "Public Alpha Blog",
+      "URL": "public.com/learn/public-alpha",
+      "主なテーマカテゴリ": "AI市場分析・トレード",
+      "完全無料？": "◯",
+      "備考": "会話型AI株アドバイス"
+    },
+    {
+      "ブログ名 / Author": "LiteFinance AI Stocks",
+      "URL": "litefinance.org/blog/for-investors/types-of-stocks/best-ai-stocks",
+      "主なテーマカテゴリ": "AI株ガイド・予測",
+      "完全無料？": "◯",
+      "備考": "グローバルAI株トップピック"
+    },
+    {
+      "ブログ名 / Author": "Surmount AI Picked Stocks",
+      "URL": "surmount.ai/blogs/ai-picked-stocks-2025-top-performers",
+      "主なテーマカテゴリ": "AI選定株・パフォーマンス",
+      "完全無料？": "◯",
+      "備考": "2025 AI株12.5%リターン分析"
+    },
+    {
+      "ブログ名 / Author": "The Investor's Podcast AI Tools",
+      "URL": "theinvestorspodcast.com/business/top-5-ai-stock-picking-tools-in-2025",
+      "主なテーマカテゴリ": "AI株ピッカー比較",
+      "完全無料？": "◯",
+      "備考": "ツールレビュー、投資エッジ"
+    },
+    {
+      "ブログ名 / Author": "Investing.com AI Mega-Cap",
+      "URL": "investing.com/academy/stock-picks/best-megacap-ai-stocks",
+      "主なテーマカテゴリ": "AIメガキャップ株",
+      "完全無料？": "◯",
+      "備考": "S&P500 AI株選定"
+    },
+    {
+      "ブログ名 / Author": "Money.com AI Picks",
+      "URL": "money.com/ai-picks-stocks-this-month",
+      "主なテーマカテゴリ": "AIツール株推奨",
+      "完全無料？": "◯",
+      "備考": "ChatGPT/Gemini月次ピック"
+    }
+  ],
+  "ヘルスケア": [
+    {
+      "ブログ名 / Author": "LifeSciVC (Bruce Booth)",
+      "URL": "lifescivc.com",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "Atlas Ventureパートナー、バイオVCトレンド・資金調達洞察"
+    },
+    {
+      "ブログ名 / Author": "Fierce Biotech",
+      "URL": "fiercebiotech.com",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "◯",
+      "備考": "バイオニュース・パイプライン更新、M&A分析"
+    },
+    {
+      "ブログ名 / Author": "BioPharma Dive",
+      "URL": "biopharmadive.com",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "◯",
+      "備考": "臨床試験・薬開発投資、業界ニュース"
+    },
+    {
+      "ブログ名 / Author": "Schroders Healthcare Insights",
+      "URL": "schroders.com/en/insights/healthcare",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "グローバルヘルスケア投資・政策影響"
+    },
+    {
+      "ブログ名 / Author": "Biotech Investments News",
+      "URL": "biotech-investments.com",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "◯",
+      "備考": "株ピック・IPOトレンド"
+    },
+    {
+      "ブログ名 / Author": "Prudent Biotech Blog",
+      "URL": "prudentbiotech.com/blog",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "◯",
+      "備考": "リスク調整バイオ投資戦略"
+    },
+    {
+      "ブログ名 / Author": "LongeVC Blog",
+      "URL": "longevc.com/blog",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "ロングevityバイオVC・スタートアップ"
+    },
+    {
+      "ブログ名 / Author": "Bay Bridge Bio Blog",
+      "URL": "baybridgebio.com/blog",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "バイオファイナンス・エグジット"
+    },
+    {
+      "ブログ名 / Author": "Smith on Stocks (Larry Smith)",
+      "URL": "larrysmit.blogspot.com",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "◯",
+      "備考": "個別株分析・バリュエーション"
+    },
+    {
+      "ブログ名 / Author": "The Medical Futurist (Berci Meskó)",
+      "URL": "themedicalfuturist.com/blog",
+      "主なテーマカテゴリ": "MedTech/デジタルヘルス投資",
+      "完全無料？": "◯",
+      "備考": "デジタルヘルス投資ガイド・トレンド"
+    },
+    {
+      "ブログ名 / Author": "Hedge Fund Tips (Thomas J. Hayes)",
+      "URL": "hedgefundtips.com/blog",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "ヘルスケア株ポッドキャスト・戦略"
+    },
+    {
+      "ブログ名 / Author": "Kailash Concepts",
+      "URL": "kailashconcepts.com/white-papers",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "ヘルスケア投資の不確実性・機会分析"
+    },
+    {
+      "ブログ名 / Author": "High Yield Harry Newsletter",
+      "URL": "hyhnewsletter.substack.com",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "△",
+      "備考": "PEバックドヘルスケアトラッカー"
+    },
+    {
+      "ブログ名 / Author": "Frank Trading Log",
+      "URL": "franktrading.substack.com",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "USヘルスケア投資ガイド・株拆解"
+    },
+    {
+      "ブログ名 / Author": "GrowthCap Healthcare",
+      "URL": "growthcapadvisory.com/healthcare",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "トップヘルスケア投資家インタビュー"
+    },
+    {
+      "ブログ名 / Author": "Visible VC Healthcare",
+      "URL": "visible.vc/blog/venture-capital-in-healthcare",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "VCファームリスト・トレンド"
+    },
+    {
+      "ブログ名 / Author": "Dakota Healthcare Transactions",
+      "URL": "dakota.com/resources/blog",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "M&A・成長ラウンドハイライト"
+    },
+    {
+      "ブログ名 / Author": "KLAS Research AI in Healthcare",
+      "URL": "engage.klasresearch.com/blog",
+      "主なテーマカテゴリ": "MedTech/デジタルヘルス投資",
+      "完全無料？": "◯",
+      "備考": "AIヘルスケア投資トレンド"
+    },
+    {
+      "ブログ名 / Author": "Precision for Medicine",
+      "URL": "precisionformedicine.com/blog",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "◯",
+      "備考": "バイオファイナンス・IR洞察"
+    },
+    {
+      "ブログ名 / Author": "Veristat Biotech Influencers",
+      "URL": "veristat.com/blog",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "バイオインフルエンサー・投資Tips"
+    },
+    {
+      "ブログ名 / Author": "Excedr Biotechnology Publications",
+      "URL": "excedr.com/blog",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "◯",
+      "備考": "バイオ出版物・投資リソース"
+    },
+    {
+      "ブログ名 / Author": "The Vesey Healthcare Opportunities",
+      "URL": "thevesey.co.uk/blog",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "2025ヘルスケア投資機会"
+    },
+    {
+      "ブログ名 / Author": "Papermark Health Tech Investors",
+      "URL": "papermark.com/blog/health-tech-investors",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "デジタルヘルス投資家トップ21"
+    },
+    {
+      "ブログ名 / Author": "Multiview Healthcare Finance Blogs",
+      "URL": "multiviewcorp.com/blog",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "ヘルスケアファイナンスブログ5選"
+    },
+    {
+      "ブログ名 / Author": "Sector SPDRs HealthCare",
+      "URL": "sectorspdr.com/insights",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "$XLV ETFポッドキャスト・分析"
+    },
+    {
+      "ブログ名 / Author": "The Digital Elevator Biotech Sites",
+      "URL": "thedigitalelevator.com/blog/best-biotech-websites",
+      "主なテーマカテゴリ": "MedTech/デジタルヘルス投資",
+      "完全無料？": "◯",
+      "備考": "バイオウェブサイト51選"
+    },
+    {
+      "ブログ名 / Author": "Patient Investor",
+      "URL": "patientinvestt.substack.com",
+      "主なテーマカテゴリ": "Biotech/Pharma株分析",
+      "完全無料？": "△",
+      "備考": "テレヘルス・ディスラプター株"
+    },
+    {
+      "ブログ名 / Author": "Holistic PM Private Equity",
+      "URL": "holistic-pm.substack.com",
+      "主なテーマカテゴリ": "ヘルスケアVC/スタートアップ",
+      "完全無料？": "×",
+      "備考": "PEヘルスケアストーリー"
+    },
+    {
+      "ブログ名 / Author": "Healthee Employer Healthcare",
+      "URL": "healthee.com/blog",
+      "主なテーマカテゴリ": "セクター全体戦略",
+      "完全無料？": "◯",
+      "備考": "雇用主ヘルスケアコスト分析"
+    },
+    {
+      "ブログ名 / Author": "Acceleration Point Medical Affairs",
+      "URL": "accel-point.com/blog",
+      "主なテーマカテゴリ": "MedTech/デジタルヘルス投資",
+      "完全無料？": "◯",
+      "備考": "メディカルアフェアーズ・AIツール"
+    },
+    {
+      "ブログ名 / Author": "Acumen Studio Digital Transformation",
+      "URL": "acumenstudio.com/blog",
+      "主なテーマカテゴリ": "MedTech/デジタルヘルス投資",
+      "完全無料？": "◯",
+      "備考": "PE投資家向けデジタルヘルスガイド"
+    }
+  ],
+  "テクノロジー": [
+    {
+      "ブログ名 / Author": "TechCrunch",
+      "URL": "techcrunch.com",
+      "主なテーマカテゴリ": "テックVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "スタートアップ資金調達・テックエコシステム分析"
+    },
+    {
+      "ブログ名 / Author": "VentureBeat",
+      "URL": "venturebeat.com",
+      "主なテーマカテゴリ": "セクター戦略（エンタープライズテック）",
+      "完全無料？": "◯",
+      "備考": "クラウド・EVイノベーション投資"
+    },
+    {
+      "ブログ名 / Author": "The Generalist",
+      "URL": "thegeneralist.com",
+      "主なテーマカテゴリ": "テックVC/スタートアップ",
+      "完全無料？": "△",
+      "備考": "テック企業深掘り・VCトレンド"
+    },
+    {
+      "ブログ名 / Author": "Digits to Dollars (R. T. Lowe)",
+      "URL": "digitstodollars.com",
+      "主なテーマカテゴリ": "セクター戦略（セミコンダクター）",
+      "完全無料？": "◯",
+      "備考": "チップ・ハードウェア投資洞察"
+    },
+    {
+      "ブログ名 / Author": "The Diff",
+      "URL": "the-diff.co",
+      "主なテーマカテゴリ": "テック株分析",
+      "完全無料？": "×",
+      "備考": "テックインフレクション・フィンテック"
+    },
+    {
+      "ブログ名 / Author": "SITAL (Tom Foremsky)",
+      "URL": "sitals.com",
+      "主なテーマカテゴリ": "セクター戦略（イノベーション）",
+      "完全無料？": "◯",
+      "備考": "テックガジェット・EV投資"
+    },
+    {
+      "ブログ名 / Author": "Wired",
+      "URL": "wired.com",
+      "主なテーマカテゴリ": "セクター戦略（クリーンテック/サイバー）",
+      "完全無料？": "◯",
+      "備考": "ブロックチェーン・サイバーセキュリティトレンド"
+    },
+    {
+      "ブログ名 / Author": "The Verge",
+      "URL": "theverge.com",
+      "主なテーマカテゴリ": "テック株分析",
+      "完全無料？": "◯",
+      "備考": "コンシューマーテック・AR/VR投資"
+    },
+    {
+      "ブログ名 / Author": "CNET",
+      "URL": "cnet.com",
+      "主なテーマカテゴリ": "セクター戦略（EV/スマートホーム）",
+      "完全無料？": "◯",
+      "備考": "EV・IoTデバイス投資レビュー"
+    },
+    {
+      "ブログ名 / Author": "Mashable",
+      "URL": "mashable.com",
+      "主なテーマカテゴリ": "テックVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "ソーシャルテック・フィンテックニュース"
+    },
+    {
+      "ブログ名 / Author": "Recode (Vox)",
+      "URL": "recode.vox.com",
+      "主なテーマカテゴリ": "テック株分析",
+      "完全無料？": "◯",
+      "備考": "テック政策・ブロックチェーン投資"
+    },
+    {
+      "ブログ名 / Author": "Stratechery (Ben Thompson)",
+      "URL": "stratechery.com",
+      "主なテーマカテゴリ": "セクター戦略（クラウド/フィンテック）",
+      "完全無料？": "△",
+      "備考": "テック競争力・ストリーミング投資"
+    },
+    {
+      "ブログ名 / Author": "MoneyWeek Tech",
+      "URL": "moneyweek.com/investments/tech-stocks",
+      "主なテーマカテゴリ": "セクター戦略（サイバーセキュリティ）",
+      "完全無料？": "◯",
+      "備考": "サイバー・テック株投資ガイド"
+    },
+    {
+      "ブログ名 / Author": "HackerNoon",
+      "URL": "hackernoon.com",
+      "主なテーマカテゴリ": "テックVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "クリプト・ブロックチェーン投資"
+    },
+    {
+      "ブログ名 / Author": "EquityZen Blog",
+      "URL": "blog.equityzen.com",
+      "主なテーマカテゴリ": "テックVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "エマージングテック企業・サイバー投資"
+    },
+    {
+      "ブログ名 / Author": "Surmount AI Tech (非AI部分)",
+      "URL": "surmount.ai/blogs",
+      "主なテーマカテゴリ": "セクター戦略（クリーン/サイバー/スペース）",
+      "完全無料？": "◯",
+      "備考": "クリーンエナジー・サイバー株ピック"
+    },
+    {
+      "ブログ名 / Author": "Waterloo Capital Insights",
+      "URL": "waterloocapital.com/insights",
+      "主なテーマカテゴリ": "セクター戦略（グリーン/テックインフラ）",
+      "完全無料？": "◯",
+      "備考": "グリーンインフラ・テック株トレンド"
+    },
+    {
+      "ブログ名 / Author": "Exploding Topics Trends",
+      "URL": "explodingtopics.com/blog",
+      "主なテーマカテゴリ": "テック株分析",
+      "完全無料？": "◯",
+      "備考": "テック投資トレンド・非AIイノベ"
+    },
+    {
+      "ブログ名 / Author": "VanEck Thematic Investing",
+      "URL": "vaneck.com/us/en/blogs/thematic-investing",
+      "主なテーマカテゴリ": "セクター戦略（テックオポチュニティ）",
+      "完全無料？": "◯",
+      "備考": "2025テック予測・EV/ブロックチェーン"
+    },
+    {
+      "ブログ名 / Author": "Bitcot Industries",
+      "URL": "bitcot.com/blog",
+      "主なテーマカテゴリ": "セクター戦略（ソフトウェア/クリーン）",
+      "完全無料？": "◯",
+      "備考": "ソフトウェア・EV/フィンテック投資"
+    },
+    {
+      "ブログ名 / Author": "Align Alternative Finance",
+      "URL": "align.com/blog",
+      "主なテーマカテゴリ": "テックVC/スタートアップ",
+      "完全無料？": "◯",
+      "備考": "フィンテック・ブロックチェーンイノベ"
+    },
+    {
+      "ブログ名 / Author": "Financial IT",
+      "URL": "financialit.net/blog",
+      "主なテーマカテゴリ": "セクター戦略（フィンテック）",
+      "完全無料？": "◯",
+      "備考": "フィンテックエコシステム投資"
+    },
+    {
+      "ブログ名 / Author": "FlowDex DeFi Blog",
+      "URL": "flowdex.org/blog",
+      "主なテーマカテゴリ": "セクター戦略（DeFi/ブロックチェーン）",
+      "完全無料？": "◯",
+      "備考": "DeFi・RWA・BTCステーキング投資"
+    },
+    {
+      "ブログ名 / Author": "Intrinsic Compounding",
+      "URL": "soicfinance.substack.com",
+      "主なテーマカテゴリ": "テック株分析",
+      "完全無料？": "△",
+      "備考": "セミコンダクター・グリーンエナジー株"
+    },
+    {
+      "ブログ名 / Author": "EvoRelic Fintech",
+      "URL": "evorelic.com/blogs",
+      "主なテーマカテゴリ": "セクター戦略（フィンテック）",
+      "完全無料？": "◯",
+      "備考": "アメリカンフィンテック成長戦略"
+    },
+    {
+      "ブログ名 / Author": "Radixweb Fintech",
+      "URL": "radixweb.com/blog",
+      "主なテーマカテゴリ": "セクター戦略（フィンテックインフラ）",
+      "完全無料？": "◯",
+      "備考": "フィンテック自動化投資"
+    },
+    {
+      "ブログ名 / Author": "The Unfiltered Investor",
+      "URL": "unfilteredinvestor.com",
+      "主なテーマカテゴリ": "テック株分析",
+      "完全無料？": "×",
+      "備考": "テック市場フレームワーク"
+    },
+    {
+      "ブログ名 / Author": "Imfaso Invest",
+      "URL": "imfaso.com/blog",
+      "主なテーマカテゴリ": "セクター戦略（テック/ブロックチェーン）",
+      "完全無料？": "◯",
+      "備考": "長期テック投資プレイ"
+    },
+    {
+      "ブログ名 / Author": "Bourse et Trading",
+      "URL": "bourseettrading.com/blog",
+      "主なテーマカテゴリ": "テック株分析",
+      "完全無料？": "◯",
+      "備考": "Tech-Finance統合・DeFi投資"
+    },
+    {
+      "ブログ名 / Author": "Fluent In Finance",
+      "URL": "thefinancenewsletter.com",
+      "主なテーマカテゴリ": "セクター戦略（デジタル/ブロックチェーン）",
+      "完全無料？": "◯",
+      "備考": "フィンテック・低カーボンテックトレンド"
+    }
+  ]
+}

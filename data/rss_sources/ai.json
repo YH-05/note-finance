@@ -1,0 +1,471 @@
+[
+  {
+    "ブログ名 / Author": "OpenAI Blog",
+    "URL": "openai.com/blog",
+    "主なテーマカテゴリ": "AI研究・モデル更新・安全",
+    "完全無料？": "◯",
+    "備考": "完全無料、GPT/oシリーズの洞察"
+  },
+  {
+    "ブログ名 / Author": "Google DeepMind Blog",
+    "URL": "deepmind.google/blog/",
+    "主なテーマカテゴリ": "AI研究・科学応用・エージェント",
+    "完全無料？": "◯",
+    "備考": "完全無料、Gemini/AlphaFold中心"
+  },
+  {
+    "ブログ名 / Author": "Berkeley AI Research (BAIR) Blog",
+    "URL": "bair.berkeley.edu/blog/",
+    "主なテーマカテゴリ": "AI研究・RL・ビジョン",
+    "完全無料？": "◯",
+    "備考": "完全無料、学術論文要約"
+  },
+  {
+    "ブログ名 / Author": "Andrej Karpathy Blog",
+    "URL": "karpathy.ai/blog",
+    "主なテーマカテゴリ": "AI研究・LLM基礎・教育",
+    "完全無料？": "◯",
+    "備考": "完全無料、Neural nets解説"
+  },
+  {
+    "ブログ名 / Author": "Sebastian Raschka Blog",
+    "URL": "sebastianraschka.com/blog/",
+    "主なテーマカテゴリ": "ML実践・LLMチュートリアル",
+    "完全無料？": "◯",
+    "備考": "完全無料、コード例豊富"
+  },
+  {
+    "ブログ名 / Author": "Lil’Log (Lilian Weng)",
+    "URL": "lilianweng.github.io/posts/",
+    "主なテーマカテゴリ": "AI研究・エージェント・RLHF",
+    "完全無料？": "◯",
+    "備考": "完全無料、OpenAI元VP視点"
+  },
+  {
+    "ブログ名 / Author": "Hugging Face Blog",
+    "URL": "huggingface.co/blog",
+    "主なテーマカテゴリ": "ML実践・オープンソース・RAG",
+    "完全無料？": "◯",
+    "備考": "完全無料、ツール・モデル更新"
+  },
+  {
+    "ブログ名 / Author": "AI Snake Oil (Arvind Narayanan & Sayash Kapoor)",
+    "URL": "www.aisnakeoil.com/",
+    "主なテーマカテゴリ": "AI倫理・政策・評価",
+    "完全無料？": "◯",
+    "備考": "完全無料、AIの「蛇油」検証"
+  },
+  {
+    "ブログ名 / Author": "Import AI (Jack Clark)",
+    "URL": "importai.org/",
+    "主なテーマカテゴリ": "AIニュース・トレンド・政策",
+    "完全無料？": "◯",
+    "備考": "完全無料、週刊まとめ"
+  },
+  {
+    "ブログ名 / Author": "The Batch (DeepLearning.AI)",
+    "URL": "read.deeplearning.ai/the-batch/",
+    "主なテーマカテゴリ": "AIニュース・トレンド・教育",
+    "完全無料？": "◯",
+    "備考": "完全無料、Andrew Ng監修"
+  },
+  {
+    "ブログ名 / Author": "Machine Learning Mastery (Jason Brownlee)",
+    "URL": "machinelearningmastery.com/blog/",
+    "主なテーマカテゴリ": "ML実践・チュートリアル・Python",
+    "完全無料？": "◯",
+    "備考": "完全無料、初心者向け実装"
+  },
+  {
+    "ブログ名 / Author": "Distill.pub",
+    "URL": "distill.pub/",
+    "主なテーマカテゴリ": "AI研究・ビジュアル説明・インタラクティブ",
+    "完全無料？": "◯",
+    "備考": "完全無料、論文の視覚化"
+  },
+  {
+    "ブログ名 / Author": "Fast.ai Blog",
+    "URL": "blog.fast.ai/",
+    "主なテーマカテゴリ": "ML実践・実践的深層学習",
+    "完全無料？": "◯",
+    "備考": "完全無料、無料コース連動"
+  },
+  {
+    "ブログ名 / Author": "Towards AI",
+    "URL": "towardsai.net/",
+    "主なテーマカテゴリ": "AI応用・業界・データサイエンス",
+    "完全無料？": "◯",
+    "備考": "完全無料、多様な寄稿"
+  },
+  {
+    "ブログ名 / Author": "MIT Technology Review AI Section",
+    "URL": "technologyreview.com/topic/artificial-intelligence/",
+    "主なテーマカテゴリ": "AIニュース・トレンド・倫理",
+    "完全無料？": "◯",
+    "備考": "完全無料、MITの深掘り記事"
+  },
+  {
+    "ブログ名 / Author": "Interconnects (Nathan Lambert)",
+    "URL": "www.interconnects.ai/",
+    "主なテーマカテゴリ": "AI研究・オープンソース・アライメント",
+    "完全無料？": "×",
+    "備考": "50%無料、Substack有料"
+  },
+  {
+    "ブログ名 / Author": "Chip Huyen Blog",
+    "URL": "chipro.net/",
+    "主なテーマカテゴリ": "ML実践・MLOps・生産システム",
+    "完全無料？": "◯",
+    "備考": "ほぼ無料、Stanford講師"
+  },
+  {
+    "ブログ名 / Author": "Eugene Yan Blog",
+    "URL": "eugene-yan.com/",
+    "主なテーマカテゴリ": "AI応用・データサイエンス・推薦システム",
+    "完全無料？": "◯",
+    "備考": "完全無料、Amazon元"
+  },
+  {
+    "ブログ名 / Author": "Philipp Schmid Blog",
+    "URL": "philipp-schmid.de/",
+    "主なテーマカテゴリ": "ML実践・LLMデプロイ・AWS",
+    "完全無料？": "◯",
+    "備考": "ほぼ無料、Hugging Face元"
+  },
+  {
+    "ブログ名 / Author": "Jason Liu Blog",
+    "URL": "jasonliu.ca/",
+    "主なテーマカテゴリ": "AI応用・LLMツール・コンサル視点",
+    "完全無料？": "◯",
+    "備考": "完全無料、実践レッスン"
+  },
+  {
+    "ブログ名 / Author": "Hamel Husain Blog",
+    "URL": "hamel.dev/",
+    "主なテーマカテゴリ": "ML実践・MLOps・ファインチューニング",
+    "完全無料？": "◯",
+    "備考": "ほぼ無料、GitHub元"
+  },
+  {
+    "ブログ名 / Author": "Exponential View (Azeem Azhar)",
+    "URL": "www.exponentialview.co/",
+    "主なテーマカテゴリ": "AIニュース・トレンド・ビジネス",
+    "完全無料？": "×",
+    "備考": "約40%無料、Substack"
+  },
+  {
+    "ブログ名 / Author": "SemiAnalysis (Dylan Patel)",
+    "URL": "semianalysis.com/",
+    "主なテーマカテゴリ": "AI応用・ハードウェア・インフラ",
+    "完全無料？": "×",
+    "備考": "ほぼ有料、AIチップ分析"
+  },
+  {
+    "ブログ名 / Author": "Latent Space (Swyx)",
+    "URL": "www.latentspace.com/",
+    "主なテーマカテゴリ": "AIニュース・ポッドキャスト・エンジニアリング",
+    "完全無料？": "×",
+    "備考": "60%無料、Substack"
+  },
+  {
+    "ブログ名 / Author": "The Algorithmic Bridge (Alberto Romero)",
+    "URL": "www.thealgorithmicbridge.com/",
+    "主なテーマカテゴリ": "AI倫理・政策・ニュース",
+    "完全無料？": "◯",
+    "備考": "ほぼ無料、バランス視点"
+  },
+  {
+    "ブログ名 / Author": "Ahead of AI (Sebastian Raschka)",
+    "URL": "newsletter.sebastianraschka.com/",
+    "主なテーマカテゴリ": "AIニュース・研究まとめ",
+    "完全無料？": "◯",
+    "備考": "完全無料、論文レビュー"
+  },
+  {
+    "ブログ名 / Author": "Deep (Learning) Focus (Cameron Wolfe)",
+    "URL": "cameronrwolfe.substack.com/",
+    "主なテーマカテゴリ": "AI研究・モデル最適化",
+    "完全無料？": "×",
+    "備考": "約50%無料、Substack"
+  },
+  {
+    "ブログ名 / Author": "Artificial Fintelligence (Finbarr Timbers)",
+    "URL": "artificialfintelligence.substack.com/",
+    "主なテーマカテゴリ": "AIニュース・ML研究ラウンドアップ",
+    "完全無料？": "×",
+    "備考": "ほぼ有料、インサイド"
+  },
+  {
+    "ブログ名 / Author": "Rising Tide (Helen Toner)",
+    "URL": "helen-toner.substack.com/",
+    "主なテーマカテゴリ": "AI倫理・政策・地政学",
+    "完全無料？": "×",
+    "備考": "約30%無料、独立思考家"
+  },
+  {
+    "ブログ名 / Author": "The AI Frontier (Joseph Gonzalez)",
+    "URL": "theaifrontier.substack.com/",
+    "主なテーマカテゴリ": "AI研究・LLMインサイト",
+    "完全無料？": "×",
+    "備考": "50%無料、ビルダー視点"
+  },
+  {
+    "ブログ名 / Author": "AI: A Guide for Thinking Humans (Melanie Mitchell)",
+    "URL": "melanie.ai/",
+    "主なテーマカテゴリ": "AI倫理・評価・人間中心",
+    "完全無料？": "◯",
+    "備考": "ほぼ無料、信頼性高"
+  },
+  {
+    "ブログ名 / Author": "VentureBeat AI",
+    "URL": "venturebeat.com/category/ai/",
+    "主なテーマカテゴリ": "AI応用・ビジネス・エンタープライズ",
+    "完全無料？": "◯",
+    "備考": "完全無料、業界戦略"
+  },
+  {
+    "ブログ名 / Author": "MIT News AI",
+    "URL": "news.mit.edu/topic/artificial-intelligence-9",
+    "主なテーマカテゴリ": "AI研究・ブレークスルー",
+    "完全無料？": "◯",
+    "備考": "完全無料、キャンパス発見"
+  },
+  {
+    "ブログ名 / Author": "I/O Fund (Beth Kindig)",
+    "URL": "io-fund.com",
+    "主なテーマカテゴリ": "AI株分析・ポートフォリオ戦略",
+    "完全無料？": "◯",
+    "備考": "週刊AI株ピック、NVIDIA早期コールで有名"
+  },
+  {
+    "ブログ名 / Author": "Exponential View (Azeem Azhar)",
+    "URL": "exponentialview.co",
+    "主なテーマカテゴリ": "AIトレンド・バブル分析",
+    "完全無料？": "◯",
+    "備考": "AI生産性・投資圧力点のフレームワーク"
+  },
+  {
+    "ブログ名 / Author": "Import AI (Jack Clark)",
+    "URL": "importai.org",
+    "主なテーマカテゴリ": "AIニュース・政策投資",
+    "完全無料？": "◯",
+    "備考": "週刊AI投資・スタートアップまとめ"
+  },
+  {
+    "ブログ名 / Author": "The Batch (DeepLearning.AI)",
+    "URL": "read.deeplearning.ai/the-batch",
+    "主なテーマカテゴリ": "AIニュース・エンタープライズ投資",
+    "完全無料？": "◯",
+    "備考": "Andrew Ng監修、AIツール投資洞察"
+  },
+  {
+    "ブログ名 / Author": "MIT Technology Review AI",
+    "URL": "technologyreview.com/topic/artificial-intelligence",
+    "主なテーマカテゴリ": "AI倫理・市場影響投資",
+    "完全無料？": "◯",
+    "備考": "MITのAI株・規制投資分析"
+  },
+  {
+    "ブログ名 / Author": "VentureBeat AI",
+    "URL": "venturebeat.com/category/ai",
+    "主なテーマカテゴリ": "AIビジネス・エンタープライズ投資",
+    "完全無料？": "◯",
+    "備考": "AI企業戦略・M&A投資"
+  },
+  {
+    "ブログ名 / Author": "Towards Data Science",
+    "URL": "towardsdatascience.com",
+    "主なテーマカテゴリ": "AIデータサイエンス・株モデル",
+    "完全無料？": "◯",
+    "備考": "Medium寄稿、AIアルゴ投資実装"
+  },
+  {
+    "ブログ名 / Author": "Stratechery (Ben Thompson)",
+    "URL": "stratechery.com",
+    "主なテーマカテゴリ": "AIセクター戦略・競争力",
+    "完全無料？": "△",
+    "備考": "一部無料、NVIDIA/Google AIモート分析"
+  },
+  {
+    "ブログ名 / Author": "SemiAnalysis (Dylan Patel)",
+    "URL": "semianalysis.com",
+    "主なテーマカテゴリ": "AIハードウェア・インフラ投資",
+    "完全無料？": "×",
+    "備考": "ほぼ有料、AIチップTCOモデル"
+  },
+  {
+    "ブログ名 / Author": "Latent Space (Swyx)",
+    "URL": "latentspace.com",
+    "主なテーマカテゴリ": "AIエンジニアリング・スタートアップ",
+    "完全無料？": "×",
+    "備考": "60%無料、AI VC・ポッドキャスト連動"
+  },
+  {
+    "ブログ名 / Author": "AI Snake Oil (Arvind Narayanan)",
+    "URL": "aisnakeoil.com",
+    "主なテーマカテゴリ": "AI評価・リスク投資",
+    "完全無料？": "◯",
+    "備考": "AI「バブル」検証、投資家向け"
+  },
+  {
+    "ブログ名 / Author": "AlphaSense Blog",
+    "URL": "alphasense.com/blog",
+    "主なテーマカテゴリ": "AI投資リサーチツール",
+    "完全無料？": "◯",
+    "備考": "NLP・決算分析ツール投資"
+  },
+  {
+    "ブログ名 / Author": "RockFlow AI Investing",
+    "URL": "rockflow.ai/blog/category/ai%20investing",
+    "主なテーマカテゴリ": "AI投資プラットフォーム",
+    "完全無料？": "◯",
+    "備考": "初心者AI株ピッカー比較"
+  },
+  {
+    "ブログ名 / Author": "Danelfin Blog",
+    "URL": "danelfin.com/blog",
+    "主なテーマカテゴリ": "AI株ピッキング・予測",
+    "完全無料？": "◯",
+    "備考": "AIスコアベースの株選定"
+  },
+  {
+    "ブログ名 / Author": "Prospero.ai Blog",
+    "URL": "prospero.ai/blog",
+    "主なテーマカテゴリ": "AI株アイデア・日次インサイト",
+    "完全無料？": "◯",
+    "備考": "トレンド信号・技術指標投資"
+  },
+  {
+    "ブログ名 / Author": "Magnifi Blog",
+    "URL": "magnifi.com/blog",
+    "主なテーマカテゴリ": "AIポートフォリオ分析",
+    "完全無料？": "◯",
+    "備考": "検索駆動AI投資アドバイス"
+  },
+  {
+    "ブログ名 / Author": "TrendSpider Blog",
+    "URL": "trendspider.com/blog",
+    "主なテーマカテゴリ": "AIチャート・パターン投資",
+    "完全無料？": "◯",
+    "備考": "自動化AIトレーディング"
+  },
+  {
+    "ブログ名 / Author": "The Gradient",
+    "URL": "thegradient.pub",
+    "主なテーマカテゴリ": "AI研究・イノベーション投資",
+    "完全無料？": "◯",
+    "備考": "学術AI株影響分析"
+  },
+  {
+    "ブログ名 / Author": "Chip Huyen Blog",
+    "URL": "chipro.net",
+    "主なテーマカテゴリ": "MLOps・生産AI投資",
+    "完全無料？": "◯",
+    "備考": "Stanford視点のAIスケーリング投資"
+  },
+  {
+    "ブログ名 / Author": "Eugene Yan Blog",
+    "URL": "eugene-yan.com",
+    "主なテーマカテゴリ": "応用AI・推薦システム投資",
+    "完全無料？": "◯",
+    "備考": "Amazon元、AIデータ投資"
+  },
+  {
+    "ブログ名 / Author": "Interconnects (Nathan Lambert)",
+    "URL": "interconnects.ai",
+    "主なテーマカテゴリ": "AIアライメント・オープンソース投資",
+    "完全無料？": "×",
+    "備考": "50%無料、AIエコシステム"
+  },
+  {
+    "ブログ名 / Author": "Rising Tide (Helen Toner)",
+    "URL": "helen-toner.substack.com",
+    "主なテーマカテゴリ": "AI政策・地政学投資",
+    "完全無料？": "×",
+    "備考": "30%無料、規制リスク投資"
+  },
+  {
+    "ブログ名 / Author": "Artificial Fintelligence (Finbarr Timbers)",
+    "URL": "artificialfintelligence.substack.com",
+    "主なテーマカテゴリ": "ML研究・ラウンドアップ投資",
+    "完全無料？": "×",
+    "備考": "ほぼ有料、インサイダーAI株"
+  },
+  {
+    "ブログ名 / Author": "Deep (Learning) Focus (Cameron Wolfe)",
+    "URL": "cameronrwolfe.substack.com",
+    "主なテーマカテゴリ": "AIモデル最適化・ハード投資",
+    "完全無料？": "×",
+    "備考": "50%無料、トレーニングコスト"
+  },
+  {
+    "ブログ名 / Author": "Ahead of AI (Sebastian Raschka)",
+    "URL": "newsletter.sebastianraschka.com",
+    "主なテーマカテゴリ": "AI研究まとめ・投資トレンド",
+    "完全無料？": "◯",
+    "備考": "論文レビュー、AI株影響"
+  },
+  {
+    "ブログ名 / Author": "The Algorithmic Bridge (Alberto Romero)",
+    "URL": "thealgorithmicbridge.com",
+    "主なテーマカテゴリ": "AIニュース・バランス投資",
+    "完全無料？": "◯",
+    "備考": "楽観的AI市場分析"
+  },
+  {
+    "ブログ名 / Author": "Distill.pub",
+    "URL": "distill.pub",
+    "主なテーマカテゴリ": "AIビジュアル・インタラクティブ投資",
+    "完全無料？": "◯",
+    "備考": "論文視覚化、AIイノベ投資"
+  },
+  {
+    "ブログ名 / Author": "Beth Kindig Medium",
+    "URL": "medium.com/@bethkindig",
+    "主なテーマカテゴリ": "AI株・2025戦略",
+    "完全無料？": "◯",
+    "備考": "I/O Fund連動、トークン成長分析"
+  },
+  {
+    "ブログ名 / Author": "Public Alpha Blog",
+    "URL": "public.com/learn/public-alpha",
+    "主なテーマカテゴリ": "AI市場分析・トレード",
+    "完全無料？": "◯",
+    "備考": "会話型AI株アドバイス"
+  },
+  {
+    "ブログ名 / Author": "LiteFinance AI Stocks",
+    "URL": "litefinance.org/blog/for-investors/types-of-stocks/best-ai-stocks",
+    "主なテーマカテゴリ": "AI株ガイド・予測",
+    "完全無料？": "◯",
+    "備考": "グローバルAI株トップピック"
+  },
+  {
+    "ブログ名 / Author": "Surmount AI Picked Stocks",
+    "URL": "surmount.ai/blogs/ai-picked-stocks-2025-top-performers",
+    "主なテーマカテゴリ": "AI選定株・パフォーマンス",
+    "完全無料？": "◯",
+    "備考": "2025 AI株12.5%リターン分析"
+  },
+  {
+    "ブログ名 / Author": "The Investor's Podcast AI Tools",
+    "URL": "theinvestorspodcast.com/business/top-5-ai-stock-picking-tools-in-2025",
+    "主なテーマカテゴリ": "AI株ピッカー比較",
+    "完全無料？": "◯",
+    "備考": "ツールレビュー、投資エッジ"
+  },
+  {
+    "ブログ名 / Author": "Investing.com AI Mega-Cap",
+    "URL": "investing.com/academy/stock-picks/best-megacap-ai-stocks",
+    "主なテーマカテゴリ": "AIメガキャップ株",
+    "完全無料？": "◯",
+    "備考": "S&P500 AI株選定"
+  },
+  {
+    "ブログ名 / Author": "Money.com AI Picks",
+    "URL": "money.com/ai-picks-stocks-this-month",
+    "主なテーマカテゴリ": "AIツール株推奨",
+    "完全無料？": "◯",
+    "備考": "ChatGPT/Gemini月次ピック"
+  }
+]

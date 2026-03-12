@@ -1,0 +1,242 @@
+[
+  {
+    "メディア/ブログ名": "CNBC",
+    "URL": "cnbc.com",
+    "主なテーマカテゴリ": "Market News (グローバル市場速報)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "リアルタイム株・為替ニュース。RSS: https://www.cnbc.com/rss-feeds/",
+    "RSS": "https://www.cnbc.com/rss-feeds/"
+  },
+  {
+    "メディア/ブログ名": "MarketWatch",
+    "URL": "marketwatch.com",
+    "主なテーマカテゴリ": "Market News (US市場・株価更新)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次市場解説・企業速報。RSS: https://www.marketwatch.com/rss",
+    "RSS": "https://www.marketwatch.com/rss"
+  },
+  {
+    "メディア/ブログ名": "Investing.com",
+    "URL": "investing.com",
+    "主なテーマカテゴリ": "Stock Updates (株・商品チャート)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "ライブデータ・ニュース。RSS: https://www.investing.com/webmaster-tools/rss",
+    "RSS": "https://www.investing.com/webmaster-tools/rss"
+  },
+  {
+    "メディア/ブログ名": "Seeking Alpha",
+    "URL": "seekingalpha.com",
+    "主なテーマカテゴリ": "Stock Updates (株分析・速報)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "ユーザー寄稿ニュース。RSS: https://seekingalpha.com/api/sa/combined/seeking_alpha.rss",
+    "RSS": "https://seekingalpha.com/api/sa/combined/seeking_alpha.rss"
+  },
+  {
+    "メディア/ブログ名": "Yahoo Finance",
+    "URL": "finance.yahoo.com",
+    "主なテーマカテゴリ": "Market News (株価・経済ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "無料ポートフォリオツール連動。RSS: https://finance.yahoo.com/rss/",
+    "RSS": "https://finance.yahoo.com/rss/"
+  },
+  {
+    "メディア/ブログ名": "Reuters Business",
+    "URL": "reuters.com/business",
+    "主なテーマカテゴリ": "Economic Indicators (マクロデータ)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "グローバル経済速報。RSS: https://www.reuters.com/arc/outboundfeeds/news-rss/",
+    "RSS": "https://www.reuters.com/arc/outboundfeeds/news-rss/"
+  },
+  {
+    "メディア/ブログ名": "Bloomberg Markets",
+    "URL": "bloomberg.com/markets",
+    "主なテーマカテゴリ": "Market News (市場全体動向)",
+    "完全無料？": "△",
+    "備考（RSSフィード）": "基本ニュース無料（一部有料）。RSS: https://feeds.bloomberg.com/markets/news.rss",
+    "RSS": "https://feeds.bloomberg.com/markets/news.rss"
+  },
+  {
+    "メディア/ブログ名": "The Motley Fool Stock News",
+    "URL": "fool.com/investing/stock-market",
+    "主なテーマカテゴリ": "Stock Updates (株ピック・ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次株ニュース。RSS: https://www.fool.com/feeds/stock-news.rss",
+    "RSS": "https://www.fool.com/feeds/stock-news.rss"
+  },
+  {
+    "メディア/ブログ名": "Nasdaq News",
+    "URL": "nasdaq.com/news-and-insights",
+    "主なテーマカテゴリ": "Stock Updates (上場企業ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "リアルタイム企業発表。RSS: https://www.nasdaq.com/feed/rss",
+    "RSS": "https://www.nasdaq.com/feed/rss"
+  },
+  {
+    "メディア/ブログ名": "Financial Times Markets",
+    "URL": "ft.com/markets",
+    "主なテーマカテゴリ": "Economic Indicators (為替・債券)",
+    "完全無料？": "△",
+    "備考（RSSフィード）": "市場分析（基本無料）。RSS: https://www.ft.com/markets?format=rss",
+    "RSS": "https://www.ft.com/markets?format=rss"
+  },
+  {
+    "メディア/ブログ名": "Fortune Business News",
+    "URL": "fortune.com/section/business-news",
+    "主なテーマカテゴリ": "Overall Daily Updates (企業・市場)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次ビジネスまとめ。RSS: https://fortune.com/feed",
+    "RSS": "https://fortune.com/feed"
+  },
+  {
+    "メディア/ブログ名": "Wall Street Journal Markets",
+    "URL": "wsj.com/market-data",
+    "主なテーマカテゴリ": "Market News (US株・指数)",
+    "完全無料？": "△",
+    "備考（RSSフィード）": "基本ニュース無料。RSS: https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+    "RSS": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"
+  },
+  {
+    "メディア/ブログ名": "BBC Business News",
+    "URL": "bbc.com/news/business",
+    "主なテーマカテゴリ": "Economic Indicators (グローバル経済)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "国際市場ニュース。RSS: https://feeds.bbci.co.uk/news/business/rss.xml",
+    "RSS": "https://feeds.bbci.co.uk/news/business/rss.xml"
+  },
+  {
+    "メディア/ブログ名": "Investopedia News",
+    "URL": "investopedia.com/news",
+    "主なテーマカテゴリ": "Overall Daily Updates (教育ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "市場用語解説連動。RSS: https://www.investopedia.com/feed/news.xml",
+    "RSS": "https://www.investopedia.com/feed/news.xml"
+  },
+  {
+    "メディア/ブログ名": "Benzinga",
+    "URL": "benzinga.com",
+    "主なテーマカテゴリ": "Stock Updates (株速報・アラート)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "リアルタイム株ニュース。RSS: https://www.benzinga.com/rss",
+    "RSS": "https://www.benzinga.com/rss"
+  },
+  {
+    "メディア/ブログ名": "Zacks News",
+    "URL": "zacks.com/stock/news",
+    "主なテーマカテゴリ": "Stock Updates (株ランクニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次株推奨。RSS: https://www.zacks.com/feed/",
+    "RSS": "https://www.zacks.com/feed/"
+  },
+  {
+    "メディア/ブログ名": "Barron's",
+    "URL": "barrons.com",
+    "主なテーマカテゴリ": "Market News (市場予測・ニュース)",
+    "完全無料？": "△",
+    "備考（RSSフィード）": "基本無料。RSS: https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+    "RSS": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"
+  },
+  {
+    "メディア/ブログ名": "AlphaSense Blog",
+    "URL": "alphasense.com/blog",
+    "主なテーマカテゴリ": "Overall Daily Updates (リサーチニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "市場インサイト。RSS: https://www.alphasense.com/rss/blog.xml",
+    "RSS": "https://www.alphasense.com/rss/blog.xml"
+  },
+  {
+    "メディア/ブログ名": "The Street",
+    "URL": "thestreet.com",
+    "主なテーマカテゴリ": "Stock Updates (株・オプション)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次トレードニュース。RSS: https://www.thestreet.com/rss",
+    "RSS": "https://www.thestreet.com/rss"
+  },
+  {
+    "メディア/ブログ名": "Kiplinger",
+    "URL": "kiplinger.com",
+    "主なテーマカテゴリ": "Economic Indicators (個人ファイナンス)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "経済データ解説。RSS: https://www.kiplinger.com/rss/news",
+    "RSS": "https://www.kiplinger.com/rss/news"
+  },
+  {
+    "メディア/ブログ名": "NerdWallet News",
+    "URL": "nerdwallet.com/article/investing",
+    "主なテーマカテゴリ": "Overall Daily Updates (投資ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "初心者向け市場まとめ。RSS: https://www.nerdwallet.com/blog/feed/",
+    "RSS": "https://www.nerdwallet.com/blog/feed/"
+  },
+  {
+    "メディア/ブログ名": "U.S. News Money",
+    "URL": "money.usnews.com",
+    "主なテーマカテゴリ": "Market News (US経済ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次市場動向。RSS: https://money.usnews.com/rss/money",
+    "RSS": "https://money.usnews.com/rss/money"
+  },
+  {
+    "メディア/ブログ名": "SmartBrief Finance",
+    "URL": "smartbrief.com/finance",
+    "主なテーマカテゴリ": "Economic Indicators (財務速報)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "週次/日次まとめ。RSS: https://www.smartbrief.com/servlet/rss?guid=finance",
+    "RSS": "https://www.smartbrief.com/servlet/rss?guid=finance"
+  },
+  {
+    "メディア/ブログ名": "HuffPost Business",
+    "URL": "huffpost.com/business",
+    "主なテーマカテゴリ": "Overall Daily Updates (ビジネスニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "市場社会影響。RSS: https://www.huffpost.com/section/business/feed",
+    "RSS": "https://www.huffpost.com/section/business/feed"
+  },
+  {
+    "メディア/ブログ名": "CBS News Money",
+    "URL": "cbsnews.com/money",
+    "主なテーマカテゴリ": "Stock Updates (株・企業ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次企業速報。RSS: https://www.cbsnews.com/latest/rss/money",
+    "RSS": "https://www.cbsnews.com/latest/rss/money"
+  },
+  {
+    "メディア/ブログ名": "Politico Finance",
+    "URL": "politico.com/finance",
+    "主なテーマカテゴリ": "Economic Indicators (政策影響ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "規制・市場ニュース。RSS: https://www.politico.com/rss/finance.xml",
+    "RSS": "https://www.politico.com/rss/finance.xml"
+  },
+  {
+    "メディア/ブログ名": "The Hill Finance",
+    "URL": "thehill.com/policy/finance",
+    "主なテーマカテゴリ": "Market News (政治・市場)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次政策速報。RSS: https://thehill.com/rss/syndicator/19117",
+    "RSS": "https://thehill.com/rss/syndicator/19117"
+  },
+  {
+    "メディア/ブログ名": "Time Money",
+    "URL": "time.com/money",
+    "主なテーマカテゴリ": "Overall Daily Updates (経済トレンド)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "市場ライフスタイル。RSS: https://time.com/feed/money",
+    "RSS": "https://time.com/feed/money"
+  },
+  {
+    "メディア/ブログ名": "Forbes Markets",
+    "URL": "forbes.com/sites/investor-hub",
+    "主なテーマカテゴリ": "Stock Updates (投資家ニュース)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "日次株動向。RSS: https://www.forbes.com/markets/feed/",
+    "RSS": "https://www.forbes.com/markets/feed/"
+  },
+  {
+    "メディア/ブログ名": "Business Insider Markets",
+    "URL": "markets.businessinsider.com",
+    "主なテーマカテゴリ": "Market News (リアルタイム市場)",
+    "完全無料？": "◯",
+    "備考（RSSフィード）": "グローバル株速報。RSS: https://markets.businessinsider.com/rss",
+    "RSS": "https://markets.businessinsider.com/rss"
+  }
+]

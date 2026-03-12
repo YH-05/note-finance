@@ -1,0 +1,212 @@
+[
+  {
+    "ブログ名 / Author": "TechCrunch",
+    "URL": "techcrunch.com",
+    "主なテーマカテゴリ": "テックVC/スタートアップ",
+    "完全無料？": "◯",
+    "備考": "スタートアップ資金調達・テックエコシステム分析"
+  },
+  {
+    "ブログ名 / Author": "VentureBeat",
+    "URL": "venturebeat.com",
+    "主なテーマカテゴリ": "セクター戦略（エンタープライズテック）",
+    "完全無料？": "◯",
+    "備考": "クラウド・EVイノベーション投資"
+  },
+  {
+    "ブログ名 / Author": "The Generalist",
+    "URL": "thegeneralist.com",
+    "主なテーマカテゴリ": "テックVC/スタートアップ",
+    "完全無料？": "△",
+    "備考": "テック企業深掘り・VCトレンド"
+  },
+  {
+    "ブログ名 / Author": "Digits to Dollars (R. T. Lowe)",
+    "URL": "digitstodollars.com",
+    "主なテーマカテゴリ": "セクター戦略（セミコンダクター）",
+    "完全無料？": "◯",
+    "備考": "チップ・ハードウェア投資洞察"
+  },
+  {
+    "ブログ名 / Author": "The Diff",
+    "URL": "the-diff.co",
+    "主なテーマカテゴリ": "テック株分析",
+    "完全無料？": "×",
+    "備考": "テックインフレクション・フィンテック"
+  },
+  {
+    "ブログ名 / Author": "SITAL (Tom Foremsky)",
+    "URL": "sitals.com",
+    "主なテーマカテゴリ": "セクター戦略（イノベーション）",
+    "完全無料？": "◯",
+    "備考": "テックガジェット・EV投資"
+  },
+  {
+    "ブログ名 / Author": "Wired",
+    "URL": "wired.com",
+    "主なテーマカテゴリ": "セクター戦略（クリーンテック/サイバー）",
+    "完全無料？": "◯",
+    "備考": "ブロックチェーン・サイバーセキュリティトレンド"
+  },
+  {
+    "ブログ名 / Author": "The Verge",
+    "URL": "theverge.com",
+    "主なテーマカテゴリ": "テック株分析",
+    "完全無料？": "◯",
+    "備考": "コンシューマーテック・AR/VR投資"
+  },
+  {
+    "ブログ名 / Author": "CNET",
+    "URL": "cnet.com",
+    "主なテーマカテゴリ": "セクター戦略（EV/スマートホーム）",
+    "完全無料？": "◯",
+    "備考": "EV・IoTデバイス投資レビュー"
+  },
+  {
+    "ブログ名 / Author": "Mashable",
+    "URL": "mashable.com",
+    "主なテーマカテゴリ": "テックVC/スタートアップ",
+    "完全無料？": "◯",
+    "備考": "ソーシャルテック・フィンテックニュース"
+  },
+  {
+    "ブログ名 / Author": "Recode (Vox)",
+    "URL": "recode.vox.com",
+    "主なテーマカテゴリ": "テック株分析",
+    "完全無料？": "◯",
+    "備考": "テック政策・ブロックチェーン投資"
+  },
+  {
+    "ブログ名 / Author": "Stratechery (Ben Thompson)",
+    "URL": "stratechery.com",
+    "主なテーマカテゴリ": "セクター戦略（クラウド/フィンテック）",
+    "完全無料？": "△",
+    "備考": "テック競争力・ストリーミング投資"
+  },
+  {
+    "ブログ名 / Author": "MoneyWeek Tech",
+    "URL": "moneyweek.com/investments/tech-stocks",
+    "主なテーマカテゴリ": "セクター戦略（サイバーセキュリティ）",
+    "完全無料？": "◯",
+    "備考": "サイバー・テック株投資ガイド"
+  },
+  {
+    "ブログ名 / Author": "HackerNoon",
+    "URL": "hackernoon.com",
+    "主なテーマカテゴリ": "テックVC/スタートアップ",
+    "完全無料？": "◯",
+    "備考": "クリプト・ブロックチェーン投資"
+  },
+  {
+    "ブログ名 / Author": "EquityZen Blog",
+    "URL": "blog.equityzen.com",
+    "主なテーマカテゴリ": "テックVC/スタートアップ",
+    "完全無料？": "◯",
+    "備考": "エマージングテック企業・サイバー投資"
+  },
+  {
+    "ブログ名 / Author": "Surmount AI Tech (非AI部分)",
+    "URL": "surmount.ai/blogs",
+    "主なテーマカテゴリ": "セクター戦略（クリーン/サイバー/スペース）",
+    "完全無料？": "◯",
+    "備考": "クリーンエナジー・サイバー株ピック"
+  },
+  {
+    "ブログ名 / Author": "Waterloo Capital Insights",
+    "URL": "waterloocapital.com/insights",
+    "主なテーマカテゴリ": "セクター戦略（グリーン/テックインフラ）",
+    "完全無料？": "◯",
+    "備考": "グリーンインフラ・テック株トレンド"
+  },
+  {
+    "ブログ名 / Author": "Exploding Topics Trends",
+    "URL": "explodingtopics.com/blog",
+    "主なテーマカテゴリ": "テック株分析",
+    "完全無料？": "◯",
+    "備考": "テック投資トレンド・非AIイノベ"
+  },
+  {
+    "ブログ名 / Author": "VanEck Thematic Investing",
+    "URL": "vaneck.com/us/en/blogs/thematic-investing",
+    "主なテーマカテゴリ": "セクター戦略（テックオポチュニティ）",
+    "完全無料？": "◯",
+    "備考": "2025テック予測・EV/ブロックチェーン"
+  },
+  {
+    "ブログ名 / Author": "Bitcot Industries",
+    "URL": "bitcot.com/blog",
+    "主なテーマカテゴリ": "セクター戦略（ソフトウェア/クリーン）",
+    "完全無料？": "◯",
+    "備考": "ソフトウェア・EV/フィンテック投資"
+  },
+  {
+    "ブログ名 / Author": "Align Alternative Finance",
+    "URL": "align.com/blog",
+    "主なテーマカテゴリ": "テックVC/スタートアップ",
+    "完全無料？": "◯",
+    "備考": "フィンテック・ブロックチェーンイノベ"
+  },
+  {
+    "ブログ名 / Author": "Financial IT",
+    "URL": "financialit.net/blog",
+    "主なテーマカテゴリ": "セクター戦略（フィンテック）",
+    "完全無料？": "◯",
+    "備考": "フィンテックエコシステム投資"
+  },
+  {
+    "ブログ名 / Author": "FlowDex DeFi Blog",
+    "URL": "flowdex.org/blog",
+    "主なテーマカテゴリ": "セクター戦略（DeFi/ブロックチェーン）",
+    "完全無料？": "◯",
+    "備考": "DeFi・RWA・BTCステーキング投資"
+  },
+  {
+    "ブログ名 / Author": "Intrinsic Compounding",
+    "URL": "soicfinance.substack.com",
+    "主なテーマカテゴリ": "テック株分析",
+    "完全無料？": "△",
+    "備考": "セミコンダクター・グリーンエナジー株"
+  },
+  {
+    "ブログ名 / Author": "EvoRelic Fintech",
+    "URL": "evorelic.com/blogs",
+    "主なテーマカテゴリ": "セクター戦略（フィンテック）",
+    "完全無料？": "◯",
+    "備考": "アメリカンフィンテック成長戦略"
+  },
+  {
+    "ブログ名 / Author": "Radixweb Fintech",
+    "URL": "radixweb.com/blog",
+    "主なテーマカテゴリ": "セクター戦略（フィンテックインフラ）",
+    "完全無料？": "◯",
+    "備考": "フィンテック自動化投資"
+  },
+  {
+    "ブログ名 / Author": "The Unfiltered Investor",
+    "URL": "unfilteredinvestor.com",
+    "主なテーマカテゴリ": "テック株分析",
+    "完全無料？": "×",
+    "備考": "テック市場フレームワーク"
+  },
+  {
+    "ブログ名 / Author": "Imfaso Invest",
+    "URL": "imfaso.com/blog",
+    "主なテーマカテゴリ": "セクター戦略（テック/ブロックチェーン）",
+    "完全無料？": "◯",
+    "備考": "長期テック投資プレイ"
+  },
+  {
+    "ブログ名 / Author": "Bourse et Trading",
+    "URL": "bourseettrading.com/blog",
+    "主なテーマカテゴリ": "テック株分析",
+    "完全無料？": "◯",
+    "備考": "Tech-Finance統合・DeFi投資"
+  },
+  {
+    "ブログ名 / Author": "Fluent In Finance",
+    "URL": "thefinancenewsletter.com",
+    "主なテーマカテゴリ": "セクター戦略（デジタル/ブロックチェーン）",
+    "完全無料？": "◯",
+    "備考": "フィンテック・低カーボンテックトレンド"
+  }
+]
