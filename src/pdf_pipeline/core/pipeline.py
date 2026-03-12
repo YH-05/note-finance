@@ -557,7 +557,8 @@ class PdfPipeline:
             import fitz  # PyMuPDF
 
             doc = fitz.open(str(pdf_path))
-            raw_date = (doc.metadata.get("creationDate") or "").strip()
+            meta = doc.metadata or {}
+            raw_date = (meta.get("creationDate") or "").strip()
             doc.close()
             if raw_date.startswith("D:") and len(raw_date) >= 10:
                 d = raw_date[2:]
@@ -572,10 +573,9 @@ class PdfPipeline:
         llm_providers: list[Any] = []
         try:
             provider = self.markdown_converter.provider
+            providers_attr = getattr(provider, "providers", None)
             candidates = (
-                provider.providers
-                if isinstance(getattr(provider, "providers", None), list)
-                else [provider]
+                providers_attr if isinstance(providers_attr, list) else [provider]
             )
             llm_providers = [
                 p
