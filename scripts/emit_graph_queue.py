@@ -522,7 +522,7 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
                 )
             )
 
-    return _mapped_result(data, "reddit-finance-topics", sources=sources, topics=topics)
+    return _mapped_result(data, "reddit", sources=sources, topics=topics)
 
 
 def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:

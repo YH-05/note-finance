@@ -1,0 +1,231 @@
+# PRレビューレポート
+# 生成日時: 2026-03-11 12:00:00
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-11 12:00:00"
+  pr_number: 61
+  pr_title: "feat(pdf-pipeline): PDF→ナレッジグラフ パイプラインの実装 (Issues #53-#60)"
+  base_branch: "main"
+  head_branch: "feature/prj75"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 39
+  additions: 9647
+  deletions: 1
+
+scores:
+  code_quality:
+    readability: 87
+    design: 78
+    performance: 73
+    quant: null
+  security:
+    code: 68
+    infra: 67
+  test:
+    coverage: 82
+    quality: 82
+
+code_quality:
+  strengths:
+    - "全モジュールにNumPy形式Docstringが完備されている"
+    - "命名規則（PascalCase/snake_case/UPPER_SNAKE）が全体的に一貫して適用"
+    - "Protocol + ProviderChain によるStrategyパターンとChain of Responsibilityの組み合わせが適切"
+    - "PdfPipelineが全コンポーネントをコンストラクタ注入するDI設計でテスタビリティが高い"
+    - "例外階層が適切に設計されており、エラーハンドリングが一貫"
+    - "NoiseFilter: 正規表現をinitで一括コンパイルしキャッシュ"
+    - "PdfScanner.compute_sha256: 64KiBバッファでストリーミングハッシュ計算"
+
+  issues:
+    critical: []
+    high:
+      - location: "src/pdf_pipeline/cli/main.py:381"
+        description: "_build_pipeline_for_dir の戻り値型がAny（循環インポート回避のため）"
+        recommendation: "TYPE_CHECKINGブロックで PdfPipeline をインポートして -> 'PdfPipeline' と宣言"
+      - location: "src/pdf_pipeline/cli/main.py:449"
+        description: "_get_state_manager の戻り値型がAny"
+        recommendation: "-> 'StateManager' と文字列型ヒントを使用"
+      - location: "src/pdf_pipeline/core/markdown_converter.py:1220"
+        description: "_HEADING_PATTERNがchunker.pyと重複定義（DRY違反）"
+        recommendation: "共通モジュール（core/_patterns.py）に1箇所だけ定義"
+      - location: "src/pdf_pipeline/core/markdown_converter.py:1333"
+        description: "prompt_hintが生成されるが実際にproviderに渡されていない（デッドコード）"
+        recommendation: "LLMProviderインターフェースにprompt引数を追加するか、prompt_hint生成を削除"
+      - location: "src/pdf_pipeline/cli/main.py:637"
+        description: "StateManager._sha256_to_statusプライベート属性への直接アクセス"
+        recommendation: "StateManagerにget_all_statuses()パブリックメソッドを追加"
+      - location: "src/pdf_pipeline/core/pipeline.py:2228"
+        description: "同一PDFに対してfitz.openが2回（_extract_raw_textとTableDetector両方）"
+        recommendation: "fitzdocを一度だけ開いて両コンポーネントに渡す設計に変更"
+      - location: "src/pdf_pipeline/cli/main.py:599"
+        description: "PDF read_bytes()が2回（CLI側とPipeline内のcompute_sha256）"
+        recommendation: "CLIでの計算とパイプライン内の計算を統一"
+      - location: "src/pdf_pipeline/core/pipeline.py:2304"
+        description: "全ページテキストをメモリに結合後[:4000]スライスのみ使用"
+        recommendation: "早期切り捨て処理を追加するかストリーミング処理に変更"
+
+    medium:
+      - location: "src/pdf_pipeline/core/table_detector.py:2527"
+        description: "_process_pageの page: Any → fitz.Page に変更すべき"
+        recommendation: "page: fitz.Page と明示的な型を使用"
+      - location: "src/pdf_pipeline/services/provider_chain.py:4561"
+        description: "未使用のTypeVar T が定義されている"
+        recommendation: "未使用のTypeVar Tを削除"
+      - location: "src/pdf_pipeline/services/state_manager.py:5084"
+        description: "save()でget_processed_hashes()を呼ぶがログ出力のみのためO(n)の無駄"
+        recommendation: "_completed_countカウンターで O(1)アクセスに改善"
+      - location: "src/pdf_pipeline/services/gemini_provider.py:4028"
+        description: "is_available()がshutil.which()を毎回呼ぶ（キャッシュなし）"
+        recommendation: "ClaudeCodeProviderと同様に結果をキャッシュ"
+      - location: "src/pdf_pipeline/cli/main.py:665"
+        description: "4回のsum()で同一dictを4回走査（O(4n)）"
+        recommendation: "collections.Counterで単一パスに変更"
+
+    low:
+      - location: "src/pdf_pipeline/cli/main.py:638"
+        description: "StateManager._sha256_to_statusへの直接アクセス（LOW観点）"
+        recommendation: "パブリックメソッド追加で対応"
+
+  solid_compliance:
+    single_responsibility: "WARN"
+    open_closed: "PASS"
+    liskov_substitution: "PASS"
+    interface_segregation: "WARN"
+    dependency_inversion: "PASS"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 2
+    medium: 5
+    low: 5
+
+  findings:
+    - id: "SEC-001"
+      severity: "HIGH"
+      category: "A03 Injection"
+      location: "src/pdf_pipeline/services/gemini_provider.py:4069"
+      description: "pdf_pathをsubprocess引数として渡す前に形式検証なし（CWE-88）"
+      recommendation: "Path(pdf_path).resolve()で正規化し、許可されたbase_dir内に収まることを確認"
+      cwe_id: "CWE-88"
+    - id: "SEC-002"
+      severity: "MEDIUM"
+      category: "A04 Insecure Design"
+      location: "src/pdf_pipeline/cli/main.py:699"
+      description: "reprocess --hashオプションにSHA-256形式検証なし（CWE-22）"
+      recommendation: "re.compile(r'^[0-9a-f]{64}$')で入力検証を追加"
+      cwe_id: "CWE-22"
+    - id: "SEC-003"
+      severity: "MEDIUM"
+      category: "A04 Insecure Design"
+      location: "src/pdf_pipeline/core/noise_filter.py:1526"
+      description: "設定ファイルからのre.compileにReDoS対策なし（CWE-400）"
+      recommendation: "google-re2ライブラリを使用するか、パターンの健全性検証を追加"
+      cwe_id: "CWE-400"
+    - id: "SEC-004"
+      severity: "MEDIUM"
+      category: "A05"
+      location: "src/pdf_pipeline/cli/main.py:637"
+      description: "StateManagerプライベート属性への直接アクセス（CWE-1090）"
+      recommendation: "get_all_statuses()パブリックメソッドを追加"
+      cwe_id: "CWE-1090"
+    - id: "INF-001"
+      severity: "HIGH"
+      category: "A06 Vulnerable Components"
+      location: "diskcache 5.6.3"
+      description: "CVE-2025-69872: pickleシリアライザ経由のRCEリスク（既存依存）"
+      recommendation: "修正版リリース次第アップグレード。キャッシュディレクトリのアクセス権を最小化"
+      cwe_id: "CWE-502"
+    - id: "INF-002"
+      severity: "MEDIUM"
+      category: "A08"
+      location: "src/pdf_pipeline/services/gemini_provider.py:4069"
+      description: "subprocess引数としてpdf_path文字列を渡す際の検証不足（CWE-88）"
+      recommendation: "Path.resolve()による正規化と.pdf拡張子の再検証"
+      cwe_id: "CWE-88"
+    - id: "INF-003"
+      severity: "MEDIUM"
+      category: "A09"
+      location: "src/pdf_pipeline/services/gemini_provider.py:4205"
+      description: "result.stderrをそのままログ出力（認証情報漏洩リスク）（CWE-532）"
+      recommendation: "stderr[:500]に上限設けDEBUGレベルのみに限定"
+      cwe_id: "CWE-532"
+    - id: "INF-004"
+      severity: "LOW"
+      category: "A06"
+      location: "pyproject.toml"
+      description: "pymupdfが依存関係に宣言されていない（インストール済みのみ）（CWE-1104）"
+      recommendation: "pyproject.tomlのdependenciesに明示追加"
+      cwe_id: "CWE-1104"
+    - id: "INF-006"
+      severity: "LOW"
+      category: "A08"
+      location: "src/pdf_pipeline/services/state_manager.py:5121"
+      description: "state.jsonロード後の型検証なし（CWE-20）"
+      recommendation: "ロード後にProcessingStatus Literal値を検証"
+      cwe_id: "CWE-20"
+
+test:
+  coverage_assessment: "GOOD"
+  edge_cases_covered: true
+  missing_tests:
+    - "_logging.py: get_logger()専用ユニットテストなし"
+    - "pipeline.py._extract_raw_text: PyMuPDFのImportError発生パスが未カバー"
+    - "StateManager: state.jsonのOSError失敗時のStateError発生テストなし"
+    - "Hypothesisプロパティテストがゼロ（プロジェクト規約tests/property/推奨）"
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "PASS"
+    readability: "WARN"
+
+  quality_issues:
+    high:
+      - location: "tests/pdf_pipeline/unit/test_pipeline.py:8139"
+        description: "test_正常系_Phase1スキャンが呼ばれる にアサーションが一切ない"
+        recommendation: "assert_called()またはassert_called_once()を追加"
+      - location: "tests/pdf_pipeline/unit/test_markdown_converter.py:7258"
+        description: "pytest.raises((FileNotFoundError, ValueError, LLMProviderError)) と3種類の例外を許容"
+        recommendation: "特定の例外型のみ検証"
+      - location: "tests/pdf_pipeline/unit/test_table_reconstructor.py:9126"
+        description: "pytest.raises((ValueError, PdfPipelineError)) と曖昧な例外許容"
+        recommendation: "実装確定後に例外型を一つに絞る"
+
+recommended_actions:
+  required:
+    - priority: 1
+      action: "StateManagerにget_all_statuses()パブリックメソッドを追加し、CLIからのプライベート属性アクセスを解消"
+      related_issues: ["SEC-004", "INF の設計問題", "可読性LOW"]
+    - priority: 2
+      action: "reprocess --hash オプションにSHA-256形式入力検証を追加（re.compile(r'^[0-9a-f]{64}$')）"
+      related_issues: ["SEC-002"]
+    - priority: 3
+      action: "gemini_provider.pyのpdf_path検証を追加（Path.resolve() + .pdfチェック）"
+      related_issues: ["SEC-001", "INF-002"]
+    - priority: 4
+      action: "_HEADING_PATTERNをcore/_patterns.pyに共通化してDRY違反を解消"
+      related_issues: ["設計HIGH"]
+    - priority: 5
+      action: "test_pipeline.pyのtest_正常系_Phase1スキャンが呼ばれるにアサーションを追加"
+      related_issues: ["テスト品質HIGH"]
+    - priority: 6
+      action: "prompt_hintのデッドコードを解消（providerに渡すか削除）"
+      related_issues: ["設計HIGH", "パフォーマンスMEDIUM"]
+
+  suggested:
+    - priority: 1
+      action: "pyproject.tomlのdependenciesにpymupdf>=1.27.0を明示追加"
+    - priority: 2
+      action: "_build_pipeline_for_dir / _get_state_managerの戻り値型をAnyから具体型に変更"
+    - priority: 3
+      action: "GeminiCLIProviderのis_available()結果をキャッシュ（_available変数）"
+    - priority: 4
+      action: "CLIのstatus集計をcollections.Counterで単一パスに変更"
+    - priority: 5
+      action: "diskcache CVE-2025-69872の修正版を監視・アップグレード"
+
+summary:
+  verdict: "REQUEST_CHANGES"
+  comment: "大規模なPDF処理パイプラインの全実装（Wave1〜Wave4）として高品質な実装です。テスト299件の追加、DI設計、構造化ログ等は優秀です。ただし、セキュリティ面（SHA-256入力検証なし・subprocessへのpdf_path渡し）とDRY/設計面（_HEADING_PATTERN重複・prompt_hintデッドコード・プライベート属性への直接アクセス）の必須修正事項があります。"
