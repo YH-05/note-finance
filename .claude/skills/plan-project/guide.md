@@ -505,12 +505,22 @@ fi
 
 ### ステップ 4: Issue 作成と Project 登録
 
+**重要: Issue 作成前に必ずリポジトリを確認すること。**
+
+```bash
+# ① リポジトリを git remote から取得（ハードコード禁止）
+REPO=$(git remote get-url origin | sed 's/.*github\.com\///' | sed 's/\.git$//')
+# 例: "YH-05/note-finance"
+
+echo "Issue 作成対象リポジトリ: $REPO"
+```
+
 task-breakdown.json の各タスクについて：
 
 ```bash
-# Issue 作成
+# Issue 作成（$REPO を使用、リポジトリ名を絶対にハードコードしない）
 ISSUE_URL=$(gh issue create \
-  --repo YH-05/note-finance \
+  --repo "$REPO" \
   --title "{title}" \
   --body "$(cat <<'EOF'
 {issue_body}

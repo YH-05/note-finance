@@ -67,6 +67,27 @@ Closes #123
 - **言語**: タイトル・本文は**日本語**で記述
 - **ラベル**: `enhancement` | `bug` | `refactor` | `documentation` | `test`
 
+### Issue 作成前の必須確認
+
+**Issue 作成前に必ず `git remote get-url origin` でリポジトリを確認すること。リポジトリ名をハードコードしてはならない。**
+
+```bash
+# ① 正しいリポジトリを取得
+REPO=$(git remote get-url origin | sed 's/.*github\.com\///' | sed 's/\.git$//')
+
+# ② 確認してから作成
+gh issue create --repo "$REPO" --title "..." --body "..."
+```
+
+このプロジェクトには用途の異なる2つのリポジトリが存在する:
+
+| リポジトリ | 用途 | Issue の種類 |
+|-----------|------|-------------|
+| `YH-05/note-finance` | コードベース（本リポジトリ） | 実装タスク・バグ修正・リファクタリング |
+| `YH-05/finance` | 金融ニュース追跡 | ニュース記事・マーケットレポート |
+
+コードプロジェクトの Issue は必ず `YH-05/note-finance` に登録すること。
+
 ### PRテンプレート
 
 ```markdown
