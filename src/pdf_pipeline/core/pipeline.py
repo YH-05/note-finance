@@ -41,6 +41,8 @@ from __future__ import annotations
 
 import contextlib
 import json
+from datetime import datetime, timezone
+from string import Template
 from typing import TYPE_CHECKING, Any
 
 from pdf_pipeline._logging import get_logger
@@ -49,6 +51,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
     from pdf_pipeline.core.chunker import MarkdownChunker
+    from pdf_pipeline.core.knowledge_extractor import KnowledgeExtractor
     from pdf_pipeline.core.markdown_converter import MarkdownConverter
     from pdf_pipeline.core.noise_filter import NoiseFilter
     from pdf_pipeline.core.pdf_scanner import PdfScanner
@@ -91,10 +94,12 @@ class PdfPipeline:
         Phase 2 component for text noise removal.
     markdown_converter : MarkdownConverter
         Phase 3 component for PDF → Markdown conversion.
-    table_detector : TableDetector
+    table_detector : TableDetector | None
         Phase 4a component for table region detection.
-    table_reconstructor : TableReconstructor
+        ``None`` when ``text_only=True``.
+    table_reconstructor : TableReconstructor | None
         Phase 4b component for table structure reconstruction.
+        ``None`` when ``text_only=True``.
     chunker : MarkdownChunker
         Phase 5 component for Markdown section chunking.
     state_manager : StateManager
@@ -131,11 +136,12 @@ class PdfPipeline:
         scanner: PdfScanner,
         noise_filter: NoiseFilter,
         markdown_converter: MarkdownConverter,
-        table_detector: TableDetector,
-        table_reconstructor: TableReconstructor,
+        table_detector: TableDetector | None = None,
+        table_reconstructor: TableReconstructor | None = None,
         chunker: MarkdownChunker,
         state_manager: StateManager,
         text_extractor: TextExtractor | None = None,
+        knowledge_extractor: KnowledgeExtractor | None = None,
     ) -> None:
         self.config = config
         self.scanner = scanner
@@ -145,6 +151,7 @@ class PdfPipeline:
         self.table_reconstructor = table_reconstructor
         self.chunker = chunker
         self.state_manager = state_manager
+        self.knowledge_extractor = knowledge_extractor
 
         if text_extractor is None:
             from pdf_pipeline.core.text_extractor import (
@@ -161,6 +168,7 @@ class PdfPipeline:
         logger.debug(
             "PdfPipeline initialized",
             output_dir=str(self.config.output_dir),
+            text_only=self.config.text_only,
         )
 
     # -- Public API ----------------------------------------------------------
@@ -286,8 +294,10 @@ class PdfPipeline:
             pdf_path=str(pdf_path),
         )
 
-        # Record start
-        self.state_manager.record_status(source_hash, "processing")
+        # Record start — store filename immediately for provenance even on failure
+        self.state_manager.record_status(
+            source_hash, "processing", filename=pdf_path.name,
+        )
 
         try:
             # -- Phase 2: Extract raw text + noise filter --------------------
@@ -311,24 +321,11 @@ class PdfPipeline:
                 filtered_text=filtered_text,
             )
 
-            # -- Phase 4a: Table detection -----------------------------------
-            # Pass the already-open document when available so fitz.open is
-            # not called a second time for the same PDF.
-            raw_tables = self.table_detector.detect(str(pdf_path), doc=fitz_doc)
-            if fitz_doc is not None:
-                with contextlib.suppress(Exception):
-                    fitz_doc.close()
-                fitz_doc = None
-
-            # -- Phase 4b: Table reconstruction (only if tables found) -------
-            if raw_tables:
-                extracted = self.table_reconstructor.reconstruct(
-                    pdf_path=str(pdf_path),
-                    raw_tables=raw_tables,
-                )
-                reconstructed_tables = extracted.raw_tables
-            else:
-                reconstructed_tables = []
+            # -- Phase 4: Table detection/reconstruction (skip in text_only) --
+            reconstructed_tables = self._run_table_phase(
+                pdf_path=pdf_path, fitz_doc=fitz_doc,
+            )
+            fitz_doc = None  # ownership transferred to _run_table_phase
 
             # -- Chunk -------------------------------------------------------
             chunks = self.chunker.chunk(
@@ -338,10 +335,33 @@ class PdfPipeline:
             )
 
             # -- Save output -------------------------------------------------
-            self._save_chunks(source_hash=source_hash, chunks=chunks)
+            self._save_chunks(source_hash=source_hash, chunks=chunks, pdf_path=pdf_path)
+
+            # -- Phase 5: Knowledge extraction (optional) --------------------
+            if self.knowledge_extractor is not None:
+                try:
+                    extraction = self.knowledge_extractor.extract_from_chunks(
+                        chunks=chunks,
+                        source_hash=source_hash,
+                    )
+                    self._save_extraction(
+                        source_hash=source_hash,
+                        extraction=extraction,
+                    )
+                except Exception as ke_exc:
+                    logger.warning(
+                        "Knowledge extraction failed, chunks still saved",
+                        error=str(ke_exc),
+                        source_hash=source_hash,
+                    )
 
             # -- Record completed state --------------------------------------
-            self.state_manager.record_status(source_hash, "completed")
+            self.state_manager.record_status(
+                source_hash,
+                "completed",
+                filename=pdf_path.name,
+                processed_at=datetime.now(tz=timezone.utc).isoformat(),
+            )
             self.state_manager.save()
 
             logger.info(
@@ -371,7 +391,9 @@ class PdfPipeline:
                 with contextlib.suppress(Exception):
                     fitz_doc.close()
 
-            self.state_manager.record_status(source_hash, "failed")
+            self.state_manager.record_status(
+                source_hash, "failed", filename=pdf_path.name,
+            )
             with contextlib.suppress(Exception):
                 self.state_manager.save()
 
@@ -383,8 +405,237 @@ class PdfPipeline:
 
     # -- Internal helpers ----------------------------------------------------
 
-    def _save_chunks(self, *, source_hash: str, chunks: list[dict[str, Any]]) -> None:
-        """Save chunks to ``{output_dir}/{source_hash}/chunks.json``.
+    def _run_table_phase(
+        self, *, pdf_path: Path, fitz_doc: Any,
+    ) -> list[Any]:
+        """Run Phase 4 (table detection + reconstruction) or skip in text_only mode.
+
+        Parameters
+        ----------
+        pdf_path : Path
+            Path to the PDF file.
+        fitz_doc : Any
+            Open fitz.Document (or None). Closed by this method.
+
+        Returns
+        -------
+        list[Any]
+            Reconstructed tables (empty list when text_only or no tables).
+        """
+        if not self.config.text_only and self.table_detector is not None:
+            raw_tables = self.table_detector.detect(str(pdf_path), doc=fitz_doc)
+            if fitz_doc is not None:
+                with contextlib.suppress(Exception):
+                    fitz_doc.close()
+
+            if raw_tables and self.table_reconstructor is not None:
+                try:
+                    extracted = self.table_reconstructor.reconstruct(
+                        pdf_path=str(pdf_path), raw_tables=raw_tables,
+                    )
+                    return extracted.raw_tables
+                except Exception as table_exc:
+                    logger.warning(
+                        "Table reconstruction failed, continuing with raw tables",
+                        error=str(table_exc),
+                        pdf_path=str(pdf_path),
+                        table_count=len(raw_tables),
+                    )
+                    return raw_tables
+            return raw_tables if raw_tables else []
+
+        if fitz_doc is not None:
+            with contextlib.suppress(Exception):
+                fitz_doc.close()
+        return []
+
+    def _render_markdown(
+        self,
+        *,
+        metadata: dict[str, Any],
+        chunks: list[dict[str, Any]],
+    ) -> str:
+        """Render chunks to Markdown using the template at ``config.chunk_template``.
+
+        The template uses ``$placeholder`` syntax (``string.Template``).
+        Available variables: all keys from ``metadata`` plus ``chunks_content``
+        (chunk ``content`` fields joined by ``\\n\\n``).
+
+        Falls back to a minimal inline template if the template file is missing.
+
+        Parameters
+        ----------
+        metadata : dict[str, Any]
+            Provenance metadata dict (source_hash, issuer, report_date, …).
+        chunks : list[dict[str, Any]]
+            Serialized chunk dicts; each must have a ``content`` key.
+
+        Returns
+        -------
+        str
+            Rendered Markdown string ready to write to ``report.md``.
+        """
+        chunks_content = "\n\n".join(c.get("content", "") for c in chunks)
+        context = {**metadata, "chunks_content": chunks_content}
+        # None → empty string so $placeholder renders cleanly
+        context = {k: ("" if v is None else v) for k, v in context.items()}
+
+        template_path = self.config.chunk_template
+        try:
+            template_text = template_path.read_text(encoding="utf-8")
+        except OSError:
+            logger.warning(
+                "chunk_template not found, using inline fallback",
+                template_path=str(template_path),
+            )
+            template_text = (
+                "---\n"
+                "source_hash: $source_hash\n"
+                "original_filename: $original_filename\n"
+                "report_date: $report_date\n"
+                "issuer: $issuer\n"
+                "processed_at: $processed_at\n"
+                "chunk_count: $chunk_count\n"
+                "---\n\n"
+                "$chunks_content\n"
+            )
+
+        return Template(template_text).safe_substitute(context)
+
+    def _extract_report_metadata(
+        self,
+        *,
+        pdf_path: Path,
+        chunks: list[dict[str, Any]],
+    ) -> dict[str, str | None]:
+        """Extract report_date and issuer from the PDF.
+
+        ``report_date`` is read from the PDF ``creationDate`` metadata field via
+        PyMuPDF (format ``D:YYYYMMDDHHmmSS…`` → ``YYYY-MM-DD``).
+
+        ``issuer`` is resolved through a two-step LLM pipeline:
+
+        1. **PDF Vision** (primary): calls
+           :meth:`~pdf_pipeline.services.gemini_provider.GeminiCLIProvider.extract_issuer`
+           on the underlying LLM provider if it supports the method.  Gemini reads
+           the PDF cover page directly and returns the publishing organisation name.
+        2. **Report body text** (fallback): if the Vision call returns ``None``
+           (Gemini replied ``"unknown"`` or failed), the first chunk's content is
+           sent to
+           :meth:`~pdf_pipeline.services.gemini_provider.GeminiCLIProvider.extract_issuer_from_text`.
+           This covers PDFs where the cover page is ambiguous but the header/body
+           clearly identifies the issuer.
+
+        No filename-based heuristics are used.
+
+        Parameters
+        ----------
+        pdf_path : Path
+            Path to the PDF file.
+        chunks : list[dict[str, Any]]
+            Chunks already produced by the pipeline (used as fallback text
+            source).
+
+        Returns
+        -------
+        dict[str, str | None]
+            Dict with keys ``report_date`` (ISO date string or ``None``) and
+            ``issuer`` (organisation name or ``None``).
+        """
+        # -- report_date: PyMuPDF creationDate field --------------------------
+        report_date: str | None = None
+        try:
+            import fitz  # PyMuPDF
+
+            doc = fitz.open(str(pdf_path))
+            raw_date = (doc.metadata.get("creationDate") or "").strip()
+            doc.close()
+            if raw_date.startswith("D:") and len(raw_date) >= 10:
+                d = raw_date[2:]
+                report_date = f"{d[0:4]}-{d[4:6]}-{d[6:8]}"
+        except Exception:
+            pass
+
+        # -- issuer: LLM-based extraction -------------------------------------
+        issuer: str | None = None
+
+        # Collect provider instances that expose extract_issuer / extract_issuer_from_text
+        llm_providers: list[Any] = []
+        try:
+            provider = self.markdown_converter.provider
+            candidates = (
+                provider.providers
+                if isinstance(getattr(provider, "providers", None), list)
+                else [provider]
+            )
+            llm_providers = [
+                p
+                for p in candidates
+                if callable(getattr(p, "extract_issuer", None))
+                and callable(getattr(p, "is_available", None))
+                and p.is_available()
+            ]
+        except Exception:
+            pass
+
+        # Step 1: Vision — ask the LLM to read the PDF directly
+        for p in llm_providers:
+            try:
+                result = p.extract_issuer(str(pdf_path))
+                issuer = result if isinstance(result, str) and result else None
+            except Exception:
+                issuer = None
+            if issuer:
+                logger.info(
+                    "Issuer resolved via PDF Vision",
+                    issuer=issuer,
+                    pdf_path=str(pdf_path),
+                )
+                break
+
+        # Step 2: Text fallback — scan the first chunk's content
+        if not issuer and chunks:
+            first_text = (chunks[0].get("content") or "")[:2000]
+            for p in llm_providers:
+                if not callable(getattr(p, "extract_issuer_from_text", None)):
+                    continue
+                try:
+                    result = p.extract_issuer_from_text(first_text)
+                    issuer = result if isinstance(result, str) and result else None
+                except Exception:
+                    issuer = None
+                if issuer:
+                    logger.info(
+                        "Issuer resolved via report body text",
+                        issuer=issuer,
+                        pdf_path=str(pdf_path),
+                    )
+                    break
+
+        if not issuer:
+            logger.warning(
+                "Could not determine issuer",
+                pdf_path=str(pdf_path),
+            )
+
+        return {"report_date": report_date, "issuer": issuer}
+
+    def _save_chunks(
+        self,
+        *,
+        source_hash: str,
+        chunks: list[dict[str, Any]],
+        pdf_path: Path,
+    ) -> None:
+        """Save chunks and provenance metadata to ``{output_dir}/{source_hash}/``.
+
+        Writes two files:
+
+        - ``chunks.json`` — list of section chunks (Markdown + tables).
+        - ``metadata.json`` — provenance record linking the hash back to the
+          original PDF filename, processing timestamp, report date, and issuer.
+          ``original_path`` is intentionally omitted: the SHA-256 ``source_hash``
+          is the stable content-based identifier regardless of file location.
 
         Parameters
         ----------
@@ -394,23 +645,74 @@ class PdfPipeline:
             Chunk dicts to serialize.  ``RawTable`` objects in the
             ``tables`` key are excluded from serialization (not JSON
             serializable) and replaced with their cell text representation.
+        pdf_path : Path
+            Original PDF path; filename is stored in ``metadata.json``.
         """
         output_dir = self.config.output_dir / source_hash
         output_dir.mkdir(parents=True, exist_ok=True)
-        output_file = output_dir / "chunks.json"
 
-        # Serialize chunks: RawTable objects need custom handling
+        report_meta = self._extract_report_metadata(pdf_path=pdf_path, chunks=chunks)
+
+        # -- metadata.json: provenance record --------------------------------
+        metadata: dict[str, Any] = {
+            "source_hash": source_hash,
+            "original_filename": pdf_path.name,
+            "report_date": report_meta["report_date"],
+            "issuer": report_meta["issuer"],
+            "processed_at": datetime.now(tz=timezone.utc).isoformat(),
+            "chunk_count": len(chunks),
+        }
+        (output_dir / "metadata.json").write_text(
+            json.dumps(metadata, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+        # -- chunks.json (machine-readable) ----------------------------------
         serializable_chunks = [self._serialize_chunk(chunk) for chunk in chunks]
-
+        output_file = output_dir / "chunks.json"
         output_file.write_text(
             json.dumps(serializable_chunks, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
 
+        # -- report.md (human-readable, rendered from template) --------------
+        report_md = self._render_markdown(metadata=metadata, chunks=serializable_chunks)
+        (output_dir / "report.md").write_text(report_md, encoding="utf-8")
+
         logger.debug(
-            "Chunks saved",
-            output_file=str(output_file),
+            "Chunks, metadata and report.md saved",
+            output_dir=str(output_dir),
             chunk_count=len(chunks),
+            original_filename=pdf_path.name,
+        )
+
+    def _save_extraction(
+        self,
+        *,
+        source_hash: str,
+        extraction: Any,
+    ) -> None:
+        """Save extraction result to ``{output_dir}/{source_hash}/extraction.json``.
+
+        Parameters
+        ----------
+        source_hash : str
+            SHA-256 hex digest used as the subdirectory name.
+        extraction : DocumentExtractionResult
+            Knowledge extraction result to serialize.
+        """
+        output_dir = self.config.output_dir / source_hash
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_file = output_dir / "extraction.json"
+
+        output_file.write_text(
+            extraction.model_dump_json(indent=2),
+            encoding="utf-8",
+        )
+
+        logger.debug(
+            "Extraction saved",
+            output_file=str(output_file),
         )
 
     def _serialize_chunk(self, chunk: dict[str, Any]) -> dict[str, Any]:

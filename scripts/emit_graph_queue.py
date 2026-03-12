@@ -204,7 +204,9 @@ def resolve_category(theme_key: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def _make_source(url: str, title: str = "", published: str = "", **extra: Any) -> dict[str, Any]:
+def _make_source(
+    url: str, title: str = "", published: str = "", **extra: Any
+) -> dict[str, Any]:
     """Build a Source dict with a deterministic ``source_id``.
 
     Parameters
@@ -525,6 +527,141 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
     return _mapped_result(data, "reddit", sources=sources, topics=topics)
 
 
+def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
+    """Map pdf-extraction (DocumentExtractionResult) to graph-queue components.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``source_hash``, ``chunks[]`` containing
+        ``entities[]``, ``facts[]``, and ``claims[]``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``entities[]``, ``sources[]``,
+        ``claims[]``, and ``relations``.
+    """
+    source_hash = data.get("source_hash", "")
+    chunks = data.get("chunks", [])
+
+    # Create source node for the PDF
+    source_id = generate_source_id(f"pdf:{source_hash}")
+    sources: list[dict[str, Any]] = [
+        {
+            "source_id": source_id,
+            "url": f"pdf:{source_hash}",
+            "title": "",
+            "published": "",
+            "source_type": "pdf",
+        }
+    ]
+
+    entities: list[dict[str, Any]] = []
+    claims: list[dict[str, Any]] = []
+    seen_entity_keys: set[str] = set()
+
+    # Relations: source→fact, source→claim, fact→entity, claim→entity
+    source_fact_rels: list[dict[str, str]] = []
+    source_claim_rels: list[dict[str, str]] = []
+    fact_entity_rels: list[dict[str, str]] = []
+    claim_entity_rels: list[dict[str, str]] = []
+
+    for chunk in chunks:
+        # Entities (deduplicated by name+type)
+        for entity in chunk.get("entities", []):
+            name = entity.get("name", "")
+            entity_type = entity.get("entity_type", "")
+            entity_key = f"{name}:{entity_type}"
+            if entity_key not in seen_entity_keys:
+                seen_entity_keys.add(entity_key)
+                entities.append(
+                    {
+                        "entity_id": generate_entity_id(name, entity_type),
+                        "name": name,
+                        "entity_type": entity_type,
+                        "ticker": entity.get("ticker"),
+                    }
+                )
+
+        # Facts → Claims in graph-queue format
+        for fact in chunk.get("facts", []):
+            content = fact.get("content", "")
+            fact_id = generate_claim_id(content)
+            claims.append(
+                {
+                    "claim_id": fact_id,
+                    "content": content,
+                    "source_id": source_id,
+                    "category": "pdf-fact",
+                    "fact_type": fact.get("fact_type", ""),
+                    "as_of_date": fact.get("as_of_date"),
+                    "confidence": fact.get("confidence", 0.8),
+                }
+            )
+            source_fact_rels.append(
+                {"from_id": source_id, "to_id": fact_id, "type": "STATES_FACT"}
+            )
+            for entity_name in fact.get("about_entities", []):
+                # Find matching entity ID
+                for e in entities:
+                    if e["name"] == entity_name:
+                        fact_entity_rels.append(
+                            {
+                                "from_id": fact_id,
+                                "to_id": e["entity_id"],
+                                "type": "RELATES_TO",
+                            }
+                        )
+                        break
+
+        # Claims
+        for claim in chunk.get("claims", []):
+            content = claim.get("content", "")
+            claim_id = generate_claim_id(content)
+            claims.append(
+                {
+                    "claim_id": claim_id,
+                    "content": content,
+                    "source_id": source_id,
+                    "category": "pdf-claim",
+                    "claim_type": claim.get("claim_type", ""),
+                    "sentiment": claim.get("sentiment"),
+                    "confidence": claim.get("confidence", 0.8),
+                }
+            )
+            source_claim_rels.append(
+                {"from_id": source_id, "to_id": claim_id, "type": "MAKES_CLAIM"}
+            )
+            for entity_name in claim.get("about_entities", []):
+                for e in entities:
+                    if e["name"] == entity_name:
+                        claim_entity_rels.append(
+                            {
+                                "from_id": claim_id,
+                                "to_id": e["entity_id"],
+                                "type": "ABOUT",
+                            }
+                        )
+                        break
+
+    relations: dict[str, Any] = {
+        "source_fact": source_fact_rels,
+        "source_claim": source_claim_rels,
+        "fact_entity": fact_entity_rels,
+        "claim_entity": claim_entity_rels,
+    }
+
+    return _mapped_result(
+        data,
+        "pdf-extraction",
+        sources=sources,
+        entities=entities,
+        claims=claims,
+        relations=relations,
+    )
+
+
 def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:
     """Map finance-full data to graph-queue components.
 
@@ -578,6 +715,7 @@ COMMAND_MAPPERS: dict[str, MapperFn] = {
     "asset-management": map_asset_management,
     "reddit-finance-topics": map_reddit_topics,
     "finance-full": map_finance_full,
+    "pdf-extraction": map_pdf_extraction,
 }
 """Dispatch table mapping command names to their mapper functions."""
 

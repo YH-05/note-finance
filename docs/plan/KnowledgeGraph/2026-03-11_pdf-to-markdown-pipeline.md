@@ -1,7 +1,7 @@
 # PDF→ナレッジグラフ パイプライン設計
 
 Created: 2026-03-11
-Revised: 2026-03-11（全8論点の合意を反映）
+Revised: 2026-03-12（Gemini CLI呼び出し修正・パイプライン耐障害性改善を反映）
 Status: Phase 2-4（PDF→MD変換）を優先実装。Phase 5以降は後続。
 
 ---
@@ -577,24 +577,45 @@ class LLMProvider(Protocol):
 
 ### GeminiCLIProvider
 
+> **⚠️ 2026-03-12 修正**: 初期設計の `--file` フラグ・`convert-pdf` サブコマンドは Gemini CLI に存在しない。
+> 実装は `-p`（非対話プロンプト）+ `-y`（YOLO モード）+ プロンプト内ファイルパス埋め込み方式に変更済み。
+
 ```python
 # src/pdf_pipeline/services/gemini_provider.py
 class GeminiCLIProvider:
     def is_available(self) -> bool:
         return shutil.which("gemini") is not None
 
-    def _run_gemini(self, prompt: str, files: list[Path] | None = None) -> str:
-        cmd = ["gemini"]
-        if self._model:
-            cmd.extend(["--model", self._model])
-        for f in (files or []):
-            cmd.extend(["--file", str(f)])
-        cmd.extend(["--prompt", prompt])
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=self._timeout)
+    def _run_gemini(self, *, prompt: str, files: list[Path] | None = None, operation: str) -> str:
+        # ファイルパスはプロンプト内に埋め込む（--file フラグは存在しない）
+        full_prompt = prompt
+        if files:
+            file_list = "\n".join(f"- {f}" for f in files)
+            full_prompt = f"Files to process:\n{file_list}\n\n{prompt}"
+
+        # -p: 非対話プロンプトモード、-y: ツール呼び出し自動承認（YOLO）
+        cmd: list[str] = ["gemini", "-p", full_prompt, "-y"]
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300, check=False)
         if result.returncode != 0:
             raise LLMProviderError(f"Gemini CLI failed: {result.stderr}")
         return result.stdout
 ```
+
+**Gemini CLI 正しい呼び出しパターン**:
+
+| 用途 | コマンド |
+|------|---------|
+| PDF→Markdown変換 | `gemini -p "Files to process:\n- /path/to/file.pdf\n\n<変換プロンプト>" -y` |
+| テキスト→JSON抽出 | `gemini -p "<抽出プロンプト>\n<テキスト>" -y` |
+| 利用可能性チェック | `shutil.which("gemini")` |
+
+**出力サニタイズ**: Gemini CLIの出力には以下のノイズが混入するため、正規表現で除去する:
+- MCP警告（`MCP issues detected...`）
+- 思考ログ（`I will...`, `I'll...`, `Let me...`, `First, I will...`）
+- コードフェンス（`` ```markdown ``, `` ``` ``）
+- プリアンブル（`Here is the converted/extracted/structured...`）
+
+**出力バリデーション**: `convert_pdf_to_markdown` はATX見出し（`# `, `## ` 等）が1つ以上含まれることを検証。見出しなしの場合は `LLMProviderError` を送出。
 
 ### ClaudeCodeProvider
 
@@ -888,3 +909,83 @@ uv run python -m pdf_pipeline.cli reprocess --hash <sha256>
 | `src/report_scraper/storage/pdf_store.py` | PDF保存パターン（参考） |
 | `src/report_scraper/types.py` | Pydantic+dataclassパターン（参考） |
 | `data/sample_report/` | 検証用サンプルPDF |
+
+---
+
+## 実装修正ログ
+
+### 2026-03-12: Gemini CLI呼び出し修正 + パイプライン耐障害性改善
+
+#### 問題
+
+初期実装でJefferies ISATレポートPDFを変換した結果、`chunks.json` にレポート本文が含まれず、Geminiの内部思考ログ（`I will read the file...`）がそのまま出力された。
+
+#### 根本原因
+
+設計ドキュメントに記載していた Gemini CLI の呼び出し方法が実際のCLI仕様と乖離していた:
+
+| 設計時の想定 | 実際のCLI仕様 |
+|-------------|-------------|
+| `gemini convert-pdf <path>` | `convert-pdf` サブコマンドは存在しない |
+| `gemini --file <path> --prompt <text>` | `--file` フラグは存在しない（`Unknown argument: file`） |
+| `gemini --prompt <text>` | `-p` が正しいフラグ名 |
+| （なし） | `-y` (YOLO) でツール呼び出し自動承認が必要 |
+
+#### 修正内容
+
+**1. `gemini_provider.py` — CLI呼び出し方式の修正**
+
+- `gemini -p <prompt> -y` 方式に変更
+- ファイルパスはプロンプト内に `Files to process:` として埋め込み
+- PDF→Markdown変換用の専用プロンプト（`_PDF_TO_MARKDOWN_PROMPT`）を追加
+  - ATX見出し保持、テーブルMarkdown化、数値正確性保持、ノイズ除去を指示
+- テーブルJSON抽出用プロンプト（`_TABLE_EXTRACT_PROMPT`）を追加
+- 知識抽出用プロンプト（`_KNOWLEDGE_EXTRACT_PROMPT`）を追加
+- `_sanitize_output()` 関数: 7パターンの正規表現でGemini CLIノイズを除去
+- `convert_pdf_to_markdown()` にATX見出しバリデーションを追加
+
+**2. `pipeline.py` — テーブル再構築のグレースフルデグラデーション**
+
+```python
+# 修正前: テーブル再構築の例外がパイプライン全体をクラッシュさせる
+reconstructed_tables = self.table_reconstructor.reconstruct(...)
+
+# 修正後: 例外時はraw_tablesにフォールバック
+try:
+    extracted = self.table_reconstructor.reconstruct(
+        pdf_path=str(pdf_path), raw_tables=raw_tables,
+    )
+    reconstructed_tables = extracted.raw_tables
+except Exception as table_exc:
+    logger.warning("Table reconstruction failed, continuing with raw tables", ...)
+    reconstructed_tables = raw_tables
+```
+
+**3. テスト追加（`test_llm_providers.py`）**
+
+- コマンド引数アサーションを `-p` / `-y` に更新
+- `TestSanitizeOutput` クラス追加（6テスト: MCP noise, 思考ログ, コードフェンス, 空行圧縮, クリーンパススルー, プリアンブル）
+- 見出しなし出力でのLLMProviderErrorテスト追加
+- `.pdf` 拡張子バリデーションテスト追加
+- 全44テスト PASS
+
+#### 検証結果
+
+JefferiesレポートPDF（`Jefferies ISAT@IJ ISAT IJ 4Q25 Results Strong Earnings Beat.pdf`, 1.4MB）で検証:
+
+| 項目 | 結果 |
+|------|------|
+| チャンク数 | 10 |
+| 本文テキスト | 正常抽出（4Q25 Revenue, EBITDA, PATAMI分析等） |
+| テーブル（Markdown形式） | Stock Data, Key Financials, FIGURE 1（4Q25 Results）, Operating Stats |
+| 数値精度 | Revenue Rp15,357bn (+9.1% YoY), EBITDA Rp7,249bn (+13.7% YoY) 等、PDF原本と一致 |
+| ノイズ除去 | Gemini思考ログ・MCP警告の混入なし |
+| 免責事項 | 除去済み |
+
+#### 残存課題
+
+| 課題 | 優先度 | 詳細 |
+|------|--------|------|
+| PyMuPDFテーブル検出の互換性 | 中 | `'tuple' object has no attribute 'row'` 警告。`tables`フィールドのセル値が空になる |
+| テーブル再構築タイムアウト | 低 | Gemini CLIでのテーブルJSON抽出が300sでタイムアウト。Phase 3のMarkdown変換で既にテーブルが抽出されるため実害なし |
+| 出力のデュアルインプット未実装 | 中 | 設計ではPDF+Doclingテキストの両方をLLMに渡す方針だが、現時点ではPDFのみ。`filtered_text` パラメータは `MarkdownConverter` に渡されるが、Geminiプロンプトには未反映 |

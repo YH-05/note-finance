@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "sha256_to_status": {
+    "3e930ea8f11916d8875ac957b2af61a7bc9b364fef86ffd7b385f908cc9f2f3b": {
+      "status": "completed",
+      "filename": null,
+      "processed_at": null
+    },
+    "f49081e4bcd7efff42c1425b808328a5ba17ce83e11ca447cdfa117feeddc126": {
+      "status": "completed",
+      "filename": "Citi ISAT@IJ Indosat (ISAT.JK) Challenging Near-term Revenue Trends.pdf",
+      "processed_at": "2026-03-12T07:36:30.281224+00:00"
+    },
+    "efd69dec617b0b42d9f0a13f6751cf4eab5cf6b0eba052ceab6a96dea1d1b271": {
+      "status": "completed",
+      "filename": "UBS ISAT@IJ First Read Indosat Industry price repair sustains (Bu.pdf",
+      "processed_at": "2026-03-12T08:00:00.994318+00:00"
+    },
+    "2935820bb2a5a1ddcfd29bda2c40283b8db1223332da9243b65082fa6f0b7adb": {
+      "status": "completed",
+      "filename": "BofA Securities ISAT@IJ Indosat-Hutch 3Q results RevEBITDA miss but ARPU grow.pdf",
+      "processed_at": "2026-03-12T08:06:11.045008+00:00"
+    },
+    "d440f90e32fdc546538a01f7cb7616dd28182a3f430a999ee6b005ad08464eeb": {
+      "status": "completed",
+      "filename": "HSBC ISAT@IJ Indosat Ooredoo Hutchison (ISAT IJ) Buy 3Q mixed – m.pdf",
+      "processed_at": "2026-03-12T08:08:06.689807+00:00"
+    },
+    "6e7a49b41507125fea08758a0d49a1cea5c1b98a61293d54424f6c18aa279e18": {
+      "status": "completed",
+      "filename": "JP Morgan ISAT@IJ Indosat Tbk PT ~10% qoq growth in ARPU drove 4Q25 EPS b.pdf",
+      "processed_at": "2026-03-12T08:08:49.707028+00:00"
+    },
+    "e7f584b2dfa877b24252b1e7adccf96b1bbbef1fe71f0badf6b5c3e1fd3fe834": {
+      "status": "completed",
+      "filename": "Maybank IBG ISAT@IJ Indosat Ooredoo Hutchison - Benefiting from market repai.pdf",
+      "processed_at": "2026-03-12T08:10:58.061377+00:00"
+    },
+    "5da59b5752df206d53b46f28ed3fc366c0ae826cc7809619b05e343b5a79f7a3": {
+      "status": "completed",
+      "filename": "Nomura ISAT@IJ Quick Note - Indosat (ISAT IJ) (Buy) - FY25 results –.pdf",
+      "processed_at": "2026-03-12T08:12:42.270720+00:00"
+    }
+  },
+  "batches": {}
+}

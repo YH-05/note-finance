@@ -1,0 +1,27 @@
+{
+  "eval_id": 3,
+  "run_type": "with_skill",
+  "expectations": [
+    {
+      "text": "Describes a multi-step workflow (PDF → extraction → Neo4j)",
+      "passed": true,
+      "evidence": "Line 16-19: '4-stage pipeline with 3 distinct tools/scripts involved'. Clear PDF → extraction → graph-queue → Neo4j flow."
+    },
+    {
+      "text": "Mentions emit_graph_queue.py with --command pdf-extraction",
+      "passed": true,
+      "evidence": "Line 107: 'python3 scripts/emit_graph_queue.py --command pdf-extraction --input data/processed/{sha256_hash}/extraction.json'"
+    },
+    {
+      "text": "References /save-to-graph skill for Neo4j ingestion",
+      "passed": true,
+      "evidence": "Line 163-164: '/save-to-graph --source pdf-extraction' and '/save-to-graph --file ...'"
+    },
+    {
+      "text": "All pipeline steps are present without gaps",
+      "passed": false,
+      "evidence": "Critical gap identified: CLI does not wire KnowledgeExtractor (line 44). The skill does not mention this limitation, so a user following only the CLI approach would be stuck without extraction.json."
+    }
+  ],
+  "pass_rate": 0.75
+}

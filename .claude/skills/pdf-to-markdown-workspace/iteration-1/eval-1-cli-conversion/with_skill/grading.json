@@ -1,0 +1,27 @@
+{
+  "eval_id": 1,
+  "run_type": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses 'uv run pdf-pipeline process' CLI command",
+      "passed": true,
+      "evidence": "Line 6-9: 'uv run pdf-pipeline --output-dir ... process \"data/sample_report/HSBC...\"'"
+    },
+    {
+      "text": "Correctly identifies HSBC PDF path in data/sample_report/",
+      "passed": true,
+      "evidence": "Line 9: exact path 'data/sample_report/HSBC ISAT@IJ Indosat Ooredoo Hutchison (ISAT IJ) Buy 3Q mixed – m.pdf'"
+    },
+    {
+      "text": "Mentions output at data/processed/{hash}/chunks.json",
+      "passed": true,
+      "evidence": "Line 14-19: 'CLIの出力パスは {output-dir}/{sha256_hash}/chunks.json の構造で固定される'"
+    },
+    {
+      "text": "Does not include unnecessary manual steps",
+      "passed": true,
+      "evidence": "Single CLI command approach, no manual text extraction or extra steps"
+    }
+  ],
+  "pass_rate": 1.0
+}

@@ -1,0 +1,226 @@
+"""KnowledgeExtractor: LLM-based Entity/Fact/Claim extraction from text chunks.
+
+Extracts structured knowledge (entities, facts, claims) from text chunks
+using an LLM provider chain. Failed extractions return empty results
+(graceful degradation) rather than raising exceptions.
+
+Classes
+-------
+KnowledgeExtractor
+    Extracts Entity/Fact/Claim from text chunks via LLM.
+
+Examples
+--------
+>>> from unittest.mock import MagicMock
+>>> provider_chain = MagicMock()
+>>> provider_chain.extract_knowledge.return_value = '{"chunk_index": 0, "entities": []}'
+>>> extractor = KnowledgeExtractor(provider_chain=provider_chain)
+>>> isinstance(extractor, KnowledgeExtractor)
+True
+"""
+
+from __future__ import annotations
+
+import json
+from typing import TYPE_CHECKING, Any
+
+from pdf_pipeline._logging import get_logger
+from pdf_pipeline.schemas.extraction import (
+    ChunkExtractionResult,
+    DocumentExtractionResult,
+)
+
+if TYPE_CHECKING:
+    from pdf_pipeline.services.provider_chain import ProviderChain
+
+logger = get_logger(__name__, module="knowledge_extractor")
+
+# ---------------------------------------------------------------------------
+# Extraction prompt
+# ---------------------------------------------------------------------------
+
+_EXTRACTION_PROMPT = """\
+Extract entities, facts, and claims from the following financial text as JSON.
+
+Output format (must be valid JSON, no explanation):
+{
+  "chunk_index": <int>,
+  "section_title": "<string or null>",
+  "entities": [
+    {
+      "name": "<entity name>",
+      "entity_type": "<company|index|sector|indicator|currency|commodity|person|organization>",
+      "ticker": "<ticker or null>",
+      "aliases": []
+    }
+  ],
+  "facts": [
+    {
+      "content": "<factual statement>",
+      "fact_type": "<statistic|event|data_point|quote>",
+      "as_of_date": "<date or null>",
+      "confidence": 0.8,
+      "about_entities": ["<entity name>"]
+    }
+  ],
+  "claims": [
+    {
+      "content": "<opinion/prediction/recommendation>",
+      "claim_type": "<opinion|prediction|recommendation|analysis>",
+      "sentiment": "<bullish|bearish|neutral or null>",
+      "confidence": 0.8,
+      "about_entities": ["<entity name>"]
+    }
+  ]
+}
+
+Rules:
+- Output ONLY valid JSON. No explanation, commentary, or code fences.
+- Extract ALL entities mentioned (companies, indices, sectors, indicators, currencies, commodities, persons, organizations).
+- Separate facts (verifiable data) from claims (opinions/predictions).
+- Set confidence based on how explicit the statement is (0.0-1.0).
+- Use entity names consistently in about_entities references.
+
+Text:
+"""
+
+
+# ---------------------------------------------------------------------------
+# KnowledgeExtractor class
+# ---------------------------------------------------------------------------
+
+
+class KnowledgeExtractor:
+    """Extract Entity/Fact/Claim from text chunks using an LLM provider chain.
+
+    Uses graceful degradation: failed extractions return empty results
+    rather than stopping the pipeline.
+
+    Parameters
+    ----------
+    provider_chain : ProviderChain
+        LLM provider chain for knowledge extraction calls.
+
+    Examples
+    --------
+    >>> from unittest.mock import MagicMock
+    >>> chain = MagicMock()
+    >>> extractor = KnowledgeExtractor(provider_chain=chain)
+    >>> extractor.provider_chain is chain
+    True
+    """
+
+    def __init__(self, provider_chain: ProviderChain) -> None:
+        self.provider_chain = provider_chain
+        logger.debug("KnowledgeExtractor initialized")
+
+    def extract_from_chunks(
+        self,
+        *,
+        chunks: list[dict[str, Any]],
+        source_hash: str,
+    ) -> DocumentExtractionResult:
+        """Extract knowledge from all chunks in a document.
+
+        Parameters
+        ----------
+        chunks : list[dict[str, Any]]
+            Chunk dicts from the chunker (must have ``chunk_index`` and
+            ``content`` keys).
+        source_hash : str
+            SHA-256 hash of the source PDF.
+
+        Returns
+        -------
+        DocumentExtractionResult
+            Aggregated extraction results for all chunks.
+        """
+        logger.info(
+            "Knowledge extraction started",
+            chunk_count=len(chunks),
+            source_hash=source_hash,
+        )
+
+        results: list[ChunkExtractionResult] = []
+        for chunk in chunks:
+            chunk_index = chunk.get("chunk_index", 0)
+            result = self._extract_single(chunk, chunk_index=chunk_index)
+            results.append(result)
+
+        doc_result = DocumentExtractionResult(
+            source_hash=source_hash,
+            chunks=results,
+        )
+
+        total_entities = sum(len(c.entities) for c in results)
+        total_facts = sum(len(c.facts) for c in results)
+        total_claims = sum(len(c.claims) for c in results)
+
+        logger.info(
+            "Knowledge extraction completed",
+            source_hash=source_hash,
+            total_entities=total_entities,
+            total_facts=total_facts,
+            total_claims=total_claims,
+        )
+
+        return doc_result
+
+    def _extract_single(
+        self,
+        chunk: dict[str, Any],
+        *,
+        chunk_index: int,
+    ) -> ChunkExtractionResult:
+        """Extract knowledge from a single chunk.
+
+        On LLM failure or invalid JSON, returns an empty result
+        (graceful degradation).
+
+        Parameters
+        ----------
+        chunk : dict[str, Any]
+            Chunk dict with ``content`` and optionally ``section_title``.
+        chunk_index : int
+            Zero-based chunk index.
+
+        Returns
+        -------
+        ChunkExtractionResult
+            Extraction result, possibly empty on failure.
+        """
+        content = chunk.get("content", "")
+        section_title = chunk.get("section_title")
+
+        if not content.strip():
+            logger.debug(
+                "Skipping empty chunk",
+                chunk_index=chunk_index,
+            )
+            return ChunkExtractionResult(
+                chunk_index=chunk_index,
+                section_title=section_title,
+            )
+
+        try:
+            prompt = _EXTRACTION_PROMPT + content
+            raw_json = self.provider_chain.extract_knowledge(prompt)
+            parsed = json.loads(raw_json)
+
+            # Ensure chunk_index and section_title are set
+            parsed["chunk_index"] = chunk_index
+            if section_title is not None:
+                parsed["section_title"] = section_title
+
+            return ChunkExtractionResult.model_validate(parsed)
+
+        except Exception as exc:
+            logger.warning(
+                "Knowledge extraction failed for chunk, returning empty result",
+                chunk_index=chunk_index,
+                error=str(exc),
+            )
+            return ChunkExtractionResult(
+                chunk_index=chunk_index,
+                section_title=section_title,
+            )

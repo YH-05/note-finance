@@ -38,7 +38,7 @@ logger = get_logger(__name__, module="state_manager")
 # State schema version
 # ---------------------------------------------------------------------------
 
-_STATE_VERSION = 1
+_STATE_VERSION = 2
 
 # ---------------------------------------------------------------------------
 # StateManager class
@@ -86,7 +86,8 @@ class StateManager:
             If the state file exists but contains corrupted JSON.
         """
         self.state_file = state_file
-        self._sha256_to_status: dict[str, ProcessingStatus] = {}
+        # Each entry: {"status": ..., "filename": ..., "processed_at": ...}
+        self._entries: dict[str, dict[str, str | None]] = {}
         self._batches: dict[str, list[str]] = {}
 
         # Ensure parent directory exists
@@ -101,7 +102,14 @@ class StateManager:
     # Public API: status management
     # -----------------------------------------------------------------------
 
-    def record_status(self, sha256: str, status: ProcessingStatus) -> None:
+    def record_status(
+        self,
+        sha256: str,
+        status: ProcessingStatus,
+        *,
+        filename: str | None = None,
+        processed_at: str | None = None,
+    ) -> None:
         """Record the processing status for a SHA-256 hash.
 
         Parameters
@@ -110,18 +118,32 @@ class StateManager:
             SHA-256 hex digest of the PDF file.
         status : ProcessingStatus
             New processing status.
+        filename : str | None
+            Original PDF filename for provenance tracking.
+            If omitted, any previously recorded filename is preserved.
+        processed_at : str | None
+            ISO 8601 timestamp when processing completed.
+            If omitted, any previously recorded timestamp is preserved.
 
         Examples
         --------
-        >>> manager.record_status("abc123", "completed")
+        >>> manager.record_status("abc123", "completed", filename="report.pdf")
         >>> manager.get_status("abc123")
         'completed'
         """
-        self._sha256_to_status[sha256] = status
+        existing = self._entries.get(sha256, {})
+        self._entries[sha256] = {
+            "status": status,
+            "filename": filename if filename is not None else existing.get("filename"),
+            "processed_at": (
+                processed_at if processed_at is not None else existing.get("processed_at")
+            ),
+        }
         logger.debug(
             "Status recorded",
             sha256=sha256[:16] + "...",
             status=status,
+            filename=filename,
         )
 
     def get_status(self, sha256: str) -> ProcessingStatus | None:
@@ -142,7 +164,34 @@ class StateManager:
         >>> manager.get_status("unknown")
         # Returns None
         """
-        return self._sha256_to_status.get(sha256)
+        entry = self._entries.get(sha256)
+        if entry is None:
+            return None
+        return entry.get("status")  # type: ignore[return-value]
+
+    def get_filename(self, sha256: str) -> str | None:
+        """Get the original PDF filename recorded for a SHA-256 hash.
+
+        Parameters
+        ----------
+        sha256 : str
+            SHA-256 hex digest of the PDF file.
+
+        Returns
+        -------
+        str | None
+            Original filename, or ``None`` if not recorded.
+
+        Examples
+        --------
+        >>> manager.record_status("abc123", "completed", filename="report.pdf")
+        >>> manager.get_filename("abc123")
+        'report.pdf'
+        """
+        entry = self._entries.get(sha256)
+        if entry is None:
+            return None
+        return entry.get("filename")
 
     def is_processed(self, sha256: str) -> bool:
         """Check whether a PDF has been successfully processed.
@@ -165,7 +214,7 @@ class StateManager:
         >>> manager.is_processed("abc123")
         True
         """
-        return self._sha256_to_status.get(sha256) == "completed"
+        return self.get_status(sha256) == "completed"
 
     def get_processed_hashes(self) -> set[str]:
         """Return the set of SHA-256 hashes with status ``'completed'``.
@@ -184,8 +233,8 @@ class StateManager:
         """
         return {
             sha256
-            for sha256, status in self._sha256_to_status.items()
-            if status == "completed"
+            for sha256, entry in self._entries.items()
+            if entry.get("status") == "completed"
         }
 
     def get_all_statuses(self) -> dict[str, ProcessingStatus]:
@@ -203,7 +252,11 @@ class StateManager:
         >>> manager.get_all_statuses()
         {'hash1': 'completed', 'hash2': 'pending'}
         """
-        return dict(self._sha256_to_status)
+        return {
+            sha256: entry["status"]  # type: ignore[misc]
+            for sha256, entry in self._entries.items()
+            if "status" in entry
+        }
 
     # -----------------------------------------------------------------------
     # Public API: batch manifest management
@@ -266,7 +319,7 @@ class StateManager:
         """
         state_data = {
             "version": _STATE_VERSION,
-            "sha256_to_status": self._sha256_to_status,
+            "sha256_to_status": self._entries,
             "batches": self._batches,
         }
 
@@ -283,7 +336,7 @@ class StateManager:
         logger.info(
             "State saved",
             state_file=str(self.state_file),
-            total_entries=len(self._sha256_to_status),
+            total_entries=len(self._entries),
             completed=len(self.get_processed_hashes()),
             batch_count=len(self._batches),
         )
@@ -321,13 +374,25 @@ class StateManager:
             logger.error(msg, state_file=str(self.state_file))
             raise StateError(msg, state_file=str(self.state_file))
 
-        self._sha256_to_status = data.get("sha256_to_status", {})
+        # Support both v1 (string values) and v2 (dict values) formats
+        raw_entries = data.get("sha256_to_status", {})
+        self._entries = {}
+        for sha256, value in raw_entries.items():
+            if isinstance(value, str):
+                # v1 format: just a status string — migrate to v2 structure
+                self._entries[sha256] = {
+                    "status": value,
+                    "filename": None,
+                    "processed_at": None,
+                }
+            elif isinstance(value, dict):
+                self._entries[sha256] = value
         self._batches = data.get("batches", {})
 
         logger.info(
             "State loaded",
             state_file=str(self.state_file),
-            total_entries=len(self._sha256_to_status),
+            total_entries=len(self._entries),
             completed=len(self.get_processed_hashes()),
             batch_count=len(self._batches),
         )

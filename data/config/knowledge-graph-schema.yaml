@@ -2,11 +2,23 @@
 # Neo4j graph database schema for finance knowledge management
 #
 # Usage:
-#   - This file defines the canonical graph schema
+#   - This file defines the canonical graph schema (SSoT)
 #   - mcp-neo4j-data-modeling can import/export compatible models
 #   - Schema changes should be made here first, then applied to Neo4j
+#
+# Changelog:
+#   v2.0 (2026-03-12): Claim-centric redesign
+#     - Added: Chunk, FinancialDataPoint, FiscalPeriod, Insight nodes
+#     - Expanded: Claim.claim_type (10 types), Fact.fact_type (8 types), Entity.entity_type (+country, instrument)
+#     - Enhanced: SUPPORTED_BY with strength/reasoning properties
+#     - Added: CONTAINS_CHUNK, HAS_DATAPOINT, FOR_PERIOD, DERIVED_FROM, VALIDATES, CHALLENGES relationships
+#     - Design decisions:
+#       - Fact = strictly verified past objective info only
+#       - Recommendation/ValuationAssumption → unified under Claim
+#       - Insight node for AI-generated knowledge circulation
+#   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
-version: "1.0"
+version: "2.0"
 
 # ============================================================
 # Node Definitions
@@ -19,7 +31,7 @@ nodes:
         type: string
         unique: true
         required: true
-        description: "Unique identifier (UUID)"
+        description: "Unique identifier (UUID or SHA-256 hash for PDFs)"
       title:
         type: string
         required: true
@@ -50,81 +62,10 @@ nodes:
       file_path:
         type: string
         description: "Local file path (for PDF and original documents)"
-
-  Fact:
-    description: "Objectively verifiable information extracted from sources"
-    properties:
-      fact_id:
-        type: string
-        unique: true
-        required: true
-      content:
-        type: string
-        required: true
-        description: "Fact statement"
-      fact_type:
-        type: string
-        enum: [statistic, event, data_point, quote]
-        indexed: true
-        description: "statistic=numerical data, event=occurrence, data_point=metric, quote=direct citation"
-      confidence:
-        type: float
-        description: "Extraction confidence (0.0-1.0)"
-      as_of_date:
-        type: date
-        indexed: true
-        description: "Date the fact refers to"
-      created_at:
-        type: datetime
-        required: true
-
-  Claim:
-    description: "Subjective assertions, opinions, or predictions from sources"
-    properties:
-      claim_id:
-        type: string
-        unique: true
-        required: true
-      content:
-        type: string
-        required: true
-        description: "Claim statement"
-      claim_type:
-        type: string
-        enum: [opinion, prediction, recommendation, analysis]
-        indexed: true
-        description: "opinion=viewpoint, prediction=forecast, recommendation=buy/sell/hold, analysis=interpretation"
-      sentiment:
-        type: string
-        enum: [bullish, bearish, neutral]
-        indexed: true
-      created_at:
-        type: datetime
-        required: true
-
-  Entity:
-    description: "Named entities referenced in facts and claims (companies, indices, sectors, etc.)"
-    properties:
-      entity_id:
-        type: string
-        unique: true
-        required: true
-      name:
-        type: string
-        required: true
-        indexed: true
-      entity_type:
-        type: string
-        required: true
-        enum: [company, index, sector, indicator, currency, commodity, person, organization]
-        indexed: true
-      ticker:
+      source_hash:
         type: string
         indexed: true
-        description: "Stock ticker symbol (if applicable)"
-      aliases:
-        type: string[]
-        description: "Alternative names"
+        description: "SHA-256 hash of the source file (for deduplication)"
 
   Author:
     description: "Author or publishing organization"
@@ -147,6 +88,207 @@ nodes:
         type: string
         indexed: true
 
+  Chunk:
+    description: "Section-level text chunk from a source document (Lexical layer)"
+    properties:
+      chunk_id:
+        type: string
+        unique: true
+        required: true
+        description: "Format: {source_hash}_chunk_{index}"
+      chunk_index:
+        type: integer
+        required: true
+        description: "0-based index within the source document"
+      section_title:
+        type: string
+        indexed: true
+        description: "Section heading (e.g., 'Valuation', 'Revenue Breakdown')"
+      content:
+        type: string
+        required: true
+        description: "Full text content of the chunk (Markdown)"
+      char_count:
+        type: integer
+        description: "Character count for chunk size tracking"
+      has_tables:
+        type: boolean
+        default: false
+        description: "Whether this chunk contains tabular data"
+      created_at:
+        type: datetime
+        required: true
+
+  Fact:
+    description: "Objectively verifiable past information extracted from sources. Strictly limited to verified, historical, objective data."
+    properties:
+      fact_id:
+        type: string
+        unique: true
+        required: true
+      content:
+        type: string
+        required: true
+        description: "Fact statement"
+      fact_type:
+        type: string
+        enum: [statistic, event, data_point, quote, policy_action, economic_indicator, regulatory, corporate_action]
+        indexed: true
+        description: >
+          statistic=numerical data, event=occurrence, data_point=metric,
+          quote=direct citation, policy_action=central bank/government action,
+          economic_indicator=GDP/CPI/PMI etc, regulatory=regulatory change,
+          corporate_action=M&A/dividend/buyback etc
+      confidence:
+        type: float
+        description: "Extraction confidence (0.0-1.0)"
+      as_of_date:
+        type: date
+        indexed: true
+        description: "Date the fact refers to"
+      created_at:
+        type: datetime
+        required: true
+
+  Claim:
+    description: >
+      Subjective assertions, opinions, predictions, or judgments from sources.
+      Includes recommendations, valuation assumptions, forecasts, sector views, and policy stances.
+      Unified node for all non-factual statements — covers equity, sector, and macro reports.
+    properties:
+      claim_id:
+        type: string
+        unique: true
+        required: true
+      content:
+        type: string
+        required: true
+        description: "Claim statement"
+      claim_type:
+        type: string
+        enum: [opinion, prediction, recommendation, analysis, assumption, guidance, risk_assessment, policy_stance, sector_view, forecast]
+        indexed: true
+        description: >
+          opinion=viewpoint, prediction=future expectation, recommendation=buy/sell/hold,
+          analysis=interpretation, assumption=valuation/model assumption (e.g. WACC, Beta, discount rate),
+          guidance=management guidance, risk_assessment=risk evaluation,
+          policy_stance=monetary/fiscal policy view, sector_view=industry-level assessment,
+          forecast=quantitative projection (e.g. revenue/EPS estimate)
+      sentiment:
+        type: string
+        enum: [bullish, bearish, neutral, mixed]
+        indexed: true
+      magnitude:
+        type: string
+        enum: [strong, moderate, slight]
+        description: "Strength of the sentiment or conviction"
+      target_price:
+        type: float
+        description: "Target price (for recommendation claims)"
+      rating:
+        type: string
+        description: "Rating label (e.g., Buy, Hold, Sell, Overweight)"
+      time_horizon:
+        type: string
+        description: "Time horizon for the claim (e.g., '12M', 'FY26', 'long-term')"
+      created_at:
+        type: datetime
+        required: true
+
+  Entity:
+    description: "Named entities referenced in facts and claims (companies, indices, sectors, countries, etc.)"
+    properties:
+      entity_id:
+        type: string
+        unique: true
+        required: true
+      name:
+        type: string
+        required: true
+        indexed: true
+      entity_type:
+        type: string
+        required: true
+        enum: [company, index, sector, indicator, currency, commodity, person, organization, country, instrument]
+        indexed: true
+        description: >
+          company=publicly traded company, index=stock index, sector=industry sector,
+          indicator=economic indicator, currency=currency pair, commodity=commodity,
+          person=individual, organization=non-market org, country=sovereign nation,
+          instrument=financial instrument (bond, derivative, etc.)
+      ticker:
+        type: string
+        indexed: true
+        description: "Stock ticker symbol (if applicable)"
+      aliases:
+        type: string[]
+        description: "Alternative names (e.g., ['Indosat', 'ISAT', 'Indosat Ooredoo Hutchison'])"
+      isin:
+        type: string
+        indexed: true
+        description: "ISIN code (if applicable)"
+
+  FinancialDataPoint:
+    description: >
+      Structured numerical data extracted from tables and text.
+      Supports both actual (historical) and estimated (forecast) values via is_estimate flag.
+    properties:
+      datapoint_id:
+        type: string
+        unique: true
+        required: true
+        description: "Format: {source_hash}_{metric}_{period}"
+      metric_name:
+        type: string
+        required: true
+        indexed: true
+        description: "Metric name (e.g., 'Revenue', 'EBITDA', 'ARPU', 'Net Income')"
+      value:
+        type: float
+        required: true
+        description: "Numeric value"
+      unit:
+        type: string
+        required: true
+        description: "Unit (e.g., 'IDR bn', 'USD mn', '%', 'x')"
+      is_estimate:
+        type: boolean
+        required: true
+        default: false
+        indexed: true
+        description: "true=analyst estimate/forecast, false=actual reported figure"
+      currency:
+        type: string
+        description: "ISO 4217 currency code (e.g., 'IDR', 'USD')"
+      created_at:
+        type: datetime
+        required: true
+
+  FiscalPeriod:
+    description: "Fiscal period for normalizing time references across reports"
+    properties:
+      period_id:
+        type: string
+        unique: true
+        required: true
+        description: "Format: {entity_ticker}_{period_label} (e.g., 'ISAT_FY2025')"
+      period_type:
+        type: string
+        required: true
+        enum: [annual, quarterly, half_year, monthly]
+        indexed: true
+      period_label:
+        type: string
+        required: true
+        indexed: true
+        description: "Human-readable label (e.g., 'FY2025', '4Q25', '1H26')"
+      start_date:
+        type: date
+        description: "Period start date"
+      end_date:
+        type: date
+        description: "Period end date"
+
   Topic:
     description: "Topic or theme tag"
     properties:
@@ -160,14 +302,76 @@ nodes:
         indexed: true
       category:
         type: string
-        enum: [macro, sector, stock, ai, finance, geopolitics, policy]
+        enum: [macro, sector, stock, ai, finance, geopolitics, policy, valuation, earnings]
         indexed: true
+
+  Insight:
+    description: >
+      AI-generated analytical output. Stores creative synthesis, contradiction detection,
+      evidence gap analysis, hypotheses, and pattern recognition.
+      Part of the knowledge circulation loop: Accumulate → Link → Discover → Create → Act.
+    properties:
+      insight_id:
+        type: string
+        unique: true
+        required: true
+        description: "Format: ins-{YYYY-MM-DD}-{sequential}"
+      insight_type:
+        type: string
+        required: true
+        enum: [synthesis, contradiction, gap, hypothesis, pattern]
+        indexed: true
+        description: >
+          synthesis=cross-source integration, contradiction=conflicting claims detected,
+          gap=missing information identified, hypothesis=AI-generated testable prediction,
+          pattern=recurring theme or trend
+      content:
+        type: string
+        required: true
+        description: "The insight text"
+      confidence:
+        type: float
+        description: "AI confidence in this insight (0.0-1.0)"
+      model:
+        type: string
+        description: "AI model that generated this insight (e.g., 'claude-opus-4-6')"
+      generated_at:
+        type: datetime
+        required: true
+      status:
+        type: string
+        enum: [draft, validated, invalidated, archived]
+        default: "draft"
+        indexed: true
+        description: "Lifecycle status of the insight"
 
 # ============================================================
 # Relationship Definitions
 # ============================================================
 relationships:
-  # Core: Source -> Fact / Claim
+  # Source -> Chunk (Lexical layer)
+  CONTAINS_CHUNK:
+    from: Source
+    to: Chunk
+    description: "Source document contains this text chunk"
+    properties:
+      chunk_order:
+        type: integer
+        description: "Order of chunk within the source"
+
+  # Chunk -> Fact / Claim (Extraction provenance)
+  EXTRACTED_FROM:
+    from: [Fact, Claim, FinancialDataPoint]
+    to: Chunk
+    description: "This extraction was derived from this chunk"
+    properties:
+      extracted_at:
+        type: datetime
+      extraction_method:
+        type: string
+        description: "Method used (e.g., 'llm_gemini', 'llm_claude', 'rule_based')"
+
+  # Source -> Fact / Claim (backward compat, also used for non-chunked sources)
   STATES_FACT:
     from: Source
     to: Fact
@@ -189,11 +393,21 @@ relationships:
       page_or_section:
         type: string
 
-  # Evidence chain: Claim -> Fact
+  # Evidence chain: Claim -> Fact (enhanced)
   SUPPORTED_BY:
-    from: Claim
-    to: Fact
-    description: "Claim is supported by this fact as evidence"
+    from: [Claim, Insight]
+    to: [Fact, FinancialDataPoint, Claim]
+    description: "Claim/Insight is supported by this evidence"
+    properties:
+      strength:
+        type: string
+        enum: [strong, moderate, weak, circumstantial]
+        description: "How strongly this evidence supports the claim"
+      reasoning:
+        type: string
+        description: "Explanation of why this evidence supports the claim"
+      linked_at:
+        type: datetime
 
   # Contradiction: Claim <-> Claim
   CONTRADICTS:
@@ -203,12 +417,15 @@ relationships:
     properties:
       noted_at:
         type: datetime
+      explanation:
+        type: string
+        description: "How/why the claims contradict"
 
   # Entity linking
   RELATES_TO:
-    from: Fact
+    from: [Fact, FinancialDataPoint]
     to: Entity
-    description: "Fact references this entity"
+    description: "Fact or data point references this entity"
 
   ABOUT:
     from: Claim
@@ -223,6 +440,109 @@ relationships:
 
   # Topic tagging
   TAGGED:
-    from: Source
+    from: [Source, Claim, Insight]
     to: Topic
-    description: "Source is tagged with this topic"
+    description: "Tagged with this topic"
+
+  # FinancialDataPoint -> FiscalPeriod
+  FOR_PERIOD:
+    from: FinancialDataPoint
+    to: FiscalPeriod
+    description: "Data point is for this fiscal period"
+
+  # FinancialDataPoint -> Source
+  HAS_DATAPOINT:
+    from: Source
+    to: FinancialDataPoint
+    description: "Source contains this financial data point"
+
+  # Insight relationships (knowledge circulation)
+  DERIVED_FROM:
+    from: Insight
+    to: [Fact, Claim, FinancialDataPoint, Insight]
+    description: "Insight was derived from these inputs"
+    properties:
+      role:
+        type: string
+        description: "Role of the input in deriving the insight (e.g., 'primary', 'supporting', 'contrasting')"
+
+  VALIDATES:
+    from: Insight
+    to: [Claim, Insight]
+    description: "This insight validates/confirms the target"
+    properties:
+      validated_at:
+        type: datetime
+
+  CHALLENGES:
+    from: Insight
+    to: [Claim, Insight]
+    description: "This insight challenges/questions the target"
+    properties:
+      challenged_at:
+        type: datetime
+      reason:
+        type: string
+
+# ============================================================
+# Constraints & Indices (for neo4j-pdf-constraints.cypher)
+# ============================================================
+constraints:
+  - label: Source
+    property: source_id
+    type: UNIQUE
+  - label: Author
+    property: author_id
+    type: UNIQUE
+  - label: Chunk
+    property: chunk_id
+    type: UNIQUE
+  - label: Fact
+    property: fact_id
+    type: UNIQUE
+  - label: Claim
+    property: claim_id
+    type: UNIQUE
+  - label: Entity
+    property: entity_id
+    type: UNIQUE
+  - label: FinancialDataPoint
+    property: datapoint_id
+    type: UNIQUE
+  - label: FiscalPeriod
+    property: period_id
+    type: UNIQUE
+  - label: Topic
+    property: topic_id
+    type: UNIQUE
+  - label: Insight
+    property: insight_id
+    type: UNIQUE
+
+indices:
+  - label: Fact
+    property: fact_type
+  - label: Fact
+    property: as_of_date
+  - label: Claim
+    property: claim_type
+  - label: Claim
+    property: sentiment
+  - label: Entity
+    property: entity_type
+  - label: Entity
+    property: ticker
+  - label: FinancialDataPoint
+    property: metric_name
+  - label: FinancialDataPoint
+    property: is_estimate
+  - label: FiscalPeriod
+    property: period_label
+  - label: Insight
+    property: insight_type
+  - label: Insight
+    property: status
+  - label: Source
+    property: source_type
+  - label: Source
+    property: source_hash

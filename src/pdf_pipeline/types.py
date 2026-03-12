@@ -177,6 +177,18 @@ class PipelineConfig(BaseModel):
         default_factory=NoiseFilterConfig,
         description="Noise filter configuration",
     )
+    text_only: bool = Field(
+        default=True,
+        description="Skip table detection/reconstruction when True",
+    )
+    enable_knowledge_extraction: bool = Field(
+        default=False,
+        description="Enable Phase 5 knowledge extraction (Entity/Fact/Claim)",
+    )
+    chunk_template: Path = Field(
+        default=Path("data/config/chunk-template.md"),
+        description="Path to the Markdown output template for report.md rendering",
+    )
 
 
 # ---------------------------------------------------------------------------

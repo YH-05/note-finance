@@ -1,0 +1,27 @@
+{
+  "eval_id": 1,
+  "run_type": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses 'uv run pdf-pipeline process' CLI command",
+      "passed": true,
+      "evidence": "Line 8: 'uv run pdf-pipeline process \"data/sample_report/HSBC...\"'"
+    },
+    {
+      "text": "Correctly identifies HSBC PDF path in data/sample_report/",
+      "passed": true,
+      "evidence": "Line 8: exact path included"
+    },
+    {
+      "text": "Mentions output at data/processed/{hash}/chunks.json",
+      "passed": true,
+      "evidence": "Line 52: 'Output is written to {output_dir}/{sha256_of_pdf}/chunks.json'"
+    },
+    {
+      "text": "Does not include unnecessary manual steps",
+      "passed": true,
+      "evidence": "Single CLI command, clean approach"
+    }
+  ],
+  "pass_rate": 1.0
+}

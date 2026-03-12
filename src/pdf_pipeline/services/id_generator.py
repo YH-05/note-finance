@@ -118,6 +118,37 @@ def generate_datapoint_id(content: str) -> str:
     return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
 
 
+def generate_entity_id(name: str, entity_type: str) -> str:
+    """Generate a deterministic entity ID from name and type.
+
+    Uses UUID5 with NAMESPACE_URL to produce the same ID for the same
+    ``(name, entity_type)`` pair.
+
+    Parameters
+    ----------
+    name : str
+        Entity name (e.g., "Apple", "S&P 500").
+    entity_type : str
+        Entity type (e.g., "company", "index").
+
+    Returns
+    -------
+    str
+        UUID5 string derived from ``entity:{name}:{entity_type}``.
+
+    Examples
+    --------
+    >>> id1 = generate_entity_id("Apple", "company")
+    >>> id2 = generate_entity_id("Apple", "company")
+    >>> id1 == id2
+    True
+    >>> generate_entity_id("Apple", "company") != generate_entity_id("Google", "company")
+    True
+    """
+    key = f"entity:{name}:{entity_type}"
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, key))
+
+
 def generate_period_id(period: str) -> str:
     """Generate a deterministic period ID from a time period string.
 

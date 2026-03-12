@@ -150,6 +150,7 @@
       "Bash(format /)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "hooks": {
     "PermissionRequest": [
       {
@@ -166,6 +167,5 @@
     "claude-md-management@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true
   },
-  "plansDirectory": "docs/plan",
-  "enableAllProjectMcpServers": true
+  "plansDirectory": "docs/plan"
 }

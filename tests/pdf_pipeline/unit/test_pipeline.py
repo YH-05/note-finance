@@ -207,7 +207,13 @@ class TestPdfPipelineProcessPdf:
         mocks["markdown_converter"].convert.assert_called()
 
     def test_正常系_Phase4テーブル検出が呼ばれる(self, tmp_path: Path) -> None:
+        config = PipelineConfig(
+            input_dirs=[tmp_path / "pdfs"],
+            output_dir=tmp_path / "output",
+            text_only=False,
+        )
         pipeline, mocks = self._make_pipeline(tmp_path)
+        pipeline.config = config
         pdf_path = tmp_path / "report.pdf"
         pdf_path.write_bytes(b"%PDF-1.4")
 
@@ -256,6 +262,79 @@ class TestPdfPipelineProcessPdf:
         data = json.loads(output_file.read_text())
         assert isinstance(data, list)
         assert len(data) >= 1
+
+    def test_正常系_metadata_jsonが出力ディレクトリに保存される(
+        self, tmp_path: Path
+    ) -> None:
+        pipeline, _mocks = self._make_pipeline(tmp_path)
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        metadata_file = tmp_path / "output" / "abc123" / "metadata.json"
+        assert metadata_file.exists()
+
+    def test_正常系_metadata_jsonに元PDFのファイル名が含まれる(
+        self, tmp_path: Path
+    ) -> None:
+        import json
+
+        pipeline, _mocks = self._make_pipeline(tmp_path)
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        metadata_file = tmp_path / "output" / "abc123" / "metadata.json"
+        metadata = json.loads(metadata_file.read_text())
+
+        assert metadata["source_hash"] == "abc123"
+        assert metadata["original_filename"] == "report.pdf"
+        assert "original_path" not in metadata  # path-based reference removed
+        assert "report_date" in metadata
+        assert "issuer" in metadata
+        assert "processed_at" in metadata
+        assert metadata["chunk_count"] == 1
+
+    def test_正常系_report_mdが出力ディレクトリに保存される(self, tmp_path: Path) -> None:
+        pipeline, _mocks = self._make_pipeline(tmp_path)
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        report_file = tmp_path / "output" / "abc123" / "report.md"
+        assert report_file.exists()
+
+    def test_正常系_report_mdにchunkのcontentが含まれる(self, tmp_path: Path) -> None:
+        pipeline, _mocks = self._make_pipeline(tmp_path)
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        report_file = tmp_path / "output" / "abc123" / "report.md"
+        content = report_file.read_text(encoding="utf-8")
+        assert "# Section" in content
+        assert "source_hash" in content
+
+    def test_正常系_テンプレートファイルなしでもフォールバック出力される(
+        self, tmp_path: Path
+    ) -> None:
+        from pdf_pipeline.types import PipelineConfig
+
+        config = PipelineConfig(
+            input_dirs=[tmp_path / "pdfs"],
+            output_dir=tmp_path / "output",
+            chunk_template=tmp_path / "nonexistent-template.md",
+        )
+        pipeline, _mocks = self._make_pipeline(tmp_path)
+        pipeline.config = config
+
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        result = pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        assert result["status"] == "completed"
+        report_file = tmp_path / "output" / "abc123" / "report.md"
+        assert report_file.exists()
 
     def test_正常系_既処理済みのPDFはスキップされる(self, tmp_path: Path) -> None:
         pipeline, mocks = self._make_pipeline(tmp_path)
@@ -448,3 +527,219 @@ class TestPdfPipelineRun:
         summary = pipeline.run()
         required_keys = {"total", "completed", "failed", "skipped"}
         assert required_keys.issubset(summary.keys())
+
+
+# ---------------------------------------------------------------------------
+# PdfPipeline: text_only mode
+# ---------------------------------------------------------------------------
+
+
+class TestPdfPipelineTextOnly:
+    """Tests for text_only mode (table skipping)."""
+
+    def _make_pipeline(
+        self, tmp_path: Path, *, text_only: bool = True
+    ) -> tuple[PdfPipeline, dict[str, MagicMock]]:
+        config = PipelineConfig(
+            input_dirs=[tmp_path / "pdfs"],
+            output_dir=tmp_path / "output",
+            text_only=text_only,
+        )
+
+        scanner = MagicMock()
+        scanner.scan_with_hashes.return_value = []
+        noise_filter = MagicMock()
+        noise_filter.filter_text.return_value = "filtered text"
+        markdown_converter = MagicMock()
+        markdown_converter.convert.return_value = "# Section\n\nContent."
+        table_detector = MagicMock()
+        table_detector.detect.return_value = [_make_raw_table()]
+        table_reconstructor = MagicMock()
+        table_reconstructor.reconstruct.return_value = _make_extracted_tables()
+        chunker = MagicMock()
+        chunker.chunk.return_value = [
+            {
+                "source_hash": "abc123",
+                "chunk_index": 0,
+                "section_title": "Section",
+                "content": "# Section\n\nContent.",
+                "tables": [],
+            }
+        ]
+        state_manager = MagicMock()
+        state_manager.is_processed.return_value = False
+
+        mocks = {
+            "scanner": scanner,
+            "noise_filter": noise_filter,
+            "markdown_converter": markdown_converter,
+            "table_detector": table_detector,
+            "table_reconstructor": table_reconstructor,
+            "chunker": chunker,
+            "state_manager": state_manager,
+        }
+
+        pipeline = PdfPipeline(
+            config=config,
+            scanner=scanner,
+            noise_filter=noise_filter,
+            markdown_converter=markdown_converter,
+            table_detector=table_detector,
+            table_reconstructor=table_reconstructor,
+            chunker=chunker,
+            state_manager=state_manager,
+        )
+        return pipeline, mocks
+
+    def test_正常系_text_onlyモードでテーブル検出スキップ(self, tmp_path: Path) -> None:
+        pipeline, mocks = self._make_pipeline(tmp_path, text_only=True)
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        result = pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        assert result["status"] == "completed"
+        mocks["table_detector"].detect.assert_not_called()
+        mocks["table_reconstructor"].reconstruct.assert_not_called()
+
+    def test_正常系_table_detector_Noneで初期化成功(self, tmp_path: Path) -> None:
+        config = PipelineConfig(
+            input_dirs=[tmp_path / "pdfs"],
+            output_dir=tmp_path / "output",
+        )
+        pipeline = PdfPipeline(
+            config=config,
+            scanner=MagicMock(),
+            noise_filter=MagicMock(),
+            markdown_converter=MagicMock(),
+            table_detector=None,
+            table_reconstructor=None,
+            chunker=MagicMock(),
+            state_manager=MagicMock(),
+        )
+        assert pipeline.table_detector is None
+        assert pipeline.table_reconstructor is None
+
+    def test_正常系_text_only_Falseで従来通りテーブル処理(self, tmp_path: Path) -> None:
+        pipeline, mocks = self._make_pipeline(tmp_path, text_only=False)
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        result = pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        assert result["status"] == "completed"
+        mocks["table_detector"].detect.assert_called()
+
+
+# ---------------------------------------------------------------------------
+# PdfPipeline: knowledge extraction integration
+# ---------------------------------------------------------------------------
+
+
+class TestPdfPipelineKnowledgeExtraction:
+    """Tests for Phase 5 knowledge extraction integration."""
+
+    def _make_pipeline(
+        self,
+        tmp_path: Path,
+        *,
+        knowledge_extractor: Any = None,
+    ) -> tuple[PdfPipeline, dict[str, MagicMock]]:
+        config = PipelineConfig(
+            input_dirs=[tmp_path / "pdfs"],
+            output_dir=tmp_path / "output",
+        )
+
+        noise_filter = MagicMock()
+        noise_filter.filter_text.return_value = "filtered text"
+        markdown_converter = MagicMock()
+        markdown_converter.convert.return_value = "# Section\n\nContent."
+        chunker = MagicMock()
+        chunker.chunk.return_value = [
+            {
+                "source_hash": "abc123",
+                "chunk_index": 0,
+                "section_title": "Section",
+                "content": "# Section\n\nContent.",
+                "tables": [],
+            }
+        ]
+        state_manager = MagicMock()
+        state_manager.is_processed.return_value = False
+
+        mocks = {
+            "noise_filter": noise_filter,
+            "markdown_converter": markdown_converter,
+            "chunker": chunker,
+            "state_manager": state_manager,
+        }
+
+        pipeline = PdfPipeline(
+            config=config,
+            scanner=MagicMock(),
+            noise_filter=noise_filter,
+            markdown_converter=markdown_converter,
+            chunker=chunker,
+            state_manager=state_manager,
+            knowledge_extractor=knowledge_extractor,
+        )
+        return pipeline, mocks
+
+    def test_正常系_knowledge_extractor設定時にextraction_json出力(
+        self, tmp_path: Path
+    ) -> None:
+        import json
+
+        from pdf_pipeline.schemas.extraction import DocumentExtractionResult
+
+        mock_extraction = DocumentExtractionResult(
+            source_hash="abc123",
+            chunks=[],
+        )
+        knowledge_extractor = MagicMock()
+        knowledge_extractor.extract_from_chunks.return_value = mock_extraction
+
+        pipeline, _mocks = self._make_pipeline(
+            tmp_path,
+            knowledge_extractor=knowledge_extractor,
+        )
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        result = pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        assert result["status"] == "completed"
+
+        output_file = tmp_path / "output" / "abc123" / "extraction.json"
+        assert output_file.exists()
+        data = json.loads(output_file.read_text())
+        assert data["source_hash"] == "abc123"
+
+    def test_正常系_knowledge_extractor_Noneでスキップ(self, tmp_path: Path) -> None:
+        pipeline, _mocks = self._make_pipeline(
+            tmp_path,
+            knowledge_extractor=None,
+        )
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        result = pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        assert result["status"] == "completed"
+
+        output_file = tmp_path / "output" / "abc123" / "extraction.json"
+        assert not output_file.exists()
+
+    def test_異常系_extraction失敗でもchunks保存は成功(self, tmp_path: Path) -> None:
+        knowledge_extractor = MagicMock()
+        knowledge_extractor.extract_from_chunks.side_effect = RuntimeError("LLM failed")
+
+        pipeline, _mocks = self._make_pipeline(
+            tmp_path,
+            knowledge_extractor=knowledge_extractor,
+        )
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+
+        result = pipeline.process_pdf(pdf_path=pdf_path, source_hash="abc123")
+        assert result["status"] == "completed"
+
+        # chunks.json should still exist
+        chunks_file = tmp_path / "output" / "abc123" / "chunks.json"
+        assert chunks_file.exists()

@@ -1,0 +1,22 @@
+{
+  "eval_id": 2,
+  "run_type": "with_skill",
+  "expectations": [
+    {
+      "text": "Suggests lightweight approach using GeminiCLIProvider directly (not full pipeline)",
+      "passed": true,
+      "evidence": "Line 9: 'Method 3 is labeled \"Markdown変換のみ（パイプライン不要時）\"'. Uses GeminiCLIProvider directly."
+    },
+    {
+      "text": "Shows correct API: provider.convert_pdf_to_markdown(path)",
+      "passed": true,
+      "evidence": "Line 19: 'provider.convert_pdf_to_markdown(\"data/sample_report/Jefferies...\")'"
+    },
+    {
+      "text": "Respects user intent to skip the full pipeline",
+      "passed": true,
+      "evidence": "Line 9: 'This directly matches the user's request for \"変換だけでいい\"'. No pipeline boilerplate."
+    }
+  ],
+  "pass_rate": 1.0
+}

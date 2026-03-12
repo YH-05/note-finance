@@ -34,3 +34,9 @@ output_dir: "data/processed"
 
 # Number of PDFs to process per batch
 batch_size: 10
+
+# Markdown output template for report.md generation
+# Uses $placeholder syntax (Python string.Template)
+# Available variables: source_hash, original_filename, report_date, issuer,
+#                      processed_at, chunk_count, chunks_content
+chunk_template: "data/config/chunk-template.md"

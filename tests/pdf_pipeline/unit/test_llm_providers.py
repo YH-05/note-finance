@@ -2,7 +2,7 @@
 
 Tests cover:
 - LLMProvider Protocol structural checks
-- GeminiCLIProvider availability check and CLI invocation
+- GeminiCLIProvider availability check, CLI invocation, output sanitization, and validation
 - ClaudeCodeProvider lazy import pattern
 - ProviderChain ordered fallback and error handling
 - LLMProviderError raised when all providers fail
@@ -18,7 +18,10 @@ import pytest
 
 from pdf_pipeline.exceptions import LLMProviderError
 from pdf_pipeline.services.claude_provider import ClaudeCodeProvider
-from pdf_pipeline.services.gemini_provider import GeminiCLIProvider
+from pdf_pipeline.services.gemini_provider import (
+    GeminiCLIProvider,
+    _sanitize_output,
+)
 from pdf_pipeline.services.llm_provider import LLMProvider
 from pdf_pipeline.services.provider_chain import ProviderChain
 
@@ -95,13 +98,47 @@ class TestGeminiCLIProviderConvertPdfToMarkdown:
     def test_正常系_PDF変換成功(self) -> None:
         mock_result = MagicMock()
         mock_result.returncode = 0
-        mock_result.stdout = "# Converted Markdown Content"
+        mock_result.stdout = "# Converted Markdown Content\n\n## Section 1\n\nText."
+
+        with patch("subprocess.run", return_value=mock_result) as mock_run:
+            provider = GeminiCLIProvider()
+            result = provider.convert_pdf_to_markdown("/path/to/report.pdf")
+
+        assert "# Converted Markdown Content" in result
+        # Verify -p flag and -y (auto-approve) are used
+        call_args = mock_run.call_args
+        cmd = call_args[0][0]
+        assert "-p" in cmd
+        assert "-y" in cmd
+
+    def test_正常系_ノイズが除去される(self) -> None:
+        noisy_output = (
+            "MCP issues detected. Run /mcp list for status.\n"
+            "I will read the PDF file to extract its content.\n"
+            "# Report Title\n\n## Section 1\n\nActual content."
+        )
+        mock_result = MagicMock()
+        mock_result.returncode = 0
+        mock_result.stdout = noisy_output
 
         with patch("subprocess.run", return_value=mock_result):
             provider = GeminiCLIProvider()
             result = provider.convert_pdf_to_markdown("/path/to/report.pdf")
 
-        assert result == "# Converted Markdown Content"
+        assert "MCP issues detected" not in result
+        assert "I will read the PDF" not in result
+        assert "# Report Title" in result
+        assert "Actual content" in result
+
+    def test_異常系_見出しなしの出力でLLMProviderError(self) -> None:
+        mock_result = MagicMock()
+        mock_result.returncode = 0
+        mock_result.stdout = "This output has no markdown headings at all."
+
+        with patch("subprocess.run", return_value=mock_result):
+            provider = GeminiCLIProvider()
+            with pytest.raises(LLMProviderError, match="no Markdown headings"):
+                provider.convert_pdf_to_markdown("/path/to/report.pdf")
 
     def test_異常系_geminiコマンド失敗でLLMProviderError(self) -> None:
         mock_result = MagicMock()
@@ -122,6 +159,11 @@ class TestGeminiCLIProviderConvertPdfToMarkdown:
             with pytest.raises(LLMProviderError, match="GeminiCLIProvider"):
                 provider.convert_pdf_to_markdown("/path/to/report.pdf")
 
+    def test_異常系_pdf拡張子なしでLLMProviderError(self) -> None:
+        provider = GeminiCLIProvider()
+        with pytest.raises(LLMProviderError, match="pdf extension"):
+            provider.convert_pdf_to_markdown("/path/to/report.txt")
+
 
 class TestGeminiCLIProviderExtractTableJson:
     """Tests for GeminiCLIProvider.extract_table_json()."""
@@ -131,11 +173,14 @@ class TestGeminiCLIProviderExtractTableJson:
         mock_result.returncode = 0
         mock_result.stdout = '{"tables": []}'
 
-        with patch("subprocess.run", return_value=mock_result):
+        with patch("subprocess.run", return_value=mock_result) as mock_run:
             provider = GeminiCLIProvider()
             result = provider.extract_table_json("table text content")
 
         assert result == '{"tables": []}'
+        # Verify -p flag is used
+        cmd = mock_run.call_args[0][0]
+        assert "-p" in cmd
 
     def test_異常系_コマンド失敗でLLMProviderError(self) -> None:
         mock_result = MagicMock()
@@ -161,6 +206,59 @@ class TestGeminiCLIProviderExtractKnowledge:
             result = provider.extract_knowledge("knowledge text")
 
         assert result == '{"entities": [], "relations": []}'
+
+
+# ---------------------------------------------------------------------------
+# Output sanitization
+# ---------------------------------------------------------------------------
+
+
+class TestSanitizeOutput:
+    """Tests for _sanitize_output helper."""
+
+    def test_正常系_MCPノイズが除去される(self) -> None:
+        raw = "MCP issues detected. Run /mcp list for status.\n# Title\n\nContent."
+        result = _sanitize_output(raw)
+        assert "MCP issues" not in result
+        assert "# Title" in result
+
+    def test_正常系_思考ログが除去される(self) -> None:
+        raw = (
+            "I will read the PDF file.\n"
+            "I'll extract the tables.\n"
+            "Let me process this.\n"
+            "First, I will scan the document.\n"
+            "# Actual Content\n\nReal text."
+        )
+        result = _sanitize_output(raw)
+        assert "I will" not in result
+        assert "I'll" not in result
+        assert "Let me" not in result
+        assert "# Actual Content" in result
+
+    def test_正常系_コードフェンスが除去される(self) -> None:
+        raw = "```markdown\n# Title\n\nContent.\n```"
+        result = _sanitize_output(raw)
+        assert "```" not in result
+        assert "# Title" in result
+
+    def test_正常系_連続空行が圧縮される(self) -> None:
+        raw = "# Title\n\n\n\n\n\nContent."
+        result = _sanitize_output(raw)
+        assert "\n\n\n" not in result
+        assert "# Title" in result
+        assert "Content." in result
+
+    def test_正常系_クリーンな出力はそのまま(self) -> None:
+        raw = "# Title\n\n## Section\n\nClean content."
+        result = _sanitize_output(raw)
+        assert result == raw
+
+    def test_正常系_Hereisプリアンブルが除去される(self) -> None:
+        raw = "Here is the converted markdown:\n# Title\n\nContent."
+        result = _sanitize_output(raw)
+        assert "Here is" not in result
+        assert "# Title" in result
 
 
 # ---------------------------------------------------------------------------

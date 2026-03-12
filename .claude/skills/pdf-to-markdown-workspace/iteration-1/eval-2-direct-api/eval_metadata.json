@@ -1,0 +1,10 @@
+{
+  "eval_id": 2,
+  "eval_name": "direct-api",
+  "prompt": "このPDFファイルのテキストだけマークダウンとして取り出したい。パイプライン全体は不要で、変換だけでいい。ファイル: data/sample_report/Jefferies ISAT@IJ ISAT IJ 4Q25 Results Strong Earnings Beat.pdf",
+  "assertions": [
+    {"text": "Suggests lightweight approach using GeminiCLIProvider directly (not full pipeline)", "type": "contains_concept"},
+    {"text": "Shows correct API: provider.convert_pdf_to_markdown(path)", "type": "contains_concept"},
+    {"text": "Respects user intent to skip the full pipeline", "type": "contains_concept"}
+  ]
+}

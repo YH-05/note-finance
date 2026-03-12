@@ -67,6 +67,24 @@ class TestStateManagerInit:
         manager = StateManager(state_file)
         assert manager.get_status("abc123") == "completed"
 
+    def test_正常系_v1フォーマット_文字列値を読み込める(
+        self, state_file: Path
+    ) -> None:
+        """v1 state.json (string values) is migrated to v2 on load."""
+        state_file.parent.mkdir(parents=True, exist_ok=True)
+        v1_state = {
+            "version": 1,
+            "sha256_to_status": {"oldhash": "completed"},
+            "batches": {},
+        }
+        state_file.write_text(json.dumps(v1_state), encoding="utf-8")
+
+        manager = StateManager(state_file)
+        assert manager.get_status("oldhash") == "completed"
+        assert manager.is_processed("oldhash") is True
+        # filename is None in migrated v1 entries
+        assert manager.get_filename("oldhash") is None
+
 
 # ---------------------------------------------------------------------------
 # StateManager.record_status / get_status
@@ -108,6 +126,38 @@ class TestStateManagerRecordAndGetStatus:
         manager.record_status("hash001", "completed")
         manager.record_status("hash001", "completed")
         assert manager.get_status("hash001") == "completed"
+
+    def test_正常系_filenameを記録して取得できる(self, manager: StateManager) -> None:
+        manager.record_status("hash001", "completed", filename="report.pdf")
+        assert manager.get_filename("hash001") == "report.pdf"
+
+    def test_正常系_未登録ハッシュのfilenameはNone(self, manager: StateManager) -> None:
+        assert manager.get_filename("unknown") is None
+
+    def test_正常系_filename省略時に既存のfilenameが保持される(
+        self, manager: StateManager
+    ) -> None:
+        manager.record_status("hash001", "processing", filename="report.pdf")
+        # Update status without filename — filename must be preserved
+        manager.record_status("hash001", "completed")
+        assert manager.get_status("hash001") == "completed"
+        assert manager.get_filename("hash001") == "report.pdf"
+
+    def test_正常系_processed_atを記録して永続化される(
+        self, state_file: Path
+    ) -> None:
+        manager1 = StateManager(state_file)
+        manager1.record_status(
+            "hash001",
+            "completed",
+            filename="report.pdf",
+            processed_at="2026-03-12T10:00:00+00:00",
+        )
+        manager1.save()
+
+        manager2 = StateManager(state_file)
+        assert manager2.get_status("hash001") == "completed"
+        assert manager2.get_filename("hash001") == "report.pdf"
 
 
 # ---------------------------------------------------------------------------
