@@ -86,6 +86,10 @@
         "playwright": {
             "command": "cmd",
             "args": ["/c", "npx", "-y", "@playwright/mcp@latest"]
+        },
+        "docling": {
+            "command": "uvx",
+            "args": ["--from=docling-mcp", "docling-mcp-server"]
         }
     }
 }

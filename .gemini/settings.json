@@ -101,6 +101,10 @@
         "neo4j-data-modeling": {
             "command": "uvx",
             "args": ["mcp-neo4j-data-modeling"]
+        },
+        "docling": {
+            "command": "uvx",
+            "args": ["--from=docling-mcp", "docling-mcp-server"]
         }
     }
 }
