@@ -136,7 +136,9 @@ class StateManager:
             "status": status,
             "filename": filename if filename is not None else existing.get("filename"),
             "processed_at": (
-                processed_at if processed_at is not None else existing.get("processed_at")
+                processed_at
+                if processed_at is not None
+                else existing.get("processed_at")
             ),
         }
         logger.debug(

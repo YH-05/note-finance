@@ -23,7 +23,6 @@ from pdf_pipeline.schemas.extraction import (
     DocumentExtractionResult,
 )
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -45,7 +44,7 @@ def _make_chunk(
 
 
 def _make_valid_extraction_json(chunk_index: int = 0) -> str:
-    """Create a valid extraction JSON response."""
+    """Create a valid extraction JSON response (v2 schema)."""
     return json.dumps(
         {
             "chunk_index": chunk_index,
@@ -63,7 +62,6 @@ def _make_valid_extraction_json(chunk_index: int = 0) -> str:
                     "content": "Revenue was $100B in Q4 2025",
                     "fact_type": "statistic",
                     "as_of_date": "2025-Q4",
-                    "confidence": 0.9,
                     "about_entities": ["Apple"],
                 }
             ],
@@ -72,7 +70,21 @@ def _make_valid_extraction_json(chunk_index: int = 0) -> str:
                     "content": "We expect further growth",
                     "claim_type": "prediction",
                     "sentiment": "bullish",
-                    "confidence": 0.7,
+                    "magnitude": "moderate",
+                    "target_price": 250.0,
+                    "rating": "Buy",
+                    "time_horizon": "12M",
+                    "about_entities": ["Apple"],
+                }
+            ],
+            "financial_datapoints": [
+                {
+                    "metric_name": "Revenue",
+                    "value": 100000.0,
+                    "unit": "USD mn",
+                    "is_estimate": False,
+                    "currency": "USD",
+                    "period_label": "4Q25",
                     "about_entities": ["Apple"],
                 }
             ],

@@ -86,15 +86,16 @@ If you cannot determine the publishing organization, return exactly: unknown
 Text:
 """
 
-# Prompt for knowledge extraction (Entity/Fact/Claim schema)
+# Prompt for knowledge extraction (Entity/Fact/Claim/FinancialDataPoint schema v2)
 _KNOWLEDGE_EXTRACT_PROMPT = """\
-Extract entities, facts, and claims from the following text as JSON.
+Extract entities, facts, claims, and financial data points from the following text as JSON.
 
 Output format:
 {
-  "entities": [{"name": "...", "entity_type": "company|index|sector|indicator|currency|commodity|person|organization", "ticker": null, "aliases": []}],
-  "facts": [{"content": "...", "fact_type": "statistic|event|data_point|quote", "as_of_date": null, "confidence": 0.8, "about_entities": ["..."]}],
-  "claims": [{"content": "...", "claim_type": "opinion|prediction|recommendation|analysis", "sentiment": "bullish|bearish|neutral", "confidence": 0.8, "about_entities": ["..."]}]
+  "entities": [{"name": "...", "entity_type": "company|index|sector|indicator|currency|commodity|person|organization|country|instrument", "ticker": null, "aliases": []}],
+  "facts": [{"content": "...", "fact_type": "statistic|event|data_point|quote|policy_action|economic_indicator|regulatory|corporate_action", "as_of_date": null, "about_entities": ["..."]}],
+  "claims": [{"content": "...", "claim_type": "opinion|prediction|recommendation|analysis|assumption|guidance|risk_assessment|policy_stance|sector_view|forecast", "sentiment": "bullish|bearish|neutral|mixed", "magnitude": "strong|moderate|slight", "target_price": null, "rating": null, "time_horizon": null, "about_entities": ["..."]}],
+  "financial_datapoints": [{"metric_name": "...", "value": 0.0, "unit": "USD mn", "is_estimate": false, "currency": null, "period_label": null, "about_entities": ["..."]}]
 }
 
 Output ONLY valid JSON. No explanation or commentary.

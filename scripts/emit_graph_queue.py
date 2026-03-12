@@ -68,7 +68,7 @@ DEFAULT_OUTPUT_BASE = Path(".tmp/graph-queue")
 DEFAULT_MAX_AGE_DAYS = 7
 """Default maximum age in days for auto-cleanup."""
 
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "2.0"
 """Graph-queue schema version."""
 
 THEME_TO_CATEGORY: dict[str, str] = {
@@ -162,6 +162,65 @@ def generate_claim_id(content: str) -> str:
     return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
 
 
+def generate_fact_id(content: str) -> str:
+    """Generate a deterministic fact ID from content.
+
+    Uses a ``fact:`` prefix before hashing to ensure fact IDs never
+    collide with claim IDs even when the content text is identical.
+
+    Parameters
+    ----------
+    content : str
+        Fact content text.
+
+    Returns
+    -------
+    str
+        First 16 hex characters of the SHA-256 hash of ``fact:{content}``.
+    """
+    return hashlib.sha256(f"fact:{content}".encode("utf-8")).hexdigest()[:16]
+
+
+def generate_chunk_id(source_hash: str, chunk_index: int) -> str:
+    """Generate a deterministic chunk ID from source hash and chunk index.
+
+    Parameters
+    ----------
+    source_hash : str
+        The SHA-256 hash of the source document.
+    chunk_index : int
+        Zero-based index of the chunk within the document.
+
+    Returns
+    -------
+    str
+        Chunk ID in the format ``{source_hash}_chunk_{chunk_index}``.
+    """
+    return f"{source_hash}_chunk_{chunk_index}"
+
+
+def generate_datapoint_id(
+    source_hash: str, metric: str, period: str
+) -> str:
+    """Generate a deterministic datapoint ID from source hash, metric, and period.
+
+    Parameters
+    ----------
+    source_hash : str
+        The SHA-256 hash of the source document.
+    metric : str
+        Metric name (e.g., 'Revenue', 'EBITDA').
+    period : str
+        Period label (e.g., 'FY2025', '4Q25').
+
+    Returns
+    -------
+    str
+        Datapoint ID in the format ``{source_hash}_{metric}_{period}``.
+    """
+    return f"{source_hash}_{metric}_{period}"
+
+
 def generate_queue_id() -> str:
     """Generate a unique queue ID with timestamp and short hash.
 
@@ -204,6 +263,34 @@ def resolve_category(theme_key: str) -> str:
 # ---------------------------------------------------------------------------
 
 
+def _infer_period_type(label: str) -> str:
+    """Infer a period type from a human-readable period label.
+
+    Parameters
+    ----------
+    label : str
+        Period label (e.g., ``'FY2025'``, ``'4Q25'``, ``'1H26'``).
+
+    Returns
+    -------
+    str
+        One of ``'annual'``, ``'quarterly'``, or ``'half_year'``.
+        Falls back to ``'annual'`` for unrecognised labels.
+
+    Notes
+    -----
+    Labels containing ``'FQ'`` (e.g. fiscal quarter references in free text)
+    are excluded from the quarterly match to avoid false positives.
+    """
+    upper = label.upper()
+    # Exclude 'FQ' (fiscal quarter reference) from quarterly detection
+    if "Q" in upper and "FQ" not in upper:
+        return "quarterly"
+    if "H" in upper:
+        return "half_year"
+    return "annual"
+
+
 def _make_source(
     url: str, title: str = "", published: str = "", **extra: Any
 ) -> dict[str, Any]:
@@ -241,10 +328,14 @@ def _mapped_result(
     sources: list[dict[str, Any]] | None = None,
     topics: list[dict[str, Any]] | None = None,
     claims: list[dict[str, Any]] | None = None,
+    facts: list[dict[str, Any]] | None = None,
     entities: list[dict[str, Any]] | None = None,
+    chunks: list[dict[str, Any]] | None = None,
+    financial_datapoints: list[dict[str, Any]] | None = None,
+    fiscal_periods: list[dict[str, Any]] | None = None,
     relations: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Build the standard 7-key mapper result dict.
+    """Build the standard mapper result dict.
 
     Parameters
     ----------
@@ -252,7 +343,8 @@ def _mapped_result(
         Original input data (used to extract ``session_id``).
     batch_label : str
         Label for this batch.
-    sources, topics, claims, entities : list[dict] | None
+    sources, topics, claims, facts, entities, chunks,
+    financial_datapoints, fiscal_periods : list[dict] | None
         Node lists (default to empty lists).
     relations : dict | None
         Relation dict (default to empty dict).
@@ -260,15 +352,19 @@ def _mapped_result(
     Returns
     -------
     dict[str, Any]
-        Standardised result dict with all 7 keys.
+        Standardised result dict with all keys.
     """
     return {
         "session_id": data.get("session_id", ""),
         "batch_label": batch_label,
         "sources": sources or [],
         "claims": claims or [],
+        "facts": facts or [],
         "topics": topics or [],
         "entities": entities or [],
+        "chunks": chunks or [],
+        "financial_datapoints": financial_datapoints or [],
+        "fiscal_periods": fiscal_periods or [],
         "relations": relations or {},
     }
 
@@ -530,20 +626,37 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
 def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     """Map pdf-extraction (DocumentExtractionResult) to graph-queue components.
 
+    Generates nodes for Source, Chunk, Entity, Fact, Claim,
+    FinancialDataPoint, and FiscalPeriod, plus the following relations:
+
+    - ``contains_chunk``: Source → Chunk
+    - ``extracted_from_fact``: Fact → Chunk
+    - ``extracted_from_claim``: Claim → Chunk
+    - ``source_fact``: Source → Fact (STATES_FACT)
+    - ``source_claim``: Source → Claim (MAKES_CLAIM)
+    - ``fact_entity``: Fact → Entity (RELATES_TO)
+    - ``claim_entity``: Claim → Entity (ABOUT)
+    - ``has_datapoint``: Source → FinancialDataPoint
+    - ``for_period``: FinancialDataPoint → FiscalPeriod
+    - ``datapoint_entity``: FinancialDataPoint → Entity (RELATES_TO)
+
     Parameters
     ----------
     data : dict[str, Any]
         Input data with ``source_hash``, ``chunks[]`` containing
-        ``entities[]``, ``facts[]``, and ``claims[]``.
+        ``entities[]``, ``facts[]``, ``claims[]``, and optionally
+        ``financial_datapoints[]``.
 
     Returns
     -------
     dict[str, Any]
         Mapped components with ``entities[]``, ``sources[]``,
-        ``claims[]``, and ``relations``.
+        ``claims[]``, ``facts[]``, ``chunks[]``,
+        ``financial_datapoints[]``, ``fiscal_periods[]``, and
+        ``relations``.
     """
     source_hash = data.get("source_hash", "")
-    chunks = data.get("chunks", [])
+    input_chunks = data.get("chunks", [])
 
     # Create source node for the PDF
     source_id = generate_source_id(f"pdf:{source_hash}")
@@ -558,16 +671,54 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     ]
 
     entities: list[dict[str, Any]] = []
+    facts: list[dict[str, Any]] = []
     claims: list[dict[str, Any]] = []
-    seen_entity_keys: set[str] = set()
+    chunk_nodes: list[dict[str, Any]] = []
+    financial_datapoints: list[dict[str, Any]] = []
+    fiscal_periods: list[dict[str, Any]] = []
 
-    # Relations: source→fact, source→claim, fact→entity, claim→entity
+    seen_entity_keys: set[str] = set()
+    seen_period_ids: set[str] = set()
+
+    # Relations
     source_fact_rels: list[dict[str, str]] = []
     source_claim_rels: list[dict[str, str]] = []
     fact_entity_rels: list[dict[str, str]] = []
     claim_entity_rels: list[dict[str, str]] = []
+    contains_chunk_rels: list[dict[str, str]] = []
+    extracted_from_fact_rels: list[dict[str, str]] = []
+    extracted_from_claim_rels: list[dict[str, str]] = []
+    has_datapoint_rels: list[dict[str, str]] = []
+    for_period_rels: list[dict[str, str]] = []
+    datapoint_entity_rels: list[dict[str, str]] = []
 
-    for chunk in chunks:
+    # Name→ID / Name→ticker maps for O(1) entity resolution
+    entity_name_to_id: dict[str, str] = {}
+    entity_name_to_ticker: dict[str, str] = {}
+
+    for chunk in input_chunks:
+        chunk_index = chunk.get("chunk_index", 0)
+        chunk_id = generate_chunk_id(source_hash, chunk_index)
+
+        # Build Chunk node
+        chunk_nodes.append(
+            {
+                "chunk_id": chunk_id,
+                "chunk_index": chunk_index,
+                "section_title": chunk.get("section_title"),
+                "content": chunk.get("content", ""),
+            }
+        )
+
+        # Source CONTAINS_CHUNK Chunk
+        contains_chunk_rels.append(
+            {
+                "from_id": source_id,
+                "to_id": chunk_id,
+                "type": "CONTAINS_CHUNK",
+            }
+        )
+
         # Entities (deduplicated by name+type)
         for entity in chunk.get("entities", []):
             name = entity.get("name", "")
@@ -575,45 +726,49 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             entity_key = f"{name}:{entity_type}"
             if entity_key not in seen_entity_keys:
                 seen_entity_keys.add(entity_key)
+                eid = generate_entity_id(name, entity_type)
                 entities.append(
                     {
-                        "entity_id": generate_entity_id(name, entity_type),
+                        "entity_id": eid,
                         "name": name,
                         "entity_type": entity_type,
                         "ticker": entity.get("ticker"),
                     }
                 )
+                entity_name_to_id[name] = eid
+                if entity.get("ticker"):
+                    entity_name_to_ticker[name] = entity["ticker"]
 
-        # Facts → Claims in graph-queue format
+        # Facts → independent facts[] list
         for fact in chunk.get("facts", []):
             content = fact.get("content", "")
-            fact_id = generate_claim_id(content)
-            claims.append(
+            fact_id = generate_fact_id(content)
+            facts.append(
                 {
-                    "claim_id": fact_id,
+                    "fact_id": fact_id,
                     "content": content,
                     "source_id": source_id,
-                    "category": "pdf-fact",
                     "fact_type": fact.get("fact_type", ""),
                     "as_of_date": fact.get("as_of_date"),
-                    "confidence": fact.get("confidence", 0.8),
                 }
             )
             source_fact_rels.append(
                 {"from_id": source_id, "to_id": fact_id, "type": "STATES_FACT"}
             )
+            # Fact EXTRACTED_FROM Chunk
+            extracted_from_fact_rels.append(
+                {"from_id": fact_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
+            )
             for entity_name in fact.get("about_entities", []):
-                # Find matching entity ID
-                for e in entities:
-                    if e["name"] == entity_name:
-                        fact_entity_rels.append(
-                            {
-                                "from_id": fact_id,
-                                "to_id": e["entity_id"],
-                                "type": "RELATES_TO",
-                            }
-                        )
-                        break
+                resolved_id = entity_name_to_id.get(entity_name)
+                if resolved_id:
+                    fact_entity_rels.append(
+                        {
+                            "from_id": fact_id,
+                            "to_id": resolved_id,
+                            "type": "RELATES_TO",
+                        }
+                    )
 
         # Claims
         for claim in chunk.get("claims", []):
@@ -627,29 +782,99 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
                     "category": "pdf-claim",
                     "claim_type": claim.get("claim_type", ""),
                     "sentiment": claim.get("sentiment"),
-                    "confidence": claim.get("confidence", 0.8),
                 }
             )
             source_claim_rels.append(
                 {"from_id": source_id, "to_id": claim_id, "type": "MAKES_CLAIM"}
             )
+            # Claim EXTRACTED_FROM Chunk
+            extracted_from_claim_rels.append(
+                {"from_id": claim_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
+            )
             for entity_name in claim.get("about_entities", []):
-                for e in entities:
-                    if e["name"] == entity_name:
-                        claim_entity_rels.append(
-                            {
-                                "from_id": claim_id,
-                                "to_id": e["entity_id"],
-                                "type": "ABOUT",
-                            }
-                        )
-                        break
+                resolved_id = entity_name_to_id.get(entity_name)
+                if resolved_id:
+                    claim_entity_rels.append(
+                        {
+                            "from_id": claim_id,
+                            "to_id": resolved_id,
+                            "type": "ABOUT",
+                        }
+                    )
+
+        # FinancialDataPoints
+        for dp in chunk.get("financial_datapoints", []):
+            metric_name = dp.get("metric_name", "")
+            period_label = dp.get("period_label", "")
+            dp_id = generate_datapoint_id(source_hash, metric_name, period_label)
+
+            financial_datapoints.append(
+                {
+                    "datapoint_id": dp_id,
+                    "metric_name": metric_name,
+                    "value": dp.get("value"),
+                    "unit": dp.get("unit", ""),
+                    "is_estimate": dp.get("is_estimate", False),
+                    "currency": dp.get("currency"),
+                    "period_label": period_label,
+                }
+            )
+
+            # Source HAS_DATAPOINT FinancialDataPoint
+            has_datapoint_rels.append(
+                {"from_id": source_id, "to_id": dp_id, "type": "HAS_DATAPOINT"}
+            )
+
+            # FiscalPeriod derivation from period_label
+            if period_label:
+                about_entities = dp.get("about_entities", [])
+                ticker = (
+                    entity_name_to_ticker.get(about_entities[0], "")
+                    if about_entities
+                    else ""
+                )
+
+                period_id = (
+                    f"{ticker}_{period_label}" if ticker else period_label
+                )
+                if period_id not in seen_period_ids:
+                    seen_period_ids.add(period_id)
+                    fiscal_periods.append(
+                        {
+                            "period_id": period_id,
+                            "period_type": _infer_period_type(period_label),
+                            "period_label": period_label,
+                        }
+                    )
+
+                # FinancialDataPoint FOR_PERIOD FiscalPeriod
+                for_period_rels.append(
+                    {"from_id": dp_id, "to_id": period_id, "type": "FOR_PERIOD"}
+                )
+
+            # FinancialDataPoint → Entity (RELATES_TO)
+            for entity_name in dp.get("about_entities", []):
+                resolved_id = entity_name_to_id.get(entity_name)
+                if resolved_id:
+                    datapoint_entity_rels.append(
+                        {
+                            "from_id": dp_id,
+                            "to_id": resolved_id,
+                            "type": "RELATES_TO",
+                        }
+                    )
 
     relations: dict[str, Any] = {
         "source_fact": source_fact_rels,
         "source_claim": source_claim_rels,
         "fact_entity": fact_entity_rels,
         "claim_entity": claim_entity_rels,
+        "contains_chunk": contains_chunk_rels,
+        "extracted_from_fact": extracted_from_fact_rels,
+        "extracted_from_claim": extracted_from_claim_rels,
+        "has_datapoint": has_datapoint_rels,
+        "for_period": for_period_rels,
+        "datapoint_entity": datapoint_entity_rels,
     }
 
     return _mapped_result(
@@ -657,7 +882,11 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
         "pdf-extraction",
         sources=sources,
         entities=entities,
+        facts=facts,
         claims=claims,
+        chunks=chunk_nodes,
+        financial_datapoints=financial_datapoints,
+        fiscal_periods=fiscal_periods,
         relations=relations,
     )
 
@@ -881,7 +1110,11 @@ def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
         "sources": mapped.get("sources", []),
         "topics": mapped.get("topics", []),
         "claims": mapped.get("claims", []),
+        "facts": mapped.get("facts", []),
         "entities": mapped.get("entities", []),
+        "chunks": mapped.get("chunks", []),
+        "financial_datapoints": mapped.get("financial_datapoints", []),
+        "fiscal_periods": mapped.get("fiscal_periods", []),
         "relations": mapped.get("relations", {}),
     }
 

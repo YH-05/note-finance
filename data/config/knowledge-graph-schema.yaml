@@ -139,9 +139,6 @@ nodes:
           quote=direct citation, policy_action=central bank/government action,
           economic_indicator=GDP/CPI/PMI etc, regulatory=regulatory change,
           corporate_action=M&A/dividend/buyback etc
-      confidence:
-        type: float
-        description: "Extraction confidence (0.0-1.0)"
       as_of_date:
         type: date
         indexed: true
@@ -329,9 +326,6 @@ nodes:
         type: string
         required: true
         description: "The insight text"
-      confidence:
-        type: float
-        description: "AI confidence in this insight (0.0-1.0)"
       model:
         type: string
         description: "AI model that generated this insight (e.g., 'claude-opus-4-6')"

@@ -1,16 +1,19 @@
 """Pydantic schema definitions for knowledge extraction from PDF chunks.
 
-Defines Entity, Fact, and Claim models for structured knowledge extraction
-from text chunks, and envelope models for chunk-level and document-level results.
+Defines Entity, Fact, Claim, and FinancialDataPoint models for structured
+knowledge extraction from text chunks, and envelope models for chunk-level
+and document-level results.
 
 Classes
 -------
 ExtractedEntity
     An entity mentioned in the text (company, index, person, etc.).
 ExtractedFact
-    A factual statement with optional date and confidence.
+    A factual statement with optional date.
 ExtractedClaim
-    An opinion, prediction, or recommendation with sentiment.
+    An opinion, prediction, or recommendation with sentiment and conviction.
+ExtractedFinancialDataPoint
+    A structured numerical data point extracted from tables or text.
 ChunkExtractionResult
     Extraction result for a single chunk.
 DocumentExtractionResult
@@ -22,8 +25,8 @@ Examples
 >>> entity.entity_type
 'company'
 >>> fact = ExtractedFact(content="Revenue grew 15%", fact_type="statistic")
->>> fact.confidence
-0.8
+>>> fact.fact_type
+'statistic'
 """
 
 from __future__ import annotations
@@ -45,9 +48,11 @@ class ExtractedEntity(BaseModel):
     name : str
         Entity name (e.g., "Apple", "S&P 500").
     entity_type : str
-        Type of entity.
+        Type of entity (10 types).
     ticker : str | None
         Stock ticker symbol, if applicable.
+    isin : str | None
+        ISIN code, if applicable.
     aliases : list[str]
         Alternative names for the entity.
 
@@ -68,8 +73,11 @@ class ExtractedEntity(BaseModel):
         "commodity",
         "person",
         "organization",
+        "country",
+        "instrument",
     ] = Field(description="Entity type category")
     ticker: str | None = Field(default=None, description="Stock ticker symbol")
+    isin: str | None = Field(default=None, description="ISIN code")
     aliases: list[str] = Field(default_factory=list, description="Alternative names")
 
 
@@ -86,29 +94,31 @@ class ExtractedFact(BaseModel):
     content : str
         The factual statement.
     fact_type : str
-        Type of fact.
+        Type of fact (8 types).
     as_of_date : str | None
         Date the fact refers to (ISO 8601 or descriptive).
-    confidence : float
-        Confidence score (0.0 to 1.0).
     about_entities : list[str]
         Names of entities this fact is about.
 
     Examples
     --------
     >>> f = ExtractedFact(content="Revenue was $100B", fact_type="statistic")
-    >>> f.confidence
-    0.8
+    >>> f.fact_type
+    'statistic'
     """
 
     content: str = Field(min_length=1, description="Factual statement")
-    fact_type: Literal["statistic", "event", "data_point", "quote"] = Field(
-        description="Type of fact"
-    )
+    fact_type: Literal[
+        "statistic",
+        "event",
+        "data_point",
+        "quote",
+        "policy_action",
+        "economic_indicator",
+        "regulatory",
+        "corporate_action",
+    ] = Field(description="Type of fact")
     as_of_date: str | None = Field(default=None, description="Date the fact refers to")
-    confidence: float = Field(
-        default=0.8, ge=0.0, le=1.0, description="Confidence score"
-    )
     about_entities: list[str] = Field(
         default_factory=list, description="Related entity names"
     )
@@ -127,11 +137,17 @@ class ExtractedClaim(BaseModel):
     content : str
         The claim statement.
     claim_type : str
-        Type of claim.
+        Type of claim (10 types).
     sentiment : str | None
-        Market sentiment implied by the claim.
-    confidence : float
-        Confidence score (0.0 to 1.0).
+        Market sentiment implied by the claim (4 types).
+    magnitude : str | None
+        Strength of the sentiment or conviction.
+    target_price : float | None
+        Target price (for recommendation claims).
+    rating : str | None
+        Rating label (e.g., Buy, Hold, Sell, Overweight).
+    time_horizon : str | None
+        Time horizon for the claim (e.g., '12M', 'FY26', 'long-term').
     about_entities : list[str]
         Names of entities this claim is about.
 
@@ -143,14 +159,89 @@ class ExtractedClaim(BaseModel):
     """
 
     content: str = Field(min_length=1, description="Claim statement")
-    claim_type: Literal["opinion", "prediction", "recommendation", "analysis"] = Field(
-        description="Type of claim"
-    )
-    sentiment: Literal["bullish", "bearish", "neutral"] | None = Field(
+    claim_type: Literal[
+        "opinion",
+        "prediction",
+        "recommendation",
+        "analysis",
+        "assumption",
+        "guidance",
+        "risk_assessment",
+        "policy_stance",
+        "sector_view",
+        "forecast",
+    ] = Field(description="Type of claim")
+    sentiment: Literal["bullish", "bearish", "neutral", "mixed"] | None = Field(
         default=None, description="Market sentiment"
     )
-    confidence: float = Field(
-        default=0.8, ge=0.0, le=1.0, description="Confidence score"
+    magnitude: Literal["strong", "moderate", "slight"] | None = Field(
+        default=None, description="Strength of the sentiment or conviction"
+    )
+    target_price: float | None = Field(
+        default=None, description="Target price (for recommendation claims)"
+    )
+    rating: str | None = Field(
+        default=None,
+        max_length=50,
+        description="Rating label (e.g., Buy, Hold, Sell, Overweight)",
+    )
+    time_horizon: str | None = Field(
+        default=None,
+        max_length=50,
+        description="Time horizon for the claim (e.g., '12M', 'FY26', 'long-term')",
+    )
+    about_entities: list[str] = Field(
+        default_factory=list, description="Related entity names"
+    )
+
+
+# ---------------------------------------------------------------------------
+# ExtractedFinancialDataPoint
+# ---------------------------------------------------------------------------
+
+
+class ExtractedFinancialDataPoint(BaseModel):
+    """A structured numerical data point extracted from tables or text.
+
+    Supports both actual (historical) and estimated (forecast) values
+    via the ``is_estimate`` flag.
+
+    Attributes
+    ----------
+    metric_name : str
+        Metric name (e.g., 'Revenue', 'EBITDA', 'ARPU', 'Net Income').
+    value : float
+        Numeric value.
+    unit : str
+        Unit (e.g., 'IDR bn', 'USD mn', '%', 'x').
+    is_estimate : bool
+        True for analyst estimate/forecast, False for actual reported figure.
+    currency : str | None
+        ISO 4217 currency code (e.g., 'IDR', 'USD').
+    period_label : str | None
+        Human-readable period label (e.g., 'FY2025', '4Q25', '1H26').
+    about_entities : list[str]
+        Names of entities this data point is about.
+
+    Examples
+    --------
+    >>> dp = ExtractedFinancialDataPoint(
+    ...     metric_name="Revenue", value=1000.0, unit="USD mn"
+    ... )
+    >>> dp.is_estimate
+    False
+    """
+
+    metric_name: str = Field(min_length=1, description="Metric name")
+    value: float = Field(description="Numeric value")
+    unit: str = Field(min_length=1, description="Unit (e.g., 'IDR bn', 'USD mn', '%')")
+    is_estimate: bool = Field(
+        default=False,
+        description="True for analyst estimate/forecast, False for actual",
+    )
+    currency: str | None = Field(default=None, description="ISO 4217 currency code")
+    period_label: str | None = Field(
+        default=None, description="Period label (e.g., 'FY2025', '4Q25')"
     )
     about_entities: list[str] = Field(
         default_factory=list, description="Related entity names"
@@ -177,6 +268,8 @@ class ChunkExtractionResult(BaseModel):
         Facts extracted from this chunk.
     claims : list[ExtractedClaim]
         Claims extracted from this chunk.
+    financial_datapoints : list[ExtractedFinancialDataPoint]
+        Financial data points extracted from this chunk.
 
     Examples
     --------
@@ -195,6 +288,9 @@ class ChunkExtractionResult(BaseModel):
     )
     claims: list[ExtractedClaim] = Field(
         default_factory=list, description="Extracted claims"
+    )
+    financial_datapoints: list[ExtractedFinancialDataPoint] = Field(
+        default_factory=list, description="Extracted financial data points"
     )
 
 

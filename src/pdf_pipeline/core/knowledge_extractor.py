@@ -40,7 +40,7 @@ logger = get_logger(__name__, module="knowledge_extractor")
 # ---------------------------------------------------------------------------
 
 _EXTRACTION_PROMPT = """\
-Extract entities, facts, and claims from the following financial text as JSON.
+Extract entities, facts, claims, and financial data points from the following financial text as JSON.
 
 Output format (must be valid JSON, no explanation):
 {
@@ -49,7 +49,7 @@ Output format (must be valid JSON, no explanation):
   "entities": [
     {
       "name": "<entity name>",
-      "entity_type": "<company|index|sector|indicator|currency|commodity|person|organization>",
+      "entity_type": "<company|index|sector|indicator|currency|commodity|person|organization|country|instrument>",
       "ticker": "<ticker or null>",
       "aliases": []
     }
@@ -57,18 +57,31 @@ Output format (must be valid JSON, no explanation):
   "facts": [
     {
       "content": "<factual statement>",
-      "fact_type": "<statistic|event|data_point|quote>",
+      "fact_type": "<statistic|event|data_point|quote|policy_action|economic_indicator|regulatory|corporate_action>",
       "as_of_date": "<date or null>",
-      "confidence": 0.8,
       "about_entities": ["<entity name>"]
     }
   ],
   "claims": [
     {
       "content": "<opinion/prediction/recommendation>",
-      "claim_type": "<opinion|prediction|recommendation|analysis>",
-      "sentiment": "<bullish|bearish|neutral or null>",
-      "confidence": 0.8,
+      "claim_type": "<opinion|prediction|recommendation|analysis|assumption|guidance|risk_assessment|policy_stance|sector_view|forecast>",
+      "sentiment": "<bullish|bearish|neutral|mixed or null>",
+      "magnitude": "<strong|moderate|slight or null>",
+      "target_price": "<number or null>",
+      "rating": "<Buy|Hold|Sell|Overweight|Underweight or null>",
+      "time_horizon": "<e.g. 12M|FY26|long-term or null>",
+      "about_entities": ["<entity name>"]
+    }
+  ],
+  "financial_datapoints": [
+    {
+      "metric_name": "<e.g. Revenue|EBITDA|Net Income>",
+      "value": <number>,
+      "unit": "<e.g. USD mn|IDR bn|%|x>",
+      "is_estimate": <true|false>,
+      "currency": "<ISO 4217 code or null>",
+      "period_label": "<e.g. FY2025|4Q25|1H26 or null>",
       "about_entities": ["<entity name>"]
     }
   ]
@@ -76,10 +89,11 @@ Output format (must be valid JSON, no explanation):
 
 Rules:
 - Output ONLY valid JSON. No explanation, commentary, or code fences.
-- Extract ALL entities mentioned (companies, indices, sectors, indicators, currencies, commodities, persons, organizations).
+- Extract ALL entities mentioned (companies, indices, sectors, indicators, currencies, commodities, persons, organizations, countries, instruments).
 - Separate facts (verifiable data) from claims (opinions/predictions).
-- Set confidence based on how explicit the statement is (0.0-1.0).
 - Use entity names consistently in about_entities references.
+- For claims: set magnitude to indicate conviction strength, include target_price/rating/time_horizon when available.
+- For financial_datapoints: extract structured numerical data from tables and text. Set is_estimate to true for forecasts.
 
 Text:
 """

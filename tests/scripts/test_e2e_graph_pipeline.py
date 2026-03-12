@@ -41,10 +41,14 @@ GRAPH_QUEUE_REQUIRED_KEYS: set[str] = {
     "sources",
     "topics",
     "claims",
+    "facts",
     "entities",
+    "chunks",
+    "financial_datapoints",
+    "fiscal_periods",
     "relations",
 }
-"""graph-queue JSON の必須トップレベルキー。"""
+"""graph-queue JSON の必須トップレベルキー（v2.0）。"""
 
 SOURCE_REQUIRED_KEYS: set[str] = {"source_id", "url", "title"}
 """sources 配列要素の必須キー。"""
@@ -303,12 +307,12 @@ class TestGraphQueueFormatCompliance:
         assert not missing, f"Missing keys for {command}: {missing}"
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_schema_versionが1_0(self, tmp_path: Path) -> None:
+    def test_正常系_schema_versionが2_0(self, tmp_path: Path) -> None:
         output_file = _generate_queue_file(
             tmp_path, "finance-news-workflow", _realistic_news_batch()
         )
         data = _load_queue_file(output_file)
-        assert data["schema_version"] == "1.0"
+        assert data["schema_version"] == "2.0"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_queue_idがgqプレフィックスで始まる(self, tmp_path: Path) -> None:
@@ -547,7 +551,7 @@ class TestMultiCommandPipeline:
         for command, data in results.items():
             missing = GRAPH_QUEUE_REQUIRED_KEYS - set(data.keys())
             assert not missing, f"{command}: missing keys {missing}"
-            assert data["schema_version"] == "1.0"
+            assert data["schema_version"] == "2.0"
             assert data["command_source"] == command
 
     @freeze_time(FROZEN_TIME)

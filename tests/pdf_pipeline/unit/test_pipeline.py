@@ -295,7 +295,9 @@ class TestPdfPipelineProcessPdf:
         assert "processed_at" in metadata
         assert metadata["chunk_count"] == 1
 
-    def test_正常系_report_mdが出力ディレクトリに保存される(self, tmp_path: Path) -> None:
+    def test_正常系_report_mdが出力ディレクトリに保存される(
+        self, tmp_path: Path
+    ) -> None:
         pipeline, _mocks = self._make_pipeline(tmp_path)
         pdf_path = tmp_path / "report.pdf"
         pdf_path.write_bytes(b"%PDF-1.4")

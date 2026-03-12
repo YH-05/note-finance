@@ -33,15 +33,12 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
   "RETURN 'connection_ok' AS status"
 ```
 
-### UNIQUE 制約の作成（7つ）
+### UNIQUE 制約の作成（10個）
 
 ```cypher
 -- Source ノード制約
 CREATE CONSTRAINT unique_source_id IF NOT EXISTS
   FOR (s:Source) REQUIRE s.source_id IS UNIQUE;
-
-CREATE CONSTRAINT unique_source_url IF NOT EXISTS
-  FOR (s:Source) REQUIRE s.url IS UNIQUE;
 
 -- Topic ノード制約
 CREATE CONSTRAINT unique_topic_id IF NOT EXISTS
@@ -60,44 +57,106 @@ CREATE CONSTRAINT unique_entity_key IF NOT EXISTS
 -- Claim ノード制約
 CREATE CONSTRAINT unique_claim_id IF NOT EXISTS
   FOR (c:Claim) REQUIRE c.claim_id IS UNIQUE;
+
+-- Fact ノード制約 [v2 新規]
+CREATE CONSTRAINT unique_fact_id IF NOT EXISTS
+  FOR (f:Fact) REQUIRE f.fact_id IS UNIQUE;
+
+-- Chunk ノード制約 [v2 新規]
+CREATE CONSTRAINT unique_chunk_id IF NOT EXISTS
+  FOR (ch:Chunk) REQUIRE ch.chunk_id IS UNIQUE;
+
+-- FinancialDataPoint ノード制約 [v2 新規]
+CREATE CONSTRAINT unique_datapoint_id IF NOT EXISTS
+  FOR (dp:FinancialDataPoint) REQUIRE dp.datapoint_id IS UNIQUE;
+
+-- FiscalPeriod ノード制約 [v2 新規]
+CREATE CONSTRAINT unique_period_id IF NOT EXISTS
+  FOR (fp:FiscalPeriod) REQUIRE fp.period_id IS UNIQUE;
 ```
 
-### インデックスの作成（4つ）
+> **v2 変更点**: `unique_source_url` 制約を削除（PDF ソース等で URL が null になるため）。代わりに `source_hash` インデックスで重複検出。Fact, Chunk, FinancialDataPoint, FiscalPeriod の 4 制約を追加。
+
+### インデックスの作成（13個）
 
 ```cypher
--- Source のカテゴリ検索用
+-- Source インデックス
 CREATE INDEX idx_source_category IF NOT EXISTS
   FOR (s:Source) ON (s.category);
 
--- Source の収集日時検索用
 CREATE INDEX idx_source_collected_at IF NOT EXISTS
   FOR (s:Source) ON (s.collected_at);
 
--- Topic のカテゴリ検索用
+CREATE INDEX idx_source_type IF NOT EXISTS
+  FOR (s:Source) ON (s.source_type);
+
+CREATE INDEX idx_source_hash IF NOT EXISTS
+  FOR (s:Source) ON (s.source_hash);
+
+-- Topic インデックス
 CREATE INDEX idx_topic_category IF NOT EXISTS
   FOR (t:Topic) ON (t.category);
 
--- Entity のタイプ検索用
+-- Entity インデックス
 CREATE INDEX idx_entity_type IF NOT EXISTS
   FOR (e:Entity) ON (e.entity_type);
+
+CREATE INDEX idx_entity_ticker IF NOT EXISTS
+  FOR (e:Entity) ON (e.ticker);
+
+-- Fact インデックス [v2 新規]
+CREATE INDEX idx_fact_type IF NOT EXISTS
+  FOR (f:Fact) ON (f.fact_type);
+
+CREATE INDEX idx_fact_as_of_date IF NOT EXISTS
+  FOR (f:Fact) ON (f.as_of_date);
+
+-- Claim インデックス [v2 新規]
+CREATE INDEX idx_claim_type IF NOT EXISTS
+  FOR (c:Claim) ON (c.claim_type);
+
+CREATE INDEX idx_claim_sentiment IF NOT EXISTS
+  FOR (c:Claim) ON (c.sentiment);
+
+-- FinancialDataPoint インデックス [v2 新規]
+CREATE INDEX idx_datapoint_metric IF NOT EXISTS
+  FOR (dp:FinancialDataPoint) ON (dp.metric_name);
+
+-- FiscalPeriod インデックス [v2 新規]
+CREATE INDEX idx_period_label IF NOT EXISTS
+  FOR (fp:FiscalPeriod) ON (fp.period_label);
 ```
 
 ### 一括セットアップスクリプト
 
 ```bash
-# 全制約・インデックスを一括作成
+# 全制約・インデックスを一括作成（v2 対応）
 cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" << 'CYPHER'
+// 制約（10個）
 CREATE CONSTRAINT unique_source_id IF NOT EXISTS FOR (s:Source) REQUIRE s.source_id IS UNIQUE;
-CREATE CONSTRAINT unique_source_url IF NOT EXISTS FOR (s:Source) REQUIRE s.url IS UNIQUE;
 CREATE CONSTRAINT unique_topic_id IF NOT EXISTS FOR (t:Topic) REQUIRE t.topic_id IS UNIQUE;
 CREATE CONSTRAINT unique_topic_key IF NOT EXISTS FOR (t:Topic) REQUIRE t.topic_key IS UNIQUE;
 CREATE CONSTRAINT unique_entity_id IF NOT EXISTS FOR (e:Entity) REQUIRE e.entity_id IS UNIQUE;
 CREATE CONSTRAINT unique_entity_key IF NOT EXISTS FOR (e:Entity) REQUIRE e.entity_key IS UNIQUE;
 CREATE CONSTRAINT unique_claim_id IF NOT EXISTS FOR (c:Claim) REQUIRE c.claim_id IS UNIQUE;
+CREATE CONSTRAINT unique_fact_id IF NOT EXISTS FOR (f:Fact) REQUIRE f.fact_id IS UNIQUE;
+CREATE CONSTRAINT unique_chunk_id IF NOT EXISTS FOR (ch:Chunk) REQUIRE ch.chunk_id IS UNIQUE;
+CREATE CONSTRAINT unique_datapoint_id IF NOT EXISTS FOR (dp:FinancialDataPoint) REQUIRE dp.datapoint_id IS UNIQUE;
+CREATE CONSTRAINT unique_period_id IF NOT EXISTS FOR (fp:FiscalPeriod) REQUIRE fp.period_id IS UNIQUE;
+// インデックス（13個）
 CREATE INDEX idx_source_category IF NOT EXISTS FOR (s:Source) ON (s.category);
 CREATE INDEX idx_source_collected_at IF NOT EXISTS FOR (s:Source) ON (s.collected_at);
+CREATE INDEX idx_source_type IF NOT EXISTS FOR (s:Source) ON (s.source_type);
+CREATE INDEX idx_source_hash IF NOT EXISTS FOR (s:Source) ON (s.source_hash);
 CREATE INDEX idx_topic_category IF NOT EXISTS FOR (t:Topic) ON (t.category);
 CREATE INDEX idx_entity_type IF NOT EXISTS FOR (e:Entity) ON (e.entity_type);
+CREATE INDEX idx_entity_ticker IF NOT EXISTS FOR (e:Entity) ON (e.ticker);
+CREATE INDEX idx_fact_type IF NOT EXISTS FOR (f:Fact) ON (f.fact_type);
+CREATE INDEX idx_fact_as_of_date IF NOT EXISTS FOR (f:Fact) ON (f.as_of_date);
+CREATE INDEX idx_claim_type IF NOT EXISTS FOR (c:Claim) ON (c.claim_type);
+CREATE INDEX idx_claim_sentiment IF NOT EXISTS FOR (c:Claim) ON (c.sentiment);
+CREATE INDEX idx_datapoint_metric IF NOT EXISTS FOR (dp:FinancialDataPoint) ON (dp.metric_name);
+CREATE INDEX idx_period_label IF NOT EXISTS FOR (fp:FiscalPeriod) ON (fp.period_label);
 CYPHER
 
 # 作成結果を確認
@@ -106,6 +165,32 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 
 cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
   "SHOW INDEXES"
+```
+
+### v1 からのマイグレーション
+
+既存の v1 環境を v2 にアップグレードする場合:
+
+```bash
+cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" << 'CYPHER'
+// v1 の unique_source_url 制約を削除（v2 では不要）
+DROP CONSTRAINT unique_source_url IF EXISTS;
+// v2 新規の制約を追加
+CREATE CONSTRAINT unique_fact_id IF NOT EXISTS FOR (f:Fact) REQUIRE f.fact_id IS UNIQUE;
+CREATE CONSTRAINT unique_chunk_id IF NOT EXISTS FOR (ch:Chunk) REQUIRE ch.chunk_id IS UNIQUE;
+CREATE CONSTRAINT unique_datapoint_id IF NOT EXISTS FOR (dp:FinancialDataPoint) REQUIRE dp.datapoint_id IS UNIQUE;
+CREATE CONSTRAINT unique_period_id IF NOT EXISTS FOR (fp:FiscalPeriod) REQUIRE fp.period_id IS UNIQUE;
+// v2 新規のインデックスを追加
+CREATE INDEX idx_source_type IF NOT EXISTS FOR (s:Source) ON (s.source_type);
+CREATE INDEX idx_source_hash IF NOT EXISTS FOR (s:Source) ON (s.source_hash);
+CREATE INDEX idx_entity_ticker IF NOT EXISTS FOR (e:Entity) ON (e.ticker);
+CREATE INDEX idx_fact_type IF NOT EXISTS FOR (f:Fact) ON (f.fact_type);
+CREATE INDEX idx_fact_as_of_date IF NOT EXISTS FOR (f:Fact) ON (f.as_of_date);
+CREATE INDEX idx_claim_type IF NOT EXISTS FOR (c:Claim) ON (c.claim_type);
+CREATE INDEX idx_claim_sentiment IF NOT EXISTS FOR (c:Claim) ON (c.sentiment);
+CREATE INDEX idx_datapoint_metric IF NOT EXISTS FOR (dp:FinancialDataPoint) ON (dp.metric_name);
+CREATE INDEX idx_period_label IF NOT EXISTS FOR (fp:FiscalPeriod) ON (fp.period_label);
+CYPHER
 ```
 
 ### Neo4j CE の制約について
@@ -162,35 +247,54 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
 
 ```json
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "queue_id": "gq-20260307120000-a1b2",
   "created_at": "2026-03-07T12:00:00+00:00",
-  "command_source": "finance-news-workflow",
-  "session_id": "news-20260307-120000",
-  "batch_label": "index",
+  "command_source": "pdf-extraction",
+  "session_id": "pdf-20260307-120000",
+  "batch_label": "pdf-extraction",
   "sources": [...],
   "topics": [...],
   "claims": [...],
+  "facts": [...],
   "entities": [...],
-  "relations": {}
+  "chunks": [...],
+  "financial_datapoints": [...],
+  "fiscal_periods": [...],
+  "relations": {
+    "contains_chunk": [...],
+    "extracted_from_fact": [...],
+    "extracted_from_claim": [...],
+    "source_fact": [...],
+    "source_claim": [...],
+    "fact_entity": [...],
+    "claim_entity": [...],
+    "has_datapoint": [...],
+    "for_period": [...],
+    "datapoint_entity": [...]
+  }
 }
 ```
 
 ### フィールド定義
 
-| フィールド | 型 | 必須 | 説明 |
-|-----------|------|------|------|
-| `schema_version` | string | Yes | スキーマバージョン（現在 `"1.0"`） |
-| `queue_id` | string | Yes | キュー一意ID（`gq-{timestamp}-{hash4}`） |
-| `created_at` | string | Yes | 生成日時（ISO 8601） |
-| `command_source` | string | Yes | 生成元コマンド名 |
-| `session_id` | string | Yes | セッションID |
-| `batch_label` | string | Yes | バッチラベル（テーマキー等） |
-| `sources` | array | Yes | Source ノードデータ配列 |
-| `topics` | array | Yes | Topic ノードデータ配列 |
-| `claims` | array | Yes | Claim ノードデータ配列 |
-| `entities` | array | Yes | Entity ノードデータ配列 |
-| `relations` | object | Yes | リレーションデータ（現在未使用、将来拡張用） |
+| フィールド | 型 | v1 必須 | v2 必須 | 説明 |
+|-----------|------|---------|---------|------|
+| `schema_version` | string | Yes | Yes | スキーマバージョン（`"1.0"` or `"2.0"`） |
+| `queue_id` | string | Yes | Yes | キュー一意ID（`gq-{timestamp}-{hash4}`） |
+| `created_at` | string | Yes | Yes | 生成日時（ISO 8601） |
+| `command_source` | string | Yes | Yes | 生成元コマンド名 |
+| `session_id` | string | Yes | Yes | セッションID |
+| `batch_label` | string | Yes | Yes | バッチラベル（テーマキー等） |
+| `sources` | array | Yes | Yes | Source ノードデータ配列 |
+| `topics` | array | Yes | Yes | Topic ノードデータ配列 |
+| `claims` | array | Yes | Yes | Claim ノードデータ配列 |
+| `facts` | array | No | Yes | Fact ノードデータ配列 [v2 新規] |
+| `entities` | array | Yes | Yes | Entity ノードデータ配列 |
+| `chunks` | array | No | Yes | Chunk ノードデータ配列 [v2 新規] |
+| `financial_datapoints` | array | No | Yes | FinancialDataPoint ノードデータ配列 [v2 新規] |
+| `fiscal_periods` | array | No | Yes | FiscalPeriod ノードデータ配列 [v2 新規] |
+| `relations` | object | Yes | Yes | リレーションデータ（v2 では明示的定義を含む） |
 
 ### sources 配列の要素
 
@@ -266,12 +370,89 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
 | `entity_type` | string | Yes | エンティティ種別 |
 | `ticker` | string | No | ティッカーシンボル |
 
+### facts 配列の要素 [v2 新規]
+
+```json
+{
+  "fact_id": "sha256-hex-16",
+  "content": "Revenue grew 15% YoY to IDR 45.2 trillion.",
+  "source_id": "uuid5-string",
+  "fact_type": "statistic",
+  "as_of_date": "2025-12-31"
+}
+```
+
+| フィールド | 型 | 必須 | 説明 |
+|-----------|------|------|------|
+| `fact_id` | string | Yes | SHA-256("fact:{content}")[:16] |
+| `content` | string | Yes | 事実テキスト |
+| `source_id` | string | No | 関連 Source の ID（STATES_FACT リレーション用） |
+| `fact_type` | string | No | 事実種別（statistic, event, data_point, quote, policy_action 等） |
+| `as_of_date` | string | No | 事実が参照する日付（ISO 8601 date） |
+
+### chunks 配列の要素 [v2 新規]
+
+```json
+{
+  "chunk_id": "a1b2c3d4_chunk_0",
+  "chunk_index": 0,
+  "section_title": "Valuation",
+  "content": "## Valuation\n\nWe value ISAT using DCF..."
+}
+```
+
+| フィールド | 型 | 必須 | 説明 |
+|-----------|------|------|------|
+| `chunk_id` | string | Yes | `{source_hash}_chunk_{index}` |
+| `chunk_index` | integer | Yes | 0始まりのチャンクインデックス |
+| `section_title` | string | No | セクション見出し |
+| `content` | string | Yes | チャンクのテキスト本文（Markdown） |
+
+### financial_datapoints 配列の要素 [v2 新規]
+
+```json
+{
+  "datapoint_id": "a1b2c3d4_Revenue_FY2025",
+  "metric_name": "Revenue",
+  "value": 45200.0,
+  "unit": "IDR bn",
+  "is_estimate": false,
+  "currency": "IDR",
+  "period_label": "FY2025"
+}
+```
+
+| フィールド | 型 | 必須 | 説明 |
+|-----------|------|------|------|
+| `datapoint_id` | string | Yes | `{source_hash}_{metric}_{period}` |
+| `metric_name` | string | Yes | 指標名（Revenue, EBITDA, ARPU 等） |
+| `value` | float | Yes | 数値 |
+| `unit` | string | Yes | 単位（IDR bn, USD mn, %, x 等） |
+| `is_estimate` | boolean | Yes | true=アナリスト予想、false=実績値 |
+| `currency` | string | No | ISO 4217 通貨コード |
+| `period_label` | string | No | 期間ラベル（FY2025, 4Q25 等）→ FiscalPeriod 派生用 |
+
+### fiscal_periods 配列の要素 [v2 新規]
+
+```json
+{
+  "period_id": "ISAT_FY2025",
+  "period_type": "annual",
+  "period_label": "FY2025"
+}
+```
+
+| フィールド | 型 | 必須 | 説明 |
+|-----------|------|------|------|
+| `period_id` | string | Yes | `{entity_ticker}_{period_label}` or `{period_label}` |
+| `period_type` | string | Yes | annual, quarterly, half_year, monthly |
+| `period_label` | string | Yes | 人間可読ラベル（FY2025, 4Q25, 1H26 等） |
+
 ### relations オブジェクト
 
-現在は空オブジェクト `{}` として出力されます。
-リレーションは各ノードデータ内の `source_id` 等のフィールドから推論されます。
+v1 キューでは空オブジェクト `{}` として出力される。リレーションは各ノードデータ内の `source_id` 等のフィールドから暗黙推論される。
 
-将来的に明示的なリレーション定義を追加する場合の拡張ポイントです:
+v2 キューでは明示的なリレーション定義を含む:
 
 ```json
 {
@@ -279,15 +460,47 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
     "tagged": [
       {"source_id": "...", "topic_id": "..."}
     ],
-    "makes_claim": [
-      {"source_id": "...", "claim_id": "..."}
+    "source_claim": [
+      {"from_id": "source-uuid", "to_id": "claim-hash", "type": "MAKES_CLAIM"}
     ],
-    "about": [
-      {"claim_id": "...", "entity_id": "..."}
+    "source_fact": [
+      {"from_id": "source-uuid", "to_id": "fact-hash", "type": "STATES_FACT"}
+    ],
+    "claim_entity": [
+      {"from_id": "claim-hash", "to_id": "entity-uuid", "type": "ABOUT"}
+    ],
+    "fact_entity": [
+      {"from_id": "fact-hash", "to_id": "entity-uuid", "type": "RELATES_TO"}
+    ],
+    "contains_chunk": [
+      {"from_id": "source-uuid", "to_id": "chunk-id", "type": "CONTAINS_CHUNK"}
+    ],
+    "extracted_from_fact": [
+      {"from_id": "fact-hash", "to_id": "chunk-id", "type": "EXTRACTED_FROM"}
+    ],
+    "extracted_from_claim": [
+      {"from_id": "claim-hash", "to_id": "chunk-id", "type": "EXTRACTED_FROM"}
+    ],
+    "has_datapoint": [
+      {"from_id": "source-uuid", "to_id": "datapoint-id", "type": "HAS_DATAPOINT"}
+    ],
+    "for_period": [
+      {"from_id": "datapoint-id", "to_id": "period-id", "type": "FOR_PERIOD"}
+    ],
+    "datapoint_entity": [
+      {"from_id": "datapoint-id", "to_id": "entity-uuid", "type": "RELATES_TO"}
     ]
   }
 }
 ```
+
+各リレーション要素の共通形式:
+
+| フィールド | 型 | 説明 |
+|-----------|------|------|
+| `from_id` | string | 起点ノードの ID |
+| `to_id` | string | 終点ノードの ID |
+| `type` | string | リレーションタイプ（MERGE に使用） |
 
 ---
 
@@ -453,8 +666,12 @@ SET e.name = $name,
 MERGE (c:Claim {claim_id: $claim_id})
 SET c.content = $content,
     c.claim_type = $claim_type,
-    c.confidence = $confidence
+    c.sentiment = $sentiment,
+    c.magnitude = $magnitude,
+    c.created_at = datetime($created_at)
 ```
+
+> **v2 変更点**: `confidence` プロパティを削除。`sentiment`、`magnitude`、`created_at` を追加。
 
 **パラメータマッピング**:
 
@@ -463,9 +680,158 @@ SET c.content = $content,
 | `$claim_id` | `claims[].claim_id` | SHA-256[:16] |
 | `$content` | `claims[].content` | |
 | `$claim_type` | `claims[].claim_type` | 未設定時は null |
-| `$confidence` | `claims[].confidence` | 未設定時は null |
+| `$sentiment` | `claims[].sentiment` | bullish/bearish/neutral/mixed、未設定時は null |
+| `$magnitude` | `claims[].magnitude` | strong/moderate/slight、未設定時は null |
+| `$created_at` | `created_at`（キューレベル） | ISO 8601 |
 
-### リレーション MERGE テンプレート
+#### Fact ノード [v2 新規]
+
+```cypher
+MERGE (f:Fact {fact_id: $fact_id})
+SET f.content = $content,
+    f.fact_type = $fact_type,
+    f.as_of_date = CASE
+        WHEN $as_of_date IS NOT NULL AND $as_of_date <> ''
+        THEN date($as_of_date)
+        ELSE null
+    END,
+    f.created_at = datetime($created_at)
+```
+
+**パラメータマッピング**:
+
+| パラメータ | graph-queue フィールド | 補足 |
+|-----------|----------------------|------|
+| `$fact_id` | `facts[].fact_id` | SHA-256("fact:{content}")[:16] |
+| `$content` | `facts[].content` | |
+| `$fact_type` | `facts[].fact_type` | statistic/event/data_point/quote 等 |
+| `$as_of_date` | `facts[].as_of_date` | ISO 8601 date or 空文字列 |
+| `$created_at` | `created_at`（キューレベル） | ISO 8601 |
+
+#### Chunk ノード [v2 新規]
+
+```cypher
+MERGE (ch:Chunk {chunk_id: $chunk_id})
+SET ch.chunk_index = $chunk_index,
+    ch.section_title = $section_title,
+    ch.content = $content,
+    ch.char_count = size($content),
+    ch.created_at = datetime($created_at)
+```
+
+**パラメータマッピング**:
+
+| パラメータ | graph-queue フィールド | 補足 |
+|-----------|----------------------|------|
+| `$chunk_id` | `chunks[].chunk_id` | `{source_hash}_chunk_{index}` |
+| `$chunk_index` | `chunks[].chunk_index` | 0始まり |
+| `$section_title` | `chunks[].section_title` | |
+| `$content` | `chunks[].content` | Markdown テキスト |
+| `$created_at` | `created_at`（キューレベル） | ISO 8601 |
+
+#### FinancialDataPoint ノード [v2 新規]
+
+```cypher
+MERGE (dp:FinancialDataPoint {datapoint_id: $datapoint_id})
+SET dp.metric_name = $metric_name,
+    dp.value = $value,
+    dp.unit = $unit,
+    dp.is_estimate = $is_estimate,
+    dp.currency = $currency,
+    dp.created_at = datetime($created_at)
+```
+
+**パラメータマッピング**:
+
+| パラメータ | graph-queue フィールド | 補足 |
+|-----------|----------------------|------|
+| `$datapoint_id` | `financial_datapoints[].datapoint_id` | `{source_hash}_{metric}_{period}` |
+| `$metric_name` | `financial_datapoints[].metric_name` | |
+| `$value` | `financial_datapoints[].value` | float |
+| `$unit` | `financial_datapoints[].unit` | |
+| `$is_estimate` | `financial_datapoints[].is_estimate` | boolean |
+| `$currency` | `financial_datapoints[].currency` | ISO 4217 or null |
+| `$created_at` | `created_at`（キューレベル） | ISO 8601 |
+
+#### FiscalPeriod ノード [v2 新規]
+
+```cypher
+MERGE (fp:FiscalPeriod {period_id: $period_id})
+SET fp.period_type = $period_type,
+    fp.period_label = $period_label
+```
+
+**パラメータマッピング**:
+
+| パラメータ | graph-queue フィールド | 補足 |
+|-----------|----------------------|------|
+| `$period_id` | `fiscal_periods[].period_id` | `{ticker}_{label}` or `{label}` |
+| `$period_type` | `fiscal_periods[].period_type` | annual/quarterly/half_year/monthly |
+| `$period_label` | `fiscal_periods[].period_label` | FY2025, 4Q25 等 |
+
+### v2 新規リレーション MERGE テンプレート
+
+#### CONTAINS_CHUNK（Source -> Chunk）
+
+```cypher
+MATCH (s:Source {source_id: $from_id})
+MATCH (ch:Chunk {chunk_id: $to_id})
+MERGE (s)-[:CONTAINS_CHUNK]->(ch)
+```
+
+#### EXTRACTED_FROM（Fact/Claim -> Chunk）
+
+```cypher
+-- Fact -> Chunk
+MATCH (f:Fact {fact_id: $from_id})
+MATCH (ch:Chunk {chunk_id: $to_id})
+MERGE (f)-[:EXTRACTED_FROM]->(ch)
+
+-- Claim -> Chunk
+MATCH (c:Claim {claim_id: $from_id})
+MATCH (ch:Chunk {chunk_id: $to_id})
+MERGE (c)-[:EXTRACTED_FROM]->(ch)
+```
+
+#### STATES_FACT（Source -> Fact）
+
+```cypher
+MATCH (s:Source {source_id: $from_id})
+MATCH (f:Fact {fact_id: $to_id})
+MERGE (s)-[:STATES_FACT]->(f)
+```
+
+#### RELATES_TO（Fact/FinancialDataPoint -> Entity）
+
+```cypher
+-- Fact -> Entity
+MATCH (f:Fact {fact_id: $from_id})
+MATCH (e:Entity {entity_id: $to_id})
+MERGE (f)-[:RELATES_TO]->(e)
+
+-- FinancialDataPoint -> Entity
+MATCH (dp:FinancialDataPoint {datapoint_id: $from_id})
+MATCH (e:Entity {entity_id: $to_id})
+MERGE (dp)-[:RELATES_TO]->(e)
+```
+
+#### HAS_DATAPOINT（Source -> FinancialDataPoint）
+
+```cypher
+MATCH (s:Source {source_id: $from_id})
+MATCH (dp:FinancialDataPoint {datapoint_id: $to_id})
+MERGE (s)-[:HAS_DATAPOINT]->(dp)
+```
+
+#### FOR_PERIOD（FinancialDataPoint -> FiscalPeriod）
+
+```cypher
+MATCH (dp:FinancialDataPoint {datapoint_id: $from_id})
+MATCH (fp:FiscalPeriod {period_id: $to_id})
+MERGE (dp)-[:FOR_PERIOD]->(fp)
+```
+
+### v1 リレーション MERGE テンプレート
 
 #### TAGGED（Source -> Topic）
 
@@ -533,13 +899,19 @@ MERGE (c)-[:ABOUT]->(e)
 依存関係に基づき、以下の順序で投入します:
 
 ```
-1. Topic    (他ノードに依存しない)
-2. Entity   (他ノードに依存しない)
-3. Source   (他ノードに依存しない)
-4. Claim    (他ノードに依存しない、ただし MAKES_CLAIM で Source を参照)
+1. Topic            (他ノードに依存しない)
+2. Entity           (他ノードに依存しない)
+3. FiscalPeriod     (他ノードに依存しない) [v2 新規]
+4. Source           (他ノードに依存しない)
+5. Author           (他ノードに依存しない) [v2 新規]
+6. Chunk            (CONTAINS_CHUNK で Source を参照) [v2 新規]
+7. Fact             (STATES_FACT で Source を参照、EXTRACTED_FROM で Chunk を参照) [v2 新規]
+8. Claim            (MAKES_CLAIM で Source を参照、EXTRACTED_FROM で Chunk を参照)
+9. FinancialDataPoint (HAS_DATAPOINT で Source を参照、FOR_PERIOD で FiscalPeriod を参照) [v2 新規]
 ```
 
 ノード自体は独立していますが、リレーション投入時にすべてのノードが存在している必要があります。
+v1 キューファイルの場合、ステップ 3, 5, 6, 7, 9 はスキップされます（対象データが空配列）。
 
 ### cypher-shell での実行方法
 
@@ -951,8 +1323,9 @@ python3 scripts/emit_graph_queue.py \
 ### E003: JSON スキーマ検証エラー
 
 **発生条件**:
-- `schema_version` が `"1.0"` でない
+- `schema_version` が `"1.0"` でも `"2.0"` でもない
 - 必須フィールド（`queue_id`, `command_source`, `sources` 等）が欠落
+- v2 キューで `facts`, `chunks`, `financial_datapoints`, `fiscal_periods` が欠落
 
 **対処法**:
 
@@ -1148,7 +1521,7 @@ RETURN e.name AS entity, count(c) AS claim_count
 ORDER BY claim_count DESC
 ```
 
-#### ノード総数の確認
+#### ノード総数の確認（v2 対応）
 
 ```cypher
 CALL {
@@ -1159,11 +1532,19 @@ CALL {
   MATCH (e:Entity) RETURN 'Entity' AS label, count(e) AS count
   UNION ALL
   MATCH (c:Claim) RETURN 'Claim' AS label, count(c) AS count
+  UNION ALL
+  MATCH (f:Fact) RETURN 'Fact' AS label, count(f) AS count
+  UNION ALL
+  MATCH (ch:Chunk) RETURN 'Chunk' AS label, count(ch) AS count
+  UNION ALL
+  MATCH (dp:FinancialDataPoint) RETURN 'FinancialDataPoint' AS label, count(dp) AS count
+  UNION ALL
+  MATCH (fp:FiscalPeriod) RETURN 'FiscalPeriod' AS label, count(fp) AS count
 }
 RETURN label, count ORDER BY label
 ```
 
-#### リレーション総数の確認
+#### リレーション総数の確認（v2 対応）
 
 ```cypher
 CALL {
@@ -1172,8 +1553,56 @@ CALL {
   MATCH ()-[r:MAKES_CLAIM]->() RETURN 'MAKES_CLAIM' AS type, count(r) AS count
   UNION ALL
   MATCH ()-[r:ABOUT]->() RETURN 'ABOUT' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:CONTAINS_CHUNK]->() RETURN 'CONTAINS_CHUNK' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:EXTRACTED_FROM]->() RETURN 'EXTRACTED_FROM' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:STATES_FACT]->() RETURN 'STATES_FACT' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:HAS_DATAPOINT]->() RETURN 'HAS_DATAPOINT' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:FOR_PERIOD]->() RETURN 'FOR_PERIOD' AS type, count(r) AS count
+  UNION ALL
+  MATCH ()-[r:RELATES_TO]->() RETURN 'RELATES_TO' AS type, count(r) AS count
 }
 RETURN type, count ORDER BY type
+```
+
+#### v2 固有の検証クエリ
+
+##### Source -> Chunk -> Fact/Claim チェーン
+
+```cypher
+MATCH (s:Source)-[:CONTAINS_CHUNK]->(ch:Chunk)<-[:EXTRACTED_FROM]-(fc)
+WHERE fc:Fact OR fc:Claim
+RETURN s.title AS source,
+       ch.section_title AS section,
+       labels(fc)[0] AS node_type,
+       fc.content AS content
+LIMIT 20
+```
+
+##### FinancialDataPoint -> FiscalPeriod -> Entity
+
+```cypher
+MATCH (dp:FinancialDataPoint)-[:FOR_PERIOD]->(fp:FiscalPeriod)
+OPTIONAL MATCH (dp)-[:RELATES_TO]->(e:Entity)
+RETURN dp.metric_name AS metric,
+       dp.value AS value,
+       dp.unit AS unit,
+       dp.is_estimate AS estimate,
+       fp.period_label AS period,
+       e.name AS entity
+ORDER BY fp.period_label, dp.metric_name
+```
+
+##### Fact 統計
+
+```cypher
+MATCH (f:Fact)
+RETURN f.fact_type AS type, count(f) AS count
+ORDER BY count DESC
 ```
 
 ### Step 6: 冪等性確認
@@ -1205,9 +1634,19 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 | Topic ノード数 | 変化なし |
 | Entity ノード数 | 変化なし |
 | Claim ノード数 | 変化なし |
+| Fact ノード数 | 変化なし |
+| Chunk ノード数 | 変化なし |
+| FinancialDataPoint ノード数 | 変化なし |
+| FiscalPeriod ノード数 | 変化なし |
 | TAGGED リレーション数 | 変化なし |
 | MAKES_CLAIM リレーション数 | 変化なし |
 | ABOUT リレーション数 | 変化なし |
+| CONTAINS_CHUNK リレーション数 | 変化なし |
+| EXTRACTED_FROM リレーション数 | 変化なし |
+| STATES_FACT リレーション数 | 変化なし |
+| HAS_DATAPOINT リレーション数 | 変化なし |
+| FOR_PERIOD リレーション数 | 変化なし |
+| RELATES_TO リレーション数 | 変化なし |
 
 冪等性が保証される理由:
 1. 全 ID は入力データから**決定論的**に生成される（UUID5 / SHA-256）
