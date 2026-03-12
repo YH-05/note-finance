@@ -1,27 +1,48 @@
 {
     "mcpServers": {
+        "neo4j-cypher": {
+            "command": "uvx",
+            "args": [
+                "mcp-neo4j-cypher",
+                "--db-url",
+                "bolt://localhost:7687",
+                "--username",
+                "neo4j",
+                "--password",
+                "your_neo4j_password_here",
+                "--database",
+                "neo4j",
+                "--namespace",
+                "note-finance"
+            ]
+        },
+        "memory": {
+            "command": "uvx",
+            "args": [
+                "mcp-neo4j-memory",
+                "--db-url",
+                "bolt://localhost:7687",
+                "--username",
+                "neo4j",
+                "--password",
+                "your_neo4j_password_here",
+                "--database",
+                "neo4j",
+                "--namespace",
+                "note-finance"
+            ]
+        },
         "git": {
             "command": "uvx",
             "args": ["mcp-server-git", "--repository", "."]
         },
         "filesystem": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-filesystem", "."]
-        },
-        "reddit": {
-            "command": "uvx",
-            "args": ["mcp-server-reddit"]
-        },
-        "memory": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-memory"],
-            "env": {
-                "MEMORY_FILE_PATH": "./memory-mcp/memory.jsonl"
-            }
+            "command": "npx",
+            "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
         },
         "sequential-thinking": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+            "command": "npx",
+            "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
             "env": {
                 "DISABLE_THOUGHT_LOGGING": "false"
             }
@@ -45,17 +66,10 @@
             "args": ["wikipedia-mcp"]
         },
         "notion": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "@ramidecodes/mcp-server-notion@latest"],
+            "command": "npx",
+            "args": ["-y", "@ramidecodes/mcp-server-notion@latest"],
             "env": {
                 "NOTION_API_KEY": "your_notion_api_key_here"
-            }
-        },
-        "sec-edgar-mcp": {
-            "command": "uvx",
-            "args": ["--with", "pyrate-limiter<4.0", "sec-edgar-mcp"],
-            "env": {
-                "SEC_EDGAR_USER_AGENT": "Your Name (your.email@example.com)"
             }
         },
         "rss": {
@@ -65,31 +79,20 @@
                 "RSS_DATA_DIR": "./data/raw/rss"
             }
         },
-        "slack": {
-            "command": "uvx",
-            "args": ["mcp-slack"],
-            "env": {
-                "SLACK_BOT_TOKEN": "your_slack_bot_token_here"
-            }
-        },
-        "context7": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"]
-        },
         "tavily": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "tavily-mcp"],
+            "command": "npx",
+            "args": ["-y", "tavily-mcp"],
             "env": {
                 "TAVILY_API_KEY": "your_tavily_api_key_here"
             }
         },
-        "playwright": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "@playwright/mcp@latest"]
+        "reddit": {
+            "command": "uv",
+            "args": ["run", "mcp-server-reddit"]
         },
-        "docling": {
+        "neo4j-data-modeling": {
             "command": "uvx",
-            "args": ["--from=docling-mcp", "docling-mcp-server"]
+            "args": ["mcp-neo4j-data-modeling", "--transport", "stdio"]
         }
     }
 }
