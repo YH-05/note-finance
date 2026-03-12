@@ -274,10 +274,16 @@ def _infer_period_type(label: str) -> str:
     Returns
     -------
     str
-        One of ``'annual'``, ``'quarterly'``, ``'half_year'``, or
-        ``'annual'`` as the fallback default.
+        One of ``'annual'``, ``'quarterly'``, or ``'half_year'``.
+        Falls back to ``'annual'`` for unrecognised labels.
+
+    Notes
+    -----
+    Labels containing ``'FQ'`` (e.g. fiscal quarter references in free text)
+    are excluded from the quarterly match to avoid false positives.
     """
     upper = label.upper()
+    # Exclude 'FQ' (fiscal quarter reference) from quarterly detection
     if "Q" in upper and "FQ" not in upper:
         return "quarterly"
     if "H" in upper:
@@ -686,6 +692,10 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     for_period_rels: list[dict[str, str]] = []
     datapoint_entity_rels: list[dict[str, str]] = []
 
+    # Name→ID / Name→ticker maps for O(1) entity resolution
+    entity_name_to_id: dict[str, str] = {}
+    entity_name_to_ticker: dict[str, str] = {}
+
     for chunk in input_chunks:
         chunk_index = chunk.get("chunk_index", 0)
         chunk_id = generate_chunk_id(source_hash, chunk_index)
@@ -716,14 +726,18 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             entity_key = f"{name}:{entity_type}"
             if entity_key not in seen_entity_keys:
                 seen_entity_keys.add(entity_key)
+                eid = generate_entity_id(name, entity_type)
                 entities.append(
                     {
-                        "entity_id": generate_entity_id(name, entity_type),
+                        "entity_id": eid,
                         "name": name,
                         "entity_type": entity_type,
                         "ticker": entity.get("ticker"),
                     }
                 )
+                entity_name_to_id[name] = eid
+                if entity.get("ticker"):
+                    entity_name_to_ticker[name] = entity["ticker"]
 
         # Facts → independent facts[] list
         for fact in chunk.get("facts", []):
@@ -746,16 +760,15 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
                 {"from_id": fact_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
             )
             for entity_name in fact.get("about_entities", []):
-                for e in entities:
-                    if e["name"] == entity_name:
-                        fact_entity_rels.append(
-                            {
-                                "from_id": fact_id,
-                                "to_id": e["entity_id"],
-                                "type": "RELATES_TO",
-                            }
-                        )
-                        break
+                resolved_id = entity_name_to_id.get(entity_name)
+                if resolved_id:
+                    fact_entity_rels.append(
+                        {
+                            "from_id": fact_id,
+                            "to_id": resolved_id,
+                            "type": "RELATES_TO",
+                        }
+                    )
 
         # Claims
         for claim in chunk.get("claims", []):
@@ -779,16 +792,15 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
                 {"from_id": claim_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
             )
             for entity_name in claim.get("about_entities", []):
-                for e in entities:
-                    if e["name"] == entity_name:
-                        claim_entity_rels.append(
-                            {
-                                "from_id": claim_id,
-                                "to_id": e["entity_id"],
-                                "type": "ABOUT",
-                            }
-                        )
-                        break
+                resolved_id = entity_name_to_id.get(entity_name)
+                if resolved_id:
+                    claim_entity_rels.append(
+                        {
+                            "from_id": claim_id,
+                            "to_id": resolved_id,
+                            "type": "ABOUT",
+                        }
+                    )
 
         # FinancialDataPoints
         for dp in chunk.get("financial_datapoints", []):
@@ -815,15 +827,12 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
 
             # FiscalPeriod derivation from period_label
             if period_label:
-                # Build period_id from entity tickers in about_entities
                 about_entities = dp.get("about_entities", [])
-                ticker = ""
-                if about_entities:
-                    # Find the entity's ticker
-                    for e in entities:
-                        if e["name"] == about_entities[0] and e.get("ticker"):
-                            ticker = e["ticker"]
-                            break
+                ticker = (
+                    entity_name_to_ticker.get(about_entities[0], "")
+                    if about_entities
+                    else ""
+                )
 
                 period_id = (
                     f"{ticker}_{period_label}" if ticker else period_label
@@ -845,16 +854,15 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
 
             # FinancialDataPoint → Entity (RELATES_TO)
             for entity_name in dp.get("about_entities", []):
-                for e in entities:
-                    if e["name"] == entity_name:
-                        datapoint_entity_rels.append(
-                            {
-                                "from_id": dp_id,
-                                "to_id": e["entity_id"],
-                                "type": "RELATES_TO",
-                            }
-                        )
-                        break
+                resolved_id = entity_name_to_id.get(entity_name)
+                if resolved_id:
+                    datapoint_entity_rels.append(
+                        {
+                            "from_id": dp_id,
+                            "to_id": resolved_id,
+                            "type": "RELATES_TO",
+                        }
+                    )
 
     relations: dict[str, Any] = {
         "source_fact": source_fact_rels,

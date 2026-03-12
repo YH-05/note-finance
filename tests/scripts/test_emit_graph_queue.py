@@ -943,6 +943,9 @@ class TestRun:
             "claims",
             "facts",
             "entities",
+            "chunks",
+            "financial_datapoints",
+            "fiscal_periods",
             "relations",
         }
         assert required_keys.issubset(set(data.keys()))

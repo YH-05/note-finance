@@ -181,10 +181,13 @@ class ExtractedClaim(BaseModel):
         default=None, description="Target price (for recommendation claims)"
     )
     rating: str | None = Field(
-        default=None, description="Rating label (e.g., Buy, Hold, Sell, Overweight)"
+        default=None,
+        max_length=50,
+        description="Rating label (e.g., Buy, Hold, Sell, Overweight)",
     )
     time_horizon: str | None = Field(
         default=None,
+        max_length=50,
         description="Time horizon for the claim (e.g., '12M', 'FY26', 'long-term')",
     )
     about_entities: list[str] = Field(
