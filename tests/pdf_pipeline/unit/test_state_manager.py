@@ -67,9 +67,7 @@ class TestStateManagerInit:
         manager = StateManager(state_file)
         assert manager.get_status("abc123") == "completed"
 
-    def test_正常系_v1フォーマット_文字列値を読み込める(
-        self, state_file: Path
-    ) -> None:
+    def test_正常系_v1フォーマット_文字列値を読み込める(self, state_file: Path) -> None:
         """v1 state.json (string values) is migrated to v2 on load."""
         state_file.parent.mkdir(parents=True, exist_ok=True)
         v1_state = {
@@ -143,9 +141,7 @@ class TestStateManagerRecordAndGetStatus:
         assert manager.get_status("hash001") == "completed"
         assert manager.get_filename("hash001") == "report.pdf"
 
-    def test_正常系_processed_atを記録して永続化される(
-        self, state_file: Path
-    ) -> None:
+    def test_正常系_processed_atを記録して永続化される(self, state_file: Path) -> None:
         manager1 = StateManager(state_file)
         manager1.record_status(
             "hash001",

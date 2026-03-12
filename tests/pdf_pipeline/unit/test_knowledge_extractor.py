@@ -23,7 +23,6 @@ from pdf_pipeline.schemas.extraction import (
     DocumentExtractionResult,
 )
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -63,7 +62,6 @@ def _make_valid_extraction_json(chunk_index: int = 0) -> str:
                     "content": "Revenue was $100B in Q4 2025",
                     "fact_type": "statistic",
                     "as_of_date": "2025-Q4",
-                    "confidence": 0.9,
                     "about_entities": ["Apple"],
                 }
             ],
@@ -72,7 +70,6 @@ def _make_valid_extraction_json(chunk_index: int = 0) -> str:
                     "content": "We expect further growth",
                     "claim_type": "prediction",
                     "sentiment": "bullish",
-                    "confidence": 0.7,
                     "about_entities": ["Apple"],
                 }
             ],

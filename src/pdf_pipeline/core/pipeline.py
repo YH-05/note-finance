@@ -296,7 +296,9 @@ class PdfPipeline:
 
         # Record start — store filename immediately for provenance even on failure
         self.state_manager.record_status(
-            source_hash, "processing", filename=pdf_path.name,
+            source_hash,
+            "processing",
+            filename=pdf_path.name,
         )
 
         try:
@@ -323,7 +325,8 @@ class PdfPipeline:
 
             # -- Phase 4: Table detection/reconstruction (skip in text_only) --
             reconstructed_tables = self._run_table_phase(
-                pdf_path=pdf_path, fitz_doc=fitz_doc,
+                pdf_path=pdf_path,
+                fitz_doc=fitz_doc,
             )
             fitz_doc = None  # ownership transferred to _run_table_phase
 
@@ -392,7 +395,9 @@ class PdfPipeline:
                     fitz_doc.close()
 
             self.state_manager.record_status(
-                source_hash, "failed", filename=pdf_path.name,
+                source_hash,
+                "failed",
+                filename=pdf_path.name,
             )
             with contextlib.suppress(Exception):
                 self.state_manager.save()
@@ -406,7 +411,10 @@ class PdfPipeline:
     # -- Internal helpers ----------------------------------------------------
 
     def _run_table_phase(
-        self, *, pdf_path: Path, fitz_doc: Any,
+        self,
+        *,
+        pdf_path: Path,
+        fitz_doc: Any,
     ) -> list[Any]:
         """Run Phase 4 (table detection + reconstruction) or skip in text_only mode.
 
@@ -431,7 +439,8 @@ class PdfPipeline:
             if raw_tables and self.table_reconstructor is not None:
                 try:
                     extracted = self.table_reconstructor.reconstruct(
-                        pdf_path=str(pdf_path), raw_tables=raw_tables,
+                        pdf_path=str(pdf_path),
+                        raw_tables=raw_tables,
                     )
                     return extracted.raw_tables
                 except Exception as table_exc:

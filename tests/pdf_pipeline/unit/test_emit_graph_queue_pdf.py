@@ -10,13 +10,12 @@ Tests cover:
 
 from __future__ import annotations
 
-from typing import Any
-
-import pytest
-
 # Import from scripts path
 import sys
 from pathlib import Path
+from typing import Any
+
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
 
@@ -26,7 +25,6 @@ from emit_graph_queue import (
     generate_source_id,
     map_pdf_extraction,
 )
-
 
 # ---------------------------------------------------------------------------
 # Helpers
