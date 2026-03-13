@@ -17,6 +17,7 @@ from validate_rss_presets import (
     FileValidationSummary,
     PresetValidationResult,
     _determine_result_status,
+    format_results_table,
     validate_json_structure,
     validate_preset_entry,
 )
@@ -159,3 +160,89 @@ class TestDetermineResultStatus:
         result = self._make_result()
         _determine_result_status(result, 200, result.url)
         assert result.status == "OK"
+
+
+# ---------------------------------------------------------------------------
+# TEST-006: format_results_table
+# ---------------------------------------------------------------------------
+
+
+def _make_summary_with_results(
+    results: list[PresetValidationResult],
+    file_path: str = "/path/to/presets.json",
+) -> FileValidationSummary:
+    """ヘルパー: 結果リストからFileValidationSummaryを作る。"""
+    summary = FileValidationSummary(file_path=file_path)
+    for r in results:
+        summary.results.append(r)
+        summary.total += 1
+        if r.status == "OK":
+            summary.ok_count += 1
+        elif r.status == "WARN":
+            summary.warn_count += 1
+        elif r.status == "ERROR":
+            summary.error_count += 1
+    return summary
+
+
+class TestFormatResultsTable:
+    """TEST-006: format_results_table の出力フォーマットテスト。"""
+
+    def _ok_result(self, url: str = "https://example.com/feed/") -> PresetValidationResult:
+        r = PresetValidationResult(url=url, title="Feed", errors=[], warnings=[])
+        r.status = "OK"
+        r.http_code = 200
+        r.robots_status = "SKIP"
+        return r
+
+    def test_正常系_check_robots_Falseのヘッダーに_robots列がない(self) -> None:
+        """check_robots=False のときrobots.txt列がヘッダーに含まれないことを確認する。"""
+        summary = _make_summary_with_results([self._ok_result()])
+        table = format_results_table(summary, check_robots=False)
+        assert "robots.txt" not in table
+        assert "Status" in table
+
+    def test_正常系_check_robots_Trueのヘッダーに_robots列がある(self) -> None:
+        """check_robots=True のときrobots.txt列がヘッダーに含まれることを確認する。"""
+        summary = _make_summary_with_results([self._ok_result()])
+        table = format_results_table(summary, check_robots=True)
+        assert "robots.txt" in table
+
+    def test_正常系_結果なしのとき_No_presets_メッセージが出る(self) -> None:
+        """results が空のとき 'No presets to validate.' が含まれることを確認する。"""
+        summary = _make_summary_with_results([])
+        table = format_results_table(summary, check_robots=False)
+        assert "No presets to validate." in table
+
+    def test_正常系_サマリー行にOK_WARN_ERROR件数が含まれる(self) -> None:
+        """フッターに Total/OK/WARN/ERROR の集計が含まれることを確認する。"""
+        ok_r = self._ok_result("https://example.com/feed1/")
+        warn_r = PresetValidationResult(
+            url="https://example.com/feed2/", title="Feed2",
+            errors=[], warnings=["tier is string"],
+        )
+        warn_r.status = "WARN"
+        warn_r.http_code = 200
+        warn_r.robots_status = "SKIP"
+
+        summary = _make_summary_with_results([ok_r, warn_r])
+        table = format_results_table(summary, check_robots=False)
+
+        assert "OK: 1" in table
+        assert "WARN: 1" in table
+        assert "ERROR: 0" in table
+        assert "Total: 2" in table
+
+    def test_正常系_エラーがある場合ERROR行が出力される(self) -> None:
+        """errors リストがある場合 'ERROR:' 行が含まれることを確認する。"""
+        err_r = PresetValidationResult(
+            url="", title="",
+            errors=["missing url field"], warnings=[],
+        )
+        err_r.status = "ERROR"
+        err_r.http_code = None
+        err_r.robots_status = "SKIP"
+
+        summary = _make_summary_with_results([err_r])
+        table = format_results_table(summary, check_robots=False)
+        assert "ERROR: missing url field" in table

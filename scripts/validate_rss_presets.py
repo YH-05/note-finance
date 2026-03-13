@@ -284,6 +284,7 @@ async def check_http_head(
             semaphore,
             httpx.AsyncClient(
                 follow_redirects=True,
+                max_redirects=5,  # SEC-REC-001: limit redirect hops to prevent redirect loops
                 timeout=timeout,
             ) as client,
         ):

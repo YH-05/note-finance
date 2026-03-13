@@ -380,11 +380,15 @@ def _extract_domain(url: str) -> str:
     Returns
     -------
     str
-        Domain part of the URL, or empty string on failure.
+        Domain part of the URL (netloc), or empty string on failure.
     """
+    # QUAL-001: Use urlparse instead of string split to correctly handle
+    # non-standard URLs (e.g. auth info, port numbers, relative URLs).
     try:
-        return url.split("/")[2]
-    except (IndexError, AttributeError):
+        from urllib.parse import urlparse
+
+        return urlparse(url).netloc or ""
+    except Exception:
         return ""
 
 
@@ -593,10 +597,15 @@ def generate_session_id() -> str:
     Returns
     -------
     str
-        Session ID in format ``asset-mgmt-{YYYYMMDD}-{HHMMSS}``.
+        Session ID in format ``asset-mgmt-{YYYYMMDD}-{HHMMSS}-{microseconds}``.
     """
+    # QUAL-003: Include microseconds to prevent ID collisions on rapid successive calls,
+    # matching the approach used in scrape_wealth_blogs.generate_session_id().
     now = datetime.now(timezone.utc)
-    return f"asset-mgmt-{now.strftime('%Y%m%d')}-{now.strftime('%H%M%S')}"
+    return (
+        f"asset-mgmt-{now.strftime('%Y%m%d')}-{now.strftime('%H%M%S')}"
+        f"-{now.microsecond:06d}"
+    )
 
 
 def build_session(

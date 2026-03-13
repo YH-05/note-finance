@@ -26,6 +26,7 @@ from scrape_wealth_blogs import (
     WealthScrapeSession,
     WealthScrapeStats,
     WealthThemeData,
+    _save_article_markdown,
     build_session,
     generate_session_id,
     match_keywords_en,
@@ -562,3 +563,113 @@ class TestConstants:
         from pathlib import Path
 
         assert isinstance(WEALTH_SCRAPE_DB_PATH, Path)
+
+
+# ---------------------------------------------------------------------------
+# TEST-005: _save_article_markdown のテスト
+# ---------------------------------------------------------------------------
+
+
+class TestSaveArticleMarkdown:
+    """TEST-005: _save_article_markdown の正常系・異常系・サニタイズテスト。"""
+
+    def test_正常系_Markdownファイルが正しいパスに生成される(
+        self, tmp_path: "Path"
+    ) -> None:
+        """正常なURLとdomain指定でMarkdownファイルが生成されることを確認する。"""
+        output_path = _save_article_markdown(
+            url="https://example.com/article/my-post",
+            title="My Investment Post",
+            text="This is the article content.",
+            date="2026-03-13",
+            author="John Doe",
+            domain="example.com",
+            output_base=tmp_path,
+        )
+        assert output_path.exists()
+        assert output_path.suffix == ".md"
+        content = output_path.read_text(encoding="utf-8")
+        assert "url: 'https://example.com/article/my-post'" in content
+        assert "title: 'My Investment Post'" in content
+        assert "This is the article content." in content
+
+    def test_異常系_パストラバーサルはValueErrorが発生する(
+        self, tmp_path: "Path"
+    ) -> None:
+        """domain に '../' が含まれる場合 ValueError が発生することを確認する。"""
+        with pytest.raises(ValueError, match="Path traversal"):
+            _save_article_markdown(
+                url="https://example.com/article/post",
+                title="Post",
+                text="Content",
+                date=None,
+                author=None,
+                domain="../../../etc",
+                output_base=tmp_path,
+            )
+
+    def test_正常系_タイトルに改行が含まれる場合はサニタイズされる(
+        self, tmp_path: "Path"
+    ) -> None:
+        """タイトル内の改行がスペースに変換されてYAMLが壊れないことを確認する。"""
+        output_path = _save_article_markdown(
+            url="https://example.com/article/post",
+            title="Line1\nLine2",
+            text="Content",
+            date=None,
+            author=None,
+            domain="example.com",
+            output_base=tmp_path,
+        )
+        content = output_path.read_text(encoding="utf-8")
+        assert "\n" not in content.split("---")[1].split("title:")[1].split("\n")[0]
+
+    def test_正常系_タイトルにYAML区切り文字が含まれる場合はエスケープされる(
+        self, tmp_path: "Path"
+    ) -> None:
+        """タイトル内の '---' が '- - -' に変換されることを確認する。"""
+        output_path = _save_article_markdown(
+            url="https://example.com/article/post",
+            title="Before---After",
+            text="Content",
+            date=None,
+            author=None,
+            domain="example.com",
+            output_base=tmp_path,
+        )
+        content = output_path.read_text(encoding="utf-8")
+        assert "Before- - -After" in content
+
+    def test_正常系_タイトルにYAML特殊文字が含まれる場合もfrontmatterが有効(
+        self, tmp_path: "Path"
+    ) -> None:
+        """タイトルにコロン・ブラケットが含まれても有効なYAMLが生成されることを確認する。"""
+        output_path = _save_article_markdown(
+            url="https://example.com/article/post",
+            title="Review: [Stock] {2026}",
+            text="Content",
+            date=None,
+            author=None,
+            domain="example.com",
+            output_base=tmp_path,
+        )
+        content = output_path.read_text(encoding="utf-8")
+        # YAML frontmatter should start and end with ---
+        parts = content.split("---")
+        assert len(parts) >= 3  # header: ["", frontmatter_body, rest]
+
+    def test_正常系_タイトルNoneのときuntitledが使われる(
+        self, tmp_path: "Path"
+    ) -> None:
+        """title=None のとき 'untitled' がフロントマターに設定されることを確認する。"""
+        output_path = _save_article_markdown(
+            url="https://example.com/article/post",
+            title=None,
+            text="Content",
+            date=None,
+            author=None,
+            domain="example.com",
+            output_base=tmp_path,
+        )
+        content = output_path.read_text(encoding="utf-8")
+        assert "title: 'untitled'" in content

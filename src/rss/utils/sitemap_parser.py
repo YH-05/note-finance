@@ -345,6 +345,9 @@ class SitemapParser:
             )
             return False
 
+        # SEC-REC-002: Use exact netloc equality (not endswith) to prevent
+        # subdomain-spoofing attacks (e.g. "evil-example.com" matching "example.com").
+        # Do NOT relax this to endswith() without adding a dot-prefix check.
         if parsed_child.netloc != parsed_parent.netloc:
             logger.warning(
                 "sitemap_child_url_domain_mismatch",

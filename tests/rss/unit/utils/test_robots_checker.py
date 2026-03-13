@@ -309,3 +309,90 @@ class TestRobotsCheckerGetCrawlDelay:
         """Test get_crawl_delay returns None for unknown domain."""
         delay = checker.get_crawl_delay("unknown.com")
         assert delay is None
+
+
+# ---------------------------------------------------------------------------
+# TEST-003: _fetch_robots_txt のHTTPエラーテスト
+# ---------------------------------------------------------------------------
+
+
+class TestFetchRobotsTxtHttpErrors:
+    """TEST-003: _fetch_robots_txt の404以外のHTTPエラーコードをテスト。"""
+
+    @pytest.mark.asyncio
+    async def test_異常系_404は空テキストを返す(self) -> None:
+        """404レスポンスの場合は空テキストを返し、allow-allとして扱われることを確認する。"""
+        checker = RobotsChecker()
+
+        mock_response = MagicMock()
+        mock_response.status_code = 404
+        mock_response.text = "Not Found"
+
+        with patch("httpx.AsyncClient") as mock_client_cls:
+            mock_client = MagicMock()
+            mock_client.__aenter__ = AsyncMock(return_value=mock_client)
+            mock_client.__aexit__ = AsyncMock(return_value=None)
+            mock_client.get = AsyncMock(return_value=mock_response)
+            mock_client_cls.return_value = mock_client
+
+            result = await checker.check("https://example.com/article")
+
+        # 404 → allow-all（許可）
+        assert result.allowed is True
+        assert result.error is None
+
+    @pytest.mark.asyncio
+    async def test_異常系_403はHTTPStatusErrorをraiseしcheckはallowed_Trueを返す(
+        self,
+    ) -> None:
+        """403レスポンスは httpx.HTTPStatusError を raise し、
+        check() がフォールバックしてallowed=True/error設定で返すことを確認する。"""
+        import httpx
+
+        checker = RobotsChecker()
+
+        mock_response = MagicMock()
+        mock_response.status_code = 403
+        mock_response.raise_for_status = MagicMock(
+            side_effect=httpx.HTTPStatusError(
+                "403 Forbidden",
+                request=MagicMock(),
+                response=mock_response,
+            )
+        )
+
+        with patch.object(
+            checker, "_fetch_robots_txt", new_callable=AsyncMock
+        ) as mock_fetch:
+            mock_fetch.side_effect = httpx.HTTPStatusError(
+                "403 Forbidden",
+                request=MagicMock(),
+                response=mock_response,
+            )
+            result = await checker.check("https://example.com/article")
+
+        # 403 fetch error → allow-all フォールバック
+        assert result.allowed is True
+        assert result.error is not None
+        assert "403" in result.error
+
+    @pytest.mark.asyncio
+    async def test_異常系_500はcheckがerrorを記録しallowed_Trueを返す(self) -> None:
+        """500エラーでもcheck()がフォールバックしてallowed=True/errorセットで返すことを確認する。"""
+        import httpx
+
+        checker = RobotsChecker()
+
+        with patch.object(
+            checker, "_fetch_robots_txt", new_callable=AsyncMock
+        ) as mock_fetch:
+            mock_fetch.side_effect = httpx.HTTPStatusError(
+                "500 Internal Server Error",
+                request=MagicMock(),
+                response=MagicMock(),
+            )
+            result = await checker.check("https://example.com/article")
+
+        assert result.allowed is True
+        assert result.error is not None
+        assert "500" in result.error

@@ -111,3 +111,126 @@ class TestScrapeStateDBContextManager:
             journal_mode = cursor.fetchone()[0]
 
         assert journal_mode.lower() == "wal"
+
+    def test_異常系_コンテキスト外呼び出しでRuntimeError(self, temp_dir: Path) -> None:
+        """with ブロック外（接続前）で操作するとRuntimeErrorが発生することを確認する。"""
+        db_path = temp_dir / "scrape_state.db"
+        db = ScrapeStateDB(db_path)
+        with pytest.raises(RuntimeError, match="context manager"):
+            db.is_scraped("https://example.com/article/1")
+
+
+# ---------------------------------------------------------------------------
+# TEST-001: filter_new_urls chunk boundary tests
+# ---------------------------------------------------------------------------
+
+
+class TestFilterNewUrlsChunkBoundary:
+    """TEST-001: filter_new_urls のチャンク処理（900件区切り）の境界値テスト。"""
+
+    def test_正常系_901件でチャンク境界を超えても全URLを返す(
+        self, temp_dir: Path
+    ) -> None:
+        """901件のURLリストで2チャンクに分割され正しく動作することを確認する。"""
+        db_path = temp_dir / "chunk_test.db"
+        urls = [f"https://example.com/article/{i}" for i in range(901)]
+
+        with ScrapeStateDB(db_path) as db:
+            # 全URLを未取得状態でフィルタリング
+            result = db.filter_new_urls(urls)
+
+        assert len(result) == 901
+        assert result == urls
+
+    def test_正常系_1800件で3チャンクに分割されても正しくフィルタリング(
+        self, temp_dir: Path
+    ) -> None:
+        """1800件のURLで先頭900件を取得済みにし、後半900件のみ返されることを確認する。"""
+        db_path = temp_dir / "chunk_1800.db"
+        all_urls = [f"https://example.com/article/{i}" for i in range(1800)]
+        scraped_urls = all_urls[:900]
+        new_urls = all_urls[900:]
+
+        with ScrapeStateDB(db_path) as db:
+            for url in scraped_urls:
+                db.mark_scraped(url, success=True)
+            result = db.filter_new_urls(all_urls)
+
+        assert len(result) == 900
+        assert result == new_urls
+
+    def test_正常系_900件ちょうどは単一チャンクで処理される(
+        self, temp_dir: Path
+    ) -> None:
+        """900件（チャンクサイズ上限）でも正しく動作することを確認する。"""
+        db_path = temp_dir / "chunk_900.db"
+        urls = [f"https://example.com/article/{i}" for i in range(900)]
+
+        with ScrapeStateDB(db_path) as db:
+            # 奇数インデックスのみ取得済みにする
+            for i, url in enumerate(urls):
+                if i % 2 == 0:
+                    db.mark_scraped(url, success=True)
+            result = db.filter_new_urls(urls)
+
+        assert len(result) == 450
+        assert all("article/" in u for u in result)
+
+
+# ---------------------------------------------------------------------------
+# TEST-002: get_pending_urls max_retry boundary tests
+# ---------------------------------------------------------------------------
+
+
+class TestGetPendingUrlsMaxRetry:
+    """TEST-002: get_pending_urls の max_retry 境界値テスト。"""
+
+    def test_正常系_retry_countがmax_retryと等しい場合は除外される(
+        self, temp_dir: Path
+    ) -> None:
+        """retry_count == max_retry のURLはリトライ対象から除外されることを確認する。"""
+        db_path = temp_dir / "maxretry.db"
+        url_at_limit = "https://example.com/at_limit"
+        url_below_limit = "https://example.com/below_limit"
+
+        with ScrapeStateDB(db_path) as db:
+            # url_at_limit を3回失敗させ retry_count = 3 にする
+            for _ in range(3):
+                db.mark_scraped(url_at_limit, success=False)
+            # url_below_limit を2回失敗させ retry_count = 2 にする
+            for _ in range(2):
+                db.mark_scraped(url_below_limit, success=False)
+
+            pending = db.get_pending_urls(max_retry=3)
+
+        assert url_at_limit not in pending  # retry_count == max_retry → 除外
+        assert url_below_limit in pending  # retry_count < max_retry → 対象
+
+    def test_エッジケース_max_retry0では全ての失敗URLが除外される(
+        self, temp_dir: Path
+    ) -> None:
+        """max_retry=0 ではリトライ対象URLがゼロになることを確認する。"""
+        db_path = temp_dir / "maxretry0.db"
+        url = "https://example.com/failed"
+
+        with ScrapeStateDB(db_path) as db:
+            db.mark_scraped(url, success=False)
+            pending = db.get_pending_urls(max_retry=0)
+
+        assert pending == []
+
+    def test_正常系_retry_countがmax_retryより大きい場合も除外される(
+        self, temp_dir: Path
+    ) -> None:
+        """retry_count > max_retry のURLも除外されることを確認する（上限超過）。"""
+        db_path = temp_dir / "over_limit.db"
+        url = "https://example.com/over_limit"
+
+        with ScrapeStateDB(db_path) as db:
+            # 5回失敗させ retry_count = 5 にする
+            for _ in range(5):
+                db.mark_scraped(url, success=False)
+            # max_retry=3 で確認
+            pending = db.get_pending_urls(max_retry=3)
+
+        assert url not in pending

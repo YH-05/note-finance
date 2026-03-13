@@ -92,7 +92,8 @@ class ScrapeStateDB:
 
     def _setup_db(self) -> None:
         """データベーステーブルとWALモードをセットアップする。"""
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         self._conn.execute("PRAGMA journal_mode=WAL")
         self._conn.execute("""
             CREATE TABLE IF NOT EXISTS scraped_articles (
@@ -143,7 +144,8 @@ class ScrapeStateDB:
         bool
             取得済みの場合True（成功済みの場合のみTrueを返す）
         """
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         cursor = self._conn.execute(
             "SELECT success FROM scraped_articles WHERE url = ?",
             (url,),
@@ -166,7 +168,8 @@ class ScrapeStateDB:
         success : bool
             取得成功の場合True
         """
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         domain = self._extract_domain(url)
 
         if success:
@@ -211,7 +214,8 @@ class ScrapeStateDB:
         list[str]
             未取得URLのリスト（入力と同じ順序）
         """
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         if not urls:
             return []
 
@@ -251,7 +255,8 @@ class ScrapeStateDB:
         list[str]
             リトライ対象URLのリスト
         """
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         cursor = self._conn.execute(
             """
             SELECT url FROM scraped_articles
@@ -273,7 +278,8 @@ class ScrapeStateDB:
             ドメインをキーとし、success/failureカウントを値とする辞書
             例: {"example.com": {"success": 10, "failure": 2}}
         """
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         cursor = self._conn.execute(
             """
             SELECT
@@ -310,7 +316,8 @@ class ScrapeStateDB:
         processed_count : int
             処理済みのURL件数
         """
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         self._conn.execute(
             """
             INSERT INTO sitemap_state (sitemap_url, last_processed_url, processed_count)
@@ -343,7 +350,8 @@ class ScrapeStateDB:
             進捗情報の辞書、または未登録の場合None
             例: {"last_processed_url": "...", "processed_count": 50}
         """
-        assert self._conn is not None
+        if self._conn is None:
+            raise RuntimeError("ScrapeStateDB is not open. Use as a context manager.")
         cursor = self._conn.execute(
             """
             SELECT last_processed_url, processed_count

@@ -789,13 +789,22 @@ def _save_article_markdown(
             return ""
         return value.replace("\r", "").replace("\n", " ").replace("---", "- - -")
 
+    # QUAL-005: Single-quote all YAML scalar values to prevent injection from
+    # special YAML characters (`:`, `[`, `{`, `#`) in titles, authors, etc.
+    # Single-quoted YAML scalars are literal except `'` which must be doubled.
+    title_val = (_sanitize_fm(title) or "untitled").replace("'", "''")
+    date_val = _sanitize_fm(date).replace("'", "''")
+    author_val = _sanitize_fm(author).replace("'", "''")
+    domain_val = domain.replace("'", "''")
+    # URLs must not contain single quotes; sanitize anyway for safety.
+    url_val = url.replace("'", "%27")
     frontmatter_lines = [
         "---",
-        f"url: {url}",
-        f"title: {_sanitize_fm(title) or 'untitled'}",
-        f"date: {_sanitize_fm(date)}",
-        f"author: {_sanitize_fm(author)}",
-        f"domain: {domain}",
+        f"url: '{url_val}'",
+        f"title: '{title_val}'",
+        f"date: '{date_val}'",
+        f"author: '{author_val}'",
+        f"domain: '{domain_val}'",
         "---",
         "",
     ]
@@ -1159,11 +1168,13 @@ async def _run_backfill_async(
                             status=result.status.value,
                         )
 
+        # QUAL-006: Collect stats inside the `with` block so db._conn is still open.
+        stats = db.get_stats() if not dry_run else {}
+
     # Print summary
     print("\n" + "=" * 60)
     print("Wealth Blog Backfill Scraping Complete")
     print("=" * 60)
-    stats = db.get_stats() if not dry_run else {}
     print(f"  Scraped: {total_scraped}")
     print(f"  Skipped: {total_skipped}")
     if stats:

@@ -411,3 +411,75 @@ class TestSitemapParserPlatformFormats:
 
         assert len(entries) == 1
         assert entries[0].url == "https://example.com/ghost-post-1/"
+
+
+# ---------------------------------------------------------------------------
+# TEST-004: _is_safe_sitemap_url のユニットテスト（SSRFガード）
+# ---------------------------------------------------------------------------
+
+
+class TestIsSafeSitemapUrl:
+    """TEST-004: _is_safe_sitemap_url の SSRF ガードをテスト。"""
+
+    def test_正常系_同一ドメインのhttpsURLはTrue(self) -> None:
+        """同一ドメインのhttps子URLがTrueを返すことを確認する。"""
+        parser = SitemapParser()
+        result = parser._is_safe_sitemap_url(
+            "https://example.com/sitemap-posts.xml",
+            "https://example.com/sitemap.xml",
+        )
+        assert result is True
+
+    def test_正常系_同一ドメインのhttpURLはTrue(self) -> None:
+        """同一ドメインのhttp子URLがTrueを返すことを確認する。"""
+        parser = SitemapParser()
+        result = parser._is_safe_sitemap_url(
+            "http://example.com/sitemap-posts.xml",
+            "http://example.com/sitemap.xml",
+        )
+        assert result is True
+
+    def test_異常系_file_スキームはFalse(self) -> None:
+        """file:// スキームの子URLがFalseを返すことを確認する。"""
+        parser = SitemapParser()
+        result = parser._is_safe_sitemap_url(
+            "file:///etc/passwd",
+            "https://example.com/sitemap.xml",
+        )
+        assert result is False
+
+    def test_異常系_ftp_スキームはFalse(self) -> None:
+        """ftp:// スキームの子URLがFalseを返すことを確認する。"""
+        parser = SitemapParser()
+        result = parser._is_safe_sitemap_url(
+            "ftp://example.com/sitemap.xml",
+            "https://example.com/sitemap.xml",
+        )
+        assert result is False
+
+    def test_異常系_異なるドメインはFalse(self) -> None:
+        """異なるドメインの子URLがFalseを返すことを確認する（SSRF防止）。"""
+        parser = SitemapParser()
+        result = parser._is_safe_sitemap_url(
+            "https://evil.com/malicious-sitemap.xml",
+            "https://example.com/sitemap.xml",
+        )
+        assert result is False
+
+    def test_異常系_サブドメイン偽装はFalse(self) -> None:
+        """evil-example.com が example.com と誤マッチしないことを確認する。"""
+        parser = SitemapParser()
+        result = parser._is_safe_sitemap_url(
+            "https://evil-example.com/sitemap.xml",
+            "https://example.com/sitemap.xml",
+        )
+        assert result is False
+
+    def test_正常系_同一ドメインの異なるパスはTrue(self) -> None:
+        """同一ドメインでパスのみ異なる子URLがTrueを返すことを確認する。"""
+        parser = SitemapParser()
+        result = parser._is_safe_sitemap_url(
+            "https://example.com/blog/sitemap.xml",
+            "https://example.com/sitemap-index.xml",
+        )
+        assert result is True
