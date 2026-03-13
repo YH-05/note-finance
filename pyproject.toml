@@ -108,6 +108,7 @@ skips = ["B101", "B110", "B311", "B404", "B603", "B607", "B112"]
 testpaths = ["tests"]
 pythonpath = ["src", "scripts"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]
+asyncio_mode = "auto"
 
 [tool.uv.sources]
 finance = { git = "https://github.com/YH-05/finance.git" }
@@ -115,4 +116,6 @@ finance = { git = "https://github.com/YH-05/finance.git" }
 [dependency-groups]
 dev = [
     "freezegun>=1.5.5",
+    "pyright>=1.1.408",
+    "ruff>=0.14.14",
 ]

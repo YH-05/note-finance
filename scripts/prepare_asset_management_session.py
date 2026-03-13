@@ -34,11 +34,15 @@ from session_utils import (
     ArticleData,
     configure_logging,
     filter_by_date,
-    get_logger as _get_logger,
     load_json_config,
     select_top_n,
     write_session_file,
 )
+from session_utils import (
+    get_logger as _get_logger,
+)
+
+from rss.config.wealth_scraping_config import WEALTH_URL_TO_SOURCE_KEY
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -53,11 +57,24 @@ DEFAULT_THEMES = "all"
 DEFAULT_TOP_N = 10
 """Default number of top articles per theme (sorted by published date, newest first)."""
 
+DEFAULT_PRESETS = "jp"
+"""Default preset key for RSS feed configuration."""
+
 THEME_CONFIG_PATH = get_path("config/asset-management-themes.json")
 """Path to asset management theme configuration file."""
 
 RSS_PRESETS_JP_PATH = get_path("config/rss-presets-jp.json")
 """Path to JP RSS presets configuration file."""
+
+RSS_PRESETS_WEALTH_PATH = get_path("config/rss-presets-wealth.json")
+"""Path to Wealth RSS presets configuration file."""
+
+# Mapping from preset key to file path
+PRESET_KEY_TO_PATH: dict[str, Path] = {
+    "jp": RSS_PRESETS_JP_PATH,
+    "wealth": RSS_PRESETS_WEALTH_PATH,
+}
+"""Mapping from preset key to configuration file path."""
 
 TMP_DIR = Path(".tmp")
 """Temporary directory for session files."""
@@ -164,6 +181,15 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
+        "--presets",
+        type=str,
+        default=DEFAULT_PRESETS,
+        help=(
+            f"RSS preset key ('jp', 'wealth') or path to a preset JSON file "
+            f"(default: {DEFAULT_PRESETS})"
+        ),
+    )
+    parser.add_argument(
         "--days",
         type=int,
         default=DEFAULT_DAYS,
@@ -217,10 +243,28 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
 # ---------------------------------------------------------------------------
 
 
+def resolve_presets_path(presets_key: str) -> Path:
+    """Resolve a preset key or file path to a Path object.
+
+    Parameters
+    ----------
+    presets_key : str
+        A preset key ('jp', 'wealth') or a path to a JSON file.
+
+    Returns
+    -------
+    Path
+        Resolved Path to the presets configuration file.
+    """
+    if presets_key in PRESET_KEY_TO_PATH:
+        return PRESET_KEY_TO_PATH[presets_key]
+    return Path(presets_key)
+
+
 def load_rss_presets(
     presets_path: Path = RSS_PRESETS_JP_PATH,
 ) -> list[dict[str, Any]]:
-    """Load JP RSS presets configuration.
+    """Load RSS presets configuration from the given file path.
 
     Parameters
     ----------
@@ -338,11 +382,15 @@ def _extract_domain(url: str) -> str:
     Returns
     -------
     str
-        Domain part of the URL, or empty string on failure.
+        Domain part of the URL (netloc), or empty string on failure.
     """
+    # QUAL-001: Use urlparse instead of string split to correctly handle
+    # non-standard URLs (e.g. auth info, port numbers, relative URLs).
     try:
-        return url.split("/")[2]
-    except (IndexError, AttributeError):
+        from urllib.parse import urlparse
+
+        return urlparse(url).netloc or ""
+    except Exception:
         return ""
 
 
@@ -551,10 +599,15 @@ def generate_session_id() -> str:
     Returns
     -------
     str
-        Session ID in format ``asset-mgmt-{YYYYMMDD}-{HHMMSS}``.
+        Session ID in format ``asset-mgmt-{YYYYMMDD}-{HHMMSS}-{microseconds}``.
     """
+    # QUAL-003: Include microseconds to prevent ID collisions on rapid successive calls,
+    # matching the approach used in scrape_wealth_blogs.generate_session_id().
     now = datetime.now(timezone.utc)
-    return f"asset-mgmt-{now.strftime('%Y%m%d')}-{now.strftime('%H%M%S')}"
+    return (
+        f"asset-mgmt-{now.strftime('%Y%m%d')}-{now.strftime('%H%M%S')}"
+        f"-{now.microsecond:06d}"
+    )
 
 
 def build_session(
@@ -626,6 +679,7 @@ def run(
     themes_filter: list[str] | None,
     output_path: Path,
     top_n: int = DEFAULT_TOP_N,
+    presets_path: Path = RSS_PRESETS_JP_PATH,
 ) -> int:
     """Run the main processing.
 
@@ -639,6 +693,8 @@ def run(
         Output file path.
     top_n : int
         Maximum number of articles per theme (newest first).
+    presets_path : Path
+        Path to the RSS presets configuration file.
 
     Returns
     -------
@@ -652,7 +708,7 @@ def run(
     theme_config = load_json_config(THEME_CONFIG_PATH)
     themes_config = theme_config.get("themes", {})
 
-    presets = load_rss_presets()
+    presets = load_rss_presets(presets_path)
 
     # Fetch RSS items by source
     items_by_source = fetch_items_by_source(presets)
@@ -689,7 +745,7 @@ def run(
     print(f"  Date filtered: {session.stats.filtered}")
     print(f"  Keyword matched: {session.stats.matched}")
     print("\nTheme breakdown:")
-    for theme_key, theme_data in session.themes.items():
+    for _theme_key, theme_data in session.themes.items():
         print(f"  {theme_data.name_ja}: {len(theme_data.articles)} articles")
     print("=" * 60)
 
@@ -714,6 +770,9 @@ def main(args: list[str] | None = None) -> int:
     # Configure logging
     configure_logging(parsed.verbose)
 
+    # Resolve presets path from key or file path
+    presets_path = resolve_presets_path(parsed.presets)
+
     # Parse themes
     themes_filter: list[str] | None = None
     if parsed.themes != "all":
@@ -728,6 +787,7 @@ def main(args: list[str] | None = None) -> int:
         themes_filter=themes_filter,
         output_path=output_path,
         top_n=parsed.top_n,
+        presets_path=presets_path,
     )
 
 

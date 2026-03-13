@@ -1,0 +1,67 @@
+{
+    "version": "1.0",
+    "themes": {
+        "data_driven_investing": {
+            "name_en": "Data-Driven Investing",
+            "description": "Evidence-based investing with quantitative analysis and index funds",
+            "keywords_en": [
+                "index fund", "ETF", "passive investing", "factor investing",
+                "asset allocation", "rebalancing", "evidence-based", "quantitative"
+            ],
+            "target_sources": ["bogleheads", "monevator", "awealthofcommonsense"]
+        },
+        "dividend_income": {
+            "name_en": "Dividend Income",
+            "description": "Dividend growth investing and income generation strategies",
+            "keywords_en": [
+                "dividend", "dividend growth", "yield", "income investing",
+                "dividend reinvestment", "DRIP", "dividend aristocrat", "payout ratio"
+            ],
+            "target_sources": ["dividendgrowthstocks", "youngandtheinvested"]
+        },
+        "fire_wealth_building": {
+            "name_en": "FIRE & Wealth Building",
+            "description": "Financial Independence Retire Early and long-term wealth accumulation",
+            "keywords_en": [
+                "FIRE", "financial independence", "early retirement", "safe withdrawal rate",
+                "frugality", "savings rate", "net worth", "wealth building"
+            ],
+            "target_sources": ["mrmoneymustache", "affordanything", "earlyretirementnow"]
+        },
+        "financial_infrastructure": {
+            "name_en": "Financial Infrastructure",
+            "description": "Real estate, tax optimization, and financial systems",
+            "keywords_en": [
+                "real estate", "tax strategy", "tax optimization", "401k",
+                "IRA", "Roth", "estate planning", "insurance", "cash flow"
+            ],
+            "target_sources": ["financialsamurai", "thecollegeinvestor"]
+        },
+        "personal_finance": {
+            "name_en": "Personal Finance",
+            "description": "Budgeting, debt management, and everyday financial decisions",
+            "keywords_en": [
+                "budgeting", "debt payoff", "emergency fund", "credit score",
+                "saving money", "frugal", "personal finance", "money management"
+            ],
+            "target_sources": [
+                "getrichslowly", "iwillteachyoutoberich",
+                "moneytalksnews", "kiplinger"
+            ]
+        },
+        "academic_finance": {
+            "name_en": "Academic Finance & Economics",
+            "description": "Economic theory, policy analysis, and academic research insights",
+            "keywords_en": [
+                "economics", "monetary policy", "fiscal policy", "behavioral finance",
+                "market efficiency", "research", "macroeconomics", "economic growth"
+            ],
+            "target_sources": ["marginalrevolution"]
+        }
+    },
+    "content_rules": {
+        "target_audience": "intermediate",
+        "note_char_range": [2000, 5000],
+        "x_char_limit": 280
+    }
+}

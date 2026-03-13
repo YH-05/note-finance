@@ -1,0 +1,140 @@
+{
+    "version": "1.0",
+    "presets": [
+        {
+            "url": "https://www.getrichslowly.org/feed/",
+            "title": "Get Rich Slowly",
+            "category": "personal_finance",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "J.D. Roth's personal finance and wealth building blog"
+        },
+        {
+            "url": "https://www.mrmoneymustache.com/feed/",
+            "title": "Mr. Money Mustache",
+            "category": "fire_wealth_building",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "FIRE movement flagship blog"
+        },
+        {
+            "url": "https://www.bogleheads.org/forum/rss.php",
+            "title": "Bogleheads Forum",
+            "category": "data_driven_investing",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Vanguard index investing community forum"
+        },
+        {
+            "url": "https://thecollegeinvestor.com/feed/",
+            "title": "The College Investor",
+            "category": "personal_finance",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Millennial personal finance and investing; ClaudeBot blocked"
+        },
+        {
+            "url": "https://www.moneytalksnews.com/feed/",
+            "title": "Money Talks News",
+            "category": "personal_finance",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Consumer finance news; ai-train=no directive"
+        },
+        {
+            "url": "https://monevator.com/feed/",
+            "title": "Monevator",
+            "category": "data_driven_investing",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "UK passive investing blog; crawl-delay 240s"
+        },
+        {
+            "url": "https://affordanything.com/feed/",
+            "title": "Afford Anything",
+            "category": "fire_wealth_building",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Paula Pant's financial independence blog"
+        },
+        {
+            "url": "https://www.iwillteachyoutoberich.com/feed/",
+            "title": "I Will Teach You To Be Rich",
+            "category": "personal_finance",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Ramit Sethi's personal finance and entrepreneurship"
+        },
+        {
+            "url": "https://awealthofcommonsense.com/feed/",
+            "title": "A Wealth of Common Sense",
+            "category": "data_driven_investing",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Ben Carlson's evidence-based investing insights"
+        },
+        {
+            "url": "https://youngandtheinvested.com/feed/",
+            "title": "Young and the Invested",
+            "category": "dividend_income",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Millennial investing and dividend growth strategies"
+        },
+        {
+            "url": "https://marginalrevolution.com/marginalrevolution/feed",
+            "title": "Marginal Revolution",
+            "category": "academic_finance",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 1,
+            "note": "Tyler Cowen & Alex Tabarrok economics blog; crawl-delay 600s"
+        },
+        {
+            "url": "https://dividendgrowthstocks.com/feed/",
+            "title": "Dividend Growth Investor",
+            "category": "dividend_income",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 2,
+            "note": "Long-term dividend growth investing strategies"
+        },
+        {
+            "url": "https://earlyretirementnow.com/feed/",
+            "title": "Early Retirement Now",
+            "category": "fire_wealth_building",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 2,
+            "note": "Karsten Jeske's safe withdrawal rate research"
+        },
+        {
+            "url": "https://financialsamurai.com/feed/",
+            "title": "Financial Samurai",
+            "category": "financial_infrastructure",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 2,
+            "note": "Sam Dogen's personal finance and real estate blog"
+        },
+        {
+            "url": "https://www.kiplinger.com/rss/wealth",
+            "title": "Kiplinger Wealth",
+            "category": "personal_finance",
+            "fetch_interval": "daily",
+            "enabled": false,
+            "tier": 3,
+            "note": "Kiplinger wealth management; Tier 3 requires Playwright scraping"
+        }
+    ]
+}
