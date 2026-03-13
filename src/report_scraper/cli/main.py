@@ -36,6 +36,7 @@ import click
 from rich.console import Console
 from rich.table import Table
 
+from data_paths import get_path
 from report_scraper._logging import get_logger
 from report_scraper.config.loader import load_config
 
@@ -48,10 +49,10 @@ logger = get_logger(__name__, module="cli")
 # Constants
 # ---------------------------------------------------------------------------
 
-DEFAULT_DATA_DIR = Path("data/scraped/reports")
+DEFAULT_DATA_DIR = get_path("scraped/reports")
 """Default data directory for report storage."""
 
-DEFAULT_CONFIG_PATH = Path("data/config/report-scraper-config.yaml")
+DEFAULT_CONFIG_PATH = get_path("config/report-scraper-config.yaml")
 """Default path to the YAML configuration file."""
 
 # AIDEV-NOTE: Known scrapers are registered here. When new scrapers are added,
