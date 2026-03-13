@@ -42,6 +42,8 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
+from data_paths import get_path
+
 from ..exceptions import (
     FeedAlreadyExistsError,
     FeedFetchError,
@@ -70,9 +72,6 @@ def _get_logger() -> Any:
 
 logger: Any = _get_logger()
 
-# Default data directory
-DEFAULT_DATA_DIR = Path("data/raw/rss")
-
 # Create MCP server
 mcp = FastMCP(
     name="RSS Feed Manager",
@@ -83,12 +82,16 @@ mcp = FastMCP(
 def _get_data_dir() -> Path:
     """Get the RSS data directory, creating it if necessary.
 
+    RSS_DATA_DIR environment variable takes priority. If not set,
+    falls back to data_paths.get_path("raw/rss").
+
     Returns
     -------
     Path
         The RSS data directory path
     """
-    data_dir = Path(os.environ.get("RSS_DATA_DIR", str(DEFAULT_DATA_DIR)))
+    env_dir = os.environ.get("RSS_DATA_DIR")
+    data_dir = Path(env_dir) if env_dir else get_path("raw/rss")
     data_dir.mkdir(parents=True, exist_ok=True)
     return data_dir
 

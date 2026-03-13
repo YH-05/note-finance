@@ -340,6 +340,9 @@ class TestPdfHandlerDownload:
 class TestPdfHandlerDefaultBaseDir:
     """Tests for PdfHandler default base directory."""
 
-    def test_正常系_デフォルトのbase_dirが設定される(self) -> None:
+    def test_正常系_デフォルトのbase_dirがdata_pathsのget_pathを使用する(self) -> None:
         handler = PdfHandler()
-        assert "data/raw/ai-research/pdfs" in str(handler.base_dir)
+        # get_path("raw/ai-research/pdfs") returns {data_root}/raw/ai-research/pdfs
+        assert "raw/ai-research/pdfs" in str(handler.base_dir)
+        # Should NOT be a relative path like "data/raw/..."
+        assert handler.base_dir.is_absolute()
