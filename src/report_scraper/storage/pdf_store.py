@@ -22,6 +22,7 @@ from __future__ import annotations
 import re
 from typing import TYPE_CHECKING, Any
 
+from data_paths import get_path
 from report_scraper._logging import get_logger
 
 if TYPE_CHECKING:
@@ -36,7 +37,7 @@ logger = get_logger(__name__, module="pdf_store")
 # Default paths
 # ---------------------------------------------------------------------------
 
-DEFAULT_PDF_DIR = "data/raw/report-scraper/pdfs"
+DEFAULT_PDF_DIR = str(get_path("raw/report-scraper/pdfs"))
 """Default base directory for PDF storage."""
 
 _SOURCE_KEY_RE = re.compile(r"^[a-zA-Z0-9_]+$")

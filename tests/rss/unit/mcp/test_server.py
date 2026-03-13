@@ -26,17 +26,19 @@ from rss.types import Feed, FeedItem, FetchInterval, FetchResult, FetchStatus
 class TestGetDataDir:
     """Tests for _get_data_dir function."""
 
-    def test_returns_default_when_env_not_set(
+    def test_正常系_RSS_DATA_DIR未設定時にdata_pathsのget_pathを使用する(
         self, monkeypatch: pytest.MonkeyPatch, temp_dir: Path
     ) -> None:
-        """Should return default data directory when RSS_DATA_DIR is not set."""
+        """Should use data_paths.get_path('raw/rss') when RSS_DATA_DIR is not set."""
         monkeypatch.delenv("RSS_DATA_DIR", raising=False)
-        with patch("rss.mcp.server.DEFAULT_DATA_DIR", temp_dir / "default"):
+        mock_path = temp_dir / "raw" / "rss"
+        with patch("rss.mcp.server.get_path", return_value=mock_path) as mock_get_path:
             result = _get_data_dir()
-            assert result == temp_dir / "default"
+            mock_get_path.assert_called_once_with("raw/rss")
+            assert result == mock_path
             assert result.exists()
 
-    def test_returns_custom_dir_from_env(
+    def test_正常系_RSS_DATA_DIR設定時に環境変数を優先する(
         self, monkeypatch: pytest.MonkeyPatch, temp_dir: Path
     ) -> None:
         """Should return custom directory from RSS_DATA_DIR environment variable."""

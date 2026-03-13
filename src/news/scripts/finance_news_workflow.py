@@ -52,6 +52,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from data_paths import get_path
 from news._logging import get_logger
 from news.config.models import load_config
 from news.orchestrator import NewsWorkflowOrchestrator
@@ -62,7 +63,7 @@ if TYPE_CHECKING:
 logger = get_logger(__name__, module="scripts.finance_news_workflow")
 
 # Default configuration file path
-DEFAULT_CONFIG_PATH = Path("data/config/news-collection-config.yaml")
+DEFAULT_CONFIG_PATH = get_path("config/news-collection-config.yaml")
 
 # Default log directory
 DEFAULT_LOG_DIR = Path("logs")

@@ -619,3 +619,57 @@ class TestExitCodes:
             ["--data-dir", str(data_dir), "remove", "nonexistent"],
         )
         assert result.exit_code == 1
+
+
+class TestApplyCommand:
+    """Tests for apply command."""
+
+    def test_正常系_presets_file未指定でget_pathのデフォルトを使用(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+    ) -> None:
+        """--file 未指定時に get_path("config/rss-presets.json") をデフォルトとして使用."""
+        from unittest.mock import patch as mock_patch
+
+        from data_paths import get_path
+
+        expected_path = get_path("config/rss-presets.json")
+        # apply コマンドを CLI invoke し、デフォルトパスが使われることを確認
+        with mock_patch("rss.cli.main.get_path", return_value=expected_path) as mock_gp:
+            result = cli_runner.invoke(
+                cli,
+                ["--data-dir", str(data_dir), "preset", "apply"],
+            )
+            mock_gp.assert_called_once_with("config/rss-presets.json")
+        # 実際のプリセットファイルが存在するため成功する場合と、
+        # 存在しない場合でエラーになる場合がある。
+        # ここでは get_path() が正しい引数で呼ばれたことのみを検証する。
+        assert result.exit_code in (0, 1)
+
+    def test_正常系_presets_fileを指定した場合はそのパスを使用(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+        tmp_path: Path,
+    ) -> None:
+        """--file 指定時はその指定パスを使用."""
+        presets_file = tmp_path / "custom-presets.json"
+        presets_file.write_text(
+            '{"version": "1.0", "presets": [{"url": "https://example.com/feed.xml", '
+            '"title": "Test", "category": "test", '
+            '"fetch_interval": 3600, "enabled": true}]}'
+        )
+        result = cli_runner.invoke(
+            cli,
+            [
+                "--data-dir",
+                str(data_dir),
+                "preset",
+                "apply",
+                "--file",
+                str(presets_file),
+            ],
+        )
+        assert result.exit_code == 0
+        assert "Presets applied successfully" in result.output

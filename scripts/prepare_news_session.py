@@ -33,6 +33,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from pydantic import BaseModel, Field
 
+from data_paths import get_path
+
+from _script_utils import FINANCE_NEWS_THEMES_CONFIG
 from rss.services.feed_reader import FeedReader
 from rss.utils.url_normalizer import normalize_url
 from session_utils import (
@@ -60,10 +63,10 @@ DEFAULT_THEMES = "all"
 DEFAULT_TOP_N = 10
 """Default number of top articles per theme (sorted by published date, newest first)."""
 
-DEFAULT_DATA_DIR = Path("data/raw/rss")
+DEFAULT_DATA_DIR = get_path("raw/rss")
 """Default RSS data directory."""
 
-THEME_CONFIG_PATH = Path("data/config/finance-news-themes.json")
+THEME_CONFIG_PATH = FINANCE_NEWS_THEMES_CONFIG
 """Path to theme configuration file."""
 
 TMP_DIR = Path(".tmp")

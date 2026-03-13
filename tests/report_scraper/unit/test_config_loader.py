@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from data_paths import get_path
 from report_scraper.config.loader import load_config
 from report_scraper.exceptions import ConfigError
 from report_scraper.types import ReportScraperConfig
@@ -94,7 +95,7 @@ sources:
 
         assert config.global_config.max_reports_per_source == 20
         assert config.global_config.dedup_days == 30
-        assert config.global_config.output_dir == Path("data/scraped/reports")
+        assert config.global_config.output_dir == get_path("scraped/reports")
 
     def test_異常系_ファイルが存在しない場合にConfigError(self) -> None:
         """Non-existent file raises ConfigError."""

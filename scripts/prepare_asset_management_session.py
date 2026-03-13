@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from pydantic import BaseModel, Field
 
+from data_paths import get_path
 from session_utils import (
     ArticleData,
     configure_logging,
@@ -52,10 +53,10 @@ DEFAULT_THEMES = "all"
 DEFAULT_TOP_N = 10
 """Default number of top articles per theme (sorted by published date, newest first)."""
 
-THEME_CONFIG_PATH = Path("data/config/asset-management-themes.json")
+THEME_CONFIG_PATH = get_path("config/asset-management-themes.json")
 """Path to asset management theme configuration file."""
 
-RSS_PRESETS_JP_PATH = Path("data/config/rss-presets-jp.json")
+RSS_PRESETS_JP_PATH = get_path("config/rss-presets-jp.json")
 """Path to JP RSS presets configuration file."""
 
 TMP_DIR = Path(".tmp")
@@ -383,7 +384,7 @@ def fetch_items_by_source(
         preset_mapping.append((source_key, domain, title))
 
     # Try reading from local RSS data - fetch all items once (N+1 fix)
-    data_dir = Path("data/raw/rss")
+    data_dir = get_path("raw/rss")
     if data_dir.exists():
         try:
             reader = FeedReader(data_dir)

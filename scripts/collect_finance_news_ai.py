@@ -10,10 +10,12 @@ import json
 import subprocess
 import sys
 from datetime import datetime
-from pathlib import Path
+from data_paths import get_project_root
+
+from _script_utils import FINANCE_NEWS_THEMES_CONFIG
 
 
-def log(level: str, message: str, **kwargs):
+def log(level: str, message: str, **kwargs: object) -> None:
     """ログ出力"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     extra = " ".join(f"{k}={v}" for k, v in kwargs.items())
@@ -289,13 +291,15 @@ def create_issue_with_project(
 def main():
     log("INFO", "AIテーマの金融ニュース収集開始")
 
-    # ファイルパス
-    tmp_file = Path(
-        "/Users/yukihata/Desktop/finance/.tmp/news-collection-20260115-214331.json"
-    )
-    config_file = Path(
-        "/Users/yukihata/Desktop/finance/data/config/finance-news-themes.json"
-    )
+    # ファイルパス（最新の一時ファイルを動的に選択）
+    tmp_dir = get_project_root() / ".tmp"
+    tmp_files = list(tmp_dir.glob("news-collection-*.json"))
+    if not tmp_files:
+        log("ERROR", "一時ファイルが見つかりません。オーケストレーターを先に実行してください。")
+        sys.exit(1)
+    tmp_file = max(tmp_files, key=lambda p: p.stat().st_mtime)
+    log("INFO", f"一時ファイル読み込み: {tmp_file.name}")
+    config_file = FINANCE_NEWS_THEMES_CONFIG
 
     # ファイル読み込み（スマートクォートを修正）
     try:

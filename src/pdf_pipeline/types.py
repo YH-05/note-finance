@@ -35,10 +35,14 @@ Examples
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from pathlib import Path
+from pathlib import (
+    Path,  # noqa: TC003 — Pydantic needs Path at runtime for field validation
+)
 from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
+
+from data_paths import get_path
 
 # ---------------------------------------------------------------------------
 # Type aliases
@@ -148,8 +152,8 @@ class PipelineConfig(BaseModel):
     --------
     >>> from pathlib import Path
     >>> config = PipelineConfig(input_dirs=[Path("data/raw/pdfs")])
-    >>> config.output_dir
-    PosixPath('data/processed')
+    >>> config.output_dir.name
+    'processed'
     >>> config.batch_size
     10
     """
@@ -160,7 +164,7 @@ class PipelineConfig(BaseModel):
         description="Input directories containing PDF files",
     )
     output_dir: Path = Field(
-        default=Path("data/processed"),
+        default_factory=lambda: get_path("processed"),
         description="Directory for processed output",
     )
     batch_size: int = Field(
@@ -186,7 +190,7 @@ class PipelineConfig(BaseModel):
         description="Enable Phase 5 knowledge extraction (Entity/Fact/Claim)",
     )
     chunk_template: Path = Field(
-        default=Path("data/config/chunk-template.md"),
+        default_factory=lambda: get_path("config/chunk-template.md"),
         description="Path to the Markdown output template for report.md rendering",
     )
 
