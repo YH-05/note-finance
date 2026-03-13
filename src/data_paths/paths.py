@@ -43,7 +43,7 @@ _STANDARD_DIRS = [
 # resolve() を適用して macOS のシンボリックリンク（/tmp → /private/tmp 等）に対応。
 _FORBIDDEN_ROOTS = frozenset(
     Path(p).resolve()
-    for p in ["/", "/etc", "/usr", "/bin", "/sbin", "/var", "/sys", "/proc", "/tmp"]
+    for p in ["/", "/etc", "/usr", "/bin", "/sbin", "/var", "/sys", "/proc", "/tmp"]  # nosec B108
 )
 
 
