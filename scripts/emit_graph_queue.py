@@ -202,6 +202,9 @@ def generate_chunk_id(source_hash: str, chunk_index: int) -> str:
 def generate_datapoint_id(source_hash: str, metric: str, period: str) -> str:
     """Generate a deterministic datapoint ID from source hash, metric, and period.
 
+    Uses SHA-256 hashing with colon-delimited fields to prevent ID collisions
+    caused by special characters (e.g., underscores) in LLM-generated text.
+
     Parameters
     ----------
     source_hash : str
@@ -214,9 +217,16 @@ def generate_datapoint_id(source_hash: str, metric: str, period: str) -> str:
     Returns
     -------
     str
-        Datapoint ID in the format ``{source_hash}_{metric}_{period}``.
+        First 32 hex characters (128-bit) of the SHA-256 hash.
+
+    Notes
+    -----
+    Previous implementation used string concatenation
+    (``f"{source_hash}_{metric}_{period}"``), which caused collision risk
+    when fields contained underscores. See Issue #74 (CWE-20).
     """
-    return f"{source_hash}_{metric}_{period}"
+    key = f"{source_hash}:{metric}:{period}"
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:32]
 
 
 def generate_queue_id() -> str:

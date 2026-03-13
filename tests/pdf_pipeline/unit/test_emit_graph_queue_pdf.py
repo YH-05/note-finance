@@ -360,15 +360,46 @@ class TestFinancialDataPointNodes:
 
         assert len(result["financial_datapoints"]) == 2
         dp = result["financial_datapoints"][0]
-        assert dp["datapoint_id"] == "hash1_Revenue_FY2025"
+        # ハッシュベースID: 32文字の16進数文字列
+        assert len(dp["datapoint_id"]) == 32
+        assert all(c in "0123456789abcdef" for c in dp["datapoint_id"])
+        assert dp["datapoint_id"] == generate_datapoint_id("hash1", "Revenue", "FY2025")
         assert dp["metric_name"] == "Revenue"
         assert dp["value"] == 100000.0
         assert dp["unit"] == "USD mn"
         assert dp["is_estimate"] is False
 
-    def test_正常系_datapoint_idフォーマットが正しい(self) -> None:
+    def test_正常系_datapoint_idがハッシュベースである(self) -> None:
         dp_id = generate_datapoint_id("hash1", "Revenue", "FY2025")
-        assert dp_id == "hash1_Revenue_FY2025"
+        # ハッシュベースID: 32文字の16進数文字列
+        assert len(dp_id) == 32
+        assert all(c in "0123456789abcdef" for c in dp_id)
+
+    def test_正常系_同じ入力で同じdatapoint_idを生成する(self) -> None:
+        id1 = generate_datapoint_id("hash1", "Revenue", "FY2025")
+        id2 = generate_datapoint_id("hash1", "Revenue", "FY2025")
+        assert id1 == id2
+
+    def test_正常系_異なる入力で異なるdatapoint_idを生成する(self) -> None:
+        id1 = generate_datapoint_id("hash1", "Revenue", "FY2025")
+        id2 = generate_datapoint_id("hash1", "EBITDA", "FY2025")
+        assert id1 != id2
+
+    def test_セキュリティ_特殊文字による衝突が発生しない(self) -> None:
+        """CWE-20: アンダースコア等の特殊文字でID衝突が起きないことを検証。
+
+        例: metric="Rev_enue", period="FY" と metric="Rev", period="enue_FY" が
+        文字列連結では同一IDになるが、ハッシュベースでは異なるIDになる。
+        """
+        id1 = generate_datapoint_id("hash1", "Rev_enue", "FY")
+        id2 = generate_datapoint_id("hash1", "Rev", "enue_FY")
+        assert id1 != id2
+
+    def test_セキュリティ_区切り文字を含む入力で衝突しない(self) -> None:
+        """source_hash, metric, period の境界が曖昧にならないことを検証。"""
+        id1 = generate_datapoint_id("hash1_Revenue", "", "FY2025")
+        id2 = generate_datapoint_id("hash1", "Revenue", "FY2025")
+        assert id1 != id2
 
     def test_正常系_has_datapointリレーションが生成される(self) -> None:
         data = _make_extraction_data(source_hash="hash1", include_datapoints=True)
