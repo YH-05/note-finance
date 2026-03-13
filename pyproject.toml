@@ -110,6 +110,14 @@ pythonpath = ["src", "scripts"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]
 asyncio_mode = "auto"
 
+[tool.uv]
+# AIDEV-NOTE: CVE-2025-69872 version monitoring.
+# diskcache 5.6.3 has a pickle deserialization RCE vulnerability.
+# This override pins to >=5.6.3 for tracking purposes; upgrade to the
+# fixed version once upstream releases a patch.
+# Dependency chain: fastmcp -> py-key-value-aio[disk] -> diskcache
+override-dependencies = ["diskcache>=5.6.3"]
+
 [tool.uv.sources]
 finance = { git = "https://github.com/YH-05/finance.git" }
 

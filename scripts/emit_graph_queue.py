@@ -31,10 +31,10 @@ Usage
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import logging
 import os
+import secrets
 import sys
 import time
 import uuid
@@ -42,6 +42,14 @@ from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+from pdf_pipeline.services.id_generator import (
+    generate_claim_id,
+    generate_datapoint_id_from_fields,
+    generate_entity_id,
+    generate_fact_id,
+    generate_source_id,
+)
 
 type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 
@@ -91,23 +99,31 @@ THEME_TO_CATEGORY: dict[str, str] = {
 # ID Generation
 # ---------------------------------------------------------------------------
 
+# generate_source_id, generate_entity_id, generate_claim_id, generate_fact_id
+# are imported from pdf_pipeline.services.id_generator.
+# generate_datapoint_id_from_fields is also imported; see generate_datapoint_id below.
 
-def generate_source_id(url: str) -> str:
-    """Generate a deterministic source ID from a URL.
 
-    Uses UUID5 with NAMESPACE_URL to produce the same ID for the same URL.
+def generate_datapoint_id(source_hash: str, metric: str, period: str) -> str:
+    """Generate a deterministic datapoint ID from source hash, metric, and period.
+
+    Delegates to ``pdf_pipeline.services.id_generator.generate_datapoint_id_from_fields``.
 
     Parameters
     ----------
-    url : str
-        The source URL.
+    source_hash : str
+        The SHA-256 hash of the source document.
+    metric : str
+        Metric name (e.g., 'Revenue', 'EBITDA').
+    period : str
+        Period label (e.g., 'FY2025', '4Q25').
 
     Returns
     -------
     str
-        UUID5 string derived from the URL.
+        First 32 hex characters (128-bit) of the SHA-256 hash.
     """
-    return str(uuid.uuid5(uuid.NAMESPACE_URL, url))
+    return generate_datapoint_id_from_fields(source_hash, metric, period)
 
 
 def generate_topic_id(name: str, category: str) -> str:
@@ -128,59 +144,6 @@ def generate_topic_id(name: str, category: str) -> str:
     return str(uuid.uuid5(uuid.NAMESPACE_URL, f"topic:{name}:{category}"))
 
 
-def generate_entity_id(name: str, entity_type: str) -> str:
-    """Generate a deterministic entity ID from name and type.
-
-    Parameters
-    ----------
-    name : str
-        Entity name.
-    entity_type : str
-        Entity type (e.g. ``company``, ``ticker``).
-
-    Returns
-    -------
-    str
-        UUID5 string derived from ``entity:{name}:{entity_type}``.
-    """
-    return str(uuid.uuid5(uuid.NAMESPACE_URL, f"entity:{name}:{entity_type}"))
-
-
-def generate_claim_id(content: str) -> str:
-    """Generate a deterministic claim ID from content.
-
-    Parameters
-    ----------
-    content : str
-        Claim content text.
-
-    Returns
-    -------
-    str
-        First 16 hex characters of the SHA-256 hash of *content*.
-    """
-    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
-
-
-def generate_fact_id(content: str) -> str:
-    """Generate a deterministic fact ID from content.
-
-    Uses a ``fact:`` prefix before hashing to ensure fact IDs never
-    collide with claim IDs even when the content text is identical.
-
-    Parameters
-    ----------
-    content : str
-        Fact content text.
-
-    Returns
-    -------
-    str
-        First 16 hex characters of the SHA-256 hash of ``fact:{content}``.
-    """
-    return hashlib.sha256(f"fact:{content}".encode("utf-8")).hexdigest()[:16]
-
-
 def generate_chunk_id(source_hash: str, chunk_index: int) -> str:
     """Generate a deterministic chunk ID from source hash and chunk index.
 
@@ -199,41 +162,23 @@ def generate_chunk_id(source_hash: str, chunk_index: int) -> str:
     return f"{source_hash}_chunk_{chunk_index}"
 
 
-def generate_datapoint_id(
-    source_hash: str, metric: str, period: str
-) -> str:
-    """Generate a deterministic datapoint ID from source hash, metric, and period.
-
-    Parameters
-    ----------
-    source_hash : str
-        The SHA-256 hash of the source document.
-    metric : str
-        Metric name (e.g., 'Revenue', 'EBITDA').
-    period : str
-        Period label (e.g., 'FY2025', '4Q25').
-
-    Returns
-    -------
-    str
-        Datapoint ID in the format ``{source_hash}_{metric}_{period}``.
-    """
-    return f"{source_hash}_{metric}_{period}"
-
-
 def generate_queue_id() -> str:
-    """Generate a unique queue ID with timestamp and short hash.
+    """Generate a unique queue ID with timestamp and random suffix.
+
+    Uses ``secrets.token_hex(4)`` to produce an 8-character random hex
+    suffix (32-bit entropy / ~4 billion possibilities), which is
+    substantially more collision-resistant than the previous SHA-256[:4]
+    approach (16-bit / 65 536 possibilities).
 
     Returns
     -------
     str
-        Queue ID in the format ``gq-{timestamp}-{hash4}``.
+        Queue ID in the format ``gq-{timestamp}-{rand8}``.
     """
     now = datetime.now(timezone.utc)
     timestamp = now.strftime("%Y%m%d%H%M%S")
-    # Use a hash of the full ISO timestamp for the 4-char suffix
-    hash4 = hashlib.sha256(now.isoformat().encode("utf-8")).hexdigest()[:4]
-    return f"gq-{timestamp}-{hash4}"
+    rand8 = secrets.token_hex(4)
+    return f"gq-{timestamp}-{rand8}"
 
 
 # ---------------------------------------------------------------------------
@@ -623,271 +568,553 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
     return _mapped_result(data, "reddit", sources=sources, topics=topics)
 
 
-def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
-    """Map pdf-extraction (DocumentExtractionResult) to graph-queue components.
-
-    Generates nodes for Source, Chunk, Entity, Fact, Claim,
-    FinancialDataPoint, and FiscalPeriod, plus the following relations:
-
-    - ``contains_chunk``: Source → Chunk
-    - ``extracted_from_fact``: Fact → Chunk
-    - ``extracted_from_claim``: Claim → Chunk
-    - ``source_fact``: Source → Fact (STATES_FACT)
-    - ``source_claim``: Source → Claim (MAKES_CLAIM)
-    - ``fact_entity``: Fact → Entity (RELATES_TO)
-    - ``claim_entity``: Claim → Entity (ABOUT)
-    - ``has_datapoint``: Source → FinancialDataPoint
-    - ``for_period``: FinancialDataPoint → FiscalPeriod
-    - ``datapoint_entity``: FinancialDataPoint → Entity (RELATES_TO)
+def _build_chunk_nodes(
+    chunk: dict[str, Any],
+    source_hash: str,
+    source_id: str,
+) -> tuple[dict[str, Any], str, list[dict[str, str]]]:
+    """Build a Chunk node and its CONTAINS_CHUNK relation.
 
     Parameters
     ----------
-    data : dict[str, Any]
-        Input data with ``source_hash``, ``chunks[]`` containing
-        ``entities[]``, ``facts[]``, ``claims[]``, and optionally
-        ``financial_datapoints[]``.
+    chunk : dict[str, Any]
+        Raw chunk data from the extraction result.
+    source_hash : str
+        SHA-256 hash of the source document.
+    source_id : str
+        ID of the parent Source node.
 
     Returns
     -------
-    dict[str, Any]
-        Mapped components with ``entities[]``, ``sources[]``,
-        ``claims[]``, ``facts[]``, ``chunks[]``,
-        ``financial_datapoints[]``, ``fiscal_periods[]``, and
-        ``relations``.
+    tuple[dict[str, Any], str, list[dict[str, str]]]
+        A 3-tuple of (chunk_node, chunk_id, contains_chunk_rels).
     """
-    source_hash = data.get("source_hash", "")
-    input_chunks = data.get("chunks", [])
+    chunk_index = chunk.get("chunk_index", 0)
+    chunk_id = generate_chunk_id(source_hash, chunk_index)
 
-    # Create source node for the PDF
-    source_id = generate_source_id(f"pdf:{source_hash}")
-    sources: list[dict[str, Any]] = [
-        {
-            "source_id": source_id,
-            "url": f"pdf:{source_hash}",
-            "title": "",
-            "published": "",
-            "source_type": "pdf",
-        }
-    ]
+    chunk_node = {
+        "chunk_id": chunk_id,
+        "chunk_index": chunk_index,
+        "section_title": chunk.get("section_title"),
+        "content": chunk.get("content", ""),
+    }
 
+    contains_chunk_rel = {
+        "from_id": source_id,
+        "to_id": chunk_id,
+        "type": "CONTAINS_CHUNK",
+    }
+
+    return chunk_node, chunk_id, [contains_chunk_rel]
+
+
+def _build_entity_nodes(
+    chunk: dict[str, Any],
+    seen_entity_keys: set[str],
+    entity_name_to_id: dict[str, str],
+    entity_name_to_ticker: dict[str, str],
+) -> list[dict[str, Any]]:
+    """Build Entity nodes from a chunk, deduplicated by name+type.
+
+    Mutates *seen_entity_keys*, *entity_name_to_id*, and
+    *entity_name_to_ticker* in-place to maintain cross-chunk dedup state.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``entities[]``.
+    seen_entity_keys : set[str]
+        Already-seen entity keys (``name:type``).
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup (populated in-place).
+    entity_name_to_ticker : dict[str, str]
+        Name-to-ticker lookup (populated in-place).
+
+    Returns
+    -------
+    list[dict[str, Any]]
+        Newly created Entity node dicts.
+    """
     entities: list[dict[str, Any]] = []
+
+    for entity in chunk.get("entities", []):
+        name = entity.get("name", "")
+        entity_type = entity.get("entity_type", "")
+        entity_key = f"{name}:{entity_type}"
+        if entity_key not in seen_entity_keys:
+            seen_entity_keys.add(entity_key)
+            eid = generate_entity_id(name, entity_type)
+            entities.append(
+                {
+                    "entity_id": eid,
+                    "name": name,
+                    "entity_type": entity_type,
+                    "ticker": entity.get("ticker"),
+                }
+            )
+            entity_name_to_id[name] = eid
+            if entity.get("ticker"):
+                entity_name_to_ticker[name] = entity["ticker"]
+
+    return entities
+
+
+def _resolve_entity_rels(
+    about_entities: list[str],
+    from_id: str,
+    rel_type: str,
+    entity_name_to_id: dict[str, str],
+) -> list[dict[str, str]]:
+    """Resolve entity names to relation dicts.
+
+    Parameters
+    ----------
+    about_entities : list[str]
+        Entity names to resolve.
+    from_id : str
+        Source node ID for the relation.
+    rel_type : str
+        Relation type (e.g. ``RELATES_TO``, ``ABOUT``).
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup.
+
+    Returns
+    -------
+    list[dict[str, str]]
+        Resolved relation dicts.
+    """
+    result: list[dict[str, str]] = []
+    for name in about_entities:
+        resolved_id = entity_name_to_id.get(name)
+        if resolved_id:
+            result.append({"from_id": from_id, "to_id": resolved_id, "type": rel_type})
+    return result
+
+
+def _build_fact_nodes(
+    chunk: dict[str, Any],
+    source_id: str,
+    chunk_id: str,
+    entity_name_to_id: dict[str, str],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+]:
+    """Build Fact nodes and their relations from a chunk.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``facts[]``.
+    source_id : str
+        ID of the parent Source node.
+    chunk_id : str
+        ID of the parent Chunk node.
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup for entity resolution.
+
+    Returns
+    -------
+    tuple
+        A 4-tuple of (facts, source_fact_rels, extracted_from_fact_rels,
+        fact_entity_rels).
+    """
     facts: list[dict[str, Any]] = []
-    claims: list[dict[str, Any]] = []
-    chunk_nodes: list[dict[str, Any]] = []
-    financial_datapoints: list[dict[str, Any]] = []
-    fiscal_periods: list[dict[str, Any]] = []
-
-    seen_entity_keys: set[str] = set()
-    seen_period_ids: set[str] = set()
-
-    # Relations
     source_fact_rels: list[dict[str, str]] = []
-    source_claim_rels: list[dict[str, str]] = []
-    fact_entity_rels: list[dict[str, str]] = []
-    claim_entity_rels: list[dict[str, str]] = []
-    contains_chunk_rels: list[dict[str, str]] = []
     extracted_from_fact_rels: list[dict[str, str]] = []
+    fact_entity_rels: list[dict[str, str]] = []
+
+    for fact in chunk.get("facts", []):
+        content = fact.get("content", "")
+        fact_id = generate_fact_id(content)
+        facts.append(
+            {
+                "fact_id": fact_id,
+                "content": content,
+                "source_id": source_id,
+                "fact_type": fact.get("fact_type", ""),
+                "as_of_date": fact.get("as_of_date"),
+            }
+        )
+        source_fact_rels.append(
+            {"from_id": source_id, "to_id": fact_id, "type": "STATES_FACT"}
+        )
+        extracted_from_fact_rels.append(
+            {"from_id": fact_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
+        )
+        fact_entity_rels.extend(
+            _resolve_entity_rels(
+                fact.get("about_entities", []),
+                fact_id,
+                "RELATES_TO",
+                entity_name_to_id,
+            )
+        )
+
+    return facts, source_fact_rels, extracted_from_fact_rels, fact_entity_rels
+
+
+def _build_claim_nodes(
+    chunk: dict[str, Any],
+    source_id: str,
+    chunk_id: str,
+    entity_name_to_id: dict[str, str],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+]:
+    """Build Claim nodes and their relations from a chunk.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``claims[]``.
+    source_id : str
+        ID of the parent Source node.
+    chunk_id : str
+        ID of the parent Chunk node.
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup for entity resolution.
+
+    Returns
+    -------
+    tuple
+        A 4-tuple of (claims, source_claim_rels, extracted_from_claim_rels,
+        claim_entity_rels).
+    """
+    claims: list[dict[str, Any]] = []
+    source_claim_rels: list[dict[str, str]] = []
     extracted_from_claim_rels: list[dict[str, str]] = []
+    claim_entity_rels: list[dict[str, str]] = []
+
+    for claim in chunk.get("claims", []):
+        content = claim.get("content", "")
+        claim_id = generate_claim_id(content)
+        claims.append(
+            {
+                "claim_id": claim_id,
+                "content": content,
+                "source_id": source_id,
+                "category": "pdf-claim",
+                "claim_type": claim.get("claim_type", ""),
+                "sentiment": claim.get("sentiment"),
+            }
+        )
+        source_claim_rels.append(
+            {"from_id": source_id, "to_id": claim_id, "type": "MAKES_CLAIM"}
+        )
+        extracted_from_claim_rels.append(
+            {"from_id": claim_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
+        )
+        claim_entity_rels.extend(
+            _resolve_entity_rels(
+                claim.get("about_entities", []),
+                claim_id,
+                "ABOUT",
+                entity_name_to_id,
+            )
+        )
+
+    return claims, source_claim_rels, extracted_from_claim_rels, claim_entity_rels
+
+
+def _build_datapoint_nodes(
+    chunk: dict[str, Any],
+    source_hash: str,
+    source_id: str,
+    entity_name_to_id: dict[str, str],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+    dict[int, str],
+]:
+    """Build FinancialDataPoint nodes and their relations from a chunk.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``financial_datapoints[]``.
+    source_hash : str
+        SHA-256 hash of the source document.
+    source_id : str
+        ID of the parent Source node.
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup for entity resolution.
+
+    Returns
+    -------
+    tuple
+        A 4-tuple of (datapoints, has_datapoint_rels,
+        datapoint_entity_rels, dp_id_map).
+        *dp_id_map* maps datapoint index to its generated ID,
+        allowing ``_derive_fiscal_periods`` to reuse IDs without
+        recomputing SHA-256 hashes.
+    """
+    datapoints: list[dict[str, Any]] = []
     has_datapoint_rels: list[dict[str, str]] = []
-    for_period_rels: list[dict[str, str]] = []
     datapoint_entity_rels: list[dict[str, str]] = []
+    dp_id_map: dict[int, str] = {}
 
-    # Name→ID / Name→ticker maps for O(1) entity resolution
-    entity_name_to_id: dict[str, str] = {}
-    entity_name_to_ticker: dict[str, str] = {}
+    for idx, dp in enumerate(chunk.get("financial_datapoints", [])):
+        metric_name = dp.get("metric_name", "")
+        period_label = dp.get("period_label", "")
+        dp_id = generate_datapoint_id(source_hash, metric_name, period_label)
+        dp_id_map[idx] = dp_id
 
-    for chunk in input_chunks:
-        chunk_index = chunk.get("chunk_index", 0)
-        chunk_id = generate_chunk_id(source_hash, chunk_index)
-
-        # Build Chunk node
-        chunk_nodes.append(
+        datapoints.append(
             {
-                "chunk_id": chunk_id,
-                "chunk_index": chunk_index,
-                "section_title": chunk.get("section_title"),
-                "content": chunk.get("content", ""),
+                "datapoint_id": dp_id,
+                "metric_name": metric_name,
+                "value": dp.get("value"),
+                "unit": dp.get("unit", ""),
+                "is_estimate": dp.get("is_estimate", False),
+                "currency": dp.get("currency"),
+                "period_label": period_label,
             }
         )
 
-        # Source CONTAINS_CHUNK Chunk
-        contains_chunk_rels.append(
-            {
-                "from_id": source_id,
-                "to_id": chunk_id,
-                "type": "CONTAINS_CHUNK",
-            }
+        has_datapoint_rels.append(
+            {"from_id": source_id, "to_id": dp_id, "type": "HAS_DATAPOINT"}
         )
 
-        # Entities (deduplicated by name+type)
-        for entity in chunk.get("entities", []):
-            name = entity.get("name", "")
-            entity_type = entity.get("entity_type", "")
-            entity_key = f"{name}:{entity_type}"
-            if entity_key not in seen_entity_keys:
-                seen_entity_keys.add(entity_key)
-                eid = generate_entity_id(name, entity_type)
-                entities.append(
-                    {
-                        "entity_id": eid,
-                        "name": name,
-                        "entity_type": entity_type,
-                        "ticker": entity.get("ticker"),
-                    }
-                )
-                entity_name_to_id[name] = eid
-                if entity.get("ticker"):
-                    entity_name_to_ticker[name] = entity["ticker"]
+        datapoint_entity_rels.extend(
+            _resolve_entity_rels(
+                dp.get("about_entities", []),
+                dp_id,
+                "RELATES_TO",
+                entity_name_to_id,
+            )
+        )
 
-        # Facts → independent facts[] list
-        for fact in chunk.get("facts", []):
-            content = fact.get("content", "")
-            fact_id = generate_fact_id(content)
-            facts.append(
+    return datapoints, has_datapoint_rels, datapoint_entity_rels, dp_id_map
+
+
+def _derive_fiscal_periods(
+    chunk: dict[str, Any],
+    entity_name_to_ticker: dict[str, str],
+    seen_period_ids: set[str],
+    dp_id_map: dict[int, str],
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    """Derive FiscalPeriod nodes and FOR_PERIOD relations from datapoints.
+
+    Mutates *seen_period_ids* in-place for cross-chunk dedup.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``financial_datapoints[]``.
+    entity_name_to_ticker : dict[str, str]
+        Name-to-ticker lookup for period ID construction.
+    seen_period_ids : set[str]
+        Already-seen period IDs for deduplication.
+    dp_id_map : dict[int, str]
+        Pre-computed datapoint index-to-ID mapping from
+        ``_build_datapoint_nodes``, avoiding redundant SHA-256 hashing.
+
+    Returns
+    -------
+    tuple
+        A 2-tuple of (fiscal_periods, for_period_rels).
+    """
+    fiscal_periods: list[dict[str, Any]] = []
+    for_period_rels: list[dict[str, str]] = []
+
+    for idx, dp in enumerate(chunk.get("financial_datapoints", [])):
+        period_label = dp.get("period_label", "")
+        if not period_label:
+            continue
+
+        dp_id = dp_id_map[idx]
+
+        about_entities = dp.get("about_entities", [])
+        ticker = (
+            entity_name_to_ticker.get(about_entities[0], "") if about_entities else ""
+        )
+
+        period_id = f"{ticker}_{period_label}" if ticker else period_label
+        if period_id not in seen_period_ids:
+            seen_period_ids.add(period_id)
+            fiscal_periods.append(
                 {
-                    "fact_id": fact_id,
-                    "content": content,
-                    "source_id": source_id,
-                    "fact_type": fact.get("fact_type", ""),
-                    "as_of_date": fact.get("as_of_date"),
-                }
-            )
-            source_fact_rels.append(
-                {"from_id": source_id, "to_id": fact_id, "type": "STATES_FACT"}
-            )
-            # Fact EXTRACTED_FROM Chunk
-            extracted_from_fact_rels.append(
-                {"from_id": fact_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
-            )
-            for entity_name in fact.get("about_entities", []):
-                resolved_id = entity_name_to_id.get(entity_name)
-                if resolved_id:
-                    fact_entity_rels.append(
-                        {
-                            "from_id": fact_id,
-                            "to_id": resolved_id,
-                            "type": "RELATES_TO",
-                        }
-                    )
-
-        # Claims
-        for claim in chunk.get("claims", []):
-            content = claim.get("content", "")
-            claim_id = generate_claim_id(content)
-            claims.append(
-                {
-                    "claim_id": claim_id,
-                    "content": content,
-                    "source_id": source_id,
-                    "category": "pdf-claim",
-                    "claim_type": claim.get("claim_type", ""),
-                    "sentiment": claim.get("sentiment"),
-                }
-            )
-            source_claim_rels.append(
-                {"from_id": source_id, "to_id": claim_id, "type": "MAKES_CLAIM"}
-            )
-            # Claim EXTRACTED_FROM Chunk
-            extracted_from_claim_rels.append(
-                {"from_id": claim_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
-            )
-            for entity_name in claim.get("about_entities", []):
-                resolved_id = entity_name_to_id.get(entity_name)
-                if resolved_id:
-                    claim_entity_rels.append(
-                        {
-                            "from_id": claim_id,
-                            "to_id": resolved_id,
-                            "type": "ABOUT",
-                        }
-                    )
-
-        # FinancialDataPoints
-        for dp in chunk.get("financial_datapoints", []):
-            metric_name = dp.get("metric_name", "")
-            period_label = dp.get("period_label", "")
-            dp_id = generate_datapoint_id(source_hash, metric_name, period_label)
-
-            financial_datapoints.append(
-                {
-                    "datapoint_id": dp_id,
-                    "metric_name": metric_name,
-                    "value": dp.get("value"),
-                    "unit": dp.get("unit", ""),
-                    "is_estimate": dp.get("is_estimate", False),
-                    "currency": dp.get("currency"),
+                    "period_id": period_id,
+                    "period_type": _infer_period_type(period_label),
                     "period_label": period_label,
                 }
             )
 
-            # Source HAS_DATAPOINT FinancialDataPoint
-            has_datapoint_rels.append(
-                {"from_id": source_id, "to_id": dp_id, "type": "HAS_DATAPOINT"}
-            )
+        for_period_rels.append(
+            {"from_id": dp_id, "to_id": period_id, "type": "FOR_PERIOD"}
+        )
 
-            # FiscalPeriod derivation from period_label
-            if period_label:
-                about_entities = dp.get("about_entities", [])
-                ticker = (
-                    entity_name_to_ticker.get(about_entities[0], "")
-                    if about_entities
-                    else ""
-                )
+    return fiscal_periods, for_period_rels
 
-                period_id = (
-                    f"{ticker}_{period_label}" if ticker else period_label
-                )
-                if period_id not in seen_period_ids:
-                    seen_period_ids.add(period_id)
-                    fiscal_periods.append(
-                        {
-                            "period_id": period_id,
-                            "period_type": _infer_period_type(period_label),
-                            "period_label": period_label,
-                        }
-                    )
 
-                # FinancialDataPoint FOR_PERIOD FiscalPeriod
-                for_period_rels.append(
-                    {"from_id": dp_id, "to_id": period_id, "type": "FOR_PERIOD"}
-                )
+def _extend_rels(
+    target: dict[str, list[dict[str, str]]],
+    updates: dict[str, list[dict[str, str]]],
+) -> None:
+    """Merge relation lists from *updates* into *target* in-place.
 
-            # FinancialDataPoint → Entity (RELATES_TO)
-            for entity_name in dp.get("about_entities", []):
-                resolved_id = entity_name_to_id.get(entity_name)
-                if resolved_id:
-                    datapoint_entity_rels.append(
-                        {
-                            "from_id": dp_id,
-                            "to_id": resolved_id,
-                            "type": "RELATES_TO",
-                        }
-                    )
+    Parameters
+    ----------
+    target : dict[str, list[dict[str, str]]]
+        Target relation accumulator.
+    updates : dict[str, list[dict[str, str]]]
+        New relation lists to append.
+    """
+    for key, values in updates.items():
+        target[key].extend(values)
 
-    relations: dict[str, Any] = {
-        "source_fact": source_fact_rels,
-        "source_claim": source_claim_rels,
-        "fact_entity": fact_entity_rels,
-        "claim_entity": claim_entity_rels,
-        "contains_chunk": contains_chunk_rels,
-        "extracted_from_fact": extracted_from_fact_rels,
-        "extracted_from_claim": extracted_from_claim_rels,
-        "has_datapoint": has_datapoint_rels,
-        "for_period": for_period_rels,
-        "datapoint_entity": datapoint_entity_rels,
+
+def _empty_rels() -> dict[str, list[dict[str, str]]]:
+    """Return an empty relations dict with all 10 relation keys."""
+    return {
+        "source_fact": [],
+        "source_claim": [],
+        "fact_entity": [],
+        "claim_entity": [],
+        "contains_chunk": [],
+        "extracted_from_fact": [],
+        "extracted_from_claim": [],
+        "has_datapoint": [],
+        "for_period": [],
+        "datapoint_entity": [],
     }
+
+
+def _process_chunk(
+    chunk: dict[str, Any],
+    source_hash: str,
+    source_id: str,
+    seen_entity_keys: set[str],
+    entity_name_to_id: dict[str, str],
+    entity_name_to_ticker: dict[str, str],
+    seen_period_ids: set[str],
+) -> dict[str, Any]:
+    """Process a single chunk and return all node lists and relations.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data.
+    source_hash : str
+        SHA-256 hash of the source document.
+    source_id : str
+        ID of the parent Source node.
+    seen_entity_keys : set[str]
+        Cross-chunk entity dedup state (mutated in-place).
+    entity_name_to_id : dict[str, str]
+        Cross-chunk name-to-ID lookup (mutated in-place).
+    entity_name_to_ticker : dict[str, str]
+        Cross-chunk name-to-ticker lookup (mutated in-place).
+    seen_period_ids : set[str]
+        Cross-chunk period dedup state (mutated in-place).
+
+    Returns
+    -------
+    dict[str, Any]
+        Dict with keys ``chunks``, ``entities``, ``facts``, ``claims``,
+        ``datapoints``, ``periods``, and ``rels``.
+    """
+    chunk_node, chunk_id, cc_rels = _build_chunk_nodes(chunk, source_hash, source_id)
+
+    entities = _build_entity_nodes(
+        chunk, seen_entity_keys, entity_name_to_id, entity_name_to_ticker
+    )
+
+    facts, sf, ef, fe = _build_fact_nodes(chunk, source_id, chunk_id, entity_name_to_id)
+    claims, sc, ec, ce = _build_claim_nodes(
+        chunk, source_id, chunk_id, entity_name_to_id
+    )
+    dps, hd, de, dp_id_map = _build_datapoint_nodes(
+        chunk, source_hash, source_id, entity_name_to_id
+    )
+    periods, fp = _derive_fiscal_periods(
+        chunk, entity_name_to_ticker, seen_period_ids, dp_id_map
+    )
+
+    rels: dict[str, list[dict[str, str]]] = {
+        "contains_chunk": cc_rels,
+        "source_fact": sf,
+        "extracted_from_fact": ef,
+        "fact_entity": fe,
+        "source_claim": sc,
+        "extracted_from_claim": ec,
+        "claim_entity": ce,
+        "has_datapoint": hd,
+        "datapoint_entity": de,
+        "for_period": fp,
+    }
+
+    return {
+        "chunks": [chunk_node],
+        "entities": entities,
+        "facts": facts,
+        "claims": claims,
+        "datapoints": dps,
+        "periods": periods,
+        "rels": rels,
+    }
+
+
+_NODE_KEYS = ("entities", "facts", "claims", "chunks", "datapoints", "periods")
+"""Keys shared between _process_chunk output and the node accumulator."""
+
+
+def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
+    """Map pdf-extraction to graph-queue via per-chunk helper delegation.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input with ``source_hash``, ``chunks[]``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Graph-queue components (nodes + 10 relation types).
+    """
+    source_hash = data.get("source_hash", "")
+    source_id = generate_source_id(f"pdf:{source_hash}")
+    sources = [_make_source(f"pdf:{source_hash}", source_type="pdf")]
+
+    seen_entities: set[str] = set()
+    seen_periods: set[str] = set()
+    name_to_id: dict[str, str] = {}
+    name_to_ticker: dict[str, str] = {}
+    nodes: dict[str, list[Any]] = {k: [] for k in _NODE_KEYS}
+    rels = _empty_rels()
+
+    for chunk in data.get("chunks", []):
+        r = _process_chunk(
+            chunk,
+            source_hash,
+            source_id,
+            seen_entities,
+            name_to_id,
+            name_to_ticker,
+            seen_periods,
+        )
+        for k in _NODE_KEYS:
+            nodes[k].extend(r[k])
+        _extend_rels(rels, r["rels"])
 
     return _mapped_result(
         data,
         "pdf-extraction",
         sources=sources,
-        entities=entities,
-        facts=facts,
-        claims=claims,
-        chunks=chunk_nodes,
-        financial_datapoints=financial_datapoints,
-        fiscal_periods=fiscal_periods,
-        relations=relations,
+        entities=nodes["entities"],
+        facts=nodes["facts"],
+        claims=nodes["claims"],
+        chunks=nodes["chunks"],
+        financial_datapoints=nodes["datapoints"],
+        fiscal_periods=nodes["periods"],
+        relations=rels,
     )
 
 

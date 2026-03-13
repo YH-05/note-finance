@@ -56,6 +56,7 @@ from ..services.feed_fetcher import FeedFetcher
 from ..services.feed_manager import FeedManager
 from ..services.feed_reader import FeedReader
 from ..types import FetchInterval
+from .cache_security import harden_cache_directory
 
 
 def _get_logger() -> Any:
@@ -91,7 +92,8 @@ def _get_data_dir() -> Path:
         The RSS data directory path
     """
     env_dir = os.environ.get("RSS_DATA_DIR")
-    data_dir = Path(env_dir) if env_dir else get_path("raw/rss")
+    # AIDEV-NOTE: resolve() で正規化し、".." を含むパストラバーサルを防止 (CWE-22)
+    data_dir = Path(env_dir).resolve() if env_dir else get_path("raw/rss")
     data_dir.mkdir(parents=True, exist_ok=True)
     return data_dir
 
@@ -630,8 +632,18 @@ def serve() -> None:
 
     This function starts the MCP server using stdio transport,
     which is the standard way to communicate with Claude Code.
+
+    Security: hardens cache directory permissions at startup to mitigate
+    CVE-2025-69872 (diskcache pickle deserialization RCE).
     """
     data_dir = _get_data_dir()
+
+    # AIDEV-NOTE: CVE-2025-69872 mitigation - restrict diskcache directory
+    # permissions to owner-only (0o700) to prevent pickle injection attacks.
+    # fastmcp -> py-key-value-aio -> diskcache uses this directory for caching.
+    cache_dir = data_dir / ".cache"
+    harden_cache_directory(cache_dir)
+
     logger.info("Starting RSS MCP server", data_dir=str(data_dir))
     mcp.run(transport="stdio")
 

@@ -1,17 +1,25 @@
 """Deterministic ID generation for pdf_pipeline entities.
 
 Provides UUID5/SHA-256 based ID generation functions for sources,
-chunks, datapoints, and time periods. All functions are deterministic:
-the same inputs always produce the same output.
+chunks, datapoints, claims, facts, and time periods. All functions
+are deterministic: the same inputs always produce the same output.
 
 Functions
 ---------
 generate_source_id
     Generate a UUID5-based ID from a source URL.
+generate_entity_id
+    Generate a UUID5-based ID from an entity name and type.
 generate_chunk_id
     Generate a UUID5-based ID for a specific chunk within a source.
 generate_datapoint_id
     Generate a SHA-256 based short ID from datapoint content.
+generate_datapoint_id_from_fields
+    Generate a SHA-256 based short ID from source hash, metric, and period.
+generate_claim_id
+    Generate a SHA-256 based short ID from claim content.
+generate_fact_id
+    Generate a SHA-256 based short ID from fact content.
 generate_period_id
     Generate a UUID5-based ID from a time period string.
 
@@ -29,6 +37,24 @@ from __future__ import annotations
 
 import hashlib
 import uuid
+
+
+def _sha256_prefix(key: str, length: int = 32) -> str:
+    """Return the first *length* hex characters of a SHA-256 hash.
+
+    Parameters
+    ----------
+    key : str
+        Input text to hash.
+    length : int, optional
+        Number of hex characters to return (default 32, i.e. 128-bit).
+
+    Returns
+    -------
+    str
+        First *length* hex characters of the SHA-256 digest.
+    """
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:length]
 
 
 def generate_source_id(url: str) -> str:
@@ -93,8 +119,9 @@ def generate_chunk_id(source_id: str, chunk_index: int) -> str:
 def generate_datapoint_id(content: str) -> str:
     """Generate a deterministic datapoint ID from content text.
 
-    Uses the first 16 hex characters of the SHA-256 hash of *content*.
-    Consistent with the claim ID pattern in ``scripts/emit_graph_queue.py``.
+    Uses the first 32 hex characters (128-bit) of the SHA-256 hash of
+    *content*. Consistent with the claim ID pattern in
+    ``scripts/emit_graph_queue.py``.
 
     Parameters
     ----------
@@ -104,7 +131,7 @@ def generate_datapoint_id(content: str) -> str:
     Returns
     -------
     str
-        First 16 hex characters of the SHA-256 hash of *content*.
+        First 32 hex characters (128-bit) of the SHA-256 hash of *content*.
 
     Examples
     --------
@@ -113,9 +140,103 @@ def generate_datapoint_id(content: str) -> str:
     >>> id1 == id2
     True
     >>> len(id1)
-    16
+    32
     """
-    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
+    return _sha256_prefix(content)
+
+
+def generate_datapoint_id_from_fields(
+    source_hash: str, metric: str, period: str
+) -> str:
+    """Generate a deterministic datapoint ID from source hash, metric, and period.
+
+    Uses SHA-256 hashing with colon-delimited fields to prevent ID collisions
+    caused by special characters (e.g., underscores) in LLM-generated text.
+
+    Parameters
+    ----------
+    source_hash : str
+        The SHA-256 hash of the source document.
+    metric : str
+        Metric name (e.g., 'Revenue', 'EBITDA').
+    period : str
+        Period label (e.g., 'FY2025', '4Q25').
+
+    Returns
+    -------
+    str
+        First 32 hex characters (128-bit) of the SHA-256 hash.
+
+    Notes
+    -----
+    Previous implementation used string concatenation
+    (``f"{source_hash}_{metric}_{period}"``), which caused collision risk
+    when fields contained underscores. See Issue #74 (CWE-20).
+
+    Examples
+    --------
+    >>> id1 = generate_datapoint_id_from_fields("abc", "Revenue", "FY2025")
+    >>> id2 = generate_datapoint_id_from_fields("abc", "Revenue", "FY2025")
+    >>> id1 == id2
+    True
+    >>> len(id1)
+    32
+    """
+    key = f"{source_hash}:{metric}:{period}"
+    return _sha256_prefix(key)
+
+
+def generate_claim_id(content: str) -> str:
+    """Generate a deterministic claim ID from content.
+
+    Parameters
+    ----------
+    content : str
+        Claim content text.
+
+    Returns
+    -------
+    str
+        First 32 hex characters (128-bit) of the SHA-256 hash of *content*.
+
+    Examples
+    --------
+    >>> id1 = generate_claim_id("S&P 500 rose 2% this week.")
+    >>> id2 = generate_claim_id("S&P 500 rose 2% this week.")
+    >>> id1 == id2
+    True
+    >>> len(id1)
+    32
+    """
+    return _sha256_prefix(content)
+
+
+def generate_fact_id(content: str) -> str:
+    """Generate a deterministic fact ID from content.
+
+    Uses a ``fact:`` prefix before hashing to ensure fact IDs never
+    collide with claim IDs even when the content text is identical.
+
+    Parameters
+    ----------
+    content : str
+        Fact content text.
+
+    Returns
+    -------
+    str
+        First 32 hex characters (128-bit) of the SHA-256 hash of ``fact:{content}``.
+
+    Examples
+    --------
+    >>> id1 = generate_fact_id("Revenue was $100B in Q4")
+    >>> id2 = generate_fact_id("Revenue was $100B in Q4")
+    >>> id1 == id2
+    True
+    >>> len(id1)
+    32
+    """
+    return _sha256_prefix(f"fact:{content}")
 
 
 def generate_entity_id(name: str, entity_type: str) -> str:

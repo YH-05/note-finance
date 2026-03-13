@@ -1,0 +1,125 @@
+# PRレビューレポート
+# 生成日時: 2026-03-13 16:00:00
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-13 16:00:00"
+  pr_number: 93
+  pr_title: "feat(kg-v2): KGスキーマv2 セキュリティ修正・リファクタ・テスト追加"
+  base_branch: "main"
+  head_branch: "feature/issues-65-70-77"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 16
+  additions: 1457
+  deletions: 253
+
+scores:
+  code_quality:
+    readability: 87
+    design: 78
+    performance: 82
+    quant: null
+  security:
+    code: 79
+    infra: 74
+  test:
+    coverage: 87
+    quality: 88
+
+code_quality:
+  strengths:
+    - "全ファイルでNumPy形式Docstring・型ヒント・命名規則が一貫"
+    - "map_pdf_extraction() の8ヘルパー関数分割が適切（SRP準拠）"
+    - "COMMAND_MAPPERS ディスパッチテーブルによるOCP準拠"
+    - "セキュリティ修正の根拠がAIDEV-NOTEで明示"
+
+  issues:
+    critical: []
+    high:
+      - location: "scripts/emit_graph_queue.py + src/pdf_pipeline/services/id_generator.py"
+        description: "ID生成関数が2箇所に重複（DRY違反）"
+        recommendation: "長期的にid_generator.pyに統合"
+        status: "deferred"
+    medium:
+      - location: "scripts/emit_graph_queue.py:921,989"
+        description: "generate_datapoint_id の重複計算"
+        recommendation: "dp_id_map で排除"
+        status: "fixed (1806c98)"
+    low: []
+
+  solid_compliance:
+    single_responsibility: "WARN"
+    open_closed: "PASS"
+    liskov_substitution: "PASS"
+    interface_segregation: "PASS"
+    dependency_inversion: "WARN"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 1
+    medium: 3
+    low: 2
+
+  findings:
+    - id: "SEC-001"
+      severity: "MEDIUM"
+      location: "src/pdf_pipeline/services/gemini_provider.py:196-212"
+      description: "パストラバーサルチェックのプレフィックス衝突"
+      recommendation: "is_relative_to() に変更"
+      cwe_id: "CWE-22"
+      status: "fixed (1806c98)"
+    - id: "SEC-002"
+      severity: "MEDIUM"
+      location: "src/pdf_pipeline/services/gemini_provider.py:599"
+      description: "-y フラグ付きGemini CLIのプロンプトインジェクションリスク"
+      cwe_id: "CWE-77"
+      status: "deferred (pre-existing design)"
+    - id: "SEC-004"
+      severity: "LOW"
+      location: "src/rss/mcp/cache_security.py:68-78"
+      description: "harden_cache_directory の TOCTOU"
+      cwe_id: "CWE-367"
+      status: "fixed (1806c98)"
+    - id: "INFRA-001"
+      severity: "HIGH"
+      location: "diskcache 5.6.3"
+      description: "CVE-2025-69872 (pickle RCE)"
+      cwe_id: "CWE-502"
+      status: "mitigated (upstream未修正)"
+    - id: "INFRA-002"
+      severity: "MEDIUM"
+      location: "src/rss/mcp/cache_security.py:68"
+      description: "親ディレクトリパーミッション未hardening"
+      cwe_id: "CWE-732"
+      status: "fixed (1806c98)"
+
+test:
+  coverage_assessment: "GOOD"
+  edge_cases_covered: true
+  missing_tests:
+    - "generate_entity_id (id_generator.py) 未テスト"
+    - "map_reddit_topics の groups 分岐未テスト"
+    - "_infer_period_type の FQ 除外ロジック未テスト"
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "PASS"
+    readability: "PASS"
+
+recommended_actions:
+  required: []
+
+  suggested:
+    - priority: 1
+      action: "ID生成関数をid_generator.pyに統合（DRY改善）"
+    - priority: 2
+      action: "Gemini CLIの-yフラグのリスク低減（--allowed-tools等）"
+    - priority: 3
+      action: "generate_entity_idのテスト追加"
+
+summary:
+  verdict: "APPROVE"
+  comment: "セキュリティ修正・リファクタ・テスト追加の品質は高い。レビュー指摘4件を修正済み。残存指摘は既存設計課題または将来の改善事項であり、マージブロックではない。"
