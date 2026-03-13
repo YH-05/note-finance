@@ -16,6 +16,8 @@ import click
 from rich.console import Console
 from rich.table import Table
 
+from data_paths import get_path
+
 from ..exceptions import (
     FeedAlreadyExistsError,
     FeedFetchError,
@@ -44,8 +46,8 @@ def _get_logger() -> Any:
 
 logger: Any = _get_logger()
 
-# Default data directory
-DEFAULT_DATA_DIR = Path("data/raw/rss")
+# Default data directory (resolved via data_paths)
+DEFAULT_DATA_DIR = get_path("raw/rss")
 
 # Console for rich output
 console = Console()
@@ -640,8 +642,8 @@ def preset() -> None:
     "-f",
     "presets_file",
     type=click.Path(exists=True, path_type=Path),
-    default=Path("data/config/rss-presets.json"),
-    help="Presets file path (default: data/config/rss-presets.json)",
+    default=None,
+    help="Presets file path (default: {DATA_ROOT}/config/rss-presets.json)",
 )
 @click.option(
     "--validate/--no-validate",
@@ -652,11 +654,13 @@ def preset() -> None:
 @click.pass_context
 def apply(
     ctx: click.Context,
-    presets_file: Path,
+    presets_file: Path | None,
     validate: bool,
     json_output: bool,
 ) -> None:
     """Apply preset feeds from a configuration file."""
+    if presets_file is None:
+        presets_file = get_path("config/rss-presets.json")
     logger.info("Applying presets", presets_file=str(presets_file), validate=validate)
 
     data_dir = _get_data_dir(ctx)

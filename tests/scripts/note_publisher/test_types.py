@@ -18,6 +18,8 @@ from note_publisher.types import (
 )
 from pydantic import ValidationError
 
+from data_paths import get_path
+
 # =============================================================================
 # BlockType (Literal 型)
 # =============================================================================
@@ -340,7 +342,7 @@ class TestNotePublisherConfig:
         config = NotePublisherConfig()
 
         assert config.headless is True
-        assert config.storage_state_path == Path("data/config/note-storage-state.json")
+        assert config.storage_state_path == get_path("config/note-storage-state.json")
         assert config.timeout_ms == 30000
         assert config.typing_delay_ms == 50
 

@@ -16,6 +16,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
+from data_paths import get_path
 from report_scraper.exceptions import (
     ConfigError,
     ExtractionError,
@@ -146,8 +147,8 @@ class TestGlobalConfig:
 
     def test_正常系_デフォルト値で生成できる(self) -> None:
         config = GlobalConfig()
-        assert config.output_dir == Path("data/scraped/reports")
-        assert config.pdf_dir == Path("data/scraped/pdfs")
+        assert config.output_dir == get_path("scraped/reports")
+        assert config.pdf_dir == get_path("scraped/pdfs")
         assert config.max_reports_per_source == 20
         assert config.dedup_days == 30
 

@@ -14,6 +14,7 @@ from typing import Any
 # RSS パッケージをインポート
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
+from data_paths import get_path
 from rss import FeedReader
 
 
@@ -283,14 +284,14 @@ def main():
     print("-" * 80)
 
     # フィルター設定読み込み
-    config_path = Path("data/config/finance-news-filter.json")
+    config_path = get_path("config/finance-news-filter.json")
     print(f"フィルター設定: {config_path}")
     filter_config = load_filter_config(config_path)
     print("✓ フィルター設定を読み込みました")
     print()
 
     # RSS データディレクトリ
-    data_dir = Path("data/raw/rss")
+    data_dir = get_path("raw/rss")
     print(f"RSS データディレクトリ: {data_dir}")
 
     if not data_dir.exists():

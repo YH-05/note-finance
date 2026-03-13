@@ -14,6 +14,8 @@ from typing import TYPE_CHECKING
 from note_publisher.config import load_config
 from note_publisher.types import NotePublisherConfig
 
+from data_paths import get_path
+
 if TYPE_CHECKING:
     import pytest
 
@@ -33,7 +35,7 @@ class TestLoadConfig:
         assert config.headless is True
         assert config.timeout_ms == 30000
         assert config.typing_delay_ms == 50
-        assert config.storage_state_path == Path("data/config/note-storage-state.json")
+        assert config.storage_state_path == get_path("config/note-storage-state.json")
 
     # -----------------------------------------------------------------
     # Environment variable overrides
@@ -192,7 +194,7 @@ class TestLoadConfig:
         monkeypatch.setenv("NOTE_SESSION_PATH", "")
         config = load_config()
 
-        assert config.storage_state_path == Path("data/config/note-storage-state.json")
+        assert config.storage_state_path == get_path("config/note-storage-state.json")
 
     def test_エッジケース_環境変数未設定時にデフォルト値が保持される(
         self,
@@ -209,4 +211,4 @@ class TestLoadConfig:
         assert config.headless is True
         assert config.timeout_ms == 30000
         assert config.typing_delay_ms == 50
-        assert config.storage_state_path == Path("data/config/note-storage-state.json")
+        assert config.storage_state_path == get_path("config/note-storage-state.json")

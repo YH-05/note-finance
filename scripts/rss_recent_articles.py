@@ -7,12 +7,13 @@ import asyncio
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from data_paths import get_path
 from rss import FeedFetcher, FeedReader
 
 
 async def main() -> None:
     """メイン処理."""
-    data_dir = Path("data/raw/rss")
+    data_dir = get_path("raw/rss")
 
     print("=" * 80)
     print("RSS記事取得開始")

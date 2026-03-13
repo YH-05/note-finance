@@ -4,7 +4,9 @@
 import json
 import subprocess
 import sys
-from pathlib import Path
+from data_paths import get_project_root
+
+from _script_utils import FINANCE_NEWS_THEMES_CONFIG
 
 
 def calculate_title_similarity(title1: str, title2: str) -> float:
@@ -351,13 +353,14 @@ def main():
     # Phase 1: 初期化
     print("[INFO] Sectorテーマ処理開始\n")
 
-    # 一時ファイル読み込み
-    tmp_file = Path(
-        "/Users/yukihata/Desktop/finance/.tmp/news-collection-20260115-214331.json"
-    )
-    if not tmp_file.exists():
-        print(f"[エラー] 一時ファイルが見つかりません: {tmp_file}")
+    # 一時ファイル読み込み（最新のものを動的に選択）
+    tmp_dir = get_project_root() / ".tmp"
+    tmp_files = list(tmp_dir.glob("news-collection-*.json"))
+    if not tmp_files:
+        print("[エラー] 一時ファイルが見つかりません。オーケストレーターを先に実行してください。")
         sys.exit(1)
+    tmp_file = max(tmp_files, key=lambda p: p.stat().st_mtime)
+    print(f"[INFO] 一時ファイル読み込み: {tmp_file.name}")
 
     try:
         with open(tmp_file, encoding="utf-8") as f:
@@ -397,9 +400,7 @@ def main():
         sys.exit(1)
 
     # テーマ設定読み込み
-    config_file = Path(
-        "/Users/yukihata/Desktop/finance/data/config/finance-news-themes.json"
-    )
+    config_file = FINANCE_NEWS_THEMES_CONFIG
     with open(config_file) as f:
         config = json.load(f)
 

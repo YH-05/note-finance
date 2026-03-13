@@ -9,8 +9,11 @@ import json
 import subprocess
 import sys
 from datetime import datetime
-from pathlib import Path
 from typing import Any
+
+from data_paths import get_project_root
+
+from _script_utils import FINANCE_NEWS_THEMES_CONFIG
 
 
 def log(message: str) -> None:
@@ -393,7 +396,7 @@ def main() -> None:
     log("[Phase 1] 初期化")
 
     # 一時ファイルを探す（最新のものを使用）
-    tmp_dir = Path("/Users/yukihata/Desktop/finance/.tmp")
+    tmp_dir = get_project_root() / ".tmp"
     tmp_files = list(tmp_dir.glob("news-collection-*.json"))
 
     if not tmp_files:
@@ -450,9 +453,7 @@ def main() -> None:
         sys.exit(1)
 
     # テーマ設定読み込み
-    config_file = Path(
-        "/Users/yukihata/Desktop/finance/data/config/finance-news-themes.json"
-    )
+    config_file = FINANCE_NEWS_THEMES_CONFIG
     try:
         with open(config_file) as f:
             config = json.load(f)

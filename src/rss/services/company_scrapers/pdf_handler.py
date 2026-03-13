@@ -40,6 +40,8 @@ from urllib.parse import urlparse
 import httpx
 from lxml.html import fromstring
 
+from data_paths import get_path
+
 from .types import PdfMetadata
 
 
@@ -61,8 +63,8 @@ logger: Any = _get_logger()
 # Constants
 # ---------------------------------------------------------------------------
 
-_DEFAULT_BASE_DIR = Path("data/raw/ai-research/pdfs")
-"""Default directory for storing downloaded PDFs."""
+_DEFAULT_BASE_DIR = get_path("raw/ai-research/pdfs")
+"""Default directory for storing downloaded PDFs (resolved via data_paths)."""
 
 _HTTPX_TIMEOUT = 30
 """Timeout in seconds for PDF download requests."""

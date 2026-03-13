@@ -42,10 +42,12 @@ Examples
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from pathlib import Path
+from pathlib import Path  # noqa: TC003 — required at runtime by Pydantic
 from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
+
+from data_paths import get_path
 
 if TYPE_CHECKING:
     from datetime import datetime
@@ -165,11 +167,11 @@ class GlobalConfig(BaseModel):
     """
 
     output_dir: Path = Field(
-        default=Path("data/scraped/reports"),
+        default_factory=lambda: get_path("scraped/reports"),
         description="Directory for JSON output",
     )
     pdf_dir: Path = Field(
-        default=Path("data/scraped/pdfs"),
+        default_factory=lambda: get_path("scraped/pdfs"),
         description="Directory for downloaded PDFs",
     )
     max_reports_per_source: int = Field(
