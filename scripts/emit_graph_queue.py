@@ -894,6 +894,7 @@ def _build_datapoint_nodes(
     list[dict[str, Any]],
     list[dict[str, str]],
     list[dict[str, str]],
+    dict[int, str],
 ]:
     """Build FinancialDataPoint nodes and their relations from a chunk.
 
@@ -911,17 +912,22 @@ def _build_datapoint_nodes(
     Returns
     -------
     tuple
-        A 3-tuple of (datapoints, has_datapoint_rels,
-        datapoint_entity_rels).
+        A 4-tuple of (datapoints, has_datapoint_rels,
+        datapoint_entity_rels, dp_id_map).
+        *dp_id_map* maps datapoint index to its generated ID,
+        allowing ``_derive_fiscal_periods`` to reuse IDs without
+        recomputing SHA-256 hashes.
     """
     datapoints: list[dict[str, Any]] = []
     has_datapoint_rels: list[dict[str, str]] = []
     datapoint_entity_rels: list[dict[str, str]] = []
+    dp_id_map: dict[int, str] = {}
 
-    for dp in chunk.get("financial_datapoints", []):
+    for idx, dp in enumerate(chunk.get("financial_datapoints", [])):
         metric_name = dp.get("metric_name", "")
         period_label = dp.get("period_label", "")
         dp_id = generate_datapoint_id(source_hash, metric_name, period_label)
+        dp_id_map[idx] = dp_id
 
         datapoints.append(
             {
@@ -948,14 +954,14 @@ def _build_datapoint_nodes(
             )
         )
 
-    return datapoints, has_datapoint_rels, datapoint_entity_rels
+    return datapoints, has_datapoint_rels, datapoint_entity_rels, dp_id_map
 
 
 def _derive_fiscal_periods(
     chunk: dict[str, Any],
-    source_hash: str,
     entity_name_to_ticker: dict[str, str],
     seen_period_ids: set[str],
+    dp_id_map: dict[int, str],
 ) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
     """Derive FiscalPeriod nodes and FOR_PERIOD relations from datapoints.
 
@@ -965,12 +971,13 @@ def _derive_fiscal_periods(
     ----------
     chunk : dict[str, Any]
         Raw chunk data containing ``financial_datapoints[]``.
-    source_hash : str
-        SHA-256 hash of the source document.
     entity_name_to_ticker : dict[str, str]
         Name-to-ticker lookup for period ID construction.
     seen_period_ids : set[str]
         Already-seen period IDs for deduplication.
+    dp_id_map : dict[int, str]
+        Pre-computed datapoint index-to-ID mapping from
+        ``_build_datapoint_nodes``, avoiding redundant SHA-256 hashing.
 
     Returns
     -------
@@ -980,13 +987,12 @@ def _derive_fiscal_periods(
     fiscal_periods: list[dict[str, Any]] = []
     for_period_rels: list[dict[str, str]] = []
 
-    for dp in chunk.get("financial_datapoints", []):
-        metric_name = dp.get("metric_name", "")
+    for idx, dp in enumerate(chunk.get("financial_datapoints", [])):
         period_label = dp.get("period_label", "")
         if not period_label:
             continue
 
-        dp_id = generate_datapoint_id(source_hash, metric_name, period_label)
+        dp_id = dp_id_map[idx]
 
         about_entities = dp.get("about_entities", [])
         ticker = (
@@ -1088,11 +1094,11 @@ def _process_chunk(
     claims, sc, ec, ce = _build_claim_nodes(
         chunk, source_id, chunk_id, entity_name_to_id
     )
-    dps, hd, de = _build_datapoint_nodes(
+    dps, hd, de, dp_id_map = _build_datapoint_nodes(
         chunk, source_hash, source_id, entity_name_to_id
     )
     periods, fp = _derive_fiscal_periods(
-        chunk, source_hash, entity_name_to_ticker, seen_period_ids
+        chunk, entity_name_to_ticker, seen_period_ids, dp_id_map
     )
 
     rels: dict[str, list[dict[str, str]]] = {

@@ -65,8 +65,14 @@ def harden_cache_directory(cache_dir: Path) -> None:
     This function is idempotent: calling it on an already-hardened directory
     is a no-op.
     """
-    cache_dir.mkdir(parents=True, exist_ok=True)
+    # AIDEV-NOTE: Create parent directories first (inheriting umask),
+    # then create the target directory separately so we can set mode
+    # atomically. This avoids TOCTOU (CWE-367) between mkdir and chmod.
+    cache_dir.parent.mkdir(parents=True, exist_ok=True)
+    cache_dir.mkdir(mode=SECURE_DIR_MODE, exist_ok=True)
 
+    # Always chmod unconditionally to eliminate TOCTOU window.
+    # chmod is idempotent and safe to call even if mode is already correct.
     current_mode = stat.S_IMODE(cache_dir.stat().st_mode)
     if current_mode != SECURE_DIR_MODE:
         logger.info(
@@ -75,13 +81,7 @@ def harden_cache_directory(cache_dir: Path) -> None:
             old_mode=oct(current_mode),
             new_mode=oct(SECURE_DIR_MODE),
         )
-        cache_dir.chmod(SECURE_DIR_MODE)
-    else:
-        logger.debug(
-            "Cache directory already has secure permissions",
-            path=str(cache_dir),
-            mode=oct(SECURE_DIR_MODE),
-        )
+    cache_dir.chmod(SECURE_DIR_MODE)
 
 
 def validate_cache_directory_permissions(cache_dir: Path) -> bool:

@@ -193,13 +193,12 @@ def _sanitize_file_path(
         logger.error(msg, path=path_str)
         raise ValueError(msg)
 
-    # Path traversal check
+    # Path traversal check using is_relative_to() (Python 3.9+)
+    # AIDEV-NOTE: Avoids string-prefix comparison which is vulnerable to
+    # directory name collisions (e.g. /data/pdfs vs /data/pdfspwned).
     if allowed_dir is not None:
         allowed_resolved = allowed_dir.resolve()
-        if (
-            not str(resolved).startswith(str(allowed_resolved) + "/")
-            and resolved != allowed_resolved
-        ):
+        if not resolved.is_relative_to(allowed_resolved):
             msg = (
                 f"Path traversal detected: {resolved} is outside "
                 f"allowed directory {allowed_resolved}"
