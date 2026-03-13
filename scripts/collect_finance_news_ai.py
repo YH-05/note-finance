@@ -291,8 +291,14 @@ def create_issue_with_project(
 def main():
     log("INFO", "AIテーマの金融ニュース収集開始")
 
-    # ファイルパス
-    tmp_file = get_project_root() / ".tmp" / "news-collection-20260115-214331.json"
+    # ファイルパス（最新の一時ファイルを動的に選択）
+    tmp_dir = get_project_root() / ".tmp"
+    tmp_files = list(tmp_dir.glob("news-collection-*.json"))
+    if not tmp_files:
+        log("ERROR", "一時ファイルが見つかりません。オーケストレーターを先に実行してください。")
+        sys.exit(1)
+    tmp_file = max(tmp_files, key=lambda p: p.stat().st_mtime)
+    log("INFO", f"一時ファイル読み込み: {tmp_file.name}")
     config_file = get_path("config/finance-news-themes.json")
 
     # ファイル読み込み（スマートクォートを修正）

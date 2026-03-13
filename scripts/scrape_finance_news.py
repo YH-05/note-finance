@@ -55,9 +55,8 @@ logger = get_logger(__name__, module="scrape_finance_news")
 DEFAULT_NAS_OUTPUT = Path(
     os.environ.get("FINANCE_NEWS_NAS_DIR", "/Volumes/personal_folder/finance-news")
 )
-DEFAULT_LOCAL_FALLBACK = Path(
-    os.environ.get("FINANCE_NEWS_LOCAL_DIR", str(get_path("scraped")))
-)
+_local_dir_env = os.environ.get("FINANCE_NEWS_LOCAL_DIR")
+DEFAULT_LOCAL_FALLBACK = Path(_local_dir_env) if _local_dir_env else get_path("scraped")
 DEFAULT_SOURCES = ["cnbc", "nasdaq"]
 DEFAULT_CLEANUP_DAYS = 30
 

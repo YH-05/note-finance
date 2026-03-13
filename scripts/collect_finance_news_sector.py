@@ -353,11 +353,14 @@ def main():
     # Phase 1: 初期化
     print("[INFO] Sectorテーマ処理開始\n")
 
-    # 一時ファイル読み込み
-    tmp_file = get_project_root() / ".tmp" / "news-collection-20260115-214331.json"
-    if not tmp_file.exists():
-        print(f"[エラー] 一時ファイルが見つかりません: {tmp_file}")
+    # 一時ファイル読み込み（最新のものを動的に選択）
+    tmp_dir = get_project_root() / ".tmp"
+    tmp_files = list(tmp_dir.glob("news-collection-*.json"))
+    if not tmp_files:
+        print("[エラー] 一時ファイルが見つかりません。オーケストレーターを先に実行してください。")
         sys.exit(1)
+    tmp_file = max(tmp_files, key=lambda p: p.stat().st_mtime)
+    print(f"[INFO] 一時ファイル読み込み: {tmp_file.name}")
 
     try:
         with open(tmp_file, encoding="utf-8") as f:

@@ -97,7 +97,7 @@ def get_data_root() -> Path:
                 f"Create the directory or unset DATA_ROOT to use the default."
             )
             raise DataPathError(msg)
-        logger.info("Using DATA_ROOT", data_root=str(data_root))
+        logger.debug("Using DATA_ROOT", data_root=str(data_root))
         return data_root
 
     default_root = get_project_root() / "data"
@@ -105,6 +105,7 @@ def get_data_root() -> Path:
     return default_root
 
 
+@lru_cache(maxsize=1)
 def get_config_dir() -> Path:
     """設定ディレクトリのパスを返す（常にプロジェクトローカル）。
 
@@ -156,3 +157,4 @@ def _reset_cache() -> None:
     """lru_cache をクリアする（テスト用）。"""
     get_project_root.cache_clear()
     get_data_root.cache_clear()
+    get_config_dir.cache_clear()

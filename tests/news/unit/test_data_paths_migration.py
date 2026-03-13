@@ -11,9 +11,23 @@ Target files:
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 from pathlib import Path
 
-from data_paths import get_path
+import pytest
+
+from data_paths import _reset_cache, get_path
+
+
+@pytest.fixture(autouse=True)
+def _clear_data_paths_cache() -> Iterator[None]:
+    """各テストの前後でdata_pathsのlru_cacheをクリアする。"""
+    _reset_cache()
+    yield
+    _reset_cache()
 
 
 class TestModelsDataPathsMigration:

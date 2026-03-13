@@ -120,8 +120,10 @@ class TestGetPath:
 class TestEnsureDataDirs:
     """ensure_data_dirs のテスト。"""
 
-    def test_正常系_標準ディレクトリ構造が作成される(self, tmp_path: Path) -> None:
-        """標準ディレクトリ構造が作成されることを確認。"""
+    def test_正常系_標準4ディレクトリが作成されてPathのリストを返す(
+        self, tmp_path: Path
+    ) -> None:
+        """標準ディレクトリ構造（raw/processed/config/cache）が作成されることを確認。"""
         from data_paths import ensure_data_dirs
 
         data_dir = tmp_path / "data"
@@ -129,8 +131,13 @@ class TestEnsureDataDirs:
         with patch.dict(os.environ, {"DATA_ROOT": str(data_dir)}):
             _reset_cache()
             created = ensure_data_dirs()
-            # 少なくとも1つ以上のディレクトリが作成されている
-            assert len(created) > 0
+            # _STANDARD_DIRS の4件が正確に作成される
+            assert len(created) == 4
+            created_names = [d.name for d in created]
+            assert "raw" in created_names
+            assert "processed" in created_names
+            assert "config" in created_names
+            assert "cache" in created_names
             # 作成されたパスが全て存在する
             for d in created:
                 assert d.exists()
