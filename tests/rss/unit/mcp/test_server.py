@@ -45,7 +45,7 @@ class TestGetDataDir:
         custom_dir = temp_dir / "custom_rss"
         monkeypatch.setenv("RSS_DATA_DIR", str(custom_dir))
         result = _get_data_dir()
-        assert result == custom_dir
+        assert result == custom_dir.resolve()
         assert result.exists()
 
 

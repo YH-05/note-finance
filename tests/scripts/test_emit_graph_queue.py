@@ -302,19 +302,25 @@ class TestGenerateQueueId:
     @freeze_time(FROZEN_TIME)
     def test_正常系_タイムスタンプを含む(self) -> None:
         result = generate_queue_id()
-        # format: gq-{timestamp}-{hash4}
+        # format: gq-{timestamp}-{rand8}
         parts = result.split("-")
         assert len(parts) == 3
         # timestamp part should be numeric
         assert parts[1].isdigit()
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_hash4は4文字hex(self) -> None:
+    def test_正常系_rand8は8文字hex(self) -> None:
         result = generate_queue_id()
         parts = result.split("-")
-        hash_part = parts[2]
-        assert len(hash_part) == 4
-        int(hash_part, 16)
+        rand_part = parts[2]
+        assert len(rand_part) == 8
+        int(rand_part, 16)
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_同一時刻でも異なるIDを生成(self) -> None:
+        id1 = generate_queue_id()
+        id2 = generate_queue_id()
+        assert id1 != id2
 
 
 # ---------------------------------------------------------------------------
@@ -678,6 +684,68 @@ class TestMapRedditTopics:
         batch = _reddit_topics_batch()
         result = map_reddit_topics(batch)
         assert result["topics"][0]["category"] == "reddit"
+
+    def test_正常系_groups形式でトピックが正しく抽出される(self) -> None:
+        """groups ネスト形式のデータで topics が正しく生成されること。"""
+        batch: dict[str, Any] = {
+            "session_id": "reddit-topics-groups-20260307",
+            "groups": {
+                "investing": {
+                    "topics": [
+                        {
+                            "name": "Dividend ETFs vs Growth ETFs",
+                            "url": "https://reddit.com/r/investing/comments/abc123",
+                            "title": "Dividend ETFs vs Growth ETFs debate",
+                            "summary": "Community discusses merits of dividend vs growth.",
+                            "subreddit": "r/investing",
+                            "created_at": "2026-03-06T18:00:00+00:00",
+                            "score": 245,
+                        }
+                    ],
+                },
+                "personalfinance": {
+                    "topics": [
+                        {
+                            "name": "Emergency Fund Strategy",
+                            "url": "https://reddit.com/r/personalfinance/comments/def456",
+                            "title": "Best emergency fund strategy in 2026",
+                            "summary": "Discussion on optimal emergency fund sizes.",
+                            "subreddit": "r/personalfinance",
+                            "created_at": "2026-03-06T20:00:00+00:00",
+                            "score": 180,
+                        }
+                    ],
+                },
+            },
+        }
+        result = map_reddit_topics(batch)
+
+        # 2グループからそれぞれ1トピックずつ、計2トピック
+        assert len(result["topics"]) == 2
+        topic_names = {t["name"] for t in result["topics"]}
+        assert topic_names == {
+            "Dividend ETFs vs Growth ETFs",
+            "Emergency Fund Strategy",
+        }
+
+        # URLありの全トピックからsourceが生成される
+        assert len(result["sources"]) == 2
+        source_urls = {s["url"] for s in result["sources"]}
+        assert "https://reddit.com/r/investing/comments/abc123" in source_urls
+        assert "https://reddit.com/r/personalfinance/comments/def456" in source_urls
+
+        # sourceにsubredditとscoreが含まれる
+        for source in result["sources"]:
+            assert "subreddit" in source
+            assert "score" in source
+
+        # 全topicのcategoryがredditに設定される
+        for topic in result["topics"]:
+            assert topic["category"] == "reddit"
+
+        # session_idが保持される
+        assert result["session_id"] == "reddit-topics-groups-20260307"
+        assert result["batch_label"] == "reddit"
 
     def test_エッジケース_URLなしのtopicではsourceが生成されない(self) -> None:
         batch = {

@@ -92,7 +92,8 @@ def _get_data_dir() -> Path:
         The RSS data directory path
     """
     env_dir = os.environ.get("RSS_DATA_DIR")
-    data_dir = Path(env_dir) if env_dir else get_path("raw/rss")
+    # AIDEV-NOTE: resolve() で正規化し、".." を含むパストラバーサルを防止 (CWE-22)
+    data_dir = Path(env_dir).resolve() if env_dir else get_path("raw/rss")
     data_dir.mkdir(parents=True, exist_ok=True)
     return data_dir
 

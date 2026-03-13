@@ -13,6 +13,7 @@ import pytest
 from pdf_pipeline.services.id_generator import (
     generate_chunk_id,
     generate_datapoint_id,
+    generate_entity_id,
     generate_period_id,
     generate_source_id,
 )
@@ -113,6 +114,42 @@ class TestGenerateDatapointId:
         result = generate_datapoint_id("test content")
         assert all(c in "0123456789abcdef" for c in result)
         assert len(result) == 32
+
+
+# ---------------------------------------------------------------------------
+# generate_entity_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateEntityId:
+    """Tests for generate_entity_id."""
+
+    def test_正常系_nameとentity_typeからIDを生成できる(self) -> None:
+        result = generate_entity_id(name="Apple", entity_type="company")
+        assert isinstance(result, str)
+        assert len(result) > 0
+
+    def test_正常系_同じ入力で同じIDを生成する(self) -> None:
+        assert generate_entity_id(
+            name="Apple", entity_type="company"
+        ) == generate_entity_id(name="Apple", entity_type="company")
+
+    def test_正常系_異なる入力で異なるIDを生成する(self) -> None:
+        id1 = generate_entity_id(name="Apple", entity_type="company")
+        id2 = generate_entity_id(name="Google", entity_type="company")
+        assert id1 != id2
+
+    def test_正常系_異なるentity_typeで異なるIDを生成する(self) -> None:
+        id1 = generate_entity_id(name="Apple", entity_type="company")
+        id2 = generate_entity_id(name="Apple", entity_type="brand")
+        assert id1 != id2
+
+    def test_正常系_UUID形式の文字列を返す(self) -> None:
+        import uuid
+
+        result = generate_entity_id(name="S&P 500", entity_type="index")
+        parsed = uuid.UUID(result)
+        assert str(parsed) == result
 
 
 # ---------------------------------------------------------------------------

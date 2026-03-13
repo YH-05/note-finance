@@ -31,10 +31,10 @@ Usage
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import logging
 import os
+import secrets
 import sys
 import time
 import uuid
@@ -42,6 +42,14 @@ from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+from pdf_pipeline.services.id_generator import (
+    generate_claim_id,
+    generate_datapoint_id_from_fields,
+    generate_entity_id,
+    generate_fact_id,
+    generate_source_id,
+)
 
 type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 
@@ -91,23 +99,31 @@ THEME_TO_CATEGORY: dict[str, str] = {
 # ID Generation
 # ---------------------------------------------------------------------------
 
+# generate_source_id, generate_entity_id, generate_claim_id, generate_fact_id
+# are imported from pdf_pipeline.services.id_generator.
+# generate_datapoint_id_from_fields is also imported; see generate_datapoint_id below.
 
-def generate_source_id(url: str) -> str:
-    """Generate a deterministic source ID from a URL.
 
-    Uses UUID5 with NAMESPACE_URL to produce the same ID for the same URL.
+def generate_datapoint_id(source_hash: str, metric: str, period: str) -> str:
+    """Generate a deterministic datapoint ID from source hash, metric, and period.
+
+    Delegates to ``pdf_pipeline.services.id_generator.generate_datapoint_id_from_fields``.
 
     Parameters
     ----------
-    url : str
-        The source URL.
+    source_hash : str
+        The SHA-256 hash of the source document.
+    metric : str
+        Metric name (e.g., 'Revenue', 'EBITDA').
+    period : str
+        Period label (e.g., 'FY2025', '4Q25').
 
     Returns
     -------
     str
-        UUID5 string derived from the URL.
+        First 32 hex characters (128-bit) of the SHA-256 hash.
     """
-    return str(uuid.uuid5(uuid.NAMESPACE_URL, url))
+    return generate_datapoint_id_from_fields(source_hash, metric, period)
 
 
 def generate_topic_id(name: str, category: str) -> str:
@@ -128,59 +144,6 @@ def generate_topic_id(name: str, category: str) -> str:
     return str(uuid.uuid5(uuid.NAMESPACE_URL, f"topic:{name}:{category}"))
 
 
-def generate_entity_id(name: str, entity_type: str) -> str:
-    """Generate a deterministic entity ID from name and type.
-
-    Parameters
-    ----------
-    name : str
-        Entity name.
-    entity_type : str
-        Entity type (e.g. ``company``, ``ticker``).
-
-    Returns
-    -------
-    str
-        UUID5 string derived from ``entity:{name}:{entity_type}``.
-    """
-    return str(uuid.uuid5(uuid.NAMESPACE_URL, f"entity:{name}:{entity_type}"))
-
-
-def generate_claim_id(content: str) -> str:
-    """Generate a deterministic claim ID from content.
-
-    Parameters
-    ----------
-    content : str
-        Claim content text.
-
-    Returns
-    -------
-    str
-        First 32 hex characters (128-bit) of the SHA-256 hash of *content*.
-    """
-    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:32]
-
-
-def generate_fact_id(content: str) -> str:
-    """Generate a deterministic fact ID from content.
-
-    Uses a ``fact:`` prefix before hashing to ensure fact IDs never
-    collide with claim IDs even when the content text is identical.
-
-    Parameters
-    ----------
-    content : str
-        Fact content text.
-
-    Returns
-    -------
-    str
-        First 32 hex characters (128-bit) of the SHA-256 hash of ``fact:{content}``.
-    """
-    return hashlib.sha256(f"fact:{content}".encode("utf-8")).hexdigest()[:32]
-
-
 def generate_chunk_id(source_hash: str, chunk_index: int) -> str:
     """Generate a deterministic chunk ID from source hash and chunk index.
 
@@ -199,49 +162,23 @@ def generate_chunk_id(source_hash: str, chunk_index: int) -> str:
     return f"{source_hash}_chunk_{chunk_index}"
 
 
-def generate_datapoint_id(source_hash: str, metric: str, period: str) -> str:
-    """Generate a deterministic datapoint ID from source hash, metric, and period.
-
-    Uses SHA-256 hashing with colon-delimited fields to prevent ID collisions
-    caused by special characters (e.g., underscores) in LLM-generated text.
-
-    Parameters
-    ----------
-    source_hash : str
-        The SHA-256 hash of the source document.
-    metric : str
-        Metric name (e.g., 'Revenue', 'EBITDA').
-    period : str
-        Period label (e.g., 'FY2025', '4Q25').
-
-    Returns
-    -------
-    str
-        First 32 hex characters (128-bit) of the SHA-256 hash.
-
-    Notes
-    -----
-    Previous implementation used string concatenation
-    (``f"{source_hash}_{metric}_{period}"``), which caused collision risk
-    when fields contained underscores. See Issue #74 (CWE-20).
-    """
-    key = f"{source_hash}:{metric}:{period}"
-    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:32]
-
-
 def generate_queue_id() -> str:
-    """Generate a unique queue ID with timestamp and short hash.
+    """Generate a unique queue ID with timestamp and random suffix.
+
+    Uses ``secrets.token_hex(4)`` to produce an 8-character random hex
+    suffix (32-bit entropy / ~4 billion possibilities), which is
+    substantially more collision-resistant than the previous SHA-256[:4]
+    approach (16-bit / 65 536 possibilities).
 
     Returns
     -------
     str
-        Queue ID in the format ``gq-{timestamp}-{hash4}``.
+        Queue ID in the format ``gq-{timestamp}-{rand8}``.
     """
     now = datetime.now(timezone.utc)
     timestamp = now.strftime("%Y%m%d%H%M%S")
-    # Use a hash of the full ISO timestamp for the 4-char suffix
-    hash4 = hashlib.sha256(now.isoformat().encode("utf-8")).hexdigest()[:4]
-    return f"gq-{timestamp}-{hash4}"
+    rand8 = secrets.token_hex(4)
+    return f"gq-{timestamp}-{rand8}"
 
 
 # ---------------------------------------------------------------------------
