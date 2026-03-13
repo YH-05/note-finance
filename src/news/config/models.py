@@ -63,6 +63,7 @@ import yaml
 from pydantic import BaseModel, Field
 from pydantic import ValidationError as PydanticValidationError
 
+from data_paths import get_path
 from news._logging import get_logger
 
 from ..core.errors import NewsError
@@ -1006,7 +1007,7 @@ class PublishingConfig(BaseModel):
         description="Whether to export markdown files for each category",
     )
     export_dir: str = Field(
-        default="data/exports/news-workflow",
+        default_factory=lambda: str(get_path("exports/news-workflow")),
         description="Directory for exported markdown files",
     )
 
@@ -1210,7 +1211,7 @@ class NewsWorkflowConfig(BaseModel):
 # =============================================================================
 
 # Default configuration file path
-DEFAULT_CONFIG_PATH = Path("data/config/news_sources.yaml")
+DEFAULT_CONFIG_PATH = get_path("config/news_sources.yaml")
 
 
 class ConfigLoader:

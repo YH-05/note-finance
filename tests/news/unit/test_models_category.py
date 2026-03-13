@@ -490,13 +490,14 @@ class TestPublishingConfig:
 
     def test_正常系_デフォルト値で作成できる(self) -> None:
         """デフォルト値で PublishingConfig を作成できる."""
+        from data_paths import get_path
         from news.config.models import PublishingConfig
 
         config = PublishingConfig()
 
         assert config.format == "per_category"
         assert config.export_markdown is True
-        assert config.export_dir == "data/exports/news-workflow"
+        assert config.export_dir == str(get_path("exports/news-workflow"))
 
     def test_正常系_カスタム値で作成できる(self) -> None:
         """カスタム値で PublishingConfig を作成できる."""
