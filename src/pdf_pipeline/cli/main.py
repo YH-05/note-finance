@@ -35,6 +35,7 @@ import click
 from rich.console import Console
 from rich.table import Table
 
+from data_paths import get_path
 from pdf_pipeline._logging import get_logger
 from pdf_pipeline.config.loader import load_config
 from pdf_pipeline.core.pdf_scanner import PdfScanner
@@ -50,12 +51,12 @@ logger = get_logger(__name__, module="cli")
 # Constants
 # ---------------------------------------------------------------------------
 
-DEFAULT_OUTPUT_DIR = Path("data/processed")
+DEFAULT_OUTPUT_DIR = get_path("processed")
 
 _SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 """Default output directory for processed PDFs."""
 
-DEFAULT_CONFIG_PATH = Path("data/config/pdf-pipeline-config.yaml")
+DEFAULT_CONFIG_PATH = get_path("config/pdf-pipeline-config.yaml")
 """Default path to the YAML configuration file."""
 
 console = Console()

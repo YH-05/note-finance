@@ -14,6 +14,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
+from data_paths import get_path
 from pdf_pipeline.types import (
     BatchManifest,
     LLMConfig,
@@ -107,7 +108,7 @@ class TestPipelineConfig:
 
     def test_正常系_デフォルト値が設定される(self) -> None:
         config = PipelineConfig(input_dirs=[Path("data/raw")])
-        assert config.output_dir == Path("data/processed")
+        assert config.output_dir == get_path("processed")
         assert config.batch_size > 0
 
     def test_正常系_全フィールドで生成できる(self) -> None:
