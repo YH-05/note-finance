@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from pdf_pipeline._logging import get_logger
-from pdf_pipeline.exceptions import LLMProviderError
+from pdf_pipeline.exceptions import LLMProviderError, PathTraversalError
 
 logger = get_logger(__name__, module="gemini_provider")
 
@@ -102,6 +102,90 @@ Output ONLY valid JSON. No explanation or commentary.
 
 Text:
 """
+
+# Characters considered dangerous in file names for prompt embedding (CWE-77).
+# Allows: alphanumeric, hyphen, underscore, dot, forward slash, spaces,
+#          parentheses, and common CJK characters.
+# Rejects: control characters, newlines, backticks, semicolons, pipes,
+#           dollar signs, and other shell meta-characters.
+_DANGEROUS_FILENAME_RE: re.Pattern[str] = re.compile(r"[\x00-\x1f\x7f`;\|&$!{}<>\"\']")
+
+
+def _sanitize_file_path(
+    path: Path,
+    *,
+    allowed_dir: Path | None = None,
+) -> Path:
+    """Sanitize a file path before embedding it in a prompt.
+
+    Validates that the file path does not contain dangerous characters
+    (control characters, newlines, shell meta-characters) that could
+    enable prompt injection (CWE-77). Optionally verifies the resolved
+    path is within an allowed directory to prevent path traversal.
+
+    Parameters
+    ----------
+    path : Path
+        The file path to sanitize.
+    allowed_dir : Path | None
+        If provided, the resolved path must be within this directory.
+        Raises ``PathTraversalError`` if the path escapes.
+
+    Returns
+    -------
+    Path
+        The resolved (absolute) path.
+
+    Raises
+    ------
+    ValueError
+        If the file name contains dangerous characters.
+    PathTraversalError
+        If the resolved path is outside the allowed directory.
+    """
+    # Check the original (unresolved) path first to catch injection attempts
+    # before Path.resolve() which may raise on null bytes etc.
+    original_str = str(path)
+    if _DANGEROUS_FILENAME_RE.search(original_str):
+        msg = (
+            f"File path contains dangerous characters that could enable "
+            f"prompt injection: {original_str!r}"
+        )
+        logger.error(msg, path=original_str)
+        raise ValueError(msg)
+
+    resolved = path.resolve()
+
+    # Check resolved path too (symlink targets etc.)
+    path_str = str(resolved)
+    if _DANGEROUS_FILENAME_RE.search(path_str):
+        msg = (
+            f"File path contains dangerous characters that could enable "
+            f"prompt injection: {path_str!r}"
+        )
+        logger.error(msg, path=path_str)
+        raise ValueError(msg)
+
+    # Path traversal check
+    if allowed_dir is not None:
+        allowed_resolved = allowed_dir.resolve()
+        if (
+            not str(resolved).startswith(str(allowed_resolved) + "/")
+            and resolved != allowed_resolved
+        ):
+            msg = (
+                f"Path traversal detected: {resolved} is outside "
+                f"allowed directory {allowed_resolved}"
+            )
+            logger.error(msg, path=str(resolved), base_dir=str(allowed_resolved))
+            raise PathTraversalError(
+                msg,
+                path=str(resolved),
+                base_dir=str(allowed_resolved),
+            )
+
+    return resolved
+
 
 # Patterns to strip from Gemini CLI output (noise/thinking logs)
 _NOISE_PATTERNS: list[re.Pattern[str]] = [
@@ -463,10 +547,26 @@ class GeminiCLIProvider:
         LLMProviderError
             If the command fails (non-zero exit) or raises an OS-level error.
         """
-        # Embed file paths into the prompt for Gemini to read via tools
+        # Sanitize and embed file paths into the prompt for Gemini to read
         full_prompt = prompt
         if files:
-            file_list = "\n".join(f"- {f}" for f in files)
+            sanitized_files: list[Path] = []
+            for f in files:
+                try:
+                    sanitized = _sanitize_file_path(f)
+                    sanitized_files.append(sanitized)
+                except (ValueError, PathTraversalError) as exc:
+                    msg = (
+                        f"GeminiCLIProvider.{operation} failed: unsafe file path: {exc}"
+                    )
+                    logger.error(
+                        msg,
+                        provider="GeminiCLIProvider",
+                        operation=operation,
+                        path=str(f),
+                    )
+                    raise LLMProviderError(msg, provider="GeminiCLIProvider") from exc
+            file_list = "\n".join(f"- {sf}" for sf in sanitized_files)
             full_prompt = f"Files to process:\n{file_list}\n\n{prompt}"
 
         cmd: list[str] = [_CLI_COMMAND, "-p", full_prompt, "-y"]
