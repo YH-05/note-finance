@@ -188,7 +188,9 @@ def _make_summary_with_results(
 class TestFormatResultsTable:
     """TEST-006: format_results_table の出力フォーマットテスト。"""
 
-    def _ok_result(self, url: str = "https://example.com/feed/") -> PresetValidationResult:
+    def _ok_result(
+        self, url: str = "https://example.com/feed/"
+    ) -> PresetValidationResult:
         r = PresetValidationResult(url=url, title="Feed", errors=[], warnings=[])
         r.status = "OK"
         r.http_code = 200
@@ -218,8 +220,10 @@ class TestFormatResultsTable:
         """フッターに Total/OK/WARN/ERROR の集計が含まれることを確認する。"""
         ok_r = self._ok_result("https://example.com/feed1/")
         warn_r = PresetValidationResult(
-            url="https://example.com/feed2/", title="Feed2",
-            errors=[], warnings=["tier is string"],
+            url="https://example.com/feed2/",
+            title="Feed2",
+            errors=[],
+            warnings=["tier is string"],
         )
         warn_r.status = "WARN"
         warn_r.http_code = 200
@@ -236,8 +240,10 @@ class TestFormatResultsTable:
     def test_正常系_エラーがある場合ERROR行が出力される(self) -> None:
         """errors リストがある場合 'ERROR:' 行が含まれることを確認する。"""
         err_r = PresetValidationResult(
-            url="", title="",
-            errors=["missing url field"], warnings=[],
+            url="",
+            title="",
+            errors=["missing url field"],
+            warnings=[],
         )
         err_r.status = "ERROR"
         err_r.http_code = None

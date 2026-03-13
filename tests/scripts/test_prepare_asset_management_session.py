@@ -367,7 +367,7 @@ class TestGenerateSessionId:
     @freeze_time("2026-03-06T12:30:45+00:00")
     def test_正常系_正しいフォーマットで生成される(self) -> None:
         sid = generate_session_id()
-        assert sid == "asset-mgmt-20260306-123045"
+        assert sid == "asset-mgmt-20260306-123045-000000"
 
     @freeze_time("2026-01-01T00:00:00+00:00")
     def test_正常系_年初でも正しく生成される(self) -> None:

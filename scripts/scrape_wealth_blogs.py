@@ -737,7 +737,7 @@ def _slugify(title: str) -> str:
 
 def _save_article_markdown(
     url: str,
-    title: str,
+    title: str | None,
     text: str,
     date: str | None,
     author: str | None,
@@ -750,7 +750,7 @@ def _save_article_markdown(
     ----------
     url : str
         Article URL.
-    title : str
+    title : str | None
         Article title.
     text : str
         Extracted article text.
