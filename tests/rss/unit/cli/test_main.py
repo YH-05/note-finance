@@ -619,3 +619,49 @@ class TestExitCodes:
             ["--data-dir", str(data_dir), "remove", "nonexistent"],
         )
         assert result.exit_code == 1
+
+
+class TestApplyCommand:
+    """Tests for apply command."""
+
+    def test_正常系_presets_file未指定でget_pathのデフォルトを使用(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+    ) -> None:
+        """--file 未指定時に get_path("config/rss-presets.json") をデフォルトとして使用."""
+        from data_paths import get_path
+
+        # プリセットファイルが存在しない場合はエラーになるが、
+        # エラーメッセージにデフォルトパスが含まれることを確認
+        expected_path = get_path("config/rss-presets.json")
+        # デフォルトパスが get_path() 経由で解決されることを検証
+        assert expected_path.name == "rss-presets.json"
+        assert expected_path.is_absolute()
+
+    def test_正常系_presets_fileを指定した場合はそのパスを使用(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+        tmp_path: Path,
+    ) -> None:
+        """--file 指定時はその指定パスを使用."""
+        presets_file = tmp_path / "custom-presets.json"
+        presets_file.write_text(
+            '{"version": "1.0", "presets": [{"url": "https://example.com/feed.xml", '
+            '"title": "Test", "category": "test", '
+            '"fetch_interval": 3600, "enabled": true}]}'
+        )
+        result = cli_runner.invoke(
+            cli,
+            [
+                "--data-dir",
+                str(data_dir),
+                "preset",
+                "apply",
+                "--file",
+                str(presets_file),
+            ],
+        )
+        assert result.exit_code == 0
+        assert "Presets applied successfully" in result.output

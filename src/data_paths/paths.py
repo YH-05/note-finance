@@ -39,6 +39,12 @@ _STANDARD_DIRS = [
     "cache",
 ]
 
+# AIDEV-NOTE: DATA_ROOT に設定してはならないシステムディレクトリ。
+_FORBIDDEN_ROOTS = frozenset(
+    Path(p)
+    for p in ["/", "/etc", "/usr", "/bin", "/sbin", "/var", "/sys", "/proc", "/tmp"]
+)
+
 
 class DataPathError(Exception):
     """データパス解決時のエラー。
@@ -95,6 +101,12 @@ def get_data_root() -> Path:
             msg = (
                 f"DATA_ROOT is set to '{env_root}' but the path does not exist. "
                 f"Create the directory or unset DATA_ROOT to use the default."
+            )
+            raise DataPathError(msg)
+        if data_root in _FORBIDDEN_ROOTS:
+            msg = (
+                f"DATA_ROOT '{data_root}' points to a system directory. "
+                f"Use a project-specific subdirectory instead."
             )
             raise DataPathError(msg)
         logger.debug("Using DATA_ROOT", data_root=str(data_root))

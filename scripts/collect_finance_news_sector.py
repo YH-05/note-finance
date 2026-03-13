@@ -4,9 +4,9 @@
 import json
 import subprocess
 import sys
-from pathlib import Path
+from data_paths import get_project_root
 
-from data_paths import get_path, get_project_root
+from _script_utils import FINANCE_NEWS_THEMES_CONFIG
 
 
 def calculate_title_similarity(title1: str, title2: str) -> float:
@@ -400,7 +400,7 @@ def main():
         sys.exit(1)
 
     # テーマ設定読み込み
-    config_file = get_path("config/finance-news-themes.json")
+    config_file = FINANCE_NEWS_THEMES_CONFIG
     with open(config_file) as f:
         config = json.load(f)
 

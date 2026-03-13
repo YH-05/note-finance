@@ -52,9 +52,9 @@ logger = get_logger(__name__, module="cli")
 # ---------------------------------------------------------------------------
 
 DEFAULT_OUTPUT_DIR = get_path("processed")
+"""Default output directory for processed PDFs."""
 
 _SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
-"""Default output directory for processed PDFs."""
 
 DEFAULT_CONFIG_PATH = get_path("config/pdf-pipeline-config.yaml")
 """Default path to the YAML configuration file."""

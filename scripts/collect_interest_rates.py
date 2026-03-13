@@ -33,7 +33,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from data_paths import get_path
+from _script_utils import resolve_output_dir
 
 from analyze.reporting.interest_rate_agent import (
     InterestRateAnalyzer4Agent,
@@ -169,7 +169,7 @@ def main() -> int:
     parser = create_parser()
     args = parser.parse_args()
 
-    output_dir = Path(args.output) if args.output else get_path("market")
+    output_dir = resolve_output_dir(args.output)
     timestamp = generate_timestamp()
 
     try:

@@ -1,11 +1,16 @@
 """Unit tests for data_paths.paths module."""
 
+from __future__ import annotations
+
 import os
-from collections.abc import Iterator
 from pathlib import Path
+from typing import TYPE_CHECKING
 from unittest.mock import patch
 
 import pytest
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 
 from data_paths import (
     DataPathError,
@@ -38,20 +43,40 @@ class TestGetProjectRoot:
         root = get_project_root()
         assert isinstance(root, Path)
 
+    def test_異常系_pyproject_tomlが見つからない場合DataPathError(
+        self, tmp_path: Path
+    ) -> None:
+        """pyproject.toml が見つからない場合に DataPathError を送出する。"""
+        import data_paths.paths as paths_mod
+
+        # get_project_root 内の Path(__file__) を tmp_path 配下のパスに差し替え
+        fake_file = tmp_path / "src" / "data_paths" / "paths.py"
+        fake_file.parent.mkdir(parents=True)
+        fake_file.touch()
+
+        # Path(__file__) の結果を差し替えるために __file__ を一時的に変更
+        original_file = paths_mod.__file__
+        try:
+            paths_mod.__file__ = str(fake_file)
+            _reset_cache()
+            with pytest.raises(DataPathError, match=r"pyproject\.toml"):
+                get_project_root()
+        finally:
+            paths_mod.__file__ = original_file
+
 
 class TestGetDataRoot:
     """get_data_root のテスト。"""
 
-    def test_正常系_DATA_ROOT未設定でデフォルトパスを返す(self) -> None:
+    def test_正常系_DATA_ROOT未設定でデフォルトパスを返す(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         """DATA_ROOT未設定時にproject/dataを返すことを確認。"""
-        with patch.dict(os.environ, {}, clear=False):
-            # DATA_ROOTが環境変数にない場合を確認
-            env = {k: v for k, v in os.environ.items() if k != "DATA_ROOT"}
-            with patch.dict(os.environ, env, clear=True):
-                _reset_cache()
-                root = get_data_root()
-                project_root = get_project_root()
-                assert root == project_root / "data"
+        monkeypatch.delenv("DATA_ROOT", raising=False)
+        _reset_cache()
+        root = get_data_root()
+        project_root = get_project_root()
+        assert root == project_root / "data"
 
     def test_正常系_DATA_ROOT設定済みで存在するパスを返す(self, tmp_path: Path) -> None:
         """DATA_ROOT設定時にそのパスを返すことを確認。"""
@@ -70,6 +95,27 @@ class TestGetDataRoot:
         with patch.dict(os.environ, {"DATA_ROOT": str(non_existent)}):
             _reset_cache()
             with pytest.raises(DataPathError, match="DATA_ROOT"):
+                get_data_root()
+
+    def test_異常系_DATA_ROOTが空文字列の場合デフォルトを使用(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """DATA_ROOT が空文字列の場合はデフォルトパスを使用する。"""
+        monkeypatch.setenv("DATA_ROOT", "")
+        _reset_cache()
+        # 空文字列は os.environ.get で truthy ではないので
+        # デフォルトの project/data に fallback する
+        root = get_data_root()
+        project_root = get_project_root()
+        assert root == project_root / "data"
+
+    def test_異常系_DATA_ROOTがシステムディレクトリの場合DataPathError(self) -> None:
+        """DATA_ROOT がシステムディレクトリを指す場合に DataPathError を送出する。"""
+        # macOS では /tmp は /private/tmp のシンボリックリンクのため、
+        # resolve() 後に _FORBIDDEN_ROOTS と一致しない。/ を使用する。
+        with patch.dict(os.environ, {"DATA_ROOT": "/"}):
+            _reset_cache()
+            with pytest.raises(DataPathError, match="system directory"):
                 get_data_root()
 
 
@@ -96,25 +142,36 @@ class TestGetConfigDir:
 class TestGetPath:
     """get_path のテスト。"""
 
-    def test_正常系_サブパスを結合して返す(self) -> None:
+    def test_正常系_サブパスを結合して返す(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         """サブパスがデータルートに結合されることを確認。"""
-        with patch.dict(os.environ, {}, clear=False):
-            env = {k: v for k, v in os.environ.items() if k != "DATA_ROOT"}
-            with patch.dict(os.environ, env, clear=True):
-                _reset_cache()
-                path = get_path("raw/fred")
-                data_root = get_data_root()
-                assert path == data_root / "raw" / "fred"
+        monkeypatch.delenv("DATA_ROOT", raising=False)
+        _reset_cache()
+        path = get_path("raw/fred")
+        data_root = get_data_root()
+        assert path == data_root / "raw" / "fred"
 
-    def test_正常系_Path型のサブパスも受け付ける(self) -> None:
+    def test_正常系_Path型のサブパスも受け付ける(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         """Path型のサブパスが正しく結合されることを確認。"""
-        with patch.dict(os.environ, {}, clear=False):
-            env = {k: v for k, v in os.environ.items() if k != "DATA_ROOT"}
-            with patch.dict(os.environ, env, clear=True):
-                _reset_cache()
-                path = get_path(Path("raw") / "fred")
-                data_root = get_data_root()
-                assert path == data_root / "raw" / "fred"
+        monkeypatch.delenv("DATA_ROOT", raising=False)
+        _reset_cache()
+        path = get_path(Path("raw") / "fred")
+        data_root = get_data_root()
+        assert path == data_root / "raw" / "fred"
+
+    def test_正常系_絶対パスのサブパスを渡した場合(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """絶対パスのサブパスを渡した場合の動作を確認。"""
+        monkeypatch.delenv("DATA_ROOT", raising=False)
+        _reset_cache()
+        # Path("/absolute") / "/other" は "/other" になる（Python の Path 仕様）
+        # get_path は単純に結合するので、絶対パスを渡すと data_root が無視される
+        result = get_path("/absolute/path")
+        assert result == Path("/absolute/path")
 
 
 class TestEnsureDataDirs:

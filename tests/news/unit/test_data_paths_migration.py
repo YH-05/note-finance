@@ -39,8 +39,8 @@ class TestModelsDataPathsMigration:
 
         config = PublishingConfig()
 
-        expected = str(get_path("exports/news-workflow"))
-        assert config.export_dir == expected
+        expected_path = str(get_path("exports/news-workflow"))
+        assert config.export_dir == expected_path
 
     def test_正常系_PublishingConfigのexport_dirはstr型(self) -> None:
         """PublishingConfig.export_dir が str 型であることを確認."""

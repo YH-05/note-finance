@@ -10,12 +10,12 @@ import json
 import subprocess
 import sys
 from datetime import datetime
-from pathlib import Path
+from data_paths import get_project_root
 
-from data_paths import get_path, get_project_root
+from _script_utils import FINANCE_NEWS_THEMES_CONFIG
 
 
-def log(level: str, message: str, **kwargs):
+def log(level: str, message: str, **kwargs: object) -> None:
     """ログ出力"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     extra = " ".join(f"{k}={v}" for k, v in kwargs.items())
@@ -299,7 +299,7 @@ def main():
         sys.exit(1)
     tmp_file = max(tmp_files, key=lambda p: p.stat().st_mtime)
     log("INFO", f"一時ファイル読み込み: {tmp_file.name}")
-    config_file = get_path("config/finance-news-themes.json")
+    config_file = FINANCE_NEWS_THEMES_CONFIG
 
     # ファイル読み込み（スマートクォートを修正）
     try:
