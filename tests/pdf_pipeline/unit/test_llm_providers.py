@@ -213,6 +213,49 @@ class TestGeminiCLIProviderExtractKnowledge:
 
         assert result == '{"entities": [], "relations": []}'
 
+    def test_正常系_sanitize_outputが適用される(self) -> None:
+        noisy_output = (
+            "MCP issues detected. Run /mcp list for status.\n"
+            "I will extract knowledge from the text.\n"
+            "```json\n"
+            '{"entities": [{"name": "Apple"}], "facts": []}\n'
+            "```"
+        )
+        mock_result = MagicMock()
+        mock_result.returncode = 0
+        mock_result.stdout = noisy_output
+
+        with patch("subprocess.run", return_value=mock_result):
+            provider = GeminiCLIProvider()
+            result = provider.extract_knowledge("Apple released iPhone")
+
+        assert "MCP issues detected" not in result
+        assert "I will extract" not in result
+        assert "```" not in result
+        assert '{"entities": [{"name": "Apple"}], "facts": []}' in result
+
+    def test_異常系_subprocess失敗でLLMProviderError(self) -> None:
+        mock_result = MagicMock()
+        mock_result.returncode = 1
+        mock_result.stderr = "gemini: command failed"
+
+        with patch("subprocess.run", return_value=mock_result):
+            provider = GeminiCLIProvider()
+            with pytest.raises(LLMProviderError, match="extract_knowledge"):
+                provider.extract_knowledge("knowledge text")
+
+    def test_異常系_タイムアウトでLLMProviderError(self) -> None:
+        with patch(
+            "subprocess.run",
+            side_effect=subprocess.TimeoutExpired(
+                cmd=["gemini", "-p", "...", "-y"],
+                timeout=300,
+            ),
+        ):
+            provider = GeminiCLIProvider()
+            with pytest.raises(LLMProviderError, match="extract_knowledge"):
+                provider.extract_knowledge("knowledge text")
+
 
 # ---------------------------------------------------------------------------
 # _truncate_stderr (CWE-532 stderr leakage prevention)
