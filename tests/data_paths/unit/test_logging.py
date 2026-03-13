@@ -51,13 +51,21 @@ class TestEnsureBasicConfig:
         handler_types = [type(h) for h in pkg_logger.handlers]
         assert logging.NullHandler in handler_types
 
-    def test_正常系_有効なLOG_LEVELが反映される(self) -> None:
-        """有効な LOG_LEVEL 環境変数が正しく反映されることを確認。"""
+    def test_正常系_有効なLOG_LEVELがpkgロガーに反映される(self) -> None:
+        """有効な LOG_LEVEL 環境変数がパッケージロガーのレベルに反映されることを確認。"""
         with patch.dict(os.environ, {"LOG_LEVEL": "DEBUG"}):
-            logging_mod._initialized = False
             _ensure_basic_config()
-            # エラーにならずに初期化が完了する
-            assert logging_mod._initialized is True
+            pkg_logger = logging.getLogger("data_paths")
+            assert pkg_logger.level == logging.DEBUG
+
+    def test_正常系_root_loggerのハンドラを操作しない(self) -> None:
+        """root logger にハンドラがあっても追加しないことを確認。"""
+        root_logger = logging.getLogger()
+        handlers_before = len(root_logger.handlers)
+        _ensure_basic_config()
+        handlers_after = len(root_logger.handlers)
+        # ライブラリパッケージとして root logger のハンドラ数は変化しない
+        assert handlers_after == handlers_before
 
     def test_異常系_無効なLOG_LEVELでデフォルトINFOを使用(
         self, capsys: pytest.CaptureFixture[str]

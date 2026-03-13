@@ -109,11 +109,20 @@ class TestGetDataRoot:
         project_root = get_project_root()
         assert root == project_root / "data"
 
-    def test_異常系_DATA_ROOTがシステムディレクトリの場合DataPathError(self) -> None:
-        """DATA_ROOT がシステムディレクトリを指す場合に DataPathError を送出する。"""
-        # macOS では /tmp は /private/tmp のシンボリックリンクのため、
-        # resolve() 後に _FORBIDDEN_ROOTS と一致しない。/ を使用する。
+    def test_異常系_DATA_ROOTがルートディレクトリの場合DataPathError(self) -> None:
+        """DATA_ROOT が / を指す場合に DataPathError を送出する。"""
         with patch.dict(os.environ, {"DATA_ROOT": "/"}):
+            _reset_cache()
+            with pytest.raises(DataPathError, match="system directory"):
+                get_data_root()
+
+    def test_異常系_DATA_ROOTがtmpディレクトリの場合DataPathError(self) -> None:
+        """DATA_ROOT が /tmp を指す場合に DataPathError を送出する。
+
+        macOS では /tmp は /private/tmp のシンボリックリンクだが、
+        _FORBIDDEN_ROOTS も resolve() 済みのため正しくブロックされる。
+        """
+        with patch.dict(os.environ, {"DATA_ROOT": "/tmp"}):
             _reset_cache()
             with pytest.raises(DataPathError, match="system directory"):
                 get_data_root()

@@ -630,14 +630,22 @@ class TestApplyCommand:
         data_dir: Path,
     ) -> None:
         """--file 未指定時に get_path("config/rss-presets.json") をデフォルトとして使用."""
+        from unittest.mock import patch as mock_patch
+
         from data_paths import get_path
 
-        # プリセットファイルが存在しない場合はエラーになるが、
-        # エラーメッセージにデフォルトパスが含まれることを確認
         expected_path = get_path("config/rss-presets.json")
-        # デフォルトパスが get_path() 経由で解決されることを検証
-        assert expected_path.name == "rss-presets.json"
-        assert expected_path.is_absolute()
+        # apply コマンドを CLI invoke し、デフォルトパスが使われることを確認
+        with mock_patch("rss.cli.main.get_path", return_value=expected_path) as mock_gp:
+            result = cli_runner.invoke(
+                cli,
+                ["--data-dir", str(data_dir), "preset", "apply"],
+            )
+            mock_gp.assert_called_once_with("config/rss-presets.json")
+        # 実際のプリセットファイルが存在するため成功する場合と、
+        # 存在しない場合でエラーになる場合がある。
+        # ここでは get_path() が正しい引数で呼ばれたことのみを検証する。
+        assert result.exit_code in (0, 1)
 
     def test_正常系_presets_fileを指定した場合はそのパスを使用(
         self,

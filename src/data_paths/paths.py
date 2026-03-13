@@ -40,8 +40,9 @@ _STANDARD_DIRS = [
 ]
 
 # AIDEV-NOTE: DATA_ROOT に設定してはならないシステムディレクトリ。
+# resolve() を適用して macOS のシンボリックリンク（/tmp → /private/tmp 等）に対応。
 _FORBIDDEN_ROOTS = frozenset(
-    Path(p)
+    Path(p).resolve()
     for p in ["/", "/etc", "/usr", "/bin", "/sbin", "/var", "/sys", "/proc", "/tmp"]
 )
 

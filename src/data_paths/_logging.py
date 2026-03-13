@@ -18,8 +18,8 @@ def _ensure_basic_config() -> None:
     """get_logger 呼び出し前に最小限のロギング設定を確保する.
 
     AIDEV-NOTE: root logger のハンドラは操作しない（PEP 推奨のライブラリ作法）。
-    data_paths パッケージ専用ロガーに NullHandler を設定し、
-    root logger にハンドラが未設定の場合のみフォールバックで追加する。
+    data_paths パッケージ専用ロガーに NullHandler を設定する。
+    root logger の設定はアプリケーション側の責務とする。
     """
     global _initialized  # noqa: PLW0603
     if _initialized:
@@ -37,8 +37,9 @@ def _ensure_basic_config() -> None:
         level_str = "INFO"
     level_value = getattr(logging, level_str)
 
-    # ライブラリ専用ロガーに NullHandler を追加（PEP 推奨）
+    # ライブラリ専用ロガーに NullHandler を追加し、LOG_LEVEL を反映（PEP 推奨）
     pkg_logger = logging.getLogger("data_paths")
+    pkg_logger.setLevel(level_value)
     pkg_logger.addHandler(logging.NullHandler())
 
     shared_processors = [
@@ -50,21 +51,6 @@ def _ensure_basic_config() -> None:
         structlog.processors.format_exc_info,
         structlog.processors.UnicodeDecoder(),
     ]
-
-    # root logger にハンドラが未設定の場合のみフォールバックで追加
-    root_logger = logging.getLogger()
-    if not root_logger.hasHandlers():
-        console_formatter = structlog.stdlib.ProcessorFormatter(
-            foreign_pre_chain=shared_processors,
-            processors=[
-                structlog.stdlib.ProcessorFormatter.remove_processors_meta,
-                structlog.dev.ConsoleRenderer(colors=True),
-            ],
-        )
-        root_logger.setLevel(level_value)
-        console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setFormatter(console_formatter)
-        root_logger.addHandler(console_handler)
 
     structlog.configure(
         processors=[

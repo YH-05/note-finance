@@ -5,6 +5,7 @@ with data_paths.get_path() calls.
 
 Target files:
 - src/report_scraper/storage/pdf_store.py (DEFAULT_PDF_DIR)
+- src/report_scraper/cli/main.py (DEFAULT_DATA_DIR, DEFAULT_CONFIG_PATH)
 """
 
 from __future__ import annotations
@@ -42,3 +43,27 @@ class TestPdfStoreDataPathsMigration:
         from report_scraper.storage.pdf_store import DEFAULT_PDF_DIR
 
         assert isinstance(DEFAULT_PDF_DIR, str)
+
+
+class TestCliMainDataPathsMigration:
+    """report_scraper.cli.main のハードコードパスが data_paths に移行されていることを検証."""
+
+    def test_正常系_DEFAULT_DATA_DIRがget_pathを使用(self) -> None:
+        """cli.main.DEFAULT_DATA_DIR が get_path() 経由で解決される."""
+        from pathlib import Path
+
+        from report_scraper.cli.main import DEFAULT_DATA_DIR
+
+        expected = get_path("scraped/reports")
+        assert expected == DEFAULT_DATA_DIR
+        assert isinstance(DEFAULT_DATA_DIR, Path)
+
+    def test_正常系_DEFAULT_CONFIG_PATHがget_pathを使用(self) -> None:
+        """cli.main.DEFAULT_CONFIG_PATH が get_path() 経由で解決される."""
+        from pathlib import Path
+
+        from report_scraper.cli.main import DEFAULT_CONFIG_PATH
+
+        expected = get_path("config/report-scraper-config.yaml")
+        assert expected == DEFAULT_CONFIG_PATH
+        assert isinstance(DEFAULT_CONFIG_PATH, Path)

@@ -32,8 +32,9 @@ class TestGetDataDir:
         """Should use data_paths.get_path('raw/rss') when RSS_DATA_DIR is not set."""
         monkeypatch.delenv("RSS_DATA_DIR", raising=False)
         mock_path = temp_dir / "raw" / "rss"
-        with patch("rss.mcp.server.get_path", return_value=mock_path):
+        with patch("rss.mcp.server.get_path", return_value=mock_path) as mock_get_path:
             result = _get_data_dir()
+            mock_get_path.assert_called_once_with("raw/rss")
             assert result == mock_path
             assert result.exists()
 
