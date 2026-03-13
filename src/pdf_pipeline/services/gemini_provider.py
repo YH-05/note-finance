@@ -103,6 +103,33 @@ Output ONLY valid JSON. No explanation or commentary.
 Text:
 """
 
+_STDERR_MAX_LENGTH = 500  # Maximum stderr length for log output (CWE-532)
+
+
+def _truncate_stderr(stderr: str, max_length: int = _STDERR_MAX_LENGTH) -> str:
+    """Truncate stderr output to prevent sensitive data leakage (CWE-532).
+
+    Limits stderr length to avoid exposing API keys, tokens, or other
+    sensitive information that may appear in subprocess error output.
+
+    Parameters
+    ----------
+    stderr : str
+        Raw stderr output from subprocess.
+    max_length : int
+        Maximum number of characters to retain. Defaults to 500.
+
+    Returns
+    -------
+    str
+        Original string if within limit, or truncated with
+        ``... [truncated]`` suffix.
+    """
+    if len(stderr) <= max_length:
+        return stderr
+    return stderr[:max_length] + "... [truncated]"
+
+
 # Characters considered dangerous in file names for prompt embedding (CWE-77).
 # Allows: alphanumeric, hyphen, underscore, dot, forward slash, spaces,
 #          parentheses, and common CJK characters.
@@ -590,16 +617,17 @@ class GeminiCLIProvider:
             raise LLMProviderError(msg, provider="GeminiCLIProvider") from exc
 
         if result.returncode != 0:
-            msg = (
-                f"GeminiCLIProvider.{operation} failed: "
-                f"exit code {result.returncode}: {result.stderr}"
-            )
+            # AIDEV-NOTE: CWE-532 - Do NOT include raw stderr in exception
+            # message to prevent leaking API keys or tokens. Log truncated
+            # stderr separately via structured logging.
+            msg = f"GeminiCLIProvider.{operation} failed: exit code {result.returncode}"
+            truncated_stderr = _truncate_stderr(result.stderr)
             logger.error(
                 msg,
                 provider="GeminiCLIProvider",
                 operation=operation,
                 returncode=result.returncode,
-                stderr=result.stderr,
+                stderr=truncated_stderr,
             )
             raise LLMProviderError(msg, provider="GeminiCLIProvider")
 

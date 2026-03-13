@@ -26,6 +26,7 @@ from pdf_pipeline.services.gemini_provider import (
     GeminiCLIProvider,
     _sanitize_file_path,
     _sanitize_output,
+    _truncate_stderr,
 )
 from pdf_pipeline.services.llm_provider import LLMProvider
 from pdf_pipeline.services.provider_chain import ProviderChain
@@ -211,6 +212,102 @@ class TestGeminiCLIProviderExtractKnowledge:
             result = provider.extract_knowledge("knowledge text")
 
         assert result == '{"entities": [], "relations": []}'
+
+
+# ---------------------------------------------------------------------------
+# _truncate_stderr (CWE-532 stderr leakage prevention)
+# ---------------------------------------------------------------------------
+
+
+class TestTruncateStderr:
+    """Tests for _truncate_stderr helper (CWE-532 log leakage prevention)."""
+
+    def test_正常系_短いstderrはそのまま返る(self) -> None:
+        stderr = "short error message"
+        result = _truncate_stderr(stderr)
+        assert result == stderr
+
+    def test_正常系_空文字列はそのまま返る(self) -> None:
+        result = _truncate_stderr("")
+        assert result == ""
+
+    def test_正常系_ちょうど上限の長さはそのまま返る(self) -> None:
+        stderr = "x" * 500
+        result = _truncate_stderr(stderr, max_length=500)
+        assert result == stderr
+        assert len(result) == 500
+
+    def test_正常系_上限超過時にトランケートされる(self) -> None:
+        stderr = "x" * 600
+        result = _truncate_stderr(stderr, max_length=500)
+        assert len(result) <= 500 + len("... [truncated]")
+        assert result.endswith("... [truncated]")
+        assert "x" * 500 in result
+
+    def test_正常系_カスタム上限が適用される(self) -> None:
+        stderr = "a" * 200
+        result = _truncate_stderr(stderr, max_length=100)
+        assert result.endswith("... [truncated]")
+        assert len(result) <= 100 + len("... [truncated]")
+
+    def test_正常系_デフォルト上限は500文字(self) -> None:
+        stderr = "b" * 1000
+        result = _truncate_stderr(stderr)
+        # First 500 chars + truncation indicator
+        assert result.startswith("b" * 500)
+        assert result.endswith("... [truncated]")
+
+
+class TestGeminiCLIProviderStderrLeakagePrevention:
+    """Tests for stderr leakage prevention in _run_gemini (CWE-532)."""
+
+    def test_異常系_例外メッセージにstderr全体が含まれない(self) -> None:
+        """Exception message must NOT contain raw stderr (could leak secrets)."""
+        long_stderr = "API_KEY=sk-secret-12345 " * 100  # sensitive data in stderr
+        mock_result = MagicMock()
+        mock_result.returncode = 1
+        mock_result.stderr = long_stderr
+
+        with patch("subprocess.run", return_value=mock_result):
+            provider = GeminiCLIProvider()
+            with pytest.raises(LLMProviderError) as exc_info:
+                provider.extract_table_json("test text")
+
+        error_msg = str(exc_info.value)
+        # Exception message should contain operation name and exit code
+        assert "exit code 1" in error_msg
+        # Exception message must NOT contain the raw stderr
+        assert long_stderr not in error_msg
+        assert "API_KEY=sk-secret-12345" not in error_msg
+
+    def test_異常系_例外メッセージに操作名とリターンコードが含まれる(self) -> None:
+        """Exception message should include operation name and return code."""
+        mock_result = MagicMock()
+        mock_result.returncode = 42
+        mock_result.stderr = "some error"
+
+        with patch("subprocess.run", return_value=mock_result):
+            provider = GeminiCLIProvider()
+            with pytest.raises(LLMProviderError) as exc_info:
+                provider.extract_table_json("test text")
+
+        error_msg = str(exc_info.value)
+        assert "extract_table_json" in error_msg
+        assert "42" in error_msg
+
+    def test_異常系_短いstderrも例外メッセージに含まれない(self) -> None:
+        """Even short stderr should not appear in exception message."""
+        mock_result = MagicMock()
+        mock_result.returncode = 1
+        mock_result.stderr = "brief error"
+
+        with patch("subprocess.run", return_value=mock_result):
+            provider = GeminiCLIProvider()
+            with pytest.raises(LLMProviderError) as exc_info:
+                provider.extract_table_json("test text")
+
+        error_msg = str(exc_info.value)
+        assert "brief error" not in error_msg
 
 
 # ---------------------------------------------------------------------------
