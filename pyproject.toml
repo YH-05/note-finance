@@ -116,4 +116,6 @@ finance = { git = "https://github.com/YH-05/finance.git" }
 [dependency-groups]
 dev = [
     "freezegun>=1.5.5",
+    "pyright>=1.1.408",
+    "ruff>=0.14.14",
 ]
