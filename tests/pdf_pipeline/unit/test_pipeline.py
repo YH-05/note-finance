@@ -745,3 +745,135 @@ class TestPdfPipelineKnowledgeExtraction:
         # chunks.json should still exist
         chunks_file = tmp_path / "output" / "abc123" / "chunks.json"
         assert chunks_file.exists()
+
+
+# ---------------------------------------------------------------------------
+# PdfPipeline._extract_report_metadata: issuer resolution branches
+# ---------------------------------------------------------------------------
+
+
+class TestExtractReportMetadataIssuer:
+    """Tests for the 3-way issuer resolution in _extract_report_metadata.
+
+    Branch 1: Vision (extract_issuer) succeeds → issuer resolved.
+    Branch 2: Vision returns 'unknown'/None, text fallback succeeds → issuer resolved.
+    Branch 3: Both Vision and text fallback fail → issuer is None.
+    """
+
+    def _make_pipeline(self, tmp_path: Path) -> PdfPipeline:
+        """Create a minimal pipeline for metadata extraction tests."""
+        config = _make_config(tmp_path)
+        return PdfPipeline(
+            config=config,
+            scanner=MagicMock(),
+            noise_filter=MagicMock(),
+            markdown_converter=MagicMock(),
+            chunker=MagicMock(),
+            state_manager=MagicMock(),
+        )
+
+    def _make_provider(
+        self,
+        *,
+        extract_issuer_return: str | None = None,
+        extract_issuer_from_text_return: str | None = None,
+        is_available: bool = True,
+    ) -> MagicMock:
+        """Create a mock LLM provider with issuer extraction methods."""
+        provider = MagicMock()
+        provider.is_available.return_value = is_available
+        provider.extract_issuer.return_value = extract_issuer_return
+        provider.extract_issuer_from_text.return_value = extract_issuer_from_text_return
+        return provider
+
+    @patch("pdf_pipeline.core.pipeline.fitz", create=True)
+    def test_正常系_Visionがissuerを返す場合(
+        self, mock_fitz: MagicMock, tmp_path: Path
+    ) -> None:
+        """Branch 1: extract_issuer returns a valid issuer string."""
+        # Arrange: fitz returns no creation date
+        mock_doc = MagicMock()
+        mock_doc.metadata = {}
+        mock_fitz.open.return_value = mock_doc
+
+        pipeline = self._make_pipeline(tmp_path)
+
+        llm_provider = self._make_provider(extract_issuer_return="Goldman Sachs")
+        pipeline.markdown_converter.provider = llm_provider
+        # Ensure single-provider path (no `providers` attribute)
+        del llm_provider.providers
+
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+        chunks = [{"content": "Some chunk content"}]
+
+        # Act
+        result = pipeline._extract_report_metadata(pdf_path=pdf_path, chunks=chunks)
+
+        # Assert
+        assert result["issuer"] == "Goldman Sachs"
+        llm_provider.extract_issuer.assert_called_once_with(str(pdf_path))
+        # Text fallback should NOT be called when Vision succeeds
+        llm_provider.extract_issuer_from_text.assert_not_called()
+
+    @patch("pdf_pipeline.core.pipeline.fitz", create=True)
+    def test_正常系_Vision失敗でテキストフォールバック成功(
+        self, mock_fitz: MagicMock, tmp_path: Path
+    ) -> None:
+        """Branch 2: extract_issuer returns None, extract_issuer_from_text succeeds."""
+        # Arrange
+        mock_doc = MagicMock()
+        mock_doc.metadata = {}
+        mock_fitz.open.return_value = mock_doc
+
+        pipeline = self._make_pipeline(tmp_path)
+
+        llm_provider = self._make_provider(
+            extract_issuer_return=None,
+            extract_issuer_from_text_return="日本銀行",
+        )
+        pipeline.markdown_converter.provider = llm_provider
+        del llm_provider.providers
+
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+        chunks = [{"content": "日本銀行 金融システムレポート 2026年3月"}]
+
+        # Act
+        result = pipeline._extract_report_metadata(pdf_path=pdf_path, chunks=chunks)
+
+        # Assert
+        assert result["issuer"] == "日本銀行"
+        llm_provider.extract_issuer.assert_called_once()
+        llm_provider.extract_issuer_from_text.assert_called_once()
+
+    @patch("pdf_pipeline.core.pipeline.fitz", create=True)
+    def test_異常系_VisionもテキストもNoneでissuerがNone(
+        self, mock_fitz: MagicMock, tmp_path: Path
+    ) -> None:
+        """Branch 3: Both extract_issuer and extract_issuer_from_text return None."""
+        # Arrange
+        mock_doc = MagicMock()
+        mock_doc.metadata = {}
+        mock_fitz.open.return_value = mock_doc
+
+        pipeline = self._make_pipeline(tmp_path)
+
+        llm_provider = self._make_provider(
+            extract_issuer_return=None,
+            extract_issuer_from_text_return=None,
+        )
+        pipeline.markdown_converter.provider = llm_provider
+        del llm_provider.providers
+
+        pdf_path = tmp_path / "report.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4")
+        chunks = [{"content": "Ambiguous content with no clear issuer"}]
+
+        # Act
+        result = pipeline._extract_report_metadata(pdf_path=pdf_path, chunks=chunks)
+
+        # Assert
+        assert result["issuer"] is None
+        llm_provider.extract_issuer.assert_called_once()
+        llm_provider.extract_issuer_from_text.assert_called_once()
