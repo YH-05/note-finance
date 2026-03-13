@@ -1,0 +1,160 @@
+{
+    "version": "1.0",
+    "sites": [
+        {
+            "domain": "getrichslowly.org",
+            "source_key": "getrichslowly",
+            "sitemap_url": "https://www.getrichslowly.org/sitemap.xml",
+            "sitemap_format": "wp_native",
+            "tier": 1,
+            "backfill_tier": "A",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "mrmoneymustache.com",
+            "source_key": "mrmoneymustache",
+            "sitemap_url": "https://www.mrmoneymustache.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 1,
+            "backfill_tier": "A",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "bogleheads.org",
+            "source_key": "bogleheads",
+            "sitemap_url": "https://www.bogleheads.org/wiki/Special:SitemapIndex",
+            "sitemap_format": "custom",
+            "tier": 1,
+            "backfill_tier": "C",
+            "url_patterns": ["/wiki/"],
+            "exclude_patterns": ["/forum/", "/Special:", "/Talk:"]
+        },
+        {
+            "domain": "thecollegeinvestor.com",
+            "source_key": "thecollegeinvestor",
+            "sitemap_url": "https://thecollegeinvestor.com/sitemap.xml",
+            "sitemap_format": "rank_math",
+            "tier": 1,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"],
+            "robots_notes": "ClaudeBot blocked; ai-train=no"
+        },
+        {
+            "domain": "moneytalksnews.com",
+            "source_key": "moneytalksnews",
+            "sitemap_url": "https://www.moneytalksnews.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 1,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"],
+            "robots_notes": "ai-train=no"
+        },
+        {
+            "domain": "monevator.com",
+            "source_key": "monevator",
+            "sitemap_url": "https://monevator.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 1,
+            "backfill_tier": "A",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"],
+            "robots_notes": "Crawl-delay: 240s"
+        },
+        {
+            "domain": "affordanything.com",
+            "source_key": "affordanything",
+            "sitemap_url": "https://affordanything.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 1,
+            "backfill_tier": "A",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "iwillteachyoutoberich.com",
+            "source_key": "iwillteachyoutoberich",
+            "sitemap_url": "https://www.iwillteachyoutoberich.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 1,
+            "backfill_tier": "C",
+            "url_patterns": ["/blog/", "/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "awealthofcommonsense.com",
+            "source_key": "awealthofcommonsense",
+            "sitemap_url": "https://awealthofcommonsense.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 1,
+            "backfill_tier": "A",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "youngandtheinvested.com",
+            "source_key": "youngandtheinvested",
+            "sitemap_url": "https://youngandtheinvested.com/sitemap.xml",
+            "sitemap_format": "rank_math",
+            "tier": 1,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "marginalrevolution.com",
+            "source_key": "marginalrevolution",
+            "sitemap_url": "https://marginalrevolution.com/sitemap.xml",
+            "sitemap_format": "wp_native",
+            "tier": 1,
+            "backfill_tier": "C",
+            "url_patterns": ["/marginalrevolution/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"],
+            "robots_notes": "Crawl-delay: 600s"
+        },
+        {
+            "domain": "dividendgrowthstocks.com",
+            "source_key": "dividendgrowthstocks",
+            "sitemap_url": "https://dividendgrowthstocks.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 2,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "earlyretirementnow.com",
+            "source_key": "earlyretirementnow",
+            "sitemap_url": "https://earlyretirementnow.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 2,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "financialsamurai.com",
+            "source_key": "financialsamurai",
+            "sitemap_url": "https://financialsamurai.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 2,
+            "backfill_tier": "C",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "kiplinger.com",
+            "source_key": "kiplinger",
+            "sitemap_url": "https://www.kiplinger.com/sitemap.xml",
+            "sitemap_format": "custom",
+            "tier": 3,
+            "backfill_tier": "D",
+            "url_patterns": ["/wealth/", "/investing/", "/retirement/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"],
+            "robots_notes": "Tier 3: requires Playwright for JavaScript rendering"
+        }
+    ]
+}
