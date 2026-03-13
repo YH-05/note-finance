@@ -1,0 +1,104 @@
+# PRレビューレポート
+# 生成日時: 2026-03-13 11:19:07
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-13 11:19:07"
+  pr_number: 85
+  pr_title: "feat(data-paths): DATA_ROOT一元管理の基盤パッケージ新規作成と全パッケージの移行"
+  base_branch: "main"
+  head_branch: "feature/prj9"
+  review_mode: "remote"
+  review_round: 3
+
+pr_info:
+  files_changed: 47
+  additions: 1038
+  deletions: 101
+
+scores:
+  code_quality:
+    readability: 88
+    design: 78
+    performance: 74
+    quant: null
+  security:
+    code: 84
+    infra: 73
+  test:
+    coverage: 72
+    quality: 82
+
+code_quality:
+  strengths:
+    - "data_paths パッケージの単一責任設計が明確"
+    - "lru_cache による適切なキャッシング"
+    - "PEP 695 型エイリアスの積極活用"
+    - "NumPy形式Docstringの一貫した使用"
+    - "AIDEV-NOTEアンカーコメントによる設計意図の明文化"
+    - "_script_utils.py による DRY 原則の徹底"
+
+  issues:
+    critical: []
+    high:
+      - description: "get_config_dir() が本番コードで未使用（get_path('config/...') が使用されている）"
+        file: "src/data_paths/paths.py"
+        recommendation: "設計の一貫性のため docstring に仕様として明記"
+    medium:
+      - description: "collect_finance_news スクリプト群の tmp_dir 探索ロジック重複（3箇所）"
+        file: "scripts/collect_finance_news_*.py"
+        recommendation: "_script_utils.py に resolve_latest_tmp_file() を追加（別PR推奨）"
+    low:
+      - description: "scripts/collect_finance_news.py の main() に戻り値型ヒント欠落"
+        file: "scripts/collect_finance_news.py"
+
+  solid_compliance:
+    single_responsibility: "PASS"
+    open_closed: "WARN"
+    liskov_substitution: "PASS"
+    interface_segregation: "WARN"
+    dependency_inversion: "PASS"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 0
+    medium: 0
+    low: 0
+
+  findings: []
+
+  notes:
+    - "ラウンド3で _FORBIDDEN_ROOTS を .resolve() で構築し macOS symlink バイパスを修正済み"
+    - "ラウンド3で _logging.py から root logger ハンドラ追加を削除済み"
+    - "diskcache CVE-2025-69872 は既存依存であり本PRスコープ外"
+
+test:
+  coverage_assessment: "GOOD"
+  edge_cases_covered: true
+  missing_tests: []
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "PASS"
+    readability: "PASS"
+
+  notes:
+    - "ラウンド3で scripts/_script_utils.py, pdf_pipeline CLI, report_scraper CLI の移行テスト追加済み"
+    - "ラウンド3で apply コマンドテストを CLI invoke + assert_called_once_with に改善済み"
+    - "ラウンド3で MCP server テストに呼び出し引数検証を追加済み"
+
+recommended_actions:
+  required: []
+
+  suggested:
+    - priority: 1
+      action: "collect_finance_news_*.py の tmp_dir 探索ロジック共通化（別PR）"
+    - priority: 2
+      action: "get_config_dir() の設計意図を docstring に追記"
+    - priority: 3
+      action: "diskcache の CVE-2025-69872 対応（別PR）"
+
+summary:
+  verdict: "APPROVE"
+  comment: "3ラウンドのレビュー・修正を経て、セキュリティ・テスト品質・コード品質の全指摘を修正済み。残存指摘はスコープ外の既存コードに関するもののみ。"
