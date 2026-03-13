@@ -256,7 +256,7 @@ class TestGenerateSessionId:
     def test_正常系_セッションIDが一意(self) -> None:
         id1 = generate_session_id()
         id2 = generate_session_id()
-        # 同一秒内でも一意であるか（実装依存）
+        assert id1 != id2  # 一意性の本質的検証
         assert id1.startswith(WEALTH_SESSION_PREFIX)
         assert id2.startswith(WEALTH_SESSION_PREFIX)
 

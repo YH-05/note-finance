@@ -215,12 +215,18 @@ class ScrapeStateDB:
         if not urls:
             return []
 
-        placeholders = ",".join("?" * len(urls))
-        cursor = self._conn.execute(
-            f"SELECT url FROM scraped_articles WHERE url IN ({placeholders}) AND success = 1",
-            urls,
-        )
-        scraped_urls = {row["url"] for row in cursor.fetchall()}
+        # AIDEV-NOTE: SQLite SQLITE_LIMIT_VARIABLE_NUMBER default is 999.
+        # Batch queries into chunks of 900 to stay safely below the limit.
+        _CHUNK_SIZE = 900
+        scraped_urls: set[str] = set()
+        for i in range(0, len(urls), _CHUNK_SIZE):
+            chunk = urls[i : i + _CHUNK_SIZE]
+            placeholders = ",".join("?" * len(chunk))
+            cursor = self._conn.execute(
+                f"SELECT url FROM scraped_articles WHERE url IN ({placeholders}) AND success = 1",
+                chunk,
+            )
+            scraped_urls.update(row["url"] for row in cursor.fetchall())
         result = [url for url in urls if url not in scraped_urls]
         logger.debug(
             "Filtered new URLs",

@@ -37,6 +37,10 @@ _EXCLUDED_PATH_SEGMENTS = frozenset(
     {"/category/", "/tag/", "/author/", "/attachment/", "/page/"}
 )
 
+# Security limits
+_MAX_XML_BYTES = 10 * 1024 * 1024  # 10 MB: guards against XML bomb / oversized sitemaps
+_MAX_SITEMAP_DEPTH = 3  # Guards against circular references in sitemap indexes
+
 
 def _get_logger() -> Any:
     """Get logger with fallback to standard logging.
@@ -131,7 +135,12 @@ class SitemapParser:
     # Public API
     # ------------------------------------------------------------------
 
-    async def parse(self, sitemap_url: str) -> list[SitemapEntry]:
+    async def parse(
+        self,
+        sitemap_url: str,
+        _depth: int = 0,
+        _visited: set[str] | None = None,
+    ) -> list[SitemapEntry]:
         """Parse a sitemap URL and return all SitemapEntry objects.
 
         Automatically detects whether the URL points to a sitemap index
@@ -143,13 +152,29 @@ class SitemapParser:
         ----------
         sitemap_url : str
             URL of the sitemap or sitemap index XML file.
+        _depth : int
+            Current recursion depth (internal, guards against circular refs).
+        _visited : set[str] | None
+            Set of already-visited URLs (internal, guards against cycles).
 
         Returns
         -------
         list[SitemapEntry]
             All URL entries found.  Empty on error.
         """
-        logger.debug("Parsing sitemap", url=sitemap_url)
+        # Guard: circular reference / depth limit (INFRA-001 / SEC-004)
+        if _visited is None:
+            _visited = set()
+        if sitemap_url in _visited or _depth > _MAX_SITEMAP_DEPTH:
+            logger.warning(
+                "sitemap_depth_or_cycle_limit",
+                url=sitemap_url,
+                depth=_depth,
+            )
+            return []
+        _visited.add(sitemap_url)
+
+        logger.debug("Parsing sitemap", url=sitemap_url, depth=_depth)
 
         try:
             xml_text = await self._fetch_xml(sitemap_url)
@@ -158,6 +183,16 @@ class SitemapParser:
                 "Failed to fetch sitemap, returning empty list",
                 url=sitemap_url,
                 error=str(exc),
+            )
+            return []
+
+        # Guard: oversized XML (SEC-002 — XML bomb / oversized sitemap)
+        if len(xml_text.encode()) > _MAX_XML_BYTES:
+            logger.warning(
+                "sitemap_xml_too_large",
+                url=sitemap_url,
+                size_bytes=len(xml_text.encode()),
+                limit_bytes=_MAX_XML_BYTES,
             )
             return []
 
@@ -175,7 +210,9 @@ class SitemapParser:
         tag_local = root.tag.split("}")[-1] if "}" in root.tag else root.tag
 
         if tag_local == "sitemapindex":
-            return await self._parse_sitemap_index(root, sitemap_url)
+            return await self._parse_sitemap_index(
+                root, sitemap_url, _depth=_depth, _visited=_visited
+            )
 
         # urlset or unknown → treat as urlset
         return self._parse_urlset(root)
@@ -277,8 +314,54 @@ class SitemapParser:
             response.raise_for_status()
             return response.text
 
+    def _is_safe_sitemap_url(self, child_url: str, parent_url: str) -> bool:
+        """Validate that a child sitemap URL is safe to fetch (SSRF guard).
+
+        Only http/https schemes are allowed, and the child URL host must match
+        the parent URL host to prevent redirect-based SSRF.
+
+        Parameters
+        ----------
+        child_url : str
+            The child sitemap URL extracted from the index XML.
+        parent_url : str
+            The URL of the parent sitemap index (trusted origin).
+
+        Returns
+        -------
+        bool
+            True if safe to fetch, False otherwise.
+        """
+        import urllib.parse
+
+        parsed_child = urllib.parse.urlparse(child_url)
+        parsed_parent = urllib.parse.urlparse(parent_url)
+
+        if parsed_child.scheme not in ("http", "https"):
+            logger.warning(
+                "sitemap_child_url_invalid_scheme",
+                url=child_url,
+                scheme=parsed_child.scheme,
+            )
+            return False
+
+        if parsed_child.netloc != parsed_parent.netloc:
+            logger.warning(
+                "sitemap_child_url_domain_mismatch",
+                child_url=child_url,
+                child_domain=parsed_child.netloc,
+                parent_domain=parsed_parent.netloc,
+            )
+            return False
+
+        return True
+
     async def _parse_sitemap_index(
-        self, root: ET.Element, source_url: str
+        self,
+        root: ET.Element,
+        source_url: str,
+        _depth: int = 0,
+        _visited: set[str] | None = None,
     ) -> list[SitemapEntry]:
         """Expand a sitemapindex element by fetching all child sitemaps.
 
@@ -287,20 +370,29 @@ class SitemapParser:
         root : ET.Element
             Root element of the sitemap index document.
         source_url : str
-            Original URL (used for logging only).
+            Original URL (used for SSRF validation and logging).
+        _depth : int
+            Current recursion depth.
+        _visited : set[str] | None
+            Set of already-visited URLs.
 
         Returns
         -------
         list[SitemapEntry]
             All entries collected from child sitemaps.
         """
+        import asyncio
+
         ns = {"sm": _NS}
         child_urls: list[str] = []
 
         for sitemap_el in root.findall("sm:sitemap", ns):
             loc_el = sitemap_el.find("sm:loc", ns)
             if loc_el is not None and loc_el.text:
-                child_urls.append(loc_el.text.strip())
+                candidate = loc_el.text.strip()
+                # SSRF guard: only fetch child URLs from the same domain (INFRA-001)
+                if self._is_safe_sitemap_url(candidate, source_url):
+                    child_urls.append(candidate)
 
         logger.debug(
             "Expanding sitemap index",
@@ -308,11 +400,23 @@ class SitemapParser:
             child_count=len(child_urls),
         )
 
+        # Parallel fetch for performance, pass depth+1 and visited set
+        results = await asyncio.gather(
+            *[
+                self.parse(child_url, _depth=_depth + 1, _visited=_visited)
+                for child_url in child_urls
+            ],
+            return_exceptions=True,
+        )
         all_entries: list[SitemapEntry] = []
-        for child_url in child_urls:
-            child_entries = await self.parse(child_url)
-            all_entries.extend(child_entries)
-
+        for r in results:
+            if isinstance(r, list):
+                all_entries.extend(r)
+            else:
+                logger.warning(
+                    "sitemap_child_fetch_error",
+                    error=str(r),
+                )
         return all_entries
 
     def _parse_urlset(self, root: ET.Element) -> list[SitemapEntry]:

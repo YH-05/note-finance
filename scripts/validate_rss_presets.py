@@ -34,6 +34,7 @@ import sys
 import urllib.parse
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
@@ -219,7 +220,9 @@ def validate_preset_entry(
         try:
             parsed = urllib.parse.urlparse(url)
             if parsed.scheme not in ("http", "https"):
-                errors.append(f"URL scheme must be http or https, got: '{parsed.scheme}'")
+                errors.append(
+                    f"URL scheme must be http or https, got: '{parsed.scheme}'"
+                )
             if not parsed.netloc:
                 errors.append("URL must have a valid hostname")
         except Exception as e:
@@ -277,10 +280,13 @@ async def check_http_head(
     try:
         import httpx
 
-        async with semaphore, httpx.AsyncClient(
-            follow_redirects=True,
-            timeout=timeout,
-        ) as client:
+        async with (
+            semaphore,
+            httpx.AsyncClient(
+                follow_redirects=True,
+                timeout=timeout,
+            ) as client,
+        ):
             response = await client.head(
                 url,
                 headers={"User-Agent": "rss-feed-collector/0.1.0"},
@@ -299,6 +305,7 @@ async def check_http_head(
 async def check_robots_compliance(
     url: str,
     semaphore: asyncio.Semaphore,
+    checker: Any | None = None,
 ) -> str:
     """Check robots.txt compliance for a URL.
 
@@ -308,6 +315,9 @@ async def check_robots_compliance(
         URL to check.
     semaphore : asyncio.Semaphore
         Semaphore to limit concurrent requests.
+    checker : Any | None
+        Shared RobotsChecker instance.  If None, a new instance is created.
+        Pass a shared instance to reuse the domain-level cache across URLs.
 
     Returns
     -------
@@ -318,8 +328,8 @@ async def check_robots_compliance(
         from rss.utils.robots_checker import RobotsChecker
 
         async with semaphore:
-            checker = RobotsChecker()
-            result = await checker.check(url)
+            _checker: Any = checker if checker is not None else RobotsChecker()
+            result = await _checker.check(url)
 
         if result.error:
             return "ERROR"
@@ -429,6 +439,7 @@ async def _run_http_checks(
 async def _run_robots_checks(
     http_check_urls: list[tuple[str, int]],
     semaphore: asyncio.Semaphore,
+    checker: Any | None = None,
 ) -> dict[int, str]:
     """Run robots.txt compliance checks concurrently and return results by index.
 
@@ -447,7 +458,10 @@ async def _run_robots_checks(
     robots_results: dict[int, str] = {}
     if not http_check_urls:
         return robots_results
-    coros = [check_robots_compliance(url, semaphore) for url, _ in http_check_urls]
+    # Pass shared checker instance to reuse domain-level robots.txt cache
+    coros = [
+        check_robots_compliance(url, semaphore, checker) for url, _ in http_check_urls
+    ]
     statuses = await asyncio.gather(*coros)
     for (_url, idx), status in zip(http_check_urls, statuses, strict=True):
         robots_results[idx] = status
@@ -541,11 +555,20 @@ async def validate_presets_file(
     ]
 
     http_results = await _run_http_checks(http_check_urls, semaphore)
-    robots_results = (
-        await _run_robots_checks(http_check_urls, semaphore)
-        if check_robots
-        else {}
-    )
+
+    # Create a single shared RobotsChecker to reuse the domain-level cache
+    # across all URL checks (performance fix: avoid re-fetching robots.txt per URL)
+    robots_results: dict[int, str] = {}
+    if check_robots:
+        try:
+            from rss.utils.robots_checker import RobotsChecker as _RobotsChecker
+
+            shared_checker: Any = _RobotsChecker()
+        except ImportError:
+            shared_checker = None
+        robots_results = await _run_robots_checks(
+            http_check_urls, semaphore, shared_checker
+        )
 
     for url, title, errors, warnings, i in validation_tasks:
         http_code = http_results.get(i)
@@ -620,11 +643,7 @@ def format_results_table(
                 f"{result.robots_status:<15}"
             )
         else:
-            row = (
-                f"{url_display:<55} "
-                f"{result.status:<8} "
-                f"{http_display:<6}"
-            )
+            row = f"{url_display:<55} {result.status:<8} {http_display:<6}"
         lines.append(row)
 
         # Print errors and warnings indented

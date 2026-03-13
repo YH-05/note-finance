@@ -41,6 +41,13 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from pydantic import BaseModel, Field
+from session_utils import (
+    configure_logging,
+    filter_by_date,
+    load_json_config,
+    select_top_n,
+    write_session_file,
+)
 
 from rss._logging import get_logger
 from rss.config.wealth_scraping_config import (
@@ -54,13 +61,6 @@ from rss.services.company_scrapers.scraping_policy import ScrapingPolicy
 from rss.storage.scrape_state_db import ScrapeStateDB
 from rss.utils.robots_checker import RobotsChecker
 from rss.utils.sitemap_parser import SitemapParser
-from session_utils import (
-    configure_logging,
-    filter_by_date,
-    load_json_config,
-    select_top_n,
-    write_session_file,
-)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -329,10 +329,14 @@ def generate_session_id() -> str:
     Returns
     -------
     str
-        Session ID in format ``wealth-scrape-{YYYYMMDD}-{HHMMSS}``.
+        Session ID in format ``wealth-scrape-{YYYYMMDD}-{HHMMSS}-{microseconds}``.
+        Microseconds ensure uniqueness even within the same second.
     """
     now = datetime.now(timezone.utc)
-    return f"{WEALTH_SESSION_PREFIX}-{now.strftime('%Y%m%d')}-{now.strftime('%H%M%S')}"
+    return (
+        f"{WEALTH_SESSION_PREFIX}-{now.strftime('%Y%m%d')}-{now.strftime('%H%M%S')}"
+        f"-{now.microsecond:06d}"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -414,7 +418,9 @@ def match_keywords_en(
 
     for keyword in keywords:
         if keyword.lower() in text:
-            logger.debug("keyword_matched", keyword=keyword, title=item.get("title", ""))
+            logger.debug(
+                "keyword_matched", keyword=keyword, title=item.get("title", "")
+            )
             return True
 
     return False
@@ -764,17 +770,31 @@ def _save_article_markdown(
     """
     slug = _slugify(title or "untitled")
     domain_clean = domain.replace("www.", "")
-    output_dir = output_base / domain_clean
+
+    # SEC-003: Path traversal guard — resolve and verify output stays under output_base
+    output_dir = (output_base / domain_clean).resolve()
+    output_base_resolved = output_base.resolve()
+    if not str(output_dir).startswith(str(output_base_resolved)):
+        raise ValueError(
+            f"Path traversal detected: {output_dir} is outside {output_base_resolved}"
+        )
     output_dir.mkdir(parents=True, exist_ok=True)
 
     output_path = output_dir / f"{slug}.md"
 
+    # INFRA-003: Sanitize external field values before embedding in YAML frontmatter.
+    # Newlines and YAML delimiter "---" in external data would break the frontmatter block.
+    def _sanitize_fm(value: str | None) -> str:
+        if not value:
+            return ""
+        return value.replace("\r", "").replace("\n", " ").replace("---", "- - -")
+
     frontmatter_lines = [
         "---",
         f"url: {url}",
-        f"title: {title or 'untitled'}",
-        f"date: {date or ''}",
-        f"author: {author or ''}",
+        f"title: {_sanitize_fm(title) or 'untitled'}",
+        f"date: {_sanitize_fm(date)}",
+        f"author: {_sanitize_fm(author)}",
         f"domain: {domain}",
         "---",
         "",
@@ -807,7 +827,9 @@ def _scrape_with_playwright(url: str) -> str | None:
         Extracted text content, or None on failure/unavailability.
     """
     try:
-        from playwright.sync_api import sync_playwright  # type: ignore[import-not-found]
+        from playwright.sync_api import (
+            sync_playwright,  # type: ignore[import-not-found]
+        )
     except ImportError:
         logger.warning(
             "playwright_not_installed",
@@ -884,7 +906,9 @@ def run_incremental(
         print("Dry Run — Incremental Mode Feed List")
         print("=" * 60)
         for p in presets:
-            print(f"  [{p.get('tier', '?')}] {p.get('title', '?')}: {p.get('url', '?')}")
+            print(
+                f"  [{p.get('tier', '?')}] {p.get('title', '?')}: {p.get('url', '?')}"
+            )
         print(f"\nTotal feeds: {len(presets)}")
         print("=" * 60)
         logger.info("dry_run_incremental_complete", feed_count=len(presets))
@@ -926,12 +950,12 @@ def run_incremental(
     print("=" * 60)
     print(f"Session ID: {session.session_id}")
     print(f"Output: {output_path}")
-    print(f"\nStatistics:")
+    print("\nStatistics:")
     print(f"  Total fetched: {session.stats.total}")
     print(f"  Date filtered: {session.stats.filtered}")
     print(f"  Keyword matched: {session.stats.matched}")
-    print(f"\nTheme breakdown:")
-    for theme_key, theme_data in session.themes.items():
+    print("\nTheme breakdown:")
+    for _theme_key, theme_data in session.themes.items():
         print(f"  {theme_data.name_en}: {len(theme_data.articles)} articles")
     print("=" * 60)
 
@@ -1007,7 +1031,9 @@ async def _run_backfill_async(
             if not tier_sites:
                 continue
 
-            logger.info("processing_backfill_tier", tier=tier, site_count=len(tier_sites))
+            logger.info(
+                "processing_backfill_tier", tier=tier, site_count=len(tier_sites)
+            )
 
             for site in tier_sites:
                 if total_scraped >= limit:
@@ -1039,7 +1065,8 @@ async def _run_backfill_async(
                 exclude_patterns = site.get("exclude_patterns", [])
                 if url_patterns:
                     urls_to_scrape = [
-                        u for u in urls_to_scrape
+                        u
+                        for u in urls_to_scrape
                         if any(p in u for p in url_patterns)
                         and not any(ep in u for ep in exclude_patterns)
                     ]
@@ -1142,7 +1169,9 @@ async def _run_backfill_async(
     if stats:
         print("\nDomain breakdown:")
         for domain_key, counts in sorted(stats.items()):
-            print(f"  {domain_key}: success={counts['success']}, failure={counts['failure']}")
+            print(
+                f"  {domain_key}: success={counts['success']}, failure={counts['failure']}"
+            )
     print("=" * 60)
 
     return 0

@@ -15,7 +15,10 @@ import pytest
 # Fixtures
 # ---------------------------------------------------------------------------
 
-WEALTH_PRESETS_PATH = Path("data/config/rss-presets-wealth.json")
+# Use __file__-based absolute path so tests pass regardless of working directory
+WEALTH_PRESETS_PATH = (
+    Path(__file__).parent.parent.parent.parent / "data/config/rss-presets-wealth.json"
+)
 """Path to the wealth RSS presets configuration file."""
 
 

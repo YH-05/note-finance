@@ -18,6 +18,9 @@ if TYPE_CHECKING:
 
 from prepare_asset_management_session import (
     DEFAULT_DAYS,
+    PRESET_KEY_TO_PATH,
+    RSS_PRESETS_JP_PATH,
+    RSS_PRESETS_WEALTH_PATH,
     URL_TO_SOURCE_KEY,
     AssetManagementSession,
     AssetManagementStats,
@@ -28,6 +31,7 @@ from prepare_asset_management_session import (
     match_keywords,
     parse_args,
     process_themes,
+    resolve_presets_path,
     resolve_source_key,
     run,
 )
@@ -538,3 +542,40 @@ class TestAssetManagementSession:
         assert dumped["session_id"] == "asset-mgmt-20260306-120000"
         assert isinstance(dumped["stats"], dict)
         assert set(dumped["stats"].keys()) == {"total", "filtered", "matched"}
+
+
+# ---------------------------------------------------------------------------
+# TestResolvePresetsPath
+# ---------------------------------------------------------------------------
+
+
+class TestResolvePresetsPath:
+    """resolve_presets_path のテスト。"""
+
+    def test_正常系_jpキーでJPプリセットパスを返す(self) -> None:
+        from pathlib import Path
+
+        result = resolve_presets_path("jp")
+        assert result == RSS_PRESETS_JP_PATH
+        assert isinstance(result, Path)
+
+    def test_正常系_wealthキーでWealthプリセットパスを返す(self) -> None:
+        from pathlib import Path
+
+        result = resolve_presets_path("wealth")
+        assert result == RSS_PRESETS_WEALTH_PATH
+        assert isinstance(result, Path)
+
+    def test_正常系_カスタムパス文字列をPathに変換して返す(self) -> None:
+        from pathlib import Path
+
+        custom = "data/config/my-custom-presets.json"
+        result = resolve_presets_path(custom)
+        assert result == Path(custom)
+        assert isinstance(result, Path)
+
+    def test_エッジケース_未知のキーはPath変換される(self) -> None:
+        from pathlib import Path
+
+        result = resolve_presets_path("unknown_key")
+        assert result == Path("unknown_key")
