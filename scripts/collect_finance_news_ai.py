@@ -12,6 +12,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from data_paths import get_path, get_project_root
+
 
 def log(level: str, message: str, **kwargs):
     """ログ出力"""
@@ -290,12 +292,8 @@ def main():
     log("INFO", "AIテーマの金融ニュース収集開始")
 
     # ファイルパス
-    tmp_file = Path(
-        "/Users/yukihata/Desktop/finance/.tmp/news-collection-20260115-214331.json"
-    )
-    config_file = Path(
-        "/Users/yukihata/Desktop/finance/data/config/finance-news-themes.json"
-    )
+    tmp_file = get_project_root() / ".tmp" / "news-collection-20260115-214331.json"
+    config_file = get_path("config/finance-news-themes.json")
 
     # ファイル読み込み（スマートクォートを修正）
     try:

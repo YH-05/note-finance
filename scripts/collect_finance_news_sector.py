@@ -6,6 +6,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from data_paths import get_path, get_project_root
+
 
 def calculate_title_similarity(title1: str, title2: str) -> float:
     """タイトルの類似度を計算（Jaccard係数）."""
@@ -352,9 +354,7 @@ def main():
     print("[INFO] Sectorテーマ処理開始\n")
 
     # 一時ファイル読み込み
-    tmp_file = Path(
-        "/Users/yukihata/Desktop/finance/.tmp/news-collection-20260115-214331.json"
-    )
+    tmp_file = get_project_root() / ".tmp" / "news-collection-20260115-214331.json"
     if not tmp_file.exists():
         print(f"[エラー] 一時ファイルが見つかりません: {tmp_file}")
         sys.exit(1)
@@ -397,9 +397,7 @@ def main():
         sys.exit(1)
 
     # テーマ設定読み込み
-    config_file = Path(
-        "/Users/yukihata/Desktop/finance/data/config/finance-news-themes.json"
-    )
+    config_file = get_path("config/finance-news-themes.json")
     with open(config_file) as f:
         config = json.load(f)
 
