@@ -37,6 +37,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from data_paths import get_path
+
 from analyze.reporting.currency_agent import (
     CurrencyAnalyzer4Agent,
     CurrencyResult,
@@ -161,8 +163,8 @@ Examples:
     parser.add_argument(
         "--output",
         type=str,
-        default="data/market",
-        help="Output directory for JSON files (default: data/market)",
+        default=None,
+        help="Output directory for JSON files (default: data/market via DATA_ROOT)",
     )
 
     parser.add_argument(
@@ -182,7 +184,7 @@ def main() -> int:
     parser = create_parser()
     args = parser.parse_args()
 
-    output_dir = Path(args.output)
+    output_dir = Path(args.output) if args.output else get_path("market")
     timestamp = generate_timestamp()
     subgroup = args.subgroup
 

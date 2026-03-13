@@ -23,6 +23,8 @@ from typing import Any, Literal
 import structlog
 from pydantic import BaseModel, Field
 
+from data_paths import get_path
+
 logger = structlog.get_logger(__name__)
 
 # =============================================================================
@@ -200,7 +202,7 @@ class NotePublisherConfig(BaseModel):
 
     headless: bool = True
     storage_state_path: Path = Field(
-        default=Path("data/config/note-storage-state.json"),
+        default_factory=lambda: get_path("config/note-storage-state.json"),
     )
     timeout_ms: int = Field(default=30000, ge=1000)
     typing_delay_ms: int = Field(default=50, ge=0)

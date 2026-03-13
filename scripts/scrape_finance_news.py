@@ -43,6 +43,7 @@ from pathlib import Path
 
 import structlog
 
+from data_paths import get_path
 from news_scraper import ScraperConfig, collect_financial_news
 from news_scraper._logging import get_logger
 
@@ -54,7 +55,9 @@ logger = get_logger(__name__, module="scrape_finance_news")
 DEFAULT_NAS_OUTPUT = Path(
     os.environ.get("FINANCE_NEWS_NAS_DIR", "/Volumes/personal_folder/finance-news")
 )
-DEFAULT_LOCAL_FALLBACK = Path(os.environ.get("FINANCE_NEWS_LOCAL_DIR", "data/scraped"))
+DEFAULT_LOCAL_FALLBACK = Path(
+    os.environ.get("FINANCE_NEWS_LOCAL_DIR", str(get_path("scraped")))
+)
 DEFAULT_SOURCES = ["cnbc", "nasdaq"]
 DEFAULT_CLEANUP_DAYS = 30
 

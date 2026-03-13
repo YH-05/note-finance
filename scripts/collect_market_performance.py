@@ -45,6 +45,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from data_paths import get_path
+
 from analyze.reporting.currency_agent import CurrencyAnalyzer4Agent, CurrencyResult
 from analyze.reporting.interest_rate_agent import (
     InterestRateAnalyzer4Agent,
@@ -419,8 +421,8 @@ Examples:
     parser.add_argument(
         "--output",
         type=str,
-        default="data/market",
-        help="Output directory for JSON files (default: data/market)",
+        default=None,
+        help="Output directory for JSON files (default: data/market via DATA_ROOT)",
     )
 
     return parser
@@ -433,7 +435,7 @@ def main() -> int:
     parser = create_parser()
     args = parser.parse_args()
 
-    output_dir = Path(args.output)
+    output_dir = Path(args.output) if args.output else get_path("market")
     timestamp = generate_timestamp()
 
     try:
