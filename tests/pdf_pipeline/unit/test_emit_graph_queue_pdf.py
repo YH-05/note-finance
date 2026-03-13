@@ -545,6 +545,19 @@ class TestInferPeriodType:
         assert _infer_period_type("q4") == "quarterly"
         assert _infer_period_type("1h26") == "half_year"
 
+    def test_正常系_FQはquarterlyに誤判定されない(self) -> None:
+        """FQ (fiscal quarter reference) は Q を含むが quarterly ではなく annual。"""
+        assert _infer_period_type("FQ1") == "annual"
+        assert _infer_period_type("FQ4 2025") == "annual"
+        assert _infer_period_type("fq2") == "annual"
+
+    def test_正常系_FQとQの境界ケース(self) -> None:
+        """FQ を含まない Q はquarterly、FQ を含む場合はannual。"""
+        # Q のみ → quarterly
+        assert _infer_period_type("3Q25") == "quarterly"
+        # FQ → annual (FQ除外ロジック)
+        assert _infer_period_type("FQ3 2025") == "annual"
+
 
 # ---------------------------------------------------------------------------
 # New relation types (v2: 6 new relations)
