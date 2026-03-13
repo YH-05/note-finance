@@ -93,8 +93,9 @@ def generate_chunk_id(source_id: str, chunk_index: int) -> str:
 def generate_datapoint_id(content: str) -> str:
     """Generate a deterministic datapoint ID from content text.
 
-    Uses the first 16 hex characters of the SHA-256 hash of *content*.
-    Consistent with the claim ID pattern in ``scripts/emit_graph_queue.py``.
+    Uses the first 32 hex characters (128-bit) of the SHA-256 hash of
+    *content*. Consistent with the claim ID pattern in
+    ``scripts/emit_graph_queue.py``.
 
     Parameters
     ----------
@@ -104,7 +105,7 @@ def generate_datapoint_id(content: str) -> str:
     Returns
     -------
     str
-        First 16 hex characters of the SHA-256 hash of *content*.
+        First 32 hex characters (128-bit) of the SHA-256 hash of *content*.
 
     Examples
     --------
@@ -113,9 +114,9 @@ def generate_datapoint_id(content: str) -> str:
     >>> id1 == id2
     True
     >>> len(id1)
-    16
+    32
     """
-    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
+    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:32]
 
 
 def generate_entity_id(name: str, entity_type: str) -> str:

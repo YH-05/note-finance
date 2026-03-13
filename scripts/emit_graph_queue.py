@@ -157,9 +157,9 @@ def generate_claim_id(content: str) -> str:
     Returns
     -------
     str
-        First 16 hex characters of the SHA-256 hash of *content*.
+        First 32 hex characters (128-bit) of the SHA-256 hash of *content*.
     """
-    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
+    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:32]
 
 
 def generate_fact_id(content: str) -> str:
@@ -176,9 +176,9 @@ def generate_fact_id(content: str) -> str:
     Returns
     -------
     str
-        First 16 hex characters of the SHA-256 hash of ``fact:{content}``.
+        First 32 hex characters (128-bit) of the SHA-256 hash of ``fact:{content}``.
     """
-    return hashlib.sha256(f"fact:{content}".encode("utf-8")).hexdigest()[:16]
+    return hashlib.sha256(f"fact:{content}".encode("utf-8")).hexdigest()[:32]
 
 
 def generate_chunk_id(source_hash: str, chunk_index: int) -> str:

@@ -297,7 +297,7 @@ class JsonReportStore:
         source_dir.mkdir(parents=True, exist_ok=True)
 
         # Use URL hash as filename to avoid filesystem issues
-        url_hash = hashlib.sha256(report.metadata.url.encode("utf-8")).hexdigest()[:16]
+        url_hash = hashlib.sha256(report.metadata.url.encode("utf-8")).hexdigest()[:32]
         text_path = source_dir / f"{url_hash}.txt"
 
         try:

@@ -98,7 +98,7 @@ class TestGenerateDatapointId:
         content = "GDP growth rate was 2.5% in Q4 2025"
         result = generate_datapoint_id(content)
         assert isinstance(result, str)
-        assert len(result) == 16  # first 16 hex chars of SHA-256
+        assert len(result) == 32  # first 32 hex chars of SHA-256 (128-bit)
 
     def test_正常系_同じcontentで同じIDを生成する(self) -> None:
         content = "same content"
@@ -109,10 +109,10 @@ class TestGenerateDatapointId:
         id2 = generate_datapoint_id("content B")
         assert id1 != id2
 
-    def test_正常系_16文字の16進数文字列である(self) -> None:
+    def test_正常系_32文字の16進数文字列である(self) -> None:
         result = generate_datapoint_id("test content")
         assert all(c in "0123456789abcdef" for c in result)
-        assert len(result) == 16
+        assert len(result) == 32
 
 
 # ---------------------------------------------------------------------------

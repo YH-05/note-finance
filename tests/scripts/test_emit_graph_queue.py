@@ -279,9 +279,9 @@ class TestGenerateClaimId:
         id2 = generate_claim_id(content)
         assert id1 == id2
 
-    def test_正常系_16文字のhex文字列を返す(self) -> None:
+    def test_正常系_32文字のhex文字列を返す(self) -> None:
         result = generate_claim_id("test content")
-        assert len(result) == 16
+        assert len(result) == 32
         # Should be valid hex
         int(result, 16)
 
