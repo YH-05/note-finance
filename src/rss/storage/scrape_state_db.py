@@ -223,7 +223,7 @@ class ScrapeStateDB:
             chunk = urls[i : i + _CHUNK_SIZE]
             placeholders = ",".join("?" * len(chunk))
             cursor = self._conn.execute(
-                f"SELECT url FROM scraped_articles WHERE url IN ({placeholders}) AND success = 1",
+                f"SELECT url FROM scraped_articles WHERE url IN ({placeholders}) AND success = 1",  # nosec B608 — placeholders use ? binding, no injection risk
                 chunk,
             )
             scraped_urls.update(row["url"] for row in cursor.fetchall())

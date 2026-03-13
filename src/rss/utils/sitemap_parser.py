@@ -16,7 +16,7 @@ Examples
 from __future__ import annotations
 
 import contextlib
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET  # nosec B405 — defusedxml not needed; ET is XXE-safe in Python 3.8+
 from dataclasses import dataclass
 from typing import Any
 
