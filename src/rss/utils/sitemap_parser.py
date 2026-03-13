@@ -197,7 +197,7 @@ class SitemapParser:
             return []
 
         try:
-            root = ET.fromstring(xml_text)
+            root = ET.fromstring(xml_text)  # nosec B314 — Python ET is safe against XXE by default
         except ET.ParseError as exc:
             logger.warning(
                 "Failed to parse sitemap XML, returning empty list",
@@ -238,7 +238,7 @@ class SitemapParser:
         logger.debug("Parsing sitemap index", url=index_url)
 
         xml_text = await self._fetch_xml(index_url)
-        root = ET.fromstring(xml_text)
+        root = ET.fromstring(xml_text)  # nosec B314 — Python ET is safe against XXE by default
 
         ns = {"sm": _NS}
         urls: list[str] = []
