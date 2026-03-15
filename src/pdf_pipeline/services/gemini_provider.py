@@ -310,6 +310,12 @@ class GeminiCLIProvider:
     # 既存の利用箇所が移行されるまで互換性のために残す。
 
     def __init__(self) -> None:
+        """Initialize GeminiCLIProvider and emit a deprecation warning.
+
+        .. deprecated::
+            Use ``ClaudeCodeProvider`` via ``/convert-pdf`` instead.
+            Logs a warning on every instantiation.
+        """
         logger.warning(
             "GeminiCLIProvider is deprecated. Use /convert-pdf instead.",
             provider="GeminiCLIProvider",

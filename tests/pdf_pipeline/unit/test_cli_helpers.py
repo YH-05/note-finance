@@ -26,6 +26,7 @@ if TYPE_CHECKING:
 
 from pdf_pipeline.cli.helpers import (
     _cli_main,
+    _validate_sha256,
     check_idempotency,
     chunk_and_save,
     compute_hash,
@@ -574,3 +575,108 @@ class TestRecordCompleted:
         entry = data["sha256_to_status"][sha256]
         assert entry["status"] == "completed"
         assert entry["filename"] == "report.pdf"
+
+
+# ---------------------------------------------------------------------------
+# SHA-256 validation
+# ---------------------------------------------------------------------------
+
+
+class TestValidateSha256:
+    """Tests for _validate_sha256 function."""
+
+    def test_正常系_有効なSHA256を受け入れる(self) -> None:
+        _validate_sha256("abcd1234" * 8)
+
+    def test_異常系_短い文字列でValueError(self) -> None:
+        with pytest.raises(ValueError, match="Invalid SHA-256"):
+            _validate_sha256("abcd1234")
+
+    def test_異常系_大文字でValueError(self) -> None:
+        with pytest.raises(ValueError, match="Invalid SHA-256"):
+            _validate_sha256("ABCD1234" * 8)
+
+    def test_異常系_非16進文字でValueError(self) -> None:
+        with pytest.raises(ValueError, match="Invalid SHA-256"):
+            _validate_sha256("zzzz1234" * 8)
+
+
+# ---------------------------------------------------------------------------
+# _cli_main error handling
+# ---------------------------------------------------------------------------
+
+
+class TestCLIMainErrorHandling:
+    """Tests for _cli_main error handling."""
+
+    def test_異常系_引数なしでSystemExit(self) -> None:
+        with patch("sys.argv", ["helpers"]), pytest.raises(SystemExit):
+            _cli_main()
+
+    def test_異常系_不正な関数名でSystemExit(self) -> None:
+        with (
+            patch("sys.argv", ["helpers", "nonexistent_func"]),
+            pytest.raises(SystemExit),
+        ):
+            _cli_main()
+
+    def test_異常系_引数不足でSystemExit(self) -> None:
+        with (
+            patch("sys.argv", ["helpers", "check_idempotency"]),
+            pytest.raises(SystemExit),
+        ):
+            _cli_main()
+
+
+# ---------------------------------------------------------------------------
+# get_page_count edge cases
+# ---------------------------------------------------------------------------
+
+
+class TestGetPageCountEdgeCases:
+    """Tests for get_page_count edge cases."""
+
+    def test_異常系_非PDFファイルでValueError(self) -> None:
+        with pytest.raises(ValueError, match=r"Expected \.pdf"):
+            get_page_count("/path/to/document.txt")
+
+
+# ---------------------------------------------------------------------------
+# check_idempotency with sha256 validation
+# ---------------------------------------------------------------------------
+
+
+class TestCheckIdempotencyValidation:
+    """Tests for check_idempotency sha256 validation."""
+
+    def test_異常系_不正なsha256でValueError(self, state_file: Path) -> None:
+        with pytest.raises(ValueError, match="Invalid SHA-256"):
+            check_idempotency("invalid-sha256", str(state_file))
+
+
+# ---------------------------------------------------------------------------
+# compute_output_dir path traversal
+# ---------------------------------------------------------------------------
+
+
+class TestComputeOutputDirPathTraversal:
+    """Tests for compute_output_dir path traversal prevention."""
+
+    def test_異常系_パストラバーサルでValueError(self, tmp_path: Path) -> None:
+        pdf_path = str(
+            tmp_path
+            / "raw"
+            / "pdfs"
+            / ".."
+            / ".."
+            / ".."
+            / "tmp"
+            / "evil"
+            / "report.pdf"
+        )
+        sha256 = "abcdef01" * 8
+
+        with patch("pdf_pipeline.cli.helpers.get_path") as mock_get_path:
+            mock_get_path.return_value = tmp_path / "processed"
+            with pytest.raises(ValueError, match="Path traversal"):
+                compute_output_dir(pdf_path, sha256)

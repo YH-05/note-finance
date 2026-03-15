@@ -39,6 +39,34 @@ logger = get_logger(__name__, module="pdf_scanner")
 _HASH_BUFFER_SIZE = 65536  # 64 KiB read buffer for large files
 
 
+def _compute_sha256_from_path(resolved: Path) -> str:
+    """Compute SHA-256 digest from a resolved file path.
+
+    Shared implementation used by both :meth:`PdfScanner.compute_sha256`
+    and :func:`compute_sha256_standalone` to guarantee identical digests.
+
+    Parameters
+    ----------
+    resolved : Path
+        Resolved (absolute) path to the file to hash.
+
+    Returns
+    -------
+    str
+        Lowercase hexadecimal SHA-256 digest (64 characters).
+
+    Raises
+    ------
+    OSError
+        If the file cannot be read.
+    """
+    sha256 = hashlib.sha256()
+    with resolved.open("rb") as fh:
+        while chunk := fh.read(_HASH_BUFFER_SIZE):
+            sha256.update(chunk)
+    return sha256.hexdigest()
+
+
 # ---------------------------------------------------------------------------
 # PdfScanner class
 # ---------------------------------------------------------------------------
@@ -182,11 +210,7 @@ class PdfScanner:
             raise ScanError(msg, path=str(pdf_path))
 
         try:
-            sha256 = hashlib.sha256()
-            with resolved.open("rb") as fh:
-                while chunk := fh.read(_HASH_BUFFER_SIZE):
-                    sha256.update(chunk)
-            digest = sha256.hexdigest()
+            digest = _compute_sha256_from_path(resolved)
         except OSError as exc:
             msg = f"Failed to read PDF for hashing: {pdf_path}: {exc}"
             logger.error(msg, path=str(pdf_path), error=str(exc))
@@ -318,11 +342,7 @@ def compute_sha256_standalone(pdf_path: str) -> str:
         raise ScanError(msg, path=pdf_path)
 
     try:
-        sha256 = hashlib.sha256()
-        with resolved.open("rb") as fh:
-            while chunk := fh.read(_HASH_BUFFER_SIZE):
-                sha256.update(chunk)
-        digest = sha256.hexdigest()
+        digest = _compute_sha256_from_path(resolved)
     except OSError as exc:
         msg = f"Failed to read file for hashing: {pdf_path}: {exc}"
         logger.error(msg, path=pdf_path, error=str(exc))

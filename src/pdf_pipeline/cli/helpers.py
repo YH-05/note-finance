@@ -41,6 +41,7 @@ CLI usage::
 from __future__ import annotations
 
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -58,11 +59,25 @@ from pdf_pipeline.services.state_manager import StateManager
 
 logger = get_logger(__name__, module="cli.helpers")
 
-# ---------------------------------------------------------------------------
-# Dispatch table for CLI entry point
-# ---------------------------------------------------------------------------
+_SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 
-_DISPATCH: dict[str, object] = {}
+
+def _validate_sha256(sha256: str) -> None:
+    """Validate that a string is a valid SHA-256 hex digest.
+
+    Parameters
+    ----------
+    sha256 : str
+        String to validate.
+
+    Raises
+    ------
+    ValueError
+        If the string is not a valid 64-character lowercase hex digest.
+    """
+    if not _SHA256_RE.fullmatch(sha256):
+        raise ValueError(f"Invalid SHA-256 format: {sha256!r}")
+
 
 # ---------------------------------------------------------------------------
 # Helper functions
@@ -120,6 +135,7 @@ def check_idempotency(sha256: str, state_file: str) -> str:
     >>> check_idempotency("abc...", "state.json")  # doctest: +SKIP
     'false'
     """
+    _validate_sha256(sha256)
     logger.debug(
         "check_idempotency called",
         sha256=sha256[:16] + "...",
@@ -160,8 +176,15 @@ def get_page_count(pdf_path: str) -> str:
     '30'
     """
     logger.debug("get_page_count called", pdf_path=pdf_path)
-    with fitz.open(pdf_path) as doc:
-        count = doc.page_count
+    if not pdf_path.lower().endswith(".pdf"):
+        raise ValueError(f"Expected .pdf file, got: {pdf_path}")
+    try:
+        with fitz.open(pdf_path) as doc:
+            count = doc.page_count
+    except Exception as exc:
+        msg = f"Failed to open PDF: {pdf_path}"
+        logger.error(msg, pdf_path=pdf_path, error=str(exc))
+        raise RuntimeError(msg) from exc
     logger.info("Page count retrieved", pdf_path=pdf_path, page_count=count)
     return str(count)
 
@@ -210,7 +233,15 @@ def compute_output_dir(pdf_path: str, sha256: str) -> str:
     else:
         output = processed_dir / f"{stem}_{hash8}"
 
-    result = str(output)
+    # Path traversal prevention: ensure output stays within processed_dir
+    resolved_output = output.resolve()
+    resolved_processed = processed_dir.resolve()
+    if not resolved_output.is_relative_to(resolved_processed):
+        msg = f"Path traversal detected in output_dir: {resolved_output}"
+        logger.error(msg, pdf_path=pdf_path)
+        raise ValueError(msg)
+
+    result = str(resolved_output)
     logger.info("Output directory computed", output_dir=result)
     return result
 
@@ -279,10 +310,8 @@ def chunk_and_save(report_md: str, sha256: str, output_dir: str) -> str:
     out_path.mkdir(parents=True, exist_ok=True)
 
     chunks_file = out_path / "chunks.json"
-    chunks_file.write_text(
-        json.dumps(chunks, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    with chunks_file.open("w", encoding="utf-8") as fh:
+        json.dump(chunks, fh, ensure_ascii=False, indent=2)
 
     count = len(chunks)
     logger.info(
@@ -435,10 +464,8 @@ def save_metadata(
     }
 
     meta_file = out_path / "metadata.json"
-    meta_file.write_text(
-        json.dumps(metadata, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    with meta_file.open("w", encoding="utf-8") as fh:
+        json.dump(metadata, fh, ensure_ascii=False, indent=2)
 
     logger.info("Metadata saved", output_file=str(meta_file))
     return "ok"
@@ -466,6 +493,7 @@ def record_completed(sha256: str, state_file: str, filename: str) -> str:
     >>> record_completed("abc...", "state.json", "report.pdf")  # doctest: +SKIP
     'ok'
     """
+    _validate_sha256(sha256)
     logger.debug(
         "record_completed called",
         sha256=sha256[:16] + "...",
@@ -538,7 +566,16 @@ def _cli_main() -> None:
         sys.exit(1)
 
     func = _DISPATCH[func_name]
-    result = func(*args)  # type: ignore[operator]
+    try:
+        result = func(*args)  # type: ignore[operator]
+    except TypeError as exc:
+        print(f"Error: wrong number of arguments for {func_name}", file=sys.stderr)
+        logger.error("CLI argument error", func=func_name, error=str(exc))
+        sys.exit(1)
+    except (ValueError, FileNotFoundError) as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        logger.error("CLI execution error", func=func_name, error=str(exc))
+        sys.exit(1)
     print(result)
 
 
