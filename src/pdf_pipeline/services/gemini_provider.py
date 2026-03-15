@@ -288,6 +288,11 @@ _NOISE_PATTERNS: list[re.Pattern[str]] = [
 class GeminiCLIProvider:
     """LLM provider that uses the Gemini CLI via subprocess.
 
+    .. deprecated::
+        Claude Code 一本化により非推奨。``/convert-pdf`` コマンド経由の
+        ``ClaudeCodeProvider`` を使用してください。
+        将来のバージョンで削除予定です。
+
     Uses ``shutil.which`` to check CLI availability and
     ``subprocess.run`` to execute extraction commands with
     ``--prompt`` for non-interactive mode and ``--file`` for PDF attachment.
@@ -300,7 +305,15 @@ class GeminiCLIProvider:
     True
     """
 
+    # AIDEV-NOTE: GeminiCLIProvider は Claude Code 一本化に伴い非推奨。
+    # ClaudeCodeProvider + /convert-pdf への移行完了後に削除予定。
+    # 既存の利用箇所が移行されるまで互換性のために残す。
+
     def __init__(self) -> None:
+        logger.warning(
+            "GeminiCLIProvider is deprecated. Use /convert-pdf instead.",
+            provider="GeminiCLIProvider",
+        )
         self._available: bool | None = None
 
     def is_available(self) -> bool:
