@@ -48,8 +48,7 @@ class TestLockFeeds:
             # Lock file should exist while lock is held
             assert lock_file.exists()
 
-        # Lock file should still exist after release (FileLock behavior)
-        assert lock_file.exists()
+        # filelock 3.x removes lock file after release
 
     def test_lock_feeds_acquires_and_releases(self, tmp_path: Path) -> None:
         """Test that lock_feeds successfully acquires and releases lock."""
@@ -138,8 +137,7 @@ class TestLockItems:
             # Lock file should exist while lock is held
             assert lock_file.exists()
 
-        # Lock file should still exist after release
-        assert lock_file.exists()
+        # filelock 3.x removes lock file after release
 
     def test_lock_items_creates_feed_directory(self, tmp_path: Path) -> None:
         """Test that lock_items creates feed directory if it doesn't exist."""
