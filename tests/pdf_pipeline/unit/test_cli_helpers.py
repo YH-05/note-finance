@@ -7,6 +7,7 @@ Tests cover:
 - get_page_count: PyMuPDF-based page counting (mocked)
 - compute_output_dir: Mirror-path output directory computation
 - chunk_and_save: MarkdownChunker-based chunking and JSON persistence
+- extract_knowledge: Knowledge extraction from chunks and JSON persistence
 - save_metadata: Metadata JSON file creation with method_b converter
 - record_completed: StateManager status recording
 """
@@ -29,6 +30,7 @@ from pdf_pipeline.cli.helpers import (
     chunk_and_save,
     compute_hash,
     compute_output_dir,
+    extract_knowledge,
     get_page_count,
     record_completed,
     save_metadata,
@@ -330,6 +332,184 @@ class TestChunkAndSave:
 
         captured = capsys.readouterr()
         assert captured.out.strip() == "0"
+
+
+# ---------------------------------------------------------------------------
+# extract_knowledge
+# ---------------------------------------------------------------------------
+
+
+class TestExtractKnowledge:
+    """Tests for extract_knowledge function."""
+
+    @pytest.fixture
+    def chunks_json(self, tmp_path: Path) -> Path:
+        """Create a sample chunks.json file."""
+        chunks = [
+            {
+                "chunk_index": 0,
+                "content": "Apple reported revenue of $100B.",
+                "section_title": "Summary",
+                "source_hash": "abc123def456",
+                "tables": [],
+            },
+        ]
+        chunks_file = tmp_path / "chunks.json"
+        chunks_file.write_text(
+            json.dumps(chunks, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        return chunks_file
+
+    def _make_mock_extraction_json(self) -> str:
+        """Create a valid extraction JSON response."""
+        return json.dumps(
+            {
+                "chunk_index": 0,
+                "section_title": "Summary",
+                "entities": [
+                    {
+                        "name": "Apple",
+                        "entity_type": "company",
+                        "ticker": "AAPL",
+                        "aliases": [],
+                    },
+                    {
+                        "name": "S&P 500",
+                        "entity_type": "index",
+                        "ticker": None,
+                        "aliases": [],
+                    },
+                ],
+                "facts": [
+                    {
+                        "content": "Revenue was $100B",
+                        "fact_type": "statistic",
+                        "as_of_date": "2025-Q4",
+                        "about_entities": ["Apple"],
+                    },
+                ],
+                "claims": [
+                    {
+                        "content": "Growth expected",
+                        "claim_type": "prediction",
+                        "sentiment": "bullish",
+                        "magnitude": "moderate",
+                        "target_price": None,
+                        "rating": None,
+                        "time_horizon": None,
+                        "about_entities": ["Apple"],
+                    },
+                ],
+                "financial_datapoints": [
+                    {
+                        "metric_name": "Revenue",
+                        "value": 100000.0,
+                        "unit": "USD mn",
+                        "is_estimate": False,
+                        "currency": "USD",
+                        "period_label": "4Q25",
+                        "about_entities": ["Apple"],
+                    },
+                    {
+                        "metric_name": "EBITDA",
+                        "value": 30000.0,
+                        "unit": "USD mn",
+                        "is_estimate": True,
+                        "currency": "USD",
+                        "period_label": "FY2026",
+                        "about_entities": ["Apple"],
+                    },
+                ],
+            }
+        )
+
+    def test_正常系_extractionjsonを保存する(
+        self, chunks_json: Path, tmp_path: Path
+    ) -> None:
+        output_dir = tmp_path / "output"
+
+        with (
+            patch("pdf_pipeline.cli.helpers.ClaudeCodeProvider") as mock_provider_cls,
+            patch("pdf_pipeline.cli.helpers.ProviderChain") as mock_chain_cls,
+        ):
+            mock_provider = MagicMock()
+            mock_provider_cls.return_value = mock_provider
+
+            mock_chain = MagicMock()
+            mock_chain_cls.return_value = mock_chain
+            mock_chain.extract_knowledge.return_value = (
+                self._make_mock_extraction_json()
+            )
+
+            # Patch KnowledgeExtractor to use the mock chain
+            with patch(
+                "pdf_pipeline.cli.helpers.KnowledgeExtractor"
+            ) as mock_extractor_cls:
+                from pdf_pipeline.core.knowledge_extractor import KnowledgeExtractor
+
+                real_extractor = KnowledgeExtractor(provider_chain=mock_chain)
+                mock_extractor_cls.return_value = real_extractor
+
+                extract_knowledge(str(chunks_json), str(output_dir))
+
+        extraction_file = output_dir / "extraction.json"
+        assert extraction_file.exists()
+
+        data = json.loads(extraction_file.read_text(encoding="utf-8"))
+        assert data["source_hash"] == "abc123def456"
+        assert len(data["chunks"]) == 1
+        assert len(data["chunks"][0]["entities"]) == 2
+        assert len(data["chunks"][0]["facts"]) == 1
+        assert len(data["chunks"][0]["claims"]) == 1
+        assert len(data["chunks"][0]["financial_datapoints"]) == 2
+
+    def test_正常系_統計をstdoutに出力する(
+        self, chunks_json: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        output_dir = tmp_path / "output"
+
+        with (
+            patch("pdf_pipeline.cli.helpers.ClaudeCodeProvider") as mock_provider_cls,
+            patch("pdf_pipeline.cli.helpers.ProviderChain") as mock_chain_cls,
+        ):
+            mock_provider = MagicMock()
+            mock_provider_cls.return_value = mock_provider
+
+            mock_chain = MagicMock()
+            mock_chain_cls.return_value = mock_chain
+            mock_chain.extract_knowledge.return_value = (
+                self._make_mock_extraction_json()
+            )
+
+            with patch(
+                "pdf_pipeline.cli.helpers.KnowledgeExtractor"
+            ) as mock_extractor_cls:
+                from pdf_pipeline.core.knowledge_extractor import KnowledgeExtractor
+
+                real_extractor = KnowledgeExtractor(provider_chain=mock_chain)
+                mock_extractor_cls.return_value = real_extractor
+
+                with patch(
+                    "sys.argv",
+                    [
+                        "helpers",
+                        "extract_knowledge",
+                        str(chunks_json),
+                        str(output_dir),
+                    ],
+                ):
+                    _cli_main()
+
+        captured = capsys.readouterr()
+        assert captured.out.strip() == "entities=2 facts=1 claims=1 datapoints=2"
+
+    def test_異常系_chunksjson不存在でエラー(self, tmp_path: Path) -> None:
+        nonexistent = str(tmp_path / "nonexistent" / "chunks.json")
+        output_dir = str(tmp_path / "output")
+
+        with pytest.raises(FileNotFoundError, match=r"chunks\.json not found"):
+            extract_knowledge(nonexistent, output_dir)
 
 
 # ---------------------------------------------------------------------------

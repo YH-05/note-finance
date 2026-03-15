@@ -2,8 +2,8 @@
 
 Provides standalone CLI-callable helper functions for PDF processing
 operations: SHA-256 hashing, idempotency checks, page counting,
-output directory computation, Markdown chunking, metadata persistence,
-and state recording.
+output directory computation, Markdown chunking, knowledge extraction,
+metadata persistence, and state recording.
 
 Each function prints its result to stdout for consumption by the
 orchestrating skill via ``uv run python -m pdf_pipeline.cli.helpers <func> <args>``.
@@ -20,6 +20,8 @@ compute_output_dir
     Compute the mirror-path output directory for a PDF.
 chunk_and_save
     Chunk a Markdown report and save as ``chunks.json``.
+extract_knowledge
+    Extract knowledge from chunks and save as ``extraction.json``.
 save_metadata
     Save processing metadata as ``metadata.json``.
 record_completed
@@ -48,7 +50,10 @@ import fitz  # type: ignore[import-untyped]
 from data_paths import get_path
 from pdf_pipeline._logging import get_logger
 from pdf_pipeline.core.chunker import MarkdownChunker
+from pdf_pipeline.core.knowledge_extractor import KnowledgeExtractor
 from pdf_pipeline.core.pdf_scanner import compute_sha256_standalone
+from pdf_pipeline.services.claude_provider import ClaudeCodeProvider
+from pdf_pipeline.services.provider_chain import ProviderChain
 from pdf_pipeline.services.state_manager import StateManager
 
 logger = get_logger(__name__, module="cli.helpers")
@@ -288,6 +293,96 @@ def chunk_and_save(report_md: str, sha256: str, output_dir: str) -> str:
     return str(count)
 
 
+def extract_knowledge(chunks_json_path: str, output_dir: str) -> str:
+    """Extract knowledge from chunks and save as ``extraction.json``.
+
+    Reads ``chunks.json``, builds a ``ClaudeCodeProvider`` ->
+    ``ProviderChain``, runs ``KnowledgeExtractor.extract_from_chunks()``,
+    and saves the result as ``extraction.json`` in ``output_dir``.
+
+    Parameters
+    ----------
+    chunks_json_path : str
+        Path to the ``chunks.json`` file produced by ``chunk_and_save``.
+    output_dir : str
+        Directory to save ``extraction.json``.
+
+    Returns
+    -------
+    str
+        Statistics string in the format
+        ``entities=N facts=N claims=N datapoints=N``.
+
+    Raises
+    ------
+    FileNotFoundError
+        If ``chunks_json_path`` does not exist.
+
+    Examples
+    --------
+    >>> extract_knowledge("/output/chunks.json", "/output")  # doctest: +SKIP
+    'entities=5 facts=12 claims=3 datapoints=8'
+    """
+    logger.debug(
+        "extract_knowledge called",
+        chunks_json_path=chunks_json_path,
+        output_dir=output_dir,
+    )
+
+    chunks_path = Path(chunks_json_path)
+    if not chunks_path.exists():
+        msg = f"chunks.json not found: {chunks_json_path}"
+        logger.error(msg, chunks_json_path=chunks_json_path)
+        raise FileNotFoundError(msg)
+
+    chunks_data = json.loads(chunks_path.read_text(encoding="utf-8"))
+
+    # Derive source_hash from chunks if available, fallback to "unknown"
+    source_hash = "unknown"
+    if chunks_data and isinstance(chunks_data, list) and len(chunks_data) > 0:
+        source_hash = chunks_data[0].get("source_hash", "unknown")
+
+    # Build provider chain
+    provider = ClaudeCodeProvider()
+    chain = ProviderChain([provider])
+
+    # Extract knowledge
+    extractor = KnowledgeExtractor(provider_chain=chain)
+    doc_result = extractor.extract_from_chunks(
+        chunks=chunks_data,
+        source_hash=source_hash,
+    )
+
+    # Save extraction.json
+    out_path = Path(output_dir)
+    out_path.mkdir(parents=True, exist_ok=True)
+    extraction_file = out_path / "extraction.json"
+    extraction_file.write_text(
+        doc_result.model_dump_json(indent=2),
+        encoding="utf-8",
+    )
+
+    # Compute statistics
+    total_entities = sum(len(c.entities) for c in doc_result.chunks)
+    total_facts = sum(len(c.facts) for c in doc_result.chunks)
+    total_claims = sum(len(c.claims) for c in doc_result.chunks)
+    total_datapoints = sum(len(c.financial_datapoints) for c in doc_result.chunks)
+
+    stats = (
+        f"entities={total_entities} facts={total_facts} "
+        f"claims={total_claims} datapoints={total_datapoints}"
+    )
+    logger.info(
+        "Knowledge extraction completed",
+        output_file=str(extraction_file),
+        entities=total_entities,
+        facts=total_facts,
+        claims=total_claims,
+        datapoints=total_datapoints,
+    )
+    return stats
+
+
 def save_metadata(
     output_dir: str,
     sha256: str,
@@ -405,6 +500,7 @@ _DISPATCH = {
     "get_page_count": get_page_count,
     "compute_output_dir": compute_output_dir,
     "chunk_and_save": chunk_and_save,
+    "extract_knowledge": extract_knowledge,
     "save_metadata": save_metadata,
     "record_completed": record_completed,
 }
