@@ -371,7 +371,7 @@ def convert_meta(
     now_iso = datetime.now(tz=timezone.utc).isoformat()
 
     if old_meta_path and old_meta_path.exists():
-        with open(old_meta_path, encoding="utf-8") as f:
+        with old_meta_path.open(encoding="utf-8") as f:
             old: dict[str, Any] = json.load(f)
         logger.info(
             "Loaded old meta",
@@ -746,7 +746,7 @@ def migrate_article(
         category=meta["category"],
     )
     if not dry_run:
-        with open(meta_path, "w", encoding="utf-8") as f:
+        with meta_path.open("w", encoding="utf-8") as f:
             safe_dump(
                 meta,
                 f,
