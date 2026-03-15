@@ -166,8 +166,8 @@ MCP Server (`rss.mcp.server`) でRSSフィード操作可能。7ツール: list/
 
 | プラットフォーム       | 設定ディレクトリ        | 内容                                           |
 | ---------------------- | ----------------------- | ---------------------------------------------- |
-| Claude Code            | `.claude/`              | 60エージェント、19コマンド、43スキル、8ルール |
-| Gemini CLI/Antigravity | `.gemini/` + `.agents/` | 16コマンド、10ワークフロー、36スキル          |
+| Claude Code            | `.claude/`              | 60エージェント、21コマンド、44スキル、8ルール |
+| Gemini CLI/Antigravity | `.gemini/` + `.agents/` | 16コマンド、10ワークフロー、38スキル          |
 
 ### MCP Servers
 
@@ -250,6 +250,14 @@ MCP Server (`rss.mcp.server`) でRSSフィード操作可能。7ツール: list/
 | `/ai-research-collect`    | AI投資バリューチェーン収集                      |
 | `/reddit-finance-topics`  | Reddit金融コミュニティからトピック発見・記事化  |
 
+### PDF・ナレッジグラフ
+
+| コマンド              | 説明                                                                |
+| --------------------- | ------------------------------------------------------------------- |
+| `/convert-pdf`        | 単一PDFをMarkdownに変換（Claude Code直接Read方式）                  |
+| `/pdf-to-knowledge`   | PDF→Markdown→ナレッジグラフの一括ワークフロー                       |
+| `/save-to-graph`      | graph-queueのデータをNeo4jに投入                                    |
+
 ### 開発ツール
 
 | コマンド         | 説明                                    |
@@ -259,4 +267,3 @@ MCP Server (`rss.mcp.server`) でRSSフィード操作可能。7ツール: list/
 | `/push`          | 変更をコミットしてリモートにプッシュ     |
 | `/merge-pr`      | PRのコンフリクトチェック・CI確認・マージ |
 | `/gemini-search` | Gemini CLIを使用してWeb検索             |
-| `/save-to-graph` | graph-queueのデータをNeo4jに投入       |

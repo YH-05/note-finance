@@ -88,6 +88,20 @@ class TestLLMProviderProtocol:
 # ---------------------------------------------------------------------------
 
 
+class TestGeminiCLIProviderDeprecation:
+    """Tests for GeminiCLIProvider deprecation warning."""
+
+    def test_正常系_初期化時に非推奨警告をログ出力する(self) -> None:
+        with patch("pdf_pipeline.services.gemini_provider.logger") as mock_logger:
+            GeminiCLIProvider()
+            mock_logger.warning.assert_called_once()
+            call_args = mock_logger.warning.call_args
+            assert (
+                "deprecated" in call_args[0][0].lower()
+                or "deprecated" in str(call_args).lower()
+            )
+
+
 class TestGeminiCLIProviderIsAvailable:
     """Tests for GeminiCLIProvider.is_available()."""
 

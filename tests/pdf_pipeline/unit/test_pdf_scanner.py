@@ -2,7 +2,7 @@
 
 Tests cover:
 - PDF file detection in input directories
-- SHA-256 hash calculation
+- SHA-256 hash calculation (instance method and standalone function)
 - Unprocessed file detection
 - Path traversal prevention
 - Edge cases (empty directory, non-PDF files, nested directories)
@@ -18,7 +18,7 @@ import pytest
 if TYPE_CHECKING:
     from pathlib import Path
 
-from pdf_pipeline.core.pdf_scanner import PdfScanner
+from pdf_pipeline.core.pdf_scanner import PdfScanner, compute_sha256_standalone
 from pdf_pipeline.exceptions import PathTraversalError, ScanError
 
 # ---------------------------------------------------------------------------
@@ -296,3 +296,95 @@ class TestPdfScannerFindUnprocessed:
         scanner = PdfScanner(tmp_pdf_dir)
         results = scanner.find_unprocessed(processed_hashes={"some_hash"})
         assert results == []
+
+
+# ---------------------------------------------------------------------------
+# compute_sha256_standalone
+# ---------------------------------------------------------------------------
+
+
+class TestComputeSha256Standalone:
+    """Tests for compute_sha256_standalone module-level function."""
+
+    def test_正常系_SHA256ハッシュを計算できる(self, tmp_path: Path) -> None:
+        content = b"%PDF-1.4 standalone test content"
+        pdf_path = tmp_path / "test.pdf"
+        pdf_path.write_bytes(content)
+
+        result = compute_sha256_standalone(str(pdf_path))
+
+        expected = hashlib.sha256(content).hexdigest()
+        assert result == expected
+
+    def test_正常系_PdfScannerと同じハッシュを返す(self, tmp_pdf_dir: Path) -> None:
+        content = b"%PDF-1.4 consistency check"
+        pdf_path = _create_pdf(tmp_pdf_dir, "test.pdf", content)
+
+        scanner = PdfScanner(tmp_pdf_dir)
+        instance_hash = scanner.compute_sha256(pdf_path)
+        standalone_hash = compute_sha256_standalone(str(pdf_path))
+
+        assert instance_hash == standalone_hash
+
+    def test_正常系_同じファイルで同じハッシュを返す(self, tmp_path: Path) -> None:
+        pdf_path = tmp_path / "test.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4 deterministic")
+
+        hash1 = compute_sha256_standalone(str(pdf_path))
+        hash2 = compute_sha256_standalone(str(pdf_path))
+
+        assert hash1 == hash2
+
+    def test_正常系_異なるファイルで異なるハッシュを返す(self, tmp_path: Path) -> None:
+        pdf_a = tmp_path / "a.pdf"
+        pdf_b = tmp_path / "b.pdf"
+        pdf_a.write_bytes(b"content A")
+        pdf_b.write_bytes(b"content B")
+
+        hash_a = compute_sha256_standalone(str(pdf_a))
+        hash_b = compute_sha256_standalone(str(pdf_b))
+
+        assert hash_a != hash_b
+
+    def test_正常系_ハッシュは64文字の16進数(self, tmp_path: Path) -> None:
+        pdf_path = tmp_path / "test.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4 sample")
+
+        result = compute_sha256_standalone(str(pdf_path))
+
+        assert len(result) == 64
+        assert all(c in "0123456789abcdef" for c in result)
+
+    def test_正常系_パストラバーサルチェックを行わない(self, tmp_path: Path) -> None:
+        # Create a file outside a "base" directory and verify standalone
+        # does NOT raise PathTraversalError (unlike PdfScanner.compute_sha256)
+        sub = tmp_path / "sub"
+        sub.mkdir()
+        pdf_path = tmp_path / "outside.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4 outside")
+
+        # PdfScanner would raise PathTraversalError for this path
+        scanner = PdfScanner(sub)
+        with pytest.raises(PathTraversalError):
+            scanner.compute_sha256(pdf_path)
+
+        # standalone should succeed without path traversal check
+        result = compute_sha256_standalone(str(pdf_path))
+        expected = hashlib.sha256(b"%PDF-1.4 outside").hexdigest()
+        assert result == expected
+
+    def test_異常系_存在しないファイルでScanError(self, tmp_path: Path) -> None:
+        nonexistent = tmp_path / "missing.pdf"
+
+        with pytest.raises(ScanError, match="not found"):
+            compute_sha256_standalone(str(nonexistent))
+
+    def test_正常系_PdfScannerインスタンス化不要(self, tmp_path: Path) -> None:
+        """Verify the function works without PdfScanner instantiation."""
+        pdf_path = tmp_path / "standalone.pdf"
+        pdf_path.write_bytes(b"%PDF-1.4 no scanner needed")
+
+        # Should work with just a string path, no PdfScanner needed
+        result = compute_sha256_standalone(str(pdf_path))
+        assert isinstance(result, str)
+        assert len(result) == 64
