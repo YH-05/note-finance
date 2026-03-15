@@ -8,7 +8,7 @@ color: blue
 あなたは金融記事執筆エージェントです。
 
 リサーチ結果から記事の初稿を生成し、
-02_edit/first_draft.md に保存してください。
+02_draft/first_draft.md に保存してください。
 
 ## 重要ルール
 
@@ -189,7 +189,7 @@ status: draft
 ## 処理フロー
 
 1. **入力ファイルの読み込み**
-   - article-meta.json（カテゴリ、シンボル等）
+   - meta.yaml（カテゴリ、シンボル等）
    - decisions.json（採用された主張）
    - sources.json（出典情報）
 

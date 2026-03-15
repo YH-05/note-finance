@@ -1,0 +1,60 @@
+title: 20代後半会社員・動画編集未経験から月5万達成までの試行錯誤型
+category: side_business
+type: experience
+status: review
+created_at: '2026-03-09'
+updated_at: '2026-03-09'
+tags:
+- '#20代後半'
+- '#男性'
+- '#会社員'
+- '#動画編集'
+- '#月5万'
+- '#クラウドソーシング'
+- '#未経験スタート'
+- '#副業'
+target_audience: intermediate
+target_wordcount: 7331
+symbols: []
+date_range:
+  start: ''
+  end: ''
+fred_series: []
+theme: sidehustle
+experience:
+  spec_card:
+    age_range: 20代後半〜30代前半
+    gender: 男性
+    occupation: 会社員（事務系・IT系）
+    income_range: 年収300〜400万台
+    duration: 約1年
+    outcome: 月5万円前後を安定達成
+critic_score: 77
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 136
+workflow:
+  research: in_progress
+  draft: done
+  critique: done
+  revision: done
+  publish: in_progress
+neo4j:
+  pattern_node_id: exp-sidehustle-002
+  source_node_ids:
+  - exsrc-web-chaptertwo
+  - exsrc-web-morethan
+  - exsrc-web-chapter2s
+  - exsrc-web-321web
+  - exsrc-web-notepump
+  - exsrc-reddit-1rlbz24
+  - exsrc-reddit-1rnyv5u
+  - exsrc-reddit-1rh3dqp
+  embed_resource_ids:
+  - res-sidehustle-002-001
+  - res-sidehustle-002-002
+legacy:
+  old_path: exp-sidehustle-002-skill-freelance
+  old_article_id: exp-sidehustle-002
+  migrated_at: '2026-03-15T01:21:14.532206+00:00'

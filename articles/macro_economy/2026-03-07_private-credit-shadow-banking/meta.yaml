@@ -1,0 +1,45 @@
+title: シャドーバンキングの再来か？：プライベートクレジットと大手銀行の「危険な抱擁」
+category: macro_economy
+type: column
+status: review
+created_at: '2026-03-07T12:00:00Z'
+updated_at: '2026-03-08T00:00:00Z'
+tags: []
+target_audience: intermediate
+target_wordcount: 4000
+symbols: []
+date_range:
+  start: '2021-01-01'
+  end: '2026-03-01'
+fred_series:
+- TOTLL
+- NFBL
+- H8
+theme: ''
+experience:
+  spec_card:
+    age_range: ''
+    gender: ''
+    occupation: ''
+    income_range: ''
+    duration: ''
+    outcome: ''
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: done
+  draft: done
+  critique: pending
+  revision: pending
+  publish: pending
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+legacy:
+  old_path: economic_indicators_001_private-credit-bank-shadow-banking-risk
+  old_article_id: economic_indicators_001_private-credit-bank-shadow-banking-risk
+  migrated_at: '2026-03-15T01:21:14.497767+00:00'

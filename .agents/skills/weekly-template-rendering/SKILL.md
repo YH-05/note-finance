@@ -48,7 +48,7 @@ articles/templates/weekly_market_report_template.md
 ### 出力先
 
 ```
-articles/weekly_report/{date}/02_edit/
+articles/weekly_report/{date}/02_draft/
 ├── weekly_report.md       # Markdownレポート
 └── weekly_report.json     # 構造化データ
 ```
@@ -285,7 +285,7 @@ articles/weekly_report/2026-01-22/data/
 
 **出力**:
 ```
-articles/weekly_report/2026-01-22/02_edit/
+articles/weekly_report/2026-01-22/02_draft/
 ├── weekly_report.md ✓ (3450字)
 └── weekly_report.json ✓
 ```
@@ -367,7 +367,7 @@ articles/weekly_report/2026-01-22/02_edit/
 ```json
 {
   "error": "出力ディレクトリを作成できません",
-  "path": "articles/weekly_report/2026-01-22/02_edit/",
+  "path": "articles/weekly_report/2026-01-22/02_draft/",
   "suggestion": "ディレクトリの権限を確認してください"
 }
 ```

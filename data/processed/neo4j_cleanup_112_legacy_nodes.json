@@ -1,0 +1,44 @@
+{
+  "cleanup_date": "2026-03-15",
+  "issue": 112,
+  "description": "Legacy node audit and cleanup",
+  "actions": [
+    {
+      "step": 1,
+      "action": "Archive non-Memory Decision nodes",
+      "query": "MATCH (d:Decision) WHERE NOT 'Memory' IN labels(d) SET d:Archived REMOVE d:Decision",
+      "count": 56
+    },
+    {
+      "step": 2,
+      "action": "Normalize HAS_CASE_STUDIES → HAS_CASE_STUDY",
+      "query": "MATCH (a)-[r:HAS_CASE_STUDIES]->(b) MERGE (a)-[:HAS_CASE_STUDY]->(b) DELETE r",
+      "count": 2
+    },
+    {
+      "step": 3,
+      "action": "Archive non-Memory Discussion nodes",
+      "count": 20
+    },
+    {
+      "step": 4,
+      "action": "Archive non-Memory CaseStudy nodes",
+      "count": 3
+    },
+    {
+      "step": 5,
+      "action": "Archive non-Memory ContentTheme nodes",
+      "count": 2
+    },
+    {
+      "step": 6,
+      "action": "Archive remaining legacy nodes (22 label types)",
+      "labels": ["ActionItem", "Article", "CandidateTheme", "CaseStudyArticle", "Community", "Competitor", "Concept", "ContentPolicy", "Document", "EmbeddableResource", "ExperiencePattern", "ExperienceSource", "FinancialProduct", "MarketData", "MonetizationModel", "Organization", "Person", "Platform", "ReferenceArticle", "ResearchReport", "SuccessCase", "SuccessPattern"],
+      "count": 180
+    }
+  ],
+  "total_archived": 261,
+  "verification": {
+    "non_archived_legacy_nodes": 0
+  }
+}

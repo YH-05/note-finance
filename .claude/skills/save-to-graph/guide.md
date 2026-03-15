@@ -1098,6 +1098,11 @@ Source.category  ←→  Topic.category
 
 ### ステップ 3b.2: ABOUT コンテンツマッチング
 
+> **Memory 除外フィルタ**: 全クロスファイルリレーション推論クエリには
+> `WHERE NOT 'Memory' IN labels(n)` を付与すること。
+> Memory ノードが KG ノードと誤マッチするのを防止するため。
+> 参照: `.claude/rules/neo4j-namespace-convention.md`
+
 #### 新 Claim → 既存 Entity
 
 今回投入した Claim の `content` に、既存 Entity の `name` が含まれる場合に接続する。
@@ -1106,7 +1111,8 @@ Source.category  ←→  Topic.category
 UNWIND $claim_ids AS cid
 MATCH (c:Claim {claim_id: cid})
 MATCH (e:Entity)
-WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+WHERE NOT 'Memory' IN labels(e)
+  AND size(e.name) >= 2 AND c.content CONTAINS e.name
 MERGE (c)-[:ABOUT]->(e)
 ```
 
@@ -1117,8 +1123,10 @@ MERGE (c)-[:ABOUT]->(e)
 ```cypher
 UNWIND $entity_ids AS eid
 MATCH (e:Entity {entity_id: eid})
+WHERE NOT 'Memory' IN labels(e)
 MATCH (c:Claim)
-WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+WHERE NOT 'Memory' IN labels(c)
+  AND size(e.name) >= 2 AND c.content CONTAINS e.name
 MERGE (c)-[:ABOUT]->(e)
 ```
 
@@ -1159,8 +1167,10 @@ MERGE (c)-[:ABOUT]->(e)
 // Claim 数が多い場合、直近30日の Claim に限定
 UNWIND $entity_ids AS eid
 MATCH (e:Entity {entity_id: eid})
+WHERE NOT 'Memory' IN labels(e)
 MATCH (c:Claim)
-WHERE size(e.name) >= 2
+WHERE NOT 'Memory' IN labels(c)
+  AND size(e.name) >= 2
   AND c.content CONTAINS e.name
   AND c.created_at > datetime() - duration('P30D')
 MERGE (c)-[:ABOUT]->(e)
@@ -1211,7 +1221,8 @@ def phase_3b_cross_file_relations(
             UNWIND $claim_ids AS cid
             MATCH (c:Claim {claim_id: cid})
             MATCH (e:Entity)
-            WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+            WHERE NOT 'Memory' IN labels(e)
+              AND size(e.name) >= 2 AND c.content CONTAINS e.name
             MERGE (c)-[r:ABOUT]->(e)
             RETURN count(r) AS cnt
         """, claim_ids=claim_ids)
@@ -1221,8 +1232,10 @@ def phase_3b_cross_file_relations(
         result = run_cypher("""
             UNWIND $entity_ids AS eid
             MATCH (e:Entity {entity_id: eid})
+            WHERE NOT 'Memory' IN labels(e)
             MATCH (c:Claim)
-            WHERE size(e.name) >= 2 AND c.content CONTAINS e.name
+            WHERE NOT 'Memory' IN labels(c)
+              AND size(e.name) >= 2 AND c.content CONTAINS e.name
             MERGE (c)-[r:ABOUT]->(e)
             RETURN count(r) AS cnt
         """, entity_ids=entity_ids)

@@ -159,7 +159,7 @@ Phase 4: レポート生成（weekly-report-lead へ委譲）
 ├── コメント生成（weekly-comment-generation スキル）
 ├── テンプレート埋め込み（weekly-template-rendering スキル）
 ├── 品質検証（weekly-report-validation スキル）
-└── 02_edit/weekly_report.md に出力
+└── 02_draft/weekly_report.md に出力
 
 Phase 5: 品質検証
 ├── 文字数確認（目標: 3200字以上）
@@ -198,7 +198,7 @@ OUTPUT_DIR="articles/market_report_${DATE}"
 
 ```bash
 mkdir -p "${OUTPUT_DIR}/data"
-mkdir -p "${OUTPUT_DIR}/02_edit"
+mkdir -p "${OUTPUT_DIR}/02_draft"
 ```
 
 **ディレクトリ構造**:
@@ -209,7 +209,7 @@ mkdir -p "${OUTPUT_DIR}/02_edit"
 │   ├── sectors.json        # セクター分析
 │   ├── earnings.json       # 決算カレンダー
 │   └── news_context.json   # ニュース検索結果
-└── 02_edit/
+└── 02_draft/
     └── report.md           # Markdownレポート
 ```
 
@@ -257,7 +257,7 @@ fi
 ### 1.4 テンプレート確認
 
 ```bash
-TEMPLATE_FILE="template/market_report/02_edit/first_draft.md"
+TEMPLATE_FILE="template/market_report/02_draft/first_draft.md"
 if [ ! -f "$TEMPLATE_FILE" ]; then
     echo "エラー: テンプレートファイルが見つかりません"
     echo "期待されるパス: $TEMPLATE_FILE"
@@ -401,7 +401,7 @@ keywords = [earning["symbol"] + " 決算" for earning in upcoming_earnings[:5]]
 ### 4.1 テンプレート読み込み
 
 ```bash
-cat template/market_report/02_edit/first_draft.md
+cat template/market_report/02_draft/first_draft.md
 ```
 
 ### 4.2 データ埋め込み
@@ -459,7 +459,7 @@ cat template/market_report/02_edit/first_draft.md
 
 ```bash
 # 出力先
-${OUTPUT_DIR}/02_edit/report.md
+${OUTPUT_DIR}/02_draft/report.md
 ```
 
 **日付の置換**:
@@ -485,7 +485,7 @@ ${OUTPUT_DIR}/02_edit/report.md
 | セクター分析 | {output}/data/sectors.json | 8KB |
 | 決算カレンダー | {output}/data/earnings.json | 5KB |
 | ニュースコンテキスト | {output}/data/news_context.json | 12KB |
-| **レポート** | {output}/02_edit/report.md | 25KB |
+| **レポート** | {output}/02_draft/report.md | 25KB |
 
 ## データサマリー
 
@@ -516,13 +516,13 @@ ${OUTPUT_DIR}/02_edit/report.md
 ## 次のアクション
 
 1. レポートを確認:
-   cat {output}/02_edit/report.md
+   cat {output}/02_draft/report.md
 
 2. 編集・修正:
-   edit {output}/02_edit/report.md
+   edit {output}/02_draft/report.md
 
 3. 公開準備:
-   cp {output}/02_edit/report.md {output}/03_published/{date}_weekly_market_report.md
+   cp {output}/02_draft/report.md {output}/03_published/{date}_weekly_market_report.md
 
 ================================================================================
 ```
@@ -583,14 +583,14 @@ ${OUTPUT_DIR}/02_edit/report.md
 ```
 エラー: テンプレートファイルが見つかりません
 
-期待されるパス: template/market_report/02_edit/first_draft.md
+期待されるパス: template/market_report/02_draft/first_draft.md
 
 対処法:
 1. テンプレートディレクトリを確認:
    ls template/market_report/
 
 2. テンプレートを復元:
-   git checkout template/market_report/02_edit/first_draft.md
+   git checkout template/market_report/02_draft/first_draft.md
 ```
 
 ### E005: 出力ディレクトリエラー
@@ -609,7 +609,7 @@ ${OUTPUT_DIR}/02_edit/report.md
 
 2. 手動でディレクトリを作成:
    mkdir -p articles/market_report_{date}/data
-   mkdir -p articles/market_report_{date}/02_edit
+   mkdir -p articles/market_report_{date}/02_draft
 ```
 
 ---
@@ -659,7 +659,7 @@ OUTPUT_DIR="articles/weekly_report/${REPORT_DATE}"
 
 # 構造作成
 mkdir -p "${OUTPUT_DIR}/data"
-mkdir -p "${OUTPUT_DIR}/02_edit"
+mkdir -p "${OUTPUT_DIR}/02_draft"
 mkdir -p "${OUTPUT_DIR}/03_published"
 ```
 
@@ -675,7 +675,7 @@ articles/weekly_report/{YYYY-MM-DD}/
 │   ├── news_supplemental.json # 追加検索結果（--no-search がない場合）
 │   ├── aggregated_data.json  # 集約データ
 │   └── comments.json         # 生成コメント
-├── 02_edit/
+├── 02_draft/
 │   ├── weekly_report.md      # Markdown レポート
 │   └── weekly_report.json    # 構造化データ
 ├── 03_published/
@@ -929,7 +929,7 @@ project_number: 15
 ## 期待される処理（必須）
 
 1. {OUTPUT_DIR}/data/ からデータ読み込み
-2. {OUTPUT_DIR}/02_edit/weekly_report.md からレポート読み込み
+2. {OUTPUT_DIR}/02_draft/weekly_report.md からレポート読み込み
 3. Issue 本文を生成
 4. **GitHub Issue を作成（`--label "report"` を必ず付与）**
 5. **GitHub Project #15 に追加（`gh project item-add` 実行）**
@@ -965,7 +965,7 @@ project_number: 15
 | 追加検索結果 | articles/weekly_report/2026-01-22/data/news_supplemental.json | 3KB |
 | 集約データ | articles/weekly_report/2026-01-22/data/aggregated_data.json | 20KB |
 | コメント | articles/weekly_report/2026-01-22/data/comments.json | 12KB |
-| **レポート** | **articles/weekly_report/2026-01-22/02_edit/weekly_report.md** | **15KB** |
+| **レポート** | **articles/weekly_report/2026-01-22/02_draft/weekly_report.md** | **15KB** |
 | 検証結果 | articles/weekly_report/2026-01-22/validation_result.json | 2KB |
 
 ## データサマリー
@@ -1011,10 +1011,10 @@ project_number: 15
 ## 次のアクション
 
 1. レポートを確認:
-   cat articles/weekly_report/2026-01-22/02_edit/weekly_report.md
+   cat articles/weekly_report/2026-01-22/02_draft/weekly_report.md
 
 2. 編集・修正:
-   edit articles/weekly_report/2026-01-22/02_edit/weekly_report.md
+   edit articles/weekly_report/2026-01-22/02_draft/weekly_report.md
 
 3. Issue を確認:
    gh issue view 830
@@ -1153,7 +1153,7 @@ project_number: 15
     │   └── Markdownファイル出力
     │
     ├── Phase 5: 出力
-    │   └── articles/weekly_comment_{date}/02_edit/weekly_comment.md
+    │   └── articles/weekly_comment_{date}/02_draft/weekly_comment.md
     │
     └── Phase 6: Issue 投稿（自動実行）
         ├── weekly-report-publisher サブエージェント呼び出し
@@ -1172,7 +1172,7 @@ articles/weekly_comment_{YYYYMMDD}/
 │   ├── sectors.json        # セクター分析（上位・下位3）
 │   ├── metadata.json       # 期間情報
 │   └── news_context.json   # ニュース検索結果
-└── 02_edit/
+└── 02_draft/
     └── weekly_comment.md   # 週次コメント（3000字以上）
 ```
 
@@ -1202,7 +1202,7 @@ OUTPUT_DIR="articles/weekly_comment_${REPORT_DATE}"
 
 # 構造作成
 mkdir -p "${OUTPUT_DIR}/data"
-mkdir -p "${OUTPUT_DIR}/02_edit"
+mkdir -p "${OUTPUT_DIR}/02_draft"
 ```
 
 ## 週次コメント Phase 2: データ収集（詳細）
@@ -1412,7 +1412,7 @@ MAG7では、TSLAが+3.70%で週間トップパフォーマーとなりました
 
 - **Pythonスクリプト**: `scripts/market_report_data.py`
 - **週次コメントスクリプト**: `scripts/weekly_comment_data.py`
-- **テンプレート**: `template/market_report/02_edit/first_draft.md`
+- **テンプレート**: `template/market_report/02_draft/first_draft.md`
 - **週次コメントテンプレート**: `template/market_report/weekly_comment_template.md`
 - **サンプルレポート**: `template/market_report/sample/20251210_weekly_comment.md`
 - **データスキーマ**: `data/schemas/`
@@ -1449,7 +1449,7 @@ project_number: 15
 ## 期待される処理（必須）
 
 1. {OUTPUT_DIR}/data/ からデータ読み込み
-2. {OUTPUT_DIR}/02_edit/weekly_comment.md からレポート読み込み
+2. {OUTPUT_DIR}/02_draft/weekly_comment.md からレポート読み込み
 3. Issue 本文を生成
 4. **GitHub Issue を作成（`--label "report"` を必ず付与）**
 5. **GitHub Project #15 に追加（`gh project item-add` 実行）**
@@ -1475,7 +1475,7 @@ project_number: 15
 
 ## 生成されたレポート
 
-- **レポートファイル**: {output}/02_edit/weekly_comment.md
+- **レポートファイル**: {output}/02_draft/weekly_comment.md
 - **文字数**: 3,200字
 
 ## 投稿された Issue
@@ -1489,7 +1489,7 @@ project_number: 15
 ## 次のステップ
 
 1. レポートを確認:
-   cat {output}/02_edit/weekly_comment.md
+   cat {output}/02_draft/weekly_comment.md
 
 2. Issue を確認:
    gh issue view 825
@@ -1517,7 +1517,7 @@ project_number: 15
 ### テンプレート
 - **フル週次レポート（--weekly）**: `template/market_report/weekly_market_report_template.md`
 - **週次コメント（--weekly-comment）**: `template/market_report/weekly_comment_template.md`
-- **基本レポート**: `template/market_report/02_edit/first_draft.md`
+- **基本レポート**: `template/market_report/02_draft/first_draft.md`
 - **サンプルレポート**: `template/market_report/sample/`
 
 ### サブエージェント（--weekly モード用）

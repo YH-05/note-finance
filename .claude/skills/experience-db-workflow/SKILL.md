@@ -52,7 +52,7 @@ Phase 6: Neo4j保存 + 完了
 ├── ExperiencePattern ノード MERGE
 ├── EmbeddableResource ノード MERGE
 ├── リレーション設定
-└── article-meta.json ステータス更新
+└── meta.yaml ステータス更新
 ```
 
 ## Phase 1: ソース収集
@@ -62,15 +62,16 @@ Phase 6: Neo4j保存 + 完了
 `template/experience_db/` をコピーして記事フォルダを作成:
 
 ```
-articles/exp-{theme}-{NNN}-{english-slug}/
-├── article-meta.json
-├── 01_sources/
-├── 02_synthesis/
-├── 03_edit/
-└── 04_published/
+articles/{category}/{YYYY-MM-DD}_{english-slug}/
+├── meta.yaml
+├── 01_research/
+├── 02_draft/
+└── 03_published/
 ```
 
-article-meta.json の `theme`, `created_at` を設定。
+カテゴリ対応: konkatsu -> `marriage/`, sidehustle -> `side_business/`, shisan -> `asset_formation/`
+
+meta.yaml の `theme`, `created_at` を設定。
 
 ### 1.2 Reddit 収集
 
@@ -310,7 +311,7 @@ MATCH (ep:ExperiencePattern {pattern_id: $pattern_id})
 MERGE (ep)-[:EMBEDS {section: $section}]->(er)
 ```
 
-### 6.5 article-meta.json 更新
+### 6.5 meta.yaml 更新
 
 ```json
 {

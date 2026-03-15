@@ -32,7 +32,7 @@ weekly-report-lead (リーダー)
     │       ↓ comments.json を report_dir/data/ に書き出し
     ├── [task-4] wr-template-renderer (テンプレート埋め込み) ── Phase 3
     │       blockedBy: [task-3]
-    │       ↓ weekly_report.md, weekly_report.json を report_dir/02_edit/ に書き出し
+    │       ↓ weekly_report.md, weekly_report.json を report_dir/02_draft/ に書き出し
     ├── [task-5] wr-report-validator (品質検証) ── Phase 4
     │       blockedBy: [task-4]
     │       ↓ validation_result.json を report_dir/ に書き出し
@@ -203,8 +203,8 @@ TaskCreate:
     articles/templates/weekly_market_report_template.md
 
     ## 出力ファイル
-    - {report_dir}/02_edit/weekly_report.md
-    - {report_dir}/02_edit/weekly_report.json
+    - {report_dir}/02_draft/weekly_report.md
+    - {report_dir}/02_draft/weekly_report.json
   activeForm: "テンプレートにデータを埋め込み中"
 
 # task-5: 品質検証（task-4 に依存）
@@ -214,8 +214,8 @@ TaskCreate:
     生成レポートのフォーマット、文字数、データ整合性、内容品質を検証する。
 
     ## 入力ファイル
-    - {report_dir}/02_edit/weekly_report.md
-    - {report_dir}/02_edit/weekly_report.json
+    - {report_dir}/02_draft/weekly_report.md
+    - {report_dir}/02_draft/weekly_report.json
     - {report_dir}/data/aggregated_data.json（参照）
     - {report_dir}/data/comments.json（参照）
 
@@ -236,8 +236,8 @@ TaskCreate:
     検証済みレポートを GitHub Issue として投稿し、Project #15 に追加する。
 
     ## 入力ファイル
-    - {report_dir}/02_edit/weekly_report.md
-    - {report_dir}/02_edit/weekly_report.json
+    - {report_dir}/02_draft/weekly_report.md
+    - {report_dir}/02_draft/weekly_report.json
     - {report_dir}/data/aggregated_data.json
     - {report_dir}/validation_result.json
 
@@ -470,8 +470,8 @@ Task:
     - {report_dir}/data/comments.json
 
     ## 出力先
-    - {report_dir}/02_edit/weekly_report.md
-    - {report_dir}/02_edit/weekly_report.json
+    - {report_dir}/02_draft/weekly_report.md
+    - {report_dir}/02_draft/weekly_report.json
 
 TaskUpdate:
   taskId: "<task-4-id>"
@@ -500,8 +500,8 @@ Task:
     7. リーダーに SendMessage で完了通知（スコアとグレードを含める）
 
     ## 入力ファイル
-    - {report_dir}/02_edit/weekly_report.md
-    - {report_dir}/02_edit/weekly_report.json
+    - {report_dir}/02_draft/weekly_report.md
+    - {report_dir}/02_draft/weekly_report.json
     - {report_dir}/data/aggregated_data.json（参照）
     - {report_dir}/data/comments.json（参照）
 
@@ -536,8 +536,8 @@ Task:
     8. リーダーに SendMessage で完了通知（Issue URL を含める）
 
     ## 入力ファイル
-    - {report_dir}/02_edit/weekly_report.md
-    - {report_dir}/02_edit/weekly_report.json
+    - {report_dir}/02_draft/weekly_report.md
+    - {report_dir}/02_draft/weekly_report.json
     - {report_dir}/data/aggregated_data.json
 
     ## レポートディレクトリ
@@ -692,8 +692,8 @@ wr-template-renderer
     │
     ├── aggregated_data.json + comments.json を読み込み
     ├── テンプレートファイルを読み込み
-    ├── {report_dir}/02_edit/weekly_report.md を書き出し
-    └── {report_dir}/02_edit/weekly_report.json を書き出し
+    ├── {report_dir}/02_draft/weekly_report.md を書き出し
+    └── {report_dir}/02_draft/weekly_report.json を書き出し
            │
            ↓
 wr-report-validator
@@ -747,8 +747,8 @@ weekly_report_team_result:
       status: "SUCCESS"
       owner: "template-renderer"
       output:
-        - "{report_dir}/02_edit/weekly_report.md"
-        - "{report_dir}/02_edit/weekly_report.json"
+        - "{report_dir}/02_draft/weekly_report.md"
+        - "{report_dir}/02_draft/weekly_report.json"
 
     task-5 (品質検証):
       status: "SUCCESS"

@@ -2289,6 +2289,7 @@ dependencies = [
     { name = "rich" },
     { name = "structlog" },
     { name = "tenacity" },
+    { name = "tornado" },
     { name = "tqdm" },
     { name = "trafilatura" },
 ]
@@ -2334,6 +2335,7 @@ scraper = [
 [package.dev-dependencies]
 dev = [
     { name = "freezegun" },
+    { name = "pip-audit" },
     { name = "pyright" },
     { name = "ruff" },
 ]
@@ -2376,6 +2378,7 @@ requires-dist = [
     { name = "scrapling", extras = ["fetchers"], marker = "extra == 'scraper'", specifier = ">=0.4,<1.0" },
     { name = "structlog", specifier = ">=25.4.0" },
     { name = "tenacity", specifier = ">=9.1.2" },
+    { name = "tornado", specifier = ">=6.5.5" },
     { name = "tqdm", specifier = ">=4.67.2" },
     { name = "trafilatura", specifier = ">=2.0.0" },
     { name = "yfinance", marker = "extra == 'dev'", specifier = ">=0.2.0" },
@@ -2385,6 +2388,7 @@ provides-extras = ["dev", "mcp", "cli", "playwright", "automation", "scheduler",
 [package.metadata.requires-dev]
 dev = [
     { name = "freezegun", specifier = ">=1.5.5" },
+    { name = "pip-audit", specifier = ">=2.10.0" },
     { name = "pyright", specifier = ">=1.1.408" },
     { name = "ruff", specifier = ">=0.14.14" },
 ]

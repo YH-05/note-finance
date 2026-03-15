@@ -1,0 +1,44 @@
+title: ハイテクから「退屈な高配当」への資金シフト：ベライゾン（VZ）独走の正体
+category: stock_analysis
+type: data_analysis
+status: draft
+created_at: '2026-03-08T00:00:00Z'
+updated_at: '2026-03-08T00:00:00Z'
+tags: []
+target_audience: intermediate
+target_wordcount: 4000
+symbols:
+- VZ
+- QQQ
+date_range:
+  start: '2024-01-01'
+  end: '2025-03-08'
+fred_series: []
+theme: ''
+experience:
+  spec_card:
+    age_range: ''
+    gender: ''
+    occupation: ''
+    income_range: ''
+    duration: ''
+    outcome: ''
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+legacy:
+  old_path: stock_analysis_001_tech-to-high-dividend-rotation-vz
+  old_article_id: stock_analysis_001_tech-to-high-dividend-rotation-vz
+  migrated_at: '2026-03-15T01:21:14.517910+00:00'

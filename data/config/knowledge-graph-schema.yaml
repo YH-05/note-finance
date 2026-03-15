@@ -540,3 +540,59 @@ indices:
     property: source_type
   - label: Source
     property: source_hash
+
+# ============================================================
+# Namespace Definitions
+# ============================================================
+namespaces:
+  kg_v2:
+    description: "KG v2 schema nodes for knowledge graph"
+    labels:
+      - Source
+      - Author
+      - Chunk
+      - Fact
+      - Claim
+      - Entity
+      - FinancialDataPoint
+      - FiscalPeriod
+      - Topic
+      - Insight
+    naming: PascalCase
+
+  conversation:
+    description: "Conversation history tracking nodes"
+    labels:
+      - ConversationSession
+      - ConversationTopic
+      - Project
+    naming: PascalCase
+
+  memory:
+    description: "MCP Memory nodes (root + sub-labels)"
+    root_label: Memory
+    sub_labels:
+      - Decision
+      # Project is shared with conversation namespace (standalone Project node)
+      # Memory:Project nodes are classified via Memory root label
+      - ContentTheme
+      - Theme
+      - Implementation
+      - Phase
+      - Strategy
+      - CaseStudy
+      - Architecture
+      - Schema
+      - Status
+      - BusinessModel
+      - Workflow
+      - Research
+      - Todo
+      - Discussion
+    naming: PascalCase
+
+  archived:
+    description: "Archived legacy nodes"
+    labels:
+      - Archived
+    naming: PascalCase

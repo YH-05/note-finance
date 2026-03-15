@@ -219,16 +219,28 @@ MCP Server (`rss.mcp.server`) でRSSフィード操作可能。7ツール: list/
 
 以下のコマンドが全プラットフォームで利用可能。
 
-### 金融コンテンツ
+### 記事ワークフロー（新コマンド）
 
 | コマンド                  | 説明                                            |
 | ------------------------- | ----------------------------------------------- |
-| `/finance-suggest-topics` | 金融記事のトピックを提案                        |
-| `/new-finance-article`    | 新規記事フォルダを作成                          |
-| `/finance-edit`           | 記事編集ワークフロー（初稿→批評→修正）          |
-| `/finance-full`           | 記事作成の全工程を一括実行                      |
-| `/publish-to-note`        | 記事をnote.comに下書き投稿                      |
-| `/asset-management`       | 資産形成コンテンツ（note記事+X投稿）を自動生成  |
+| `/article-init`           | 新規記事フォルダを作成                          |
+| `/article-research`       | カテゴリに応じたリサーチを実行                  |
+| `/article-draft`          | リサーチ結果から初稿を作成                      |
+| `/article-critique`       | 初稿の批評と修正                                |
+| `/article-publish`        | 記事をnote.comに下書き投稿                      |
+| `/article-full`           | 記事作成の全工程を一括実行                      |
+| `/article-status`         | 全記事のステータス一覧                          |
+
+### 金融コンテンツ（非推奨 → 新コマンドへ移行）
+
+| コマンド                  | 説明                                            | 移行先                                          |
+| ------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| `/finance-suggest-topics` | 金融記事のトピックを提案                        | （引き続き有効）                                |
+| `/new-finance-article`    | 新規記事フォルダを作成                          | `/article-init`                                 |
+| `/finance-edit`           | 記事編集ワークフロー（初稿→批評→修正）          | `/article-draft` + `/article-critique`          |
+| `/finance-full`           | 記事作成の全工程を一括実行                      | `/article-full`                                 |
+| `/publish-to-note`        | 記事をnote.comに下書き投稿                      | `/article-publish`                              |
+| `/asset-management`       | 資産形成コンテンツ（note記事+X投稿）を自動生成  | `/article-full --category asset_formation`      |
 
 ### リサーチ・レポート
 

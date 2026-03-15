@@ -158,7 +158,7 @@ articles/weekly_report/{YYYY-MM-DD}/
 │   ├── news_supplemental.json # 追加検索結果
 │   ├── aggregated_data.json  # 集約データ
 │   └── comments.json         # 生成コメント
-├── 02_edit/
+├── 02_draft/
 │   └── weekly_report.md      # Markdown レポート
 └── validation_result.json    # 品質検証結果
 ```
@@ -284,7 +284,7 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 |-------------|------|
 | `template/market_report/weekly_market_report_template.md` | --weekly モード用 |
 | `template/market_report/weekly_comment_template.md` | --weekly-comment モード用 |
-| `template/market_report/02_edit/first_draft.md` | 基本モード用 |
+| `template/market_report/02_draft/first_draft.md` | 基本モード用 |
 
 ### Python スクリプト
 
@@ -329,7 +329,7 @@ gh project list --owner @me
 
 **対処法**:
 - コメントを手動で拡充
-- 生成されたレポートファイル（02_edit/weekly_report.md）を手動で編集
+- 生成されたレポートファイル（02_draft/weekly_report.md）を手動で編集
 
 ## 品質基準
 

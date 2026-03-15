@@ -106,8 +106,8 @@ revision_type: compliance_only
 ## 処理フロー
 
 1. **入力ファイルの読み込み**
-   - `02_edit/first_draft.md`
-   - `02_edit/critic.json`（compliance セクションのみ使用）
+   - `02_draft/first_draft.md`
+   - `02_draft/critic.json`（compliance セクションのみ使用）
 
 2. **compliance 問題の抽出**
    - critic.json から compliance の critical/high 問題のみ抽出

@@ -1,0 +1,39 @@
+{
+  "validation_date": "2026-03-15",
+  "issue": 114,
+  "description": "Final validation after namespace cleanup migration",
+  "checks": {
+    "1_namespace_classification": {
+      "pass": true,
+      "note": "UNKNOWN labels exist in db.labels() registry but have 0 nodes (phantom labels, cleared on DB restart)",
+      "phantom_labels_with_zero_nodes": 7,
+      "actual_unknown_nodes": 0,
+      "namespaces": {
+        "kg_v2": ["Source", "Claim", "Topic", "Entity"],
+        "conversation": ["Project", "ConversationSession", "ConversationTopic"],
+        "memory_root": ["Memory"],
+        "memory_sub": ["Discussion", "Decision", "ContentTheme", "CaseStudy", "Theme", "Implementation", "Phase", "Strategy", "Status", "BusinessModel", "Workflow", "Todo", "Research", "Architecture", "Schema"],
+        "archived": ["Archived"]
+      }
+    },
+    "2_lowercase_labels": {
+      "pass": true,
+      "count": 0
+    },
+    "3_memory_read_graph": {
+      "pass": true,
+      "entities_count": 36,
+      "relations_count": 39,
+      "note": "All entities and relations readable without validation errors after Memory↔Archived relation cleanup (43 relations removed)"
+    },
+    "4_cross_contamination": {
+      "pass": true,
+      "count": 0
+    }
+  },
+  "additional_cleanup": {
+    "memory_archived_relations_removed": 43,
+    "reason": "Memory→Archived relations caused read_graph Pydantic validation error (null target name)"
+  },
+  "overall_pass": true
+}
