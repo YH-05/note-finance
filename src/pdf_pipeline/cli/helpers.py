@@ -335,6 +335,7 @@ def save_metadata(
         "pdf_path": pdf_path,
         "pages": int(pages),
         "chunks": int(chunks),
+        "converter": "method_b",
         "processed_at": datetime.now(tz=timezone.utc).isoformat(),
     }
 
