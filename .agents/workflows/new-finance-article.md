@@ -67,7 +67,7 @@ cp -r template/{category}/* articles/{article_id}/
 
 ### 8. メタデータの初期化
 
-`articles/{article_id}/article-meta.json` を更新:
+`articles/{article_id}/meta.yaml` を更新:
 
 - article_id, topic, category, symbols, date_range 等を設定
 - status = "research"
@@ -81,7 +81,7 @@ suggestions に一致する場合、自動的に以下を更新:
 
 1. セッションファイルの該当 suggestion の `selected` を `true` に変更
 2. `data/topic-history/suggestions.jsonl` の該当行の `selected_topics` にトピック名を追加
-3. `article-meta.json` の `suggestion_session_id` にセッション ID を記録
+3. `meta.yaml` の `suggestion_session_id` にセッション ID を記録
 
 一致するセッションがない場合はスキップ。
 

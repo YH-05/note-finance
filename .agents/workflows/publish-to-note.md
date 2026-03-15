@@ -28,15 +28,15 @@ NOTE_HEADLESS=false uv run python scripts/publish_to_note.py --login-only
 
 ### 記事の準備
 
-- `revised_draft.md` が `{article_dir}/02_edit/revised_draft.md` に存在すること
+- `revised_draft.md` が `{article_dir}/02_draft/revised_draft.md` に存在すること
 - `/finance-edit` または `/finance-full` で編集完了済みであること
-- `article-meta.json` の `status` が `"ready_for_publish"` であることを推奨
+- `meta.yaml` の `status` が `"ready_for_publish"` であることを推奨
 
 ## 処理フロー
 
 ```
 Step 1: 前提確認
-├── article-meta.json の status 確認
+├── meta.yaml の status 確認
 ├── revised_draft.md の存在確認
 └── セッションファイルの存在確認
 
@@ -62,7 +62,7 @@ Step 3: 投稿実行
 │   ├── 画像アップロード
 │   └── 区切り線
 ├── 下書き保存
-└── article-meta.json 更新
+└── meta.yaml 更新
 
 Step 4: 結果報告
 ```
@@ -74,12 +74,12 @@ Step 4: 結果報告
 1. **記事ディレクトリの解決**
 
    引数から記事ディレクトリを特定し、以下を確認:
-   - `article-meta.json` が存在するか
-   - `02_edit/revised_draft.md` が存在するか
+   - `meta.yaml` が存在するか
+   - `02_draft/revised_draft.md` が存在するか
 
 2. **ステータス確認**
 
-   article-meta.json の status が `"ready_for_publish"` でない場合は警告を表示。
+   meta.yaml の status が `"ready_for_publish"` でない場合は警告を表示。
 
 3. **セッション確認**
 

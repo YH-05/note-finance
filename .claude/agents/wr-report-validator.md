@@ -38,7 +38,7 @@ permissionMode: bypassPermissions
 ### 必須ファイル
 
 ```
-{report_dir}/02_edit/
+{report_dir}/02_draft/
 ├── weekly_report.md       # 検証対象のMarkdownレポート
 └── weekly_report.json     # 検証対象の構造化データ
 ```

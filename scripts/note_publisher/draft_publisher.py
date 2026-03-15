@@ -35,6 +35,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import structlog
+import yaml
 from note_publisher.browser_client import NoteBrowserClient
 from note_publisher.config import load_config
 from note_publisher.markdown_parser import parse_draft
@@ -43,8 +44,8 @@ from note_publisher.types import ArticleDraft, NotePublisherConfig, PublishResul
 logger = structlog.get_logger(__name__)
 
 # AIDEV-NOTE: The revised draft is always located at
-# article_dir / "02_edit" / "revised_draft.md" by convention.
-_DRAFT_RELATIVE_PATH = Path("02_edit") / "revised_draft.md"
+# article_dir / "02_draft" / "revised_draft.md" by convention.
+_DRAFT_RELATIVE_PATH = Path("02_draft") / "revised_draft.md"
 
 
 class DraftPublisher:
@@ -82,7 +83,7 @@ class DraftPublisher:
         ----------
         article_dir : Path
             Path to the article directory. The draft file is expected at
-            ``article_dir / "02_edit" / "revised_draft.md"``.
+            ``article_dir / "02_draft" / "revised_draft.md"``.
 
         Returns
         -------
@@ -130,10 +131,10 @@ class DraftPublisher:
         ----------
         article_dir : Path
             Path to the article directory. The draft file is expected at
-            ``article_dir / "02_edit" / "revised_draft.md"``.
+            ``article_dir / "02_draft" / "revised_draft.md"``.
         update_meta : bool
             Whether to update article metadata after publishing.
-            When ``True``, updates ``article-meta.json`` (status,
+            When ``True``, updates ``meta.yaml`` (or legacy ``article-meta.json``) (status,
             published_at, draft_url) and copies the draft to
             ``03_published/article.md``.  Defaults to ``True``.
 
@@ -207,11 +208,12 @@ class DraftPublisher:
 
     @staticmethod
     def _update_article_meta(article_dir: Path, draft_url: str | None) -> None:
-        """Update article-meta.json after successful publish.
+        """Update meta.yaml (or legacy article-meta.json) after successful publish.
 
-        Sets ``status`` to ``"published"``, records ``published_at``
-        timestamp, stores the ``draft_url``, and marks
-        ``workflow.publishing.published`` as ``"done"``.
+        Checks for ``meta.yaml`` first, then falls back to
+        ``article-meta.json``.  Sets ``status`` to ``"published"``,
+        records ``published_at`` timestamp, stores the ``draft_url``,
+        and marks ``workflow.publishing.published`` as ``"done"``.
 
         Parameters
         ----------
@@ -220,14 +222,26 @@ class DraftPublisher:
         draft_url : str | None
             URL of the created draft on note.com.
         """
-        meta_path = article_dir / "article-meta.json"
-        if not meta_path.exists():
-            logger.warning("article_meta_not_found", path=str(meta_path))
+        yaml_path = article_dir / "meta.yaml"
+        json_path = article_dir / "article-meta.json"
+
+        if yaml_path.exists():
+            meta_path = yaml_path
+            use_yaml = True
+        elif json_path.exists():
+            meta_path = json_path
+            use_yaml = False
+        else:
+            logger.warning("article_meta_not_found", path=str(yaml_path))
             return
 
         try:
-            meta = json.loads(meta_path.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError) as exc:
+            raw = meta_path.read_text(encoding="utf-8")
+            if use_yaml:
+                meta: dict = yaml.safe_load(raw) or {}
+            else:
+                meta = json.loads(raw)
+        except (json.JSONDecodeError, yaml.YAMLError, OSError) as exc:
             logger.error("article_meta_read_error", error=str(exc))
             return
 
@@ -247,10 +261,16 @@ class DraftPublisher:
         meta["workflow"] = workflow
 
         try:
-            meta_path.write_text(
-                json.dumps(meta, ensure_ascii=False, indent=4) + "\n",
-                encoding="utf-8",
-            )
+            if use_yaml:
+                meta_path.write_text(
+                    yaml.dump(meta, allow_unicode=True, default_flow_style=False, sort_keys=False),
+                    encoding="utf-8",
+                )
+            else:
+                meta_path.write_text(
+                    json.dumps(meta, ensure_ascii=False, indent=4) + "\n",
+                    encoding="utf-8",
+                )
             logger.info("article_meta_updated", path=str(meta_path), status="published")
         except OSError as exc:
             logger.error("article_meta_write_error", error=str(exc))
@@ -264,7 +284,7 @@ class DraftPublisher:
         article_dir : Path
             Path to the article directory.
         """
-        src = article_dir / "02_edit" / "revised_draft.md"
+        src = article_dir / "02_draft" / "revised_draft.md"
         dest_dir = article_dir / "03_published"
         dest = dest_dir / "article.md"
 

@@ -1,0 +1,42 @@
+title: ''
+category: asset_formation
+type: column
+status: draft
+created_at: '2026-03-15T01:21:14.527718+00:00'
+updated_at: '2026-03-15T01:21:14.527718+00:00'
+tags: []
+target_audience: intermediate
+target_wordcount: 4000
+symbols: []
+date_range:
+  start: ''
+  end: ''
+fred_series: []
+theme: ''
+experience:
+  spec_card:
+    age_range: ''
+    gender: ''
+    occupation: ''
+    income_range: ''
+    duration: ''
+    outcome: ''
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+legacy:
+  old_path: asset_management/index-investing-portfolio-allocation
+  old_article_id: null
+  migrated_at: '2026-03-15T01:21:14.527718+00:00'

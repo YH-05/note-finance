@@ -32,7 +32,7 @@ allowed-tools: Read
 ### 必須ファイル
 
 ```
-articles/weekly_report/{date}/02_edit/
+articles/weekly_report/{date}/02_draft/
 ├── weekly_report.md       # 検証対象のMarkdownレポート
 └── weekly_report.json     # 検証対象の構造化データ
 ```

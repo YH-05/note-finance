@@ -16,7 +16,7 @@ Block Types
 Examples
 --------
 >>> from pathlib import Path
->>> draft = parse_draft(Path("articles/example/02_edit/revised_draft.md"))
+>>> draft = parse_draft(Path("articles/example/02_draft/revised_draft.md"))
 >>> draft.title
 '記事タイトル'
 >>> len(draft.body_blocks)

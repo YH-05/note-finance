@@ -1,0 +1,57 @@
+# === Core (必須) ===
+title: ""
+category: ""                     # asset_formation | side_business | macro_economy | stock_analysis | weekly_report | quant_analysis
+type: column                     # column | case_study | experience | weekly_report | data_analysis
+status: draft                    # draft | review | published
+
+# === Timestamps ===
+created_at: ""
+updated_at: ""
+
+# === Content ===
+tags: []
+target_audience: intermediate    # beginner | intermediate | advanced
+target_wordcount: 4000
+
+# === Category-Specific (該当カテゴリのみ) ===
+symbols: []                      # stock_analysis / quant_analysis
+date_range:
+  start: ""
+  end: ""
+fred_series: []                  # macro_economy
+theme: ""                        # asset_formation / side_business
+experience:                      # side_business (experience type)
+  spec_card:
+    age_range: ""
+    gender: ""
+    occupation: ""
+    income_range: ""
+    duration: ""
+    outcome: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending              # pending | in_progress | done | skipped
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Neo4j (side_business only) ===
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+
+# === Legacy ===
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null

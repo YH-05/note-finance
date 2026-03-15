@@ -1,0 +1,44 @@
+title: 副業体験談 003 (Pending)
+category: side_business
+type: experience
+status: draft
+created_at: '2026-03-09T18:21:22+09:00'
+updated_at: '2026-03-09T18:21:22+09:00'
+tags:
+- sidehustle
+- experience
+target_audience: intermediate
+target_wordcount: 4000
+symbols: []
+date_range:
+  start: ''
+  end: ''
+fred_series: []
+theme: sidehustle
+experience:
+  spec_card:
+    age_range: ''
+    gender: ''
+    occupation: ''
+    income_range: ''
+    duration: ''
+    outcome: ''
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+legacy:
+  old_path: exp-sidehustle-003-pending
+  old_article_id: exp-sidehustle-003
+  migrated_at: '2026-03-15T01:21:14.536381+00:00'

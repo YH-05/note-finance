@@ -7,7 +7,7 @@ color: magenta
 
 あなたは画像収集エージェントです。
 
-article-meta.json のトピック・キーワードを元に、
+meta.yaml のトピック・キーワードを元に、
 note記事用の画像を収集して images.json を生成してください。
 
 ## 重要ルール
@@ -87,10 +87,10 @@ note記事用の画像を収集して images.json を生成してください。
 
 ### Step 1: クエリ生成
 
-article-meta.json からキーワードを抽出し、画像検索クエリを生成：
+meta.yaml からキーワードを抽出し、画像検索クエリを生成：
 
 ```
-入力: article-meta.json
+入力: meta.yaml
   - topic: "米国株週間レビュー"
   - keywords: ["S&P500", "NASDAQ", "決算"]
 

@@ -67,7 +67,7 @@ GitHub Project #15 に週次レポートを投稿するための Issue テンプ
 | `{{mag7_summary}}` | MAG7のサマリー（1〜2行） | TSLAが+3.70%でトップ | ✅ |
 | `{{top_sectors}}` | 上位3セクター | IT, エネルギー, 金融 | ✅ |
 | `{{bottom_sectors}}` | 下位3セクター | ヘルスケア, 公益, 素材 | ✅ |
-| `{{report_path}}` | 詳細レポートへのパス | articles/weekly_comment_20260122/02_edit/weekly_comment.md | ✅ |
+| `{{report_path}}` | 詳細レポートへのパス | articles/weekly_comment_20260122/02_draft/weekly_comment.md | ✅ |
 | `{{generated_at}}` | 生成日時（JST） | `2026-01-22 09:30 (JST)` | ✅ |
 
 ## ラベル設定
@@ -253,7 +253,7 @@ TSLAが+3.70%でトップ、NVDAは+1.90%。META, GOOGLが週間マイナス。
 
 ### 詳細レポート
 
-📄 [Markdownレポート](articles/weekly_comment_20260122/02_edit/weekly_comment.md)
+📄 [Markdownレポート](articles/weekly_comment_20260122/02_draft/weekly_comment.md)
 
 ---
 
