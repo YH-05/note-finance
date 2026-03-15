@@ -1,0 +1,27 @@
+{
+  "migration_date": "2026-03-15",
+  "issue": 110,
+  "description": "Memory sub-label migration: snake_case → PascalCase",
+  "migrations": [
+    {"old": "content_theme", "new": "ContentTheme", "count": 5},
+    {"old": "theme", "new": "Theme", "count": 5},
+    {"old": "implementation", "new": "Implementation", "count": 3},
+    {"old": "project", "new": "Project", "count": 2},
+    {"old": "phase", "new": "Phase", "count": 2},
+    {"old": "strategy", "new": "Strategy", "count": 2},
+    {"old": "decision", "new": "Decision", "count": 2},
+    {"old": "status", "new": "Status", "count": 1},
+    {"old": "business_model", "new": "BusinessModel", "count": 1},
+    {"old": "workflow", "new": "Workflow", "count": 1},
+    {"old": "todo", "new": "Todo", "count": 1},
+    {"old": "research", "new": "Research", "count": 1},
+    {"old": "case_study", "new": "CaseStudy", "count": 1},
+    {"old": "architecture", "new": "Architecture", "count": 1},
+    {"old": "schema", "new": "Schema", "count": 1}
+  ],
+  "total_migrated": 29,
+  "verification": {
+    "lowercase_labels_remaining": 0,
+    "all_sublabels_pascal_case": true
+  }
+}
