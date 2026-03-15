@@ -8,8 +8,8 @@
 | ディレクトリ | 内容 |
 |-------------|------|
 | `agents/` | 60サブエージェント（記事執筆、批評、PRレビュー、週次レポートチーム、リサーチ等） |
-| `commands/` | 19スラッシュコマンド（`/finance-edit`, `/generate-market-report` 等） |
-| `skills/` | 43スキル（ニュース収集、レポート生成、TDD、PRレビュー、品質管理等） |
+| `commands/` | 21スラッシュコマンド（`/finance-edit`, `/generate-market-report`, `/convert-pdf` 等） |
+| `skills/` | 44スキル（ニュース収集、レポート生成、TDD、PRレビュー、品質管理、PDF変換等） |
 | `rules/` | コーディング規約、Git運用、テスト戦略、サブエージェントデータ受け渡し |
 
 ## Slash Commands
@@ -25,6 +25,8 @@
 | `/ai-research-collect` | AI投資バリューチェーン収集 |
 | `/asset-management` | 資産形成コンテンツ（note記事+X投稿）を自動生成 |
 | `/reddit-finance-topics` | Reddit金融コミュニティからトピック発見・記事化 |
+| `/convert-pdf` | 単一PDFをMarkdownに変換（Claude Code直接Read方式） |
+| `/pdf-to-knowledge` | PDF→Markdown→ナレッジグラフの一括ワークフロー |
 
 ## Obsidian 操作ルール
 
