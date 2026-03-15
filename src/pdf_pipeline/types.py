@@ -143,6 +143,8 @@ class PipelineConfig(BaseModel):
         Directory for processed output files.
     batch_size : int
         Number of PDFs to process per batch.
+    page_chunk_size : int
+        Number of pages per chunk for Method B PDF conversion.
     llm : LLMConfig
         LLM provider configuration.
     noise_filter : NoiseFilterConfig
@@ -156,6 +158,8 @@ class PipelineConfig(BaseModel):
     'processed'
     >>> config.batch_size
     10
+    >>> config.page_chunk_size
+    30
     """
 
     input_dirs: list[Path] = Field(
@@ -172,6 +176,12 @@ class PipelineConfig(BaseModel):
         ge=1,
         le=1000,
         description="Number of PDFs per batch",
+    )
+    page_chunk_size: int = Field(
+        default=30,
+        ge=1,
+        le=200,
+        description="Number of pages per chunk for Method B PDF conversion",
     )
     llm: LLMConfig = Field(
         default_factory=LLMConfig,

@@ -35,6 +35,9 @@ output_dir: "data/processed"
 # Number of PDFs to process per batch
 batch_size: 10
 
+# Number of pages per chunk for Method B PDF conversion
+page_chunk_size: 30
+
 # Markdown output template for report.md generation
 # Uses $placeholder syntax (Python string.Template)
 # Available variables: source_hash, original_filename, report_date, issuer,

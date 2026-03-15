@@ -129,6 +129,30 @@ class TestPipelineConfig:
         with pytest.raises(ValidationError):
             PipelineConfig(input_dirs=[])
 
+    def test_正常系_page_chunk_sizeのデフォルト値が30(self) -> None:
+        config = PipelineConfig(input_dirs=[Path("data/raw")])
+        assert config.page_chunk_size == 30
+
+    def test_正常系_page_chunk_sizeをカスタム値で設定できる(self) -> None:
+        config = PipelineConfig(input_dirs=[Path("data/raw")], page_chunk_size=50)
+        assert config.page_chunk_size == 50
+
+    def test_正常系_page_chunk_sizeの最小値1を設定できる(self) -> None:
+        config = PipelineConfig(input_dirs=[Path("data/raw")], page_chunk_size=1)
+        assert config.page_chunk_size == 1
+
+    def test_正常系_page_chunk_sizeの最大値200を設定できる(self) -> None:
+        config = PipelineConfig(input_dirs=[Path("data/raw")], page_chunk_size=200)
+        assert config.page_chunk_size == 200
+
+    def test_異常系_page_chunk_sizeが0以下でValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            PipelineConfig(input_dirs=[Path("data/raw")], page_chunk_size=0)
+
+    def test_異常系_page_chunk_sizeが201以上でValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            PipelineConfig(input_dirs=[Path("data/raw")], page_chunk_size=201)
+
     def test_異常系_batch_sizeが0以下でValidationError(self) -> None:
         with pytest.raises(ValidationError):
             PipelineConfig(input_dirs=[Path("data/raw")], batch_size=0)
