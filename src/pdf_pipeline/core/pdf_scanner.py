@@ -8,6 +8,11 @@ Classes
 PdfScanner
     Scans a directory for PDF files and computes their SHA-256 hashes.
 
+Functions
+---------
+compute_sha256_standalone
+    Compute SHA-256 hash of a file without ``PdfScanner`` instantiation.
+
 Examples
 --------
 >>> from pathlib import Path
@@ -20,13 +25,10 @@ Examples
 from __future__ import annotations
 
 import hashlib
-from typing import TYPE_CHECKING
+from pathlib import Path
 
 from pdf_pipeline._logging import get_logger
 from pdf_pipeline.exceptions import PathTraversalError, ScanError
-
-if TYPE_CHECKING:
-    from pathlib import Path
 
 logger = get_logger(__name__, module="pdf_scanner")
 
@@ -269,3 +271,66 @@ class PdfScanner:
             already_processed=len(all_pdfs) - len(unprocessed),
         )
         return unprocessed
+
+
+# ---------------------------------------------------------------------------
+# Standalone utility
+# ---------------------------------------------------------------------------
+
+
+def compute_sha256_standalone(pdf_path: str) -> str:
+    """Compute the SHA-256 hash of a file without ``PdfScanner`` instantiation.
+
+    A lightweight alternative to :meth:`PdfScanner.compute_sha256` that
+    does **not** require directory-level instantiation or path traversal
+    validation.  The caller is responsible for ensuring the path is safe.
+
+    Uses the same hash algorithm (SHA-256) and buffer size (64 KiB) as
+    ``PdfScanner.compute_sha256`` to guarantee identical digests for the
+    same file content.
+
+    Parameters
+    ----------
+    pdf_path : str
+        Absolute or relative path to the file to hash.
+
+    Returns
+    -------
+    str
+        Lowercase hexadecimal SHA-256 digest (64 characters).
+
+    Raises
+    ------
+    ScanError
+        If the file does not exist or cannot be read.
+
+    Examples
+    --------
+    >>> digest = compute_sha256_standalone("/data/raw/pdfs/report.pdf")
+    >>> len(digest)
+    64
+    """
+    resolved = Path(pdf_path).resolve()
+
+    if not resolved.exists():
+        msg = f"PDF file not found: {pdf_path}"
+        logger.error(msg, path=pdf_path)
+        raise ScanError(msg, path=pdf_path)
+
+    try:
+        sha256 = hashlib.sha256()
+        with resolved.open("rb") as fh:
+            while chunk := fh.read(_HASH_BUFFER_SIZE):
+                sha256.update(chunk)
+        digest = sha256.hexdigest()
+    except OSError as exc:
+        msg = f"Failed to read file for hashing: {pdf_path}: {exc}"
+        logger.error(msg, path=pdf_path, error=str(exc))
+        raise ScanError(msg, path=pdf_path) from exc
+
+    logger.debug(
+        "SHA-256 computed (standalone)",
+        path=pdf_path,
+        sha256=digest[:16] + "...",
+    )
+    return digest
