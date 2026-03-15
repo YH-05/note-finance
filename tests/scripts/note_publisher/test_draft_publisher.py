@@ -72,9 +72,9 @@ def article_dir(tmp_path: Path) -> Path:
     Returns
     -------
     Path
-        Path to the article directory with ``02_edit/revised_draft.md`` created.
+        Path to the article directory with ``02_draft/revised_draft.md`` created.
     """
-    edit_dir = tmp_path / "test_article" / "02_edit"
+    edit_dir = tmp_path / "test_article" / "02_draft"
     edit_dir.mkdir(parents=True)
     draft_file = edit_dir / "revised_draft.md"
     draft_file.write_text(
@@ -131,7 +131,7 @@ class TestDryRun:
         assert isinstance(result, ArticleDraft)
         assert result.title == "テスト記事タイトル"
         assert len(result.body_blocks) == 2
-        mock_parse.assert_called_once_with(article_dir / "02_edit" / "revised_draft.md")
+        mock_parse.assert_called_once_with(article_dir / "02_draft" / "revised_draft.md")
 
     def test_異常系_E001_revised_draftが見つからない(
         self,
@@ -343,7 +343,7 @@ class TestPublish:
         article_dir: Path,
     ) -> None:
         """publish should upload images referenced in the draft."""
-        image_path = article_dir / "02_edit" / "image.png"
+        image_path = article_dir / "02_draft" / "image.png"
         draft_with_image = ArticleDraft(
             title="画像付き記事",
             body_blocks=[
@@ -610,7 +610,7 @@ class TestCopyToPublished:
     ) -> None:
         """_copy_to_published should copy revised_draft.md to 03_published/article.md."""
         article_dir = tmp_path / "test_article"
-        edit_dir = article_dir / "02_edit"
+        edit_dir = article_dir / "02_draft"
         edit_dir.mkdir(parents=True)
         draft_content = "# タイトル\n\n本文です。"
         (edit_dir / "revised_draft.md").write_text(draft_content, encoding="utf-8")
@@ -624,7 +624,7 @@ class TestCopyToPublished:
     def test_正常系_03_publishedが既存でも上書きコピー(self, tmp_path: Path) -> None:
         """_copy_to_published should overwrite existing article.md."""
         article_dir = tmp_path / "test_article"
-        edit_dir = article_dir / "02_edit"
+        edit_dir = article_dir / "02_draft"
         edit_dir.mkdir(parents=True)
         pub_dir = article_dir / "03_published"
         pub_dir.mkdir(parents=True)
