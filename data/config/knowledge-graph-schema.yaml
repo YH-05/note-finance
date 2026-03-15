@@ -573,7 +573,8 @@ namespaces:
     root_label: Memory
     sub_labels:
       - Decision
-      - Project
+      # Project is shared with conversation namespace (standalone Project node)
+      # Memory:Project nodes are classified via Memory root label
       - ContentTheme
       - Theme
       - Implementation

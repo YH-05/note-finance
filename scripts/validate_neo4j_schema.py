@@ -26,11 +26,13 @@ import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
+from urllib.parse import urlparse
 
 import yaml
 
 try:
-    from neo4j import GraphDatabase
+    from neo4j import GraphDatabase, Driver
 except ImportError:
     print("neo4j driver not installed. Run: uv add neo4j")
     sys.exit(1)
@@ -44,7 +46,8 @@ logger = logging.getLogger(__name__)
 # Schema loading
 # ---------------------------------------------------------------------------
 
-def load_namespaces(schema_path: Path) -> dict:
+
+def load_namespaces(schema_path: Path) -> dict[str, Any]:
     """knowledge-graph-schema.yaml から namespaces セクションを読み込む。
 
     Parameters
@@ -54,26 +57,31 @@ def load_namespaces(schema_path: Path) -> dict:
 
     Returns
     -------
-    dict
+    dict[str, Any]
         名前空間定義。
+
+    Raises
+    ------
+    ValueError
+        namespaces セクションが存在しない場合。
     """
     with open(schema_path, encoding="utf-8") as f:
         schema = yaml.safe_load(f)
 
     namespaces = schema.get("namespaces")
     if namespaces is None:
-        logger.error("namespaces section not found in schema: %s", schema_path)
-        sys.exit(1)
+        msg = f"namespaces section not found in schema: {schema_path}"
+        raise ValueError(msg)
 
     return namespaces
 
 
-def build_allowed_labels(namespaces: dict) -> dict[str, str]:
+def build_allowed_labels(namespaces: dict[str, Any]) -> dict[str, str]:
     """名前空間定義から許可ラベル → 名前空間のマッピングを構築する。
 
     Parameters
     ----------
-    namespaces : dict
+    namespaces : dict[str, Any]
         YAML の namespaces セクション。
 
     Returns
@@ -100,10 +108,11 @@ def build_allowed_labels(namespaces: dict) -> dict[str, str]:
 # Validation checks
 # ---------------------------------------------------------------------------
 
+
 def check_unknown_labels(
     db_labels: list[str],
     allowed: dict[str, str],
-) -> list[dict]:
+) -> list[dict[str, str]]:
     """許可リストにないラベルを検出する。
 
     Parameters
@@ -115,17 +124,17 @@ def check_unknown_labels(
 
     Returns
     -------
-    list[dict]
+    list[dict[str, str]]
         UNKNOWN ラベルのリスト。
     """
-    unknown = []
-    for label in db_labels:
-        if label not in allowed:
-            unknown.append({"label": label, "namespace": "UNKNOWN"})
-    return unknown
+    return [
+        {"label": label, "namespace": "UNKNOWN"}
+        for label in db_labels
+        if label not in allowed
+    ]
 
 
-def check_pascal_case_violations(db_labels: list[str]) -> list[dict]:
+def check_pascal_case_violations(db_labels: list[str]) -> list[dict[str, str]]:
     """小文字で始まるラベル（PascalCase 違反）を検出する。
 
     Parameters
@@ -135,41 +144,42 @@ def check_pascal_case_violations(db_labels: list[str]) -> list[dict]:
 
     Returns
     -------
-    list[dict]
+    list[dict[str, str]]
         違反ラベルのリスト。
     """
-    violations = []
-    for label in db_labels:
-        if label[0].islower():
-            violations.append({"label": label, "issue": "starts with lowercase"})
-    return violations
+    return [
+        {"label": label, "issue": "starts with lowercase"}
+        for label in db_labels
+        if label and label[0].islower()
+    ]
 
 
-def check_cross_contamination(driver) -> list[dict]:
+def check_cross_contamination(
+    session: Any,
+    allowed: dict[str, str],
+) -> list[dict[str, Any]]:
     """Memory ノードが KG v2 ラベルを持つケースを検出する。
 
     Parameters
     ----------
-    driver
-        Neo4j ドライバー。
+    session
+        Neo4j セッション。
+    allowed : dict[str, str]
+        許可ラベルマッピング（kg_v2 ラベルを動的に取得するため）。
 
     Returns
     -------
-    list[dict]
+    list[dict[str, Any]]
         クロスコンタミネーションの一覧。
     """
-    kg_v2_labels = [
-        "Source", "Author", "Chunk", "Fact", "Claim", "Entity",
-        "FinancialDataPoint", "FiscalPeriod", "Topic", "Insight",
-    ]
+    kg_v2_labels = [l for l, ns in allowed.items() if ns == "kg_v2"]
     query = """
     MATCH (n:Memory)
     WHERE any(l IN labels(n) WHERE l IN $kg_labels)
     RETURN labels(n) AS labels, n.name AS name
     """
-    with driver.session() as session:
-        result = session.run(query, kg_labels=kg_v2_labels)
-        return [dict(r) for r in result]
+    result = session.run(query, kg_labels=kg_v2_labels)
+    return [dict(r) for r in result]
 
 
 def classify_db_labels(
@@ -198,10 +208,108 @@ def classify_db_labels(
 
 
 # ---------------------------------------------------------------------------
+# Report building & formatting
+# ---------------------------------------------------------------------------
+
+
+def build_report(
+    *,
+    schema_path: str,
+    db_labels: list[str],
+    allowed: dict[str, str],
+    unknown: list[dict[str, str]],
+    pascal_violations: list[dict[str, str]],
+    contamination: list[dict[str, Any]],
+    classified: dict[str, list[str]],
+) -> dict[str, Any]:
+    """検証結果からレポート辞書を構築する。"""
+    return {
+        "validation_date": datetime.now(timezone.utc).isoformat(),
+        "schema_path": schema_path,
+        "db_label_count": len(db_labels),
+        "allowed_label_count": len(allowed),
+        "namespace_classification": classified,
+        "checks": {
+            "unknown_labels": {
+                "count": len(unknown),
+                "pass": len(unknown) == 0,
+                "details": unknown,
+            },
+            "pascal_case_violations": {
+                "count": len(pascal_violations),
+                "pass": len(pascal_violations) == 0,
+                "details": pascal_violations,
+            },
+            "cross_contamination": {
+                "count": len(contamination),
+                "pass": len(contamination) == 0,
+                "details": contamination,
+            },
+        },
+        "overall_pass": (
+            len(unknown) == 0
+            and len(pascal_violations) == 0
+            and len(contamination) == 0
+        ),
+    }
+
+
+def format_report(report: dict[str, Any]) -> str:
+    """レポートをテキスト形式にフォーマットする。"""
+    lines: list[str] = []
+    lines.append("\n=== Neo4j Schema Validation Report ===\n")
+    lines.append(f"DB Labels: {report['db_label_count']}")
+    lines.append(f"Allowed Labels: {report['allowed_label_count']}")
+    lines.append("")
+
+    lines.append("Namespace Classification:")
+    for ns, labels in sorted(report["namespace_classification"].items()):
+        lines.append(f"  {ns}: {', '.join(sorted(labels))}")
+    lines.append("")
+
+    unknown = report["checks"]["unknown_labels"]
+    if unknown["count"] > 0:
+        lines.append(f"UNKNOWN labels ({unknown['count']}):")
+        for u in unknown["details"]:
+            lines.append(f"  - {u['label']}")
+    else:
+        lines.append("UNKNOWN labels: 0 (PASS)")
+
+    violations = report["checks"]["pascal_case_violations"]
+    if violations["count"] > 0:
+        lines.append(f"\nPascalCase violations ({violations['count']}):")
+        for v in violations["details"]:
+            lines.append(f"  - {v['label']}: {v['issue']}")
+    else:
+        lines.append("PascalCase violations: 0 (PASS)")
+
+    contamination = report["checks"]["cross_contamination"]
+    if contamination["count"] > 0:
+        lines.append(f"\nCross-contamination ({contamination['count']}):")
+        for c in contamination["details"]:
+            lines.append(f"  - {c['name']}: {c['labels']}")
+    else:
+        lines.append("Cross-contamination: 0 (PASS)")
+
+    lines.append(f"\nOverall: {'PASS' if report['overall_pass'] else 'FAIL'}")
+    return "\n".join(lines)
+
+
+def save_report(report: dict[str, Any], output_path: Path) -> None:
+    """レポートを JSON ファイルに保存する。"""
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
+    logger.info("Report saved: %s", output_path)
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
+
 def main() -> None:
+    """スキーマ検証のエントリーポイント。"""
     parser = argparse.ArgumentParser(
         description="Validate Neo4j schema against knowledge-graph-schema.yaml",
     )
@@ -210,10 +318,7 @@ def main() -> None:
         default="data/config/knowledge-graph-schema.yaml",
         help="Path to knowledge-graph-schema.yaml",
     )
-    parser.add_argument(
-        "--output",
-        help="Output JSON report path",
-    )
+    parser.add_argument("--output", help="Output JSON report path")
     parser.add_argument(
         "--neo4j-uri",
         default=os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
@@ -226,107 +331,61 @@ def main() -> None:
     )
     parser.add_argument(
         "--neo4j-password",
-        default=os.environ.get("NEO4J_PASSWORD", "password"),
-        help="Neo4j password",
+        default=os.environ.get("NEO4J_PASSWORD"),
+        help="Neo4j password (required: set NEO4J_PASSWORD env var)",
     )
     args = parser.parse_args()
 
+    if not args.neo4j_password:
+        parser.error(
+            "Neo4j password is required. "
+            "Set NEO4J_PASSWORD environment variable or use --neo4j-password."
+        )
+
     logger.info("Loading schema: %s", args.schema)
-    namespaces = load_namespaces(Path(args.schema))
+    try:
+        namespaces = load_namespaces(Path(args.schema))
+    except ValueError as e:
+        logger.error("%s", e)
+        sys.exit(1)
+
     allowed = build_allowed_labels(namespaces)
     logger.info("Allowed labels loaded: %d", len(allowed))
 
-    logger.info("Connecting to Neo4j: %s", args.neo4j_uri)
-    driver = GraphDatabase.driver(
+    parsed_uri = urlparse(args.neo4j_uri)
+    logger.info("Connecting to Neo4j: %s:%s", parsed_uri.hostname, parsed_uri.port)
+    driver: Driver = GraphDatabase.driver(
         args.neo4j_uri,
         auth=(args.neo4j_user, args.neo4j_password),
     )
 
     try:
         with driver.session() as session:
-            result = session.run("CALL db.labels() YIELD label RETURN label ORDER BY label")
+            result = session.run(
+                "CALL db.labels() YIELD label RETURN label ORDER BY label"
+            )
             db_labels = [r["label"] for r in result]
+            logger.info("DB labels fetched: %d", len(db_labels))
 
-        logger.info("DB labels fetched: %d", len(db_labels))
+            unknown = check_unknown_labels(db_labels, allowed)
+            pascal_violations = check_pascal_case_violations(db_labels)
+            contamination = check_cross_contamination(session, allowed)
+            classified = classify_db_labels(db_labels, allowed)
 
-        # Run checks
-        unknown = check_unknown_labels(db_labels, allowed)
-        pascal_violations = check_pascal_case_violations(db_labels)
-        contamination = check_cross_contamination(driver)
-        classified = classify_db_labels(db_labels, allowed)
+        report = build_report(
+            schema_path=args.schema,
+            db_labels=db_labels,
+            allowed=allowed,
+            unknown=unknown,
+            pascal_violations=pascal_violations,
+            contamination=contamination,
+            classified=classified,
+        )
 
-        # Build report
-        report = {
-            "validation_date": datetime.now(timezone.utc).isoformat(),
-            "schema_path": args.schema,
-            "db_label_count": len(db_labels),
-            "allowed_label_count": len(allowed),
-            "namespace_classification": classified,
-            "checks": {
-                "unknown_labels": {
-                    "count": len(unknown),
-                    "pass": len(unknown) == 0,
-                    "details": unknown,
-                },
-                "pascal_case_violations": {
-                    "count": len(pascal_violations),
-                    "pass": len(pascal_violations) == 0,
-                    "details": pascal_violations,
-                },
-                "cross_contamination": {
-                    "count": len(contamination),
-                    "pass": len(contamination) == 0,
-                    "details": contamination,
-                },
-            },
-            "overall_pass": (
-                len(unknown) == 0
-                and len(pascal_violations) == 0
-                and len(contamination) == 0
-            ),
-        }
+        print(format_report(report))
 
-        # Print results
-        print("\n=== Neo4j Schema Validation Report ===\n")
-        print(f"DB Labels: {len(db_labels)}")
-        print(f"Allowed Labels: {len(allowed)}")
-        print()
-
-        print("Namespace Classification:")
-        for ns, labels in sorted(classified.items()):
-            print(f"  {ns}: {', '.join(sorted(labels))}")
-        print()
-
-        if unknown:
-            print(f"UNKNOWN labels ({len(unknown)}):")
-            for u in unknown:
-                print(f"  - {u['label']}")
-        else:
-            print("UNKNOWN labels: 0 (PASS)")
-
-        if pascal_violations:
-            print(f"\nPascalCase violations ({len(pascal_violations)}):")
-            for v in pascal_violations:
-                print(f"  - {v['label']}: {v['issue']}")
-        else:
-            print("PascalCase violations: 0 (PASS)")
-
-        if contamination:
-            print(f"\nCross-contamination ({len(contamination)}):")
-            for c in contamination:
-                print(f"  - {c['name']}: {c['labels']}")
-        else:
-            print("Cross-contamination: 0 (PASS)")
-
-        print(f"\nOverall: {'PASS' if report['overall_pass'] else 'FAIL'}")
-
-        # Save JSON report
         if args.output:
-            output_path = Path(args.output)
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_path, "w", encoding="utf-8") as f:
-                json.dump(report, f, ensure_ascii=False, indent=2)
-            logger.info("Report saved: %s", output_path)
+            save_report(report, Path(args.output))
 
         if not report["overall_pass"]:
             sys.exit(1)
