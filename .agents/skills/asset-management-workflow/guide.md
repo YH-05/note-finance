@@ -277,11 +277,11 @@ score = 100 - (critical x 30 + high x 15 + medium x 5 + low x 2)
 
 | ファイル | パス | 説明 |
 |---------|------|------|
-| note記事初稿 | `{article_dir}/02_edit/first_draft.md` | 2000-4000字 |
-| X投稿 | `{article_dir}/02_edit/x_post.md` | 280字以内 |
-| キュレーション結果 | `{article_dir}/02_edit/curated_sources.json` | ソース関連度スコア |
-| コンプライアンス批評 | `{article_dir}/02_edit/critic.json` | compliance セクション |
-| 修正済み記事 | `{article_dir}/02_edit/revised_draft.md` | compliance 修正後（修正時のみ） |
+| note記事初稿 | `{article_dir}/02_draft/first_draft.md` | 2000-4000字 |
+| X投稿 | `{article_dir}/02_draft/x_post.md` | 280字以内 |
+| キュレーション結果 | `{article_dir}/02_draft/curated_sources.json` | ソース関連度スコア |
+| コンプライアンス批評 | `{article_dir}/02_draft/critic.json` | compliance セクション |
+| 修正済み記事 | `{article_dir}/02_draft/revised_draft.md` | compliance 修正後（修正時のみ） |
 
 ### curated_sources.json フォーマット
 
@@ -454,7 +454,7 @@ uv run python scripts/prepare_asset_management_session.py --days 30 --verbose
 
 ```bash
 # テンプレート確認
-ls -la template/asset_management/02_edit/
+ls -la template/asset_management/02_draft/
 ```
 
 ### E006: コンプライアンス fail
@@ -470,7 +470,7 @@ ls -la template/asset_management/02_edit/
 
 ```bash
 # critic.json の確認
-cat {article_dir}/02_edit/critic.json | python3 -m json.tool
+cat {article_dir}/02_draft/critic.json | python3 -m json.tool
 ```
 
 ---

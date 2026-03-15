@@ -1,0 +1,51 @@
+title: 日銀利上げと「高市トレード」の行方：2026年春闘・FOMC後の円相場シナリオ
+category: macro_economy
+type: column
+status: review
+created_at: '2026-03-08T13:02:00+09:00'
+updated_at: '2026-03-08T13:52:00+09:00'
+tags:
+- 日銀
+- FOMC
+- 高市トレード
+- 春闘
+- 円相場
+- 金融政策
+target_audience: intermediate
+target_wordcount: 4000
+symbols: []
+date_range:
+  start: '2025-01-01'
+  end: '2026-03-08'
+fred_series:
+- FEDFUNDS
+- DFF
+- DEXJPUS
+theme: ''
+experience:
+  spec_card:
+    age_range: ''
+    gender: ''
+    occupation: ''
+    income_range: ''
+    duration: ''
+    outcome: ''
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: in_progress
+  draft: done
+  critique: pending
+  revision: pending
+  publish: in_progress
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+legacy:
+  old_path: economic_indicators_002_boj-rate-hike-takaichi-trade-yen-scenario
+  old_article_id: economic_indicators_002_boj-rate-hike-takaichi-trade-yen-scenario
+  migrated_at: '2026-03-15T01:21:14.504881+00:00'

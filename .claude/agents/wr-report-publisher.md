@@ -39,7 +39,7 @@ permissionMode: bypassPermissions
 
 ```
 {report_dir}/
-├── 02_edit/
+├── 02_draft/
 │   ├── weekly_report.md       # レポート本文
 │   └── weekly_report.json     # 構造化データ
 ├── data/
@@ -110,7 +110,7 @@ issue_url=$(gh issue create \
 **レポートリンクは完全なGitHub URLを使用**:
 
 ```
-https://github.com/YH-05/finance/blob/main/{report_dir}/02_edit/weekly_report.md
+https://github.com/YH-05/finance/blob/main/{report_dir}/02_draft/weekly_report.md
 ```
 
 ## GitHub Project 追加
@@ -216,7 +216,7 @@ mutation {
     "item_id": "PVTI_xxx",
     "status": "Weekly Report"
   },
-  "report_path": "{report_dir}/02_edit/weekly_report.md"
+  "report_path": "{report_dir}/02_draft/weekly_report.md"
 }
 ```
 

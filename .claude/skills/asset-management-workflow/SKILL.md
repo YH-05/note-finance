@@ -169,9 +169,9 @@ Task(
 ```
 
 ## 出力先
-- 02_edit/first_draft.md（note記事、2000-4000字）
-- 02_edit/x_post.md（X投稿、280字以内）
-- 02_edit/curated_sources.json（キュレーション済みソース）
+- 02_draft/first_draft.md（note記事、2000-4000字）
+- 02_draft/x_post.md（X投稿、280字以内）
+- 02_draft/curated_sources.json（キュレーション済みソース）
 """
 )
 ```
@@ -180,9 +180,9 @@ Task(
 
 | ファイル | 説明 | 制約 |
 |---------|------|------|
-| `02_edit/first_draft.md` | note記事の初稿 | 2000-4000字 |
-| `02_edit/x_post.md` | X投稿 | 280字以内 |
-| `02_edit/curated_sources.json` | キュレーション済みソース | 関連度スコア50以上のみ使用 |
+| `02_draft/first_draft.md` | note記事の初稿 | 2000-4000字 |
+| `02_draft/x_post.md` | X投稿 | 280字以内 |
+| `02_draft/curated_sources.json` | キュレーション済みソース | 関連度スコア50以上のみ使用 |
 
 ## Phase 3: コンプライアンスチェック
 
@@ -192,7 +192,7 @@ Task(
 Task(
     subagent_type="finance-critic-compliance",
     description="コンプライアンスチェック",
-    prompt=f"""02_edit/first_draft.md のコンプライアンスチェックを実行してください。
+    prompt=f"""02_draft/first_draft.md のコンプライアンスチェックを実行してください。
 
 critic.json の compliance セクションを生成してください。"""
 )
@@ -205,7 +205,7 @@ if compliance_status in ["fail", "warning"]:
     Task(
         subagent_type="asset-management-reviser",
         description="コンプライアンス修正",
-        prompt=f"""02_edit/first_draft.md と 02_edit/critic.json を読み込み、
+        prompt=f"""02_draft/first_draft.md と 02_draft/critic.json を読み込み、
 compliance の critical/high 問題のみ修正してください。
 
 revised_draft.md を出力してください。"""
@@ -249,10 +249,10 @@ revised_draft.md を出力してください。"""
 
 | ファイル | パス |
 |---------|------|
-| 最終記事 | {article_dir}/02_edit/revised_draft.md（または first_draft.md） |
-| X投稿 | {article_dir}/02_edit/x_post.md |
-| ソース一覧 | {article_dir}/02_edit/curated_sources.json |
-| 批評結果 | {article_dir}/02_edit/critic.json |
+| 最終記事 | {article_dir}/02_draft/revised_draft.md（または first_draft.md） |
+| X投稿 | {article_dir}/02_draft/x_post.md |
+| ソース一覧 | {article_dir}/02_draft/curated_sources.json |
+| 批評結果 | {article_dir}/02_draft/critic.json |
 
 ### セッション情報
 

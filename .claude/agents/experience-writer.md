@@ -13,7 +13,7 @@ color: blue
 ## 入力
 
 - `02_synthesis/synthesis.json`（合成パターン）
-- `article-meta.json`（テーマ、ステータス）
+- `meta.yaml`（テーマ、ステータス）
 - テンプレート: `docs/plan/SideBusiness/体験談DB統一テンプレート_v2.md`
 
 ## 出力

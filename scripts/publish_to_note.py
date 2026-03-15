@@ -8,15 +8,15 @@ Usage
 -----
 通常実行::
 
-    uv run python scripts/publish_to_note.py articles/asset_management/my-article
+    uv run python scripts/publish_to_note.py articles/asset_formation/my-article
 
 ドライラン（パースのみ）::
 
-    uv run python scripts/publish_to_note.py articles/asset_management/my-article --dry-run
+    uv run python scripts/publish_to_note.py articles/asset_formation/my-article --dry-run
 
 メタデータ更新なし::
 
-    uv run python scripts/publish_to_note.py articles/asset_management/my-article --no-update-meta
+    uv run python scripts/publish_to_note.py articles/asset_formation/my-article --no-update-meta
 
 ログインのみ（セッション保存）::
 

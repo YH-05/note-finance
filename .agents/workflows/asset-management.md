@@ -118,9 +118,9 @@ Phase 4: 結果報告（<30秒）
    `.agents/skills/asset-management-workflow/SKILL.md` の指示に従い処理を実行。
 
    出力:
-   - `02_edit/first_draft.md`（note記事、2000-4000字）
-   - `02_edit/x_post.md`（X投稿、280字以内）
-   - `02_edit/curated_sources.json`（キュレーション済みソース）
+   - `02_draft/first_draft.md`（note記事、2000-4000字）
+   - `02_draft/x_post.md`（X投稿、280字以内）
+   - `02_draft/curated_sources.json`（キュレーション済みソース）
 
 8. **[HF2] 初稿確認**
 

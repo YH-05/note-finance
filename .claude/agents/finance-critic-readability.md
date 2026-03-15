@@ -79,7 +79,7 @@ critic.json の readability セクションを生成してください。
 ## 処理フロー
 
 1. **first_draft.md の読み込み**
-2. **article-meta.json から target_audience 取得**
+2. **meta.yaml から target_audience 取得**
 3. **メトリクスの計算**
 4. **各評価項目のチェック**
 5. **問題の記録**

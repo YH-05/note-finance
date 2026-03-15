@@ -72,7 +72,7 @@ Phase 3: プレースホルダー置換
 └── テーブルプレースホルダー置換
 
 Phase 4: 出力生成
-├── 02_edit/ ディレクトリ作成
+├── 02_draft/ ディレクトリ作成
 ├── weekly_report.md を保存
 └── weekly_report.json を保存
 ```
@@ -214,8 +214,8 @@ SendMessage:
   content: |
     task-4（テンプレート埋め込み）が完了しました。
     出力ファイル:
-    - {report_dir}/02_edit/weekly_report.md
-    - {report_dir}/02_edit/weekly_report.json
+    - {report_dir}/02_draft/weekly_report.md
+    - {report_dir}/02_draft/weekly_report.json
     合計文字数: {total_characters}字
     未置換プレースホルダー: {unresolved_count}
   summary: "task-4 完了、レポートファイル生成済み"
@@ -238,7 +238,7 @@ SendMessage:
 - [ ] Markdownが正しい構文
 - [ ] テーブルが正しくレンダリング可能
 - [ ] JSONが有効な形式
-- [ ] {report_dir}/02_edit/ に出力する
+- [ ] {report_dir}/02_draft/ に出力する
 - [ ] TaskUpdate で状態を更新する
 - [ ] SendMessage でリーダーにメタデータのみ通知する
 

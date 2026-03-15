@@ -22,7 +22,7 @@ argument-hint: [カテゴリ] [--count N]
    ```
 
 2. **各記事のメタデータ読み込み**
-   - article-meta.json から topic, category, created_at を取得
+   - meta.yaml から topic, category, created_at を取得
 
 3. **カテゴリ分布の集計**
    ```

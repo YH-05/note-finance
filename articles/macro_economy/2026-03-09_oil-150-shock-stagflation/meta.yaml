@@ -1,0 +1,47 @@
+title: 「原油150ドル」の衝撃：中東緊迫とスタグフレーション再来の回避策
+category: macro_economy
+type: column
+status: review
+created_at: '2026-03-09T00:00:00Z'
+updated_at: '2026-03-09T15:00:00Z'
+tags: []
+target_audience: intermediate
+target_wordcount: 4000
+symbols: []
+date_range:
+  start: '2024-01-01'
+  end: '2026-03-09'
+fred_series:
+- OILPRICE
+- GASREGW
+- CPIAUCSL
+- GDPNOW
+- DCOILBRENTEU
+theme: ''
+experience:
+  spec_card:
+    age_range: ''
+    gender: ''
+    occupation: ''
+    income_range: ''
+    duration: ''
+    outcome: ''
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: in_progress
+  draft: done
+  critique: pending
+  revision: pending
+  publish: in_progress
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+legacy:
+  old_path: economic_indicators_003_oil-150-shock-middle-east-stagflation
+  old_article_id: economic_indicators_003_oil-150-shock-middle-east-stagflation
+  migrated_at: '2026-03-15T01:21:14.510977+00:00'
