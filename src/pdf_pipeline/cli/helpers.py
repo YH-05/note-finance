@@ -322,11 +322,59 @@ def chunk_and_save(report_md: str, sha256: str, output_dir: str) -> str:
     return str(count)
 
 
-def extract_knowledge(chunks_json_path: str, output_dir: str) -> str:
+def _build_default_provider_chain() -> ProviderChain:
+    """Build the default provider chain using ``ClaudeCodeProvider``.
+
+    Returns
+    -------
+    ProviderChain
+        A chain with a single ``ClaudeCodeProvider``.
+    """
+    provider = ClaudeCodeProvider()
+    return ProviderChain([provider])
+
+
+def _format_extraction_stats(
+    doc_result: object,
+) -> tuple[str, dict[str, int]]:
+    """Compute and format extraction statistics from a DocumentExtractionResult.
+
+    Parameters
+    ----------
+    doc_result : DocumentExtractionResult
+        The extraction result to summarize.
+
+    Returns
+    -------
+    tuple[str, dict[str, int]]
+        A tuple of (formatted stats string, stats dict).
+    """
+    e = f = cl = dp = 0
+    for c in doc_result.chunks:  # type: ignore[attr-defined]
+        e += len(c.entities)
+        f += len(c.facts)
+        cl += len(c.claims)
+        dp += len(c.financial_datapoints)
+
+    stats_dict = {
+        "entities": e,
+        "facts": f,
+        "claims": cl,
+        "datapoints": dp,
+    }
+    stats_str = f"entities={e} facts={f} claims={cl} datapoints={dp}"
+    return stats_str, stats_dict
+
+
+def extract_knowledge(
+    chunks_json_path: str,
+    output_dir: str,
+    *,
+    provider_chain: ProviderChain | None = None,
+) -> str:
     """Extract knowledge from chunks and save as ``extraction.json``.
 
-    Reads ``chunks.json``, builds a ``ClaudeCodeProvider`` ->
-    ``ProviderChain``, runs ``KnowledgeExtractor.extract_from_chunks()``,
+    Reads ``chunks.json``, runs ``KnowledgeExtractor.extract_from_chunks()``,
     and saves the result as ``extraction.json`` in ``output_dir``.
 
     Parameters
@@ -335,6 +383,9 @@ def extract_knowledge(chunks_json_path: str, output_dir: str) -> str:
         Path to the ``chunks.json`` file produced by ``chunk_and_save``.
     output_dir : str
         Directory to save ``extraction.json``.
+    provider_chain : ProviderChain | None
+        Optional provider chain for dependency injection.
+        Defaults to a ``ClaudeCodeProvider``-based chain.
 
     Returns
     -------
@@ -371,11 +422,7 @@ def extract_knowledge(chunks_json_path: str, output_dir: str) -> str:
     if chunks_data and isinstance(chunks_data, list) and len(chunks_data) > 0:
         source_hash = chunks_data[0].get("source_hash", "unknown")
 
-    # Build provider chain
-    provider = ClaudeCodeProvider()
-    chain = ProviderChain([provider])
-
-    # Extract knowledge
+    chain = provider_chain or _build_default_provider_chain()
     extractor = KnowledgeExtractor(provider_chain=chain)
     doc_result = extractor.extract_from_chunks(
         chunks=chunks_data,
@@ -391,25 +438,13 @@ def extract_knowledge(chunks_json_path: str, output_dir: str) -> str:
         encoding="utf-8",
     )
 
-    # Compute statistics
-    total_entities = sum(len(c.entities) for c in doc_result.chunks)
-    total_facts = sum(len(c.facts) for c in doc_result.chunks)
-    total_claims = sum(len(c.claims) for c in doc_result.chunks)
-    total_datapoints = sum(len(c.financial_datapoints) for c in doc_result.chunks)
-
-    stats = (
-        f"entities={total_entities} facts={total_facts} "
-        f"claims={total_claims} datapoints={total_datapoints}"
-    )
+    stats_str, stats_dict = _format_extraction_stats(doc_result)
     logger.info(
         "Knowledge extraction completed",
         output_file=str(extraction_file),
-        entities=total_entities,
-        facts=total_facts,
-        claims=total_claims,
-        datapoints=total_datapoints,
+        **stats_dict,
     )
-    return stats
+    return stats_str
 
 
 def save_metadata(

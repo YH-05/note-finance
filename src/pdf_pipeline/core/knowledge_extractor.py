@@ -22,6 +22,7 @@ True
 from __future__ import annotations
 
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import TYPE_CHECKING, Any
 
 from pdf_pipeline._logging import get_logger
@@ -104,6 +105,9 @@ Text:
 # ---------------------------------------------------------------------------
 
 
+_DEFAULT_MAX_WORKERS = 5
+
+
 class KnowledgeExtractor:
     """Extract Entity/Fact/Claim from text chunks using an LLM provider chain.
 
@@ -114,6 +118,9 @@ class KnowledgeExtractor:
     ----------
     provider_chain : ProviderChain
         LLM provider chain for knowledge extraction calls.
+    max_workers : int
+        Maximum concurrent LLM calls for parallel chunk extraction.
+        Defaults to 5.
 
     Examples
     --------
@@ -124,9 +131,18 @@ class KnowledgeExtractor:
     True
     """
 
-    def __init__(self, provider_chain: ProviderChain) -> None:
+    def __init__(
+        self,
+        provider_chain: ProviderChain,
+        *,
+        max_workers: int = _DEFAULT_MAX_WORKERS,
+    ) -> None:
         self.provider_chain = provider_chain
-        logger.debug("KnowledgeExtractor initialized")
+        self._max_workers = max_workers
+        logger.debug(
+            "KnowledgeExtractor initialized",
+            max_workers=max_workers,
+        )
 
     def extract_from_chunks(
         self,
@@ -149,33 +165,59 @@ class KnowledgeExtractor:
         DocumentExtractionResult
             Aggregated extraction results for all chunks.
         """
+        chunk_count = len(chunks)
         logger.info(
             "Knowledge extraction started",
-            chunk_count=len(chunks),
+            chunk_count=chunk_count,
             source_hash=source_hash,
         )
 
-        results: list[ChunkExtractionResult] = []
-        for chunk in chunks:
-            chunk_index = chunk.get("chunk_index", 0)
-            result = self._extract_single(chunk, chunk_index=chunk_index)
-            results.append(result)
+        if chunk_count <= 1:
+            # Single chunk: no parallelism overhead
+            results = [
+                self._extract_single(c, chunk_index=c.get("chunk_index", 0))
+                for c in chunks
+            ]
+        else:
+            # Parallel extraction with bounded concurrency
+            workers = min(self._max_workers, chunk_count)
+            logger.debug(
+                "Parallel extraction",
+                workers=workers,
+                chunk_count=chunk_count,
+            )
+            indexed_results: dict[int, ChunkExtractionResult] = {}
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                futures = {
+                    executor.submit(
+                        self._extract_single,
+                        chunk,
+                        chunk_index=chunk.get("chunk_index", i),
+                    ): i
+                    for i, chunk in enumerate(chunks)
+                }
+                for future in as_completed(futures):
+                    idx = futures[future]
+                    indexed_results[idx] = future.result()
+            results = [indexed_results[i] for i in range(chunk_count)]
 
         doc_result = DocumentExtractionResult(
             source_hash=source_hash,
             chunks=results,
         )
 
-        total_entities = sum(len(c.entities) for c in results)
-        total_facts = sum(len(c.facts) for c in results)
-        total_claims = sum(len(c.claims) for c in results)
+        e = f = cl = 0
+        for c in results:
+            e += len(c.entities)
+            f += len(c.facts)
+            cl += len(c.claims)
 
         logger.info(
             "Knowledge extraction completed",
             source_hash=source_hash,
-            total_entities=total_entities,
-            total_facts=total_facts,
-            total_claims=total_claims,
+            total_entities=e,
+            total_facts=f,
+            total_claims=cl,
         )
 
         return doc_result
