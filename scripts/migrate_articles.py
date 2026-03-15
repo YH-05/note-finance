@@ -22,6 +22,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import enum
 import json
 import logging
 import os
@@ -128,6 +129,15 @@ NEW_SUBDIRS = ["01_research", "02_draft", "03_published"]
 # ---------------------------------------------------------------------------
 
 
+class LayoutType(enum.Enum):
+    """Article folder layout type for migration strategy selection."""
+
+    STANDARD = "standard"
+    FLAT = "flat"
+    SIDEHUSTLE = "sidehustle"
+    WEEKLY_REPORT = "weekly_report"
+
+
 @dataclass
 class MigrationEntry:
     """Describes one article migration."""
@@ -139,10 +149,7 @@ class MigrationEntry:
     notes: str = ""
     # Folder rename mapping: old sub-dir name -> new sub-dir name
     folder_renames: dict[str, str] = field(default_factory=dict)
-    # Special handling flags
-    flat_structure: bool = False
-    sidehustle_layout: bool = False
-    weekly_report_layout: bool = False
+    layout: LayoutType = LayoutType.STANDARD
 
 
 MIGRATION_MAP: list[MigrationEntry] = [
@@ -183,7 +190,7 @@ MIGRATION_MAP: list[MigrationEntry] = [
         old_path="stock_analysis_002_blackrock-private-credit-liquidity-risk",
         new_path="stock_analysis/2026-03-08_blackrock-private-credit",
         new_category="stock_analysis",
-        flat_structure=True,
+        layout=LayoutType.FLAT,
         notes="Flat->structured, article.md->02_draft/first_draft.md",
     ),
     # 6. asset_management/fund_selection_age_based
@@ -207,7 +214,7 @@ MIGRATION_MAP: list[MigrationEntry] = [
         old_path="asset_management/index_vs_etf_2026",
         new_path="asset_formation/2026-03-08_index-vs-etf-2026",
         new_category="asset_formation",
-        flat_structure=True,
+        layout=LayoutType.FLAT,
         notes="Flat->structured, note_article.md->02_draft/first_draft.md",
     ),
     # 9. exp-sidehustle-002
@@ -215,7 +222,7 @@ MIGRATION_MAP: list[MigrationEntry] = [
         old_path="exp-sidehustle-002-skill-freelance",
         new_path="side_business/2026-03-09_video-editing-freelance",
         new_category="side_business",
-        sidehustle_layout=True,
+        layout=LayoutType.SIDEHUSTLE,
         folder_renames={
             "01_sources": "01_research",
             "03_edit": "02_draft",
@@ -228,7 +235,7 @@ MIGRATION_MAP: list[MigrationEntry] = [
         old_path="exp-sidehustle-003-pending",
         new_path="side_business/2026-03-09_sidehustle-003-pending",
         new_category="side_business",
-        sidehustle_layout=True,
+        layout=LayoutType.SIDEHUSTLE,
         folder_renames={
             "01_sources": "01_research",
             "03_edit": "02_draft",
@@ -241,7 +248,7 @@ MIGRATION_MAP: list[MigrationEntry] = [
         old_path="weekly_report/2026-02-23",
         new_path="weekly_report/2026-02-23_weekly-market-report",
         new_category="weekly_report",
-        weekly_report_layout=True,
+        layout=LayoutType.WEEKLY_REPORT,
         folder_renames={"02_edit": "02_draft", "03_published": "03_published"},
         notes="data->01_research/market, 02_edit->02_draft",
     ),
@@ -539,6 +546,11 @@ def _copy_dir_contents(src: Path, dst: Path, *, dry_run: bool) -> None:
         return
 
     for item in sorted(src.iterdir()):
+        if item.is_symlink():
+            logger.warning("Skipping symlink", path=str(item))
+            continue
+        if item.name == ".DS_Store":
+            continue
         dest_item = dst / item.name
         if item.is_dir():
             if not dry_run:
@@ -546,11 +558,39 @@ def _copy_dir_contents(src: Path, dst: Path, *, dry_run: bool) -> None:
             logger.info("  Copy dir", src=str(item), dst=str(dest_item))
             _copy_dir_contents(item, dest_item, dry_run=dry_run)
         else:
-            if item.name == ".DS_Store":
-                continue
             logger.info("  Copy file", src=str(item.name), dst=str(dest_item))
             if not dry_run:
                 shutil.copy2(item, dest_item)
+
+
+def _apply_folder_renames(
+    old_dir: Path,
+    new_dir: Path,
+    renames: dict[str, str],
+    *,
+    dry_run: bool,
+) -> None:
+    """Apply folder renames from old_dir to new_dir.
+
+    Parameters
+    ----------
+    old_dir : Path
+        Source article directory.
+    new_dir : Path
+        Destination article directory.
+    renames : dict[str, str]
+        Mapping of old sub-dir name -> new sub-dir name.
+    dry_run : bool
+        If True, only log actions without performing them.
+    """
+    for old_sub, new_sub in renames.items():
+        old_sub_dir = old_dir / old_sub
+        new_sub_dir = new_dir / new_sub
+        if old_sub_dir.exists():
+            if not dry_run:
+                new_sub_dir.mkdir(parents=True, exist_ok=True)
+            logger.info("  Rename", old=old_sub, new=new_sub)
+            _copy_dir_contents(old_sub_dir, new_sub_dir, dry_run=dry_run)
 
 
 def _migrate_standard(
@@ -573,15 +613,7 @@ def _migrate_standard(
         logger.info("  Copy 01_research -> 01_research")
         _copy_dir_contents(old_research, new_research, dry_run=dry_run)
 
-    # Apply folder renames
-    for old_sub, new_sub in entry.folder_renames.items():
-        old_sub_dir = old_dir / old_sub
-        new_sub_dir = new_dir / new_sub
-        if old_sub_dir.exists():
-            if not dry_run:
-                new_sub_dir.mkdir(parents=True, exist_ok=True)
-            logger.info("  Rename", old=old_sub, new=new_sub)
-            _copy_dir_contents(old_sub_dir, new_sub_dir, dry_run=dry_run)
+    _apply_folder_renames(old_dir, new_dir, entry.folder_renames, dry_run=dry_run)
 
 
 def _migrate_flat(
@@ -693,15 +725,7 @@ def _migrate_weekly_report(
         logger.info("  Move data -> 01_research/market")
         _copy_dir_contents(old_data, new_market, dry_run=dry_run)
 
-    # Apply standard folder renames (02_edit -> 02_draft, 03_published)
-    for old_sub, new_sub in entry.folder_renames.items():
-        old_sub_dir = old_dir / old_sub
-        new_sub_dir = new_dir / new_sub
-        if old_sub_dir.exists():
-            if not dry_run:
-                new_sub_dir.mkdir(parents=True, exist_ok=True)
-            logger.info("  Rename", old=old_sub, new=new_sub)
-            _copy_dir_contents(old_sub_dir, new_sub_dir, dry_run=dry_run)
+    _apply_folder_renames(old_dir, new_dir, entry.folder_renames, dry_run=dry_run)
 
 
 def migrate_article(
@@ -755,11 +779,11 @@ def migrate_article(
         new_dir.mkdir(parents=True, exist_ok=True)
 
     # Determine migration strategy and execute
-    if entry.flat_structure:
+    if entry.layout is LayoutType.FLAT:
         _migrate_flat(old_dir, new_dir, entry, dry_run=dry_run)
-    elif entry.sidehustle_layout:
+    elif entry.layout is LayoutType.SIDEHUSTLE:
         _migrate_sidehustle(old_dir, new_dir, entry, dry_run=dry_run)
-    elif entry.weekly_report_layout:
+    elif entry.layout is LayoutType.WEEKLY_REPORT:
         _migrate_weekly_report(old_dir, new_dir, entry, dry_run=dry_run)
     else:
         _migrate_standard(old_dir, new_dir, entry, dry_run=dry_run)

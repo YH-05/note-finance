@@ -12,18 +12,24 @@ if TYPE_CHECKING:
 
 from scripts.migrate_articles import (
     MIGRATION_MAP,
+    LayoutType,
+    MigrationEntry,
+    _apply_folder_renames,
     _best_status,
     _build_neo4j_meta,
+    _copy_dir_contents,
     _extract_critic_score,
     _extract_research_sources,
     _extract_target_wordcount,
     _find_entry_by_path,
     _infer_type,
     _map_status,
+    _migrate_flat,
     _normalize_date_range,
     _phase_status,
     _simplify_workflow,
     convert_meta,
+    migrate_article,
 )
 
 # ---------------------------------------------------------------------------
@@ -478,3 +484,284 @@ class TestFindEntryByPath:
     def test_異常系_空文字列(self) -> None:
         """空文字列で None を返すことを確認。"""
         assert _find_entry_by_path("") is None
+
+
+# ---------------------------------------------------------------------------
+# _copy_dir_contents — symlink check
+# ---------------------------------------------------------------------------
+
+
+class TestCopyDirContentsSymlink:
+    """_copy_dir_contents のシンボリックリンクスキップテスト。"""
+
+    def test_正常系_シンボリックリンクをスキップする(self, tmp_path: Path) -> None:
+        """シンボリックリンクがコピーされずスキップされることを確認。"""
+        src = tmp_path / "src"
+        src.mkdir()
+        dst = tmp_path / "dst"
+        dst.mkdir()
+
+        # 通常ファイル
+        (src / "normal.md").write_text("content")
+        # シンボリックリンク
+        (src / "link.md").symlink_to(src / "normal.md")
+
+        _copy_dir_contents(src, dst, dry_run=False)
+
+        assert (dst / "normal.md").exists()
+        assert not (dst / "link.md").exists()
+
+    def test_正常系_DS_Storeをスキップする(self, tmp_path: Path) -> None:
+        """.DS_Store がコピーされないことを確認。"""
+        src = tmp_path / "src"
+        src.mkdir()
+        dst = tmp_path / "dst"
+        dst.mkdir()
+
+        (src / ".DS_Store").write_text("apple")
+        (src / "data.json").write_text("{}")
+
+        _copy_dir_contents(src, dst, dry_run=False)
+
+        assert (dst / "data.json").exists()
+        assert not (dst / ".DS_Store").exists()
+
+
+# ---------------------------------------------------------------------------
+# _apply_folder_renames
+# ---------------------------------------------------------------------------
+
+
+class TestApplyFolderRenames:
+    """_apply_folder_renames の単体テスト。"""
+
+    def test_正常系_フォルダリネームが適用される(self, tmp_path: Path) -> None:
+        """リネームマッピングに従ってフォルダがコピーされることを確認。"""
+        old_dir = tmp_path / "old"
+        old_dir.mkdir()
+        new_dir = tmp_path / "new"
+        new_dir.mkdir()
+
+        (old_dir / "02_edit").mkdir()
+        (old_dir / "02_edit" / "draft.md").write_text("content")
+
+        _apply_folder_renames(
+            old_dir, new_dir, {"02_edit": "02_draft"}, dry_run=False
+        )
+
+        assert (new_dir / "02_draft" / "draft.md").exists()
+        assert not (new_dir / "02_edit").exists()
+
+    def test_エッジケース_存在しないフォルダはスキップ(self, tmp_path: Path) -> None:
+        """リネーム対象のフォルダが存在しない場合スキップされることを確認。"""
+        old_dir = tmp_path / "old"
+        old_dir.mkdir()
+        new_dir = tmp_path / "new"
+        new_dir.mkdir()
+
+        _apply_folder_renames(
+            old_dir, new_dir, {"nonexistent": "target"}, dry_run=False
+        )
+
+        assert not (new_dir / "target").exists()
+
+
+# ---------------------------------------------------------------------------
+# _migrate_flat — edge cases
+# ---------------------------------------------------------------------------
+
+
+class TestMigrateFlatEdgeCases:
+    """_migrate_flat のエッジケーステスト。"""
+
+    def test_エッジケース_mdファイルなしで早期リターン(self, tmp_path: Path) -> None:
+        """.md ファイルがない場合に何もコピーされないことを確認。"""
+        old_dir = tmp_path / "old"
+        old_dir.mkdir()
+        new_dir = tmp_path / "new"
+        new_dir.mkdir()
+
+        # .md以外のファイルのみ
+        (old_dir / "data.json").write_text("{}")
+
+        entry = MigrationEntry(
+            old_path="test", new_path="test", new_category="test",
+            layout=LayoutType.FLAT,
+        )
+        _migrate_flat(old_dir, new_dir, entry, dry_run=False)
+
+        assert not (new_dir / "02_draft").exists()
+
+    def test_正常系_複数mdファイルで先頭が選択される(self, tmp_path: Path) -> None:
+        """複数の .md ファイルがある場合、先頭（glob順）が選択されることを確認。"""
+        old_dir = tmp_path / "old"
+        old_dir.mkdir()
+        new_dir = tmp_path / "new"
+        new_dir.mkdir()
+
+        (old_dir / "article.md").write_text("main article")
+        (old_dir / "notes.md").write_text("side notes")
+
+        entry = MigrationEntry(
+            old_path="test", new_path="test", new_category="test",
+            layout=LayoutType.FLAT,
+        )
+        _migrate_flat(old_dir, new_dir, entry, dry_run=False)
+
+        draft = new_dir / "02_draft" / "first_draft.md"
+        assert draft.exists()
+        # glob は順序不定だが、1つだけコピーされることを確認
+        assert draft.read_text() in ("main article", "side notes")
+
+
+# ---------------------------------------------------------------------------
+# migrate_article — 4分岐統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestMigrateArticleIntegration:
+    """migrate_article の4レイアウト分岐を tmp_path で統合テスト。"""
+
+    def _setup_old_dir(self, tmp_path: Path, name: str) -> Path:
+        """テスト用の旧ディレクトリを articles/ 配下に作成する。"""
+        import scripts.migrate_articles as mod
+        # ARTICLES_DIR を tmp_path に一時的に差し替え
+        old_dir = tmp_path / name
+        old_dir.mkdir(parents=True)
+        return old_dir
+
+    def test_正常系_STANDARD_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
+        """STANDARD レイアウトで 01_research コピーとフォルダリネームが行われることを確認。"""
+        import scripts.migrate_articles as mod
+        monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
+
+        old_dir = tmp_path / "old_article"
+        old_dir.mkdir()
+        (old_dir / "01_research").mkdir()
+        (old_dir / "01_research" / "data.json").write_text("{}")
+        (old_dir / "02_edit").mkdir()
+        (old_dir / "02_edit" / "draft.md").write_text("draft")
+
+        entry = MigrationEntry(
+            old_path="old_article",
+            new_path="macro_economy/2026-01-01_test",
+            new_category="macro_economy",
+            folder_renames={"02_edit": "02_draft"},
+            layout=LayoutType.STANDARD,
+        )
+        result = migrate_article(entry, dry_run=False)
+
+        assert result is True
+        new_dir = tmp_path / "macro_economy" / "2026-01-01_test"
+        assert (new_dir / "01_research" / "data.json").exists()
+        assert (new_dir / "02_draft" / "draft.md").exists()
+        assert (new_dir / "meta.yaml").exists()
+
+    def test_正常系_FLAT_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
+        """FLAT レイアウトで .md が 02_draft/first_draft.md に移動されることを確認。"""
+        import scripts.migrate_articles as mod
+        monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
+
+        old_dir = tmp_path / "flat_article"
+        old_dir.mkdir()
+        (old_dir / "article.md").write_text("flat content")
+
+        entry = MigrationEntry(
+            old_path="flat_article",
+            new_path="stock_analysis/2026-01-01_flat",
+            new_category="stock_analysis",
+            layout=LayoutType.FLAT,
+        )
+        result = migrate_article(entry, dry_run=False)
+
+        assert result is True
+        new_dir = tmp_path / "stock_analysis" / "2026-01-01_flat"
+        assert (new_dir / "02_draft" / "first_draft.md").exists()
+
+    def test_正常系_SIDEHUSTLE_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
+        """SIDEHUSTLE レイアウトで 01_sources→01_research, 02_synthesis→01_research が行われることを確認。"""
+        import scripts.migrate_articles as mod
+        monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
+
+        old_dir = tmp_path / "side_article"
+        old_dir.mkdir()
+        (old_dir / "01_sources").mkdir()
+        (old_dir / "01_sources" / "reddit.json").write_text("[]")
+        (old_dir / "02_synthesis").mkdir()
+        (old_dir / "02_synthesis" / "synthesis.json").write_text("{}")
+        (old_dir / "03_edit").mkdir()
+        (old_dir / "03_edit" / "draft.md").write_text("side draft")
+
+        entry = MigrationEntry(
+            old_path="side_article",
+            new_path="side_business/2026-01-01_side",
+            new_category="side_business",
+            layout=LayoutType.SIDEHUSTLE,
+            folder_renames={"01_sources": "01_research", "03_edit": "02_draft"},
+        )
+        result = migrate_article(entry, dry_run=False)
+
+        assert result is True
+        new_dir = tmp_path / "side_business" / "2026-01-01_side"
+        assert (new_dir / "01_research" / "reddit.json").exists()
+        assert (new_dir / "01_research" / "synthesis.json").exists()
+        assert (new_dir / "02_draft" / "draft.md").exists()
+
+    def test_正常系_WEEKLY_REPORT_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
+        """WEEKLY_REPORT レイアウトで data→01_research/market が行われることを確認。"""
+        import scripts.migrate_articles as mod
+        monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
+
+        old_dir = tmp_path / "weekly_article"
+        old_dir.mkdir()
+        (old_dir / "data").mkdir()
+        (old_dir / "data" / "indices.json").write_text("[]")
+        (old_dir / "02_edit").mkdir()
+        (old_dir / "02_edit" / "report.md").write_text("weekly")
+
+        entry = MigrationEntry(
+            old_path="weekly_article",
+            new_path="weekly_report/2026-01-01_weekly",
+            new_category="weekly_report",
+            layout=LayoutType.WEEKLY_REPORT,
+            folder_renames={"02_edit": "02_draft"},
+        )
+        result = migrate_article(entry, dry_run=False)
+
+        assert result is True
+        new_dir = tmp_path / "weekly_report" / "2026-01-01_weekly"
+        assert (new_dir / "01_research" / "market" / "indices.json").exists()
+        assert (new_dir / "02_draft" / "report.md").exists()
+
+    def test_エッジケース_new_dir既存でFalse(self, tmp_path: Path, monkeypatch: Any) -> None:
+        """新ディレクトリが既存の場合に False を返し上書きしないことを確認。"""
+        import scripts.migrate_articles as mod
+        monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
+
+        old_dir = tmp_path / "old_dup"
+        old_dir.mkdir()
+        new_dir = tmp_path / "new_dup"
+        new_dir.mkdir()
+
+        entry = MigrationEntry(
+            old_path="old_dup", new_path="new_dup", new_category="test",
+        )
+        assert migrate_article(entry, dry_run=False) is False
+
+    def test_エッジケース_old_dir不在でFalse(self, tmp_path: Path, monkeypatch: Any) -> None:
+        """旧ディレクトリが存在しない場合に False を返すことを確認。"""
+        import scripts.migrate_articles as mod
+        monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
+
+        entry = MigrationEntry(
+            old_path="ghost", new_path="new_ghost", new_category="test",
+        )
+        assert migrate_article(entry, dry_run=False) is False
+
+    def test_正常系_skipエントリでTrue(self) -> None:
+        """skip=True のエントリで True を返すことを確認。"""
+        entry = MigrationEntry(
+            old_path="skip_me", new_path="", new_category="",
+            skip=True, notes="test skip",
+        )
+        assert migrate_article(entry, dry_run=False) is True
