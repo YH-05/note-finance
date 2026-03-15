@@ -37,10 +37,17 @@ except ImportError:
     print("neo4j driver not installed. Run: uv add neo4j")
     sys.exit(1)
 
-import logging
+try:
+    from finance.utils.logging_config import get_logger
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-logger = logging.getLogger(__name__)
+    logger = get_logger(__name__)
+except ImportError:
+    import logging
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    logger = logging.getLogger(__name__)
+
+ALLOWED_URI_SCHEMES = {"bolt", "bolt+s", "bolt+ssc", "neo4j", "neo4j+s", "neo4j+ssc"}
 
 # ---------------------------------------------------------------------------
 # Schema loading
@@ -107,31 +114,6 @@ def build_allowed_labels(namespaces: dict[str, Any]) -> dict[str, str]:
 # ---------------------------------------------------------------------------
 # Validation checks
 # ---------------------------------------------------------------------------
-
-
-def check_unknown_labels(
-    db_labels: list[str],
-    allowed: dict[str, str],
-) -> list[dict[str, str]]:
-    """許可リストにないラベルを検出する。
-
-    Parameters
-    ----------
-    db_labels : list[str]
-        DB 上の全ラベル。
-    allowed : dict[str, str]
-        許可ラベルマッピング。
-
-    Returns
-    -------
-    list[dict[str, str]]
-        UNKNOWN ラベルのリスト。
-    """
-    return [
-        {"label": label, "namespace": "UNKNOWN"}
-        for label in db_labels
-        if label not in allowed
-    ]
 
 
 def check_pascal_case_violations(db_labels: list[str]) -> list[dict[str, str]]:
@@ -217,23 +199,26 @@ def build_report(
     schema_path: str,
     db_labels: list[str],
     allowed: dict[str, str],
-    unknown: list[dict[str, str]],
+    unknown_labels: list[dict[str, str]],
     pascal_violations: list[dict[str, str]],
     contamination: list[dict[str, Any]],
     classified: dict[str, list[str]],
+    now: datetime | None = None,
 ) -> dict[str, Any]:
     """検証結果からレポート辞書を構築する。"""
+    if now is None:
+        now = datetime.now(timezone.utc)
     return {
-        "validation_date": datetime.now(timezone.utc).isoformat(),
+        "validation_date": now.isoformat(),
         "schema_path": schema_path,
         "db_label_count": len(db_labels),
         "allowed_label_count": len(allowed),
         "namespace_classification": classified,
         "checks": {
             "unknown_labels": {
-                "count": len(unknown),
-                "pass": len(unknown) == 0,
-                "details": unknown,
+                "count": len(unknown_labels),
+                "pass": len(unknown_labels) == 0,
+                "details": unknown_labels,
             },
             "pascal_case_violations": {
                 "count": len(pascal_violations),
@@ -247,7 +232,7 @@ def build_report(
             },
         },
         "overall_pass": (
-            len(unknown) == 0
+            len(unknown_labels) == 0
             and len(pascal_violations) == 0
             and len(contamination) == 0
         ),
@@ -308,6 +293,27 @@ def save_report(report: dict[str, Any], output_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
+def _validate_uri_scheme(uri: str) -> None:
+    """URI スキームが許可されたものか検証する。"""
+    parsed = urlparse(uri)
+    if parsed.scheme not in ALLOWED_URI_SCHEMES:
+        msg = (
+            f"Unsupported URI scheme: {parsed.scheme}. "
+            f"Allowed: {', '.join(sorted(ALLOWED_URI_SCHEMES))}"
+        )
+        raise ValueError(msg)
+
+
+def _validate_output_path(output: str) -> Path:
+    """出力パスがプロジェクト内であることを検証する。"""
+    output_path = Path(output).resolve()
+    project_root = Path.cwd().resolve()
+    if not str(output_path).startswith(str(project_root)):
+        msg = f"Output path must be under project root: {project_root}"
+        raise ValueError(msg)
+    return output_path
+
+
 def main() -> None:
     """スキーマ検証のエントリーポイント。"""
     parser = argparse.ArgumentParser(
@@ -342,6 +348,11 @@ def main() -> None:
             "Set NEO4J_PASSWORD environment variable or use --neo4j-password."
         )
 
+    try:
+        _validate_uri_scheme(args.neo4j_uri)
+    except ValueError as e:
+        parser.error(str(e))
+
     logger.info("Loading schema: %s", args.schema)
     try:
         namespaces = load_namespaces(Path(args.schema))
@@ -367,16 +378,20 @@ def main() -> None:
             db_labels = [r["label"] for r in result]
             logger.info("DB labels fetched: %d", len(db_labels))
 
-            unknown = check_unknown_labels(db_labels, allowed)
+            # classify first, then derive unknown from it (single scan)
+            classified = classify_db_labels(db_labels, allowed)
+            unknown_labels = [
+                {"label": label, "namespace": "UNKNOWN"}
+                for label in classified.get("UNKNOWN", [])
+            ]
             pascal_violations = check_pascal_case_violations(db_labels)
             contamination = check_cross_contamination(session, allowed)
-            classified = classify_db_labels(db_labels, allowed)
 
         report = build_report(
             schema_path=args.schema,
             db_labels=db_labels,
             allowed=allowed,
-            unknown=unknown,
+            unknown_labels=unknown_labels,
             pascal_violations=pascal_violations,
             contamination=contamination,
             classified=classified,
@@ -385,7 +400,12 @@ def main() -> None:
         print(format_report(report))
 
         if args.output:
-            save_report(report, Path(args.output))
+            try:
+                validated_path = _validate_output_path(args.output)
+            except ValueError as e:
+                logger.error("%s", e)
+                sys.exit(1)
+            save_report(report, validated_path)
 
         if not report["overall_pass"]:
             sys.exit(1)

@@ -1098,6 +1098,11 @@ Source.category  ←→  Topic.category
 
 ### ステップ 3b.2: ABOUT コンテンツマッチング
 
+> **Memory 除外フィルタ**: 全クロスファイルリレーション推論クエリには
+> `WHERE NOT 'Memory' IN labels(n)` を付与すること。
+> Memory ノードが KG ノードと誤マッチするのを防止するため。
+> 参照: `.claude/rules/neo4j-namespace-convention.md`
+
 #### 新 Claim → 既存 Entity
 
 今回投入した Claim の `content` に、既存 Entity の `name` が含まれる場合に接続する。

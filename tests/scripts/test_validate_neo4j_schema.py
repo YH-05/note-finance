@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import MagicMock
 
@@ -13,10 +14,12 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "scripts"))
 
 from validate_neo4j_schema import (
+    _validate_output_path,
+    _validate_uri_scheme,
     build_allowed_labels,
+    build_report,
     check_cross_contamination,
     check_pascal_case_violations,
-    check_unknown_labels,
     classify_db_labels,
     load_namespaces,
 )
@@ -90,33 +93,13 @@ class TestBuildAllowedLabels:
         result = build_allowed_labels({"empty": {"naming": "PascalCase"}})
         assert result == {}
 
-
-# ---------------------------------------------------------------------------
-# check_unknown_labels
-# ---------------------------------------------------------------------------
-
-
-class TestCheckUnknownLabels:
-    def test_正常系_全ラベルが許可済みなら空リスト(
-        self, sample_allowed: dict[str, str]
-    ) -> None:
-        db_labels = ["Source", "Claim", "Memory"]
-        result = check_unknown_labels(db_labels, sample_allowed)
-        assert result == []
-
-    def test_異常系_未知ラベルが検出される(
-        self, sample_allowed: dict[str, str]
-    ) -> None:
-        db_labels = ["Source", "UnknownLabel"]
-        result = check_unknown_labels(db_labels, sample_allowed)
-        assert len(result) == 1
-        assert result[0]["label"] == "UnknownLabel"
-        assert result[0]["namespace"] == "UNKNOWN"
-
-    def test_エッジケース_空リストで空結果(
-        self, sample_allowed: dict[str, str]
-    ) -> None:
-        assert check_unknown_labels([], sample_allowed) == []
+    def test_エッジケース_重複ラベルは後勝ち(self) -> None:
+        namespaces = {
+            "ns_a": {"labels": ["Foo"]},
+            "ns_b": {"labels": ["Foo"]},
+        }
+        result = build_allowed_labels(namespaces)
+        assert result["Foo"] == "ns_b"
 
 
 # ---------------------------------------------------------------------------
@@ -172,6 +155,19 @@ class TestClassifyDbLabels:
         self, sample_allowed: dict[str, str]
     ) -> None:
         assert classify_db_labels([], sample_allowed) == {}
+
+    def test_正常系_unknown派生がclassifyと一致する(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        """classify_db_labels のUNKNOWNバケットからunknown_labelsを派生できる。"""
+        db_labels = ["Source", "LegacyA", "LegacyB"]
+        classified = classify_db_labels(db_labels, sample_allowed)
+        unknown_labels = [
+            {"label": label, "namespace": "UNKNOWN"}
+            for label in classified.get("UNKNOWN", [])
+        ]
+        assert len(unknown_labels) == 2
+        assert unknown_labels[0]["label"] == "LegacyA"
 
 
 # ---------------------------------------------------------------------------
@@ -230,3 +226,80 @@ class TestCheckCrossContamination:
         mock_session.run.return_value = [mock_record]
         result = check_cross_contamination(mock_session, sample_allowed)
         assert len(result) == 1
+
+
+# ---------------------------------------------------------------------------
+# build_report
+# ---------------------------------------------------------------------------
+
+
+class TestBuildReport:
+    def test_正常系_固定datetimeでレポート生成(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        fixed_now = datetime(2026, 3, 15, 12, 0, 0, tzinfo=timezone.utc)
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Source"],
+            allowed=sample_allowed,
+            unknown_labels=[],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Source"]},
+            now=fixed_now,
+        )
+        assert report["validation_date"] == "2026-03-15T12:00:00+00:00"
+        assert report["overall_pass"] is True
+
+    def test_異常系_unknownありでoverall_pass_false(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Source", "Bad"],
+            allowed=sample_allowed,
+            unknown_labels=[{"label": "Bad", "namespace": "UNKNOWN"}],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Source"], "UNKNOWN": ["Bad"]},
+        )
+        assert report["overall_pass"] is False
+
+
+# ---------------------------------------------------------------------------
+# _validate_uri_scheme
+# ---------------------------------------------------------------------------
+
+
+class TestValidateUriScheme:
+    def test_正常系_bolt_scheme(self) -> None:
+        _validate_uri_scheme("bolt://localhost:7687")
+
+    def test_正常系_neo4j_scheme(self) -> None:
+        _validate_uri_scheme("neo4j://localhost:7687")
+
+    def test_正常系_bolt_plus_s_scheme(self) -> None:
+        _validate_uri_scheme("bolt+s://localhost:7687")
+
+    def test_異常系_http_scheme(self) -> None:
+        with pytest.raises(ValueError, match="Unsupported URI scheme"):
+            _validate_uri_scheme("http://localhost:7687")
+
+    def test_異常系_ftp_scheme(self) -> None:
+        with pytest.raises(ValueError, match="Unsupported URI scheme"):
+            _validate_uri_scheme("ftp://localhost:7687")
+
+
+# ---------------------------------------------------------------------------
+# _validate_output_path
+# ---------------------------------------------------------------------------
+
+
+class TestValidateOutputPath:
+    def test_正常系_プロジェクト内パス(self) -> None:
+        result = _validate_output_path("data/processed/test.json")
+        assert result.is_absolute()
+
+    def test_異常系_プロジェクト外パス(self) -> None:
+        with pytest.raises(ValueError, match="Output path must be under"):
+            _validate_output_path("/tmp/evil/output.json")
