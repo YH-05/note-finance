@@ -64,10 +64,9 @@ Phase 6: Neo4j保存 + 完了
 ```
 articles/{category}/{YYYY-MM-DD}_{english-slug}/
 ├── meta.yaml
-├── 01_sources/
-├── 02_synthesis/
-├── 03_edit/
-└── 04_published/
+├── 01_research/
+├── 02_draft/
+└── 03_published/
 ```
 
 カテゴリ対応: konkatsu -> `marriage/`, sidehustle -> `side_business/`, shisan -> `asset_formation/`

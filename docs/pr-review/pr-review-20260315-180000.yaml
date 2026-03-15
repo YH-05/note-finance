@@ -1,0 +1,286 @@
+# PRレビューレポート
+# 生成日時: 2026-03-15 18:00:00
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-15 18:00:00"
+  pr_number: 94
+  pr_title: "refactor(articles): 記事ワークフロー統一化 — フォルダ構成・コマンド・メタデータを再設計"
+  base_branch: "main"
+  head_branch: "refactor/article-workflow-unification"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 100
+  additions: 3780
+  deletions: 2338
+
+scores:
+  code_quality:
+    readability: 78
+    design: 79
+    performance: 78
+    quant: null
+  security:
+    code: 89
+    infra: 68
+  test:
+    coverage: 18
+    quality: 79
+
+code_quality:
+  strengths:
+    - "コマンド体系 /article-* が Chain of Responsibility パターンとして一貫した設計"
+    - "migrate_articles.py が Template Method パターンで4種レイアウトを統一処理"
+    - "pdf_pipeline/ 配下は型ヒント・Docstring・ロギングすべて高水準"
+    - "yaml.safe_load() を全箇所で使用、インジェクションリスクなし"
+    - "shutil/pathlib のみでファイル操作、コマンドインジェクション排除"
+    - "MigrationEntry データクラスによる移行仕様の宣言的記述"
+
+  issues:
+    critical: []
+    high:
+      - id: "CQ-001"
+        category: "coding_standards"
+        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        line: 67
+        description: "open() を直接使用。プロジェクト規約違反（Path.open() 推奨）。直前コミット a3197cc で同種修正済みなのに未修正"
+        recommendation: "meta_yaml.open('r', encoding='utf-8') に変更（2箇所: 行67, 73）"
+
+      - id: "CQ-002"
+        category: "error_handling"
+        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        line: 69
+        description: "except Exception: pass による silent failure。壊れた meta.yaml が無言でスキップされる"
+        recommendation: "logger.warning('Failed to parse meta', path=str(path), error=str(e)) を追加"
+
+      - id: "CQ-003"
+        category: "documentation"
+        file: ".agents/workflows/finance-edit.md"
+        line: 341
+        description: "meta.yaml を json.load() でパースするコマンド例が残存。YAML→JSON移行の更新漏れ"
+        recommendation: "yaml.safe_load() を使用するよう例示コードを修正"
+
+      - id: "CQ-004"
+        category: "dry"
+        file: ".claude/commands/article-draft.md, article-critique.md, article-research.md, article-publish.md"
+        line: 0
+        description: "4コマンドでパス解決ロジックが完全に同一内容で重複。仕様変更時の修正漏れリスク高"
+        recommendation: "共通ドキュメント（_shared/path-resolution.md）に切り出し"
+
+    medium:
+      - id: "CQ-005"
+        category: "complexity"
+        file: "scripts/migrate_articles.py"
+        line: 286
+        description: "_simplify_workflow() のサイクロマティック複雑度が17。ネスト関数がテスト不可能"
+        recommendation: "_phase_status(), _best_status() をモジュールレベルに切り出し"
+
+      - id: "CQ-006"
+        category: "srp"
+        file: "scripts/migrate_articles.py"
+        line: 350
+        description: "convert_meta() が5種の責務を1関数で担当（125行、CC=16）"
+        recommendation: "ヘルパー関数に分割"
+
+      - id: "CQ-007"
+        category: "type_hints"
+        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        line: 9
+        description: "analyze_articles() の戻り値型・Docstring が欠落"
+        recommendation: "-> dict[str, Any] と NumPy形式Docstring を追加"
+
+      - id: "CQ-008"
+        category: "documentation"
+        file: ".claude/skills/experience-db-workflow/SKILL.md"
+        line: 62
+        description: "フォルダ構造例が旧形式（03_edit/）のまま。新標準（02_draft/）と不一致"
+        recommendation: "01_research/, 02_draft/, 03_published/ に更新"
+
+      - id: "CQ-009"
+        category: "solid"
+        file: "scripts/migrate_articles.py"
+        line: 148
+        description: "MIGRATION_MAP がハードコードリスト。MigrationEntry のフラグ群が bool 複数で表現されている"
+        recommendation: "layout_type を Enum で表現し、設定を外部YAMLに切り出し"
+
+    low:
+      - id: "CQ-010"
+        category: "naming"
+        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        line: 55
+        description: "_read_meta() の categories, latest_topics パラメータが裸の list 型"
+        recommendation: "list[str], list[dict[str, str]] に変更"
+
+      - id: "CQ-011"
+        category: "dry"
+        file: "scripts/migrate_articles.py"
+        line: 483
+        description: "フォルダリネームループが _migrate_standard/sidehustle/weekly_report で3重複"
+        recommendation: "_apply_folder_renames() として共通化"
+
+  solid_compliance:
+    single_responsibility: "WARN"
+    open_closed: "WARN"
+    liskov_substitution: "PASS"
+    interface_segregation: "PASS"
+    dependency_inversion: "WARN"
+
+security:
+  vulnerability_count:
+    critical: 1
+    high: 1
+    medium: 4
+    low: 3
+
+  findings:
+    - id: "SEC-001"
+      severity: "CRITICAL"
+      category: "A06"
+      location: "pyproject.toml:119"
+      description: "diskcache 5.6.3 RCE脆弱性（CVE-2025-69872）。修正版未リリース"
+      recommendation: "upstream監視継続。キャッシュディレクトリのアクセス権限最小化"
+      cwe_id: "CWE-502"
+
+    - id: "SEC-002"
+      severity: "HIGH"
+      category: "A06"
+      location: "pyproject.toml:23"
+      description: "pyjwt 2.10.1 JWT crit未検証（CVE-2026-32597）。修正版2.12.0あり"
+      recommendation: "uv add 'pyjwt>=2.12.0'"
+      cwe_id: "CWE-345"
+
+    - id: "SEC-003"
+      severity: "MEDIUM"
+      category: "A06"
+      location: "pyproject.toml"
+      description: "tornado 6.5.4 に2件の脆弱性。修正版6.5.5あり"
+      recommendation: "uv add 'tornado>=6.5.5'"
+      cwe_id: "CWE-20"
+
+    - id: "SEC-004"
+      severity: "MEDIUM"
+      category: "A07"
+      location: "scripts/save_conversations_to_neo4j.py:264"
+      description: "Neo4j デフォルトパスワード 'password' ハードコード"
+      recommendation: "デフォルト値をNoneに変更し環境変数必須化"
+      cwe_id: "CWE-521"
+
+    - id: "SEC-005"
+      severity: "MEDIUM"
+      category: "A04"
+      location: "scripts/migrate_articles.py:483"
+      description: "_copy_dir_contents() がファイル拡張子・シンボリックリンクを検証しない"
+      recommendation: "許可拡張子リスト＋is_symlink()チェック追加"
+      cwe_id: "CWE-73"
+
+    - id: "SEC-006"
+      severity: "MEDIUM"
+      category: "A02"
+      location: "scripts/save_conversations_to_neo4j.py:263"
+      description: "Neo4j接続のデフォルト引数にデフォルトパスワード"
+      recommendation: "環境変数から取得する実装に変更"
+      cwe_id: "CWE-798"
+
+    - id: "SEC-007"
+      severity: "LOW"
+      category: "A05"
+      location: ".claude/commands/article-publish.md:65"
+      description: "note.comセッションファイルの.gitignore除外設定の確認必要"
+      recommendation: ".gitignore にnote-storage-state.json を追加"
+      cwe_id: "CWE-312"
+
+    - id: "SEC-008"
+      severity: "LOW"
+      category: "A04"
+      location: ".agents/workflows/finance-edit.md:341"
+      description: "ドキュメント内のコード例でjson.loadがYAMLファイルに使用"
+      recommendation: "yaml.safe_load()に修正"
+      cwe_id: "CWE-116"
+
+    - id: "SEC-009"
+      severity: "LOW"
+      category: "A09"
+      location: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py:69"
+      description: "bare except + passでセキュリティエラーがサイレント消失"
+      recommendation: "logger.warning()を追加"
+      cwe_id: "CWE-778"
+
+test:
+  coverage_assessment: "POOR"
+  edge_cases_covered: false
+
+  missing_tests:
+    - target: "scripts/migrate_articles.py:convert_meta"
+      priority: "HIGH"
+      description: "meta変換ロジックのユニットテスト"
+
+    - target: "scripts/migrate_articles.py:_simplify_workflow"
+      priority: "HIGH"
+      description: "ワークフロー変換の全パターンテスト"
+
+    - target: "scripts/migrate_articles.py:migrate_article"
+      priority: "HIGH"
+      description: "4種レイアウトの移行テスト＋冪等性"
+
+    - target: "scripts/migrate_articles.py:_migrate_flat"
+      priority: "HIGH"
+      description: ".mdファイル0件/複数件のエッジケース"
+
+    - target: "analyze_existing_articles.py:analyze_articles"
+      priority: "HIGH"
+      description: "新旧構造混在のカテゴリ集計テスト"
+
+    - target: "analyze_existing_articles.py:_read_meta"
+      priority: "HIGH"
+      description: "パースエラー・ファイル不在のエッジケース"
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "PASS"
+    readability: "PASS"
+
+recommended_actions:
+  required:
+    - priority: 1
+      action: "analyze_existing_articles.py の open() → Path.open() 修正（2箇所）"
+      related_issues: ["CQ-001"]
+
+    - priority: 2
+      action: "_read_meta() の except Exception: pass → logger.warning() 追加"
+      related_issues: ["CQ-002", "SEC-009"]
+
+    - priority: 3
+      action: "finance-edit.md の json.load() → yaml.safe_load() 修正"
+      related_issues: ["CQ-003", "SEC-008"]
+
+  suggested:
+    - priority: 1
+      action: "pyjwt を 2.12.0 以上にアップグレード"
+      related_issues: ["SEC-002"]
+
+    - priority: 2
+      action: "tornado を 6.5.5 以上にアップグレード"
+      related_issues: ["SEC-003"]
+
+    - priority: 3
+      action: "migrate_articles.py と analyze_existing_articles.py のユニットテスト追加"
+      related_issues: []
+
+    - priority: 4
+      action: "コマンド間の共通パス解決ロジック切り出し"
+      related_issues: ["CQ-004"]
+
+    - priority: 5
+      action: "_simplify_workflow() / convert_meta() のリファクタリング"
+      related_issues: ["CQ-005", "CQ-006"]
+
+summary:
+  verdict: "REQUEST_CHANGES"
+  comment: |
+    大規模リファクタリングとして設計の一貫性を大きく改善する良いPR。
+    コマンド体系・フォルダ構造・メタデータ形式の統一は適切。
+    マージ前に analyze_existing_articles.py の規約違反（open()使用、silent exception）と
+    finance-edit.md のJSON/YAMLパース不整合の3点を修正する必要がある。
+    テストカバレッジの低さ（18/100）は最大の懸念だが、
+    migrate_articles.py はワンショット移行スクリプトのためマージ後対応でも可。

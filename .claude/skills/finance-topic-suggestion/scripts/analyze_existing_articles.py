@@ -1,12 +1,17 @@
+from __future__ import annotations
+
 import json
 import os
+import sys
+import warnings
 from collections import Counter
 from pathlib import Path
+from typing import Any
 
 import yaml
 
 
-def analyze_articles(articles_dir: Path):
+def analyze_articles(articles_dir: Path) -> dict[str, Any]:
     """
     articles/{category}/{YYYY-MM-DD}_{slug}/meta.yaml を読み取って、
     カテゴリ分布と最新のトピックを抽出する。
@@ -54,8 +59,8 @@ def analyze_articles(articles_dir: Path):
 
 def _read_meta(
     article_path: Path,
-    categories: list,
-    latest_topics: list,
+    categories: list[str],
+    latest_topics: list[dict[str, str]],
 ) -> None:
     """Read meta.yaml (preferred) or article-meta.json (legacy) from an article dir."""
     meta_yaml = article_path / "meta.yaml"
@@ -64,16 +69,22 @@ def _read_meta(
     meta = None
     if meta_yaml.exists():
         try:
-            with open(meta_yaml, "r", encoding="utf-8") as f:
+            with meta_yaml.open("r", encoding="utf-8") as f:
                 meta = yaml.safe_load(f) or {}
-        except Exception:
-            pass
+        except Exception as e:
+            warnings.warn(
+                f"Failed to parse {meta_yaml}: {e}",
+                stacklevel=2,
+            )
     elif meta_json.exists():
         try:
-            with open(meta_json, "r", encoding="utf-8") as f:
+            with meta_json.open("r", encoding="utf-8") as f:
                 meta = json.load(f)
-        except Exception:
-            pass
+        except Exception as e:
+            warnings.warn(
+                f"Failed to parse {meta_json}: {e}",
+                stacklevel=2,
+            )
 
     if meta is None:
         return
@@ -87,7 +98,7 @@ def _read_meta(
 
 
 if __name__ == "__main__":
-    project_root = Path(os.getcwd())
+    project_root = Path.cwd()
     articles_dir = project_root / "articles"
     result = analyze_articles(articles_dir)
     print(json.dumps(result, ensure_ascii=False, indent=2))

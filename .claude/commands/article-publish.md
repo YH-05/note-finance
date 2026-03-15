@@ -29,18 +29,11 @@ argument-hint: @<article_dir> [--dry-run] [--login-only]
 
 ### 2. ファイルパス指定（`@filepath`）
 
-ユーザーが `@` でファイルまたはディレクトリを指定した場合、そのパスから記事ディレクトリを自動特定する。
+共通パス解決ロジックに従う。詳細は `.claude/commands/_shared/path-resolution.md` を参照。
 
 ```
 /article-publish @articles/asset_formation/2026-03-15_new-nisa-guide/
 ```
-
-**パス解決ロジック:**
-1. 指定されたパスの絶対パスを取得する
-2. パスに `/01_research/`、`/02_draft/`、`/03_published/` が含まれる場合 → その親ディレクトリを記事ルートとする
-3. 指定パスがディレクトリの場合 → そのディレクトリを記事ルートとする
-
-**後方互換**: 旧形式（`articles/{category}_{seq}_{theme}/`）のパスも受け付けます。旧形式では `02_edit/revised_draft.md` を参照します。
 
 ### 3. 引数なし
 

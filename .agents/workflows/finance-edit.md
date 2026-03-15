@@ -31,7 +31,7 @@ meta.yaml の workflow を確認:
 // turbo
 
 ```bash
-cat articles/{article_id}/meta.yaml | python -c "import sys,json; d=json.load(sys.stdin); print(d.get('workflow',{}).get('research',{}).get('decisions','not_done'))"
+cat articles/{article_id}/meta.yaml | python -c "import sys,yaml; d=yaml.safe_load(sys.stdin); print(d.get('workflow',{}).get('research','not_done'))"
 ```
 
 ### 2. 初稿作成

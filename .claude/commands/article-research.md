@@ -13,27 +13,11 @@ argument-hint: @<article_dir>
 
 ## 引数の解釈ルール
 
-`$ARGUMENTS` を以下の優先順で解釈する:
-
-### 1. ファイルパス指定（`@filepath`）
-
-ユーザーが `@` でファイルまたはディレクトリを指定した場合、そのパスから記事ディレクトリを自動特定する。
+共通パス解決ロジックに従う。詳細は `.claude/commands/_shared/path-resolution.md` を参照。
 
 ```
 /article-research @articles/stock_analysis/2026-03-15_tsla-earnings-analysis/
 ```
-
-**パス解決ロジック:**
-1. 指定されたパスの絶対パスを取得する
-2. パスに `/01_research/`、`/02_draft/`、`/03_published/` が含まれる場合 → その親ディレクトリを記事ルートとする
-3. 指定パスがディレクトリの場合 → そのディレクトリを記事ルートとする
-4. 記事ルート内の `meta.yaml` を読み込む
-
-**後方互換**: 旧形式（`articles/{category}_{seq}_{theme}/`）のパスも受け付けます。
-
-### 2. 引数なし
-
-引数が指定されていない場合は、ユーザーに記事ディレクトリのパスの入力を求める。
 
 ## 処理フロー
 

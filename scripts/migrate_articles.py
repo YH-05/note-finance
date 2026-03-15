@@ -283,6 +283,87 @@ def _normalize_date_range(
     }
 
 
+def _phase_status(phase_data: Any) -> str:
+    """Determine if a workflow phase is done, in_progress, or pending.
+
+    Parameters
+    ----------
+    phase_data : Any
+        Phase data — a string status, a dict of sub-statuses, or other.
+
+    Returns
+    -------
+    str
+        One of "done", "in_progress", or "pending".
+    """
+    if isinstance(phase_data, str):
+        return phase_data
+    if isinstance(phase_data, dict):
+        values = [
+            str(v)
+            for v in phase_data.values()
+            if isinstance(v, str)
+        ]
+        if not values:
+            return "pending"
+        if all(v == "done" for v in values):
+            return "done"
+        if any(v == "done" for v in values):
+            return "in_progress"
+        return "pending"
+    return "pending"
+
+
+def _best_status(
+    keys: list[str],
+    workflow: dict[str, Any],
+) -> str:
+    """Pick the best status from multiple workflow keys.
+
+    Parameters
+    ----------
+    keys : list[str]
+        Old workflow keys to check.
+    workflow : dict[str, Any]
+        The old workflow dict.
+
+    Returns
+    -------
+    str
+        One of "done", "in_progress", or "pending".
+    """
+    statuses = [
+        _phase_status(workflow[k])
+        for k in keys
+        if k in workflow
+    ]
+    if not statuses:
+        return "pending"
+    if all(s == "done" for s in statuses):
+        return "done"
+    if any(s in ("done", "in_progress") for s in statuses):
+        return "in_progress"
+    return "pending"
+
+
+# Mapping from old workflow keys to new phase names
+_WORKFLOW_KEY_MAP: dict[str, list[str]] = {
+    "research": ["data_collection", "processing", "research", "collecting"],
+    "draft": ["writing"],
+    "critique": ["critique"],
+    "revision": ["revision"],
+    "publish": ["publishing"],
+}
+
+_PENDING_WORKFLOW: dict[str, str] = {
+    "research": "pending",
+    "draft": "pending",
+    "critique": "pending",
+    "revision": "pending",
+    "publish": "pending",
+}
+
+
 def _simplify_workflow(old_workflow: dict[str, Any] | None) -> dict[str, str]:
     """Convert complex nested workflow to simple flat workflow.
 
@@ -291,60 +372,59 @@ def _simplify_workflow(old_workflow: dict[str, Any] | None) -> dict[str, str]:
     Each has value: pending | in_progress | done.
     """
     if not old_workflow:
-        return {
-            "research": "pending",
-            "draft": "pending",
-            "critique": "pending",
-            "revision": "pending",
-            "publish": "pending",
-        }
-
-    def _phase_status(phase_data: Any) -> str:
-        """Determine if a workflow phase is done, in_progress, or pending."""
-        if isinstance(phase_data, str):
-            return phase_data
-        if isinstance(phase_data, dict):
-            values = [
-                str(v)
-                for v in phase_data.values()
-                if isinstance(v, str)
-            ]
-            if not values:
-                return "pending"
-            if all(v == "done" for v in values):
-                return "done"
-            if any(v == "done" for v in values):
-                return "in_progress"
-            return "pending"
-        return "pending"
-
-    # Map old workflow keys to new
-    research_keys = ["data_collection", "processing", "research", "collecting"]
-    draft_keys = ["writing"]
-    critique_keys = ["critique"]
-    revision_keys = ["revision"]
-    publish_keys = ["publishing"]
-
-    def _best_status(keys: list[str]) -> str:
-        statuses = []
-        for k in keys:
-            if k in old_workflow:
-                statuses.append(_phase_status(old_workflow[k]))
-        if not statuses:
-            return "pending"
-        if all(s == "done" for s in statuses):
-            return "done"
-        if any(s in ("done", "in_progress") for s in statuses):
-            return "in_progress"
-        return "pending"
+        return dict(_PENDING_WORKFLOW)
 
     return {
-        "research": _best_status(research_keys),
-        "draft": _best_status(draft_keys),
-        "critique": _best_status(critique_keys),
-        "revision": _best_status(revision_keys),
-        "publish": _best_status(publish_keys),
+        phase: _best_status(keys, old_workflow)
+        for phase, keys in _WORKFLOW_KEY_MAP.items()
     }
+
+
+def _extract_critic_score(workflow_data: dict[str, Any]) -> int | None:
+    """Extract critic total score from old workflow critique data."""
+    critique_data = workflow_data.get("critique", {})
+    if isinstance(critique_data, dict):
+        total = critique_data.get("total_score")
+        if total is not None:
+            return int(total)
+    return None
+
+
+def _extract_research_sources(workflow_data: dict[str, Any]) -> int:
+    """Count research sources from collecting workflow data."""
+    collecting = workflow_data.get("collecting", {})
+    if isinstance(collecting, dict):
+        return collecting.get("source_count", 0) or 0
+    return 0
+
+
+def _build_neo4j_meta(old: dict[str, Any]) -> dict[str, Any]:
+    """Build neo4j metadata from old meta."""
+    old_neo4j = old.get("neo4j", {})
+    if old_neo4j:
+        return {
+            "pattern_node_id": old_neo4j.get("pattern_node_id") or None,
+            "source_node_ids": old_neo4j.get("source_node_ids", []),
+            "embed_resource_ids": old_neo4j.get("embed_resource_ids", []),
+        }
+    return {
+        "pattern_node_id": None,
+        "source_node_ids": [],
+        "embed_resource_ids": [],
+    }
+
+
+def _extract_target_wordcount(
+    workflow_data: dict[str, Any],
+    default: int = 4000,
+) -> int:
+    """Extract target wordcount from revision data if available."""
+    revision_data = workflow_data.get("revision", {})
+    if isinstance(revision_data, dict):
+        wc = revision_data.get("wordcount", 0)
+        if wc and wc > 0:
+            return int(wc)
+    return default
 
 
 def convert_meta(
@@ -385,41 +465,25 @@ def convert_meta(
             old_path=old_path,
         )
 
-    old_status = old.get("status", "research")
-    date_range = _normalize_date_range(old.get("date_range"))
+    workflow_data = old.get("workflow", {})
     spec_card = old.get("spec_card", {})
 
-    # Extract critic score from workflow critique data if available
-    critic_score: int | None = None
-    workflow_data = old.get("workflow", {})
-    critique_data = workflow_data.get("critique", {})
-    if isinstance(critique_data, dict):
-        total = critique_data.get("total_score")
-        if total is not None:
-            critic_score = int(total)
-
-    # Count research sources from collecting or data_collection workflow
-    research_sources = 0
-    collecting = workflow_data.get("collecting", {})
-    if isinstance(collecting, dict):
-        research_sources = collecting.get("source_count", 0) or 0
-
-    meta: dict[str, Any] = {
+    return {
         # Core
         "title": old.get("topic") or old.get("title", ""),
         "category": new_category,
         "type": _infer_type(new_category),
-        "status": _map_status(old_status),
+        "status": _map_status(old.get("status", "research")),
         # Timestamps
         "created_at": old.get("created_at", now_iso),
         "updated_at": old.get("updated_at", now_iso),
         # Content
         "tags": old.get("tags", []),
         "target_audience": old.get("target_audience", "intermediate"),
-        "target_wordcount": 4000,
+        "target_wordcount": _extract_target_wordcount(workflow_data),
         # Category-Specific
         "symbols": old.get("symbols", []),
-        "date_range": date_range,
+        "date_range": _normalize_date_range(old.get("date_range")),
         "fred_series": old.get("fred_series", []),
         "theme": old.get("theme", ""),
         "experience": {
@@ -433,19 +497,15 @@ def convert_meta(
             },
         },
         # Tracking
-        "critic_score": critic_score,
+        "critic_score": _extract_critic_score(workflow_data),
         "revision_count": 0,
         "note_url": None,
         "x_post_url": None,
-        "research_sources": research_sources,
+        "research_sources": _extract_research_sources(workflow_data),
         # Workflow
         "workflow": _simplify_workflow(workflow_data),
-        # Neo4j (side_business only)
-        "neo4j": {
-            "pattern_node_id": None,
-            "source_node_ids": [],
-            "embed_resource_ids": [],
-        },
+        # Neo4j
+        "neo4j": _build_neo4j_meta(old),
         # Legacy
         "legacy": {
             "old_path": old_path,
@@ -455,24 +515,6 @@ def convert_meta(
             "migrated_at": now_iso,
         },
     }
-
-    # Populate neo4j fields if present in old meta
-    old_neo4j = old.get("neo4j", {})
-    if old_neo4j:
-        meta["neo4j"] = {
-            "pattern_node_id": old_neo4j.get("pattern_node_id") or None,
-            "source_node_ids": old_neo4j.get("source_node_ids", []),
-            "embed_resource_ids": old_neo4j.get("embed_resource_ids", []),
-        }
-
-    # Set wordcount from revision data if available
-    revision_data = workflow_data.get("revision", {})
-    if isinstance(revision_data, dict):
-        wc = revision_data.get("wordcount", 0)
-        if wc and wc > 0:
-            meta["target_wordcount"] = wc
-
-    return meta
 
 
 # ---------------------------------------------------------------------------

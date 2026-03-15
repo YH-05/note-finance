@@ -22,6 +22,8 @@ dependencies = [
     "pyyaml>=6.0.3",
     "neo4j>=6.1.0",
     "gspread>=6.2.1",
+    "pyjwt>=2.12.0",
+    "tornado>=6.5.5",
 ]
 
 [project.optional-dependencies]
@@ -124,6 +126,7 @@ finance = { git = "https://github.com/YH-05/finance.git" }
 [dependency-groups]
 dev = [
     "freezegun>=1.5.5",
+    "pip-audit>=2.10.0",
     "pyright>=1.1.408",
     "ruff>=0.14.14",
 ]
