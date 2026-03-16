@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Emit graph-queue JSON from various command outputs.
 
-Converts outputs from 6 different finance workflow commands into a
+Converts outputs from 8 different finance workflow commands into a
 unified graph-queue format. Each command produces data in a different
 JSON structure; this script normalises them all into a single schema.
 
@@ -13,6 +13,8 @@ Supported commands
 - asset-management
 - reddit-finance-topics
 - finance-full
+- pdf-extraction
+- wealth-scrape (supports both JSON file and directory input)
 
 Usage
 -----
@@ -21,6 +23,10 @@ Usage
     python3 scripts/emit_graph_queue.py \\
         --command finance-news-workflow \\
         --input .tmp/news-batches/index.json
+
+    python3 scripts/emit_graph_queue.py \\
+        --command wealth-scrape \\
+        --input data/scraped/wealth/
 
     python3 scripts/emit_graph_queue.py \\
         --command finance-news-workflow \\
@@ -79,6 +85,9 @@ DEFAULT_MAX_AGE_DAYS = 7
 
 SCHEMA_VERSION = "2.0"
 """Graph-queue schema version."""
+
+WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
+"""Path to the wealth-management theme configuration file."""
 
 THEME_TO_CATEGORY: dict[str, str] = {
     "index": "stock",
@@ -1221,6 +1230,251 @@ def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Wealth-scrape backfill: directory scanning
+# ---------------------------------------------------------------------------
+
+
+def _load_wealth_themes(
+    config_path: Path = WEALTH_THEME_CONFIG_PATH,
+) -> dict[str, Any]:
+    """Load wealth-management theme configuration.
+
+    Parameters
+    ----------
+    config_path : Path
+        Path to the theme configuration JSON file.
+
+    Returns
+    -------
+    dict[str, Any]
+        Theme configuration data, or empty dict on failure.
+    """
+    if not config_path.exists():
+        logger.warning("Theme config not found: %s", config_path)
+        return {}
+
+    try:
+        with config_path.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError) as exc:
+        logger.error("Failed to load theme config %s: %s", config_path, exc)
+        return {}
+
+    return data.get("themes", {})
+
+
+def _match_domain_to_theme(
+    domain: str, themes: dict[str, Any]
+) -> tuple[str, str] | None:
+    """Match a domain name to a wealth theme via ``target_sources``.
+
+    Parameters
+    ----------
+    domain : str
+        Domain directory name (e.g. ``"ofdollarsanddata.com"``).
+    themes : dict[str, Any]
+        Theme configuration from ``wealth-management-themes.json``.
+
+    Returns
+    -------
+    tuple[str, str] | None
+        ``(theme_key, theme_name_en)`` if matched, otherwise ``None``.
+    """
+    # Strip TLD variations for fuzzy matching
+    domain_base = domain.replace(".com", "").replace(".org", "").replace(".net", "")
+
+    for theme_key, theme_data in themes.items():
+        target_sources = theme_data.get("target_sources", [])
+        for source in target_sources:
+            if source in domain_base or domain_base in source:
+                return (theme_key, theme_data.get("name_en", theme_key))
+
+    return None
+
+
+def _scan_wealth_directory(
+    dir_path: Path,
+    *,
+    theme_config_path: Path = WEALTH_THEME_CONFIG_PATH,
+) -> list[dict[str, Any]]:
+    """Scan a wealth-scrape backfill directory for Markdown articles.
+
+    Expects a directory structure of ``{domain}/*.md`` where each Markdown
+    file has YAML frontmatter with ``url``, ``title``, ``published``, etc.
+
+    Groups articles by domain and returns one mapped dict per domain,
+    enriched with theme information from ``wealth-management-themes.json``.
+
+    Parameters
+    ----------
+    dir_path : Path
+        Root directory to scan (e.g. ``data/scraped/wealth/``).
+    theme_config_path : Path
+        Path to the wealth-management theme configuration JSON.
+
+    Returns
+    -------
+    list[dict[str, Any]]
+        List of mapped dicts, one per domain.  Each dict follows the
+        standard mapper result format (has ``sources``, ``topics``, etc.).
+    """
+    if not dir_path.is_dir():
+        logger.error("Not a directory: %s", dir_path)
+        return []
+
+    themes = _load_wealth_themes(theme_config_path)
+    results: list[dict[str, Any]] = []
+
+    # Iterate over subdirectories (each = a domain)
+    domain_dirs = sorted(
+        [d for d in dir_path.iterdir() if d.is_dir()],
+        key=lambda p: p.name,
+    )
+
+    if not domain_dirs:
+        logger.warning("No domain subdirectories found in %s", dir_path)
+        return []
+
+    for domain_dir in domain_dirs:
+        domain = domain_dir.name
+        md_files = sorted(domain_dir.glob("*.md"))
+        if not md_files:
+            logger.debug("No .md files in %s", domain_dir)
+            continue
+
+        sources: list[dict[str, Any]] = []
+        chunks: list[dict[str, Any]] = []
+
+        for md_file in md_files:
+            frontmatter = _parse_yaml_frontmatter(md_file)
+            if frontmatter is None:
+                logger.debug("Skipping file without frontmatter: %s", md_file)
+                continue
+
+            url = frontmatter.get("url", "")
+            if not url:
+                logger.debug("Skipping file without URL: %s", md_file)
+                continue
+
+            sources.append(
+                _make_source(
+                    url,
+                    title=frontmatter.get("title", ""),
+                    published=frontmatter.get("published", frontmatter.get("date", "")),
+                    domain=domain,
+                    source_key=frontmatter.get("source", ""),
+                )
+            )
+
+            # Read body text (after frontmatter) as a chunk
+            text = md_file.read_text(encoding="utf-8")
+            body_match = re.search(r"^---\n.*?\n---\n*(.*)", text, re.DOTALL)
+            body = body_match.group(1).strip() if body_match else ""
+            if body:
+                source_id = generate_source_id(url)
+                chunks.append(
+                    {
+                        "chunk_id": f"{source_id}:0",
+                        "source_id": source_id,
+                        "content": body,
+                        "index": 0,
+                    }
+                )
+
+        if not sources:
+            logger.debug("No valid articles found in %s", domain_dir)
+            continue
+
+        # Build topics from theme matching
+        topics: list[dict[str, Any]] = []
+        theme_match = _match_domain_to_theme(domain, themes)
+        if theme_match:
+            theme_key, theme_name = theme_match
+            topics.append(
+                {
+                    "topic_id": generate_topic_id(theme_name, "wealth"),
+                    "name": theme_name,
+                    "category": "wealth",
+                    "theme_key": theme_key,
+                }
+            )
+
+        session_data: dict[str, Any] = {
+            "session_id": f"wealth-backfill-{domain}",
+        }
+        mapped = _mapped_result(
+            session_data,
+            f"wealth-scrape:{domain}",
+            sources=sources,
+            topics=topics,
+            chunks=chunks,
+        )
+
+        logger.info(
+            "Scanned domain %s: %d sources, %d chunks, %d topics",
+            domain,
+            len(sources),
+            len(chunks),
+            len(topics),
+        )
+        results.append(mapped)
+
+    logger.info(
+        "Wealth directory scan complete: %d domain(s) with articles", len(results)
+    )
+    return results
+
+
+def map_wealth_scrape(data: dict[str, Any]) -> dict[str, Any]:
+    """Map wealth-scrape session JSON to graph-queue components.
+
+    Handles both backfill and incremental mode session data.  The data
+    structure mirrors ``map_asset_management`` with ``themes.{key}.articles[]``.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``themes.{key}.articles[]``, ``session_id``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``sources[]`` and ``topics[]``.
+    """
+    themes = data.get("themes", {})
+    sources: list[dict[str, Any]] = []
+    topics: list[dict[str, Any]] = []
+
+    for theme_key, theme_data in themes.items():
+        name_en = theme_data.get("name_en", theme_key)
+
+        topics.append(
+            {
+                "topic_id": generate_topic_id(name_en, "wealth"),
+                "name": name_en,
+                "category": "wealth",
+                "theme_key": theme_key,
+            }
+        )
+
+        articles = theme_data.get("articles", [])
+        for article in articles:
+            url = article.get("url", "")
+            if url:
+                sources.append(
+                    _make_source(
+                        url,
+                        title=article.get("title", ""),
+                        published=article.get("published", ""),
+                        feed_source=article.get("feed_source", ""),
+                        domain=article.get("domain", ""),
+                    )
+                )
+
+    return _mapped_result(data, "wealth-scrape", sources=sources, topics=topics)
+
+
+# ---------------------------------------------------------------------------
 # Command → Mapper dispatch
 # ---------------------------------------------------------------------------
 
@@ -1232,6 +1486,7 @@ COMMAND_MAPPERS: dict[str, MapperFn] = {
     "reddit-finance-topics": map_reddit_topics,
     "finance-full": map_finance_full,
     "pdf-extraction": map_pdf_extraction,
+    "wealth-scrape": map_wealth_scrape,
 }
 """Dispatch table mapping command names to their mapper functions."""
 
@@ -1331,26 +1586,47 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
 # ---------------------------------------------------------------------------
 
 
-def _load_and_parse(command: str, input_path: Path) -> dict[str, Any] | None:
-    """Load input JSON and map it through the appropriate command mapper.
+def _load_and_parse(
+    command: str, input_path: Path
+) -> dict[str, Any] | list[dict[str, Any]] | None:
+    """Load input data and map it through the appropriate command mapper.
+
+    For most commands the input is a JSON file.  When ``command`` is
+    ``"wealth-scrape"`` and *input_path* is a directory, the directory is
+    scanned via :func:`_scan_wealth_directory` and a **list** of mapped
+    dicts is returned (one per domain).
 
     Parameters
     ----------
     command : str
         Source command name (one of :data:`COMMANDS`).
     input_path : Path
-        Path to the input JSON file.
+        Path to the input JSON file **or** directory (wealth-scrape only).
 
     Returns
     -------
-    dict[str, Any] | None
-        Mapped data, or ``None`` on failure (error already logged).
+    dict[str, Any] | list[dict[str, Any]] | None
+        Mapped data (single dict or list of dicts), or ``None`` on failure.
     """
     if not input_path.exists():
         logger.error("Input path does not exist: %s", input_path)
         print(f"Error: Input path does not exist: {input_path}", file=sys.stderr)
         return None
 
+    # Directory input: wealth-scrape backfill scanning
+    if command == "wealth-scrape" and input_path.is_dir():
+        logger.info("Scanning wealth directory: %s", input_path)
+        results = _scan_wealth_directory(input_path)
+        if not results:
+            logger.error("No articles found in directory: %s", input_path)
+            print(
+                f"Error: No articles found in directory: {input_path}",
+                file=sys.stderr,
+            )
+            return None
+        return results
+
+    # File input: standard JSON loading
     try:
         with input_path.open(encoding="utf-8") as f:
             data = json.load(f)
@@ -1454,12 +1730,17 @@ def run(
 ) -> int:
     """Execute the graph-queue emission pipeline.
 
+    When ``_load_and_parse`` returns a list (e.g. wealth-scrape directory
+    input), each element is processed separately through
+    ``_build_queue_doc`` and ``_write_output``, producing one queue file
+    per domain.
+
     Parameters
     ----------
     command : str
         Source command name (one of :data:`COMMANDS`).
     input_path : Path
-        Path to the input JSON file.
+        Path to the input JSON file or directory.
     output_base : Path
         Base directory for output queue files.
     cleanup : bool
@@ -1474,6 +1755,24 @@ def run(
     if mapped is None:
         return 1
 
+    # List input: process each element separately (e.g. directory scan)
+    if isinstance(mapped, list):
+        output_files: list[Path] = []
+        for item in mapped:
+            queue_doc = _build_queue_doc(command, item)
+            output_file = _write_output(
+                queue_doc, command, output_base, cleanup=cleanup
+            )
+            output_files.append(output_file)
+            # Only run cleanup on the first iteration
+            cleanup = False
+
+        for f in output_files:
+            print(f"Queue file: {f}")
+        logger.info("Generated %d queue file(s)", len(output_files))
+        return 0
+
+    # Single dict input: standard processing
     queue_doc = _build_queue_doc(command, mapped)
     output_file = _write_output(queue_doc, command, output_base, cleanup=cleanup)
 

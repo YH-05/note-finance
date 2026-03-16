@@ -1,7 +1,8 @@
 """Tests for scripts/emit_graph_queue.py.
 
 graph-queue 生成スクリプトの単体テスト。
-6コマンドのマッピングロジック、ID生成、CLI引数パース、自動クリーンアップを検証。
+8コマンドのマッピングロジック、ID生成、CLI引数パース、自動クリーンアップを検証。
+wealth-scrape のディレクトリ入力（backfill）およびJSON入力（incremental）を含む。
 """
 
 from __future__ import annotations
@@ -18,7 +19,10 @@ import pytest
 from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
+    _load_wealth_themes,
+    _match_domain_to_theme,
     _parse_yaml_frontmatter,
+    _scan_wealth_directory,
     cleanup_old_files,
     generate_claim_id,
     generate_entity_id,
@@ -32,6 +36,7 @@ from emit_graph_queue import (
     map_finance_news,
     map_market_report,
     map_reddit_topics,
+    map_wealth_scrape,
     parse_args,
     resolve_category,
     run,
@@ -1371,3 +1376,483 @@ class TestParseYamlFrontmatter:
         result = _parse_yaml_frontmatter(md_file)
         assert result is not None
         assert result["author"] == ""
+
+
+# ---------------------------------------------------------------------------
+# Helpers: wealth directory structure
+# ---------------------------------------------------------------------------
+
+
+def _create_wealth_md(
+    dir_path: Path,
+    *,
+    url: str = "https://example.com/article",
+    title: str = "Test Article",
+    published: str = "2026-03-07",
+    source: str = "Example",
+    domain: str = "example.com",
+    body: str = "Article body text here.",
+) -> Path:
+    """Create a Markdown file with frontmatter in the given directory."""
+    stripped = url.rstrip("/")
+    slug = stripped.rsplit("/", maxsplit=1)[-1] or "article"
+    md_file = dir_path / f"{slug}.md"
+    md_file.write_text(
+        f"---\n"
+        f"url: '{url}'\n"
+        f"title: '{title}'\n"
+        f"published: '{published}'\n"
+        f"source: '{source}'\n"
+        f"domain: '{domain}'\n"
+        f"---\n"
+        f"\n"
+        f"{body}\n",
+        encoding="utf-8",
+    )
+    return md_file
+
+
+def _create_wealth_theme_config(tmp_path: Path) -> Path:
+    """Create a minimal wealth-management-themes.json config file."""
+    config_path = tmp_path / "wealth-management-themes.json"
+    config_path.write_text(
+        json.dumps(
+            {
+                "version": "1.0",
+                "themes": {
+                    "data_driven_investing": {
+                        "name_en": "Data-Driven Investing",
+                        "keywords_en": ["index fund", "ETF", "passive investing"],
+                        "target_sources": ["ofdollarsanddata", "monevator"],
+                    },
+                    "personal_finance": {
+                        "name_en": "Personal Finance",
+                        "keywords_en": ["budgeting", "saving", "personal finance"],
+                        "target_sources": ["moneycrashers", "kiplinger"],
+                    },
+                },
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    return config_path
+
+
+def _create_wealth_directory(tmp_path: Path) -> Path:
+    """Create a wealth-scrape directory with two domains and sample articles."""
+    wealth_dir = tmp_path / "wealth"
+    wealth_dir.mkdir()
+
+    # Domain 1: ofdollarsanddata.com (matches data_driven_investing theme)
+    domain1 = wealth_dir / "ofdollarsanddata.com"
+    domain1.mkdir()
+    _create_wealth_md(
+        domain1,
+        url="https://ofdollarsanddata.com/why-you-should-invest/",
+        title="Why You Should Invest",
+        published="2026-03-05T10:00:00+00:00",
+        source="Of Dollars and Data",
+        domain="ofdollarsanddata.com",
+        body="Data-driven analysis of long-term investing benefits.",
+    )
+    _create_wealth_md(
+        domain1,
+        url="https://ofdollarsanddata.com/saving-vs-investing/",
+        title="Saving vs Investing",
+        published="2026-03-04T08:00:00+00:00",
+        source="Of Dollars and Data",
+        domain="ofdollarsanddata.com",
+        body="Comparing savings accounts and investment returns.",
+    )
+
+    # Domain 2: moneycrashers.com (matches personal_finance theme)
+    domain2 = wealth_dir / "moneycrashers.com"
+    domain2.mkdir()
+    _create_wealth_md(
+        domain2,
+        url="https://moneycrashers.com/save-money-tips/",
+        title="50 Ways to Save Money",
+        published="2026-03-04T08:00:00+00:00",
+        source="Money Crashers",
+        domain="moneycrashers.com",
+        body="Practical tips for reducing expenses and building savings.",
+    )
+
+    return wealth_dir
+
+
+# ---------------------------------------------------------------------------
+# _load_wealth_themes
+# ---------------------------------------------------------------------------
+
+
+class TestLoadWealthThemes:
+    """_load_wealth_themes 関数のテスト。"""
+
+    def test_正常系_テーマ設定を読み込める(self, tmp_path: Path) -> None:
+        config_path = _create_wealth_theme_config(tmp_path)
+        themes = _load_wealth_themes(config_path)
+        assert "data_driven_investing" in themes
+        assert "personal_finance" in themes
+        assert themes["data_driven_investing"]["name_en"] == "Data-Driven Investing"
+
+    def test_異常系_存在しないファイルで空辞書(self, tmp_path: Path) -> None:
+        nonexistent = tmp_path / "nonexistent.json"
+        themes = _load_wealth_themes(nonexistent)
+        assert themes == {}
+
+    def test_異常系_不正なJSONで空辞書(self, tmp_path: Path) -> None:
+        bad_file = tmp_path / "bad.json"
+        bad_file.write_text("not json", encoding="utf-8")
+        themes = _load_wealth_themes(bad_file)
+        assert themes == {}
+
+
+# ---------------------------------------------------------------------------
+# _match_domain_to_theme
+# ---------------------------------------------------------------------------
+
+
+class TestMatchDomainToTheme:
+    """_match_domain_to_theme 関数のテスト。"""
+
+    def test_正常系_ドメインがテーマにマッチする(self) -> None:
+        themes = {
+            "data_driven_investing": {
+                "name_en": "Data-Driven Investing",
+                "target_sources": ["ofdollarsanddata", "monevator"],
+            },
+        }
+        result = _match_domain_to_theme("ofdollarsanddata.com", themes)
+        assert result is not None
+        assert result == ("data_driven_investing", "Data-Driven Investing")
+
+    def test_正常系_マッチしないドメインでNone(self) -> None:
+        themes = {
+            "data_driven_investing": {
+                "name_en": "Data-Driven Investing",
+                "target_sources": ["ofdollarsanddata"],
+            },
+        }
+        result = _match_domain_to_theme("unknowndomain.com", themes)
+        assert result is None
+
+    def test_エッジケース_空テーマでNone(self) -> None:
+        result = _match_domain_to_theme("example.com", {})
+        assert result is None
+
+
+# ---------------------------------------------------------------------------
+# _scan_wealth_directory
+# ---------------------------------------------------------------------------
+
+
+class TestScanWealthDirectory:
+    """_scan_wealth_directory 関数のテスト。"""
+
+    def test_正常系_ドメインごとにmapped_dictが返される(self, tmp_path: Path) -> None:
+        wealth_dir = _create_wealth_directory(tmp_path)
+        config_path = _create_wealth_theme_config(tmp_path)
+
+        results = _scan_wealth_directory(wealth_dir, theme_config_path=config_path)
+
+        assert isinstance(results, list)
+        assert len(results) == 2  # 2 domains
+
+    def test_正常系_sourcesが各ドメインの記事を含む(self, tmp_path: Path) -> None:
+        wealth_dir = _create_wealth_directory(tmp_path)
+        config_path = _create_wealth_theme_config(tmp_path)
+
+        results = _scan_wealth_directory(wealth_dir, theme_config_path=config_path)
+
+        # Find moneycrashers result (1 article)
+        mc_result = [r for r in results if "moneycrashers" in r["batch_label"]]
+        assert len(mc_result) == 1
+        assert len(mc_result[0]["sources"]) == 1
+        assert mc_result[0]["sources"][0]["url"] == (
+            "https://moneycrashers.com/save-money-tips/"
+        )
+
+        # Find ofdollarsanddata result (2 articles)
+        od_result = [r for r in results if "ofdollarsanddata" in r["batch_label"]]
+        assert len(od_result) == 1
+        assert len(od_result[0]["sources"]) == 2
+
+    def test_正常系_topicsがテーママッチングで生成される(self, tmp_path: Path) -> None:
+        wealth_dir = _create_wealth_directory(tmp_path)
+        config_path = _create_wealth_theme_config(tmp_path)
+
+        results = _scan_wealth_directory(wealth_dir, theme_config_path=config_path)
+
+        # ofdollarsanddata matches data_driven_investing
+        od_result = [r for r in results if "ofdollarsanddata" in r["batch_label"]]
+        assert len(od_result[0]["topics"]) == 1
+        assert od_result[0]["topics"][0]["name"] == "Data-Driven Investing"
+        assert od_result[0]["topics"][0]["category"] == "wealth"
+
+    def test_正常系_chunksが本文テキストを含む(self, tmp_path: Path) -> None:
+        wealth_dir = _create_wealth_directory(tmp_path)
+        config_path = _create_wealth_theme_config(tmp_path)
+
+        results = _scan_wealth_directory(wealth_dir, theme_config_path=config_path)
+
+        mc_result = [r for r in results if "moneycrashers" in r["batch_label"]]
+        assert len(mc_result[0]["chunks"]) == 1
+        assert "Practical tips" in mc_result[0]["chunks"][0]["content"]
+
+    def test_正常系_session_idがドメイン名を含む(self, tmp_path: Path) -> None:
+        wealth_dir = _create_wealth_directory(tmp_path)
+        config_path = _create_wealth_theme_config(tmp_path)
+
+        results = _scan_wealth_directory(wealth_dir, theme_config_path=config_path)
+
+        od_result = [r for r in results if "ofdollarsanddata" in r["batch_label"]]
+        assert od_result[0]["session_id"] == "wealth-backfill-ofdollarsanddata.com"
+
+    def test_異常系_存在しないディレクトリで空リスト(self, tmp_path: Path) -> None:
+        nonexistent = tmp_path / "nonexistent"
+        results = _scan_wealth_directory(nonexistent)
+        assert results == []
+
+    def test_エッジケース_空ディレクトリで空リスト(self, tmp_path: Path) -> None:
+        empty_dir = tmp_path / "empty"
+        empty_dir.mkdir()
+        results = _scan_wealth_directory(empty_dir)
+        assert results == []
+
+    def test_エッジケース_frontmatterなしのファイルはスキップ(
+        self, tmp_path: Path
+    ) -> None:
+        wealth_dir = tmp_path / "wealth"
+        wealth_dir.mkdir()
+        domain_dir = wealth_dir / "example.com"
+        domain_dir.mkdir()
+
+        # File without frontmatter
+        no_fm = domain_dir / "no-frontmatter.md"
+        no_fm.write_text("# Just a heading\nNo frontmatter here.\n", encoding="utf-8")
+
+        results = _scan_wealth_directory(wealth_dir)
+        assert results == []
+
+    def test_エッジケース_URLなしのfrontmatterはスキップ(self, tmp_path: Path) -> None:
+        wealth_dir = tmp_path / "wealth"
+        wealth_dir.mkdir()
+        domain_dir = wealth_dir / "example.com"
+        domain_dir.mkdir()
+
+        md_file = domain_dir / "no-url.md"
+        md_file.write_text(
+            "---\ntitle: 'No URL'\ndate: '2026-03-07'\n---\n\nBody.\n",
+            encoding="utf-8",
+        )
+
+        results = _scan_wealth_directory(wealth_dir)
+        assert results == []
+
+
+# ---------------------------------------------------------------------------
+# map_wealth_scrape
+# ---------------------------------------------------------------------------
+
+
+class TestMapWealthScrape:
+    """map_wealth_scrape 関数のテスト。"""
+
+    def test_正常系_sourcesが生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape(data)
+
+        assert len(result["sources"]) == 2
+        urls = {s["url"] for s in result["sources"]}
+        assert "https://ofdollarsanddata.com/why-you-should-invest/" in urls
+        assert "https://moneycrashers.com/save-money-tips/" in urls
+
+    def test_正常系_topicsが生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape(data)
+
+        assert len(result["topics"]) == 2
+        topic_names = {t["name"] for t in result["topics"]}
+        assert "Data-Driven Investing" in topic_names
+        assert "Personal Finance" in topic_names
+
+    def test_正常系_session_idが設定される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape(data)
+        assert result["session_id"] == "wealth-scrape-20260307-120000-000000"
+
+    def test_正常系_batch_labelがwealth_scrapeに設定される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape(data)
+        assert result["batch_label"] == "wealth-scrape"
+
+    def test_正常系_topicのcategoryがwealthに設定される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape(data)
+        for topic in result["topics"]:
+            assert topic["category"] == "wealth"
+
+    def test_正常系_incremental形式もマッピングできる(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape(data)
+
+        assert len(result["sources"]) == 1
+        assert len(result["topics"]) == 1
+        assert result["topics"][0]["name"] == "FIRE & Wealth Building"
+
+    def test_正常系_topic_idが決定論的(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        r1 = map_wealth_scrape(data)
+        r2 = map_wealth_scrape(data)
+        assert r1["topics"][0]["topic_id"] == r2["topics"][0]["topic_id"]
+
+    def test_エッジケース_URLなしのarticleではsourceが生成されない(self) -> None:
+        data = {
+            "session_id": "test",
+            "themes": {
+                "test_theme": {
+                    "name_en": "Test Theme",
+                    "articles": [{"url": "", "title": "No URL article"}],
+                }
+            },
+        }
+        result = map_wealth_scrape(data)
+        assert len(result["sources"]) == 0
+        assert len(result["topics"]) == 1
+
+    def test_エッジケース_空テーマで空結果(self) -> None:
+        data = {"session_id": "test", "themes": {}}
+        result = map_wealth_scrape(data)
+        assert len(result["sources"]) == 0
+        assert len(result["topics"]) == 0
+
+
+# ---------------------------------------------------------------------------
+# run(): wealth-scrape ディレクトリ入力
+# ---------------------------------------------------------------------------
+
+
+class TestRunWealthScrapeDirectory:
+    """run() のディレクトリ入力テスト（wealth-scrape backfill）。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_ディレクトリ入力で複数キューファイルが生成される(
+        self, tmp_path: Path
+    ) -> None:
+        wealth_dir = _create_wealth_directory(tmp_path)
+        config_path = _create_wealth_theme_config(tmp_path)
+        output_dir = tmp_path / "output"
+
+        # Patch the theme config path
+        import emit_graph_queue
+
+        original = emit_graph_queue.WEALTH_THEME_CONFIG_PATH
+        emit_graph_queue.WEALTH_THEME_CONFIG_PATH = config_path
+        try:
+            exit_code = run(
+                command="wealth-scrape",
+                input_path=wealth_dir,
+                output_base=output_dir,
+                cleanup=False,
+            )
+        finally:
+            emit_graph_queue.WEALTH_THEME_CONFIG_PATH = original
+
+        assert exit_code == 0
+        output_files = list(output_dir.glob("wealth-scrape/*.json"))
+        assert len(output_files) == 2  # 2 domains
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_各キューファイルがgraph_queue標準フォーマットに準拠(
+        self, tmp_path: Path
+    ) -> None:
+        wealth_dir = _create_wealth_directory(tmp_path)
+        config_path = _create_wealth_theme_config(tmp_path)
+        output_dir = tmp_path / "output"
+
+        import emit_graph_queue
+
+        original = emit_graph_queue.WEALTH_THEME_CONFIG_PATH
+        emit_graph_queue.WEALTH_THEME_CONFIG_PATH = config_path
+        try:
+            run(
+                command="wealth-scrape",
+                input_path=wealth_dir,
+                output_base=output_dir,
+                cleanup=False,
+            )
+        finally:
+            emit_graph_queue.WEALTH_THEME_CONFIG_PATH = original
+
+        output_files = list(output_dir.glob("wealth-scrape/*.json"))
+        required_keys = {
+            "schema_version",
+            "queue_id",
+            "created_at",
+            "command_source",
+            "session_id",
+            "batch_label",
+            "sources",
+            "topics",
+            "claims",
+            "facts",
+            "entities",
+            "chunks",
+            "financial_datapoints",
+            "fiscal_periods",
+            "relations",
+        }
+        for f in output_files:
+            data = json.loads(f.read_text(encoding="utf-8"))
+            assert required_keys.issubset(set(data.keys()))
+            assert data["command_source"] == "wealth-scrape"
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_JSON入力でも通常通り動作する(self, tmp_path: Path) -> None:
+        """wealth-scrape コマンドでJSON入力（incremental mode）が動作することを確認。"""
+        input_file = tmp_path / "input.json"
+        input_file.write_text(
+            json.dumps(_wealth_scrape_backfill_data(), ensure_ascii=False),
+            encoding="utf-8",
+        )
+        output_dir = tmp_path / "output"
+
+        exit_code = run(
+            command="wealth-scrape",
+            input_path=input_file,
+            output_base=output_dir,
+            cleanup=False,
+        )
+
+        assert exit_code == 0
+        output_files = list(output_dir.glob("wealth-scrape/*.json"))
+        assert len(output_files) == 1
+
+    def test_異常系_空ディレクトリでexit1(self, tmp_path: Path) -> None:
+        empty_dir = tmp_path / "empty"
+        empty_dir.mkdir()
+        output_dir = tmp_path / "output"
+
+        exit_code = run(
+            command="wealth-scrape",
+            input_path=empty_dir,
+            output_base=output_dir,
+            cleanup=False,
+        )
+
+        assert exit_code == 1
+
+
+# ---------------------------------------------------------------------------
+# COMMANDS list: wealth-scrape が含まれることを確認
+# ---------------------------------------------------------------------------
+
+
+class TestWealthScrapeInCommands:
+    """wealth-scrape が COMMANDS リストに含まれることを確認。"""
+
+    def test_正常系_wealth_scrapeがCOMMANDSに含まれる(self) -> None:
+        assert "wealth-scrape" in COMMANDS
