@@ -176,6 +176,149 @@ def _finance_full_data() -> dict[str, Any]:
     }
 
 
+def _wealth_scrape_backfill_data() -> dict[str, Any]:
+    """wealth-scrape backfill 形式のデータを生成（ドメイン記事 + テーマ設定）。"""
+    return {
+        "session_id": "wealth-scrape-20260307-120000-000000",
+        "timestamp": "2026-03-07T12:00:00+00:00",
+        "mode": "backfill",
+        "themes": {
+            "data_driven_investing": {
+                "name_en": "Data-Driven Investing",
+                "articles": [
+                    {
+                        "url": "https://ofdollarsanddata.com/why-you-should-invest/",
+                        "title": "Why You Should Invest",
+                        "summary": "Data-driven analysis of long-term investing benefits.",
+                        "feed_source": "Of Dollars and Data",
+                        "published": "2026-03-05T10:00:00+00:00",
+                        "source_key": "ofdollarsanddata",
+                        "domain": "ofdollarsanddata.com",
+                    }
+                ],
+                "keywords_used": ["data-driven", "investing", "portfolio"],
+            },
+            "personal_finance": {
+                "name_en": "Personal Finance",
+                "articles": [
+                    {
+                        "url": "https://moneycrashers.com/save-money-tips/",
+                        "title": "50 Ways to Save Money",
+                        "summary": "Practical tips for reducing expenses.",
+                        "feed_source": "Money Crashers",
+                        "published": "2026-03-04T08:00:00+00:00",
+                        "source_key": "moneycrashers",
+                        "domain": "moneycrashers.com",
+                    }
+                ],
+                "keywords_used": ["savings", "budgeting", "personal finance"],
+            },
+        },
+        "stats": {
+            "total": 150,
+            "filtered": 80,
+            "matched": 25,
+            "scraped": 20,
+            "skipped": 5,
+        },
+    }
+
+
+def _wealth_scrape_incremental_data() -> dict[str, Any]:
+    """wealth-scrape incremental 形式（WealthScrapeSession）のデータを生成。"""
+    return {
+        "session_id": "wealth-scrape-20260307-120000-000000",
+        "timestamp": "2026-03-07T12:00:00+00:00",
+        "mode": "incremental",
+        "themes": {
+            "fire_wealth_building": {
+                "name_en": "FIRE & Wealth Building",
+                "articles": [
+                    {
+                        "url": "https://affordanything.com/financial-independence/",
+                        "title": "The Path to Financial Independence",
+                        "summary": "A comprehensive guide to achieving FIRE.",
+                        "feed_source": "Afford Anything",
+                        "published": "2026-03-07T07:00:00+00:00",
+                        "source_key": "affordanything",
+                        "domain": "affordanything.com",
+                    }
+                ],
+                "keywords_used": ["FIRE", "financial independence", "wealth building"],
+            },
+        },
+        "stats": {
+            "total": 45,
+            "filtered": 30,
+            "matched": 10,
+            "scraped": 0,
+            "skipped": 0,
+        },
+    }
+
+
+def _topic_discovery_data() -> dict[str, Any]:
+    """topic-discovery（topic-suggestions セッション）形式のデータを生成。"""
+    return {
+        "session_id": "topic-suggestion-2026-03-07T1200",
+        "generated_at": "2026-03-07T12:00:00+09:00",
+        "parameters": {
+            "category": None,
+            "count": 5,
+            "no_search": False,
+        },
+        "search_insights": {
+            "queries_executed": 10,
+            "trends": [
+                {
+                    "query": "S&P 500 weekly performance March 2026",
+                    "source": "tavily",
+                    "key_findings": [
+                        "S&P 500 gained 1.5% on strong earnings",
+                        "Tech sector led gains with AI stocks",
+                    ],
+                }
+            ],
+        },
+        "content_gaps": {
+            "category_distribution": {
+                "market_report": 3,
+                "stock_analysis": 2,
+                "quant_analysis": 0,
+            },
+            "underserved_categories": ["quant_analysis", "asset_management"],
+            "gap_topics": ["クオンツ分析の入門記事が不足"],
+        },
+        "suggestions": [
+            {
+                "rank": 1,
+                "topic": "S&P 500 週次レビュー：AI銘柄が牽引する上昇相場",
+                "category": "market_report",
+                "suggested_symbols": ["^GSPC", "NVDA"],
+                "suggested_period": "2026-03-03 to 2026-03-07",
+                "scores": {
+                    "timeliness": 9,
+                    "information_availability": 8,
+                    "reader_interest": 8,
+                    "feasibility": 9,
+                    "uniqueness": 7,
+                    "total": 41,
+                },
+                "rationale": "AI銘柄の好決算でS&P 500が週間で上昇。タイムリーなレビュー記事。",
+                "key_points": [
+                    "NVIDIA好決算の影響",
+                    "セクターローテーションの兆候",
+                ],
+                "target_audience": "intermediate",
+                "estimated_word_count": 4000,
+                "selected": None,
+            }
+        ],
+        "category_balance": {"market_report": 3, "stock_analysis": 2},
+        "recommendation": "quant_analysis カテゴリの記事を優先的に執筆すべき",
+    }
+
+
 # ---------------------------------------------------------------------------
 # parse_args
 # ---------------------------------------------------------------------------
