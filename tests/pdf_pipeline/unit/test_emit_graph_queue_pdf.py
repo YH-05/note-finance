@@ -4,7 +4,7 @@ Tests cover:
 - graph-queue JSON format validation
 - Entity/Fact/Claim node generation
 - Chunk/FinancialDataPoint/FiscalPeriod node generation (v2)
-- Relation generation (10 types including 6 new v2 relations)
+- Relation generation (11 types including 6 new v2 relations + tagged)
 - ID determinism
 - Entity deduplication
 - _infer_period_type helper
@@ -567,7 +567,7 @@ class TestInferPeriodType:
 class TestNewRelations:
     """Tests for the 6 new v2 relation types."""
 
-    def test_正常系_全10種のリレーションキーが存在する(self) -> None:
+    def test_正常系_全11種のリレーションキーが存在する(self) -> None:
         data = _make_extraction_data(source_hash="hash1", include_datapoints=True)
         result = map_pdf_extraction(data)
 
@@ -582,6 +582,7 @@ class TestNewRelations:
             "has_datapoint",
             "for_period",
             "datapoint_entity",
+            "tagged",
         }
         assert set(result["relations"].keys()) == expected_keys
 

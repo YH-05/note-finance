@@ -972,7 +972,7 @@ def _extend_rels(
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 10 relation keys."""
+    """Return an empty relations dict with all 11 relation keys."""
     return {
         "source_fact": [],
         "source_claim": [],
@@ -984,6 +984,7 @@ def _empty_rels() -> dict[str, list[dict[str, str]]]:
         "has_datapoint": [],
         "for_period": [],
         "datapoint_entity": [],
+        "tagged": [],
     }
 
 
@@ -1077,7 +1078,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 10 relation types).
+        Graph-queue components (nodes + 11 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")

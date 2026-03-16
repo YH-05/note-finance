@@ -73,8 +73,9 @@ PDF_RELATION_KEYS: set[str] = {
     "has_datapoint",
     "for_period",
     "datapoint_entity",
+    "tagged",
 }
-"""pdf-extraction で生成される 10 種のリレーションキー。"""
+"""pdf-extraction で生成される 11 種のリレーションキー。"""
 
 
 # ---------------------------------------------------------------------------
@@ -785,10 +786,10 @@ class TestV2NodeGeneration:
 
 
 class TestRelations:
-    """10 種のリレーションキーが全て存在し、正しいリンクを持つことを検証。"""
+    """11 種のリレーションキーが全て存在し、正しいリンクを持つことを検証。"""
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_全10種のリレーションキーが存在する(self, tmp_path: Path) -> None:
+    def test_正常系_全11種のリレーションキーが存在する(self, tmp_path: Path) -> None:
         data = _realistic_pdf_extraction_data()
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
