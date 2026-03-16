@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Emit graph-queue JSON from various command outputs.
 
-Converts outputs from 6 different finance workflow commands into a
+Converts outputs from 9 different finance workflow commands into a
 unified graph-queue format. Each command produces data in a different
 JSON structure; this script normalises them all into a single schema.
 
@@ -13,6 +13,9 @@ Supported commands
 - asset-management
 - reddit-finance-topics
 - finance-full
+- pdf-extraction
+- wealth-scrape (supports both JSON file and directory input)
+- topic-discovery
 
 Usage
 -----
@@ -23,6 +26,10 @@ Usage
         --input .tmp/news-batches/index.json
 
     python3 scripts/emit_graph_queue.py \\
+        --command wealth-scrape \\
+        --input data/scraped/wealth/
+
+    python3 scripts/emit_graph_queue.py \\
         --command finance-news-workflow \\
         --input .tmp/news-batches/index.json \\
         --cleanup
@@ -31,9 +38,11 @@ Usage
 from __future__ import annotations
 
 import argparse
+import functools
 import json
 import logging
 import os
+import re
 import secrets
 import sys
 import time
@@ -57,10 +66,6 @@ type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 # Logger
 # ---------------------------------------------------------------------------
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
-)
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
@@ -79,6 +84,12 @@ DEFAULT_MAX_AGE_DAYS = 7
 SCHEMA_VERSION = "2.0"
 """Graph-queue schema version."""
 
+WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
+"""Path to the wealth-management theme configuration file."""
+
+DIRECTORY_COMMANDS: frozenset[str] = frozenset({"wealth-scrape"})
+"""Commands that accept directory input in addition to JSON files."""
+
 THEME_TO_CATEGORY: dict[str, str] = {
     "index": "stock",
     "stock": "stock",
@@ -93,6 +104,89 @@ THEME_TO_CATEGORY: dict[str, str] = {
     "finance_other": "finance",
 }
 """Theme key to category mapping table."""
+
+
+# ---------------------------------------------------------------------------
+# YAML Frontmatter Parsing
+# ---------------------------------------------------------------------------
+
+_FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
+"""Regex to extract YAML frontmatter block (between ``---`` delimiters)."""
+
+_KV_RE = re.compile(r"^(\w+):\s*(.*)$")
+"""Regex to extract ``key: value`` pairs from frontmatter lines."""
+
+_BODY_RE = re.compile(r"^---\n.*?\n---\n*(.*)", re.DOTALL)
+"""Regex to extract body text after YAML frontmatter."""
+
+
+def _parse_frontmatter_from_text(text: str) -> dict[str, str] | None:
+    """Parse YAML frontmatter from raw text using regex only.
+
+    Extracts key-value pairs from the YAML frontmatter block delimited
+    by ``---``.  Supports both quoted (``key: 'value'``) and unquoted
+    (``key: value``) formats.  Does **not** use PyYAML.
+
+    Parameters
+    ----------
+    text : str
+        Raw Markdown text to parse.
+
+    Returns
+    -------
+    dict[str, str] | None
+        A mapping of frontmatter keys to their string values, or ``None``
+        if no frontmatter block is found.
+    """
+    match = _FRONTMATTER_RE.search(text)
+    if match is None:
+        return None
+
+    frontmatter_block = match.group(1)
+    result: dict[str, str] = {}
+    for line in frontmatter_block.splitlines():
+        kv_match = _KV_RE.match(line.strip())
+        if kv_match is None:
+            continue
+        key = kv_match.group(1)
+        raw_value = kv_match.group(2).strip()
+        # Strip surrounding single or double quotes
+        if len(raw_value) >= 2 and (
+            (raw_value[0] == "'" and raw_value[-1] == "'")
+            or (raw_value[0] == '"' and raw_value[-1] == '"')
+        ):
+            raw_value = raw_value[1:-1]
+        result[key] = raw_value
+
+    return result
+
+
+def _parse_yaml_frontmatter(file_path: Path) -> dict[str, str] | None:
+    """Parse YAML frontmatter from a Markdown file using regex only.
+
+    Thin wrapper around :func:`_parse_frontmatter_from_text` that reads
+    the file from disk first.
+
+    Parameters
+    ----------
+    file_path : Path
+        Path to the Markdown file to parse.
+
+    Returns
+    -------
+    dict[str, str] | None
+        A mapping of frontmatter keys to their string values, or ``None``
+        if the file does not exist or has no frontmatter block.
+    """
+    if not file_path.exists():
+        logger.warning("File not found: %s", file_path)
+        return None
+
+    text = file_path.read_text(encoding="utf-8")
+    result = _parse_frontmatter_from_text(text)
+    if result is None:
+        logger.debug("No frontmatter found in %s", file_path)
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -972,7 +1066,7 @@ def _extend_rels(
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 10 relation keys."""
+    """Return an empty relations dict with all 11 relation keys."""
     return {
         "source_fact": [],
         "source_claim": [],
@@ -984,6 +1078,7 @@ def _empty_rels() -> dict[str, list[dict[str, str]]]:
         "has_datapoint": [],
         "for_period": [],
         "datapoint_entity": [],
+        "tagged": [],
     }
 
 
@@ -1077,7 +1172,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 10 relation types).
+        Graph-queue components (nodes + 11 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")
@@ -1091,7 +1186,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     rels = _empty_rels()
 
     for chunk in data.get("chunks", []):
-        r = _process_chunk(
+        chunk_result = _process_chunk(
             chunk,
             source_hash,
             source_id,
@@ -1101,8 +1196,8 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             seen_periods,
         )
         for k in _NODE_KEYS:
-            nodes[k].extend(r[k])
-        _extend_rels(rels, r["rels"])
+            nodes[k].extend(chunk_result[k])
+        _extend_rels(rels, chunk_result["rels"])
 
     return _mapped_result(
         data,
@@ -1161,6 +1256,824 @@ def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Wealth-scrape backfill: directory scanning
+# ---------------------------------------------------------------------------
+
+
+@functools.lru_cache(maxsize=1)
+def _load_wealth_themes(
+    config_path: Path = WEALTH_THEME_CONFIG_PATH,
+) -> dict[str, Any]:
+    """Load wealth-management theme configuration.
+
+    Results are cached (LRU, maxsize=1) to avoid repeated file I/O
+    within the same process.
+
+    Parameters
+    ----------
+    config_path : Path
+        Path to the theme configuration JSON file.
+
+    Returns
+    -------
+    dict[str, Any]
+        Theme configuration data, or empty dict on failure.
+    """
+    if not config_path.exists():
+        logger.warning("Theme config not found: %s", config_path)
+        return {}
+
+    try:
+        with config_path.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError) as exc:
+        logger.error("Failed to load theme config %s: %s", config_path, exc)
+        return {}
+
+    return data.get("themes", {})
+
+
+def _build_theme_lookup(
+    themes: dict[str, Any],
+) -> dict[str, tuple[str, str]]:
+    """Build a reverse-lookup dict from source key to (theme_key, name_en).
+
+    Parameters
+    ----------
+    themes : dict[str, Any]
+        Theme configuration from ``wealth-management-themes.json``.
+
+    Returns
+    -------
+    dict[str, tuple[str, str]]
+        Mapping of ``{source_key: (theme_key, name_en)}``.
+    """
+    lookup: dict[str, tuple[str, str]] = {}
+    for theme_key, theme_data in themes.items():
+        name_en = theme_data.get("name_en", theme_key)
+        for source in theme_data.get("target_sources", []):
+            lookup[source] = (theme_key, name_en)
+    return lookup
+
+
+def _match_domain_to_theme(
+    domain: str, themes: dict[str, Any]
+) -> tuple[str, str] | None:
+    """Match a domain name to a wealth theme via ``target_sources``.
+
+    Uses a reverse-lookup dictionary for O(1) exact matching on source keys,
+    with a linear fallback for substring matching.
+
+    Parameters
+    ----------
+    domain : str
+        Domain directory name (e.g. ``"ofdollarsanddata.com"``).
+    themes : dict[str, Any]
+        Theme configuration from ``wealth-management-themes.json``.
+
+    Returns
+    -------
+    tuple[str, str] | None
+        ``(theme_key, theme_name_en)`` if matched, otherwise ``None``.
+    """
+    # Strip TLD variations for fuzzy matching
+    domain_base = domain.replace(".com", "").replace(".org", "").replace(".net", "")
+
+    lookup = _build_theme_lookup(themes)
+
+    # O(1) exact match
+    if domain_base in lookup:
+        return lookup[domain_base]
+
+    # Fallback: substring matching for partial overlaps
+    for source_key, result in lookup.items():
+        if source_key in domain_base or domain_base in source_key:
+            return result
+
+    return None
+
+
+def _process_domain_dir(
+    domain_dir: Path,
+    themes: dict[str, Any],
+) -> dict[str, Any] | None:
+    """Process a single domain subdirectory for wealth-scrape backfill.
+
+    Reads Markdown files with YAML frontmatter, builds Source and Chunk
+    nodes, and matches the domain to a theme for Topic generation.
+
+    Parameters
+    ----------
+    domain_dir : Path
+        Path to the domain subdirectory (e.g. ``wealth/ofdollarsanddata.com/``).
+    themes : dict[str, Any]
+        Theme configuration from ``wealth-management-themes.json``.
+
+    Returns
+    -------
+    dict[str, Any] | None
+        Mapped dict following the standard mapper result format, or ``None``
+        if no valid articles are found.
+    """
+    domain = domain_dir.name
+    md_files = sorted(domain_dir.glob("*.md"))
+    if not md_files:
+        logger.debug("No .md files in %s", domain_dir)
+        return None
+
+    sources: list[dict[str, Any]] = []
+    chunks: list[dict[str, Any]] = []
+
+    for md_file in md_files:
+        # Single read per file: parse frontmatter and body from same text
+        text = md_file.read_text(encoding="utf-8")
+        frontmatter = _parse_frontmatter_from_text(text)
+        if frontmatter is None:
+            logger.debug("Skipping file without frontmatter: %s", md_file)
+            continue
+
+        url = frontmatter.get("url", "")
+        if not url:
+            logger.debug("Skipping file without URL: %s", md_file)
+            continue
+
+        sources.append(
+            _make_source(
+                url,
+                title=frontmatter.get("title", ""),
+                published=frontmatter.get("published", frontmatter.get("date", "")),
+                domain=domain,
+                source_key=frontmatter.get("source", ""),
+            )
+        )
+
+        # Extract body text (after frontmatter) as a chunk
+        body_match = _BODY_RE.search(text)
+        body = body_match.group(1).strip() if body_match else ""
+        if body:
+            source_id = generate_source_id(url)
+            chunks.append(
+                {
+                    "chunk_id": f"{source_id}:0",
+                    "source_id": source_id,
+                    "content": body,
+                    "index": 0,
+                }
+            )
+
+    if not sources:
+        logger.debug("No valid articles found in %s", domain_dir)
+        return None
+
+    # Build topics from theme matching
+    topics: list[dict[str, Any]] = []
+    theme_match = _match_domain_to_theme(domain, themes)
+    if theme_match:
+        theme_key, theme_name = theme_match
+        topics.append(
+            {
+                "topic_id": generate_topic_id(theme_name, "wealth"),
+                "name": theme_name,
+                "category": "wealth",
+                "theme_key": theme_key,
+            }
+        )
+
+    session_data: dict[str, Any] = {
+        "session_id": f"wealth-backfill-{domain}",
+    }
+    mapped = _mapped_result(
+        session_data,
+        f"wealth-scrape:{domain}",
+        sources=sources,
+        topics=topics,
+        chunks=chunks,
+    )
+
+    logger.info(
+        "Scanned domain %s: %d sources, %d chunks, %d topics",
+        domain,
+        len(sources),
+        len(chunks),
+        len(topics),
+    )
+    return mapped
+
+
+def _scan_wealth_directory(
+    dir_path: Path,
+    *,
+    theme_config_path: Path = WEALTH_THEME_CONFIG_PATH,
+) -> list[dict[str, Any]]:
+    """Scan a wealth-scrape backfill directory for Markdown articles.
+
+    Expects a directory structure of ``{domain}/*.md`` where each Markdown
+    file has YAML frontmatter with ``url``, ``title``, ``published``, etc.
+
+    Groups articles by domain and returns one mapped dict per domain,
+    enriched with theme information from ``wealth-management-themes.json``.
+
+    Parameters
+    ----------
+    dir_path : Path
+        Root directory to scan (e.g. ``data/scraped/wealth/``).
+    theme_config_path : Path
+        Path to the wealth-management theme configuration JSON.
+
+    Returns
+    -------
+    list[dict[str, Any]]
+        List of mapped dicts, one per domain.  Each dict follows the
+        standard mapper result format (has ``sources``, ``topics``, etc.).
+    """
+    if not dir_path.is_dir():
+        logger.error("Not a directory: %s", dir_path)
+        return []
+
+    themes = _load_wealth_themes(theme_config_path)
+    results: list[dict[str, Any]] = []
+
+    # Iterate over subdirectories (each = a domain)
+    domain_dirs = sorted(
+        [d for d in dir_path.iterdir() if d.is_dir()],
+        key=lambda p: p.name,
+    )
+
+    if not domain_dirs:
+        logger.warning("No domain subdirectories found in %s", dir_path)
+        return []
+
+    for domain_dir in domain_dirs:
+        mapped = _process_domain_dir(domain_dir, themes)
+        if mapped is not None:
+            results.append(mapped)
+
+    logger.info(
+        "Wealth directory scan complete: %d domain(s) with articles", len(results)
+    )
+    return results
+
+
+def _map_wealth_theme_common(
+    theme_key: str,
+    theme_data: dict[str, Any],
+    sources: list[dict[str, Any]],
+    topics: list[dict[str, Any]],
+    tagged_rels: list[dict[str, str]],
+    *,
+    extra_source_fields: dict[str, str] | None = None,
+) -> tuple[str, list[str], list[dict[str, Any]]]:
+    """Process the common theme-loop block shared by backfill and incremental.
+
+    Appends a Topic node, pre-computes keyword lists, and iterates over
+    articles to build Source nodes and keyword-matched tagged relations.
+
+    Parameters
+    ----------
+    theme_key : str
+        Theme key (e.g. ``"data_driven_investing"``).
+    theme_data : dict[str, Any]
+        Theme data containing ``name_en``, ``keywords_en``, ``articles``.
+    sources : list[dict[str, Any]]
+        Accumulated sources list (mutated in-place).
+    topics : list[dict[str, Any]]
+        Accumulated topics list (mutated in-place).
+    tagged_rels : list[dict[str, str]]
+        Accumulated tagged relations list (mutated in-place).
+    extra_source_fields : dict[str, str] | None
+        Additional static fields to include in each Source node
+        (e.g. ``{"source_type": "blog"}``).
+
+    Returns
+    -------
+    tuple[str, list[str], list[dict[str, Any]]]
+        A 3-tuple of (topic_id, keywords_lower, articles).
+    """
+    name_en = theme_data.get("name_en", theme_key)
+    topic_id = generate_topic_id(name_en, "wealth-management")
+
+    topics.append(
+        {
+            "topic_id": topic_id,
+            "name": name_en,
+            "category": "wealth-management",
+            "theme_key": theme_key,
+        }
+    )
+
+    keywords_en: list[str] = theme_data.get("keywords_en", [])
+    keywords_lower = [kw.lower() for kw in keywords_en]
+    articles = theme_data.get("articles", [])
+
+    return topic_id, keywords_lower, articles
+
+
+def _process_wealth_article(
+    article: dict[str, Any],
+    topic_id: str,
+    keywords_lower: list[str],
+    sources: list[dict[str, Any]],
+    tagged_rels: list[dict[str, str]],
+    **extra_source_fields: Any,
+) -> str | None:
+    """Process a single wealth article: build Source and tagged relation.
+
+    Parameters
+    ----------
+    article : dict[str, Any]
+        Article data.
+    topic_id : str
+        Topic ID for tagged relations.
+    keywords_lower : list[str]
+        Pre-lowered keywords for matching.
+    sources : list[dict[str, Any]]
+        Accumulated sources list (mutated in-place).
+    tagged_rels : list[dict[str, str]]
+        Accumulated tagged relations list (mutated in-place).
+    **extra_source_fields : Any
+        Additional fields for the Source node.
+
+    Returns
+    -------
+    str | None
+        The source_id if the article was processed, or ``None`` if skipped.
+    """
+    url = article.get("url", "")
+    if not url:
+        return None
+
+    source = _make_source(
+        url,
+        title=article.get("title", ""),
+        published=article.get("published", ""),
+        feed_source=article.get("feed_source", ""),
+        domain=article.get("domain", ""),
+        **extra_source_fields,
+    )
+    source_id = source["source_id"]
+    sources.append(source)
+
+    # Keyword matching for tagged relation
+    title_lower = article.get("title", "").lower()
+    for kw_lower in keywords_lower:
+        if kw_lower in title_lower:
+            tagged_rels.append({"from_id": source_id, "to_id": topic_id})
+            break
+
+    return source_id
+
+
+def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
+    """Map wealth-scrape backfill session to graph-queue components.
+
+    Backfill mode produces Source, Topic, Entity (domain), and keyword-matched
+    ``tagged`` relations.  No claims are generated.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``themes.{key}.articles[]``, ``session_id``.
+        Each theme may include ``keywords_en`` for title-based tagging.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``sources[]``, ``topics[]``, ``entities[]``,
+        and ``relations.tagged[]``.
+    """
+    themes = data.get("themes", {})
+    sources: list[dict[str, Any]] = []
+    topics: list[dict[str, Any]] = []
+    entities: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+    seen_domains: set[str] = set()
+
+    for theme_key, theme_data in themes.items():
+        topic_id, keywords_lower, articles = _map_wealth_theme_common(
+            theme_key, theme_data, sources, topics, tagged_rels
+        )
+
+        for article in articles:
+            source_id = _process_wealth_article(
+                article,
+                topic_id,
+                keywords_lower,
+                sources,
+                tagged_rels,
+                source_type="blog",
+            )
+            if source_id is None:
+                continue
+
+            # Entity: one per unique domain
+            domain = article.get("domain", "")
+            if domain and domain not in seen_domains:
+                seen_domains.add(domain)
+                entities.append(
+                    {
+                        "entity_id": generate_entity_id(domain, "domain"),
+                        "name": domain,
+                        "entity_type": "domain",
+                    }
+                )
+
+    rels = _empty_rels()
+    rels["tagged"] = tagged_rels
+
+    return _mapped_result(
+        data,
+        "wealth-scrape",
+        sources=sources,
+        topics=topics,
+        entities=entities,
+        relations=rels,
+    )
+
+
+def map_wealth_scrape_incremental(data: dict[str, Any]) -> dict[str, Any]:
+    """Map wealth-scrape incremental session to graph-queue components.
+
+    Incremental mode produces Source, Topic, Claim, and keyword-matched
+    ``tagged`` / ``source_claim`` relations.  No domain entities are generated.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``themes.{key}.articles[]``, ``session_id``.
+        Each article should include ``summary`` for claim generation.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``sources[]``, ``topics[]``, ``claims[]``,
+        and ``relations.tagged[]``, ``relations.source_claim[]``.
+    """
+    themes = data.get("themes", {})
+    sources: list[dict[str, Any]] = []
+    topics: list[dict[str, Any]] = []
+    claims: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+    source_claim_rels: list[dict[str, str]] = []
+
+    for theme_key, theme_data in themes.items():
+        topic_id, keywords_lower, articles = _map_wealth_theme_common(
+            theme_key, theme_data, sources, topics, tagged_rels
+        )
+
+        for article in articles:
+            source_id = _process_wealth_article(
+                article,
+                topic_id,
+                keywords_lower,
+                sources,
+                tagged_rels,
+            )
+            if source_id is None:
+                continue
+
+            # Claim from summary
+            summary = article.get("summary", "")
+            if summary:
+                claim_id = generate_claim_id(summary)
+                claims.append(
+                    {
+                        "claim_id": claim_id,
+                        "content": summary,
+                        "source_id": source_id,
+                        "category": "wealth-management",
+                    }
+                )
+                source_claim_rels.append({"from_id": source_id, "to_id": claim_id})
+
+    rels = _empty_rels()
+    rels["tagged"] = tagged_rels
+    rels["source_claim"] = source_claim_rels
+
+    return _mapped_result(
+        data,
+        "wealth-scrape",
+        sources=sources,
+        topics=topics,
+        claims=claims,
+        relations=rels,
+    )
+
+
+def map_wealth_scrape(data: dict[str, Any]) -> dict[str, Any]:
+    """Dispatch wealth-scrape mapping based on ``mode``.
+
+    Delegates to :func:`map_wealth_scrape_backfill` when ``mode == "backfill"``,
+    and to :func:`map_wealth_scrape_incremental` otherwise (default).
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``mode``, ``themes.{key}.articles[]``, ``session_id``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components (delegated to the appropriate sub-mapper).
+    """
+    mode = data.get("mode", "")
+    if mode == "backfill":
+        return map_wealth_scrape_backfill(data)
+    return map_wealth_scrape_incremental(data)
+
+
+# ---------------------------------------------------------------------------
+# topic-discovery constants & helpers
+# ---------------------------------------------------------------------------
+
+TOPIC_DISCOVERY_CATEGORIES: dict[str, str] = {
+    "market_report": "マーケットレポート",
+    "stock_analysis": "個別株分析",
+    "macro_economy": "マクロ経済",
+    "asset_management": "資産形成",
+    "side_business": "副業・収益化",
+    "quant_analysis": "クオンツ分析",
+    "investment_education": "投資教育",
+}
+"""Category key to Japanese name mapping for topic-discovery."""
+
+
+def _magnitude_from_score(total: int) -> str:
+    """Determine magnitude label from a total suggestion score.
+
+    Parameters
+    ----------
+    total : int
+        Total score (sum of 5 scoring axes).
+
+    Returns
+    -------
+    str
+        ``"strong"`` if >= 40, ``"moderate"`` if >= 30, else ``"slight"``.
+    """
+    if total >= 40:
+        return "strong"
+    if total >= 30:
+        return "moderate"
+    return "slight"
+
+
+def _build_td_claim(
+    suggestion: dict[str, Any],
+    session_id: str,
+    generated_at: str,
+) -> dict[str, Any]:
+    """Build a Claim node dict from a single topic-discovery suggestion.
+
+    Parameters
+    ----------
+    suggestion : dict[str, Any]
+        Raw suggestion dict from topic-discovery output.
+    session_id : str
+        Session identifier for ID construction.
+    generated_at : str
+        ISO 8601 timestamp.
+
+    Returns
+    -------
+    dict[str, Any]
+        Claim node dict.
+    """
+    scores = suggestion.get("scores", {})
+    total_score = scores.get("total", 0)
+    topic_title = suggestion.get("topic", "")
+    rationale = suggestion.get("rationale", "")
+    key_points = suggestion.get("key_points", [])
+
+    return {
+        "claim_id": f"ts:{session_id}:rank{suggestion.get('rank', 0)}",
+        "content": f"{topic_title}: {rationale}" if rationale else topic_title,
+        "claim_type": "recommendation",
+        "sentiment": "neutral",
+        "magnitude": _magnitude_from_score(total_score),
+        "created_at": generated_at,
+        "rank": suggestion.get("rank", 0),
+        "topic_title": topic_title,
+        "total_score": total_score,
+        "timeliness": scores.get("timeliness", 0),
+        "information_availability": scores.get("information_availability", 0),
+        "reader_interest": scores.get("reader_interest", 0),
+        "feasibility": scores.get("feasibility", 0),
+        "uniqueness": scores.get("uniqueness", 0),
+        "estimated_word_count": suggestion.get("estimated_word_count"),
+        "target_audience": suggestion.get("target_audience"),
+        "selected": suggestion.get("selected"),
+        "key_points": json.dumps(key_points, ensure_ascii=False)
+        if key_points
+        else "[]",
+        "suggested_period": suggestion.get("suggested_period"),
+    }
+
+
+def _build_td_facts(
+    search_insights: dict[str, Any],
+    session_id: str,
+    generated_at: str,
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    """Build Fact nodes and STATES_FACT relations from search trends.
+
+    Parameters
+    ----------
+    search_insights : dict[str, Any]
+        Search insights dict with ``trends[]``.
+    session_id : str
+        Session identifier for ID construction.
+    generated_at : str
+        ISO 8601 timestamp.
+
+    Returns
+    -------
+    tuple[list[dict[str, Any]], list[dict[str, str]]]
+        A 2-tuple of (fact_nodes, source_fact_relations).
+    """
+    generated_at_date = generated_at[:10] if generated_at else ""
+    facts: list[dict[str, Any]] = []
+    rels: list[dict[str, str]] = []
+
+    for i, trend in enumerate(search_insights.get("trends", [])):
+        query = trend.get("query", "")
+        source_type = trend.get("source", "")
+        for j, finding in enumerate(trend.get("key_findings", [])):
+            fact_id = f"trend:{session_id}:{i}:{j}"
+            facts.append(
+                {
+                    "fact_id": fact_id,
+                    "content": finding,
+                    "fact_type": "event",
+                    "as_of_date": generated_at_date,
+                    "created_at": generated_at,
+                    "search_query": query,
+                    "search_source": source_type,
+                }
+            )
+            rels.append(
+                {"from_id": session_id, "to_id": fact_id, "type": "STATES_FACT"}
+            )
+
+    return facts, rels
+
+
+def _build_td_entities(
+    suggestions: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], set[str], list[dict[str, str]]]:
+    """Build Entity nodes and claim-entity relations from suggested symbols.
+
+    Parameters
+    ----------
+    suggestions : list[dict[str, Any]]
+        List of suggestion dicts, each with optional ``suggested_symbols``.
+    claims : list[dict[str, Any]]
+        Corresponding list of Claim node dicts (same order as suggestions).
+
+    Returns
+    -------
+    tuple[list[dict[str, Any]], set[str], list[dict[str, str]]]
+        A 3-tuple of (entities, seen_tickers, claim_entity_rels).
+    """
+    seen_tickers: set[str] = set()
+    entities: list[dict[str, Any]] = []
+    claim_entity_rels: list[dict[str, str]] = []
+
+    for suggestion, claim in zip(suggestions, claims, strict=True):
+        for ticker in suggestion.get("suggested_symbols", []):
+            entity_id = f"symbol:{ticker}"
+            if ticker not in seen_tickers:
+                seen_tickers.add(ticker)
+                entities.append(
+                    {
+                        "entity_id": entity_id,
+                        "name": ticker,
+                        "entity_type": "index" if ticker.startswith("^") else "stock",
+                        "ticker": ticker,
+                    }
+                )
+            claim_entity_rels.append(
+                {"from_id": claim["claim_id"], "to_id": entity_id, "type": "ABOUT"}
+            )
+
+    return entities, seen_tickers, claim_entity_rels
+
+
+def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
+    """Map topic-discovery session data to graph-queue components.
+
+    Uses string-based IDs (not UUID5) as defined in the neo4j-mapping spec.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``session_id``, ``generated_at``, ``suggestions[]``,
+        ``search_insights``, ``recommendation``, and optionally
+        ``parameters.no_search``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``sources[]``, ``topics[]``, ``claims[]``,
+        ``entities[]``, ``facts[]``, and ``relations``.
+    """
+    session_id = data.get("session_id", "")
+    generated_at = data.get("generated_at", "")
+    suggestions = data.get("suggestions", [])
+    search_insights = data.get("search_insights") or {}
+    recommendation = data.get("recommendation", "")
+    no_search = (data.get("parameters") or {}).get("no_search", False)
+
+    # --- Source node (1 per session) ---
+    top_score = max(
+        (s.get("scores", {}).get("total", 0) for s in suggestions), default=0
+    )
+    search_queries_count = (
+        search_insights.get("queries_executed", 0) if not no_search else 0
+    )
+    generated_at_date = generated_at[:10] if generated_at else ""
+
+    sources: list[dict[str, Any]] = [
+        {
+            "source_id": session_id,
+            "title": f"トピック提案セッション {generated_at_date}",
+            "source_type": "original",
+            "fetched_at": generated_at,
+            "language": "ja",
+            "command_source": "topic-discovery",
+            "suggestion_count": len(suggestions),
+            "top_score": top_score,
+            "search_queries_count": search_queries_count,
+            "recommendation": recommendation,
+        }
+    ]
+
+    # Accumulators for nodes and relations
+    seen_categories: set[str] = set()
+    topics: list[dict[str, Any]] = []
+    claims: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+    source_claim_rels: list[dict[str, str]] = []
+
+    for suggestion in suggestions:
+        category_key = suggestion.get("category", "")
+        topic_id = f"content:{category_key}"
+
+        # Topic node (MERGE semantics via dedup)
+        if category_key and category_key not in seen_categories:
+            seen_categories.add(category_key)
+            topics.append(
+                {
+                    "topic_id": topic_id,
+                    "name": TOPIC_DISCOVERY_CATEGORIES.get(category_key, category_key),
+                    "category": "content_planning",
+                }
+            )
+            tagged_rels.append(
+                {"from_id": session_id, "to_id": topic_id, "type": "TAGGED"}
+            )
+
+        # Claim node
+        claim = _build_td_claim(suggestion, session_id, generated_at)
+        claims.append(claim)
+        source_claim_rels.append(
+            {"from_id": session_id, "to_id": claim["claim_id"], "type": "MAKES_CLAIM"}
+        )
+        if category_key:
+            tagged_rels.append(
+                {"from_id": claim["claim_id"], "to_id": topic_id, "type": "TAGGED"}
+            )
+
+    # Entity nodes from suggested_symbols (delegated to helper)
+    entities, _seen_tickers, claim_entity_rels = _build_td_entities(suggestions, claims)
+
+    # Fact nodes from search_insights.trends (skip when no_search)
+    if no_search:
+        facts: list[dict[str, Any]] = []
+        source_fact_rels: list[dict[str, str]] = []
+    else:
+        facts, source_fact_rels = _build_td_facts(
+            search_insights, session_id, generated_at
+        )
+
+    return _mapped_result(
+        data,
+        "topic-discovery",
+        sources=sources,
+        topics=topics,
+        claims=claims,
+        entities=entities,
+        facts=facts,
+        relations={
+            "tagged": tagged_rels,
+            "source_claim": source_claim_rels,
+            "claim_entity": claim_entity_rels,
+            "source_fact": source_fact_rels,
+        },
+    )
+
+
+# ---------------------------------------------------------------------------
 # Command → Mapper dispatch
 # ---------------------------------------------------------------------------
 
@@ -1172,6 +2085,8 @@ COMMAND_MAPPERS: dict[str, MapperFn] = {
     "reddit-finance-topics": map_reddit_topics,
     "finance-full": map_finance_full,
     "pdf-extraction": map_pdf_extraction,
+    "wealth-scrape": map_wealth_scrape,
+    "topic-discovery": map_topic_discovery,
 }
 """Dispatch table mapping command names to their mapper functions."""
 
@@ -1271,26 +2186,47 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
 # ---------------------------------------------------------------------------
 
 
-def _load_and_parse(command: str, input_path: Path) -> dict[str, Any] | None:
-    """Load input JSON and map it through the appropriate command mapper.
+def _load_and_parse(
+    command: str, input_path: Path
+) -> dict[str, Any] | list[dict[str, Any]] | None:
+    """Load input data and map it through the appropriate command mapper.
+
+    For most commands the input is a JSON file.  When ``command`` is
+    ``"wealth-scrape"`` and *input_path* is a directory, the directory is
+    scanned via :func:`_scan_wealth_directory` and a **list** of mapped
+    dicts is returned (one per domain).
 
     Parameters
     ----------
     command : str
         Source command name (one of :data:`COMMANDS`).
     input_path : Path
-        Path to the input JSON file.
+        Path to the input JSON file **or** directory (wealth-scrape only).
 
     Returns
     -------
-    dict[str, Any] | None
-        Mapped data, or ``None`` on failure (error already logged).
+    dict[str, Any] | list[dict[str, Any]] | None
+        Mapped data (single dict or list of dicts), or ``None`` on failure.
     """
     if not input_path.exists():
         logger.error("Input path does not exist: %s", input_path)
         print(f"Error: Input path does not exist: {input_path}", file=sys.stderr)
         return None
 
+    # Directory input: wealth-scrape backfill scanning
+    if command in DIRECTORY_COMMANDS and input_path.is_dir():
+        logger.info("Scanning wealth directory: %s", input_path)
+        results = _scan_wealth_directory(input_path)
+        if not results:
+            logger.error("No articles found in directory: %s", input_path)
+            print(
+                f"Error: No articles found in directory: {input_path}",
+                file=sys.stderr,
+            )
+            return None
+        return results
+
+    # File input: standard JSON loading
     try:
         with input_path.open(encoding="utf-8") as f:
             data = json.load(f)
@@ -1394,12 +2330,17 @@ def run(
 ) -> int:
     """Execute the graph-queue emission pipeline.
 
+    When ``_load_and_parse`` returns a list (e.g. wealth-scrape directory
+    input), each element is processed separately through
+    ``_build_queue_doc`` and ``_write_output``, producing one queue file
+    per domain.
+
     Parameters
     ----------
     command : str
         Source command name (one of :data:`COMMANDS`).
     input_path : Path
-        Path to the input JSON file.
+        Path to the input JSON file or directory.
     output_base : Path
         Base directory for output queue files.
     cleanup : bool
@@ -1414,6 +2355,24 @@ def run(
     if mapped is None:
         return 1
 
+    # List input: process each element separately (e.g. directory scan)
+    if isinstance(mapped, list):
+        output_files: list[Path] = []
+        for item in mapped:
+            queue_doc = _build_queue_doc(command, item)
+            output_file = _write_output(
+                queue_doc, command, output_base, cleanup=cleanup
+            )
+            output_files.append(output_file)
+            # Only run cleanup on the first iteration
+            cleanup = False
+
+        for f in output_files:
+            print(f"Queue file: {f}")
+        logger.info("Generated %d queue file(s)", len(output_files))
+        return 0
+
+    # Single dict input: standard processing
     queue_doc = _build_queue_doc(command, mapped)
     output_file = _write_output(queue_doc, command, output_base, cleanup=cleanup)
 
@@ -1434,6 +2393,10 @@ def main(args: list[str] | None = None) -> int:
     int
         Exit code (0 for success).
     """
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
+    )
     parsed = parse_args(args)
 
     return run(

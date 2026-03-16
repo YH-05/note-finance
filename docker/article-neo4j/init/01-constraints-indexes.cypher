@@ -26,6 +26,12 @@ CREATE CONSTRAINT insight_id IF NOT EXISTS FOR (i:Insight) REQUIRE i.insight_id 
 // Quote: 引用文（ソースからの直接引用）
 CREATE CONSTRAINT quote_id IF NOT EXISTS FOR (q:Quote) REQUIRE q.quote_id IS UNIQUE;
 
+// === Author ノード ===
+// Author: 記事著者・投稿者
+CREATE CONSTRAINT author_id IF NOT EXISTS FOR (a:Author) REQUIRE a.author_id IS UNIQUE;
+CREATE INDEX author_name IF NOT EXISTS FOR (a:Author) ON (a.name);
+CREATE INDEX author_type IF NOT EXISTS FOR (a:Author) ON (a.author_type);
+
 // === インデックス: Article ===
 CREATE INDEX article_category IF NOT EXISTS FOR (a:Article) ON (a.category);
 CREATE INDEX article_status IF NOT EXISTS FOR (a:Article) ON (a.status);
