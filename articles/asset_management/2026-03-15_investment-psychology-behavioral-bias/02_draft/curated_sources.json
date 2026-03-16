@@ -1,0 +1,132 @@
+{
+  "theme": "investment_psychology_behavioral_bias",
+  "curated_at": "2026-03-15T12:00:00+09:00",
+  "sources": [
+    {
+      "url": "https://www.investopedia.com/terms/l/loss-psychology.asp",
+      "title": "Loss Aversion / Loss Psychology — Investopedia",
+      "publisher": "Investopedia",
+      "reliability_rank": "B",
+      "relevance_score": 92,
+      "key_findings": [
+        "損失の痛みは利益の喜びの約2倍（Kahneman & Tversky、プロスペクト理論）",
+        "ディスポジション効果：勝ち株を早期売却・負け株を持ち続けるバイアス",
+        "損失心理は株式市場の非対称ボラティリティ現象の原因とされる",
+        "進化的背景：損失への防御は生存上有利だったため脳に組み込まれている",
+        "対策：戦略的アセットアロケーション、ルールベースのリバランス、分散投資"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.investopedia.com/terms/a/anchoring.asp",
+      "title": "Anchoring Bias — Investopedia",
+      "publisher": "Investopedia",
+      "reliability_rank": "B",
+      "relevance_score": 88,
+      "key_findings": [
+        "アンカリング：任意の基準値に不均衡に高い重みを置く認知バイアス",
+        "投資家は買値（取得コスト）をアンカーとして売買判断する",
+        "ハイウォーターマーク（最高値）もアンカーとして機能し非合理的な判断を生む",
+        "対策：アンカー要因を特定し定量的データを使用する"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.getrichslowly.org/building-wealth/",
+      "title": "Building Wealth: Savings Rate vs Investment Returns — Get Rich Slowly",
+      "publisher": "Get Rich Slowly",
+      "reliability_rank": "C",
+      "relevance_score": 85,
+      "key_findings": [
+        "最初の100万円到達時：積立78%・投資リターン22%（年10,000ドル・7%リターンの場合）",
+        "最初の100万円到達期間：約7.84年",
+        "転換点は11年目：年間投資リターンが積立額を超える",
+        "2009年以降の市場は年平均15%という異常に高いリターン（通常の長期平均は約7%）",
+        "若い投資家の多くは特例的な強気相場しか経験しておらず期待値が歪んでいる"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.getrichslowly.org/bouncing-back-from-financial-grief-and-loss/",
+      "title": "Bouncing Back from Financial Grief and Loss — Get Rich Slowly",
+      "publisher": "Get Rich Slowly",
+      "reliability_rank": "C",
+      "relevance_score": 82,
+      "key_findings": [
+        "金融的損失には「恥（Embarrassment）」が伴い他者に打ち明けにくい",
+        "金融的喪失には死別の葬儀のような社会的区切りの儀式がなく未完了感が残る",
+        "回復フレームワーク：現実を受け入れ悲しみを尊重する、サポートシステムを構築する等"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.getrichslowly.org/a-guide-to-managing-your-fear-of-money/",
+      "title": "A Guide to Managing Your Fear of Money (Chrometophobia) — Get Rich Slowly",
+      "publisher": "Get Rich Slowly",
+      "reliability_rank": "C",
+      "relevance_score": 80,
+      "key_findings": [
+        "恐怖のトリガーを早期にキャッチすることが重要",
+        "知識が恐怖をコントロールに変える：投資の勉強を通じ恐怖を興奮に転換できる",
+        "損失回避が投資の合理的意思決定を妨げる"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/about/tsumitate/guide/index.html",
+      "title": "金融庁 NISAガイドブック（2024年版）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 78,
+      "key_findings": [
+        "金融庁が「長期・積立・分散」を新NISA活用の3原則として公式推奨",
+        "2024年から新NISA：年間投資上限360万円（積立投資枠120万円＋成長投資枠240万円）、非課税期間の恒久化",
+        "初心者向けに非課税のメリットを強調しているが暴落時の行動バイアスへの言及は薄い"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.getrichslowly.org/beginners-guide-investing/",
+      "title": "A Beginner's Guide to Investing — Get Rich Slowly",
+      "publisher": "Get Rich Slowly",
+      "reliability_rank": "C",
+      "relevance_score": 62,
+      "key_findings": [
+        "ハリス世論調査（Stash委託）：ミレニアル世代の80%は株式市場に未参加",
+        "投資しない理由：方法を知らないが34%、学生ローンが13%"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "internal://neo4j/content-theme",
+      "title": "Neo4j ContentTheme: 投資の心理学シリーズ分析（内部データ）",
+      "publisher": "内部データ",
+      "reliability_rank": "D",
+      "relevance_score": 70,
+      "key_findings": [
+        "Reddit暴落時の自殺予防ホットライン投稿が49,769スコアを獲得するほど深刻な心理ニーズが存在",
+        "note競合実態：教科書的バイアス解説が大半。相場×心理日記型の連載はnoteにほぼ存在しない",
+        "NISA改革で初心者大量流入中"
+      ],
+      "used_in_article": false
+    },
+    {
+      "url": "internal://archived/survival-strategy",
+      "title": "既存関連記事: 暴落が来たとき個人投資家がやるべきこと（アーカイブ）",
+      "publisher": "内部アーカイブ",
+      "reliability_rank": "D",
+      "relevance_score": 60,
+      "key_findings": [
+        "暴落時に「何もしない」ことの難しさを解説",
+        "含み損＝悪ではないというメンタル管理を解説",
+        "積立NISA・iDeCoの継続戦略"
+      ],
+      "used_in_article": false
+    }
+  ],
+  "stats": {
+    "total_sources": 9,
+    "used_sources": 7,
+    "avg_relevance_score": 77.4
+  }
+}

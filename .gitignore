@@ -98,3 +98,13 @@ research/ca_strategy_poc/transcripts/
 
 # CA Strategy workspace (generated data, checkpoints, outputs)
 research/ca_strategy_poc/workspace/
+
+# Temporary PDF files (root-level, used for processing)
+/*.pdf
+
+# NotebookLM / Playwright debug screenshots (root-level)
+notebooklm_*.png
+.playwright-mcp/
+
+# Scraped web content (external copyrighted material)
+data/scraped/

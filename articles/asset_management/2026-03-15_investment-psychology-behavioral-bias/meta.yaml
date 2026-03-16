@@ -1,0 +1,23 @@
+article_id: "2026-03-15_investment-psychology-behavioral-bias"
+topic: "投資の心理学（損失回避・FOMO・暴落時の行動バイアス）"
+category: "asset_management"
+type: "column"
+target_audience: "beginner"
+target_wordcount: 4000
+
+status: "init"
+created_at: "2026-03-15"
+updated_at: "2026-03-15"
+
+workflow:
+  research: "done"
+  draft: "done"
+  critique: "done"
+  revision: "done"
+  publish: "pending"
+
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false

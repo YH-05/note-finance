@@ -1,0 +1,116 @@
+{
+  "article_id": "2026-03-15_investment-psychology-behavioral-bias",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-03-15",
+  "scores": {
+    "fact": 90,
+    "compliance": 68,
+    "structure": 77,
+    "readability": 74,
+    "overall": 77
+  },
+  "compliance_status": "warning",
+  "critics": {
+    "fact": {
+      "score": 90,
+      "issues": [
+        {
+          "id": "F001", "severity": "medium", "location": "第3章",
+          "issue": "Harris/Stash調査の実施年（2017〜2018年頃）と対象国（米国）が未明示",
+          "suggestion": "「米国のHarris/Stash調査（2017〜2018年頃）によれば」と明記する"
+        },
+        {
+          "id": "F002", "severity": "medium", "location": "第3章",
+          "issue": "「歴史的平均7%」が実質リターンか名目か未明示。15%（名目）との非対称比較になっている",
+          "suggestion": "「歴史的長期平均7%（インフレ調整後の実質ベース）」と注記するか、名目10%との比較に統一"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 68,
+      "status": "warning",
+      "issues": [
+        {
+          "id": "CP001", "severity": "high", "location": "第4章",
+          "issue": "「7%の利回り」を使った将来計算例に予測免責注記が欠落。断定的判断の提供リスクあり",
+          "suggestion": "計算例直後に「※7%はあくまで計算上の仮定値です。実際の運用成果は市場環境により大きく異なります」を追記"
+        },
+        {
+          "id": "CP002", "severity": "medium", "location": "第5章",
+          "issue": "「市場が-20%以上下落したら積立額を増やすことを検討する」が投資助言に準じる表現の可能性",
+          "suggestion": "具体的数値（-20%）を削除するか、「これは概念的な例示であり特定の行動を推奨するものではありません」と明記"
+        },
+        {
+          "id": "CP003", "severity": "medium", "location": "第3章",
+          "issue": "15%（名目）と7%（実質）の非対称比較で誤解を招くリスク",
+          "suggestion": "実質/名目の区別を明記する"
+        },
+        {
+          "id": "CP004", "severity": "medium", "location": "参考情報",
+          "issue": "Harris/Stash調査の対象国（米国）・年度が未記載",
+          "suggestion": "本文・参考情報に米国データであること、調査年を明記"
+        },
+        {
+          "id": "CP005", "severity": "low", "location": "参考情報",
+          "issue": "積立78%データの出典が個人ブログで原典URL・算出前提が未記載",
+          "suggestion": "原典URLを追記するか、算出前提を本文に明記"
+        }
+      ]
+    },
+    "structure": {
+      "score": 77,
+      "issues": [
+        {
+          "id": "ST001", "severity": "high", "location": "全体構成",
+          "issue": "タイトル「5つ」と実際の構成の不整合。第4章（感情マネジメント）・第5章（仕組み）はバイアスの解説ではない",
+          "suggestion": "タイトルを「3つのバイアス＋2つの対処法」に変更するか、第4章を確証バイアス等の独立バイアスとして再構成"
+        },
+        {
+          "id": "ST002", "severity": "medium", "location": "冒頭免責",
+          "issue": "冒頭免責ブロック（>引用形式）が導入の引力を削ぐ",
+          "suggestion": "免責文を記事末尾にまとめるか、より目立たない形式に変更"
+        },
+        {
+          "id": "ST003", "severity": "medium", "location": "第4章",
+          "issue": "感情フローのアロー表記がスマホ縦画面で折り返し・崩れるリスク",
+          "suggestion": "横並びアロー→縦方向の番号リストに変換"
+        }
+      ],
+      "strengths": ["各章600〜700字の均等バランス", "理論→事例→対処法の流れが機能している"]
+    },
+    "readability": {
+      "score": 74,
+      "issues": [
+        {
+          "id": "RD001", "severity": "high", "location": "第4章",
+          "issue": "横並びアロー表記がスマホで崩れるリスク（ST003と同一）",
+          "suggestion": "縦方向リストに変換"
+        },
+        {
+          "id": "RD002", "severity": "medium", "location": "第1章",
+          "issue": "「ダニエル・カーネマンとエイモス・トベルスキーが提唱した」は初心者に長く冗長",
+          "suggestion": "「行動経済学の研究（プロスペクト理論）によれば」と短縮し、注釈に人名を記載"
+        },
+        {
+          "id": "RD003", "severity": "medium", "location": "第2章",
+          "issue": "「ファンダメンタルズ（資産の本質的な価値を構成する要因）」の括弧説明が長い",
+          "suggestion": "「企業の業績など本質的な価値」と短く言い換え"
+        }
+      ],
+      "strengths": [
+        "冒頭の一人称体験フックが非常に効果的",
+        "まとめの締め文「暴落で売りたくなるのは当然です」のタイトル回収が良好",
+        "専門用語12語中11語に括弧説明あり"
+      ]
+    }
+  },
+  "priority_fixes": [
+    {"priority": 1, "id": "CP001", "severity": "high", "summary": "7%利回り計算例に予測免責注記を追加"},
+    {"priority": 2, "id": "ST001", "severity": "high", "summary": "タイトル「5つ」と構成の整合性を修正"},
+    {"priority": 3, "id": "RD001/ST003", "severity": "high", "summary": "第4章アロー表記を縦リストに変換"},
+    {"priority": 4, "id": "CP002", "severity": "medium", "summary": "-20%という数値条件の表現を緩和"},
+    {"priority": 5, "id": "F002/CP003", "severity": "medium", "summary": "15%vs7%の実質/名目区別を明記"},
+    {"priority": 6, "id": "F001/CP004", "severity": "medium", "summary": "Harris/Stash調査に米国・年度を明記"}
+  ]
+}

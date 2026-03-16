@@ -1,0 +1,189 @@
+{
+  "topic": "投資の心理学（損失回避・FOMO・暴落時の行動バイアス）",
+  "researched_at": "2026-03-15",
+  "sources": [
+    {
+      "id": "src-001",
+      "title": "Bouncing Back from Financial Grief and Loss",
+      "url": "https://www.getrichslowly.org/bouncing-back-from-financial-grief-and-loss/",
+      "source_type": "wealth-blog",
+      "key_facts": [
+        "金融的損失後の感情反応：悲しみ・怒り・罪悪感・不安・孤独感・ショック・渇望",
+        "金融的喪失には「恥（Embarrassment）」が伴い、死別と異なり他者に打ち明けにくい",
+        "金融危機はアイデンティティ喪失を引き起こす（例：『一戸建てを持つソフトウェアエンジニア』→『無職の父親』）",
+        "制度・アドバイザー・家族への裏切り感・恨みという感情的負担が重なる",
+        "自責（自己の失敗として内面化する傾向）が回復を妨げる",
+        "金融的喪失には死別の葬儀のような社会的区切りの儀式がなく、未完了感が残る",
+        "回復フレームワーク：①現実を受け入れ悲しみを尊重する ②サポートシステムを構築する ③過去の困難からの回復を振り返る ④教訓と価値観の変化を抽出する ⑤収縮ではなく拡張を選ぶ",
+        "感情的回復力を保った女性の事例：収縮するのではなく拡張を選び、新スキル習得と別の人生経路を探索した"
+      ],
+      "quotes": [
+        "Decide to expand rather than contract—seek new skills and opportunities",
+        "Accept reality; honor the grief without minimizing it"
+      ],
+      "relevance": "high"
+    },
+    {
+      "id": "src-002",
+      "title": "A Guide to Managing Your Fear of Money (Chrometophobia)",
+      "url": "https://www.getrichslowly.org/a-guide-to-managing-your-fear-of-money/",
+      "source_type": "wealth-blog",
+      "key_facts": [
+        "お金への恐怖（クロメトフォビア）は幼少期の体験（親の金銭的対立・離婚・経済的困難）から発生することが多い",
+        "金銭不安は予算管理の妨げとなり、借金の蓄積につながる",
+        "損失回避が投資の合理的意思決定を妨げる",
+        "恐怖のトリガーを早期にキャッチすることが重要：ペマ・チョードロン『最初に生じたとき（単なる緊張感の段階）に気づけば、十分対処可能』",
+        "精神科医アシュ・ナドカーニ：金融的刺激への継続的暴露が恐怖を駆動する思考パターンを問い直す助けになる",
+        "知識が恐怖をコントロールに変える：著者は投資の勉強を通じ恐怖を興奮に転換",
+        "リターンよりもお金がもたらす安心感や借金解消に焦点を当てることが有効"
+      ],
+      "quotes": [
+        "If we catch it when it first arises, when it's just a tightening... it's very workable.",
+        "Instead of seeing [your fear trigger] as an obstacle... consider it an opportunity for transformation, an open doorway to awakening."
+      ],
+      "relevance": "high"
+    },
+    {
+      "id": "src-003",
+      "title": "Building Wealth: Savings Rate vs Investment Returns",
+      "url": "https://www.getrichslowly.org/building-wealth/",
+      "source_type": "wealth-blog",
+      "key_facts": [
+        "最初の100万円（$100,000）到達まで最も長い時間がかかる（年10,000ドル・7%リターンで7.84年）",
+        "最初の100万円に至る期間は1,000万円到達総時間の26%を占める",
+        "最初の100万円の78%は積立（貯蓄）から来ており、投資リターンは22%のみ",
+        "転換点は11年目：年間積立金額を投資リターンが超える",
+        "2009年以降の市場は年平均15%という異常に高いリターン。標準的な長期期待値は約7%",
+        "若い投資家の多くは特例的な強気相場しか経験しておらず、期待値が歪んでいる（FOMOの温床）",
+        "チャーリー・マンガー：『最初の100,000ドルは辛い（a bitch）』",
+        "早期リタイア（FI）を目指す13〜17年組：投資リターンが純資産増加の33〜52%を占める",
+        "早期は市場リターンより貯蓄規律・手数料最小化・収入増が資産形成を左右する"
+      ],
+      "quotes": [
+        "The first $100,000 is a bitch. — Charlie Munger",
+        "Savings matters more initially. Early wealth building is dominated by your ability to save, not market returns."
+      ],
+      "relevance": "high"
+    },
+    {
+      "id": "src-004",
+      "title": "Loss Aversion / Loss Psychology — Investopedia",
+      "url": "https://www.investopedia.com/terms/l/loss-psychology.asp",
+      "source_type": "web",
+      "key_facts": [
+        "損失回避：損失は同等の利益より感情的に大きく感じられる現象（行動経済学）",
+        "研究によれば損失の痛みは利益の喜びの約2倍（ただし異論もあり）",
+        "ディスポジション効果：損失回避により負け株を持ち続け、勝ち株を早期売却するバイアス",
+        "損失心理は株式市場の非対称ボラティリティ現象（下落時の方がボラティリティが高い）の原因とされる",
+        "損失回避はネガティビティバイアスをも引き起こす：投資家は悪いニュースに過剰集中し、強気相場を見逃したり売り相場でパニックになる",
+        "プロスペクト理論：人は損失を避けることを利益獲得よりも強く好む（Kahneman & Tversky）",
+        "経済学者・プロトレーダーは一般人より損失回避が平均的に低い",
+        "対策：戦略的アセットアロケーション、ルールベースのリバランス、分散投資、バイ・アンド・ホールド",
+        "進化的背景：損失への防御は生存上有利だったため脳に組み込まれている（社会的条件付けもあり）",
+        "損失を確定させる痛みを避けるために、紙上損失（含み損）を抱えたまま更なるリスクを取ることがある"
+      ],
+      "quotes": [
+        "Some studies suggest losing hurts about twice as much as winning feels good.",
+        "Loss psychology may even be the cause of the asymmetric volatility phenomenon exhibited in stock markets, where equity market volatility is higher in declining markets than in rising ones.",
+        "Investors often focus more on bad news than good, missing bull markets due to fear and panicking during sell-offs."
+      ],
+      "relevance": "high"
+    },
+    {
+      "id": "src-005",
+      "title": "Anchoring Bias — Investopedia",
+      "url": "https://www.investopedia.com/terms/a/anchoring.asp",
+      "source_type": "web",
+      "key_facts": [
+        "アンカリング：任意の基準値（アンカー）に不均衡に高い重みを置く認知バイアス",
+        "投資家は買値（取得コスト）をアンカーとして利用し、ファンダメンタルズではなく取得価格を基準に売買判断する",
+        "損失した投資を保有し続ける原因の一つ：アンカリングが損切りを妨げる",
+        "ハイウォーターマーク（最高値）もアンカーとして機能し非合理的な判断を生む",
+        "アンカリングはバリュエーション倍率の比較でも生じる",
+        "調整ヒューリスティックと組み合わさることが多い：基準点を調整しようとするが、元のバイアスが残る",
+        "対策：アンカー要因を特定し、推測ではなく定量的データを使用する。包括的なリサーチと価格評価"
+      ],
+      "quotes": [
+        "Anchoring is a cognitive bias in which the use of an arbitrary benchmark such as a purchase price or sticker price carries a disproportionately high weight in one's decision-making process."
+      ],
+      "relevance": "high"
+    },
+    {
+      "id": "src-006",
+      "title": "A Beginner's Guide to Investing — Get Rich Slowly",
+      "url": "https://www.getrichslowly.org/beginners-guide-investing/",
+      "source_type": "wealth-blog",
+      "key_facts": [
+        "ハリス世論調査（Stash委託）：ミレニアル世代の80%は株式市場に未参加",
+        "投資しない理由（同調査）：学生ローンが13%、方法を知らないが34%",
+        "若い投資家はリスク許容度が高く、より高いリターンの機会がある（長期投資の優位性）",
+        "分散投資：多様な投資の組み合わせがリスクを軽減する（卵を一つのバスケットに入れない）",
+        "ミューチュアルファンド・ETFは分散投資の手段として有効",
+        "投資の基本：株式（エクイティ）・債券（固定利付）・現金同等物の三資産クラス理解"
+      ],
+      "quotes": [
+        "Investing can be intimidating, but it doesn't have to be.",
+        "Diversification: A technique that mixes a wide variety of investments in a portfolio... Eggs are not in a single basket."
+      ],
+      "relevance": "medium"
+    },
+    {
+      "id": "src-007",
+      "title": "金融庁 NISAガイドブック（2024年版）",
+      "url": "https://www.fsa.go.jp/policy/nisa2/about/tsumitate/guide/index.html",
+      "source_type": "web",
+      "key_facts": [
+        "金融庁が「長期・積立・分散」を新NISA活用の3原則として公式推奨",
+        "2024年から新NISA：年間投資上限360万円（積立投資枠120万円＋成長投資枠240万円）、非課税期間の恒久化",
+        "ガイドブックの主要内容：ライフプランと安定的な資産形成・長期投資・積立投資・分散投資",
+        "NISA改革により初心者の大量流入が想定されており、心理的サポートのニーズが高い",
+        "初心者向けに非課税のメリットを強調しているが、暴落時の行動バイアスへの言及は薄い（記事の差別化余地）"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-008",
+      "title": "Neo4j ContentTheme: 投資の心理学シリーズ分析（内部データ）",
+      "url": "internal://neo4j/content-theme",
+      "source_type": "web",
+      "key_facts": [
+        "Reddit暴落時の自殺予防ホットライン投稿が49,769スコアを獲得するほど深刻な心理ニーズが存在",
+        "note競合実態：教科書的バイアス解説が大半。相場×心理日記型の連載はnote上に皆無（ブルーオーシャン）",
+        "差別化切り口：相場×心理日記型（リアルタイムの相場で自分の心理を分析）",
+        "有料マガジン（月額800〜1,000円）との相性良好。暴落時に需要急増するエバーグリーンテーマ",
+        "X連携：相場急変時にリアルタイム投稿→note誘導の導線が自然に構築可能",
+        "投資本レビューと「この本にも書いてある心理」で相乗効果",
+        "深掘り調査評価：A（強く推奨）・推奨優先順位1位（5テーマ中）",
+        "NISA改革で初心者大量流入中"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-009",
+      "title": "既存関連記事: 暴落が来たとき個人投資家がやるべきこと｜積立NISA・iDeCoの生還戦略（アーカイブ）",
+      "url": "internal://archived/survival-strategy",
+      "source_type": "web",
+      "key_facts": [
+        "暴落時に『何もしない』ことの難しさを解説",
+        "含み損＝悪ではないというメンタル管理を解説",
+        "積立NISA・iDeCoの継続戦略"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    }
+  ],
+  "research_notes": {
+    "tavily_status": "API制限超過のため取得不可（2026-03-15時点）",
+    "rss_status": "暴落・狼狽売り体験フィードおよびNISA投資体験フィードは登録済みだが現時点でアイテム未収集",
+    "key_statistics": {
+      "loss_aversion_multiplier": "損失の痛みは利益の喜びの約2倍（Kahneman & Tversky, Prospect Theory）",
+      "millenial_non_investor_rate": "ミレニアル世代の80%が株式市場に未参加（Harris/Stash調査）",
+      "savings_vs_returns_early": "最初の10万ドル到達時：積立78%、投資リターン22%",
+      "time_to_first_100k": "年1万ドル積立・7%リターンで7.84年",
+      "post_2009_return": "2009年以降の市場年平均リターン15%（通常の7%を大幅上回る）",
+      "reddit_suicide_hotline_score": "暴落時のReddit自殺予防ホットライン投稿が49,769スコア獲得"
+    }
+  }
+}

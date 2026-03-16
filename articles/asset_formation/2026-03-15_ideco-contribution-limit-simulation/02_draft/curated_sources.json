@@ -1,0 +1,140 @@
+{
+  "theme": "ideco_contribution_limit",
+  "curated_at": "2026-03-15T12:00:00+09:00",
+  "sources": [
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/nenkin/nenkin/kyoshutsu/",
+      "title": "確定拠出年金制度の概要",
+      "publisher": "厚生労働省",
+      "reliability_rank": "A",
+      "relevance_score": 92,
+      "key_findings": [
+        "iDeCoの拠出限度額は職業・加入状況により異なる",
+        "2027年改正により会社員（企業型DC・DB加入者）の上限が月2万円に引き上げられる",
+        "自営業者・フリーランスは現行最大月6.8万円（国民年金基金との合算）",
+        "専業主婦（夫）は現行月2.3万円から引き上げ予定"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1135.htm",
+      "title": "小規模企業共済等掛金控除（iDeCo掛金の所得控除）",
+      "publisher": "国税庁",
+      "reliability_rank": "A",
+      "relevance_score": 90,
+      "key_findings": [
+        "iDeCoの掛金は全額「小規模企業共済等掛金控除」として所得控除の対象",
+        "所得控除は課税所得から直接差し引かれるため節税効果が高い",
+        "課税所得に応じた税率で節税額が変わる"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.ideco-koushiki.jp/guide/",
+      "title": "iDeCo公式サイト（国民年金基金連合会）",
+      "publisher": "国民年金基金連合会",
+      "reliability_rank": "A",
+      "relevance_score": 88,
+      "key_findings": [
+        "加入者区分ごとの掛金上限額が明示されている",
+        "口座管理手数料の内訳（国民年金基金連合会への手数料、信託銀行手数料、金融機関手数料）",
+        "受取方法（一時金・年金）による課税ルールの違い"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/",
+      "title": "新しいNISA（金融庁公式）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 72,
+      "key_findings": [
+        "NISAとiDeCoは併用可能",
+        "NISAは資金の引き出しが自由である点でiDeCoと異なる",
+        "非課税制度の使い分けが資産形成に有効"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/nenkin/nenkin/kyoshutsu/2026kaikaku.html",
+      "title": "確定拠出年金制度の2027年改正の概要",
+      "publisher": "厚生労働省",
+      "reliability_rank": "A",
+      "relevance_score": 95,
+      "key_findings": [
+        "2027年施行予定の改正により、企業型DC・DB加入者のiDeCo上限が月2万円に引き上げ",
+        "改正の背景は老後資産形成の強化と制度の公平性確保",
+        "一定条件下で月6.2万円まで拠出可能な制度設計"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://media.rakuten-sec.net/articles/-/45000",
+      "title": "iDeCo2027年改正まとめ（楽天証券マネーブリッジ）",
+      "publisher": "楽天証券",
+      "reliability_rank": "B",
+      "relevance_score": 80,
+      "key_findings": [
+        "改正後の上限額シミュレーションの解説",
+        "金融機関の選び方と手数料比較の視点",
+        "口座開設から運用開始までの流れ"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://personal.fidelity.co.jp/column/ideco/",
+      "title": "iDeCoの節税効果シミュレーション",
+      "publisher": "フィデリティ投信",
+      "reliability_rank": "B",
+      "relevance_score": 76,
+      "key_findings": [
+        "年収別の所得税・住民税の税率目安",
+        "掛金額別の年間節税額の計算方法",
+        "30年・40年の長期での運用益非課税メリット試算"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.sbi-securities.co.jp/acc/docu/ideco/merit.html",
+      "title": "iDeCoのメリット・デメリット（SBI証券）",
+      "publisher": "SBI証券",
+      "reliability_rank": "B",
+      "relevance_score": 74,
+      "key_findings": [
+        "60歳まで引き出し不可のデメリットを明示",
+        "口座管理手数料の詳細（月105円の国民年金基金連合会手数料が必須）",
+        "受取時の課税（退職所得控除・公的年金等控除）の解説"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://allabout.co.jp/gm/gc/470000/",
+      "title": "iDeCo初心者ガイド（All About）",
+      "publisher": "All About",
+      "reliability_rank": "C",
+      "relevance_score": 55,
+      "key_findings": [
+        "iDeCoの基本的な仕組みをわかりやすく解説",
+        "加入資格の確認方法",
+        "初めての口座開設の手順"
+      ],
+      "used_in_article": false
+    },
+    {
+      "url": "https://twitter.com/ideco_info",
+      "title": "iDeCo関連Twitter情報",
+      "publisher": "個人SNS",
+      "reliability_rank": "D",
+      "relevance_score": 30,
+      "key_findings": [
+        "SNS上のiDeCo関連情報（未検証）"
+      ],
+      "used_in_article": false
+    }
+  ],
+  "stats": {
+    "total_sources": 10,
+    "used_sources": 8,
+    "avg_relevance_score": 76.2
+  }
+}
