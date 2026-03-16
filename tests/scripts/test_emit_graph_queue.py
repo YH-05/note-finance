@@ -37,6 +37,8 @@ from emit_graph_queue import (
     map_market_report,
     map_reddit_topics,
     map_wealth_scrape,
+    map_wealth_scrape_backfill,
+    map_wealth_scrape_incremental,
     parse_args,
     resolve_category,
     run,
@@ -190,6 +192,12 @@ def _wealth_scrape_backfill_data() -> dict[str, Any]:
         "themes": {
             "data_driven_investing": {
                 "name_en": "Data-Driven Investing",
+                "keywords_en": [
+                    "index fund",
+                    "ETF",
+                    "passive investing",
+                    "invest",
+                ],
                 "articles": [
                     {
                         "url": "https://ofdollarsanddata.com/why-you-should-invest/",
@@ -205,6 +213,11 @@ def _wealth_scrape_backfill_data() -> dict[str, Any]:
             },
             "personal_finance": {
                 "name_en": "Personal Finance",
+                "keywords_en": [
+                    "budgeting",
+                    "save money",
+                    "personal finance",
+                ],
                 "articles": [
                     {
                         "url": "https://moneycrashers.com/save-money-tips/",
@@ -238,6 +251,12 @@ def _wealth_scrape_incremental_data() -> dict[str, Any]:
         "themes": {
             "fire_wealth_building": {
                 "name_en": "FIRE & Wealth Building",
+                "keywords_en": [
+                    "FIRE",
+                    "financial independence",
+                    "early retirement",
+                    "wealth building",
+                ],
                 "articles": [
                     {
                         "url": "https://affordanything.com/financial-independence/",
@@ -1659,7 +1678,41 @@ class TestScanWealthDirectory:
 
 
 class TestMapWealthScrape:
-    """map_wealth_scrape 関数のテスト。"""
+    """map_wealth_scrape ディスパッチャー関数のテスト。"""
+
+    def test_正常系_backfillモードでbackfill関数にディスパッチ(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape(data)
+        # backfill produces entities (domain entities)
+        assert len(result["entities"]) > 0
+
+    def test_正常系_incrementalモードでincremental関数にディスパッチ(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape(data)
+        # incremental produces claims
+        assert len(result["claims"]) > 0
+
+    def test_正常系_modeなしでincrementalにフォールバック(self) -> None:
+        data = {
+            "session_id": "test",
+            "themes": {
+                "test_theme": {
+                    "name_en": "Test Theme",
+                    "keywords_en": ["test"],
+                    "articles": [
+                        {
+                            "url": "https://example.com/article",
+                            "title": "Test Article about test topic",
+                            "summary": "A test summary.",
+                            "published": "2026-03-07T12:00:00+00:00",
+                        }
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape(data)
+        # incremental mode produces claims
+        assert len(result["claims"]) > 0
 
     def test_正常系_sourcesが生成される(self) -> None:
         data = _wealth_scrape_backfill_data()
@@ -1689,12 +1742,6 @@ class TestMapWealthScrape:
         result = map_wealth_scrape(data)
         assert result["batch_label"] == "wealth-scrape"
 
-    def test_正常系_topicのcategoryがwealthに設定される(self) -> None:
-        data = _wealth_scrape_backfill_data()
-        result = map_wealth_scrape(data)
-        for topic in result["topics"]:
-            assert topic["category"] == "wealth"
-
     def test_正常系_incremental形式もマッピングできる(self) -> None:
         data = _wealth_scrape_incremental_data()
         result = map_wealth_scrape(data)
@@ -1712,9 +1759,11 @@ class TestMapWealthScrape:
     def test_エッジケース_URLなしのarticleではsourceが生成されない(self) -> None:
         data = {
             "session_id": "test",
+            "mode": "backfill",
             "themes": {
                 "test_theme": {
                     "name_en": "Test Theme",
+                    "keywords_en": ["test"],
                     "articles": [{"url": "", "title": "No URL article"}],
                 }
             },
@@ -1724,10 +1773,353 @@ class TestMapWealthScrape:
         assert len(result["topics"]) == 1
 
     def test_エッジケース_空テーマで空結果(self) -> None:
-        data = {"session_id": "test", "themes": {}}
+        data = {"session_id": "test", "mode": "backfill", "themes": {}}
         result = map_wealth_scrape(data)
         assert len(result["sources"]) == 0
         assert len(result["topics"]) == 0
+
+
+# ---------------------------------------------------------------------------
+# map_wealth_scrape_backfill
+# ---------------------------------------------------------------------------
+
+
+class TestMapWealthScrapeBackfill:
+    """map_wealth_scrape_backfill 関数のテスト。"""
+
+    def test_正常系_sourceにsource_type_blogが設定される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        for source in result["sources"]:
+            assert source["source_type"] == "blog"
+
+    def test_正常系_sourceにdomainが設定される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        domains = {s["domain"] for s in result["sources"]}
+        assert "ofdollarsanddata.com" in domains
+        assert "moneycrashers.com" in domains
+
+    def test_正常系_source_idがgenerate_source_idで生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        for source in result["sources"]:
+            assert source["source_id"] == generate_source_id(source["url"])
+
+    def test_正常系_topicのcategoryがwealth_managementに設定される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        for topic in result["topics"]:
+            assert topic["category"] == "wealth-management"
+
+    def test_正常系_topic_idがgenerate_topic_idで生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        for topic in result["topics"]:
+            expected_id = generate_topic_id(topic["name"], "wealth-management")
+            assert topic["topic_id"] == expected_id
+
+    def test_正常系_domain_entityが生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        assert len(result["entities"]) == 2
+        for entity in result["entities"]:
+            assert entity["entity_type"] == "domain"
+
+    def test_正常系_domain_entity_idがgenerate_entity_idで生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        for entity in result["entities"]:
+            expected_id = generate_entity_id(entity["name"], "domain")
+            assert entity["entity_id"] == expected_id
+
+    def test_正常系_キーワードマッチでtaggedリレーション生成(self) -> None:
+        """タイトルにテーマキーワードが含まれる場合、taggedリレーションが生成される。"""
+        data = {
+            "session_id": "test",
+            "mode": "backfill",
+            "themes": {
+                "data_driven_investing": {
+                    "name_en": "Data-Driven Investing",
+                    "keywords_en": ["index fund", "ETF", "passive investing"],
+                    "articles": [
+                        {
+                            "url": "https://example.com/etf-guide",
+                            "title": "The Ultimate ETF Guide for Beginners",
+                            "published": "2026-03-07T12:00:00+00:00",
+                            "domain": "example.com",
+                        }
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape_backfill(data)
+        tagged = result["relations"].get("tagged", [])
+        assert len(tagged) == 1
+        source_id = generate_source_id("https://example.com/etf-guide")
+        topic_id = generate_topic_id("Data-Driven Investing", "wealth-management")
+        assert tagged[0]["from_id"] == source_id
+        assert tagged[0]["to_id"] == topic_id
+
+    def test_正常系_キーワード大文字小文字区別なしでマッチ(self) -> None:
+        """title.lower()とkeyword.lower()で比較されるため大文字小文字は区別しない。"""
+        data = {
+            "session_id": "test",
+            "mode": "backfill",
+            "themes": {
+                "dividend_income": {
+                    "name_en": "Dividend Income",
+                    "keywords_en": ["DIVIDEND"],
+                    "articles": [
+                        {
+                            "url": "https://example.com/dividend",
+                            "title": "Best dividend Stocks for 2026",
+                            "published": "2026-03-07T12:00:00+00:00",
+                            "domain": "example.com",
+                        }
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape_backfill(data)
+        tagged = result["relations"].get("tagged", [])
+        assert len(tagged) == 1
+
+    def test_正常系_キーワードマッチなしでtaggedリレーションなし(self) -> None:
+        data = {
+            "session_id": "test",
+            "mode": "backfill",
+            "themes": {
+                "data_driven_investing": {
+                    "name_en": "Data-Driven Investing",
+                    "keywords_en": ["index fund", "ETF"],
+                    "articles": [
+                        {
+                            "url": "https://example.com/unrelated",
+                            "title": "Cooking Recipes for Beginners",
+                            "published": "2026-03-07T12:00:00+00:00",
+                            "domain": "example.com",
+                        }
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape_backfill(data)
+        tagged = result["relations"].get("tagged", [])
+        assert len(tagged) == 0
+
+    def test_正常系_複数テーマのキーワードマッチで複数tagged生成(self) -> None:
+        data = {
+            "session_id": "test",
+            "mode": "backfill",
+            "themes": {
+                "data_driven_investing": {
+                    "name_en": "Data-Driven Investing",
+                    "keywords_en": ["ETF"],
+                    "articles": [
+                        {
+                            "url": "https://example.com/etf",
+                            "title": "ETF Investment Guide",
+                            "published": "2026-03-07T12:00:00+00:00",
+                            "domain": "example.com",
+                        }
+                    ],
+                },
+                "dividend_income": {
+                    "name_en": "Dividend Income",
+                    "keywords_en": ["dividend"],
+                    "articles": [
+                        {
+                            "url": "https://example.com/dividend",
+                            "title": "Top Dividend Stocks",
+                            "published": "2026-03-07T12:00:00+00:00",
+                            "domain": "example.com",
+                        }
+                    ],
+                },
+            },
+        }
+        result = map_wealth_scrape_backfill(data)
+        tagged = result["relations"].get("tagged", [])
+        assert len(tagged) == 2
+
+    def test_正常系_batch_labelがwealth_scrapeに設定される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        assert result["batch_label"] == "wealth-scrape"
+
+    def test_正常系_claimsは空(self) -> None:
+        """backfill ではclaimsは生成しない。"""
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        assert len(result["claims"]) == 0
+
+    def test_エッジケース_keywords_enが未設定でもtaggedは空(self) -> None:
+        data = {
+            "session_id": "test",
+            "mode": "backfill",
+            "themes": {
+                "test_theme": {
+                    "name_en": "Test Theme",
+                    "articles": [
+                        {
+                            "url": "https://example.com/article",
+                            "title": "Some article",
+                            "domain": "example.com",
+                        }
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape_backfill(data)
+        tagged = result["relations"].get("tagged", [])
+        assert len(tagged) == 0
+
+    def test_エッジケース_domain重複でentity重複なし(self) -> None:
+        """同じドメインの複数記事でも Entity は1つだけ生成される。"""
+        data = {
+            "session_id": "test",
+            "mode": "backfill",
+            "themes": {
+                "test_theme": {
+                    "name_en": "Test Theme",
+                    "keywords_en": [],
+                    "articles": [
+                        {
+                            "url": "https://example.com/a1",
+                            "title": "Article 1",
+                            "domain": "example.com",
+                        },
+                        {
+                            "url": "https://example.com/a2",
+                            "title": "Article 2",
+                            "domain": "example.com",
+                        },
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape_backfill(data)
+        assert len(result["entities"]) == 1
+
+
+# ---------------------------------------------------------------------------
+# map_wealth_scrape_incremental
+# ---------------------------------------------------------------------------
+
+
+class TestMapWealthScrapeIncremental:
+    """map_wealth_scrape_incremental 関数のテスト。"""
+
+    def test_正常系_sourcesが生成される(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        assert len(result["sources"]) == 1
+        assert (
+            result["sources"][0]["url"]
+            == "https://affordanything.com/financial-independence/"
+        )
+
+    def test_正常系_topicsが生成される(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        assert len(result["topics"]) == 1
+        assert result["topics"][0]["name"] == "FIRE & Wealth Building"
+
+    def test_正常系_topicのcategoryがwealth_managementに設定される(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        for topic in result["topics"]:
+            assert topic["category"] == "wealth-management"
+
+    def test_正常系_claimsが生成される(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        assert len(result["claims"]) == 1
+        assert result["claims"][0]["content"] == (
+            "A comprehensive guide to achieving FIRE."
+        )
+
+    def test_正常系_claim_idがgenerate_claim_idで生成される(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        for claim in result["claims"]:
+            assert claim["claim_id"] == generate_claim_id(claim["content"])
+
+    def test_正常系_source_claimリレーションが生成される(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        source_claims = result["relations"].get("source_claim", [])
+        assert len(source_claims) == 1
+        source_id = generate_source_id(
+            "https://affordanything.com/financial-independence/"
+        )
+        assert source_claims[0]["from_id"] == source_id
+
+    def test_正常系_taggedリレーションが生成される(self) -> None:
+        """incremental ではキーワードマッチによる tagged リレーションが生成される。"""
+        data = {
+            "session_id": "test",
+            "mode": "incremental",
+            "themes": {
+                "fire_wealth_building": {
+                    "name_en": "FIRE & Wealth Building",
+                    "keywords_en": ["FIRE", "financial independence"],
+                    "articles": [
+                        {
+                            "url": "https://example.com/fire-guide",
+                            "title": "Your Path to Financial Independence and FIRE",
+                            "summary": "Guide to FIRE.",
+                            "published": "2026-03-07T12:00:00+00:00",
+                        }
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape_incremental(data)
+        tagged = result["relations"].get("tagged", [])
+        assert len(tagged) >= 1
+
+    def test_正常系_entitiesは空(self) -> None:
+        """incremental ではドメインentitiesは生成しない。"""
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        assert len(result["entities"]) == 0
+
+    def test_正常系_batch_labelがwealth_scrapeに設定される(self) -> None:
+        data = _wealth_scrape_incremental_data()
+        result = map_wealth_scrape_incremental(data)
+        assert result["batch_label"] == "wealth-scrape"
+
+    def test_正常系_summaryなしの記事ではclaimが生成されない(self) -> None:
+        data = {
+            "session_id": "test",
+            "mode": "incremental",
+            "themes": {
+                "test_theme": {
+                    "name_en": "Test Theme",
+                    "keywords_en": [],
+                    "articles": [
+                        {
+                            "url": "https://example.com/article",
+                            "title": "Article without summary",
+                            "summary": "",
+                            "published": "2026-03-07T12:00:00+00:00",
+                        }
+                    ],
+                }
+            },
+        }
+        result = map_wealth_scrape_incremental(data)
+        assert len(result["claims"]) == 0
+        assert len(result["relations"].get("source_claim", [])) == 0
+
+    def test_エッジケース_空テーマで空結果(self) -> None:
+        data = {"session_id": "test", "mode": "incremental", "themes": {}}
+        result = map_wealth_scrape_incremental(data)
+        assert len(result["sources"]) == 0
+        assert len(result["topics"]) == 0
+        assert len(result["claims"]) == 0
 
 
 # ---------------------------------------------------------------------------

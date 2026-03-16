@@ -1425,53 +1425,209 @@ def _scan_wealth_directory(
     return results
 
 
-def map_wealth_scrape(data: dict[str, Any]) -> dict[str, Any]:
-    """Map wealth-scrape session JSON to graph-queue components.
+def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
+    """Map wealth-scrape backfill session to graph-queue components.
 
-    Handles both backfill and incremental mode session data.  The data
-    structure mirrors ``map_asset_management`` with ``themes.{key}.articles[]``.
+    Backfill mode produces Source, Topic, Entity (domain), and keyword-matched
+    ``tagged`` relations.  No claims are generated.
 
     Parameters
     ----------
     data : dict[str, Any]
         Input data with ``themes.{key}.articles[]``, ``session_id``.
+        Each theme may include ``keywords_en`` for title-based tagging.
 
     Returns
     -------
     dict[str, Any]
-        Mapped components with ``sources[]`` and ``topics[]``.
+        Mapped components with ``sources[]``, ``topics[]``, ``entities[]``,
+        and ``relations.tagged[]``.
     """
     themes = data.get("themes", {})
     sources: list[dict[str, Any]] = []
     topics: list[dict[str, Any]] = []
+    entities: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+    seen_domains: set[str] = set()
 
     for theme_key, theme_data in themes.items():
         name_en = theme_data.get("name_en", theme_key)
+        topic_id = generate_topic_id(name_en, "wealth-management")
 
         topics.append(
             {
-                "topic_id": generate_topic_id(name_en, "wealth"),
+                "topic_id": topic_id,
                 "name": name_en,
-                "category": "wealth",
+                "category": "wealth-management",
                 "theme_key": theme_key,
             }
         )
 
+        keywords_en: list[str] = theme_data.get("keywords_en", [])
         articles = theme_data.get("articles", [])
+
         for article in articles:
             url = article.get("url", "")
-            if url:
-                sources.append(
-                    _make_source(
-                        url,
-                        title=article.get("title", ""),
-                        published=article.get("published", ""),
-                        feed_source=article.get("feed_source", ""),
-                        domain=article.get("domain", ""),
-                    )
+            if not url:
+                continue
+
+            domain = article.get("domain", "")
+            source_id = generate_source_id(url)
+
+            sources.append(
+                _make_source(
+                    url,
+                    title=article.get("title", ""),
+                    published=article.get("published", ""),
+                    source_type="blog",
+                    domain=domain,
+                )
+            )
+
+            # Entity: one per unique domain
+            if domain and domain not in seen_domains:
+                seen_domains.add(domain)
+                entities.append(
+                    {
+                        "entity_id": generate_entity_id(domain, "domain"),
+                        "name": domain,
+                        "entity_type": "domain",
+                    }
                 )
 
-    return _mapped_result(data, "wealth-scrape", sources=sources, topics=topics)
+            # Keyword matching for tagged relation
+            title_lower = article.get("title", "").lower()
+            for kw in keywords_en:
+                if kw.lower() in title_lower:
+                    tagged_rels.append({"from_id": source_id, "to_id": topic_id})
+                    break
+
+    rels = _empty_rels()
+    rels["tagged"] = tagged_rels
+
+    return _mapped_result(
+        data,
+        "wealth-scrape",
+        sources=sources,
+        topics=topics,
+        entities=entities,
+        relations=rels,
+    )
+
+
+def map_wealth_scrape_incremental(data: dict[str, Any]) -> dict[str, Any]:
+    """Map wealth-scrape incremental session to graph-queue components.
+
+    Incremental mode produces Source, Topic, Claim, and keyword-matched
+    ``tagged`` / ``source_claim`` relations.  No domain entities are generated.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``themes.{key}.articles[]``, ``session_id``.
+        Each article should include ``summary`` for claim generation.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``sources[]``, ``topics[]``, ``claims[]``,
+        and ``relations.tagged[]``, ``relations.source_claim[]``.
+    """
+    themes = data.get("themes", {})
+    sources: list[dict[str, Any]] = []
+    topics: list[dict[str, Any]] = []
+    claims: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+    source_claim_rels: list[dict[str, str]] = []
+
+    for theme_key, theme_data in themes.items():
+        name_en = theme_data.get("name_en", theme_key)
+        topic_id = generate_topic_id(name_en, "wealth-management")
+
+        topics.append(
+            {
+                "topic_id": topic_id,
+                "name": name_en,
+                "category": "wealth-management",
+                "theme_key": theme_key,
+            }
+        )
+
+        keywords_en: list[str] = theme_data.get("keywords_en", [])
+        articles = theme_data.get("articles", [])
+
+        for article in articles:
+            url = article.get("url", "")
+            if not url:
+                continue
+
+            source_id = generate_source_id(url)
+
+            sources.append(
+                _make_source(
+                    url,
+                    title=article.get("title", ""),
+                    published=article.get("published", ""),
+                    feed_source=article.get("feed_source", ""),
+                    domain=article.get("domain", ""),
+                )
+            )
+
+            # Claim from summary
+            summary = article.get("summary", "")
+            if summary:
+                claim_id = generate_claim_id(summary)
+                claims.append(
+                    {
+                        "claim_id": claim_id,
+                        "content": summary,
+                        "source_id": source_id,
+                        "category": "wealth-management",
+                    }
+                )
+                source_claim_rels.append({"from_id": source_id, "to_id": claim_id})
+
+            # Keyword matching for tagged relation
+            title_lower = article.get("title", "").lower()
+            for kw in keywords_en:
+                if kw.lower() in title_lower:
+                    tagged_rels.append({"from_id": source_id, "to_id": topic_id})
+                    break
+
+    rels = _empty_rels()
+    rels["tagged"] = tagged_rels
+    rels["source_claim"] = source_claim_rels
+
+    return _mapped_result(
+        data,
+        "wealth-scrape",
+        sources=sources,
+        topics=topics,
+        claims=claims,
+        relations=rels,
+    )
+
+
+def map_wealth_scrape(data: dict[str, Any]) -> dict[str, Any]:
+    """Dispatch wealth-scrape mapping based on ``mode``.
+
+    Delegates to :func:`map_wealth_scrape_backfill` when ``mode == "backfill"``,
+    and to :func:`map_wealth_scrape_incremental` otherwise (default).
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``mode``, ``themes.{key}.articles[]``, ``session_id``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components (delegated to the appropriate sub-mapper).
+    """
+    mode = data.get("mode", "")
+    if mode == "backfill":
+        return map_wealth_scrape_backfill(data)
+    return map_wealth_scrape_incremental(data)
 
 
 # ---------------------------------------------------------------------------
