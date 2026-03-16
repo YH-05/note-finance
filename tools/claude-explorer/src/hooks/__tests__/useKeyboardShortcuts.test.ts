@@ -18,9 +18,9 @@ function fireKeyDown(key: string, options: Partial<KeyboardEventInit> = {}) {
 
 describe("useKeyboardShortcuts", () => {
   let handlers: {
-    onClosePanel: ReturnType<typeof vi.fn>;
-    onFocusSearch: ReturnType<typeof vi.fn>;
-    onViewModeChange: ReturnType<typeof vi.fn>;
+    onClosePanel: () => void;
+    onFocusSearch: () => void;
+    onViewModeChange: (mode: "grid" | "graph") => void;
   };
 
   beforeEach(() => {

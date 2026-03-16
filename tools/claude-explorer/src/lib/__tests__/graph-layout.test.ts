@@ -135,7 +135,6 @@ describe("computeGraphLayout", () => {
 
   it("sets correct node data fields", () => {
     const comp = makeComponent("agent:a");
-    const edges = [makeEdge("agent:a", "agent:a")]; // self-ref won't show, but node will if not isolated
     const result = computeGraphLayout([comp], [], { direction: "LR", hideIsolated: false });
 
     expect(result.nodes).toHaveLength(1);
