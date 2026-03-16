@@ -2,20 +2,22 @@
  * Root application component.
  *
  * Integrates the graph data, filter state, and all layout / grid components.
- * Manages the Grid/Graph view toggle (Graph view is a future placeholder).
+ * Manages the Grid/Graph view toggle (Graph view is a future placeholder)
+ * and the detail panel selection state.
  */
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useGraphData } from "@/hooks/useGraphData";
 import { useFilter } from "@/hooks/useFilter";
 import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { FilterBar } from "@/components/grid/FilterBar";
 import { CardGrid } from "@/components/grid/CardGrid";
+import { DetailPanel } from "@/components/detail/DetailPanel";
 import type { ViewMode } from "@/lib/constants";
 
 function App() {
-  const { components, stats, categories } = useGraphData();
+  const { data, components, componentMap, stats, categories } = useGraphData();
   const {
     activeTypes,
     activeCategories,
@@ -28,6 +30,19 @@ function App() {
   } = useFilter();
 
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const selectedComponent = selectedId
+    ? (componentMap.get(selectedId) ?? null)
+    : null;
+
+  const handleSelect = useCallback((id: string) => {
+    setSelectedId(id);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setSelectedId(null);
+  }, []);
 
   const filteredComponents = filterComponents(components);
 
@@ -61,7 +76,10 @@ function App() {
           />
 
           {viewMode === "grid" ? (
-            <CardGrid components={filteredComponents} />
+            <CardGrid
+              components={filteredComponents}
+              onSelect={handleSelect}
+            />
           ) : (
             <div className="flex items-center justify-center h-64">
               <p className="text-gray-500">
@@ -71,6 +89,15 @@ function App() {
           )}
         </main>
       </div>
+
+      {/* Detail panel (slides in from right) */}
+      <DetailPanel
+        component={selectedComponent}
+        edges={data.edges}
+        componentMap={componentMap}
+        onSelect={handleSelect}
+        onClose={handleClose}
+      />
     </div>
   );
 }

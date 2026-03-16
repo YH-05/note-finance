@@ -9,9 +9,11 @@ import { ComponentCard } from "@/components/cards/ComponentCard";
 
 interface CardGridProps {
   components: Component[];
+  /** Callback when a card is clicked. */
+  onSelect?: (id: string) => void;
 }
 
-export function CardGrid({ components }: CardGridProps) {
+export function CardGrid({ components, onSelect }: CardGridProps) {
   if (components.length === 0) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -28,7 +30,11 @@ export function CardGrid({ components }: CardGridProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
       {components.map((component) => (
-        <ComponentCard key={component.id} component={component} />
+        <ComponentCard
+          key={component.id}
+          component={component}
+          onSelect={onSelect}
+        />
       ))}
     </div>
   );
