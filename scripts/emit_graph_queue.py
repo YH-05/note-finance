@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Emit graph-queue JSON from various command outputs.
 
-Converts outputs from 8 different finance workflow commands into a
+Converts outputs from 9 different finance workflow commands into a
 unified graph-queue format. Each command produces data in a different
 JSON structure; this script normalises them all into a single schema.
 
@@ -15,6 +15,7 @@ Supported commands
 - finance-full
 - pdf-extraction
 - wealth-scrape (supports both JSON file and directory input)
+- topic-discovery
 
 Usage
 -----
@@ -1631,6 +1632,273 @@ def map_wealth_scrape(data: dict[str, Any]) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# topic-discovery constants & helpers
+# ---------------------------------------------------------------------------
+
+TOPIC_DISCOVERY_CATEGORIES: dict[str, str] = {
+    "market_report": "マーケットレポート",
+    "stock_analysis": "個別株分析",
+    "macro_economy": "マクロ経済",
+    "asset_management": "資産形成",
+    "side_business": "副業・収益化",
+    "quant_analysis": "クオンツ分析",
+    "investment_education": "投資教育",
+}
+"""Category key to Japanese name mapping for topic-discovery."""
+
+
+def _magnitude_from_score(total: int) -> str:
+    """Determine magnitude label from a total suggestion score.
+
+    Parameters
+    ----------
+    total : int
+        Total score (sum of 5 scoring axes).
+
+    Returns
+    -------
+    str
+        ``"strong"`` if >= 40, ``"moderate"`` if >= 30, else ``"slight"``.
+    """
+    if total >= 40:
+        return "strong"
+    if total >= 30:
+        return "moderate"
+    return "slight"
+
+
+def _build_td_claim(
+    suggestion: dict[str, Any],
+    session_id: str,
+    generated_at: str,
+) -> dict[str, Any]:
+    """Build a Claim node dict from a single topic-discovery suggestion.
+
+    Parameters
+    ----------
+    suggestion : dict[str, Any]
+        Raw suggestion dict from topic-discovery output.
+    session_id : str
+        Session identifier for ID construction.
+    generated_at : str
+        ISO 8601 timestamp.
+
+    Returns
+    -------
+    dict[str, Any]
+        Claim node dict.
+    """
+    scores = suggestion.get("scores", {})
+    total_score = scores.get("total", 0)
+    topic_title = suggestion.get("topic", "")
+    rationale = suggestion.get("rationale", "")
+    key_points = suggestion.get("key_points", [])
+
+    return {
+        "claim_id": f"ts:{session_id}:rank{suggestion.get('rank', 0)}",
+        "content": f"{topic_title}: {rationale}" if rationale else topic_title,
+        "claim_type": "recommendation",
+        "sentiment": "neutral",
+        "magnitude": _magnitude_from_score(total_score),
+        "created_at": generated_at,
+        "rank": suggestion.get("rank", 0),
+        "topic_title": topic_title,
+        "total_score": total_score,
+        "timeliness": scores.get("timeliness", 0),
+        "information_availability": scores.get("information_availability", 0),
+        "reader_interest": scores.get("reader_interest", 0),
+        "feasibility": scores.get("feasibility", 0),
+        "uniqueness": scores.get("uniqueness", 0),
+        "estimated_word_count": suggestion.get("estimated_word_count"),
+        "target_audience": suggestion.get("target_audience"),
+        "selected": suggestion.get("selected"),
+        "key_points": json.dumps(key_points, ensure_ascii=False)
+        if key_points
+        else "[]",
+        "suggested_period": suggestion.get("suggested_period"),
+    }
+
+
+def _build_td_facts(
+    search_insights: dict[str, Any],
+    session_id: str,
+    generated_at: str,
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    """Build Fact nodes and STATES_FACT relations from search trends.
+
+    Parameters
+    ----------
+    search_insights : dict[str, Any]
+        Search insights dict with ``trends[]``.
+    session_id : str
+        Session identifier for ID construction.
+    generated_at : str
+        ISO 8601 timestamp.
+
+    Returns
+    -------
+    tuple[list[dict[str, Any]], list[dict[str, str]]]
+        A 2-tuple of (fact_nodes, source_fact_relations).
+    """
+    generated_at_date = generated_at[:10] if generated_at else ""
+    facts: list[dict[str, Any]] = []
+    rels: list[dict[str, str]] = []
+
+    for i, trend in enumerate(search_insights.get("trends", [])):
+        query = trend.get("query", "")
+        source_type = trend.get("source", "")
+        for j, finding in enumerate(trend.get("key_findings", [])):
+            fact_id = f"trend:{session_id}:{i}:{j}"
+            facts.append(
+                {
+                    "fact_id": fact_id,
+                    "content": finding,
+                    "fact_type": "event",
+                    "as_of_date": generated_at_date,
+                    "created_at": generated_at,
+                    "search_query": query,
+                    "search_source": source_type,
+                }
+            )
+            rels.append(
+                {"from_id": session_id, "to_id": fact_id, "type": "STATES_FACT"}
+            )
+
+    return facts, rels
+
+
+def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
+    """Map topic-discovery session data to graph-queue components.
+
+    Uses string-based IDs (not UUID5) as defined in the neo4j-mapping spec.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``session_id``, ``generated_at``, ``suggestions[]``,
+        ``search_insights``, ``recommendation``, and optionally
+        ``parameters.no_search``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``sources[]``, ``topics[]``, ``claims[]``,
+        ``entities[]``, ``facts[]``, and ``relations``.
+    """
+    session_id = data.get("session_id", "")
+    generated_at = data.get("generated_at", "")
+    suggestions = data.get("suggestions", [])
+    search_insights = data.get("search_insights") or {}
+    recommendation = data.get("recommendation", "")
+    no_search = (data.get("parameters") or {}).get("no_search", False)
+
+    # --- Source node (1 per session) ---
+    top_score = max(
+        (s.get("scores", {}).get("total", 0) for s in suggestions), default=0
+    )
+    search_queries_count = (
+        search_insights.get("queries_executed", 0) if not no_search else 0
+    )
+    generated_at_date = generated_at[:10] if generated_at else ""
+
+    sources: list[dict[str, Any]] = [
+        {
+            "source_id": session_id,
+            "title": f"トピック提案セッション {generated_at_date}",
+            "source_type": "original",
+            "fetched_at": generated_at,
+            "language": "ja",
+            "command_source": "topic-discovery",
+            "suggestion_count": len(suggestions),
+            "top_score": top_score,
+            "search_queries_count": search_queries_count,
+            "recommendation": recommendation,
+        }
+    ]
+
+    # Accumulators for nodes and relations
+    seen_categories: set[str] = set()
+    seen_tickers: set[str] = set()
+    topics: list[dict[str, Any]] = []
+    claims: list[dict[str, Any]] = []
+    entities: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+    source_claim_rels: list[dict[str, str]] = []
+    claim_entity_rels: list[dict[str, str]] = []
+
+    for suggestion in suggestions:
+        category_key = suggestion.get("category", "")
+        topic_id = f"content:{category_key}"
+
+        # Topic node (MERGE semantics via dedup)
+        if category_key and category_key not in seen_categories:
+            seen_categories.add(category_key)
+            topics.append(
+                {
+                    "topic_id": topic_id,
+                    "name": TOPIC_DISCOVERY_CATEGORIES.get(category_key, category_key),
+                    "category": "content_planning",
+                }
+            )
+            tagged_rels.append(
+                {"from_id": session_id, "to_id": topic_id, "type": "TAGGED"}
+            )
+
+        # Claim node
+        claim = _build_td_claim(suggestion, session_id, generated_at)
+        claims.append(claim)
+        source_claim_rels.append(
+            {"from_id": session_id, "to_id": claim["claim_id"], "type": "MAKES_CLAIM"}
+        )
+        if category_key:
+            tagged_rels.append(
+                {"from_id": claim["claim_id"], "to_id": topic_id, "type": "TAGGED"}
+            )
+
+        # Entity nodes from suggested_symbols
+        for ticker in suggestion.get("suggested_symbols", []):
+            entity_id = f"symbol:{ticker}"
+            if ticker not in seen_tickers:
+                seen_tickers.add(ticker)
+                entities.append(
+                    {
+                        "entity_id": entity_id,
+                        "name": ticker,
+                        "entity_type": "index" if ticker.startswith("^") else "stock",
+                        "ticker": ticker,
+                    }
+                )
+            claim_entity_rels.append(
+                {"from_id": claim["claim_id"], "to_id": entity_id, "type": "ABOUT"}
+            )
+
+    # Fact nodes from search_insights.trends (skip when no_search)
+    if no_search:
+        facts: list[dict[str, Any]] = []
+        source_fact_rels: list[dict[str, str]] = []
+    else:
+        facts, source_fact_rels = _build_td_facts(
+            search_insights, session_id, generated_at
+        )
+
+    return _mapped_result(
+        data,
+        "topic-discovery",
+        sources=sources,
+        topics=topics,
+        claims=claims,
+        entities=entities,
+        facts=facts,
+        relations={
+            "tagged": tagged_rels,
+            "source_claim": source_claim_rels,
+            "claim_entity": claim_entity_rels,
+            "source_fact": source_fact_rels,
+        },
+    )
+
+
+# ---------------------------------------------------------------------------
 # Command → Mapper dispatch
 # ---------------------------------------------------------------------------
 
@@ -1643,6 +1911,7 @@ COMMAND_MAPPERS: dict[str, MapperFn] = {
     "finance-full": map_finance_full,
     "pdf-extraction": map_pdf_extraction,
     "wealth-scrape": map_wealth_scrape,
+    "topic-discovery": map_topic_discovery,
 }
 """Dispatch table mapping command names to their mapper functions."""
 

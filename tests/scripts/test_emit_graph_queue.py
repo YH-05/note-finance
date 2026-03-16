@@ -1,8 +1,9 @@
 """Tests for scripts/emit_graph_queue.py.
 
 graph-queue 生成スクリプトの単体テスト。
-8コマンドのマッピングロジック、ID生成、CLI引数パース、自動クリーンアップを検証。
+9コマンドのマッピングロジック、ID生成、CLI引数パース、自動クリーンアップを検証。
 wealth-scrape のディレクトリ入力（backfill）およびJSON入力（incremental）を含む。
+topic-discovery の文字列ベースIDマッピングとno_search条件分岐を含む。
 """
 
 from __future__ import annotations
@@ -19,7 +20,9 @@ import pytest
 from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
+    TOPIC_DISCOVERY_CATEGORIES,
     _load_wealth_themes,
+    _magnitude_from_score,
     _match_domain_to_theme,
     _parse_yaml_frontmatter,
     _scan_wealth_directory,
@@ -36,6 +39,7 @@ from emit_graph_queue import (
     map_finance_news,
     map_market_report,
     map_reddit_topics,
+    map_topic_discovery,
     map_wealth_scrape,
     map_wealth_scrape_backfill,
     map_wealth_scrape_incremental,
@@ -2248,3 +2252,388 @@ class TestWealthScrapeInCommands:
 
     def test_正常系_wealth_scrapeがCOMMANDSに含まれる(self) -> None:
         assert "wealth-scrape" in COMMANDS
+
+
+# ---------------------------------------------------------------------------
+# topic-discovery: _magnitude_from_score
+# ---------------------------------------------------------------------------
+
+
+class TestMagnitudeFromScore:
+    """_magnitude_from_score ヘルパーのテスト。"""
+
+    def test_正常系_40以上でstrong(self) -> None:
+        assert _magnitude_from_score(40) == "strong"
+        assert _magnitude_from_score(50) == "strong"
+
+    def test_正常系_30以上40未満でmoderate(self) -> None:
+        assert _magnitude_from_score(30) == "moderate"
+        assert _magnitude_from_score(39) == "moderate"
+
+    def test_正常系_30未満でslight(self) -> None:
+        assert _magnitude_from_score(29) == "slight"
+        assert _magnitude_from_score(0) == "slight"
+
+
+# ---------------------------------------------------------------------------
+# topic-discovery: TOPIC_DISCOVERY_CATEGORIES
+# ---------------------------------------------------------------------------
+
+
+class TestTopicDiscoveryCategories:
+    """TOPIC_DISCOVERY_CATEGORIES 定数のテスト。"""
+
+    def test_正常系_7カテゴリが定義されている(self) -> None:
+        assert len(TOPIC_DISCOVERY_CATEGORIES) == 7
+
+    def test_正常系_全キーが期待通り(self) -> None:
+        expected_keys = {
+            "market_report",
+            "stock_analysis",
+            "macro_economy",
+            "asset_management",
+            "side_business",
+            "quant_analysis",
+            "investment_education",
+        }
+        assert set(TOPIC_DISCOVERY_CATEGORIES.keys()) == expected_keys
+
+
+# ---------------------------------------------------------------------------
+# topic-discovery: map_topic_discovery
+# ---------------------------------------------------------------------------
+
+
+def _topic_discovery_data(
+    *,
+    no_search: bool = False,
+    suggestions: list[dict[str, Any]] | None = None,
+    search_insights: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Build sample topic-discovery input data for tests."""
+    if suggestions is None:
+        suggestions = [
+            {
+                "rank": 1,
+                "topic": "S&P500 週間レビュー",
+                "category": "market_report",
+                "suggested_symbols": ["^GSPC", "^DJI"],
+                "suggested_period": "2026-03-10 to 2026-03-14",
+                "scores": {
+                    "timeliness": 9,
+                    "information_availability": 8,
+                    "reader_interest": 8,
+                    "feasibility": 9,
+                    "uniqueness": 7,
+                    "total": 41,
+                },
+                "rationale": "市場の動向が注目されている",
+                "key_points": ["ポイント1", "ポイント2"],
+                "target_audience": "intermediate",
+                "estimated_word_count": 4000,
+                "selected": None,
+            },
+            {
+                "rank": 2,
+                "topic": "日銀金利政策の行方",
+                "category": "macro_economy",
+                "suggested_symbols": ["^N225"],
+                "suggested_period": "2026-03-01 to 2026-03-14",
+                "scores": {
+                    "timeliness": 8,
+                    "information_availability": 7,
+                    "reader_interest": 7,
+                    "feasibility": 6,
+                    "uniqueness": 5,
+                    "total": 33,
+                },
+                "rationale": "金融政策への関心が高まっている",
+                "key_points": ["金利動向"],
+                "target_audience": "beginner",
+                "estimated_word_count": 3000,
+                "selected": None,
+            },
+        ]
+    if search_insights is None and not no_search:
+        search_insights = {
+            "queries_executed": 10,
+            "trends": [
+                {
+                    "query": "S&P 500 weekly performance",
+                    "source": "tavily",
+                    "key_findings": ["S&P500が2%上昇", "テック株が牽引"],
+                },
+                {
+                    "query": "日銀 金利 最新",
+                    "source": "gemini",
+                    "key_findings": ["日銀が利上げを見送り"],
+                },
+            ],
+        }
+    return {
+        "session_id": "topic-suggestion-2026-03-16T1430",
+        "generated_at": "2026-03-16T14:30:00+09:00",
+        "parameters": {"category": None, "count": 5, "no_search": no_search},
+        "search_insights": search_insights,
+        "suggestions": suggestions,
+        "recommendation": "マーケットレポートの執筆を推奨",
+    }
+
+
+class TestMapTopicDiscovery:
+    """map_topic_discovery のテスト。"""
+
+    def test_正常系_ソースノードが1つ生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        assert len(result["sources"]) == 1
+        src = result["sources"][0]
+        assert src["source_id"] == "topic-suggestion-2026-03-16T1430"
+        assert src["source_type"] == "original"
+        assert src["command_source"] == "topic-discovery"
+        assert src["suggestion_count"] == 2
+        assert src["top_score"] == 41
+        assert src["language"] == "ja"
+
+    def test_正常系_トピックノードがカテゴリごとに生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        assert len(result["topics"]) == 2
+        topic_ids = {t["topic_id"] for t in result["topics"]}
+        assert topic_ids == {"content:market_report", "content:macro_economy"}
+        for t in result["topics"]:
+            assert t["category"] == "content_planning"
+
+    def test_正常系_トピックノードが重複しない(self) -> None:
+        """同じカテゴリが複数提案に含まれる場合、トピックは1つだけ生成。"""
+        suggestions = [
+            {
+                "rank": 1,
+                "topic": "トピックA",
+                "category": "market_report",
+                "scores": {"total": 35},
+            },
+            {
+                "rank": 2,
+                "topic": "トピックB",
+                "category": "market_report",
+                "scores": {"total": 30},
+            },
+        ]
+        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        assert len(result["topics"]) == 1
+        assert result["topics"][0]["topic_id"] == "content:market_report"
+
+    def test_正常系_クレイムノードが提案ごとに生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        assert len(result["claims"]) == 2
+        c1 = result["claims"][0]
+        assert c1["claim_id"] == "ts:topic-suggestion-2026-03-16T1430:rank1"
+        assert c1["claim_type"] == "recommendation"
+        assert c1["sentiment"] == "neutral"
+        assert c1["magnitude"] == "strong"
+        assert c1["rank"] == 1
+        assert c1["total_score"] == 41
+        assert c1["timeliness"] == 9
+        assert c1["topic_title"] == "S&P500 週間レビュー"
+        assert c1["content"] == "S&P500 週間レビュー: 市場の動向が注目されている"
+        assert c1["estimated_word_count"] == 4000
+        assert c1["target_audience"] == "intermediate"
+        assert c1["selected"] is None
+        assert '"ポイント1"' in c1["key_points"]
+
+    def test_正常系_クレイムのmagnitudeがスコアで判定される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        c1 = result["claims"][0]  # total=41 → strong
+        c2 = result["claims"][1]  # total=33 → moderate
+        assert c1["magnitude"] == "strong"
+        assert c2["magnitude"] == "moderate"
+
+    def test_正常系_エンティティノードがティッカーから生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        assert len(result["entities"]) == 3  # ^GSPC, ^DJI, ^N225
+        entity_ids = {e["entity_id"] for e in result["entities"]}
+        assert entity_ids == {"symbol:^GSPC", "symbol:^DJI", "symbol:^N225"}
+
+    def test_正常系_エンティティタイプが正しく判定される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        for e in result["entities"]:
+            if e["ticker"].startswith("^"):
+                assert e["entity_type"] == "index"
+            else:
+                assert e["entity_type"] == "stock"
+
+    def test_正常系_stock銘柄のエンティティタイプ(self) -> None:
+        suggestions = [
+            {
+                "rank": 1,
+                "topic": "トヨタ分析",
+                "category": "stock_analysis",
+                "suggested_symbols": ["7203.T"],
+                "scores": {"total": 35},
+            },
+        ]
+        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        assert len(result["entities"]) == 1
+        assert result["entities"][0]["entity_type"] == "stock"
+        assert result["entities"][0]["entity_id"] == "symbol:7203.T"
+
+    def test_正常系_エンティティノードが重複しない(self) -> None:
+        """複数提案に同じティッカーが含まれる場合、エンティティは1つだけ。"""
+        suggestions = [
+            {
+                "rank": 1,
+                "topic": "A",
+                "category": "market_report",
+                "suggested_symbols": ["^GSPC"],
+                "scores": {"total": 35},
+            },
+            {
+                "rank": 2,
+                "topic": "B",
+                "category": "stock_analysis",
+                "suggested_symbols": ["^GSPC"],
+                "scores": {"total": 30},
+            },
+        ]
+        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        assert len(result["entities"]) == 1
+
+    def test_正常系_ファクトノードがトレンドから生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        # 2 trends: first has 2 findings, second has 1 → 3 facts total
+        assert len(result["facts"]) == 3
+        f0 = result["facts"][0]
+        assert f0["fact_id"] == "trend:topic-suggestion-2026-03-16T1430:0:0"
+        assert f0["content"] == "S&P500が2%上昇"
+        assert f0["fact_type"] == "event"
+        assert f0["search_query"] == "S&P 500 weekly performance"
+        assert f0["search_source"] == "tavily"
+        assert f0["as_of_date"] == "2026-03-16"
+
+    def test_正常系_no_search時はファクトがスキップされる(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data(no_search=True))
+        assert len(result["facts"]) == 0
+        assert len(result["relations"]["source_fact"]) == 0
+
+    def test_正常系_no_search時はsearch_queries_countが0(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data(no_search=True))
+        assert result["sources"][0]["search_queries_count"] == 0
+
+    def test_正常系_リレーションtaggedが正しく生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        tagged = result["relations"]["tagged"]
+        # Source->Topic: 2 (2 categories) + Claim->Topic: 2 (2 claims) = 4
+        assert len(tagged) == 4
+        source_tagged = [
+            r for r in tagged if r["from_id"].startswith("topic-suggestion")
+        ]
+        assert len(source_tagged) == 2
+
+    def test_正常系_リレーションsource_claimが正しく生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        sc = result["relations"]["source_claim"]
+        assert len(sc) == 2
+        for r in sc:
+            assert r["from_id"] == "topic-suggestion-2026-03-16T1430"
+            assert r["type"] == "MAKES_CLAIM"
+
+    def test_正常系_リレーションclaim_entityが正しく生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        ce = result["relations"]["claim_entity"]
+        # Claim 1 has 2 symbols, Claim 2 has 1 symbol → 3
+        assert len(ce) == 3
+        for r in ce:
+            assert r["type"] == "ABOUT"
+
+    def test_正常系_リレーションsource_factが正しく生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        sf = result["relations"]["source_fact"]
+        assert len(sf) == 3
+        for r in sf:
+            assert r["from_id"] == "topic-suggestion-2026-03-16T1430"
+            assert r["type"] == "STATES_FACT"
+
+    def test_正常系_IDが全て文字列ベース(self) -> None:
+        """UUID5 ではなく文字列ベースの ID が使用されていることを確認。"""
+        result = map_topic_discovery(_topic_discovery_data())
+
+        # Source ID is session_id directly
+        assert result["sources"][0]["source_id"] == "topic-suggestion-2026-03-16T1430"
+
+        # Topic ID is content:{category_key}
+        for t in result["topics"]:
+            assert t["topic_id"].startswith("content:")
+
+        # Claim ID is ts:{session_id}:rank{rank}
+        for c in result["claims"]:
+            assert c["claim_id"].startswith("ts:")
+
+        # Entity ID is symbol:{ticker}
+        for e in result["entities"]:
+            assert e["entity_id"].startswith("symbol:")
+
+        # Fact ID is trend:{session_id}:{i}:{j}
+        for f in result["facts"]:
+            assert f["fact_id"].startswith("trend:")
+
+    def test_正常系_batch_labelがtopic_discovery(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data())
+        assert result["batch_label"] == "topic-discovery"
+
+    def test_エッジケース_空のsuggestions(self) -> None:
+        result = map_topic_discovery(_topic_discovery_data(suggestions=[]))
+        assert len(result["sources"]) == 1
+        assert result["sources"][0]["suggestion_count"] == 0
+        assert result["sources"][0]["top_score"] == 0
+        assert len(result["topics"]) == 0
+        assert len(result["claims"]) == 0
+        assert len(result["entities"]) == 0
+
+    def test_エッジケース_suggested_symbolsなしの提案(self) -> None:
+        suggestions = [
+            {
+                "rank": 1,
+                "topic": "副業ガイド",
+                "category": "side_business",
+                "scores": {"total": 25},
+                "rationale": "理由",
+            },
+        ]
+        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        assert len(result["entities"]) == 0
+        assert len(result["relations"]["claim_entity"]) == 0
+
+    def test_エッジケース_search_insightsがnull(self) -> None:
+        data = _topic_discovery_data()
+        data["search_insights"] = None
+        result = map_topic_discovery(data)
+        assert len(result["facts"]) == 0
+
+    def test_正常系_5ノードタイプが全て生成される(self) -> None:
+        """受け入れ条件: 5ノードタイプ + 4リレーション全て生成。"""
+        result = map_topic_discovery(_topic_discovery_data())
+        assert len(result["sources"]) > 0, "Source ノードが必要"
+        assert len(result["topics"]) > 0, "Topic ノードが必要"
+        assert len(result["claims"]) > 0, "Claim ノードが必要"
+        assert len(result["entities"]) > 0, "Entity ノードが必要"
+        assert len(result["facts"]) > 0, "Fact ノードが必要"
+
+    def test_正常系_4リレーションが全て生成される(self) -> None:
+        """受け入れ条件: 5ノードタイプ + 4リレーション全て生成。"""
+        result = map_topic_discovery(_topic_discovery_data())
+        rels = result["relations"]
+        assert len(rels["tagged"]) > 0, "tagged リレーションが必要"
+        assert len(rels["source_claim"]) > 0, "source_claim リレーションが必要"
+        assert len(rels["claim_entity"]) > 0, "claim_entity リレーションが必要"
+        assert len(rels["source_fact"]) > 0, "source_fact リレーションが必要"
+
+
+# ---------------------------------------------------------------------------
+# topic-discovery が COMMANDS に含まれることを確認
+# ---------------------------------------------------------------------------
+
+
+class TestTopicDiscoveryInCommands:
+    """topic-discovery が COMMANDS リストに含まれることを確認。"""
+
+    def test_正常系_topic_discoveryがCOMMANDSに含まれる(self) -> None:
+        assert "topic-discovery" in COMMANDS
