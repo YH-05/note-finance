@@ -1,11 +1,12 @@
 /**
  * Hook to manage filter state for the component explorer.
  *
- * Tracks active component types and categories, plus a search query.
- * Components are visible when they match ALL active filters:
+ * Tracks active component types and categories. Search is now handled
+ * externally by `useSearch` (Fuse.js fuzzy search) and passed in as
+ * `matchedIds`. Components are visible when they match ALL active filters:
  *   - type is in activeTypes (or activeTypes is empty = all)
  *   - category is in activeCategories (or activeCategories is empty = all)
- *   - name/description matches searchQuery (if non-empty)
+ *   - id is in matchedIds (if search is active, i.e. matchedIds !== null)
  */
 
 import { useCallback, useMemo, useState } from "react";
@@ -16,18 +17,23 @@ export interface UseFilterReturn {
   activeTypes: Set<ComponentType>;
   /** Currently active category filters. Empty = all categories shown. */
   activeCategories: Set<string>;
-  /** Free-text search query. */
-  searchQuery: string;
   /** Toggle a type on/off. */
   toggleType: (type: ComponentType) => void;
   /** Toggle a category on/off. */
   toggleCategory: (category: string) => void;
-  /** Set the search query. */
-  setSearchQuery: (query: string) => void;
-  /** Reset all filters. */
+  /** Reset all filters (type + category only; search is managed externally). */
   resetFilters: () => void;
-  /** Filter a list of components using the current state. */
-  filterComponents: (components: Component[]) => Component[];
+  /**
+   * Filter a list of components using the current type/category state
+   * plus an optional set of fuzzy-search-matched IDs.
+   *
+   * @param components - Full component list.
+   * @param matchedIds - IDs from fuzzy search, or null if search inactive.
+   */
+  filterComponents: (
+    components: Component[],
+    matchedIds: Set<string> | null,
+  ) => Component[];
 }
 
 export function useFilter(): UseFilterReturn {
@@ -35,7 +41,6 @@ export function useFilter(): UseFilterReturn {
   const [activeCategories, setActiveCategories] = useState<Set<string>>(
     new Set(),
   );
-  const [searchQuery, setSearchQuery] = useState("");
 
   const toggleType = useCallback((type: ComponentType) => {
     setActiveTypes((prev) => {
@@ -64,13 +69,13 @@ export function useFilter(): UseFilterReturn {
   const resetFilters = useCallback(() => {
     setActiveTypes(new Set());
     setActiveCategories(new Set());
-    setSearchQuery("");
   }, []);
 
   const filterComponents = useMemo(() => {
-    const lowerQuery = searchQuery.toLowerCase();
-
-    return (components: Component[]): Component[] => {
+    return (
+      components: Component[],
+      matchedIds: Set<string> | null,
+    ): Component[] => {
       return components.filter((c) => {
         // Type filter
         if (activeTypes.size > 0 && !activeTypes.has(c.type)) {
@@ -91,28 +96,21 @@ export function useFilter(): UseFilterReturn {
           }
         }
 
-        // Search filter
-        if (lowerQuery) {
-          const nameMatch = c.name.toLowerCase().includes(lowerQuery);
-          const descMatch = c.description.toLowerCase().includes(lowerQuery);
-          const slugMatch = c.slug.toLowerCase().includes(lowerQuery);
-          if (!nameMatch && !descMatch && !slugMatch) {
-            return false;
-          }
+        // Fuzzy search filter (from useSearch hook)
+        if (matchedIds !== null && !matchedIds.has(c.id)) {
+          return false;
         }
 
         return true;
       });
     };
-  }, [activeTypes, activeCategories, searchQuery]);
+  }, [activeTypes, activeCategories]);
 
   return {
     activeTypes,
     activeCategories,
-    searchQuery,
     toggleType,
     toggleCategory,
-    setSearchQuery,
     resetFilters,
     filterComponents,
   };

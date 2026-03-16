@@ -1,5 +1,8 @@
 /**
  * Header component with search input, stats badges, and view toggle.
+ *
+ * The search input exposes a ref via `searchInputRef` so that the
+ * keyboard shortcut handler can programmatically focus it.
  */
 
 import type { ComponentType } from "@/types";
@@ -15,6 +18,10 @@ interface HeaderProps {
   onViewModeChange: (mode: ViewMode) => void;
   filteredCount: number;
   totalCount: number;
+  /** Callback ref to capture the search input element for keyboard shortcut focus. */
+  searchInputRef: (el: HTMLInputElement | null) => void;
+  /** Whether a debounced search is pending. */
+  isSearching?: boolean;
 }
 
 export function Header({
@@ -25,6 +32,8 @@ export function Header({
   onViewModeChange,
   filteredCount,
   totalCount,
+  searchInputRef,
+  isSearching = false,
 }: HeaderProps) {
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
@@ -40,7 +49,7 @@ export function Header({
           </p>
         </div>
 
-        {/* View mode toggle */}
+        {/* View mode toggle with keyboard hints */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => onViewModeChange("grid")}
@@ -51,6 +60,7 @@ export function Header({
             }`}
           >
             Grid
+            <kbd className="ml-1.5 text-[10px] opacity-50">1</kbd>
           </button>
           <button
             onClick={() => onViewModeChange("graph")}
@@ -61,6 +71,7 @@ export function Header({
             }`}
           >
             Graph
+            <kbd className="ml-1.5 text-[10px] opacity-50">2</kbd>
           </button>
         </div>
       </div>
@@ -70,26 +81,37 @@ export function Header({
         {/* Search input */}
         <div className="relative flex-1 max-w-md">
           <input
+            ref={searchInputRef}
             type="text"
             placeholder="Search components..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-sm border border-gray-300 rounded-lg
+            className="w-full pl-9 pr-12 py-2 text-sm border border-gray-300 rounded-lg
                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
-          <svg
-            className="absolute left-3 top-2.5 h-4 w-4 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
+          {/* Search icon or spinner */}
+          {isSearching ? (
+            <div className="absolute left-3 top-2.5 h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600" />
+          ) : (
+            <svg
+              className="absolute left-3 top-2.5 h-4 w-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          )}
+          {/* Keyboard shortcut hint */}
+          <kbd className="absolute right-3 top-2 px-1.5 py-0.5 text-[10px] font-medium text-gray-400
+                          bg-gray-100 border border-gray-200 rounded">
+            /
+          </kbd>
         </div>
 
         {/* Stats badges */}

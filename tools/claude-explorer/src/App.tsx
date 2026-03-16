@@ -1,51 +1,104 @@
 /**
  * Root application component.
  *
- * Integrates the graph data, filter state, and all layout / grid components.
- * Manages the Grid/Graph view toggle and the detail panel selection state.
- * Filter state is shared between both views.
+ * Integrates the graph data, fuzzy search, filter state, deep linking,
+ * keyboard shortcuts, error boundary, and all layout / grid components.
+ *
+ * - Search: Fuse.js fuzzy search with 300ms debounce (useSearch)
+ * - Deep link: URL hash <-> selected component ID sync (useDeepLink)
+ * - Keyboard: Escape (close), / (search focus), 1/2 (view toggle)
+ * - Filter: type + category + search results shared between both views
  */
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useGraphData } from "@/hooks/useGraphData";
 import { useFilter } from "@/hooks/useFilter";
+import { useSearch } from "@/hooks/useSearch";
+import { useDeepLink } from "@/hooks/useDeepLink";
+import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { FilterBar } from "@/components/grid/FilterBar";
 import { CardGrid } from "@/components/grid/CardGrid";
 import { DependencyGraph } from "@/components/graph/DependencyGraph";
 import { DetailPanel } from "@/components/detail/DetailPanel";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import type { ViewMode } from "@/lib/constants";
 
 function App() {
   const { data, components, componentMap, stats, categories } = useGraphData();
+
+  // Build a set of valid IDs for deep link validation.
+  const validIds = useMemo(
+    () => new Set(components.map((c) => c.id)),
+    [components],
+  );
+
+  // Fuzzy search state (debounced Fuse.js).
+  const { searchQuery, setSearchQuery, matchedIds, isSearching } =
+    useSearch(components);
+
+  // Type / category filter state.
   const {
     activeTypes,
     activeCategories,
-    searchQuery,
     toggleType,
     toggleCategory,
-    setSearchQuery,
     resetFilters,
     filterComponents,
   } = useFilter();
 
+  // View mode (grid / graph).
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  // Deep-linked selection state (synced with URL hash).
+  const { selectedId, setSelectedId } = useDeepLink(validIds);
 
   const selectedComponent = selectedId
     ? (componentMap.get(selectedId) ?? null)
     : null;
 
-  const handleSelect = useCallback((id: string) => {
-    setSelectedId(id);
-  }, []);
+  const handleSelect = useCallback(
+    (id: string) => {
+      setSelectedId(id);
+    },
+    [setSelectedId],
+  );
 
   const handleClose = useCallback(() => {
     setSelectedId(null);
+  }, [setSelectedId]);
+
+  // Search input element captured via callback ref.
+  const [searchInputEl, setSearchInputEl] = useState<HTMLInputElement | null>(
+    null,
+  );
+  const searchInputRef = useCallback((el: HTMLInputElement | null) => {
+    setSearchInputEl(el);
   }, []);
 
-  const filteredComponents = filterComponents(components);
+  // Keyboard shortcuts.
+  useKeyboardShortcuts(
+    useMemo(
+      () => ({
+        onClosePanel: handleClose,
+        onFocusSearch: () => {
+          searchInputEl?.focus();
+        },
+        onViewModeChange: setViewMode,
+      }),
+      [handleClose, setViewMode, searchInputEl],
+    ),
+  );
+
+  // Reset filters including search query.
+  const handleResetAll = useCallback(() => {
+    resetFilters();
+    setSearchQuery("");
+  }, [resetFilters, setSearchQuery]);
+
+  // Apply all filters (type + category + fuzzy search).
+  const filteredComponents = filterComponents(components, matchedIds);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -57,6 +110,8 @@ function App() {
         onViewModeChange={setViewMode}
         filteredCount={filteredComponents.length}
         totalCount={components.length}
+        searchInputRef={searchInputRef}
+        isSearching={isSearching}
       />
 
       <div className="flex flex-1 overflow-hidden">
@@ -66,7 +121,7 @@ function App() {
           categories={categories}
           activeCategories={activeCategories}
           onToggleCategory={toggleCategory}
-          onResetFilters={resetFilters}
+          onResetFilters={handleResetAll}
         />
 
         <main className="flex-1 flex flex-col overflow-hidden">
@@ -76,22 +131,24 @@ function App() {
             stats={stats}
           />
 
-          {viewMode === "grid" ? (
-            <div className="flex-1 overflow-y-auto">
-              <CardGrid
-                components={filteredComponents}
-                onSelect={handleSelect}
-              />
-            </div>
-          ) : (
-            <div className="flex-1">
-              <DependencyGraph
-                components={filteredComponents}
-                edges={data.edges}
-                onNodeClick={handleSelect}
-              />
-            </div>
-          )}
+          <ErrorBoundary>
+            {viewMode === "grid" ? (
+              <div className="flex-1 overflow-y-auto">
+                <CardGrid
+                  components={filteredComponents}
+                  onSelect={handleSelect}
+                />
+              </div>
+            ) : (
+              <div className="flex-1">
+                <DependencyGraph
+                  components={filteredComponents}
+                  edges={data.edges}
+                  onNodeClick={handleSelect}
+                />
+              </div>
+            )}
+          </ErrorBoundary>
         </main>
       </div>
 
