@@ -79,7 +79,7 @@ function DependencyGraphInner({
   // Handle node click -> pass component ID up
   const handleNodeClick: NodeMouseHandler = useCallback(
     (_event, node) => {
-      const data = node.data as unknown as GraphNodeData;
+      const data = node.data as GraphNodeData;
       onNodeClick(data.component.id);
     },
     [onNodeClick],

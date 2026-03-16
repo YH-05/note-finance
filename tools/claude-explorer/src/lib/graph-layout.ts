@@ -146,8 +146,8 @@ export function computeGraphLayout(
       (e) =>
         !e.broken && visibleIdSet.has(e.source) && visibleIdSet.has(e.target),
     )
-    .map((e, i) => ({
-      id: `edge-${i}`,
+    .map((e) => ({
+      id: `edge-${e.source}-${e.target}-${e.type}`,
       source: e.source,
       target: e.target,
       type: "smoothstep",

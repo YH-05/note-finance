@@ -98,7 +98,10 @@ function App() {
   }, [resetFilters, setSearchQuery]);
 
   // Apply all filters (type + category + fuzzy search).
-  const filteredComponents = filterComponents(components, matchedIds);
+  const filteredComponents = useMemo(
+    () => filterComponents(components, matchedIds),
+    [filterComponents, components, matchedIds],
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">

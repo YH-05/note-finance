@@ -9,16 +9,21 @@
  *   back/forward navigation.
  */
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+/** Allowed characters in component IDs: type:slug format. */
+const VALID_HASH_RE = /^[a-z]+:[a-zA-Z0-9_-]+$/;
 
 /**
  * Parse the URL hash into a component ID.
  *
- * Strips the leading "#" and returns the rest, or null if empty.
+ * Strips the leading "#", validates format, and returns the ID or null.
  */
 function parseHash(): string | null {
   const hash = window.location.hash.slice(1); // remove "#"
-  return hash.length > 0 ? decodeURIComponent(hash) : null;
+  if (hash.length === 0) return null;
+  const decoded = decodeURIComponent(hash);
+  return VALID_HASH_RE.test(decoded) ? decoded : null;
 }
 
 /**
@@ -61,11 +66,17 @@ export function useDeepLink(validIds?: Set<string>): UseDeepLinkReturn {
     writeHash(id);
   }, []);
 
+  // Keep a ref to avoid re-registering listeners on every selectedId change.
+  const selectedIdRef = useRef(selectedId);
+  useEffect(() => {
+    selectedIdRef.current = selectedId;
+  }, [selectedId]);
+
   // Listen for hash changes from browser navigation (back/forward).
   useEffect(() => {
     const handleHashChange = () => {
       const newId = parseHash();
-      if (newId !== selectedId) {
+      if (newId !== selectedIdRef.current) {
         // Validate against known IDs if provided
         if (newId && validIds && !validIds.has(newId)) {
           setSelectedIdState(null);
@@ -82,7 +93,7 @@ export function useDeepLink(validIds?: Set<string>): UseDeepLinkReturn {
       window.removeEventListener("hashchange", handleHashChange);
       window.removeEventListener("popstate", handleHashChange);
     };
-  }, [selectedId, validIds]);
+  }, [validIds]);
 
   return {
     selectedId,

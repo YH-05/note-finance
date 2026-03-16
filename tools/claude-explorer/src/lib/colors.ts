@@ -20,6 +20,10 @@ export interface ColorScheme {
   textLight: string;
   /** Human-readable label */
   label: string;
+  /** Hex background color for React Flow nodes */
+  bgHex: string;
+  /** Hex border color for React Flow nodes */
+  borderHex: string;
 }
 
 export const TYPE_COLORS: Record<ComponentType, ColorScheme> = {
@@ -30,6 +34,8 @@ export const TYPE_COLORS: Record<ComponentType, ColorScheme> = {
     text: "text-blue-700",
     textLight: "text-blue-600",
     label: "Agent",
+    bgHex: "#eff6ff",
+    borderHex: "#60a5fa",
   },
   command: {
     border: "border-green-400",
@@ -38,6 +44,8 @@ export const TYPE_COLORS: Record<ComponentType, ColorScheme> = {
     text: "text-green-700",
     textLight: "text-green-600",
     label: "Command",
+    bgHex: "#f0fdf4",
+    borderHex: "#4ade80",
   },
   skill: {
     border: "border-purple-400",
@@ -46,6 +54,8 @@ export const TYPE_COLORS: Record<ComponentType, ColorScheme> = {
     text: "text-purple-700",
     textLight: "text-purple-600",
     label: "Skill",
+    bgHex: "#faf5ff",
+    borderHex: "#c084fc",
   },
   rule: {
     border: "border-gray-400",
@@ -54,6 +64,8 @@ export const TYPE_COLORS: Record<ComponentType, ColorScheme> = {
     text: "text-gray-700",
     textLight: "text-gray-600",
     label: "Rule",
+    bgHex: "#f9fafb",
+    borderHex: "#9ca3af",
   },
   workflow: {
     border: "border-orange-400",
@@ -62,6 +74,8 @@ export const TYPE_COLORS: Record<ComponentType, ColorScheme> = {
     text: "text-orange-700",
     textLight: "text-orange-600",
     label: "Workflow",
+    bgHex: "#fff7ed",
+    borderHex: "#fb923c",
   },
 };
 

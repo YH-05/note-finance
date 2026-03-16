@@ -8,6 +8,7 @@
  * Each item is clickable and navigates the detail panel to the target.
  */
 
+import { useMemo } from "react";
 import type { Component, DependencyEdge } from "@/types";
 import { EDGE_STYLES } from "@/lib/constants";
 
@@ -84,9 +85,15 @@ export function DependencyList({
   onSelect,
 }: DependencyListProps) {
   // Outgoing: this component depends on target
-  const dependsOn = edges.filter((e) => e.source === componentId);
+  const dependsOn = useMemo(
+    () => edges.filter((e) => e.source === componentId),
+    [edges, componentId],
+  );
   // Incoming: source depends on this component
-  const usedBy = edges.filter((e) => e.target === componentId);
+  const usedBy = useMemo(
+    () => edges.filter((e) => e.target === componentId),
+    [edges, componentId],
+  );
 
   if (dependsOn.length === 0 && usedBy.length === 0) {
     return (

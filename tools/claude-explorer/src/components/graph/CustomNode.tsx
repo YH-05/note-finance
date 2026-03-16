@@ -8,37 +8,17 @@
 
 import { memo } from "react";
 import { Handle, Position } from "@xyflow/react";
-import type { NodeProps } from "@xyflow/react";
+import type { Node, NodeProps } from "@xyflow/react";
 import { TYPE_COLORS } from "@/lib/colors";
 import type { GraphNodeData } from "@/lib/graph-layout";
 
-/**
- * Tailwind-compatible hex colors for node backgrounds.
- * These correspond to the TYPE_COLORS scheme but as inline styles
- * since React Flow nodes use absolute positioning outside Tailwind's scope.
- */
-const NODE_BG_COLORS: Record<string, string> = {
-  agent: "#eff6ff", // blue-50
-  command: "#f0fdf4", // green-50
-  skill: "#faf5ff", // purple-50
-  rule: "#f9fafb", // gray-50
-  workflow: "#fff7ed", // orange-50
-};
+type CustomNodeType = Node<GraphNodeData, "custom">;
 
-const NODE_BORDER_COLORS: Record<string, string> = {
-  agent: "#60a5fa", // blue-400
-  command: "#4ade80", // green-400
-  skill: "#c084fc", // purple-400
-  rule: "#9ca3af", // gray-400
-  workflow: "#fb923c", // orange-400
-};
-
-function CustomNodeComponent({ data }: NodeProps) {
-  const nodeData = data as unknown as GraphNodeData;
-  const { label, componentType } = nodeData;
+function CustomNodeComponent({ data }: NodeProps<CustomNodeType>) {
+  const { label, componentType } = data;
   const colors = TYPE_COLORS[componentType];
-  const bgColor = NODE_BG_COLORS[componentType] ?? "#f9fafb";
-  const borderColor = NODE_BORDER_COLORS[componentType] ?? "#9ca3af";
+  const bgColor = colors.bgHex;
+  const borderColor = colors.borderHex;
 
   return (
     <div
