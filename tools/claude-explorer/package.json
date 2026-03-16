@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "extract": "tsx scripts/extract-data.ts",
+    "dev": "npm run extract && vite",
+    "build": "npm run extract && tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,13 +19,17 @@
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
+    "@types/glob": "^8.1.0",
     "@types/node": "^25.5.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
+    "glob": "^13.0.6",
+    "gray-matter": "^4.0.3",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.21.0",
     "typescript": "^5.7.3",
     "vite": "^6.2.4"
   }
