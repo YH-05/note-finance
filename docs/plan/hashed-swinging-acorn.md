@@ -27,7 +27,7 @@
 └── references/
     ├── README.md               ← ライブラリ運用ルール・追加方法
     ├── index.yaml              ← 全サンプルのインデックス（検索用）
-    ├── asset_formation/
+    ├── asset_management/
     │   ├── beginner-ideco-hook-C.md
     │   ├── beginner-fund-age-hook-B.md
     │   └── intermediate-index-hook-B.md
@@ -54,9 +54,9 @@
 | `templates/hook-patterns.md` | 新規 | 4パターン×3層 = 12パターンの文型と例文 |
 | `references/README.md` | 新規 | ライブラリ運用ルール（追加条件・更新契機・削除条件） |
 | `references/index.yaml` | 新規 | 全サンプルの検索インデックス |
-| `references/asset_formation/beginner-ideco-hook-C.md` | 新規 | 既存 x_post.md から移植（iDeCo記事） |
-| `references/asset_formation/beginner-fund-age-hook-B.md` | 新規 | 既存 x_post.md から移植（ファンド年齢別） |
-| `references/asset_formation/intermediate-index-hook-B.md` | 新規 | 既存 x_post.md から移植（インデックス投資） |
+| `references/asset_management/beginner-ideco-hook-C.md` | 新規 | 既存 x_post.md から移植（iDeCo記事） |
+| `references/asset_management/beginner-fund-age-hook-B.md` | 新規 | 既存 x_post.md から移植（ファンド年齢別） |
+| `references/asset_management/intermediate-index-hook-B.md` | 新規 | 既存 x_post.md から移植（インデックス投資） |
 | `references/asset_management/beginner-behavior-hook-A.md` | 新規 | 既存 x_post.md から移植（投資心理学） |
 | `references/macro_economy/intermediate-boj-hook-D.md` | 新規 | 新規サンプル（日銀・マクロ） |
 | `references/macro_economy/intermediate-oil-hook-C.md` | 新規 | 新規サンプル（原油・家計） |
@@ -85,11 +85,11 @@
 
 | category | beginner | intermediate | advanced |
 |---------|---------|-------------|---------|
-| asset_formation | C | B | B |
+| asset_management | C | B | B |
 | asset_management | A | B | A |
 | macro_economy | C | D | A |
 | stock_analysis | B | B | D |
-| weekly_report | C | D | — |
+| market_report | C | D | — |
 | side_business | B | B | — |
 | quant_analysis | C | C | D |
 
@@ -178,7 +178,7 @@ source_article: {articles/...}
 # → meta.yaml の target_audience = beginner を読んで自動決定されることを確認
 
 # 2. intermediate × 参照ライブラリ使用
-/x-post @articles/asset_formation/2026-03-06_index-investing-portfolio/ --audience intermediate
+/x-post @articles/asset_management/2026-03-06_index-investing-portfolio/ --audience intermediate
 # → references/index.yaml → intermediate-index-hook-B.md が参照されることを確認
 
 # 3. --hook 強制指定

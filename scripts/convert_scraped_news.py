@@ -12,7 +12,7 @@ Single file:
 
     $ uv run python scripts/convert_scraped_news.py \\
         --input /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json \\
-        --output articles/weekly_report/2026-03-01/data \\
+        --output articles/market_report/2026-03-01/data \\
         --start 2026-02-22 \\
         --end 2026-03-01
 
@@ -20,7 +20,7 @@ Directory (merge multiple files):
 
     $ uv run python scripts/convert_scraped_news.py \\
         --input-dir /Volumes/personal_folder/finance-news/ \\
-        --output articles/weekly_report/2026-03-01/data \\
+        --output articles/market_report/2026-03-01/data \\
         --start 2026-02-22 \\
         --end 2026-03-01
 
@@ -583,13 +583,13 @@ def _parse_args() -> argparse.Namespace:
 Examples:
   uv run python scripts/convert_scraped_news.py \\
       --input /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json \\
-      --output articles/weekly_report/2026-03-01/data \\
+      --output articles/market_report/2026-03-01/data \\
       --start 2026-02-22 \\
       --end 2026-03-01
 
   uv run python scripts/convert_scraped_news.py \\
       --input-dir /Volumes/personal_folder/finance-news/ \\
-      --output articles/weekly_report/2026-03-01/data \\
+      --output articles/market_report/2026-03-01/data \\
       --start 2026-02-22 \\
       --end 2026-03-01
         """,

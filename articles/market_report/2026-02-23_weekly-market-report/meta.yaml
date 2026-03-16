@@ -1,9 +1,9 @@
 title: ''
-category: asset_formation
-type: column
+category: market_report
+type: market_report
 status: draft
-created_at: '2026-03-15T01:21:14.528954+00:00'
-updated_at: '2026-03-15T01:21:14.528954+00:00'
+created_at: '2026-03-15T01:21:14.543009+00:00'
+updated_at: '2026-03-15T01:21:14.543009+00:00'
 tags: []
 target_audience: intermediate
 target_wordcount: 4000
@@ -37,6 +37,6 @@ neo4j:
   source_node_ids: []
   embed_resource_ids: []
 legacy:
-  old_path: asset_management/index_vs_etf_2026
+  old_path: market_report/2026-02-23
   old_article_id: null
-  migrated_at: '2026-03-15T01:21:14.528954+00:00'
+  migrated_at: '2026-03-15T01:21:14.543009+00:00'

@@ -16,11 +16,11 @@ note記事ディレクトリから、フックの利いた280字以内のX投稿
 | `@article_dir` | ○ | 文脈から推測 | 記事ディレクトリ（`articles/{category}/{YYYY-MM-DD}_{slug}/`） |
 | `--audience` | - | meta.yaml の `target_audience` → `intermediate` | `beginner` / `intermediate` / `advanced` |
 | `--hook` | - | フック推奨マトリックスから自動決定 | `A`（逆説）/ `B`（疑問形）/ `C`（数字）/ `D`（宣言） |
-| `--ref` | - | 自動検索 | 特定参照ファイルを直接指定（例: `references/asset_formation/intermediate-index-hook-B.md`） |
+| `--ref` | - | 自動検索 | 特定参照ファイルを直接指定（例: `references/asset_management/intermediate-index-hook-B.md`） |
 | `--no-ref` | - | false | 参照ライブラリをスキップして高速生成 |
 
 ```
-/x-post @articles/asset_formation/2026-03-06_index-investing-portfolio/
+/x-post @articles/asset_management/2026-03-06_index-investing-portfolio/
 /x-post @articles/macro_economy/2026-03-08_boj-rate-hike-yen-scenario/ --audience intermediate
 /x-post @articles/... --audience beginner --hook D
 /x-post @articles/... --no-ref
@@ -58,11 +58,11 @@ reference_used: [{参照したサンプルのファイルパス}]
 
 | category | beginner | intermediate | advanced |
 |---------|---------|-------------|---------|
-| asset_formation | C | B | B |
+| asset_management | C | B | B |
 | asset_management | A | B | A |
 | macro_economy | C | D | A |
 | stock_analysis | B | B | D |
-| weekly_report | C | D | — |
+| market_report | C | D | — |
 | side_business | B | B | — |
 | quant_analysis | C | C | D |
 
@@ -142,11 +142,11 @@ reference_used: [{参照したサンプルのファイルパス}]
 
 | カテゴリ | デフォルトハッシュタグ |
 |---------|----------------------|
-| asset_formation | #資産形成 #投資初心者 #新NISA |
+| asset_management | #資産形成 #投資初心者 #新NISA |
 | asset_management | #資産形成 #投資初心者 #NISA |
 | stock_analysis | #株式投資 #株 #投資 |
 | macro_economy | #マクロ経済 #経済 #投資 |
-| weekly_report | #米国株 #週間レポート #投資 |
+| market_report | #米国株 #週間レポート #投資 |
 | quant_analysis | #クオンツ #投資戦略 #データ分析 |
 | side_business | #副業 #資産形成 |
 

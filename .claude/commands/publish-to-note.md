@@ -36,7 +36,7 @@ argument-hint: @<article_dir> [--dry-run] [--login-only]
 ユーザーが `@` でファイルまたはディレクトリを指定した場合、そのパスから記事ディレクトリを自動特定する。
 
 ```
-/publish-to-note @articles/asset_formation/my-article/
+/publish-to-note @articles/asset_management/my-article/
 ```
 
 **パス解決ロジック:**
@@ -50,7 +50,7 @@ argument-hint: @<article_dir> [--dry-run] [--login-only]
 Markdownパースのみを実行し、ブラウザ操作を行わない。投稿前の確認用。
 
 ```
-/publish-to-note @articles/asset_formation/my-article/ --dry-run
+/publish-to-note @articles/asset_management/my-article/ --dry-run
 ```
 
 ## 前提条件
@@ -235,13 +235,13 @@ Step 4: 結果報告
 /publish-to-note --login-only
 
 # ドライランで確認
-/publish-to-note @articles/asset_formation/my-article/ --dry-run
+/publish-to-note @articles/asset_management/my-article/ --dry-run
 
 # 投稿実行
-/publish-to-note @articles/asset_formation/my-article/
+/publish-to-note @articles/asset_management/my-article/
 
 # ファイルパスからの指定も可能
-/publish-to-note @articles/asset_formation/my-article/02_draft/revised_draft.md
+/publish-to-note @articles/asset_management/my-article/02_draft/revised_draft.md
 ```
 
 ## 関連コマンド

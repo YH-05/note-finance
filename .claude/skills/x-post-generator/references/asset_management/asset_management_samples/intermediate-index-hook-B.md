@@ -1,6 +1,6 @@
 ---
-sample_id: asset_formation-intermediate-index-hook-B-001
-category: asset_formation
+sample_id: asset_management-intermediate-index-hook-B-001
+category: asset_management
 audience: intermediate
 hook_pattern: B
 engagement_score: null
@@ -20,7 +20,7 @@ tags:
   - 国際分散
   - 手数料
 created_at: "2026-03-06"
-source_article: articles/asset_formation/2026-03-06_index-investing-portfolio/
+source_article: articles/asset_management/2026-03-06_index-investing-portfolio/
 ---
 
 # 本文

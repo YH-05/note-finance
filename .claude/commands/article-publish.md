@@ -32,7 +32,7 @@ argument-hint: @<article_dir> [--dry-run] [--login-only]
 共通パス解決ロジックに従う。詳細は `.claude/commands/_shared/path-resolution.md` を参照。
 
 ```
-/article-publish @articles/asset_formation/2026-03-15_new-nisa-guide/
+/article-publish @articles/asset_management/2026-03-15_new-nisa-guide/
 ```
 
 ### 3. 引数なし
@@ -212,13 +212,13 @@ Step 4: 後処理
 /article-publish --login-only
 
 # ドライランで確認
-/article-publish @articles/asset_formation/2026-03-15_new-nisa-guide/ --dry-run
+/article-publish @articles/asset_management/2026-03-15_new-nisa-guide/ --dry-run
 
 # 投稿実行
-/article-publish @articles/asset_formation/2026-03-15_new-nisa-guide/
+/article-publish @articles/asset_management/2026-03-15_new-nisa-guide/
 
 # サブディレクトリからの指定も可能
-/article-publish @articles/asset_formation/2026-03-15_new-nisa-guide/02_draft/revised_draft.md
+/article-publish @articles/asset_management/2026-03-15_new-nisa-guide/02_draft/revised_draft.md
 ```
 
 ## エラーハンドリング

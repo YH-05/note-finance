@@ -1,7 +1,7 @@
 ---
 title: "iDeCo掛金上限、月6.2万円時代へ！年収別節税シミュレーションで損失を確認しよう"
 article_id: asset-formation-ideco-contribution-limit-simulation
-category: asset_formation
+category: asset_management
 topics: [iDeCo, 確定拠出年金, 節税, 所得控除, 老後資産形成, 2027年改正]
 difficulty: beginner
 status: draft

@@ -172,7 +172,7 @@ class TestReadMeta:
         article_dir.mkdir()
         meta = {
             "title": "JSON Article",
-            "category": "asset_formation",
+            "category": "asset_management",
             "created_at": "2026-02-20T00:00:00Z",
         }
         (article_dir / "article-meta.json").write_text(
@@ -183,7 +183,7 @@ class TestReadMeta:
         topics: list[dict[str, str]] = []
         _read_meta(article_dir, categories, topics)
 
-        assert categories == ["asset_formation"]
+        assert categories == ["asset_management"]
         assert topics[0]["title"] == "JSON Article"
 
     def test_エッジケース_両ファイル不在(self, tmp_path: Path) -> None:

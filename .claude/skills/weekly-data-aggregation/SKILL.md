@@ -32,7 +32,7 @@ allowed-tools: Read, Glob
 ### 入力ディレクトリ
 
 ```
-articles/weekly_report/{date}/data/
+articles/market_report/{date}/data/
 ├── indices.json          # 指数パフォーマンス
 ├── mag7.json             # MAG7 パフォーマンス
 ├── sectors.json          # セクター分析
@@ -273,7 +273,7 @@ Phase 5: 出力
 
 **入力**:
 ```
-articles/weekly_report/2026-01-22/data/
+articles/market_report/2026-01-22/data/
 ├── indices.json ✓
 ├── mag7.json ✓
 ├── sectors.json ✓
@@ -302,7 +302,7 @@ articles/weekly_report/2026-01-22/data/
 
 **入力**:
 ```
-articles/weekly_report/2026-01-22/data/
+articles/market_report/2026-01-22/data/
 ├── indices.json ✓
 ├── mag7.json ✓
 ├── sectors.json ✗ (欠損)
@@ -352,7 +352,7 @@ articles/weekly_report/2026-01-22/data/
 ```json
 {
   "error": "入力ディレクトリが見つかりません",
-  "path": "articles/weekly_report/2026-01-22/data/",
+  "path": "articles/market_report/2026-01-22/data/",
   "suggestion": "先にデータ収集フェーズを実行してください"
 }
 ```

@@ -68,7 +68,7 @@ argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] 
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
 | --date | - | 今日の日付 | **レポート終了日（YYYY-MM-DD形式）。この日付から1週間前が開始日となる** |
-| --output | - | articles/market_report_{date} または articles/weekly_report/{date} | 出力ディレクトリ |
+| --output | - | articles/market_report_{date} または articles/market_report/{date} | 出力ディレクトリ |
 | --weekly | - | false | **フル週次レポート生成モード（Issue 自動投稿、推奨）** |
 | --weekly-comment | - | false | 週次コメント生成モード（Issue 自動投稿、旧形式） |
 | --news-json | `--weekly` 時必須 | - | 単一の news_scraper JSON ファイルパス（`--news-dir` と排他） |
@@ -126,7 +126,7 @@ Phase 1: 初期化
 ├── 対象期間の計算（--date から7日前 〜 --date）
 │   └── 例: --date 2026-01-20 → 2026-01-13 〜 2026-01-20
 ├── 出力ディレクトリ作成
-│   └── articles/weekly_report/{YYYY-MM-DD}/
+│   └── articles/market_report/{YYYY-MM-DD}/
 ├── 必要ツール確認（gh CLI）
 ├── テンプレート確認
 │   └── template/market_report/weekly_market_report_template.md
@@ -159,7 +159,7 @@ Phase 4: レポート生成（weekly-report-lead へ委譲）
 ├── コメント生成（weekly-comment-generation スキル）
 ├── テンプレート埋め込み（weekly-template-rendering スキル）
 ├── 品質検証（weekly-report-validation スキル）
-└── 02_draft/weekly_report.md に出力
+└── 02_draft/market_report.md に出力
 
 Phase 5: 品質検証
 ├── 文字数確認（目標: 3200字以上）
@@ -629,7 +629,7 @@ ${OUTPUT_DIR}/02_draft/report.md
 | テンプレート | weekly_market_report_template.md | weekly_comment_template.md |
 | 品質検証 | あり（スコア評価） | なし |
 | サブエージェント | 3つ使用 | ニュース収集のみ |
-| 出力ディレクトリ | articles/weekly_report/{date}/ | articles/weekly_comment_{date}/ |
+| 出力ディレクトリ | articles/market_report/{date}/ | articles/weekly_comment_{date}/ |
 
 ## --weekly 処理フロー詳細
 
@@ -655,7 +655,7 @@ start_date = end_date - timedelta(days=7)
 
 ```bash
 # デフォルトパス（--weekly モード）
-OUTPUT_DIR="articles/weekly_report/${REPORT_DATE}"
+OUTPUT_DIR="articles/market_report/${REPORT_DATE}"
 
 # 構造作成
 mkdir -p "${OUTPUT_DIR}/data"
@@ -665,7 +665,7 @@ mkdir -p "${OUTPUT_DIR}/03_published"
 
 **ディレクトリ構造**:
 ```
-articles/weekly_report/{YYYY-MM-DD}/
+articles/market_report/{YYYY-MM-DD}/
 ├── data/
 │   ├── indices.json          # 指数パフォーマンス
 │   ├── mag7.json             # MAG7 パフォーマンス
@@ -676,8 +676,8 @@ articles/weekly_report/{YYYY-MM-DD}/
 │   ├── aggregated_data.json  # 集約データ
 │   └── comments.json         # 生成コメント
 ├── 02_draft/
-│   ├── weekly_report.md      # Markdown レポート
-│   └── weekly_report.json    # 構造化データ
+│   ├── market_report.md      # Markdown レポート
+│   └── market_report.json    # 構造化データ
 ├── 03_published/
 │   └── (公開用に編集後の最終版)
 └── validation_result.json    # 品質検証結果
@@ -929,7 +929,7 @@ project_number: 15
 ## 期待される処理（必須）
 
 1. {OUTPUT_DIR}/data/ からデータ読み込み
-2. {OUTPUT_DIR}/02_draft/weekly_report.md からレポート読み込み
+2. {OUTPUT_DIR}/02_draft/market_report.md からレポート読み込み
 3. Issue 本文を生成
 4. **GitHub Issue を作成（`--label "report"` を必ず付与）**
 5. **GitHub Project #15 に追加（`gh project item-add` 実行）**
@@ -958,15 +958,15 @@ project_number: 15
 
 | ファイル | パス | サイズ |
 |----------|------|--------|
-| 指数データ | articles/weekly_report/2026-01-22/data/indices.json | 2KB |
-| MAG7データ | articles/weekly_report/2026-01-22/data/mag7.json | 3KB |
-| セクターデータ | articles/weekly_report/2026-01-22/data/sectors.json | 5KB |
-| Project ニュース | articles/weekly_report/2026-01-22/data/news_from_project.json | 15KB |
-| 追加検索結果 | articles/weekly_report/2026-01-22/data/news_supplemental.json | 3KB |
-| 集約データ | articles/weekly_report/2026-01-22/data/aggregated_data.json | 20KB |
-| コメント | articles/weekly_report/2026-01-22/data/comments.json | 12KB |
-| **レポート** | **articles/weekly_report/2026-01-22/02_draft/weekly_report.md** | **15KB** |
-| 検証結果 | articles/weekly_report/2026-01-22/validation_result.json | 2KB |
+| 指数データ | articles/market_report/2026-01-22/data/indices.json | 2KB |
+| MAG7データ | articles/market_report/2026-01-22/data/mag7.json | 3KB |
+| セクターデータ | articles/market_report/2026-01-22/data/sectors.json | 5KB |
+| Project ニュース | articles/market_report/2026-01-22/data/news_from_project.json | 15KB |
+| 追加検索結果 | articles/market_report/2026-01-22/data/news_supplemental.json | 3KB |
+| 集約データ | articles/market_report/2026-01-22/data/aggregated_data.json | 20KB |
+| コメント | articles/market_report/2026-01-22/data/comments.json | 12KB |
+| **レポート** | **articles/market_report/2026-01-22/02_draft/market_report.md** | **15KB** |
+| 検証結果 | articles/market_report/2026-01-22/validation_result.json | 2KB |
 
 ## データサマリー
 
@@ -1011,10 +1011,10 @@ project_number: 15
 ## 次のアクション
 
 1. レポートを確認:
-   cat articles/weekly_report/2026-01-22/02_draft/weekly_report.md
+   cat articles/market_report/2026-01-22/02_draft/market_report.md
 
 2. 編集・修正:
-   edit articles/weekly_report/2026-01-22/02_draft/weekly_report.md
+   edit articles/market_report/2026-01-22/02_draft/market_report.md
 
 3. Issue を確認:
    gh issue view 830

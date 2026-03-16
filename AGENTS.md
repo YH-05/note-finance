@@ -240,7 +240,7 @@ MCP Server (`rss.mcp.server`) でRSSフィード操作可能。7ツール: list/
 | `/finance-edit`           | 記事編集ワークフロー（初稿→批評→修正）          | `/article-draft` + `/article-critique`          |
 | `/finance-full`           | 記事作成の全工程を一括実行                      | `/article-full`                                 |
 | `/publish-to-note`        | 記事をnote.comに下書き投稿                      | `/article-publish`                              |
-| `/asset-management`       | 資産形成コンテンツ（note記事+X投稿）を自動生成  | `/article-full --category asset_formation`      |
+| `/asset-management`       | 資産形成コンテンツ（note記事+X投稿）を自動生成  | `/article-full --category asset_management`      |
 
 ### リサーチ・レポート
 

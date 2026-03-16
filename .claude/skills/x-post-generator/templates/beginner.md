@@ -55,7 +55,7 @@
 - **4〜5個**
 - 必須: `#投資初心者` `#資産形成`
 - カテゴリ別必須タグを追加
-  - asset_formation: `#新NISA` `#つみたて投資`
+  - asset_management: `#新NISA` `#つみたて投資`
   - asset_management: `#NISA`
   - stock_analysis: `#株初心者`
 - 記事キーワードに応じてさらに1-2個追加

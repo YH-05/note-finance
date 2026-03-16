@@ -32,15 +32,15 @@ allowed-tools: Read
 ### 必須ファイル
 
 ```
-articles/weekly_report/{date}/02_draft/
-├── weekly_report.md       # 検証対象のMarkdownレポート
-└── weekly_report.json     # 検証対象の構造化データ
+articles/market_report/{date}/02_draft/
+├── market_report.md       # 検証対象のMarkdownレポート
+└── market_report.json     # 検証対象の構造化データ
 ```
 
 ### 参照ファイル
 
 ```
-articles/weekly_report/{date}/data/
+articles/market_report/{date}/data/
 ├── aggregated_data.json   # 元データ（整合性確認用）
 └── comments.json          # コメントデータ（文字数確認用）
 ```
@@ -168,8 +168,8 @@ articles/weekly_report/{date}/data/
 
 ```
 Phase 1: ファイル読み込み
-├── weekly_report.md 読み込み
-├── weekly_report.json 読み込み
+├── market_report.md 読み込み
+├── market_report.json 読み込み
 ├── aggregated_data.json 読み込み（参照用）
 └── comments.json 読み込み（参照用）
 
@@ -359,7 +359,7 @@ overall_score = (
 ```json
 {
   "error": "検証対象のファイルが見つかりません",
-  "missing": ["weekly_report.md"],
+  "missing": ["market_report.md"],
   "suggestion": "先に weekly-template-rendering を実行してください"
 }
 ```

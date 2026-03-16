@@ -73,8 +73,8 @@ Phase 3: プレースホルダー置換
 
 Phase 4: 出力生成
 ├── 02_draft/ ディレクトリ作成
-├── weekly_report.md を保存
-└── weekly_report.json を保存
+├── market_report.md を保存
+└── market_report.json を保存
 ```
 
 ## プレースホルダー一覧
@@ -156,11 +156,11 @@ Phase 4: 出力生成
 
 ## 出力形式
 
-### weekly_report.md
+### market_report.md
 
 テンプレートに全プレースホルダーを置換した Markdown ファイル。
 
-### weekly_report.json
+### market_report.json
 
 ```json
 {
@@ -214,8 +214,8 @@ SendMessage:
   content: |
     task-4（テンプレート埋め込み）が完了しました。
     出力ファイル:
-    - {report_dir}/02_draft/weekly_report.md
-    - {report_dir}/02_draft/weekly_report.json
+    - {report_dir}/02_draft/market_report.md
+    - {report_dir}/02_draft/market_report.json
     合計文字数: {total_characters}字
     未置換プレースホルダー: {unresolved_count}
   summary: "task-4 完了、レポートファイル生成済み"

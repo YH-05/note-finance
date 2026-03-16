@@ -169,11 +169,11 @@ X投稿の書き出しパターンと層別の使い分けガイド。
 
 | category | beginner | intermediate | advanced |
 |---------|---------|-------------|---------|
-| asset_formation | C | B | B |
+| asset_management | C | B | B |
 | asset_management | A | B | A |
 | macro_economy | C | D | A |
 | stock_analysis | B | B | D |
-| weekly_report | C | D | — |
+| market_report | C | D | — |
 | side_business | B | B | — |
 | quant_analysis | C | C | D |
 

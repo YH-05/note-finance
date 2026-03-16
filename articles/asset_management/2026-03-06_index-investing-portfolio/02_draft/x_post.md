@@ -1,6 +1,6 @@
 ---
 article_id: asset-mgmt-index-portfolio-allocation
-category: asset_formation
+category: asset_management
 platform: x
 char_limit: 280
 char_count: 225

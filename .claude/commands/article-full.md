@@ -11,7 +11,7 @@ argument-hint: [トピック名] [--category <category>] [--skip-publish]
 |-----------|------|-----------|------|
 | トピック名 | ○※ | - | 記事のテーマ（例: 新NISAつみたて投資枠の活用法） |
 | @article_dir | ○※ | - | 既存記事ディレクトリ（途中から再開する場合） |
-| --category | - | 対話で選択 | カテゴリ（asset_formation / side_business / macro_economy / stock_analysis / weekly_report / quant_analysis） |
+| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis） |
 | --skip-publish | - | false | 投稿をスキップ（批評・修正で完了） |
 | --mode | - | full | 批評モード（quick / full） |
 | --skip-hf | - | false | ヒューマンフィードバックをスキップ（非推奨） |
@@ -34,9 +34,9 @@ Phase 2: リサーチ実行
 ├── /article-research
 │   ├── カテゴリ別リサーチ
 │   │   ├── stock/macro/quant → investment-research
-│   │   ├── asset_formation → asset-management-workflow
+│   │   ├── asset_management → asset-management-workflow
 │   │   ├── side_business → experience-db-workflow
-│   │   └── weekly_report → generate-market-report
+│   │   └── market_report → generate-market-report
 │   └── 01_research/ に成果物保存
 └── [HF3] 主張採用確認
 
@@ -279,21 +279,21 @@ Phase 5: 投稿（--skip-publish でスキップ可能）
 
 ```bash
 # クイック批評モード
-/article-full "市場アップデート" --category weekly_report --mode quick
+/article-full "市場アップデート" --category market_report --mode quick
 
 # 全自動実行（非推奨）
-/article-full "市場サマリー" --category weekly_report --skip-hf
+/article-full "市場サマリー" --category market_report --skip-hf
 ```
 
 ## カテゴリ別推奨設定
 
 | カテゴリ | 推奨 mode | 理由 |
 |---------|-----------|------|
-| asset_formation | full | 初心者向け、読みやすさ重視 |
+| asset_management | full | 初心者向け、読みやすさ重視 |
 | side_business | full | 体験談、共感度・リアリティ重視 |
 | macro_economy | full | マクロ経済分析、正確性重視 |
 | stock_analysis | full | 企業分析、データ正確性重視 |
-| weekly_report | quick | 定期レポート、速報性重視 |
+| market_report | quick | 定期レポート、速報性重視 |
 | quant_analysis | full | 数値分析、データ正確性重視 |
 
 ## エラーハンドリング
@@ -352,5 +352,5 @@ Phase 5: 投稿（--skip-publish でスキップ可能）
 
 - **旧コマンド（置き換え対象）**:
   - `/finance-full` → `/article-full`
-  - `/asset-management` → `/article-full --category asset_formation`
+  - `/asset-management` → `/article-full --category asset_management`
   - `/experience-db-full` → `/article-full --category side_business`

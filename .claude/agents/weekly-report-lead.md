@@ -32,7 +32,7 @@ weekly-report-lead (リーダー)
     │       ↓ comments.json を report_dir/data/ に書き出し
     ├── [task-4] wr-template-renderer (テンプレート埋め込み) ── Phase 3
     │       blockedBy: [task-3]
-    │       ↓ weekly_report.md, weekly_report.json を report_dir/02_draft/ に書き出し
+    │       ↓ market_report.md, market_report.json を report_dir/02_draft/ に書き出し
     ├── [task-5] wr-report-validator (品質検証) ── Phase 4
     │       blockedBy: [task-4]
     │       ↓ validation_result.json を report_dir/ に書き出し
@@ -52,7 +52,7 @@ weekly-report-lead (リーダー)
 
 | パラメータ | 必須 | 説明 |
 |-----------|------|------|
-| report_dir | Yes | レポート出力ディレクトリ（例: `articles/weekly_report/2026-01-22`） |
+| report_dir | Yes | レポート出力ディレクトリ（例: `articles/market_report/2026-01-22`） |
 | start_date | Yes | 対象期間の開始日（YYYY-MM-DD） |
 | end_date | Yes | 対象期間の終了日（YYYY-MM-DD） |
 | project_number | No | GitHub Project 番号（Issue 投稿先、デフォルト: 15） |
@@ -203,8 +203,8 @@ TaskCreate:
     articles/templates/weekly_market_report_template.md
 
     ## 出力ファイル
-    - {report_dir}/02_draft/weekly_report.md
-    - {report_dir}/02_draft/weekly_report.json
+    - {report_dir}/02_draft/market_report.md
+    - {report_dir}/02_draft/market_report.json
   activeForm: "テンプレートにデータを埋め込み中"
 
 # task-5: 品質検証（task-4 に依存）
@@ -214,8 +214,8 @@ TaskCreate:
     生成レポートのフォーマット、文字数、データ整合性、内容品質を検証する。
 
     ## 入力ファイル
-    - {report_dir}/02_draft/weekly_report.md
-    - {report_dir}/02_draft/weekly_report.json
+    - {report_dir}/02_draft/market_report.md
+    - {report_dir}/02_draft/market_report.json
     - {report_dir}/data/aggregated_data.json（参照）
     - {report_dir}/data/comments.json（参照）
 
@@ -236,8 +236,8 @@ TaskCreate:
     検証済みレポートを GitHub Issue として投稿し、Project #15 に追加する。
 
     ## 入力ファイル
-    - {report_dir}/02_draft/weekly_report.md
-    - {report_dir}/02_draft/weekly_report.json
+    - {report_dir}/02_draft/market_report.md
+    - {report_dir}/02_draft/market_report.json
     - {report_dir}/data/aggregated_data.json
     - {report_dir}/validation_result.json
 
@@ -461,7 +461,7 @@ Task:
     3. TaskUpdate(status: in_progress) でタスクを開始
     4. aggregated_data.json と comments.json を読み込み
     5. テーブル生成、プレースホルダー置換
-    6. weekly_report.md と weekly_report.json を書き出し
+    6. market_report.md と market_report.json を書き出し
     7. TaskUpdate(status: completed) でタスクを完了
     8. リーダーに SendMessage で完了通知
 
@@ -470,8 +470,8 @@ Task:
     - {report_dir}/data/comments.json
 
     ## 出力先
-    - {report_dir}/02_draft/weekly_report.md
-    - {report_dir}/02_draft/weekly_report.json
+    - {report_dir}/02_draft/market_report.md
+    - {report_dir}/02_draft/market_report.json
 
 TaskUpdate:
   taskId: "<task-4-id>"
@@ -500,8 +500,8 @@ Task:
     7. リーダーに SendMessage で完了通知（スコアとグレードを含める）
 
     ## 入力ファイル
-    - {report_dir}/02_draft/weekly_report.md
-    - {report_dir}/02_draft/weekly_report.json
+    - {report_dir}/02_draft/market_report.md
+    - {report_dir}/02_draft/market_report.json
     - {report_dir}/data/aggregated_data.json（参照）
     - {report_dir}/data/comments.json（参照）
 
@@ -536,8 +536,8 @@ Task:
     8. リーダーに SendMessage で完了通知（Issue URL を含める）
 
     ## 入力ファイル
-    - {report_dir}/02_draft/weekly_report.md
-    - {report_dir}/02_draft/weekly_report.json
+    - {report_dir}/02_draft/market_report.md
+    - {report_dir}/02_draft/market_report.json
     - {report_dir}/data/aggregated_data.json
 
     ## レポートディレクトリ
@@ -574,7 +574,7 @@ TaskUpdate:
    - task-4 のブロックが解除されたことを確認
 
 4. template-renderer からの完了通知を待つ
-   - weekly_report.md と weekly_report.json の生成を確認
+   - market_report.md と market_report.json の生成を確認
    - task-5 のブロックが解除されたことを確認
 
 5. report-validator からの完了通知を待つ
@@ -692,20 +692,20 @@ wr-template-renderer
     │
     ├── aggregated_data.json + comments.json を読み込み
     ├── テンプレートファイルを読み込み
-    ├── {report_dir}/02_draft/weekly_report.md を書き出し
-    └── {report_dir}/02_draft/weekly_report.json を書き出し
+    ├── {report_dir}/02_draft/market_report.md を書き出し
+    └── {report_dir}/02_draft/market_report.json を書き出し
            │
            ↓
 wr-report-validator
     │
-    ├── weekly_report.md + weekly_report.json を読み込み
+    ├── market_report.md + market_report.json を読み込み
     ├── aggregated_data.json + comments.json を参照
     └── {report_dir}/validation_result.json を書き出し
            │
            ↓
 wr-report-publisher
     │
-    ├── weekly_report.md + weekly_report.json + aggregated_data.json を読み込み
+    ├── market_report.md + market_report.json + aggregated_data.json を読み込み
     └── GitHub Issue 作成 & Project #15 追加
 ```
 
@@ -714,7 +714,7 @@ wr-report-publisher
 ### 成功時
 
 ```yaml
-weekly_report_team_result:
+market_report_team_result:
   team_name: "weekly-report-team"
   execution_time: "{duration}"
   status: "success"
@@ -747,8 +747,8 @@ weekly_report_team_result:
       status: "SUCCESS"
       owner: "template-renderer"
       output:
-        - "{report_dir}/02_draft/weekly_report.md"
-        - "{report_dir}/02_draft/weekly_report.json"
+        - "{report_dir}/02_draft/market_report.md"
+        - "{report_dir}/02_draft/market_report.json"
 
     task-5 (品質検証):
       status: "SUCCESS"
@@ -773,7 +773,7 @@ weekly_report_team_result:
 ### 部分障害時
 
 ```yaml
-weekly_report_team_result:
+market_report_team_result:
   team_name: "weekly-report-team"
   status: "partial_failure"
 

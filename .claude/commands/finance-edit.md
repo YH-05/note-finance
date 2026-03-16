@@ -29,7 +29,7 @@ argument-hint: @<filepath> [--mode quick|full]
 ユーザーが `@` でファイルを指定した場合、そのパスから記事ディレクトリを自動特定する。
 
 ```
-/finance-edit @articles/asset_formation/index-investing-portfolio-allocation/02_draft/first_draft.md
+/finance-edit @articles/asset_management/index-investing-portfolio-allocation/02_draft/first_draft.md
 ```
 
 **パス解決ロジック:**

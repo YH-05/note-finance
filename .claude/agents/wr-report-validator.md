@@ -39,8 +39,8 @@ permissionMode: bypassPermissions
 
 ```
 {report_dir}/02_draft/
-├── weekly_report.md       # 検証対象のMarkdownレポート
-└── weekly_report.json     # 検証対象の構造化データ
+├── market_report.md       # 検証対象のMarkdownレポート
+└── market_report.json     # 検証対象の構造化データ
 ```
 
 ### 参照ファイル
@@ -55,8 +55,8 @@ permissionMode: bypassPermissions
 
 ```
 Phase 1: ファイル読み込み
-├── weekly_report.md 読み込み
-├── weekly_report.json 読み込み
+├── market_report.md 読み込み
+├── market_report.json 読み込み
 ├── aggregated_data.json 読み込み（参照用）
 └── comments.json 読み込み（参照用）
 

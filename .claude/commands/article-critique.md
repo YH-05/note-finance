@@ -36,13 +36,13 @@ Step 1: 前提確認
 └── workflow.draft = "done" を確認
 
 Step 2: 批評（カテゴリ別・並列）
-├── stock_analysis / macro_economy / quant_analysis / asset_formation
+├── stock_analysis / macro_economy / quant_analysis / asset_management
 │   ├── quick: finance-critic-fact, finance-critic-compliance
 │   └── full:  + finance-critic-structure, finance-critic-data, finance-critic-readability
 ├── side_business
 │   ├── quick: exp-critic-reality, exp-critic-balance
 │   └── full:  + exp-critic-empathy, exp-critic-embed
-└── weekly_report
+└── market_report
     └── wr-report-validator
 
 Step 3: 批評結果の統合
@@ -90,7 +90,7 @@ Step 5: ステータス更新・最終確認
 
 カテゴリに応じた批評エージェントを並列で実行します。
 
-#### stock_analysis / macro_economy / quant_analysis / asset_formation
+#### stock_analysis / macro_economy / quant_analysis / asset_management
 
 **quick モード**:
 ```
@@ -123,7 +123,7 @@ Task 3: exp-critic-empathy（共感度チェック）
 Task 4: exp-critic-embed（埋め込みリンクチェック）
 ```
 
-#### weekly_report
+#### market_report
 
 ```
 Task 1: wr-report-validator（レポート検証）
@@ -196,7 +196,7 @@ Task 1: wr-report-validator（レポート検証）
 
 6. **カテゴリ別リバイザー実行**
 
-   **stock_analysis / macro_economy / quant_analysis / asset_formation / weekly_report**:
+   **stock_analysis / macro_economy / quant_analysis / asset_management / market_report**:
    ```
    エージェント: finance-reviser
    入力: 02_draft/first_draft.md, 02_draft/critic.json, 01_research/sources.json

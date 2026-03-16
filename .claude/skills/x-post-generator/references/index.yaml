@@ -2,11 +2,11 @@
 # 生成時に category + audience + hook_pattern で最大2件を特定する
 
 samples:
-  # ===== asset_formation =====
+  # ===== asset_management =====
 
-  - sample_id: asset_formation-beginner-ideco-hook-C-001
-    file: asset_formation/beginner-ideco-hook-C.md
-    category: asset_formation
+  - sample_id: asset_management-beginner-ideco-hook-C-001
+    file: asset_management/beginner-ideco-hook-C.md
+    category: asset_management
     audience: beginner
     hook_pattern: C
     tags:
@@ -18,11 +18,11 @@ samples:
     impressions: null
     posted_at: null
     created_at: "2026-03-15"
-    source_article: articles/asset_formation/2026-03-15_ideco-contribution-limit-simulation/
+    source_article: articles/asset_management/2026-03-15_ideco-contribution-limit-simulation/
 
-  - sample_id: asset_formation-beginner-fund-age-hook-B-001
-    file: asset_formation/beginner-fund-age-hook-B.md
-    category: asset_formation
+  - sample_id: asset_management-beginner-fund-age-hook-B-001
+    file: asset_management/beginner-fund-age-hook-B.md
+    category: asset_management
     audience: beginner
     hook_pattern: B
     tags:
@@ -34,11 +34,11 @@ samples:
     impressions: null
     posted_at: null
     created_at: "2026-03-08"
-    source_article: articles/asset_formation/2026-03-08_fund-selection-age-based/
+    source_article: articles/asset_management/2026-03-08_fund-selection-age-based/
 
-  - sample_id: asset_formation-intermediate-index-hook-B-001
-    file: asset_formation/intermediate-index-hook-B.md
-    category: asset_formation
+  - sample_id: asset_management-intermediate-index-hook-B-001
+    file: asset_management/intermediate-index-hook-B.md
+    category: asset_management
     audience: intermediate
     hook_pattern: B
     tags:
@@ -50,7 +50,7 @@ samples:
     impressions: null
     posted_at: null
     created_at: "2026-03-06"
-    source_article: articles/asset_formation/2026-03-06_index-investing-portfolio/
+    source_article: articles/asset_management/2026-03-06_index-investing-portfolio/
 
   # ===== asset_management =====
 

@@ -1,6 +1,6 @@
 ---
-sample_id: asset_formation-beginner-ideco-hook-C-001
-category: asset_formation
+sample_id: asset_management-beginner-ideco-hook-C-001
+category: asset_management
 audience: beginner
 hook_pattern: C
 engagement_score: null
@@ -19,7 +19,7 @@ tags:
   - 老後資金
   - 会社員
 created_at: "2026-03-15"
-source_article: articles/asset_formation/2026-03-15_ideco-contribution-limit-simulation/
+source_article: articles/asset_management/2026-03-15_ideco-contribution-limit-simulation/
 ---
 
 # 本文

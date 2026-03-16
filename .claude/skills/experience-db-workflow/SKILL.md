@@ -69,7 +69,7 @@ articles/{category}/{YYYY-MM-DD}_{english-slug}/
 └── 03_published/
 ```
 
-カテゴリ対応: konkatsu -> `marriage/`, sidehustle -> `side_business/`, shisan -> `asset_formation/`
+カテゴリ対応: konkatsu -> `marriage/`, sidehustle -> `side_business/`, shisan -> `asset_management/`
 
 meta.yaml の `theme`, `created_at` を設定。
 

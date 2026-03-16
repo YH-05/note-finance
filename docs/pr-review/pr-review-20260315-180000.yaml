@@ -116,7 +116,7 @@ code_quality:
         category: "dry"
         file: "scripts/migrate_articles.py"
         line: 483
-        description: "フォルダリネームループが _migrate_standard/sidehustle/weekly_report で3重複"
+        description: "フォルダリネームループが _migrate_standard/sidehustle/market_report で3重複"
         recommendation: "_apply_folder_renames() として共通化"
 
   solid_compliance:

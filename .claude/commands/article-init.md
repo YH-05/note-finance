@@ -10,7 +10,7 @@ argument-hint: [トピック名] [--category <category>]
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
 | トピック名 | ○ | - | 記事のテーマ（例: 新NISAつみたて投資枠の活用法、テスラ決算分析） |
-| --category | - | 対話で選択 | カテゴリ（asset_formation / side_business / macro_economy / stock_analysis / weekly_report / quant_analysis） |
+| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis） |
 
 ## 処理フロー
 
@@ -30,11 +30,11 @@ argument-hint: [トピック名] [--category <category>]
 
    ```
    カテゴリを選択してください:
-   1. asset_formation   (投資初心者・NISA・資産形成)
+   1. asset_management   (投資初心者・NISA・資産形成)
    2. side_business      (副業・体験談・事例分析)
    3. macro_economy      (マクロ経済・経済指標)
    4. stock_analysis     (個別銘柄分析)
-   5. weekly_report      (週次レポート)
+   5. market_report      (週次レポート)
    6. quant_analysis     (クオンツ分析)
    ```
 
@@ -91,9 +91,9 @@ argument-hint: [トピック名] [--category <category>]
    形式: `articles/{category}/{YYYY-MM-DD}_{topic-slug}/`
 
    例:
-   - `articles/asset_formation/2026-03-15_new-nisa-tsumitate-guide/`
+   - `articles/asset_management/2026-03-15_new-nisa-tsumitate-guide/`
    - `articles/stock_analysis/2026-03-15_tsla-earnings-analysis/`
-   - `articles/weekly_report/2026-03-15_us-market-weekly-2026w11/`
+   - `articles/market_report/2026-03-15_us-market-weekly-2026w11/`
 
 6. **重複チェック**
 
@@ -166,11 +166,11 @@ argument-hint: [トピック名] [--category <category>]
 
 | カテゴリ | type | target_audience | target_wordcount |
 |----------|------|-----------------|-----------------|
-| asset_formation | column | beginner | 4000 |
+| asset_management | column | beginner | 4000 |
 | side_business | experience | intermediate | 7000 |
 | macro_economy | column | intermediate | 4000 |
 | stock_analysis | data_analysis | intermediate | 4000 |
-| weekly_report | weekly_report | intermediate | 5000 |
+| market_report | market_report | intermediate | 5000 |
 | quant_analysis | data_analysis | advanced | 4000 |
 
 ### Phase 4: 完了報告

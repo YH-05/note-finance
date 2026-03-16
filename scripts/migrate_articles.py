@@ -93,9 +93,9 @@ ARTICLES_DIR = Path(__file__).resolve().parent.parent / "articles"
 # Category mapping: old category name -> new category name
 CATEGORY_MAP: dict[str, str] = {
     "economic_indicators": "macro_economy",
-    "asset_management": "asset_formation",
+    "asset_management": "asset_management",
     "experience_db": "side_business",
-    "market_report": "weekly_report",
+    "market_report": "market_report",
     "stock_analysis": "stock_analysis",
     "quant_analysis": "quant_analysis",
 }
@@ -114,9 +114,9 @@ STATUS_MAP: dict[str, str] = {
 TYPE_MAP: dict[str, str] = {
     "macro_economy": "column",
     "stock_analysis": "data_analysis",
-    "asset_formation": "column",
+    "asset_management": "column",
     "side_business": "experience",
-    "weekly_report": "weekly_report",
+    "market_report": "market_report",
     "quant_analysis": "data_analysis",
 }
 
@@ -135,7 +135,7 @@ class LayoutType(enum.Enum):
     STANDARD = "standard"
     FLAT = "flat"
     SIDEHUSTLE = "sidehustle"
-    WEEKLY_REPORT = "weekly_report"
+    WEEKLY_REPORT = "market_report"
 
 
 @dataclass
@@ -196,24 +196,24 @@ MIGRATION_MAP: list[MigrationEntry] = [
     # 6. asset_management/fund_selection_age_based
     MigrationEntry(
         old_path="asset_management/fund_selection_age_based",
-        new_path="asset_formation/2026-03-08_fund-selection-age-based",
-        new_category="asset_formation",
+        new_path="asset_management/2026-03-08_fund-selection-age-based",
+        new_category="asset_management",
         folder_renames={"02_edit": "02_draft"},
         notes="Category change, add 01_research/03_published",
     ),
     # 7. asset_management/index-investing-portfolio-allocation
     MigrationEntry(
         old_path="asset_management/index-investing-portfolio-allocation",
-        new_path="asset_formation/2026-03-06_index-investing-portfolio",
-        new_category="asset_formation",
+        new_path="asset_management/2026-03-06_index-investing-portfolio",
+        new_category="asset_management",
         folder_renames={"02_edit": "02_draft"},
         notes="Category change, add missing sub-dirs",
     ),
     # 8. asset_management/index_vs_etf_2026 (flat structure)
     MigrationEntry(
         old_path="asset_management/index_vs_etf_2026",
-        new_path="asset_formation/2026-03-08_index-vs-etf-2026",
-        new_category="asset_formation",
+        new_path="asset_management/2026-03-08_index-vs-etf-2026",
+        new_category="asset_management",
         layout=LayoutType.FLAT,
         notes="Flat->structured, note_article.md->02_draft/first_draft.md",
     ),
@@ -243,11 +243,11 @@ MIGRATION_MAP: list[MigrationEntry] = [
         },
         notes="Same sidehustle layout migration",
     ),
-    # 11. weekly_report/2026-02-23
+    # 11. market_report/2026-02-23
     MigrationEntry(
-        old_path="weekly_report/2026-02-23",
-        new_path="weekly_report/2026-02-23_weekly-market-report",
-        new_category="weekly_report",
+        old_path="market_report/2026-02-23",
+        new_path="market_report/2026-02-23_weekly-market-report",
+        new_category="market_report",
         layout=LayoutType.WEEKLY_REPORT,
         folder_renames={"02_edit": "02_draft", "03_published": "03_published"},
         notes="data->01_research/market, 02_edit->02_draft",
@@ -702,7 +702,7 @@ def _migrate_sidehustle(
         _copy_dir_contents(old_published, new_published, dry_run=dry_run)
 
 
-def _migrate_weekly_report(
+def _migrate_market_report(
     old_dir: Path,
     new_dir: Path,
     entry: MigrationEntry,
@@ -784,7 +784,7 @@ def migrate_article(
     elif entry.layout is LayoutType.SIDEHUSTLE:
         _migrate_sidehustle(old_dir, new_dir, entry, dry_run=dry_run)
     elif entry.layout is LayoutType.WEEKLY_REPORT:
-        _migrate_weekly_report(old_dir, new_dir, entry, dry_run=dry_run)
+        _migrate_market_report(old_dir, new_dir, entry, dry_run=dry_run)
     else:
         _migrate_standard(old_dir, new_dir, entry, dry_run=dry_run)
 

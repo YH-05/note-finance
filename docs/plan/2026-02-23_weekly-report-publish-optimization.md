@@ -2,7 +2,7 @@
 
 ## Context
 
-`/generate-market-report --weekly` が生成する `articles/weekly_report/{YYYY-MM-DD}/02_edit/weekly_report.md` を note.com 公開用に最適化するコマンドとスキルを実装する。
+`/generate-market-report --weekly` が生成する `articles/market_report/{YYYY-MM-DD}/02_edit/market_report.md` を note.com 公開用に最適化するコマンドとスキルを実装する。
 
 元プランを以下の点でブラッシュアップ：
 - **批評エージェントの実際の入出力仕様**に合わせた具体的なプロンプト設計
@@ -21,8 +21,8 @@
 ---
 name: weekly-report-publish-optimization
 description: |
-  週次レポート（02_edit/weekly_report.md）をnote.com公開用に最適化するスキル。
-  批評→修正→スニペット挿入のフローを提供し、03_published/weekly_report.md を生成する。
+  週次レポート（02_edit/market_report.md）をnote.com公開用に最適化するスキル。
+  批評→修正→スニペット挿入のフローを提供し、03_published/market_report.md を生成する。
   /publish-weekly-report コマンドで使用。週次レポートのnote.com投稿準備時にのみ使用。
 allowed-tools: Read, Write, Edit, Glob, Grep, Task
 ---
@@ -46,7 +46,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Task
 
 ```yaml
 ---
-description: 週次レポートをnote.com公開用に最適化します。批評→修正→スニペット挿入を自動実行し 03_published/weekly_report.md を生成。
+description: 週次レポートをnote.com公開用に最適化します。批評→修正→スニペット挿入を自動実行し 03_published/market_report.md を生成。
 argument-hint: [YYYY-MM-DD]
 ---
 ```
@@ -73,9 +73,9 @@ Slash Commands テーブルに 1 行追加：
 ```
 Phase A: 初期化
   └ Step A.1: 引数 YYYY-MM-DD から REPORT_DIR を特定。引数なし時は最新ディレクトリを自動検出
-  └ Step A.2: 02_edit/weekly_report.md の存在確認（なければ E001 で中断）
+  └ Step A.2: 02_edit/market_report.md の存在確認（なければ E001 で中断）
   └ Step A.3: 03_published/ ディレクトリ作成（mkdir -p）
-  └ Step A.4: 既存の 03_published/weekly_report.md がある場合は上書き確認
+  └ Step A.4: 既存の 03_published/market_report.md がある場合は上書き確認
 
 Phase B: 批評（3エージェント逐次実行）
   └ Step B.1: finance-critic-readability
@@ -97,7 +97,7 @@ Phase B: 批評（3エージェント逐次実行）
 Phase C: 修正（finance-reviser）
   └ Step C.1: finance-reviser 実行
        入力マッピング指示（重要）:
-         - "first_draft.md" = 02_edit/weekly_report.md を読み込む
+         - "first_draft.md" = 02_edit/market_report.md を読み込む
          - "critic.json" = 03_published/critic.json を使用
          - "sources.json" は不要（週次レポートには存在しない）
        修正指示:
@@ -107,7 +107,7 @@ Phase C: 修正（finance-reviser）
          - 禁止表現を代替表現に置換
          - H4以下の見出しを H3 に変換
          - 文字数目標: 5,000〜8,000字（スニペット+200字込み）
-       出力先: 03_published/weekly_report.md（"revised_draft.md" ではなく "weekly_report.md" として保存を明示）
+       出力先: 03_published/market_report.md（"revised_draft.md" ではなく "market_report.md" として保存を明示）
   └ Step C.2: 出力ファイル存在確認（なければ E003）
 
 Phase D: 最終検証
@@ -131,7 +131,7 @@ Phase E: 完了報告
 
 | コード | 発生条件 | 対処 |
 |--------|---------|------|
-| E001 | `02_edit/weekly_report.md` 不在 | `/generate-market-report --weekly` の実行を案内して中断 |
+| E001 | `02_edit/market_report.md` 不在 | `/generate-market-report --weekly` の実行を案内して中断 |
 | E002 | compliance ステータス = "fail" | critical 問題を列挙して Phase C をスキップ・中断。02_edit 修正後に再実行を促す |
 | E003 | finance-reviser が出力を生成しなかった | reviser 再実行を促す。手動修正の指示を表示 |
 | E004 | スニペット未挿入（1種以上） | 未挿入スニペットのパスと挿入位置を表示（警告のみ、続行可） |
@@ -146,7 +146,7 @@ Phase E: 完了報告
 | 批評実行順序 | 逐次（readability → structure → compliance） | compliance fail 判定後に後続処理を中断するため |
 | compliance fail の扱い | 処理中断（公開禁止） | 金商法対応の最重要制約 |
 | エージェント定義の変更 | しない | 週次固有の指示はコマンドプロンプトで渡す |
-| finance-reviser の出力ファイル名 | `weekly_report.md`（`revised_draft.md` ではない） | ディレクトリ規約に従う。プロンプトで明示 |
+| finance-reviser の出力ファイル名 | `market_report.md`（`revised_draft.md` ではない） | ディレクトリ規約に従う。プロンプトで明示 |
 | sources.json | 不要として明示 | 週次レポートには存在しないため reviser に明示する |
 
 ---
@@ -192,21 +192,21 @@ Phase E: 完了報告
 /publish-weekly-report 2026-02-23
 
 # 2. 生成ファイルの確認
-ls articles/weekly_report/2026-02-23/03_published/
-# 期待: weekly_report.md, critic.json, critic_readability.json, critic_structure.json, critic_compliance.json
+ls articles/market_report/2026-02-23/03_published/
+# 期待: market_report.md, critic.json, critic_readability.json, critic_structure.json, critic_compliance.json
 
 # 3. スニペット挿入確認
-grep "本記事は一般的な情報提供を目的としており" articles/weekly_report/2026-02-23/03_published/weekly_report.md
-grep "投資には元本割れリスクがあります" articles/weekly_report/2026-02-23/03_published/weekly_report.md
-grep "本記事で使用しているデータは" articles/weekly_report/2026-02-23/03_published/weekly_report.md
+grep "本記事は一般的な情報提供を目的としており" articles/market_report/2026-02-23/03_published/market_report.md
+grep "投資には元本割れリスクがあります" articles/market_report/2026-02-23/03_published/market_report.md
+grep "本記事で使用しているデータは" articles/market_report/2026-02-23/03_published/market_report.md
 
 # 4. 禁止表現の不在確認（出力が空なら PASS）
 grep -E "買うべき|売るべき|絶対に上がる|必ず儲かる|おすすめ銘柄|今が買い時" \
-  articles/weekly_report/2026-02-23/03_published/weekly_report.md
+  articles/market_report/2026-02-23/03_published/market_report.md
 
 # 5. 文字数確認（目標: 5,000〜8,000字）
-wc -m articles/weekly_report/2026-02-23/03_published/weekly_report.md
+wc -m articles/market_report/2026-02-23/03_published/market_report.md
 
 # 6. 目視確認
-cat articles/weekly_report/2026-02-23/03_published/weekly_report.md
+cat articles/market_report/2026-02-23/03_published/market_report.md
 ```

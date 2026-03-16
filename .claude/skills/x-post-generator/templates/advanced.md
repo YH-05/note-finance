@@ -57,7 +57,7 @@
 
 | category | 推奨フック | 理由 |
 |---------|----------|------|
-| asset_formation | B（疑問形） | ポートフォリオ理論の検証を促す |
+| asset_management | B（疑問形） | ポートフォリオ理論の検証を促す |
 | asset_management | A（逆説） | 常識への反論・心理バイアスの深掘り |
 | macro_economy | A（逆説） | コンセンサスへの反論 |
 | stock_analysis | D（宣言） | バリュエーション判断の表明 |

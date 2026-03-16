@@ -32,7 +32,7 @@ allowed-tools: Read, Write
 ### 必須ファイル
 
 ```
-articles/weekly_report/{date}/data/
+articles/market_report/{date}/data/
 ├── aggregated_data.json   # 集約データ
 └── comments.json          # 生成コメント
 ```
@@ -48,9 +48,9 @@ articles/templates/weekly_market_report_template.md
 ### 出力先
 
 ```
-articles/weekly_report/{date}/02_draft/
-├── weekly_report.md       # Markdownレポート
-└── weekly_report.json     # 構造化データ
+articles/market_report/{date}/02_draft/
+├── market_report.md       # Markdownレポート
+└── market_report.json     # 構造化データ
 ```
 
 ## テンプレート構造
@@ -218,13 +218,13 @@ Phase 3: プレースホルダー置換
 └── テーブルプレースホルダー置換
 
 Phase 4: 出力生成
-├── weekly_report.md を保存
-└── weekly_report.json を保存
+├── market_report.md を保存
+└── market_report.json を保存
 ```
 
 ## JSON出力形式
 
-### weekly_report.json
+### market_report.json
 
 ```json
 {
@@ -278,16 +278,16 @@ Phase 4: 出力生成
 
 **入力**:
 ```
-articles/weekly_report/2026-01-22/data/
+articles/market_report/2026-01-22/data/
 ├── aggregated_data.json ✓
 └── comments.json ✓
 ```
 
 **出力**:
 ```
-articles/weekly_report/2026-01-22/02_draft/
-├── weekly_report.md ✓ (3450字)
-└── weekly_report.json ✓
+articles/market_report/2026-01-22/02_draft/
+├── market_report.md ✓ (3450字)
+└── market_report.json ✓
 ```
 
 ### 例2: テンプレートファイルが存在しない場合
@@ -367,15 +367,15 @@ articles/weekly_report/2026-01-22/02_draft/
 ```json
 {
   "error": "出力ディレクトリを作成できません",
-  "path": "articles/weekly_report/2026-01-22/02_draft/",
+  "path": "articles/market_report/2026-01-22/02_draft/",
   "suggestion": "ディレクトリの権限を確認してください"
 }
 ```
 
 ## 完了条件
 
-- [ ] weekly_report.md が生成される
-- [ ] weekly_report.json が生成される
+- [ ] market_report.md が生成される
+- [ ] market_report.json が生成される
 - [ ] 全プレースホルダーが置換される
 - [ ] テーブルが正しく生成される
 - [ ] Markdownフォーマットが有効

@@ -9,7 +9,7 @@ argument-hint: [--category <category>]
 
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
-| --category | - | 全カテゴリ | フィルタするカテゴリ（asset_formation / side_business / macro_economy / stock_analysis / weekly_report / quant_analysis） |
+| --category | - | 全カテゴリ | フィルタするカテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis） |
 
 ## 処理フロー
 
@@ -88,10 +88,10 @@ Step 3: ステータス表示
 
    | カテゴリ | 記事 | ステータス | Research | Draft | Critique | Revision | Publish |
    |---------|------|----------|----------|-------|----------|----------|---------|
-   | asset_formation | 新NISAつみたて投資枠の活用法 | review | ✓ | ✓ | ✓ | ✓ | - |
+   | asset_management | 新NISAつみたて投資枠の活用法 | review | ✓ | ✓ | ✓ | ✓ | - |
    | stock_analysis | テスラ決算分析 | draft | ✓ | ✓ | - | - | - |
    | macro_economy | 米雇用統計解説 | research | ✓ | - | - | - | - |
-   | weekly_report | 2026年3月第2週レポート | published | ✓ | ✓ | ✓ | ✓ | ✓ |
+   | market_report | 2026年3月第2週レポート | published | ✓ | ✓ | ✓ | ✓ | ✓ |
    | side_business | Webライター体験談 | init | - | - | - | - | - |
    ```
 
@@ -126,11 +126,11 @@ Step 3: ステータス表示
 
    | カテゴリ | 件数 |
    |---------|------|
-   | asset_formation | 1 |
+   | asset_management | 1 |
    | side_business | 1 |
    | macro_economy | 1 |
    | stock_analysis | 1 |
-   | weekly_report | 1 |
+   | market_report | 1 |
    | quant_analysis | 0 |
    ```
 
@@ -144,7 +144,7 @@ Step 3: ステータス表示
 /article-status --category stock_analysis
 
 # 特定カテゴリのみ
-/article-status --category weekly_report
+/article-status --category market_report
 ```
 
 ## 注意事項

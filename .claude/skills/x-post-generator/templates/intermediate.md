@@ -61,11 +61,11 @@
 
 | category | 推奨フック | 理由 |
 |---------|----------|------|
-| asset_formation | B（疑問形） | 常識への再検証を促す |
+| asset_management | B（疑問形） | 常識への再検証を促す |
 | asset_management | B（疑問形） | 戦略の見直しを促す |
 | macro_economy | D（宣言型） | 転換点を明確に示す |
 | stock_analysis | B（疑問形） | 銘柄選択の判断軸を揺さぶる |
-| weekly_report | D（宣言型） | 週間サマリーを端的に伝える |
+| market_report | D（宣言型） | 週間サマリーを端的に伝える |
 
 ## 良い例・悪い例
 

@@ -320,7 +320,7 @@ weekly-report-lead (リーダー) ← 全タスク直列依存
 ### 出力ディレクトリ
 
 ```
-articles/weekly_report/{report_dir}/
+articles/market_report/{report_dir}/
 ├── data/
 │   ├── news_from_project.json       # Task 1 出力
 │   ├── indices.json                 # 前処理出力

@@ -30,9 +30,9 @@ Step 2: カテゴリ別リサーチ実行
 ├── stock_analysis    → investment-research スキル
 ├── macro_economy     → investment-research スキル
 ├── quant_analysis    → investment-research スキル
-├── asset_formation   → asset-management-workflow Phase 1
+├── asset_management   → asset-management-workflow Phase 1
 ├── side_business     → experience-db-workflow Phase 1-2
-└── weekly_report     → generate-market-report Phase 2-3
+└── market_report     → generate-market-report Phase 2-3
 
 Step 3: 結果保存・ステータス更新
 ├── 01_research/ にリサーチ成果物を保存
@@ -89,7 +89,7 @@ Step 3: 結果保存・ステータス更新
 
 出力先: `01_research/` 配下に各成果物を保存
 
-#### asset_formation
+#### asset_management
 
 既存の `asset-management-workflow` スキルの Phase 1 に処理を委譲します。
 
@@ -115,7 +115,7 @@ Step 3: 結果保存・ステータス更新
 
 出力先: `01_research/` 配下にソースと合成データを保存
 
-#### weekly_report
+#### market_report
 
 既存の `generate-market-report` コマンドの Phase 2-3 に処理を委譲します。
 
@@ -180,8 +180,8 @@ Step 3: 結果保存・ステータス更新
 エラー: 不明なカテゴリです: {category}
 
 有効なカテゴリ:
-- asset_formation, side_business, macro_economy
-- stock_analysis, weekly_report, quant_analysis
+- asset_management, side_business, macro_economy
+- stock_analysis, market_report, quant_analysis
 ```
 
 ### データ収集失敗

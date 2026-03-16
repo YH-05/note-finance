@@ -129,7 +129,7 @@ class SinkProtocol(Protocol):
         -------
         str
             Human-readable name identifying this sink.
-            Examples: "json_file", "github_issue", "weekly_report".
+            Examples: "json_file", "github_issue", "market_report".
 
         Notes
         -----

@@ -1,7 +1,7 @@
 # === Core (必須) ===
 title: ""
-category: ""                     # asset_formation | side_business | macro_economy | stock_analysis | weekly_report | quant_analysis
-type: column                     # column | case_study | experience | weekly_report | data_analysis
+category: ""                     # asset_management | side_business | macro_economy | stock_analysis | market_report | quant_analysis
+type: column                     # column | case_study | experience | market_report | data_analysis
 status: draft                    # draft | review | published
 
 # === Timestamps ===
@@ -19,7 +19,7 @@ date_range:
   start: ""
   end: ""
 fred_series: []                  # macro_economy
-theme: ""                        # asset_formation / side_business
+theme: ""                        # asset_management / side_business
 experience:                      # side_business (experience type)
   spec_card:
     age_range: ""

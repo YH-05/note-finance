@@ -201,9 +201,9 @@ class TestInferType:
         [
             ("macro_economy", "column"),
             ("stock_analysis", "data_analysis"),
-            ("asset_formation", "column"),
+            ("asset_management", "column"),
             ("side_business", "experience"),
-            ("weekly_report", "weekly_report"),
+            ("market_report", "market_report"),
             ("quant_analysis", "data_analysis"),
         ],
     )
@@ -441,10 +441,10 @@ class TestConvertMeta:
     def test_エッジケース_存在しないパス(self, tmp_path: Path) -> None:
         """存在しないパスを渡した場合にデフォルトメタを生成することを確認。"""
         fake_path = tmp_path / "nonexistent.json"
-        result = convert_meta(fake_path, "asset_formation", "old/dir")
+        result = convert_meta(fake_path, "asset_management", "old/dir")
 
         assert result["title"] == ""
-        assert result["category"] == "asset_formation"
+        assert result["category"] == "asset_management"
         assert result["status"] == "draft"
 
 
@@ -475,7 +475,7 @@ class TestFindEntryByPath:
         """ネストされたパス（category/slug）で一致することを確認。"""
         entry = _find_entry_by_path("asset_management/fund_selection_age_based")
         assert entry is not None
-        assert entry.new_category == "asset_formation"
+        assert entry.new_category == "asset_management"
 
     def test_異常系_一致なし(self) -> None:
         """MIGRATION_MAP に存在しないパスで None を返すことを確認。"""
@@ -721,15 +721,15 @@ class TestMigrateArticleIntegration:
 
         entry = MigrationEntry(
             old_path="weekly_article",
-            new_path="weekly_report/2026-01-01_weekly",
-            new_category="weekly_report",
+            new_path="market_report/2026-01-01_weekly",
+            new_category="market_report",
             layout=LayoutType.WEEKLY_REPORT,
             folder_renames={"02_edit": "02_draft"},
         )
         result = migrate_article(entry, dry_run=False)
 
         assert result is True
-        new_dir = tmp_path / "weekly_report" / "2026-01-01_weekly"
+        new_dir = tmp_path / "market_report" / "2026-01-01_weekly"
         assert (new_dir / "01_research" / "market" / "indices.json").exists()
         assert (new_dir / "02_draft" / "report.md").exists()
 

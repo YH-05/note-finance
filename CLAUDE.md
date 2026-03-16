@@ -45,7 +45,7 @@
 | `/finance-edit` | `/article-draft` + `/article-critique` |
 | `/finance-full` | `/article-full` |
 | `/publish-to-note` | `/article-publish` |
-| `/asset-management` | `/article-full --category asset_formation` |
+| `/asset-management` | `/article-full --category asset_management` |
 
 ## Obsidian 操作ルール
 

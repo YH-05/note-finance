@@ -1,6 +1,6 @@
 ---
-sample_id: asset_formation-beginner-fund-age-hook-B-001
-category: asset_formation
+sample_id: asset_management-beginner-fund-age-hook-B-001
+category: asset_management
 audience: beginner
 hook_pattern: B
 engagement_score: null
@@ -20,7 +20,7 @@ tags:
   - オルカン
   - 年齢別
 created_at: "2026-03-08"
-source_article: articles/asset_formation/2026-03-08_fund-selection-age-based/
+source_article: articles/asset_management/2026-03-08_fund-selection-age-based/
 ---
 
 # 本文

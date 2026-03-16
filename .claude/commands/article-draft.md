@@ -29,11 +29,11 @@ Step 1: 前提確認
 Step 2: カテゴリ別ライター実行
 ├── stock_analysis / macro_economy / quant_analysis
 │   └── finance-article-writer エージェント
-├── asset_formation
+├── asset_management
 │   └── asset-management-writer エージェント
 ├── side_business
 │   └── experience-writer エージェント
-└── weekly_report
+└── market_report
     └── weekly-report-lead エージェント（→ wr-template-renderer）
 
 Step 3: 結果保存
@@ -81,7 +81,7 @@ Step 4: [HF5] 初稿レビュー
 出力: 02_draft/first_draft.md
 ```
 
-#### asset_formation
+#### asset_management
 
 ```
 エージェント: asset-management-writer
@@ -107,7 +107,7 @@ X投稿生成（記事完成後に自動実行）:
 出力: 02_draft/first_draft.md（6,000-8,000字）
 ```
 
-#### weekly_report
+#### market_report
 
 ```
 エージェント: weekly-report-lead → wr-template-renderer

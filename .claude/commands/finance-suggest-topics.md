@@ -28,10 +28,11 @@ argument-hint: [カテゴリ] [--count N]
    ```
    market_report: 3
    stock_analysis: 4
-   economic_indicators: 2
-   investment_education: 1
+   macro_economy: 2
+   asset_management: 1
+   side_business: 0
    quant_analysis: 0
-   asset_management: 0
+   investment_education: 0
    ```
 
 ### Phase 2: トピック提案の生成
@@ -51,7 +52,7 @@ argument-hint: [カテゴリ] [--count N]
    ```
 
    **注意**: `--no-search` オプションが指定された場合は、従来通り
-   finance-topic-suggester エージェントを直接呼び出す（Web検索なし）。
+   topic-suggester エージェントを直接呼び出す（Web検索なし）。
 
 ### Phase 3: 結果の整形と表示
 
@@ -64,10 +65,11 @@ argument-hint: [カテゴリ] [--count N]
    - 総数: 10件
    - market_report: 3件
    - stock_analysis: 4件
-   - economic_indicators: 2件
-   - investment_education: 1件
+   - macro_economy: 2件
+   - asset_management: 1件
+   - side_business: 0件
    - quant_analysis: 0件
-   - asset_management: 0件
+   - investment_education: 0件
 
    ---
 
@@ -143,7 +145,7 @@ argument-hint: [カテゴリ] [--count N]
 |------|---------|---------|--------|
 | 1 | 2025年1月第2週 米国市場週間レビュー | market_report | 41/50 |
 | 2 | NVIDIA決算分析 | stock_analysis | 39/50 |
-| 3 | 米雇用統計解説 | economic_indicators | 38/50 |
+| 3 | 米雇用統計解説 | macro_economy | 38/50 |
 | 4 | ETF入門 | investment_education | 35/50 |
 | 5 | モメンタム戦略検証 | quant_analysis | 34/50 |
 ```

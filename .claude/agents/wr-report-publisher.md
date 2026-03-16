@@ -40,8 +40,8 @@ permissionMode: bypassPermissions
 ```
 {report_dir}/
 ├── 02_draft/
-│   ├── weekly_report.md       # レポート本文
-│   └── weekly_report.json     # 構造化データ
+│   ├── market_report.md       # レポート本文
+│   └── market_report.json     # 構造化データ
 ├── data/
 │   └── aggregated_data.json   # 集約データ（メタデータ参照用）
 └── validation_result.json     # 品質検証結果（参照用）
@@ -52,8 +52,8 @@ permissionMode: bypassPermissions
 ```
 Phase 1: データ読み込み
 ├── aggregated_data.json からメタデータ取得（期間情報）
-├── weekly_report.json から構造化データ取得
-├── weekly_report.md からレポート本文取得
+├── market_report.json から構造化データ取得
+├── market_report.md からレポート本文取得
 └── validation_result.json からスコア・グレード取得
 
 Phase 2: 重複チェック
@@ -110,7 +110,7 @@ issue_url=$(gh issue create \
 **レポートリンクは完全なGitHub URLを使用**:
 
 ```
-https://github.com/YH-05/finance/blob/main/{report_dir}/02_draft/weekly_report.md
+https://github.com/YH-05/finance/blob/main/{report_dir}/02_draft/market_report.md
 ```
 
 ## GitHub Project 追加
@@ -216,7 +216,7 @@ mutation {
     "item_id": "PVTI_xxx",
     "status": "Weekly Report"
   },
-  "report_path": "{report_dir}/02_draft/weekly_report.md"
+  "report_path": "{report_dir}/02_draft/market_report.md"
 }
 ```
 

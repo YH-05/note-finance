@@ -176,6 +176,6 @@ SKILL.md からオフロードした詳細ルール。実装時の参照用。
 - `meta.yaml` の `category` フィールドを優先
 
 ### 週次レポートの場合
-- `weekly_report` カテゴリとして扱う
-- audience は基本的に `intermediate`（weekly_report に beginner は想定しない）
+- `market_report` カテゴリとして扱う
+- audience は基本的に `intermediate`（market_report に beginner は想定しない）
 - 数字が多いため C型または D型を推奨
