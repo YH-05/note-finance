@@ -21,13 +21,16 @@ from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
+    _infer_period_type,
     _load_wealth_themes,
     _magnitude_from_score,
     _match_domain_to_theme,
     _parse_yaml_frontmatter,
     _scan_wealth_directory,
     cleanup_old_files,
+    generate_chunk_id,
     generate_claim_id,
+    generate_datapoint_id,
     generate_entity_id,
     generate_queue_id,
     generate_source_id,
@@ -493,6 +496,110 @@ class TestGenerateQueueId:
         id1 = generate_queue_id()
         id2 = generate_queue_id()
         assert id1 != id2
+
+
+# ---------------------------------------------------------------------------
+# _infer_period_type
+# ---------------------------------------------------------------------------
+
+
+class TestInferPeriodType:
+    """_infer_period_type 関数のテスト。"""
+
+    def test_正常系_FY付きラベルでannual(self) -> None:
+        assert _infer_period_type("FY2025") == "annual"
+        assert _infer_period_type("FY26") == "annual"
+
+    def test_正常系_Q付きラベルでquarterly(self) -> None:
+        assert _infer_period_type("4Q25") == "quarterly"
+        assert _infer_period_type("Q4 2025") == "quarterly"
+        assert _infer_period_type("1Q26") == "quarterly"
+
+    def test_正常系_H付きラベルでhalf_year(self) -> None:
+        assert _infer_period_type("1H26") == "half_year"
+        assert _infer_period_type("2H25") == "half_year"
+
+    def test_正常系_年のみでannualにフォールバック(self) -> None:
+        assert _infer_period_type("2025") == "annual"
+        assert _infer_period_type("unknown") == "annual"
+
+    def test_正常系_小文字でも正しく判定(self) -> None:
+        assert _infer_period_type("fy2025") == "annual"
+        assert _infer_period_type("q4") == "quarterly"
+        assert _infer_period_type("1h26") == "half_year"
+
+    def test_エッジケース_FQ含む文字列はquarterlyにならない(self) -> None:
+        """FQ (fiscal quarter reference) は quarterly と誤判定しない。"""
+        assert _infer_period_type("FQ1") == "annual"
+        assert _infer_period_type("FQ4 2025") == "annual"
+        assert _infer_period_type("fq2") == "annual"
+
+    def test_エッジケース_3Q25はquarterly_FQ3はannual(self) -> None:
+        """通常の四半期ラベルは quarterly、FQ付きは annual。"""
+        assert _infer_period_type("3Q25") == "quarterly"
+        assert _infer_period_type("FQ3 2025") == "annual"
+
+
+# ---------------------------------------------------------------------------
+# generate_datapoint_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateDatapointId:
+    """generate_datapoint_id 関数のテスト。"""
+
+    def test_正常系_同じ入力で同じIDを生成(self) -> None:
+        id1 = generate_datapoint_id("abc123", "Revenue", "FY2025")
+        id2 = generate_datapoint_id("abc123", "Revenue", "FY2025")
+        assert id1 == id2
+
+    def test_正常系_異なる入力で異なるIDを生成(self) -> None:
+        id1 = generate_datapoint_id("abc123", "Revenue", "FY2025")
+        id2 = generate_datapoint_id("abc123", "EBITDA", "FY2025")
+        assert id1 != id2
+
+    def test_正常系_異なるperiodで異なるIDを生成(self) -> None:
+        id1 = generate_datapoint_id("abc123", "Revenue", "FY2025")
+        id2 = generate_datapoint_id("abc123", "Revenue", "4Q25")
+        assert id1 != id2
+
+    def test_正常系_異なるsource_hashで異なるIDを生成(self) -> None:
+        id1 = generate_datapoint_id("abc123", "Revenue", "FY2025")
+        id2 = generate_datapoint_id("def456", "Revenue", "FY2025")
+        assert id1 != id2
+
+    def test_正常系_32文字のhex文字列を返す(self) -> None:
+        result = generate_datapoint_id("hash", "metric", "period")
+        assert len(result) == 32
+        int(result, 16)
+
+
+# ---------------------------------------------------------------------------
+# generate_chunk_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateChunkId:
+    """generate_chunk_id 関数のテスト。"""
+
+    def test_正常系_同じ入力で同じIDを生成(self) -> None:
+        id1 = generate_chunk_id("abc123", 0)
+        id2 = generate_chunk_id("abc123", 0)
+        assert id1 == id2
+
+    def test_正常系_異なるchunk_indexで異なるIDを生成(self) -> None:
+        id1 = generate_chunk_id("abc123", 0)
+        id2 = generate_chunk_id("abc123", 1)
+        assert id1 != id2
+
+    def test_正常系_異なるsource_hashで異なるIDを生成(self) -> None:
+        id1 = generate_chunk_id("abc123", 0)
+        id2 = generate_chunk_id("def456", 0)
+        assert id1 != id2
+
+    def test_正常系_期待するフォーマットで返る(self) -> None:
+        result = generate_chunk_id("abc123", 5)
+        assert result == "abc123_chunk_5"
 
 
 # ---------------------------------------------------------------------------
@@ -999,8 +1106,9 @@ class TestMapFinanceFull:
 class TestCleanupOldFiles:
     """cleanup_old_files 関数のテスト。"""
 
+    @freeze_time(FROZEN_TIME)
     def test_正常系_7日以上前のファイルを削除(self, tmp_path: Path) -> None:
-        # Create an old file (set mtime to 8 days ago)
+        # Create an old file (set mtime to 8 days ago from frozen time)
         old_file = tmp_path / "old-queue.json"
         old_file.write_text("{}", encoding="utf-8")
         old_mtime = time.time() - (8 * 24 * 3600)

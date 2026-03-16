@@ -38,6 +38,7 @@ Usage
 from __future__ import annotations
 
 import argparse
+import functools
 import json
 import logging
 import os
@@ -85,6 +86,9 @@ SCHEMA_VERSION = "2.0"
 
 WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
 """Path to the wealth-management theme configuration file."""
+
+DIRECTORY_COMMANDS: frozenset[str] = frozenset({"wealth-scrape"})
+"""Commands that accept directory input in addition to JSON files."""
 
 THEME_TO_CATEGORY: dict[str, str] = {
     "index": "stock",
@@ -1256,10 +1260,14 @@ def map_finance_full(data: dict[str, Any]) -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 
+@functools.lru_cache(maxsize=1)
 def _load_wealth_themes(
     config_path: Path = WEALTH_THEME_CONFIG_PATH,
 ) -> dict[str, Any]:
     """Load wealth-management theme configuration.
+
+    Results are cached (LRU, maxsize=1) to avoid repeated file I/O
+    within the same process.
 
     Parameters
     ----------
@@ -1285,10 +1293,36 @@ def _load_wealth_themes(
     return data.get("themes", {})
 
 
+def _build_theme_lookup(
+    themes: dict[str, Any],
+) -> dict[str, tuple[str, str]]:
+    """Build a reverse-lookup dict from source key to (theme_key, name_en).
+
+    Parameters
+    ----------
+    themes : dict[str, Any]
+        Theme configuration from ``wealth-management-themes.json``.
+
+    Returns
+    -------
+    dict[str, tuple[str, str]]
+        Mapping of ``{source_key: (theme_key, name_en)}``.
+    """
+    lookup: dict[str, tuple[str, str]] = {}
+    for theme_key, theme_data in themes.items():
+        name_en = theme_data.get("name_en", theme_key)
+        for source in theme_data.get("target_sources", []):
+            lookup[source] = (theme_key, name_en)
+    return lookup
+
+
 def _match_domain_to_theme(
     domain: str, themes: dict[str, Any]
 ) -> tuple[str, str] | None:
     """Match a domain name to a wealth theme via ``target_sources``.
+
+    Uses a reverse-lookup dictionary for O(1) exact matching on source keys,
+    with a linear fallback for substring matching.
 
     Parameters
     ----------
@@ -1305,13 +1339,125 @@ def _match_domain_to_theme(
     # Strip TLD variations for fuzzy matching
     domain_base = domain.replace(".com", "").replace(".org", "").replace(".net", "")
 
-    for theme_key, theme_data in themes.items():
-        target_sources = theme_data.get("target_sources", [])
-        for source in target_sources:
-            if source in domain_base or domain_base in source:
-                return (theme_key, theme_data.get("name_en", theme_key))
+    lookup = _build_theme_lookup(themes)
+
+    # O(1) exact match
+    if domain_base in lookup:
+        return lookup[domain_base]
+
+    # Fallback: substring matching for partial overlaps
+    for source_key, result in lookup.items():
+        if source_key in domain_base or domain_base in source_key:
+            return result
 
     return None
+
+
+def _process_domain_dir(
+    domain_dir: Path,
+    themes: dict[str, Any],
+) -> dict[str, Any] | None:
+    """Process a single domain subdirectory for wealth-scrape backfill.
+
+    Reads Markdown files with YAML frontmatter, builds Source and Chunk
+    nodes, and matches the domain to a theme for Topic generation.
+
+    Parameters
+    ----------
+    domain_dir : Path
+        Path to the domain subdirectory (e.g. ``wealth/ofdollarsanddata.com/``).
+    themes : dict[str, Any]
+        Theme configuration from ``wealth-management-themes.json``.
+
+    Returns
+    -------
+    dict[str, Any] | None
+        Mapped dict following the standard mapper result format, or ``None``
+        if no valid articles are found.
+    """
+    domain = domain_dir.name
+    md_files = sorted(domain_dir.glob("*.md"))
+    if not md_files:
+        logger.debug("No .md files in %s", domain_dir)
+        return None
+
+    sources: list[dict[str, Any]] = []
+    chunks: list[dict[str, Any]] = []
+
+    for md_file in md_files:
+        # Single read per file: parse frontmatter and body from same text
+        text = md_file.read_text(encoding="utf-8")
+        frontmatter = _parse_frontmatter_from_text(text)
+        if frontmatter is None:
+            logger.debug("Skipping file without frontmatter: %s", md_file)
+            continue
+
+        url = frontmatter.get("url", "")
+        if not url:
+            logger.debug("Skipping file without URL: %s", md_file)
+            continue
+
+        sources.append(
+            _make_source(
+                url,
+                title=frontmatter.get("title", ""),
+                published=frontmatter.get("published", frontmatter.get("date", "")),
+                domain=domain,
+                source_key=frontmatter.get("source", ""),
+            )
+        )
+
+        # Extract body text (after frontmatter) as a chunk
+        body_match = _BODY_RE.search(text)
+        body = body_match.group(1).strip() if body_match else ""
+        if body:
+            source_id = generate_source_id(url)
+            chunks.append(
+                {
+                    "chunk_id": f"{source_id}:0",
+                    "source_id": source_id,
+                    "content": body,
+                    "index": 0,
+                }
+            )
+
+    if not sources:
+        logger.debug("No valid articles found in %s", domain_dir)
+        return None
+
+    # Build topics from theme matching
+    topics: list[dict[str, Any]] = []
+    theme_match = _match_domain_to_theme(domain, themes)
+    if theme_match:
+        theme_key, theme_name = theme_match
+        topics.append(
+            {
+                "topic_id": generate_topic_id(theme_name, "wealth"),
+                "name": theme_name,
+                "category": "wealth",
+                "theme_key": theme_key,
+            }
+        )
+
+    session_data: dict[str, Any] = {
+        "session_id": f"wealth-backfill-{domain}",
+    }
+    mapped = _mapped_result(
+        session_data,
+        f"wealth-scrape:{domain}",
+        sources=sources,
+        topics=topics,
+        chunks=chunks,
+    )
+
+    logger.info(
+        "Scanned domain %s: %d sources, %d chunks, %d topics",
+        domain,
+        len(sources),
+        len(chunks),
+        len(topics),
+    )
+    return mapped
 
 
 def _scan_wealth_directory(
@@ -1358,94 +1504,123 @@ def _scan_wealth_directory(
         return []
 
     for domain_dir in domain_dirs:
-        domain = domain_dir.name
-        md_files = sorted(domain_dir.glob("*.md"))
-        if not md_files:
-            logger.debug("No .md files in %s", domain_dir)
-            continue
-
-        sources: list[dict[str, Any]] = []
-        chunks: list[dict[str, Any]] = []
-
-        for md_file in md_files:
-            # Single read per file: parse frontmatter and body from same text
-            text = md_file.read_text(encoding="utf-8")
-            frontmatter = _parse_frontmatter_from_text(text)
-            if frontmatter is None:
-                logger.debug("Skipping file without frontmatter: %s", md_file)
-                continue
-
-            url = frontmatter.get("url", "")
-            if not url:
-                logger.debug("Skipping file without URL: %s", md_file)
-                continue
-
-            sources.append(
-                _make_source(
-                    url,
-                    title=frontmatter.get("title", ""),
-                    published=frontmatter.get("published", frontmatter.get("date", "")),
-                    domain=domain,
-                    source_key=frontmatter.get("source", ""),
-                )
-            )
-
-            # Extract body text (after frontmatter) as a chunk
-            body_match = _BODY_RE.search(text)
-            body = body_match.group(1).strip() if body_match else ""
-            if body:
-                source_id = generate_source_id(url)
-                chunks.append(
-                    {
-                        "chunk_id": f"{source_id}:0",
-                        "source_id": source_id,
-                        "content": body,
-                        "index": 0,
-                    }
-                )
-
-        if not sources:
-            logger.debug("No valid articles found in %s", domain_dir)
-            continue
-
-        # Build topics from theme matching
-        topics: list[dict[str, Any]] = []
-        theme_match = _match_domain_to_theme(domain, themes)
-        if theme_match:
-            theme_key, theme_name = theme_match
-            topics.append(
-                {
-                    "topic_id": generate_topic_id(theme_name, "wealth"),
-                    "name": theme_name,
-                    "category": "wealth",
-                    "theme_key": theme_key,
-                }
-            )
-
-        session_data: dict[str, Any] = {
-            "session_id": f"wealth-backfill-{domain}",
-        }
-        mapped = _mapped_result(
-            session_data,
-            f"wealth-scrape:{domain}",
-            sources=sources,
-            topics=topics,
-            chunks=chunks,
-        )
-
-        logger.info(
-            "Scanned domain %s: %d sources, %d chunks, %d topics",
-            domain,
-            len(sources),
-            len(chunks),
-            len(topics),
-        )
-        results.append(mapped)
+        mapped = _process_domain_dir(domain_dir, themes)
+        if mapped is not None:
+            results.append(mapped)
 
     logger.info(
         "Wealth directory scan complete: %d domain(s) with articles", len(results)
     )
     return results
+
+
+def _map_wealth_theme_common(
+    theme_key: str,
+    theme_data: dict[str, Any],
+    sources: list[dict[str, Any]],
+    topics: list[dict[str, Any]],
+    tagged_rels: list[dict[str, str]],
+    *,
+    extra_source_fields: dict[str, str] | None = None,
+) -> tuple[str, list[str], list[dict[str, Any]]]:
+    """Process the common theme-loop block shared by backfill and incremental.
+
+    Appends a Topic node, pre-computes keyword lists, and iterates over
+    articles to build Source nodes and keyword-matched tagged relations.
+
+    Parameters
+    ----------
+    theme_key : str
+        Theme key (e.g. ``"data_driven_investing"``).
+    theme_data : dict[str, Any]
+        Theme data containing ``name_en``, ``keywords_en``, ``articles``.
+    sources : list[dict[str, Any]]
+        Accumulated sources list (mutated in-place).
+    topics : list[dict[str, Any]]
+        Accumulated topics list (mutated in-place).
+    tagged_rels : list[dict[str, str]]
+        Accumulated tagged relations list (mutated in-place).
+    extra_source_fields : dict[str, str] | None
+        Additional static fields to include in each Source node
+        (e.g. ``{"source_type": "blog"}``).
+
+    Returns
+    -------
+    tuple[str, list[str], list[dict[str, Any]]]
+        A 3-tuple of (topic_id, keywords_lower, articles).
+    """
+    name_en = theme_data.get("name_en", theme_key)
+    topic_id = generate_topic_id(name_en, "wealth-management")
+
+    topics.append(
+        {
+            "topic_id": topic_id,
+            "name": name_en,
+            "category": "wealth-management",
+            "theme_key": theme_key,
+        }
+    )
+
+    keywords_en: list[str] = theme_data.get("keywords_en", [])
+    keywords_lower = [kw.lower() for kw in keywords_en]
+    articles = theme_data.get("articles", [])
+
+    return topic_id, keywords_lower, articles
+
+
+def _process_wealth_article(
+    article: dict[str, Any],
+    topic_id: str,
+    keywords_lower: list[str],
+    sources: list[dict[str, Any]],
+    tagged_rels: list[dict[str, str]],
+    **extra_source_fields: Any,
+) -> str | None:
+    """Process a single wealth article: build Source and tagged relation.
+
+    Parameters
+    ----------
+    article : dict[str, Any]
+        Article data.
+    topic_id : str
+        Topic ID for tagged relations.
+    keywords_lower : list[str]
+        Pre-lowered keywords for matching.
+    sources : list[dict[str, Any]]
+        Accumulated sources list (mutated in-place).
+    tagged_rels : list[dict[str, str]]
+        Accumulated tagged relations list (mutated in-place).
+    **extra_source_fields : Any
+        Additional fields for the Source node.
+
+    Returns
+    -------
+    str | None
+        The source_id if the article was processed, or ``None`` if skipped.
+    """
+    url = article.get("url", "")
+    if not url:
+        return None
+
+    source = _make_source(
+        url,
+        title=article.get("title", ""),
+        published=article.get("published", ""),
+        feed_source=article.get("feed_source", ""),
+        domain=article.get("domain", ""),
+        **extra_source_fields,
+    )
+    source_id = source["source_id"]
+    sources.append(source)
+
+    # Keyword matching for tagged relation
+    title_lower = article.get("title", "").lower()
+    for kw_lower in keywords_lower:
+        if kw_lower in title_lower:
+            tagged_rels.append({"from_id": source_id, "to_id": topic_id})
+            break
+
+    return source_id
 
 
 def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
@@ -1474,39 +1649,24 @@ def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
     seen_domains: set[str] = set()
 
     for theme_key, theme_data in themes.items():
-        name_en = theme_data.get("name_en", theme_key)
-        topic_id = generate_topic_id(name_en, "wealth-management")
-
-        topics.append(
-            {
-                "topic_id": topic_id,
-                "name": name_en,
-                "category": "wealth-management",
-                "theme_key": theme_key,
-            }
+        topic_id, keywords_lower, articles = _map_wealth_theme_common(
+            theme_key, theme_data, sources, topics, tagged_rels
         )
 
-        keywords_en: list[str] = theme_data.get("keywords_en", [])
-        keywords_lower = [kw.lower() for kw in keywords_en]
-        articles = theme_data.get("articles", [])
-
         for article in articles:
-            url = article.get("url", "")
-            if not url:
+            source_id = _process_wealth_article(
+                article,
+                topic_id,
+                keywords_lower,
+                sources,
+                tagged_rels,
+                source_type="blog",
+            )
+            if source_id is None:
                 continue
 
-            domain = article.get("domain", "")
-            source = _make_source(
-                url,
-                title=article.get("title", ""),
-                published=article.get("published", ""),
-                source_type="blog",
-                domain=domain,
-            )
-            source_id = source["source_id"]
-            sources.append(source)
-
             # Entity: one per unique domain
+            domain = article.get("domain", "")
             if domain and domain not in seen_domains:
                 seen_domains.add(domain)
                 entities.append(
@@ -1516,13 +1676,6 @@ def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
                         "entity_type": "domain",
                     }
                 )
-
-            # Keyword matching for tagged relation
-            title_lower = article.get("title", "").lower()
-            for kw_lower in keywords_lower:
-                if kw_lower in title_lower:
-                    tagged_rels.append({"from_id": source_id, "to_id": topic_id})
-                    break
 
     rels = _empty_rels()
     rels["tagged"] = tagged_rels
@@ -1563,36 +1716,20 @@ def map_wealth_scrape_incremental(data: dict[str, Any]) -> dict[str, Any]:
     source_claim_rels: list[dict[str, str]] = []
 
     for theme_key, theme_data in themes.items():
-        name_en = theme_data.get("name_en", theme_key)
-        topic_id = generate_topic_id(name_en, "wealth-management")
-
-        topics.append(
-            {
-                "topic_id": topic_id,
-                "name": name_en,
-                "category": "wealth-management",
-                "theme_key": theme_key,
-            }
+        topic_id, keywords_lower, articles = _map_wealth_theme_common(
+            theme_key, theme_data, sources, topics, tagged_rels
         )
 
-        keywords_en: list[str] = theme_data.get("keywords_en", [])
-        keywords_lower = [kw.lower() for kw in keywords_en]
-        articles = theme_data.get("articles", [])
-
         for article in articles:
-            url = article.get("url", "")
-            if not url:
-                continue
-
-            source = _make_source(
-                url,
-                title=article.get("title", ""),
-                published=article.get("published", ""),
-                feed_source=article.get("feed_source", ""),
-                domain=article.get("domain", ""),
+            source_id = _process_wealth_article(
+                article,
+                topic_id,
+                keywords_lower,
+                sources,
+                tagged_rels,
             )
-            source_id = source["source_id"]
-            sources.append(source)
+            if source_id is None:
+                continue
 
             # Claim from summary
             summary = article.get("summary", "")
@@ -1607,13 +1744,6 @@ def map_wealth_scrape_incremental(data: dict[str, Any]) -> dict[str, Any]:
                     }
                 )
                 source_claim_rels.append({"from_id": source_id, "to_id": claim_id})
-
-            # Keyword matching for tagged relation
-            title_lower = article.get("title", "").lower()
-            for kw_lower in keywords_lower:
-                if kw_lower in title_lower:
-                    tagged_rels.append({"from_id": source_id, "to_id": topic_id})
-                    break
 
     rels = _empty_rels()
     rels["tagged"] = tagged_rels
@@ -1787,6 +1917,48 @@ def _build_td_facts(
     return facts, rels
 
 
+def _build_td_entities(
+    suggestions: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], set[str], list[dict[str, str]]]:
+    """Build Entity nodes and claim-entity relations from suggested symbols.
+
+    Parameters
+    ----------
+    suggestions : list[dict[str, Any]]
+        List of suggestion dicts, each with optional ``suggested_symbols``.
+    claims : list[dict[str, Any]]
+        Corresponding list of Claim node dicts (same order as suggestions).
+
+    Returns
+    -------
+    tuple[list[dict[str, Any]], set[str], list[dict[str, str]]]
+        A 3-tuple of (entities, seen_tickers, claim_entity_rels).
+    """
+    seen_tickers: set[str] = set()
+    entities: list[dict[str, Any]] = []
+    claim_entity_rels: list[dict[str, str]] = []
+
+    for suggestion, claim in zip(suggestions, claims, strict=True):
+        for ticker in suggestion.get("suggested_symbols", []):
+            entity_id = f"symbol:{ticker}"
+            if ticker not in seen_tickers:
+                seen_tickers.add(ticker)
+                entities.append(
+                    {
+                        "entity_id": entity_id,
+                        "name": ticker,
+                        "entity_type": "index" if ticker.startswith("^") else "stock",
+                        "ticker": ticker,
+                    }
+                )
+            claim_entity_rels.append(
+                {"from_id": claim["claim_id"], "to_id": entity_id, "type": "ABOUT"}
+            )
+
+    return entities, seen_tickers, claim_entity_rels
+
+
 def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
     """Map topic-discovery session data to graph-queue components.
 
@@ -1838,13 +2010,10 @@ def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
 
     # Accumulators for nodes and relations
     seen_categories: set[str] = set()
-    seen_tickers: set[str] = set()
     topics: list[dict[str, Any]] = []
     claims: list[dict[str, Any]] = []
-    entities: list[dict[str, Any]] = []
     tagged_rels: list[dict[str, str]] = []
     source_claim_rels: list[dict[str, str]] = []
-    claim_entity_rels: list[dict[str, str]] = []
 
     for suggestion in suggestions:
         category_key = suggestion.get("category", "")
@@ -1875,22 +2044,8 @@ def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
                 {"from_id": claim["claim_id"], "to_id": topic_id, "type": "TAGGED"}
             )
 
-        # Entity nodes from suggested_symbols
-        for ticker in suggestion.get("suggested_symbols", []):
-            entity_id = f"symbol:{ticker}"
-            if ticker not in seen_tickers:
-                seen_tickers.add(ticker)
-                entities.append(
-                    {
-                        "entity_id": entity_id,
-                        "name": ticker,
-                        "entity_type": "index" if ticker.startswith("^") else "stock",
-                        "ticker": ticker,
-                    }
-                )
-            claim_entity_rels.append(
-                {"from_id": claim["claim_id"], "to_id": entity_id, "type": "ABOUT"}
-            )
+    # Entity nodes from suggested_symbols (delegated to helper)
+    entities, _seen_tickers, claim_entity_rels = _build_td_entities(suggestions, claims)
 
     # Fact nodes from search_insights.trends (skip when no_search)
     if no_search:
@@ -2059,7 +2214,7 @@ def _load_and_parse(
         return None
 
     # Directory input: wealth-scrape backfill scanning
-    if command == "wealth-scrape" and input_path.is_dir():
+    if command in DIRECTORY_COMMANDS and input_path.is_dir():
         logger.info("Scanning wealth directory: %s", input_path)
         results = _scan_wealth_directory(input_path)
         if not results:
