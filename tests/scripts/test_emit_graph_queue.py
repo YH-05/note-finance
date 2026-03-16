@@ -18,6 +18,7 @@ import pytest
 from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
+    _parse_yaml_frontmatter,
     cleanup_old_files,
     generate_claim_id,
     generate_entity_id,
@@ -1126,3 +1127,104 @@ class TestThemeToCategoryMapping:
         valid_categories = {"stock", "sector", "macro", "ai", "finance"}
         for category in THEME_TO_CATEGORY.values():
             assert category in valid_categories
+
+
+# ---------------------------------------------------------------------------
+# _parse_yaml_frontmatter
+# ---------------------------------------------------------------------------
+
+
+class TestParseYamlFrontmatter:
+    """_parse_yaml_frontmatter 関数のテスト。"""
+
+    def test_正常系_全フィールドを取得できる(self, tmp_path: Path) -> None:
+        md_file = tmp_path / "article.md"
+        md_file.write_text(
+            "---\n"
+            "url: 'https://example.com/article/1'\n"
+            "title: 'S&P 500 hits record high'\n"
+            "date: '2026-03-07'\n"
+            "author: 'John Doe'\n"
+            "domain: 'example.com'\n"
+            "---\n"
+            "\n"
+            "# Article body here\n",
+            encoding="utf-8",
+        )
+        result = _parse_yaml_frontmatter(md_file)
+        assert result is not None
+        assert result["url"] == "https://example.com/article/1"
+        assert result["title"] == "S&P 500 hits record high"
+        assert result["date"] == "2026-03-07"
+        assert result["author"] == "John Doe"
+        assert result["domain"] == "example.com"
+
+    def test_正常系_引用符なしの値もパースできる(self, tmp_path: Path) -> None:
+        md_file = tmp_path / "article.md"
+        md_file.write_text(
+            "---\n"
+            "url: https://example.com/article/2\n"
+            "title: Market Update\n"
+            "date: 2026-03-07\n"
+            "author: Jane\n"
+            "domain: example.com\n"
+            "---\n"
+            "\n"
+            "Body text.\n",
+            encoding="utf-8",
+        )
+        result = _parse_yaml_frontmatter(md_file)
+        assert result is not None
+        assert result["url"] == "https://example.com/article/2"
+        assert result["title"] == "Market Update"
+        assert result["author"] == "Jane"
+
+    def test_エッジケース_空フィールドを空文字として返す(self, tmp_path: Path) -> None:
+        md_file = tmp_path / "article.md"
+        md_file.write_text(
+            "---\n"
+            "url: 'https://example.com/article/3'\n"
+            "title: 'Test Article'\n"
+            "date: '2026-03-07'\n"
+            "author: ''\n"
+            "domain: 'example.com'\n"
+            "---\n"
+            "\n"
+            "Body.\n",
+            encoding="utf-8",
+        )
+        result = _parse_yaml_frontmatter(md_file)
+        assert result is not None
+        assert result["author"] == ""
+
+    def test_異常系_frontmatter区切りなしでNoneを返す(self, tmp_path: Path) -> None:
+        md_file = tmp_path / "no-frontmatter.md"
+        md_file.write_text(
+            "# Just a heading\n\nSome content without frontmatter.\n",
+            encoding="utf-8",
+        )
+        result = _parse_yaml_frontmatter(md_file)
+        assert result is None
+
+    def test_異常系_存在しないファイルでNoneを返す(self, tmp_path: Path) -> None:
+        nonexistent = tmp_path / "nonexistent.md"
+        result = _parse_yaml_frontmatter(nonexistent)
+        assert result is None
+
+    def test_正常系_値なしのフィールドを空文字として返す(self, tmp_path: Path) -> None:
+        md_file = tmp_path / "article.md"
+        md_file.write_text(
+            "---\n"
+            "url: 'https://example.com/article/4'\n"
+            "title: 'Test'\n"
+            "date: '2026-03-07'\n"
+            "author:\n"
+            "domain: 'example.com'\n"
+            "---\n"
+            "\n"
+            "Body.\n",
+            encoding="utf-8",
+        )
+        result = _parse_yaml_frontmatter(md_file)
+        assert result is not None
+        assert result["author"] == ""

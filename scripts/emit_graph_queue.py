@@ -34,6 +34,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import secrets
 import sys
 import time
@@ -93,6 +94,64 @@ THEME_TO_CATEGORY: dict[str, str] = {
     "finance_other": "finance",
 }
 """Theme key to category mapping table."""
+
+
+# ---------------------------------------------------------------------------
+# YAML Frontmatter Parsing
+# ---------------------------------------------------------------------------
+
+_FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
+"""Regex to extract YAML frontmatter block (between ``---`` delimiters)."""
+
+_KV_RE = re.compile(r"^(\w+):\s*(.*)$")
+"""Regex to extract ``key: value`` pairs from frontmatter lines."""
+
+
+def _parse_yaml_frontmatter(file_path: Path) -> dict[str, str] | None:
+    """Parse YAML frontmatter from a Markdown file using regex only.
+
+    Extracts key-value pairs from the YAML frontmatter block delimited
+    by ``---``.  Supports both quoted (``key: 'value'``) and unquoted
+    (``key: value``) formats.  Does **not** use PyYAML.
+
+    Parameters
+    ----------
+    file_path : Path
+        Path to the Markdown file to parse.
+
+    Returns
+    -------
+    dict[str, str] | None
+        A mapping of frontmatter keys to their string values, or ``None``
+        if the file does not exist or has no frontmatter block.
+    """
+    if not file_path.exists():
+        logger.warning("File not found: %s", file_path)
+        return None
+
+    text = file_path.read_text(encoding="utf-8")
+    match = _FRONTMATTER_RE.search(text)
+    if match is None:
+        logger.debug("No frontmatter found in %s", file_path)
+        return None
+
+    frontmatter_block = match.group(1)
+    result: dict[str, str] = {}
+    for line in frontmatter_block.splitlines():
+        kv_match = _KV_RE.match(line.strip())
+        if kv_match is None:
+            continue
+        key = kv_match.group(1)
+        raw_value = kv_match.group(2).strip()
+        # Strip surrounding single or double quotes
+        if len(raw_value) >= 2 and (
+            (raw_value[0] == "'" and raw_value[-1] == "'")
+            or (raw_value[0] == '"' and raw_value[-1] == '"')
+        ):
+            raw_value = raw_value[1:-1]
+        result[key] = raw_value
+
+    return result
 
 
 # ---------------------------------------------------------------------------
