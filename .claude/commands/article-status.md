@@ -9,7 +9,7 @@ argument-hint: [--category <category>]
 
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
-| --category | - | 全カテゴリ | フィルタするカテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis） |
+| --category | - | 全カテゴリ | フィルタするカテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education） |
 
 ## 処理フロー
 
@@ -132,6 +132,7 @@ Step 3: ステータス表示
    | stock_analysis | 1 |
    | market_report | 1 |
    | quant_analysis | 0 |
+   | investment_education | 0 |
    ```
 
 ## 使用例

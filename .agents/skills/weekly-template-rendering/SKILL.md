@@ -21,7 +21,7 @@ allowed-tools: Read, Write
 
 ### プロアクティブ使用
 
-`weekly-report-writer` エージェントの第3フェーズとして、`weekly-comment-generation` の後に呼び出される。
+`wr-template-renderer` エージェントの第3フェーズとして、`weekly-comment-generation` の後に呼び出される。
 
 ### 明示的な使用
 
@@ -118,7 +118,7 @@ articles/market_report/{date}/02_draft/
 **免責事項**: 本レポートは情報提供を目的としており、投資助言ではありません。
 投資判断は自己責任で行ってください。
 
-**生成**: weekly-report-writer エージェント
+**生成**: wr-template-renderer エージェント
 ```
 
 ## プレースホルダー一覧

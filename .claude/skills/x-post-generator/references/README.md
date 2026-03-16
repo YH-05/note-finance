@@ -17,7 +17,8 @@ references/
 ├── stock_analysis/     ← 株式分析カテゴリのサンプル
 ├── market_report/      ← 週次レポートカテゴリのサンプル（必要時に追加）
 ├── side_business/      ← 副業カテゴリのサンプル（必要時に追加）
-└── quant_analysis/     ← クオンツ分析カテゴリのサンプル（必要時に追加）
+├── quant_analysis/     ← クオンツ分析カテゴリのサンプル（必要時に追加）
+└── investment_education/ ← 投資教育カテゴリのサンプル（必要時に追加）
 ```
 
 ---

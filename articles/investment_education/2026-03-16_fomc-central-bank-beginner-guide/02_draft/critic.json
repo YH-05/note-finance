@@ -1,0 +1,232 @@
+{
+    "article_id": "2026-03-16_fomc-central-bank-beginner-guide",
+    "generated_at": "2026-03-16",
+    "critics": {
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 96,
+            "status": "pass",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "low",
+                    "category": "expression",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC（3/18）を読み解く > 真の注目点：ドットプロットの更新",
+                        "line": "中央値が2回利下げ方向にシフト → ハト派サプライズ → リスクオン（株高・ドル安）の可能性"
+                    },
+                    "issue": "シナリオ分岐の矢印表記（→）が因果関係を断定的に示唆する印象を与える。「可能性」と付記されているため規制上の問題は軽微だが、読者が確定的な因果と誤解するリスクがある。",
+                    "regulation": "金融商品取引法第38条（断定的判断の提供の禁止）の趣旨",
+                    "suggestion": "「→」を「の場合、〜となる可能性があります」のような文章形式に書き換えるか、箇条書きの冒頭に「あくまで一般的な傾向であり、実際の市場反応は異なる場合があります」と注記を追加する。"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "low",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC（3/18）を読み解く > 据え置き99%の背景",
+                        "line": "2022年6月のピーク（約9%）からは大幅に低下しましたが"
+                    },
+                    "issue": "過去のインフレデータ（2022年6月CPI約9%）に言及しているが、「過去の実績は将来の運用成果を保証するものではない」旨の免責は末尾にのみ存在する。過去パフォーマンスデータ引用箇所と免責事項の距離がやや離れている。",
+                    "regulation": "金融商品取引法第37条（広告等の規制）の趣旨、note.comガイドライン（誤解を招く表現の禁止）",
+                    "suggestion": "末尾の免責事項で包括的にカバーされているため必須ではないが、セクション5の冒頭に「以下は過去のデータに基づく分析であり、将来を保証するものではありません」と軽い注記を加えるとより丁寧。"
+                }
+            ],
+            "required_disclaimers": {
+                "investment_risk": {
+                    "present": true,
+                    "location": "末尾"
+                },
+                "not_advice": {
+                    "present": true,
+                    "location": "冒頭"
+                },
+                "past_performance": {
+                    "present": true,
+                    "required": true
+                },
+                "data_source": {
+                    "present": true,
+                    "location": "末尾"
+                }
+            },
+            "prohibited_expressions_found": []
+        },
+        "fact": {
+            "critic_type": "fact",
+            "score": 72,
+            "status": "fail",
+            "issues": [
+                {
+                    "issue_id": "F001",
+                    "severity": "high",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC > 景気の不透明感",
+                        "line": "失業率は4.6%に上昇しています"
+                    },
+                    "issue": "失業率の数値が誤り。BLS公式発表（2026年3月6日）によると、2026年2月の失業率は4.4%であり、4.6%ではない。",
+                    "original": "失業率は4.6%に上昇しています",
+                    "correct": "失業率は4.4%に上昇しています",
+                    "source": "S021",
+                    "verification_source": "BLS Employment Situation Summary February 2026 (https://www.bls.gov/news.release/empsit.nr0.htm), CNBC (https://www.cnbc.com/2026/03/06/february-2026-jobs-report.html)",
+                    "suggestion": "「失業率は4.4%に上昇しています」に修正。claims.json (C025) の記載「失業率4.6%」自体が誤りであり、BLS公式データおよび複数の報道機関（CNBC、CNN、OPB）が一致して4.4%と報じている。"
+                },
+                {
+                    "issue_id": "F002",
+                    "severity": "high",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC > 利下げ期待はどこへ？",
+                        "line": "Goldman Sachs（ゴールドマン・サックス）は次回利下げの予想を6月から9月に後退修正し"
+                    },
+                    "issue": "Goldman Sachsの利下げ予想の後退修正に関する記述が不正確。GSは当初の3月・6月予想を6月・9月に後退修正したが、3月16日時点でGS自身は依然として6月を基本シナリオ（base case）として維持している。「6月から9月に後退」という表現はGSの公式見解と異なる。",
+                    "original": "Goldman Sachs（ゴールドマン・サックス）は次回利下げの予想を6月から9月に後退修正し、年内1回のみの利下げが基本シナリオとなっています",
+                    "correct": "Goldman Sachsは利下げ予想を当初の3月・6月から6月・9月に後退修正し、年内2回の利下げ（各25bps）を基本シナリオとしています",
+                    "source": "S024",
+                    "verification_source": "Goldman Sachs Insights (https://www.goldmansachs.com/insights/articles/the-outlook-for-fed-rate-cuts-in-2026), Prism News - Goldman Sachs Keeps June 2026 Fed Cut Base Case",
+                    "suggestion": "GSの正確な見通しは「6月と9月に各25bpsの利下げ、年内2回」。「年内1回のみ」は市場全体のコンセンサスを誤ってGSに帰属させている可能性がある。CNBCの記事（C022出典）は市場全般の期待後退を報じているが、GSの公式予想は2回維持。GSの見解と市場コンセンサスを区別して記載すべき。"
+                },
+                {
+                    "issue_id": "F003",
+                    "severity": "high",
+                    "location": {
+                        "section": "1. FOMCとは？ > 2026年の注目ポイント",
+                        "line": "次期議長にはKevin Warsh氏（ケビン・ウォーシュ、元FRB理事）がフロントランナーとされています"
+                    },
+                    "issue": "Kevin Warshの記述が「フロントランナー」と表現されているが、トランプ大統領は2026年1月30日に正式指名済み（3月4日に上院に正式送付）。記事執筆時点（3月16日）では「候補」ではなく「指名済み・上院承認待ち」の段階。",
+                    "original": "次期議長にはKevin Warsh氏（ケビン・ウォーシュ、元FRB理事）がフロントランナーとされています",
+                    "correct": "次期議長にはKevin Warsh氏（ケビン・ウォーシュ、元FRB理事）がトランプ大統領により正式に指名されており、上院での承認手続きが進められています",
+                    "source": "S003",
+                    "verification_source": "CNBC (https://www.cnbc.com/2026/03/04/trump-federal-reserve-kevin-warsh-senate.html), White House (https://www.whitehouse.gov/articles/2026/01/wide-acclaim-for-president-trumps-nomination-of-kevin-warsh-as-fed-chair/)",
+                    "suggestion": "「フロントランナーとされています」を「トランプ大統領により正式に指名されており、上院での承認手続き中です」に修正。指名と候補の区別は読者への正確な情報提供として重要。"
+                },
+                {
+                    "issue_id": "F004",
+                    "severity": "medium",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC > 据え置き99%の背景",
+                        "line": "CME FedWatchによると、3月FOMCでは金利据え置き（3.50〜3.75%）の確率が99%と表示されています"
+                    },
+                    "issue": "FedWatchの据え置き確率「99%」はtastyfx出典の最大値であるが、CME公式データおよび複数ソースでは94〜96%の範囲。セクション3では「94〜99%」と幅を持たせているが、セクション5では「99%」と最大値のみ記載しており、データソース間の不一致がある。",
+                    "original": "3月FOMCでは金利据え置き（3.50〜3.75%）の確率が99%と表示されています",
+                    "correct": "3月FOMCでは金利据え置き（3.50〜3.75%）の確率が94〜96%と表示されています",
+                    "source": "S032",
+                    "verification_source": "CME FedWatch Tool (https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html), Switch Markets S011記載の94.1%, Phemex報道の96%, KuCoin報道の96%",
+                    "suggestion": "セクション5の「99%」を「96%前後」または「95%超」に修正し、セクション3の「94〜99%」も「94〜96%」に修正する。FedWatchの確率は日次で変動するため、「96%前後」のような表現が最も正確。"
+                },
+                {
+                    "issue_id": "F005",
+                    "severity": "medium",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC > パウエル議長の「残り2回」の記者会見",
+                        "line": "後任にはWarsh氏の名前が挙がっており"
+                    },
+                    "issue": "F003と同様、Warsh氏は既に正式指名済み。「名前が挙がっており」は指名前の候補段階の表現であり、事実と乖離している。",
+                    "original": "後任にはWarsh氏の名前が挙がっており",
+                    "correct": "後任にはWarsh氏が正式に指名されており",
+                    "source": "S003",
+                    "verification_source": "CNBC (https://www.cnbc.com/2026/03/04/trump-federal-reserve-kevin-warsh-senate.html)",
+                    "suggestion": "「名前が挙がっており」を「正式に指名されており」に修正。"
+                },
+                {
+                    "issue_id": "F006",
+                    "severity": "medium",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC > 据え置き99%の背景",
+                        "line": "2月のCPI（消費者物価指数）は前年比2.4%上昇しており、Fedの目標である2%をまだ上回っています"
+                    },
+                    "issue": "CPI 2.4%の数値自体は正確だが、Fedの物価目標指標はCPIではなくPCE（個人消費支出）デフレーターである点が明示されていない。初心者向け記事としてCPIを使うこと自体は許容されるが、「Fedの目標である2%」との直接比較はミスリーディング。",
+                    "original": "2月のCPI（消費者物価指数）は前年比2.4%上昇しており、Fedの目標である2%をまだ上回っています",
+                    "correct": "2月のCPI（消費者物価指数）は前年比2.4%上昇しています。なお、Fedが公式目標とする指標はPCE（個人消費支出）デフレーターですが、CPIも広く注目される物価指標であり、いずれもFedの2%目標を上回っています",
+                    "source": "S023",
+                    "verification_source": "CNBC CPI inflation report February 2026 (https://www.cnbc.com/2026/03/11/cpi-inflation-report-february-2026.html), Federal Reserve公式",
+                    "suggestion": "「Fedの目標である2%」の比較対象がCPIであることを明確にするか、「Fedが公式に目標とするPCEデフレーターも含め、主要な物価指標が2%を上回っている」のように補足する。"
+                },
+                {
+                    "issue_id": "F007",
+                    "severity": "low",
+                    "location": {
+                        "section": "5. ケーススタディ：2026年3月FOMC > 据え置き99%の背景",
+                        "line": "2022年6月のピーク（約9%）からは大幅に低下しましたが"
+                    },
+                    "issue": "2022年6月のCPIピークは正確には9.1%。「約9%」は許容範囲内の近似値だが、BLS公式データとの厳密な一致を欠く。",
+                    "original": "2022年6月のピーク（約9%）",
+                    "correct": "2022年6月のピーク（9.1%）",
+                    "source": "S023",
+                    "verification_source": "BLS (https://www.bls.gov/opub/ted/2022/consumer-prices-up-9-1-percent-over-the-year-ended-june-2022-largest-increase-in-40-years.htm)",
+                    "suggestion": "「約9%」を「9.1%」に修正。数値の正確性を高めることで記事の信頼性が向上する。"
+                },
+                {
+                    "issue_id": "F008",
+                    "severity": "low",
+                    "location": {
+                        "section": "まとめ > 次回のFOMCは4月29日です",
+                        "line": "次回のFOMCは4月29日です"
+                    },
+                    "issue": "次回FOMCは4月28-29日の2日間開催。「4月29日」は声明文発表日（2日目）を指しており誤りではないが、2日間の会議であることを考慮すると「4月28-29日」と記載する方が正確。",
+                    "original": "次回のFOMCは4月29日です",
+                    "correct": "次回のFOMCは4月28〜29日です",
+                    "source": "S006",
+                    "verification_source": "Federal Reserve FOMC Calendar (https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)",
+                    "suggestion": "「4月29日」を「4月28〜29日」に修正するか、「4月29日（結果発表日）」と補足する。"
+                }
+            ],
+            "verified_facts": 30,
+            "issues_found": 8,
+            "verification_rate": 93.3,
+            "verification_summary": {
+                "confirmed_accurate": [
+                    "C001: FOMC構成（12名投票権、7+1+4構造）-- FRB公式で確認",
+                    "C002: 年8回開催、2日目午後2時発表 -- FRB公式で確認",
+                    "C003: NY連銀総裁John Williams常任、FOMC副議長 -- 複数ソースで確認",
+                    "C004: 2026年ローテーション4名（Hammack, Paulson, Logan, Kashkari）-- FRB公式・fiisualで確認",
+                    "C006: FFレートの定義（翌日物・無担保・銀行間金利）-- Wikipedia・FRB公式で確認",
+                    "C007: IORB（準備預金金利）による金利フロア形成 -- NY Fed公式で確認",
+                    "C008: FFレートの住宅ローン等への波及メカニズム -- AIERで確認",
+                    "C009: イールドカーブの定義と逆イールドの意味 -- StoneXで確認",
+                    "C010: ドットプロットの定義（最大19名、3/6/9/12月公表）-- Britannica・Fidelityで確認",
+                    "C011: ドットプロット読み方3ポイント -- Fidelityで確認",
+                    "C012: 2025年12月ドットプロット中央値が1回25bps利下げ示唆 -- FRB公式SEP・CNBCで確認",
+                    "C013: FedWatchツールの算出方法（30日FF先物ベース）-- CME公式で確認",
+                    "C015: DCFモデルと金利上昇の株価影響メカニズム -- Howe & Ruslingで確認",
+                    "C016: 債券価格と金利の逆相関、デュレーションの影響 -- Hartford Fundsで確認",
+                    "C017: 日米金利差によるドル円への影響メカニズム -- Forex GDPで確認",
+                    "C018: USD/JPY 159.50付近、日銀政策金利0.75% -- FXStreet・Trading Economicsで確認",
+                    "C019: 3月FOMC据え置き見込み、FFレート3.50-3.75% -- tastyfx・CMEで確認",
+                    "C020: Miran・Wallerが1月会合で反対票（利下げ支持）-- CNBC・FRB公式議事録で確認",
+                    "C021: WTI原油98-99ドル、ブレント103ドル超 -- Mariemont Capital・CNBC・Gulf Newsで確認",
+                    "C024: パウエル議長任期5月15日満了 -- FRB公式・CNBCで確認",
+                    "C025: GDP成長率0.7%に下方修正 -- BEA公式・Fox Business・Yahoo Financeで確認",
+                    "C026: 2月CPI前年比2.4%上昇 -- BLS公式・CNBCで確認",
+                    "C028: FRBデュアルマンデート（物価安定・最大雇用）-- FRB公式で確認",
+                    "C029: ドットプロットは予測であり約束ではない -- FRB公式繰り返し発言で確認"
+                ],
+                "issues_detected": [
+                    "C025: 失業率4.6%は誤り、正しくは4.4%（BLS公式）-- F001",
+                    "C022: GSの利下げ予想の記述が不正確 -- F002",
+                    "C024: Warsh氏は「フロントランナー」ではなく正式指名済み -- F003/F005"
+                ]
+            }
+        }
+    },
+    "overall_score": null,
+    "priority_fixes": [
+        {
+            "priority": 1,
+            "issue_id": "F001",
+            "description": "失業率4.6%を4.4%に修正（BLS公式データとの不一致）",
+            "impact": "数値の誤りは記事全体の信頼性を損なう"
+        },
+        {
+            "priority": 2,
+            "issue_id": "F002",
+            "description": "Goldman Sachsの利下げ予想を正確に記載（年内2回が公式見解）",
+            "impact": "著名投資銀行の見解の誤引用は読者のミスリードにつながる"
+        },
+        {
+            "priority": 3,
+            "issue_id": "F003",
+            "description": "Kevin Warsh氏の地位を「フロントランナー」から「正式指名済み」に修正",
+            "impact": "記事執筆時点で既に公知の事実との乖離"
+        }
+    ]
+}

@@ -378,6 +378,8 @@ function extractClaudePaths(component: Component, edges: DependencyEdge[]): void
   while ((match = claudePathRe.exec(component.content)) !== null) {
     const dir = match[1]!;
     const targetSlug = match[2]!;
+    // Skip glob patterns (e.g. "pr-*") — slugs must not end with a hyphen
+    if (targetSlug.endsWith("-")) continue;
     const targetType = dirToComponentType(dir);
     if (targetType) {
       edges.push({
@@ -398,6 +400,7 @@ function extractAgentsPaths(component: Component, edges: DependencyEdge[]): void
   while ((match = agentsPathRe.exec(component.content)) !== null) {
     const dir = match[1]!;
     const targetSlug = match[2]!;
+    if (targetSlug.endsWith("-")) continue;
     const targetType = dir === "workflows" ? "workflow" : "skill";
     edges.push({
       source: component.id,
@@ -410,7 +413,10 @@ function extractAgentsPaths(component: Component, edges: DependencyEdge[]): void
 
 /** Strategy 6: Inline Japanese references */
 function extractInlineRefs(component: Component, edges: DependencyEdge[]): void {
-  const agentInlineRe = /([a-z][-a-z0-9]+)\s+エージェント/g;
+  // (?<![a-zA-Z0-9-]) prevents matching mid-word (e.g. "ode" from "Code", "earch" from "Search",
+  //   "post-generator" from "x-post-generator スキル")
+  // [ \t]+ (horizontal whitespace only) prevents cross-line matches like "yaml\nエージェント作成完了:"
+  const agentInlineRe = /(?<![a-zA-Z0-9-])([a-z][a-z0-9]+(?:-[a-z0-9]+)*)[ \t]+エージェント/g;
   let match: RegExpExecArray | null;
   while ((match = agentInlineRe.exec(component.content)) !== null) {
     const targetSlug = match[1]!;
@@ -424,7 +430,7 @@ function extractInlineRefs(component: Component, edges: DependencyEdge[]): void 
     });
   }
 
-  const skillInlineRe = /([a-z][-a-z0-9]+)\s+スキル/g;
+  const skillInlineRe = /(?<![a-zA-Z0-9-])([a-z][a-z0-9]+(?:-[a-z0-9]+)*)[ \t]+スキル/g;
   while ((match = skillInlineRe.exec(component.content)) !== null) {
     const targetSlug = match[1]!;
     if (`skill:${targetSlug}` === component.id) continue;

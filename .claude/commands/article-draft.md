@@ -27,11 +27,13 @@ Step 1: 前提確認
 └── workflow.research = "done" を確認
 
 Step 2: カテゴリ別ライター実行
-├── stock_analysis / macro_economy / quant_analysis
+├── stock_analysis / macro_economy / quant_analysis / investment_education
 │   └── finance-article-writer エージェント
 ├── asset_management
 │   └── asset-management-writer エージェント
-├── side_business
+├── side_business (type: case_study)
+│   └── case-study-writer エージェント + case-study-writer スキル参照
+├── side_business (type: experience)
 │   └── experience-writer エージェント
 └── market_report
     └── weekly-report-lead エージェント（→ wr-template-renderer）
@@ -69,7 +71,7 @@ Step 4: [HF5] 初稿レビュー
 
 ### Step 2: カテゴリ別ライター実行
 
-#### stock_analysis / macro_economy / quant_analysis
+#### stock_analysis / macro_economy / quant_analysis / investment_education
 
 ```
 エージェント: finance-article-writer

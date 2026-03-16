@@ -1,0 +1,26 @@
+{
+  "article_id": "2026-03-16_ai-micro-sidehustle-triple",
+  "generated_at": "2026-03-16",
+  "critics": {
+    "compliance": {"score": 82},
+    "fact_accuracy": {"score": 72},
+    "reality": {"score": 72},
+    "readability": {"score": 85}
+  },
+  "overall_score": 78,
+  "priority_fixes": [
+    {"severity": "critical", "issue": "ディスクレーマーを冒頭に移動（合成ペルソナの明記を早期化）"},
+    {"severity": "critical", "issue": "収入成長が直線的すぎる。4-5ヶ月目に凹む月を追加"},
+    {"severity": "critical", "issue": "Forbes JAPAN 2026年3月特集の出典が不確実。修正または削除"},
+    {"severity": "critical", "issue": "ChatGPT Plus料金を約3,000円→約3,300円に修正"},
+    {"severity": "warning", "issue": "Notta料金を正確に修正（月払い1,980円/年払い月あたり約1,185円）"},
+    {"severity": "warning", "issue": "Glassdoor Survey → Harris Poll（2024年）に出典修正"},
+    {"severity": "warning", "issue": "マイナビ調査の正式名称に修正"},
+    {"severity": "warning", "issue": "グッズ販売セクションに五感描写追加"},
+    {"severity": "warning", "issue": "文字起こしセクションに苦労描写追加"},
+    {"severity": "warning", "issue": "セクション2の解説調を体験談テンポに修正"},
+    {"severity": "warning", "issue": "セクション6に体験ベースの導入追加"},
+    {"severity": "warning", "issue": "リスクゼロ→金銭的リスクが極めて低いに修正"},
+    {"severity": "warning", "issue": "文字単価上昇速度をより現実的に修正"}
+  ]
+}

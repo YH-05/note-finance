@@ -62,6 +62,7 @@
 | macro_economy | A（逆説） | コンセンサスへの反論 |
 | stock_analysis | D（宣言） | バリュエーション判断の表明 |
 | quant_analysis | D（宣言） | 定量分析結果の端的な提示 |
+| investment_education | B（疑問形） | 通説の検証・基礎概念の深掘り |
 
 ## 良い例・悪い例
 

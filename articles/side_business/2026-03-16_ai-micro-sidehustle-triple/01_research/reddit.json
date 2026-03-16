@@ -1,0 +1,101 @@
+{
+  "collection_date": "2026-03-16",
+  "subreddits_searched": ["r/sidehustle", "r/beermoney", "r/freelance", "r/passive_income", "r/WorkOnline"],
+  "total_posts_scanned": 150,
+  "ai_relevant_posts_found": 13,
+  "reddit_posts": [
+    {
+      "subreddit": "r/sidehustle",
+      "title": "Accidentally made $442 from a small GPT thing i built",
+      "url": "https://www.reddit.com/r/sidehustle/comments/1rtv48q/",
+      "upvotes": 130,
+      "summary": "GPT APIラッパーツールをGumroadに$17で販売。3週間のReddit/Twitter投稿で20件以上の販売。バイラルよりも一貫した投稿が効果的。",
+      "income_mentioned": "累計$442",
+      "ai_tools_mentioned": ["GPT API", "MagicHour", "Kling", "ElevenLabs"],
+      "sentiment": "positive"
+    },
+    {
+      "subreddit": "r/sidehustle",
+      "title": "How I built $15-20k vibecoding agency as non-technical history undergrad",
+      "url": "https://www.reddit.com/r/sidehustle/comments/1rueazj/",
+      "upvotes": 0,
+      "summary": "歴史学専攻がClaude Code等でMVP開発エージェンシーを構築。月$20K。口コミが最も効果的なマーケティング。",
+      "income_mentioned": "月$20,000",
+      "ai_tools_mentioned": ["Claude Code", "Cursor", "Superapp AI", "Lovable"],
+      "sentiment": "positive"
+    },
+    {
+      "subreddit": "r/sidehustle",
+      "title": "AI side hustles real or just course sellers?",
+      "url": "https://www.reddit.com/r/sidehustle/comments/1rqe0rz/",
+      "upvotes": 31,
+      "summary": "AI副業の実態を問う投稿。大半はコース販売者の自己言及的マーケティング。月$200でもリアルな成果と評価される厳しい現実。",
+      "income_mentioned": "$200/月でも価値を感じる水準",
+      "ai_tools_mentioned": [],
+      "sentiment": "mixed"
+    },
+    {
+      "subreddit": "r/sidehustle",
+      "title": "Side Income Streams I Actually Use to Make $1350 This Month",
+      "url": "https://www.reddit.com/r/sidehustle/comments/1rry407/",
+      "upvotes": 454,
+      "summary": "Canvaクリエイター($600-700)、SNS管理($500)、アンケート($100-150)等を組み合わせて月$1,350達成。1日2-4時間の投資。",
+      "income_mentioned": "月$1,350",
+      "ai_tools_mentioned": ["Canva"],
+      "sentiment": "positive"
+    },
+    {
+      "subreddit": "r/passive_income",
+      "title": "I've scaled AI photos to $3,000/month",
+      "url": "https://www.reddit.com/r/passive_income/comments/1ruyztd/",
+      "upvotes": 25,
+      "summary": "AI画像生成で月$400-700を月$3,000にスケール。ストック写真・デジタルコンテンツ販売。",
+      "income_mentioned": "月$3,000",
+      "ai_tools_mentioned": ["AI画像生成ツール"],
+      "sentiment": "positive"
+    },
+    {
+      "subreddit": "r/passive_income",
+      "title": "I interviewed 27 people using AI for passive income in social media",
+      "url": "https://www.reddit.com/r/passive_income/comments/1ruymsc/",
+      "upvotes": 5,
+      "summary": "27人インタビュー。AIビデオエディター($500-3,000/月)、AIスクリプトライター($1,000-4,000/月)、AIブランドマネージャー($3,000-8,000/月)等。",
+      "income_mentioned": "サービス別$500-8,000/月",
+      "ai_tools_mentioned": ["CapCut", "Descript", "Claude", "ChatGPT", "Zapier"],
+      "sentiment": "positive"
+    },
+    {
+      "subreddit": "r/passive_income",
+      "title": "ElevenLabs voice earned 76EUR/month - Guide about all my mistakes",
+      "url": "https://www.reddit.com/r/passive_income/comments/1rug38k/",
+      "upvotes": 37,
+      "summary": "ElevenLabsボイスクローンで月76-109EUR。2時間の録音＋12時間の編集。品質投資が収益に直結。",
+      "income_mentioned": "月76-109EUR",
+      "ai_tools_mentioned": ["ElevenLabs"],
+      "sentiment": "positive"
+    },
+    {
+      "subreddit": "r/passive_income",
+      "title": "Meta is cutting 16,000 people. Most had no backup.",
+      "url": "https://www.reddit.com/r/passive_income/comments/1ruve3j/",
+      "upvotes": 131,
+      "summary": "AIで1人が3-4人分の仕事をこなせるようになりレイオフ加速。給与収入のみへの依存は高リスク。副業は必要になる前に構築すべき。",
+      "income_mentioned": null,
+      "ai_tools_mentioned": [],
+      "sentiment": "mixed"
+    }
+  ],
+  "common_themes": [
+    "AIコンテンツリパーパス・ブランド管理がスケーラブルな副業として台頭",
+    "AI副業コース販売者の90%は自己言及的",
+    "技術的構築よりマーケティング・営業スキルが真のボトルネック",
+    "デジタルテンプレート（Canva/Gumroad）はAI活用の低リスクエントリーポイント",
+    "一貫した投稿がバイラルより効果的"
+  ],
+  "warnings_mentioned": [
+    "AI副業コース/セミナーの大半は詐欺的",
+    "AIフェイスレスYouTubeは市場飽和で収益化困難",
+    "月$200を超えている一般人は極少数という現実",
+    "AI画像のストック写真は著作権リスクが不明確"
+  ]
+}

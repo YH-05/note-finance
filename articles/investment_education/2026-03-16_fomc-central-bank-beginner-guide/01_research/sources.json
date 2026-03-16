@@ -1,0 +1,317 @@
+[
+  {
+    "source_id": "S001",
+    "title": "Introduction to the 2026 Federal Reserve Voting Members | fiisual Blog",
+    "url": "https://fiisual.com/blog/post/2026/2026-fomc-voting-members-introduction",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2026年FOMC投票メンバーの構成詳細。ローテーション投票メンバー4名（Hammack, Paulson, Logan, Kashkari）はタカ派寄り、理事会メンバーはハト派寄りという構図を解説。5月の議長交代についても言及。"
+  },
+  {
+    "source_id": "S002",
+    "title": "FOMC 101 - Chrisman Commentary",
+    "url": "https://www.chrismancommentary.com/post/fomc-101",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "FOMCの構成を初心者向けに解説。常任投票者（理事会7名+NY連銀総裁）とローテーション投票者4名の仕組み、2026年の具体的メンバーリストを記載。"
+  },
+  {
+    "source_id": "S003",
+    "title": "What to Expect from the Federal Reserve in 2026 - Investopedia",
+    "url": "https://www.investopedia.com/what-to-expect-from-the-fed-in-2026-11875776",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2026年のFed見通し。地域連銀総裁のローテーション、パウエル議長の任期満了（5月）、トランプ大統領による理事会への影響力など、政治と金融政策の交差点を解説。"
+  },
+  {
+    "source_id": "S004",
+    "title": "Fed Policy Outlook 2026: FOMC Changes & Rates - ICBA.org",
+    "url": "https://www.independentbanker.org/w/jim-reber-fed-policy-outlook-for-2026",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2026年FOMC構成変更の影響を分析。12名の投票メンバー構成、年8回の定例会議、FFレート設定の仕組みをコミュニティバンク向けに解説。"
+  },
+  {
+    "source_id": "S005",
+    "title": "Federal funds rate - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Federal_funds_rate",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "FFレートの定義・メカニズムの包括的解説。預金取扱機関間の無担保翌日物貸借金利であること、FOMCが目標レンジを設定し公開市場操作で誘導する仕組みを記載。"
+  },
+  {
+    "source_id": "S006",
+    "title": "Economy at a Glance - Policy Rate - Federal Reserve",
+    "url": "https://www.federalreserve.gov/economy-at-a-glance-policy-rate.htm",
+    "type": "official",
+    "language": "en",
+    "relevance": "high",
+    "summary": "FRB公式サイト。FFレートの目標レンジ設定方法、IORB（準備預金金利）やON RRP（翌日物リバースレポ）を通じた金利誘導メカニズムを公式に解説。"
+  },
+  {
+    "source_id": "S007",
+    "title": "Monetary Policy Implementation - Federal Reserve Bank of New York",
+    "url": "https://www.newyorkfed.org/markets/domestic-market-operations/monetary-policy-implementation",
+    "type": "official",
+    "language": "en",
+    "relevance": "high",
+    "summary": "NY連銀による金融政策実施の解説。FOMCが年8回の会合後にFFレート目標レンジを公表、IORB設定による金利フロアの仕組みを記載。"
+  },
+  {
+    "source_id": "S008",
+    "title": "How Does the Federal Reserve Set Interest Rates? - AIER",
+    "url": "https://aier.org/article/how-does-the-federal-reserve-set-interest-rates/",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "FFレートが30年住宅ローン金利、クレジットカード金利、自動車ローン金利など消費者金利に波及するメカニズムを図表付きで解説。"
+  },
+  {
+    "source_id": "S009",
+    "title": "CME FedWatch Tool User Guide - CME Group",
+    "url": "https://www.cmegroup.com/tools-information/quikstrike/cme-fedwatch-tool-user-guide.html",
+    "type": "official",
+    "language": "en",
+    "relevance": "high",
+    "summary": "CME公式のFedWatchツールガイド。30日FFレート先物価格から確率を算出する仕組み、ドットプロット表示機能、会合日選択・確率バー・比較タブの使い方を解説。"
+  },
+  {
+    "source_id": "S010",
+    "title": "Understanding the CME FedWatch Tool: Predicting Fed Rate Changes - Investopedia",
+    "url": "https://www.investopedia.com/cme-fedwatch-tool-7559817",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "FedWatchツールの確率算出方法を詳細解説。先物インプライドレートとFOMC目標レンジの比較、25bps刻みの標準化、日次更新の仕組みを記載。"
+  },
+  {
+    "source_id": "S011",
+    "title": "Trading Fed Rate Probabilities: How to Use the CME FedWatch Tool - Switch Markets",
+    "url": "https://www.switchmarkets.com/learn/how-to-use-cme-fedwatch-tool",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2026年3月18日FOMC向けFedWatch画面を具体的にキャプチャ解説。94.1%の据え置き確率、5.9%の25bps利下げ確率を示すバーチャートの読み方を実践的に記載。"
+  },
+  {
+    "source_id": "S012",
+    "title": "Fed Dot Plot Explained: Definition, How to Read, How to React - Gotrade",
+    "url": "https://www.heygotrade.com/en/blog/fed-dot-plot-explained",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "ドットプロットの読み方を初心者向けに解説。中央値ドットvs個別ドット、クラスタリングの重要性、外れ値への過剰反応の戒めなど実践的な注意点を記載。"
+  },
+  {
+    "source_id": "S013",
+    "title": "What is the Fed's dot plot and why is it important? - Fidelity",
+    "url": "https://www.fidelity.com/learning-center/trading-investing/federal-reserve-dot-plot",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "Fidelityによるドットプロット解説。3月・6月・9月・12月の四半期に公表、SEP（経済見通し要約）の一部として発表、トレンドとクラスターの2つの読み方を紹介。"
+  },
+  {
+    "source_id": "S014",
+    "title": "Fed Dot Plot Explained: How to Interpret Economic Projections - Britannica",
+    "url": "https://www.britannica.com/money/what-is-the-fed-dot-plot",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "ドットプロットの構造（列＝年、行＝金利水準、ドット＝各委員の予想）を図解付きで解説。2012年の公表開始の経緯も記載。"
+  },
+  {
+    "source_id": "S015",
+    "title": "Summary of Economic Projections, December 10, 2025 - Federal Reserve (PDF)",
+    "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20251210.pdf",
+    "type": "official",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2025年12月FOMC公式SEP。2026年のFF金利中央値予想、GDP成長率2.3%、失業率4.4%、PCEインフレ率の予想値を公式に記載。ドットプロット原本。"
+  },
+  {
+    "source_id": "S016",
+    "title": "Fed Outlook 2026: Rate Forecasts and Fixed Income Strategies - iShares",
+    "url": "https://www.ishares.com/us/insights/fed-outlook-2026-interest-rate-forecast",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2026年Fed見通し。12月ドットプロットでは2026年に1-2回の利下げ予想（3.0-3.25%レンジへ）。2026年FOMC年間スケジュール（8回）も記載。"
+  },
+  {
+    "source_id": "S017",
+    "title": "How Interest Rate Changes Impact Bonds, Stocks, and Borrowers - Howe & Rusling",
+    "url": "https://www.howeandrusling.com/how-interest-rate-changes-impact-bonds-stocks-and-borrowers-what-investors-need-to-know/",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "金利変動が債券・株式・借り手に与える影響を包括的に解説。債券は金利と逆方向に動く、株式はDCF割引率上昇で理論価値低下、変動金利ローンのコスト増を説明。"
+  },
+  {
+    "source_id": "S018",
+    "title": "How Changing Interest Rates Affect Bond Prices - Hartford Funds",
+    "url": "https://www.hartfordfunds.com/practice-management/client-conversations/managing-volatility/how-changing-interest-rates-affect-bond-prices.html",
+    "type": "web",
+    "language": "en",
+    "relevance": "medium",
+    "summary": "金利と債券価格のシーソー関係を図解。金利上昇時の既発債の価格下落メカニズム、デュレーションとコンベクシティの概念を記載。"
+  },
+  {
+    "source_id": "S019",
+    "title": "FOMC March 2026 Preview: GDP Slows as 30-Year Treasury Nears 5% - Mariemont Capital",
+    "url": "https://mariemontcapital.com/fomc-march-2026-preview-treasury-yields-gdp/",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2026年3月FOMC直前プレビュー。WTI原油98-99ドル、ブレント103ドル超、ホルムズ海峡封鎖、コアPCE3%超への再加速、DXY100.50、金5,040-5,114ドルの状況を詳細に記載。"
+  },
+  {
+    "source_id": "S020",
+    "title": "Fed officials closely monitor Iran conflict for potential inflation impact - Fox Business",
+    "url": "https://www.foxbusiness.com/economy/fed-officials-closely-monitor-iran-conflict-potential-inflation-impact.amp",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "ボストン連銀Collins総裁の発言引用。インフレの上振れリスク継続、地政学的不確実性、CME FedWatch 97.4%据え置き確率を報道。"
+  },
+  {
+    "source_id": "S021",
+    "title": "Fed to weigh interest rates amid Iran war, potential price increases - USA Today",
+    "url": "https://www.usatoday.com/story/money/2026/03/15/federal-reserve-interest-rates-iran-war-economic-impact/89099534007/",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "3月FOMC直前の包括的分析。Miran・Wallerの1月反対票、Wells Fargoのコメント（インフレ6年目で2%超）、Oxford Economicsの6月・9月利下げ予想、パウエル第2次会見予告を記載。"
+  },
+  {
+    "source_id": "S022",
+    "title": "Wall St Week Ahead: Investors await Fed rate outlook as Iran war keeps markets on edge - Reuters",
+    "url": "https://www.reuters.com/business/finance/wall-st-week-ahead-investors-await-fed-rate-outlook-iran-war-keeps-markets-edge-2026-03-13/",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "Reuters報道。2回連続据え置き予想、SEP更新への市場注目、エネルギー価格上昇によるインフレ懸念、利下げ期待の後退、Kevin Warsh次期議長への言及。"
+  },
+  {
+    "source_id": "S023",
+    "title": "Oil Shock From Iran Conflict Complicates Fed's Rate Cut Plans - Investopedia",
+    "url": "https://www.investopedia.com/oil-shock-from-iran-conflict-complicates-fed-s-rate-cut-plans-11924361",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "イラン紛争による原油ショックがFed利下げ計画を複雑化。CPI 2.4%（2月）、コアインフレでのエネルギー除外の限界、労働市場弱化（直近3ヶ月平均月17,000人増）を分析。"
+  },
+  {
+    "source_id": "S024",
+    "title": "Markets' hopes for Fed interest rate cuts are rapidly fading away - CNBC",
+    "url": "https://www.cnbc.com/amp/2026/03/12/markets-hopes-for-fed-interest-rate-cuts-are-rapidly-fading-away.html",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "利下げ期待の急速な後退を報道。ほぼ100%の据え置き確率、Goldman Sachsの次回利下げ予想を6月→9月に後退修正、年内1回のみの利下げ見通しを記載。"
+  },
+  {
+    "source_id": "S025",
+    "title": "What To Watch For From The Fed's March Decision - Forbes",
+    "url": "https://www.forbes.com/sites/simonmoore/2026/03/05/what-to-watch-for-from-the-feds-march-decision/",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "3月FOMC注目ポイント。中立金利水準での据え置き、Miran・Wallerの反対票可能性、イラン紛争によるエネルギー価格急騰、Lisa Cook解任をめぐる最高裁判断への言及。"
+  },
+  {
+    "source_id": "S026",
+    "title": "FOMCとは？市場や経済に与える影響と投資家が注目すべきポイント | 松井証券",
+    "url": "https://www.matsui.co.jp/us-stock/study/article/fomc/",
+    "type": "web",
+    "language": "ja",
+    "relevance": "high",
+    "summary": "FOMCの基礎を日本語で解説。FRB理事7名+地区連銀総裁5名の12名投票権構成、年8回開催、声明文・議事要旨・SEPの公表スケジュールを記載。"
+  },
+  {
+    "source_id": "S027",
+    "title": "【2026年3月更新】FOMCとは｜開催日程や今後の見通しについて解説 - OANDA",
+    "url": "https://www.oanda.jp/lab-education/beginners/fundamentals_analysis/fomc-meeting/",
+    "type": "web",
+    "language": "ja",
+    "relevance": "high",
+    "summary": "2026年3月時点のFOMC日本語解説。現行政策金利3.50-3.75%、2026年中1回の利下げ予想（ドットプロット中央値）、市場予想は2回の利下げ。"
+  },
+  {
+    "source_id": "S028",
+    "title": "FOMCのドットチャートはどこで見る？いつ公表されるのか、見方を解説 - kabukiso.com",
+    "url": "https://kabukiso.com/column/idiom/dotchart.html",
+    "type": "web",
+    "language": "ja",
+    "relevance": "high",
+    "summary": "ドットチャートの日本語解説。3月・6月・9月・12月のFOMCで公表、ドットが集まる場所に注目する読み方、中央値の重要性を記載。"
+  },
+  {
+    "source_id": "S029",
+    "title": "ドットチャートとは FOMC参加者の予想示す - 日本経済新聞",
+    "url": "https://www.nikkei.com/article/DGXZQOUB147E60U3A211C2000000/",
+    "type": "web",
+    "language": "ja",
+    "relevance": "medium",
+    "summary": "日経新聞によるドットチャート解説。FOMC参加者のFF金利適正水準予想を散布図にしたもの、「金利予測分布図」とも呼ばれる。"
+  },
+  {
+    "source_id": "S030",
+    "title": "How Interest Rate Differentials Drive USD/JPY - Forex GDP",
+    "url": "https://www.forexgdp.com/learn/interest-rates-move-usd-jpy/",
+    "type": "web",
+    "language": "en",
+    "relevance": "medium",
+    "summary": "金利差がUSD/JPYを動かすメカニズム。米金利上昇→ドル資産の魅力度上昇→ドル需要増→ドル高円安の流れを解説。"
+  },
+  {
+    "source_id": "S031",
+    "title": "Four Factors That Impact Yen-Dollar Exchange Rate - CME Group",
+    "url": "https://www.cmegroup.com/insights/economic-research/2023/four-factors-that-impact-yen-dollar-exchange-rate.html",
+    "type": "web",
+    "language": "en",
+    "relevance": "medium",
+    "summary": "日米金利差、日銀のバランスシート、貿易収支差、YCC政策の4つがドル円を動かすメカニズムを定量的に分析。"
+  },
+  {
+    "source_id": "S032",
+    "title": "Central Bank Watchlist: March 2026 Meeting Expectations - tastyfx",
+    "url": "https://www.tastyfx.com/news/central-bank-watchlist-march-2026-meeting-expectations",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "2026年3月中銀会合ウォッチ。Fed 99%据え置き確率、初回利下げは9月予想、イラン紛争によるリスクセンチメント変動、声明文のトーンが最重要との分析。"
+  },
+  {
+    "source_id": "S033",
+    "title": "US market drivers for March 2026 - GO Markets",
+    "url": "https://www.gomarkets.com/en/articles/us-market-drivers-for-march-2026",
+    "type": "web",
+    "language": "en",
+    "relevance": "high",
+    "summary": "3月FOMC注目点。99%据え置き確率、真の注目はSEPとドットプロット。中央値が2回利下げにシフトすればリスクオン、ゼロ利下げや利上げ示唆なら逆方向と分析。"
+  },
+  {
+    "source_id": "S034",
+    "title": "Fed: Towards a very divided Fed in the coming months - CPRAM",
+    "url": "https://cpram.com/fra/en/individual/publications/experts/article/fed-towards-a-very-divided-fed-in-the-coming-months-and-quarters",
+    "type": "web",
+    "language": "en",
+    "relevance": "medium",
+    "summary": "2026年FOMC内部の歴史的分裂を予測。ローテーション投票者3名がタカ派（Logan, Hammack, Kashkari）、理事会がハト派（トランプ寄り）で反対票が異例に多くなる見通し。"
+  },
+  {
+    "source_id": "S035",
+    "title": "金利や為替と株価の関係 | SMBC日興証券",
+    "url": "https://www.smbcnikko.co.jp/first/learn/stock/kiso02/kiso02_3.html",
+    "type": "web",
+    "language": "ja",
+    "relevance": "medium",
+    "summary": "金利上昇→設備投資縮小→企業業績低迷→株価下落、金利上昇→円安→輸出企業有利のメカニズムを日本語で初心者向けに解説。"
+  }
+]

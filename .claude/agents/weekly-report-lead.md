@@ -871,7 +871,7 @@ market_report_team_result:
 ## 参考資料
 
 - **共通パターン**: `.claude/guidelines/agent-teams-patterns.md`
-- **旧エージェント**: `.claude/agents/weekly-report-writer.md`
+- **旧エージェント**: `weekly-report-writer`（wr-template-renderer 等に分割済み）
 - **スキル**: `.claude/skills/generate-market-report/SKILL.md`
-- **旧ニュース集約**: `.claude/agents/weekly-report-news-aggregator.md`
-- **旧Issue投稿**: `.claude/agents/weekly-report-publisher.md`
+- **旧ニュース集約**: `weekly-report-news-aggregator`（wr-news-aggregator に改名済み）
+- **旧Issue投稿**: `weekly-report-publisher`（wr-report-publisher に改名済み）

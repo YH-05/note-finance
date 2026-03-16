@@ -273,5 +273,5 @@ SendMessage:
 
 ## 参考資料
 
-- **旧エージェント**: `.claude/agents/weekly-report-publisher.md`
+- **旧エージェント**: `weekly-report-publisher`（このファイルに統合済み）
 - **Issue テンプレート**: `.claude/templates/weekly-report-issue.md`

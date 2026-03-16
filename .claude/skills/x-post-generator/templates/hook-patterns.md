@@ -176,5 +176,6 @@ X投稿の書き出しパターンと層別の使い分けガイド。
 | market_report | C | D | — |
 | side_business | B | B | — |
 | quant_analysis | C | C | D |
+| investment_education | C | B | D |
 
 - `—` は該当層向けの記事が少ないカテゴリのため、フォールバックとして intermediate の推奨パターンを使う

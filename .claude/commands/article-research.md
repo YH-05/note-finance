@@ -30,8 +30,10 @@ Step 2: カテゴリ別リサーチ実行
 ├── stock_analysis    → investment-research スキル
 ├── macro_economy     → investment-research スキル
 ├── quant_analysis    → investment-research スキル
+├── investment_education → investment-research スキル
 ├── asset_management   → asset-management-workflow Phase 1
-├── side_business     → experience-db-workflow Phase 1-2
+├── side_business (type: case_study)  → Web検索 + Reddit + RSS（事例収集+パターン抽出）
+├── side_business (type: experience)  → experience-db-workflow Phase 1-2
 └── market_report     → generate-market-report Phase 2-3
 
 Step 3: 結果保存・ステータス更新
@@ -66,7 +68,7 @@ Step 3: 結果保存・ステータス更新
 
 ### Step 2: カテゴリ別リサーチ実行
 
-#### stock_analysis / macro_economy / quant_analysis
+#### stock_analysis / macro_economy / quant_analysis / investment_education
 
 既存の `investment-research` スキルに処理を委譲します。
 
@@ -181,7 +183,7 @@ Step 3: 結果保存・ステータス更新
 
 有効なカテゴリ:
 - asset_management, side_business, macro_economy
-- stock_analysis, market_report, quant_analysis
+- stock_analysis, market_report, quant_analysis, investment_education
 ```
 
 ### データ収集失敗

@@ -1,0 +1,85 @@
+{
+  "article_id": "2026-03-16_ai-micro-sidehustle-triple",
+  "pattern": {
+    "name": "AIマイクロ副業トリプルスタック型",
+    "description": "30代会社員がAIツールを活用し、3つのマイクロ副業（AIライティング補助・AI画像生成グッズ販売・AI文字起こし）を同時運用して月3万円を達成するパターン",
+    "archetype": "サイドスタッキング×AI活用",
+    "narrative_arc": "副業1本集中で疲弊→マイクロ副業を知る→3つを同時に回し始める→試行錯誤期→月3万円安定"
+  },
+  "anonymization": {
+    "composite_persona": "30代前半・男性・会社員（事務系）・年収400〜500万台",
+    "sources_used": "Web検索19件、Reddit13投稿から合成",
+    "key_modifications": [
+      "複数の実体験を1つのペルソナに統合",
+      "具体的な会社名・個人名は匿名化",
+      "収入データは複数ソースの中央値を採用"
+    ]
+  },
+  "spec_card": {
+    "age_range": "30代前半",
+    "gender": "男性",
+    "occupation": "会社員（事務系）",
+    "income_range": "年収400〜500万台",
+    "duration": "約6ヶ月",
+    "outcome": "月3万円前後を安定達成"
+  },
+  "three_side_hustles": {
+    "hustle_1": {
+      "name": "AIライティング補助（ChatGPT活用）",
+      "description": "クラウドソーシングでの記事執筆補助。ChatGPTで下書き→人間が編集・品質管理",
+      "monthly_income": "10,000〜15,000円",
+      "time_investment": "週3〜4時間",
+      "tools": ["ChatGPT", "Claude"],
+      "startup_cost": "月2,000円（ChatGPT Plus）",
+      "difficulty": "初心者向け",
+      "income_data_source": "alc.co.jp: 文字単価1〜5円、kigyo.gmo: 初心者月5,000〜30,000円"
+    },
+    "hustle_2": {
+      "name": "AI画像生成グッズ販売（Midjourney + SUZURI）",
+      "description": "Midjourneyでデザイン生成→SUZURI/BOOTHでプリントオンデマンド販売。在庫不要。",
+      "monthly_income": "5,000〜10,000円",
+      "time_investment": "週2〜3時間",
+      "tools": ["Midjourney", "Canva AI", "SUZURI", "BOOTH"],
+      "startup_cost": "月1,500円（Midjourney Basic）",
+      "difficulty": "初心者向け",
+      "income_data_source": "alc.co.jp: 月1,000〜50,000円、note.com/hiro_seki: グッズ展開事例"
+    },
+    "hustle_3": {
+      "name": "AI文字起こし・議事録作成",
+      "description": "AIツールで音声を文字起こしし、議事録として整形・納品。1時間音声を数分で処理。",
+      "monthly_income": "5,000〜15,000円",
+      "time_investment": "週2〜3時間",
+      "tools": ["Notta", "Otter.ai", "ChatGPT"],
+      "startup_cost": "月1,000〜2,000円",
+      "difficulty": "初心者向け",
+      "income_data_source": "alc.co.jp: 月5,000〜30,000円、kigyo.gmo: 音声10分500〜1,500円"
+    }
+  },
+  "key_data_points": {
+    "ai_sidehustle_avg_income": "月約10万円（AI活用者平均、マイナビ調査）",
+    "ai_vs_non_ai_gap": "AI活用者はAI非活用者の約2倍の収入",
+    "gen_z_sidehustle_rate": "57%が副業を保有（Glassdoor調査）",
+    "millennial_avg": "月$1,129（約16.6万円、Bankrate調査）",
+    "tax_threshold": "副業所得20万円超で確定申告必須",
+    "side_stacking_trend": "Forbes JAPAN 2026年3月特集でサイドスタッキング急増を報道"
+  },
+  "article_structure": {
+    "sections": [
+      {"title": "はじめに：副業1本集中に疲れた話", "purpose": "共感フック", "wordcount": 600},
+      {"title": "マイクロ副業×サイドスタッキングとは", "purpose": "概念説明", "wordcount": 800},
+      {"title": "私が選んだ3つのAI副業", "purpose": "具体的副業紹介", "wordcount": 1800},
+      {"title": "6ヶ月の収支リアル記録", "purpose": "データ・信頼性", "wordcount": 1200},
+      {"title": "やってみて分かった注意点", "purpose": "失敗談・注意喚起", "wordcount": 1000},
+      {"title": "確定申告と会社バレ対策", "purpose": "法的注意点", "wordcount": 800},
+      {"title": "まとめ：月3万円の「心の余裕」", "purpose": "締め・行動喚起", "wordcount": 800}
+    ],
+    "total_target": 7000
+  },
+  "warnings_to_include": [
+    "AI副業コース・セミナーの大半は詐欺的（Reddit調査）",
+    "「完全放置で月○万円」は非現実的。品質管理は人間が必須",
+    "副業所得20万円超で確定申告必須。20万円以下でも住民税申告は必要",
+    "住民税額変化から会社にバレるリスク",
+    "AI生成物の著作権リスク（特に画像）"
+  ]
+}

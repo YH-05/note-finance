@@ -21,7 +21,7 @@ allowed-tools: Read, Glob
 
 ### プロアクティブ使用
 
-`weekly-report-writer` エージェントの最初のフェーズとして自動的に呼び出される。
+`wr-data-aggregator` エージェントの最初のフェーズとして自動的に呼び出される。
 
 ### 明示的な使用
 
@@ -394,4 +394,4 @@ articles/market_report/2026-01-22/data/
 ## 参考資料
 
 - `docs/project/project-21/project.md`: 週次レポートプロジェクト計画
-- `.agents/agents/weekly-report-news-aggregator.md`: ニュース集約エージェント
+- `.claude/agents/wr-news-aggregator.md`: ニュース集約エージェント

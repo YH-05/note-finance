@@ -716,6 +716,6 @@ test_team_result:
 - **共通パターン**: `.claude/guidelines/agent-teams-patterns.md`
 - **TDDスキル**: `.claude/skills/tdd-development/SKILL.md`
 - **ルーター**: `.claude/agents/test-orchestrator.md`（`--use-teams` フラグでルーティング）
-- **旧オーケストレーター**: `.claude/agents/test-orchestrator-legacy.md`
+- **旧オーケストレーター**: `test-orchestrator-legacy`（廃止済み）
 - Issue #3237: test-orchestrator の Agent Teams チーム定義作成
 - Issue #3238: test-orchestrator の並行運用環境構築

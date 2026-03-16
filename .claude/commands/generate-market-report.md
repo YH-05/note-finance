@@ -914,9 +914,9 @@ Phase 5 で生成された `validation_result.json` を確認します。
 レポート生成後、自動的に GitHub Issue として投稿します。
 
 ```python
-# weekly-report-publisher サブエージェントを呼び出し
+# wr-report-publisher サブエージェントを呼び出し
 Task(
-    subagent_type="weekly-report-publisher",
+    subagent_type="wr-report-publisher",
     description="週次レポート Issue 投稿",
     prompt=f"""
 週次レポートを GitHub Issue として投稿してください。
@@ -1423,7 +1423,7 @@ MAG7では、TSLAが+3.70%で週間トップパフォーマーとなりました
 - **指数ニュース収集**: `.claude/agents/weekly-comment-indices-fetcher.md`
 - **MAG7ニュース収集**: `.claude/agents/weekly-comment-mag7-fetcher.md`
 - **セクターニュース収集**: `.claude/agents/weekly-comment-sectors-fetcher.md`
-- **Issue 投稿**: `.claude/agents/weekly-report-publisher.md`
+- **Issue 投稿**: `.claude/agents/wr-report-publisher.md`
 
 ---
 
@@ -1434,9 +1434,9 @@ MAG7では、TSLAが+3.70%で週間トップパフォーマーとなりました
 ### 6.1 サブエージェント呼び出し
 
 ```python
-# weekly-report-publisher サブエージェントを呼び出し
+# wr-report-publisher サブエージェントを呼び出し
 Task(
-    subagent_type="weekly-report-publisher",
+    subagent_type="wr-report-publisher",
     description="週次レポート Issue 投稿",
     prompt=f"""
 週次レポートを GitHub Issue として投稿してください。

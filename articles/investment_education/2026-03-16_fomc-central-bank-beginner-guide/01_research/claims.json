@@ -1,0 +1,272 @@
+[
+  {
+    "claim_id": "C001",
+    "claim": "FOMCは「Federal Open Market Committee（連邦公開市場委員会）」の略で、米国の金融政策を決定する機関である。FRB理事会メンバー7名と地区連銀総裁5名の計12名が投票権を持つ。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.chrismancommentary.com/post/fomc-101",
+    "source_name": "FOMC 101 - Chrisman Commentary",
+    "section": "1. FOMCの基礎"
+  },
+  {
+    "claim_id": "C002",
+    "claim": "FOMCは年8回の定例会議を開催し、各会合の2日目午後2時（米東部時間）に政策金利決定を公表する。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.federalreserve.gov/economy-at-a-glance-policy-rate.htm",
+    "source_name": "Federal Reserve - Economy at a Glance",
+    "section": "1. FOMCの基礎"
+  },
+  {
+    "claim_id": "C003",
+    "claim": "投票権を持つ12名のうち、NY連銀総裁（2026年はJohn Williams）は常任の投票権を持ち、FOMC副議長を務める。残り4名の地区連銀総裁は毎年ローテーションで交代する。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.chrismancommentary.com/post/fomc-101",
+    "source_name": "FOMC 101 - Chrisman Commentary",
+    "section": "1. FOMCの基礎"
+  },
+  {
+    "claim_id": "C004",
+    "claim": "2026年のローテーション投票メンバーはBeth Hammack（クリーブランド）、Anna Paulson（フィラデルフィア）、Lorie Logan（ダラス）、Neel Kashkari（ミネアポリス）の4名。全体的にタカ派寄りと評価されている。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://fiisual.com/blog/post/2026/2026-fomc-voting-members-introduction",
+    "source_name": "fiisual Blog - 2026 FOMC Voting Members",
+    "section": "1. FOMCの基礎"
+  },
+  {
+    "claim_id": "C005",
+    "claim": "2026年の理事会メンバーは副議長Philip Jefferson、監督担当副議長Michelle Bowman、Michael Barr、Lisa Cook、Christopher Waller、Stephen Miranの6名。パウエル議長を含む7名で、全体的にややハト派寄り。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.chrismancommentary.com/post/fomc-101",
+    "source_name": "FOMC 101 - Chrisman Commentary",
+    "section": "1. FOMCの基礎"
+  },
+  {
+    "claim_id": "C006",
+    "claim": "FFレート（Federal Funds Rate）とは、預金取扱機関（銀行・信用組合）が互いに準備預金を翌日物・無担保で貸し借りする際の金利である。FOMCがこの金利の「目標レンジ」を設定する。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://en.wikipedia.org/wiki/Federal_funds_rate",
+    "source_name": "Wikipedia - Federal Funds Rate",
+    "section": "2. 金利の基礎"
+  },
+  {
+    "claim_id": "C007",
+    "claim": "FRBは主にIORB（準備預金金利）の設定を通じてFFレートを誘導する。IORBは銀行がFRBに預けている準備預金に支払われる金利であり、銀行がこれより低い金利で民間に貸す動機を抑制することで金利のフロア（下限）を形成する。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.newyorkfed.org/markets/domestic-market-operations/monetary-policy-implementation",
+    "source_name": "NY Fed - Monetary Policy Implementation",
+    "section": "2. 金利の基礎"
+  },
+  {
+    "claim_id": "C008",
+    "claim": "FFレートの変更は、住宅ローン金利、クレジットカード金利、自動車ローン金利、預金金利など消費者向け金利に波及する。銀行はFFレートを参考にプライムレートを決定し、それが各種ローン金利の基準となる。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://aier.org/article/how-does-the-federal-reserve-set-interest-rates/",
+    "source_name": "AIER - How Does the Federal Reserve Set Interest Rates?",
+    "section": "2. 金利の基礎"
+  },
+  {
+    "claim_id": "C009",
+    "claim": "イールドカーブ（利回り曲線）は横軸に残存期間、縦軸に利回りをプロットした曲線。通常は右上がり（長期金利＞短期金利）だが、逆転すると景気後退のシグナルとされる。FOMCが設定するFFレートは短期金利に直接影響し、長期金利は市場の期待によって決まる。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.stonex.com/en/financial-glossary/yield-curve/",
+    "source_name": "StoneX - Yield Curve Guide",
+    "section": "2. 金利の基礎"
+  },
+  {
+    "claim_id": "C010",
+    "claim": "ドットプロット（ドットチャート）は、FOMC参加者（最大19名）がそれぞれFF金利の適切な水準と考える予想を散布図にしたもの。「金利予測分布図」とも呼ばれ、3月・6月・9月・12月のFOMCでSEP（経済見通し要約）の一部として発表される。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.britannica.com/money/what-is-the-fed-dot-plot",
+    "source_name": "Britannica - Fed Dot Plot Explained",
+    "section": "3. ドットプロットとCME FedWatch"
+  },
+  {
+    "claim_id": "C011",
+    "claim": "ドットプロットの読み方のポイント：(1) 中央値ドット（市場が最も注目）、(2) ドットのクラスタリング（集中度が合意度を示す）、(3) トレンド（前回からの方向性変化）。個別のドットは匿名だが、全体として方向性と意見の分布を可視化する。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.fidelity.com/learning-center/trading-investing/federal-reserve-dot-plot",
+    "source_name": "Fidelity - Fed's Dot Plot",
+    "section": "3. ドットプロットとCME FedWatch"
+  },
+  {
+    "claim_id": "C012",
+    "claim": "2025年12月のドットプロットでは、2026年末のFF金利中央値予想が「1回の25bps利下げ」を示していた。GDP成長率2.3%、失業率4.4%、インフレ率の予想も同時に公表された。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20251210.pdf",
+    "source_name": "Federal Reserve - December 2025 SEP (Official PDF)",
+    "section": "3. ドットプロットとCME FedWatch"
+  },
+  {
+    "claim_id": "C013",
+    "claim": "CME FedWatchツールは、30日FFレート先物の価格データをもとに、次回以降のFOMC会合での金利変更確率を算出・可視化するツール。先物インプライドレートと現在の目標レンジを比較し、25bps刻みで各シナリオの確率を計算する。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.cmegroup.com/tools-information/quikstrike/cme-fedwatch-tool-user-guide.html",
+    "source_name": "CME Group - FedWatch Tool User Guide",
+    "section": "3. ドットプロットとCME FedWatch"
+  },
+  {
+    "claim_id": "C014",
+    "claim": "2026年3月18日FOMC向けFedWatchでは、据え置き確率が94-99%と圧倒的多数。25bps利下げ確率は0-6%程度。利上げ確率は0%。市場は据え置きを完全に織り込んでいる状態。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://www.switchmarkets.com/learn/how-to-use-cme-fedwatch-tool",
+    "source_name": "Switch Markets - CME FedWatch Tool Guide",
+    "section": "3. ドットプロットとCME FedWatch"
+  },
+  {
+    "claim_id": "C015",
+    "claim": "金利上昇→株価への影響メカニズム：株式のバリュエーションはDCF（割引キャッシュフロー）モデルで将来利益の現在価値を計算する。金利上昇は割引率を高め、将来キャッシュフローの現在価値を低下させるため、株式の理論価格は下がる。特にグロース株（将来の利益に依存）への影響が大きい。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.howeandrusling.com/how-interest-rate-changes-impact-bonds-stocks-and-borrowers-what-investors-need-to-know/",
+    "source_name": "Howe & Rusling - Interest Rate Impact",
+    "section": "4. 金利が株価・為替・債券に与える影響"
+  },
+  {
+    "claim_id": "C016",
+    "claim": "金利上昇→債券価格への影響メカニズム：債券価格と金利は逆方向に動く（シーソーの関係）。金利上昇時、新発債がより高い利回りを提供するため、既発債の相対的魅力が低下し価格が下がる。残存期間（デュレーション）が長い債券ほど金利変動の影響を大きく受ける。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.hartfordfunds.com/practice-management/client-conversations/managing-volatility/how-changing-interest-rates-affect-bond-prices.html",
+    "source_name": "Hartford Funds - Interest Rates and Bond Prices",
+    "section": "4. 金利が株価・為替・債券に与える影響"
+  },
+  {
+    "claim_id": "C017",
+    "claim": "金利上昇→為替（ドル円）への影響メカニズム：米金利上昇→米ドル建て資産の利回りが上昇→海外投資家がドル資産に資金を移動→ドル買い需要増→ドル高（円安）。日米金利差の拡大がUSD/JPYを押し上げる主要ドライバー。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.forexgdp.com/learn/interest-rates-move-usd-jpy/",
+    "source_name": "Forex GDP - Interest Rates and USD/JPY",
+    "section": "4. 金利が株価・為替・債券に与える影響"
+  },
+  {
+    "claim_id": "C018",
+    "claim": "USD/JPYは2026年3月13日時点で159.50付近で推移。米国の持続的な高金利と日米金利差により上昇圧力が継続。日銀政策金利は0.75%。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://www.fxstreet.com/news/usd-jpy-edges-higher-buoyed-by-us-dollar-strength-amid-intervention-risks-202603131551",
+    "source_name": "FXStreet - USD/JPY",
+    "section": "4. 金利が株価・為替・債券に与える影響"
+  },
+  {
+    "claim_id": "C019",
+    "claim": "2026年3月FOMC（3/17-18開催）では金利据え置き（3.50-3.75%）がほぼ確実視されている。CME FedWatchで99%の据え置き確率。2回連続の据え置きとなる見込み。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://www.tastyfx.com/news/central-bank-watchlist-march-2026-meeting-expectations",
+    "source_name": "tastyfx - Central Bank Watchlist March 2026",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C020",
+    "claim": "1月会合ではStephen MiranとChristopher Wallerが据え置き決定に反対票（利下げ支持）を投じた。3月会合でも反対票が出る可能性がある。Fed内部のタカ派とハト派の分裂は2026年に歴史的レベルに達する可能性。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.usatoday.com/story/money/2026/03/15/federal-reserve-interest-rates-iran-war-economic-impact/89099534007/",
+    "source_name": "USA Today - Fed Interest Rates Amid Iran War",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C021",
+    "claim": "イラン紛争によりWTI原油は98-99ドル/バレル、ブレント原油は103ドル超に急騰（紛争前比約47%上昇）。ホルムズ海峡が事実上の商業航行停止状態。この供給ショックがインフレ再燃リスクの主要因。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://mariemontcapital.com/fomc-march-2026-preview-treasury-yields-gdp/",
+    "source_name": "Mariemont Capital - FOMC March 2026 Preview",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C022",
+    "claim": "利下げ期待は急速に後退。Goldman Sachsは次回利下げ予想を6月→9月に後退修正。市場では年内1回のみの利下げ（12月）が基本シナリオに。一部アナリストは利下げは「当面棚上げ」と分析。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://www.cnbc.com/amp/2026/03/12/markets-hopes-for-fed-interest-rate-cuts-are-rapidly-fading-away.html",
+    "source_name": "CNBC - Rate Cut Hopes Fading",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C023",
+    "claim": "3月FOMCの真の注目点はSEP（経済見通し要約）とドットプロットの更新。現在の中央値は2026年中1回の25bps利下げ。これが2回にシフトすればハト派サプライズ（リスクオン）、ゼロまたは利上げ方向にシフトすればタカ派サプライズ（リスクオフ）となる。",
+    "category": "opinion",
+    "confidence": "high",
+    "source_url": "https://www.gomarkets.com/en/articles/us-market-drivers-for-march-2026",
+    "source_name": "GO Markets - US Market Drivers March 2026",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C024",
+    "claim": "パウエル議長の任期は2026年5月15日に満了。3月FOMCは残り2回の会見のうちの1回。次期議長にはKevin Warsh（元FRB理事）がフロントランナーで、よりハト派的な姿勢が予想される。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.investopedia.com/what-to-expect-from-the-fed-in-2026-11875776",
+    "source_name": "Investopedia - What to Expect from Fed in 2026",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C025",
+    "claim": "2025年第4四半期のGDP成長率は0.7%に下方修正（速報1.4%から大幅低下、前期4.4%から急減速）。労働市場も軟化しており、失業率4.6%、2月の雇用は減少。スタグフレーションリスクが浮上。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://www.usatoday.com/story/money/2026/03/15/federal-reserve-interest-rates-iran-war-economic-impact/89099534007/",
+    "source_name": "USA Today - Fed Interest Rates Amid Iran War",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C026",
+    "claim": "CPI（消費者物価指数）は2月に前年比2.4%上昇。2022年6月のピーク約9%からは大幅に低下したが、依然としてFedの2%目標を上回っている。原油急騰の影響は3月以降のデータに反映される見込み。",
+    "category": "data",
+    "confidence": "high",
+    "source_url": "https://www.investopedia.com/oil-shock-from-iran-conflict-complicates-fed-s-rate-cut-plans-11924361",
+    "source_name": "Investopedia - Oil Shock Complicates Fed Plans",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C027",
+    "claim": "Fedは通常、エネルギー価格の一時的変動は「看過（look through）」するが、2022年以降のインフレ長期化の経験から、供給ショックへの許容度が低下している。コアPCEが3%超に再加速との報告もある。",
+    "category": "opinion",
+    "confidence": "high",
+    "source_url": "https://www.investopedia.com/oil-shock-from-iran-conflict-complicates-fed-s-rate-cut-plans-11924361",
+    "source_name": "Investopedia - Oil Shock Complicates Fed Plans",
+    "section": "5. 2026年3月FOMCケーススタディ"
+  },
+  {
+    "claim_id": "C028",
+    "claim": "FRBの二大使命（デュアルマンデート）は「物価の安定」と「最大雇用」。金利引き上げはインフレ抑制に寄与するが雇用を悪化させるリスクがあり、金利引き下げは雇用を支えるがインフレを加速させるリスクがある。このトレードオフがFedの政策決定の核心。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.fidelity.com/learning-center/trading-investing/federal-reserve-dot-plot",
+    "source_name": "Fidelity - Fed's Dot Plot",
+    "section": "2. 金利の基礎"
+  },
+  {
+    "claim_id": "C029",
+    "claim": "ドットプロットは「約束」ではなく「予測」である。Fedは繰り返しこの区別を強調している。経済状況の変化により、ドットプロットは急速に陳腐化し得る。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.heygotrade.com/en/blog/fed-dot-plot-explained",
+    "source_name": "Gotrade - Fed Dot Plot Explained",
+    "section": "3. ドットプロットとCME FedWatch"
+  },
+  {
+    "claim_id": "C030",
+    "claim": "FedWatchの確率が高い予想は、実際の結果と歴史的に強い相関がある。しかし、予想外の経済データやイベントにより市場が急変する可能性があるため、確率が100%でないことに常に注意が必要。",
+    "category": "fact",
+    "confidence": "high",
+    "source_url": "https://www.kucoin.com/news/flash/cme-fedwatch-shows-78-3-probability-of-fed-rate-hold-in-march-fomc-meeting",
+    "source_name": "KuCoin - CME FedWatch March",
+    "section": "3. ドットプロットとCME FedWatch"
+  }
+]

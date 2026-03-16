@@ -10,7 +10,7 @@ argument-hint: [トピック名] [--category <category>]
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
 | トピック名 | ○ | - | 記事のテーマ（例: 新NISAつみたて投資枠の活用法、テスラ決算分析） |
-| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis） |
+| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education） |
 
 ## 処理フロー
 
@@ -36,6 +36,7 @@ argument-hint: [トピック名] [--category <category>]
    4. stock_analysis     (個別銘柄分析)
    5. market_report      (週次レポート)
    6. quant_analysis     (クオンツ分析)
+   7. investment_education (投資教育・基礎知識)
    ```
 
 3. **英語スラッグの生成**
@@ -76,6 +77,23 @@ argument-hint: [トピック名] [--category <category>]
    2. sidehustle (副業)
    3. shisan     (資産形成)
    ```
+
+   続けて記事タイプを選択（sidehustle / shisan の場合）:
+   ```
+   記事タイプを選択してください:
+   1. case_study    (事例分析型 - テンプレートA/B/C) ← デフォルト
+   2. experience    (体験談 - 合成パターン法)
+   ```
+
+   `case_study` 選択時、テンプレートを選択:
+   ```
+   テンプレートを選択してください:
+   1. B: ジャンル横断共通点分析
+   2. C: AI一人スタートアップ事例分析
+   3. A: ジャンル別事例分析
+   ```
+
+   ※ konkatsu は常に `experience`（合成パターン法）を使用
 
    **stock_analysis / macro_economy / quant_analysis の場合**:
    ```
@@ -144,6 +162,11 @@ argument-hint: [トピック名] [--category <category>]
      start: "YYYY-MM-DD"
      end: "YYYY-MM-DD"
 
+   # type: case_study の場合（side_business）
+   case_study:
+     template_type: "B"     # A / B / C
+     template_label: "ジャンル横断共通点分析"
+
    status: "init"
    created_at: "YYYY-MM-DD"
    updated_at: "YYYY-MM-DD"
@@ -167,11 +190,13 @@ argument-hint: [トピック名] [--category <category>]
 | カテゴリ | type | target_audience | target_wordcount |
 |----------|------|-----------------|-----------------|
 | asset_management | column | beginner | 4000 |
-| side_business | experience | intermediate | 7000 |
+| side_business (case_study) | case_study | intermediate | 7000 |
+| side_business (experience) | experience | intermediate | 7000 |
 | macro_economy | column | intermediate | 4000 |
 | stock_analysis | data_analysis | intermediate | 4000 |
 | market_report | market_report | intermediate | 5000 |
 | quant_analysis | data_analysis | advanced | 4000 |
+| investment_education | column | beginner | 3500 |
 
 ### Phase 4: 完了報告
 

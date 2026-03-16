@@ -1,0 +1,79 @@
+# === Core (必須) ===
+article_id: "2026-03-16_fomc-central-bank-beginner-guide"
+topic: "FOMCとは何か？金利決定の仕組みから市場への影響まで：初心者のための中央銀行入門"
+category: "investment_education"
+type: column
+status: "revised"
+
+# === Timestamps ===
+created_at: "2026-03-16"
+updated_at: "2026-03-16"
+
+# === Content ===
+tags:
+  - FOMC
+  - 金利
+  - 中央銀行
+  - 投資初心者
+  - Fed
+  - 金融政策
+target_audience: beginner
+target_wordcount: 3500
+
+# === Category-Specific ===
+symbols:
+  - ^GSPC
+  - ^TNX
+  - ^VIX
+  - USDJPY=X
+date_range:
+  start: ""
+  end: ""
+fred_series: []
+theme: ""
+experience:
+  spec_card:
+    age_range: ""
+    gender: ""
+    occupation: ""
+    income_range: ""
+    duration: ""
+    outcome: ""
+
+# === Tracking ===
+critic_score:
+  compliance: 96
+  fact: 72
+  structure: 78
+  readability: 72
+revision_count: 1
+note_url: null
+x_post_url: null
+research_sources: 35
+
+# === Workflow ===
+workflow:
+  research: "done"
+  draft: "done"
+  critique: "done"
+  revision: "done"
+  publish: "pending"
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Neo4j ===
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+
+# === Legacy ===
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null
