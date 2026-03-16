@@ -34,6 +34,14 @@ color: blue
 2. **データソース** (末尾): 使用したデータソースを列挙
 3. **リスク開示** (末尾): snippets/investment-risk.md を使用
 
+### 記事品質ルール（必須）
+
+参照: `.claude/rules/article-quality-standards.md`
+
+- **表の画像化**: マークダウン表は `/generate-table-image` でPNG画像に変換し `![](images/*.png)` で参照すること
+- **ソースURL埋め込み**: 数値データ・統計・専門家見解の引用箇所に `[テキスト](URL)` でリンクを埋め込むこと
+- **チャートの画像化**: データ可視化が必要な場合は `/generate-chart-image` でPNG画像を生成し `![](images/chart_*.png)` で参照
+
 ### 禁止表現
 
 参照: `.claude/resources/critique-criteria/compliance-standards.md`（禁止表現リスト・代替表現）

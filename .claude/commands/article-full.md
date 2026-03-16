@@ -297,6 +297,16 @@ Phase 5: 投稿（--skip-publish でスキップ可能）
 | quant_analysis | full | 数値分析、データ正確性重視 |
 | investment_education | full | 教育コンテンツ、読みやすさ重視 |
 
+## 記事品質ルール（全フェーズ共通）
+
+参照: `.claude/rules/article-quality-standards.md`
+
+| ルール | 内容 | 適用フェーズ |
+|--------|------|-------------|
+| 表の画像化 | マークダウン表を `/generate-table-image` でPNG変換 | draft, critique |
+| ソースURL埋め込み | 数値データ・引用に `[テキスト](URL)` リンク | research, draft, critique |
+| チャートの画像化 | データ可視化は `/generate-chart-image` でPNG変換 | draft, critique |
+
 ## エラーハンドリング
 
 ### 各フェーズのエラー時

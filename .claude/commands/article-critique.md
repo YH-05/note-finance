@@ -257,6 +257,16 @@ Task 1: wr-report-validator（レポート検証）
    status: "review"              # ← 更新（公開準備完了）
    ```
 
+## 記事品質チェック（批評時の追加確認項目）
+
+参照: `.claude/rules/article-quality-standards.md`
+
+- [ ] マークダウン表が記事内に残っていないか（全て `/generate-table-image` で画像化済みか）
+- [ ] 主要な数値データ・統計にソースURLがマークダウンリンクで埋め込まれているか
+- [ ] チャートで表現すべきデータがテキストのままになっていないか（`/generate-chart-image` で画像化済みか）
+
+上記が未対応の場合、revised_draft.md 生成時に修正すること。
+
 ## 完了報告
 
 ```markdown

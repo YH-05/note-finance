@@ -1,0 +1,50 @@
+# === Core (必須) ===
+article_id: "2026-03-16_orukan-vs-sp500-diversification-shift"
+topic: "オルカンがS&P500を逆転した日：「米国一極集中」の終わりと国際分散の再評価"
+category: "asset_management"
+type: column
+status: "revised"
+
+# === Timestamps ===
+created_at: "2026-03-16"
+updated_at: "2026-03-16"
+
+# === Content ===
+tags:
+  - オルカン
+  - S&P500
+  - 国際分散投資
+  - eMAXIS Slim
+  - NISA
+target_audience: beginner
+target_wordcount: 4000
+
+# === Category-Specific ===
+symbols: []
+date_range:
+  start: ""
+  end: ""
+fred_series: []
+theme: "asset_management"
+
+# === Tracking ===
+critic_score: null
+revision_count: 1
+note_url: null
+x_post_url: null
+research_sources: 12
+
+# === Workflow ===
+workflow:
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false

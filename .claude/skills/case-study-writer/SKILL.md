@@ -188,6 +188,14 @@ https://www.indiehackers.com/post/xxx
 注目すべきは、最初の100ユーザーを獲得するまでに3ヶ月かかっている点です。
 ```
 
+### 記事品質ルール（必須）
+
+参照: `.claude/rules/article-quality-standards.md`
+
+- **表の画像化**: マークダウン表は `/generate-table-image` でPNG画像に変換し `![](images/*.png)` で参照
+- **ソースURL埋め込み**: 分析データ・事例の数値・引用には `[テキスト](URL)` でソースリンクを埋め込み
+- **チャートの画像化**: データ可視化が必要な場合は `/generate-chart-image` でPNG画像を生成
+
 ### 肉付け指針
 
 1. **数字の具体性**: 「稼いだ」→「月3.2万→6ヶ月後に月8万」

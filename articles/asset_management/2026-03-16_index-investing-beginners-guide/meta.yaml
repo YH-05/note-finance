@@ -1,0 +1,40 @@
+article_id: "2026-03-16_index-investing-beginners-guide"
+topic: "インデックス投資の始め方"
+category: "asset_management"
+type: column
+target_audience: beginner
+target_wordcount: 4000
+
+status: "revised"
+created_at: "2026-03-16"
+updated_at: "2026-03-16"
+
+tags:
+  - インデックス投資
+  - 新NISA
+  - 投資初心者
+  - つみたて投資枠
+  - 資産形成
+theme: "インデックス投資の基本と始め方を初心者向けに解説"
+
+# === Tracking ===
+critic_score: 84
+revision_count: 1
+note_url: null
+x_post_url: null
+research_sources: 23
+
+# === Workflow ===
+workflow:
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: true

@@ -18,7 +18,8 @@
 | `git-rules.md` | Git運用ルール（ブランチ戦略、コミットメッセージ規約） |
 | `common-instructions.md` | 共通指示（ロギング、エラーハンドリング、環境変数など） |
 | `evidence-based.md` | エビデンスベース開発（禁止語、推奨語、証拠要件など） |
-| `subagent-data-passing.md` | **🚨 サブエージェントへのデータ渡しルール（完全なデータ構造必須）** |
+| `subagent-data-passing.md` | **サブエージェントへのデータ渡しルール（完全なデータ構造必須）** |
+| `article-quality-standards.md` | **記事品質ルール（表の画像化・ソースURL埋め込み必須）** |
 
 ## 使用方法
 

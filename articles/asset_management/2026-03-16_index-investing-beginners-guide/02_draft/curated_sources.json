@@ -1,0 +1,317 @@
+{
+  "theme": "index_investing_beginners",
+  "curated_at": "2026-03-16T12:00:00+09:00",
+  "sources": [
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "title": "資産形成の基本：NISA特設ウェブサイト（金融庁）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 95,
+      "key_findings": [
+        "長期投資で複利効果による安定収益が期待できる",
+        "積立投資で少額からコツコツ購入単価を平準化",
+        "分散投資で価格変動リスクを抑制",
+        "金融庁が長期・積立・分散投資の重要性を公式に説明"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/know/index.html",
+      "title": "NISAを知る：NISA特設ウェブサイト（金融庁）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 93,
+      "key_findings": [
+        "NISA口座は1人1口座、18歳以上の日本居住者が開設可能",
+        "運用益（売却益・配当/分配金）が非課税",
+        "つみたて投資枠と成長投資枠の併用が可能",
+        "年間投資枠：合計最大360万円、生涯投資枠1,800万円"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.fsa.go.jp/news/r7/sonota/20251226-2/01.pdf",
+      "title": "令和8（2026）年度税制改正について（金融庁PDF）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 90,
+      "key_findings": [
+        "2026年度改正：つみたて投資枠の対象年齢を撤廃（0歳から可能に）",
+        "こどもNISA新設：年間投資枠60万円、非課税保有限度額600万円",
+        "対象指数に読売株価指数、JPXプライム150を追加",
+        "非課税枠の年内復活が可能に"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/products/20251219/26.pdf",
+      "title": "つみたて投資枠対象商品届出一覧（金融庁PDF）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 88,
+      "key_findings": [
+        "金融庁が指定する対象指数一覧",
+        "インデックスファンドの信託報酬要件：国内0.5%以下、海外0.75%以下",
+        "販売手数料ゼロ（ノーロード）が必須",
+        "信託契約期間：無期限または20年以上"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa/20170614-2/86_1.pdf",
+      "title": "長期・積立・分散投資とNISA制度（金融庁PDF）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 92,
+      "key_findings": [
+        "国内・先進国・新興国の株・債券に1/6ずつ投資した場合：20年で年平均4.0%のリターン実績",
+        "信託報酬率1%の差が長期で大きなリターン差を生む",
+        "日経平均に30年間つみたて投資した場合：総積立額363万円→資産評価額472万円",
+        "既存の投信約6,000本の大半は資産形成に不向き"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.bk.mufg.jp/column/shisan_unyo/b0115.html",
+      "title": "インデックスファンドとアクティブファンドの違いは？（三菱UFJ銀行）",
+      "publisher": "三菱UFJ銀行",
+      "reliability_rank": "B",
+      "relevance_score": 85,
+      "key_findings": [
+        "インデックスファンド：特定の指数に連動、低コスト、値動きがわかりやすい",
+        "アクティブファンド：指数を上回る運用を目指す、高コスト",
+        "インデックスファンドは調査・分析費用が不要なため信託報酬が低い",
+        "1つの商品購入で幅広く分散投資が可能"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://info.monex.co.jp/fund/guide/index-about.html",
+      "title": "インデックス投資とは？メリット・デメリットを解説（マネックス証券）",
+      "publisher": "マネックス証券",
+      "reliability_rank": "B",
+      "relevance_score": 83,
+      "key_findings": [
+        "代表的なインデックス：日経平均、TOPIX、S&P500、ナスダック総合",
+        "人気ランキング1位はeMAXIS Slim米国株式(S&P500)、2位はオルカン",
+        "ドルコスト平均法の効果",
+        "1本のファンドで全世界に投資可能"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://kabutan.jp/hikaku/kabu_what-is-index-fund/",
+      "title": "インデックスファンドとは？初心者におすすめの銘柄や選び方をわかりやすく解説（株探）",
+      "publisher": "株探",
+      "reliability_rank": "C",
+      "relevance_score": 82,
+      "key_findings": [
+        "eMAXIS Slim全世界株式（オール・カントリー）：信託報酬0.0578%、純資産9兆1398億円",
+        "eMAXIS Slim米国株式（S&P500）：信託報酬0.09372%、純資産9兆8304億円",
+        "純資産総額30億円以上のファンドを選ぶ目安",
+        "ファンド選びのポイント：投資対象→コスト→純資産総額"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://news.yahoo.co.jp/articles/759b1e769a2251a94e93f22f389d3c28349f626d",
+      "title": "10兆円ファンド到達で「インデックスシリーズ」が新展開（Yahoo!ニュース）",
+      "publisher": "Yahoo!ニュース",
+      "reliability_rank": "C",
+      "relevance_score": 80,
+      "key_findings": [
+        "2026年2月：eMAXIS Slimオルカンが純資産10兆円突破",
+        "2026年1月：eMAXIS Slim米国株式(S&P500)が先に10兆円突破",
+        "年0.1%以下の信託報酬が主流化"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://diamond.jp/zai/articles/-/131949",
+      "title": "インデックスファンド「信託報酬」比較ランキング（ダイヤモンドZAi）",
+      "publisher": "ダイヤモンドZAi",
+      "reliability_rank": "C",
+      "relevance_score": 78,
+      "key_findings": [
+        "S&P500連動：最安はニッセイS米国株式500（信託報酬0.05775%）",
+        "eMAXIS Slimシリーズは業界最低水準を目指すコンセプト",
+        "受益者還元型信託報酬率の採用"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.sc.mufg.jp/learn/article/250303.html",
+      "title": "株価が暴落したらどうすればいい？3つのNG行動と備える方法（三菱UFJモルガン・スタンレー証券）",
+      "publisher": "三菱UFJモルガン・スタンレー証券",
+      "reliability_rank": "B",
+      "relevance_score": 82,
+      "key_findings": [
+        "NG行動1：狼狽売り",
+        "NG行動2：積立投資をやめる・金額を下げる",
+        "NG行動3：根拠のない買い増し",
+        "積立投資は株価下落時こそ多くの口数を購入できるチャンス"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://shisanplus.dai-ichi-life.co.jp/keisei/2976/",
+      "title": "インデックス投資とは？初心者向けにメリット・デメリット・始め方を解説",
+      "publisher": "第一生命（しさんぷらす）",
+      "reliability_rank": "B",
+      "relevance_score": 80,
+      "key_findings": [
+        "証券口座開設→ファンド選び→購入→運用確認のステップで始める",
+        "長期的な視点でコツコツ積み立てることで力を発揮する"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://money-voyage.mizuho-sc.com/articles/137",
+      "title": "インデックスファンドとは？仕組み・メリット・始め方まで徹底解説（みずほ証券）",
+      "publisher": "みずほ証券",
+      "reliability_rank": "B",
+      "relevance_score": 78,
+      "key_findings": [
+        "投資対象と主な指数の一覧",
+        "NISAで購入できるインデックスファンドがある",
+        "ベンチマーク以上のリターンは狙いにくいデメリット"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://kabu.com/kabuyomu/beginner/1163.html",
+      "title": "ドルコスト平均法は意味がない？メリット・デメリットを解説（三菱UFJ eスマート証券）",
+      "publisher": "三菱UFJ eスマート証券",
+      "reliability_rank": "B",
+      "relevance_score": 76,
+      "key_findings": [
+        "基準価額が高い時は少なく、安い時は多く口数を購入",
+        "長期的に平均取得価格を抑える効果",
+        "投資初心者、感情に左右されたくない方に適している"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.keiyobank.co.jp/individual/column/asset/202108004.html",
+      "title": "ドルコスト平均法とは？メリット・デメリットを解説（京葉銀行）",
+      "publisher": "京葉銀行",
+      "reliability_rank": "B",
+      "relevance_score": 72,
+      "key_findings": [
+        "一定金額を定期的に購入し購入単価を平準化",
+        "小額から始められる",
+        "自動積立機能の活用推奨"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/5180",
+      "title": "NISA改正とは？2024年と2026年の変更点を活用法と共に解説",
+      "publisher": "SOICO",
+      "reliability_rank": "C",
+      "relevance_score": 75,
+      "key_findings": [
+        "新NISA：つみたて投資枠120万円/年＋成長投資枠240万円/年",
+        "非課税保有期間が無期限化",
+        "売却後の非課税枠が簿価ベースで再利用可能"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.am-one.co.jp/pickup/nisa-guide/whats-nisa/tsumitatetousiwaku.html",
+      "title": "新NISAのつみたて投資枠の対象商品は？（アセットマネジメントOne）",
+      "publisher": "アセットマネジメントOne",
+      "reliability_rank": "B",
+      "relevance_score": 74,
+      "key_findings": [
+        "つみたて投資枠の信託報酬要件",
+        "販売手数料ゼロ（ノーロード）必須",
+        "毎月分配型は対象外"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.am-expo.jp/hub/ja-jp/blog/article_23.html",
+      "title": "「オルカン」VS「S&P500」徹底比較！新NISAで選ぶべきはどっち？",
+      "publisher": "am-expo.jp",
+      "reliability_rank": "C",
+      "relevance_score": 70,
+      "key_findings": [
+        "オルカン：先進国23カ国＋新興国24カ国の計47カ国に分散投資",
+        "オルカン構成比の約6割が米国株",
+        "リスク分散性はオルカンが優位"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.acn-fudosan.co.jp/column/archives/244",
+      "title": "投資で損する人の7つの失敗パターン",
+      "publisher": "ACN不動産",
+      "reliability_rank": "D",
+      "relevance_score": 62,
+      "key_findings": [
+        "狼狽売りが失敗の筆頭パターン",
+        "長期・分散・積立の徹底が再現性の高い手法",
+        "少額からのテスト運用でリスク許容度を確認"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://note.com/surv_investor/n/naca79d461b52",
+      "title": "あなたのNISAは失敗する！（かもしれない）（note記事）",
+      "publisher": "note.com（個人投資家）",
+      "reliability_rank": "D",
+      "relevance_score": 58,
+      "key_findings": [
+        "インデックス投資は退屈で他商品に手を出す失敗",
+        "暴落時の心構え",
+        "SNSやニュースに振り回されないことの重要性"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/example/",
+      "title": "NISAの活用事例（金融庁）",
+      "publisher": "金融庁",
+      "reliability_rank": "A",
+      "relevance_score": 65,
+      "key_findings": [
+        "月3万円×40年の積立パターン",
+        "月5万円×20年の積立パターン",
+        "途中売却しても続けて資産形成するパターン"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://media.monex.co.jp/articles/-/28479",
+      "title": "2026年私の投資計画：積立投資家編（マネックス証券）",
+      "publisher": "マネックス証券",
+      "reliability_rank": "B",
+      "relevance_score": 55,
+      "key_findings": [
+        "全世界株式型インデックスファンド1本に一本化する投資家が増加",
+        "投資は手段であり目的ではないという心構え"
+      ],
+      "used_in_article": true
+    },
+    {
+      "url": "https://www.tsumitatenisa.jp/list/data2.php",
+      "title": "【2026年最新】新NISA銘柄比較表（つみたて投資枠）",
+      "publisher": "新NISAナビ",
+      "reliability_rank": "C",
+      "relevance_score": 73,
+      "key_findings": [
+        "eMAXIS Slim米国株式(S&P500)：信託報酬0.08140%",
+        "eMAXIS Slim全世界株式(オール・カントリー)：信託報酬0.05775%",
+        "最安クラスの信託報酬は年0.05%台に到達"
+      ],
+      "used_in_article": true
+    }
+  ],
+  "stats": {
+    "total_sources": 23,
+    "used_sources": 23,
+    "avg_relevance_score": 77
+  }
+}

@@ -69,6 +69,14 @@ Step 4: [HF5] 初稿レビュー
    - /article-research @{article_dir} を先に実行してください
    ```
 
+### 品質ルール（全カテゴリ共通）
+
+参照: `.claude/rules/article-quality-standards.md`
+
+- **表の画像化**: マークダウン表は `/generate-table-image` でPNG画像に変換し `![](images/*.png)` で参照
+- **ソースURL埋め込み**: 数値データ・統計・専門家見解の引用箇所に `[テキスト](URL)` でリンクを埋め込み
+- **チャートの画像化**: データ可視化が必要な場合は `/generate-chart-image` でPNG画像を生成し `![](images/chart_*.png)` で参照
+
 ### Step 2: カテゴリ別ライター実行
 
 #### stock_analysis / macro_economy / quant_analysis / investment_education

@@ -26,6 +26,16 @@ revised_draft.md を生成してください。
 5. **中優先**: readability の high/medium 問題
 6. **低優先**: その他の low 問題
 
+## 記事品質チェック（修正時の追加確認）
+
+参照: `.claude/rules/article-quality-standards.md`
+
+修正版（revised_draft.md）生成時に以下を確認:
+- [ ] マークダウン表が残っていないか（全て `/generate-table-image` で画像化済みか）
+- [ ] 主要な数値データにソースURLリンクが埋め込まれているか
+- [ ] 新たに追加した表・データにも上記ルールが適用されているか
+- [ ] チャートで表現すべきデータがテキストのままになっていないか（`/generate-chart-image` で画像化済みか）
+
 ## compliance 問題の修正方針
 
 ### 禁止表現の修正

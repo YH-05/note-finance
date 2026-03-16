@@ -1,0 +1,793 @@
+{
+    "article_id": "2026-03-16_index-investing-beginners-guide",
+    "generated_at": "2026-03-16",
+    "critics": {
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 88,
+            "status": "warning",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "ステップ2：NISA口座を同時に開設する",
+                        "line": "どの証券会社で開設するかは慎重に選ぶことをお勧めします"
+                    },
+                    "issue": "「お勧めします」は投資助言的ニュアンスを含みうる表現。金融商品取引法上の投資助言には直接該当しないが、note.comプラットフォームでは慎重な表現が望ましい。",
+                    "regulation": "金融商品取引法第2条第8項第11号（投資助言・代理業）、note利用規約",
+                    "suggestion": "「慎重に比較検討することが大切です」に変更"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "はじめに",
+                        "line": "資産形成の王道として位置づけられています"
+                    },
+                    "issue": "「王道」という表現はインデックス投資を他の手法より優位に位置づける印象を与え、公正性の観点でやや偏りがある。ただし金融庁の方針を引用した文脈であるため深刻度は低い。",
+                    "regulation": "金融商品取引法第38条（禁止行為）断定的判断の提供の禁止",
+                    "suggestion": "「資産形成の有力な選択肢の一つとして位置づけられています」に変更"
+                },
+                {
+                    "issue_id": "CP003",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "ステップ5：長期で「ほったらかし」運用を続ける",
+                        "line": "設定が完了したら、あとは基本的に「ほったらかし」で大丈夫です"
+                    },
+                    "issue": "「大丈夫です」という断定表現は、投資にリスクがないかのような印象を与えるおそれがある。投資信託には元本割れリスクがあるため、安全性を示唆する表現には注意が必要。",
+                    "regulation": "金融商品取引法第37条（広告等の規制）リスク表示義務",
+                    "suggestion": "「あとは基本的に頻繁な売買をする必要はありません。ただし、定期的な資産配分の確認は怠らないようにしましょう」に変更"
+                },
+                {
+                    "issue_id": "CP004",
+                    "severity": "low",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾免責事項",
+                        "line": "投資には元本割れリスクがあります"
+                    },
+                    "issue": "末尾の免責事項に「投資に関する最終決定は、ご自身の判断と責任において行ってください」が含まれていない。冒頭にはあるが、末尾にも併記するとより安全。",
+                    "regulation": "金融商品取引法第37条（広告等の規制）",
+                    "suggestion": "末尾の投資リスク開示に「投資に関する最終決定は、ご自身の判断と責任において行ってください。」を追記"
+                },
+                {
+                    "issue_id": "CP005",
+                    "severity": "low",
+                    "category": "source",
+                    "location": {
+                        "section": "S&P500連動型",
+                        "line": "米国の大型500銘柄に投資するタイプです"
+                    },
+                    "issue": "S&P500連動型セクションにデータソースの出典が記載されていない。他のセクションには出典が付されており、一貫性に欠ける。",
+                    "regulation": "note利用規約（情報の正確性）",
+                    "suggestion": "出典を追記する（例：「出典：各運用会社公開資料」等）"
+                },
+                {
+                    "issue_id": "CP006",
+                    "severity": "low",
+                    "category": "source",
+                    "location": {
+                        "section": "国内株式（TOPIX / 日経平均連動型）",
+                        "line": "日本市場に投資するタイプで、為替リスクがないのが特徴です"
+                    },
+                    "issue": "国内株式セクションにもデータソースの出典が記載されていない。",
+                    "regulation": "note利用規約（情報の正確性）",
+                    "suggestion": "出典を追記する"
+                }
+            ],
+            "required_disclaimers": {
+                "investment_risk": {
+                    "present": true,
+                    "location": "末尾"
+                },
+                "not_advice": {
+                    "present": true,
+                    "location": "冒頭"
+                },
+                "past_performance": {
+                    "present": true,
+                    "required": true
+                },
+                "data_source": {
+                    "present": true,
+                    "location": "末尾"
+                }
+            },
+            "prohibited_expressions_found": []
+        },
+        "data_accuracy": {
+            "critic_type": "data_accuracy",
+            "score": 91,
+            "issues": [
+                {
+                    "issue_id": "DA001",
+                    "severity": "low",
+                    "location": {
+                        "section": "コスト（信託報酬）の重要性 - 2026年3月時点のコスト水準",
+                        "line": "S&P500連動型でも年0.06~0.09%台が中心的な水準です"
+                    },
+                    "data_type": "valuation",
+                    "issue": "S&P500連動型ファンドの信託報酬下限値が不正確。リサーチデータによるとニッセイS米国株式500の信託報酬は0.05775%であり、0.06%を下回る。「0.06~0.09%台」という範囲表記は最安ファンドを含まない。",
+                    "article_value": "0.06~0.09%台",
+                    "correct_value": "0.05~0.09%台（最安はニッセイS米国株式500の0.05775%）",
+                    "source": "research_findings.json（ダイヤモンドZAi信託報酬比較ランキング）",
+                    "deviation": "下限値が約4.0%過大",
+                    "suggestion": "「S&P500連動型でも年0.05~0.09%台が中心的な水準です」に修正"
+                },
+                {
+                    "issue_id": "DA002",
+                    "severity": "low",
+                    "location": {
+                        "section": "長期投資の効果 - 積立投資の実績例",
+                        "line": "日経平均に30年間（1990年~2020年）毎月1万円を積み立てた場合"
+                    },
+                    "data_type": "economic",
+                    "issue": "金融庁シミュレーションの期間表記が不正確。リサーチデータでは「1990年1月~2020年3月」と月単位で明記されているが、記事では「1990年~2020年」と丸められている。この期間は30年3ヶ月（363ヶ月）であり、総積立額363万円（363ヶ月 x 1万円）の根拠に直結する。「30年間」という表記と363万円の積立額が整合しない（30年間なら360万円になるはず）。",
+                    "article_value": "30年間（1990年~2020年）",
+                    "correct_value": "約30年間（1990年1月~2020年3月、363ヶ月）",
+                    "source": "research_findings.json（金融庁「長期・積立・分散投資とNISA制度」PDF）",
+                    "deviation": "期間表記の精度不足（3ヶ月の差異）",
+                    "suggestion": "「日経平均に約30年間（1990年1月~2020年3月）毎月1万円を積み立てた場合」に修正"
+                },
+                {
+                    "issue_id": "DA003",
+                    "severity": "low",
+                    "location": {
+                        "section": "コスト（信託報酬）の重要性 - なぜコストが重要なのか",
+                        "line": "信託報酬が0.1%と1.0%では、20年間の運用で数十万円の差になり得ます"
+                    },
+                    "data_type": "valuation",
+                    "issue": "信託報酬差による影響の記述が曖昧。リサーチデータでは「信託報酬率が1%違う場合」と記載されており、記事の「0.1%と1.0%」（差0.9%）の例示は出典の「1%の差」と微妙に異なる。また「数十万円の差」という表現も出典の「約28.7%のリターン差」とは異なる指標で表現している。定性的には正しいが、出典との厳密な対応が取れていない。",
+                    "article_value": "信託報酬が0.1%と1.0%では20年間で数十万円の差",
+                    "correct_value": "信託報酬率が1%異なる場合、長期で約28.7%のリターン差（金融庁シミュレーション）",
+                    "source": "research_findings.json（金融庁PDF資料）",
+                    "deviation": "定性的には正しいが出典の数値表現と不一致",
+                    "suggestion": "「金融庁のシミュレーションによると、信託報酬率が年1%異なると、20年間の運用で約28.7%のリターン差が生じる試算が示されています」に修正、または現行の表現を維持する場合は出典の数値を正確に引用"
+                }
+            ],
+            "verified_data": {
+                "total": 28,
+                "correct": 25,
+                "incorrect": 0,
+                "approximate": 3,
+                "unverifiable": 0
+            },
+            "verification_details": [
+                {
+                    "data_point": "つみたて投資枠：年間120万円",
+                    "article_value": "120万円",
+                    "source_value": "120万円",
+                    "source": "金融庁 NISAを知る、SOICO解説記事",
+                    "match": true
+                },
+                {
+                    "data_point": "成長投資枠：年間240万円",
+                    "article_value": "240万円",
+                    "source_value": "240万円",
+                    "source": "金融庁 NISAを知る、SOICO解説記事",
+                    "match": true
+                },
+                {
+                    "data_point": "年間投資枠合計：360万円",
+                    "article_value": "360万円",
+                    "source_value": "360万円",
+                    "source": "金融庁 NISAを知る",
+                    "match": true
+                },
+                {
+                    "data_point": "生涯投資枠：1,800万円",
+                    "article_value": "1,800万円",
+                    "source_value": "1,800万円",
+                    "source": "金融庁 NISAを知る、SOICO解説記事",
+                    "match": true
+                },
+                {
+                    "data_point": "成長投資枠の生涯上限：1,200万円",
+                    "article_value": "1,200万円",
+                    "source_value": "1,200万円",
+                    "source": "SOICO解説記事",
+                    "match": true
+                },
+                {
+                    "data_point": "非課税保有期間：無期限",
+                    "article_value": "無期限",
+                    "source_value": "無期限",
+                    "source": "金融庁 NISAを知る、SOICO解説記事",
+                    "match": true
+                },
+                {
+                    "data_point": "つみたて投資枠・信託報酬要件（国内型）",
+                    "article_value": "0.5%以下",
+                    "source_value": "0.5%以下",
+                    "source": "金融庁 対象商品届出一覧、アセットマネジメントOne",
+                    "match": true
+                },
+                {
+                    "data_point": "つみたて投資枠・信託報酬要件（海外型）",
+                    "article_value": "0.75%以下",
+                    "source_value": "0.75%以下",
+                    "source": "金融庁 対象商品届出一覧、アセットマネジメントOne",
+                    "match": true
+                },
+                {
+                    "data_point": "販売手数料ゼロ",
+                    "article_value": "販売手数料ゼロ",
+                    "source_value": "販売手数料ゼロ（ノーロード）",
+                    "source": "金融庁 対象商品届出一覧",
+                    "match": true
+                },
+                {
+                    "data_point": "こどもNISA・年間投資枠",
+                    "article_value": "60万円",
+                    "source_value": "60万円",
+                    "source": "金融庁 令和8年度税制改正PDF",
+                    "match": true
+                },
+                {
+                    "data_point": "こどもNISA・非課税保有限度額",
+                    "article_value": "600万円",
+                    "source_value": "600万円",
+                    "source": "金融庁 令和8年度税制改正PDF",
+                    "match": true
+                },
+                {
+                    "data_point": "こどもNISA・対象年齢",
+                    "article_value": "0歳から",
+                    "source_value": "0歳から（対象年齢撤廃）",
+                    "source": "金融庁 令和8年度税制改正PDF",
+                    "match": true
+                },
+                {
+                    "data_point": "追加対象指数：読売株価指数、JPXプライム150",
+                    "article_value": "読売株価指数、JPXプライム150",
+                    "source_value": "読売株価指数、JPXプライム150",
+                    "source": "金融庁 令和8年度税制改正PDF",
+                    "match": true
+                },
+                {
+                    "data_point": "全世界株式の投資対象国数",
+                    "article_value": "約47カ国",
+                    "source_value": "先進国23カ国＋新興国24カ国の計47カ国",
+                    "source": "am-expo.jp オルカン vs S&P500比較記事",
+                    "match": true
+                },
+                {
+                    "data_point": "全世界株式の米国株構成比",
+                    "article_value": "約6割",
+                    "source_value": "約6割",
+                    "source": "am-expo.jp オルカン vs S&P500比較記事",
+                    "match": true
+                },
+                {
+                    "data_point": "投資利益への税率",
+                    "article_value": "約20%",
+                    "source_value": "20.315%（所得税15.315%＋住民税5%）",
+                    "source": "一般的な税制知識",
+                    "match": true
+                },
+                {
+                    "data_point": "純資産総額の目安",
+                    "article_value": "30億円以上",
+                    "source_value": "30億円以上",
+                    "source": "株探",
+                    "match": true
+                },
+                {
+                    "data_point": "eMAXIS Slimシリーズ純資産10兆円突破",
+                    "article_value": "10兆円を突破",
+                    "source_value": "オルカン10兆円突破（2026年2月）、S&P500 10兆円突破（2026年1月）",
+                    "source": "Yahoo!ニュース",
+                    "match": true
+                },
+                {
+                    "data_point": "全世界株式型の信託報酬水準",
+                    "article_value": "年0.05%台",
+                    "source_value": "eMAXIS Slimオルカン0.05775%",
+                    "source": "新NISAナビ、ダイヤモンドZAi",
+                    "match": true
+                },
+                {
+                    "data_point": "主要ファンドの信託報酬レンジ",
+                    "article_value": "年0.05~0.1%台",
+                    "source_value": "0.05775%~0.1518%（カテゴリにより異なる）",
+                    "source": "株探、新NISAナビ、ダイヤモンドZAi",
+                    "match": true
+                },
+                {
+                    "data_point": "6資産均等配分・20年リターン",
+                    "article_value": "年平均約4.0%",
+                    "source_value": "年平均4.0%",
+                    "source": "金融庁「長期・積立・分散投資とNISA制度」PDF",
+                    "match": true
+                },
+                {
+                    "data_point": "日経平均30年積立・開始時株価",
+                    "article_value": "37,189円",
+                    "source_value": "37,189円",
+                    "source": "金融庁PDF（Bloombergデータ基に作成）",
+                    "match": true
+                },
+                {
+                    "data_point": "日経平均30年積立・終了時株価",
+                    "article_value": "18,917円",
+                    "source_value": "18,917円",
+                    "source": "金融庁PDF（Bloombergデータ基に作成）",
+                    "match": true
+                },
+                {
+                    "data_point": "日経平均30年積立・総積立額",
+                    "article_value": "363万円",
+                    "source_value": "363万円",
+                    "source": "金融庁PDF",
+                    "match": true
+                },
+                {
+                    "data_point": "日経平均30年積立・資産評価額",
+                    "article_value": "472万円",
+                    "source_value": "472万円",
+                    "source": "金融庁PDF",
+                    "match": true
+                },
+                {
+                    "data_point": "S&P500連動型の信託報酬レンジ",
+                    "article_value": "0.06~0.09%台",
+                    "source_value": "0.05775%~0.09372%（最安はニッセイS米国株式500の0.05775%）",
+                    "source": "ダイヤモンドZAi、新NISAナビ、株探",
+                    "match": false
+                },
+                {
+                    "data_point": "日経平均積立シミュレーション期間",
+                    "article_value": "30年間（1990年~2020年）",
+                    "source_value": "1990年1月~2020年3月（363ヶ月、約30年3ヶ月）",
+                    "source": "金融庁PDF",
+                    "match": false
+                },
+                {
+                    "data_point": "信託報酬差のインパクト",
+                    "article_value": "0.1%と1.0%の差で20年間で数十万円",
+                    "source_value": "1%の差で約28.7%のリターン差（金融庁シミュレーション）",
+                    "source": "金融庁PDF",
+                    "match": false
+                }
+            ],
+            "calculation_checks": [
+                {
+                    "calculation": "年間投資枠の合計",
+                    "formula": "つみたて投資枠120万円 + 成長投資枠240万円",
+                    "result": "360万円",
+                    "article_value": "360万円",
+                    "match": true
+                },
+                {
+                    "calculation": "日経平均30年積立の総積立額",
+                    "formula": "363ヶ月（1990年1月~2020年3月） x 1万円/月",
+                    "result": "363万円",
+                    "article_value": "363万円",
+                    "match": true
+                },
+                {
+                    "calculation": "日経平均30年積立の運用収益",
+                    "formula": "資産評価額472万円 - 総積立額363万円",
+                    "result": "109万円（+30.0%）",
+                    "article_value": "記事に明示なし（暗示的に正の収益）",
+                    "match": true
+                },
+                {
+                    "calculation": "日経平均の下落率",
+                    "formula": "(18,917 - 37,189) / 37,189 x 100",
+                    "result": "-49.1%",
+                    "article_value": "記事に明示なし（下落したと記載）",
+                    "match": true
+                },
+                {
+                    "calculation": "30年間と363万円の整合性チェック",
+                    "formula": "30年 x 12ヶ月 x 1万円 = 360万円 ≠ 363万円",
+                    "result": "不整合（実際は363ヶ月 = 30年3ヶ月）",
+                    "article_value": "30年間で363万円",
+                    "match": false
+                }
+            ]
+        },
+        "readability": {
+            "critic_type": "readability",
+            "score": 74,
+            "target_audience": "beginner",
+            "issues": [
+                {
+                    "issue_id": "RD001",
+                    "severity": "high",
+                    "category": "density",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "第2段落（eMAXIS Slimシリーズの純資産総額〜）"
+                    },
+                    "issue": "冒頭の第2段落が160文字超で、スマホ表示で約8行に達する。beginner向け基準（80-120文字）を大幅に超過しており、note.comのスマホ読者が離脱しやすいポイントになっている。また1文が108文字に及び、beginner基準（30-40文字）の約3倍。",
+                    "suggestion": "「2026年に入り〜」の文を2文に分割する。例：「2026年に入り、eMAXIS Slimシリーズの純資産総額が10兆円を突破しました（出典：Yahoo!ニュース、2026年2月報道）。個人投資家からの支持は記録的な水準に達しています。」段落も2つに分ける。"
+                },
+                {
+                    "issue_id": "RD002",
+                    "severity": "high",
+                    "category": "density",
+                    "location": {
+                        "section": "積立投資の実績例",
+                        "description": "金融庁のシミュレーション段落"
+                    },
+                    "issue": "1段落が229文字（スマホ約11行）で、記事中最も読みにくい箇所。数値が5つ以上詰め込まれ（30年間、1990年~2020年、1万円、37,189円、18,917円、363万円、472万円）、beginner読者には情報過多。",
+                    "suggestion": "数値を箇条書きで整理する。例：「金融庁のシミュレーションでは、以下のような結果が示されています。\\n- 期間：30年間（1990年〜2020年）\\n- 毎月の積立額：1万円\\n- 総積立額：363万円\\n- 資産評価額：472万円」のように分解する。"
+                },
+                {
+                    "issue_id": "RD003",
+                    "severity": "high",
+                    "category": "terminology",
+                    "location": {
+                        "section": "複数セクション",
+                        "description": "ETF（2箇所）、純資産総額（3箇所）、口数（3箇所）"
+                    },
+                    "issue": "beginner向け記事であるにもかかわらず、ETF・純資産総額・口数の3用語が括弧説明なしで使用されている。readability-standardsでは「専門用語には必ず説明を付ける」が必須。特にETFは成長投資枠の説明で唐突に登場し、初心者は意味を把握できない。",
+                    "suggestion": "初出時に括弧で補足する。ETF→「ETF（上場投資信託：証券取引所で株式のように売買できる投資信託）」、純資産総額→「純資産総額（ファンドに集まっているお金の総額）」、口数→「口数（投資信託の購入単位）」"
+                },
+                {
+                    "issue_id": "RD004",
+                    "severity": "medium",
+                    "category": "hook",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "冒頭の問いかけ〜第1段落"
+                    },
+                    "issue": "冒頭の「投資を始めたいけど、何から手をつければいいかわからない」は共感を誘うが、読者が得られるベネフィットが明確でない。note.comでは最初の数行で継続/離脱が決まるため、「この記事を読むと何ができるようになるか」を早い段階で提示すべき。",
+                    "suggestion": "冒頭の問いかけ直後に「この記事では、投資経験ゼロの方でも今日から始められる具体的な5ステップをお伝えします。月100円からスタートできるので、まずは仕組みを知ることから始めましょう。」のようなベネフィット文を追加する。"
+                },
+                {
+                    "issue_id": "RD005",
+                    "severity": "medium",
+                    "category": "visual",
+                    "location": {
+                        "section": "アクティブファンドとの違い",
+                        "description": "段落全体"
+                    },
+                    "issue": "160文字の1段落で、比較内容がテキストのみで表現されている。インデックスファンドとアクティブファンドの違いは初心者にとって重要な理解ポイントだが、文章だけでは対比が把握しにくい。",
+                    "suggestion": "簡易比較表を追加する。例：\\n| | インデックスファンド | アクティブファンド |\\n|---|---|---|\\n| 運用方法 | 指数に連動 | プロが銘柄選定 |\\n| コスト | 低い | 高い |\\n| 特徴 | 市場平均のリターン | 市場平均超えを目指す |"
+                },
+                {
+                    "issue_id": "RD006",
+                    "severity": "medium",
+                    "category": "visual",
+                    "location": {
+                        "section": "コスト（信託報酬）の重要性",
+                        "description": "2026年3月時点のコスト水準"
+                    },
+                    "issue": "コスト比較の数値（0.05%、0.06~0.09%等）がテキスト中に埋もれており、視覚的に比較しにくい。note.comのスマホ読者は流し読みする傾向があり、重要な数値情報が見落とされやすい。",
+                    "suggestion": "主要ファンドカテゴリごとの信託報酬を箇条書きまたは表で整理する。例：\\n- 全世界株式型：年0.05%台\\n- S&P500連動型：年0.06〜0.09%台"
+                },
+                {
+                    "issue_id": "RD007",
+                    "severity": "medium",
+                    "category": "density",
+                    "location": {
+                        "section": "新NISAの基本構造",
+                        "description": "箇条書き部分"
+                    },
+                    "issue": "NISA枠の箇条書きリスト項目が長く（特に「合計」項目が127文字）、箇条書きの利点であるスキャナビリティが損なわれている。括弧による補足情報が多すぎる。",
+                    "suggestion": "箇条書きの各項目を短くし、補足は別段落にまとめる。例：「- つみたて投資枠：年間120万円\\n- 成長投資枠：年間240万円\\n- 年間合計：最大360万円\\n- 生涯投資枠：1,800万円\\n- 非課税期間：無期限」とし、詳細は下に別途記載。"
+                },
+                {
+                    "issue_id": "RD008",
+                    "severity": "medium",
+                    "category": "specificity",
+                    "location": {
+                        "section": "代表的なインデックスと人気ファンドの特徴",
+                        "description": "国内株式セクション"
+                    },
+                    "issue": "国内株式セクションが69文字と極端に短く、TOPIXと日経平均の違いが説明されていない。「それぞれ異なる特徴とリスクがあり」と曖昧に終わっており、beginner読者には具体性が不足。",
+                    "suggestion": "TOPIXは東証上場の約2,000銘柄、日経平均は主要225銘柄に投資する点など、初心者が理解できるレベルで具体的な違いを補足する。"
+                },
+                {
+                    "issue_id": "RD009",
+                    "severity": "low",
+                    "category": "visual",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "箇条書き部分"
+                    },
+                    "issue": "まとめの箇条書き項目が長い（各70-80文字超）。まとめは記事の要点を短く振り返る場所であり、各項目がスマホで2-3行に及ぶと一覧性が低下する。",
+                    "suggestion": "各項目を30-40文字程度に短縮する。詳細は本文に譲り、まとめではキーワードレベルに留める。例：「- インデックス投資＝1本で幅広く分散投資」"
+                },
+                {
+                    "issue_id": "RD010",
+                    "severity": "low",
+                    "category": "terminology",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "「信託報酬の低下競争」"
+                    },
+                    "issue": "冒頭で「信託報酬の低下競争」が括弧説明なしで登場する。信託報酬は後のセクションで説明されるが、初出が冒頭であるため、beginner読者はここで意味がわからず離脱するリスクがある。",
+                    "suggestion": "初出時に簡単な補足を入れる。例：「信託報酬（ファンド保有中にかかる手数料）の低下競争」"
+                },
+                {
+                    "issue_id": "RD011",
+                    "severity": "low",
+                    "category": "hook",
+                    "location": {
+                        "section": "まとめ後の結び",
+                        "description": "最終段落"
+                    },
+                    "issue": "結びが「まずは少額から、無理のない範囲で始めてみてはいかがでしょうか」と一般的な表現で終わっている。note.comではSNSシェアやスキが重要なため、もう少し印象に残る結びがあるとエンゲージメントが向上する。",
+                    "suggestion": "具体的な次の一歩を示す。例：「まずは証券会社のサイトで口座開設の申し込みをしてみましょう。最短数分の手続きで、資産形成の第一歩を踏み出せます。」"
+                },
+                {
+                    "issue_id": "RD012",
+                    "severity": "low",
+                    "category": "specificity",
+                    "location": {
+                        "section": "ステップ1：証券口座を開設する",
+                        "description": "段落全体"
+                    },
+                    "issue": "「ネット証券であれば」と述べるだけで、具体的な証券会社名が一切挙げられていない。beginner読者は「どこで開設すればいいのか」が最も知りたい情報の一つ。",
+                    "suggestion": "コンプライアンス上の制約を考慮しつつ、「主要なネット証券（SBI証券、楽天証券、マネックス証券など）」程度の例示を追加する。特定推奨にならないよう複数社を並列で挙げる。"
+                }
+            ],
+            "metrics": {
+                "avg_sentence_length": 61,
+                "avg_paragraph_length": 119,
+                "long_paragraphs": 3,
+                "sentence_length_distribution": {
+                    "0_30": 13,
+                    "31_40": 14,
+                    "41_50": 16,
+                    "51_60": 9,
+                    "61_80": 12,
+                    "81_plus": 5,
+                    "pct_over_40_chars": "62.3%"
+                },
+                "technical_terms": {
+                    "total": 16,
+                    "explained": 11,
+                    "unexplained": 5,
+                    "unexplained_list": [
+                        "ETF",
+                        "純資産総額",
+                        "口数",
+                        "S&P500",
+                        "アクティブファンド（初出時は説明あるが不十分）"
+                    ]
+                },
+                "visual_elements": {
+                    "tables": 0,
+                    "lists": 23,
+                    "charts": 0,
+                    "bold_highlights": 28,
+                    "blockquotes": 2
+                },
+                "heading_count": 32,
+                "total_chars": 4800,
+                "target_wordcount": 4000
+            },
+            "audience_fit": {
+                "appropriate": false,
+                "suggested_adjustments": [
+                    "平均文長61文字はbeginner基準（30-40文字）の約1.5-2倍。全体的に1文を短く分割する必要がある",
+                    "62.3%の文が40文字超であり、beginner向けとしては密度が高すぎる。40文字以下の文が過半数になるよう調整すべき",
+                    "未説明の専門用語5語（ETF、純資産総額、口数、S&P500、アクティブファンド）にbeginner向けの括弧説明を追加",
+                    "比較表やチャートが0件。アクティブファンドとの違い、コスト比較など視覚的に理解しやすい表を最低2つ追加推奨",
+                    "4800文字はnote.com適正範囲（3000-5000字）内だが、文を短く分割すると行数が増えるため、内容の取捨選択も検討"
+                ]
+            },
+            "engagement_tips": [
+                "冒頭3行以内に「この記事を読むとできるようになること」を明示し、note.comでの離脱率を下げる",
+                "ステップ解説にアイコン的な番号表記（1., 2.等）を使い、スマホでのスキャナビリティを向上させる",
+                "積立シミュレーションの数値は箇条書きや簡易表にして、流し読みでも要点が伝わるようにする",
+                "結びに具体的なネクストアクション（口座開設の手続き時間の目安等）を示し、行動喚起を強める",
+                "見出しに読者メリットを含める（例：「コストの重要性」→「コストを抑えるだけで数十万円の差が出る理由」）",
+                "「失敗と対策」セクションは読者の不安を先取りしており優秀。冒頭に「あなたも当てはまる？」等の問いかけを加えるとさらに効果的"
+            ],
+            "category_scores": {
+                "hook": {
+                    "score": 70,
+                    "weight": 0.25,
+                    "comment": "共感型の問いかけは良いが、ベネフィット提示が弱い。note.comの判断時間（数行）を考慮すると改善余地あり"
+                },
+                "density": {
+                    "score": 65,
+                    "weight": 0.20,
+                    "comment": "情報量は適切だが、1段落あたりの密度が高すぎる箇所が複数。特にシミュレーション段落と冒頭段落"
+                },
+                "visual": {
+                    "score": 72,
+                    "weight": 0.20,
+                    "comment": "箇条書き23件・太字28件と積極的に活用。ただし比較表が0件で、視覚的な情報整理に改善余地あり"
+                },
+                "terminology": {
+                    "score": 75,
+                    "weight": 0.20,
+                    "comment": "16用語中11語は説明済みだが、ETF・純資産総額・口数等のbeginner必須説明が欠落"
+                },
+                "specificity": {
+                    "score": 82,
+                    "weight": 0.15,
+                    "comment": "出典明記・具体的数値の活用は優秀。ただし証券会社名やTOPIX/日経平均の違い等、初心者が実際に行動するための具体性がやや不足"
+                }
+            }
+        },
+        "fact_accuracy": {
+            "critic_type": "fact",
+            "score": 82,
+            "issues": [
+                {
+                    "issue_id": "F001",
+                    "severity": "medium",
+                    "location": {
+                        "section": "はじめに",
+                        "line": "eMAXIS Slimシリーズの純資産総額が10兆円を突破するなど"
+                    },
+                    "issue": "「eMAXIS Slimシリーズの純資産総額が10兆円を突破」は不正確。リサーチソース（Yahoo!ニュース）によると、10兆円を突破したのはeMAXIS Slim米国株式(S&P500)が2026年1月7日、eMAXIS Slim全世界株式(オール・カントリー)が2026年2月9日であり、個別ファンド単体での到達。「シリーズ全体の純資産総額」と読める記述は事実と異なる。",
+                    "original": "eMAXIS Slimシリーズの純資産総額が10兆円を突破するなど",
+                    "correct": "eMAXIS Slim米国株式(S&P500)およびeMAXIS Slim全世界株式(オール・カントリー)がそれぞれ純資産総額10兆円を突破するなど",
+                    "source": "Yahoo!ニュース（2026年1-2月報道）、research_findings.json key_points",
+                    "suggestion": "個別ファンド名を明記し、シリーズ全体ではなく個別ファンドの到達である旨を正確に記述する"
+                },
+                {
+                    "issue_id": "F002",
+                    "severity": "medium",
+                    "location": {
+                        "section": "コスト（信託報酬）の重要性 - 2026年3月時点のコスト水準",
+                        "line": "S&P500連動型でも年0.06~0.09%台が中心的な水準です"
+                    },
+                    "issue": "S&P500連動型の信託報酬範囲の下限が「0.06%」とされているが、リサーチソース（ダイヤモンドZAi）によるとS&P500連動の最安はニッセイS米国株式500の0.05775%であり、0.05%台から存在する。範囲の下限が過大に表記されている。",
+                    "original": "S&P500連動型でも年0.06~0.09%台が中心的な水準です",
+                    "correct": "S&P500連動型でも年0.05~0.09%台が中心的な水準です",
+                    "source": "ダイヤモンドZAi信託報酬比較ランキング（ニッセイS米国株式500: 0.05775%）",
+                    "suggestion": "「年0.05~0.09%台」に修正。可能であれば具体的ファンド名と信託報酬率を注記として記載"
+                },
+                {
+                    "issue_id": "F003",
+                    "severity": "low",
+                    "location": {
+                        "section": "新NISA制度を活用しよう",
+                        "line": "信託報酬が国内型0.5%以下、海外型0.75%以下"
+                    },
+                    "issue": "信託報酬の基準値について「税抜き」の注記が欠落している。リサーチソース（アセットマネジメントOne）では「国内型0.5%以下、海外型0.75%以下（税抜き）」と明記。税込みと税抜きでは実質的な数値が異なるため正確性の観点から明示すべき。",
+                    "original": "信託報酬が国内型0.5%以下、海外型0.75%以下",
+                    "correct": "信託報酬が国内型0.5%以下、海外型0.75%以下（いずれも税抜き）",
+                    "source": "アセットマネジメントOne、金融庁つみたて投資枠対象商品要件",
+                    "suggestion": "「（いずれも税抜き）」を追記"
+                },
+                {
+                    "issue_id": "F004",
+                    "severity": "low",
+                    "location": {
+                        "section": "長期投資の効果：複利とドルコスト平均法 - 積立投資の実績例",
+                        "line": "日経平均に30年間（1990年~2020年）毎月1万円を積み立てた場合"
+                    },
+                    "issue": "積立期間が「1990年~2020年」と年単位で記載されているが、金融庁の元データでは「1990年1月~2020年3月」と月まで明記。総積立額363万円（=363ヶ月分）との整合性を考えると、月を省略すると期間に曖昧さが生じる。「30年間」で363万円（363ヶ月分）は算術的に不整合。",
+                    "original": "日経平均に30年間（1990年~2020年）毎月1万円を積み立てた場合",
+                    "correct": "日経平均に約30年間（1990年1月~2020年3月）毎月1万円を積み立てた場合",
+                    "source": "金融庁「長期・積立・分散投資とNISA制度」PDF（Bloombergデータ基に作成）",
+                    "suggestion": "「約30年間（1990年1月~2020年3月）」に修正して金融庁資料との整合性を確保"
+                },
+                {
+                    "issue_id": "F005",
+                    "severity": "low",
+                    "location": {
+                        "section": "新NISA制度を活用しよう - 2026年度改正のポイント",
+                        "line": "こどもNISA新設：対象年齢が撤廃され、0歳から利用可能に"
+                    },
+                    "issue": "「対象年齢が撤廃され」という表現は、既存NISAの18歳以上要件が全面撤廃されたかのように読める可能性がある。正確には、新たに「こどもNISA」という別枠が創設され、0歳からの利用が可能になったもの。既存の成人NISA（つみたて投資枠・成長投資枠）の年齢要件は変更されていない。",
+                    "original": "こどもNISA新設：対象年齢が撤廃され、0歳から利用可能に",
+                    "correct": "こどもNISA新設：0歳から利用可能な新たな非課税枠として創設",
+                    "source": "金融庁 令和8年度税制改正PDF",
+                    "suggestion": "「こどもNISA新設：0歳から利用可能（年間投資枠60万円、非課税保有限度額600万円）。従来のNISA（18歳以上）とは別枠として創設」に修正"
+                },
+                {
+                    "issue_id": "F006",
+                    "severity": "low",
+                    "location": {
+                        "section": "はじめに",
+                        "line": "（出典：Yahoo!ニュース、2026年2月報道）"
+                    },
+                    "issue": "出典を「2026年2月報道」としているが、eMAXIS Slim米国株式(S&P500)の10兆円突破は2026年1月7日の報道であり、オルカンの10兆円突破が2026年2月9日。どちらのファンドを指しているか不明確であり、出典の日付帰属が曖昧。",
+                    "original": "（出典：Yahoo!ニュース、2026年2月報道）",
+                    "correct": "（出典：Yahoo!ニュース、2026年1月・2月報道）",
+                    "source": "Yahoo!ニュース記事（eMAXIS Slim S&P500: 2026/1/7、オルカン: 2026/2/9）",
+                    "suggestion": "「2026年1-2月報道」に修正するか、個別ファンドの到達日を明記"
+                }
+            ],
+            "verified_facts": 42,
+            "issues_found": 6,
+            "verification_rate": 85.7,
+            "verification_detail": {
+                "numerical_data": {
+                    "total": 18,
+                    "verified": 16,
+                    "issues": 2,
+                    "items": [
+                        {"claim": "つみたて投資枠 年間120万円", "status": "verified", "source": "金融庁 NISA特設サイト"},
+                        {"claim": "成長投資枠 年間240万円", "status": "verified", "source": "金融庁 NISA特設サイト"},
+                        {"claim": "年間最大360万円", "status": "verified", "source": "金融庁 NISA特設サイト"},
+                        {"claim": "生涯投資枠1,800万円", "status": "verified", "source": "金融庁 NISA特設サイト"},
+                        {"claim": "成長投資枠上限1,200万円", "status": "verified", "source": "金融庁 NISA特設サイト"},
+                        {"claim": "こどもNISA年間投資枠60万円", "status": "verified", "source": "金融庁 令和8年度税制改正PDF"},
+                        {"claim": "こどもNISA非課税保有限度額600万円", "status": "verified", "source": "金融庁 令和8年度税制改正PDF"},
+                        {"claim": "全世界株式 約47カ国", "status": "verified", "source": "am-expo.jp"},
+                        {"claim": "ACWI構成比 米国株約6割", "status": "verified", "source": "am-expo.jp"},
+                        {"claim": "投資利益に約20%の税金", "status": "verified", "source": "所得税15.315%+住民税5%=20.315%の概数として妥当"},
+                        {"claim": "信託報酬基準 国内型0.5%以下", "status": "verified_with_note", "source": "金融庁要件（税抜き注記欠落 -> F003）"},
+                        {"claim": "信託報酬基準 海外型0.75%以下", "status": "verified_with_note", "source": "金融庁要件（税抜き注記欠落 -> F003）"},
+                        {"claim": "純資産総額30億円以上が目安", "status": "verified", "source": "株探"},
+                        {"claim": "6等分投資20年で年平均4.0%リターン", "status": "verified", "source": "金融庁PDF"},
+                        {"claim": "日経平均 37,189円から18,917円", "status": "verified", "source": "金融庁PDF（Bloomberg基）"},
+                        {"claim": "総積立額363万円から資産評価額472万円", "status": "verified", "source": "金融庁PDF"},
+                        {"claim": "S&P500連動型 年0.06~0.09%台", "status": "issue", "source": "最安は0.05775% -> F002"},
+                        {"claim": "全世界株式型 年0.05%台", "status": "verified", "source": "新NISAナビ、ダイヤモンドZAi"}
+                    ]
+                },
+                "institutional_info": {
+                    "total": 12,
+                    "verified": 12,
+                    "issues": 0,
+                    "items": [
+                        {"claim": "新NISA非課税保有期間：無期限", "status": "verified"},
+                        {"claim": "NISA口座は1人1口座", "status": "verified"},
+                        {"claim": "こどもNISA新設（2026年度改正）", "status": "verified"},
+                        {"claim": "対象指数に読売株価指数追加", "status": "verified"},
+                        {"claim": "対象指数にJPXプライム150追加", "status": "verified"},
+                        {"claim": "債券中心の投資信託もつみたて投資枠対象に", "status": "verified"},
+                        {"claim": "非課税枠の年内復活が可能に", "status": "verified"},
+                        {"claim": "金融庁が長期・積立・分散投資を推奨", "status": "verified"},
+                        {"claim": "販売手数料ゼロ要件", "status": "verified"},
+                        {"claim": "2025年12月に令和8年度税制改正大綱公表", "status": "verified"},
+                        {"claim": "新NISAの恒久化", "status": "verified"},
+                        {"claim": "100円から積立が可能", "status": "verified"}
+                    ]
+                },
+                "source_attribution": {
+                    "total": 12,
+                    "verified": 11,
+                    "issues": 1,
+                    "items": [
+                        {"source": "Yahoo!ニュース 2026年2月報道", "status": "issue", "note": "S&P500は1月報道 -> F006"},
+                        {"source": "金融庁 NISA特設ウェブサイト", "status": "verified"},
+                        {"source": "三菱UFJ銀行 解説", "status": "verified"},
+                        {"source": "第一生命しさんぷらす、みずほ証券", "status": "verified"},
+                        {"source": "株探", "status": "verified"},
+                        {"source": "金融庁 NISAを知る", "status": "verified"},
+                        {"source": "金融庁 令和8年度税制改正PDF", "status": "verified"},
+                        {"source": "金融庁 つみたて投資枠対象商品届出一覧", "status": "verified"},
+                        {"source": "ダイヤモンドZAi、新NISAナビ", "status": "verified"},
+                        {"source": "京葉銀行、三菱UFJ eスマート証券", "status": "verified"},
+                        {"source": "三菱UFJモルガン・スタンレー証券", "status": "verified"},
+                        {"source": "am-expo.jp", "status": "verified"}
+                    ]
+                }
+            },
+            "score_calculation": {
+                "formula": "score = 100 - (medium_issues x 5 + low_issues x 2)",
+                "medium_issues": 2,
+                "low_issues": 4,
+                "deduction": "2 x 5 + 4 x 2 = 18",
+                "final_score": 82
+            },
+            "summary": "記事全体の事実正確性は良好（82点/100点、Bグレード）。新NISAの制度情報（投資枠、非課税期間、2026年度改正内容）はリサーチソースと正確に一致しており、金融庁の公式資料に基づく記述が多い点は高く評価できる。主な指摘事項：(1) eMAXIS Slimの10兆円突破記述が個別ファンドとシリーズの区別が不明確[F001/medium]、(2) S&P500連動型の信託報酬範囲の下限が過大[F002/medium]、(3) 信託報酬基準の税抜き注記欠落[F003/low]、(4) 積立期間の月情報省略[F004/low]、(5) こどもNISAの表現曖昧[F005/low]、(6) 出典日付の帰属曖昧[F006/low]。criticalレベルの誤りは皆無であり、medium 2件・low 4件はいずれも修正が容易。出典の明記は全体的に適切であり、事実と意見の区別も明確に行われている。投資リスクに関する免責事項も冒頭・末尾に適切配置。"
+        }
+    },
+    "overall_score": null,
+    "priority_fixes": [
+        "CP003: 「大丈夫です」を安全性示唆のない表現に修正",
+        "CP001: 「お勧めします」を中立的表現に修正",
+        "CP002: 「王道」を中立的表現に修正",
+        "RD001: 冒頭段落を分割し、1文108文字を50文字以下に",
+        "RD002: 積立シミュレーション段落を箇条書きに分解",
+        "RD003: ETF・純資産総額・口数に括弧説明を追加",
+        "F001: eMAXIS Slimの10兆円突破記述を個別ファンド名で明確化",
+        "F002: S&P500連動型の信託報酬範囲下限を0.05%台に修正",
+        "F003: 信託報酬基準に「税抜き」注記を追加",
+        "F004: 積立期間を「1990年1月~2020年3月」に明確化",
+        "DA002: 日経平均積立シミュレーションの期間を正確化（30年間と363万円の不整合を解消）",
+        "DA001: S&P500連動型の信託報酬下限を0.05%台に修正",
+        "DA003: 信託報酬差のインパクトを出典の数値に合わせて正確化"
+    ]
+}

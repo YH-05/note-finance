@@ -171,6 +171,12 @@ Task(
 {session_data}
 ```
 
+## 品質ルール（必須）
+参照: .claude/rules/article-quality-standards.md
+- マークダウン表は /generate-table-image でPNG画像に変換し画像参照で埋め込み
+- 数値データ・引用箇所にソースURLをマークダウンリンクで埋め込み
+- データ可視化が必要な場合は `/generate-chart-image` でチャート画像を生成
+
 ## 出力先
 - 02_draft/first_draft.md（note記事、2000-4000字）
 - 02_draft/curated_sources.json（キュレーション済みソース）

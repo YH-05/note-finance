@@ -149,6 +149,11 @@ prompt: |
 
 ## Phase 3: 記事執筆
 
+**品質ルール**: 参照 `.claude/rules/article-quality-standards.md`
+- マークダウン表は `/generate-table-image` で画像化
+- 数値データにはソースURLリンクを埋め込み
+- データ可視化が必要な場合は `/generate-chart-image` でチャート画像を生成
+
 `experience-writer` エージェントを起動:
 
 ```yaml

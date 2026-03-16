@@ -2299,6 +2299,10 @@ automation = [
     { name = "anyio" },
     { name = "claude-agent-sdk" },
 ]
+chart = [
+    { name = "matplotlib" },
+    { name = "seaborn" },
+]
 cli = [
     { name = "click" },
 ]
@@ -2360,6 +2364,7 @@ requires-dist = [
     { name = "jinja2", specifier = ">=3.1.0" },
     { name = "lxml", specifier = ">=6.0.2" },
     { name = "lxml-html-clean", specifier = ">=0.4.4" },
+    { name = "matplotlib", marker = "extra == 'chart'", specifier = ">=3.9.0" },
     { name = "mcp", marker = "extra == 'mcp'", specifier = ">=1.0.0" },
     { name = "neo4j", specifier = ">=6.1.0" },
     { name = "pip-audit", marker = "extra == 'dev'", specifier = ">=2.9.0" },
@@ -2376,6 +2381,7 @@ requires-dist = [
     { name = "rich", specifier = ">=13.7.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.14.11" },
     { name = "scrapling", extras = ["fetchers"], marker = "extra == 'scraper'", specifier = ">=0.4,<1.0" },
+    { name = "seaborn", marker = "extra == 'chart'", specifier = ">=0.13.0" },
     { name = "structlog", specifier = ">=25.4.0" },
     { name = "tenacity", specifier = ">=9.1.2" },
     { name = "tornado", specifier = ">=6.5.5" },
@@ -2383,7 +2389,7 @@ requires-dist = [
     { name = "trafilatura", specifier = ">=2.0.0" },
     { name = "yfinance", marker = "extra == 'dev'", specifier = ">=0.2.0" },
 ]
-provides-extras = ["dev", "mcp", "cli", "playwright", "automation", "scheduler", "scraper", "pdf"]
+provides-extras = ["dev", "mcp", "cli", "playwright", "automation", "scheduler", "scraper", "pdf", "chart"]
 
 [package.metadata.requires-dev]
 dev = [
