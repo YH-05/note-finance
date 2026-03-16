@@ -1,0 +1,35 @@
+# Research Neo4j - 銘柄・マクロ調査専用データベース
+# 使い方: docker compose -f docker/research-neo4j/docker-compose.yml up -d
+#
+# 既存 finance-neo4j (ports 7474/7687) とは独立して動作
+# KG v2 スキーマ: Source, Claim, Chunk, Entity, FinancialDataPoint, Topic, Fact, FiscalPeriod, Insight
+
+services:
+  neo4j-research:
+    image: neo4j:5-community
+    container_name: research-neo4j
+    ports:
+      - "7475:7474"  # Browser UI (既存と衝突しないよう +1)
+      - "7688:7687"  # Bolt protocol (既存と衝突しないよう +1)
+    volumes:
+      - /Volumes/NeoData/neo4j-research/data:/data
+      - /Volumes/NeoData/neo4j-research/logs:/logs
+      - /Volumes/NeoData/neo4j-research/plugins:/plugins
+      - /Volumes/NeoData/neo4j-research/import:/var/lib/neo4j/import
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-gomasuke}
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      # メモリ設定（リサーチDB用に最適化）
+      - NEO4J_server_memory_heap_initial__size=256m
+      - NEO4J_server_memory_heap_max__size=512m
+      - NEO4J_server_memory_pagecache_size=256m
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s

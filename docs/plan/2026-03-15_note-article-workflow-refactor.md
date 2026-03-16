@@ -264,8 +264,8 @@ template/
 
 | スキル | 変更内容 |
 |--------|---------|
-| `finance-topic-suggestion/` | articles/ スキャンパス更新 |
-| `finance-topic-suggestion/scripts/analyze_existing_articles.py` | ネスト構造対応にリライト |
+| `topic-suggest/` | articles/ スキャンパス更新 |
+| `topic-suggest/scripts/analyze_existing_articles.py` | ネスト構造対応にリライト |
 | `topic-discovery/` | パス参照更新 |
 | `asset-management-workflow/` | 出力パス 02_edit→02_draft |
 | `experience-db-workflow/` | フォルダ構造参照を統一構成に更新 |

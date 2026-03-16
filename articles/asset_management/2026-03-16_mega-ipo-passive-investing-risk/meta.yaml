@@ -1,0 +1,77 @@
+# === Core (必須) ===
+title: "メガIPOがパッシブ投資家を"出口流動性"に変える日"
+category: asset_management
+type: column
+status: draft
+
+# === Timestamps ===
+created_at: "2026-03-16"
+updated_at: "2026-03-16"
+
+# === Content ===
+tags:
+  - SpaceX
+  - OpenAI
+  - Anthropic
+  - IPO
+  - パッシブ投資
+  - インデックス投資
+  - NASDAQ-100
+  - S&P500
+  - ETF
+target_audience: beginner
+target_wordcount: 4000
+
+# === Category-Specific ===
+symbols: []
+date_range:
+  start: ""
+  end: ""
+fred_series: []
+theme: "パッシブ投資リスク"
+experience:
+  spec_card:
+    age_range: ""
+    gender: ""
+    occupation: ""
+    income_range: ""
+    duration: ""
+    outcome: ""
+
+# === Tracking ===
+critic_score:
+  compliance: 44
+  fact: 68
+  structure: 82
+  readability: 78
+revision_count: 1
+note_url: null
+x_post_url: null
+research_sources: 30
+
+# === Workflow ===
+workflow:
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Neo4j ===
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+
+# === Legacy ===
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null

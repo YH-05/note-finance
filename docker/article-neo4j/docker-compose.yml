@@ -1,0 +1,39 @@
+# Article Neo4j - note記事・X投稿の調査情報専用データベース
+# 使い方: docker compose -f docker/article-neo4j/docker-compose.yml up -d
+#
+# 既存コンテナとのポート分離:
+#   finance-neo4j:  7474/7687
+#   research-neo4j: 7475/7688
+#   article-neo4j:  7476/7689
+#
+# スキーマ: Article, XPost, Source, Chunk, Fact, Claim, Entity, Topic, Insight, Quote
+
+services:
+  neo4j-article:
+    image: neo4j:5-community
+    container_name: article-neo4j
+    ports:
+      - "7476:7474"  # Browser UI (既存と衝突しないよう +2)
+      - "7689:7687"  # Bolt protocol (既存と衝突しないよう +2)
+    volumes:
+      - /Volumes/NeoData/neo4j-article/data:/data
+      - /Volumes/NeoData/neo4j-article/logs:/logs
+      - /Volumes/NeoData/neo4j-article/plugins:/plugins
+      - /Volumes/NeoData/neo4j-article/import:/var/lib/neo4j/import
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-gomasuke}
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      # メモリ設定（記事調査DB用）
+      - NEO4J_server_memory_heap_initial__size=256m
+      - NEO4J_server_memory_heap_max__size=512m
+      - NEO4J_server_memory_pagecache_size=256m
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s

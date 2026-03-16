@@ -42,14 +42,14 @@ code_quality:
     high:
       - id: "CQ-001"
         category: "coding_standards"
-        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        file: ".agents/skills/topic-suggest/scripts/analyze_existing_articles.py"
         line: 67
         description: "open() を直接使用。プロジェクト規約違反（Path.open() 推奨）。直前コミット a3197cc で同種修正済みなのに未修正"
         recommendation: "meta_yaml.open('r', encoding='utf-8') に変更（2箇所: 行67, 73）"
 
       - id: "CQ-002"
         category: "error_handling"
-        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        file: ".agents/skills/topic-suggest/scripts/analyze_existing_articles.py"
         line: 69
         description: "except Exception: pass による silent failure。壊れた meta.yaml が無言でスキップされる"
         recommendation: "logger.warning('Failed to parse meta', path=str(path), error=str(e)) を追加"
@@ -85,7 +85,7 @@ code_quality:
 
       - id: "CQ-007"
         category: "type_hints"
-        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        file: ".agents/skills/topic-suggest/scripts/analyze_existing_articles.py"
         line: 9
         description: "analyze_articles() の戻り値型・Docstring が欠落"
         recommendation: "-> dict[str, Any] と NumPy形式Docstring を追加"
@@ -107,7 +107,7 @@ code_quality:
     low:
       - id: "CQ-010"
         category: "naming"
-        file: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py"
+        file: ".agents/skills/topic-suggest/scripts/analyze_existing_articles.py"
         line: 55
         description: "_read_meta() の categories, latest_topics パラメータが裸の list 型"
         recommendation: "list[str], list[dict[str, str]] に変更"
@@ -201,7 +201,7 @@ security:
     - id: "SEC-009"
       severity: "LOW"
       category: "A09"
-      location: ".agents/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py:69"
+      location: ".agents/skills/topic-suggest/scripts/analyze_existing_articles.py:69"
       description: "bare except + passでセキュリティエラーがサイレント消失"
       recommendation: "logger.warning()を追加"
       cwe_id: "CWE-778"

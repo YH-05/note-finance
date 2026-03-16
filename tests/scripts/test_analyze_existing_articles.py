@@ -1,4 +1,4 @@
-"""Unit tests for .claude/skills/finance-topic-suggestion/scripts/analyze_existing_articles.py."""
+"""Unit tests for .claude/skills/topic-suggest/scripts/analyze_existing_articles.py."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ _SKILL_SCRIPTS_DIR = str(
     pathlib.Path(__file__).resolve().parent.parent.parent
     / ".claude"
     / "skills"
-    / "finance-topic-suggestion"
+    / "topic-suggest"
     / "scripts"
 )
 if _SKILL_SCRIPTS_DIR not in sys.path:

@@ -1,0 +1,459 @@
+{
+  "schema_version": "1.0",
+  "description": "FinancialDataPoint.metric_name → canonical Metric ノードへのマッピング定義",
+  "metrics": [
+    {
+      "metric_id": "metric-arpu-blended",
+      "canonical_name": "arpu_blended",
+      "display_name": "Blended ARPU",
+      "category": "kpi",
+      "unit_standard": "IDR",
+      "comparable_across": "sector",
+      "aliases": [
+        "Blended ARPU",
+        "Mobile ARPU (Blended)",
+        "ARPU (Indosat)",
+        "ARPU (XL Axiata)",
+        "ARPU (Telkomsel)",
+        "Avg Revenue Per User"
+      ]
+    },
+    {
+      "metric_id": "metric-arpu-fixed-bb",
+      "canonical_name": "arpu_fixed_broadband",
+      "display_name": "Fixed Broadband ARPU",
+      "category": "kpi",
+      "unit_standard": "IDR",
+      "comparable_across": "sector",
+      "aliases": [
+        "Fixed Broadband ARPU",
+        "IndiHome ARPU",
+        "Fixed BB ARPU"
+      ]
+    },
+    {
+      "metric_id": "metric-revenue",
+      "canonical_name": "revenue",
+      "display_name": "Revenue",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Revenue",
+        "Total Revenue",
+        "Net Revenue",
+        "Quarterly Revenue (Indosat)",
+        "Quarterly Revenue (Telkomsel)",
+        "Quarterly Revenue (XL Axiata)"
+      ]
+    },
+    {
+      "metric_id": "metric-ebitda",
+      "canonical_name": "ebitda",
+      "display_name": "EBITDA",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "EBITDA"
+      ]
+    },
+    {
+      "metric_id": "metric-ebitda-margin",
+      "canonical_name": "ebitda_margin",
+      "display_name": "EBITDA Margin",
+      "category": "pl",
+      "unit_standard": "%",
+      "comparable_across": "universal",
+      "aliases": [
+        "EBITDA Margin",
+        "EBITDA Margin (Indosat)",
+        "EBITDA Margin (XL Axiata)",
+        "EBITDA Margin (Telkomsel)"
+      ]
+    },
+    {
+      "metric_id": "metric-net-income",
+      "canonical_name": "net_income",
+      "display_name": "Net Income",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Net Income",
+        "Net Profit"
+      ]
+    },
+    {
+      "metric_id": "metric-eps",
+      "canonical_name": "eps",
+      "display_name": "EPS",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "EPS",
+        "Earnings Per Share"
+      ]
+    },
+    {
+      "metric_id": "metric-capex",
+      "canonical_name": "capex",
+      "display_name": "Capital Expenditure",
+      "category": "cf",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "CapEx",
+        "Capital Expenditure",
+        "Capex",
+        "Capital Spending"
+      ]
+    },
+    {
+      "metric_id": "metric-capex-to-revenue",
+      "canonical_name": "capex_to_revenue",
+      "display_name": "CapEx / Revenue",
+      "category": "cf",
+      "unit_standard": "%",
+      "comparable_across": "universal",
+      "aliases": [
+        "Target CapEx/Revenue",
+        "CapEx to Revenue",
+        "Capex/Revenue",
+        "CapEx Intensity"
+      ]
+    },
+    {
+      "metric_id": "metric-fcf",
+      "canonical_name": "free_cash_flow",
+      "display_name": "Free Cash Flow",
+      "category": "cf",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Free Cash Flow",
+        "FCF"
+      ]
+    },
+    {
+      "metric_id": "metric-ocf",
+      "canonical_name": "operating_cash_flow",
+      "display_name": "Operating Cash Flow",
+      "category": "cf",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Operating Cash Flow",
+        "OCF",
+        "Cash Flow from Operations"
+      ]
+    },
+    {
+      "metric_id": "metric-depreciation",
+      "canonical_name": "depreciation",
+      "display_name": "Depreciation & Amortization",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Depreciation",
+        "D&A",
+        "Depreciation & Amortization"
+      ]
+    },
+    {
+      "metric_id": "metric-subscribers-total",
+      "canonical_name": "subscribers_total",
+      "display_name": "Total Subscribers",
+      "category": "kpi",
+      "unit_standard": "persons",
+      "comparable_across": "sector",
+      "aliases": [
+        "Mobile Subscribers",
+        "Subscribers (Indosat)",
+        "Subscribers (XL Axiata)",
+        "Subscribers (Telkomsel)",
+        "Total Subscribers"
+      ]
+    },
+    {
+      "metric_id": "metric-subscribers-prepaid",
+      "canonical_name": "subscribers_prepaid",
+      "display_name": "Prepaid Subscribers",
+      "category": "kpi",
+      "unit_standard": "persons",
+      "comparable_across": "sector",
+      "aliases": [
+        "Prepaid Subscribers"
+      ]
+    },
+    {
+      "metric_id": "metric-subscribers-postpaid",
+      "canonical_name": "subscribers_postpaid",
+      "display_name": "Postpaid Subscribers",
+      "category": "kpi",
+      "unit_standard": "persons",
+      "comparable_across": "sector",
+      "aliases": [
+        "Postpaid Subscribers"
+      ]
+    },
+    {
+      "metric_id": "metric-subscribers-fixed-bb",
+      "canonical_name": "subscribers_fixed_broadband",
+      "display_name": "Fixed Broadband Subscribers",
+      "category": "kpi",
+      "unit_standard": "persons",
+      "comparable_across": "sector",
+      "aliases": [
+        "Fixed Broadband Subscribers",
+        "IndiHome B2C Subscribers",
+        "IndiHome Subscribers"
+      ]
+    },
+    {
+      "metric_id": "metric-market-share-revenue",
+      "canonical_name": "market_share_revenue",
+      "display_name": "Revenue Market Share",
+      "category": "kpi",
+      "unit_standard": "%",
+      "comparable_across": "sector",
+      "aliases": [
+        "Mobile Revenue Share",
+        "Revenue Market Share",
+        "Market Share (Revenue)"
+      ]
+    },
+    {
+      "metric_id": "metric-net-debt-to-ebitda",
+      "canonical_name": "net_debt_to_ebitda",
+      "display_name": "Net Debt / EBITDA",
+      "category": "bs",
+      "unit_standard": "x",
+      "comparable_across": "universal",
+      "aliases": [
+        "Net Debt to EBITDA",
+        "Net Debt / EBITDA",
+        "ND/EBITDA",
+        "Leverage Ratio"
+      ]
+    },
+    {
+      "metric_id": "metric-roe",
+      "canonical_name": "roe",
+      "display_name": "ROE",
+      "category": "profitability",
+      "unit_standard": "%",
+      "comparable_across": "universal",
+      "aliases": [
+        "ROE",
+        "Return on Equity"
+      ]
+    },
+    {
+      "metric_id": "metric-roic",
+      "canonical_name": "roic",
+      "display_name": "ROIC",
+      "category": "profitability",
+      "unit_standard": "%",
+      "comparable_across": "universal",
+      "aliases": [
+        "ROIC",
+        "Return on Invested Capital"
+      ]
+    },
+    {
+      "metric_id": "metric-dividend-yield",
+      "canonical_name": "dividend_yield",
+      "display_name": "Dividend Yield",
+      "category": "valuation",
+      "unit_standard": "%",
+      "comparable_across": "universal",
+      "aliases": [
+        "Dividend Yield",
+        "Div Yield"
+      ]
+    },
+    {
+      "metric_id": "metric-dividend-payout",
+      "canonical_name": "dividend_payout_ratio",
+      "display_name": "Dividend Payout Ratio",
+      "category": "capital_allocation",
+      "unit_standard": "%",
+      "comparable_across": "universal",
+      "aliases": [
+        "Dividend Payout Ratio",
+        "Payout Ratio"
+      ]
+    },
+    {
+      "metric_id": "metric-dps",
+      "canonical_name": "dividend_per_share",
+      "display_name": "Dividend Per Share",
+      "category": "capital_allocation",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Dividend Per Share",
+        "DPS"
+      ]
+    },
+    {
+      "metric_id": "metric-ev-to-ebitda",
+      "canonical_name": "ev_to_ebitda",
+      "display_name": "EV/EBITDA",
+      "category": "valuation",
+      "unit_standard": "x",
+      "comparable_across": "universal",
+      "aliases": [
+        "EV to EBITDA",
+        "EV/EBITDA"
+      ]
+    },
+    {
+      "metric_id": "metric-target-price",
+      "canonical_name": "target_price",
+      "display_name": "Analyst Target Price",
+      "category": "valuation",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Target Price (J.P. Morgan)",
+        "Target Price (Citi)",
+        "Target Price (UBS)",
+        "Target Price (HSBC)",
+        "Target Price (Goldman Sachs)",
+        "Target Price (BofA)",
+        "Target Price (Nomura)",
+        "Target Price (CLSA)",
+        "Target Price (Maybank IBG)",
+        "Target Price"
+      ]
+    },
+    {
+      "metric_id": "metric-bts-total",
+      "canonical_name": "bts_total",
+      "display_name": "Total Base Stations",
+      "category": "infrastructure",
+      "unit_standard": "stations",
+      "comparable_across": "sector",
+      "aliases": [
+        "Total BTS",
+        "Base Stations"
+      ]
+    },
+    {
+      "metric_id": "metric-bts-4g",
+      "canonical_name": "bts_4g",
+      "display_name": "4G Base Stations",
+      "category": "infrastructure",
+      "unit_standard": "stations",
+      "comparable_across": "sector",
+      "aliases": [
+        "4G BTS",
+        "4G Base Stations"
+      ]
+    },
+    {
+      "metric_id": "metric-bts-5g",
+      "canonical_name": "bts_5g",
+      "display_name": "5G Base Stations",
+      "category": "infrastructure",
+      "unit_standard": "stations",
+      "comparable_across": "sector",
+      "aliases": [
+        "5G BTS",
+        "5G Base Stations"
+      ]
+    },
+    {
+      "metric_id": "metric-fiber-length",
+      "canonical_name": "fiber_optic_length",
+      "display_name": "Fiber Optic Network Length",
+      "category": "infrastructure",
+      "unit_standard": "km",
+      "comparable_across": "sector",
+      "aliases": [
+        "Fiber Optic Backbone",
+        "Fiber Length",
+        "Fiber Network"
+      ]
+    },
+    {
+      "metric_id": "metric-data-payload",
+      "canonical_name": "data_payload",
+      "display_name": "Data Traffic Volume",
+      "category": "kpi",
+      "unit_standard": "PB",
+      "comparable_across": "sector",
+      "aliases": [
+        "Data Payload",
+        "Data Traffic",
+        "Total Data Volume"
+      ]
+    },
+    {
+      "metric_id": "metric-data-yield",
+      "canonical_name": "data_yield",
+      "display_name": "Data Yield",
+      "category": "kpi",
+      "unit_standard": "IDR/MB",
+      "comparable_across": "sector",
+      "aliases": [
+        "Data Yield",
+        "Revenue per MB"
+      ]
+    },
+    {
+      "metric_id": "metric-data-usage-monthly",
+      "canonical_name": "data_usage_monthly",
+      "display_name": "Monthly Data Usage per Subscriber",
+      "category": "kpi",
+      "unit_standard": "GB/month",
+      "comparable_across": "sector",
+      "aliases": [
+        "Monthly Mobile Data Usage",
+        "Data Usage Per Sub"
+      ]
+    },
+    {
+      "metric_id": "metric-personnel-cost",
+      "canonical_name": "personnel_cost",
+      "display_name": "Personnel Cost",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "universal",
+      "aliases": [
+        "Personnel Cost",
+        "Staff Cost",
+        "Employee Cost"
+      ]
+    },
+    {
+      "metric_id": "metric-om-cost",
+      "canonical_name": "om_cost",
+      "display_name": "O&M Cost",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "sector",
+      "aliases": [
+        "O&M Cost",
+        "Operations & Maintenance Cost"
+      ]
+    },
+    {
+      "metric_id": "metric-fixed-bb-revenue",
+      "canonical_name": "fixed_broadband_revenue",
+      "display_name": "Fixed Broadband Revenue",
+      "category": "pl",
+      "unit_standard": "IDR",
+      "comparable_across": "sector",
+      "aliases": [
+        "Fixed Broadband Revenue",
+        "Fixed BB Revenue",
+        "IndiHome Revenue"
+      ]
+    }
+  ]
+}
