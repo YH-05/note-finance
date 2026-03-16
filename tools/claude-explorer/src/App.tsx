@@ -10,7 +10,7 @@
  * - Filter: type + category + search results shared between both views
  */
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useMemo, useRef, useState } from "react";
 import { useGraphData } from "@/hooks/useGraphData";
 import { useFilter } from "@/hooks/useFilter";
 import { useSearch } from "@/hooks/useSearch";
@@ -20,10 +20,16 @@ import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { FilterBar } from "@/components/grid/FilterBar";
 import { CardGrid } from "@/components/grid/CardGrid";
-import { DependencyGraph } from "@/components/graph/DependencyGraph";
 import { DetailPanel } from "@/components/detail/DetailPanel";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 import type { ViewMode } from "@/lib/constants";
+
+const DependencyGraph = lazy(() =>
+  import("@/components/graph/DependencyGraph").then((m) => ({
+    default: m.DependencyGraph,
+  })),
+);
 
 function App() {
   const { data, components, componentMap, stats, categories } = useGraphData();
@@ -139,11 +145,17 @@ function App() {
               </div>
             ) : (
               <div className="flex-1">
-                <DependencyGraph
-                  components={filteredComponents}
-                  edges={data.edges}
-                  onNodeClick={handleSelect}
-                />
+                <Suspense
+                  fallback={
+                    <LoadingSpinner message="Loading graph..." />
+                  }
+                >
+                  <DependencyGraph
+                    components={filteredComponents}
+                    edges={data.edges}
+                    onNodeClick={handleSelect}
+                  />
+                </Suspense>
               </div>
             )}
           </ErrorBoundary>

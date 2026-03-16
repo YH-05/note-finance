@@ -1,26 +1,12 @@
 /**
  * Application-wide constants for the Claude Explorer.
+ *
+ * Category prefix rules are defined in shared/category-rules.ts and used
+ * at build time by extract-data.ts. The runtime app reads pre-computed
+ * categories from graph-data.json, so no prefix map is needed here.
  */
 
 import type { ComponentType, EdgeType } from "@/types";
-
-/**
- * Category prefix mapping — maps agent name prefixes to display categories.
- */
-export const CATEGORY_PREFIX_MAP: Record<string, string> = {
-  wr: "Weekly Report",
-  "finance-news": "News",
-  "finance-article": "Finance",
-  reddit: "Reddit",
-  pr: "PR Review",
-  "ai-research": "AI Research",
-  "asset-management": "Asset Management",
-  "case-study": "Case Study",
-  "experience-db": "Experience DB",
-  market: "Market",
-  research: "Research",
-  test: "Testing",
-};
 
 /**
  * Edge style definitions for dependency visualization.

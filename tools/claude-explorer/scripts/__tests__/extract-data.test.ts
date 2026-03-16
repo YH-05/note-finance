@@ -3,7 +3,7 @@
 /**
  * Tests for extract-data.ts pure functions.
  *
- * NOTE: The functions toStringArray, deriveName, inferAgentCategory, and
+ * NOTE: The functions toStringArray, deriveName, inferCategory, and
  * validateEdges are NOT exported from extract-data.ts. They are internal
  * module functions. To enable proper unit testing, these functions should
  * be exported (e.g., via a separate helpers module or by adding exports).
@@ -15,6 +15,7 @@
  */
 
 import { describe, it, expect } from "vitest";
+import { inferCategory } from "../../shared/category-rules.js";
 
 // ---------------------------------------------------------------------------
 // Reimplementation of internal functions for testing
@@ -55,35 +56,7 @@ function deriveName(
   return slug;
 }
 
-interface CategoryRule {
-  prefixes: string[];
-  category: string;
-}
-
-const CATEGORY_RULES: CategoryRule[] = [
-  { prefixes: ["pr-"], category: "PR Review" },
-  { prefixes: ["wr-"], category: "Weekly Report" },
-  { prefixes: ["weekly-report-", "weekly-comment-"], category: "Weekly Report" },
-  { prefixes: ["finance-"], category: "Finance" },
-  { prefixes: ["test-"], category: "Testing" },
-  { prefixes: ["exp-", "experience-"], category: "Experience DB" },
-  { prefixes: ["csa-"], category: "Case Study" },
-  { prefixes: ["asset-management-"], category: "Asset Management" },
-  { prefixes: ["ai-research-"], category: "AI Research" },
-  { prefixes: ["news-"], category: "News" },
-  { prefixes: ["reddit-"], category: "Reddit" },
-  { prefixes: ["market-"], category: "Market" },
-  { prefixes: ["research-"], category: "Research" },
-];
-
-function inferAgentCategory(slug: string): string {
-  for (const rule of CATEGORY_RULES) {
-    for (const prefix of rule.prefixes) {
-      if (slug.startsWith(prefix)) return rule.category;
-    }
-  }
-  return "General";
-}
+// inferCategory is now imported from shared/category-rules.ts
 
 interface DependencyEdge {
   source: string;
@@ -213,73 +186,73 @@ describe("deriveName", () => {
   });
 });
 
-describe("inferAgentCategory", () => {
+describe("inferCategory", () => {
   it("returns 'PR Review' for pr- prefix", () => {
-    expect(inferAgentCategory("pr-reviewer")).toBe("PR Review");
+    expect(inferCategory("pr-reviewer")).toBe("PR Review");
   });
 
   it("returns 'Weekly Report' for wr- prefix", () => {
-    expect(inferAgentCategory("wr-reporter")).toBe("Weekly Report");
+    expect(inferCategory("wr-reporter")).toBe("Weekly Report");
   });
 
   it("returns 'Weekly Report' for weekly-report- prefix", () => {
-    expect(inferAgentCategory("weekly-report-writer")).toBe("Weekly Report");
+    expect(inferCategory("weekly-report-writer")).toBe("Weekly Report");
   });
 
   it("returns 'Weekly Report' for weekly-comment- prefix", () => {
-    expect(inferAgentCategory("weekly-comment-analyzer")).toBe("Weekly Report");
+    expect(inferCategory("weekly-comment-analyzer")).toBe("Weekly Report");
   });
 
   it("returns 'Finance' for finance- prefix", () => {
-    expect(inferAgentCategory("finance-article-writer")).toBe("Finance");
+    expect(inferCategory("finance-article-writer")).toBe("Finance");
   });
 
   it("returns 'Testing' for test- prefix", () => {
-    expect(inferAgentCategory("test-runner")).toBe("Testing");
+    expect(inferCategory("test-runner")).toBe("Testing");
   });
 
   it("returns 'Experience DB' for exp- prefix", () => {
-    expect(inferAgentCategory("exp-collector")).toBe("Experience DB");
+    expect(inferCategory("exp-collector")).toBe("Experience DB");
   });
 
   it("returns 'Experience DB' for experience- prefix", () => {
-    expect(inferAgentCategory("experience-analyzer")).toBe("Experience DB");
+    expect(inferCategory("experience-analyzer")).toBe("Experience DB");
   });
 
   it("returns 'Case Study' for csa- prefix", () => {
-    expect(inferAgentCategory("csa-writer")).toBe("Case Study");
+    expect(inferCategory("csa-writer")).toBe("Case Study");
   });
 
   it("returns 'Asset Management' for asset-management- prefix", () => {
-    expect(inferAgentCategory("asset-management-reporter")).toBe("Asset Management");
+    expect(inferCategory("asset-management-reporter")).toBe("Asset Management");
   });
 
   it("returns 'AI Research' for ai-research- prefix", () => {
-    expect(inferAgentCategory("ai-research-collector")).toBe("AI Research");
+    expect(inferCategory("ai-research-collector")).toBe("AI Research");
   });
 
   it("returns 'News' for news- prefix", () => {
-    expect(inferAgentCategory("news-fetcher")).toBe("News");
+    expect(inferCategory("news-fetcher")).toBe("News");
   });
 
   it("returns 'Reddit' for reddit- prefix", () => {
-    expect(inferAgentCategory("reddit-crawler")).toBe("Reddit");
+    expect(inferCategory("reddit-crawler")).toBe("Reddit");
   });
 
   it("returns 'Market' for market- prefix", () => {
-    expect(inferAgentCategory("market-analyzer")).toBe("Market");
+    expect(inferCategory("market-analyzer")).toBe("Market");
   });
 
   it("returns 'Research' for research- prefix", () => {
-    expect(inferAgentCategory("research-planner")).toBe("Research");
+    expect(inferCategory("research-planner")).toBe("Research");
   });
 
   it("returns 'General' for unknown prefix", () => {
-    expect(inferAgentCategory("code-simplifier")).toBe("General");
+    expect(inferCategory("code-simplifier")).toBe("General");
   });
 
   it("returns 'General' for empty slug", () => {
-    expect(inferAgentCategory("")).toBe("General");
+    expect(inferCategory("")).toBe("General");
   });
 });
 

@@ -27,6 +27,7 @@ import type {
   SkillComponent,
   WorkflowComponent,
 } from "./types.js";
+import { inferCategory } from "../shared/category-rules.js";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -256,7 +257,7 @@ async function collectComponents(): Promise<Component[]> {
               color: typeof fm.color === "string" ? fm.color : "gray",
               skills: toStringArray(fm.skills),
               tools: toStringArray(fm.tools),
-              category: inferAgentCategory(slug),
+              category: inferCategory(slug),
             };
             components.push(agent);
             break;
@@ -511,38 +512,8 @@ function validateEdges(
 }
 
 // ---------------------------------------------------------------------------
-// Phase 4: Agent category inference
+// Phase 4: Agent category inference (delegated to shared/category-rules.ts)
 // ---------------------------------------------------------------------------
-
-interface CategoryRule {
-  prefixes: string[];
-  category: string;
-}
-
-const CATEGORY_RULES: CategoryRule[] = [
-  { prefixes: ["pr-"], category: "PR Review" },
-  { prefixes: ["wr-"], category: "Weekly Report" },
-  { prefixes: ["weekly-report-", "weekly-comment-"], category: "Weekly Report" },
-  { prefixes: ["finance-"], category: "Finance" },
-  { prefixes: ["test-"], category: "Testing" },
-  { prefixes: ["exp-", "experience-"], category: "Experience DB" },
-  { prefixes: ["csa-"], category: "Case Study" },
-  { prefixes: ["asset-management-"], category: "Asset Management" },
-  { prefixes: ["ai-research-"], category: "AI Research" },
-  { prefixes: ["news-"], category: "News" },
-  { prefixes: ["reddit-"], category: "Reddit" },
-  { prefixes: ["market-"], category: "Market" },
-  { prefixes: ["research-"], category: "Research" },
-];
-
-function inferAgentCategory(slug: string): string {
-  for (const rule of CATEGORY_RULES) {
-    for (const prefix of rule.prefixes) {
-      if (slug.startsWith(prefix)) return rule.category;
-    }
-  }
-  return "General";
-}
 
 // ---------------------------------------------------------------------------
 // Stats computation

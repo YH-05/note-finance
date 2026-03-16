@@ -13,4 +13,14 @@ export default defineConfig({
     host: "127.0.0.1",
     cors: false,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-flow": ["@xyflow/react", "@dagrejs/dagre"],
+          "react-vendor": ["react", "react-dom"],
+        },
+      },
+    },
+  },
 });

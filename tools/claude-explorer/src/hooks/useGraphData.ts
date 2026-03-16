@@ -7,11 +7,47 @@
  */
 
 import { useMemo } from "react";
+import { z } from "zod";
 import type { Component, ComponentType, GraphData } from "@/types";
 import rawData from "@/data/graph-data.json";
 
-/** Validated graph data cast from the JSON import. */
-const graphData = rawData as unknown as GraphData;
+// ---------------------------------------------------------------------------
+// Zod schemas for runtime validation
+// ---------------------------------------------------------------------------
+
+const ComponentSchema = z
+  .object({
+    id: z.string(),
+    type: z.enum(["agent", "command", "skill", "rule", "workflow"]),
+    name: z.string(),
+    slug: z.string(),
+    description: z.string(),
+    content: z.string(),
+    filePath: z.string(),
+  })
+  .passthrough();
+
+const EdgeSchema = z.object({
+  source: z.string(),
+  target: z.string(),
+  type: z.enum(["skills", "skill_preload", "subagent_type", "path_ref", "inline_ref"]),
+  broken: z.boolean(),
+});
+
+const GraphDataSchema = z.object({
+  components: z.array(ComponentSchema),
+  edges: z.array(EdgeSchema),
+  stats: z.record(z.string(), z.number()),
+  generatedAt: z.string(),
+});
+
+/**
+ * Validated graph data parsed through Zod schema.
+ * The parse validates structural integrity; we cast to GraphData
+ * because passthrough() preserves extra fields that the discriminated
+ * union Component type expects (model, skills, category, etc.).
+ */
+const graphData = GraphDataSchema.parse(rawData) as unknown as GraphData;
 
 export interface UseGraphDataReturn {
   /** Full graph data. */
