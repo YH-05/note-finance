@@ -65,10 +65,6 @@ type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 # Logger
 # ---------------------------------------------------------------------------
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
-)
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
@@ -116,9 +112,12 @@ _FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
 _KV_RE = re.compile(r"^(\w+):\s*(.*)$")
 """Regex to extract ``key: value`` pairs from frontmatter lines."""
 
+_BODY_RE = re.compile(r"^---\n.*?\n---\n*(.*)", re.DOTALL)
+"""Regex to extract body text after YAML frontmatter."""
 
-def _parse_yaml_frontmatter(file_path: Path) -> dict[str, str] | None:
-    """Parse YAML frontmatter from a Markdown file using regex only.
+
+def _parse_frontmatter_from_text(text: str) -> dict[str, str] | None:
+    """Parse YAML frontmatter from raw text using regex only.
 
     Extracts key-value pairs from the YAML frontmatter block delimited
     by ``---``.  Supports both quoted (``key: 'value'``) and unquoted
@@ -126,23 +125,17 @@ def _parse_yaml_frontmatter(file_path: Path) -> dict[str, str] | None:
 
     Parameters
     ----------
-    file_path : Path
-        Path to the Markdown file to parse.
+    text : str
+        Raw Markdown text to parse.
 
     Returns
     -------
     dict[str, str] | None
         A mapping of frontmatter keys to their string values, or ``None``
-        if the file does not exist or has no frontmatter block.
+        if no frontmatter block is found.
     """
-    if not file_path.exists():
-        logger.warning("File not found: %s", file_path)
-        return None
-
-    text = file_path.read_text(encoding="utf-8")
     match = _FRONTMATTER_RE.search(text)
     if match is None:
-        logger.debug("No frontmatter found in %s", file_path)
         return None
 
     frontmatter_block = match.group(1)
@@ -161,6 +154,34 @@ def _parse_yaml_frontmatter(file_path: Path) -> dict[str, str] | None:
             raw_value = raw_value[1:-1]
         result[key] = raw_value
 
+    return result
+
+
+def _parse_yaml_frontmatter(file_path: Path) -> dict[str, str] | None:
+    """Parse YAML frontmatter from a Markdown file using regex only.
+
+    Thin wrapper around :func:`_parse_frontmatter_from_text` that reads
+    the file from disk first.
+
+    Parameters
+    ----------
+    file_path : Path
+        Path to the Markdown file to parse.
+
+    Returns
+    -------
+    dict[str, str] | None
+        A mapping of frontmatter keys to their string values, or ``None``
+        if the file does not exist or has no frontmatter block.
+    """
+    if not file_path.exists():
+        logger.warning("File not found: %s", file_path)
+        return None
+
+    text = file_path.read_text(encoding="utf-8")
+    result = _parse_frontmatter_from_text(text)
+    if result is None:
+        logger.debug("No frontmatter found in %s", file_path)
     return result
 
 
@@ -1161,7 +1182,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     rels = _empty_rels()
 
     for chunk in data.get("chunks", []):
-        r = _process_chunk(
+        chunk_result = _process_chunk(
             chunk,
             source_hash,
             source_id,
@@ -1171,8 +1192,8 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             seen_periods,
         )
         for k in _NODE_KEYS:
-            nodes[k].extend(r[k])
-        _extend_rels(rels, r["rels"])
+            nodes[k].extend(chunk_result[k])
+        _extend_rels(rels, chunk_result["rels"])
 
     return _mapped_result(
         data,
@@ -1347,7 +1368,9 @@ def _scan_wealth_directory(
         chunks: list[dict[str, Any]] = []
 
         for md_file in md_files:
-            frontmatter = _parse_yaml_frontmatter(md_file)
+            # Single read per file: parse frontmatter and body from same text
+            text = md_file.read_text(encoding="utf-8")
+            frontmatter = _parse_frontmatter_from_text(text)
             if frontmatter is None:
                 logger.debug("Skipping file without frontmatter: %s", md_file)
                 continue
@@ -1367,9 +1390,8 @@ def _scan_wealth_directory(
                 )
             )
 
-            # Read body text (after frontmatter) as a chunk
-            text = md_file.read_text(encoding="utf-8")
-            body_match = re.search(r"^---\n.*?\n---\n*(.*)", text, re.DOTALL)
+            # Extract body text (after frontmatter) as a chunk
+            body_match = _BODY_RE.search(text)
             body = body_match.group(1).strip() if body_match else ""
             if body:
                 source_id = generate_source_id(url)
@@ -1465,6 +1487,7 @@ def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
         )
 
         keywords_en: list[str] = theme_data.get("keywords_en", [])
+        keywords_lower = [kw.lower() for kw in keywords_en]
         articles = theme_data.get("articles", [])
 
         for article in articles:
@@ -1473,17 +1496,15 @@ def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
                 continue
 
             domain = article.get("domain", "")
-            source_id = generate_source_id(url)
-
-            sources.append(
-                _make_source(
-                    url,
-                    title=article.get("title", ""),
-                    published=article.get("published", ""),
-                    source_type="blog",
-                    domain=domain,
-                )
+            source = _make_source(
+                url,
+                title=article.get("title", ""),
+                published=article.get("published", ""),
+                source_type="blog",
+                domain=domain,
             )
+            source_id = source["source_id"]
+            sources.append(source)
 
             # Entity: one per unique domain
             if domain and domain not in seen_domains:
@@ -1498,8 +1519,8 @@ def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
 
             # Keyword matching for tagged relation
             title_lower = article.get("title", "").lower()
-            for kw in keywords_en:
-                if kw.lower() in title_lower:
+            for kw_lower in keywords_lower:
+                if kw_lower in title_lower:
                     tagged_rels.append({"from_id": source_id, "to_id": topic_id})
                     break
 
@@ -1555,6 +1576,7 @@ def map_wealth_scrape_incremental(data: dict[str, Any]) -> dict[str, Any]:
         )
 
         keywords_en: list[str] = theme_data.get("keywords_en", [])
+        keywords_lower = [kw.lower() for kw in keywords_en]
         articles = theme_data.get("articles", [])
 
         for article in articles:
@@ -1562,17 +1584,15 @@ def map_wealth_scrape_incremental(data: dict[str, Any]) -> dict[str, Any]:
             if not url:
                 continue
 
-            source_id = generate_source_id(url)
-
-            sources.append(
-                _make_source(
-                    url,
-                    title=article.get("title", ""),
-                    published=article.get("published", ""),
-                    feed_source=article.get("feed_source", ""),
-                    domain=article.get("domain", ""),
-                )
+            source = _make_source(
+                url,
+                title=article.get("title", ""),
+                published=article.get("published", ""),
+                feed_source=article.get("feed_source", ""),
+                domain=article.get("domain", ""),
             )
+            source_id = source["source_id"]
+            sources.append(source)
 
             # Claim from summary
             summary = article.get("summary", "")
@@ -1590,8 +1610,8 @@ def map_wealth_scrape_incremental(data: dict[str, Any]) -> dict[str, Any]:
 
             # Keyword matching for tagged relation
             title_lower = article.get("title", "").lower()
-            for kw in keywords_en:
-                if kw.lower() in title_lower:
+            for kw_lower in keywords_lower:
+                if kw_lower in title_lower:
                     tagged_rels.append({"from_id": source_id, "to_id": topic_id})
                     break
 
@@ -2218,6 +2238,10 @@ def main(args: list[str] | None = None) -> int:
     int
         Exit code (0 for success).
     """
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
+    )
     parsed = parse_args(args)
 
     return run(

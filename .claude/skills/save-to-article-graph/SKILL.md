@@ -157,7 +157,7 @@ CONTAINER_STATUS=$(docker inspect article-neo4j --format='{{.State.Status}}' 2>/
 ```bash
 export NEO4J_URI="bolt://localhost:7689"
 export NEO4J_USER="${NEO4J_USER:-neo4j}"
-export NEO4J_PASSWORD="${NEO4J_PASSWORD:-gomasuke}"
+export NEO4J_PASSWORD="${NEO4J_PASSWORD:?NEO4J_PASSWORD is required}"
 ```
 
 ### 実行方式
@@ -288,7 +288,7 @@ NEO4J_URI=bolt://localhost:7689 /save-to-graph --source {command}
 |--------|-----------|------|
 | NEO4J_URI | bolt://localhost:7689 | article-neo4j Bolt URI（本スキルが自動設定） |
 | NEO4J_USER | neo4j | Neo4j ユーザー名 |
-| NEO4J_PASSWORD | gomasuke | Neo4j パスワード |
+| NEO4J_PASSWORD | (必須・環境変数で設定) | Neo4j パスワード |
 
 ---
 

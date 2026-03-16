@@ -16,7 +16,7 @@ from typing import TYPE_CHECKING, Any
 if TYPE_CHECKING:
     from pathlib import Path
 
-import pytest
+    import pytest
 from emit_graph_queue import (
     _scan_wealth_directory,
     generate_source_id,
@@ -513,8 +513,8 @@ def _generate_cypher_merge_statements(queue_data: dict[str, Any]) -> list[str]:
 
 
 def _escape_cypher(text: str) -> str:
-    """Cypher 文字列リテラル内のシングルクォートをエスケープする。"""
-    return text.replace("'", "\\'")
+    """Cypher 文字列リテラル内の特殊文字をエスケープする。"""
+    return text.replace("\\", "\\\\").replace("'", "\\'")
 
 
 def _create_wealth_md(
@@ -796,7 +796,7 @@ class TestWealthScrapeGraphQueue:
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_ディレクトリ入力でドメイン別に複数ファイル生成(
-        self, tmp_path: Path
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ) -> None:
         """受け入れ条件2: ディレクトリ入力で wealth-scrape がドメインごとに分割される。"""
         wealth_dir = _create_wealth_directory(tmp_path)
@@ -805,17 +805,14 @@ class TestWealthScrapeGraphQueue:
 
         import emit_graph_queue
 
-        original = emit_graph_queue.WEALTH_THEME_CONFIG_PATH
-        emit_graph_queue.WEALTH_THEME_CONFIG_PATH = config_path
-        try:
-            exit_code = run(
-                command="wealth-scrape",
-                input_path=wealth_dir,
-                output_base=output_dir,
-                cleanup=False,
-            )
-        finally:
-            emit_graph_queue.WEALTH_THEME_CONFIG_PATH = original
+        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+
+        exit_code = run(
+            command="wealth-scrape",
+            input_path=wealth_dir,
+            output_base=output_dir,
+            cleanup=False,
+        )
 
         assert exit_code == 0
         output_files = list(output_dir.glob("wealth-scrape/*.json"))
@@ -892,7 +889,7 @@ class TestWealthScrapeGraphQueue:
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_ディレクトリ入力の各ファイルにsourcesとtopicsが存在(
-        self, tmp_path: Path
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ) -> None:
         wealth_dir = _create_wealth_directory(tmp_path)
         config_path = _create_wealth_theme_config(tmp_path)
@@ -900,17 +897,14 @@ class TestWealthScrapeGraphQueue:
 
         import emit_graph_queue
 
-        original = emit_graph_queue.WEALTH_THEME_CONFIG_PATH
-        emit_graph_queue.WEALTH_THEME_CONFIG_PATH = config_path
-        try:
-            run(
-                command="wealth-scrape",
-                input_path=wealth_dir,
-                output_base=output_dir,
-                cleanup=False,
-            )
-        finally:
-            emit_graph_queue.WEALTH_THEME_CONFIG_PATH = original
+        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+
+        run(
+            command="wealth-scrape",
+            input_path=wealth_dir,
+            output_base=output_dir,
+            cleanup=False,
+        )
 
         output_files = list(output_dir.glob("wealth-scrape/*.json"))
         for f in output_files:

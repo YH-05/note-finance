@@ -369,7 +369,7 @@ class TestParseArgs:
         )
         assert args.cleanup is True
 
-    def test_正常系_全6コマンドが指定できる(self) -> None:
+    def test_正常系_全コマンドが指定できる(self) -> None:
         for cmd in COMMANDS:
             args = parse_args(["--command", cmd, "--input", "dummy"])
             assert args.command == cmd
@@ -1191,7 +1191,7 @@ class TestRun:
         assert required_keys.issubset(set(data.keys()))
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_全6コマンドでキューファイルが生成される(
+    def test_正常系_全コマンドでキューファイルが生成される(
         self, tmp_path: Path
     ) -> None:
         """全コマンドのマッピングが実装されていることを確認。"""
@@ -1202,6 +1202,8 @@ class TestRun:
             "asset-management": _asset_management_batch(),
             "reddit-finance-topics": _reddit_topics_batch(),
             "finance-full": _finance_full_data(),
+            "wealth-scrape": _wealth_scrape_incremental_data(),
+            "topic-discovery": _topic_discovery_data(),
         }
 
         for cmd, data in test_data.items():
@@ -2136,26 +2138,22 @@ class TestRunWealthScrapeDirectory:
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_ディレクトリ入力で複数キューファイルが生成される(
-        self, tmp_path: Path
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ) -> None:
         wealth_dir = _create_wealth_directory(tmp_path)
         config_path = _create_wealth_theme_config(tmp_path)
         output_dir = tmp_path / "output"
 
-        # Patch the theme config path
         import emit_graph_queue
 
-        original = emit_graph_queue.WEALTH_THEME_CONFIG_PATH
-        emit_graph_queue.WEALTH_THEME_CONFIG_PATH = config_path
-        try:
-            exit_code = run(
-                command="wealth-scrape",
-                input_path=wealth_dir,
-                output_base=output_dir,
-                cleanup=False,
-            )
-        finally:
-            emit_graph_queue.WEALTH_THEME_CONFIG_PATH = original
+        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+
+        exit_code = run(
+            command="wealth-scrape",
+            input_path=wealth_dir,
+            output_base=output_dir,
+            cleanup=False,
+        )
 
         assert exit_code == 0
         output_files = list(output_dir.glob("wealth-scrape/*.json"))
@@ -2163,7 +2161,7 @@ class TestRunWealthScrapeDirectory:
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_各キューファイルがgraph_queue標準フォーマットに準拠(
-        self, tmp_path: Path
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ) -> None:
         wealth_dir = _create_wealth_directory(tmp_path)
         config_path = _create_wealth_theme_config(tmp_path)
@@ -2171,17 +2169,14 @@ class TestRunWealthScrapeDirectory:
 
         import emit_graph_queue
 
-        original = emit_graph_queue.WEALTH_THEME_CONFIG_PATH
-        emit_graph_queue.WEALTH_THEME_CONFIG_PATH = config_path
-        try:
-            run(
-                command="wealth-scrape",
-                input_path=wealth_dir,
-                output_base=output_dir,
-                cleanup=False,
-            )
-        finally:
-            emit_graph_queue.WEALTH_THEME_CONFIG_PATH = original
+        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+
+        run(
+            command="wealth-scrape",
+            input_path=wealth_dir,
+            output_base=output_dir,
+            cleanup=False,
+        )
 
         output_files = list(output_dir.glob("wealth-scrape/*.json"))
         required_keys = {
@@ -2304,13 +2299,13 @@ class TestTopicDiscoveryCategories:
 # ---------------------------------------------------------------------------
 
 
-def _topic_discovery_data(
+def _topic_discovery_mapper_data(
     *,
     no_search: bool = False,
     suggestions: list[dict[str, Any]] | None = None,
     search_insights: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Build sample topic-discovery input data for tests."""
+    """Build configurable topic-discovery input data for mapper tests."""
     if suggestions is None:
         suggestions = [
             {
@@ -2384,7 +2379,7 @@ class TestMapTopicDiscovery:
     """map_topic_discovery のテスト。"""
 
     def test_正常系_ソースノードが1つ生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         assert len(result["sources"]) == 1
         src = result["sources"][0]
         assert src["source_id"] == "topic-suggestion-2026-03-16T1430"
@@ -2395,7 +2390,7 @@ class TestMapTopicDiscovery:
         assert src["language"] == "ja"
 
     def test_正常系_トピックノードがカテゴリごとに生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         assert len(result["topics"]) == 2
         topic_ids = {t["topic_id"] for t in result["topics"]}
         assert topic_ids == {"content:market_report", "content:macro_economy"}
@@ -2418,12 +2413,14 @@ class TestMapTopicDiscovery:
                 "scores": {"total": 30},
             },
         ]
-        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        result = map_topic_discovery(
+            _topic_discovery_mapper_data(suggestions=suggestions)
+        )
         assert len(result["topics"]) == 1
         assert result["topics"][0]["topic_id"] == "content:market_report"
 
     def test_正常系_クレイムノードが提案ごとに生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         assert len(result["claims"]) == 2
         c1 = result["claims"][0]
         assert c1["claim_id"] == "ts:topic-suggestion-2026-03-16T1430:rank1"
@@ -2441,20 +2438,20 @@ class TestMapTopicDiscovery:
         assert '"ポイント1"' in c1["key_points"]
 
     def test_正常系_クレイムのmagnitudeがスコアで判定される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         c1 = result["claims"][0]  # total=41 → strong
         c2 = result["claims"][1]  # total=33 → moderate
         assert c1["magnitude"] == "strong"
         assert c2["magnitude"] == "moderate"
 
     def test_正常系_エンティティノードがティッカーから生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         assert len(result["entities"]) == 3  # ^GSPC, ^DJI, ^N225
         entity_ids = {e["entity_id"] for e in result["entities"]}
         assert entity_ids == {"symbol:^GSPC", "symbol:^DJI", "symbol:^N225"}
 
     def test_正常系_エンティティタイプが正しく判定される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         for e in result["entities"]:
             if e["ticker"].startswith("^"):
                 assert e["entity_type"] == "index"
@@ -2471,7 +2468,9 @@ class TestMapTopicDiscovery:
                 "scores": {"total": 35},
             },
         ]
-        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        result = map_topic_discovery(
+            _topic_discovery_mapper_data(suggestions=suggestions)
+        )
         assert len(result["entities"]) == 1
         assert result["entities"][0]["entity_type"] == "stock"
         assert result["entities"][0]["entity_id"] == "symbol:7203.T"
@@ -2494,11 +2493,13 @@ class TestMapTopicDiscovery:
                 "scores": {"total": 30},
             },
         ]
-        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        result = map_topic_discovery(
+            _topic_discovery_mapper_data(suggestions=suggestions)
+        )
         assert len(result["entities"]) == 1
 
     def test_正常系_ファクトノードがトレンドから生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         # 2 trends: first has 2 findings, second has 1 → 3 facts total
         assert len(result["facts"]) == 3
         f0 = result["facts"][0]
@@ -2510,16 +2511,16 @@ class TestMapTopicDiscovery:
         assert f0["as_of_date"] == "2026-03-16"
 
     def test_正常系_no_search時はファクトがスキップされる(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data(no_search=True))
+        result = map_topic_discovery(_topic_discovery_mapper_data(no_search=True))
         assert len(result["facts"]) == 0
         assert len(result["relations"]["source_fact"]) == 0
 
     def test_正常系_no_search時はsearch_queries_countが0(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data(no_search=True))
+        result = map_topic_discovery(_topic_discovery_mapper_data(no_search=True))
         assert result["sources"][0]["search_queries_count"] == 0
 
     def test_正常系_リレーションtaggedが正しく生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         tagged = result["relations"]["tagged"]
         # Source->Topic: 2 (2 categories) + Claim->Topic: 2 (2 claims) = 4
         assert len(tagged) == 4
@@ -2529,7 +2530,7 @@ class TestMapTopicDiscovery:
         assert len(source_tagged) == 2
 
     def test_正常系_リレーションsource_claimが正しく生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         sc = result["relations"]["source_claim"]
         assert len(sc) == 2
         for r in sc:
@@ -2537,7 +2538,7 @@ class TestMapTopicDiscovery:
             assert r["type"] == "MAKES_CLAIM"
 
     def test_正常系_リレーションclaim_entityが正しく生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         ce = result["relations"]["claim_entity"]
         # Claim 1 has 2 symbols, Claim 2 has 1 symbol → 3
         assert len(ce) == 3
@@ -2545,7 +2546,7 @@ class TestMapTopicDiscovery:
             assert r["type"] == "ABOUT"
 
     def test_正常系_リレーションsource_factが正しく生成される(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         sf = result["relations"]["source_fact"]
         assert len(sf) == 3
         for r in sf:
@@ -2554,7 +2555,7 @@ class TestMapTopicDiscovery:
 
     def test_正常系_IDが全て文字列ベース(self) -> None:
         """UUID5 ではなく文字列ベースの ID が使用されていることを確認。"""
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
 
         # Source ID is session_id directly
         assert result["sources"][0]["source_id"] == "topic-suggestion-2026-03-16T1430"
@@ -2576,11 +2577,11 @@ class TestMapTopicDiscovery:
             assert f["fact_id"].startswith("trend:")
 
     def test_正常系_batch_labelがtopic_discovery(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         assert result["batch_label"] == "topic-discovery"
 
     def test_エッジケース_空のsuggestions(self) -> None:
-        result = map_topic_discovery(_topic_discovery_data(suggestions=[]))
+        result = map_topic_discovery(_topic_discovery_mapper_data(suggestions=[]))
         assert len(result["sources"]) == 1
         assert result["sources"][0]["suggestion_count"] == 0
         assert result["sources"][0]["top_score"] == 0
@@ -2598,19 +2599,21 @@ class TestMapTopicDiscovery:
                 "rationale": "理由",
             },
         ]
-        result = map_topic_discovery(_topic_discovery_data(suggestions=suggestions))
+        result = map_topic_discovery(
+            _topic_discovery_mapper_data(suggestions=suggestions)
+        )
         assert len(result["entities"]) == 0
         assert len(result["relations"]["claim_entity"]) == 0
 
     def test_エッジケース_search_insightsがnull(self) -> None:
-        data = _topic_discovery_data()
+        data = _topic_discovery_mapper_data()
         data["search_insights"] = None
         result = map_topic_discovery(data)
         assert len(result["facts"]) == 0
 
     def test_正常系_5ノードタイプが全て生成される(self) -> None:
         """受け入れ条件: 5ノードタイプ + 4リレーション全て生成。"""
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         assert len(result["sources"]) > 0, "Source ノードが必要"
         assert len(result["topics"]) > 0, "Topic ノードが必要"
         assert len(result["claims"]) > 0, "Claim ノードが必要"
@@ -2619,7 +2622,7 @@ class TestMapTopicDiscovery:
 
     def test_正常系_4リレーションが全て生成される(self) -> None:
         """受け入れ条件: 5ノードタイプ + 4リレーション全て生成。"""
-        result = map_topic_discovery(_topic_discovery_data())
+        result = map_topic_discovery(_topic_discovery_mapper_data())
         rels = result["relations"]
         assert len(rels["tagged"]) > 0, "tagged リレーションが必要"
         assert len(rels["source_claim"]) > 0, "source_claim リレーションが必要"
