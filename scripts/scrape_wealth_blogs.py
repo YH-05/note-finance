@@ -75,6 +75,9 @@ DEFAULT_TOP_N = 10
 DEFAULT_LIMIT = 200
 """Default maximum articles to scrape in backfill mode."""
 
+DEFAULT_PER_DOMAIN = 0
+"""Default per-domain limit (0 = auto-calculate from limit / number of domains)."""
+
 MAX_DAYS = 365
 """Maximum allowed value for --days argument."""
 
@@ -274,6 +277,13 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
         type=int,
         default=DEFAULT_LIMIT,
         help=f"Maximum articles to scrape in backfill mode. (default: {DEFAULT_LIMIT})",
+    )
+    parser.add_argument(
+        "--per-domain",
+        type=int,
+        default=DEFAULT_PER_DOMAIN,
+        dest="per_domain",
+        help="Max articles per domain (0 = auto: limit / number of domains).",
     )
     parser.add_argument(
         "--top-n",
@@ -984,6 +994,7 @@ async def _run_backfill_async(
     check_robots: bool,
     retry_failed: bool,
     db_path: Path,
+    per_domain: int = DEFAULT_PER_DOMAIN,
 ) -> int:
     """Run backfill mode asynchronously.
 
@@ -1006,6 +1017,9 @@ async def _run_backfill_async(
         Include previously failed URLs for retry.
     db_path : Path
         SQLite state database path.
+    per_domain : int
+        Maximum articles per domain. 0 means auto-calculate
+        as ``limit // number_of_target_domains``.
 
     Returns
     -------
@@ -1024,6 +1038,19 @@ async def _run_backfill_async(
     tier_order = ["A", "B", "C", "D"]
     if backfill_tier:
         tier_order = [backfill_tier]
+
+    # Resolve per-domain cap
+    if per_domain > 0:
+        effective_per_domain = per_domain
+    else:
+        num_sites = max(len(sites), 1)
+        effective_per_domain = max(limit // num_sites, 1)
+    logger.info(
+        "per_domain_limit_resolved",
+        per_domain=effective_per_domain,
+        global_limit=limit,
+        site_count=len(sites),
+    )
 
     policy = ScrapingPolicy(domain_rate_limits=WEALTH_DOMAIN_RATE_LIMITS)
     extractor = ArticleExtractor()
@@ -1050,6 +1077,7 @@ async def _run_backfill_async(
                     break
 
                 domain = site.get("domain", "")
+                domain_scraped = 0
                 sitemap_url = WEALTH_SITEMAP_URLS.get(domain)
                 if not sitemap_url:
                     logger.warning("no_sitemap_url", domain=domain)
@@ -1089,16 +1117,29 @@ async def _run_backfill_async(
                     )
 
                 if dry_run:
-                    print(f"\n[{tier}] {domain}: {len(urls_to_scrape)} new URLs")
+                    capped = min(len(urls_to_scrape), effective_per_domain)
+                    print(
+                        f"\n[{tier}] {domain}: {len(urls_to_scrape)} new URLs"
+                        f" (cap: {effective_per_domain})"
+                    )
                     for url in urls_to_scrape[:5]:
                         print(f"  {url}")
                     if len(urls_to_scrape) > 5:
                         print(f"  ... and {len(urls_to_scrape) - 5} more")
+                    print(f"  → will process: {capped}")
                     continue
 
                 # Scrape URLs
                 for url in urls_to_scrape:
                     if total_scraped >= limit:
+                        break
+                    if domain_scraped >= effective_per_domain:
+                        logger.info(
+                            "per_domain_limit_reached",
+                            domain=domain,
+                            domain_scraped=domain_scraped,
+                            per_domain=effective_per_domain,
+                        )
                         break
 
                     # robots.txt check
@@ -1132,10 +1173,12 @@ async def _run_backfill_async(
                         )
                         db.mark_scraped(url, success=True)
                         total_scraped += 1
+                        domain_scraped += 1
                         logger.info(
                             "article_scraped_playwright",
                             url=url,
                             total=total_scraped,
+                            domain_scraped=domain_scraped,
                         )
                         continue
 
@@ -1153,10 +1196,12 @@ async def _run_backfill_async(
                         )
                         db.mark_scraped(url, success=True)
                         total_scraped += 1
+                        domain_scraped += 1
                         logger.info(
                             "article_scraped",
                             url=url,
                             total=total_scraped,
+                            domain_scraped=domain_scraped,
                             method=result.extraction_method,
                         )
                     else:
@@ -1177,6 +1222,7 @@ async def _run_backfill_async(
     print("=" * 60)
     print(f"  Scraped: {total_scraped}")
     print(f"  Skipped: {total_skipped}")
+    print(f"  Per-domain cap: {effective_per_domain}")
     if stats:
         print("\nDomain breakdown:")
         for domain_key, counts in sorted(stats.items()):
@@ -1196,6 +1242,7 @@ def run_backfill(
     check_robots: bool = False,
     retry_failed: bool = False,
     db_path: Path = WEALTH_SCRAPE_DB_PATH,
+    per_domain: int = DEFAULT_PER_DOMAIN,
 ) -> int:
     """Run backfill mode: sitemap parsing → URL collection → scraping.
 
@@ -1215,6 +1262,8 @@ def run_backfill(
         Include previously failed URLs.
     db_path : Path
         SQLite state database path.
+    per_domain : int
+        Maximum articles per domain. 0 means auto-calculate.
 
     Returns
     -------
@@ -1230,6 +1279,7 @@ def run_backfill(
             check_robots=check_robots,
             retry_failed=retry_failed,
             db_path=db_path,
+            per_domain=per_domain,
         )
     )
 
@@ -1285,6 +1335,7 @@ def main(args: list[str] | None = None) -> int:
             backfill_tier=parsed.backfill_tier,
             check_robots=parsed.check_robots,
             retry_failed=parsed.retry_failed,
+            per_domain=parsed.per_domain,
         )
 
 

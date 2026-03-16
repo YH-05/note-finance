@@ -147,6 +147,54 @@ echo '{"session_id":"...","generated_at":"...","count":5,"top_topic":"...","top_
 
 `selected_topics` は `/new-finance-article` でトピック採用時に更新される。
 
+#### 5.3 article-neo4j への保存
+
+提案結果を article-neo4j（bolt://localhost:7689）に保存する。
+データモデルの詳細は `references/neo4j-mapping.md` を参照。
+
+**前提条件チェック**:
+
+```bash
+docker inspect article-neo4j --format='{{.State.Status}}' 2>/dev/null
+```
+
+- `running` → 保存処理を続行
+- それ以外 → 「article-neo4j が起動していないため Neo4j 保存をスキップしました」と警告し、Phase 5.3 をスキップ（Phase 5.1-5.2 のファイル保存は完了済みなのでデータは失われない）
+
+**保存対象ノード**:
+
+| ノード | ソースデータ | KG v2 マッピング |
+|--------|-------------|-----------------|
+| Source | セッション情報 | source_type: `"original"`, command_source: `"topic-discovery"` |
+| Topic | suggestions[].category | topic_id: `content:{category}`, category: `"content_planning"` |
+| Claim | suggestions[] | claim_type: `"recommendation"`, スコア各軸をプロパティに保存 |
+| Entity | suggestions[].suggested_symbols | ticker ベースで MERGE（`^` 始まり → index, 他 → stock） |
+| Fact | search_insights.trends[].key_findings | fact_type: `"event"`（`--no-search` 時はスキップ） |
+
+**リレーション**:
+
+| リレーション | From → To | 条件 |
+|-------------|-----------|------|
+| TAGGED | Source → Topic | セッション → 提案に含まれるカテゴリ |
+| MAKES_CLAIM | Source → Claim | セッション → 各トピック提案 |
+| TAGGED | Claim → Topic | 提案 → そのカテゴリ |
+| ABOUT | Claim → Entity | 提案 → 推奨銘柄/指数（suggested_symbols がある場合のみ） |
+| STATES_FACT | Source → Fact | セッション → 検索トレンド（`--no-search` 時はスキップ） |
+
+**実行手順**:
+
+1. `references/neo4j-mapping.md` の Cypher テンプレートに従い、Cypher スクリプトを `/tmp/topic-discovery-neo4j.cypher` に書き出す
+2. 実行:
+   ```bash
+   docker exec -i article-neo4j cypher-shell \
+     -u neo4j -p "${NEO4J_PASSWORD:-gomasuke}" \
+     < /tmp/topic-discovery-neo4j.cypher
+   ```
+3. 実行結果を確認し、ノード・リレーション作成数を報告
+4. 一時ファイルを削除: `rm /tmp/topic-discovery-neo4j.cypher`
+
+**エラー時**: Cypher 実行エラーが発生した場合、エラー内容を警告表示するがスキルは正常終了とする（Phase 5.1-5.2 のファイル保存は完了済み）。
+
 ## 出力
 
 topic-suggester エージェントの出力スキーマ（JSON）に準拠。
@@ -160,6 +208,7 @@ topic-suggester エージェントの出力スキーマ（JSON）に準拠。
 |--------|------|------|
 | セッションファイル | `.tmp/topic-suggestions/{YYYY-MM-DD}_{HHMM}.json` | 完全な提案データ（検索結果含む） |
 | 履歴ファイル | `data/topic-history/suggestions.jsonl` | セッション要約の追記ログ |
+| article-neo4j | `bolt://localhost:7689` | Source/Topic/Claim/Entity/Fact ノードとリレーション |
 
 ## `--no-search` モード
 

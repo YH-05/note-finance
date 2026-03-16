@@ -1,6 +1,6 @@
 # === Core (必須) ===
 title: ""
-category: ""                     # asset_management | side_business | macro_economy | stock_analysis | market_report | quant_analysis
+category: ""                     # asset_management | side_business | macro_economy | stock_analysis | market_report | quant_analysis | investment_education
 type: column                     # column | case_study | experience | market_report | data_analysis
 status: draft                    # draft | review | published
 
