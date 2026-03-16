@@ -59,8 +59,10 @@ Phase 2: 記事生成（2-4分）
 ├── asset-management-writer エージェント
 │   ├── ソースキュレーション（関連度スコアリング）
 │   ├── note記事の初稿（2000-4000字）
-│   ├── X投稿（280字以内）
 │   └── curated_sources.json 出力
+├── x-post-generator スキル（/x-post）
+│   ├── meta.yaml の target_audience に基づく層別生成
+│   └── X投稿（280字以内）
 └── [HF2] 初稿確認 ✓
 
 Phase 3: コンプライアンスチェック（1-2分）
@@ -162,8 +164,9 @@ Phase 4: 結果報告（<30秒）
 
    ## 出力先
    - 02_draft/first_draft.md（note記事、2000-4000字）
-   - 02_draft/x_post.md（X投稿、280字以内）
    - 02_draft/curated_sources.json（キュレーション済みソース）
+
+   ※ X投稿（02_draft/x_post.md）は `/x-post @{article_dir}` スキルで別途生成
    """
    )
    ```
@@ -375,6 +378,7 @@ edit {article_dir}/02_draft/revised_draft.md
 - **ワークフロースキル**: `.claude/skills/asset-management-workflow/SKILL.md`
 - **詳細ガイド**: `.claude/skills/asset-management-workflow/guide.md`
 - **記事ライター**: `.claude/agents/asset-management-writer.md`
+- **X投稿生成**: `.claude/skills/x-post-generator/SKILL.md`（層別テンプレート・参照ライブラリ対応）
 - **コンプライアンス批評**: `.claude/agents/finance-critic-compliance.md`
 - **軽量リバイザー**: `.claude/agents/asset-management-reviser.md`
 

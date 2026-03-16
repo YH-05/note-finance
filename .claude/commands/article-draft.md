@@ -90,8 +90,11 @@ Step 4: [HF5] 初稿レビュー
   - meta.yaml
 出力:
   - 02_draft/first_draft.md（note記事、2000-4000字）
-  - 02_draft/x_post.md（X投稿、280字以内）（該当時）
   - 02_draft/curated_sources.json（キュレーション済みソース）
+
+X投稿生成（記事完成後に自動実行）:
+  /x-post @{article_dir}
+  → 02_draft/x_post.md（x-post-generator スキルで層別テンプレート・参照ライブラリ適用）
 ```
 
 #### side_business

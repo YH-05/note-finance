@@ -1,0 +1,123 @@
+# X投稿参照ライブラリ — 検索インデックス
+# 生成時に category + audience + hook_pattern で最大2件を特定する
+
+samples:
+  # ===== asset_formation =====
+
+  - sample_id: asset_formation-beginner-ideco-hook-C-001
+    file: asset_formation/beginner-ideco-hook-C.md
+    category: asset_formation
+    audience: beginner
+    hook_pattern: C
+    tags:
+      - iDeCo
+      - 節税
+      - 上限引き上げ
+      - 老後資金
+    engagement_score: null
+    impressions: null
+    posted_at: null
+    created_at: "2026-03-15"
+    source_article: articles/asset_formation/2026-03-15_ideco-contribution-limit-simulation/
+
+  - sample_id: asset_formation-beginner-fund-age-hook-B-001
+    file: asset_formation/beginner-fund-age-hook-B.md
+    category: asset_formation
+    audience: beginner
+    hook_pattern: B
+    tags:
+      - ファンド選択
+      - ライフステージ
+      - インデックス
+      - 年齢別
+    engagement_score: null
+    impressions: null
+    posted_at: null
+    created_at: "2026-03-08"
+    source_article: articles/asset_formation/2026-03-08_fund-selection-age-based/
+
+  - sample_id: asset_formation-intermediate-index-hook-B-001
+    file: asset_formation/intermediate-index-hook-B.md
+    category: asset_formation
+    audience: intermediate
+    hook_pattern: B
+    tags:
+      - インデックス投資
+      - ポートフォリオ
+      - S&P500
+      - 国際分散
+    engagement_score: null
+    impressions: null
+    posted_at: null
+    created_at: "2026-03-06"
+    source_article: articles/asset_formation/2026-03-06_index-investing-portfolio/
+
+  # ===== asset_management =====
+
+  - sample_id: asset_management-beginner-behavior-hook-A-001
+    file: asset_management/beginner-behavior-hook-A.md
+    category: asset_management
+    audience: beginner
+    hook_pattern: A
+    tags:
+      - 行動経済学
+      - バイアス
+      - プロスペクト理論
+      - 暴落対策
+    engagement_score: null
+    impressions: null
+    posted_at: null
+    created_at: "2026-03-15"
+    source_article: articles/asset_management/2026-03-15_investment-psychology-behavioral-bias/
+
+  # ===== macro_economy =====
+
+  - sample_id: macro_economy-intermediate-boj-hook-D-001
+    file: macro_economy/intermediate-boj-hook-D.md
+    category: macro_economy
+    audience: intermediate
+    hook_pattern: D
+    tags:
+      - 日銀
+      - 利上げ
+      - 住宅ローン
+      - 金融政策
+    engagement_score: null
+    impressions: null
+    posted_at: null
+    created_at: "2026-03-16"
+    source_article: articles/macro_economy/2026-03-08_boj-rate-hike-yen-scenario/
+
+  - sample_id: macro_economy-intermediate-oil-hook-C-001
+    file: macro_economy/intermediate-oil-hook-C.md
+    category: macro_economy
+    audience: intermediate
+    hook_pattern: C
+    tags:
+      - 原油
+      - スタグフレーション
+      - 貿易収支
+      - 物価
+    engagement_score: null
+    impressions: null
+    posted_at: null
+    created_at: "2026-03-16"
+    source_article: articles/macro_economy/2026-03-09_oil-150-shock-stagflation/
+
+  # ===== stock_analysis =====
+
+  - sample_id: stock_analysis-intermediate-dividend-hook-B-001
+    file: stock_analysis/intermediate-dividend-hook-B.md
+    category: stock_analysis
+    audience: intermediate
+    hook_pattern: B
+    tags:
+      - 高配当株
+      - バリュー投資
+      - FCF
+      - 配当利回り
+    engagement_score: null
+    impressions: null
+    posted_at: null
+    created_at: "2026-03-16"
+    source_article: articles/stock_analysis/2026-03-08_tech-to-high-dividend-vz/
