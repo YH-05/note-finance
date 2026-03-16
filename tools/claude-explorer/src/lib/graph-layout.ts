@@ -45,18 +45,20 @@ const NODE_HEIGHT = 80;
 
 function edgeStyle(type: EdgeType): Partial<RFEdge> {
   const style = EDGE_STYLES[type];
-  const strokeDasharray = style.dashed ? "6 3" : undefined;
 
-  // Use different dash patterns per type for clarity
-  let dashArray = strokeDasharray;
-  if (type === "path_ref") dashArray = "4 4";
-  if (type === "inline_ref") dashArray = "2 4";
+  const dashArrayMap: Record<EdgeType, string | undefined> = {
+    skills: undefined,
+    skill_preload: undefined,
+    subagent_type: "6 3",
+    path_ref: "4 4",
+    inline_ref: "2 4",
+  };
 
   return {
     style: {
       stroke: style.color,
       strokeWidth: 1.5,
-      strokeDasharray: dashArray,
+      strokeDasharray: dashArrayMap[type],
     },
     label: style.label,
     labelStyle: { fontSize: 10, fill: style.color },

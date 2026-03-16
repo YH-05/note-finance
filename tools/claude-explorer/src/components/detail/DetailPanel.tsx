@@ -9,10 +9,14 @@
  * content preview, and the file path.
  */
 
+import { lazy, Suspense } from "react";
 import type { Component, DependencyEdge } from "@/types";
 import { getColorScheme } from "@/lib/colors";
 import { DependencyList } from "./DependencyList";
-import { MarkdownPreview } from "./MarkdownPreview";
+import { PillList } from "../cards/PillList";
+import { LoadingSpinner } from "../LoadingSpinner";
+
+const MarkdownPreview = lazy(() => import("./MarkdownPreview").then(m => ({ default: m.MarkdownPreview })));
 
 interface DetailPanelProps {
   /** The component to display, or null when closed. */
@@ -54,43 +58,8 @@ function TypeMetadata({ component }: { component: Component }) {
             )}
           </div>
 
-          {/* Skills */}
-          {component.skills.length > 0 && (
-            <div>
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider">
-                Skills
-              </span>
-              <div className="mt-0.5 flex flex-wrap gap-1">
-                {component.skills.map((s) => (
-                  <span
-                    key={s}
-                    className="px-1.5 py-0.5 text-[10px] rounded bg-purple-50 text-purple-600"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tools */}
-          {component.tools.length > 0 && (
-            <div>
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider">
-                Tools
-              </span>
-              <div className="mt-0.5 flex flex-wrap gap-1">
-                {component.tools.map((t) => (
-                  <span
-                    key={t}
-                    className="px-1.5 py-0.5 text-[10px] rounded bg-gray-100 text-gray-600"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+          <PillList label="Skills" items={component.skills} colorClass="bg-purple-50 text-purple-600" />
+          <PillList label="Tools" items={component.tools} colorClass="bg-gray-100 text-gray-600" />
         </div>
       );
 
@@ -266,7 +235,9 @@ export function DetailPanel({
                   <h3 className="text-[10px] font-medium text-gray-400 uppercase tracking-wider mb-2">
                     Content
                   </h3>
-                  <MarkdownPreview content={component.content} />
+                  <Suspense fallback={<LoadingSpinner message="Loading..." />}>
+                    <MarkdownPreview content={component.content} />
+                  </Suspense>
                 </div>
 
                 {/* File path */}

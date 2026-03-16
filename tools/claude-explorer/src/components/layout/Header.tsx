@@ -5,6 +5,7 @@
  * keyboard shortcut handler can programmatically focus it.
  */
 
+import type { Ref } from "react";
 import type { ComponentType } from "@/types";
 import { TYPE_COLORS } from "@/lib/colors";
 import { COMPONENT_TYPES } from "@/lib/constants";
@@ -18,8 +19,8 @@ interface HeaderProps {
   onViewModeChange: (mode: ViewMode) => void;
   filteredCount: number;
   totalCount: number;
-  /** Callback ref to capture the search input element for keyboard shortcut focus. */
-  searchInputRef: (el: HTMLInputElement | null) => void;
+  /** Ref to capture the search input element for keyboard shortcut focus. */
+  searchInputRef: Ref<HTMLInputElement>;
   /** Whether a debounced search is pending. */
   isSearching?: boolean;
 }

@@ -10,7 +10,7 @@
  * the DetailPanel can display the selected component.
  */
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ReactFlow,
   Background,
@@ -66,6 +66,8 @@ function DependencyGraphInner({
   const [hideIsolated, setHideIsolated] = useState(true);
   const [showMinimap, setShowMinimap] = useState(true);
 
+  const fitViewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   // Compute layout
   const { nodes, edges } = useMemo(
     () =>
@@ -94,11 +96,25 @@ function DependencyGraphInner({
   const handleDirectionChange = useCallback(
     (dir: LayoutDirection) => {
       setDirection(dir);
-      // Fit view after next render via setTimeout
-      setTimeout(() => fitView({ padding: 0.2, duration: 300 }), 50);
+      if (fitViewTimerRef.current !== null) {
+        clearTimeout(fitViewTimerRef.current);
+      }
+      fitViewTimerRef.current = setTimeout(() => {
+        fitView({ padding: 0.2, duration: 300 });
+        fitViewTimerRef.current = null;
+      }, 50);
     },
     [fitView],
   );
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (fitViewTimerRef.current !== null) {
+        clearTimeout(fitViewTimerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="relative w-full h-full" style={{ minHeight: 400 }}>

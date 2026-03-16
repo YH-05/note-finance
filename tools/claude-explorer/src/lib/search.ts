@@ -30,14 +30,23 @@ const FUSE_OPTIONS: IFuseOptions<Component> = {
   minMatchCharLength: 2,
 };
 
+const MAX_CONTENT_LENGTH = 200;
+
 /**
  * Build a Fuse.js search index from a list of components.
+ *
+ * Truncates the content field to the first 200 characters to reduce
+ * memory usage and improve search performance.
  *
  * @param components - All components to index.
  * @returns A configured Fuse instance ready for searching.
  */
 export function buildSearchIndex(components: Component[]): Fuse<Component> {
-  return new Fuse(components, FUSE_OPTIONS);
+  const indexed = components.map((c) => ({
+    ...c,
+    content: c.content.slice(0, MAX_CONTENT_LENGTH),
+  }));
+  return new Fuse(indexed, FUSE_OPTIONS);
 }
 
 /**

@@ -141,6 +141,8 @@ function collectSubFiles(skillDir: string): string[] {
   const entries = fs.readdirSync(skillDir, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.name === "SKILL.md") continue;
+    // Skip symbolic links for security
+    if (entry.isSymbolicLink()) continue;
     const relative = path.relative(PROJECT_ROOT, path.join(skillDir, entry.name));
     subFiles.push(relative);
   }
@@ -156,6 +158,11 @@ function parseFrontmatterFallback(raw: string): {
   data: Record<string, unknown>;
   content: string;
 } {
+  // Reject excessively large inputs to prevent ReDoS
+  if (raw.length > 100_000) {
+    return { data: {}, content: raw };
+  }
+
   const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!fmMatch) {
     return { data: {}, content: raw };
@@ -176,9 +183,8 @@ function parseFrontmatterFallback(raw: string): {
       const value = trimmed.slice(colonIdx + 2).trim();
       data[key] = value;
     }
-    // Handle list items "  - item" under an array key
+    // List items are not parsed in fallback mode
     if (trimmed.startsWith("- ")) {
-      // This is a simplistic approach; arrays are handled by the last key
       continue;
     }
   }
@@ -306,83 +312,73 @@ async function collectComponents(): Promise<Component[]> {
 }
 
 // ---------------------------------------------------------------------------
-// Phase 2: Dependency edge extraction (6 regex strategies)
+// Phase 2: Dependency edge extraction (Strategy pattern)
 // ---------------------------------------------------------------------------
 
-function extractEdges(components: Component[]): DependencyEdge[] {
-  const edges: DependencyEdge[] = [];
+/** Type alias for an edge extraction strategy function. */
+type EdgeExtractor = (component: Component, edges: DependencyEdge[]) => void;
 
-  for (const component of components) {
-    // Strategy 1: frontmatter skills[] array (agents & skills)
-    if (component.type === "agent") {
-      for (const skillName of component.skills) {
-        edges.push({
-          source: component.id,
-          target: `skill:${skillName}`,
-          type: "skills",
-          broken: false,
-        });
-      }
-    }
-    if (component.type === "skill") {
-      for (const skillName of component.skills) {
-        edges.push({
-          source: component.id,
-          target: `skill:${skillName}`,
-          type: "skills",
-          broken: false,
-        });
-      }
-    }
-
-    // Strategy 2: skill-preload frontmatter (commands)
-    if (component.type === "command" && component.skillPreload) {
+/** Strategy 1: frontmatter skills[] array (agents & skills) */
+function extractFrontmatterSkills(component: Component, edges: DependencyEdge[]): void {
+  if (component.type === "agent") {
+    for (const skillName of component.skills) {
       edges.push({
         source: component.id,
-        target: `skill:${component.skillPreload}`,
-        type: "skill_preload",
+        target: `skill:${skillName}`,
+        type: "skills",
         broken: false,
       });
     }
-
-    // Strategy 3: subagent_type references in body content
-    const subagentRe =
-      /subagent_type\s*[:=]\s*["']([a-z][-a-z0-9]*)["']/g;
-    let match: RegExpExecArray | null;
-    while ((match = subagentRe.exec(component.content)) !== null) {
-      const targetSlug = match[1]!;
+  }
+  if (component.type === "skill") {
+    for (const skillName of component.skills) {
       edges.push({
         source: component.id,
-        target: `agent:${targetSlug}`,
-        type: "subagent_type",
+        target: `skill:${skillName}`,
+        type: "skills",
         broken: false,
       });
     }
+  }
+}
 
-    // Strategy 4: .claude/ path references
-    const claudePathRe =
-      /\.claude\/(agents|commands|skills|rules)\/([a-zA-Z0-9][-a-zA-Z0-9_]*)/g;
-    while ((match = claudePathRe.exec(component.content)) !== null) {
-      const dir = match[1]!;
-      const targetSlug = match[2]!;
-      const targetType = dirToComponentType(dir);
-      if (targetType) {
-        edges.push({
-          source: component.id,
-          target: `${targetType}:${targetSlug}`,
-          type: "path_ref",
-          broken: false,
-        });
-      }
-    }
+/** Strategy 2: skill-preload frontmatter (commands) */
+function extractSkillPreload(component: Component, edges: DependencyEdge[]): void {
+  if (component.type === "command" && component.skillPreload) {
+    edges.push({
+      source: component.id,
+      target: `skill:${component.skillPreload}`,
+      type: "skill_preload",
+      broken: false,
+    });
+  }
+}
 
-    // Strategy 5: .agents/ path references
-    const agentsPathRe =
-      /\.agents\/(skills|workflows)\/([a-zA-Z0-9][-a-zA-Z0-9_]*)/g;
-    while ((match = agentsPathRe.exec(component.content)) !== null) {
-      const dir = match[1]!;
-      const targetSlug = match[2]!;
-      const targetType = dir === "workflows" ? "workflow" : "skill";
+/** Strategy 3: subagent_type references in body content */
+function extractSubagentRefs(component: Component, edges: DependencyEdge[]): void {
+  const subagentRe = /subagent_type\s*[:=]\s*["']([a-z][-a-z0-9]*)["']/g;
+  let match: RegExpExecArray | null;
+  while ((match = subagentRe.exec(component.content)) !== null) {
+    const targetSlug = match[1]!;
+    edges.push({
+      source: component.id,
+      target: `agent:${targetSlug}`,
+      type: "subagent_type",
+      broken: false,
+    });
+  }
+}
+
+/** Strategy 4: .claude/ path references */
+function extractClaudePaths(component: Component, edges: DependencyEdge[]): void {
+  const claudePathRe =
+    /\.claude\/(agents|commands|skills|rules)\/([a-zA-Z0-9][-a-zA-Z0-9_]*)/g;
+  let match: RegExpExecArray | null;
+  while ((match = claudePathRe.exec(component.content)) !== null) {
+    const dir = match[1]!;
+    const targetSlug = match[2]!;
+    const targetType = dirToComponentType(dir);
+    if (targetType) {
       edges.push({
         source: component.id,
         target: `${targetType}:${targetSlug}`,
@@ -390,33 +386,75 @@ function extractEdges(components: Component[]): DependencyEdge[] {
         broken: false,
       });
     }
+  }
+}
 
-    // Strategy 6: Inline Japanese references
-    //   "xxx エージェント" -> agent:xxx
-    //   "xxx スキル" -> skill:xxx
-    const agentInlineRe = /([a-z][-a-z0-9]+)\s+エージェント/g;
-    while ((match = agentInlineRe.exec(component.content)) !== null) {
-      const targetSlug = match[1]!;
-      // Skip self-references
-      if (`agent:${targetSlug}` === component.id) continue;
-      edges.push({
-        source: component.id,
-        target: `agent:${targetSlug}`,
-        type: "inline_ref",
-        broken: false,
-      });
-    }
+/** Strategy 5: .agents/ path references */
+function extractAgentsPaths(component: Component, edges: DependencyEdge[]): void {
+  const agentsPathRe =
+    /\.agents\/(skills|workflows)\/([a-zA-Z0-9][-a-zA-Z0-9_]*)/g;
+  let match: RegExpExecArray | null;
+  while ((match = agentsPathRe.exec(component.content)) !== null) {
+    const dir = match[1]!;
+    const targetSlug = match[2]!;
+    const targetType = dir === "workflows" ? "workflow" : "skill";
+    edges.push({
+      source: component.id,
+      target: `${targetType}:${targetSlug}`,
+      type: "path_ref",
+      broken: false,
+    });
+  }
+}
 
-    const skillInlineRe = /([a-z][-a-z0-9]+)\s+スキル/g;
-    while ((match = skillInlineRe.exec(component.content)) !== null) {
-      const targetSlug = match[1]!;
-      if (`skill:${targetSlug}` === component.id) continue;
-      edges.push({
-        source: component.id,
-        target: `skill:${targetSlug}`,
-        type: "inline_ref",
-        broken: false,
-      });
+/** Strategy 6: Inline Japanese references */
+function extractInlineRefs(component: Component, edges: DependencyEdge[]): void {
+  const agentInlineRe = /([a-z][-a-z0-9]+)\s+エージェント/g;
+  let match: RegExpExecArray | null;
+  while ((match = agentInlineRe.exec(component.content)) !== null) {
+    const targetSlug = match[1]!;
+    // Skip self-references
+    if (`agent:${targetSlug}` === component.id) continue;
+    edges.push({
+      source: component.id,
+      target: `agent:${targetSlug}`,
+      type: "inline_ref",
+      broken: false,
+    });
+  }
+
+  const skillInlineRe = /([a-z][-a-z0-9]+)\s+スキル/g;
+  while ((match = skillInlineRe.exec(component.content)) !== null) {
+    const targetSlug = match[1]!;
+    if (`skill:${targetSlug}` === component.id) continue;
+    edges.push({
+      source: component.id,
+      target: `skill:${targetSlug}`,
+      type: "inline_ref",
+      broken: false,
+    });
+  }
+}
+
+/** All edge extraction strategies, applied in order. */
+const EDGE_EXTRACTORS: EdgeExtractor[] = [
+  extractFrontmatterSkills,
+  extractSkillPreload,
+  extractSubagentRefs,
+  extractClaudePaths,
+  extractAgentsPaths,
+  extractInlineRefs,
+];
+
+/**
+ * Orchestrates all edge extraction strategies across all components.
+ */
+function extractEdges(components: Component[]): DependencyEdge[] {
+  const edges: DependencyEdge[] = [];
+
+  for (const component of components) {
+    for (const extractor of EDGE_EXTRACTORS) {
+      extractor(component, edges);
     }
   }
 

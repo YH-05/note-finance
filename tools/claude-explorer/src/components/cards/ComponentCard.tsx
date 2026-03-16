@@ -1,9 +1,8 @@
 /**
  * Dispatcher component — renders the correct card based on component type.
- *
- * Wraps each card in a clickable container that triggers the detail panel.
+ * Wrapped in React.memo for render optimization.
  */
-
+import { memo } from "react";
 import type { Component } from "@/types";
 import { AgentCard } from "./AgentCard";
 import { CommandCard } from "./CommandCard";
@@ -13,11 +12,10 @@ import { WorkflowCard } from "./WorkflowCard";
 
 interface ComponentCardProps {
   component: Component;
-  /** Callback when the card is clicked. */
   onSelect?: (id: string) => void;
 }
 
-function renderCard(component: Component) {
+function renderCard(component: Component): JSX.Element {
   switch (component.type) {
     case "agent":
       return <AgentCard component={component} />;
@@ -32,7 +30,7 @@ function renderCard(component: Component) {
   }
 }
 
-export function ComponentCard({ component, onSelect }: ComponentCardProps) {
+export const ComponentCard = memo(function ComponentCard({ component, onSelect }: ComponentCardProps): JSX.Element {
   return (
     <div
       role="button"
@@ -49,4 +47,4 @@ export function ComponentCard({ component, onSelect }: ComponentCardProps) {
       {renderCard(component)}
     </div>
   );
-}
+});

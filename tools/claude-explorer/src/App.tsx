@@ -10,7 +10,7 @@
  * - Filter: type + category + search results shared between both views
  */
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useGraphData } from "@/hooks/useGraphData";
 import { useFilter } from "@/hooks/useFilter";
 import { useSearch } from "@/hooks/useSearch";
@@ -69,13 +69,8 @@ function App() {
     setSelectedId(null);
   }, [setSelectedId]);
 
-  // Search input element captured via callback ref.
-  const [searchInputEl, setSearchInputEl] = useState<HTMLInputElement | null>(
-    null,
-  );
-  const searchInputRef = useCallback((el: HTMLInputElement | null) => {
-    setSearchInputEl(el);
-  }, []);
+  // Search input element captured via useRef.
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Keyboard shortcuts.
   useKeyboardShortcuts(
@@ -83,11 +78,11 @@ function App() {
       () => ({
         onClosePanel: handleClose,
         onFocusSearch: () => {
-          searchInputEl?.focus();
+          searchInputRef.current?.focus();
         },
         onViewModeChange: setViewMode,
       }),
-      [handleClose, setViewMode, searchInputEl],
+      [handleClose, setViewMode],
     ),
   );
 
