@@ -2,8 +2,8 @@
  * Root application component.
  *
  * Integrates the graph data, filter state, and all layout / grid components.
- * Manages the Grid/Graph view toggle (Graph view is a future placeholder)
- * and the detail panel selection state.
+ * Manages the Grid/Graph view toggle and the detail panel selection state.
+ * Filter state is shared between both views.
  */
 
 import { useCallback, useState } from "react";
@@ -13,6 +13,7 @@ import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { FilterBar } from "@/components/grid/FilterBar";
 import { CardGrid } from "@/components/grid/CardGrid";
+import { DependencyGraph } from "@/components/graph/DependencyGraph";
 import { DetailPanel } from "@/components/detail/DetailPanel";
 import type { ViewMode } from "@/lib/constants";
 
@@ -68,7 +69,7 @@ function App() {
           onResetFilters={resetFilters}
         />
 
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 flex flex-col overflow-hidden">
           <FilterBar
             activeTypes={activeTypes}
             onToggleType={toggleType}
@@ -76,15 +77,19 @@ function App() {
           />
 
           {viewMode === "grid" ? (
-            <CardGrid
-              components={filteredComponents}
-              onSelect={handleSelect}
-            />
+            <div className="flex-1 overflow-y-auto">
+              <CardGrid
+                components={filteredComponents}
+                onSelect={handleSelect}
+              />
+            </div>
           ) : (
-            <div className="flex items-center justify-center h-64">
-              <p className="text-gray-500">
-                Graph view will be available in a future release.
-              </p>
+            <div className="flex-1">
+              <DependencyGraph
+                components={filteredComponents}
+                edges={data.edges}
+                onNodeClick={handleSelect}
+              />
             </div>
           )}
         </main>
