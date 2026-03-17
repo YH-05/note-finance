@@ -7,6 +7,12 @@
 #   - Schema changes should be made here first, then applied to Neo4j
 #
 # Changelog:
+#   v2.2 (2026-03-17): Schema hygiene — added operational properties, expanded Source.source_type/Topic.category
+#     - Added: Source.command_source, Source.domain (operational tracking)
+#     - Added: Entity.entity_key, Topic.topic_key (MERGE composite keys)
+#     - Expanded: Source.source_type += blog
+#     - Expanded: Topic.category += content_planning, wealth-management, wealth
+#     - Deprecated: academic_finance theme (marginalrevolution removed from wealth targets)
 #   v2.1 (2026-03-17): Question node for knowledge gap structuring
 #     - Added: Question node with question_type (4 types) and priority/status
 #     - Added: ASKS_ABOUT (Question -> Entity), MOTIVATED_BY (Question -> Claim/Fact/Insight),
@@ -22,7 +28,7 @@
 #       - Insight node for AI-generated knowledge circulation
 #   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
-version: "2.1"
+version: "2.2"
 
 # ============================================================
 # Node Definitions
@@ -47,9 +53,17 @@ nodes:
       source_type:
         type: string
         required: true
-        enum: [web, news, pdf, original]
+        enum: [web, news, pdf, original, blog]
         indexed: true
-        description: "web=website, news=news article, pdf=report PDF, original=self-authored"
+        description: "web=website, news=news article, pdf=report PDF, original=self-authored, blog=wealth/finance blog"
+      command_source:
+        type: string
+        indexed: true
+        description: "Command that produced this source (e.g., 'topic-discovery', 'wealth-scrape')"
+      domain:
+        type: string
+        indexed: true
+        description: "Domain name of the source (e.g., 'ofdollarsanddata.com')"
       publisher:
         type: string
         indexed: true
@@ -228,6 +242,10 @@ nodes:
         type: string
         indexed: true
         description: "ISIN code (if applicable)"
+      entity_key:
+        type: string
+        unique: true
+        description: "Composite key for MERGE: {name}::{entity_type}"
 
   FinancialDataPoint:
     description: >
@@ -307,8 +325,12 @@ nodes:
         indexed: true
       category:
         type: string
-        enum: [macro, sector, stock, ai, finance, geopolitics, policy, valuation, earnings]
+        enum: [macro, sector, stock, ai, finance, geopolitics, policy, valuation, earnings, content_planning, "wealth-management", wealth]
         indexed: true
+      topic_key:
+        type: string
+        unique: true
+        description: "Composite key for MERGE: {name}::{category}"
 
   Stance:
     description: >
@@ -684,6 +706,9 @@ constraints:
   - label: Entity
     property: entity_id
     type: UNIQUE
+  - label: Entity
+    property: entity_key
+    type: UNIQUE
   - label: FinancialDataPoint
     property: datapoint_id
     type: UNIQUE
@@ -692,6 +717,9 @@ constraints:
     type: UNIQUE
   - label: Topic
     property: topic_id
+    type: UNIQUE
+  - label: Topic
+    property: topic_key
     type: UNIQUE
   - label: Insight
     property: insight_id

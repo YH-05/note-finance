@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "presets": [
         {
             "url": "https://www.getrichslowly.org/feed/",
@@ -20,18 +20,9 @@
             "note": "FIRE movement flagship blog"
         },
         {
-            "url": "https://www.bogleheads.org/forum/rss.php",
-            "title": "Bogleheads Forum",
-            "category": "data_driven_investing",
-            "fetch_interval": "daily",
-            "enabled": true,
-            "tier": 1,
-            "note": "Vanguard index investing community forum"
-        },
-        {
             "url": "https://thecollegeinvestor.com/feed/",
             "title": "The College Investor",
-            "category": "personal_finance",
+            "category": "financial_infrastructure",
             "fetch_interval": "daily",
             "enabled": true,
             "tier": 1,
@@ -92,15 +83,6 @@
             "note": "Millennial investing and dividend growth strategies"
         },
         {
-            "url": "https://marginalrevolution.com/marginalrevolution/feed",
-            "title": "Marginal Revolution",
-            "category": "academic_finance",
-            "fetch_interval": "daily",
-            "enabled": true,
-            "tier": 1,
-            "note": "Tyler Cowen & Alex Tabarrok economics blog; crawl-delay 600s"
-        },
-        {
             "url": "https://dividendgrowthstocks.com/feed/",
             "title": "Dividend Growth Investor",
             "category": "dividend_income",
@@ -128,13 +110,49 @@
             "note": "Sam Dogen's personal finance and real estate blog"
         },
         {
-            "url": "https://www.kiplinger.com/rss/wealth",
-            "title": "Kiplinger Wealth",
-            "category": "personal_finance",
+            "url": "https://ofdollarsanddata.com/feed/",
+            "title": "Of Dollars And Data",
+            "category": "data_driven_investing",
             "fetch_interval": "daily",
-            "enabled": false,
-            "tier": 3,
-            "note": "Kiplinger wealth management; Tier 3 requires Playwright scraping"
+            "enabled": true,
+            "tier": 1,
+            "note": "Nick Maggiulli's data-driven investing analysis (Ritholtz Wealth)"
+        },
+        {
+            "url": "https://www.physicianonfire.com/feed/",
+            "title": "Physician on FIRE",
+            "category": "fire_wealth_building",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 2,
+            "note": "High-income FIRE strategies, tax optimization, geographic arbitrage"
+        },
+        {
+            "url": "https://www.whitecoatinvestor.com/feed/",
+            "title": "The White Coat Investor",
+            "category": "financial_infrastructure",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 2,
+            "note": "High-income professional investing, tax and estate planning"
+        },
+        {
+            "url": "https://rationalwalk.com/feed/",
+            "title": "The Rational Walk",
+            "category": "data_driven_investing",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 2,
+            "note": "Value investing deep-dive analysis"
+        },
+        {
+            "url": "https://portfoliocharts.com/feed/",
+            "title": "Portfolio Charts",
+            "category": "data_driven_investing",
+            "fetch_interval": "weekly",
+            "enabled": true,
+            "tier": 2,
+            "note": "Asset allocation data visualization and backtesting"
         }
     ]
 }
