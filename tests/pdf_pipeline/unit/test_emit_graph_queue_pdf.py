@@ -567,7 +567,7 @@ class TestInferPeriodType:
 class TestNewRelations:
     """Tests for the 6 new v2 relation types."""
 
-    def test_正常系_全15種のリレーションキーが存在する(self) -> None:
+    def test_正常系_全16種のリレーションキーが存在する(self) -> None:
         data = _make_extraction_data(source_hash="hash1", include_datapoints=True)
         result = map_pdf_extraction(data)
 
@@ -587,6 +587,7 @@ class TestNewRelations:
             "on_entity",
             "based_on",
             "supersedes",
+            "causes",
         }
         assert set(result["relations"].keys()) == expected_keys
 

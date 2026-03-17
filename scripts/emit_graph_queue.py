@@ -1208,6 +1208,107 @@ def _build_supersedes_chain(
     return supersedes_rels
 
 
+_LABEL_MAP: dict[str, str] = {
+    "fact": "Fact",
+    "claim": "Claim",
+    "datapoint": "FinancialDataPoint",
+}
+"""Map from LLM-output type names to Neo4j node labels."""
+
+
+def _build_causal_links(
+    chunk: dict[str, Any],
+    facts: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+    datapoints: list[dict[str, Any]],
+    source_id: str,
+) -> list[dict[str, str]]:
+    """Build CAUSES relation dicts from causal_links in a chunk.
+
+    Resolves ``from_content``/``to_content`` to node IDs using a
+    content-to-ID mapping built from the chunk's own facts, claims,
+    and financial data points.  Unresolved references are logged as
+    warnings and skipped.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``causal_links[]``.
+    facts : list[dict[str, Any]]
+        Fact node dicts built from this chunk (with ``fact_id``, ``content``).
+    claims : list[dict[str, Any]]
+        Claim node dicts built from this chunk (with ``claim_id``, ``content``).
+    datapoints : list[dict[str, Any]]
+        DataPoint node dicts built from this chunk (with ``datapoint_id``,
+        ``metric_name``).
+    source_id : str
+        ID of the parent Source node.
+
+    Returns
+    -------
+    list[dict[str, str]]
+        CAUSES relation dicts with ``from_id``, ``to_id``, ``type``,
+        ``mechanism``, ``confidence``, ``source_id``, ``from_label``,
+        ``to_label``.
+    """
+    causal_links = chunk.get("causal_links", [])
+    if not causal_links:
+        return []
+
+    # Build content-to-ID mapping scoped to this chunk
+    content_to_id: dict[tuple[str, str], str] = {}
+    for f in facts:
+        content_to_id[("fact", f["content"])] = f["fact_id"]
+    for c in claims:
+        content_to_id[("claim", c["content"])] = c["claim_id"]
+    for dp in datapoints:
+        content_to_id[("datapoint", dp["metric_name"])] = dp["datapoint_id"]
+
+    causes_rels: list[dict[str, str]] = []
+    for link in causal_links:
+        from_type = link.get("from_type", "")
+        from_content = link.get("from_content", "")
+        to_type = link.get("to_type", "")
+        to_content = link.get("to_content", "")
+
+        from_id = content_to_id.get((from_type, from_content))
+        to_id = content_to_id.get((to_type, to_content))
+
+        if from_id is None:
+            logger.warning(
+                "Causal link from-node unresolved, skipping: type=%s content=%s",
+                from_type,
+                from_content[:80],
+            )
+            continue
+        if to_id is None:
+            logger.warning(
+                "Causal link to-node unresolved, skipping: type=%s content=%s",
+                to_type,
+                to_content[:80],
+            )
+            continue
+
+        rel: dict[str, str] = {
+            "from_id": from_id,
+            "to_id": to_id,
+            "type": "CAUSES",
+            "from_label": _LABEL_MAP.get(from_type, ""),
+            "to_label": _LABEL_MAP.get(to_type, ""),
+            "source_id": source_id,
+        }
+        mechanism = link.get("mechanism")
+        if mechanism:
+            rel["mechanism"] = mechanism
+        confidence = link.get("confidence")
+        if confidence:
+            rel["confidence"] = confidence
+
+        causes_rels.append(rel)
+
+    return causes_rels
+
+
 def _extend_rels(
     target: dict[str, list[dict[str, str]]],
     updates: dict[str, list[dict[str, str]]],
@@ -1226,7 +1327,7 @@ def _extend_rels(
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 15 relation keys."""
+    """Return an empty relations dict with all 16 relation keys."""
     return {
         "source_fact": [],
         "source_claim": [],
@@ -1243,6 +1344,7 @@ def _empty_rels() -> dict[str, list[dict[str, str]]]:
         "on_entity": [],
         "based_on": [],
         "supersedes": [],
+        "causes": [],
     }
 
 
@@ -1311,6 +1413,8 @@ def _process_chunk(
         chunk, entity_name_to_id, seen_author_keys, author_name_to_id
     )
 
+    causes = _build_causal_links(chunk, facts, claims, dps, source_id)
+
     rels: dict[str, list[dict[str, str]]] = {
         "contains_chunk": cc_rels,
         "source_fact": sf,
@@ -1325,6 +1429,7 @@ def _process_chunk(
         "holds_stance": hs,
         "on_entity": oe,
         "based_on": bo,
+        "causes": causes,
     }
 
     return {
@@ -1364,7 +1469,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 15 relation types).
+        Graph-queue components (nodes + 16 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")

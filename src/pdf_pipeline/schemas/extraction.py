@@ -1,7 +1,7 @@
 """Pydantic schema definitions for knowledge extraction from PDF chunks.
 
-Defines Entity, Fact, Claim, FinancialDataPoint, and Stance models for
-structured knowledge extraction from text chunks, and envelope models for
+Defines Entity, Fact, Claim, FinancialDataPoint, Stance, and CausalLink models
+for structured knowledge extraction from text chunks, and envelope models for
 chunk-level and document-level results.
 
 Classes
@@ -16,6 +16,8 @@ ExtractedFinancialDataPoint
     A structured numerical data point extracted from tables or text.
 ExtractedStance
     An analyst investment stance (rating + target price + sentiment).
+ExtractedCausalLink
+    A causal relationship between Fact/Claim/FinancialDataPoint nodes.
 ChunkExtractionResult
     Extraction result for a single chunk.
 DocumentExtractionResult
@@ -330,6 +332,60 @@ class ExtractedStance(BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# ExtractedCausalLink
+# ---------------------------------------------------------------------------
+
+
+class ExtractedCausalLink(BaseModel):
+    """A causal relationship between Fact/Claim/FinancialDataPoint nodes.
+
+    References from/to nodes by their content text (resolved to IDs at
+    graph-queue emission time within chunk scope).
+
+    Attributes
+    ----------
+    from_type : str
+        Type of the cause node (``fact``, ``claim``, or ``datapoint``).
+    from_content : str
+        Content string of the cause node (used for chunk-scope ID resolution).
+    to_type : str
+        Type of the effect node (``fact``, ``claim``, or ``datapoint``).
+    to_content : str
+        Content string of the effect node (used for chunk-scope ID resolution).
+    mechanism : str | None
+        Description of the causal mechanism.
+    confidence : str | None
+        Confidence level of the causal link (``high``, ``medium``, ``low``).
+
+    Examples
+    --------
+    >>> link = ExtractedCausalLink(
+    ...     from_type="fact",
+    ...     from_content="Revenue grew 15%",
+    ...     to_type="claim",
+    ...     to_content="Stock will rise",
+    ... )
+    >>> link.from_type
+    'fact'
+    """
+
+    from_type: Literal["fact", "claim", "datapoint"] = Field(
+        description="Type of the cause node"
+    )
+    from_content: str = Field(min_length=1, description="Content of the cause node")
+    to_type: Literal["fact", "claim", "datapoint"] = Field(
+        description="Type of the effect node"
+    )
+    to_content: str = Field(min_length=1, description="Content of the effect node")
+    mechanism: str | None = Field(
+        default=None, description="Description of the causal mechanism"
+    )
+    confidence: Literal["high", "medium", "low"] | None = Field(
+        default=None, description="Confidence level of the causal link"
+    )
+
+
+# ---------------------------------------------------------------------------
 # ChunkExtractionResult
 # ---------------------------------------------------------------------------
 
@@ -353,6 +409,8 @@ class ChunkExtractionResult(BaseModel):
         Financial data points extracted from this chunk.
     stances : list[ExtractedStance]
         Analyst investment stances extracted from this chunk.
+    causal_links : list[ExtractedCausalLink]
+        Causal relationships between nodes in this chunk.
 
     Examples
     --------
@@ -360,6 +418,8 @@ class ChunkExtractionResult(BaseModel):
     >>> r.entities
     []
     >>> r.stances
+    []
+    >>> r.causal_links
     []
     """
 
@@ -379,6 +439,9 @@ class ChunkExtractionResult(BaseModel):
     )
     stances: list[ExtractedStance] = Field(
         default_factory=list, description="Extracted analyst investment stances"
+    )
+    causal_links: list[ExtractedCausalLink] = Field(
+        default_factory=list, description="Causal relationships between nodes"
     )
 
 

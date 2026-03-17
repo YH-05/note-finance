@@ -1024,6 +1024,129 @@ SET r.superseded_at = CASE
     END
 ```
 
+### Wave 2 リレーション投入
+
+```cypher
+-- CAUSES: Fact/Claim/FinancialDataPoint -> Fact/Claim/FinancialDataPoint
+-- Neo4j CE ではリレーションの from/to に複数ラベルを指定できないため、
+-- from_label / to_label プロパティでラベルを分岐して MATCH する。
+
+-- CAUSES (from: Fact)
+UNWIND $causes AS rel
+WITH rel WHERE rel.from_label = 'Fact'
+CALL {
+  WITH rel
+  MATCH (f:Fact {fact_id: rel.from_id})
+  WITH f, rel
+  // to_label 分岐
+  CALL {
+    WITH f, rel
+    WITH f, rel WHERE rel.to_label = 'Fact'
+    MATCH (t:Fact {fact_id: rel.to_id})
+    MERGE (f)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH f, rel WHERE rel.to_label = 'Claim'
+    MATCH (t:Claim {claim_id: rel.to_id})
+    MERGE (f)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH f, rel WHERE rel.to_label = 'FinancialDataPoint'
+    MATCH (t:FinancialDataPoint {datapoint_id: rel.to_id})
+    MERGE (f)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+  }
+}
+
+-- CAUSES (from: Claim)
+UNWIND $causes AS rel
+WITH rel WHERE rel.from_label = 'Claim'
+CALL {
+  WITH rel
+  MATCH (c:Claim {claim_id: rel.from_id})
+  WITH c, rel
+  CALL {
+    WITH c, rel
+    WITH c, rel WHERE rel.to_label = 'Fact'
+    MATCH (t:Fact {fact_id: rel.to_id})
+    MERGE (c)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH c, rel WHERE rel.to_label = 'Claim'
+    MATCH (t:Claim {claim_id: rel.to_id})
+    MERGE (c)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH c, rel WHERE rel.to_label = 'FinancialDataPoint'
+    MATCH (t:FinancialDataPoint {datapoint_id: rel.to_id})
+    MERGE (c)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+  }
+}
+
+-- CAUSES (from: FinancialDataPoint)
+UNWIND $causes AS rel
+WITH rel WHERE rel.from_label = 'FinancialDataPoint'
+CALL {
+  WITH rel
+  MATCH (dp:FinancialDataPoint {datapoint_id: rel.from_id})
+  WITH dp, rel
+  CALL {
+    WITH dp, rel
+    WITH dp, rel WHERE rel.to_label = 'Fact'
+    MATCH (t:Fact {fact_id: rel.to_id})
+    MERGE (dp)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH dp, rel WHERE rel.to_label = 'Claim'
+    MATCH (t:Claim {claim_id: rel.to_id})
+    MERGE (dp)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH dp, rel WHERE rel.to_label = 'FinancialDataPoint'
+    MATCH (t:FinancialDataPoint {datapoint_id: rel.to_id})
+    MERGE (dp)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+  }
+}
+```
+
 ### source_type の推論
 
 `command_source` から `source_type` を推論:

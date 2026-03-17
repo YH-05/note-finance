@@ -540,6 +540,31 @@ relationships:
         type: datetime
         description: "When the old stance was superseded"
 
+  # Causal chain (Wave 2)
+  CAUSES:
+    from: [Fact, Claim, FinancialDataPoint]
+    to: [Fact, Claim, FinancialDataPoint]
+    description: "Causal relationship between knowledge nodes (e.g., fact A causes claim B)"
+    properties:
+      mechanism:
+        type: string
+        description: "How/why the cause leads to the effect (e.g., 'revenue growth drives stock price')"
+      confidence:
+        type: string
+        enum: [high, medium, low]
+        description: "Confidence level of the causal link"
+      source_id:
+        type: string
+        description: "Source document that states this causal relationship"
+      from_label:
+        type: string
+        enum: [Fact, Claim, FinancialDataPoint]
+        description: "Label of the from-node (Neo4j CE workaround for multi-label MATCH)"
+      to_label:
+        type: string
+        enum: [Fact, Claim, FinancialDataPoint]
+        description: "Label of the to-node (Neo4j CE workaround for multi-label MATCH)"
+
 # ============================================================
 # Constraints & Indices (for neo4j-pdf-constraints.cypher)
 # ============================================================

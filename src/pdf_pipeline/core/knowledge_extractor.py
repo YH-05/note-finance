@@ -99,6 +99,16 @@ Output format (must be valid JSON, no explanation):
       "as_of_date": "<date or null>",
       "based_on_claims": ["<claim content string>"]
     }
+  ],
+  "causal_links": [
+    {
+      "from_type": "<fact|claim|datapoint>",
+      "from_content": "<exact content string of the cause node from facts/claims/financial_datapoints above>",
+      "to_type": "<fact|claim|datapoint>",
+      "to_content": "<exact content string of the effect node from facts/claims/financial_datapoints above>",
+      "mechanism": "<description of how/why the cause leads to the effect, or null>",
+      "confidence": "<high|medium|low or null>"
+    }
   ]
 }
 
@@ -110,6 +120,7 @@ Rules:
 - For claims: set magnitude to indicate conviction strength, include target_price/rating/time_horizon when available.
 - For financial_datapoints: extract structured numerical data from tables and text. Set is_estimate to true for forecasts.
 - For stances: extract analyst investment stances (rating + target price + sentiment) when an analyst or institution expresses a view on a specific entity. Include author_name (analyst/institution) and entity_name (target). Use based_on_claims to link stance to relevant claim content strings.
+- For causal_links: identify cause-effect relationships between facts, claims, and financial data points within this chunk. Use exact content strings from the extracted nodes above for from_content/to_content. For datapoints, use metric_name as the content key.
 
 Text:
 """

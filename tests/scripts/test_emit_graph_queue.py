@@ -21,6 +21,7 @@ from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
+    _build_causal_links,
     _build_stance_nodes,
     _build_supersedes_chain,
     _infer_period_type,
@@ -34,6 +35,7 @@ from emit_graph_queue import (
     generate_claim_id,
     generate_datapoint_id,
     generate_entity_id,
+    generate_fact_id,
     generate_queue_id,
     generate_source_id,
     generate_topic_id,
@@ -3315,6 +3317,230 @@ class TestMapPdfExtractionWithStances:
         assert supersedes["type"] == "SUPERSEDES"
         # Newer (March) supersedes older (January)
         assert supersedes["superseded_at"] == "2026-03-15"
+
+
+# ---------------------------------------------------------------------------
+# _build_causal_links
+# ---------------------------------------------------------------------------
+
+
+def _causal_chunk(
+    *,
+    facts: list[dict[str, Any]] | None = None,
+    claims: list[dict[str, Any]] | None = None,
+    financial_datapoints: list[dict[str, Any]] | None = None,
+    causal_links: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build a chunk dict with causal links for testing."""
+    if facts is None:
+        facts = [
+            {
+                "content": "Revenue grew 15% YoY",
+                "fact_type": "statistic",
+            },
+        ]
+    if claims is None:
+        claims = [
+            {
+                "content": "Stock will outperform the market",
+                "claim_type": "prediction",
+                "sentiment": "bullish",
+            },
+        ]
+    if financial_datapoints is None:
+        financial_datapoints = [
+            {
+                "metric_name": "Revenue",
+                "value": 1000.0,
+                "unit": "USD mn",
+                "is_estimate": False,
+                "period_label": "FY2025",
+            },
+        ]
+    if causal_links is None:
+        causal_links = [
+            {
+                "from_type": "fact",
+                "from_content": "Revenue grew 15% YoY",
+                "to_type": "claim",
+                "to_content": "Stock will outperform the market",
+                "mechanism": "strong revenue growth drives bullish outlook",
+                "confidence": "high",
+            },
+        ]
+    return {
+        "chunk_index": 0,
+        "content": "Financial analysis text.",
+        "facts": facts,
+        "claims": claims,
+        "financial_datapoints": financial_datapoints,
+        "causal_links": causal_links,
+    }
+
+
+class TestBuildCausalLinks:
+    """_build_causal_links 関数のテスト。"""
+
+    def test_正常系_fact_to_claimのCAUSESが生成される(self) -> None:
+        """受け入れ条件: Fact -> Claim の CAUSES リレーションが生成されること。"""
+        chunk = _causal_chunk()
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims = [
+            {
+                "claim_id": generate_claim_id("Stock will outperform the market"),
+                "content": "Stock will outperform the market",
+            }
+        ]
+        datapoints: list[dict[str, Any]] = []
+        source_id = generate_source_id("pdf:testhash")
+
+        rels = _build_causal_links(chunk, facts, claims, datapoints, source_id)
+
+        assert len(rels) == 1
+        assert rels[0]["type"] == "CAUSES"
+        assert rels[0]["from_id"] == facts[0]["fact_id"]
+        assert rels[0]["to_id"] == claims[0]["claim_id"]
+        assert rels[0]["from_label"] == "Fact"
+        assert rels[0]["to_label"] == "Claim"
+        assert rels[0]["mechanism"] == "strong revenue growth drives bullish outlook"
+        assert rels[0]["confidence"] == "high"
+        assert rels[0]["source_id"] == source_id
+
+    def test_正常系_datapoint_to_factのCAUSESが生成される(self) -> None:
+        """受け入れ条件: FinancialDataPoint -> Fact の CAUSES が生成されること。"""
+        chunk = _causal_chunk(
+            causal_links=[
+                {
+                    "from_type": "datapoint",
+                    "from_content": "Revenue",
+                    "to_type": "fact",
+                    "to_content": "Revenue grew 15% YoY",
+                    "mechanism": "data supports the fact",
+                    "confidence": "medium",
+                },
+            ],
+        )
+        source_hash = "testhash"
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims: list[dict[str, Any]] = []
+        datapoints = [
+            {
+                "datapoint_id": generate_datapoint_id(source_hash, "Revenue", "FY2025"),
+                "metric_name": "Revenue",
+            }
+        ]
+        source_id = generate_source_id(f"pdf:{source_hash}")
+
+        rels = _build_causal_links(chunk, facts, claims, datapoints, source_id)
+
+        assert len(rels) == 1
+        assert rels[0]["from_label"] == "FinancialDataPoint"
+        assert rels[0]["to_label"] == "Fact"
+        assert rels[0]["from_id"] == datapoints[0]["datapoint_id"]
+        assert rels[0]["to_id"] == facts[0]["fact_id"]
+
+    def test_正常系_未解決参照がwarningでスキップされる(self) -> None:
+        """受け入れ条件: 未解決参照がwarningログ後にスキップされること。"""
+        chunk = _causal_chunk(
+            causal_links=[
+                {
+                    "from_type": "fact",
+                    "from_content": "Nonexistent fact content",
+                    "to_type": "claim",
+                    "to_content": "Stock will outperform the market",
+                },
+            ],
+        )
+        facts: list[dict[str, Any]] = []
+        claims = [
+            {
+                "claim_id": generate_claim_id("Stock will outperform the market"),
+                "content": "Stock will outperform the market",
+            }
+        ]
+        datapoints: list[dict[str, Any]] = []
+        source_id = generate_source_id("pdf:testhash")
+
+        rels = _build_causal_links(chunk, facts, claims, datapoints, source_id)
+
+        assert len(rels) == 0
+
+    def test_エッジケース_空causal_linksで空結果(self) -> None:
+        """causal_links が空の場合に空のリストを返す。"""
+        chunk = _causal_chunk(causal_links=[])
+        rels = _build_causal_links(chunk, [], [], [], "src-id")
+        assert rels == []
+
+
+# ---------------------------------------------------------------------------
+# map_pdf_extraction: CAUSES 統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestMapPdfExtractionWithCausalLinks:
+    """map_pdf_extraction での CAUSES 統合テスト。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_causal_linksがmap_pdf_extractionに統合される(self) -> None:
+        """causal_links を含む pdf-extraction データが正しくマッピングされること。"""
+        data = {
+            "session_id": "pdf-causal-test",
+            "source_hash": "causalhash123",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Revenue grew 15% YoY, driving bullish outlook.",
+                    "entities": [],
+                    "facts": [
+                        {
+                            "content": "Revenue grew 15% YoY",
+                            "fact_type": "statistic",
+                        },
+                    ],
+                    "claims": [
+                        {
+                            "content": "Stock will outperform the market",
+                            "claim_type": "prediction",
+                            "sentiment": "bullish",
+                            "about_entities": [],
+                        },
+                    ],
+                    "financial_datapoints": [],
+                    "stances": [],
+                    "causal_links": [
+                        {
+                            "from_type": "fact",
+                            "from_content": "Revenue grew 15% YoY",
+                            "to_type": "claim",
+                            "to_content": "Stock will outperform the market",
+                            "mechanism": "revenue growth drives bullish outlook",
+                            "confidence": "high",
+                        },
+                    ],
+                },
+            ],
+        }
+        result = map_pdf_extraction(data)
+
+        # CAUSES relations present
+        rels = result["relations"]
+        assert "causes" in rels
+        assert len(rels["causes"]) == 1
+        assert rels["causes"][0]["type"] == "CAUSES"
+        assert rels["causes"][0]["from_label"] == "Fact"
+        assert rels["causes"][0]["to_label"] == "Claim"
+        assert rels["causes"][0]["mechanism"] == "revenue growth drives bullish outlook"
+        assert rels["causes"][0]["confidence"] == "high"
 
 
 # ---------------------------------------------------------------------------
