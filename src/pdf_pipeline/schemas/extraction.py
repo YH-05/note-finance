@@ -301,7 +301,7 @@ class ExtractedStance(BaseModel):
     'Buy'
     """
 
-    author_name: str = Field(min_length=1, description="Author name")
+    author_name: str = Field(min_length=1, max_length=500, description="Author name")
     author_type: Literal[
         "person",
         "sell_side",
@@ -310,8 +310,12 @@ class ExtractedStance(BaseModel):
         "media",
         "self",
     ] = Field(description="Author type")
-    organization: str | None = Field(default=None, description="Organization name")
-    entity_name: str = Field(min_length=1, description="Target entity name")
+    organization: str | None = Field(
+        default=None, max_length=500, description="Author's organization"
+    )
+    entity_name: str = Field(
+        min_length=1, max_length=500, description="Target entity name"
+    )
     rating: str | None = Field(
         default=None,
         max_length=50,
@@ -322,7 +326,10 @@ class ExtractedStance(BaseModel):
     )
     target_price: float | None = Field(default=None, description="Target price value")
     target_price_currency: str | None = Field(
-        default=None, description="ISO 4217 currency code for target price"
+        default=None,
+        max_length=3,
+        pattern=r"^[A-Z]{3}$",
+        description="ISO 4217 currency code for target price",
     )
     as_of_date: str | None = Field(
         default=None, description="Date the stance was expressed"

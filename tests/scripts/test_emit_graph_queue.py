@@ -2975,9 +2975,11 @@ class TestBuildStanceNodes:
         seen_authors: set[str] = set()
         author_to_id: dict[str, str] = {}
 
-        stances, authors, _hs, _oe, _bo = _build_stance_nodes(
+        result = _build_stance_nodes(
             chunk, entity_name_to_id, seen_authors, author_to_id
         )
+        stances = result["stances"]
+        authors = result["authors"]
 
         assert len(stances) == 1
         assert stances[0]["rating"] == "Buy"
@@ -2998,9 +3000,12 @@ class TestBuildStanceNodes:
         seen_authors: set[str] = set()
         author_to_id: dict[str, str] = {}
 
-        stances, authors, hs, _oe, _bo = _build_stance_nodes(
+        result = _build_stance_nodes(
             chunk, entity_name_to_id, seen_authors, author_to_id
         )
+        stances = result["stances"]
+        authors = result["authors"]
+        hs = result["holds_stance"]
 
         assert len(hs) == 1
         assert hs[0]["type"] == "HOLDS_STANCE"
@@ -3015,9 +3020,11 @@ class TestBuildStanceNodes:
         seen_authors: set[str] = set()
         author_to_id: dict[str, str] = {}
 
-        stances, _authors, _hs, oe, _bo = _build_stance_nodes(
+        result = _build_stance_nodes(
             chunk, entity_name_to_id, seen_authors, author_to_id
         )
+        stances = result["stances"]
+        oe = result["on_entity"]
 
         assert len(oe) == 1
         assert oe[0]["type"] == "ON_ENTITY"
@@ -3031,9 +3038,11 @@ class TestBuildStanceNodes:
         seen_authors: set[str] = set()
         author_to_id: dict[str, str] = {}
 
-        stances, _authors, _hs, _oe, bo = _build_stance_nodes(
+        result = _build_stance_nodes(
             chunk, entity_name_to_id, seen_authors, author_to_id
         )
+        stances = result["stances"]
+        bo = result["based_on"]
 
         assert len(bo) == 1
         assert bo[0]["type"] == "BASED_ON"
@@ -3071,9 +3080,11 @@ class TestBuildStanceNodes:
         seen_authors: set[str] = set()
         author_to_id: dict[str, str] = {}
 
-        stances, authors, _hs, _oe, _bo = _build_stance_nodes(
+        result = _build_stance_nodes(
             chunk, entity_name_to_id, seen_authors, author_to_id
         )
+        stances = result["stances"]
+        authors = result["authors"]
 
         assert len(stances) == 2
         assert len(authors) == 1  # Deduplicated
@@ -3081,12 +3092,51 @@ class TestBuildStanceNodes:
     def test_エッジケース_空stancesで空結果(self) -> None:
         """stances が空の場合に空のリストを返す。"""
         chunk = _stance_chunk(stances=[], entities=[])
-        stances, authors, hs, oe, bo = _build_stance_nodes(chunk, {}, set(), {})
+        result = _build_stance_nodes(chunk, {}, set(), {})
+        stances = result["stances"]
+        authors = result["authors"]
+        hs = result["holds_stance"]
+        oe = result["on_entity"]
+        bo = result["based_on"]
         assert stances == []
         assert authors == []
         assert hs == []
         assert oe == []
         assert bo == []
+
+    def test_エッジケース_entity_nameが未解決でON_ENTITYがスキップされる(
+        self,
+    ) -> None:
+        """entity_name_to_id に存在しない entity_name を持つ stance は ON_ENTITY を生成しない。"""
+        chunk = _stance_chunk(
+            stances=[
+                {
+                    "author_name": "Goldman Sachs",
+                    "author_type": "sell_side",
+                    "entity_name": "UnknownCorp",  # not in entity_name_to_id
+                    "rating": "Buy",
+                    "as_of_date": "2026-03-15",
+                }
+            ],
+            entities=[],
+        )
+        # entity_name_to_id does NOT contain "UnknownCorp"
+        entity_name_to_id: dict[str, str] = {}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        result = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+        stances = result["stances"]
+        authors = result["authors"]
+        hs = result["holds_stance"]
+        oe = result["on_entity"]
+
+        assert len(stances) == 1
+        assert len(authors) == 1
+        assert len(hs) == 1  # HOLDS_STANCE is still generated
+        assert len(oe) == 0  # ON_ENTITY is skipped because entity_id is None
 
 
 # ---------------------------------------------------------------------------
@@ -3826,6 +3876,29 @@ class TestBuildTrendEdges:
         directions = {r["direction"] for r in rels}
         assert "up" in directions
         assert "down" in directions
+
+    def test_エッジケース_valueがNoneのデータポイントはスキップされる(self) -> None:
+        """value が None のデータポイントを含むペアは TREND エッジを生成しない。"""
+        dps = [
+            {
+                "datapoint_id": "dp1",
+                "metric_name": "Revenue",
+                "value": None,  # None value — should be skipped
+                "period_label": "FY2024",
+            },
+            self._make_dp("dp2", "Revenue", 120.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        # No TREND edge because prev_val is None
+        assert len(rels) == 0
 
 
 # ---------------------------------------------------------------------------

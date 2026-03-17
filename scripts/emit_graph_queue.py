@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import functools
+import hashlib
 import json
 import logging
 import os
@@ -49,9 +50,10 @@ import time
 import uuid
 from collections import defaultdict
 from collections.abc import Callable
+from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 from pdf_pipeline.services.id_generator import (
     generate_author_id,
@@ -65,6 +67,29 @@ from pdf_pipeline.services.id_generator import (
 )
 
 type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
+
+
+class StanceBuildResult(TypedDict):
+    """Result from _build_stance_nodes."""
+
+    stances: list[dict[str, Any]]
+    authors: list[dict[str, Any]]
+    holds_stance: list[dict[str, str]]
+    on_entity: list[dict[str, str]]
+    based_on: list[dict[str, str]]
+
+
+@dataclass
+class ChunkProcessingContext:
+    """Cross-chunk shared state for _process_chunk."""
+
+    seen_entity_keys: set[str] = field(default_factory=set)
+    entity_name_to_id: dict[str, str] = field(default_factory=dict)
+    entity_name_to_ticker: dict[str, str] = field(default_factory=dict)
+    seen_period_ids: set[str] = field(default_factory=set)
+    seen_author_keys: set[str] = field(default_factory=set)
+    author_name_to_id: dict[str, str] = field(default_factory=dict)
+
 
 # ---------------------------------------------------------------------------
 # Logger
@@ -1357,13 +1382,7 @@ def _build_stance_nodes(
     entity_name_to_id: dict[str, str],
     seen_author_keys: set[str],
     author_name_to_id: dict[str, str],
-) -> tuple[
-    list[dict[str, Any]],
-    list[dict[str, Any]],
-    list[dict[str, str]],
-    list[dict[str, str]],
-    list[dict[str, str]],
-]:
+) -> StanceBuildResult:
     """Build Stance and Author nodes with HOLDS_STANCE, ON_ENTITY, BASED_ON relations.
 
     Authors are deduplicated via *seen_author_keys* (``name:type``).
@@ -1456,7 +1475,13 @@ def _build_stance_nodes(
                 }
             )
 
-    return stances, authors, holds_stance_rels, on_entity_rels, based_on_rels
+    return StanceBuildResult(
+        stances=stances,
+        authors=authors,
+        holds_stance=holds_stance_rels,
+        on_entity=on_entity_rels,
+        based_on=based_on_rels,
+    )
 
 
 def _build_supersedes_chain(
@@ -1565,17 +1590,19 @@ def _build_causal_links(
         to_id = content_to_id.get((to_type, to_content))
 
         if from_id is None:
+            content_hash = hashlib.sha256(from_content.encode()).hexdigest()[:12]
             logger.warning(
-                "Causal link from-node unresolved, skipping: type=%s content=%s",
+                "Causal link from-node unresolved, skipping: type=%s content_hash=%s",
                 from_type,
-                from_content[:80],
+                content_hash,
             )
             continue
         if to_id is None:
+            content_hash = hashlib.sha256(to_content.encode()).hexdigest()[:12]
             logger.warning(
-                "Causal link to-node unresolved, skipping: type=%s content=%s",
+                "Causal link to-node unresolved, skipping: type=%s content_hash=%s",
                 to_type,
-                to_content[:80],
+                content_hash,
             )
             continue
 
@@ -1686,9 +1713,12 @@ def _build_question_nodes(
                     }
                 )
             else:
+                content_hash = hashlib.sha256(motivated_content.encode()).hexdigest()[
+                    :12
+                ]
                 logger.warning(
-                    "MOTIVATED_BY target unresolved, skipping: content=%s",
-                    motivated_content[:80],
+                    "MOTIVATED_BY target unresolved, skipping: content_hash=%s",
+                    content_hash,
                 )
 
     return questions, asks_about_rels, motivated_by_rels
@@ -1711,42 +1741,43 @@ def _extend_rels(
         target[key].extend(values)
 
 
-def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 20 relation keys."""
-    return {
-        "source_fact": [],
-        "source_claim": [],
-        "fact_entity": [],
-        "claim_entity": [],
-        "contains_chunk": [],
-        "extracted_from_fact": [],
-        "extracted_from_claim": [],
-        "has_datapoint": [],
-        "for_period": [],
-        "datapoint_entity": [],
-        "tagged": [],
-        "holds_stance": [],
-        "on_entity": [],
-        "based_on": [],
-        "supersedes": [],
-        "causes": [],
-        "next_period": [],
-        "trend": [],
-        "asks_about": [],
-        "motivated_by": [],
+RELATION_KEYS: frozenset[str] = frozenset(
+    {
+        "source_fact",
+        "source_claim",
+        "fact_entity",
+        "claim_entity",
+        "contains_chunk",
+        "extracted_from_fact",
+        "extracted_from_claim",
+        "has_datapoint",
+        "for_period",
+        "datapoint_entity",
+        "tagged",
+        "holds_stance",
+        "on_entity",
+        "based_on",
+        "supersedes",
+        "causes",
+        "next_period",
+        "trend",
+        "asks_about",
+        "motivated_by",
     }
+)
+"""All 20 relation keys in the graph-queue schema (v2.1)."""
+
+
+def _empty_rels() -> dict[str, list[dict[str, str]]]:
+    """Return an empty relations dict with all relation keys."""
+    return {k: [] for k in RELATION_KEYS}
 
 
 def _process_chunk(
     chunk: dict[str, Any],
     source_hash: str,
     source_id: str,
-    seen_entity_keys: set[str],
-    entity_name_to_id: dict[str, str],
-    entity_name_to_ticker: dict[str, str],
-    seen_period_ids: set[str],
-    seen_author_keys: set[str] | None = None,
-    author_name_to_id: dict[str, str] | None = None,
+    ctx: ChunkProcessingContext,
 ) -> dict[str, Any]:
     """Process a single chunk and return all node lists and relations.
 
@@ -1758,18 +1789,8 @@ def _process_chunk(
         SHA-256 hash of the source document.
     source_id : str
         ID of the parent Source node.
-    seen_entity_keys : set[str]
-        Cross-chunk entity dedup state (mutated in-place).
-    entity_name_to_id : dict[str, str]
-        Cross-chunk name-to-ID lookup (mutated in-place).
-    entity_name_to_ticker : dict[str, str]
-        Cross-chunk name-to-ticker lookup (mutated in-place).
-    seen_period_ids : set[str]
-        Cross-chunk period dedup state (mutated in-place).
-    seen_author_keys : set[str] | None
-        Cross-chunk author dedup state (mutated in-place).
-    author_name_to_id : dict[str, str] | None
-        Cross-chunk author name-to-ID lookup (mutated in-place).
+    ctx : ChunkProcessingContext
+        Cross-chunk shared state (mutated in-place).
 
     Returns
     -------
@@ -1778,37 +1799,37 @@ def _process_chunk(
         ``datapoints``, ``periods``, ``stances``, ``authors``,
         ``questions``, and ``rels``.
     """
-    if seen_author_keys is None:
-        seen_author_keys = set()
-    if author_name_to_id is None:
-        author_name_to_id = {}
-
     chunk_node, chunk_id, cc_rels = _build_chunk_nodes(chunk, source_hash, source_id)
 
     entities = _build_entity_nodes(
-        chunk, seen_entity_keys, entity_name_to_id, entity_name_to_ticker
+        chunk, ctx.seen_entity_keys, ctx.entity_name_to_id, ctx.entity_name_to_ticker
     )
 
-    facts, sf, ef, fe = _build_fact_nodes(chunk, source_id, chunk_id, entity_name_to_id)
+    facts, sf, ef, fe = _build_fact_nodes(
+        chunk, source_id, chunk_id, ctx.entity_name_to_id
+    )
     claims, sc, ec, ce = _build_claim_nodes(
-        chunk, source_id, chunk_id, entity_name_to_id
+        chunk, source_id, chunk_id, ctx.entity_name_to_id
     )
     dps, hd, de, dp_id_map = _build_datapoint_nodes(
-        chunk, source_hash, source_id, entity_name_to_id
+        chunk, source_hash, source_id, ctx.entity_name_to_id
     )
     periods, fp = _derive_fiscal_periods(
-        chunk, entity_name_to_ticker, seen_period_ids, dp_id_map
+        chunk, ctx.entity_name_to_ticker, ctx.seen_period_ids, dp_id_map
     )
-    chunk_stances, chunk_authors, holds_stance_rels, on_entity_rels, based_on_rels = (
-        _build_stance_nodes(
-            chunk, entity_name_to_id, seen_author_keys, author_name_to_id
-        )
+    stance_result = _build_stance_nodes(
+        chunk, ctx.entity_name_to_id, ctx.seen_author_keys, ctx.author_name_to_id
     )
+    chunk_stances = stance_result["stances"]
+    chunk_authors = stance_result["authors"]
+    holds_stance_rels = stance_result["holds_stance"]
+    on_entity_rels = stance_result["on_entity"]
+    based_on_rels = stance_result["based_on"]
 
     causes = _build_causal_links(chunk, facts, claims, dps, source_id)
 
     chunk_questions, asks_about_rels, motivated_by_rels = _build_question_nodes(
-        chunk, entity_name_to_id, facts, claims
+        chunk, ctx.entity_name_to_id, facts, claims
     )
 
     rels: dict[str, list[dict[str, str]]] = {
@@ -1875,12 +1896,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     source_id = generate_source_id(f"pdf:{source_hash}")
     sources = [_make_source(f"pdf:{source_hash}", source_type="pdf")]
 
-    seen_entity_keys: set[str] = set()
-    seen_period_ids: set[str] = set()
-    seen_author_keys: set[str] = set()
-    entity_name_to_id: dict[str, str] = {}
-    entity_name_to_ticker: dict[str, str] = {}
-    author_name_to_id: dict[str, str] = {}
+    ctx = ChunkProcessingContext()
     nodes: dict[str, list[Any]] = {k: [] for k in _NODE_KEYS}
     rels = _empty_rels()
 
@@ -1889,12 +1905,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             chunk,
             source_hash,
             source_id,
-            seen_entity_keys,
-            entity_name_to_id,
-            entity_name_to_ticker,
-            seen_period_ids,
-            seen_author_keys,
-            author_name_to_id,
+            ctx,
         )
         for k in _NODE_KEYS:
             nodes[k].extend(chunk_result[k])
