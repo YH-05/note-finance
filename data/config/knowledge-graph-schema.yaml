@@ -261,6 +261,10 @@ nodes:
       currency:
         type: string
         description: "ISO 4217 currency code (e.g., 'IDR', 'USD')"
+      source_hash:
+        type: string
+        indexed: true
+        description: "SHA-256 hash of the source PDF — scopes TREND within a single report"
       created_at:
         type: datetime
         required: true

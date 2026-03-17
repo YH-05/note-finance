@@ -4484,3 +4484,62 @@ class TestBuildTrendEdgesWithMetricId:
         # dp3 is excluded
         assert edges[0]["from_id"] == "dp1"
         assert edges[0]["to_id"] == "dp2"
+
+    def test_正常系_異なるsource_hashは独立したTRENDグループ(self) -> None:
+        """異なる source_hash の DP は別グループとして TREND が分離されること。"""
+        periods = [
+            {"period_id": "ISAT_FY2024", "period_label": "FY2024"},
+            {"period_id": "ISAT_FY2025", "period_label": "FY2025"},
+        ]
+        datapoints = [
+            # Source A: IDR bn
+            {"datapoint_id": "dp_a1", "metric_name": "Revenue", "value": 55887,
+             "source_hash": "hash_hsbc"},
+            {"datapoint_id": "dp_a2", "metric_name": "Revenue", "value": 56518,
+             "source_hash": "hash_hsbc"},
+            # Source B: IDR (different unit, same metric_id after resolve)
+            {"datapoint_id": "dp_b1", "metric_name": "Revenue", "value": 150000000000000,
+             "source_hash": "hash_citi"},
+            {"datapoint_id": "dp_b2", "metric_name": "Revenue", "value": 155000000000000,
+             "source_hash": "hash_citi"},
+        ]
+        for_period = [
+            {"from_id": "dp_a1", "to_id": "ISAT_FY2024"},
+            {"from_id": "dp_a2", "to_id": "ISAT_FY2025"},
+            {"from_id": "dp_b1", "to_id": "ISAT_FY2024"},
+            {"from_id": "dp_b2", "to_id": "ISAT_FY2025"},
+        ]
+
+        edges = _build_trend_edges(datapoints, periods, for_period)
+
+        # 2 separate TREND edges (one per source), not cross-source
+        assert len(edges) == 2
+        edge_pairs = {(e["from_id"], e["to_id"]) for e in edges}
+        assert ("dp_a1", "dp_a2") in edge_pairs
+        assert ("dp_b1", "dp_b2") in edge_pairs
+
+        # HSBC: ~1.1% increase
+        hsbc_edge = next(e for e in edges if e["from_id"] == "dp_a1")
+        assert hsbc_edge["change_pct"] == pytest.approx(1.13, abs=0.01)
+
+        # Citi: ~3.3% increase
+        citi_edge = next(e for e in edges if e["from_id"] == "dp_b1")
+        assert citi_edge["change_pct"] == pytest.approx(3.33, abs=0.01)
+
+    def test_正常系_source_hashなしは同一グループ(self) -> None:
+        """source_hash が空/未設定の DP は従来通り同一グループになること。"""
+        periods = [
+            {"period_id": "ISAT_FY2024", "period_label": "FY2024"},
+            {"period_id": "ISAT_FY2025", "period_label": "FY2025"},
+        ]
+        datapoints = [
+            {"datapoint_id": "dp1", "metric_name": "Revenue", "value": 100},
+            {"datapoint_id": "dp2", "metric_name": "Revenue", "value": 120},
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025"},
+        ]
+
+        edges = _build_trend_edges(datapoints, periods, for_period)
+        assert len(edges) == 1

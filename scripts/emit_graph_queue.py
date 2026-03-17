@@ -693,10 +693,12 @@ def _build_trend_edges(
     for fp in fiscal_periods:
         period_to_label[fp["period_id"]] = fp.get("period_label", "")
 
-    # Group by (ticker_prefix, metric_key) — prefer metric_id over metric_name
-    groups: dict[tuple[str, str], list[tuple[dict[str, Any], str | None]]] = (
-        defaultdict(list)
-    )
+    # Group by (ticker_prefix, metric_key, source_hash) — Source-scoped TREND
+    # Each sell-side report's projections form a coherent time series;
+    # cross-report comparison is invalid due to unit/methodology differences.
+    groups: dict[
+        tuple[str, str, str], list[tuple[dict[str, Any], str | None]]
+    ] = defaultdict(list)
     for dp in financial_datapoints:
         dp_id = dp["datapoint_id"]
 
@@ -710,10 +712,11 @@ def _build_trend_edges(
         metric_id = resolve_metric_id(metric_name)
         # Use metric_id for grouping when available, fallback to metric_name
         metric_key = metric_id or metric_name
-        groups[(ticker_prefix, metric_key)].append((dp, metric_id))
+        src_hash = dp.get("source_hash", "")
+        groups[(ticker_prefix, metric_key, src_hash)].append((dp, metric_id))
 
     rels: list[dict[str, Any]] = []
-    for (_ticker, _metric_key), group in groups.items():
+    for (_ticker, _metric_key, _src), group in groups.items():
         # Sort by period chronology
         sorted_group = sorted(
             group,
@@ -1403,6 +1406,7 @@ def _build_datapoint_nodes(
                 "is_estimate": dp.get("is_estimate", False),
                 "currency": dp.get("currency"),
                 "period_label": period_label,
+                "source_hash": source_hash,
             }
         )
 

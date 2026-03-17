@@ -63,7 +63,8 @@ def _fetch_datapoints_with_periods(driver: GraphDatabase.driver) -> dict:
     MATCH (dp:FinancialDataPoint)
     RETURN dp.datapoint_id AS datapoint_id,
            dp.metric_name AS metric_name,
-           dp.value AS value
+           dp.value AS value,
+           dp.source_hash AS source_hash
     """
     fp_rel_query = """
     MATCH (dp:FinancialDataPoint)-[:FOR_PERIOD]->(fp:FiscalPeriod)
