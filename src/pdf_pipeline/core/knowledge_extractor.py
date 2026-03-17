@@ -85,6 +85,20 @@ Output format (must be valid JSON, no explanation):
       "period_label": "<e.g. FY2025|4Q25|1H26 or null>",
       "about_entities": ["<entity name>"]
     }
+  ],
+  "stances": [
+    {
+      "author_name": "<analyst or institution name>",
+      "author_type": "<person|sell_side|buy_side|consultant|media|self>",
+      "organization": "<organization name or null>",
+      "entity_name": "<target entity name>",
+      "rating": "<Buy|Hold|Sell|Overweight|Underweight or null>",
+      "sentiment": "<bullish|bearish|neutral|mixed or null>",
+      "target_price": <number or null>,
+      "target_price_currency": "<ISO 4217 code or null>",
+      "as_of_date": "<date or null>",
+      "based_on_claims": ["<claim content string>"]
+    }
   ]
 }
 
@@ -95,6 +109,7 @@ Rules:
 - Use entity names consistently in about_entities references.
 - For claims: set magnitude to indicate conviction strength, include target_price/rating/time_horizon when available.
 - For financial_datapoints: extract structured numerical data from tables and text. Set is_estimate to true for forecasts.
+- For stances: extract analyst investment stances (rating + target price + sentiment) when an analyst or institution expresses a view on a specific entity. Include author_name (analyst/institution) and entity_name (target). Use based_on_claims to link stance to relevant claim content strings.
 
 Text:
 """

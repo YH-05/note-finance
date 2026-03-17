@@ -53,11 +53,13 @@ from pathlib import Path
 from typing import Any
 
 from pdf_pipeline.services.id_generator import (
+    generate_author_id,
     generate_claim_id,
     generate_datapoint_id_from_fields,
     generate_entity_id,
     generate_fact_id,
     generate_source_id,
+    generate_stance_id,
 )
 
 type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
@@ -372,6 +374,8 @@ def _mapped_result(
     chunks: list[dict[str, Any]] | None = None,
     financial_datapoints: list[dict[str, Any]] | None = None,
     fiscal_periods: list[dict[str, Any]] | None = None,
+    authors: list[dict[str, Any]] | None = None,
+    stances: list[dict[str, Any]] | None = None,
     relations: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Build the standard mapper result dict.
@@ -383,7 +387,7 @@ def _mapped_result(
     batch_label : str
         Label for this batch.
     sources, topics, claims, facts, entities, chunks,
-    financial_datapoints, fiscal_periods : list[dict] | None
+    financial_datapoints, fiscal_periods, authors, stances : list[dict] | None
         Node lists (default to empty lists).
     relations : dict | None
         Relation dict (default to empty dict).
@@ -404,6 +408,8 @@ def _mapped_result(
         "chunks": chunks or [],
         "financial_datapoints": financial_datapoints or [],
         "fiscal_periods": fiscal_periods or [],
+        "authors": authors or [],
+        "stances": stances or [],
         "relations": relations or {},
     }
 
@@ -1052,6 +1058,156 @@ def _derive_fiscal_periods(
     return fiscal_periods, for_period_rels
 
 
+def _build_stance_nodes(
+    chunk: dict[str, Any],
+    entity_name_to_id: dict[str, str],
+    seen_author_keys: set[str],
+    author_name_to_id: dict[str, str],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+]:
+    """Build Stance and Author nodes with HOLDS_STANCE, ON_ENTITY, BASED_ON relations.
+
+    Authors are deduplicated via *seen_author_keys* (``name:type``).
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``stances[]``.
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup for entity resolution.
+    seen_author_keys : set[str]
+        Already-seen author keys for deduplication (mutated in-place).
+    author_name_to_id : dict[str, str]
+        Author name-to-ID lookup (mutated in-place).
+
+    Returns
+    -------
+    tuple
+        A 5-tuple of (stances, authors, holds_stance_rels,
+        on_entity_rels, based_on_rels).
+    """
+    stances: list[dict[str, Any]] = []
+    authors: list[dict[str, Any]] = []
+    holds_stance_rels: list[dict[str, str]] = []
+    on_entity_rels: list[dict[str, str]] = []
+    based_on_rels: list[dict[str, str]] = []
+
+    for stance in chunk.get("stances", []):
+        author_name = stance.get("author_name", "")
+        author_type = stance.get("author_type", "")
+        entity_name = stance.get("entity_name", "")
+        as_of_date = stance.get("as_of_date", "")
+
+        if not author_name or not entity_name:
+            continue
+
+        # Generate IDs
+        stance_id = generate_stance_id(author_name, entity_name, as_of_date or "")
+        author_id = generate_author_id(author_name, author_type)
+
+        # Deduplicate Author
+        author_key = f"{author_name}:{author_type}"
+        if author_key not in seen_author_keys:
+            seen_author_keys.add(author_key)
+            authors.append(
+                {
+                    "author_id": author_id,
+                    "name": author_name,
+                    "author_type": author_type,
+                    "organization": stance.get("organization"),
+                }
+            )
+        author_name_to_id[author_name] = author_id
+
+        # Build Stance node
+        stances.append(
+            {
+                "stance_id": stance_id,
+                "rating": stance.get("rating"),
+                "sentiment": stance.get("sentiment"),
+                "target_price": stance.get("target_price"),
+                "target_price_currency": stance.get("target_price_currency"),
+                "as_of_date": as_of_date,
+                "author_name": author_name,
+                "entity_name": entity_name,
+            }
+        )
+
+        # HOLDS_STANCE: Author -> Stance
+        holds_stance_rels.append(
+            {"from_id": author_id, "to_id": stance_id, "type": "HOLDS_STANCE"}
+        )
+
+        # ON_ENTITY: Stance -> Entity
+        entity_id = entity_name_to_id.get(entity_name)
+        if entity_id:
+            on_entity_rels.append(
+                {"from_id": stance_id, "to_id": entity_id, "type": "ON_ENTITY"}
+            )
+
+        # BASED_ON: Stance -> Claim (matched by content)
+        for claim_content in stance.get("based_on_claims", []):
+            claim_id = generate_claim_id(claim_content)
+            based_on_rels.append(
+                {
+                    "from_id": stance_id,
+                    "to_id": claim_id,
+                    "type": "BASED_ON",
+                    "role": "supporting",
+                }
+            )
+
+    return stances, authors, holds_stance_rels, on_entity_rels, based_on_rels
+
+
+def _build_supersedes_chain(
+    stances: list[dict[str, Any]],
+) -> list[dict[str, str]]:
+    """Build SUPERSEDES relations for stances sharing the same (author, entity).
+
+    Within each (author_name, entity_name) group, stances are sorted by
+    ``as_of_date`` ascending.  Each newer stance SUPERSEDES the previous one.
+
+    Parameters
+    ----------
+    stances : list[dict[str, Any]]
+        All Stance node dicts accumulated across chunks.
+
+    Returns
+    -------
+    list[dict[str, str]]
+        SUPERSEDES relation dicts (newer -> older).
+    """
+    from collections import defaultdict
+
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for stance in stances:
+        key = (stance.get("author_name", ""), stance.get("entity_name", ""))
+        groups[key].append(stance)
+
+    supersedes_rels: list[dict[str, str]] = []
+    for _key, group in groups.items():
+        sorted_group = sorted(group, key=lambda s: s.get("as_of_date", ""))
+        for i in range(1, len(sorted_group)):
+            newer = sorted_group[i]
+            older = sorted_group[i - 1]
+            supersedes_rels.append(
+                {
+                    "from_id": newer["stance_id"],
+                    "to_id": older["stance_id"],
+                    "type": "SUPERSEDES",
+                    "superseded_at": newer.get("as_of_date", ""),
+                }
+            )
+
+    return supersedes_rels
+
+
 def _extend_rels(
     target: dict[str, list[dict[str, str]]],
     updates: dict[str, list[dict[str, str]]],
@@ -1070,7 +1226,7 @@ def _extend_rels(
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 11 relation keys."""
+    """Return an empty relations dict with all 15 relation keys."""
     return {
         "source_fact": [],
         "source_claim": [],
@@ -1083,6 +1239,10 @@ def _empty_rels() -> dict[str, list[dict[str, str]]]:
         "for_period": [],
         "datapoint_entity": [],
         "tagged": [],
+        "holds_stance": [],
+        "on_entity": [],
+        "based_on": [],
+        "supersedes": [],
     }
 
 
@@ -1094,6 +1254,8 @@ def _process_chunk(
     entity_name_to_id: dict[str, str],
     entity_name_to_ticker: dict[str, str],
     seen_period_ids: set[str],
+    seen_author_keys: set[str] | None = None,
+    author_name_to_id: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Process a single chunk and return all node lists and relations.
 
@@ -1113,13 +1275,22 @@ def _process_chunk(
         Cross-chunk name-to-ticker lookup (mutated in-place).
     seen_period_ids : set[str]
         Cross-chunk period dedup state (mutated in-place).
+    seen_author_keys : set[str] | None
+        Cross-chunk author dedup state (mutated in-place).
+    author_name_to_id : dict[str, str] | None
+        Cross-chunk author name-to-ID lookup (mutated in-place).
 
     Returns
     -------
     dict[str, Any]
         Dict with keys ``chunks``, ``entities``, ``facts``, ``claims``,
-        ``datapoints``, ``periods``, and ``rels``.
+        ``datapoints``, ``periods``, ``stances``, ``authors``, and ``rels``.
     """
+    if seen_author_keys is None:
+        seen_author_keys = set()
+    if author_name_to_id is None:
+        author_name_to_id = {}
+
     chunk_node, chunk_id, cc_rels = _build_chunk_nodes(chunk, source_hash, source_id)
 
     entities = _build_entity_nodes(
@@ -1136,6 +1307,9 @@ def _process_chunk(
     periods, fp = _derive_fiscal_periods(
         chunk, entity_name_to_ticker, seen_period_ids, dp_id_map
     )
+    chunk_stances, chunk_authors, hs, oe, bo = _build_stance_nodes(
+        chunk, entity_name_to_id, seen_author_keys, author_name_to_id
+    )
 
     rels: dict[str, list[dict[str, str]]] = {
         "contains_chunk": cc_rels,
@@ -1148,6 +1322,9 @@ def _process_chunk(
         "has_datapoint": hd,
         "datapoint_entity": de,
         "for_period": fp,
+        "holds_stance": hs,
+        "on_entity": oe,
+        "based_on": bo,
     }
 
     return {
@@ -1157,11 +1334,22 @@ def _process_chunk(
         "claims": claims,
         "datapoints": dps,
         "periods": periods,
+        "stances": chunk_stances,
+        "authors": chunk_authors,
         "rels": rels,
     }
 
 
-_NODE_KEYS = ("entities", "facts", "claims", "chunks", "datapoints", "periods")
+_NODE_KEYS = (
+    "entities",
+    "facts",
+    "claims",
+    "chunks",
+    "datapoints",
+    "periods",
+    "stances",
+    "authors",
+)
 """Keys shared between _process_chunk output and the node accumulator."""
 
 
@@ -1176,7 +1364,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 11 relation types).
+        Graph-queue components (nodes + 15 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")
@@ -1184,8 +1372,10 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
 
     seen_entities: set[str] = set()
     seen_periods: set[str] = set()
+    seen_authors: set[str] = set()
     name_to_id: dict[str, str] = {}
     name_to_ticker: dict[str, str] = {}
+    author_to_id: dict[str, str] = {}
     nodes: dict[str, list[Any]] = {k: [] for k in _NODE_KEYS}
     rels = _empty_rels()
 
@@ -1198,10 +1388,16 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             name_to_id,
             name_to_ticker,
             seen_periods,
+            seen_authors,
+            author_to_id,
         )
         for k in _NODE_KEYS:
             nodes[k].extend(chunk_result[k])
         _extend_rels(rels, chunk_result["rels"])
+
+    # Build SUPERSEDES chain across all chunks
+    supersedes = _build_supersedes_chain(nodes["stances"])
+    rels["supersedes"].extend(supersedes)
 
     return _mapped_result(
         data,
@@ -1213,6 +1409,8 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
         chunks=nodes["chunks"],
         financial_datapoints=nodes["datapoints"],
         fiscal_periods=nodes["periods"],
+        authors=nodes["authors"],
+        stances=nodes["stances"],
         relations=rels,
     )
 
@@ -2282,6 +2480,8 @@ def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
         "chunks": mapped.get("chunks", []),
         "financial_datapoints": mapped.get("financial_datapoints", []),
         "fiscal_periods": mapped.get("fiscal_periods", []),
+        "authors": mapped.get("authors", []),
+        "stances": mapped.get("stances", []),
         "relations": mapped.get("relations", {}),
     }
 

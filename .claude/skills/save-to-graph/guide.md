@@ -961,6 +961,69 @@ SET s.url = src.url,
     s.command_source = src.command_source
 ```
 
+### Author バッチ投入 [Wave 1 新規]
+
+```cypher
+-- Author バッチ投入
+UNWIND $authors AS author
+MERGE (a:Author {author_id: author.author_id})
+SET a.name = author.name,
+    a.author_type = author.author_type,
+    a.organization = author.organization
+```
+
+### Stance バッチ投入 [Wave 1 新規]
+
+```cypher
+-- Stance バッチ投入
+UNWIND $stances AS stance
+MERGE (st:Stance {stance_id: stance.stance_id})
+SET st.rating = stance.rating,
+    st.sentiment = stance.sentiment,
+    st.target_price = stance.target_price,
+    st.target_price_currency = stance.target_price_currency,
+    st.as_of_date = CASE
+        WHEN stance.as_of_date IS NOT NULL AND stance.as_of_date <> ''
+        THEN date(stance.as_of_date)
+        ELSE null
+    END,
+    st.created_at = datetime()
+```
+
+### Wave 1 リレーション投入
+
+```cypher
+-- HOLDS_STANCE: Author -> Stance
+UNWIND $holds_stance AS rel
+MATCH (a:Author {author_id: rel.from_id})
+MATCH (st:Stance {stance_id: rel.to_id})
+MERGE (a)-[:HOLDS_STANCE]->(st)
+
+-- ON_ENTITY: Stance -> Entity
+UNWIND $on_entity AS rel
+MATCH (st:Stance {stance_id: rel.from_id})
+MATCH (e:Entity {entity_id: rel.to_id})
+MERGE (st)-[:ON_ENTITY]->(e)
+
+-- BASED_ON: Stance -> Claim
+UNWIND $based_on AS rel
+MATCH (st:Stance {stance_id: rel.from_id})
+MATCH (c:Claim {claim_id: rel.to_id})
+MERGE (st)-[r:BASED_ON]->(c)
+SET r.role = rel.role
+
+-- SUPERSEDES: Stance -> Stance (newer supersedes older)
+UNWIND $supersedes AS rel
+MATCH (newer:Stance {stance_id: rel.from_id})
+MATCH (older:Stance {stance_id: rel.to_id})
+MERGE (newer)-[r:SUPERSEDES]->(older)
+SET r.superseded_at = CASE
+        WHEN rel.superseded_at IS NOT NULL AND rel.superseded_at <> ''
+        THEN datetime(rel.superseded_at)
+        ELSE datetime()
+    END
+```
+
 ### source_type の推論
 
 `command_source` から `source_type` を推論:

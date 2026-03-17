@@ -212,7 +212,7 @@ class MarkdownChunker:
             Heading title without the ``#`` prefix characters,
             or ``None`` if the section has no heading.
         """
-        first_line = section_text.split("\n")[0]
+        first_line = section_text.split("\n", maxsplit=1)[0]
         match = _HEADING_PATTERN.match(first_line)
         if match:
             return match.group(2).strip()

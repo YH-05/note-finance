@@ -302,6 +302,39 @@ nodes:
         enum: [macro, sector, stock, ai, finance, geopolitics, policy, valuation, earnings]
         indexed: true
 
+  Stance:
+    description: >
+      Analyst investment stance snapshot (Rating + TP + Sentiment).
+      Tracked per Author per Entity over time via SUPERSEDES chain.
+    properties:
+      stance_id:
+        type: string
+        unique: true
+        required: true
+        description: "Deterministic UUID5(author:entity:date)"
+      rating:
+        type: string
+        indexed: true
+        description: "Rating label (e.g., Buy, Hold, Sell, Overweight)"
+      sentiment:
+        type: string
+        enum: [bullish, bearish, neutral, mixed]
+        indexed: true
+      target_price:
+        type: float
+        description: "Target price value"
+      target_price_currency:
+        type: string
+        description: "ISO 4217 currency code for target price (e.g., 'USD', 'IDR')"
+      as_of_date:
+        type: date
+        required: true
+        indexed: true
+        description: "Date the stance was expressed"
+      created_at:
+        type: datetime
+        required: true
+
   Insight:
     description: >
       AI-generated analytical output. Stores creative synthesis, contradiction detection,
@@ -478,6 +511,35 @@ relationships:
       reason:
         type: string
 
+  # Stance relationships (Wave 1)
+  HOLDS_STANCE:
+    from: Author
+    to: Stance
+    description: "Author holds/expressed this investment stance"
+
+  ON_ENTITY:
+    from: Stance
+    to: Entity
+    description: "Stance is about this entity (target company/index)"
+
+  BASED_ON:
+    from: Stance
+    to: Claim
+    description: "Stance is based on this claim (evidence link)"
+    properties:
+      role:
+        type: string
+        description: "Role of the claim (e.g., 'primary', 'supporting', 'contrasting')"
+
+  SUPERSEDES:
+    from: Stance
+    to: Stance
+    description: "This stance supersedes (replaces) the previous stance for the same (Author, Entity) pair"
+    properties:
+      superseded_at:
+        type: datetime
+        description: "When the old stance was superseded"
+
 # ============================================================
 # Constraints & Indices (for neo4j-pdf-constraints.cypher)
 # ============================================================
@@ -512,6 +574,9 @@ constraints:
   - label: Insight
     property: insight_id
     type: UNIQUE
+  - label: Stance
+    property: stance_id
+    type: UNIQUE
 
 indices:
   - label: Fact
@@ -540,6 +605,12 @@ indices:
     property: source_type
   - label: Source
     property: source_hash
+  - label: Stance
+    property: as_of_date
+  - label: Stance
+    property: rating
+  - label: Stance
+    property: sentiment
 
 # ============================================================
 # Namespace Definitions
@@ -558,6 +629,7 @@ namespaces:
       - FiscalPeriod
       - Topic
       - Insight
+      - Stance
     naming: PascalCase
 
   conversation:

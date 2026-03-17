@@ -270,6 +270,74 @@ def generate_entity_id(name: str, entity_type: str) -> str:
     return str(uuid.uuid5(uuid.NAMESPACE_URL, key))
 
 
+def generate_stance_id(author_name: str, entity_name: str, as_of_date: str) -> str:
+    """Generate a deterministic stance ID from author, entity, and date.
+
+    Uses UUID5 with NAMESPACE_URL to produce the same ID for the same
+    ``(author_name, entity_name, as_of_date)`` triple.
+
+    Parameters
+    ----------
+    author_name : str
+        Author name (e.g., "Goldman Sachs").
+    entity_name : str
+        Entity name (e.g., "Apple").
+    as_of_date : str
+        Date string (e.g., "2026-03-15").
+
+    Returns
+    -------
+    str
+        UUID5 string derived from ``stance:{author_name}:{entity_name}:{as_of_date}``.
+
+    Examples
+    --------
+    >>> id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+    >>> id2 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+    >>> id1 == id2
+    True
+    >>> generate_stance_id("GS", "Apple", "2026-03-15") != generate_stance_id("MS", "Apple", "2026-03-15")
+    True
+    >>> len(generate_stance_id("GS", "Apple", "2026-03-15"))
+    36
+    """
+    key = f"stance:{author_name}:{entity_name}:{as_of_date}"
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, key))
+
+
+def generate_author_id(name: str, author_type: str) -> str:
+    """Generate a deterministic author ID from name and type.
+
+    Uses UUID5 with NAMESPACE_URL to produce the same ID for the same
+    ``(name, author_type)`` pair.
+
+    Parameters
+    ----------
+    name : str
+        Author name (e.g., "Goldman Sachs", "John Smith").
+    author_type : str
+        Author type (e.g., "sell_side", "person", "buy_side").
+
+    Returns
+    -------
+    str
+        UUID5 string derived from ``author:{name}:{author_type}``.
+
+    Examples
+    --------
+    >>> id1 = generate_author_id("Goldman Sachs", "sell_side")
+    >>> id2 = generate_author_id("Goldman Sachs", "sell_side")
+    >>> id1 == id2
+    True
+    >>> generate_author_id("GS", "sell_side") != generate_author_id("MS", "sell_side")
+    True
+    >>> len(generate_author_id("GS", "sell_side"))
+    36
+    """
+    key = f"author:{name}:{author_type}"
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, key))
+
+
 def generate_period_id(period: str) -> str:
     """Generate a deterministic period ID from a time period string.
 

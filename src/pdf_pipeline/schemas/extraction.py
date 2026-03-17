@@ -1,8 +1,8 @@
 """Pydantic schema definitions for knowledge extraction from PDF chunks.
 
-Defines Entity, Fact, Claim, and FinancialDataPoint models for structured
-knowledge extraction from text chunks, and envelope models for chunk-level
-and document-level results.
+Defines Entity, Fact, Claim, FinancialDataPoint, and Stance models for
+structured knowledge extraction from text chunks, and envelope models for
+chunk-level and document-level results.
 
 Classes
 -------
@@ -14,6 +14,8 @@ ExtractedClaim
     An opinion, prediction, or recommendation with sentiment and conviction.
 ExtractedFinancialDataPoint
     A structured numerical data point extracted from tables or text.
+ExtractedStance
+    An analyst investment stance (rating + target price + sentiment).
 ChunkExtractionResult
     Extraction result for a single chunk.
 DocumentExtractionResult
@@ -249,6 +251,85 @@ class ExtractedFinancialDataPoint(BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# ExtractedStance
+# ---------------------------------------------------------------------------
+
+
+class ExtractedStance(BaseModel):
+    """An analyst investment stance extracted from text.
+
+    Captures rating, target price, and sentiment for an entity,
+    attributed to an author.  Used to build HOLDS_STANCE, ON_ENTITY,
+    and SUPERSEDES relationships in the knowledge graph.
+
+    Attributes
+    ----------
+    author_name : str
+        Name of the analyst or institution expressing the stance.
+    author_type : str
+        Type of author (6 types matching Author node).
+    organization : str | None
+        Organization the author belongs to.
+    entity_name : str
+        Name of the target entity (company, index, etc.).
+    rating : str | None
+        Rating label (e.g., Buy, Hold, Sell, Overweight).
+    sentiment : str | None
+        Market sentiment (4 types).
+    target_price : float | None
+        Target price value.
+    target_price_currency : str | None
+        ISO 4217 currency code for the target price.
+    as_of_date : str | None
+        Date the stance was expressed (ISO 8601 or descriptive).
+    based_on_claims : list[str]
+        Content strings of claims this stance is based on.
+
+    Examples
+    --------
+    >>> s = ExtractedStance(
+    ...     author_name="Goldman Sachs",
+    ...     author_type="sell_side",
+    ...     entity_name="Apple",
+    ...     rating="Buy",
+    ... )
+    >>> s.rating
+    'Buy'
+    """
+
+    author_name: str = Field(min_length=1, description="Author name")
+    author_type: Literal[
+        "person",
+        "sell_side",
+        "buy_side",
+        "consultant",
+        "media",
+        "self",
+    ] = Field(description="Author type")
+    organization: str | None = Field(default=None, description="Organization name")
+    entity_name: str = Field(min_length=1, description="Target entity name")
+    rating: str | None = Field(
+        default=None,
+        max_length=50,
+        description="Rating label (e.g., Buy, Hold, Sell, Overweight)",
+    )
+    sentiment: Literal["bullish", "bearish", "neutral", "mixed"] | None = Field(
+        default=None, description="Market sentiment"
+    )
+    target_price: float | None = Field(default=None, description="Target price value")
+    target_price_currency: str | None = Field(
+        default=None, description="ISO 4217 currency code for target price"
+    )
+    as_of_date: str | None = Field(
+        default=None, description="Date the stance was expressed"
+    )
+    based_on_claims: list[str] = Field(
+        default_factory=list,
+        description="Content of claims this stance is based on",
+    )
+
+
+# ---------------------------------------------------------------------------
 # ChunkExtractionResult
 # ---------------------------------------------------------------------------
 
@@ -270,11 +351,15 @@ class ChunkExtractionResult(BaseModel):
         Claims extracted from this chunk.
     financial_datapoints : list[ExtractedFinancialDataPoint]
         Financial data points extracted from this chunk.
+    stances : list[ExtractedStance]
+        Analyst investment stances extracted from this chunk.
 
     Examples
     --------
     >>> r = ChunkExtractionResult(chunk_index=0)
     >>> r.entities
+    []
+    >>> r.stances
     []
     """
 
@@ -291,6 +376,9 @@ class ChunkExtractionResult(BaseModel):
     )
     financial_datapoints: list[ExtractedFinancialDataPoint] = Field(
         default_factory=list, description="Extracted financial data points"
+    )
+    stances: list[ExtractedStance] = Field(
+        default_factory=list, description="Extracted analyst investment stances"
     )
 
 

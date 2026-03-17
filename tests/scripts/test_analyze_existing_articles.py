@@ -23,7 +23,10 @@ _SKILL_SCRIPTS_DIR = str(
 if _SKILL_SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, _SKILL_SCRIPTS_DIR)
 
-from analyze_existing_articles import _read_meta, analyze_articles  # noqa: E402  # pyright: ignore[reportMissingImports]
+from analyze_existing_articles import (  # noqa: E402  # pyright: ignore[reportMissingImports]
+    _read_meta,
+    analyze_articles,
+)
 
 if TYPE_CHECKING:
     from pathlib import Path

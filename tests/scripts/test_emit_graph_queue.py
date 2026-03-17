@@ -21,6 +21,8 @@ from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
+    _build_stance_nodes,
+    _build_supersedes_chain,
     _infer_period_type,
     _load_wealth_themes,
     _magnitude_from_score,
@@ -52,6 +54,11 @@ from emit_graph_queue import (
     run,
 )
 from freezegun import freeze_time
+
+from pdf_pipeline.services.id_generator import (
+    generate_author_id,
+    generate_stance_id,
+)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -2845,6 +2852,469 @@ class TestMapPdfExtraction:
         assert result["fiscal_periods"] == []
         assert result["financial_datapoints"] == []
         assert len(result["sources"]) == 1  # Source ノードは常に生成
+
+
+# ---------------------------------------------------------------------------
+# generate_stance_id / generate_author_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateStanceId:
+    """generate_stance_id 関数のテスト。"""
+
+    def test_正常系_同じ入力で同じIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        assert id1 == id2
+
+    def test_正常系_異なるauthorで異なるIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Morgan Stanley", "Apple", "2026-03-15")
+        assert id1 != id2
+
+    def test_正常系_異なるentityで異なるIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Goldman Sachs", "Google", "2026-03-15")
+        assert id1 != id2
+
+    def test_正常系_異なるdateで異なるIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-16")
+        assert id1 != id2
+
+    def test_正常系_UUID形式で返る(self) -> None:
+        result = generate_stance_id("GS", "AAPL", "2026-03-15")
+        parts = result.split("-")
+        assert len(parts) == 5
+        assert len(result) == 36
+
+
+class TestGenerateAuthorId:
+    """generate_author_id 関数のテスト。"""
+
+    def test_正常系_同じ入力で同じIDを生成(self) -> None:
+        id1 = generate_author_id("Goldman Sachs", "sell_side")
+        id2 = generate_author_id("Goldman Sachs", "sell_side")
+        assert id1 == id2
+
+    def test_正常系_異なるnameで異なるIDを生成(self) -> None:
+        id1 = generate_author_id("Goldman Sachs", "sell_side")
+        id2 = generate_author_id("Morgan Stanley", "sell_side")
+        assert id1 != id2
+
+    def test_正常系_異なるtypeで異なるIDを生成(self) -> None:
+        id1 = generate_author_id("John Smith", "person")
+        id2 = generate_author_id("John Smith", "sell_side")
+        assert id1 != id2
+
+    def test_正常系_UUID形式で返る(self) -> None:
+        result = generate_author_id("GS", "sell_side")
+        parts = result.split("-")
+        assert len(parts) == 5
+        assert len(result) == 36
+
+
+# ---------------------------------------------------------------------------
+# _build_stance_nodes
+# ---------------------------------------------------------------------------
+
+
+def _stance_chunk(
+    *,
+    stances: list[dict[str, Any]] | None = None,
+    entities: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build a chunk dict with stances for testing."""
+    if stances is None:
+        stances = [
+            {
+                "author_name": "Goldman Sachs",
+                "author_type": "sell_side",
+                "organization": "Goldman Sachs Group",
+                "entity_name": "ACME Corp",
+                "rating": "Buy",
+                "sentiment": "bullish",
+                "target_price": 250.0,
+                "target_price_currency": "USD",
+                "as_of_date": "2026-03-15",
+                "based_on_claims": [
+                    "We maintain our Buy rating with a target price of $250."
+                ],
+            },
+        ]
+    if entities is None:
+        entities = [
+            {
+                "name": "ACME Corp",
+                "entity_type": "company",
+                "ticker": "ACME",
+            },
+        ]
+    return {
+        "chunk_index": 0,
+        "content": "Investment stance text.",
+        "entities": entities,
+        "stances": stances,
+    }
+
+
+class TestBuildStanceNodes:
+    """_build_stance_nodes 関数のテスト。"""
+
+    def test_正常系_StanceとAuthorノードが生成される(self) -> None:
+        """受け入れ条件: Stance/Authorノードが正しく生成されること。"""
+        chunk = _stance_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        stances, authors, _hs, _oe, _bo = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+
+        assert len(stances) == 1
+        assert stances[0]["rating"] == "Buy"
+        assert stances[0]["sentiment"] == "bullish"
+        assert stances[0]["target_price"] == 250.0
+        assert stances[0]["target_price_currency"] == "USD"
+        assert stances[0]["as_of_date"] == "2026-03-15"
+
+        assert len(authors) == 1
+        assert authors[0]["name"] == "Goldman Sachs"
+        assert authors[0]["author_type"] == "sell_side"
+        assert authors[0]["organization"] == "Goldman Sachs Group"
+
+    def test_正常系_HOLDS_STANCEリレーションが生成される(self) -> None:
+        """受け入れ条件: Author -> Stance の HOLDS_STANCE が生成されること。"""
+        chunk = _stance_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        stances, authors, hs, _oe, _bo = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+
+        assert len(hs) == 1
+        assert hs[0]["type"] == "HOLDS_STANCE"
+        assert hs[0]["from_id"] == authors[0]["author_id"]
+        assert hs[0]["to_id"] == stances[0]["stance_id"]
+
+    def test_正常系_ON_ENTITYリレーションが生成される(self) -> None:
+        """受け入れ条件: Stance -> Entity の ON_ENTITY が生成されること。"""
+        chunk = _stance_chunk()
+        entity_id = generate_entity_id("ACME Corp", "company")
+        entity_name_to_id = {"ACME Corp": entity_id}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        stances, _authors, _hs, oe, _bo = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+
+        assert len(oe) == 1
+        assert oe[0]["type"] == "ON_ENTITY"
+        assert oe[0]["from_id"] == stances[0]["stance_id"]
+        assert oe[0]["to_id"] == entity_id
+
+    def test_正常系_BASED_ONリレーションが生成される(self) -> None:
+        """受け入れ条件: Stance -> Claim の BASED_ON が生成されること。"""
+        chunk = _stance_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        stances, _authors, _hs, _oe, bo = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+
+        assert len(bo) == 1
+        assert bo[0]["type"] == "BASED_ON"
+        assert bo[0]["from_id"] == stances[0]["stance_id"]
+        assert bo[0]["role"] == "supporting"
+
+    def test_正常系_Authorが重複排除される(self) -> None:
+        """受け入れ条件: 同一Authorは1つのみ生成されること。"""
+        chunk = _stance_chunk(
+            stances=[
+                {
+                    "author_name": "Goldman Sachs",
+                    "author_type": "sell_side",
+                    "entity_name": "ACME Corp",
+                    "rating": "Buy",
+                    "as_of_date": "2026-03-15",
+                },
+                {
+                    "author_name": "Goldman Sachs",
+                    "author_type": "sell_side",
+                    "entity_name": "Beta Inc",
+                    "rating": "Hold",
+                    "as_of_date": "2026-03-15",
+                },
+            ],
+            entities=[
+                {"name": "ACME Corp", "entity_type": "company"},
+                {"name": "Beta Inc", "entity_type": "company"},
+            ],
+        )
+        entity_name_to_id = {
+            "ACME Corp": generate_entity_id("ACME Corp", "company"),
+            "Beta Inc": generate_entity_id("Beta Inc", "company"),
+        }
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        stances, authors, _hs, _oe, _bo = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+
+        assert len(stances) == 2
+        assert len(authors) == 1  # Deduplicated
+
+    def test_エッジケース_空stancesで空結果(self) -> None:
+        """stances が空の場合に空のリストを返す。"""
+        chunk = _stance_chunk(stances=[], entities=[])
+        stances, authors, hs, oe, bo = _build_stance_nodes(chunk, {}, set(), {})
+        assert stances == []
+        assert authors == []
+        assert hs == []
+        assert oe == []
+        assert bo == []
+
+
+# ---------------------------------------------------------------------------
+# _build_supersedes_chain
+# ---------------------------------------------------------------------------
+
+
+class TestBuildSupersedesChain:
+    """_build_supersedes_chain 関数のテスト。"""
+
+    def test_正常系_as_of_date昇順でSUPERSEDES連鎖が構築される(self) -> None:
+        """受け入れ条件: 同一(author, entity)内でas_of_date昇順に連鎖されること。"""
+        stances = [
+            {
+                "stance_id": "stance-old",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-01-01",
+            },
+            {
+                "stance_id": "stance-mid",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-02-01",
+            },
+            {
+                "stance_id": "stance-new",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-03-01",
+            },
+        ]
+
+        supersedes = _build_supersedes_chain(stances)
+
+        assert len(supersedes) == 2
+        # mid supersedes old
+        assert supersedes[0]["from_id"] == "stance-mid"
+        assert supersedes[0]["to_id"] == "stance-old"
+        assert supersedes[0]["type"] == "SUPERSEDES"
+        # new supersedes mid
+        assert supersedes[1]["from_id"] == "stance-new"
+        assert supersedes[1]["to_id"] == "stance-mid"
+
+    def test_正常系_異なるauthor_entityグループは独立した連鎖(self) -> None:
+        """異なる(author, entity)グループは独立してSUPERSEDES連鎖される。"""
+        stances = [
+            {
+                "stance_id": "gs-apple-old",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-01-01",
+            },
+            {
+                "stance_id": "gs-apple-new",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-02-01",
+            },
+            {
+                "stance_id": "ms-apple-old",
+                "author_name": "Morgan Stanley",
+                "entity_name": "Apple",
+                "as_of_date": "2026-01-01",
+            },
+            {
+                "stance_id": "ms-apple-new",
+                "author_name": "Morgan Stanley",
+                "entity_name": "Apple",
+                "as_of_date": "2026-02-01",
+            },
+        ]
+
+        supersedes = _build_supersedes_chain(stances)
+
+        assert len(supersedes) == 2
+        from_to_pairs = {(r["from_id"], r["to_id"]) for r in supersedes}
+        assert ("gs-apple-new", "gs-apple-old") in from_to_pairs
+        assert ("ms-apple-new", "ms-apple-old") in from_to_pairs
+
+    def test_エッジケース_単一スタンスではSUPERSEDESなし(self) -> None:
+        """1つのスタンスしかない場合、SUPERSEDES は生成されない。"""
+        stances = [
+            {
+                "stance_id": "only-one",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-03-15",
+            },
+        ]
+        supersedes = _build_supersedes_chain(stances)
+        assert supersedes == []
+
+    def test_エッジケース_空リストでSUPERSEDESなし(self) -> None:
+        """空のスタンスリストではSUPERSEDES は生成されない。"""
+        supersedes = _build_supersedes_chain([])
+        assert supersedes == []
+
+
+# ---------------------------------------------------------------------------
+# map_pdf_extraction: Stance 統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestMapPdfExtractionWithStances:
+    """map_pdf_extraction での Stance 統合テスト。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_stancesがmap_pdf_extractionに統合される(self) -> None:
+        """stances を含む pdf-extraction データが正しくマッピングされること。"""
+        data = {
+            "session_id": "pdf-stance-test",
+            "source_hash": "stancehash123",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "GS initiates coverage of ACME.",
+                    "entities": [
+                        {
+                            "name": "ACME Corp",
+                            "entity_type": "company",
+                            "ticker": "ACME",
+                        },
+                    ],
+                    "claims": [
+                        {
+                            "content": "We initiate with a Buy rating and $250 TP.",
+                            "claim_type": "recommendation",
+                            "sentiment": "bullish",
+                            "about_entities": ["ACME Corp"],
+                        },
+                    ],
+                    "facts": [],
+                    "financial_datapoints": [],
+                    "stances": [
+                        {
+                            "author_name": "Goldman Sachs",
+                            "author_type": "sell_side",
+                            "organization": "Goldman Sachs Group",
+                            "entity_name": "ACME Corp",
+                            "rating": "Buy",
+                            "sentiment": "bullish",
+                            "target_price": 250.0,
+                            "target_price_currency": "USD",
+                            "as_of_date": "2026-03-15",
+                            "based_on_claims": [
+                                "We initiate with a Buy rating and $250 TP.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+        }
+        result = map_pdf_extraction(data)
+
+        # Stances present
+        assert len(result["stances"]) == 1
+        assert result["stances"][0]["rating"] == "Buy"
+
+        # Authors present
+        assert len(result["authors"]) == 1
+        assert result["authors"][0]["name"] == "Goldman Sachs"
+
+        # Relations present
+        rels = result["relations"]
+        assert len(rels["holds_stance"]) == 1
+        assert len(rels["on_entity"]) == 1
+        assert len(rels["based_on"]) == 1
+        assert len(rels["supersedes"]) == 0  # Only 1 stance, no chain
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_SUPERSEDES連鎖がmap_pdf_extractionで構築される(self) -> None:
+        """複数チャンクにまたがるstancesのSUPERSEDES連鎖が構築されること。"""
+        data = {
+            "session_id": "pdf-supersedes-test",
+            "source_hash": "supersedeshash",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Initial coverage.",
+                    "entities": [
+                        {
+                            "name": "ACME Corp",
+                            "entity_type": "company",
+                            "ticker": "ACME",
+                        },
+                    ],
+                    "claims": [],
+                    "facts": [],
+                    "financial_datapoints": [],
+                    "stances": [
+                        {
+                            "author_name": "Goldman Sachs",
+                            "author_type": "sell_side",
+                            "entity_name": "ACME Corp",
+                            "rating": "Buy",
+                            "sentiment": "bullish",
+                            "target_price": 200.0,
+                            "target_price_currency": "USD",
+                            "as_of_date": "2026-01-15",
+                        },
+                    ],
+                },
+                {
+                    "chunk_index": 1,
+                    "content": "Updated coverage.",
+                    "entities": [],
+                    "claims": [],
+                    "facts": [],
+                    "financial_datapoints": [],
+                    "stances": [
+                        {
+                            "author_name": "Goldman Sachs",
+                            "author_type": "sell_side",
+                            "entity_name": "ACME Corp",
+                            "rating": "Buy",
+                            "sentiment": "bullish",
+                            "target_price": 250.0,
+                            "target_price_currency": "USD",
+                            "as_of_date": "2026-03-15",
+                        },
+                    ],
+                },
+            ],
+        }
+        result = map_pdf_extraction(data)
+
+        assert len(result["stances"]) == 2
+        assert len(result["authors"]) == 1  # Deduplicated
+        assert len(result["relations"]["supersedes"]) == 1
+
+        supersedes = result["relations"]["supersedes"][0]
+        assert supersedes["type"] == "SUPERSEDES"
+        # Newer (March) supersedes older (January)
+        assert supersedes["superseded_at"] == "2026-03-15"
 
 
 # ---------------------------------------------------------------------------
