@@ -17,10 +17,13 @@ from pydantic import ValidationError
 from pdf_pipeline.schemas.extraction import (
     ChunkExtractionResult,
     DocumentExtractionResult,
+    ExtractedCausalLink,
     ExtractedClaim,
     ExtractedEntity,
     ExtractedFact,
     ExtractedFinancialDataPoint,
+    ExtractedQuestion,
+    ExtractedStance,
 )
 
 # ---------------------------------------------------------------------------
@@ -399,3 +402,210 @@ class TestDocumentExtractionResult:
         assert restored.chunks[0].entities[0].isin == "US0378331005"
         assert restored.chunks[0].claims[0].target_price == 200.0
         assert restored.chunks[0].financial_datapoints[0].metric_name == "Revenue"
+
+
+# ---------------------------------------------------------------------------
+# ExtractedStance
+# ---------------------------------------------------------------------------
+
+
+class TestExtractedStance:
+    """Tests for ExtractedStance Pydantic model."""
+
+    def test_正常系_全フィールド指定で生成できる(self) -> None:
+        stance = ExtractedStance(
+            author_name="Goldman Sachs",
+            author_type="sell_side",
+            organization="Goldman Sachs Group",
+            entity_name="Apple",
+            rating="Buy",
+            sentiment="bullish",
+            target_price=200.0,
+            target_price_currency="USD",
+            as_of_date="2026-03-15",
+            based_on_claims=["Revenue grew 15% YoY"],
+        )
+        assert stance.author_name == "Goldman Sachs"
+        assert stance.author_type == "sell_side"
+        assert stance.organization == "Goldman Sachs Group"
+        assert stance.entity_name == "Apple"
+        assert stance.rating == "Buy"
+        assert stance.sentiment == "bullish"
+        assert stance.target_price == 200.0
+        assert stance.target_price_currency == "USD"
+        assert stance.as_of_date == "2026-03-15"
+        assert stance.based_on_claims == ["Revenue grew 15% YoY"]
+
+    def test_正常系_最小フィールドで生成できる(self) -> None:
+        stance = ExtractedStance(
+            author_name="Morgan Stanley",
+            author_type="buy_side",
+            entity_name="NVIDIA",
+        )
+        assert stance.author_name == "Morgan Stanley"
+        assert stance.entity_name == "NVIDIA"
+        assert stance.organization is None
+        assert stance.rating is None
+        assert stance.sentiment is None
+        assert stance.target_price is None
+        assert stance.target_price_currency is None
+        assert stance.as_of_date is None
+        assert stance.based_on_claims == []
+
+    def test_異常系_不正なauthor_typeでValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedStance(
+                author_name="Unknown Analyst",
+                author_type="unknown",  # type: ignore[arg-type]
+                entity_name="Apple",
+            )
+
+    def test_異常系_不正なsentimentでValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedStance(
+                author_name="Goldman Sachs",
+                author_type="sell_side",
+                entity_name="Apple",
+                sentiment="invalid",  # type: ignore[arg-type]
+            )
+
+    def test_異常系_author_name空文字でValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedStance(
+                author_name="",
+                author_type="sell_side",
+                entity_name="Apple",
+            )
+
+    def test_正常系_target_price_currencyがISO4217形式(self) -> None:
+        stance = ExtractedStance(
+            author_name="Citi",
+            author_type="sell_side",
+            entity_name="Apple",
+            target_price_currency="USD",
+        )
+        assert stance.target_price_currency == "USD"
+
+    def test_異常系_target_price_currencyが不正形式_小文字(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedStance(
+                author_name="Citi",
+                author_type="sell_side",
+                entity_name="Apple",
+                target_price_currency="usd",  # lowercase — fails ^[A-Z]{3}$
+            )
+
+    def test_異常系_target_price_currencyが不正形式_4文字(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedStance(
+                author_name="Citi",
+                author_type="sell_side",
+                entity_name="Apple",
+                target_price_currency="USDD",  # 4 chars — fails ^[A-Z]{3}$
+            )
+
+
+# ---------------------------------------------------------------------------
+# ExtractedCausalLink
+# ---------------------------------------------------------------------------
+
+
+class TestExtractedCausalLink:
+    """Tests for ExtractedCausalLink Pydantic model."""
+
+    def test_正常系_全フィールド指定で生成できる(self) -> None:
+        link = ExtractedCausalLink(
+            from_type="fact",
+            from_content="Revenue grew 15%",
+            to_type="claim",
+            to_content="Stock will rise",
+            mechanism="Strong earnings boost investor confidence",
+            confidence="high",
+        )
+        assert link.from_type == "fact"
+        assert link.from_content == "Revenue grew 15%"
+        assert link.to_type == "claim"
+        assert link.to_content == "Stock will rise"
+        assert link.mechanism == "Strong earnings boost investor confidence"
+        assert link.confidence == "high"
+
+    def test_異常系_不正なfrom_typeでValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedCausalLink(
+                from_type="unknown",  # type: ignore[arg-type]
+                from_content="Revenue grew 15%",
+                to_type="claim",
+                to_content="Stock will rise",
+            )
+
+    def test_異常系_不正なconfidenceでValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedCausalLink(
+                from_type="fact",
+                from_content="Revenue grew 15%",
+                to_type="claim",
+                to_content="Stock will rise",
+                confidence="unknown",  # type: ignore[arg-type]
+            )
+
+
+# ---------------------------------------------------------------------------
+# ExtractedQuestion
+# ---------------------------------------------------------------------------
+
+
+class TestExtractedQuestion:
+    """Tests for ExtractedQuestion Pydantic model."""
+
+    def test_正常系_全フィールド指定で生成できる(self) -> None:
+        question = ExtractedQuestion(
+            content="What is the revenue breakdown by segment?",
+            question_type="data_gap",
+            priority="high",
+            about_entities=["ACME Corp"],
+            motivated_by_contents=["Revenue grew 15% YoY"],
+        )
+        assert question.content == "What is the revenue breakdown by segment?"
+        assert question.question_type == "data_gap"
+        assert question.priority == "high"
+        assert question.about_entities == ["ACME Corp"]
+        assert question.motivated_by_contents == ["Revenue grew 15% YoY"]
+
+    def test_正常系_最小フィールドで生成できる(self) -> None:
+        question = ExtractedQuestion(
+            content="What drives margin compression?",
+            question_type="assumption_check",
+        )
+        assert question.content == "What drives margin compression?"
+        assert question.question_type == "assumption_check"
+        assert question.priority is None
+        assert question.about_entities == []
+        assert question.motivated_by_contents == []
+
+    def test_異常系_不正なquestion_typeでValidationError(self) -> None:
+        with pytest.raises(ValidationError):
+            ExtractedQuestion(
+                content="Is this valid?",
+                question_type="invalid_type",  # type: ignore[arg-type]
+            )
+
+
+# ---------------------------------------------------------------------------
+# ChunkExtractionResult — stances / causal_links / questions フィールド
+# ---------------------------------------------------------------------------
+
+
+class TestChunkExtractionResultV21:
+    """Tests for v2.1 fields added to ChunkExtractionResult."""
+
+    def test_正常系_stancesフィールドがデフォルト空リスト(self) -> None:
+        result = ChunkExtractionResult(chunk_index=0)
+        assert result.stances == []
+
+    def test_正常系_causal_linksフィールドがデフォルト空リスト(self) -> None:
+        result = ChunkExtractionResult(chunk_index=0)
+        assert result.causal_links == []
+
+    def test_正常系_questionsフィールドがデフォルト空リスト(self) -> None:
+        result = ChunkExtractionResult(chunk_index=0)
+        assert result.questions == []

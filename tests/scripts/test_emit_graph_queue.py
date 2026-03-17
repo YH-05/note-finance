@@ -21,17 +21,25 @@ from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
+    _build_causal_links,
+    _build_next_period_chain,
+    _build_question_nodes,
+    _build_stance_nodes,
+    _build_supersedes_chain,
+    _build_trend_edges,
     _infer_period_type,
     _load_wealth_themes,
     _magnitude_from_score,
     _match_domain_to_theme,
     _parse_yaml_frontmatter,
+    _period_sort_key,
     _scan_wealth_directory,
     cleanup_old_files,
     generate_chunk_id,
     generate_claim_id,
     generate_datapoint_id,
     generate_entity_id,
+    generate_fact_id,
     generate_queue_id,
     generate_source_id,
     generate_topic_id,
@@ -41,6 +49,7 @@ from emit_graph_queue import (
     map_finance_full,
     map_finance_news,
     map_market_report,
+    map_pdf_extraction,
     map_reddit_topics,
     map_topic_discovery,
     map_wealth_scrape,
@@ -51,6 +60,12 @@ from emit_graph_queue import (
     run,
 )
 from freezegun import freeze_time
+
+from pdf_pipeline.services.id_generator import (
+    generate_author_id,
+    generate_question_id,
+    generate_stance_id,
+)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -1180,7 +1195,7 @@ class TestRun:
 
         # Verify schema
         data = json.loads(output_files[0].read_text(encoding="utf-8"))
-        assert data["schema_version"] == "2.0"
+        assert data["schema_version"] == "2.1"
         assert data["command_source"] == "finance-news-workflow"
         assert "queue_id" in data
         assert "created_at" in data
@@ -2739,6 +2754,851 @@ class TestMapTopicDiscovery:
 
 
 # ---------------------------------------------------------------------------
+# TestMapPdfExtraction
+# ---------------------------------------------------------------------------
+
+
+def _pdf_extraction_data(
+    *,
+    claims: list[dict[str, Any]] | None = None,
+    entities: list[dict[str, Any]] | None = None,
+    financial_datapoints: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """pdf-extraction 形式のサンプルデータを生成。
+
+    claim に全プロパティ（target_price, rating, magnitude, time_horizon）を含む。
+    """
+    if claims is None:
+        claims = [
+            {
+                "content": "We maintain our Buy rating with a target price of $250.",
+                "claim_type": "recommendation",
+                "sentiment": "bullish",
+                "magnitude": "strong",
+                "target_price": "$250",
+                "rating": "Buy",
+                "time_horizon": "12 months",
+                "about_entities": ["ACME Corp"],
+            },
+        ]
+    if entities is None:
+        entities = [
+            {
+                "name": "ACME Corp",
+                "entity_type": "company",
+                "ticker": "ACME",
+            },
+        ]
+    if financial_datapoints is None:
+        financial_datapoints = [
+            {
+                "metric": "revenue",
+                "value": 1_000_000,
+                "unit": "USD",
+                "period_label": "FY2025",
+                "about_entities": ["ACME Corp"],
+            },
+        ]
+    return {
+        "session_id": "pdf-extraction-test",
+        "source_hash": "abc123def456",
+        "chunks": [
+            {
+                "chunk_index": 0,
+                "section_title": "Investment Summary",
+                "content": "ACME Corp analysis and recommendation.",
+                "entities": entities,
+                "claims": claims,
+                "facts": [],
+                "financial_datapoints": financial_datapoints,
+            },
+        ],
+    }
+
+
+class TestMapPdfExtraction:
+    """map_pdf_extraction のテスト基盤。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_Claimのtarget_priceとratingが保持される(self) -> None:
+        """受け入れ条件: _build_claim_nodes が target_price, rating, magnitude, time_horizon を含める。"""
+        result = map_pdf_extraction(_pdf_extraction_data())
+        claims = result["claims"]
+        assert len(claims) == 1
+        claim = claims[0]
+        assert claim["target_price"] == "$250"
+        assert claim["rating"] == "Buy"
+        assert claim["magnitude"] == "strong"
+        assert claim["time_horizon"] == "12 months"
+        assert claim["sentiment"] == "bullish"
+        assert claim["claim_type"] == "recommendation"
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_FiscalPeriodが正しく派生される(self) -> None:
+        """受け入れ条件: financial_datapoints から FiscalPeriod が派生される。"""
+        result = map_pdf_extraction(_pdf_extraction_data())
+        periods = result["fiscal_periods"]
+        assert len(periods) >= 1
+        period = periods[0]
+        assert "FY2025" in period["period_id"]
+        assert period["period_label"] == "FY2025"
+        assert period["period_type"] == "annual"
+
+    @freeze_time(FROZEN_TIME)
+    def test_エッジケース_空チャンクでも正常動作(self) -> None:
+        """空の chunks リストでもエラーなく空結果を返す。"""
+        data = {
+            "session_id": "pdf-extraction-empty",
+            "source_hash": "empty000",
+            "chunks": [],
+        }
+        result = map_pdf_extraction(data)
+        assert result["claims"] == []
+        assert result["entities"] == []
+        assert result["facts"] == []
+        assert result["fiscal_periods"] == []
+        assert result["financial_datapoints"] == []
+        assert len(result["sources"]) == 1  # Source ノードは常に生成
+
+
+# ---------------------------------------------------------------------------
+# generate_stance_id / generate_author_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateStanceId:
+    """generate_stance_id 関数のテスト。"""
+
+    def test_正常系_同じ入力で同じIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        assert id1 == id2
+
+    def test_正常系_異なるauthorで異なるIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Morgan Stanley", "Apple", "2026-03-15")
+        assert id1 != id2
+
+    def test_正常系_異なるentityで異なるIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Goldman Sachs", "Google", "2026-03-15")
+        assert id1 != id2
+
+    def test_正常系_異なるdateで異なるIDを生成(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-16")
+        assert id1 != id2
+
+    def test_正常系_UUID形式で返る(self) -> None:
+        result = generate_stance_id("GS", "AAPL", "2026-03-15")
+        parts = result.split("-")
+        assert len(parts) == 5
+        assert len(result) == 36
+
+
+class TestGenerateAuthorId:
+    """generate_author_id 関数のテスト。"""
+
+    def test_正常系_同じ入力で同じIDを生成(self) -> None:
+        id1 = generate_author_id("Goldman Sachs", "sell_side")
+        id2 = generate_author_id("Goldman Sachs", "sell_side")
+        assert id1 == id2
+
+    def test_正常系_異なるnameで異なるIDを生成(self) -> None:
+        id1 = generate_author_id("Goldman Sachs", "sell_side")
+        id2 = generate_author_id("Morgan Stanley", "sell_side")
+        assert id1 != id2
+
+    def test_正常系_異なるtypeで異なるIDを生成(self) -> None:
+        id1 = generate_author_id("John Smith", "person")
+        id2 = generate_author_id("John Smith", "sell_side")
+        assert id1 != id2
+
+    def test_正常系_UUID形式で返る(self) -> None:
+        result = generate_author_id("GS", "sell_side")
+        parts = result.split("-")
+        assert len(parts) == 5
+        assert len(result) == 36
+
+
+# ---------------------------------------------------------------------------
+# _build_stance_nodes
+# ---------------------------------------------------------------------------
+
+
+def _stance_chunk(
+    *,
+    stances: list[dict[str, Any]] | None = None,
+    entities: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build a chunk dict with stances for testing."""
+    if stances is None:
+        stances = [
+            {
+                "author_name": "Goldman Sachs",
+                "author_type": "sell_side",
+                "organization": "Goldman Sachs Group",
+                "entity_name": "ACME Corp",
+                "rating": "Buy",
+                "sentiment": "bullish",
+                "target_price": 250.0,
+                "target_price_currency": "USD",
+                "as_of_date": "2026-03-15",
+                "based_on_claims": [
+                    "We maintain our Buy rating with a target price of $250."
+                ],
+            },
+        ]
+    if entities is None:
+        entities = [
+            {
+                "name": "ACME Corp",
+                "entity_type": "company",
+                "ticker": "ACME",
+            },
+        ]
+    return {
+        "chunk_index": 0,
+        "content": "Investment stance text.",
+        "entities": entities,
+        "stances": stances,
+    }
+
+
+class TestBuildStanceNodes:
+    """_build_stance_nodes 関数のテスト。"""
+
+    def test_正常系_StanceとAuthorノードが生成される(self) -> None:
+        """受け入れ条件: Stance/Authorノードが正しく生成されること。"""
+        chunk = _stance_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        result = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+        stances = result["stances"]
+        authors = result["authors"]
+
+        assert len(stances) == 1
+        assert stances[0]["rating"] == "Buy"
+        assert stances[0]["sentiment"] == "bullish"
+        assert stances[0]["target_price"] == 250.0
+        assert stances[0]["target_price_currency"] == "USD"
+        assert stances[0]["as_of_date"] == "2026-03-15"
+
+        assert len(authors) == 1
+        assert authors[0]["name"] == "Goldman Sachs"
+        assert authors[0]["author_type"] == "sell_side"
+        assert authors[0]["organization"] == "Goldman Sachs Group"
+
+    def test_正常系_HOLDS_STANCEリレーションが生成される(self) -> None:
+        """受け入れ条件: Author -> Stance の HOLDS_STANCE が生成されること。"""
+        chunk = _stance_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        result = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+        stances = result["stances"]
+        authors = result["authors"]
+        hs = result["holds_stance"]
+
+        assert len(hs) == 1
+        assert hs[0]["type"] == "HOLDS_STANCE"
+        assert hs[0]["from_id"] == authors[0]["author_id"]
+        assert hs[0]["to_id"] == stances[0]["stance_id"]
+
+    def test_正常系_ON_ENTITYリレーションが生成される(self) -> None:
+        """受け入れ条件: Stance -> Entity の ON_ENTITY が生成されること。"""
+        chunk = _stance_chunk()
+        entity_id = generate_entity_id("ACME Corp", "company")
+        entity_name_to_id = {"ACME Corp": entity_id}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        result = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+        stances = result["stances"]
+        oe = result["on_entity"]
+
+        assert len(oe) == 1
+        assert oe[0]["type"] == "ON_ENTITY"
+        assert oe[0]["from_id"] == stances[0]["stance_id"]
+        assert oe[0]["to_id"] == entity_id
+
+    def test_正常系_BASED_ONリレーションが生成される(self) -> None:
+        """受け入れ条件: Stance -> Claim の BASED_ON が生成されること。"""
+        chunk = _stance_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        result = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+        stances = result["stances"]
+        bo = result["based_on"]
+
+        assert len(bo) == 1
+        assert bo[0]["type"] == "BASED_ON"
+        assert bo[0]["from_id"] == stances[0]["stance_id"]
+        assert bo[0]["role"] == "supporting"
+
+    def test_正常系_Authorが重複排除される(self) -> None:
+        """受け入れ条件: 同一Authorは1つのみ生成されること。"""
+        chunk = _stance_chunk(
+            stances=[
+                {
+                    "author_name": "Goldman Sachs",
+                    "author_type": "sell_side",
+                    "entity_name": "ACME Corp",
+                    "rating": "Buy",
+                    "as_of_date": "2026-03-15",
+                },
+                {
+                    "author_name": "Goldman Sachs",
+                    "author_type": "sell_side",
+                    "entity_name": "Beta Inc",
+                    "rating": "Hold",
+                    "as_of_date": "2026-03-15",
+                },
+            ],
+            entities=[
+                {"name": "ACME Corp", "entity_type": "company"},
+                {"name": "Beta Inc", "entity_type": "company"},
+            ],
+        )
+        entity_name_to_id = {
+            "ACME Corp": generate_entity_id("ACME Corp", "company"),
+            "Beta Inc": generate_entity_id("Beta Inc", "company"),
+        }
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        result = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+        stances = result["stances"]
+        authors = result["authors"]
+
+        assert len(stances) == 2
+        assert len(authors) == 1  # Deduplicated
+
+    def test_エッジケース_空stancesで空結果(self) -> None:
+        """stances が空の場合に空のリストを返す。"""
+        chunk = _stance_chunk(stances=[], entities=[])
+        result = _build_stance_nodes(chunk, {}, set(), {})
+        stances = result["stances"]
+        authors = result["authors"]
+        hs = result["holds_stance"]
+        oe = result["on_entity"]
+        bo = result["based_on"]
+        assert stances == []
+        assert authors == []
+        assert hs == []
+        assert oe == []
+        assert bo == []
+
+    def test_エッジケース_entity_nameが未解決でON_ENTITYがスキップされる(
+        self,
+    ) -> None:
+        """entity_name_to_id に存在しない entity_name を持つ stance は ON_ENTITY を生成しない。"""
+        chunk = _stance_chunk(
+            stances=[
+                {
+                    "author_name": "Goldman Sachs",
+                    "author_type": "sell_side",
+                    "entity_name": "UnknownCorp",  # not in entity_name_to_id
+                    "rating": "Buy",
+                    "as_of_date": "2026-03-15",
+                }
+            ],
+            entities=[],
+        )
+        # entity_name_to_id does NOT contain "UnknownCorp"
+        entity_name_to_id: dict[str, str] = {}
+        seen_authors: set[str] = set()
+        author_to_id: dict[str, str] = {}
+
+        result = _build_stance_nodes(
+            chunk, entity_name_to_id, seen_authors, author_to_id
+        )
+        stances = result["stances"]
+        authors = result["authors"]
+        hs = result["holds_stance"]
+        oe = result["on_entity"]
+
+        assert len(stances) == 1
+        assert len(authors) == 1
+        assert len(hs) == 1  # HOLDS_STANCE is still generated
+        assert len(oe) == 0  # ON_ENTITY is skipped because entity_id is None
+
+
+# ---------------------------------------------------------------------------
+# _build_supersedes_chain
+# ---------------------------------------------------------------------------
+
+
+class TestBuildSupersedesChain:
+    """_build_supersedes_chain 関数のテスト。"""
+
+    def test_正常系_as_of_date昇順でSUPERSEDES連鎖が構築される(self) -> None:
+        """受け入れ条件: 同一(author, entity)内でas_of_date昇順に連鎖されること。"""
+        stances = [
+            {
+                "stance_id": "stance-old",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-01-01",
+            },
+            {
+                "stance_id": "stance-mid",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-02-01",
+            },
+            {
+                "stance_id": "stance-new",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-03-01",
+            },
+        ]
+
+        supersedes = _build_supersedes_chain(stances)
+
+        assert len(supersedes) == 2
+        # mid supersedes old
+        assert supersedes[0]["from_id"] == "stance-mid"
+        assert supersedes[0]["to_id"] == "stance-old"
+        assert supersedes[0]["type"] == "SUPERSEDES"
+        # new supersedes mid
+        assert supersedes[1]["from_id"] == "stance-new"
+        assert supersedes[1]["to_id"] == "stance-mid"
+
+    def test_正常系_異なるauthor_entityグループは独立した連鎖(self) -> None:
+        """異なる(author, entity)グループは独立してSUPERSEDES連鎖される。"""
+        stances = [
+            {
+                "stance_id": "gs-apple-old",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-01-01",
+            },
+            {
+                "stance_id": "gs-apple-new",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-02-01",
+            },
+            {
+                "stance_id": "ms-apple-old",
+                "author_name": "Morgan Stanley",
+                "entity_name": "Apple",
+                "as_of_date": "2026-01-01",
+            },
+            {
+                "stance_id": "ms-apple-new",
+                "author_name": "Morgan Stanley",
+                "entity_name": "Apple",
+                "as_of_date": "2026-02-01",
+            },
+        ]
+
+        supersedes = _build_supersedes_chain(stances)
+
+        assert len(supersedes) == 2
+        from_to_pairs = {(r["from_id"], r["to_id"]) for r in supersedes}
+        assert ("gs-apple-new", "gs-apple-old") in from_to_pairs
+        assert ("ms-apple-new", "ms-apple-old") in from_to_pairs
+
+    def test_エッジケース_単一スタンスではSUPERSEDESなし(self) -> None:
+        """1つのスタンスしかない場合、SUPERSEDES は生成されない。"""
+        stances = [
+            {
+                "stance_id": "only-one",
+                "author_name": "Goldman Sachs",
+                "entity_name": "Apple",
+                "as_of_date": "2026-03-15",
+            },
+        ]
+        supersedes = _build_supersedes_chain(stances)
+        assert supersedes == []
+
+    def test_エッジケース_空リストでSUPERSEDESなし(self) -> None:
+        """空のスタンスリストではSUPERSEDES は生成されない。"""
+        supersedes = _build_supersedes_chain([])
+        assert supersedes == []
+
+
+# ---------------------------------------------------------------------------
+# map_pdf_extraction: Stance 統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestMapPdfExtractionWithStances:
+    """map_pdf_extraction での Stance 統合テスト。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_stancesがmap_pdf_extractionに統合される(self) -> None:
+        """stances を含む pdf-extraction データが正しくマッピングされること。"""
+        data = {
+            "session_id": "pdf-stance-test",
+            "source_hash": "stancehash123",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "GS initiates coverage of ACME.",
+                    "entities": [
+                        {
+                            "name": "ACME Corp",
+                            "entity_type": "company",
+                            "ticker": "ACME",
+                        },
+                    ],
+                    "claims": [
+                        {
+                            "content": "We initiate with a Buy rating and $250 TP.",
+                            "claim_type": "recommendation",
+                            "sentiment": "bullish",
+                            "about_entities": ["ACME Corp"],
+                        },
+                    ],
+                    "facts": [],
+                    "financial_datapoints": [],
+                    "stances": [
+                        {
+                            "author_name": "Goldman Sachs",
+                            "author_type": "sell_side",
+                            "organization": "Goldman Sachs Group",
+                            "entity_name": "ACME Corp",
+                            "rating": "Buy",
+                            "sentiment": "bullish",
+                            "target_price": 250.0,
+                            "target_price_currency": "USD",
+                            "as_of_date": "2026-03-15",
+                            "based_on_claims": [
+                                "We initiate with a Buy rating and $250 TP.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+        }
+        result = map_pdf_extraction(data)
+
+        # Stances present
+        assert len(result["stances"]) == 1
+        assert result["stances"][0]["rating"] == "Buy"
+
+        # Authors present
+        assert len(result["authors"]) == 1
+        assert result["authors"][0]["name"] == "Goldman Sachs"
+
+        # Relations present
+        rels = result["relations"]
+        assert len(rels["holds_stance"]) == 1
+        assert len(rels["on_entity"]) == 1
+        assert len(rels["based_on"]) == 1
+        assert len(rels["supersedes"]) == 0  # Only 1 stance, no chain
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_SUPERSEDES連鎖がmap_pdf_extractionで構築される(self) -> None:
+        """複数チャンクにまたがるstancesのSUPERSEDES連鎖が構築されること。"""
+        data = {
+            "session_id": "pdf-supersedes-test",
+            "source_hash": "supersedeshash",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Initial coverage.",
+                    "entities": [
+                        {
+                            "name": "ACME Corp",
+                            "entity_type": "company",
+                            "ticker": "ACME",
+                        },
+                    ],
+                    "claims": [],
+                    "facts": [],
+                    "financial_datapoints": [],
+                    "stances": [
+                        {
+                            "author_name": "Goldman Sachs",
+                            "author_type": "sell_side",
+                            "entity_name": "ACME Corp",
+                            "rating": "Buy",
+                            "sentiment": "bullish",
+                            "target_price": 200.0,
+                            "target_price_currency": "USD",
+                            "as_of_date": "2026-01-15",
+                        },
+                    ],
+                },
+                {
+                    "chunk_index": 1,
+                    "content": "Updated coverage.",
+                    "entities": [],
+                    "claims": [],
+                    "facts": [],
+                    "financial_datapoints": [],
+                    "stances": [
+                        {
+                            "author_name": "Goldman Sachs",
+                            "author_type": "sell_side",
+                            "entity_name": "ACME Corp",
+                            "rating": "Buy",
+                            "sentiment": "bullish",
+                            "target_price": 250.0,
+                            "target_price_currency": "USD",
+                            "as_of_date": "2026-03-15",
+                        },
+                    ],
+                },
+            ],
+        }
+        result = map_pdf_extraction(data)
+
+        assert len(result["stances"]) == 2
+        assert len(result["authors"]) == 1  # Deduplicated
+        assert len(result["relations"]["supersedes"]) == 1
+
+        supersedes = result["relations"]["supersedes"][0]
+        assert supersedes["type"] == "SUPERSEDES"
+        # Newer (March) supersedes older (January)
+        assert supersedes["superseded_at"] == "2026-03-15"
+
+
+# ---------------------------------------------------------------------------
+# _build_causal_links
+# ---------------------------------------------------------------------------
+
+
+def _causal_chunk(
+    *,
+    facts: list[dict[str, Any]] | None = None,
+    claims: list[dict[str, Any]] | None = None,
+    financial_datapoints: list[dict[str, Any]] | None = None,
+    causal_links: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build a chunk dict with causal links for testing."""
+    if facts is None:
+        facts = [
+            {
+                "content": "Revenue grew 15% YoY",
+                "fact_type": "statistic",
+            },
+        ]
+    if claims is None:
+        claims = [
+            {
+                "content": "Stock will outperform the market",
+                "claim_type": "prediction",
+                "sentiment": "bullish",
+            },
+        ]
+    if financial_datapoints is None:
+        financial_datapoints = [
+            {
+                "metric_name": "Revenue",
+                "value": 1000.0,
+                "unit": "USD mn",
+                "is_estimate": False,
+                "period_label": "FY2025",
+            },
+        ]
+    if causal_links is None:
+        causal_links = [
+            {
+                "from_type": "fact",
+                "from_content": "Revenue grew 15% YoY",
+                "to_type": "claim",
+                "to_content": "Stock will outperform the market",
+                "mechanism": "strong revenue growth drives bullish outlook",
+                "confidence": "high",
+            },
+        ]
+    return {
+        "chunk_index": 0,
+        "content": "Financial analysis text.",
+        "facts": facts,
+        "claims": claims,
+        "financial_datapoints": financial_datapoints,
+        "causal_links": causal_links,
+    }
+
+
+class TestBuildCausalLinks:
+    """_build_causal_links 関数のテスト。"""
+
+    def test_正常系_fact_to_claimのCAUSESが生成される(self) -> None:
+        """受け入れ条件: Fact -> Claim の CAUSES リレーションが生成されること。"""
+        chunk = _causal_chunk()
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims = [
+            {
+                "claim_id": generate_claim_id("Stock will outperform the market"),
+                "content": "Stock will outperform the market",
+            }
+        ]
+        datapoints: list[dict[str, Any]] = []
+        source_id = generate_source_id("pdf:testhash")
+
+        rels = _build_causal_links(chunk, facts, claims, datapoints, source_id)
+
+        assert len(rels) == 1
+        assert rels[0]["type"] == "CAUSES"
+        assert rels[0]["from_id"] == facts[0]["fact_id"]
+        assert rels[0]["to_id"] == claims[0]["claim_id"]
+        assert rels[0]["from_label"] == "Fact"
+        assert rels[0]["to_label"] == "Claim"
+        assert rels[0]["mechanism"] == "strong revenue growth drives bullish outlook"
+        assert rels[0]["confidence"] == "high"
+        assert rels[0]["source_id"] == source_id
+
+    def test_正常系_datapoint_to_factのCAUSESが生成される(self) -> None:
+        """受け入れ条件: FinancialDataPoint -> Fact の CAUSES が生成されること。"""
+        chunk = _causal_chunk(
+            causal_links=[
+                {
+                    "from_type": "datapoint",
+                    "from_content": "Revenue",
+                    "to_type": "fact",
+                    "to_content": "Revenue grew 15% YoY",
+                    "mechanism": "data supports the fact",
+                    "confidence": "medium",
+                },
+            ],
+        )
+        source_hash = "testhash"
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims: list[dict[str, Any]] = []
+        datapoints = [
+            {
+                "datapoint_id": generate_datapoint_id(source_hash, "Revenue", "FY2025"),
+                "metric_name": "Revenue",
+            }
+        ]
+        source_id = generate_source_id(f"pdf:{source_hash}")
+
+        rels = _build_causal_links(chunk, facts, claims, datapoints, source_id)
+
+        assert len(rels) == 1
+        assert rels[0]["from_label"] == "FinancialDataPoint"
+        assert rels[0]["to_label"] == "Fact"
+        assert rels[0]["from_id"] == datapoints[0]["datapoint_id"]
+        assert rels[0]["to_id"] == facts[0]["fact_id"]
+
+    def test_正常系_未解決参照がwarningでスキップされる(self) -> None:
+        """受け入れ条件: 未解決参照がwarningログ後にスキップされること。"""
+        chunk = _causal_chunk(
+            causal_links=[
+                {
+                    "from_type": "fact",
+                    "from_content": "Nonexistent fact content",
+                    "to_type": "claim",
+                    "to_content": "Stock will outperform the market",
+                },
+            ],
+        )
+        facts: list[dict[str, Any]] = []
+        claims = [
+            {
+                "claim_id": generate_claim_id("Stock will outperform the market"),
+                "content": "Stock will outperform the market",
+            }
+        ]
+        datapoints: list[dict[str, Any]] = []
+        source_id = generate_source_id("pdf:testhash")
+
+        rels = _build_causal_links(chunk, facts, claims, datapoints, source_id)
+
+        assert len(rels) == 0
+
+    def test_エッジケース_空causal_linksで空結果(self) -> None:
+        """causal_links が空の場合に空のリストを返す。"""
+        chunk = _causal_chunk(causal_links=[])
+        rels = _build_causal_links(chunk, [], [], [], "src-id")
+        assert rels == []
+
+
+# ---------------------------------------------------------------------------
+# map_pdf_extraction: CAUSES 統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestMapPdfExtractionWithCausalLinks:
+    """map_pdf_extraction での CAUSES 統合テスト。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_causal_linksがmap_pdf_extractionに統合される(self) -> None:
+        """causal_links を含む pdf-extraction データが正しくマッピングされること。"""
+        data = {
+            "session_id": "pdf-causal-test",
+            "source_hash": "causalhash123",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Revenue grew 15% YoY, driving bullish outlook.",
+                    "entities": [],
+                    "facts": [
+                        {
+                            "content": "Revenue grew 15% YoY",
+                            "fact_type": "statistic",
+                        },
+                    ],
+                    "claims": [
+                        {
+                            "content": "Stock will outperform the market",
+                            "claim_type": "prediction",
+                            "sentiment": "bullish",
+                            "about_entities": [],
+                        },
+                    ],
+                    "financial_datapoints": [],
+                    "stances": [],
+                    "causal_links": [
+                        {
+                            "from_type": "fact",
+                            "from_content": "Revenue grew 15% YoY",
+                            "to_type": "claim",
+                            "to_content": "Stock will outperform the market",
+                            "mechanism": "revenue growth drives bullish outlook",
+                            "confidence": "high",
+                        },
+                    ],
+                },
+            ],
+        }
+        result = map_pdf_extraction(data)
+
+        # CAUSES relations present
+        rels = result["relations"]
+        assert "causes" in rels
+        assert len(rels["causes"]) == 1
+        assert rels["causes"][0]["type"] == "CAUSES"
+        assert rels["causes"][0]["from_label"] == "Fact"
+        assert rels["causes"][0]["to_label"] == "Claim"
+        assert rels["causes"][0]["mechanism"] == "revenue growth drives bullish outlook"
+        assert rels["causes"][0]["confidence"] == "high"
+
+
+# ---------------------------------------------------------------------------
 # topic-discovery が COMMANDS に含まれることを確認
 # ---------------------------------------------------------------------------
 
@@ -2748,3 +3608,538 @@ class TestTopicDiscoveryInCommands:
 
     def test_正常系_topic_discoveryがCOMMANDSに含まれる(self) -> None:
         assert "topic-discovery" in COMMANDS
+
+
+# ---------------------------------------------------------------------------
+# Wave 3: Temporal Chain — _period_sort_key
+# ---------------------------------------------------------------------------
+
+
+class TestPeriodSortKey:
+    """_period_sort_key が FY/Q/H フォーマットを正しくパースすること。"""
+
+    def test_正常系_FY4桁年度をパース(self) -> None:
+        assert _period_sort_key("FY2025") == (2025, 0)
+
+    def test_正常系_FY2桁年度をパース(self) -> None:
+        assert _period_sort_key("FY25") == (2025, 0)
+
+    def test_正常系_四半期ラベルをパース(self) -> None:
+        assert _period_sort_key("3Q25") == (2025, 3)
+        assert _period_sort_key("1Q2024") == (2024, 1)
+        assert _period_sort_key("4Q25") == (2025, 4)
+
+    def test_正常系_半期ラベルをパース(self) -> None:
+        assert _period_sort_key("1H26") == (2026, 1)
+        assert _period_sort_key("2H2025") == (2025, 2)
+
+    def test_異常系_不正ラベルがwarningログ後に末尾配置(
+        self, caplog: pytest.LogCaptureFixture
+    ) -> None:
+        result = _period_sort_key("INVALID")
+        assert result == (9999, 0)
+        assert "Unrecognised period label" in caplog.text
+
+
+# ---------------------------------------------------------------------------
+# Wave 3: Temporal Chain — _build_next_period_chain
+# ---------------------------------------------------------------------------
+
+
+class TestBuildNextPeriodChain:
+    """ticker別・period_type別に独立した NEXT_PERIOD 連鎖が生成されること。"""
+
+    def test_正常系_同一ticker同一typeで連鎖生成(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+            {
+                "period_id": "ISAT_FY2026",
+                "period_type": "annual",
+                "period_label": "FY2026",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert len(rels) == 2
+        assert rels[0]["from_id"] == "ISAT_FY2024"
+        assert rels[0]["to_id"] == "ISAT_FY2025"
+        assert rels[0]["type"] == "NEXT_PERIOD"
+        assert rels[0]["gap_months"] == 12
+        assert rels[1]["from_id"] == "ISAT_FY2025"
+        assert rels[1]["to_id"] == "ISAT_FY2026"
+
+    def test_正常系_異なるtickerは独立した連鎖(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+            {
+                "period_id": "TLKM_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "TLKM_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert len(rels) == 2
+        # Each ticker gets its own chain
+        from_ids = {r["from_id"] for r in rels}
+        assert "ISAT_FY2024" in from_ids
+        assert "TLKM_FY2024" in from_ids
+
+    def test_正常系_異なるperiod_typeは独立した連鎖(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+            {
+                "period_id": "ISAT_1Q25",
+                "period_type": "quarterly",
+                "period_label": "1Q25",
+            },
+            {
+                "period_id": "ISAT_2Q25",
+                "period_type": "quarterly",
+                "period_label": "2Q25",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert len(rels) == 2
+        # Find quarterly rel
+        q_rels = [r for r in rels if r["gap_months"] == 3]
+        assert len(q_rels) == 1
+        assert q_rels[0]["from_id"] == "ISAT_1Q25"
+        assert q_rels[0]["to_id"] == "ISAT_2Q25"
+
+    def test_エッジケース_単一periodは連鎖なし(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert rels == []
+
+    def test_エッジケース_空リストで空結果(self) -> None:
+        rels = _build_next_period_chain([])
+        assert rels == []
+
+
+# ---------------------------------------------------------------------------
+# Wave 3: Temporal Chain — _build_trend_edges
+# ---------------------------------------------------------------------------
+
+
+class TestBuildTrendEdges:
+    """変化率と方向が正しく計算されること。"""
+
+    def _make_dp(
+        self, dp_id: str, metric: str, value: float, period_label: str
+    ) -> dict[str, Any]:
+        return {
+            "datapoint_id": dp_id,
+            "metric_name": metric,
+            "value": value,
+            "period_label": period_label,
+        }
+
+    def _make_fp(self, period_id: str, period_type: str, label: str) -> dict[str, Any]:
+        return {
+            "period_id": period_id,
+            "period_type": period_type,
+            "period_label": label,
+        }
+
+    def test_正常系_上昇トレンドを検出(self) -> None:
+        dps = [
+            self._make_dp("dp1", "Revenue", 100.0, "FY2024"),
+            self._make_dp("dp2", "Revenue", 120.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["from_id"] == "dp1"
+        assert rels[0]["to_id"] == "dp2"
+        assert rels[0]["type"] == "TREND"
+        assert rels[0]["change_pct"] == 20.0
+        assert rels[0]["direction"] == "up"
+
+    def test_正常系_下降トレンドを検出(self) -> None:
+        dps = [
+            self._make_dp("dp1", "NetIncome", 200.0, "FY2024"),
+            self._make_dp("dp2", "NetIncome", 150.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["change_pct"] == -25.0
+        assert rels[0]["direction"] == "down"
+
+    def test_正常系_変化率1パーセント以内はflat(self) -> None:
+        dps = [
+            self._make_dp("dp1", "ARPU", 100.0, "FY2024"),
+            self._make_dp("dp2", "ARPU", 100.5, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["change_pct"] == 0.5
+        assert rels[0]["direction"] == "flat"
+
+    def test_エッジケース_prev_value_0でゼロ除算回避(self) -> None:
+        dps = [
+            self._make_dp("dp1", "Revenue", 0.0, "FY2024"),
+            self._make_dp("dp2", "Revenue", 100.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["change_pct"] == 0.0
+        assert rels[0]["direction"] == "flat"
+
+    def test_正常系_異なるmetricは独立したトレンド(self) -> None:
+        dps = [
+            self._make_dp("dp1", "Revenue", 100.0, "FY2024"),
+            self._make_dp("dp2", "Revenue", 120.0, "FY2025"),
+            self._make_dp("dp3", "EBITDA", 50.0, "FY2024"),
+            self._make_dp("dp4", "EBITDA", 40.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+            {"from_id": "dp3", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp4", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 2
+        # One should be up (Revenue +20%), one should be down (EBITDA -20%)
+        directions = {r["direction"] for r in rels}
+        assert "up" in directions
+        assert "down" in directions
+
+    def test_エッジケース_valueがNoneのデータポイントはスキップされる(self) -> None:
+        """value が None のデータポイントを含むペアは TREND エッジを生成しない。"""
+        dps = [
+            {
+                "datapoint_id": "dp1",
+                "metric_name": "Revenue",
+                "value": None,  # None value — should be skipped
+                "period_label": "FY2024",
+            },
+            self._make_dp("dp2", "Revenue", 120.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        # No TREND edge because prev_val is None
+        assert len(rels) == 0
+
+
+# ---------------------------------------------------------------------------
+# _build_question_nodes helper
+# ---------------------------------------------------------------------------
+
+
+def _question_chunk(
+    *,
+    questions: list[dict[str, Any]] | None = None,
+    entities: list[dict[str, Any]] | None = None,
+    facts: list[dict[str, Any]] | None = None,
+    claims: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build a chunk dict with questions for testing."""
+    if questions is None:
+        questions = [
+            {
+                "content": "What is the revenue breakdown by segment?",
+                "question_type": "data_gap",
+                "priority": "high",
+                "about_entities": ["ACME Corp"],
+                "motivated_by_contents": ["Revenue grew 15% YoY"],
+            },
+        ]
+    if entities is None:
+        entities = [
+            {
+                "name": "ACME Corp",
+                "entity_type": "company",
+                "ticker": "ACME",
+            },
+        ]
+    if facts is None:
+        facts = [
+            {
+                "content": "Revenue grew 15% YoY",
+                "fact_type": "statistic",
+            },
+        ]
+    if claims is None:
+        claims = [
+            {
+                "content": "Stock will outperform the market",
+                "claim_type": "prediction",
+                "sentiment": "bullish",
+            },
+        ]
+    return {
+        "chunk_index": 0,
+        "content": "Financial analysis text with knowledge gaps.",
+        "entities": entities,
+        "facts": facts,
+        "claims": claims,
+        "questions": questions,
+    }
+
+
+# ---------------------------------------------------------------------------
+# _build_question_nodes
+# ---------------------------------------------------------------------------
+
+
+class TestBuildQuestionNodes:
+    """_build_question_nodes 関数のテスト。"""
+
+    def test_正常系_Questionノードが生成される(self) -> None:
+        """受け入れ条件: Question ノードが正しいプロパティで生成されること。"""
+        chunk = _question_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims = [
+            {
+                "claim_id": generate_claim_id("Stock will outperform the market"),
+                "content": "Stock will outperform the market",
+            }
+        ]
+
+        questions, _aa, _mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(questions) == 1
+        q = questions[0]
+        assert q["content"] == "What is the revenue breakdown by segment?"
+        assert q["question_type"] == "data_gap"
+        assert q["priority"] == "high"
+        assert q["status"] == "open"
+        expected_id = generate_question_id("What is the revenue breakdown by segment?")
+        assert q["question_id"] == expected_id
+
+    def test_正常系_ASKS_ABOUTリレーションが生成される(self) -> None:
+        """受け入れ条件: Question -> Entity の ASKS_ABOUT が生成されること。"""
+        chunk = _question_chunk()
+        entity_id = generate_entity_id("ACME Corp", "company")
+        entity_name_to_id = {"ACME Corp": entity_id}
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims: list[dict[str, Any]] = []
+
+        questions, aa, _mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(aa) == 1
+        assert aa[0]["type"] == "ASKS_ABOUT"
+        assert aa[0]["from_id"] == questions[0]["question_id"]
+        assert aa[0]["to_id"] == entity_id
+
+    def test_正常系_MOTIVATED_BYリレーションが生成される(self) -> None:
+        """受け入れ条件: Question -> Fact の MOTIVATED_BY が生成されること。"""
+        chunk = _question_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        fact_id = generate_fact_id("Revenue grew 15% YoY")
+        facts = [
+            {
+                "fact_id": fact_id,
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims: list[dict[str, Any]] = []
+
+        questions, _aa, mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(mb) == 1
+        assert mb[0]["type"] == "MOTIVATED_BY"
+        assert mb[0]["from_id"] == questions[0]["question_id"]
+        assert mb[0]["to_id"] == fact_id
+
+    def test_正常系_MOTIVATED_BYがClaimにも解決される(self) -> None:
+        """受け入れ条件: motivated_by_contents が Claim にも解決されること。"""
+        chunk = _question_chunk(
+            questions=[
+                {
+                    "content": "Is the bullish outlook justified?",
+                    "question_type": "assumption_check",
+                    "about_entities": [],
+                    "motivated_by_contents": ["Stock will outperform the market"],
+                },
+            ],
+        )
+        entity_name_to_id: dict[str, str] = {}
+        facts: list[dict[str, Any]] = []
+        claim_id = generate_claim_id("Stock will outperform the market")
+        claims = [
+            {
+                "claim_id": claim_id,
+                "content": "Stock will outperform the market",
+            }
+        ]
+
+        _questions, _aa, mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(mb) == 1
+        assert mb[0]["to_id"] == claim_id
+
+    def test_エッジケース_空questionsで空結果(self) -> None:
+        """questions が空の場合に空のリストを返す。"""
+        chunk = _question_chunk(questions=[], entities=[], facts=[], claims=[])
+        questions, aa, mb = _build_question_nodes(chunk, {}, [], [])
+        assert questions == []
+        assert aa == []
+        assert mb == []
+
+
+# ---------------------------------------------------------------------------
+# map_pdf_extraction: Question 統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestMapPdfExtractionWithQuestions:
+    """map_pdf_extraction での Question 統合テスト。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_questionsがmap_pdf_extractionに統合される(self) -> None:
+        """questions を含む pdf-extraction データが正しくマッピングされること。"""
+        data = {
+            "session_id": "pdf-question-test",
+            "source_hash": "questionhash123",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Analysis text.",
+                    "entities": [
+                        {
+                            "name": "ACME Corp",
+                            "entity_type": "company",
+                            "ticker": "ACME",
+                        }
+                    ],
+                    "facts": [
+                        {
+                            "content": "Revenue grew 15% YoY",
+                            "fact_type": "statistic",
+                            "about_entities": ["ACME Corp"],
+                        }
+                    ],
+                    "claims": [],
+                    "financial_datapoints": [],
+                    "stances": [],
+                    "causal_links": [],
+                    "questions": [
+                        {
+                            "content": "What is the revenue breakdown by segment?",
+                            "question_type": "data_gap",
+                            "priority": "high",
+                            "about_entities": ["ACME Corp"],
+                            "motivated_by_contents": ["Revenue grew 15% YoY"],
+                        }
+                    ],
+                }
+            ],
+        }
+
+        result = map_pdf_extraction(data)
+
+        assert len(result["questions"]) == 1
+        q = result["questions"][0]
+        assert q["question_type"] == "data_gap"
+        assert q["status"] == "open"
+        assert q["priority"] == "high"
+
+        # Verify ASKS_ABOUT relation
+        asks_about = result["relations"]["asks_about"]
+        assert len(asks_about) == 1
+        assert asks_about[0]["type"] == "ASKS_ABOUT"
+
+        # Verify MOTIVATED_BY relation
+        motivated_by = result["relations"]["motivated_by"]
+        assert len(motivated_by) == 1
+        assert motivated_by[0]["type"] == "MOTIVATED_BY"

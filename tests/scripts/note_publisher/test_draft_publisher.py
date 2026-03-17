@@ -131,7 +131,9 @@ class TestDryRun:
         assert isinstance(result, ArticleDraft)
         assert result.title == "テスト記事タイトル"
         assert len(result.body_blocks) == 2
-        mock_parse.assert_called_once_with(article_dir / "02_draft" / "revised_draft.md")
+        mock_parse.assert_called_once_with(
+            article_dir / "02_draft" / "revised_draft.md"
+        )
 
     def test_異常系_E001_revised_draftが見つからない(
         self,

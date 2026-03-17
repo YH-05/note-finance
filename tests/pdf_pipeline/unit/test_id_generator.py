@@ -11,11 +11,14 @@ from __future__ import annotations
 import pytest
 
 from pdf_pipeline.services.id_generator import (
+    generate_author_id,
     generate_chunk_id,
     generate_datapoint_id,
     generate_entity_id,
     generate_period_id,
+    generate_question_id,
     generate_source_id,
+    generate_stance_id,
 )
 
 # ---------------------------------------------------------------------------
@@ -184,3 +187,80 @@ class TestGeneratePeriodId:
         result = generate_period_id("2025-12-31")
         assert isinstance(result, str)
         assert len(result) == 36
+
+
+# ---------------------------------------------------------------------------
+# generate_stance_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateStanceId:
+    """Tests for generate_stance_id."""
+
+    def test_正常系_決定論的IDを返す(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        assert id1 == id2
+
+    def test_正常系_異なる入力で異なるIDを返す(self) -> None:
+        id1 = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        id2 = generate_stance_id("Morgan Stanley", "Apple", "2026-03-15")
+        assert id1 != id2
+
+    def test_正常系_UUID形式である(self) -> None:
+        import uuid
+
+        result = generate_stance_id("Goldman Sachs", "Apple", "2026-03-15")
+        parsed = uuid.UUID(result)
+        assert str(parsed) == result
+
+
+# ---------------------------------------------------------------------------
+# generate_author_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateAuthorId:
+    """Tests for generate_author_id."""
+
+    def test_正常系_決定論的IDを返す(self) -> None:
+        id1 = generate_author_id("Goldman Sachs", "sell_side")
+        id2 = generate_author_id("Goldman Sachs", "sell_side")
+        assert id1 == id2
+
+    def test_正常系_異なる入力で異なるIDを返す(self) -> None:
+        id1 = generate_author_id("Goldman Sachs", "sell_side")
+        id2 = generate_author_id("Morgan Stanley", "sell_side")
+        assert id1 != id2
+
+    def test_正常系_UUID形式である(self) -> None:
+        import uuid
+
+        result = generate_author_id("Goldman Sachs", "sell_side")
+        parsed = uuid.UUID(result)
+        assert str(parsed) == result
+
+
+# ---------------------------------------------------------------------------
+# generate_question_id
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateQuestionId:
+    """Tests for generate_question_id."""
+
+    def test_正常系_決定論的IDを返す(self) -> None:
+        content = "What is the revenue breakdown by segment?"
+        id1 = generate_question_id(content)
+        id2 = generate_question_id(content)
+        assert id1 == id2
+
+    def test_正常系_異なる入力で異なるIDを返す(self) -> None:
+        id1 = generate_question_id("What drives margin compression?")
+        id2 = generate_question_id("What is the capex plan for FY2026?")
+        assert id1 != id2
+
+    def test_正常系_SHA256ベースの32文字IDである(self) -> None:
+        result = generate_question_id("What is the revenue breakdown by segment?")
+        assert len(result) == 32
+        assert all(c in "0123456789abcdef" for c in result)

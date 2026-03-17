@@ -7,6 +7,10 @@
 #   - Schema changes should be made here first, then applied to Neo4j
 #
 # Changelog:
+#   v2.1 (2026-03-17): Question node for knowledge gap structuring
+#     - Added: Question node with question_type (4 types) and priority/status
+#     - Added: ASKS_ABOUT (Question -> Entity), MOTIVATED_BY (Question -> Claim/Fact/Insight),
+#              ANSWERED_BY (Question -> Fact/Claim/Source) relationships
 #   v2.0 (2026-03-12): Claim-centric redesign
 #     - Added: Chunk, FinancialDataPoint, FiscalPeriod, Insight nodes
 #     - Expanded: Claim.claim_type (10 types), Fact.fact_type (8 types), Entity.entity_type (+country, instrument)
@@ -18,7 +22,7 @@
 #       - Insight node for AI-generated knowledge circulation
 #   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
-version: "2.0"
+version: "2.1"
 
 # ============================================================
 # Node Definitions
@@ -302,6 +306,39 @@ nodes:
         enum: [macro, sector, stock, ai, finance, geopolitics, policy, valuation, earnings]
         indexed: true
 
+  Stance:
+    description: >
+      Analyst investment stance snapshot (Rating + TP + Sentiment).
+      Tracked per Author per Entity over time via SUPERSEDES chain.
+    properties:
+      stance_id:
+        type: string
+        unique: true
+        required: true
+        description: "Deterministic UUID5(author:entity:date)"
+      rating:
+        type: string
+        indexed: true
+        description: "Rating label (e.g., Buy, Hold, Sell, Overweight)"
+      sentiment:
+        type: string
+        enum: [bullish, bearish, neutral, mixed]
+        indexed: true
+      target_price:
+        type: float
+        description: "Target price value"
+      target_price_currency:
+        type: string
+        description: "ISO 4217 currency code for target price (e.g., 'USD', 'IDR')"
+      as_of_date:
+        type: date
+        required: true
+        indexed: true
+        description: "Date the stance was expressed"
+      created_at:
+        type: datetime
+        required: true
+
   Insight:
     description: >
       AI-generated analytical output. Stores creative synthesis, contradiction detection,
@@ -338,6 +375,47 @@ nodes:
         default: "draft"
         indexed: true
         description: "Lifecycle status of the insight"
+
+  Question:
+    description: >
+      Knowledge gap identified during extraction.
+      Represents what is missing, contradictory, or needs verification.
+      Used by AI to structure follow-up research priorities.
+    properties:
+      question_id:
+        type: string
+        unique: true
+        required: true
+        description: "Deterministic SHA-256[:32] hash of 'question:' + content"
+      content:
+        type: string
+        required: true
+        description: "The question text describing the knowledge gap"
+      question_type:
+        type: string
+        required: true
+        enum: [data_gap, contradiction, prediction_test, assumption_check]
+        indexed: true
+        description: >
+          data_gap=missing important information in this report,
+          contradiction=claim conflicts with general consensus,
+          prediction_test=quantitative prediction verifiable later,
+          assumption_check=assumption requiring verification
+      priority:
+        type: string
+        enum: [high, medium, low]
+        indexed: true
+        description: "Priority level for follow-up research"
+      status:
+        type: string
+        enum: [open, investigating, answered, dismissed]
+        default: "open"
+        indexed: true
+        description: "Lifecycle status of the question"
+      generated_at:
+        type: datetime
+        required: true
+        description: "When this question was generated"
 
 # ============================================================
 # Relationship Definitions
@@ -478,6 +556,103 @@ relationships:
       reason:
         type: string
 
+  # Stance relationships (Wave 1)
+  HOLDS_STANCE:
+    from: Author
+    to: Stance
+    description: "Author holds/expressed this investment stance"
+
+  ON_ENTITY:
+    from: Stance
+    to: Entity
+    description: "Stance is about this entity (target company/index)"
+
+  BASED_ON:
+    from: Stance
+    to: Claim
+    description: "Stance is based on this claim (evidence link)"
+    properties:
+      role:
+        type: string
+        description: "Role of the claim (e.g., 'primary', 'supporting', 'contrasting')"
+
+  SUPERSEDES:
+    from: Stance
+    to: Stance
+    description: "This stance supersedes (replaces) the previous stance for the same (Author, Entity) pair"
+    properties:
+      superseded_at:
+        type: datetime
+        description: "When the old stance was superseded"
+
+  # Temporal chain (Wave 3)
+  NEXT_PERIOD:
+    from: FiscalPeriod
+    to: FiscalPeriod
+    description: "Temporal ordering between fiscal periods of the same ticker and period_type"
+    properties:
+      gap_months:
+        type: integer
+        description: "Number of months between the two periods (e.g., 3 for quarterly, 6 for half-year, 12 for annual)"
+
+  TREND:
+    from: FinancialDataPoint
+    to: FinancialDataPoint
+    description: "Metric trend between consecutive periods for the same (entity, metric_name)"
+    properties:
+      change_pct:
+        type: float
+        description: "Percentage change from previous to current value"
+      direction:
+        type: string
+        enum: [up, down, flat]
+        description: "Trend direction: up if change_pct > 1, down if < -1, flat otherwise"
+
+  # Causal chain (Wave 2)
+  CAUSES:
+    from: [Fact, Claim, FinancialDataPoint]
+    to: [Fact, Claim, FinancialDataPoint]
+    description: "Causal relationship between knowledge nodes (e.g., fact A causes claim B)"
+    properties:
+      mechanism:
+        type: string
+        description: "How/why the cause leads to the effect (e.g., 'revenue growth drives stock price')"
+      confidence:
+        type: string
+        enum: [high, medium, low]
+        description: "Confidence level of the causal link"
+      source_id:
+        type: string
+        description: "Source document that states this causal relationship"
+      from_label:
+        type: string
+        enum: [Fact, Claim, FinancialDataPoint]
+        description: "Label of the from-node (Neo4j CE workaround for multi-label MATCH)"
+      to_label:
+        type: string
+        enum: [Fact, Claim, FinancialDataPoint]
+        description: "Label of the to-node (Neo4j CE workaround for multi-label MATCH)"
+
+  # Question relationships (Wave 4)
+  ASKS_ABOUT:
+    from: Question
+    to: Entity
+    description: "Question asks about this entity"
+
+  MOTIVATED_BY:
+    from: Question
+    to: [Claim, Fact, Insight]
+    description: "Question was motivated by this claim, fact, or insight"
+
+  ANSWERED_BY:
+    from: Question
+    to: [Fact, Claim, Source]
+    description: "Question was answered by this fact, claim, or source"
+    properties:
+      answered_at:
+        type: datetime
+        description: "When the question was answered"
+
 # ============================================================
 # Constraints & Indices (for neo4j-pdf-constraints.cypher)
 # ============================================================
@@ -512,6 +687,12 @@ constraints:
   - label: Insight
     property: insight_id
     type: UNIQUE
+  - label: Stance
+    property: stance_id
+    type: UNIQUE
+  - label: Question
+    property: question_id
+    type: UNIQUE
 
 indices:
   - label: Fact
@@ -540,6 +721,18 @@ indices:
     property: source_type
   - label: Source
     property: source_hash
+  - label: Stance
+    property: as_of_date
+  - label: Stance
+    property: rating
+  - label: Stance
+    property: sentiment
+  - label: Question
+    property: question_type
+  - label: Question
+    property: priority
+  - label: Question
+    property: status
 
 # ============================================================
 # Namespace Definitions
@@ -558,6 +751,8 @@ namespaces:
       - FiscalPeriod
       - Topic
       - Insight
+      - Stance
+      - Question
     naming: PascalCase
 
   conversation:

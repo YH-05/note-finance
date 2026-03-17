@@ -668,6 +668,9 @@ SET c.content = $content,
     c.claim_type = $claim_type,
     c.sentiment = $sentiment,
     c.magnitude = $magnitude,
+    c.target_price = $target_price,
+    c.rating = $rating,
+    c.time_horizon = $time_horizon,
     c.created_at = datetime($created_at)
 ```
 
@@ -682,6 +685,9 @@ SET c.content = $content,
 | `$claim_type` | `claims[].claim_type` | 未設定時は null |
 | `$sentiment` | `claims[].sentiment` | bullish/bearish/neutral/mixed、未設定時は null |
 | `$magnitude` | `claims[].magnitude` | strong/moderate/slight、未設定時は null |
+| `$target_price` | `claims[].target_price` | 数値文字列、未設定時は null |
+| `$rating` | `claims[].rating` | buy/sell/hold 等、未設定時は null |
+| `$time_horizon` | `claims[].time_horizon` | 期間文字列、未設定時は null |
 | `$created_at` | `created_at`（キューレベル） | ISO 8601 |
 
 #### Fact ノード [v2 新規]
@@ -953,6 +959,271 @@ SET s.url = src.url,
     END,
     s.category = src.category,
     s.command_source = src.command_source
+```
+
+### Author バッチ投入 [Wave 1 新規]
+
+```cypher
+-- Author バッチ投入
+UNWIND $authors AS author
+MERGE (a:Author {author_id: author.author_id})
+SET a.name = author.name,
+    a.author_type = author.author_type,
+    a.organization = author.organization
+```
+
+### Stance バッチ投入 [Wave 1 新規]
+
+```cypher
+-- Stance バッチ投入
+UNWIND $stances AS stance
+MERGE (st:Stance {stance_id: stance.stance_id})
+SET st.rating = stance.rating,
+    st.sentiment = stance.sentiment,
+    st.target_price = stance.target_price,
+    st.target_price_currency = stance.target_price_currency,
+    st.as_of_date = CASE
+        WHEN stance.as_of_date IS NOT NULL AND stance.as_of_date <> ''
+        THEN date(stance.as_of_date)
+        ELSE null
+    END,
+    st.created_at = datetime()
+```
+
+### Wave 1 リレーション投入
+
+```cypher
+-- HOLDS_STANCE: Author -> Stance
+UNWIND $holds_stance AS rel
+MATCH (a:Author {author_id: rel.from_id})
+MATCH (st:Stance {stance_id: rel.to_id})
+MERGE (a)-[:HOLDS_STANCE]->(st)
+
+-- ON_ENTITY: Stance -> Entity
+UNWIND $on_entity AS rel
+MATCH (st:Stance {stance_id: rel.from_id})
+MATCH (e:Entity {entity_id: rel.to_id})
+MERGE (st)-[:ON_ENTITY]->(e)
+
+-- BASED_ON: Stance -> Claim
+UNWIND $based_on AS rel
+MATCH (st:Stance {stance_id: rel.from_id})
+MATCH (c:Claim {claim_id: rel.to_id})
+MERGE (st)-[r:BASED_ON]->(c)
+SET r.role = rel.role
+
+-- SUPERSEDES: Stance -> Stance (newer supersedes older)
+UNWIND $supersedes AS rel
+MATCH (newer:Stance {stance_id: rel.from_id})
+MATCH (older:Stance {stance_id: rel.to_id})
+MERGE (newer)-[r:SUPERSEDES]->(older)
+SET r.superseded_at = CASE
+        WHEN rel.superseded_at IS NOT NULL AND rel.superseded_at <> ''
+        THEN datetime(rel.superseded_at)
+        ELSE datetime()
+    END
+```
+
+### Wave 2 リレーション投入
+
+```cypher
+-- CAUSES: Fact/Claim/FinancialDataPoint -> Fact/Claim/FinancialDataPoint
+-- Neo4j CE ではリレーションの from/to に複数ラベルを指定できないため、
+-- from_label / to_label プロパティでラベルを分岐して MATCH する。
+
+-- CAUSES (from: Fact)
+UNWIND $causes AS rel
+WITH rel WHERE rel.from_label = 'Fact'
+CALL {
+  WITH rel
+  MATCH (f:Fact {fact_id: rel.from_id})
+  WITH f, rel
+  // to_label 分岐
+  CALL {
+    WITH f, rel
+    WITH f, rel WHERE rel.to_label = 'Fact'
+    MATCH (t:Fact {fact_id: rel.to_id})
+    MERGE (f)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH f, rel WHERE rel.to_label = 'Claim'
+    MATCH (t:Claim {claim_id: rel.to_id})
+    MERGE (f)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH f, rel WHERE rel.to_label = 'FinancialDataPoint'
+    MATCH (t:FinancialDataPoint {datapoint_id: rel.to_id})
+    MERGE (f)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+  }
+}
+
+-- CAUSES (from: Claim)
+UNWIND $causes AS rel
+WITH rel WHERE rel.from_label = 'Claim'
+CALL {
+  WITH rel
+  MATCH (c:Claim {claim_id: rel.from_id})
+  WITH c, rel
+  CALL {
+    WITH c, rel
+    WITH c, rel WHERE rel.to_label = 'Fact'
+    MATCH (t:Fact {fact_id: rel.to_id})
+    MERGE (c)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH c, rel WHERE rel.to_label = 'Claim'
+    MATCH (t:Claim {claim_id: rel.to_id})
+    MERGE (c)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH c, rel WHERE rel.to_label = 'FinancialDataPoint'
+    MATCH (t:FinancialDataPoint {datapoint_id: rel.to_id})
+    MERGE (c)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+  }
+}
+
+-- CAUSES (from: FinancialDataPoint)
+UNWIND $causes AS rel
+WITH rel WHERE rel.from_label = 'FinancialDataPoint'
+CALL {
+  WITH rel
+  MATCH (dp:FinancialDataPoint {datapoint_id: rel.from_id})
+  WITH dp, rel
+  CALL {
+    WITH dp, rel
+    WITH dp, rel WHERE rel.to_label = 'Fact'
+    MATCH (t:Fact {fact_id: rel.to_id})
+    MERGE (dp)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH dp, rel WHERE rel.to_label = 'Claim'
+    MATCH (t:Claim {claim_id: rel.to_id})
+    MERGE (dp)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+    UNION
+    WITH dp, rel WHERE rel.to_label = 'FinancialDataPoint'
+    MATCH (t:FinancialDataPoint {datapoint_id: rel.to_id})
+    MERGE (dp)-[r:CAUSES]->(t)
+    SET r.mechanism = rel.mechanism,
+        r.confidence = rel.confidence,
+        r.source_id = rel.source_id,
+        r.from_label = rel.from_label,
+        r.to_label = rel.to_label
+  }
+}
+```
+
+#### NEXT_PERIOD (FiscalPeriod -> FiscalPeriod)
+
+```cypher
+-- NEXT_PERIOD: FiscalPeriod -> FiscalPeriod (temporal ordering)
+-- ticker別・period_type別に独立した連鎖を構築
+UNWIND $rels AS rel
+MATCH (from:FiscalPeriod {period_id: rel.from_id})
+MATCH (to:FiscalPeriod {period_id: rel.to_id})
+MERGE (from)-[r:NEXT_PERIOD]->(to)
+SET r.gap_months = rel.gap_months
+```
+
+#### TREND (FinancialDataPoint -> FinancialDataPoint)
+
+```cypher
+-- TREND: FinancialDataPoint -> FinancialDataPoint (metric trend)
+-- 同一 (entity, metric_name) 間の時系列変化率を追跡
+UNWIND $rels AS rel
+MATCH (from:FinancialDataPoint {datapoint_id: rel.from_id})
+MATCH (to:FinancialDataPoint {datapoint_id: rel.to_id})
+MERGE (from)-[r:TREND]->(to)
+SET r.change_pct = rel.change_pct,
+    r.direction = rel.direction
+```
+
+### Question バッチ投入 [Wave 4 新規]
+
+```cypher
+-- Question バッチ投入
+UNWIND $questions AS question
+MERGE (q:Question {question_id: question.question_id})
+SET q.content = question.content,
+    q.question_type = question.question_type,
+    q.priority = question.priority,
+    q.status = question.status,
+    q.generated_at = datetime()
+```
+
+### Wave 4 リレーション投入
+
+```cypher
+-- ASKS_ABOUT: Question -> Entity
+UNWIND $asks_about AS rel
+MATCH (q:Question {question_id: rel.from_id})
+MATCH (e:Entity {entity_id: rel.to_id})
+MERGE (q)-[:ASKS_ABOUT]->(e)
+
+-- MOTIVATED_BY: Question -> Claim/Fact/Insight
+-- Neo4j CE ではリレーションの to に複数ラベルを指定できないため、
+-- 各ラベルを順番に試行する。
+UNWIND $motivated_by AS rel
+OPTIONAL MATCH (c:Claim {claim_id: rel.to_id})
+OPTIONAL MATCH (f:Fact {fact_id: rel.to_id})
+OPTIONAL MATCH (i:Insight {insight_id: rel.to_id})
+WITH rel,
+     COALESCE(c, f, i) AS target
+WHERE target IS NOT NULL
+MATCH (q:Question {question_id: rel.from_id})
+MERGE (q)-[:MOTIVATED_BY]->(target)
+
+-- ANSWERED_BY: Question -> Fact/Claim/Source (future use)
+-- Note: ANSWERED_BY は後続の調査・回答フェーズで付与される。
+-- graph-queue 生成時には生成されない。
+UNWIND $answered_by AS rel
+OPTIONAL MATCH (f:Fact {fact_id: rel.to_id})
+OPTIONAL MATCH (c:Claim {claim_id: rel.to_id})
+OPTIONAL MATCH (s:Source {source_id: rel.to_id})
+WITH rel,
+     COALESCE(f, c, s) AS target
+WHERE target IS NOT NULL
+MATCH (q:Question {question_id: rel.from_id})
+MERGE (q)-[r:ANSWERED_BY]->(target)
+SET r.answered_at = CASE
+        WHEN rel.answered_at IS NOT NULL AND rel.answered_at <> ''
+        THEN datetime(rel.answered_at)
+        ELSE datetime()
+    END
 ```
 
 ### source_type の推論

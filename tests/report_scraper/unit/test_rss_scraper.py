@@ -59,8 +59,8 @@ def _make_parsed_feed(
     feed.bozo = bozo
     feed.get.return_value = bozo_exception
     if bozo_exception is not None:
-        feed.__getitem__ = (
-            lambda self, key: bozo_exception if key == "bozo_exception" else None
+        feed.__getitem__ = lambda self, key: (
+            bozo_exception if key == "bozo_exception" else None
         )
     else:
         feed.__getitem__ = lambda self, key: None

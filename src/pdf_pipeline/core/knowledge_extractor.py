@@ -85,6 +85,39 @@ Output format (must be valid JSON, no explanation):
       "period_label": "<e.g. FY2025|4Q25|1H26 or null>",
       "about_entities": ["<entity name>"]
     }
+  ],
+  "stances": [
+    {
+      "author_name": "<analyst or institution name>",
+      "author_type": "<person|sell_side|buy_side|consultant|media|self>",
+      "organization": "<organization name or null>",
+      "entity_name": "<target entity name>",
+      "rating": "<Buy|Hold|Sell|Overweight|Underweight or null>",
+      "sentiment": "<bullish|bearish|neutral|mixed or null>",
+      "target_price": <number or null>,
+      "target_price_currency": "<ISO 4217 code or null>",
+      "as_of_date": "<date or null>",
+      "based_on_claims": ["<claim content string>"]
+    }
+  ],
+  "causal_links": [
+    {
+      "from_type": "<fact|claim|datapoint>",
+      "from_content": "<exact content string of the cause node from facts/claims/financial_datapoints above>",
+      "to_type": "<fact|claim|datapoint>",
+      "to_content": "<exact content string of the effect node from facts/claims/financial_datapoints above>",
+      "mechanism": "<description of how/why the cause leads to the effect, or null>",
+      "confidence": "<high|medium|low or null>"
+    }
+  ],
+  "questions": [
+    {
+      "content": "<question describing a knowledge gap>",
+      "question_type": "<data_gap|contradiction|prediction_test|assumption_check>",
+      "priority": "<high|medium|low or null>",
+      "about_entities": ["<entity name>"],
+      "motivated_by_contents": ["<exact content string from facts/claims above that motivated this question>"]
+    }
   ]
 }
 
@@ -95,6 +128,14 @@ Rules:
 - Use entity names consistently in about_entities references.
 - For claims: set magnitude to indicate conviction strength, include target_price/rating/time_horizon when available.
 - For financial_datapoints: extract structured numerical data from tables and text. Set is_estimate to true for forecasts.
+- For stances: extract analyst investment stances (rating + target price + sentiment) when an analyst or institution expresses a view on a specific entity. Include author_name (analyst/institution) and entity_name (target). Use based_on_claims to link stance to relevant claim content strings.
+- For causal_links: identify cause-effect relationships between facts, claims, and financial data points within this chunk. Use exact content strings from the extracted nodes above for from_content/to_content. For datapoints, use metric_name as the content key.
+- For questions: identify knowledge gaps in 4 categories:
+  - data_gap: important information missing from this report (e.g., segment breakdown, competitive comparison)
+  - contradiction: claims that conflict with general consensus or other sources
+  - prediction_test: quantitative predictions that can be verified later (e.g., specific revenue targets, price forecasts)
+  - assumption_check: assumptions that need verification (e.g., growth rate assumptions, market size estimates)
+  Use exact content strings from facts/claims above for motivated_by_contents. Set priority based on impact on investment decisions.
 
 Text:
 """

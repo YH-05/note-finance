@@ -8,7 +8,7 @@ Tests cover:
 - ID determinism
 - Entity deduplication
 - _infer_period_type helper
-- SCHEMA_VERSION == '2.0'
+- SCHEMA_VERSION == '2.1'
 """
 
 from __future__ import annotations
@@ -283,8 +283,8 @@ class TestMapPdfExtraction:
 class TestSchemaVersion:
     """Tests for SCHEMA_VERSION constant."""
 
-    def test_正常系_SCHEMA_VERSIONが2_0である(self) -> None:
-        assert SCHEMA_VERSION == "2.0"
+    def test_正常系_SCHEMA_VERSIONが2_1である(self) -> None:
+        assert SCHEMA_VERSION == "2.1"
 
 
 # ---------------------------------------------------------------------------
@@ -565,9 +565,9 @@ class TestInferPeriodType:
 
 
 class TestNewRelations:
-    """Tests for the 6 new v2 relation types."""
+    """Tests for the v2 relation types."""
 
-    def test_正常系_全11種のリレーションキーが存在する(self) -> None:
+    def test_正常系_全20種のリレーションキーが存在する(self) -> None:
         data = _make_extraction_data(source_hash="hash1", include_datapoints=True)
         result = map_pdf_extraction(data)
 
@@ -583,6 +583,15 @@ class TestNewRelations:
             "for_period",
             "datapoint_entity",
             "tagged",
+            "holds_stance",
+            "on_entity",
+            "based_on",
+            "supersedes",
+            "causes",
+            "next_period",
+            "trend",
+            "asks_about",
+            "motivated_by",
         }
         assert set(result["relations"].keys()) == expected_keys
 

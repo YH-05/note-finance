@@ -545,9 +545,7 @@ class TestApplyFolderRenames:
         (old_dir / "02_edit").mkdir()
         (old_dir / "02_edit" / "draft.md").write_text("content")
 
-        _apply_folder_renames(
-            old_dir, new_dir, {"02_edit": "02_draft"}, dry_run=False
-        )
+        _apply_folder_renames(old_dir, new_dir, {"02_edit": "02_draft"}, dry_run=False)
 
         assert (new_dir / "02_draft" / "draft.md").exists()
         assert not (new_dir / "02_edit").exists()
@@ -585,7 +583,9 @@ class TestMigrateFlatEdgeCases:
         (old_dir / "data.json").write_text("{}")
 
         entry = MigrationEntry(
-            old_path="test", new_path="test", new_category="test",
+            old_path="test",
+            new_path="test",
+            new_category="test",
             layout=LayoutType.FLAT,
         )
         _migrate_flat(old_dir, new_dir, entry, dry_run=False)
@@ -603,7 +603,9 @@ class TestMigrateFlatEdgeCases:
         (old_dir / "notes.md").write_text("side notes")
 
         entry = MigrationEntry(
-            old_path="test", new_path="test", new_category="test",
+            old_path="test",
+            new_path="test",
+            new_category="test",
             layout=LayoutType.FLAT,
         )
         _migrate_flat(old_dir, new_dir, entry, dry_run=False)
@@ -625,6 +627,7 @@ class TestMigrateArticleIntegration:
     def _setup_old_dir(self, tmp_path: Path, name: str) -> Path:
         """テスト用の旧ディレクトリを articles/ 配下に作成する。"""
         import scripts.migrate_articles as mod
+
         # ARTICLES_DIR を tmp_path に一時的に差し替え
         old_dir = tmp_path / name
         old_dir.mkdir(parents=True)
@@ -633,6 +636,7 @@ class TestMigrateArticleIntegration:
     def test_正常系_STANDARD_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
         """STANDARD レイアウトで 01_research コピーとフォルダリネームが行われることを確認。"""
         import scripts.migrate_articles as mod
+
         monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
 
         old_dir = tmp_path / "old_article"
@@ -660,6 +664,7 @@ class TestMigrateArticleIntegration:
     def test_正常系_FLAT_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
         """FLAT レイアウトで .md が 02_draft/first_draft.md に移動されることを確認。"""
         import scripts.migrate_articles as mod
+
         monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
 
         old_dir = tmp_path / "flat_article"
@@ -678,9 +683,12 @@ class TestMigrateArticleIntegration:
         new_dir = tmp_path / "stock_analysis" / "2026-01-01_flat"
         assert (new_dir / "02_draft" / "first_draft.md").exists()
 
-    def test_正常系_SIDEHUSTLE_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
+    def test_正常系_SIDEHUSTLE_レイアウト(
+        self, tmp_path: Path, monkeypatch: Any
+    ) -> None:
         """SIDEHUSTLE レイアウトで 01_sources→01_research, 02_synthesis→01_research が行われることを確認。"""
         import scripts.migrate_articles as mod
+
         monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
 
         old_dir = tmp_path / "side_article"
@@ -707,9 +715,12 @@ class TestMigrateArticleIntegration:
         assert (new_dir / "01_research" / "synthesis.json").exists()
         assert (new_dir / "02_draft" / "draft.md").exists()
 
-    def test_正常系_WEEKLY_REPORT_レイアウト(self, tmp_path: Path, monkeypatch: Any) -> None:
+    def test_正常系_WEEKLY_REPORT_レイアウト(
+        self, tmp_path: Path, monkeypatch: Any
+    ) -> None:
         """WEEKLY_REPORT レイアウトで data→01_research/market が行われることを確認。"""
         import scripts.migrate_articles as mod
+
         monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
 
         old_dir = tmp_path / "weekly_article"
@@ -733,9 +744,12 @@ class TestMigrateArticleIntegration:
         assert (new_dir / "01_research" / "market" / "indices.json").exists()
         assert (new_dir / "02_draft" / "report.md").exists()
 
-    def test_エッジケース_new_dir既存でFalse(self, tmp_path: Path, monkeypatch: Any) -> None:
+    def test_エッジケース_new_dir既存でFalse(
+        self, tmp_path: Path, monkeypatch: Any
+    ) -> None:
         """新ディレクトリが既存の場合に False を返し上書きしないことを確認。"""
         import scripts.migrate_articles as mod
+
         monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
 
         old_dir = tmp_path / "old_dup"
@@ -744,24 +758,34 @@ class TestMigrateArticleIntegration:
         new_dir.mkdir()
 
         entry = MigrationEntry(
-            old_path="old_dup", new_path="new_dup", new_category="test",
+            old_path="old_dup",
+            new_path="new_dup",
+            new_category="test",
         )
         assert migrate_article(entry, dry_run=False) is False
 
-    def test_エッジケース_old_dir不在でFalse(self, tmp_path: Path, monkeypatch: Any) -> None:
+    def test_エッジケース_old_dir不在でFalse(
+        self, tmp_path: Path, monkeypatch: Any
+    ) -> None:
         """旧ディレクトリが存在しない場合に False を返すことを確認。"""
         import scripts.migrate_articles as mod
+
         monkeypatch.setattr(mod, "ARTICLES_DIR", tmp_path)
 
         entry = MigrationEntry(
-            old_path="ghost", new_path="new_ghost", new_category="test",
+            old_path="ghost",
+            new_path="new_ghost",
+            new_category="test",
         )
         assert migrate_article(entry, dry_run=False) is False
 
     def test_正常系_skipエントリでTrue(self) -> None:
         """skip=True のエントリで True を返すことを確認。"""
         entry = MigrationEntry(
-            old_path="skip_me", new_path="", new_category="",
-            skip=True, notes="test skip",
+            old_path="skip_me",
+            new_path="",
+            new_category="",
+            skip=True,
+            notes="test skip",
         )
         assert migrate_article(entry, dry_run=False) is True

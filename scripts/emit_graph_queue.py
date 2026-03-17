@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import functools
+import hashlib
 import json
 import logging
 import os
@@ -47,20 +48,48 @@ import secrets
 import sys
 import time
 import uuid
+from collections import defaultdict
 from collections.abc import Callable
-from datetime import datetime, timezone
+from dataclasses import dataclass, field
+from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 from pdf_pipeline.services.id_generator import (
+    generate_author_id,
     generate_claim_id,
     generate_datapoint_id_from_fields,
     generate_entity_id,
     generate_fact_id,
+    generate_question_id,
     generate_source_id,
+    generate_stance_id,
 )
 
 type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
+
+
+class StanceBuildResult(TypedDict):
+    """Result from _build_stance_nodes."""
+
+    stances: list[dict[str, Any]]
+    authors: list[dict[str, Any]]
+    holds_stance: list[dict[str, str]]
+    on_entity: list[dict[str, str]]
+    based_on: list[dict[str, str]]
+
+
+@dataclass
+class ChunkProcessingContext:
+    """Cross-chunk shared state for _process_chunk."""
+
+    seen_entity_keys: set[str] = field(default_factory=set)
+    entity_name_to_id: dict[str, str] = field(default_factory=dict)
+    entity_name_to_ticker: dict[str, str] = field(default_factory=dict)
+    seen_period_ids: set[str] = field(default_factory=set)
+    seen_author_keys: set[str] = field(default_factory=set)
+    author_name_to_id: dict[str, str] = field(default_factory=dict)
+
 
 # ---------------------------------------------------------------------------
 # Logger
@@ -81,8 +110,8 @@ DEFAULT_OUTPUT_BASE = Path(".tmp/graph-queue")
 DEFAULT_MAX_AGE_DAYS = 7
 """Default maximum age in days for auto-cleanup."""
 
-SCHEMA_VERSION = "2.0"
-"""Graph-queue schema version."""
+SCHEMA_VERSION = "2.1"
+"""Graph-queue schema version (v2.1: Wave 1-4 support)."""
 
 WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
 """Path to the wealth-management theme configuration file."""
@@ -330,6 +359,295 @@ def _infer_period_type(label: str) -> str:
     return "annual"
 
 
+# Regex patterns for period label parsing
+_FY_RE = re.compile(r"^FY\s*(\d{4}|\d{2})$", re.IGNORECASE)
+"""Match annual period labels like ``FY2025`` or ``FY25``."""
+
+_Q_RE = re.compile(r"^(\d)[Qq]\s*(\d{4}|\d{2})$")
+"""Match quarterly period labels like ``3Q25`` or ``4Q2025``."""
+
+_H_RE = re.compile(r"^(\d)[Hh]\s*(\d{4}|\d{2})$")
+"""Match half-year period labels like ``1H26`` or ``2H2025``."""
+
+
+def _normalise_year(raw: str) -> int:
+    """Normalise a 2-digit or 4-digit year string to a 4-digit integer.
+
+    Parameters
+    ----------
+    raw : str
+        Year string (e.g. ``'25'`` or ``'2025'``).
+
+    Returns
+    -------
+    int
+        Four-digit year.
+    """
+    year = int(raw)
+    if year < 100:
+        year += 2000
+    return year
+
+
+def _period_sort_key(label: str) -> tuple[int, int]:
+    """Compute a sortable key from a fiscal period label.
+
+    Used to order FiscalPeriod nodes chronologically within a
+    ticker + period_type group.
+
+    Parameters
+    ----------
+    label : str
+        Period label (e.g., ``'FY2025'``, ``'3Q25'``, ``'1H26'``).
+
+    Returns
+    -------
+    tuple[int, int]
+        ``(year, sub_index)`` where *sub_index* is 0 for annual,
+        1-4 for quarterly, 1-2 for half-year.  Unrecognised labels
+        are placed at ``(9999, 0)`` with a warning.
+
+    Examples
+    --------
+    >>> _period_sort_key("FY2025")
+    (2025, 0)
+    >>> _period_sort_key("3Q25")
+    (2025, 3)
+    >>> _period_sort_key("1H26")
+    (2026, 1)
+    """
+    stripped = label.strip()
+
+    m = _FY_RE.match(stripped)
+    if m:
+        return (_normalise_year(m.group(1)), 0)
+
+    m = _Q_RE.match(stripped)
+    if m:
+        return (_normalise_year(m.group(2)), int(m.group(1)))
+
+    m = _H_RE.match(stripped)
+    if m:
+        return (_normalise_year(m.group(2)), int(m.group(1)))
+
+    logger.warning("Unrecognised period label, placing at end: %s", label)
+    return (9999, 0)
+
+
+_GAP_MONTHS: dict[str, int] = {
+    "annual": 12,
+    "quarterly": 3,
+    "half_year": 6,
+}
+"""Default gap_months by period_type."""
+
+
+def _extract_ticker_from_period_id(period_id: str) -> str:
+    """Extract the ticker prefix from a period_id.
+
+    Parameters
+    ----------
+    period_id : str
+        Period ID in ``{ticker}_{period_label}`` or ``{period_label}`` format.
+
+    Returns
+    -------
+    str
+        Ticker prefix, or empty string if no prefix found.
+    """
+    parts = period_id.rsplit("_", 1)
+    return parts[0] if len(parts) > 1 else ""
+
+
+def _parse_date_safe(raw: str | None) -> date:
+    """Parse an ISO 8601 date string safely for sorting.
+
+    Parameters
+    ----------
+    raw : str | None
+        Date string in ``YYYY-MM-DD`` format, or ``None``.
+
+    Returns
+    -------
+    date
+        Parsed date, or ``date.min`` for unparseable/missing values.
+    """
+    if not raw:
+        return date.min
+    try:
+        return date.fromisoformat(raw)
+    except (ValueError, TypeError):
+        logger.warning("Unparseable as_of_date for sorting: %s", raw)
+        return date.min
+
+
+def _build_content_id_map(
+    facts: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+) -> dict[tuple[str, str], str]:
+    """Build a content-to-ID mapping from facts and claims.
+
+    Parameters
+    ----------
+    facts : list[dict[str, Any]]
+        Fact node dicts with ``fact_id`` and ``content``.
+    claims : list[dict[str, Any]]
+        Claim node dicts with ``claim_id`` and ``content``.
+
+    Returns
+    -------
+    dict[tuple[str, str], str]
+        Mapping from ``(type, content)`` to node ID.
+    """
+    content_to_id: dict[tuple[str, str], str] = {}
+    for fact_item in facts:
+        content_to_id[("fact", fact_item["content"])] = fact_item["fact_id"]
+    for claim_item in claims:
+        content_to_id[("claim", claim_item["content"])] = claim_item["claim_id"]
+    return content_to_id
+
+
+def _build_next_period_chain(
+    fiscal_periods: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Build NEXT_PERIOD relations linking consecutive FiscalPeriod nodes.
+
+    Groups periods by ticker (derived from ``period_id`` prefix) and
+    ``period_type``, sorts each group chronologically using
+    :func:`_period_sort_key`, and emits one NEXT_PERIOD edge per
+    consecutive pair.
+
+    Parameters
+    ----------
+    fiscal_periods : list[dict[str, Any]]
+        FiscalPeriod node dicts with ``period_id``, ``period_type``,
+        ``period_label``.
+
+    Returns
+    -------
+    list[dict[str, Any]]
+        NEXT_PERIOD relation dicts with ``from_id``, ``to_id``,
+        ``type``, and ``gap_months``.
+    """
+    # Group by (ticker_prefix, period_type)
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for fp in fiscal_periods:
+        period_id = fp.get("period_id", "")
+        period_type = fp.get("period_type", "")
+        ticker_prefix = _extract_ticker_from_period_id(period_id)
+        groups[(ticker_prefix, period_type)].append(fp)
+
+    rels: list[dict[str, Any]] = []
+    for (_ticker, p_type), group in groups.items():
+        sorted_group = sorted(
+            group, key=lambda fp: _period_sort_key(fp.get("period_label", ""))
+        )
+        gap = _GAP_MONTHS.get(p_type, 12)
+        for i in range(1, len(sorted_group)):
+            rels.append(
+                {
+                    "from_id": sorted_group[i - 1]["period_id"],
+                    "to_id": sorted_group[i]["period_id"],
+                    "type": "NEXT_PERIOD",
+                    "gap_months": gap,
+                }
+            )
+
+    return rels
+
+
+def _build_trend_edges(
+    financial_datapoints: list[dict[str, Any]],
+    fiscal_periods: list[dict[str, Any]],
+    for_period_rels: list[dict[str, str]],
+) -> list[dict[str, Any]]:
+    """Build TREND relations between consecutive FinancialDataPoint nodes.
+
+    Groups datapoints by ``(entity, metric_name)`` where *entity* is
+    resolved from the datapoint's associated FiscalPeriod ticker prefix.
+    Within each group, datapoints are sorted by period chronology and
+    a TREND edge is emitted per consecutive pair.
+
+    Parameters
+    ----------
+    financial_datapoints : list[dict[str, Any]]
+        FinancialDataPoint node dicts with ``datapoint_id``,
+        ``metric_name``, ``value``, ``period_label``.
+    fiscal_periods : list[dict[str, Any]]
+        FiscalPeriod node dicts (used to look up period_id → period_label).
+    for_period_rels : list[dict[str, str]]
+        FOR_PERIOD relation dicts mapping ``from_id`` (datapoint) to
+        ``to_id`` (period).
+
+    Returns
+    -------
+    list[dict[str, Any]]
+        TREND relation dicts with ``from_id``, ``to_id``, ``type``,
+        ``change_pct``, and ``direction``.
+    """
+    # Build datapoint_id → period_id mapping
+    dp_to_period: dict[str, str] = {}
+    for rel in for_period_rels:
+        dp_to_period[rel["from_id"]] = rel["to_id"]
+
+    # Build period_id → period_label mapping
+    period_to_label: dict[str, str] = {}
+    for fp in fiscal_periods:
+        period_to_label[fp["period_id"]] = fp.get("period_label", "")
+
+    # Group by (ticker_prefix, metric_name)
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for dp in financial_datapoints:
+        dp_id = dp["datapoint_id"]
+        period_id = dp_to_period.get(dp_id, "")
+        ticker_prefix = _extract_ticker_from_period_id(period_id)
+        metric_name = dp.get("metric_name", "")
+        groups[(ticker_prefix, metric_name)].append(dp)
+
+    rels: list[dict[str, Any]] = []
+    for (_ticker, _metric), group in groups.items():
+        # Sort by period chronology
+        sorted_group = sorted(
+            group,
+            key=lambda d: _period_sort_key(
+                period_to_label.get(dp_to_period.get(d["datapoint_id"], ""), "")
+            ),
+        )
+        for i in range(1, len(sorted_group)):
+            prev_dp = sorted_group[i - 1]
+            curr_dp = sorted_group[i]
+            prev_val = prev_dp.get("value")
+            curr_val = curr_dp.get("value")
+
+            if prev_val is None or curr_val is None:
+                continue
+
+            # Zero-division guard
+            if prev_val == 0:
+                change_pct = 0.0
+            else:
+                change_pct = round((curr_val - prev_val) / abs(prev_val) * 100, 2)
+
+            if change_pct > 1:
+                direction = "up"
+            elif change_pct < -1:
+                direction = "down"
+            else:
+                direction = "flat"
+
+            rels.append(
+                {
+                    "from_id": prev_dp["datapoint_id"],
+                    "to_id": curr_dp["datapoint_id"],
+                    "type": "TREND",
+                    "change_pct": change_pct,
+                    "direction": direction,
+                }
+            )
+
+    return rels
+
+
 def _make_source(
     url: str, title: str = "", published: str = "", **extra: Any
 ) -> dict[str, Any]:
@@ -372,6 +690,9 @@ def _mapped_result(
     chunks: list[dict[str, Any]] | None = None,
     financial_datapoints: list[dict[str, Any]] | None = None,
     fiscal_periods: list[dict[str, Any]] | None = None,
+    authors: list[dict[str, Any]] | None = None,
+    stances: list[dict[str, Any]] | None = None,
+    questions: list[dict[str, Any]] | None = None,
     relations: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Build the standard mapper result dict.
@@ -383,7 +704,8 @@ def _mapped_result(
     batch_label : str
         Label for this batch.
     sources, topics, claims, facts, entities, chunks,
-    financial_datapoints, fiscal_periods : list[dict] | None
+    financial_datapoints, fiscal_periods, authors, stances,
+    questions : list[dict] | None
         Node lists (default to empty lists).
     relations : dict | None
         Relation dict (default to empty dict).
@@ -404,6 +726,9 @@ def _mapped_result(
         "chunks": chunks or [],
         "financial_datapoints": financial_datapoints or [],
         "fiscal_periods": fiscal_periods or [],
+        "authors": authors or [],
+        "stances": stances or [],
+        "questions": questions or [],
         "relations": relations or {},
     }
 
@@ -896,6 +1221,10 @@ def _build_claim_nodes(
                 "category": "pdf-claim",
                 "claim_type": claim.get("claim_type", ""),
                 "sentiment": claim.get("sentiment"),
+                "magnitude": claim.get("magnitude"),
+                "target_price": claim.get("target_price"),
+                "rating": claim.get("rating"),
+                "time_horizon": claim.get("time_horizon"),
             }
         )
         source_claim_rels.append(
@@ -1048,6 +1377,353 @@ def _derive_fiscal_periods(
     return fiscal_periods, for_period_rels
 
 
+def _build_stance_nodes(
+    chunk: dict[str, Any],
+    entity_name_to_id: dict[str, str],
+    seen_author_keys: set[str],
+    author_name_to_id: dict[str, str],
+) -> StanceBuildResult:
+    """Build Stance and Author nodes with HOLDS_STANCE, ON_ENTITY, BASED_ON relations.
+
+    Authors are deduplicated via *seen_author_keys* (``name:type``).
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``stances[]``.
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup for entity resolution.
+    seen_author_keys : set[str]
+        Already-seen author keys for deduplication (mutated in-place).
+    author_name_to_id : dict[str, str]
+        Author name-to-ID lookup (mutated in-place).
+
+    Returns
+    -------
+    tuple
+        A 5-tuple of (stances, authors, holds_stance_rels,
+        on_entity_rels, based_on_rels).
+    """
+    stances: list[dict[str, Any]] = []
+    authors: list[dict[str, Any]] = []
+    holds_stance_rels: list[dict[str, str]] = []
+    on_entity_rels: list[dict[str, str]] = []
+    based_on_rels: list[dict[str, str]] = []
+
+    for stance in chunk.get("stances", []):
+        author_name = stance.get("author_name", "")
+        author_type = stance.get("author_type", "")
+        entity_name = stance.get("entity_name", "")
+        as_of_date = stance.get("as_of_date", "")
+
+        if not author_name or not entity_name:
+            continue
+
+        # Generate IDs
+        stance_id = generate_stance_id(author_name, entity_name, as_of_date or "")
+        author_id = generate_author_id(author_name, author_type)
+
+        # Deduplicate Author
+        author_key = f"{author_name}:{author_type}"
+        if author_key not in seen_author_keys:
+            seen_author_keys.add(author_key)
+            authors.append(
+                {
+                    "author_id": author_id,
+                    "name": author_name,
+                    "author_type": author_type,
+                    "organization": stance.get("organization"),
+                }
+            )
+        author_name_to_id[author_name] = author_id
+
+        # Build Stance node
+        stances.append(
+            {
+                "stance_id": stance_id,
+                "rating": stance.get("rating"),
+                "sentiment": stance.get("sentiment"),
+                "target_price": stance.get("target_price"),
+                "target_price_currency": stance.get("target_price_currency"),
+                "as_of_date": as_of_date,
+                "author_name": author_name,
+                "entity_name": entity_name,
+            }
+        )
+
+        # HOLDS_STANCE: Author -> Stance
+        holds_stance_rels.append(
+            {"from_id": author_id, "to_id": stance_id, "type": "HOLDS_STANCE"}
+        )
+
+        # ON_ENTITY: Stance -> Entity
+        entity_id = entity_name_to_id.get(entity_name)
+        if entity_id:
+            on_entity_rels.append(
+                {"from_id": stance_id, "to_id": entity_id, "type": "ON_ENTITY"}
+            )
+
+        # BASED_ON: Stance -> Claim (matched by content)
+        for claim_content in stance.get("based_on_claims", []):
+            claim_id = generate_claim_id(claim_content)
+            based_on_rels.append(
+                {
+                    "from_id": stance_id,
+                    "to_id": claim_id,
+                    "type": "BASED_ON",
+                    "role": "supporting",
+                }
+            )
+
+    return StanceBuildResult(
+        stances=stances,
+        authors=authors,
+        holds_stance=holds_stance_rels,
+        on_entity=on_entity_rels,
+        based_on=based_on_rels,
+    )
+
+
+def _build_supersedes_chain(
+    stances: list[dict[str, Any]],
+) -> list[dict[str, str]]:
+    """Build SUPERSEDES relations for stances sharing the same (author, entity).
+
+    Within each (author_name, entity_name) group, stances are sorted by
+    ``as_of_date`` ascending.  Each newer stance SUPERSEDES the previous one.
+
+    Parameters
+    ----------
+    stances : list[dict[str, Any]]
+        All Stance node dicts accumulated across chunks.
+
+    Returns
+    -------
+    list[dict[str, str]]
+        SUPERSEDES relation dicts (newer -> older).
+    """
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for stance in stances:
+        key = (stance.get("author_name", ""), stance.get("entity_name", ""))
+        groups[key].append(stance)
+
+    supersedes_rels: list[dict[str, str]] = []
+    for _key, group in groups.items():
+        sorted_group = sorted(
+            group, key=lambda s: _parse_date_safe(s.get("as_of_date"))
+        )
+        for i in range(1, len(sorted_group)):
+            newer = sorted_group[i]
+            older = sorted_group[i - 1]
+            supersedes_rels.append(
+                {
+                    "from_id": newer["stance_id"],
+                    "to_id": older["stance_id"],
+                    "type": "SUPERSEDES",
+                    "superseded_at": newer.get("as_of_date", ""),
+                }
+            )
+
+    return supersedes_rels
+
+
+_LABEL_MAP: dict[str, str] = {
+    "fact": "Fact",
+    "claim": "Claim",
+    "datapoint": "FinancialDataPoint",
+}
+"""Map from LLM-output type names to Neo4j node labels."""
+
+
+def _build_causal_links(
+    chunk: dict[str, Any],
+    facts: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+    datapoints: list[dict[str, Any]],
+    source_id: str,
+) -> list[dict[str, str]]:
+    """Build CAUSES relation dicts from causal_links in a chunk.
+
+    Resolves ``from_content``/``to_content`` to node IDs using a
+    content-to-ID mapping built from the chunk's own facts, claims,
+    and financial data points.  Unresolved references are logged as
+    warnings and skipped.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``causal_links[]``.
+    facts : list[dict[str, Any]]
+        Fact node dicts built from this chunk (with ``fact_id``, ``content``).
+    claims : list[dict[str, Any]]
+        Claim node dicts built from this chunk (with ``claim_id``, ``content``).
+    datapoints : list[dict[str, Any]]
+        DataPoint node dicts built from this chunk (with ``datapoint_id``,
+        ``metric_name``).
+    source_id : str
+        ID of the parent Source node.
+
+    Returns
+    -------
+    list[dict[str, str]]
+        CAUSES relation dicts with ``from_id``, ``to_id``, ``type``,
+        ``mechanism``, ``confidence``, ``source_id``, ``from_label``,
+        ``to_label``.
+    """
+    causal_links = chunk.get("causal_links", [])
+    if not causal_links:
+        return []
+
+    # Build content-to-ID mapping scoped to this chunk
+    content_to_id = _build_content_id_map(facts, claims)
+    for dp_item in datapoints:
+        content_to_id[("datapoint", dp_item["metric_name"])] = dp_item["datapoint_id"]
+
+    causes_rels: list[dict[str, str]] = []
+    for link in causal_links:
+        from_type = link.get("from_type", "")
+        from_content = link.get("from_content", "")
+        to_type = link.get("to_type", "")
+        to_content = link.get("to_content", "")
+
+        from_id = content_to_id.get((from_type, from_content))
+        to_id = content_to_id.get((to_type, to_content))
+
+        if from_id is None:
+            content_hash = hashlib.sha256(from_content.encode()).hexdigest()[:12]
+            logger.warning(
+                "Causal link from-node unresolved, skipping: type=%s content_hash=%s",
+                from_type,
+                content_hash,
+            )
+            continue
+        if to_id is None:
+            content_hash = hashlib.sha256(to_content.encode()).hexdigest()[:12]
+            logger.warning(
+                "Causal link to-node unresolved, skipping: type=%s content_hash=%s",
+                to_type,
+                content_hash,
+            )
+            continue
+
+        rel: dict[str, str] = {
+            "from_id": from_id,
+            "to_id": to_id,
+            "type": "CAUSES",
+            "from_label": _LABEL_MAP.get(from_type, ""),
+            "to_label": _LABEL_MAP.get(to_type, ""),
+            "source_id": source_id,
+        }
+        mechanism = link.get("mechanism")
+        if mechanism:
+            rel["mechanism"] = mechanism
+        confidence = link.get("confidence")
+        if confidence:
+            rel["confidence"] = confidence
+
+        causes_rels.append(rel)
+
+    return causes_rels
+
+
+def _build_question_nodes(
+    chunk: dict[str, Any],
+    entity_name_to_id: dict[str, str],
+    facts: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+]:
+    """Build Question nodes and their relations from a chunk.
+
+    Generates Question nodes with deterministic IDs and two types of
+    outgoing relations:
+
+    * **ASKS_ABOUT** (Question -> Entity): resolved via ``about_entities``.
+    * **MOTIVATED_BY** (Question -> Claim/Fact/Insight): resolved via
+      ``motivated_by_contents`` using chunk-scope content-to-ID mapping.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``questions[]``.
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup for entity resolution.
+    facts : list[dict[str, Any]]
+        Fact node dicts built from this chunk (with ``fact_id``, ``content``).
+    claims : list[dict[str, Any]]
+        Claim node dicts built from this chunk (with ``claim_id``, ``content``).
+
+    Returns
+    -------
+    tuple
+        A 3-tuple of (questions, asks_about_rels, motivated_by_rels).
+    """
+    questions: list[dict[str, Any]] = []
+    asks_about_rels: list[dict[str, str]] = []
+    motivated_by_rels: list[dict[str, str]] = []
+
+    raw_questions = chunk.get("questions", [])
+    if not raw_questions:
+        return questions, asks_about_rels, motivated_by_rels
+
+    # Build content-to-ID mapping for MOTIVATED_BY resolution (tuple keys)
+    content_to_id = _build_content_id_map(facts, claims)
+
+    for raw_q in raw_questions:
+        content = raw_q.get("content", "")
+        if not content:
+            continue
+
+        question_id = generate_question_id(content)
+        questions.append(
+            {
+                "question_id": question_id,
+                "content": content,
+                "question_type": raw_q.get("question_type", ""),
+                "priority": raw_q.get("priority"),
+                "status": "open",
+            }
+        )
+
+        # ASKS_ABOUT: Question -> Entity
+        asks_about_rels.extend(
+            _resolve_entity_rels(
+                raw_q.get("about_entities", []),
+                question_id,
+                "ASKS_ABOUT",
+                entity_name_to_id,
+            )
+        )
+
+        # MOTIVATED_BY: Question -> Claim/Fact
+        for motivated_content in raw_q.get("motivated_by_contents", []):
+            # Try both fact and claim types for resolution
+            resolved_id = content_to_id.get(
+                ("fact", motivated_content)
+            ) or content_to_id.get(("claim", motivated_content))
+            if resolved_id:
+                motivated_by_rels.append(
+                    {
+                        "from_id": question_id,
+                        "to_id": resolved_id,
+                        "type": "MOTIVATED_BY",
+                    }
+                )
+            else:
+                content_hash = hashlib.sha256(motivated_content.encode()).hexdigest()[
+                    :12
+                ]
+                logger.warning(
+                    "MOTIVATED_BY target unresolved, skipping: content_hash=%s",
+                    content_hash,
+                )
+
+    return questions, asks_about_rels, motivated_by_rels
+
+
 def _extend_rels(
     target: dict[str, list[dict[str, str]]],
     updates: dict[str, list[dict[str, str]]],
@@ -1065,31 +1741,43 @@ def _extend_rels(
         target[key].extend(values)
 
 
-def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 11 relation keys."""
-    return {
-        "source_fact": [],
-        "source_claim": [],
-        "fact_entity": [],
-        "claim_entity": [],
-        "contains_chunk": [],
-        "extracted_from_fact": [],
-        "extracted_from_claim": [],
-        "has_datapoint": [],
-        "for_period": [],
-        "datapoint_entity": [],
-        "tagged": [],
+RELATION_KEYS: frozenset[str] = frozenset(
+    {
+        "source_fact",
+        "source_claim",
+        "fact_entity",
+        "claim_entity",
+        "contains_chunk",
+        "extracted_from_fact",
+        "extracted_from_claim",
+        "has_datapoint",
+        "for_period",
+        "datapoint_entity",
+        "tagged",
+        "holds_stance",
+        "on_entity",
+        "based_on",
+        "supersedes",
+        "causes",
+        "next_period",
+        "trend",
+        "asks_about",
+        "motivated_by",
     }
+)
+"""All 20 relation keys in the graph-queue schema (v2.1)."""
+
+
+def _empty_rels() -> dict[str, list[dict[str, str]]]:
+    """Return an empty relations dict with all relation keys."""
+    return {k: [] for k in RELATION_KEYS}
 
 
 def _process_chunk(
     chunk: dict[str, Any],
     source_hash: str,
     source_id: str,
-    seen_entity_keys: set[str],
-    entity_name_to_id: dict[str, str],
-    entity_name_to_ticker: dict[str, str],
-    seen_period_ids: set[str],
+    ctx: ChunkProcessingContext,
 ) -> dict[str, Any]:
     """Process a single chunk and return all node lists and relations.
 
@@ -1101,36 +1789,47 @@ def _process_chunk(
         SHA-256 hash of the source document.
     source_id : str
         ID of the parent Source node.
-    seen_entity_keys : set[str]
-        Cross-chunk entity dedup state (mutated in-place).
-    entity_name_to_id : dict[str, str]
-        Cross-chunk name-to-ID lookup (mutated in-place).
-    entity_name_to_ticker : dict[str, str]
-        Cross-chunk name-to-ticker lookup (mutated in-place).
-    seen_period_ids : set[str]
-        Cross-chunk period dedup state (mutated in-place).
+    ctx : ChunkProcessingContext
+        Cross-chunk shared state (mutated in-place).
 
     Returns
     -------
     dict[str, Any]
         Dict with keys ``chunks``, ``entities``, ``facts``, ``claims``,
-        ``datapoints``, ``periods``, and ``rels``.
+        ``datapoints``, ``periods``, ``stances``, ``authors``,
+        ``questions``, and ``rels``.
     """
     chunk_node, chunk_id, cc_rels = _build_chunk_nodes(chunk, source_hash, source_id)
 
     entities = _build_entity_nodes(
-        chunk, seen_entity_keys, entity_name_to_id, entity_name_to_ticker
+        chunk, ctx.seen_entity_keys, ctx.entity_name_to_id, ctx.entity_name_to_ticker
     )
 
-    facts, sf, ef, fe = _build_fact_nodes(chunk, source_id, chunk_id, entity_name_to_id)
+    facts, sf, ef, fe = _build_fact_nodes(
+        chunk, source_id, chunk_id, ctx.entity_name_to_id
+    )
     claims, sc, ec, ce = _build_claim_nodes(
-        chunk, source_id, chunk_id, entity_name_to_id
+        chunk, source_id, chunk_id, ctx.entity_name_to_id
     )
     dps, hd, de, dp_id_map = _build_datapoint_nodes(
-        chunk, source_hash, source_id, entity_name_to_id
+        chunk, source_hash, source_id, ctx.entity_name_to_id
     )
     periods, fp = _derive_fiscal_periods(
-        chunk, entity_name_to_ticker, seen_period_ids, dp_id_map
+        chunk, ctx.entity_name_to_ticker, ctx.seen_period_ids, dp_id_map
+    )
+    stance_result = _build_stance_nodes(
+        chunk, ctx.entity_name_to_id, ctx.seen_author_keys, ctx.author_name_to_id
+    )
+    chunk_stances = stance_result["stances"]
+    chunk_authors = stance_result["authors"]
+    holds_stance_rels = stance_result["holds_stance"]
+    on_entity_rels = stance_result["on_entity"]
+    based_on_rels = stance_result["based_on"]
+
+    causes = _build_causal_links(chunk, facts, claims, dps, source_id)
+
+    chunk_questions, asks_about_rels, motivated_by_rels = _build_question_nodes(
+        chunk, ctx.entity_name_to_id, facts, claims
     )
 
     rels: dict[str, list[dict[str, str]]] = {
@@ -1144,6 +1843,12 @@ def _process_chunk(
         "has_datapoint": hd,
         "datapoint_entity": de,
         "for_period": fp,
+        "holds_stance": holds_stance_rels,
+        "on_entity": on_entity_rels,
+        "based_on": based_on_rels,
+        "causes": causes,
+        "asks_about": asks_about_rels,
+        "motivated_by": motivated_by_rels,
     }
 
     return {
@@ -1153,11 +1858,24 @@ def _process_chunk(
         "claims": claims,
         "datapoints": dps,
         "periods": periods,
+        "stances": chunk_stances,
+        "authors": chunk_authors,
+        "questions": chunk_questions,
         "rels": rels,
     }
 
 
-_NODE_KEYS = ("entities", "facts", "claims", "chunks", "datapoints", "periods")
+_NODE_KEYS = (
+    "entities",
+    "facts",
+    "claims",
+    "chunks",
+    "datapoints",
+    "periods",
+    "stances",
+    "authors",
+    "questions",
+)
 """Keys shared between _process_chunk output and the node accumulator."""
 
 
@@ -1172,16 +1890,13 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 11 relation types).
+        Graph-queue components (nodes + 20 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")
     sources = [_make_source(f"pdf:{source_hash}", source_type="pdf")]
 
-    seen_entities: set[str] = set()
-    seen_periods: set[str] = set()
-    name_to_id: dict[str, str] = {}
-    name_to_ticker: dict[str, str] = {}
+    ctx = ChunkProcessingContext()
     nodes: dict[str, list[Any]] = {k: [] for k in _NODE_KEYS}
     rels = _empty_rels()
 
@@ -1190,14 +1905,25 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             chunk,
             source_hash,
             source_id,
-            seen_entities,
-            name_to_id,
-            name_to_ticker,
-            seen_periods,
+            ctx,
         )
         for k in _NODE_KEYS:
             nodes[k].extend(chunk_result[k])
         _extend_rels(rels, chunk_result["rels"])
+
+    # Build SUPERSEDES chain across all chunks
+    supersedes = _build_supersedes_chain(nodes["stances"])
+    rels["supersedes"].extend(supersedes)
+
+    # Build NEXT_PERIOD chain across all fiscal periods (Wave 3)
+    next_period = _build_next_period_chain(nodes["periods"])
+    rels["next_period"].extend(next_period)
+
+    # Build TREND edges across all financial datapoints (Wave 3)
+    trend = _build_trend_edges(
+        nodes["datapoints"], nodes["periods"], rels["for_period"]
+    )
+    rels["trend"].extend(trend)
 
     return _mapped_result(
         data,
@@ -1209,6 +1935,9 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
         chunks=nodes["chunks"],
         financial_datapoints=nodes["datapoints"],
         fiscal_periods=nodes["periods"],
+        authors=nodes["authors"],
+        stances=nodes["stances"],
+        questions=nodes["questions"],
         relations=rels,
     )
 
@@ -2278,6 +3007,9 @@ def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
         "chunks": mapped.get("chunks", []),
         "financial_datapoints": mapped.get("financial_datapoints", []),
         "fiscal_periods": mapped.get("fiscal_periods", []),
+        "authors": mapped.get("authors", []),
+        "stances": mapped.get("stances", []),
+        "questions": mapped.get("questions", []),
         "relations": mapped.get("relations", {}),
     }
 

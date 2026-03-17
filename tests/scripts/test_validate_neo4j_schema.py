@@ -24,7 +24,6 @@ from validate_neo4j_schema import (
     load_namespaces,
 )
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
@@ -200,18 +199,14 @@ class TestLoadNamespaces:
 
 
 class TestCheckCrossContamination:
-    def test_正常系_汚染なしで空リスト(
-        self, sample_allowed: dict[str, str]
-    ) -> None:
+    def test_正常系_汚染なしで空リスト(self, sample_allowed: dict[str, str]) -> None:
         mock_session = MagicMock()
         mock_session.run.return_value = []
         result = check_cross_contamination(mock_session, sample_allowed)
         assert result == []
         mock_session.run.assert_called_once()
 
-    def test_異常系_汚染ありでリスト返却(
-        self, sample_allowed: dict[str, str]
-    ) -> None:
+    def test_異常系_汚染ありでリスト返却(self, sample_allowed: dict[str, str]) -> None:
         mock_record = MagicMock()
         mock_record.__iter__ = lambda self: iter(
             [("labels", ["Memory", "Source"]), ("name", "bad_node")]
