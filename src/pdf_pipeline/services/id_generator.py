@@ -1,8 +1,8 @@
 """Deterministic ID generation for pdf_pipeline entities.
 
 Provides UUID5/SHA-256 based ID generation functions for sources,
-chunks, datapoints, claims, facts, and time periods. All functions
-are deterministic: the same inputs always produce the same output.
+chunks, datapoints, claims, facts, questions, and time periods. All
+functions are deterministic: the same inputs always produce the same output.
 
 Functions
 ---------
@@ -20,6 +20,8 @@ generate_claim_id
     Generate a SHA-256 based short ID from claim content.
 generate_fact_id
     Generate a SHA-256 based short ID from fact content.
+generate_question_id
+    Generate a SHA-256 based short ID from question content.
 generate_period_id
     Generate a UUID5-based ID from a time period string.
 
@@ -237,6 +239,35 @@ def generate_fact_id(content: str) -> str:
     32
     """
     return _sha256_prefix(f"fact:{content}")
+
+
+def generate_question_id(content: str) -> str:
+    """Generate a deterministic question ID from content.
+
+    Uses a ``question:`` prefix before hashing to ensure question IDs never
+    collide with fact, claim, or other IDs even when the content text is
+    identical.
+
+    Parameters
+    ----------
+    content : str
+        Question content text.
+
+    Returns
+    -------
+    str
+        First 32 hex characters (128-bit) of the SHA-256 hash of ``question:{content}``.
+
+    Examples
+    --------
+    >>> id1 = generate_question_id("What is the revenue breakdown by segment?")
+    >>> id2 = generate_question_id("What is the revenue breakdown by segment?")
+    >>> id1 == id2
+    True
+    >>> len(id1)
+    32
+    """
+    return _sha256_prefix(f"question:{content}")
 
 
 def generate_entity_id(name: str, entity_type: str) -> str:

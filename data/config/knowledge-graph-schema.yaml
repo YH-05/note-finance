@@ -7,6 +7,10 @@
 #   - Schema changes should be made here first, then applied to Neo4j
 #
 # Changelog:
+#   v2.1 (2026-03-17): Question node for knowledge gap structuring
+#     - Added: Question node with question_type (4 types) and priority/status
+#     - Added: ASKS_ABOUT (Question -> Entity), MOTIVATED_BY (Question -> Claim/Fact/Insight),
+#              ANSWERED_BY (Question -> Fact/Claim/Source) relationships
 #   v2.0 (2026-03-12): Claim-centric redesign
 #     - Added: Chunk, FinancialDataPoint, FiscalPeriod, Insight nodes
 #     - Expanded: Claim.claim_type (10 types), Fact.fact_type (8 types), Entity.entity_type (+country, instrument)
@@ -18,7 +22,7 @@
 #       - Insight node for AI-generated knowledge circulation
 #   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
-version: "2.0"
+version: "2.1"
 
 # ============================================================
 # Node Definitions
@@ -372,6 +376,47 @@ nodes:
         indexed: true
         description: "Lifecycle status of the insight"
 
+  Question:
+    description: >
+      Knowledge gap identified during extraction.
+      Represents what is missing, contradictory, or needs verification.
+      Used by AI to structure follow-up research priorities.
+    properties:
+      question_id:
+        type: string
+        unique: true
+        required: true
+        description: "Deterministic SHA-256[:32] hash of 'question:' + content"
+      content:
+        type: string
+        required: true
+        description: "The question text describing the knowledge gap"
+      question_type:
+        type: string
+        required: true
+        enum: [data_gap, contradiction, prediction_test, assumption_check]
+        indexed: true
+        description: >
+          data_gap=missing important information in this report,
+          contradiction=claim conflicts with general consensus,
+          prediction_test=quantitative prediction verifiable later,
+          assumption_check=assumption requiring verification
+      priority:
+        type: string
+        enum: [high, medium, low]
+        indexed: true
+        description: "Priority level for follow-up research"
+      status:
+        type: string
+        enum: [open, investigating, answered, dismissed]
+        default: "open"
+        indexed: true
+        description: "Lifecycle status of the question"
+      generated_at:
+        type: datetime
+        required: true
+        description: "When this question was generated"
+
 # ============================================================
 # Relationship Definitions
 # ============================================================
@@ -588,6 +633,26 @@ relationships:
         enum: [Fact, Claim, FinancialDataPoint]
         description: "Label of the to-node (Neo4j CE workaround for multi-label MATCH)"
 
+  # Question relationships (Wave 4)
+  ASKS_ABOUT:
+    from: Question
+    to: Entity
+    description: "Question asks about this entity"
+
+  MOTIVATED_BY:
+    from: Question
+    to: [Claim, Fact, Insight]
+    description: "Question was motivated by this claim, fact, or insight"
+
+  ANSWERED_BY:
+    from: Question
+    to: [Fact, Claim, Source]
+    description: "Question was answered by this fact, claim, or source"
+    properties:
+      answered_at:
+        type: datetime
+        description: "When the question was answered"
+
 # ============================================================
 # Constraints & Indices (for neo4j-pdf-constraints.cypher)
 # ============================================================
@@ -625,6 +690,9 @@ constraints:
   - label: Stance
     property: stance_id
     type: UNIQUE
+  - label: Question
+    property: question_id
+    type: UNIQUE
 
 indices:
   - label: Fact
@@ -659,6 +727,12 @@ indices:
     property: rating
   - label: Stance
     property: sentiment
+  - label: Question
+    property: question_type
+  - label: Question
+    property: priority
+  - label: Question
+    property: status
 
 # ============================================================
 # Namespace Definitions
@@ -678,6 +752,7 @@ namespaces:
       - Topic
       - Insight
       - Stance
+      - Question
     naming: PascalCase
 
   conversation:

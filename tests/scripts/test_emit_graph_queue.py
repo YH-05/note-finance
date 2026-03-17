@@ -23,6 +23,7 @@ from emit_graph_queue import (
     TOPIC_DISCOVERY_CATEGORIES,
     _build_causal_links,
     _build_next_period_chain,
+    _build_question_nodes,
     _build_stance_nodes,
     _build_supersedes_chain,
     _build_trend_edges,
@@ -62,6 +63,7 @@ from freezegun import freeze_time
 
 from pdf_pipeline.services.id_generator import (
     generate_author_id,
+    generate_question_id,
     generate_stance_id,
 )
 
@@ -3824,3 +3826,247 @@ class TestBuildTrendEdges:
         directions = {r["direction"] for r in rels}
         assert "up" in directions
         assert "down" in directions
+
+
+# ---------------------------------------------------------------------------
+# _build_question_nodes helper
+# ---------------------------------------------------------------------------
+
+
+def _question_chunk(
+    *,
+    questions: list[dict[str, Any]] | None = None,
+    entities: list[dict[str, Any]] | None = None,
+    facts: list[dict[str, Any]] | None = None,
+    claims: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build a chunk dict with questions for testing."""
+    if questions is None:
+        questions = [
+            {
+                "content": "What is the revenue breakdown by segment?",
+                "question_type": "data_gap",
+                "priority": "high",
+                "about_entities": ["ACME Corp"],
+                "motivated_by_contents": ["Revenue grew 15% YoY"],
+            },
+        ]
+    if entities is None:
+        entities = [
+            {
+                "name": "ACME Corp",
+                "entity_type": "company",
+                "ticker": "ACME",
+            },
+        ]
+    if facts is None:
+        facts = [
+            {
+                "content": "Revenue grew 15% YoY",
+                "fact_type": "statistic",
+            },
+        ]
+    if claims is None:
+        claims = [
+            {
+                "content": "Stock will outperform the market",
+                "claim_type": "prediction",
+                "sentiment": "bullish",
+            },
+        ]
+    return {
+        "chunk_index": 0,
+        "content": "Financial analysis text with knowledge gaps.",
+        "entities": entities,
+        "facts": facts,
+        "claims": claims,
+        "questions": questions,
+    }
+
+
+# ---------------------------------------------------------------------------
+# _build_question_nodes
+# ---------------------------------------------------------------------------
+
+
+class TestBuildQuestionNodes:
+    """_build_question_nodes 関数のテスト。"""
+
+    def test_正常系_Questionノードが生成される(self) -> None:
+        """受け入れ条件: Question ノードが正しいプロパティで生成されること。"""
+        chunk = _question_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims = [
+            {
+                "claim_id": generate_claim_id("Stock will outperform the market"),
+                "content": "Stock will outperform the market",
+            }
+        ]
+
+        questions, _aa, _mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(questions) == 1
+        q = questions[0]
+        assert q["content"] == "What is the revenue breakdown by segment?"
+        assert q["question_type"] == "data_gap"
+        assert q["priority"] == "high"
+        assert q["status"] == "open"
+        expected_id = generate_question_id("What is the revenue breakdown by segment?")
+        assert q["question_id"] == expected_id
+
+    def test_正常系_ASKS_ABOUTリレーションが生成される(self) -> None:
+        """受け入れ条件: Question -> Entity の ASKS_ABOUT が生成されること。"""
+        chunk = _question_chunk()
+        entity_id = generate_entity_id("ACME Corp", "company")
+        entity_name_to_id = {"ACME Corp": entity_id}
+        facts = [
+            {
+                "fact_id": generate_fact_id("Revenue grew 15% YoY"),
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims: list[dict[str, Any]] = []
+
+        questions, aa, _mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(aa) == 1
+        assert aa[0]["type"] == "ASKS_ABOUT"
+        assert aa[0]["from_id"] == questions[0]["question_id"]
+        assert aa[0]["to_id"] == entity_id
+
+    def test_正常系_MOTIVATED_BYリレーションが生成される(self) -> None:
+        """受け入れ条件: Question -> Fact の MOTIVATED_BY が生成されること。"""
+        chunk = _question_chunk()
+        entity_name_to_id = {"ACME Corp": generate_entity_id("ACME Corp", "company")}
+        fact_id = generate_fact_id("Revenue grew 15% YoY")
+        facts = [
+            {
+                "fact_id": fact_id,
+                "content": "Revenue grew 15% YoY",
+            }
+        ]
+        claims: list[dict[str, Any]] = []
+
+        questions, _aa, mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(mb) == 1
+        assert mb[0]["type"] == "MOTIVATED_BY"
+        assert mb[0]["from_id"] == questions[0]["question_id"]
+        assert mb[0]["to_id"] == fact_id
+
+    def test_正常系_MOTIVATED_BYがClaimにも解決される(self) -> None:
+        """受け入れ条件: motivated_by_contents が Claim にも解決されること。"""
+        chunk = _question_chunk(
+            questions=[
+                {
+                    "content": "Is the bullish outlook justified?",
+                    "question_type": "assumption_check",
+                    "about_entities": [],
+                    "motivated_by_contents": ["Stock will outperform the market"],
+                },
+            ],
+        )
+        entity_name_to_id: dict[str, str] = {}
+        facts: list[dict[str, Any]] = []
+        claim_id = generate_claim_id("Stock will outperform the market")
+        claims = [
+            {
+                "claim_id": claim_id,
+                "content": "Stock will outperform the market",
+            }
+        ]
+
+        _questions, _aa, mb = _build_question_nodes(
+            chunk, entity_name_to_id, facts, claims
+        )
+
+        assert len(mb) == 1
+        assert mb[0]["to_id"] == claim_id
+
+    def test_エッジケース_空questionsで空結果(self) -> None:
+        """questions が空の場合に空のリストを返す。"""
+        chunk = _question_chunk(questions=[], entities=[], facts=[], claims=[])
+        questions, aa, mb = _build_question_nodes(chunk, {}, [], [])
+        assert questions == []
+        assert aa == []
+        assert mb == []
+
+
+# ---------------------------------------------------------------------------
+# map_pdf_extraction: Question 統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestMapPdfExtractionWithQuestions:
+    """map_pdf_extraction での Question 統合テスト。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_questionsがmap_pdf_extractionに統合される(self) -> None:
+        """questions を含む pdf-extraction データが正しくマッピングされること。"""
+        data = {
+            "session_id": "pdf-question-test",
+            "source_hash": "questionhash123",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Analysis text.",
+                    "entities": [
+                        {
+                            "name": "ACME Corp",
+                            "entity_type": "company",
+                            "ticker": "ACME",
+                        }
+                    ],
+                    "facts": [
+                        {
+                            "content": "Revenue grew 15% YoY",
+                            "fact_type": "statistic",
+                            "about_entities": ["ACME Corp"],
+                        }
+                    ],
+                    "claims": [],
+                    "financial_datapoints": [],
+                    "stances": [],
+                    "causal_links": [],
+                    "questions": [
+                        {
+                            "content": "What is the revenue breakdown by segment?",
+                            "question_type": "data_gap",
+                            "priority": "high",
+                            "about_entities": ["ACME Corp"],
+                            "motivated_by_contents": ["Revenue grew 15% YoY"],
+                        }
+                    ],
+                }
+            ],
+        }
+
+        result = map_pdf_extraction(data)
+
+        assert len(result["questions"]) == 1
+        q = result["questions"][0]
+        assert q["question_type"] == "data_gap"
+        assert q["status"] == "open"
+        assert q["priority"] == "high"
+
+        # Verify ASKS_ABOUT relation
+        asks_about = result["relations"]["asks_about"]
+        assert len(asks_about) == 1
+        assert asks_about[0]["type"] == "ASKS_ABOUT"
+
+        # Verify MOTIVATED_BY relation
+        motivated_by = result["relations"]["motivated_by"]
+        assert len(motivated_by) == 1
+        assert motivated_by[0]["type"] == "MOTIVATED_BY"

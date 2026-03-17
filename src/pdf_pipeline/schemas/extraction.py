@@ -1,8 +1,8 @@
 """Pydantic schema definitions for knowledge extraction from PDF chunks.
 
-Defines Entity, Fact, Claim, FinancialDataPoint, Stance, and CausalLink models
-for structured knowledge extraction from text chunks, and envelope models for
-chunk-level and document-level results.
+Defines Entity, Fact, Claim, FinancialDataPoint, Stance, CausalLink, and
+Question models for structured knowledge extraction from text chunks, and
+envelope models for chunk-level and document-level results.
 
 Classes
 -------
@@ -18,6 +18,8 @@ ExtractedStance
     An analyst investment stance (rating + target price + sentiment).
 ExtractedCausalLink
     A causal relationship between Fact/Claim/FinancialDataPoint nodes.
+ExtractedQuestion
+    A knowledge gap identified during extraction.
 ChunkExtractionResult
     Extraction result for a single chunk.
 DocumentExtractionResult
@@ -386,6 +388,59 @@ class ExtractedCausalLink(BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# ExtractedQuestion
+# ---------------------------------------------------------------------------
+
+
+class ExtractedQuestion(BaseModel):
+    """A knowledge gap identified during extraction.
+
+    Represents missing information, contradictions, testable predictions,
+    or assumptions that require verification.
+
+    Attributes
+    ----------
+    content : str
+        The question text describing the knowledge gap.
+    question_type : str
+        Type of knowledge gap (4 types).
+    priority : str | None
+        Priority level for follow-up research.
+    about_entities : list[str]
+        Names of entities this question is about.
+    motivated_by_contents : list[str]
+        Content strings of claims/facts/insights that motivated this question.
+
+    Examples
+    --------
+    >>> q = ExtractedQuestion(
+    ...     content="What is the revenue breakdown by segment?",
+    ...     question_type="data_gap",
+    ... )
+    >>> q.question_type
+    'data_gap'
+    """
+
+    content: str = Field(min_length=1, description="Question text")
+    question_type: Literal[
+        "data_gap",
+        "contradiction",
+        "prediction_test",
+        "assumption_check",
+    ] = Field(description="Type of knowledge gap")
+    priority: Literal["high", "medium", "low"] | None = Field(
+        default=None, description="Priority level for follow-up research"
+    )
+    about_entities: list[str] = Field(
+        default_factory=list, description="Related entity names"
+    )
+    motivated_by_contents: list[str] = Field(
+        default_factory=list,
+        description="Content strings of claims/facts/insights motivating this question",
+    )
+
+
+# ---------------------------------------------------------------------------
 # ChunkExtractionResult
 # ---------------------------------------------------------------------------
 
@@ -411,6 +466,8 @@ class ChunkExtractionResult(BaseModel):
         Analyst investment stances extracted from this chunk.
     causal_links : list[ExtractedCausalLink]
         Causal relationships between nodes in this chunk.
+    questions : list[ExtractedQuestion]
+        Knowledge gaps identified in this chunk.
 
     Examples
     --------
@@ -420,6 +477,8 @@ class ChunkExtractionResult(BaseModel):
     >>> r.stances
     []
     >>> r.causal_links
+    []
+    >>> r.questions
     []
     """
 
@@ -442,6 +501,9 @@ class ChunkExtractionResult(BaseModel):
     )
     causal_links: list[ExtractedCausalLink] = Field(
         default_factory=list, description="Causal relationships between nodes"
+    )
+    questions: list[ExtractedQuestion] = Field(
+        default_factory=list, description="Knowledge gaps identified"
     )
 
 

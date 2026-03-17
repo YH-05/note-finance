@@ -1172,6 +1172,60 @@ SET r.change_pct = rel.change_pct,
     r.direction = rel.direction
 ```
 
+### Question バッチ投入 [Wave 4 新規]
+
+```cypher
+-- Question バッチ投入
+UNWIND $questions AS question
+MERGE (q:Question {question_id: question.question_id})
+SET q.content = question.content,
+    q.question_type = question.question_type,
+    q.priority = question.priority,
+    q.status = question.status,
+    q.generated_at = datetime()
+```
+
+### Wave 4 リレーション投入
+
+```cypher
+-- ASKS_ABOUT: Question -> Entity
+UNWIND $asks_about AS rel
+MATCH (q:Question {question_id: rel.from_id})
+MATCH (e:Entity {entity_id: rel.to_id})
+MERGE (q)-[:ASKS_ABOUT]->(e)
+
+-- MOTIVATED_BY: Question -> Claim/Fact/Insight
+-- Neo4j CE ではリレーションの to に複数ラベルを指定できないため、
+-- 各ラベルを順番に試行する。
+UNWIND $motivated_by AS rel
+OPTIONAL MATCH (c:Claim {claim_id: rel.to_id})
+OPTIONAL MATCH (f:Fact {fact_id: rel.to_id})
+OPTIONAL MATCH (i:Insight {insight_id: rel.to_id})
+WITH rel,
+     COALESCE(c, f, i) AS target
+WHERE target IS NOT NULL
+MATCH (q:Question {question_id: rel.from_id})
+MERGE (q)-[:MOTIVATED_BY]->(target)
+
+-- ANSWERED_BY: Question -> Fact/Claim/Source (future use)
+-- Note: ANSWERED_BY は後続の調査・回答フェーズで付与される。
+-- graph-queue 生成時には生成されない。
+UNWIND $answered_by AS rel
+OPTIONAL MATCH (f:Fact {fact_id: rel.to_id})
+OPTIONAL MATCH (c:Claim {claim_id: rel.to_id})
+OPTIONAL MATCH (s:Source {source_id: rel.to_id})
+WITH rel,
+     COALESCE(f, c, s) AS target
+WHERE target IS NOT NULL
+MATCH (q:Question {question_id: rel.from_id})
+MERGE (q)-[r:ANSWERED_BY]->(target)
+SET r.answered_at = CASE
+        WHEN rel.answered_at IS NOT NULL AND rel.answered_at <> ''
+        THEN datetime(rel.answered_at)
+        ELSE datetime()
+    END
+```
+
 ### source_type の推論
 
 `command_source` から `source_type` を推論:

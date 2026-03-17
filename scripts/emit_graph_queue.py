@@ -58,6 +58,7 @@ from pdf_pipeline.services.id_generator import (
     generate_datapoint_id_from_fields,
     generate_entity_id,
     generate_fact_id,
+    generate_question_id,
     generate_source_id,
     generate_stance_id,
 )
@@ -613,6 +614,7 @@ def _mapped_result(
     fiscal_periods: list[dict[str, Any]] | None = None,
     authors: list[dict[str, Any]] | None = None,
     stances: list[dict[str, Any]] | None = None,
+    questions: list[dict[str, Any]] | None = None,
     relations: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Build the standard mapper result dict.
@@ -624,7 +626,8 @@ def _mapped_result(
     batch_label : str
         Label for this batch.
     sources, topics, claims, facts, entities, chunks,
-    financial_datapoints, fiscal_periods, authors, stances : list[dict] | None
+    financial_datapoints, fiscal_periods, authors, stances,
+    questions : list[dict] | None
         Node lists (default to empty lists).
     relations : dict | None
         Relation dict (default to empty dict).
@@ -647,6 +650,7 @@ def _mapped_result(
         "fiscal_periods": fiscal_periods or [],
         "authors": authors or [],
         "stances": stances or [],
+        "questions": questions or [],
         "relations": relations or {},
     }
 
@@ -1546,6 +1550,102 @@ def _build_causal_links(
     return causes_rels
 
 
+def _build_question_nodes(
+    chunk: dict[str, Any],
+    entity_name_to_id: dict[str, str],
+    facts: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, str]],
+    list[dict[str, str]],
+]:
+    """Build Question nodes and their relations from a chunk.
+
+    Generates Question nodes with deterministic IDs and two types of
+    outgoing relations:
+
+    * **ASKS_ABOUT** (Question -> Entity): resolved via ``about_entities``.
+    * **MOTIVATED_BY** (Question -> Claim/Fact/Insight): resolved via
+      ``motivated_by_contents`` using chunk-scope content-to-ID mapping.
+
+    Parameters
+    ----------
+    chunk : dict[str, Any]
+        Raw chunk data containing ``questions[]``.
+    entity_name_to_id : dict[str, str]
+        Name-to-ID lookup for entity resolution.
+    facts : list[dict[str, Any]]
+        Fact node dicts built from this chunk (with ``fact_id``, ``content``).
+    claims : list[dict[str, Any]]
+        Claim node dicts built from this chunk (with ``claim_id``, ``content``).
+
+    Returns
+    -------
+    tuple
+        A 3-tuple of (questions, asks_about_rels, motivated_by_rels).
+    """
+    questions: list[dict[str, Any]] = []
+    asks_about_rels: list[dict[str, str]] = []
+    motivated_by_rels: list[dict[str, str]] = []
+
+    raw_questions = chunk.get("questions", [])
+    if not raw_questions:
+        return questions, asks_about_rels, motivated_by_rels
+
+    # Build content-to-ID mapping for MOTIVATED_BY resolution
+    content_to_id: dict[str, str] = {}
+    for f in facts:
+        content_to_id[f["content"]] = f["fact_id"]
+    for c in claims:
+        content_to_id[c["content"]] = c["claim_id"]
+
+    for q in raw_questions:
+        content = q.get("content", "")
+        if not content:
+            continue
+
+        question_id = generate_question_id(content)
+        questions.append(
+            {
+                "question_id": question_id,
+                "content": content,
+                "question_type": q.get("question_type", ""),
+                "priority": q.get("priority"),
+                "status": "open",
+            }
+        )
+
+        # ASKS_ABOUT: Question -> Entity
+        asks_about_rels.extend(
+            _resolve_entity_rels(
+                q.get("about_entities", []),
+                question_id,
+                "ASKS_ABOUT",
+                entity_name_to_id,
+            )
+        )
+
+        # MOTIVATED_BY: Question -> Claim/Fact
+        for motivated_content in q.get("motivated_by_contents", []):
+            resolved_id = content_to_id.get(motivated_content)
+            if resolved_id:
+                motivated_by_rels.append(
+                    {
+                        "from_id": question_id,
+                        "to_id": resolved_id,
+                        "type": "MOTIVATED_BY",
+                    }
+                )
+            else:
+                logger.warning(
+                    "MOTIVATED_BY target unresolved, skipping: content=%s",
+                    motivated_content[:80],
+                )
+
+    return questions, asks_about_rels, motivated_by_rels
+
+
 def _extend_rels(
     target: dict[str, list[dict[str, str]]],
     updates: dict[str, list[dict[str, str]]],
@@ -1564,7 +1664,7 @@ def _extend_rels(
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 18 relation keys."""
+    """Return an empty relations dict with all 20 relation keys."""
     return {
         "source_fact": [],
         "source_claim": [],
@@ -1584,6 +1684,8 @@ def _empty_rels() -> dict[str, list[dict[str, str]]]:
         "causes": [],
         "next_period": [],
         "trend": [],
+        "asks_about": [],
+        "motivated_by": [],
     }
 
 
@@ -1625,7 +1727,8 @@ def _process_chunk(
     -------
     dict[str, Any]
         Dict with keys ``chunks``, ``entities``, ``facts``, ``claims``,
-        ``datapoints``, ``periods``, ``stances``, ``authors``, and ``rels``.
+        ``datapoints``, ``periods``, ``stances``, ``authors``,
+        ``questions``, and ``rels``.
     """
     if seen_author_keys is None:
         seen_author_keys = set()
@@ -1654,6 +1757,10 @@ def _process_chunk(
 
     causes = _build_causal_links(chunk, facts, claims, dps, source_id)
 
+    chunk_questions, aa, mb = _build_question_nodes(
+        chunk, entity_name_to_id, facts, claims
+    )
+
     rels: dict[str, list[dict[str, str]]] = {
         "contains_chunk": cc_rels,
         "source_fact": sf,
@@ -1669,6 +1776,8 @@ def _process_chunk(
         "on_entity": oe,
         "based_on": bo,
         "causes": causes,
+        "asks_about": aa,
+        "motivated_by": mb,
     }
 
     return {
@@ -1680,6 +1789,7 @@ def _process_chunk(
         "periods": periods,
         "stances": chunk_stances,
         "authors": chunk_authors,
+        "questions": chunk_questions,
         "rels": rels,
     }
 
@@ -1693,6 +1803,7 @@ _NODE_KEYS = (
     "periods",
     "stances",
     "authors",
+    "questions",
 )
 """Keys shared between _process_chunk output and the node accumulator."""
 
@@ -1765,6 +1876,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
         fiscal_periods=nodes["periods"],
         authors=nodes["authors"],
         stances=nodes["stances"],
+        questions=nodes["questions"],
         relations=rels,
     )
 
@@ -2836,6 +2948,7 @@ def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
         "fiscal_periods": mapped.get("fiscal_periods", []),
         "authors": mapped.get("authors", []),
         "stances": mapped.get("stances", []),
+        "questions": mapped.get("questions", []),
         "relations": mapped.get("relations", {}),
     }
 

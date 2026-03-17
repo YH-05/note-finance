@@ -109,6 +109,15 @@ Output format (must be valid JSON, no explanation):
       "mechanism": "<description of how/why the cause leads to the effect, or null>",
       "confidence": "<high|medium|low or null>"
     }
+  ],
+  "questions": [
+    {
+      "content": "<question describing a knowledge gap>",
+      "question_type": "<data_gap|contradiction|prediction_test|assumption_check>",
+      "priority": "<high|medium|low or null>",
+      "about_entities": ["<entity name>"],
+      "motivated_by_contents": ["<exact content string from facts/claims above that motivated this question>"]
+    }
   ]
 }
 
@@ -121,6 +130,12 @@ Rules:
 - For financial_datapoints: extract structured numerical data from tables and text. Set is_estimate to true for forecasts.
 - For stances: extract analyst investment stances (rating + target price + sentiment) when an analyst or institution expresses a view on a specific entity. Include author_name (analyst/institution) and entity_name (target). Use based_on_claims to link stance to relevant claim content strings.
 - For causal_links: identify cause-effect relationships between facts, claims, and financial data points within this chunk. Use exact content strings from the extracted nodes above for from_content/to_content. For datapoints, use metric_name as the content key.
+- For questions: identify knowledge gaps in 4 categories:
+  - data_gap: important information missing from this report (e.g., segment breakdown, competitive comparison)
+  - contradiction: claims that conflict with general consensus or other sources
+  - prediction_test: quantitative predictions that can be verified later (e.g., specific revenue targets, price forecasts)
+  - assumption_check: assumptions that need verification (e.g., growth rate assumptions, market size estimates)
+  Use exact content strings from facts/claims above for motivated_by_contents. Set priority based on impact on investment decisions.
 
 Text:
 """
