@@ -22,13 +22,16 @@ from emit_graph_queue import (
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
     _build_causal_links,
+    _build_next_period_chain,
     _build_stance_nodes,
     _build_supersedes_chain,
+    _build_trend_edges,
     _infer_period_type,
     _load_wealth_themes,
     _magnitude_from_score,
     _match_domain_to_theme,
     _parse_yaml_frontmatter,
+    _period_sort_key,
     _scan_wealth_directory,
     cleanup_old_files,
     generate_chunk_id,
@@ -3553,3 +3556,271 @@ class TestTopicDiscoveryInCommands:
 
     def test_正常系_topic_discoveryがCOMMANDSに含まれる(self) -> None:
         assert "topic-discovery" in COMMANDS
+
+
+# ---------------------------------------------------------------------------
+# Wave 3: Temporal Chain — _period_sort_key
+# ---------------------------------------------------------------------------
+
+
+class TestPeriodSortKey:
+    """_period_sort_key が FY/Q/H フォーマットを正しくパースすること。"""
+
+    def test_正常系_FY4桁年度をパース(self) -> None:
+        assert _period_sort_key("FY2025") == (2025, 0)
+
+    def test_正常系_FY2桁年度をパース(self) -> None:
+        assert _period_sort_key("FY25") == (2025, 0)
+
+    def test_正常系_四半期ラベルをパース(self) -> None:
+        assert _period_sort_key("3Q25") == (2025, 3)
+        assert _period_sort_key("1Q2024") == (2024, 1)
+        assert _period_sort_key("4Q25") == (2025, 4)
+
+    def test_正常系_半期ラベルをパース(self) -> None:
+        assert _period_sort_key("1H26") == (2026, 1)
+        assert _period_sort_key("2H2025") == (2025, 2)
+
+    def test_異常系_不正ラベルがwarningログ後に末尾配置(
+        self, caplog: pytest.LogCaptureFixture
+    ) -> None:
+        result = _period_sort_key("INVALID")
+        assert result == (9999, 0)
+        assert "Unrecognised period label" in caplog.text
+
+
+# ---------------------------------------------------------------------------
+# Wave 3: Temporal Chain — _build_next_period_chain
+# ---------------------------------------------------------------------------
+
+
+class TestBuildNextPeriodChain:
+    """ticker別・period_type別に独立した NEXT_PERIOD 連鎖が生成されること。"""
+
+    def test_正常系_同一ticker同一typeで連鎖生成(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+            {
+                "period_id": "ISAT_FY2026",
+                "period_type": "annual",
+                "period_label": "FY2026",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert len(rels) == 2
+        assert rels[0]["from_id"] == "ISAT_FY2024"
+        assert rels[0]["to_id"] == "ISAT_FY2025"
+        assert rels[0]["type"] == "NEXT_PERIOD"
+        assert rels[0]["gap_months"] == 12
+        assert rels[1]["from_id"] == "ISAT_FY2025"
+        assert rels[1]["to_id"] == "ISAT_FY2026"
+
+    def test_正常系_異なるtickerは独立した連鎖(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+            {
+                "period_id": "TLKM_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "TLKM_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert len(rels) == 2
+        # Each ticker gets its own chain
+        from_ids = {r["from_id"] for r in rels}
+        assert "ISAT_FY2024" in from_ids
+        assert "TLKM_FY2024" in from_ids
+
+    def test_正常系_異なるperiod_typeは独立した連鎖(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2024",
+                "period_type": "annual",
+                "period_label": "FY2024",
+            },
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+            {
+                "period_id": "ISAT_1Q25",
+                "period_type": "quarterly",
+                "period_label": "1Q25",
+            },
+            {
+                "period_id": "ISAT_2Q25",
+                "period_type": "quarterly",
+                "period_label": "2Q25",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert len(rels) == 2
+        # Find quarterly rel
+        q_rels = [r for r in rels if r["gap_months"] == 3]
+        assert len(q_rels) == 1
+        assert q_rels[0]["from_id"] == "ISAT_1Q25"
+        assert q_rels[0]["to_id"] == "ISAT_2Q25"
+
+    def test_エッジケース_単一periodは連鎖なし(self) -> None:
+        periods = [
+            {
+                "period_id": "ISAT_FY2025",
+                "period_type": "annual",
+                "period_label": "FY2025",
+            },
+        ]
+        rels = _build_next_period_chain(periods)
+        assert rels == []
+
+    def test_エッジケース_空リストで空結果(self) -> None:
+        rels = _build_next_period_chain([])
+        assert rels == []
+
+
+# ---------------------------------------------------------------------------
+# Wave 3: Temporal Chain — _build_trend_edges
+# ---------------------------------------------------------------------------
+
+
+class TestBuildTrendEdges:
+    """変化率と方向が正しく計算されること。"""
+
+    def _make_dp(
+        self, dp_id: str, metric: str, value: float, period_label: str
+    ) -> dict[str, Any]:
+        return {
+            "datapoint_id": dp_id,
+            "metric_name": metric,
+            "value": value,
+            "period_label": period_label,
+        }
+
+    def _make_fp(self, period_id: str, period_type: str, label: str) -> dict[str, Any]:
+        return {
+            "period_id": period_id,
+            "period_type": period_type,
+            "period_label": label,
+        }
+
+    def test_正常系_上昇トレンドを検出(self) -> None:
+        dps = [
+            self._make_dp("dp1", "Revenue", 100.0, "FY2024"),
+            self._make_dp("dp2", "Revenue", 120.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["from_id"] == "dp1"
+        assert rels[0]["to_id"] == "dp2"
+        assert rels[0]["type"] == "TREND"
+        assert rels[0]["change_pct"] == 20.0
+        assert rels[0]["direction"] == "up"
+
+    def test_正常系_下降トレンドを検出(self) -> None:
+        dps = [
+            self._make_dp("dp1", "NetIncome", 200.0, "FY2024"),
+            self._make_dp("dp2", "NetIncome", 150.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["change_pct"] == -25.0
+        assert rels[0]["direction"] == "down"
+
+    def test_正常系_変化率1パーセント以内はflat(self) -> None:
+        dps = [
+            self._make_dp("dp1", "ARPU", 100.0, "FY2024"),
+            self._make_dp("dp2", "ARPU", 100.5, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["change_pct"] == 0.5
+        assert rels[0]["direction"] == "flat"
+
+    def test_エッジケース_prev_value_0でゼロ除算回避(self) -> None:
+        dps = [
+            self._make_dp("dp1", "Revenue", 0.0, "FY2024"),
+            self._make_dp("dp2", "Revenue", 100.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 1
+        assert rels[0]["change_pct"] == 0.0
+        assert rels[0]["direction"] == "flat"
+
+    def test_正常系_異なるmetricは独立したトレンド(self) -> None:
+        dps = [
+            self._make_dp("dp1", "Revenue", 100.0, "FY2024"),
+            self._make_dp("dp2", "Revenue", 120.0, "FY2025"),
+            self._make_dp("dp3", "EBITDA", 50.0, "FY2024"),
+            self._make_dp("dp4", "EBITDA", 40.0, "FY2025"),
+        ]
+        fps = [
+            self._make_fp("ISAT_FY2024", "annual", "FY2024"),
+            self._make_fp("ISAT_FY2025", "annual", "FY2025"),
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+            {"from_id": "dp3", "to_id": "ISAT_FY2024", "type": "FOR_PERIOD"},
+            {"from_id": "dp4", "to_id": "ISAT_FY2025", "type": "FOR_PERIOD"},
+        ]
+        rels = _build_trend_edges(dps, fps, for_period)
+        assert len(rels) == 2
+        # One should be up (Revenue +20%), one should be down (EBITDA -20%)
+        directions = {r["direction"] for r in rels}
+        assert "up" in directions
+        assert "down" in directions

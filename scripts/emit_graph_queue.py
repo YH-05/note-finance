@@ -332,6 +332,243 @@ def _infer_period_type(label: str) -> str:
     return "annual"
 
 
+# Regex patterns for period label parsing
+_FY_RE = re.compile(r"^FY\s*(\d{4}|\d{2})$", re.IGNORECASE)
+"""Match annual period labels like ``FY2025`` or ``FY25``."""
+
+_Q_RE = re.compile(r"^(\d)[Qq]\s*(\d{4}|\d{2})$")
+"""Match quarterly period labels like ``3Q25`` or ``4Q2025``."""
+
+_H_RE = re.compile(r"^(\d)[Hh]\s*(\d{4}|\d{2})$")
+"""Match half-year period labels like ``1H26`` or ``2H2025``."""
+
+
+def _normalise_year(raw: str) -> int:
+    """Normalise a 2-digit or 4-digit year string to a 4-digit integer.
+
+    Parameters
+    ----------
+    raw : str
+        Year string (e.g. ``'25'`` or ``'2025'``).
+
+    Returns
+    -------
+    int
+        Four-digit year.
+    """
+    year = int(raw)
+    if year < 100:
+        year += 2000
+    return year
+
+
+def _period_sort_key(label: str) -> tuple[int, int]:
+    """Compute a sortable key from a fiscal period label.
+
+    Used to order FiscalPeriod nodes chronologically within a
+    ticker + period_type group.
+
+    Parameters
+    ----------
+    label : str
+        Period label (e.g., ``'FY2025'``, ``'3Q25'``, ``'1H26'``).
+
+    Returns
+    -------
+    tuple[int, int]
+        ``(year, sub_index)`` where *sub_index* is 0 for annual,
+        1-4 for quarterly, 1-2 for half-year.  Unrecognised labels
+        are placed at ``(9999, 0)`` with a warning.
+
+    Examples
+    --------
+    >>> _period_sort_key("FY2025")
+    (2025, 0)
+    >>> _period_sort_key("3Q25")
+    (2025, 3)
+    >>> _period_sort_key("1H26")
+    (2026, 1)
+    """
+    stripped = label.strip()
+
+    m = _FY_RE.match(stripped)
+    if m:
+        return (_normalise_year(m.group(1)), 0)
+
+    m = _Q_RE.match(stripped)
+    if m:
+        return (_normalise_year(m.group(2)), int(m.group(1)))
+
+    m = _H_RE.match(stripped)
+    if m:
+        return (_normalise_year(m.group(2)), int(m.group(1)))
+
+    logger.warning("Unrecognised period label, placing at end: %s", label)
+    return (9999, 0)
+
+
+_GAP_MONTHS: dict[str, int] = {
+    "annual": 12,
+    "quarterly": 3,
+    "half_year": 6,
+}
+"""Default gap_months by period_type."""
+
+
+def _build_next_period_chain(
+    fiscal_periods: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Build NEXT_PERIOD relations linking consecutive FiscalPeriod nodes.
+
+    Groups periods by ticker (derived from ``period_id`` prefix) and
+    ``period_type``, sorts each group chronologically using
+    :func:`_period_sort_key`, and emits one NEXT_PERIOD edge per
+    consecutive pair.
+
+    Parameters
+    ----------
+    fiscal_periods : list[dict[str, Any]]
+        FiscalPeriod node dicts with ``period_id``, ``period_type``,
+        ``period_label``.
+
+    Returns
+    -------
+    list[dict[str, Any]]
+        NEXT_PERIOD relation dicts with ``from_id``, ``to_id``,
+        ``type``, and ``gap_months``.
+    """
+    from collections import defaultdict
+
+    # Group by (ticker_prefix, period_type)
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for fp in fiscal_periods:
+        period_id = fp.get("period_id", "")
+        period_type = fp.get("period_type", "")
+        # period_id format: "{ticker}_{period_label}" or just "{period_label}"
+        parts = period_id.rsplit("_", 1)
+        ticker_prefix = parts[0] if len(parts) > 1 else ""
+        groups[(ticker_prefix, period_type)].append(fp)
+
+    rels: list[dict[str, Any]] = []
+    for (_ticker, p_type), group in groups.items():
+        sorted_group = sorted(
+            group, key=lambda fp: _period_sort_key(fp.get("period_label", ""))
+        )
+        gap = _GAP_MONTHS.get(p_type, 12)
+        for i in range(1, len(sorted_group)):
+            rels.append(
+                {
+                    "from_id": sorted_group[i - 1]["period_id"],
+                    "to_id": sorted_group[i]["period_id"],
+                    "type": "NEXT_PERIOD",
+                    "gap_months": gap,
+                }
+            )
+
+    return rels
+
+
+def _build_trend_edges(
+    financial_datapoints: list[dict[str, Any]],
+    fiscal_periods: list[dict[str, Any]],
+    for_period_rels: list[dict[str, str]],
+) -> list[dict[str, Any]]:
+    """Build TREND relations between consecutive FinancialDataPoint nodes.
+
+    Groups datapoints by ``(entity, metric_name)`` where *entity* is
+    resolved from the datapoint's associated FiscalPeriod ticker prefix.
+    Within each group, datapoints are sorted by period chronology and
+    a TREND edge is emitted per consecutive pair.
+
+    Parameters
+    ----------
+    financial_datapoints : list[dict[str, Any]]
+        FinancialDataPoint node dicts with ``datapoint_id``,
+        ``metric_name``, ``value``, ``period_label``.
+    fiscal_periods : list[dict[str, Any]]
+        FiscalPeriod node dicts (used to look up period_id → period_label).
+    for_period_rels : list[dict[str, str]]
+        FOR_PERIOD relation dicts mapping ``from_id`` (datapoint) to
+        ``to_id`` (period).
+
+    Returns
+    -------
+    list[dict[str, Any]]
+        TREND relation dicts with ``from_id``, ``to_id``, ``type``,
+        ``change_pct``, and ``direction``.
+    """
+    from collections import defaultdict
+
+    # Build datapoint_id → period_id mapping
+    dp_to_period: dict[str, str] = {}
+    for rel in for_period_rels:
+        dp_to_period[rel["from_id"]] = rel["to_id"]
+
+    # Build period_id → period_label mapping
+    period_to_label: dict[str, str] = {}
+    for fp in fiscal_periods:
+        period_to_label[fp["period_id"]] = fp.get("period_label", "")
+
+    # Build datapoint_id → datapoint mapping
+    dp_by_id: dict[str, dict[str, Any]] = {}
+    for dp in financial_datapoints:
+        dp_by_id[dp["datapoint_id"]] = dp
+
+    # Group by (ticker_prefix, metric_name)
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for dp in financial_datapoints:
+        dp_id = dp["datapoint_id"]
+        period_id = dp_to_period.get(dp_id, "")
+        # Extract ticker prefix from period_id
+        parts = period_id.rsplit("_", 1)
+        ticker_prefix = parts[0] if len(parts) > 1 else ""
+        metric_name = dp.get("metric_name", "")
+        groups[(ticker_prefix, metric_name)].append(dp)
+
+    rels: list[dict[str, Any]] = []
+    for (_ticker, _metric), group in groups.items():
+        # Sort by period chronology
+        sorted_group = sorted(
+            group,
+            key=lambda d: _period_sort_key(
+                period_to_label.get(dp_to_period.get(d["datapoint_id"], ""), "")
+            ),
+        )
+        for i in range(1, len(sorted_group)):
+            prev_dp = sorted_group[i - 1]
+            curr_dp = sorted_group[i]
+            prev_val = prev_dp.get("value")
+            curr_val = curr_dp.get("value")
+
+            if prev_val is None or curr_val is None:
+                continue
+
+            # Zero-division guard
+            if prev_val == 0:
+                change_pct = 0.0
+            else:
+                change_pct = round((curr_val - prev_val) / abs(prev_val) * 100, 2)
+
+            if change_pct > 1:
+                direction = "up"
+            elif change_pct < -1:
+                direction = "down"
+            else:
+                direction = "flat"
+
+            rels.append(
+                {
+                    "from_id": prev_dp["datapoint_id"],
+                    "to_id": curr_dp["datapoint_id"],
+                    "type": "TREND",
+                    "change_pct": change_pct,
+                    "direction": direction,
+                }
+            )
+
+    return rels
+
+
 def _make_source(
     url: str, title: str = "", published: str = "", **extra: Any
 ) -> dict[str, Any]:
@@ -1327,7 +1564,7 @@ def _extend_rels(
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
-    """Return an empty relations dict with all 16 relation keys."""
+    """Return an empty relations dict with all 18 relation keys."""
     return {
         "source_fact": [],
         "source_claim": [],
@@ -1345,6 +1582,8 @@ def _empty_rels() -> dict[str, list[dict[str, str]]]:
         "based_on": [],
         "supersedes": [],
         "causes": [],
+        "next_period": [],
+        "trend": [],
     }
 
 
@@ -1469,7 +1708,7 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 16 relation types).
+        Graph-queue components (nodes + 18 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")
@@ -1503,6 +1742,16 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     # Build SUPERSEDES chain across all chunks
     supersedes = _build_supersedes_chain(nodes["stances"])
     rels["supersedes"].extend(supersedes)
+
+    # Build NEXT_PERIOD chain across all fiscal periods (Wave 3)
+    next_period = _build_next_period_chain(nodes["periods"])
+    rels["next_period"].extend(next_period)
+
+    # Build TREND edges across all financial datapoints (Wave 3)
+    trend = _build_trend_edges(
+        nodes["datapoints"], nodes["periods"], rels["for_period"]
+    )
+    rels["trend"].extend(trend)
 
     return _mapped_result(
         data,

@@ -1147,6 +1147,31 @@ CALL {
 }
 ```
 
+#### NEXT_PERIOD (FiscalPeriod -> FiscalPeriod)
+
+```cypher
+-- NEXT_PERIOD: FiscalPeriod -> FiscalPeriod (temporal ordering)
+-- ticker別・period_type別に独立した連鎖を構築
+UNWIND $rels AS rel
+MATCH (from:FiscalPeriod {period_id: rel.from_id})
+MATCH (to:FiscalPeriod {period_id: rel.to_id})
+MERGE (from)-[r:NEXT_PERIOD]->(to)
+SET r.gap_months = rel.gap_months
+```
+
+#### TREND (FinancialDataPoint -> FinancialDataPoint)
+
+```cypher
+-- TREND: FinancialDataPoint -> FinancialDataPoint (metric trend)
+-- 同一 (entity, metric_name) 間の時系列変化率を追跡
+UNWIND $rels AS rel
+MATCH (from:FinancialDataPoint {datapoint_id: rel.from_id})
+MATCH (to:FinancialDataPoint {datapoint_id: rel.to_id})
+MERGE (from)-[r:TREND]->(to)
+SET r.change_pct = rel.change_pct,
+    r.direction = rel.direction
+```
+
 ### source_type の推論
 
 `command_source` から `source_type` を推論:

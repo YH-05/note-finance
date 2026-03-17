@@ -540,6 +540,29 @@ relationships:
         type: datetime
         description: "When the old stance was superseded"
 
+  # Temporal chain (Wave 3)
+  NEXT_PERIOD:
+    from: FiscalPeriod
+    to: FiscalPeriod
+    description: "Temporal ordering between fiscal periods of the same ticker and period_type"
+    properties:
+      gap_months:
+        type: integer
+        description: "Number of months between the two periods (e.g., 3 for quarterly, 6 for half-year, 12 for annual)"
+
+  TREND:
+    from: FinancialDataPoint
+    to: FinancialDataPoint
+    description: "Metric trend between consecutive periods for the same (entity, metric_name)"
+    properties:
+      change_pct:
+        type: float
+        description: "Percentage change from previous to current value"
+      direction:
+        type: string
+        enum: [up, down, flat]
+        description: "Trend direction: up if change_pct > 1, down if < -1, flat otherwise"
+
   # Causal chain (Wave 2)
   CAUSES:
     from: [Fact, Claim, FinancialDataPoint]
