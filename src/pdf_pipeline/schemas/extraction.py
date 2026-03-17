@@ -434,6 +434,7 @@ class ExtractedQuestion(BaseModel):
         "contradiction",
         "prediction_test",
         "assumption_check",
+        "consensus_divergence",
     ] = Field(description="Type of knowledge gap")
     priority: Literal["high", "medium", "low"] | None = Field(
         default=None, description="Priority level for follow-up research"

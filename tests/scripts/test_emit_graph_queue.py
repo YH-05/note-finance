@@ -21,6 +21,7 @@ from emit_graph_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
+    _build_authored_by_rels,
     _build_causal_links,
     _build_next_period_chain,
     _build_question_nodes,
@@ -28,6 +29,7 @@ from emit_graph_queue import (
     _build_supersedes_chain,
     _build_trend_edges,
     _infer_period_type,
+    _load_metric_alias_index,
     _load_wealth_themes,
     _magnitude_from_score,
     _match_domain_to_theme,
@@ -57,6 +59,7 @@ from emit_graph_queue import (
     map_wealth_scrape_incremental,
     parse_args,
     resolve_category,
+    resolve_metric_id,
     run,
 )
 from freezegun import freeze_time
@@ -4143,3 +4146,341 @@ class TestMapPdfExtractionWithQuestions:
         motivated_by = result["relations"]["motivated_by"]
         assert len(motivated_by) == 1
         assert motivated_by[0]["type"] == "MOTIVATED_BY"
+
+
+# ---------------------------------------------------------------------------
+# _build_authored_by_rels (Phase 2 Step A-1)
+# ---------------------------------------------------------------------------
+
+
+class TestBuildAuthoredByRels:
+    """_build_authored_by_rels 関数のテスト。"""
+
+    def test_正常系_publisherからAuthorとAUTHORED_BYが生成される(self) -> None:
+        """受け入れ条件: publisher から Author ノードと AUTHORED_BY rel が生成されること。"""
+        source_id = generate_source_id("pdf:testhash")
+        seen: set[str] = set()
+        name_to_id: dict[str, str] = {}
+
+        authors, rels = _build_authored_by_rels(source_id, "HSBC", seen, name_to_id)
+
+        assert len(authors) == 1
+        assert authors[0]["name"] == "HSBC"
+        assert authors[0]["author_type"] == "sell_side"
+        assert authors[0]["organization"] == "HSBC"
+        assert len(rels) == 1
+        assert rels[0]["from_id"] == source_id
+        assert rels[0]["to_id"] == authors[0]["author_id"]
+        assert rels[0]["type"] == "AUTHORED_BY"
+
+    def test_正常系_既存AuthorとのID統合(self) -> None:
+        """LLM抽出で既に Author が作成されている場合、同一 ID を再利用すること。"""
+        source_id = generate_source_id("pdf:testhash2")
+        existing_author_id = generate_author_id("Citi", "sell_side")
+        seen: set[str] = {"Citi:sell_side"}
+        name_to_id: dict[str, str] = {"Citi": existing_author_id}
+
+        authors, rels = _build_authored_by_rels(source_id, "Citi", seen, name_to_id)
+
+        # Author は重複排除で新規生成されない
+        assert len(authors) == 0
+        # AUTHORED_BY は既存 author_id を使う
+        assert len(rels) == 1
+        assert rels[0]["to_id"] == existing_author_id
+
+    def test_エッジケース_空publisherで空結果(self) -> None:
+        """publisher が空文字列の場合、何も生成されないこと。"""
+        source_id = generate_source_id("pdf:testhash3")
+        authors, rels = _build_authored_by_rels(source_id, "", set(), {})
+        assert authors == []
+        assert rels == []
+
+    def test_正常系_name_to_idに未知publisherが追加される(self) -> None:
+        """初めて見る publisher が name_to_id に登録されること。"""
+        source_id = generate_source_id("pdf:testhash4")
+        seen: set[str] = set()
+        name_to_id: dict[str, str] = {}
+
+        _build_authored_by_rels(source_id, "BofA Securities", seen, name_to_id)
+
+        assert "BofA Securities" in name_to_id
+        assert "BofA Securities:sell_side" in seen
+
+
+# ---------------------------------------------------------------------------
+# map_pdf_extraction: AUTHORED_BY 統合テスト (Phase 2)
+# ---------------------------------------------------------------------------
+
+
+class TestMapPdfExtractionWithAuthoredBy:
+    """map_pdf_extraction での AUTHORED_BY 統合テスト。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_publisherありでAUTHORED_BYが生成される(self) -> None:
+        """publisher を含む pdf-extraction データで AUTHORED_BY が生成されること。"""
+        data = {
+            "session_id": "pdf-authored-by-test",
+            "source_hash": "authoredtesthash",
+            "publisher": "HSBC",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Analysis text.",
+                    "entities": [],
+                    "facts": [],
+                    "claims": [],
+                    "financial_datapoints": [],
+                    "stances": [],
+                    "causal_links": [],
+                    "questions": [],
+                }
+            ],
+        }
+
+        result = map_pdf_extraction(data)
+
+        # Source に publisher が含まれること
+        assert result["sources"][0].get("publisher") == "HSBC"
+
+        # Author が生成されること
+        assert len(result["authors"]) == 1
+        assert result["authors"][0]["name"] == "HSBC"
+        assert result["authors"][0]["author_type"] == "sell_side"
+
+        # AUTHORED_BY が生成されること
+        authored_by = result["relations"]["authored_by"]
+        assert len(authored_by) == 1
+        assert authored_by[0]["type"] == "AUTHORED_BY"
+        assert authored_by[0]["from_id"] == result["sources"][0]["source_id"]
+        assert authored_by[0]["to_id"] == result["authors"][0]["author_id"]
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_publisherなしでAUTHORED_BYなし(self) -> None:
+        """publisher がない場合、AUTHORED_BY が生成されないこと。"""
+        data = {
+            "session_id": "pdf-no-publisher",
+            "source_hash": "nopubhash",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Analysis text.",
+                    "entities": [],
+                    "facts": [],
+                    "claims": [],
+                    "financial_datapoints": [],
+                    "stances": [],
+                    "causal_links": [],
+                    "questions": [],
+                }
+            ],
+        }
+
+        result = map_pdf_extraction(data)
+
+        assert result["relations"]["authored_by"] == []
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_publisherとStanceのAuthorが統合される(self) -> None:
+        """publisher Author と Stance 由来 Author が重複排除されること。"""
+        data = {
+            "session_id": "pdf-author-merge",
+            "source_hash": "mergehash",
+            "publisher": "HSBC",
+            "chunks": [
+                {
+                    "chunk_index": 0,
+                    "content": "Analysis text.",
+                    "entities": [
+                        {
+                            "name": "ISAT",
+                            "entity_type": "company",
+                            "ticker": "ISAT IJ",
+                        }
+                    ],
+                    "facts": [],
+                    "claims": [],
+                    "financial_datapoints": [],
+                    "stances": [
+                        {
+                            "author_name": "HSBC",
+                            "author_type": "sell_side",
+                            "entity_name": "ISAT",
+                            "rating": "Buy",
+                            "sentiment": "bullish",
+                            "target_price": 3200.0,
+                            "target_price_currency": "IDR",
+                            "as_of_date": "2025-10-29",
+                        }
+                    ],
+                    "causal_links": [],
+                    "questions": [],
+                }
+            ],
+        }
+
+        result = map_pdf_extraction(data)
+
+        # Author は1つだけ（Stance由来 + publisher が統合）
+        hsbc_authors = [a for a in result["authors"] if a["name"] == "HSBC"]
+        assert len(hsbc_authors) == 1
+
+        # AUTHORED_BY も存在
+        assert len(result["relations"]["authored_by"]) == 1
+
+        # HOLDS_STANCE も存在
+        assert len(result["relations"]["holds_stance"]) == 1
+
+
+# ---------------------------------------------------------------------------
+# _load_metric_alias_index / resolve_metric_id (Phase 2 Step B-2)
+# ---------------------------------------------------------------------------
+
+
+class TestLoadMetricAliasIndex:
+    """_load_metric_alias_index 関数のテスト。"""
+
+    def test_正常系_エイリアスインデックスが読み込まれる(self) -> None:
+        """metric_master.json からエイリアスインデックスを読み込めること。"""
+        index = _load_metric_alias_index()
+        assert len(index) > 0
+        # canonical_name がキーに含まれる
+        assert "revenue" in index
+        assert index["revenue"] == "metric-revenue"
+
+    def test_正常系_エイリアスが正規化される(self) -> None:
+        """表記揺れのエイリアスが同一 metric_id に解決されること。"""
+        index = _load_metric_alias_index()
+        # "Revenue" と "Total Revenue" が同じ metric_id に解決
+        assert index.get("revenue") == index.get("total revenue")
+        assert index.get("revenue") == "metric-revenue"
+
+    def test_正常系_display_nameもキーに含まれる(self) -> None:
+        """display_name もルックアップキーとして使えること。"""
+        index = _load_metric_alias_index()
+        assert index.get("ebitda margin") == "metric-ebitda-margin"
+
+
+class TestResolveMetricId:
+    """resolve_metric_id 関数のテスト。"""
+
+    def test_正常系_エイリアスからmetric_idを解決(self) -> None:
+        assert resolve_metric_id("Total Revenue") == "metric-revenue"
+
+    def test_正常系_canonical_nameからmetric_idを解決(self) -> None:
+        assert resolve_metric_id("ebitda") == "metric-ebitda"
+
+    def test_正常系_大文字小文字を無視(self) -> None:
+        assert resolve_metric_id("EBITDA Margin") == "metric-ebitda-margin"
+
+    def test_エッジケース_未知metric_nameでNone(self) -> None:
+        assert resolve_metric_id("Unknown Metric XYZ") is None
+
+    def test_エッジケース_空文字列でNone(self) -> None:
+        assert resolve_metric_id("") is None
+
+
+# ---------------------------------------------------------------------------
+# _build_trend_edges: metric_id テスト (Phase 2 Step B-3)
+# ---------------------------------------------------------------------------
+
+
+class TestBuildTrendEdgesWithMetricId:
+    """_build_trend_edges の metric_id 関連テスト。"""
+
+    def test_正常系_既知metricでmetric_idが付与される(self) -> None:
+        """metric_master.json に存在する metric_name の TREND に metric_id が付くこと。"""
+        periods = [
+            {"period_id": "ISAT_FY2024", "period_label": "FY2024"},
+            {"period_id": "ISAT_FY2025", "period_label": "FY2025"},
+        ]
+        datapoints = [
+            {
+                "datapoint_id": "dp1",
+                "metric_name": "Revenue",
+                "value": 100,
+            },
+            {
+                "datapoint_id": "dp2",
+                "metric_name": "Revenue",
+                "value": 120,
+            },
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025"},
+        ]
+
+        edges = _build_trend_edges(datapoints, periods, for_period)
+
+        assert len(edges) == 1
+        assert edges[0]["metric_id"] == "metric-revenue"
+        assert edges[0]["direction"] == "up"
+
+    def test_正常系_未知metricでmetric_idなし(self) -> None:
+        """metric_master.json に存在しない metric_name の TREND に metric_id がないこと。"""
+        periods = [
+            {"period_id": "ISAT_FY2024", "period_label": "FY2024"},
+            {"period_id": "ISAT_FY2025", "period_label": "FY2025"},
+        ]
+        datapoints = [
+            {"datapoint_id": "dp1", "metric_name": "Unknown Metric", "value": 100},
+            {"datapoint_id": "dp2", "metric_name": "Unknown Metric", "value": 110},
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025"},
+        ]
+
+        edges = _build_trend_edges(datapoints, periods, for_period)
+
+        assert len(edges) == 1
+        assert "metric_id" not in edges[0]
+
+    def test_正常系_表記揺れが同一グループに統合される(self) -> None:
+        """'Revenue' と 'Total Revenue' が同じ metric_id でグルーピングされること。"""
+        periods = [
+            {"period_id": "ISAT_FY2024", "period_label": "FY2024"},
+            {"period_id": "ISAT_FY2025", "period_label": "FY2025"},
+        ]
+        datapoints = [
+            {"datapoint_id": "dp1", "metric_name": "Revenue", "value": 100},
+            {"datapoint_id": "dp2", "metric_name": "Total Revenue", "value": 120},
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025"},
+        ]
+
+        edges = _build_trend_edges(datapoints, periods, for_period)
+
+        # Both resolve to metric-revenue → grouped together → 1 TREND edge
+        assert len(edges) == 1
+        assert edges[0]["metric_id"] == "metric-revenue"
+
+    def test_正常系_measures_linked_dp_idsでフィルタリング(self) -> None:
+        """measures_linked_dp_ids で DP をフィルタすること。"""
+        periods = [
+            {"period_id": "ISAT_FY2024", "period_label": "FY2024"},
+            {"period_id": "ISAT_FY2025", "period_label": "FY2025"},
+        ]
+        datapoints = [
+            {"datapoint_id": "dp1", "metric_name": "Revenue", "value": 100},
+            {"datapoint_id": "dp2", "metric_name": "Revenue", "value": 120},
+            {"datapoint_id": "dp3", "metric_name": "Revenue", "value": 130},
+        ]
+        for_period = [
+            {"from_id": "dp1", "to_id": "ISAT_FY2024"},
+            {"from_id": "dp2", "to_id": "ISAT_FY2025"},
+            {"from_id": "dp3", "to_id": "ISAT_FY2025"},
+        ]
+
+        # Only dp1 and dp2 are MEASURES-linked
+        edges = _build_trend_edges(
+            datapoints, periods, for_period,
+            measures_linked_dp_ids={"dp1", "dp2"},
+        )
+
+        assert len(edges) == 1
+        # dp3 is excluded
+        assert edges[0]["from_id"] == "dp1"
+        assert edges[0]["to_id"] == "dp2"

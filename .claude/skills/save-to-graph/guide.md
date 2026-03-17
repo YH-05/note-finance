@@ -1022,6 +1022,12 @@ SET r.superseded_at = CASE
         THEN datetime(rel.superseded_at)
         ELSE datetime()
     END
+
+-- AUTHORED_BY: Source -> Author (Phase 2)
+UNWIND $authored_by AS rel
+MATCH (s:Source {source_id: rel.from_id})
+MATCH (a:Author {author_id: rel.to_id})
+MERGE (s)-[:AUTHORED_BY]->(a)
 ```
 
 ### Wave 2 リレーション投入
@@ -1163,13 +1169,14 @@ SET r.gap_months = rel.gap_months
 
 ```cypher
 -- TREND: FinancialDataPoint -> FinancialDataPoint (metric trend)
--- 同一 (entity, metric_name) 間の時系列変化率を追跡
+-- 同一 (entity, metric_key) 間の時系列変化率を追跡（metric_id でグルーピング）
 UNWIND $rels AS rel
 MATCH (from:FinancialDataPoint {datapoint_id: rel.from_id})
 MATCH (to:FinancialDataPoint {datapoint_id: rel.to_id})
 MERGE (from)-[r:TREND]->(to)
 SET r.change_pct = rel.change_pct,
-    r.direction = rel.direction
+    r.direction = rel.direction,
+    r.metric_id = rel.metric_id
 ```
 
 ### Question バッチ投入 [Wave 4 新規]

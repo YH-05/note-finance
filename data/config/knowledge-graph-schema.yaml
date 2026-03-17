@@ -394,13 +394,14 @@ nodes:
       question_type:
         type: string
         required: true
-        enum: [data_gap, contradiction, prediction_test, assumption_check]
+        enum: [data_gap, contradiction, prediction_test, assumption_check, consensus_divergence]
         indexed: true
         description: >
           data_gap=missing important information in this report,
           contradiction=claim conflicts with general consensus,
           prediction_test=quantitative prediction verifiable later,
-          assumption_check=assumption requiring verification
+          assumption_check=assumption requiring verification,
+          consensus_divergence=rating/TP divergence among multiple analysts on same entity
       priority:
         type: string
         enum: [high, medium, low]
@@ -598,7 +599,7 @@ relationships:
   TREND:
     from: FinancialDataPoint
     to: FinancialDataPoint
-    description: "Metric trend between consecutive periods for the same (entity, metric_name)"
+    description: "Metric trend between consecutive periods for the same (entity, metric_key)"
     properties:
       change_pct:
         type: float
@@ -607,6 +608,10 @@ relationships:
         type: string
         enum: [up, down, flat]
         description: "Trend direction: up if change_pct > 1, down if < -1, flat otherwise"
+      metric_id:
+        type: string
+        indexed: true
+        description: "Canonical metric_id from metric_master.json (null if unresolved)"
 
   # Causal chain (Wave 2)
   CAUSES:
