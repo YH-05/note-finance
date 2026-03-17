@@ -1195,7 +1195,7 @@ class TestRun:
 
         # Verify schema
         data = json.loads(output_files[0].read_text(encoding="utf-8"))
-        assert data["schema_version"] == "2.0"
+        assert data["schema_version"] == "2.1"
         assert data["command_source"] == "finance-news-workflow"
         assert "queue_id" in data
         assert "created_at" in data

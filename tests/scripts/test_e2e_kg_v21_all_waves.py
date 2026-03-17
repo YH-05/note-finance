@@ -455,8 +455,8 @@ class TestV21FormatCompliance:
         output_file = _generate_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "2.0"
-        assert SCHEMA_VERSION == "2.0"
+        assert queue_data["schema_version"] == "2.1"
+        assert SCHEMA_VERSION == "2.1"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_必須トップレベルキーが全て存在する(self, tmp_path: Path) -> None:

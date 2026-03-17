@@ -312,7 +312,7 @@ class TestGraphQueueFormatCompliance:
             tmp_path, "finance-news-workflow", _realistic_news_batch()
         )
         data = _load_queue_file(output_file)
-        assert data["schema_version"] == "2.0"
+        assert data["schema_version"] == "2.1"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_queue_idがgqプレフィックスで始まる(self, tmp_path: Path) -> None:
@@ -551,7 +551,7 @@ class TestMultiCommandPipeline:
         for command, data in results.items():
             missing = GRAPH_QUEUE_REQUIRED_KEYS - set(data.keys())
             assert not missing, f"{command}: missing keys {missing}"
-            assert data["schema_version"] == "2.0"
+            assert data["schema_version"] == "2.1"
             assert data["command_source"] == command
 
     @freeze_time(FROZEN_TIME)

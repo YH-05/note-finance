@@ -47,8 +47,9 @@ import secrets
 import sys
 import time
 import uuid
+from collections import defaultdict
 from collections.abc import Callable
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -84,8 +85,8 @@ DEFAULT_OUTPUT_BASE = Path(".tmp/graph-queue")
 DEFAULT_MAX_AGE_DAYS = 7
 """Default maximum age in days for auto-cleanup."""
 
-SCHEMA_VERSION = "2.0"
-"""Graph-queue schema version."""
+SCHEMA_VERSION = "2.1"
+"""Graph-queue schema version (v2.1: Wave 1-4 support)."""
 
 WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
 """Path to the wealth-management theme configuration file."""
@@ -416,6 +417,71 @@ _GAP_MONTHS: dict[str, int] = {
 """Default gap_months by period_type."""
 
 
+def _extract_ticker_from_period_id(period_id: str) -> str:
+    """Extract the ticker prefix from a period_id.
+
+    Parameters
+    ----------
+    period_id : str
+        Period ID in ``{ticker}_{period_label}`` or ``{period_label}`` format.
+
+    Returns
+    -------
+    str
+        Ticker prefix, or empty string if no prefix found.
+    """
+    parts = period_id.rsplit("_", 1)
+    return parts[0] if len(parts) > 1 else ""
+
+
+def _parse_date_safe(raw: str | None) -> date:
+    """Parse an ISO 8601 date string safely for sorting.
+
+    Parameters
+    ----------
+    raw : str | None
+        Date string in ``YYYY-MM-DD`` format, or ``None``.
+
+    Returns
+    -------
+    date
+        Parsed date, or ``date.min`` for unparseable/missing values.
+    """
+    if not raw:
+        return date.min
+    try:
+        return date.fromisoformat(raw)
+    except (ValueError, TypeError):
+        logger.warning("Unparseable as_of_date for sorting: %s", raw)
+        return date.min
+
+
+def _build_content_id_map(
+    facts: list[dict[str, Any]],
+    claims: list[dict[str, Any]],
+) -> dict[tuple[str, str], str]:
+    """Build a content-to-ID mapping from facts and claims.
+
+    Parameters
+    ----------
+    facts : list[dict[str, Any]]
+        Fact node dicts with ``fact_id`` and ``content``.
+    claims : list[dict[str, Any]]
+        Claim node dicts with ``claim_id`` and ``content``.
+
+    Returns
+    -------
+    dict[tuple[str, str], str]
+        Mapping from ``(type, content)`` to node ID.
+    """
+    content_to_id: dict[tuple[str, str], str] = {}
+    for fact_item in facts:
+        content_to_id[("fact", fact_item["content"])] = fact_item["fact_id"]
+    for claim_item in claims:
+        content_to_id[("claim", claim_item["content"])] = claim_item["claim_id"]
+    return content_to_id
+
+
 def _build_next_period_chain(
     fiscal_periods: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
@@ -438,16 +504,12 @@ def _build_next_period_chain(
         NEXT_PERIOD relation dicts with ``from_id``, ``to_id``,
         ``type``, and ``gap_months``.
     """
-    from collections import defaultdict
-
     # Group by (ticker_prefix, period_type)
     groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
     for fp in fiscal_periods:
         period_id = fp.get("period_id", "")
         period_type = fp.get("period_type", "")
-        # period_id format: "{ticker}_{period_label}" or just "{period_label}"
-        parts = period_id.rsplit("_", 1)
-        ticker_prefix = parts[0] if len(parts) > 1 else ""
+        ticker_prefix = _extract_ticker_from_period_id(period_id)
         groups[(ticker_prefix, period_type)].append(fp)
 
     rels: list[dict[str, Any]] = []
@@ -498,8 +560,6 @@ def _build_trend_edges(
         TREND relation dicts with ``from_id``, ``to_id``, ``type``,
         ``change_pct``, and ``direction``.
     """
-    from collections import defaultdict
-
     # Build datapoint_id → period_id mapping
     dp_to_period: dict[str, str] = {}
     for rel in for_period_rels:
@@ -510,19 +570,12 @@ def _build_trend_edges(
     for fp in fiscal_periods:
         period_to_label[fp["period_id"]] = fp.get("period_label", "")
 
-    # Build datapoint_id → datapoint mapping
-    dp_by_id: dict[str, dict[str, Any]] = {}
-    for dp in financial_datapoints:
-        dp_by_id[dp["datapoint_id"]] = dp
-
     # Group by (ticker_prefix, metric_name)
     groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
     for dp in financial_datapoints:
         dp_id = dp["datapoint_id"]
         period_id = dp_to_period.get(dp_id, "")
-        # Extract ticker prefix from period_id
-        parts = period_id.rsplit("_", 1)
-        ticker_prefix = parts[0] if len(parts) > 1 else ""
+        ticker_prefix = _extract_ticker_from_period_id(period_id)
         metric_name = dp.get("metric_name", "")
         groups[(ticker_prefix, metric_name)].append(dp)
 
@@ -1424,8 +1477,6 @@ def _build_supersedes_chain(
     list[dict[str, str]]
         SUPERSEDES relation dicts (newer -> older).
     """
-    from collections import defaultdict
-
     groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
     for stance in stances:
         key = (stance.get("author_name", ""), stance.get("entity_name", ""))
@@ -1433,7 +1484,9 @@ def _build_supersedes_chain(
 
     supersedes_rels: list[dict[str, str]] = []
     for _key, group in groups.items():
-        sorted_group = sorted(group, key=lambda s: s.get("as_of_date", ""))
+        sorted_group = sorted(
+            group, key=lambda s: _parse_date_safe(s.get("as_of_date"))
+        )
         for i in range(1, len(sorted_group)):
             newer = sorted_group[i]
             older = sorted_group[i - 1]
@@ -1497,13 +1550,9 @@ def _build_causal_links(
         return []
 
     # Build content-to-ID mapping scoped to this chunk
-    content_to_id: dict[tuple[str, str], str] = {}
-    for f in facts:
-        content_to_id[("fact", f["content"])] = f["fact_id"]
-    for c in claims:
-        content_to_id[("claim", c["content"])] = c["claim_id"]
-    for dp in datapoints:
-        content_to_id[("datapoint", dp["metric_name"])] = dp["datapoint_id"]
+    content_to_id = _build_content_id_map(facts, claims)
+    for dp_item in datapoints:
+        content_to_id[("datapoint", dp_item["metric_name"])] = dp_item["datapoint_id"]
 
     causes_rels: list[dict[str, str]] = []
     for link in causal_links:
@@ -1593,15 +1642,11 @@ def _build_question_nodes(
     if not raw_questions:
         return questions, asks_about_rels, motivated_by_rels
 
-    # Build content-to-ID mapping for MOTIVATED_BY resolution
-    content_to_id: dict[str, str] = {}
-    for f in facts:
-        content_to_id[f["content"]] = f["fact_id"]
-    for c in claims:
-        content_to_id[c["content"]] = c["claim_id"]
+    # Build content-to-ID mapping for MOTIVATED_BY resolution (tuple keys)
+    content_to_id = _build_content_id_map(facts, claims)
 
-    for q in raw_questions:
-        content = q.get("content", "")
+    for raw_q in raw_questions:
+        content = raw_q.get("content", "")
         if not content:
             continue
 
@@ -1610,8 +1655,8 @@ def _build_question_nodes(
             {
                 "question_id": question_id,
                 "content": content,
-                "question_type": q.get("question_type", ""),
-                "priority": q.get("priority"),
+                "question_type": raw_q.get("question_type", ""),
+                "priority": raw_q.get("priority"),
                 "status": "open",
             }
         )
@@ -1619,7 +1664,7 @@ def _build_question_nodes(
         # ASKS_ABOUT: Question -> Entity
         asks_about_rels.extend(
             _resolve_entity_rels(
-                q.get("about_entities", []),
+                raw_q.get("about_entities", []),
                 question_id,
                 "ASKS_ABOUT",
                 entity_name_to_id,
@@ -1627,8 +1672,11 @@ def _build_question_nodes(
         )
 
         # MOTIVATED_BY: Question -> Claim/Fact
-        for motivated_content in q.get("motivated_by_contents", []):
-            resolved_id = content_to_id.get(motivated_content)
+        for motivated_content in raw_q.get("motivated_by_contents", []):
+            # Try both fact and claim types for resolution
+            resolved_id = content_to_id.get(
+                ("fact", motivated_content)
+            ) or content_to_id.get(("claim", motivated_content))
             if resolved_id:
                 motivated_by_rels.append(
                     {
@@ -1751,13 +1799,15 @@ def _process_chunk(
     periods, fp = _derive_fiscal_periods(
         chunk, entity_name_to_ticker, seen_period_ids, dp_id_map
     )
-    chunk_stances, chunk_authors, hs, oe, bo = _build_stance_nodes(
-        chunk, entity_name_to_id, seen_author_keys, author_name_to_id
+    chunk_stances, chunk_authors, holds_stance_rels, on_entity_rels, based_on_rels = (
+        _build_stance_nodes(
+            chunk, entity_name_to_id, seen_author_keys, author_name_to_id
+        )
     )
 
     causes = _build_causal_links(chunk, facts, claims, dps, source_id)
 
-    chunk_questions, aa, mb = _build_question_nodes(
+    chunk_questions, asks_about_rels, motivated_by_rels = _build_question_nodes(
         chunk, entity_name_to_id, facts, claims
     )
 
@@ -1772,12 +1822,12 @@ def _process_chunk(
         "has_datapoint": hd,
         "datapoint_entity": de,
         "for_period": fp,
-        "holds_stance": hs,
-        "on_entity": oe,
-        "based_on": bo,
+        "holds_stance": holds_stance_rels,
+        "on_entity": on_entity_rels,
+        "based_on": based_on_rels,
         "causes": causes,
-        "asks_about": aa,
-        "motivated_by": mb,
+        "asks_about": asks_about_rels,
+        "motivated_by": motivated_by_rels,
     }
 
     return {
@@ -1819,18 +1869,18 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 18 relation types).
+        Graph-queue components (nodes + 20 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")
     sources = [_make_source(f"pdf:{source_hash}", source_type="pdf")]
 
-    seen_entities: set[str] = set()
-    seen_periods: set[str] = set()
-    seen_authors: set[str] = set()
-    name_to_id: dict[str, str] = {}
-    name_to_ticker: dict[str, str] = {}
-    author_to_id: dict[str, str] = {}
+    seen_entity_keys: set[str] = set()
+    seen_period_ids: set[str] = set()
+    seen_author_keys: set[str] = set()
+    entity_name_to_id: dict[str, str] = {}
+    entity_name_to_ticker: dict[str, str] = {}
+    author_name_to_id: dict[str, str] = {}
     nodes: dict[str, list[Any]] = {k: [] for k in _NODE_KEYS}
     rels = _empty_rels()
 
@@ -1839,12 +1889,12 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
             chunk,
             source_hash,
             source_id,
-            seen_entities,
-            name_to_id,
-            name_to_ticker,
-            seen_periods,
-            seen_authors,
-            author_to_id,
+            seen_entity_keys,
+            entity_name_to_id,
+            entity_name_to_ticker,
+            seen_period_ids,
+            seen_author_keys,
+            author_name_to_id,
         )
         for k in _NODE_KEYS:
             nodes[k].extend(chunk_result[k])
