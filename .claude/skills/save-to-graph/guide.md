@@ -668,6 +668,9 @@ SET c.content = $content,
     c.claim_type = $claim_type,
     c.sentiment = $sentiment,
     c.magnitude = $magnitude,
+    c.target_price = $target_price,
+    c.rating = $rating,
+    c.time_horizon = $time_horizon,
     c.created_at = datetime($created_at)
 ```
 
@@ -682,6 +685,9 @@ SET c.content = $content,
 | `$claim_type` | `claims[].claim_type` | 未設定時は null |
 | `$sentiment` | `claims[].sentiment` | bullish/bearish/neutral/mixed、未設定時は null |
 | `$magnitude` | `claims[].magnitude` | strong/moderate/slight、未設定時は null |
+| `$target_price` | `claims[].target_price` | 数値文字列、未設定時は null |
+| `$rating` | `claims[].rating` | buy/sell/hold 等、未設定時は null |
+| `$time_horizon` | `claims[].time_horizon` | 期間文字列、未設定時は null |
 | `$created_at` | `created_at`（キューレベル） | ISO 8601 |
 
 #### Fact ノード [v2 新規]

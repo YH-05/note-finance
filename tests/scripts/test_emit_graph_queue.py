@@ -41,6 +41,7 @@ from emit_graph_queue import (
     map_finance_full,
     map_finance_news,
     map_market_report,
+    map_pdf_extraction,
     map_reddit_topics,
     map_topic_discovery,
     map_wealth_scrape,
@@ -2736,6 +2737,114 @@ class TestMapTopicDiscovery:
         assert len(rels["source_claim"]) > 0, "source_claim リレーションが必要"
         assert len(rels["claim_entity"]) > 0, "claim_entity リレーションが必要"
         assert len(rels["source_fact"]) > 0, "source_fact リレーションが必要"
+
+
+# ---------------------------------------------------------------------------
+# TestMapPdfExtraction
+# ---------------------------------------------------------------------------
+
+
+def _pdf_extraction_data(
+    *,
+    claims: list[dict[str, Any]] | None = None,
+    entities: list[dict[str, Any]] | None = None,
+    financial_datapoints: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """pdf-extraction 形式のサンプルデータを生成。
+
+    claim に全プロパティ（target_price, rating, magnitude, time_horizon）を含む。
+    """
+    if claims is None:
+        claims = [
+            {
+                "content": "We maintain our Buy rating with a target price of $250.",
+                "claim_type": "recommendation",
+                "sentiment": "bullish",
+                "magnitude": "strong",
+                "target_price": "$250",
+                "rating": "Buy",
+                "time_horizon": "12 months",
+                "about_entities": ["ACME Corp"],
+            },
+        ]
+    if entities is None:
+        entities = [
+            {
+                "name": "ACME Corp",
+                "entity_type": "company",
+                "ticker": "ACME",
+            },
+        ]
+    if financial_datapoints is None:
+        financial_datapoints = [
+            {
+                "metric": "revenue",
+                "value": 1_000_000,
+                "unit": "USD",
+                "period_label": "FY2025",
+                "about_entities": ["ACME Corp"],
+            },
+        ]
+    return {
+        "session_id": "pdf-extraction-test",
+        "source_hash": "abc123def456",
+        "chunks": [
+            {
+                "chunk_index": 0,
+                "section_title": "Investment Summary",
+                "content": "ACME Corp analysis and recommendation.",
+                "entities": entities,
+                "claims": claims,
+                "facts": [],
+                "financial_datapoints": financial_datapoints,
+            },
+        ],
+    }
+
+
+class TestMapPdfExtraction:
+    """map_pdf_extraction のテスト基盤。"""
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_Claimのtarget_priceとratingが保持される(self) -> None:
+        """受け入れ条件: _build_claim_nodes が target_price, rating, magnitude, time_horizon を含める。"""
+        result = map_pdf_extraction(_pdf_extraction_data())
+        claims = result["claims"]
+        assert len(claims) == 1
+        claim = claims[0]
+        assert claim["target_price"] == "$250"
+        assert claim["rating"] == "Buy"
+        assert claim["magnitude"] == "strong"
+        assert claim["time_horizon"] == "12 months"
+        assert claim["sentiment"] == "bullish"
+        assert claim["claim_type"] == "recommendation"
+
+    @freeze_time(FROZEN_TIME)
+    def test_正常系_FiscalPeriodが正しく派生される(self) -> None:
+        """受け入れ条件: financial_datapoints から FiscalPeriod が派生される。"""
+        result = map_pdf_extraction(_pdf_extraction_data())
+        periods = result["fiscal_periods"]
+        assert len(periods) >= 1
+        period = periods[0]
+        assert "FY2025" in period["period_id"]
+        assert period["period_label"] == "FY2025"
+        assert period["period_type"] == "annual"
+
+    @freeze_time(FROZEN_TIME)
+    def test_エッジケース_空チャンクでも正常動作(self) -> None:
+        """空の chunks リストでもエラーなく空結果を返す。"""
+        data = {
+            "session_id": "pdf-extraction-empty",
+            "source_hash": "empty000",
+            "chunks": [],
+        }
+        result = map_pdf_extraction(data)
+        assert result["claims"] == []
+        assert result["entities"] == []
+        assert result["facts"] == []
+        assert result["fiscal_periods"] == []
+        assert result["financial_datapoints"] == []
+        assert len(result["sources"]) == 1  # Source ノードは常に生成
 
 
 # ---------------------------------------------------------------------------

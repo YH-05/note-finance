@@ -896,6 +896,10 @@ def _build_claim_nodes(
                 "category": "pdf-claim",
                 "claim_type": claim.get("claim_type", ""),
                 "sentiment": claim.get("sentiment"),
+                "magnitude": claim.get("magnitude"),
+                "target_price": claim.get("target_price"),
+                "rating": claim.get("rating"),
+                "time_horizon": claim.get("time_horizon"),
             }
         )
         source_claim_rels.append(
