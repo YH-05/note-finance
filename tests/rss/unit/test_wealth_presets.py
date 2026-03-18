@@ -250,7 +250,7 @@ VALID_CATEGORIES = {
     "fire_wealth_building",
     "data_driven_investing",
     "dividend_income",
-    "academic_finance",
+    "macro_markets",
     "financial_infrastructure",
 }
 """Valid category values for wealth presets."""
