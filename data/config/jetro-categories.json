@@ -1,0 +1,197 @@
+{
+    "version": "1.0",
+    "description": "JETRO (Japan External Trade Organization) hierarchical category master. Drives JETRO_CATEGORY_URLS generation in _jetro_config.py and CLI defaults.",
+    "base_url": "https://www.jetro.go.jp",
+    "regions": {
+        "asia": {
+            "name_ja": "アジア",
+            "path_prefix": "biznewstop/asia",
+            "countries": {
+                "cn": "中国",
+                "kr": "韓国",
+                "tw": "台湾",
+                "hk": "香港",
+                "in": "インド",
+                "sg": "シンガポール",
+                "th": "タイ",
+                "vn": "ベトナム",
+                "idn": "インドネシア",
+                "my": "マレーシア",
+                "ph": "フィリピン",
+                "kh": "カンボジア",
+                "mm": "ミャンマー",
+                "bd": "バングラデシュ",
+                "pk": "パキスタン",
+                "lk": "スリランカ",
+                "mn": "モンゴル",
+                "la": "ラオス",
+                "asean": "ASEAN"
+            }
+        },
+        "oceania": {
+            "name_ja": "オセアニア",
+            "path_prefix": "biznewstop/oceania",
+            "countries": {
+                "au": "オーストラリア",
+                "nz": "ニュージーランド"
+            }
+        },
+        "n_america": {
+            "name_ja": "北米",
+            "path_prefix": "biznewstop/n_america",
+            "countries": {
+                "us": "米国",
+                "ca": "カナダ"
+            }
+        },
+        "cs_america": {
+            "name_ja": "中南米",
+            "path_prefix": "biznewstop/cs_america",
+            "countries": {
+                "mx": "メキシコ",
+                "br": "ブラジル",
+                "cl": "チリ",
+                "co": "コロンビア",
+                "ar": "アルゼンチン",
+                "pe": "ペルー",
+                "ve": "ベネズエラ",
+                "cu": "キューバ",
+                "uy": "ウルグアイ",
+                "py": "パラグアイ"
+            }
+        },
+        "europe": {
+            "name_ja": "欧州",
+            "path_prefix": "biznewstop/europe",
+            "countries": {
+                "de": "ドイツ",
+                "fr": "フランス",
+                "uk": "英国",
+                "it": "イタリア",
+                "es": "スペイン",
+                "nl": "オランダ",
+                "be": "ベルギー",
+                "at": "オーストリア",
+                "ch": "スイス",
+                "se": "スウェーデン",
+                "dk": "デンマーク",
+                "fi": "フィンランド",
+                "pl": "ポーランド",
+                "cz": "チェコ",
+                "hu": "ハンガリー",
+                "ro": "ルーマニア",
+                "sk": "スロバキア",
+                "ie": "アイルランド",
+                "pt": "ポルトガル",
+                "ua": "ウクライナ",
+                "eu": "EU"
+            }
+        },
+        "russia_cis": {
+            "name_ja": "ロシア・CIS",
+            "path_prefix": "biznewstop/russia_cis",
+            "countries": {
+                "ru": "ロシア",
+                "uz": "ウズベキスタン"
+            }
+        },
+        "middle_east": {
+            "name_ja": "中東",
+            "path_prefix": "biznewstop/middle_east",
+            "countries": {
+                "sa": "サウジアラビア",
+                "ae": "アラブ首長国連邦",
+                "tr": "トルコ",
+                "il": "イスラエル",
+                "ir": "イラン"
+            }
+        },
+        "africa": {
+            "name_ja": "アフリカ",
+            "path_prefix": "biznewstop/africa",
+            "countries": {
+                "za": "南アフリカ共和国",
+                "eg": "エジプト",
+                "ng": "ナイジェリア",
+                "ke": "ケニア",
+                "et": "エチオピア",
+                "gh": "ガーナ",
+                "ma": "モロッコ",
+                "ci": "コートジボワール",
+                "mz": "モザンビーク"
+            }
+        }
+    },
+    "themes": {
+        "export": {
+            "name_ja": "輸出",
+            "path": "themetop/export"
+        },
+        "wto_fta": {
+            "name_ja": "EPA/FTA・WTO",
+            "path": "themetop/wto-fta"
+        },
+        "crossborder_ec": {
+            "name_ja": "越境EC",
+            "path": "themetop/crossborder_ec"
+        },
+        "import": {
+            "name_ja": "輸入",
+            "path": "themetop/import"
+        },
+        "fdi": {
+            "name_ja": "海外進出（FDI）",
+            "path": "themetop/fdi"
+        },
+        "ip": {
+            "name_ja": "知的財産保護",
+            "path": "themetop/ip"
+        },
+        "innovation": {
+            "name_ja": "イノベーション・スタートアップ",
+            "path": "themetop/innovation"
+        },
+        "standards": {
+            "name_ja": "基準認証・規格",
+            "path": "themetop/standards"
+        }
+    },
+    "industries": {
+        "foods": {
+            "name_ja": "農林水産物・食品",
+            "path": "industrytop/foods"
+        },
+        "machinery": {
+            "name_ja": "機械・機器",
+            "path": "industrytop/machinery"
+        },
+        "fashion": {
+            "name_ja": "ファッション・繊維",
+            "path": "industrytop/fashion"
+        },
+        "life_science": {
+            "name_ja": "ライフサイエンス",
+            "path": "industrytop/life_science"
+        },
+        "energy": {
+            "name_ja": "環境・エネルギー",
+            "path": "industrytop/energy"
+        },
+        "design": {
+            "name_ja": "デザイン・日用品",
+            "path": "industrytop/design"
+        },
+        "contents": {
+            "name_ja": "コンテンツ",
+            "path": "industrytop/contents"
+        },
+        "service": {
+            "name_ja": "サービス産業",
+            "path": "industrytop/service"
+        },
+        "infrastructure": {
+            "name_ja": "インフラ・プラント",
+            "path": "industrytop/infrastructure"
+        }
+    }
+}
