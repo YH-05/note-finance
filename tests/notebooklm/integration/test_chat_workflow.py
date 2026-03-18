@@ -260,6 +260,7 @@ class TestChatLifespanIntegration:
     ) -> None:
         """lifespan から browser_manager 取得 -> ChatService 初期化の連携を検証。"""
         from notebooklm.mcp.server import notebooklm_lifespan
+
         from notebooklm.services.chat import ChatService
 
         mock_manager = MagicMock()

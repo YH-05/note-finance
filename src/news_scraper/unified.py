@@ -43,6 +43,16 @@ def _collect_cnbc(config: ScraperConfig) -> list[Article]:
     return _collect(config=config)
 
 
+def _collect_jetro(config: ScraperConfig) -> list[Article]:
+    # AIDEV-NOTE: news_scraper.jetro module will be created in a later Wave task.
+    # Lazy import is intentional to avoid ImportError until the module exists.
+    from news_scraper.jetro import (  # type: ignore[import-not-found]
+        collect_news as _collect,
+    )
+
+    return _collect(config=config)
+
+
 def _collect_nasdaq(config: ScraperConfig) -> list[Article]:
     from news_scraper.nasdaq import collect_news as _collect
 
@@ -53,6 +63,7 @@ def _collect_nasdaq(config: ScraperConfig) -> list[Article]:
 # Add new sources here without modifying collect_financial_news().
 SOURCE_REGISTRY: dict[SourceName, Callable[[ScraperConfig], list[Article]]] = {
     "cnbc": _collect_cnbc,
+    "jetro": _collect_jetro,
     "nasdaq": _collect_nasdaq,
 }
 
