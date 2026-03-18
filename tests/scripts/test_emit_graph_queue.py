@@ -780,6 +780,12 @@ class TestMapAiResearch:
 
         assert result["entities"][0]["ticker"] == "NVDA"
 
+    def test_正常系_entity_keyが生成される(self) -> None:
+        batch = _ai_research_batch()
+        result = map_ai_research(batch)
+
+        assert result["entities"][0]["entity_key"] == "NVIDIA::company"
+
     def test_正常系_batch_labelがaiに設定される(self) -> None:
         batch = _ai_research_batch()
         result = map_ai_research(batch)
@@ -920,6 +926,12 @@ class TestMapAssetManagement:
         result = map_asset_management(batch)
         assert result["topics"][0]["category"] == "asset-management"
 
+    def test_正常系_topic_keyが生成される(self) -> None:
+        batch = _asset_management_batch()
+        result = map_asset_management(batch)
+        topic = result["topics"][0]
+        assert topic["topic_key"] == f"{topic['name']}::asset-management"
+
     def test_エッジケース_URLなしのarticleではsourceが生成されない(self) -> None:
         batch = {
             "session_id": "test",
@@ -981,6 +993,12 @@ class TestMapRedditTopics:
         batch = _reddit_topics_batch()
         result = map_reddit_topics(batch)
         assert result["topics"][0]["category"] == "reddit"
+
+    def test_正常系_topic_keyが生成される(self) -> None:
+        batch = _reddit_topics_batch()
+        result = map_reddit_topics(batch)
+        topic = result["topics"][0]
+        assert topic["topic_key"] == f"{topic['name']}::reddit"
 
     def test_正常系_groups形式でトピックが正しく抽出される(self) -> None:
         """groups ネスト形式のデータで topics が正しく生成されること。"""
@@ -1198,7 +1216,7 @@ class TestRun:
 
         # Verify schema
         data = json.loads(output_files[0].read_text(encoding="utf-8"))
-        assert data["schema_version"] == "2.1"
+        assert data["schema_version"] == "2.2"
         assert data["command_source"] == "finance-news-workflow"
         assert "queue_id" in data
         assert "created_at" in data
@@ -1965,6 +1983,18 @@ class TestMapWealthScrapeBackfill:
             expected_id = generate_entity_id(entity["name"], "domain")
             assert entity["entity_id"] == expected_id
 
+    def test_正常系_entity_keyが生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        for entity in result["entities"]:
+            assert entity["entity_key"] == f"{entity['name']}::{entity['entity_type']}"
+
+    def test_正常系_topic_keyが生成される(self) -> None:
+        data = _wealth_scrape_backfill_data()
+        result = map_wealth_scrape_backfill(data)
+        for topic in result["topics"]:
+            assert topic["topic_key"] == f"{topic['name']}::wealth-management"
+
     def test_正常系_キーワードマッチでtaggedリレーション生成(self) -> None:
         """タイトルにテーマキーワードが含まれる場合、taggedリレーションが生成される。"""
         data = {
@@ -2583,6 +2613,16 @@ class TestMapTopicDiscovery:
                 assert e["entity_type"] == "index"
             else:
                 assert e["entity_type"] == "stock"
+
+    def test_正常系_entity_keyが生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_mapper_data())
+        for e in result["entities"]:
+            assert e["entity_key"] == f"{e['name']}::{e['entity_type']}"
+
+    def test_正常系_topic_keyが生成される(self) -> None:
+        result = map_topic_discovery(_topic_discovery_mapper_data())
+        for t in result["topics"]:
+            assert t["topic_key"] == f"{t['name']}::content_planning"
 
     def test_正常系_stock銘柄のエンティティタイプ(self) -> None:
         suggestions = [
@@ -4476,7 +4516,9 @@ class TestBuildTrendEdgesWithMetricId:
 
         # Only dp1 and dp2 are MEASURES-linked
         edges = _build_trend_edges(
-            datapoints, periods, for_period,
+            datapoints,
+            periods,
+            for_period,
             measures_linked_dp_ids={"dp1", "dp2"},
         )
 
@@ -4493,15 +4535,31 @@ class TestBuildTrendEdgesWithMetricId:
         ]
         datapoints = [
             # Source A: IDR bn
-            {"datapoint_id": "dp_a1", "metric_name": "Revenue", "value": 55887,
-             "source_hash": "hash_hsbc"},
-            {"datapoint_id": "dp_a2", "metric_name": "Revenue", "value": 56518,
-             "source_hash": "hash_hsbc"},
+            {
+                "datapoint_id": "dp_a1",
+                "metric_name": "Revenue",
+                "value": 55887,
+                "source_hash": "hash_hsbc",
+            },
+            {
+                "datapoint_id": "dp_a2",
+                "metric_name": "Revenue",
+                "value": 56518,
+                "source_hash": "hash_hsbc",
+            },
             # Source B: IDR (different unit, same metric_id after resolve)
-            {"datapoint_id": "dp_b1", "metric_name": "Revenue", "value": 150000000000000,
-             "source_hash": "hash_citi"},
-            {"datapoint_id": "dp_b2", "metric_name": "Revenue", "value": 155000000000000,
-             "source_hash": "hash_citi"},
+            {
+                "datapoint_id": "dp_b1",
+                "metric_name": "Revenue",
+                "value": 150000000000000,
+                "source_hash": "hash_citi",
+            },
+            {
+                "datapoint_id": "dp_b2",
+                "metric_name": "Revenue",
+                "value": 155000000000000,
+                "source_hash": "hash_citi",
+            },
         ]
         for_period = [
             {"from_id": "dp_a1", "to_id": "ISAT_FY2024"},

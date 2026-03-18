@@ -110,8 +110,8 @@ DEFAULT_OUTPUT_BASE = Path(".tmp/graph-queue")
 DEFAULT_MAX_AGE_DAYS = 7
 """Default maximum age in days for auto-cleanup."""
 
-SCHEMA_VERSION = "2.1"
-"""Graph-queue schema version (v2.1: Wave 1-4 support)."""
+SCHEMA_VERSION = "2.2"
+"""Graph-queue schema version (v2.2: entity_key/topic_key support)."""
 
 WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
 """Path to the wealth-management theme configuration file."""
@@ -925,6 +925,7 @@ def map_ai_research(data: dict[str, Any]) -> dict[str, Any]:
                 "name": company_name,
                 "entity_type": "company",
                 "ticker": ticker,
+                "entity_key": f"{company_name}::company",
             }
         )
 
@@ -1017,6 +1018,7 @@ def map_asset_management(data: dict[str, Any]) -> dict[str, Any]:
                 "name": name_ja,
                 "category": "asset-management",
                 "theme_key": theme_key,
+                "topic_key": f"{name_ja}::asset-management",
             }
         )
 
@@ -1077,6 +1079,7 @@ def map_reddit_topics(data: dict[str, Any]) -> dict[str, Any]:
                 "name": name,
                 "category": "reddit",
                 "subreddit": topic.get("subreddit", ""),
+                "topic_key": f"{name}::reddit",
             }
         )
 
@@ -1177,6 +1180,7 @@ def _build_entity_nodes(
                     "name": name,
                     "entity_type": entity_type,
                     "ticker": entity.get("ticker"),
+                    "entity_key": f"{name}::{entity_type}",
                 }
             )
             entity_name_to_id[name] = eid
@@ -2348,6 +2352,7 @@ def _process_domain_dir(
                 "name": theme_name,
                 "category": "wealth",
                 "theme_key": theme_key,
+                "topic_key": f"{theme_name}::wealth",
             }
         )
 
@@ -2470,6 +2475,7 @@ def _map_wealth_theme_common(
             "name": name_en,
             "category": "wealth-management",
             "theme_key": theme_key,
+            "topic_key": f"{name_en}::wealth-management",
         }
     )
 
@@ -2586,6 +2592,7 @@ def map_wealth_scrape_backfill(data: dict[str, Any]) -> dict[str, Any]:
                         "entity_id": generate_entity_id(domain, "domain"),
                         "name": domain,
                         "entity_type": "domain",
+                        "entity_key": f"{domain}::domain",
                     }
                 )
 
@@ -2856,12 +2863,14 @@ def _build_td_entities(
             entity_id = f"symbol:{ticker}"
             if ticker not in seen_tickers:
                 seen_tickers.add(ticker)
+                entity_type = "index" if ticker.startswith("^") else "stock"
                 entities.append(
                     {
                         "entity_id": entity_id,
                         "name": ticker,
-                        "entity_type": "index" if ticker.startswith("^") else "stock",
+                        "entity_type": entity_type,
                         "ticker": ticker,
+                        "entity_key": f"{ticker}::{entity_type}",
                     }
                 )
             claim_entity_rels.append(
@@ -2939,6 +2948,7 @@ def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
                     "topic_id": topic_id,
                     "name": TOPIC_DISCOVERY_CATEGORIES.get(category_key, category_key),
                     "category": "content_planning",
+                    "topic_key": f"{TOPIC_DISCOVERY_CATEGORIES.get(category_key, category_key)}::content_planning",
                 }
             )
             tagged_rels.append(

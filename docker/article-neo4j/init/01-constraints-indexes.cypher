@@ -55,6 +55,14 @@ CREATE INDEX fact_date_idx IF NOT EXISTS FOR (f:Fact) ON (f.as_of_date);
 CREATE INDEX claim_type_idx IF NOT EXISTS FOR (cl:Claim) ON (cl.claim_type);
 CREATE INDEX claim_sentiment IF NOT EXISTS FOR (cl:Claim) ON (cl.sentiment);
 
+// === v2.1 additions: Stance / Question ===
+CREATE CONSTRAINT stance_id IF NOT EXISTS FOR (st:Stance) REQUIRE st.stance_id IS UNIQUE;
+CREATE CONSTRAINT question_id IF NOT EXISTS FOR (q:Question) REQUIRE q.question_id IS UNIQUE;
+
+// === v2.2 additions: entity_key / command_source ===
+CREATE CONSTRAINT unique_entity_key IF NOT EXISTS FOR (e:Entity) REQUIRE e.entity_key IS UNIQUE;
+CREATE INDEX idx_source_command_source IF NOT EXISTS FOR (s:Source) ON (s.command_source);
+
 // === インデックス: Entity ===
 CREATE INDEX entity_type_idx IF NOT EXISTS FOR (e:Entity) ON (e.entity_type);
 CREATE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON (e.name);

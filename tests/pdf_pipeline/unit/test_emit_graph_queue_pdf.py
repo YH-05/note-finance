@@ -8,7 +8,7 @@ Tests cover:
 - ID determinism
 - Entity deduplication
 - _infer_period_type helper
-- SCHEMA_VERSION == '2.1'
+- SCHEMA_VERSION == '2.2'
 """
 
 from __future__ import annotations
@@ -284,7 +284,7 @@ class TestSchemaVersion:
     """Tests for SCHEMA_VERSION constant."""
 
     def test_正常系_SCHEMA_VERSIONが2_1である(self) -> None:
-        assert SCHEMA_VERSION == "2.1"
+        assert SCHEMA_VERSION == "2.2"
 
 
 # ---------------------------------------------------------------------------
