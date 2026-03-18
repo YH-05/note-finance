@@ -33,8 +33,10 @@ from __future__ import annotations
 
 import asyncio
 import concurrent.futures
+import re
 from dataclasses import dataclass
 from typing import Any
+from urllib.parse import urlparse
 
 from lxml import html as lxml_html
 
@@ -43,6 +45,9 @@ from news_scraper._jetro_config import (
     JETRO_CATEGORY_URLS,
 )
 from news_scraper._logging import get_logger
+
+_JETRO_HOST = urlparse(JETRO_BASE_URL).netloc
+_SAFE_CODE_RE = re.compile(r"^[a-zA-Z0-9_-]{1,32}$")
 
 logger = get_logger(__name__, module="jetro_crawler")
 
@@ -179,20 +184,20 @@ class JetroCategoryCrawler:
     # Static HTML extraction (testable without Playwright)
     # ------------------------------------------------------------------
 
-    def _extract_section_entries_from_html(
+    def _extract_section_entries_from_tree(
         self,
-        html_content: str,
+        tree: Any,
         section_id: str,
         content_type: str,
         category: str,
         subcategory: str,
     ) -> list[CrawledEntry]:
-        """Extract article entries from a single section of the rendered HTML.
+        """Extract article entries from a single section of a parsed HTML tree.
 
         Parameters
         ----------
-        html_content : str
-            Full page HTML (already rendered by Playwright).
+        tree : Any
+            Pre-parsed lxml HTML element tree.
         section_id : str
             The ``id`` attribute of the section ``<div>``
             (e.g. ``"cty_biznews"``).
@@ -209,15 +214,6 @@ class JetroCategoryCrawler:
             Extracted entries.  Empty list if the section is missing or empty.
         """
         entries: list[CrawledEntry] = []
-        try:
-            tree = lxml_html.fromstring(html_content)
-        except Exception as exc:
-            logger.warning(
-                "Failed to parse HTML for section extraction",
-                section_id=section_id,
-                error=str(exc),
-            )
-            return entries
 
         # Locate the section container by its id
         section_elements = tree.cssselect(f"#{section_id}")
@@ -248,10 +244,16 @@ class JetroCategoryCrawler:
             if not title or not href:
                 continue
 
-            # Convert relative URL to absolute
+            # Convert relative URL to absolute with domain validation
+            parsed_href = urlparse(href)
+            if parsed_href.scheme and parsed_href.scheme not in ("http", "https"):
+                continue  # Skip javascript:, data:, etc.
             if href.startswith("/"):
                 url = f"{JETRO_BASE_URL}{href}"
             elif href.startswith("http"):
+                if parsed_href.netloc != _JETRO_HOST:
+                    logger.debug("Skipping off-domain URL", href=href)
+                    continue
                 url = href
             else:
                 url = f"{JETRO_BASE_URL}/{href}"
@@ -317,7 +319,7 @@ class JetroCategoryCrawler:
                     wait_until="networkidle",
                 )
                 logger.debug("Page loaded with networkidle", url=url)
-            except (TimeoutError, Exception) as exc:
+            except Exception as exc:
                 logger.warning(
                     "networkidle timeout, falling back to domcontentloaded",
                     url=url,
@@ -331,7 +333,7 @@ class JetroCategoryCrawler:
                         wait_until="domcontentloaded",
                     )
                     logger.debug("Page loaded with domcontentloaded fallback", url=url)
-                except (TimeoutError, Exception) as exc2:
+                except Exception as exc2:
                     logger.error(
                         "Both networkidle and domcontentloaded failed",
                         url=url,
@@ -354,6 +356,7 @@ class JetroCategoryCrawler:
         url: str,
         category: str,
         subcategory: str,
+        browser: Any = None,
     ) -> list[CrawledEntry]:
         """Crawl a single JETRO category page and extract article entries.
 
@@ -365,6 +368,9 @@ class JetroCategoryCrawler:
             Top-level category key (``"world"``, ``"theme"``, ``"industry"``).
         subcategory : str
             Sub-category key (e.g. ``"cn"``, ``"asia"``).
+        browser : Any, optional
+            Playwright browser instance.  When ``None`` a temporary browser
+            is launched and closed within this call.
 
         Returns
         -------
@@ -378,22 +384,37 @@ class JetroCategoryCrawler:
             subcategory=subcategory,
         )
 
-        async with async_playwright() as pw:
-            browser = await pw.chromium.launch(headless=self._headless)
-            try:
-                html_content = await self._load_page_html(url, browser)
-            finally:
-                await browser.close()
+        own_browser = browser is None
+        pw_ctx = None
+        try:
+            if own_browser:
+                pw_ctx = async_playwright()
+                pw = await pw_ctx.__aenter__()
+                browser = await pw.chromium.launch(headless=self._headless)
+
+            html_content = await self._load_page_html(url, browser)
+        finally:
+            if own_browser:
+                if browser is not None:
+                    await browser.close()
+                if pw_ctx is not None:
+                    await pw_ctx.__aexit__(None, None, None)
 
         if not html_content:
             logger.warning("No HTML content retrieved", url=url)
             return []
 
-        # Extract entries from each known section
+        # Parse HTML once, then extract entries from each section
+        try:
+            tree = lxml_html.fromstring(html_content)
+        except Exception as exc:
+            logger.warning("Failed to parse HTML", url=url, error=str(exc))
+            return []
+
         all_entries: list[CrawledEntry] = []
         for section_id, content_type in _SECTION_MAP.items():
-            section_entries = self._extract_section_entries_from_html(
-                html_content=html_content,
+            section_entries = self._extract_section_entries_from_tree(
+                tree=tree,
                 section_id=section_id,
                 content_type=content_type,
                 category=category,
@@ -461,6 +482,12 @@ class JetroCategoryCrawler:
                         )
                         continue
                     for country_code in country_codes:
+                        if not _SAFE_CODE_RE.match(country_code):
+                            logger.warning(
+                                "Invalid country code, skipping",
+                                code=country_code,
+                            )
+                            continue
                         page_url = f"{base_url.rstrip('/')}/{country_code}.html"
                         targets.append((page_url, cat_group, country_code))
             else:
@@ -481,6 +508,9 @@ class JetroCategoryCrawler:
     ) -> list[CrawledEntry]:
         """Crawl multiple category pages (async implementation).
 
+        Launches a single browser instance and crawls pages concurrently
+        with a semaphore to limit simultaneous requests.
+
         Parameters
         ----------
         categories : list[str] | None
@@ -497,14 +527,35 @@ class JetroCategoryCrawler:
         if not targets:
             return []
 
+        sem = asyncio.Semaphore(3)
+
+        async def _crawl_with_sem(
+            url: str, cat_group: str, subcat: str, browser: Any
+        ) -> list[CrawledEntry]:
+            async with sem:
+                return await self.crawl_category_page(
+                    url=url,
+                    category=cat_group,
+                    subcategory=subcat,
+                    browser=browser,
+                )
+
+        async with async_playwright() as pw:
+            browser = await pw.chromium.launch(headless=self._headless)
+            try:
+                tasks = [
+                    _crawl_with_sem(url, cat, sub, browser) for url, cat, sub in targets
+                ]
+                results = await asyncio.gather(*tasks, return_exceptions=True)
+            finally:
+                await browser.close()
+
         all_entries: list[CrawledEntry] = []
-        for url, cat_group, subcat in targets:
-            entries = await self.crawl_category_page(
-                url=url,
-                category=cat_group,
-                subcategory=subcat,
-            )
-            all_entries.extend(entries)
+        for result in results:
+            if isinstance(result, BaseException):
+                logger.warning("Page crawl failed", error=str(result))
+            else:
+                all_entries.extend(result)
 
         return all_entries
 

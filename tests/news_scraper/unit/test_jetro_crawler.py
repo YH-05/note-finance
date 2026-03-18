@@ -13,6 +13,7 @@ from typing import Any
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
+from lxml import html as lxml_html
 
 from news_scraper._jetro_config import JETRO_BASE_URL
 from news_scraper._jetro_crawler import (
@@ -31,28 +32,6 @@ _CATEGORY_FIXTURE = _FIXTURES_DIR / "category_world_cn.html"
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-
-
-def _make_mock_browser(html_content: str) -> AsyncMock:
-    """Create a mock Playwright browser that serves the given HTML."""
-    page = AsyncMock()
-    page.goto = AsyncMock()
-    page.content = AsyncMock(return_value=html_content)
-    page.close = AsyncMock()
-
-    browser = AsyncMock()
-    browser.new_page = AsyncMock(return_value=page)
-    browser.close = AsyncMock()
-    return browser
-
-
-def _make_mock_playwright(browser: AsyncMock) -> AsyncMock:
-    """Create a mock Playwright instance that returns the given browser."""
-    pw = AsyncMock()
-    pw.chromium = MagicMock()
-    pw.chromium.launch = AsyncMock(return_value=browser)
-    pw.stop = AsyncMock()
-    return pw
 
 
 def _make_mock_pw_context(html_content: str) -> tuple[MagicMock, AsyncMock]:
@@ -168,14 +147,18 @@ class TestJetroCategoryCrawler:
 
 
 class TestExtractSectionEntries:
-    """Tests for _extract_section_entries_from_html (static HTML parsing)."""
+    """Tests for _extract_section_entries_from_tree (static HTML parsing)."""
 
-    def test_正常系_ビジネス短信セクションからエントリを抽出(self) -> None:
-        """ビジネス短信セクションの記事リストを抽出する。"""
+    @pytest.fixture()
+    def _tree(self) -> Any:
         html_content = _CATEGORY_FIXTURE.read_text(encoding="utf-8")
+        return lxml_html.fromstring(html_content)
+
+    def test_正常系_ビジネス短信セクションからエントリを抽出(self, _tree: Any) -> None:
+        """ビジネス短信セクションの記事リストを抽出する。"""
         crawler = JetroCategoryCrawler()
-        entries = crawler._extract_section_entries_from_html(
-            html_content=html_content,
+        entries = crawler._extract_section_entries_from_tree(
+            tree=_tree,
             section_id="cty_biznews",
             content_type="ビジネス短信",
             category="world",
@@ -189,12 +172,13 @@ class TestExtractSectionEntries:
         assert entries[0].category == "world"
         assert entries[0].subcategory == "cn"
 
-    def test_正常系_地域分析レポートセクションからエントリを抽出(self) -> None:
+    def test_正常系_地域分析レポートセクションからエントリを抽出(
+        self, _tree: Any
+    ) -> None:
         """地域・分析レポートセクションの記事リストを抽出する。"""
-        html_content = _CATEGORY_FIXTURE.read_text(encoding="utf-8")
         crawler = JetroCategoryCrawler()
-        entries = crawler._extract_section_entries_from_html(
-            html_content=html_content,
+        entries = crawler._extract_section_entries_from_tree(
+            tree=_tree,
             section_id="cty_areareports",
             content_type="地域・分析レポート",
             category="world",
@@ -204,12 +188,11 @@ class TestExtractSectionEntries:
         assert "半導体産業" in entries[0].title
         assert entries[0].content_type == "地域・分析レポート"
 
-    def test_正常系_空セクションで空リスト(self) -> None:
+    def test_正常系_空セクションで空リスト(self, _tree: Any) -> None:
         """イベント情報セクション（空）では空リストを返す。"""
-        html_content = _CATEGORY_FIXTURE.read_text(encoding="utf-8")
         crawler = JetroCategoryCrawler()
-        entries = crawler._extract_section_entries_from_html(
-            html_content=html_content,
+        entries = crawler._extract_section_entries_from_tree(
+            tree=_tree,
             section_id="cty_events",
             content_type="イベント情報",
             category="world",
@@ -217,12 +200,11 @@ class TestExtractSectionEntries:
         )
         assert entries == []
 
-    def test_正常系_存在しないセクションIDで空リスト(self) -> None:
+    def test_正常系_存在しないセクションIDで空リスト(self, _tree: Any) -> None:
         """存在しないセクションIDでは空リストを返す。"""
-        html_content = _CATEGORY_FIXTURE.read_text(encoding="utf-8")
         crawler = JetroCategoryCrawler()
-        entries = crawler._extract_section_entries_from_html(
-            html_content=html_content,
+        entries = crawler._extract_section_entries_from_tree(
+            tree=_tree,
             section_id="cty_nonexistent",
             content_type="不明",
             category="world",
@@ -230,12 +212,11 @@ class TestExtractSectionEntries:
         )
         assert entries == []
 
-    def test_正常系_相対URLが絶対URLに変換される(self) -> None:
+    def test_正常系_相対URLが絶対URLに変換される(self, _tree: Any) -> None:
         """相対パスのURLがJETRO_BASE_URLで絶対URLに変換される。"""
-        html_content = _CATEGORY_FIXTURE.read_text(encoding="utf-8")
         crawler = JetroCategoryCrawler()
-        entries = crawler._extract_section_entries_from_html(
-            html_content=html_content,
+        entries = crawler._extract_section_entries_from_tree(
+            tree=_tree,
             section_id="cty_biznews",
             content_type="ビジネス短信",
             category="world",
@@ -244,12 +225,11 @@ class TestExtractSectionEntries:
         for entry in entries:
             assert entry.url.startswith("https://")
 
-    def test_正常系_調査レポートセクションからエントリを抽出(self) -> None:
+    def test_正常系_調査レポートセクションからエントリを抽出(self, _tree: Any) -> None:
         """調査レポートセクションの記事リストを抽出する。"""
-        html_content = _CATEGORY_FIXTURE.read_text(encoding="utf-8")
         crawler = JetroCategoryCrawler()
-        entries = crawler._extract_section_entries_from_html(
-            html_content=html_content,
+        entries = crawler._extract_section_entries_from_tree(
+            tree=_tree,
             section_id="cty_reports",
             content_type="調査レポート",
             category="world",
@@ -258,11 +238,12 @@ class TestExtractSectionEntries:
         assert len(entries) == 1
         assert "中国進出日系企業" in entries[0].title
 
-    def test_異常系_不正なHTMLで空リスト(self) -> None:
-        """パース不可能なHTMLでは空リストを返す。"""
+    def test_異常系_空ツリーでセクションなし(self) -> None:
+        """空のHTMLツリーでは空リストを返す。"""
         crawler = JetroCategoryCrawler()
-        entries = crawler._extract_section_entries_from_html(
-            html_content="",
+        tree = lxml_html.fromstring("<html><body></body></html>")
+        entries = crawler._extract_section_entries_from_tree(
+            tree=tree,
             section_id="cty_biznews",
             content_type="ビジネス短信",
             category="world",

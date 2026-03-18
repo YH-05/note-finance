@@ -150,7 +150,10 @@ class TestCleanupOldData:
         assert not old_dir.exists()
 
     def test_正常系_新しいディレクトリは削除しない(self, tmp_path: Path) -> None:
-        recent_dir = tmp_path / "2026-02-28"
+        from datetime import date, timedelta
+
+        recent = date.today() - timedelta(days=5)
+        recent_dir = tmp_path / str(recent)
         recent_dir.mkdir()
         deleted = _cleanup_old_data(tmp_path, max_age_days=30)
         assert deleted == 0

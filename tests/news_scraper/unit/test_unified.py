@@ -103,11 +103,10 @@ class TestNewsDataFrame:
 class TestCollectFinancialNews:
     """Tests for collect_financial_news function."""
 
-    @patch("news_scraper.unified.collect_financial_news")
-    def test_正常系_NewsDataFrameを返す(self, mock_collect: MagicMock) -> None:
+    def test_正常系_NewsDataFrameを返す(self) -> None:
         """collect_financial_news returns NewsDataFrame."""
-        mock_collect.return_value = NewsDataFrame([])
-        result = mock_collect(sources=["cnbc"])
+        with patch("news_scraper.cnbc.collect_news", return_value=[]):
+            result = collect_financial_news(sources=["cnbc"])
         assert isinstance(result, NewsDataFrame)
 
     def test_正常系_空ソースリストで空結果を返す(self) -> None:

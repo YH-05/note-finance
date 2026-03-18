@@ -266,9 +266,7 @@ def _extract_article_body(html_content: str) -> str | None:
             elements = tree.cssselect(selector)
             if elements:
                 paragraphs = [
-                    el.text_content().strip()
-                    for el in elements
-                    if el.text_content().strip()
+                    text for el in elements if (text := el.text_content().strip())
                 ]
                 if paragraphs:
                     body = "\n\n".join(paragraphs)
@@ -422,11 +420,10 @@ def _to_article(
     if article is None:
         return None
 
-    # Enrich with scraped content
+    # Collect all updates and apply in a single model_copy
+    updates: dict[str, Any] = {}
     if content:
-        article = article.model_copy(update={"content": content})
-
-    # Merge page tags with RSS tags (deduplicate, preserve order)
+        updates["content"] = content
     if page_tags:
         merged_tags = list(article.tags)
         seen = set(merged_tags)
@@ -434,7 +431,9 @@ def _to_article(
             if tag not in seen:
                 merged_tags.append(tag)
                 seen.add(tag)
-        article = article.model_copy(update={"tags": merged_tags})
+        updates["tags"] = merged_tags
+    if updates:
+        article = article.model_copy(update=updates)
 
     return article
 

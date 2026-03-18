@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import os
 import shutil
 import sys
@@ -46,7 +47,7 @@ import structlog
 from data_paths import get_path
 from news_scraper._logging import get_logger
 from news_scraper.jetro import collect_news
-from news_scraper.types import ScraperConfig
+from news_scraper.types import Article, ScraperConfig
 
 logger = get_logger(__name__, module="scrape_jetro")
 
@@ -336,8 +337,14 @@ def _cleanup_old_data(base_dir: Path, max_age_days: int) -> int:
     now = datetime.now(timezone.utc)
     deleted_count = 0
 
-    for subdir in sorted(base_dir.iterdir()):
-        if not subdir.is_dir():
+    for subdir in base_dir.iterdir():
+        if not subdir.is_dir() or subdir.is_symlink():
+            continue
+        # Ensure path stays within base_dir (prevent path traversal)
+        try:
+            subdir.resolve().relative_to(base_dir.resolve())
+        except ValueError:
+            logger.warning("Skipping path outside base_dir", path=str(subdir))
             continue
 
         try:
@@ -367,12 +374,12 @@ def _cleanup_old_data(base_dir: Path, max_age_days: int) -> int:
     return deleted_count
 
 
-def _articles_to_json(articles: list) -> list[dict]:
+def _articles_to_json(articles: list[Article]) -> list[dict]:
     """Convert Article models to JSON-serializable dicts.
 
     Parameters
     ----------
-    articles : list
+    articles : list[Article]
         List of Article pydantic models.
 
     Returns
@@ -380,23 +387,7 @@ def _articles_to_json(articles: list) -> list[dict]:
     list[dict]
         JSON-serializable list of article dictionaries.
     """
-    result: list[dict] = []
-    for article in articles:
-        record: dict = {
-            "title": article.title,
-            "url": article.url,
-            "published": article.published.isoformat(),
-            "source": article.source,
-            "category": article.category,
-            "summary": article.summary,
-            "content": article.content,
-            "author": article.author,
-            "tags": article.tags,
-            "fetched_at": article.fetched_at.isoformat(),
-            "metadata": article.metadata,
-        }
-        result.append(record)
-    return result
+    return [a.model_dump(mode="json") for a in articles]
 
 
 def main() -> int:
@@ -410,8 +401,6 @@ def main() -> int:
     args = _parse_args()
 
     # Setup logging level
-    import logging
-
     logging.basicConfig(level=getattr(logging, args.log_level, logging.INFO))
     structlog.configure(
         wrapper_class=structlog.make_filtering_bound_logger(

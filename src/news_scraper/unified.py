@@ -44,11 +44,8 @@ def _collect_cnbc(config: ScraperConfig) -> list[Article]:
 
 
 def _collect_jetro(config: ScraperConfig) -> list[Article]:
-    # AIDEV-NOTE: news_scraper.jetro module will be created in a later Wave task.
-    # Lazy import is intentional to avoid ImportError until the module exists.
-    from news_scraper.jetro import (  # type: ignore[import-not-found]
-        collect_news as _collect,
-    )
+    # AIDEV-NOTE: Lazy import to decouple from optional playwright dependency at load time.
+    from news_scraper.jetro import collect_news as _collect
 
     return _collect(config=config)
 
