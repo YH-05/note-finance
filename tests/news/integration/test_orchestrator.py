@@ -313,7 +313,7 @@ class TestNewsWorkflowOrchestrator:
             # Extractor returns success for each article
             mock_extractor = MagicMock()
             mock_extractor.extract = AsyncMock(
-                side_effect=lambda a: create_extracted_article(a)
+                side_effect=create_extracted_article
             )
             mock_extractor_cls.return_value = mock_extractor
 
@@ -358,7 +358,7 @@ class TestNewsWorkflowOrchestrator:
 
             mock_extractor = MagicMock()
             mock_extractor.extract = AsyncMock(
-                side_effect=lambda a: create_extracted_article(a)
+                side_effect=create_extracted_article
             )
             mock_extractor_cls.return_value = mock_extractor
 
@@ -881,7 +881,7 @@ class TestStatusFilteringIntegration:
 
             mock_extractor = MagicMock()
             mock_extractor.extract = AsyncMock(
-                side_effect=lambda a: create_extracted_article(a)
+                side_effect=create_extracted_article
             )
             mock_extractor_cls.return_value = mock_extractor
 

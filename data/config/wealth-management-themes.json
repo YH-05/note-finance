@@ -1,14 +1,15 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "themes": {
         "data_driven_investing": {
             "name_en": "Data-Driven Investing",
             "description": "Evidence-based investing with quantitative analysis and index funds",
             "keywords_en": [
                 "index fund", "ETF", "passive investing", "factor investing",
-                "asset allocation", "rebalancing", "evidence-based", "quantitative"
+                "asset allocation", "rebalancing", "evidence-based", "quantitative",
+                "portfolio", "backtesting", "data-driven", "returns"
             ],
-            "target_sources": ["bogleheads", "monevator", "awealthofcommonsense"]
+            "target_sources": ["monevator", "awealthofcommonsense", "ofdollarsanddata", "rationalwalk", "portfoliocharts"]
         },
         "dividend_income": {
             "name_en": "Dividend Income",
@@ -24,18 +25,20 @@
             "description": "Financial Independence Retire Early and long-term wealth accumulation",
             "keywords_en": [
                 "FIRE", "financial independence", "early retirement", "safe withdrawal rate",
-                "frugality", "savings rate", "net worth", "wealth building"
+                "frugality", "savings rate", "net worth", "wealth building",
+                "geographic arbitrage", "coast FIRE", "lean FIRE", "fat FIRE"
             ],
-            "target_sources": ["mrmoneymustache", "affordanything", "earlyretirementnow"]
+            "target_sources": ["mrmoneymustache", "affordanything", "earlyretirementnow", "physicianonfire"]
         },
         "financial_infrastructure": {
             "name_en": "Financial Infrastructure",
             "description": "Real estate, tax optimization, and financial systems",
             "keywords_en": [
                 "real estate", "tax strategy", "tax optimization", "401k",
-                "IRA", "Roth", "estate planning", "insurance", "cash flow"
+                "IRA", "Roth", "estate planning", "insurance", "cash flow",
+                "backdoor Roth", "tax-loss harvesting", "asset location"
             ],
-            "target_sources": ["financialsamurai", "thecollegeinvestor"]
+            "target_sources": ["financialsamurai", "thecollegeinvestor", "whitecoatinvestor"]
         },
         "personal_finance": {
             "name_en": "Personal Finance",
@@ -45,18 +48,8 @@
                 "saving money", "frugal", "personal finance", "money management"
             ],
             "target_sources": [
-                "getrichslowly", "iwillteachyoutoberich",
-                "moneytalksnews", "kiplinger"
+                "getrichslowly", "iwillteachyoutoberich", "moneytalksnews"
             ]
-        },
-        "academic_finance": {
-            "name_en": "Academic Finance & Economics",
-            "description": "Economic theory, policy analysis, and academic research insights",
-            "keywords_en": [
-                "economics", "monetary policy", "fiscal policy", "behavioral finance",
-                "market efficiency", "research", "macroeconomics", "economic growth"
-            ],
-            "target_sources": ["marginalrevolution"]
         }
     },
     "content_rules": {

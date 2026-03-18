@@ -282,8 +282,8 @@ class TestResolveSourceKeyWealth:
     def test_正常系_getrichslowlyのキー解決(self) -> None:
         assert resolve_source_key_wealth("getrichslowly.org") == "getrichslowly"
 
-    def test_正常系_kiplingerのキー解決(self) -> None:
-        assert resolve_source_key_wealth("kiplinger.com") == "kiplinger"
+    def test_正常系_kiplingerはv1_1で除外されunknown(self) -> None:
+        assert resolve_source_key_wealth("kiplinger.com") == "unknown"
 
     def test_異常系_未知ドメインはunknown(self) -> None:
         assert resolve_source_key_wealth("unknown-blog.com") == "unknown"

@@ -327,6 +327,75 @@ def resolve_category(theme_key: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Metric alias index (Phase 2 Step B-2)
+# ---------------------------------------------------------------------------
+
+_METRIC_MASTER_PATH = Path(__file__).resolve().parent.parent / "data" / "config" / "metric_master.json"
+
+
+@functools.lru_cache(maxsize=1)
+def _load_metric_alias_index() -> dict[str, str]:
+    """Build a case-insensitive alias → metric_id lookup from metric_master.json.
+
+    Returns
+    -------
+    dict[str, str]
+        Mapping from lowercased alias to metric_id.
+        Returns an empty dict if the file is missing or malformed.
+    """
+    if not _METRIC_MASTER_PATH.exists():
+        logger.warning("metric_master.json not found: %s", _METRIC_MASTER_PATH)
+        return {}
+
+    try:
+        with _METRIC_MASTER_PATH.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError) as exc:
+        logger.warning("Failed to load metric_master.json: %s", exc)
+        return {}
+
+    index: dict[str, str] = {}
+    for metric in data.get("metrics", []):
+        metric_id = metric.get("metric_id", "")
+        if not metric_id:
+            continue
+        # canonical_name as key
+        canonical = metric.get("canonical_name", "")
+        if canonical:
+            index[canonical.lower()] = metric_id
+        # display_name as key
+        display = metric.get("display_name", "")
+        if display:
+            index[display.lower()] = metric_id
+        # all aliases as keys
+        for alias in metric.get("aliases", []):
+            if alias:
+                index[alias.lower()] = metric_id
+
+    logger.debug("Loaded metric alias index: %d entries", len(index))
+    return index
+
+
+def resolve_metric_id(metric_name: str) -> str | None:
+    """Resolve a metric_name to its canonical metric_id.
+
+    Parameters
+    ----------
+    metric_name : str
+        Raw metric name from FinancialDataPoint (e.g. ``"Total Revenue"``).
+
+    Returns
+    -------
+    str | None
+        Canonical metric_id (e.g. ``"metric-revenue"``) or ``None`` if
+        no match is found.
+    """
+    if not metric_name:
+        return None
+    return _load_metric_alias_index().get(metric_name.lower())
+
+
+# ---------------------------------------------------------------------------
 # Mapping helpers (DRY)
 # ---------------------------------------------------------------------------
 
@@ -556,17 +625,42 @@ def _build_next_period_chain(
     return rels
 
 
+def _compute_trend(prev_val: float, curr_val: float) -> tuple[float, str]:
+    """Compute change percentage and direction between two values.
+
+    Returns
+    -------
+    tuple[float, str]
+        ``(change_pct, direction)`` where direction is one of
+        ``"up"``, ``"down"``, or ``"flat"``.
+    """
+    if prev_val == 0:
+        change_pct = 0.0
+    else:
+        change_pct = round((curr_val - prev_val) / abs(prev_val) * 100, 2)
+
+    if change_pct > 1:
+        direction = "up"
+    elif change_pct < -1:
+        direction = "down"
+    else:
+        direction = "flat"
+    return change_pct, direction
+
+
 def _build_trend_edges(
     financial_datapoints: list[dict[str, Any]],
     fiscal_periods: list[dict[str, Any]],
     for_period_rels: list[dict[str, str]],
+    *,
+    measures_linked_dp_ids: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     """Build TREND relations between consecutive FinancialDataPoint nodes.
 
-    Groups datapoints by ``(entity, metric_name)`` where *entity* is
-    resolved from the datapoint's associated FiscalPeriod ticker prefix.
-    Within each group, datapoints are sorted by period chronology and
-    a TREND edge is emitted per consecutive pair.
+    Groups datapoints by ``(entity, metric_key)`` where *metric_key* is
+    resolved via :func:`resolve_metric_id` when available, falling back
+    to the raw ``metric_name``.  Within each group, datapoints are sorted
+    by period chronology and a TREND edge is emitted per consecutive pair.
 
     Parameters
     ----------
@@ -578,12 +672,16 @@ def _build_trend_edges(
     for_period_rels : list[dict[str, str]]
         FOR_PERIOD relation dicts mapping ``from_id`` (datapoint) to
         ``to_id`` (period).
+    measures_linked_dp_ids : set[str] | None
+        If provided (research-neo4j), only datapoints whose ID is in this
+        set are eligible for TREND.  ``None`` (article-neo4j) means all
+        datapoints are eligible.
 
     Returns
     -------
     list[dict[str, Any]]
         TREND relation dicts with ``from_id``, ``to_id``, ``type``,
-        ``change_pct``, and ``direction``.
+        ``change_pct``, ``direction``, and ``metric_id``.
     """
     # Build datapoint_id → period_id mapping
     dp_to_period: dict[str, str] = {}
@@ -595,54 +693,64 @@ def _build_trend_edges(
     for fp in fiscal_periods:
         period_to_label[fp["period_id"]] = fp.get("period_label", "")
 
-    # Group by (ticker_prefix, metric_name)
-    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    # Group by (ticker_prefix, metric_key, source_hash) — Source-scoped TREND
+    # Each sell-side report's projections form a coherent time series;
+    # cross-report comparison is invalid due to unit/methodology differences.
+    groups: dict[
+        tuple[str, str, str], list[tuple[dict[str, Any], str | None]]
+    ] = defaultdict(list)
     for dp in financial_datapoints:
         dp_id = dp["datapoint_id"]
+
+        # Filter by MEASURES link if set is provided (Step B-4)
+        if measures_linked_dp_ids is not None and dp_id not in measures_linked_dp_ids:
+            continue
+
         period_id = dp_to_period.get(dp_id, "")
         ticker_prefix = _extract_ticker_from_period_id(period_id)
         metric_name = dp.get("metric_name", "")
-        groups[(ticker_prefix, metric_name)].append(dp)
+        metric_id = resolve_metric_id(metric_name)
+        # Use metric_id for grouping when available, fallback to metric_name
+        metric_key = metric_id or metric_name
+        src_hash = dp.get("source_hash", "")
+        groups[(ticker_prefix, metric_key, src_hash)].append((dp, metric_id))
 
     rels: list[dict[str, Any]] = []
-    for (_ticker, _metric), group in groups.items():
+    for (_ticker, _metric_key, _src), group in groups.items():
         # Sort by period chronology
         sorted_group = sorted(
             group,
-            key=lambda d: _period_sort_key(
-                period_to_label.get(dp_to_period.get(d["datapoint_id"], ""), "")
+            key=lambda item: _period_sort_key(
+                period_to_label.get(
+                    dp_to_period.get(item[0]["datapoint_id"], ""), ""
+                )
             ),
         )
         for i in range(1, len(sorted_group)):
-            prev_dp = sorted_group[i - 1]
-            curr_dp = sorted_group[i]
+            prev_dp, prev_mid = sorted_group[i - 1]
+            curr_dp, curr_mid = sorted_group[i]
             prev_val = prev_dp.get("value")
             curr_val = curr_dp.get("value")
 
             if prev_val is None or curr_val is None:
                 continue
 
-            # Zero-division guard
-            if prev_val == 0:
-                change_pct = 0.0
-            else:
-                change_pct = round((curr_val - prev_val) / abs(prev_val) * 100, 2)
+            change_pct, direction = _compute_trend(prev_val, curr_val)
 
-            if change_pct > 1:
-                direction = "up"
-            elif change_pct < -1:
-                direction = "down"
-            else:
-                direction = "flat"
+            # Use the metric_id from either dp (should be the same within group)
+            resolved_mid = curr_mid or prev_mid
 
-            rels.append(
-                {
-                    "from_id": prev_dp["datapoint_id"],
-                    "to_id": curr_dp["datapoint_id"],
-                    "type": "TREND",
-                    "change_pct": change_pct,
-                    "direction": direction,
-                }
+            rel_dict: dict[str, Any] = {
+                "from_id": prev_dp["datapoint_id"],
+                "to_id": curr_dp["datapoint_id"],
+                "type": "TREND",
+                "change_pct": change_pct,
+                "direction": direction,
+            }
+            if resolved_mid:
+                rel_dict["metric_id"] = resolved_mid
+
+            rels.append(rel_dict
             )
 
     return rels
@@ -1298,6 +1406,7 @@ def _build_datapoint_nodes(
                 "is_estimate": dp.get("is_estimate", False),
                 "currency": dp.get("currency"),
                 "period_label": period_label,
+                "source_hash": source_hash,
             }
         )
 
@@ -1525,6 +1634,67 @@ def _build_supersedes_chain(
             )
 
     return supersedes_rels
+
+
+def _build_authored_by_rels(
+    source_id: str,
+    publisher: str,
+    seen_author_keys: set[str],
+    author_name_to_id: dict[str, str],
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    """Build Author node and AUTHORED_BY relation from Source.publisher.
+
+    If the publisher is already known (via LLM-extracted stances), the
+    existing author_id is reused and no duplicate Author node is emitted.
+
+    Parameters
+    ----------
+    source_id : str
+        ID of the Source node.
+    publisher : str
+        Publisher/issuer name (e.g. ``"HSBC"``, ``"BofA Securities"``).
+    seen_author_keys : set[str]
+        Already-seen author keys for deduplication (mutated in-place).
+    author_name_to_id : dict[str, str]
+        Author name-to-ID lookup (mutated in-place).
+
+    Returns
+    -------
+    tuple[list[dict[str, Any]], list[dict[str, str]]]
+        (new_authors, authored_by_rels).
+    """
+    if not publisher:
+        return [], []
+
+    author_type = "sell_side"
+    author_key = f"{publisher}:{author_type}"
+    author_id = author_name_to_id.get(publisher)
+
+    new_authors: list[dict[str, Any]] = []
+    if author_id is None:
+        author_id = generate_author_id(publisher, author_type)
+        author_name_to_id[publisher] = author_id
+
+    if author_key not in seen_author_keys:
+        seen_author_keys.add(author_key)
+        new_authors.append(
+            {
+                "author_id": author_id,
+                "name": publisher,
+                "author_type": author_type,
+                "organization": publisher,
+            }
+        )
+
+    authored_by_rels = [
+        {
+            "from_id": source_id,
+            "to_id": author_id,
+            "type": "AUTHORED_BY",
+        }
+    ]
+
+    return new_authors, authored_by_rels
 
 
 _LABEL_MAP: dict[str, str] = {
@@ -1758,6 +1928,7 @@ RELATION_KEYS: frozenset[str] = frozenset(
         "on_entity",
         "based_on",
         "supersedes",
+        "authored_by",
         "causes",
         "next_period",
         "trend",
@@ -1765,7 +1936,7 @@ RELATION_KEYS: frozenset[str] = frozenset(
         "motivated_by",
     }
 )
-"""All 20 relation keys in the graph-queue schema (v2.1)."""
+"""All 21 relation keys in the graph-queue schema (v2.1)."""
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
@@ -1885,16 +2056,20 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     Parameters
     ----------
     data : dict[str, Any]
-        Input with ``source_hash``, ``chunks[]``.
+        Input with ``source_hash``, ``chunks[]``, and optional
+        ``publisher`` (issuer name for AUTHORED_BY).
 
     Returns
     -------
     dict[str, Any]
-        Graph-queue components (nodes + 20 relation types).
+        Graph-queue components (nodes + 21 relation types).
     """
     source_hash = data.get("source_hash", "")
     source_id = generate_source_id(f"pdf:{source_hash}")
-    sources = [_make_source(f"pdf:{source_hash}", source_type="pdf")]
+    publisher = data.get("publisher", "")
+    sources = [
+        _make_source(f"pdf:{source_hash}", source_type="pdf", publisher=publisher)
+    ]
 
     ctx = ChunkProcessingContext()
     nodes: dict[str, list[Any]] = {k: [] for k in _NODE_KEYS}
@@ -1914,6 +2089,14 @@ def map_pdf_extraction(data: dict[str, Any]) -> dict[str, Any]:
     # Build SUPERSEDES chain across all chunks
     supersedes = _build_supersedes_chain(nodes["stances"])
     rels["supersedes"].extend(supersedes)
+
+    # Build AUTHORED_BY from Source.publisher (Phase 2 Step A-1)
+    if publisher:
+        new_authors, authored_by = _build_authored_by_rels(
+            source_id, publisher, ctx.seen_author_keys, ctx.author_name_to_id
+        )
+        nodes["authors"].extend(new_authors)
+        rels["authored_by"].extend(authored_by)
 
     # Build NEXT_PERIOD chain across all fiscal periods (Wave 3)
     next_period = _build_next_period_chain(nodes["periods"])

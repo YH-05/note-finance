@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "sites": [
         {
             "domain": "getrichslowly.org",
@@ -20,16 +20,6 @@
             "backfill_tier": "A",
             "url_patterns": ["/"],
             "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
-        },
-        {
-            "domain": "bogleheads.org",
-            "source_key": "bogleheads",
-            "sitemap_url": "https://www.bogleheads.org/wiki/Special:SitemapIndex",
-            "sitemap_format": "custom",
-            "tier": 1,
-            "backfill_tier": "C",
-            "url_patterns": ["/wiki/"],
-            "exclude_patterns": ["/forum/", "/Special:", "/Talk:"]
         },
         {
             "domain": "thecollegeinvestor.com",
@@ -105,17 +95,6 @@
             "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
         },
         {
-            "domain": "marginalrevolution.com",
-            "source_key": "marginalrevolution",
-            "sitemap_url": "https://marginalrevolution.com/sitemap.xml",
-            "sitemap_format": "wp_native",
-            "tier": 1,
-            "backfill_tier": "C",
-            "url_patterns": ["/marginalrevolution/"],
-            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"],
-            "robots_notes": "Crawl-delay: 600s"
-        },
-        {
             "domain": "dividendgrowthstocks.com",
             "source_key": "dividendgrowthstocks",
             "sitemap_url": "https://dividendgrowthstocks.com/sitemap.xml",
@@ -146,15 +125,54 @@
             "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
         },
         {
-            "domain": "kiplinger.com",
-            "source_key": "kiplinger",
-            "sitemap_url": "https://www.kiplinger.com/sitemap.xml",
-            "sitemap_format": "custom",
-            "tier": 3,
-            "backfill_tier": "D",
-            "url_patterns": ["/wealth/", "/investing/", "/retirement/"],
-            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"],
-            "robots_notes": "Tier 3: requires Playwright for JavaScript rendering"
+            "domain": "ofdollarsanddata.com",
+            "source_key": "ofdollarsanddata",
+            "sitemap_url": "https://ofdollarsanddata.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 1,
+            "backfill_tier": "A",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "physicianonfire.com",
+            "source_key": "physicianonfire",
+            "sitemap_url": "https://www.physicianonfire.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 2,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "whitecoatinvestor.com",
+            "source_key": "whitecoatinvestor",
+            "sitemap_url": "https://www.whitecoatinvestor.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 2,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "rationalwalk.com",
+            "source_key": "rationalwalk",
+            "sitemap_url": "https://rationalwalk.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 2,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "portfoliocharts.com",
+            "source_key": "portfoliocharts",
+            "sitemap_url": "https://portfoliocharts.com/sitemap.xml",
+            "sitemap_format": "yoast",
+            "tier": 2,
+            "backfill_tier": "B",
+            "url_patterns": ["/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
         }
     ]
 }
