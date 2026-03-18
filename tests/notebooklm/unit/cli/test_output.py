@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 
-import pytest
+import pytest  # noqa: TC002
 from pydantic import BaseModel, ConfigDict
 
 from notebooklm.cli._output import output_json
