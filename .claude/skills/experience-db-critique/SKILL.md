@@ -330,3 +330,47 @@ overall_score:
 - [ ] critique.json が記事と同じディレクトリに保存されている
 - [ ] ターミナルにマークダウンレポートが出力されている
 - [ ] 改善優先度が提示されている
+
+## Observability
+
+スキル実行のトレースを `scripts/skill_run_tracer.py` で記録する。
+Neo4j 未起動時はグレースフルデグラデーションにより合成 ID を返し、スキル実行をブロックしない。
+
+### 実行開始時（ステップ 1 の前）
+
+```bash
+SKILL_RUN_ID=$(python3 scripts/skill_run_tracer.py start \
+    --skill-name experience-db-critique \
+    --command-source "/experience-db-critique" \
+    --input-summary "article=${ARTICLE_PATH}, theme=${THEME:-auto}")
+```
+
+### 実行完了時（成功 — ステップ 5 完了後）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status success \
+    --output-summary "theme=${THEME}, overall=${OVERALL_SCORE}/100, verdict=${VERDICT}, critique_json=${CRITIQUE_JSON_PATH}"
+```
+
+### 実行完了時（エラー — 任意のステップで失敗時）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status failure \
+    --error-message "Step ${STEP}: ${ERROR_MSG}" \
+    --error-type "${ERROR_TYPE}"
+```
+
+`error_type` の分類:
+
+| error_type | 説明 |
+|------------|------|
+| article_not_found | 記事ファイルが見つからない（ステップ 1） |
+| theme_detection | テーマ判定失敗（ステップ 1） |
+| neo4j_connection | Neo4j 接続失敗（ステップ 1 EmbeddableResource 取得） |
+| agent_execution | 批評エージェント実行エラー（ステップ 2） |
+| json_parse | エージェント出力の JSON パースエラー（ステップ 3） |
+| file_operation | critique.json 保存エラー（ステップ 4） |
