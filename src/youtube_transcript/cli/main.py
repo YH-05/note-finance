@@ -29,6 +29,7 @@ from rich.table import Table
 
 from data_paths import get_path
 from youtube_transcript._logging import get_logger
+from youtube_transcript.core.search_engine import SearchEngine
 from youtube_transcript.exceptions import (
     ChannelAlreadyExistsError,
     ChannelNotFoundError,
@@ -39,6 +40,7 @@ from youtube_transcript.storage.json_storage import JSONStorage
 from youtube_transcript.storage.quota_tracker import QuotaTracker
 
 if TYPE_CHECKING:
+    from youtube_transcript.core.search_engine import SearchResult
     from youtube_transcript.types import (
         Channel,
         CollectResult,
@@ -252,6 +254,34 @@ def _build_collector(data_dir: Path) -> Any:
     )
 
 
+def _build_retry_service(data_dir: Path) -> Any:
+    """Build a RetryService instance with default dependencies.
+
+    This function is extracted to allow easy mocking in tests.
+
+    Parameters
+    ----------
+    data_dir : Path
+        Root directory for youtube_transcript data.
+
+    Returns
+    -------
+    RetryService
+        Configured retry service instance.
+    """
+    # AIDEV-NOTE: Import here to avoid circular imports and allow test mocking.
+    from youtube_transcript.core.transcript_fetcher import TranscriptFetcher
+    from youtube_transcript.services.retry_service import RetryService
+
+    quota_tracker = QuotaTracker(data_dir)
+    transcript_fetcher = TranscriptFetcher()
+    return RetryService(
+        data_dir=data_dir,
+        transcript_fetcher=transcript_fetcher,
+        quota_tracker=quota_tracker,
+    )
+
+
 # ---------------------------------------------------------------------------
 # CLI Group
 # ---------------------------------------------------------------------------
@@ -440,6 +470,68 @@ def channel_remove(
 
 
 # ---------------------------------------------------------------------------
+# collect helpers
+# ---------------------------------------------------------------------------
+
+
+def _print_collect_result(result: CollectResult, title: str = "Collection") -> None:
+    """Print a single CollectResult in human-readable form.
+
+    Parameters
+    ----------
+    result : CollectResult
+        Result to display.
+    title : str, default="Collection"
+        Label prefix for the output line.
+    """
+    console.print(f"[green]{title} complete[/green]")
+    console.print(f"  Total:       {result.total}")
+    console.print(f"  Success:     {result.success}")
+    console.print(f"  Unavailable: {result.unavailable}")
+    console.print(f"  Failed:      {result.failed}")
+    console.print(f"  Skipped:     {result.skipped}")
+
+
+def _print_collect_results_table(
+    results: list[CollectResult], title: str = "Collection Results"
+) -> None:
+    """Print a list of CollectResult objects as a Rich table.
+
+    Parameters
+    ----------
+    results : list[CollectResult]
+        Results to display.
+    title : str, default="Collection Results"
+        Table title.
+    """
+    if not results:
+        console.print("[yellow]No enabled channels found[/yellow]")
+        return
+
+    table = Table(title=title)
+    table.add_column("Total")
+    table.add_column("Success")
+    table.add_column("Unavailable")
+    table.add_column("Failed")
+    table.add_column("Skipped")
+
+    for r in results:
+        table.add_row(
+            str(r.total),
+            str(r.success),
+            str(r.unavailable),
+            str(r.failed),
+            str(r.skipped),
+        )
+
+    console.print(table)
+    total_success = sum(r.success for r in results)
+    console.print(
+        f"\nChannels processed: {len(results)}, Total success: {total_success}"
+    )
+
+
+# ---------------------------------------------------------------------------
 # collect
 # ---------------------------------------------------------------------------
 
@@ -447,12 +539,19 @@ def channel_remove(
 @cli.command()
 @click.option("--channel-id", default=None, help="Collect for a specific channel")
 @click.option("--all", "collect_all", is_flag=True, help="Collect for all channels")
+@click.option(
+    "--retry-failed",
+    "retry_failed",
+    is_flag=True,
+    help="Re-fetch FAILED transcripts instead of new collection",
+)
 @click.option("--json", "json_output", is_flag=True, help="Output as JSON")
 @click.pass_context
 def collect(
     ctx: click.Context,
     channel_id: str | None,
     collect_all: bool,
+    retry_failed: bool,
     json_output: bool,
 ) -> None:
     """Collect transcripts for one or all channels."""
@@ -465,57 +564,93 @@ def collect(
         sys.exit(1)
 
     data_dir = _get_data_dir(ctx)
+
+    if retry_failed:
+        _run_retry_failed(data_dir, channel_id, collect_all, json_output)
+    else:
+        _run_collect(data_dir, channel_id, collect_all, json_output)
+
+
+def _run_retry_failed(
+    data_dir: Path,
+    channel_id: str | None,
+    collect_all: bool,
+    json_output: bool,
+) -> None:
+    """Execute the --retry-failed branch of the collect command.
+
+    Parameters
+    ----------
+    data_dir : Path
+        Data directory.
+    channel_id : str | None
+        Target channel ID (used when collect_all is False).
+    collect_all : bool
+        Whether to retry all channels.
+    json_output : bool
+        Whether to output JSON.
+    """
+    service = _build_retry_service(data_dir)
+
+    if collect_all:
+        logger.info("Retrying FAILED transcripts for all channels")
+        results = service.retry_all_failed()
+        if json_output:
+            _output_json([_collect_result_to_dict(r) for r in results])
+        else:
+            _print_collect_results_table(results, title="Retry-Failed Results")
+        logger.info("Retry-failed all completed", channels=len(results))
+    else:
+        logger.info("Retrying FAILED transcripts for channel", channel_id=channel_id)
+        result = service.retry_failed(channel_id)  # type: ignore[arg-type]
+        if json_output:
+            _output_json(_collect_result_to_dict(result))
+        else:
+            _print_collect_result(result, title="Retry-failed")
+        logger.info(
+            "Retry-failed completed",
+            channel_id=channel_id,
+            total=result.total,
+            success=result.success,
+        )
+
+
+def _run_collect(
+    data_dir: Path,
+    channel_id: str | None,
+    collect_all: bool,
+    json_output: bool,
+) -> None:
+    """Execute the normal collect branch of the collect command.
+
+    Parameters
+    ----------
+    data_dir : Path
+        Data directory.
+    channel_id : str | None
+        Target channel ID (used when collect_all is False).
+    collect_all : bool
+        Whether to collect all channels.
+    json_output : bool
+        Whether to output JSON.
+    """
     collector = _build_collector(data_dir)
 
     if collect_all:
         logger.info("Collecting all channels")
         results = collector.collect_all()
-
         if json_output:
             _output_json([_collect_result_to_dict(r) for r in results])
         else:
-            if not results:
-                console.print("[yellow]No enabled channels found[/yellow]")
-                return
-
-            table = Table(title="Collection Results")
-            table.add_column("Total")
-            table.add_column("Success")
-            table.add_column("Unavailable")
-            table.add_column("Failed")
-            table.add_column("Skipped")
-
-            for r in results:
-                table.add_row(
-                    str(r.total),
-                    str(r.success),
-                    str(r.unavailable),
-                    str(r.failed),
-                    str(r.skipped),
-                )
-
-            console.print(table)
-            total_success = sum(r.success for r in results)
-            console.print(
-                f"\nChannels processed: {len(results)}, Total success: {total_success}"
-            )
-
+            _print_collect_results_table(results, title="Collection Results")
         logger.info("Collect all completed", channels=len(results))
-
     else:
         logger.info("Collecting channel", channel_id=channel_id)
         result = collector.collect(channel_id)  # type: ignore[arg-type]
-
         if json_output:
             _output_json(_collect_result_to_dict(result))
         else:
-            console.print("[green]Collection complete[/green]")
-            console.print(f"  Total:       {result.total}")
-            console.print(f"  Success:     {result.success}")
-            console.print(f"  Unavailable: {result.unavailable}")
-            console.print(f"  Failed:      {result.failed}")
-            console.print(f"  Skipped:     {result.skipped}")
-
+            _print_collect_result(result, title="Collection")
         logger.info(
             "Collect completed",
             channel_id=channel_id,
@@ -702,6 +837,84 @@ def stats(
         total_channels=len(channels),
         quota_used=units_used,
     )
+
+
+# ---------------------------------------------------------------------------
+# search
+# ---------------------------------------------------------------------------
+
+
+def _search_result_to_dict(result: SearchResult) -> dict[str, Any]:
+    """Convert SearchResult to dictionary.
+
+    Parameters
+    ----------
+    result : SearchResult
+        SearchResult object to convert.
+
+    Returns
+    -------
+    dict[str, Any]
+        Dictionary representation of the search result.
+    """
+    return {
+        "video_id": result.video_id,
+        "channel_id": result.channel_id,
+        "matched_text": result.matched_text,
+        "timestamp": result.timestamp,
+    }
+
+
+@cli.command()
+@click.argument("query")
+@click.option("--channel-id", default=None, help="Limit search to a specific channel")
+@click.option("--json", "json_output", is_flag=True, help="Output as JSON")
+@click.pass_context
+def search(
+    ctx: click.Context,
+    query: str,
+    channel_id: str | None,
+    json_output: bool,
+) -> None:
+    """Search transcripts by keyword.
+
+    QUERY is the keyword to search for in all stored transcripts.
+    """
+    logger.info("Searching transcripts", query=query, channel_id=channel_id)
+
+    data_dir = _get_data_dir(ctx)
+    engine = SearchEngine(data_dir)
+
+    channel_ids: list[str] | None = [channel_id] if channel_id else None
+    results = engine.search(query, channel_ids=channel_ids)
+
+    if json_output:
+        _output_json([_search_result_to_dict(r) for r in results])
+        return
+
+    if not results:
+        console.print("[yellow]No results found[/yellow]")
+        logger.info("Search completed", query=query, result_count=0)
+        return
+
+    table = Table(title=f'Search results for "{query}"')
+    table.add_column("Video ID", style="cyan")
+    table.add_column("Channel ID", style="green")
+    table.add_column("Timestamp")
+    table.add_column("Matched Text")
+
+    for r in results:
+        table.add_row(
+            r.video_id,
+            r.channel_id,
+            f"{r.timestamp:.1f}s",
+            _truncate(r.matched_text, 60),
+        )
+
+    console.print(table)
+    console.print(f"\nTotal: {len(results)} results")
+
+    logger.info("Search completed", query=query, result_count=len(results))
 
 
 if __name__ == "__main__":

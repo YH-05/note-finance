@@ -711,3 +711,237 @@ class TestStats:
             )
 
         assert result.exit_code == 0
+
+
+# ---------------------------------------------------------------------------
+# search
+# ---------------------------------------------------------------------------
+
+
+class TestSearch:
+    """Tests for `yt-transcript search <query>`."""
+
+    def test_正常系_検索結果をテキスト表示する(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """search <query> が検索結果をテキスト表示する."""
+        from youtube_transcript.core.search_engine import SearchResult
+
+        search_results = [
+            SearchResult(
+                video_id="vid001",
+                channel_id="UCabc123",
+                matched_text="利上げについて説明します",
+                timestamp=5.0,
+            )
+        ]
+        with patch("youtube_transcript.cli.main.SearchEngine") as mock_engine_cls:
+            mock_engine = mock_engine_cls.return_value
+            mock_engine.search.return_value = search_results
+
+            result = runner.invoke(
+                cli,
+                ["--data-dir", str(tmp_data_dir), "search", "利上げ"],
+            )
+
+        assert result.exit_code == 0
+        assert "vid001" in result.output or "利上げ" in result.output
+
+    def test_正常系_検索結果をJSON出力する(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """search <query> --json がJSON配列を出力する."""
+        from youtube_transcript.core.search_engine import SearchResult
+
+        search_results = [
+            SearchResult(
+                video_id="vid001",
+                channel_id="UCabc123",
+                matched_text="利上げについて",
+                timestamp=5.0,
+            )
+        ]
+        with patch("youtube_transcript.cli.main.SearchEngine") as mock_engine_cls:
+            mock_engine = mock_engine_cls.return_value
+            mock_engine.search.return_value = search_results
+
+            result = runner.invoke(
+                cli,
+                ["--data-dir", str(tmp_data_dir), "search", "利上げ", "--json"],
+            )
+
+        assert result.exit_code == 0
+        data = json.loads(result.output)
+        assert isinstance(data, list)
+        assert len(data) == 1
+        assert data[0]["video_id"] == "vid001"
+        assert data[0]["channel_id"] == "UCabc123"
+        assert data[0]["matched_text"] == "利上げについて"
+        assert data[0]["timestamp"] == 5.0
+
+    def test_正常系_channel_idフィルタを渡す(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """search <query> --channel-id でチャンネルを絞り込む."""
+        from youtube_transcript.core.search_engine import SearchResult
+
+        search_results = [
+            SearchResult(
+                video_id="vid001",
+                channel_id="UCabc123",
+                matched_text="テスト",
+                timestamp=0.0,
+            )
+        ]
+        with patch("youtube_transcript.cli.main.SearchEngine") as mock_engine_cls:
+            mock_engine = mock_engine_cls.return_value
+            mock_engine.search.return_value = search_results
+
+            result = runner.invoke(
+                cli,
+                [
+                    "--data-dir",
+                    str(tmp_data_dir),
+                    "search",
+                    "テスト",
+                    "--channel-id",
+                    "UCabc123",
+                ],
+            )
+
+        assert result.exit_code == 0
+        mock_engine.search.assert_called_once_with("テスト", channel_ids=["UCabc123"])
+
+    def test_正常系_検索結果なしで適切なメッセージ(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """search <query> で結果なしの場合に適切に動作する."""
+        with patch("youtube_transcript.cli.main.SearchEngine") as mock_engine_cls:
+            mock_engine = mock_engine_cls.return_value
+            mock_engine.search.return_value = []
+
+            result = runner.invoke(
+                cli,
+                ["--data-dir", str(tmp_data_dir), "search", "存在しないキーワード"],
+            )
+
+        assert result.exit_code == 0
+
+    def test_正常系_channel_idなしで全チャンネル検索(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """search <query> で --channel-id 未指定の場合は channel_ids=None で呼ばれる."""
+        with patch("youtube_transcript.cli.main.SearchEngine") as mock_engine_cls:
+            mock_engine = mock_engine_cls.return_value
+            mock_engine.search.return_value = []
+
+            result = runner.invoke(
+                cli,
+                ["--data-dir", str(tmp_data_dir), "search", "テスト"],
+            )
+
+        assert result.exit_code == 0
+        mock_engine.search.assert_called_once_with("テスト", channel_ids=None)
+
+
+# ---------------------------------------------------------------------------
+# collect --retry-failed
+# ---------------------------------------------------------------------------
+
+
+class TestCollectRetryFailed:
+    """Tests for `yt-transcript collect --retry-failed`."""
+
+    def test_正常系_retry_failed単一チャンネル(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """collect --retry-failed --channel-id でチャンネルの FAILED を再取得する."""
+        collect_result = CollectResult(
+            total=2, success=1, unavailable=0, failed=0, skipped=1
+        )
+        with patch("youtube_transcript.cli.main._build_retry_service") as mock_build:
+            mock_service = MagicMock()
+            mock_build.return_value = mock_service
+            mock_service.retry_failed.return_value = collect_result
+
+            result = runner.invoke(
+                cli,
+                [
+                    "--data-dir",
+                    str(tmp_data_dir),
+                    "collect",
+                    "--retry-failed",
+                    "--channel-id",
+                    "UCabc123",
+                ],
+            )
+
+        assert result.exit_code == 0
+        mock_service.retry_failed.assert_called_once_with("UCabc123")
+
+    def test_正常系_retry_failed全チャンネル(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """collect --retry-failed --all で全チャンネルの FAILED を再取得する."""
+        collect_results = [
+            CollectResult(total=1, success=1, unavailable=0, failed=0, skipped=0)
+        ]
+        with patch("youtube_transcript.cli.main._build_retry_service") as mock_build:
+            mock_service = MagicMock()
+            mock_build.return_value = mock_service
+            mock_service.retry_all_failed.return_value = collect_results
+
+            result = runner.invoke(
+                cli,
+                [
+                    "--data-dir",
+                    str(tmp_data_dir),
+                    "collect",
+                    "--retry-failed",
+                    "--all",
+                ],
+            )
+
+        assert result.exit_code == 0
+        mock_service.retry_all_failed.assert_called_once()
+
+    def test_正常系_retry_failed結果をJSON出力する(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """collect --retry-failed --channel-id --json がJSON出力する."""
+        collect_result = CollectResult(
+            total=3, success=2, unavailable=0, failed=1, skipped=0
+        )
+        with patch("youtube_transcript.cli.main._build_retry_service") as mock_build:
+            mock_service = MagicMock()
+            mock_build.return_value = mock_service
+            mock_service.retry_failed.return_value = collect_result
+
+            result = runner.invoke(
+                cli,
+                [
+                    "--data-dir",
+                    str(tmp_data_dir),
+                    "collect",
+                    "--retry-failed",
+                    "--channel-id",
+                    "UCabc123",
+                    "--json",
+                ],
+            )
+
+        assert result.exit_code == 0
+        data = json.loads(result.output)
+        assert data["total"] == 3
+        assert data["success"] == 2
+        assert data["failed"] == 1
+
+    def test_異常系_retry_failed_channel_idもallも指定なし(
+        self, runner: CliRunner, tmp_data_dir: Path, cli
+    ) -> None:
+        """collect --retry-failed で --channel-id も --all も未指定はエラーになる."""
+        result = runner.invoke(
+            cli,
+            ["--data-dir", str(tmp_data_dir), "collect", "--retry-failed"],
+        )
+        assert result.exit_code != 0
