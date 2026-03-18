@@ -139,7 +139,9 @@ class TestCli:
         assert "add" in result.output
         assert "list" in result.output
 
-    def test_正常系_versionオプションでバージョン表示(self, cli_runner: CliRunner) -> None:
+    def test_正常系_versionオプションでバージョン表示(
+        self, cli_runner: CliRunner
+    ) -> None:
         """Test --version displays version string."""
         from rss import __version__
 
