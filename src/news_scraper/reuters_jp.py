@@ -27,10 +27,11 @@ collect_news
 
 Examples
 --------
+>>> import asyncio
 >>> from news_scraper.reuters_jp import collect_news
 >>> from news_scraper.types import ScraperConfig
 >>> config = ScraperConfig()
->>> articles = collect_news(config=config)
+>>> articles = asyncio.run(collect_news(config=config))
 >>> len(articles) >= 0
 True
 """

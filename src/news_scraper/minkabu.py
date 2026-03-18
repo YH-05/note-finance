@@ -29,10 +29,11 @@ collect_news
 
 Examples
 --------
+>>> import asyncio
 >>> from news_scraper.minkabu import collect_news
 >>> from news_scraper.types import ScraperConfig
 >>> config = ScraperConfig()
->>> articles = collect_news(config=config)
+>>> articles = asyncio.run(collect_news(config=config))
 >>> articles  # empty list when use_playwright=False
 []
 """
@@ -393,8 +394,8 @@ async def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     # ── Graceful degradation: skip when use_playwright=False ──────────────
     if config is None or not config.use_playwright:
         logger.info(
-            "use_playwright=False: minkabu をスキップ",
-            use_playwright=getattr(config, "use_playwright", False),
+            "use_playwright=False: skipping minkabu collection",
+            use_playwright=config.use_playwright if config is not None else False,
         )
         return []
 
