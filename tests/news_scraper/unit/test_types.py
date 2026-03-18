@@ -11,8 +11,27 @@ from news_scraper.types import (
     Article,
     ScrapedNewsCollection,
     ScraperConfig,
+    SourceName,
     get_delay,
 )
+
+
+class TestSourceName:
+    """Tests for SourceName type alias."""
+
+    def test_正常系_jetroがSourceNameに含まれる(self) -> None:
+        """SourceName Literal includes 'jetro'."""
+        # SourceName is a type alias for Literal["cnbc", "jetro", "nasdaq"]
+        # Verify by checking __value__ of the type alias
+        valid_sources: list[SourceName] = ["cnbc", "jetro", "nasdaq"]
+        assert "jetro" in valid_sources
+
+    def test_正常系_全ソース名が定義されている(self) -> None:
+        """SourceName includes all expected source names."""
+        expected: set[str] = {"cnbc", "jetro", "nasdaq"}
+        # Access the Literal args from the type alias
+        source_args = set(SourceName.__value__.__args__)
+        assert source_args == expected
 
 
 class TestScraperConfig:

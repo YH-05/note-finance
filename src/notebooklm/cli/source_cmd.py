@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 import click
 
 from notebooklm.cli._async import run_async
 from notebooklm.cli._output import output_error, output_json, output_success
+
+if TYPE_CHECKING:
+    from notebooklm.types import ResearchMode
 
 
 @click.group()
@@ -263,19 +268,24 @@ async def research_cmd(
     try:
         await manager._ensure_browser()
         service = SourceService(manager)
-        research_query = query or notebook_id
-        research_mode = "deep" if mode == "deep" else "fast"  # type: ignore[assignment]
-        results = await service.web_research(
-            notebook_id, query=research_query, mode=research_mode  # type: ignore[arg-type]
-        )
+        research_mode: ResearchMode = "fast" if mode not in ("fast", "deep") else mode  # type: ignore[assignment]
+        if query is None:
+            result = await service.web_research(
+                notebook_id, query="", mode=research_mode
+            )
+        else:
+            result = await service.web_research(
+                notebook_id, query=query, mode=research_mode
+            )
 
         if ctx.obj.get("json_output"):
-            output_json([r.model_dump() for r in results])
+            output_json([r.model_dump() for r in result])
         else:
             output_success(f"リサーチ完了 (mode={mode})")
-            for r in results:
-                for k, v in r.model_dump().items():
-                    click.echo(f"  {k}: {v}")
+            for item in result:
+                if hasattr(item, "model_dump"):
+                    for k, v in item.model_dump().items():
+                        click.echo(f"  {k}: {v}")
     except Exception as e:
         output_error(str(e))
     finally:

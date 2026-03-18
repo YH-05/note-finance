@@ -211,7 +211,9 @@ class TestOrchestratorInit:
             _orchestrator = NewsWorkflowOrchestrator(config=sample_config)
 
             mock_collector.assert_called_once_with(sample_config)
-            mock_extractor.from_config.assert_called_once_with(sample_config.extraction)
+            mock_extractor.from_config.assert_called_once_with(
+                sample_config.extraction,
+            )
             mock_summarizer.assert_called_once_with(sample_config)
             mock_publisher.assert_called_once_with(sample_config)
 
@@ -255,6 +257,8 @@ class TestOrchestratorRun:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=[])
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -297,6 +301,8 @@ class TestOrchestratorRun:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -354,6 +360,8 @@ class TestOrchestratorStatusFilter:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -406,6 +414,8 @@ class TestOrchestratorMaxArticles:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -460,6 +470,8 @@ class TestOrchestratorDryRun:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -537,6 +549,8 @@ class TestOrchestratorSuccessFiltering:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=[extracted_success, extracted_fail]
             )
@@ -614,6 +628,8 @@ class TestOrchestratorSuccessFiltering:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -695,6 +711,8 @@ class TestOrchestratorWorkflowResult:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -755,6 +773,8 @@ class TestOrchestratorWorkflowResult:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted_fail)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -827,6 +847,8 @@ class TestOrchestratorWorkflowResult:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -867,6 +889,8 @@ class TestOrchestratorWorkflowResult:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
@@ -917,6 +941,8 @@ class TestOrchestratorLogging:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -967,6 +993,8 @@ class TestOrchestratorLogging:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
@@ -1315,6 +1343,8 @@ class TestOrchestratorEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1370,6 +1400,8 @@ class TestOrchestratorEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -1434,6 +1466,8 @@ class TestOrchestratorEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -1491,6 +1525,8 @@ class TestOrchestratorEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
@@ -1547,6 +1583,8 @@ class TestOrchestratorEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -1631,6 +1669,8 @@ class TestOrchestratorEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1756,6 +1796,8 @@ class TestOrchestratorRunSavesResult:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1826,6 +1868,8 @@ class TestOrchestratorFeedErrors:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1874,6 +1918,8 @@ class TestOrchestratorFeedErrors:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1932,6 +1978,8 @@ class TestOrchestratorFeedErrors:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -2006,6 +2054,8 @@ class TestOrchestratorFeedErrors:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=sample_extracted_article)
             mock_extractor_cls.from_config.return_value = mock_extractor
 

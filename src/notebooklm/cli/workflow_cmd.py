@@ -154,7 +154,8 @@ async def research_cmd(
             studio_svc = StudioService(manager)
             try:
                 result = await studio_svc.generate_content(
-                    notebook_id, content_type  # type: ignore[arg-type]
+                    notebook_id,
+                    content_type,  # type: ignore[arg-type]
                 )
                 studio_result = result.model_dump(mode="json")
                 click.echo(f"  生成完了: {result.title}")
