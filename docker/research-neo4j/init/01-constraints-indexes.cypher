@@ -27,3 +27,10 @@ CREATE INDEX datapoint_estimate IF NOT EXISTS FOR (d:FinancialDataPoint) ON (d.i
 CREATE INDEX period_label_idx IF NOT EXISTS FOR (p:FiscalPeriod) ON (p.period_label);
 CREATE INDEX topic_category IF NOT EXISTS FOR (t:Topic) ON (t.category);
 CREATE INDEX insight_type IF NOT EXISTS FOR (i:Insight) ON (i.insight_type);
+
+// === Skill Observability (Memory:SkillRun) ===
+CREATE CONSTRAINT skill_run_id_unique IF NOT EXISTS FOR (sr:SkillRun) REQUIRE sr.skill_run_id IS UNIQUE;
+CREATE INDEX skill_run_skill_name IF NOT EXISTS FOR (sr:SkillRun) ON (sr.skill_name);
+CREATE INDEX skill_run_status IF NOT EXISTS FOR (sr:SkillRun) ON (sr.status);
+CREATE INDEX skill_run_start_at IF NOT EXISTS FOR (sr:SkillRun) ON (sr.start_at);
+CREATE INDEX skill_run_command_source IF NOT EXISTS FOR (sr:SkillRun) ON (sr.command_source);

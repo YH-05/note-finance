@@ -279,7 +279,7 @@ async def research_cmd(
             )
 
         if ctx.obj.get("json_output"):
-            output_json(result)
+            output_json([r.model_dump() for r in result])
         else:
             output_success(f"リサーチ完了 (mode={mode})")
             for item in result:
