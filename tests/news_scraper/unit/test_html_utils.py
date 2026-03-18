@@ -4,7 +4,9 @@ Tests cover:
 - fetch_html: HTML retrieval via httpx.Client (mocked)
 - parse_html: lxml HtmlElement parsing
 - resolve_relative_url: URL joining
-- rate_limit_sleep: rate-limiting sleep
+- rate_limit_sleep: rate-limiting sleep (sync)
+- async_rate_limit_sleep: rate-limiting sleep (async)
+- __all__: public API declaration
 - JP_DEFAULT_HEADERS: header constant validation
 """
 
@@ -17,8 +19,10 @@ import httpx
 import pytest
 from lxml.html import HtmlElement
 
+import news_scraper._html_utils as html_utils_mod
 from news_scraper._html_utils import (
     JP_DEFAULT_HEADERS,
+    async_rate_limit_sleep,
     fetch_html,
     parse_html,
     rate_limit_sleep,
@@ -251,3 +255,76 @@ class TestRateLimitSleep:
         with patch("time.sleep") as mock_sleep:
             rate_limit_sleep(config)
             mock_sleep.assert_called_once_with(2.5)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# async_rate_limit_sleep
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+class TestAsyncRateLimitSleep:
+    """Tests for async_rate_limit_sleep function."""
+
+    async def test_正常系_configのrequest_delayだけawaitする(self) -> None:
+        """async_rate_limit_sleep awaits asyncio.sleep for config.request_delay."""
+        config = ScraperConfig(request_delay=0.5)
+        with patch("asyncio.sleep") as mock_sleep:
+            mock_sleep.return_value = None
+            await async_rate_limit_sleep(config)
+            mock_sleep.assert_called_once_with(0.5)
+
+    async def test_正常系_configがNoneの場合デフォルト値でawaitする(self) -> None:
+        """async_rate_limit_sleep uses default delay when config is None."""
+        with patch("asyncio.sleep") as mock_sleep:
+            mock_sleep.return_value = None
+            await async_rate_limit_sleep(None)
+            mock_sleep.assert_called_once()
+            sleep_arg = mock_sleep.call_args[0][0]
+            assert sleep_arg >= 0.0
+
+    async def test_正常系_request_delay_0でゼロ秒awaitする(self) -> None:
+        """async_rate_limit_sleep awaits 0.0 when request_delay is 0."""
+        config = ScraperConfig(request_delay=0.0)
+        with patch("asyncio.sleep") as mock_sleep:
+            mock_sleep.return_value = None
+            await async_rate_limit_sleep(config)
+            mock_sleep.assert_called_once_with(0.0)
+
+    async def test_正常系_カスタムdelayが反映される(self) -> None:
+        """async_rate_limit_sleep uses custom delay from config."""
+        config = ScraperConfig(request_delay=1.5)
+        with patch("asyncio.sleep") as mock_sleep:
+            mock_sleep.return_value = None
+            await async_rate_limit_sleep(config)
+            mock_sleep.assert_called_once_with(1.5)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# __all__
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+class TestPublicApi:
+    """Tests for __all__ declaration in _html_utils module."""
+
+    def test_正常系_all_が定義されている(self) -> None:
+        """__all__ is defined in _html_utils module."""
+        assert hasattr(html_utils_mod, "__all__")
+
+    def test_正常系_公開関数が全て含まれている(self) -> None:
+        """All public functions are listed in __all__."""
+        expected = {
+            "JP_DEFAULT_HEADERS",
+            "fetch_html",
+            "async_fetch_html",
+            "parse_html",
+            "resolve_relative_url",
+            "rate_limit_sleep",
+            "async_rate_limit_sleep",
+        }
+        assert expected == set(html_utils_mod.__all__)
+
+    def test_正常系_all_に列挙された名前が全て存在する(self) -> None:
+        """Every name in __all__ is actually defined in the module."""
+        for name in html_utils_mod.__all__:
+            assert hasattr(html_utils_mod, name), f"{name!r} in __all__ but not defined"

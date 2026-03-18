@@ -363,6 +363,26 @@ class TestParseMarketsPage:
         for article in articles:
             assert isinstance(article, Article)
 
+    def test_正常系_Titleラッパーなしのカードはfallback_hrefを使用する(self) -> None:
+        """_parse_markets_page uses href on container element when no Title wrapper."""
+        articles = _parse_markets_page(_MARKETS_HTML_FALLBACK_URL)
+
+        urls = [a.url for a in articles]
+        assert any("fallback" in u for u in urls)
+
+    def test_正常系_タイトルがないカードはスキップされる(self) -> None:
+        """_parse_markets_page skips cards with empty title."""
+        html = """<!DOCTYPE html>
+<html><body>
+  <div data-testid="BasicCard">
+    <div data-testid="Heading"></div>
+    <div data-testid="Title"><a href="/markets/empty/NOOP-2026-03-18/">no title</a></div>
+    <time dateTime="2026-03-18T09:00:00.000Z">2026/03/18</time>
+  </div>
+</body></html>"""
+        articles = _parse_markets_page(html)
+        assert articles == []
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # _parse_business_page
@@ -434,6 +454,33 @@ class TestParseBusinessPage:
         articles = _parse_business_page(_EMPTY_HTML)
 
         assert articles == []
+
+    def test_正常系_URLのないカードはスキップされる(self) -> None:
+        """_parse_business_page skips MediaStoryCard with no href."""
+        html = """<!DOCTYPE html>
+<html><body>
+  <div data-testid="MediaStoryCard">
+    <h3 data-testid="Heading"><span>URLなし記事</span></h3>
+    <time dateTime="2026-03-18T08:00:00.000Z">2026/03/18</time>
+  </div>
+</body></html>"""
+        articles = _parse_business_page(html)
+        assert articles == []
+
+    def test_正常系_hubバリアントに日時なしでも記事を返す(self) -> None:
+        """_parse_business_page returns article from hub variant with no datetime."""
+        html = """<!DOCTYPE html>
+<html><body>
+  <div data-testid="MediaStoryCard">
+    <a data-testid="Heading"
+       href="https://jp.reuters.com/business/tech/NODATE-2026-03-18/">
+      日時なし記事
+    </a>
+  </div>
+</body></html>"""
+        articles = _parse_business_page(html)
+        assert len(articles) == 1
+        assert articles[0].published.tzinfo is not None
 
     def test_正常系_返値がArticleのリストである(self) -> None:
         """_parse_business_page returns a list of Article instances."""

@@ -347,3 +347,24 @@ class TestSourceRegistry:
     def test_正常系_jetroコレクターがcallableである(self) -> None:
         """SOURCE_REGISTRY jetro entry is callable."""
         assert callable(SOURCE_REGISTRY["jetro"])
+
+    async def test_正常系_未知ソースは空のNewsDataFrameを返す(self) -> None:
+        """collect_financial_news returns empty NewsDataFrame for unknown source."""
+        df = await collect_financial_news(sources=["unknown_source"])  # type: ignore[arg-type]
+
+        assert isinstance(df, NewsDataFrame)
+        assert df.empty
+
+    async def test_正常系_未知ソースは他ソースの収集を妨げない(self) -> None:
+        """Unknown source does not prevent valid sources from collecting."""
+        valid_articles = [
+            _make_article(url="https://nasdaq.com/1", source="nasdaq"),
+        ]
+        mock_nasdaq = AsyncMock(return_value=valid_articles)
+        with patch("news_scraper.unified._collect_nasdaq", new=mock_nasdaq):
+            df = await collect_financial_news(
+                sources=["unknown_source", "nasdaq"]  # type: ignore[arg-type]
+            )
+
+        assert len(df) == 1
+        assert df.articles[0].source == "nasdaq"

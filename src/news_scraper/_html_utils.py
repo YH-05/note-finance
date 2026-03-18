@@ -20,7 +20,9 @@ parse_html
 resolve_relative_url
     Resolve a relative URL against a base URL (urljoin wrapper).
 rate_limit_sleep
-    Sleep for the configured request delay to respect rate limits.
+    Sleep for the configured request delay to respect rate limits (sync).
+async_rate_limit_sleep
+    Async version of rate_limit_sleep using asyncio.sleep.
 
 Examples
 --------
@@ -35,6 +37,7 @@ Examples
 
 from __future__ import annotations
 
+import asyncio
 import time
 from urllib.parse import urljoin
 
@@ -43,6 +46,16 @@ import lxml.html
 
 from news_scraper._logging import get_logger
 from news_scraper.types import ScraperConfig, get_delay
+
+__all__ = [
+    "JP_DEFAULT_HEADERS",
+    "fetch_html",
+    "async_fetch_html",
+    "parse_html",
+    "resolve_relative_url",
+    "rate_limit_sleep",
+    "async_rate_limit_sleep",
+]
 
 logger = get_logger(__name__, module="html_utils")
 
@@ -236,3 +249,27 @@ def rate_limit_sleep(config: ScraperConfig | None) -> None:
     delay = get_delay(config)
     logger.debug("Rate limit sleep", delay_seconds=delay)
     time.sleep(delay)
+
+
+async def async_rate_limit_sleep(config: ScraperConfig | None) -> None:
+    """Async version of rate_limit_sleep using asyncio.sleep.
+
+    Use this inside async scrapers to avoid blocking the event loop
+    during rate-limit delays.
+
+    Parameters
+    ----------
+    config : ScraperConfig | None
+        Scraper configuration. When None, the default delay (1.0 s) is used.
+
+    Examples
+    --------
+    >>> import asyncio
+    >>> from news_scraper._html_utils import async_rate_limit_sleep
+    >>> from news_scraper.types import ScraperConfig
+    >>> config = ScraperConfig(request_delay=0.0)
+    >>> asyncio.run(async_rate_limit_sleep(config))
+    """
+    delay = get_delay(config)
+    logger.debug("Async rate limit sleep", delay_seconds=delay)
+    await asyncio.sleep(delay)

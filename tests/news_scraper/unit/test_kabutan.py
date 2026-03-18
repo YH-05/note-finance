@@ -7,6 +7,7 @@ Tests cover:
 - _row_to_article: empty title returns None
 - collect_news: HTTP error returns empty list
 - collect_news: max_articles_per_source is respected
+- property: 2-table structure preserves all rows and ordering
 """
 
 from __future__ import annotations
@@ -17,6 +18,8 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import httpx
 import lxml.html
 import pytest
+from hypothesis import given
+from hypothesis import strategies as st
 
 from news_scraper.kabutan import (
     KABUTAN_BASE_URL,
@@ -392,3 +395,108 @@ class TestCollectNews:
         assert "上部テーブル記事1" in titles
         assert "上部テーブル記事2" in titles
         assert "下部テーブル記事3" in titles
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Property tests: 2-table structure invariants
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _build_kabutan_html_from_rows(rows: list[tuple[str, str, int]]) -> str:
+    """Build Kabutan-style HTML with two tables split by an ad div.
+
+    Parameters
+    ----------
+    rows : list[tuple[str, str, int]]
+        Each tuple is (title, news_id, table_index) where table_index 0 = first
+        table, 1 = second table.
+
+    Returns
+    -------
+    str
+        Full Kabutan-style page HTML.
+    """
+    table1_rows = ""
+    table2_rows = ""
+    for title, news_id, tbl_idx in rows:
+        tr = (
+            f"<tr>"
+            f'<td class="news_time"><time datetime="2026-03-18T10:00:00+09:00">'
+            f"03/18 10:00</time></td>"
+            f'<td><div class="newslist_ctg newsctg4_b">テク</div></td>'
+            f'<td><a href="/news/marketnews/?&b=n{news_id}">{title}</a></td>'
+            f"</tr>"
+        )
+        if tbl_idx == 0:
+            table1_rows += tr
+        else:
+            table2_rows += tr
+
+    return f"""<!DOCTYPE html>
+<html><body>
+  <table class="s_news_list mgbt0"><tbody>{table1_rows}</tbody></table>
+  <div class="ads_area">広告</div>
+  <table class="s_news_list mgt0"><tbody>{table2_rows}</tbody></table>
+</body></html>"""
+
+
+class TestKabutanTwoTablePropertyTest:
+    """Property-based tests for Kabutan's 2-table parsing."""
+
+    @given(
+        titles_t1=st.lists(
+            st.text(
+                alphabet=st.characters(
+                    whitelist_categories=("Lu", "Ll", "Nd"),
+                    whitelist_characters="あいうえお株式市場テスト",
+                ),
+                min_size=1,
+                max_size=20,
+            ),
+            min_size=0,
+            max_size=10,
+        ),
+        titles_t2=st.lists(
+            st.text(
+                alphabet=st.characters(
+                    whitelist_categories=("Lu", "Ll", "Nd"),
+                    whitelist_characters="かきくけこ決算発表ニュース",
+                ),
+                min_size=1,
+                max_size=20,
+            ),
+            min_size=0,
+            max_size=10,
+        ),
+    )
+    def test_プロパティ_2テーブルの全行が収集される(
+        self, titles_t1: list[str], titles_t2: list[str]
+    ) -> None:
+        """_row_to_article applied to all rows from both tables yields the correct count."""
+        rows = [(t, f"10000{i}", 0) for i, t in enumerate(titles_t1)] + [
+            (t, f"20000{i}", 1) for i, t in enumerate(titles_t2)
+        ]
+        html = _build_kabutan_html_from_rows(rows)
+        root = lxml.html.fromstring(html)
+        tr_elements = root.xpath(KABUTAN_ROW_XPATH)
+        articles = [_row_to_article(tr, KABUTAN_BASE_URL) for tr in tr_elements]
+        valid_articles = [a for a in articles if a is not None]
+
+        expected_total = len(titles_t1) + len(titles_t2)
+        assert len(valid_articles) == expected_total
+
+    @given(
+        n=st.integers(min_value=1, max_value=15),
+    )
+    def test_プロパティ_URLが全て絶対URLである(self, n: int) -> None:
+        """_row_to_article always returns absolute URLs regardless of table count."""
+        rows = [(f"記事{i}", f"9000{i}", i % 2) for i in range(n)]
+        html = _build_kabutan_html_from_rows(rows)
+        root = lxml.html.fromstring(html)
+        tr_elements = root.xpath(KABUTAN_ROW_XPATH)
+        for tr in tr_elements:
+            article = _row_to_article(tr, KABUTAN_BASE_URL)
+            if article is not None:
+                assert article.url.startswith("https://"), (
+                    f"Expected absolute URL, got: {article.url}"
+                )
