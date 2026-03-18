@@ -252,6 +252,7 @@ VALID_CATEGORIES = {
     "dividend_income",
     "academic_finance",
     "financial_infrastructure",
+    "macro_markets",
 }
 """Valid category values for wealth presets."""
 

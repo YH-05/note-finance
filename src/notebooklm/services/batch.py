@@ -396,7 +396,7 @@ class BatchService:
             result["content_original_length"] = str(len(text))
         return result
 
-    async def workflow_research(
+    async def workflow_research(  # noqa: PLR0912, PLR0915
         self,
         notebook_id: str,
         sources: list[dict[str, Any]],

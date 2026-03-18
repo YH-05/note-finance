@@ -263,14 +263,18 @@ async def research_cmd(
     try:
         await manager._ensure_browser()
         service = SourceService(manager)
-        result = await service.web_research(notebook_id, query=query, mode=mode)
+        research_query = query or notebook_id
+        research_mode = "deep" if mode == "deep" else "fast"  # type: ignore[assignment]
+        results = await service.web_research(
+            notebook_id, query=research_query, mode=research_mode  # type: ignore[arg-type]
+        )
 
         if ctx.obj.get("json_output"):
-            output_json(result)
+            output_json([r.model_dump() for r in results])
         else:
             output_success(f"リサーチ完了 (mode={mode})")
-            if hasattr(result, "model_dump"):
-                for k, v in result.model_dump().items():
+            for r in results:
+                for k, v in r.model_dump().items():
                     click.echo(f"  {k}: {v}")
     except Exception as e:
         output_error(str(e))
