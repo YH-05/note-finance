@@ -56,12 +56,19 @@ def _collect_nasdaq(config: ScraperConfig) -> list[Article]:
     return _collect(config=config)
 
 
+def _collect_kabutan(config: ScraperConfig) -> list[Article]:
+    from news_scraper.kabutan import collect_news as _collect
+
+    return _collect(config=config)
+
+
 # Registry maps source names to collector functions.
 # Add new sources here without modifying collect_financial_news().
 SOURCE_REGISTRY: dict[SourceName, Callable[[ScraperConfig], list[Article]]] = {
     "cnbc": _collect_cnbc,
     "jetro": _collect_jetro,
     "nasdaq": _collect_nasdaq,
+    "kabutan": _collect_kabutan,
 }
 
 
