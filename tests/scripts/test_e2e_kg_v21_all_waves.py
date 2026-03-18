@@ -83,8 +83,10 @@ V21_ALL_RELATION_KEYS: set[str] = {
     # Wave 4: Question relations
     "asks_about",
     "motivated_by",
+    # v2.2: Authorship
+    "authored_by",
 }
-"""v2.1 で定義される全 20 種のリレーションキー。"""
+"""v2.2 で定義される全 21 種のリレーションキー。"""
 
 
 # ---------------------------------------------------------------------------

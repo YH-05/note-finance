@@ -83,8 +83,9 @@ PDF_RELATION_KEYS: set[str] = {
     "trend",
     "asks_about",
     "motivated_by",
+    "authored_by",
 }
-"""pdf-extraction で生成される 20 種のリレーションキー（v2.1）。"""
+"""pdf-extraction で生成される 21 種のリレーションキー（v2.2）。"""
 
 
 # ---------------------------------------------------------------------------

@@ -592,6 +592,7 @@ class TestNewRelations:
             "trend",
             "asks_about",
             "motivated_by",
+            "authored_by",
         }
         assert set(result["relations"].keys()) == expected_keys
 
