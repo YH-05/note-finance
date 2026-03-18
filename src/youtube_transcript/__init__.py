@@ -27,8 +27,10 @@ Services:
 
 Core:
     ChannelFetcher
-    TranscriptFetcher
     DiffDetector
+    SearchEngine
+    TranscriptFetcher
+    YtDlpFetcher
 
 Storage:
     JSONStorage
@@ -38,7 +40,9 @@ Storage:
 
 from youtube_transcript.core.channel_fetcher import ChannelFetcher
 from youtube_transcript.core.diff_detector import DiffDetector
+from youtube_transcript.core.search_engine import SearchEngine, SearchResult
 from youtube_transcript.core.transcript_fetcher import TranscriptFetcher
+from youtube_transcript.core.yt_dlp_fetcher import YtDlpFetcher
 from youtube_transcript.exceptions import (
     APIError,
     ChannelAlreadyExistsError,
@@ -80,6 +84,8 @@ __all__ = [
     "QuotaExceededError",
     "QuotaTracker",
     "QuotaUsage",
+    "SearchEngine",
+    "SearchResult",
     "StorageError",
     "TranscriptEntry",
     "TranscriptFetcher",
@@ -88,4 +94,5 @@ __all__ = [
     "TranscriptUnavailableError",
     "Video",
     "YouTubeTranscriptError",
+    "YtDlpFetcher",
 ]
