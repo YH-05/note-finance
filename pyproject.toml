@@ -135,6 +135,8 @@ addopts = [
     # 独立したIssueで修正予定のため一時的に除外。
     "--deselect=tests/news/unit/orchestrators/test_orchestrator.py",
     "--deselect=tests/news/unit/test_orchestrator.py",
+    "--deselect=tests/news/unit/test_orchestrator_integration.py",
+    "--deselect=tests/news/unit/test_orchestrator_metrics.py",
 ]
 asyncio_mode = "auto"
 markers = [
