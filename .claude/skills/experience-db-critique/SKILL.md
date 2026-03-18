@@ -289,6 +289,62 @@ overall_score:
 ================================================================================
 ```
 
+### ステップ 6: フィードバックスコア記録
+
+統合レポート生成（ステップ 4）および完了報告（ステップ 5）の**後に**、
+親スキルが `skill_run_tracer.py feedback` を呼び出してフィードバックスコアを記録する。
+
+> **注意**: このステップは4並列エージェントの統合結果が確定してから実行する。
+> 個々のエージェント実行中には呼び出さない。
+
+#### 6.1 aggregate_score の算出
+
+4エージェントのスコア（各 0-100）を 0.0-1.0 スケールに正規化し、平均を取る。
+
+```
+aggregate_score = (reality + empathy + embed + balance) / 4 / 100
+```
+
+例: reality=80, empathy=75, embed=60, balance=70 の場合
+
+```
+aggregate_score = (80 + 75 + 60 + 70) / 4 / 100 = 0.7125
+```
+
+> **注意**: 加重平均（ステップ 3.1 の overall_score）ではなく、
+> 4観点の**単純平均**を使用する。加重平均は記事品質判定用、
+> aggregate_score はスキル実行品質のトレース用と目的が異なるため。
+
+#### 6.2 フィードバックスコアの記録
+
+```bash
+python3 scripts/skill_run_tracer.py feedback \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --score "$AGGREGATE_SCORE"
+```
+
+- `$SKILL_RUN_ID`: Observability セクションの実行開始時に取得した ID
+- `$AGGREGATE_SCORE`: 6.1 で算出した値（0.0 - 1.0）
+
+#### 6.3 低スコア時の改善候補フラグ
+
+`aggregate_score < 0.6` の場合、skill-creator Amend モードの起動候補としてログに記録する。
+
+```bash
+if [ "$(echo "$AGGREGATE_SCORE < 0.6" | bc -l)" -eq 1 ]; then
+    echo "[WARN] feedback_score=${AGGREGATE_SCORE} < 0.6: skill-creator Amend モード起動候補"
+fi
+```
+
+低スコアの主な原因と対処:
+
+| aggregate_score | 解釈 | 推奨アクション |
+|-----------------|------|---------------|
+| 0.0 - 0.3 | 批評品質が著しく低い | skill-creator Amend モードで批評基準を見直し |
+| 0.3 - 0.6 | 批評品質に改善余地あり | skill-analytics で傾向を分析し改善ポイントを特定 |
+| 0.6 - 0.8 | 標準的な批評品質 | 定期モニタリングのみ |
+| 0.8 - 1.0 | 高品質な批評 | 対応不要 |
+
 ## エラーハンドリング
 
 | 状況 | 対処 |
@@ -297,6 +353,7 @@ overall_score:
 | テーマが判定できない | ユーザーに確認 |
 | エージェントがJSON以外を返した | パースを試行し、失敗なら該当観点をスキップして報告 |
 | Neo4j 接続失敗 | embed 批評の neo4j_consistency を `checked: false` にして続行 |
+| フィードバックスコア記録失敗（Neo4j 未起動） | 警告ログを出力し、スキル実行自体は成功として扱う |
 
 ## エージェント一覧
 
@@ -330,6 +387,8 @@ overall_score:
 - [ ] critique.json が記事と同じディレクトリに保存されている
 - [ ] ターミナルにマークダウンレポートが出力されている
 - [ ] 改善優先度が提示されている
+- [ ] 統合レポート生成後にフィードバックスコアが記録されている
+- [ ] aggregate_score の算出方法（4観点の単純平均 / 100）が使用されている
 
 ## Observability
 
@@ -354,6 +413,17 @@ python3 scripts/skill_run_tracer.py complete \
     --output-summary "theme=${THEME}, overall=${OVERALL_SCORE}/100, verdict=${VERDICT}, critique_json=${CRITIQUE_JSON_PATH}"
 ```
 
+### フィードバックスコア記録（ステップ 6 — complete の後）
+
+```bash
+# aggregate_score = 4観点の単純平均 / 100（0.0 - 1.0）
+AGGREGATE_SCORE=$(echo "scale=4; ($REALITY + $EMPATHY + $EMBED + $BALANCE) / 4 / 100" | bc -l)
+
+python3 scripts/skill_run_tracer.py feedback \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --score "$AGGREGATE_SCORE"
+```
+
 ### 実行完了時（エラー — 任意のステップで失敗時）
 
 ```bash
@@ -374,3 +444,4 @@ python3 scripts/skill_run_tracer.py complete \
 | agent_execution | 批評エージェント実行エラー（ステップ 2） |
 | json_parse | エージェント出力の JSON パースエラー（ステップ 3） |
 | file_operation | critique.json 保存エラー（ステップ 4） |
+| feedback_recording | フィードバックスコア記録失敗（ステップ 6、Neo4j 未起動時等） |
