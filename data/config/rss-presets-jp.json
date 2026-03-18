@@ -65,6 +65,49 @@
             "enabled": true
         },
         {
+            "url": "https://news.web.nhk.or.jp/n-data/conf/na/rss/cat5.xml",
+            "title": "NHK 経済ニュース",
+            "category": "market",
+            "fetch_interval": "daily",
+            "enabled": false,
+            "note": "2025年10月URL変更。新URLの外部アクセス可否を要検証。RSSリーダーからは取得可能な場合あり"
+        },
+        {
+            "url": "https://www.japantimes.co.jp/feed/",
+            "title": "The Japan Times",
+            "category": "market",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.jetro.go.jp/rss/biznews.xml",
+            "title": "JETRO ビジネス短信",
+            "category": "trade",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.jetro.go.jp/rss/news.xml",
+            "title": "JETRO お知らせ・記者発表",
+            "category": "trade",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.mof.go.jp/news.rss",
+            "title": "財務省 新着情報",
+            "category": "macro",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://toyokeizai.net/list/feed/rss",
+            "title": "東洋経済オンライン",
+            "category": "stock",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
             "url": "https://emaxis.jp/special/rss/index.html",
             "title": "eMAXIS レポート",
             "category": "asset_management",

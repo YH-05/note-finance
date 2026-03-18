@@ -331,6 +331,7 @@
         "claim_type": "analysis",
         "sentiment": "bullish",
         "magnitude": "moderate",
+        "source_context": "AI synthesis based on BRIDS (Feb 2026), MNC Sekuritas (Mar 2025), KB Valbury (Feb 2026). Scenario figures derived from analyst estimates, not direct quotes.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },
@@ -342,6 +343,7 @@
         "claim_type": "analysis",
         "sentiment": "bullish",
         "magnitude": "moderate",
+        "source_context": "AI synthesis based on CGS International, BRIDS (Aug/Dec 2025), MNC Sekuritas (May 2025), KB Valbury (Oct 2025). Analytical conclusion combining multiple analyst views.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },
@@ -353,6 +355,7 @@
         "claim_type": "sector_view",
         "sentiment": "bullish",
         "magnitude": "strong",
+        "source_context": "AI synthesis based on WSJ, Fortune Asia, NVIDIA Blog, Developing Telecoms. Competitive assessment assembled from multiple sources, not a single analyst view.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },
@@ -364,6 +367,7 @@
         "claim_type": "forecast",
         "sentiment": "bullish",
         "magnitude": "moderate",
+        "source_context": "AI synthesis based on UBS (Investing.com), BRIDS (Feb 2026), Infralogic. Valuation re-rating thesis assembled from multiple analyst reports.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },
@@ -375,7 +379,7 @@
         "insight_type": "analytical_finding",
         "category": "growth_driver",
         "priority": "high",
-        "source_context": "Web search compilation (WSJ, Fortune, NVIDIA Blog, Tom's Hardware, etc.)",
+        "source_context": "AI synthesis — gap assessment based on web search results from WSJ, Fortune Asia, NVIDIA Blog, Tom's Hardware, Accenture, Tanla PR, GoTo PR. Gap resolution evaluation is AI-generated, not sourced from any single document.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },
@@ -387,7 +391,7 @@
         "insight_type": "analytical_finding",
         "category": "revenue_quality",
         "priority": "high",
-        "source_context": "Web search compilation (BRIDS, KB Valbury, CGS International, MNC Sekuritas, etc.)",
+        "source_context": "AI synthesis — gap assessment based on web search results from BRIDS (Aug/Dec 2025), KB Valbury (Oct 2025), CGS International, MNC Sekuritas (May 2025), Tech in Asia. Gap resolution evaluation is AI-generated.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },
@@ -399,7 +403,7 @@
         "insight_type": "information_gap",
         "category": "catalyst",
         "priority": "medium",
-        "source_context": "Web search compilation (Forbes, Infralogic, UBS, BRIDS, etc.)",
+        "source_context": "AI synthesis — gap assessment based on web search results from Forbes, Infralogic, UBS (Investing.com), BRIDS (Feb 2026), Seeking Alpha Q4 transcript. Gap resolution evaluation is AI-generated.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },
@@ -411,7 +415,7 @@
         "insight_type": "risk_flag",
         "category": "regulatory",
         "priority": "medium",
-        "source_context": "Web search compilation (MNC Sekuritas, BRIDS, GSMA, World Bank, etc.)",
+        "source_context": "AI synthesis — gap assessment based on web search results from MNC Sekuritas (Mar 2025), BRIDS (Feb 2026), GSMA, World Bank (Dec 2025), NERA (2026). Gap resolution evaluation is AI-generated.",
         "created_at": "2026-03-18T15:00:00+09:00"
       }
     },

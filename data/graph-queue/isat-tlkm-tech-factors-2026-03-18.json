@@ -1,0 +1,735 @@
+{
+  "metadata": {
+    "command": "manual-research",
+    "created_at": "2026-03-18T17:30:00+09:00",
+    "description": "ISAT/TLKM technology factors impacting business: AI/GPUaaS, AI-RAN, 5G, FibreCo, satellite, digital services"
+  },
+  "nodes": [
+    {
+      "label": "Source",
+      "properties": {
+        "source_id": "isat-tlkm-tech-factors-20260318",
+        "title": "ISAT/TLKM Technology Factors Research (Neo4j + Web Search Compilation)",
+        "url": null,
+        "source_type": "web",
+        "authority_level": "analyst",
+        "command_source": "manual-research",
+        "publisher": "Multiple (Telecom Review Asia, DataCenter Dynamics, Ericsson, Developing Telecoms, TecKnexus, trade.gov, Mordor Intelligence)",
+        "fetched_at": "2026-03-18T17:30:00+09:00",
+        "language": "en"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-nokia",
+        "name": "Nokia",
+        "entity_type": "company",
+        "entity_key": "Nokia::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-ericsson",
+        "name": "Ericsson",
+        "entity_type": "company",
+        "entity_key": "Ericsson::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-cisco",
+        "name": "Cisco",
+        "entity_type": "company",
+        "entity_key": "Cisco::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-spacex",
+        "name": "SpaceX",
+        "entity_type": "company",
+        "entity_key": "SpaceX::company",
+        "aliases": ["Starlink"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-safaricom",
+        "name": "Safaricom",
+        "entity_type": "company",
+        "entity_key": "Safaricom::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-aalto",
+        "name": "AALTO",
+        "entity_type": "company",
+        "entity_key": "AALTO::company",
+        "aliases": ["AALTO HAPS"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-neutradc",
+        "name": "NeutraDC",
+        "entity_type": "company",
+        "entity_key": "NeutraDC::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-infranexia",
+        "name": "Infranexia",
+        "entity_type": "company",
+        "entity_key": "Infranexia::company",
+        "aliases": ["TIF", "Telkom Infrastruktur Indonesia", "Telkom Infrastructure"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-nxera",
+        "name": "Nxera",
+        "entity_type": "company",
+        "entity_key": "Nxera::company",
+        "aliases": ["Singtel DC subsidiary"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-amazon-kuiper",
+        "name": "Amazon Kuiper",
+        "entity_type": "company",
+        "entity_key": "Amazon Kuiper::company",
+        "aliases": ["Project Kuiper"]
+      }
+    },
+    {
+      "label": "Topic",
+      "properties": {
+        "topic_id": "topic-indo-telco-tech-factors",
+        "name": "Indonesia Telco Technology Factors",
+        "topic_key": "Indonesia Telco Technology Factors::sector_analysis",
+        "description": "Key technology factors impacting ISAT and TLKM business: AI/GPUaaS, AI-RAN, 5G spectrum, FibreCo separation, satellite competition, digital services",
+        "category": "sector_analysis"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-ai-ran-surabaya",
+        "content": "Indosat opened AI-RAN Research Center in Surabaya in collaboration with Nokia and NVIDIA. Demonstrated AI-RAN technology at MWC 2026. Combines 5G networks, accelerated computing, and AI. Theme: 'AI made by Indonesians for Indonesians'. AI Grid connects central AI Factory with AI-RAN hubs across 55,000 edge locations nationwide.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-hifi-air-fwa",
+        "content": "Indosat launched FWA (Fixed Wireless Access) under 'HiFi Air' brand. Available in 24 cities with 5G services. Approximately 400,000 HBB (Home Broadband) customers as of end-2025.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-ericsson-bss",
+        "content": "Indosat partnered with Ericsson for BSS transformation: Digital Monetization Platform (DMP), cloud-native application development, automated business service management. Exploring Gen AI/ML for revenue uplift and time-to-market improvement.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-safaricom-collab",
+        "content": "Indosat and Safaricom (Kenya) announced collaboration to pool AI and fintech capabilities for better customer experience.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-tlkm-neutradc-sale",
+        "content": "Telkom Indonesia considering selling majority stake in NeutraDC data center subsidiary. Valuation estimated at $1.0-1.5B (Bloomberg). NeutraDC operates 30 domestic + 5 overseas = 35 data centers, IT load capacity 44MW+, average utilization ~77%. DC & cloud segment revenue declined 6.6% YoY in 3Q25 despite high utilization, suggesting competitive pricing pressure.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-tlkm-nxera-batam-dc",
+        "content": "Telkom and Singtel's Nxera jointly building AI-ready hyperscale data center in Batam. Targeted for Q3 2025 operations.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-tlkm-ai-coe",
+        "content": "Telkom AI Centre of Excellence officially launched in Bali (September 2025). Four pillars: AI Campus (university collaboration), AI Playground (R&D space), AI Connect (practitioner/startup/enterprise harmonization), AI Hub (industrial solutions development).",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-tlkm-infranexia-spinoff-progress",
+        "content": "Infranexia (TIF) spinoff progress: Phase 1 completed Q4 2025 (50%+ of fiber assets/business transferred). Phase 2 targeted H2 2026 (remaining fiber assets). Estimated digital infrastructure assets IDR 100-150T (~$10B). TIF to become neutral fiber provider enabling partnerships with other carriers and global OTT players.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-tlkm-strategic-holding",
+        "content": "Telkom transitioning from operational holding to strategic holding structure. Four independent units: TIF/Infranexia (fiber), Mitratel (towers), Telkomsel (mobile), DigiCo (digital). Subsidiary reduction from ~55 to ~22 over 3-4 years. Annual CapEx/OpEx savings target IDR 6T.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-tsel-sa-5g-batam",
+        "content": "Telkomsel deployed SA 5G private network at PT Pegaunihan Technology Indonesia smart factory in Batam. 1,200 SIM cards for IoT device integration. 5G expanded in Batam to Harbour Bay, Nagoya, Batam Center, Engku Putri, Hang Nadim Airport with ~112 BTS. Over 3,000 5G base stations across 56 cities as of mid-2025.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-indo-ai-market-size",
+        "content": "Indonesia AI market valued at $2.4B in 2025, projected to reach $10.88B by 2030 (CAGR 28.65%). 92% of Indonesian enterprises have adopted AI. Key foreign investments: NVIDIA $200M AI center (with Indosat), Microsoft $1.7B cloud/AI, Google Cloud multi-year partnership with Telkom.",
+        "fact_type": "statistic",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-indo-dc-market-growth",
+        "content": "Indonesia data center market expected to double to $6.08B by 2031. NeutraDC and F5 partnership to develop AI-based connectivity. Competition intensifying with hyperscaler direct investments (Microsoft, Google, AWS).",
+        "fact_type": "statistic",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-starlink-indonesia-d2c",
+        "content": "Starlink already operational in Indonesia. SpaceX Direct-to-Cell (D2C) service reached 22 countries with 6M+ monthly users by end-2025. Deloitte estimates 15,000-18,000 LEO satellites connecting 15M+ global subscribers by end-2026. Amazon Kuiper and Chinese satellite providers also launching aggressively.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-mitratel-aalto-haps",
+        "content": "Mitratel (Telkom subsidiary) and AALTO recommitted to HAPS (High Altitude Platform Station) project in Indonesia. Part of multi-layer coverage strategy combining existing tower infrastructure + satellite + HAPS.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-indo-private-5g-market",
+        "content": "Private LTE and 5G networks forecast to reach $7.4B globally by 2027. Indonesian carriers targeting dedicated network slices for factories, oil rigs, mining automation, smart ports, and logistics corridors in Sulawesi and Kalimantan. Edge data centers in Balikpapan and Makassar reduce backhaul needs.",
+        "fact_type": "statistic",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-indo-nusantara-capital",
+        "content": "New capital Nusantara relocation accelerating fiber trenching and tower builds around Balikpapan/Makassar. Government incentives extending 5G pilots to new economic clusters by 2026. Edge DC demand growing for oil rigs, plantations, and remote surveillance.",
+        "fact_type": "event",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-isat-ai-ran-competitive-gap",
+        "content": "AI-RAN technology (Nokia/NVIDIA JV) gives Indosat a widening technology gap over Telkom/Telkomsel, which has no equivalent AI-integrated RAN initiative. AI-RAN enables both network OpEx optimization and new edge AI revenue streams (smart farming, AI diagnostics, personalized education).",
+        "claim_type": "sector_view",
+        "sentiment": "bullish",
+        "magnitude": "moderate",
+        "source_context": "AI synthesis based on DataCenter Dynamics, Telecom Review Asia, Intimedia MWC 2026 coverage. Competitive gap assessment is AI-generated, not sourced from a single analyst.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-tlkm-neutradc-timing-risk",
+        "content": "NeutraDC majority stake sale ($1.0-1.5B valuation) faces timing tension: AI-driven demand growth supports higher future valuation, but DC&cloud revenue declined 6.6% YoY in 3Q25 due to competitive pricing pressure from hyperscaler direct investments (Microsoft $1.7B, Google Cloud). Delay risks lower valuation if hyperscaler competition intensifies.",
+        "claim_type": "risk_assessment",
+        "sentiment": "neutral",
+        "magnitude": "moderate",
+        "source_context": "AI synthesis based on Bloomberg, trade.gov, Mordor Intelligence. Timing risk assessment is AI-generated.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-satellite-low-end-disruption",
+        "content": "Starlink D2C and LEO satellite expansion pose low-end market disruption risk for both ISAT (HiFi Air FWA, 400K HBB customers) and TLKM (IndiHome rural coverage). Direct impact on urban mainstream is limited, but rural/island FWA substitution risk is material. Mitratel's HAPS project with AALTO is a complementary defense strategy.",
+        "claim_type": "risk_assessment",
+        "sentiment": "bearish",
+        "magnitude": "moderate",
+        "source_context": "AI synthesis based on Developing Telecoms, Deloitte satellite projections, Mordor Intelligence. Risk assessment is AI-generated.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-tlkm-strategic-holding-value",
+        "content": "Telkom's transition to strategic holding (TIF/Mitratel/Telkomsel/DigiCo) could unlock significant value through separate listings or stake sales. Infranexia assets IDR 100-150T, NeutraDC $1-1.5B, Mitratel already listed. However, Danantara (government SOE holding) governance risk and execution complexity of reducing subsidiaries from 55 to 22 remain key concerns.",
+        "claim_type": "analysis",
+        "sentiment": "bullish",
+        "magnitude": "moderate",
+        "source_context": "AI synthesis based on CLSA SOTP valuation, analyst views, Bloomberg NeutraDC reporting. Value unlock thesis is AI-generated.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-hyperscaler-gpuaas-competition",
+        "content": "Microsoft ($1.7B), Google Cloud, and AWS direct investments in Indonesia AI/cloud infrastructure could compete with ISAT's GPUaaS and TLKM's NeutraDC. However, sovereign AI/data residency requirements and NVIDIA NCP exclusivity provide ISAT with a regulatory moat. Telcos may evolve to complement rather than compete with hyperscalers through edge computing and last-mile integration.",
+        "claim_type": "sector_view",
+        "sentiment": "neutral",
+        "magnitude": "moderate",
+        "source_context": "AI synthesis based on trade.gov, Telecom Review Asia sovereign AI coverage. Competitive dynamics assessment is AI-generated.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Insight",
+      "properties": {
+        "insight_id": "insight-isat-tlkm-tech-divergence",
+        "content": "ISATとTLKMの技術戦略が明確に分岐。ISATはAI TechCo路線（GPUaaS先行者利益、AI-RAN、AI Grid、ソブリンAI）に全面投資。TLKMはインフラ資産分離・バリューアンロック路線（Infranexia、NeutraDC売却、ストラテジックホールディング化）。AI市場$2.4B→$10.9B（CAGR 29%）の成長環境下で、ISATは収益化スピード、TLKMは実行リスク（子会社55→22社統合）が各社の最大課題。",
+        "insight_type": "analytical_finding",
+        "category": "competitive_dynamics",
+        "priority": "high",
+        "source_context": "AI synthesis — comparative technology strategy assessment based on multiple web search results and Neo4j existing data. Assessment is AI-generated.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Insight",
+      "properties": {
+        "insight_id": "insight-satellite-threat-assessment",
+        "content": "衛星通信脅威の評価: Starlinkはインドネシアでサービス開始済み、D2Cは22カ国600万ユーザー。2026年末にはLEO衛星15,000-18,000基。都市部への直接影響は限定的だが、農村・離島部でのFWA代替リスクが中期的に存在。ISATのHiFi Air（40万HBB顧客）とTLKMのIndiHome農村展開が影響を受ける可能性。MitratelのHAPSは防御策だが商用化時期は不透明。",
+        "insight_type": "risk_flag",
+        "category": "competitive_threat",
+        "priority": "medium",
+        "source_context": "AI synthesis — satellite threat assessment based on Developing Telecoms, Deloitte, Mordor Intelligence. Assessment is AI-generated.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    },
+    {
+      "label": "Insight",
+      "properties": {
+        "insight_id": "insight-indo-ai-infra-boom",
+        "content": "インドネシアAIインフラ投資ブームが通信セクターに構造変化をもたらす。AI市場$2.4B→$10.9B（2030年、CAGR 29%）。NVIDIA $200M + Microsoft $1.7B + Google Cloud等の外資大型投資が流入。通信キャリアの役割が「接続提供者」から「AIインフラ/コンピュートプロバイダー」へシフト。ISATはNVIDIA NCP唯一の地位で先行、TLKMはNeutraDC/ハイパースケールDCで対抗するが、ハイパースケーラー直接投資との競合リスクも存在。",
+        "insight_type": "analytical_finding",
+        "category": "growth_driver",
+        "priority": "high",
+        "source_context": "AI synthesis — market sizing from Mordor Intelligence, investment data from trade.gov, competitive dynamics from Telecom Review Asia. Assessment is AI-generated.",
+        "created_at": "2026-03-18T17:30:00+09:00"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ai-ran-surabaya"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ai-ran-surabaya"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Nokia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ai-ran-surabaya"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Nvidia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-hifi-air-fwa"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ericsson-bss"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ericsson-bss"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Ericsson::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-safaricom-collab"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-safaricom-collab"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Safaricom::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-neutradc-sale"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-neutradc-sale"}},
+      "to": {"label": "Entity", "match": {"entity_key": "NeutraDC::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-nxera-batam-dc"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-nxera-batam-dc"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Nxera::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-nxera-batam-dc"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Singtel::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-ai-coe"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-infranexia-spinoff-progress"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-infranexia-spinoff-progress"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Infranexia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-strategic-holding"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-strategic-holding"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Mitratel::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tsel-sa-5g-batam"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkomsel::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-ai-market-size"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-ai-market-size"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Nvidia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-ai-market-size"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Microsoft::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-ai-market-size"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Google::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-dc-market-growth"}},
+      "to": {"label": "Entity", "match": {"entity_key": "NeutraDC::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-starlink-indonesia-d2c"}},
+      "to": {"label": "Entity", "match": {"entity_key": "SpaceX::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-starlink-indonesia-d2c"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Amazon Kuiper::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-mitratel-aalto-haps"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Mitratel::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-mitratel-aalto-haps"}},
+      "to": {"label": "Entity", "match": {"entity_key": "AALTO::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-private-5g-market"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkomsel::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-nusantara-capital"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Komdigi::organization"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-ai-ran-competitive-gap"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-ai-ran-competitive-gap"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-tlkm-neutradc-timing-risk"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-tlkm-neutradc-timing-risk"}},
+      "to": {"label": "Entity", "match": {"entity_key": "NeutraDC::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-satellite-low-end-disruption"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-satellite-low-end-disruption"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-satellite-low-end-disruption"}},
+      "to": {"label": "Entity", "match": {"entity_key": "SpaceX::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-tlkm-strategic-holding-value"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-tlkm-strategic-holding-value"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Infranexia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-hyperscaler-gpuaas-competition"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-hyperscaler-gpuaas-competition"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-hyperscaler-gpuaas-competition"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Microsoft::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-isat-tlkm-tech-divergence"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-isat-tlkm-tech-divergence"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-satellite-threat-assessment"}},
+      "to": {"label": "Entity", "match": {"entity_key": "SpaceX::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-satellite-threat-assessment"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-satellite-threat-assessment"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-indo-ai-infra-boom"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-indo-ai-infra-boom"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkom Indonesia::company"}}
+    },
+    {
+      "type": "TAGGED_WITH",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-isat-tlkm-tech-divergence"}},
+      "to": {"label": "Topic", "match": {"topic_key": "Indonesia Telco Technology Factors::sector_analysis"}}
+    },
+    {
+      "type": "TAGGED_WITH",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-satellite-threat-assessment"}},
+      "to": {"label": "Topic", "match": {"topic_key": "Indonesia Telco Technology Factors::sector_analysis"}}
+    },
+    {
+      "type": "TAGGED_WITH",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-indo-ai-infra-boom"}},
+      "to": {"label": "Topic", "match": {"topic_key": "Indonesia Telco Technology Factors::sector_analysis"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ai-ran-surabaya"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-hifi-air-fwa"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ericsson-bss"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-safaricom-collab"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-neutradc-sale"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-nxera-batam-dc"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-ai-coe"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-infranexia-spinoff-progress"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tlkm-strategic-holding"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-tsel-sa-5g-batam"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-ai-market-size"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-dc-market-growth"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-starlink-indonesia-d2c"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-mitratel-aalto-haps"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-private-5g-market"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-nusantara-capital"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-ai-ran-competitive-gap"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-tlkm-neutradc-timing-risk"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-satellite-low-end-disruption"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-tlkm-strategic-holding-value"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-hyperscaler-gpuaas-competition"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-tlkm-tech-factors-20260318"}}
+    }
+  ]
+}
