@@ -24,6 +24,9 @@ Exceptions:
 Services:
     ChannelManager
     Collector
+    KgExporter
+    NlmPipeline
+    Scheduler
 
 Core:
     ChannelFetcher
