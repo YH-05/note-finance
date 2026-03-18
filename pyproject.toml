@@ -60,6 +60,7 @@ collect-finance-news = "automation.news_collector:main"
 finance-news = "news.scripts.finance_news_workflow:main"
 report-scraper = "report_scraper.cli.main:cli"
 pdf-pipeline = "pdf_pipeline.cli.main:cli"
+yt-transcript = "youtube_transcript.cli.main:cli"
 
 [build-system]
 requires = ["hatchling"]
