@@ -68,6 +68,14 @@ def _collect_reuters_jp(config: ScraperConfig) -> list[Article]:
     return _collect(config=config)
 
 
+def _collect_minkabu(config: ScraperConfig) -> list[Article]:
+    from news_scraper.minkabu import (  # pyright: ignore[reportMissingImports]
+        collect_news as _collect,
+    )
+
+    return _collect(config=config)
+
+
 # Registry maps source names to collector functions.
 # Add new sources here without modifying collect_financial_news().
 SOURCE_REGISTRY: dict[SourceName, Callable[[ScraperConfig], list[Article]]] = {
@@ -76,6 +84,7 @@ SOURCE_REGISTRY: dict[SourceName, Callable[[ScraperConfig], list[Article]]] = {
     "nasdaq": _collect_nasdaq,
     "kabutan": _collect_kabutan,
     "reuters_jp": _collect_reuters_jp,
+    "minkabu": _collect_minkabu,
 }
 
 

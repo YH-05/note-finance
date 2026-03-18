@@ -278,6 +278,32 @@ class TestCollectFinancialNews:
         assert len(df) == 1
         assert df.articles[0].source == "jetro"
 
+    def test_正常系_minkabuソースのみで収集できる(self) -> None:
+        """collect_financial_news with minkabu source only."""
+        from unittest.mock import MagicMock
+
+        import news_scraper.unified as unified_module
+
+        minkabu_articles = [
+            _make_article(
+                title="Minkabu Article",
+                url="https://minkabu.jp/1",
+                source="minkabu",
+            ),
+        ]
+        mock_collector = MagicMock(return_value=minkabu_articles)
+        original = unified_module.SOURCE_REGISTRY.get("minkabu")
+        try:
+            unified_module.SOURCE_REGISTRY["minkabu"] = mock_collector  # type: ignore[assignment]
+            df = collect_financial_news(sources=["minkabu"])
+            mock_collector.assert_called_once()
+        finally:
+            if original is not None:
+                unified_module.SOURCE_REGISTRY["minkabu"] = original  # type: ignore[assignment]
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        assert df.articles[0].source == "minkabu"
+
     def test_正常系_デフォルトソースにjetroが含まれない(self) -> None:
         """collect_financial_news default sources do NOT include jetro."""
         with (
@@ -297,9 +323,15 @@ class TestSourceRegistry:
         """SOURCE_REGISTRY contains jetro entry."""
         assert "jetro" in SOURCE_REGISTRY
 
+    def test_正常系_minkabuがSOURCE_REGISTRYに登録されている(self) -> None:
+        """minkabu is registered in SOURCE_REGISTRY."""
+        from news_scraper.unified import SOURCE_REGISTRY
+
+        assert "minkabu" in SOURCE_REGISTRY
+
     def test_正常系_全ソースがSOURCE_REGISTRYに登録されている(self) -> None:
         """SOURCE_REGISTRY contains all expected sources."""
-        expected_sources = {"cnbc", "jetro", "nasdaq"}
+        expected_sources = {"cnbc", "jetro", "kabutan", "minkabu", "nasdaq", "reuters_jp"}
         assert set(SOURCE_REGISTRY.keys()) == expected_sources
 
     def test_正常系_jetroコレクターがcallableである(self) -> None:
