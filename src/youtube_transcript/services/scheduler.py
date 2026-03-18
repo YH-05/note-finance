@@ -263,4 +263,7 @@ def run_scheduler(data_dir: Path) -> None:
     """
     logger.info("run_scheduler called", data_dir=str(data_dir))
     scheduler = Scheduler(data_dir=data_dir)
-    scheduler.start()
+    try:
+        scheduler.start()
+    except KeyboardInterrupt:
+        logger.info("run_scheduler: Interrupted by user")
