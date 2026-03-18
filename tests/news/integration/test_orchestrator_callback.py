@@ -156,8 +156,10 @@ class TestSilentCallbackIntegration:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[summarized])
@@ -315,8 +317,10 @@ class TestCustomCallbackIntegration:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[summarized])
@@ -395,8 +399,10 @@ class TestCustomCallbackIntegration:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[summarized])

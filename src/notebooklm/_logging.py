@@ -12,7 +12,7 @@ _initialized = False
 
 def _ensure_basic_config() -> None:
     """get_logger 呼び出し前に最小限のロギング設定を確保する."""
-    global _initialized
+    global _initialized  # noqa: PLW0603
     if _initialized:
         return
     _initialized = True

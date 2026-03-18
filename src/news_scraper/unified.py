@@ -43,6 +43,13 @@ def _collect_cnbc(config: ScraperConfig) -> list[Article]:
     return _collect(config=config)
 
 
+def _collect_jetro(config: ScraperConfig) -> list[Article]:
+    # AIDEV-NOTE: Lazy import to decouple from optional playwright dependency at load time.
+    from news_scraper.jetro import collect_news as _collect
+
+    return _collect(config=config)
+
+
 def _collect_nasdaq(config: ScraperConfig) -> list[Article]:
     from news_scraper.nasdaq import collect_news as _collect
 
@@ -53,6 +60,7 @@ def _collect_nasdaq(config: ScraperConfig) -> list[Article]:
 # Add new sources here without modifying collect_financial_news().
 SOURCE_REGISTRY: dict[SourceName, Callable[[ScraperConfig], list[Article]]] = {
     "cnbc": _collect_cnbc,
+    "jetro": _collect_jetro,
     "nasdaq": _collect_nasdaq,
 }
 

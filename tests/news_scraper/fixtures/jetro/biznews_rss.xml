@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>JETRO ビジネス短信</title>
+    <link>https://www.jetro.go.jp/biznews/</link>
+    <description>JETRO ビジネス短信 RSS</description>
+    <language>ja</language>
+    <item>
+      <title>米国の対中追加関税、半導体分野に影響拡大</title>
+      <link>https://www.jetro.go.jp/biznews/2026/03/abc123.html</link>
+      <description>米通商代表部（USTR）は3月17日、中国からの輸入品に対する追加関税措置について発表した。半導体関連製品の関税率が25%に引き上げられる。</description>
+      <pubDate>Mon, 17 Mar 2026 09:00:00 +0900</pubDate>
+      <category>ビジネス短信</category>
+    </item>
+    <item>
+      <title>EU、デジタルサービス法の施行状況を公表</title>
+      <link>https://www.jetro.go.jp/biznews/2026/03/def456.html</link>
+      <description>欧州委員会は3月16日、デジタルサービス法（DSA）の施行状況に関する報告書を公表した。</description>
+      <pubDate>Sun, 16 Mar 2026 10:30:00 +0900</pubDate>
+      <category>ビジネス短信</category>
+    </item>
+    <item>
+      <title>インド政府、EV産業振興策を発表</title>
+      <link>https://www.jetro.go.jp/biznews/2026/03/ghi789.html</link>
+      <description>インド政府は電気自動車（EV）産業の振興に向けた新たな政策パッケージを発表した。2030年までにEV販売比率30%を目標とする。</description>
+      <pubDate>Sat, 15 Mar 2026 08:00:00 +0900</pubDate>
+      <category>ビジネス短信</category>
+    </item>
+  </channel>
+</rss>

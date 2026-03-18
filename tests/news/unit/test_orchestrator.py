@@ -135,6 +135,8 @@ class TestEarlyDuplicateCheck:
 
             # Setup extractor
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -143,7 +145,7 @@ class TestEarlyDuplicateCheck:
                     extraction_method="trafilatura",
                 )
             )
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             # Setup summarizer (returns empty to simplify test)
             mock_summarizer = MagicMock()
@@ -215,8 +217,10 @@ class TestEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock()
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer_cls.return_value = mock_summarizer
@@ -308,6 +312,8 @@ class TestEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -316,7 +322,7 @@ class TestEarlyDuplicateCheck:
                     extraction_method="trafilatura",
                 )
             )
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[])

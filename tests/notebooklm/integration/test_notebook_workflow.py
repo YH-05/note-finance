@@ -351,6 +351,7 @@ class TestLifespanIntegration:
     ) -> None:
         """lifespan から browser_manager 取得 -> サービス初期化の連携を検証。"""
         from notebooklm.mcp.server import notebooklm_lifespan
+
         from notebooklm.services.notebook import NotebookService
         from notebooklm.services.source import SourceService
 

@@ -243,8 +243,10 @@ class TestNewsWorkflowOrchestrator:
                 create_extracted_article(a) for a in sample_collected_articles
             ]
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted_articles)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             # Setup summarizer mock - summarize all articles successfully
             # Create summarized articles for each extracted article
@@ -312,8 +314,10 @@ class TestNewsWorkflowOrchestrator:
 
             # Extractor returns success for each article
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=create_extracted_article)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[])
@@ -355,8 +359,10 @@ class TestNewsWorkflowOrchestrator:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=create_extracted_article)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[])
@@ -400,8 +406,10 @@ class TestNewsWorkflowOrchestrator:
 
             extracted = create_extracted_article(sample_collected_articles[0])
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             summarized = create_summarized_article(extracted)
             mock_summarizer = MagicMock()
@@ -497,8 +505,10 @@ class TestNewsWorkflowOrchestrator:
 
             extracted = [create_extracted_article(a) for a in articles]
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             summarized = [create_summarized_article(e) for e in extracted]
             mock_summarizer = MagicMock()
@@ -554,10 +564,12 @@ class TestNewsWorkflowOrchestrator:
             extracted_fail = create_extracted_article(articles[1], success=False)
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=[extracted_success, extracted_fail]
             )
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             # Only the successful extraction is summarized
             summarized = create_summarized_article(extracted_success)
@@ -607,8 +619,10 @@ class TestNewsWorkflowOrchestrator:
 
             extracted = [create_extracted_article(a) for a in articles]
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             # First summarization succeeds, second fails
             summarized_success = create_summarized_article(extracted[0], success=True)
@@ -876,8 +890,10 @@ class TestStatusFilteringIntegration:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=create_extracted_article)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[])
@@ -917,7 +933,9 @@ class TestStatusFilteringIntegration:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             mock_summarizer = MagicMock()
             mock_summarizer.summarize_batch = AsyncMock(return_value=[])
@@ -971,8 +989,10 @@ class TestDuplicateHandlingIntegration:
 
             extracted = create_extracted_article(collected)
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(return_value=extracted)
-            mock_extractor_cls.return_value = mock_extractor
+            mock_extractor_cls.from_config.return_value = mock_extractor
 
             summarized = create_summarized_article(extracted)
             mock_summarizer = MagicMock()

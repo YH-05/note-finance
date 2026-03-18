@@ -8,7 +8,11 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from news_scraper.types import Article, ScraperConfig
-from news_scraper.unified import NewsDataFrame, collect_financial_news
+from news_scraper.unified import (
+    SOURCE_REGISTRY,
+    NewsDataFrame,
+    collect_financial_news,
+)
 
 
 def _make_article(
@@ -99,11 +103,10 @@ class TestNewsDataFrame:
 class TestCollectFinancialNews:
     """Tests for collect_financial_news function."""
 
-    @patch("news_scraper.unified.collect_financial_news")
-    def test_正常系_NewsDataFrameを返す(self, mock_collect: MagicMock) -> None:
+    def test_正常系_NewsDataFrameを返す(self) -> None:
         """collect_financial_news returns NewsDataFrame."""
-        mock_collect.return_value = NewsDataFrame([])
-        result = mock_collect(sources=["cnbc"])
+        with patch("news_scraper.cnbc.collect_news", return_value=[]):
+            result = collect_financial_news(sources=["cnbc"])
         assert isinstance(result, NewsDataFrame)
 
     def test_正常系_空ソースリストで空結果を返す(self) -> None:
@@ -232,3 +235,49 @@ class TestCollectFinancialNews:
             )
             if passed_config is not None:
                 assert isinstance(passed_config, ScraperConfig)
+
+    def test_正常系_jetroソースのみで収集できる(self) -> None:
+        """collect_financial_news with jetro source only."""
+        jetro_articles = [
+            _make_article(
+                title="JETRO Article",
+                url="https://www.jetro.go.jp/biznews/2026/03/test.html",
+                source="jetro",
+            ),
+        ]
+        with patch.dict(
+            "news_scraper.unified.SOURCE_REGISTRY",
+            {"jetro": lambda config: jetro_articles},
+        ):
+            df = collect_financial_news(sources=["jetro"])
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        assert df.articles[0].source == "jetro"
+
+    def test_正常系_デフォルトソースにjetroが含まれない(self) -> None:
+        """collect_financial_news default sources do NOT include jetro."""
+        with (
+            patch("news_scraper.cnbc.collect_news", return_value=[]) as mock_cnbc,
+            patch("news_scraper.nasdaq.collect_news", return_value=[]) as mock_nasdaq,
+        ):
+            collect_financial_news()  # No sources specified
+            mock_cnbc.assert_called_once()
+            mock_nasdaq.assert_called_once()
+        # jetro should NOT be called by default
+
+
+class TestSourceRegistry:
+    """Tests for SOURCE_REGISTRY configuration."""
+
+    def test_正常系_jetroがSOURCE_REGISTRYに登録されている(self) -> None:
+        """SOURCE_REGISTRY contains jetro entry."""
+        assert "jetro" in SOURCE_REGISTRY
+
+    def test_正常系_全ソースがSOURCE_REGISTRYに登録されている(self) -> None:
+        """SOURCE_REGISTRY contains all expected sources."""
+        expected_sources = {"cnbc", "jetro", "nasdaq"}
+        assert set(SOURCE_REGISTRY.keys()) == expected_sources
+
+    def test_正常系_jetroコレクターがcallableである(self) -> None:
+        """SOURCE_REGISTRY jetro entry is callable."""
+        assert callable(SOURCE_REGISTRY["jetro"])
