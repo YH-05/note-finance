@@ -599,3 +599,46 @@ MERGE (c)-[:ABOUT]->(e)
 - 4フェーズ構成（キュー検出 → ノード投入 → リレーション投入 → 完了処理）
 - MERGE ベース冪等投入
 - --source, --dry-run, --file, --keep パラメータ対応
+
+## Observability
+
+スキル実行のトレースを `scripts/skill_run_tracer.py` で記録する。
+Neo4j 未起動時はグレースフルデグラデーションにより合成 ID を返し、スキル実行をブロックしない。
+
+### 実行開始時（Phase 1 の前）
+
+```bash
+SKILL_RUN_ID=$(python3 scripts/skill_run_tracer.py start \
+    --skill-name save-to-graph \
+    --command-source "/save-to-graph" \
+    --input-summary "Processing ${FILE_COUNT} graph-queue files")
+```
+
+### 実行完了時（成功 — Phase 4 完了後）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status success \
+    --output-summary "${NODE_COUNT} nodes, ${REL_COUNT} relations merged from ${FILE_COUNT} files"
+```
+
+### 実行完了時（エラー — 任意の Phase で失敗時）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status failure \
+    --error-message "Phase ${PHASE}: ${ERROR_MSG}" \
+    --error-type "${ERROR_TYPE}"
+```
+
+`error_type` の分類:
+
+| error_type | 説明 |
+|------------|------|
+| neo4j_connection | Neo4j 接続失敗（E001） |
+| queue_not_found | graph-queue ディレクトリ未検出（E002） |
+| schema_validation | JSON スキーマ検証エラー（E003） |
+| cypher_execution | Cypher 実行エラー（E004） |
+| file_operation | ファイル削除/移動エラー（E005） |
