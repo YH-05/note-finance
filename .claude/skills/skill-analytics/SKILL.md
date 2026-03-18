@@ -162,6 +162,7 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 | リソース | パス |
 |---------|------|
 | クエリ集 | `.claude/skills/skill-analytics/queries.md` |
+| 評価ループガイド | `.claude/skills/skill-analytics/evaluation-guide.md` |
 | SkillRun トレーサー | `scripts/skill_run_tracer.py` |
 | スキーママイグレーション | `scripts/migrate_skill_run_schema.py` |
 | Neo4j 制約・インデックス | `docker/research-neo4j/init/01-constraints-indexes.cypher` |
