@@ -29,7 +29,7 @@ def _make_entry(data: dict) -> MagicMock:
     ``entry.get(k, default)`` work correctly.
     """
     entry = MagicMock()
-    entry.get = lambda *args: data.get(*args)
+    entry.get = data.get
     return entry
 
 
