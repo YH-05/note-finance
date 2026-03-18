@@ -7,6 +7,9 @@
 #   - Schema changes should be made here first, then applied to Neo4j
 #
 # Changelog:
+#   v2.3 (2026-03-18): Source authority classification & DB consolidation
+#     - Added: Source.authority_level (official/analyst/media/blog/social/academic)
+#     - Consolidated: article-neo4j merged into research-neo4j
 #   v2.2 (2026-03-17): Schema hygiene — added operational properties, expanded Source.source_type/Topic.category
 #     - Added: Source.command_source, Source.domain (operational tracking)
 #     - Added: Entity.entity_key, Topic.topic_key (MERGE composite keys)
@@ -56,6 +59,12 @@ nodes:
         enum: [web, news, pdf, original, blog]
         indexed: true
         description: "web=website, news=news article, pdf=report PDF, original=self-authored, blog=wealth/finance blog"
+      authority_level:
+        type: string
+        required: true
+        enum: [official, analyst, media, blog, social, academic]
+        indexed: true
+        description: "Source authority classification — official=企業IR/SEC/中銀, analyst=セルサイド/格付け, media=報道機関, blog=個人メディア/Seeking Alpha, social=Reddit/X, academic=学術論文"
       command_source:
         type: string
         indexed: true

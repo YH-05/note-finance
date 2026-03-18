@@ -147,19 +147,19 @@ echo '{"session_id":"...","generated_at":"...","count":5,"top_topic":"...","top_
 
 `selected_topics` は `/new-finance-article` でトピック採用時に更新される。
 
-#### 5.3 article-neo4j への保存
+#### 5.3 research-neo4j への保存
 
-提案結果を article-neo4j（bolt://localhost:7689）に保存する。
+提案結果を research-neo4j（bolt://localhost:7688）に保存する。
 データモデルの詳細は `references/neo4j-mapping.md` を参照。
 
 **前提条件チェック**:
 
 ```bash
-docker inspect article-neo4j --format='{{.State.Status}}' 2>/dev/null
+docker inspect research-neo4j --format='{{.State.Status}}' 2>/dev/null
 ```
 
 - `running` → 保存処理を続行
-- それ以外 → 「article-neo4j が起動していないため Neo4j 保存をスキップしました」と警告し、Phase 5.3 をスキップ（Phase 5.1-5.2 のファイル保存は完了済みなのでデータは失われない）
+- それ以外 → 「research-neo4j が起動していないため Neo4j 保存をスキップしました」と警告し、Phase 5.3 をスキップ（Phase 5.1-5.2 のファイル保存は完了済みなのでデータは失われない）
 
 **保存対象ノード**:
 
@@ -186,7 +186,7 @@ docker inspect article-neo4j --format='{{.State.Status}}' 2>/dev/null
 1. `references/neo4j-mapping.md` の Cypher テンプレートに従い、Cypher スクリプトを `/tmp/topic-discovery-neo4j.cypher` に書き出す
 2. 実行:
    ```bash
-   docker exec -i article-neo4j cypher-shell \
+   docker exec -i research-neo4j cypher-shell \
      -u neo4j -p "${NEO4J_PASSWORD:-gomasuke}" \
      < /tmp/topic-discovery-neo4j.cypher
    ```
@@ -208,7 +208,7 @@ topic-suggester エージェントの出力スキーマ（JSON）に準拠。
 |--------|------|------|
 | セッションファイル | `.tmp/topic-suggestions/{YYYY-MM-DD}_{HHMM}.json` | 完全な提案データ（検索結果含む） |
 | 履歴ファイル | `data/topic-history/suggestions.jsonl` | セッション要約の追記ログ |
-| article-neo4j | `bolt://localhost:7689` | Source/Topic/Claim/Entity/Fact ノードとリレーション |
+| research-neo4j | `bolt://localhost:7688` | Source/Topic/Claim/Entity/Fact ノードとリレーション |
 
 ## `--no-search` モード
 

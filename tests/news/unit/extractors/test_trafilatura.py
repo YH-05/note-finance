@@ -217,8 +217,8 @@ class TestTrafilaturaExtractorExtract:
             result = await extractor.extract(sample_collected_article)
 
         assert result.extraction_status == ExtractionStatus.FAILED
-        assert result.body_text is None
-        assert result.error_message == "Body text too short or empty"
+        assert result.body_text == "Short"  # Short text is preserved for fallback
+        assert "Body text too short or empty" in (result.error_message or "")
 
     @pytest.mark.asyncio
     async def test_異常系_本文がNoneの場合FAILEDステータスを返す(
@@ -251,7 +251,7 @@ class TestTrafilaturaExtractorExtract:
 
         assert result.extraction_status == ExtractionStatus.FAILED
         assert result.body_text is None
-        assert result.error_message == "Body text too short or empty"
+        assert "Body text too short or empty" in (result.error_message or "")
 
     @pytest.mark.asyncio
     async def test_異常系_タイムアウト時にTIMEOUTステータスを返す(
@@ -413,8 +413,8 @@ class TestTrafilaturaExtractorMinBodyLength:
             result = await extractor.extract(sample_collected_article)
 
         assert result.extraction_status == ExtractionStatus.FAILED
-        assert result.body_text is None
-        assert result.error_message == "Body text too short or empty"
+        assert result.body_text == "A" * 49  # Short text is preserved for fallback
+        assert "Body text too short or empty" in (result.error_message or "")
 
 
 class TestTrafilaturaExtractorStatusMapping:
@@ -1414,3 +1414,258 @@ class TestTrafilaturaExtractorPlaywrightFallback:
 
         assert result.extraction_status == ExtractionStatus.SUCCESS
         assert result.extraction_method == "trafilatura"
+
+
+class TestPlaywrightRequiredDomains:
+    """Tests for playwright_required_domains feature.
+
+    JS必須ドメイン（cnbc.com等）でtrafilaturaをスキップし、
+    Playwrightで直接抽出する機能のテスト。
+    """
+
+    @pytest.fixture
+    def cnbc_article(self) -> CollectedArticle:
+        """Create a CNBC CollectedArticle."""
+        return CollectedArticle(
+            url="https://www.cnbc.com/2026/03/18/markets-today.html",  # type: ignore[arg-type]
+            title="Markets Today",
+            published=datetime(2026, 3, 18, 10, 0, 0, tzinfo=timezone.utc),
+            raw_summary="Market summary",
+            source=ArticleSource(
+                source_type=SourceType.RSS,
+                source_name="CNBC Markets",
+                category="market",
+            ),
+            collected_at=datetime(2026, 3, 18, 12, 0, 0, tzinfo=timezone.utc),
+        )
+
+    @pytest.fixture
+    def non_cnbc_article(self) -> CollectedArticle:
+        """Create a non-CNBC CollectedArticle."""
+        return CollectedArticle(
+            url="https://www.bbc.com/news/business-12345",  # type: ignore[arg-type]
+            title="BBC News",
+            published=datetime(2026, 3, 18, 10, 0, 0, tzinfo=timezone.utc),
+            raw_summary="BBC summary",
+            source=ArticleSource(
+                source_type=SourceType.RSS,
+                source_name="BBC News",
+                category="market",
+            ),
+            collected_at=datetime(2026, 3, 18, 12, 0, 0, tzinfo=timezone.utc),
+        )
+
+    @pytest.fixture
+    def config_with_required_domains(self) -> ExtractionConfig:
+        """Create config with playwright_required_domains."""
+        return ExtractionConfig(
+            min_body_length=200,
+            max_retries=1,
+            playwright_fallback=PlaywrightFallbackConfig(enabled=True),
+            playwright_required_domains=["cnbc.com"],
+        )
+
+    @pytest.mark.asyncio
+    async def test_正常系_CNBC記事でPlaywrightが直接使用される(
+        self,
+        cnbc_article: CollectedArticle,
+        config_with_required_domains: ExtractionConfig,
+    ) -> None:
+        """CNBC articles should use Playwright directly, skipping trafilatura."""
+        playwright_result = ExtractedArticle(
+            collected=cnbc_article,
+            body_text="Full article content from Playwright. " * 20,
+            extraction_status=ExtractionStatus.SUCCESS,
+            extraction_method="playwright",
+            error_message=None,
+        )
+
+        with patch("news.extractors.playwright.PlaywrightExtractor") as MockPlaywright:
+            mock_playwright = MagicMock()
+            mock_playwright.__aenter__ = AsyncMock(return_value=mock_playwright)
+            mock_playwright.__aexit__ = AsyncMock(return_value=None)
+            mock_playwright.extract = AsyncMock(return_value=playwright_result)
+            MockPlaywright.return_value = mock_playwright
+
+            async with TrafilaturaExtractor.from_config(
+                config_with_required_domains
+            ) as extractor:
+                with patch.object(
+                    extractor._extractor,
+                    "extract",
+                    new_callable=AsyncMock,
+                ) as mock_trafilatura:
+                    result = await extractor.extract(cnbc_article)
+
+                # trafilatura should NOT have been called
+                mock_trafilatura.assert_not_called()
+
+        assert result.extraction_status == ExtractionStatus.SUCCESS
+        assert result.extraction_method == "trafilatura+playwright"
+
+    @pytest.mark.asyncio
+    async def test_正常系_非CNBCは通常のtrafilatura経由(
+        self,
+        non_cnbc_article: CollectedArticle,
+        config_with_required_domains: ExtractionConfig,
+    ) -> None:
+        """Non-CNBC articles should use normal trafilatura path."""
+        rss_result = RssExtractedArticle(
+            url="https://www.bbc.com/news/business-12345",
+            title="BBC News",
+            text="Full BBC article content. " * 20,
+            author=None,
+            date=None,
+            source=None,
+            language="en",
+            status=RssExtractionStatus.SUCCESS,
+            error=None,
+            extraction_method="trafilatura",
+        )
+
+        with patch("news.extractors.playwright.PlaywrightExtractor") as MockPlaywright:
+            mock_playwright = MagicMock()
+            mock_playwright.__aenter__ = AsyncMock(return_value=mock_playwright)
+            mock_playwright.__aexit__ = AsyncMock(return_value=None)
+            mock_playwright.extract = AsyncMock()
+            MockPlaywright.return_value = mock_playwright
+
+            async with TrafilaturaExtractor.from_config(
+                config_with_required_domains
+            ) as extractor:
+                with patch.object(
+                    extractor._extractor,
+                    "extract",
+                    new_callable=AsyncMock,
+                    return_value=rss_result,
+                ):
+                    result = await extractor.extract(non_cnbc_article)
+
+        assert result.extraction_status == ExtractionStatus.SUCCESS
+        assert result.extraction_method == "trafilatura"
+        # Playwright should NOT have been called
+        mock_playwright.extract.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_正常系_Playwright失敗時はtrafilaturaにフォールバック(
+        self,
+        cnbc_article: CollectedArticle,
+        config_with_required_domains: ExtractionConfig,
+    ) -> None:
+        """If Playwright fails for required domain, fall back to trafilatura."""
+        playwright_fail = ExtractedArticle(
+            collected=cnbc_article,
+            body_text=None,
+            extraction_status=ExtractionStatus.FAILED,
+            extraction_method="playwright",
+            error_message="Browser timeout",
+        )
+        rss_result = RssExtractedArticle(
+            url="https://www.cnbc.com/2026/03/18/markets-today.html",
+            title="Markets Today",
+            text="Short snippet from static HTML. " * 10,  # > 200 chars
+            author=None,
+            date=None,
+            source=None,
+            language="en",
+            status=RssExtractionStatus.SUCCESS,
+            error=None,
+            extraction_method="trafilatura",
+        )
+
+        with patch("news.extractors.playwright.PlaywrightExtractor") as MockPlaywright:
+            mock_playwright = MagicMock()
+            mock_playwright.__aenter__ = AsyncMock(return_value=mock_playwright)
+            mock_playwright.__aexit__ = AsyncMock(return_value=None)
+            mock_playwright.extract = AsyncMock(return_value=playwright_fail)
+            MockPlaywright.return_value = mock_playwright
+
+            async with TrafilaturaExtractor.from_config(
+                config_with_required_domains
+            ) as extractor:
+                with patch.object(
+                    extractor._extractor,
+                    "extract",
+                    new_callable=AsyncMock,
+                    return_value=rss_result,
+                ):
+                    result = await extractor.extract(cnbc_article)
+
+        # Should fall back to trafilatura result
+        assert result.extraction_status == ExtractionStatus.SUCCESS
+        assert result.extraction_method == "trafilatura"
+
+    def test_正常系_ドメイン判定はサブドメインも対応(
+        self,
+        config_with_required_domains: ExtractionConfig,
+    ) -> None:
+        """Domain check should match subdomains (www.cnbc.com matches cnbc.com)."""
+        extractor = TrafilaturaExtractor.from_config(config_with_required_domains)
+
+        # www.cnbc.com should match cnbc.com
+        www_article = CollectedArticle(
+            url="https://www.cnbc.com/article",  # type: ignore[arg-type]
+            title="Test",
+            source=ArticleSource(
+                source_type=SourceType.RSS,
+                source_name="CNBC",
+                category="market",
+            ),
+            collected_at=datetime(2026, 3, 18, tzinfo=timezone.utc),
+        )
+        assert extractor._is_playwright_required_domain(www_article) is True
+
+        # bbc.com should not match
+        bbc_article = CollectedArticle(
+            url="https://www.bbc.com/article",  # type: ignore[arg-type]
+            title="Test",
+            source=ArticleSource(
+                source_type=SourceType.RSS,
+                source_name="BBC",
+                category="market",
+            ),
+            collected_at=datetime(2026, 3, 18, tzinfo=timezone.utc),
+        )
+        assert extractor._is_playwright_required_domain(bbc_article) is False
+
+
+class TestShortBodyNoRetry:
+    """Tests for short body text non-retry behavior.
+
+    短テキスト（body_text != None だが min_body_length 未満）は
+    リトライしても結果が変わらないため、即座にフォールバックに進む。
+    """
+
+    @pytest.mark.asyncio
+    async def test_正常系_短テキストはリトライせずフォールバックに進む(
+        self,
+        sample_collected_article: CollectedArticle,
+    ) -> None:
+        """Short body text should not trigger retries (wastes time)."""
+        short_result = RssExtractedArticle(
+            url="https://www.cnbc.com/article/test",
+            title="Test",
+            text="Short snippet only",  # < 200 chars
+            author=None,
+            date=None,
+            source=None,
+            language="en",
+            status=RssExtractionStatus.SUCCESS,
+            error=None,
+            extraction_method="trafilatura",
+        )
+
+        extractor = TrafilaturaExtractor(min_body_length=200, max_retries=3)
+
+        with patch.object(
+            extractor._extractor,
+            "extract",
+            new_callable=AsyncMock,
+            return_value=short_result,
+        ) as mock_extract:
+            result = await extractor.extract(sample_collected_article)
+
+        # Should only be called ONCE (no retries for short text)
+        assert mock_extract.call_count == 1
+        assert result.extraction_status == ExtractionStatus.FAILED
+        assert result.body_text == "Short snippet only"

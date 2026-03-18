@@ -20,7 +20,7 @@ description: |
 
 | 情報ソース | 対応スキル/ツール |
 |-----------|----------------|
-| 会社資料・セルサイドレポート（PDF） | `/convert-pdf`, `/notebooklm-automation` |
+| 会社資料・セルサイドレポート（PDF） | `/convert-pdf`, `nlm` CLI (`nlm chat ask`, `nlm source add-file`) |
 | Web上のニュース・業界データ | `/gemini-search`, Web検索ツール |
 | SEC Edgar（米国上場） | `sec-edgar-mcp` |
 | Wikipedia（企業・業界背景） | `wikipedia` MCP |

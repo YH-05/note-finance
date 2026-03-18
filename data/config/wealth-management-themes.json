@@ -1,5 +1,5 @@
 {
-    "version": "1.1",
+    "version": "1.2",
     "themes": {
         "data_driven_investing": {
             "name_en": "Data-Driven Investing",
@@ -50,6 +50,16 @@
             "target_sources": [
                 "getrichslowly", "iwillteachyoutoberich", "moneytalksnews"
             ]
+        },
+        "macro_markets": {
+            "name_en": "Macro & Markets",
+            "description": "Macroeconomics, geopolitics, and contrarian market analysis",
+            "keywords_en": [
+                "macro", "geopolitics", "central bank", "Federal Reserve", "inflation",
+                "recession", "commodity", "gold", "oil", "treasury", "bond",
+                "market crash", "monetary policy", "fiscal policy", "debt crisis"
+            ],
+            "target_sources": ["zerohedge"]
         }
     },
     "content_rules": {

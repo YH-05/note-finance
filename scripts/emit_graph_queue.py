@@ -65,6 +65,7 @@ from pdf_pipeline.services.id_generator import (
     generate_source_id,
     generate_stance_id,
 )
+from authority_classifier import classify_authority
 
 type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 
@@ -777,13 +778,19 @@ def _make_source(
     dict[str, Any]
         Source dict ready for graph-queue output.
     """
-    return {
+    source = {
         "source_id": generate_source_id(url),
         "url": url,
         "title": title,
         "published": published,
         **extra,
     }
+    if "authority_level" not in source:
+        source["authority_level"] = classify_authority(
+            source_type=source.get("source_type", ""),
+            url=url,
+        )
+    return source
 
 
 def _mapped_result(

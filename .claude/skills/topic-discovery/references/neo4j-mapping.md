@@ -1,14 +1,14 @@
-# Neo4j データモデルマッピング（article-neo4j）
+# Neo4j データモデルマッピング（research-neo4j）
 
-topic-discovery の提案結果を article-neo4j に保存するためのデータモデル定義。
+topic-discovery の提案結果を research-neo4j に保存するためのデータモデル定義。
 KG v2 スキーマ（`data/config/knowledge-graph-schema.yaml`）に準拠する。
 
 ## 接続情報
 
 | 項目 | 値 |
 |------|-----|
-| コンテナ名 | article-neo4j |
-| Bolt | bolt://localhost:7689 |
+| コンテナ名 | research-neo4j |
+| Bolt | bolt://localhost:7688 |
 | Browser | http://localhost:7476 |
 | ユーザー | neo4j |
 | パスワード | `${NEO4J_PASSWORD:-gomasuke}` |
@@ -215,7 +215,7 @@ MERGE (s)-[:STATES_FACT]->(f);
 
 ```bash
 # Cypher スクリプトをパイプで実行
-docker exec -i article-neo4j cypher-shell \
+docker exec -i research-neo4j cypher-shell \
   -u neo4j \
   -p "${NEO4J_PASSWORD:-gomasuke}" \
   < /tmp/topic-discovery-neo4j.cypher
@@ -225,7 +225,7 @@ docker exec -i article-neo4j cypher-shell \
 
 | 状況 | 対処 |
 |------|------|
-| article-neo4j 未起動 | 警告出力してスキップ。Phase 5.1-5.2 のファイルに保存済み |
+| research-neo4j 未起動 | 警告出力してスキップ。Phase 5.1-5.2 のファイルに保存済み |
 | Cypher 実行エラー | エラー内容を警告表示。セッションファイルから再実行可能 |
 | Fact 生成で空データ | `--no-search` 時は Fact ノードと STATES_FACT リレーションを省略 |
 

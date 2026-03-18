@@ -139,11 +139,32 @@ class TestCli:
         assert "add" in result.output
         assert "list" in result.output
 
-    def test_cli_version_not_exist(self, cli_runner: CliRunner) -> None:
-        """Test that --version is not implemented (expected behavior)."""
+    def test_正常系_versionオプションでバージョン表示(self, cli_runner: CliRunner) -> None:
+        """Test --version displays version string."""
+        from rss import __version__
+
         result = cli_runner.invoke(cli, ["--version"])
-        # --version is not implemented, should show error
-        assert result.exit_code != 0
+        assert result.exit_code == 0
+        assert __version__ in result.output
+        assert "rss-cli" in result.output
+
+    def test_正常系_quietオプションでログ抑制(
+        self, cli_runner: CliRunner, data_dir: Path
+    ) -> None:
+        """Test --quiet suppresses log output."""
+        result = cli_runner.invoke(
+            cli, ["--data-dir", str(data_dir), "--quiet", "list"]
+        )
+        assert result.exit_code == 0
+
+    def test_正常系_verboseオプションでDEBUGログ(
+        self, cli_runner: CliRunner, data_dir: Path
+    ) -> None:
+        """Test --verbose enables DEBUG logging."""
+        result = cli_runner.invoke(
+            cli, ["--data-dir", str(data_dir), "--verbose", "list"]
+        )
+        assert result.exit_code == 0
 
 
 class TestAddCommand:
@@ -673,3 +694,103 @@ class TestApplyCommand:
         )
         assert result.exit_code == 0
         assert "Presets applied successfully" in result.output
+
+
+class TestInfoCommand:
+    """Tests for info command."""
+
+    def test_正常系_フィード情報を表示(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+        sample_feed: str,
+    ) -> None:
+        """Test info displays feed details."""
+        result = cli_runner.invoke(
+            cli,
+            ["--data-dir", str(data_dir), "info", sample_feed],
+        )
+        assert result.exit_code == 0
+        assert "Test Feed" in result.output
+        assert "https://example.com/feed.xml" in result.output
+        assert "Items:" in result.output
+
+    def test_正常系_JSON出力でitem_countを含む(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+        sample_feed: str,
+        sample_items: list[FeedItem],
+    ) -> None:
+        """Test info JSON output includes item_count."""
+        result = cli_runner.invoke(
+            cli,
+            ["--data-dir", str(data_dir), "info", sample_feed, "--json"],
+        )
+        assert result.exit_code == 0
+        data = extract_json(result.output)
+        assert data["title"] == "Test Feed"
+        assert data["item_count"] == 2
+
+    def test_異常系_存在しないフィードでエラー(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+    ) -> None:
+        """Test error when feed not found."""
+        result = cli_runner.invoke(
+            cli,
+            ["--data-dir", str(data_dir), "info", "nonexistent-id"],
+        )
+        assert result.exit_code == 1
+        assert "not found" in result.output
+
+
+class TestStatsCommand:
+    """Tests for stats command."""
+
+    def test_正常系_フィードなしで統計表示(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+    ) -> None:
+        """Test stats with no feeds."""
+        result = cli_runner.invoke(
+            cli,
+            ["--data-dir", str(data_dir), "stats"],
+        )
+        assert result.exit_code == 0
+        assert "Total feeds: 0" in result.output
+
+    def test_正常系_フィードありで統計表示(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+        sample_feed: str,
+    ) -> None:
+        """Test stats with existing feeds."""
+        result = cli_runner.invoke(
+            cli,
+            ["--data-dir", str(data_dir), "stats"],
+        )
+        assert result.exit_code == 0
+        assert "Total feeds: 1" in result.output
+        assert "Enabled:" in result.output
+        assert "test:" in result.output
+
+    def test_正常系_JSON出力でカテゴリ別集計(
+        self,
+        cli_runner: CliRunner,
+        data_dir: Path,
+        sample_feed: str,
+    ) -> None:
+        """Test stats JSON output with category counts."""
+        result = cli_runner.invoke(
+            cli,
+            ["--data-dir", str(data_dir), "stats", "--json"],
+        )
+        assert result.exit_code == 0
+        data = extract_json(result.output)
+        assert data["total_feeds"] == 1
+        assert data["enabled"] == 1
+        assert "test" in data["categories"]

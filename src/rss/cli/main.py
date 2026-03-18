@@ -1,14 +1,16 @@
 """RSS CLI main module.
 
 This module provides the command-line interface for RSS feed management.
-Implements 7 subcommands: add, list, update, remove, fetch, items, search.
+Implements 9 subcommands: add, list, update, remove, fetch, items, search, info, stats.
 """
 
 from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +20,7 @@ from rich.table import Table
 
 from data_paths import get_path
 
+from .. import __version__
 from ..exceptions import (
     FeedAlreadyExistsError,
     FeedFetchError,
@@ -39,8 +42,6 @@ def _get_logger() -> Any:
 
         return get_logger(__name__, module="cli")
     except ImportError:
-        import logging
-
         return logging.getLogger(__name__)
 
 
@@ -203,21 +204,42 @@ def _handle_error(
     sys.exit(1)
 
 
+def _configure_log_level(quiet: bool, verbose: bool) -> None:
+    """Configure log level based on CLI flags.
+
+    Parameters
+    ----------
+    quiet : bool
+        Suppress log output
+    verbose : bool
+        Enable DEBUG log level
+    """
+    if quiet:
+        logging.getLogger("rss").setLevel(logging.CRITICAL)
+    elif verbose:
+        logging.getLogger("rss").setLevel(logging.DEBUG)
+
+
 @click.group()
+@click.version_option(version=__version__, prog_name="rss-cli")
 @click.option(
     "--data-dir",
     type=click.Path(path_type=Path),
     default=DEFAULT_DATA_DIR,
     help="Data directory path (default: data/raw/rss)",
 )
+@click.option("--quiet", "-q", is_flag=True, help="Suppress log output")
+@click.option("--verbose", "-v", is_flag=True, help="Enable DEBUG log output")
 @click.pass_context
-def cli(ctx: click.Context, data_dir: Path) -> None:
+def cli(ctx: click.Context, data_dir: Path, quiet: bool, verbose: bool) -> None:
     """RSS Feed Management CLI.
 
     Manage RSS feeds: add, list, update, remove, fetch, view items, and search.
     """
     ctx.ensure_object(dict)
     ctx.obj["data_dir"] = data_dir
+    ctx.obj["quiet"] = quiet
+    _configure_log_level(quiet, verbose)
     logger.debug("CLI started", data_dir=str(data_dir))
 
 
@@ -717,6 +739,100 @@ def apply(
 
     except RSSError as e:
         _handle_error(e, "RSS error", json_output)
+
+
+@cli.command()
+@click.argument("feed_id")
+@click.option("--json", "json_output", is_flag=True, help="Output as JSON")
+@click.pass_context
+def info(
+    ctx: click.Context,
+    feed_id: str,
+    json_output: bool,
+) -> None:
+    """Show detailed information for a single feed."""
+    logger.info("Showing feed info", feed_id=feed_id)
+
+    data_dir = _get_data_dir(ctx)
+    manager = FeedManager(data_dir)
+    reader = FeedReader(data_dir)
+
+    try:
+        feed = manager.get_feed(feed_id)
+
+        item_count = len(reader.get_items(feed_id=feed_id))
+
+        if json_output:
+            data = _feed_to_dict(feed)
+            data["item_count"] = item_count
+            _output_json(data)
+        else:
+            console.print(f"[bold]Feed: {feed.title}[/bold]")
+            console.print(f"  ID:        {feed.feed_id}")
+            console.print(f"  URL:       {feed.url}")
+            console.print(f"  Category:  {feed.category}")
+            console.print(f"  Interval:  {feed.fetch_interval.value}")
+            console.print(f"  Enabled:   {'Yes' if feed.enabled else 'No'}")
+            console.print(f"  Status:    {feed.last_status.value}")
+            console.print(f"  Created:   {feed.created_at or '-'}")
+            console.print(f"  Updated:   {feed.updated_at or '-'}")
+            console.print(f"  Fetched:   {feed.last_fetched or '-'}")
+            console.print(f"  Items:     {item_count}")
+
+        logger.info("Feed info displayed", feed_id=feed_id)
+
+    except FeedNotFoundError as e:
+        _handle_error(e, "Feed not found", json_output, feed_id=feed_id)
+
+    except RSSError as e:
+        _handle_error(e, "RSS error", json_output)
+
+
+@cli.command()
+@click.option("--json", "json_output", is_flag=True, help="Output as JSON")
+@click.pass_context
+def stats(
+    ctx: click.Context,
+    json_output: bool,
+) -> None:
+    """Show feed statistics summary."""
+    logger.info("Showing stats")
+
+    data_dir = _get_data_dir(ctx)
+    manager = FeedManager(data_dir)
+
+    feeds = manager.list_feeds()
+
+    category_counts: Counter[str] = Counter(f.category for f in feeds)
+    enabled_count = sum(1 for f in feeds if f.enabled)
+    disabled_count = len(feeds) - enabled_count
+
+    last_fetched_dates = [f.last_fetched for f in feeds if f.last_fetched]
+    latest_fetch = max(last_fetched_dates) if last_fetched_dates else None
+
+    if json_output:
+        _output_json(
+            {
+                "total_feeds": len(feeds),
+                "enabled": enabled_count,
+                "disabled": disabled_count,
+                "categories": dict(category_counts),
+                "latest_fetch": latest_fetch,
+            }
+        )
+    else:
+        console.print("[bold]RSS Feed Statistics[/bold]")
+        console.print(f"  Total feeds: {len(feeds)}")
+        console.print(f"  Enabled:     {enabled_count}")
+        console.print(f"  Disabled:    {disabled_count}")
+        console.print(f"  Latest fetch: {latest_fetch or '-'}")
+
+        if category_counts:
+            console.print("\n[bold]Categories:[/bold]")
+            for cat, count in sorted(category_counts.items()):
+                console.print(f"  {cat}: {count}")
+
+    logger.info("Stats displayed", total=len(feeds))
 
 
 if __name__ == "__main__":

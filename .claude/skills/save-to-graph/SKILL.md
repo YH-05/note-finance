@@ -215,6 +215,7 @@ MERGE (s:Source {source_id: $source_id})
 SET s.url = $url,
     s.title = $title,
     s.source_type = $source_type,
+    s.authority_level = $authority_level,
     s.collected_at = datetime($collected_at),
     s.published_at = CASE WHEN $published_at IS NOT NULL AND $published_at <> ''
                      THEN datetime($published_at) ELSE null END,

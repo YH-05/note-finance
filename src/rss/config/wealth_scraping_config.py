@@ -11,6 +11,7 @@ Notes
 
 Changelog
 ---------
+- v1.2 (2026-03-18): Added zerohedge (macro/geopolitics). Now 18 sites total.
 - v1.1 (2026-03-17): Removed 3 sites (marginalrevolution, bogleheads, kiplinger).
   Added 5 sites (ofdollarsanddata, physicianonfire, whitecoatinvestor,
   rationalwalk, portfoliocharts). Now 17 sites total.
@@ -38,6 +39,8 @@ WEALTH_DOMAIN_RATE_LIMITS: dict[str, float] = {
     "whitecoatinvestor.com": 2.0,
     "rationalwalk.com": 2.0,
     "portfoliocharts.com": 2.0,
+    # New sites (v1.2)
+    "zerohedge.com": 3.0,
 }
 
 # AIDEV-NOTE: sitemap URLs verified against each site's robots.txt Sitemap directive.
@@ -61,6 +64,8 @@ WEALTH_SITEMAP_URLS: dict[str, str] = {
     "whitecoatinvestor.com": "https://www.whitecoatinvestor.com/sitemap.xml",
     "rationalwalk.com": "https://rationalwalk.com/sitemap.xml",
     "portfoliocharts.com": "https://portfoliocharts.com/sitemap.xml",
+    # New sites (v1.2)
+    "zerohedge.com": "https://www.zerohedge.com/sitemap.xml",
 }
 
 # AIDEV-NOTE: Backfill tiers control scraping priority and method:
@@ -85,6 +90,8 @@ BACKFILL_TIER: dict[str, str] = {
     "portfoliocharts.com": "B",
     "iwillteachyoutoberich.com": "C",
     "financialsamurai.com": "C",
+    # New sites (v1.2)
+    "zerohedge.com": "B",
 }
 
 # AIDEV-NOTE: Used by prepare_asset_management_session.py and the main
@@ -126,4 +133,7 @@ WEALTH_URL_TO_SOURCE_KEY: dict[str, str] = {
     "www.rationalwalk.com": "rationalwalk",
     "portfoliocharts.com": "portfoliocharts",
     "www.portfoliocharts.com": "portfoliocharts",
+    # New sites (v1.2)
+    "zerohedge.com": "zerohedge",
+    "www.zerohedge.com": "zerohedge",
 }

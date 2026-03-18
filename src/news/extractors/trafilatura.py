@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import asyncio
 from typing import TYPE_CHECKING, Any, Self
+from urllib.parse import urlparse
 
 from news._logging import get_logger
 from news.extractors.base import BaseExtractor
@@ -319,7 +320,23 @@ class TrafilaturaExtractor(BaseExtractor):
         >>> else:
         ...     print(f"Extraction failed: {result.error_message}")
         """
-        # First, try trafilatura extraction
+        # For JS-required domains, skip trafilatura and go directly to Playwright
+        if self._is_playwright_required_domain(article):
+            logger.info(
+                "Playwright-required domain, skipping trafilatura",
+                url=str(article.url),
+            )
+            if self._playwright_extractor is not None:
+                playwright_result = await self._extract_with_playwright(article)
+                if playwright_result.extraction_status == ExtractionStatus.SUCCESS:
+                    return playwright_result
+                logger.debug(
+                    "Playwright direct extraction failed, trying trafilatura",
+                    url=str(article.url),
+                    error=playwright_result.error_message,
+                )
+
+        # Try trafilatura extraction
         result = await self._extract_with_trafilatura(article)
 
         # Check if we should fallback to Playwright
@@ -376,6 +393,9 @@ class TrafilaturaExtractor(BaseExtractor):
                     return result
                 # If it's a non-retryable failure (e.g., PAYWALL), return
                 if result.extraction_status == ExtractionStatus.PAYWALL:
+                    return result
+                # Short body text is non-retryable (retry won't help)
+                if result.body_text is not None:
                     return result
                 # Otherwise, treat as failure and retry
                 last_error = Exception(result.error_message or "Extraction failed")
@@ -500,6 +520,36 @@ class TrafilaturaExtractor(BaseExtractor):
 
         return result
 
+    def _is_playwright_required_domain(self, article: CollectedArticle) -> bool:
+        """Check if the article's domain requires Playwright for JS rendering.
+
+        Parameters
+        ----------
+        article : CollectedArticle
+            The article to check.
+
+        Returns
+        -------
+        bool
+            True if the domain is in the playwright_required_domains list.
+        """
+        if not self._extraction_config:
+            return False
+
+        required_domains = self._extraction_config.playwright_required_domains
+        if not required_domains:
+            return False
+
+        try:
+            hostname = urlparse(str(article.url)).hostname or ""
+        except Exception:
+            return False
+
+        return any(
+            hostname == domain or hostname.endswith(f".{domain}")
+            for domain in required_domains
+        )
+
     def _select_user_agent(self, url: str) -> str | None:
         """Select a User-Agent for the given URL.
 
@@ -569,12 +619,19 @@ class TrafilaturaExtractor(BaseExtractor):
             # Check if extraction succeeded but body is too short/empty
             if result.status == RssExtractionStatus.SUCCESS:
                 if result.text is None or len(result.text) < self._min_body_length:
+                    text_len = len(result.text) if result.text else 0
+                    logger.debug(
+                        "Body text too short",
+                        url=url_str,
+                        text_length=text_len,
+                        min_required=self._min_body_length,
+                    )
                     return ExtractedArticle(
                         collected=article,
-                        body_text=None,
+                        body_text=result.text,
                         extraction_status=ExtractionStatus.FAILED,
                         extraction_method=self.extractor_name,
-                        error_message="Body text too short or empty",
+                        error_message=f"Body text too short or empty ({text_len} chars)",
                     )
 
                 # Success case

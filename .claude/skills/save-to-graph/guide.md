@@ -604,6 +604,7 @@ MERGE (s:Source {source_id: $source_id})
 SET s.url = $url,
     s.title = $title,
     s.source_type = $source_type,
+    s.authority_level = $authority_level,
     s.collected_at = datetime($collected_at),
     s.published_at = CASE
         WHEN $published IS NOT NULL AND $published <> ''
@@ -622,6 +623,7 @@ SET s.url = $url,
 | `$url` | `sources[].url` | |
 | `$title` | `sources[].title` | |
 | `$source_type` | 推論 | `command_source` から推論（rss, report 等） |
+| `$authority_level` | `sources[].authority_level` | official/analyst/media/blog/social/academic |
 | `$collected_at` | `created_at`（キューレベル） | ISO 8601 |
 | `$published` | `sources[].published` | ISO 8601 or 空文字列 |
 | `$category` | `batch_label` から推論 | THEME_TO_CATEGORY 変換 |
@@ -953,6 +955,7 @@ MERGE (s:Source {source_id: src.source_id})
 SET s.url = src.url,
     s.title = src.title,
     s.source_type = src.source_type,
+    s.authority_level = src.authority_level,
     s.collected_at = datetime(src.collected_at),
     s.published_at = CASE
         WHEN src.published IS NOT NULL AND src.published <> ''

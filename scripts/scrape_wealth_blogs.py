@@ -78,6 +78,9 @@ DEFAULT_LIMIT = 200
 DEFAULT_PER_DOMAIN = 0
 """Default per-domain limit (0 = auto-calculate from limit / number of domains)."""
 
+DEFAULT_CONCURRENCY = 4
+"""Default number of domains to scrape concurrently in backfill mode."""
+
 MAX_DAYS = 365
 """Maximum allowed value for --days argument."""
 
@@ -309,6 +312,14 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         dest="dry_run",
         help="Show what would be processed without actually scraping.",
+    )
+    parser.add_argument(
+        "--concurrency",
+        "-j",
+        type=int,
+        default=DEFAULT_CONCURRENCY,
+        dest="concurrency",
+        help=f"Number of domains to scrape concurrently in backfill mode. (default: {DEFAULT_CONCURRENCY})",
     )
     parser.add_argument(
         "--verbose",
@@ -986,6 +997,217 @@ def run_incremental(
 # ---------------------------------------------------------------------------
 
 
+class _BackfillState:
+    """Shared mutable state for concurrent backfill coroutines.
+
+    Attributes
+    ----------
+    total_scraped : int
+        Total articles scraped across all domains.
+    total_skipped : int
+        Total articles skipped across all domains.
+    limit : int
+        Global maximum articles to scrape.
+    """
+
+    def __init__(self, limit: int) -> None:
+        self.total_scraped = 0
+        self.total_skipped = 0
+        self.limit = limit
+
+    @property
+    def limit_reached(self) -> bool:
+        """Check if the global scrape limit has been reached."""
+        return self.total_scraped >= self.limit
+
+
+async def _scrape_site_backfill(
+    site: dict[str, Any],
+    tier: str,
+    state: _BackfillState,
+    effective_per_domain: int,
+    db: ScrapeStateDB,
+    policy: ScrapingPolicy,
+    extractor: ArticleExtractor,
+    parser: SitemapParser,
+    robots_checker: RobotsChecker | None,
+    retry_failed: bool,
+    dry_run: bool,
+    semaphore: asyncio.Semaphore,
+) -> None:
+    """Scrape a single site in backfill mode.
+
+    Acquires a semaphore slot to limit concurrency across domains.
+
+    Parameters
+    ----------
+    site : dict[str, Any]
+        Site configuration from wealth-sitemap-config.json.
+    tier : str
+        Backfill tier (A/B/C/D).
+    state : _BackfillState
+        Shared mutable state for tracking progress.
+    effective_per_domain : int
+        Maximum articles per domain.
+    db : ScrapeStateDB
+        Scraping state database.
+    policy : ScrapingPolicy
+        Rate limiting policy.
+    extractor : ArticleExtractor
+        Article content extractor.
+    parser : SitemapParser
+        Sitemap parser.
+    robots_checker : RobotsChecker | None
+        Optional robots.txt checker.
+    retry_failed : bool
+        Include previously failed URLs for retry.
+    dry_run : bool
+        If True, only display URL list.
+    semaphore : asyncio.Semaphore
+        Concurrency limiter.
+    """
+    async with semaphore:
+        if state.limit_reached:
+            return
+
+        domain = site.get("domain", "")
+        domain_scraped = 0
+        sitemap_url = WEALTH_SITEMAP_URLS.get(domain)
+        if not sitemap_url:
+            logger.warning("no_sitemap_url", domain=domain)
+            return
+
+        # Parse sitemap
+        logger.info("parsing_sitemap", domain=domain, url=sitemap_url)
+        entries = await parser.parse(sitemap_url)
+        post_entries = parser.filter_post_urls(entries)
+        all_urls = [e.url for e in post_entries]
+
+        # Filter new / retry failed
+        if retry_failed:
+            pending_urls = db.get_pending_urls()
+            new_urls = db.filter_new_urls(all_urls)
+            urls_to_scrape = list({*pending_urls, *new_urls})
+        else:
+            urls_to_scrape = db.filter_new_urls(all_urls)
+
+        # Apply domain URL pattern filter from sitemap config
+        url_patterns = site.get("url_patterns", [])
+        exclude_patterns = site.get("exclude_patterns", [])
+        if url_patterns:
+            urls_to_scrape = [
+                u
+                for u in urls_to_scrape
+                if any(p in u for p in url_patterns)
+                and not any(ep in u for ep in exclude_patterns)
+            ]
+
+        # Update sitemap state
+        if all_urls:
+            db.update_sitemap_state(
+                sitemap_url=sitemap_url,
+                last_processed_url=all_urls[-1],
+                processed_count=len(all_urls),
+            )
+
+        if dry_run:
+            capped = min(len(urls_to_scrape), effective_per_domain)
+            print(
+                f"\n[{tier}] {domain}: {len(urls_to_scrape)} new URLs"
+                f" (cap: {effective_per_domain})"
+            )
+            for url in urls_to_scrape[:5]:
+                print(f"  {url}")
+            if len(urls_to_scrape) > 5:
+                print(f"  ... and {len(urls_to_scrape) - 5} more")
+            print(f"  → will process: {capped}")
+            return
+
+        # Scrape URLs
+        for url in urls_to_scrape:
+            if state.limit_reached:
+                break
+            if domain_scraped >= effective_per_domain:
+                logger.info(
+                    "per_domain_limit_reached",
+                    domain=domain,
+                    domain_scraped=domain_scraped,
+                    per_domain=effective_per_domain,
+                )
+                break
+
+            # robots.txt check
+            if robots_checker:
+                try:
+                    robots_result = await robots_checker.check(url)
+                    if not robots_result.allowed:
+                        logger.info("robots_disallowed", url=url)
+                        state.total_skipped += 1
+                        continue
+                except Exception as e:
+                    logger.warning("robots_check_failed", url=url, error=str(e))
+
+            # Rate limiting
+            await policy.wait_for_domain(domain)
+
+            # Tier D: Playwright scraping
+            if tier == "D":
+                text = _scrape_with_playwright(url)
+                if text is None:
+                    state.total_skipped += 1
+                    continue
+                extracted_title = url.split("/")[-1].replace("-", " ").title()
+                _save_article_markdown(
+                    url=url,
+                    title=extracted_title,
+                    text=text,
+                    date=None,
+                    author=None,
+                    domain=domain,
+                )
+                db.mark_scraped(url, success=True)
+                state.total_scraped += 1
+                domain_scraped += 1
+                logger.info(
+                    "article_scraped_playwright",
+                    url=url,
+                    total=state.total_scraped,
+                    domain_scraped=domain_scraped,
+                )
+                continue
+
+            # Standard HTTP extraction
+            result = await extractor.extract(url)
+
+            if result.status == ExtractionStatus.SUCCESS and result.text:
+                _save_article_markdown(
+                    url=url,
+                    title=result.title or url.split("/")[-1],
+                    text=result.text,
+                    date=result.date,
+                    author=result.author,
+                    domain=domain,
+                )
+                db.mark_scraped(url, success=True)
+                state.total_scraped += 1
+                domain_scraped += 1
+                logger.info(
+                    "article_scraped",
+                    url=url,
+                    total=state.total_scraped,
+                    domain_scraped=domain_scraped,
+                    method=result.extraction_method,
+                )
+            else:
+                db.mark_scraped(url, success=False)
+                state.total_skipped += 1
+                logger.debug(
+                    "article_skipped",
+                    url=url,
+                    status=result.status.value,
+                )
+
+
 async def _run_backfill_async(
     limit: int,
     dry_run: bool,
@@ -995,11 +1217,16 @@ async def _run_backfill_async(
     retry_failed: bool,
     db_path: Path,
     per_domain: int = DEFAULT_PER_DOMAIN,
+    concurrency: int = DEFAULT_CONCURRENCY,
 ) -> int:
-    """Run backfill mode asynchronously.
+    """Run backfill mode asynchronously with concurrent domain processing.
+
+    Domains within each tier are processed concurrently (up to ``concurrency``
+    domains at a time). Rate limiting is per-domain, so concurrent processing
+    of different domains does not violate crawl-delay constraints.
 
     Phase order: A → B → C → D (Tier A is highest priority).
-    D-tier (kiplinger.com) uses Playwright with try/except guard.
+    D-tier uses Playwright with try/except guard.
 
     Parameters
     ----------
@@ -1020,6 +1247,8 @@ async def _run_backfill_async(
     per_domain : int
         Maximum articles per domain. 0 means auto-calculate
         as ``limit // number_of_target_domains``.
+    concurrency : int
+        Maximum number of domains to scrape concurrently.
 
     Returns
     -------
@@ -1050,168 +1279,53 @@ async def _run_backfill_async(
         per_domain=effective_per_domain,
         global_limit=limit,
         site_count=len(sites),
+        concurrency=concurrency,
     )
 
     policy = ScrapingPolicy(domain_rate_limits=WEALTH_DOMAIN_RATE_LIMITS)
     extractor = ArticleExtractor()
     parser = SitemapParser()
     robots_checker = RobotsChecker() if check_robots else None
+    semaphore = asyncio.Semaphore(concurrency)
 
-    total_scraped = 0
-    total_skipped = 0
+    state = _BackfillState(limit=limit)
 
     with ScrapeStateDB(db_path) as db:
-        # Collect URLs per tier
         for tier in tier_order:
             tier_sites = [s for s in sites if s.get("backfill_tier") == tier]
             if not tier_sites:
                 continue
 
             logger.info(
-                "processing_backfill_tier", tier=tier, site_count=len(tier_sites)
+                "processing_backfill_tier",
+                tier=tier,
+                site_count=len(tier_sites),
+                concurrency=concurrency,
             )
 
-            for site in tier_sites:
-                if total_scraped >= limit:
-                    logger.info("backfill_limit_reached", limit=limit)
-                    break
+            if state.limit_reached:
+                logger.info("backfill_limit_reached", limit=limit)
+                break
 
-                domain = site.get("domain", "")
-                domain_scraped = 0
-                sitemap_url = WEALTH_SITEMAP_URLS.get(domain)
-                if not sitemap_url:
-                    logger.warning("no_sitemap_url", domain=domain)
-                    continue
-
-                # Parse sitemap
-                logger.info("parsing_sitemap", domain=domain, url=sitemap_url)
-                entries = await parser.parse(sitemap_url)
-                post_entries = parser.filter_post_urls(entries)
-                all_urls = [e.url for e in post_entries]
-
-                # Filter new / retry failed
-                if retry_failed:
-                    pending_urls = db.get_pending_urls()
-                    new_urls = db.filter_new_urls(all_urls)
-                    urls_to_scrape = list({*pending_urls, *new_urls})
-                else:
-                    urls_to_scrape = db.filter_new_urls(all_urls)
-
-                # Apply domain URL pattern filter from sitemap config
-                url_patterns = site.get("url_patterns", [])
-                exclude_patterns = site.get("exclude_patterns", [])
-                if url_patterns:
-                    urls_to_scrape = [
-                        u
-                        for u in urls_to_scrape
-                        if any(p in u for p in url_patterns)
-                        and not any(ep in u for ep in exclude_patterns)
-                    ]
-
-                # Update sitemap state
-                if all_urls:
-                    db.update_sitemap_state(
-                        sitemap_url=sitemap_url,
-                        last_processed_url=all_urls[-1],
-                        processed_count=len(all_urls),
-                    )
-
-                if dry_run:
-                    capped = min(len(urls_to_scrape), effective_per_domain)
-                    print(
-                        f"\n[{tier}] {domain}: {len(urls_to_scrape)} new URLs"
-                        f" (cap: {effective_per_domain})"
-                    )
-                    for url in urls_to_scrape[:5]:
-                        print(f"  {url}")
-                    if len(urls_to_scrape) > 5:
-                        print(f"  ... and {len(urls_to_scrape) - 5} more")
-                    print(f"  → will process: {capped}")
-                    continue
-
-                # Scrape URLs
-                for url in urls_to_scrape:
-                    if total_scraped >= limit:
-                        break
-                    if domain_scraped >= effective_per_domain:
-                        logger.info(
-                            "per_domain_limit_reached",
-                            domain=domain,
-                            domain_scraped=domain_scraped,
-                            per_domain=effective_per_domain,
-                        )
-                        break
-
-                    # robots.txt check
-                    if robots_checker:
-                        try:
-                            robots_result = await robots_checker.check(url)
-                            if not robots_result.allowed:
-                                logger.info("robots_disallowed", url=url)
-                                total_skipped += 1
-                                continue
-                        except Exception as e:
-                            logger.warning("robots_check_failed", url=url, error=str(e))
-
-                    # Rate limiting
-                    await policy.wait_for_domain(domain)
-
-                    # Tier D: Playwright scraping
-                    if tier == "D":
-                        text = _scrape_with_playwright(url)
-                        if text is None:
-                            total_skipped += 1
-                            continue
-                        extracted_title = url.split("/")[-1].replace("-", " ").title()
-                        _save_article_markdown(
-                            url=url,
-                            title=extracted_title,
-                            text=text,
-                            date=None,
-                            author=None,
-                            domain=domain,
-                        )
-                        db.mark_scraped(url, success=True)
-                        total_scraped += 1
-                        domain_scraped += 1
-                        logger.info(
-                            "article_scraped_playwright",
-                            url=url,
-                            total=total_scraped,
-                            domain_scraped=domain_scraped,
-                        )
-                        continue
-
-                    # Standard HTTP extraction
-                    result = await extractor.extract(url)
-
-                    if result.status == ExtractionStatus.SUCCESS and result.text:
-                        _save_article_markdown(
-                            url=url,
-                            title=result.title or url.split("/")[-1],
-                            text=result.text,
-                            date=result.date,
-                            author=result.author,
-                            domain=domain,
-                        )
-                        db.mark_scraped(url, success=True)
-                        total_scraped += 1
-                        domain_scraped += 1
-                        logger.info(
-                            "article_scraped",
-                            url=url,
-                            total=total_scraped,
-                            domain_scraped=domain_scraped,
-                            method=result.extraction_method,
-                        )
-                    else:
-                        db.mark_scraped(url, success=False)
-                        total_skipped += 1
-                        logger.debug(
-                            "article_skipped",
-                            url=url,
-                            status=result.status.value,
-                        )
+            # Process all sites in this tier concurrently
+            tasks = [
+                _scrape_site_backfill(
+                    site=site,
+                    tier=tier,
+                    state=state,
+                    effective_per_domain=effective_per_domain,
+                    db=db,
+                    policy=policy,
+                    extractor=extractor,
+                    parser=parser,
+                    robots_checker=robots_checker,
+                    retry_failed=retry_failed,
+                    dry_run=dry_run,
+                    semaphore=semaphore,
+                )
+                for site in tier_sites
+            ]
+            await asyncio.gather(*tasks)
 
         # QUAL-006: Collect stats inside the `with` block so db._conn is still open.
         stats = db.get_stats() if not dry_run else {}
@@ -1220,9 +1334,10 @@ async def _run_backfill_async(
     print("\n" + "=" * 60)
     print("Wealth Blog Backfill Scraping Complete")
     print("=" * 60)
-    print(f"  Scraped: {total_scraped}")
-    print(f"  Skipped: {total_skipped}")
+    print(f"  Scraped: {state.total_scraped}")
+    print(f"  Skipped: {state.total_skipped}")
     print(f"  Per-domain cap: {effective_per_domain}")
+    print(f"  Concurrency: {concurrency}")
     if stats:
         print("\nDomain breakdown:")
         for domain_key, counts in sorted(stats.items()):
@@ -1243,6 +1358,7 @@ def run_backfill(
     retry_failed: bool = False,
     db_path: Path = WEALTH_SCRAPE_DB_PATH,
     per_domain: int = DEFAULT_PER_DOMAIN,
+    concurrency: int = DEFAULT_CONCURRENCY,
 ) -> int:
     """Run backfill mode: sitemap parsing → URL collection → scraping.
 
@@ -1264,6 +1380,8 @@ def run_backfill(
         SQLite state database path.
     per_domain : int
         Maximum articles per domain. 0 means auto-calculate.
+    concurrency : int
+        Maximum number of domains to scrape concurrently.
 
     Returns
     -------
@@ -1280,6 +1398,7 @@ def run_backfill(
             retry_failed=retry_failed,
             db_path=db_path,
             per_domain=per_domain,
+            concurrency=concurrency,
         )
     )
 
@@ -1336,6 +1455,7 @@ def main(args: list[str] | None = None) -> int:
             check_robots=parsed.check_robots,
             retry_failed=parsed.retry_failed,
             per_domain=parsed.per_domain,
+            concurrency=parsed.concurrency,
         )
 
 

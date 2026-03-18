@@ -1,0 +1,819 @@
+{
+  "metadata": {
+    "command": "manual-research",
+    "created_at": "2026-03-18T15:00:00+09:00",
+    "description": "ISAT IJ information gap research - GPUaaS, ARPU, FibreCo, 5G spectrum"
+  },
+  "nodes": [
+    {
+      "label": "Source",
+      "properties": {
+        "source_id": "isat-gpuaas-research-20260318",
+        "title": "ISAT IJ GPUaaS/ARPU/FibreCo/5G Spectrum Deep Research (Web Search Compilation)",
+        "url": null,
+        "source_type": "web",
+        "authority_level": "analyst",
+        "command_source": "manual-research",
+        "publisher": "Multiple (WSJ, Fortune, NVIDIA Blog, BRIDS, UBS, MNC Sekuritas, etc.)",
+        "fetched_at": "2026-03-18T15:00:00+09:00",
+        "language": "en"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-inf-tech",
+        "name": "INF Tech",
+        "entity_type": "company",
+        "entity_key": "INF Tech::company",
+        "aliases": ["无限光年", "Wuxian Guangnian"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-tanla-platforms",
+        "name": "Tanla Platforms",
+        "entity_type": "company",
+        "entity_key": "Tanla Platforms::company",
+        "aliases": ["Wisely.ai"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-goto",
+        "name": "GoTo",
+        "entity_type": "company",
+        "entity_key": "GoTo::company",
+        "aliases": ["Gojek Tokopedia", "PT GoTo Gojek Tokopedia"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-hippocratic-ai",
+        "name": "Hippocratic AI",
+        "entity_type": "company",
+        "entity_key": "Hippocratic AI::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-arsari-group",
+        "name": "Arsari Group",
+        "entity_type": "company",
+        "entity_key": "Arsari Group::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-northstar-group",
+        "name": "Northstar Group",
+        "entity_type": "company",
+        "entity_key": "Northstar Group::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-bdx-indonesia",
+        "name": "BDx Indonesia",
+        "entity_type": "company",
+        "entity_key": "BDx Indonesia::company",
+        "aliases": ["BDx Data Centers"]
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-aivres",
+        "name": "Aivres",
+        "entity_type": "company",
+        "entity_key": "Aivres::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-vikram-sinha",
+        "name": "Vikram Sinha",
+        "entity_type": "person",
+        "entity_key": "Vikram Sinha::person"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-hashim-djojohadikusumo",
+        "name": "Hashim Djojohadikusumo",
+        "entity_type": "person",
+        "entity_key": "Hashim Djojohadikusumo::person"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-xlsmart",
+        "name": "XLSmart",
+        "entity_type": "company",
+        "entity_key": "XLSmart::company",
+        "aliases": ["XL Axiata", "Smartfren", "PT XL Smart Telecom Sejahtera"],
+        "ticker": "EXCL IJ"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-telkomsel",
+        "name": "Telkomsel",
+        "entity_type": "company",
+        "entity_key": "Telkomsel::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-link-net",
+        "name": "Link Net",
+        "entity_type": "company",
+        "entity_key": "Link Net::company"
+      }
+    },
+    {
+      "label": "Entity",
+      "properties": {
+        "entity_id": "ent-komdigi",
+        "name": "Komdigi",
+        "entity_type": "organization",
+        "entity_key": "Komdigi::organization",
+        "aliases": ["Kominfo", "BRTI"]
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-gpuaas-inf-tech",
+        "content": "INF Tech (Shanghai AI startup) contracted ~$100M for 32 NVIDIA GB200 NVL72 racks (2,304 Blackwell GPUs) from Indosat/Lintasarta. Servers installed in Jakarta data center by Oct 2025.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-gpuaas-tanla",
+        "content": "Tanla Platforms (Wisely.ai) deployed AI-powered 360 Scam & Spam Protection on Indosat's NVIDIA Blackwell GPUs. Blocked 2B+ spam/scam in 6 months, preventing ~$500M potential fraud losses. Multi-year contract.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-gpuaas-goto",
+        "content": "GoTo co-developed Sahabat-AI LLM (70B parameters, 5 languages: Bahasa Indonesia, Javanese, Sundanese, Balinese, Batak) with Indosat. Integrated into GoFood search engine. HuggingFace 35,000+ downloads.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-nvidia-timeline",
+        "content": "Indosat-NVIDIA partnership timeline: Feb 2024 MoU at MWC → Mar 2024 Blackwell integration → Apr 2024 $200M AI center (Surakarta) → May 2024 NCP status → Aug 2024 GPU Merdeka launch (H100) → Jul 2025 AI CoE with Cisco → Oct 2025 GB200 installation complete.",
+        "fact_type": "event",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-dc-bdx",
+        "content": "BDx Indonesia (JV with Indosat/Lintasarta): CGK4 Jatiluhur campus 70MW Phase 1 complete (built in 75 days), 500MW expandable, liquid-cooled, NVIDIA DGX-Ready certified. Total portfolio potential 700-750MW. Current operational: 10MW, 2030 target: ~1GW.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-arpu-drivers",
+        "content": "ISAT ARPU rise (38,400→44,000 IDR) driven by 3 factors: (1) Pricing repair - starter pack floor raised to IDR 35,000 industry-wide (Oct 2025), 28-day cycle (~7% hidden price increase); (2) Mix improvement - postpaid subscribers +19.7% YoY, 1M+ milestone; (3) SIM base cleanup - low-value churners purged (subscribers 100.9M→93.7M).",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-arpu-overtake-tsel",
+        "content": "Indosat blended ARPU (IDR 44,000, 4Q25) overtook Telkomsel (IDR 43,400, 3Q25) for the first time. Tech in Asia confirmed ISAT is 'slightly above Telkomsel's last reported IDR 43,400'.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-data-yield-recovery",
+        "content": "Data yield (IDR/GB) showing recovery signs after Oct 2025 starter pack reform: IM3 Freedom Internet implied yield +22.7% (IDR 1,640→2,013/GB), IM3 Hot Promo +34.0% (IDR 2,519→3,375/GB). CEO: 'Previously 70% traffic growth yielded 5% revenue growth; now 4% traffic growth yields 4% ARPU growth.'",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-fibreco-buyer",
+        "content": "FibreCo buyer: Arsari Group (founded by Hashim Djojohadikusumo, President Prabowo's brother) + Northstar Group (Singapore PE, co-founder Patrick Walujo) consortium. Investment Agreement signed Dec 23, 2025. Citi advised seller, Goldman Sachs advised buyer.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-fibreco-valuation",
+        "content": "FibreCo EV: IDR 14.6T (~$870-940M). EV/EBITDA ~8x (UBS). EBITDA ~$100M. 55% stake sale → Indosat net proceeds ~$700M (management guidance). 86,000km of fiber transferred (backbone + domestic subsea + access). FibreCo IPO planned for Q3 2026.",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-fibreco-losers",
+        "content": "FibreCo sale: Defeated bidders included I Squared Capital (BofA/MS advised), Macquarie Asset Management, Protelindo (Indonesia's largest independent tower company), Surge/Solusi Sinergi Digital (WIFI IJ).",
+        "fact_type": "corporate_action",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-indo-5g-spectrum-auction",
+        "content": "Indonesia 5G spectrum auction: 700MHz (2x45MHz, 112MHz total) + 2.6GHz (190MHz TDD). CEO confirmed Q2 2026 timing at Q4 2025 earnings call. Reserve price and detailed auction rules not yet published by Komdigi.",
+        "fact_type": "regulatory",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-indo-past-spectrum-prices",
+        "content": "Past Indonesia spectrum auction prices: 2022 Telkomsel 2.1GHz 10MHz IDR 605B; 2021 Telkomsel 2.3GHz 20MHz IDR 354B; 2021 Smartfren 2.3GHz 10MHz IDR 177B; 2017 Indosat 2.1GHz 10MHz IDR 423B; 2017 Telkomsel 2.3GHz 30MHz IDR 1,007B.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-asean-5g-price-comparison",
+        "content": "ASEAN 5G spectrum price comparison: Thailand 700MHz $0.36-0.46/MHz/pop (2020), Thailand 2.6GHz $0.092/MHz/pop (reserve price, 2020). Vietnam cut reserve price by 90% (2024-2025). NERA global average: low-band $0.42/MHz/pop, mid-band $0.17/MHz/pop.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-xlsmart-fy25",
+        "content": "XLSmart (post-merger, Apr 2025): ~73M subscribers, blended ARPU ~IDR 39,500, Revenue IDR 42.5T (+23% YoY), EBITDA IDR 20.1T. Spectrum: 137MHz (must return 900MHz by Dec 2026). Network integration 73% complete (Jan 2026). Synergy: $250M achieved (114% of target).",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-gpuaas-20-customers",
+        "content": "CEO Vikram Sinha stated in Fortune interview (May 2025): 'We are providing AI services to 20+ companies including banks and commodity firms.' GPUaaS contracts are 5-7 year long-term. 28 ISVs/startups building on NVIDIA infrastructure for education, food security, governance, smart city, mobility, healthcare.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-ai-native-portfolio",
+        "content": "Indosat 'AI Native TechCo' portfolio: GPU Merdeka (H100+GB200 GPUaaS), Sahabat-AI (70B LLM, 5 languages), AI-RAN Research Center (Surabaya, with Nokia/NVIDIA), AI Grid (55,000 edge locations), AI Centre of Excellence (national hub with NVIDIA/Cisco), Sovereign SOC Cloud (Cisco Splunk), Google Distributed Cloud, Ericsson cloud-native BSS.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-isat-link-net-no-stake",
+        "content": "Indosat has NO equity stake in Link Net. Link Net is 75.4% owned by Axiata Investments + 19.2% by XL Smart. Link Net is transitioning to wholesale FibreCo (4.6M home passes across 70 cities). IFC provided $350M financing (IFC $200M + ADB $150M) in 2026.",
+        "fact_type": "data_point",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Fact",
+      "properties": {
+        "fact_id": "fact-indo-spectrum-cost-ratio",
+        "content": "Indonesia annual spectrum fees represent 12-13% of revenue for Indosat/XL (vs 5% for Telkom, vs APAC median 8.7%). GSMA warned $14B GDP loss (IDR 216T) for 2024-2030 if high prices continue. World Bank rated Indonesia's mobile spectrum allocation as 'G20 worst'.",
+        "fact_type": "statistic",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-isat-nd-ebitda-scenario",
+        "content": "5G spectrum auction ND/EBITDA impact scenarios for Indosat (current 0.39x financial debt basis): Base case IDR 3.4T → ~0.52x; Optimistic IDR 2.0T → ~0.47x; Pessimistic IDR 6-8T → ~0.63-0.69x. Key mitigant: FibreCo proceeds $700M (IDR 11.2T) arriving Q2-Q3 2026, effectively offsetting spectrum costs.",
+        "claim_type": "analysis",
+        "sentiment": "bullish",
+        "magnitude": "moderate",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-isat-arpu-sustainability",
+        "content": "ISAT ARPU uptrend likely sustainable: industry-wide pricing discipline (3-player oligopoly aligned at IDR 35,000 floor), 28-day cycle adoption, and postpaid mix shift. However, quantitative decomposition of price increase vs mix improvement is not disclosed by the company.",
+        "claim_type": "analysis",
+        "sentiment": "bullish",
+        "magnitude": "moderate",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-isat-gpuaas-moat",
+        "content": "Indosat has first-mover advantage in Indonesia GPUaaS: sole NVIDIA NCP, first GB200 NVL72 in SE Asia, Sahabat-AI LLM integration. Telkom/Telkomsel has no standalone GPUaaS offering. XLSmart AI investment is minimal. Risk: INF Tech deal raised geopolitical concerns (Chinese AI firm accessing banned Blackwell chips via Indonesian cloud loophole).",
+        "claim_type": "sector_view",
+        "sentiment": "bullish",
+        "magnitude": "strong",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Claim",
+      "properties": {
+        "claim_id": "claim-isat-fibreco-ipo-upside",
+        "content": "FibreCo IPO (Q3 2026) could provide additional upside to Indosat's remaining 45% stake. Current EV/EBITDA ~8x is below TowerCo comparables (12-20x). If public market re-rates FibreCo closer to Telkom TIF precedent (9-13x), Indosat's residual stake would appreciate significantly.",
+        "claim_type": "forecast",
+        "sentiment": "bullish",
+        "magnitude": "moderate",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Insight",
+      "properties": {
+        "insight_id": "insight-isat-gpuaas-resolved",
+        "content": "GPUaaS事業の情報ギャップが大幅解消。6社以上の顧客判明（INF Tech $100M, Tanla, GoTo, Accenture, Hippocratic AI, 20社+銀行・コモディティ）。GPU: H100 SXM + GB200 NVL72（東南アジア初）。DC: BDx JV 10MW稼働→1GW目標。競合Telkom/XLSmartにGPUaaS専用サービスなし。残るギャップ: GPU総設置数、銀行顧客具体名、NVIDIA商業条件詳細。",
+        "insight_type": "analytical_finding",
+        "category": "growth_driver",
+        "priority": "high",
+        "source_context": "Web search compilation (WSJ, Fortune, NVIDIA Blog, Tom's Hardware, etc.)",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Insight",
+      "properties": {
+        "insight_id": "insight-isat-arpu-resolved",
+        "content": "ARPU持続性の要因分解が大幅解消。主因は料金値上げ（スターターパックIDR 35,000統一、28日サイクル）+ ミックス改善（ポストペイド+19.7%）+ SIM整理。4Q25でTelkomselを逆転（IDR 44,000 vs 43,400）。Data yield底打ちサイン（implied yield +22-34%）。残るギャップ: 定量的寄与度分解は会社非開示。",
+        "insight_type": "analytical_finding",
+        "category": "revenue_quality",
+        "priority": "high",
+        "source_context": "Web search compilation (BRIDS, KB Valbury, CGS International, MNC Sekuritas, etc.)",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Insight",
+      "properties": {
+        "insight_id": "insight-isat-fibreco-resolved",
+        "content": "FibreCo売却条件が大幅解消。買い手: Arsari Group（プラボウォ大統領の弟）+ Northstar Group。EV/EBITDA ~8x（TowerCo 12-20xより低い）。86,000km移管（全206,275kmの一部）。IPO Q3 2026予定。資金使途: 5Gスペクトラム充当+AI投資+配当。残るギャップ: リースバック条件（期間・料率・escalation）完全非開示。",
+        "insight_type": "information_gap",
+        "category": "catalyst",
+        "priority": "medium",
+        "source_context": "Web search compilation (Forbes, Infralogic, UBS, BRIDS, etc.)",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "Insight",
+      "properties": {
+        "insight_id": "insight-isat-spectrum-resolved",
+        "content": "5Gオークション財務インパクトが大幅解消。700MHz+2.6GHz、Q2 2026予定。BRIDS推定: 1社あたりIDR 3.4T。ND/EBITDA影響: 0.39x→0.52x（ベース）。最大緩和材料: FibreCo $700M（IDR 11.2T）がほぼ同時期流入。ASEAN比較: タイ700MHz $0.36-0.46/MHz/pop。3社寡占で価格穏当化の可能性。残るギャップ: Reserve price・支払条件・オークション方式が全て未公表。",
+        "insight_type": "risk_flag",
+        "category": "regulatory",
+        "priority": "medium",
+        "source_context": "Web search compilation (MNC Sekuritas, BRIDS, GSMA, World Bank, etc.)",
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-xlsmart-revenue-fy25",
+        "metric_name": "Revenue",
+        "value": 42500.0,
+        "unit": "IDR bn",
+        "currency": "IDR",
+        "is_estimate": false,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-xlsmart-ebitda-fy25",
+        "metric_name": "EBITDA",
+        "value": 20100.0,
+        "unit": "IDR bn",
+        "currency": "IDR",
+        "is_estimate": false,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-xlsmart-arpu-fy25",
+        "metric_name": "Blended ARPU",
+        "value": 39500.0,
+        "unit": "IDR",
+        "currency": "IDR",
+        "is_estimate": false,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-xlsmart-subs-fy25",
+        "metric_name": "Mobile Subscribers",
+        "value": 73.0,
+        "unit": "million",
+        "currency": "IDR",
+        "is_estimate": false,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-tsel-arpu-3q25",
+        "metric_name": "Blended ARPU",
+        "value": 43400.0,
+        "unit": "IDR",
+        "currency": "IDR",
+        "is_estimate": false,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-isat-fibreco-ev",
+        "metric_name": "FibreCo Enterprise Value",
+        "value": 14600.0,
+        "unit": "IDR bn",
+        "currency": "IDR",
+        "is_estimate": false,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-isat-fibreco-ebitda",
+        "metric_name": "FibreCo EBITDA",
+        "value": 100.0,
+        "unit": "USD mn",
+        "currency": "USD",
+        "is_estimate": false,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-isat-spectrum-cost-brids",
+        "metric_name": "Estimated Spectrum Cost (per MNO)",
+        "value": 3400.0,
+        "unit": "IDR bn",
+        "currency": "IDR",
+        "is_estimate": true,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    },
+    {
+      "label": "FinancialDataPoint",
+      "properties": {
+        "datapoint_id": "fdp-isat-gpuaas-fy26f",
+        "metric_name": "GPUaaS Revenue (FY26F)",
+        "value": 55.0,
+        "unit": "USD mn",
+        "currency": "USD",
+        "is_estimate": true,
+        "created_at": "2026-03-18T15:00:00+09:00"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-inf-tech"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-inf-tech"}},
+      "to": {"label": "Entity", "match": {"entity_key": "INF Tech::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-tanla"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-tanla"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Tanla Platforms::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-goto"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-goto"}},
+      "to": {"label": "Entity", "match": {"entity_key": "GoTo::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-nvidia-timeline"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-nvidia-timeline"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Nvidia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-dc-bdx"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-dc-bdx"}},
+      "to": {"label": "Entity", "match": {"entity_key": "BDx Indonesia::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-arpu-drivers"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-arpu-overtake-tsel"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-arpu-overtake-tsel"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkomsel::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-data-yield-recovery"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-fibreco-buyer"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-fibreco-buyer"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Arsari Group::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-fibreco-buyer"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Northstar Group::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-fibreco-valuation"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-5g-spectrum-auction"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Komdigi::organization"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-20-customers"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-20-customers"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Vikram Sinha::person"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-ai-native-portfolio"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-link-net-no-stake"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Link Net::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-xlsmart-fy25"}},
+      "to": {"label": "Entity", "match": {"entity_key": "XLSmart::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-nd-ebitda-scenario"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-arpu-sustainability"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-gpuaas-moat"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-fibreco-ipo-upside"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-isat-gpuaas-resolved"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-isat-arpu-resolved"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-isat-fibreco-resolved"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "ABOUT",
+      "from": {"label": "Insight", "match": {"insight_id": "insight-isat-spectrum-resolved"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-xlsmart-revenue-fy25"}},
+      "to": {"label": "Entity", "match": {"entity_key": "XLSmart::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-xlsmart-ebitda-fy25"}},
+      "to": {"label": "Entity", "match": {"entity_key": "XLSmart::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-xlsmart-arpu-fy25"}},
+      "to": {"label": "Entity", "match": {"entity_key": "XLSmart::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-xlsmart-subs-fy25"}},
+      "to": {"label": "Entity", "match": {"entity_key": "XLSmart::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-tsel-arpu-3q25"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Telkomsel::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-isat-fibreco-ev"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-isat-fibreco-ebitda"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-isat-spectrum-cost-brids"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "RELATES_TO",
+      "from": {"label": "FinancialDataPoint", "match": {"datapoint_id": "fdp-isat-gpuaas-fy26f"}},
+      "to": {"label": "Entity", "match": {"entity_key": "Indosat Ooredoo Hutchison::company"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-inf-tech"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-tanla"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-gpuaas-goto"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-nvidia-timeline"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-dc-bdx"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-arpu-drivers"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-arpu-overtake-tsel"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-data-yield-recovery"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-fibreco-buyer"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-isat-fibreco-valuation"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-5g-spectrum-auction"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-indo-past-spectrum-prices"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Fact", "match": {"fact_id": "fact-asean-5g-price-comparison"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-nd-ebitda-scenario"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-arpu-sustainability"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-gpuaas-moat"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    },
+    {
+      "type": "EXTRACTED_FROM",
+      "from": {"label": "Claim", "match": {"claim_id": "claim-isat-fibreco-ipo-upside"}},
+      "to": {"label": "Source", "match": {"source_id": "isat-gpuaas-research-20260318"}}
+    }
+  ]
+}

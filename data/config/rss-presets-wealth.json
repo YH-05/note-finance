@@ -1,5 +1,5 @@
 {
-    "version": "1.1",
+    "version": "1.2",
     "presets": [
         {
             "url": "https://www.getrichslowly.org/feed/",
@@ -153,6 +153,15 @@
             "enabled": true,
             "tier": 2,
             "note": "Asset allocation data visualization and backtesting"
+        },
+        {
+            "url": "https://www.zerohedge.com/fullrss.xml",
+            "title": "Zero Hedge",
+            "category": "macro_markets",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "tier": 2,
+            "note": "Macro economics, geopolitics, and contrarian market analysis"
         }
     ]
 }

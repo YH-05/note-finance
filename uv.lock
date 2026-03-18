@@ -2274,6 +2274,7 @@ source = { editable = "." }
 dependencies = [
     { name = "anthropic" },
     { name = "authlib" },
+    { name = "click" },
     { name = "feedparser" },
     { name = "filelock" },
     { name = "finance" },
@@ -2303,9 +2304,6 @@ automation = [
 chart = [
     { name = "matplotlib" },
     { name = "seaborn" },
-]
-cli = [
-    { name = "click" },
 ]
 dev = [
     { name = "bandit" },
@@ -2353,7 +2351,7 @@ requires-dist = [
     { name = "authlib", specifier = ">=1.6.7" },
     { name = "bandit", marker = "extra == 'dev'", specifier = ">=1.8.0" },
     { name = "claude-agent-sdk", marker = "extra == 'automation'", specifier = ">=0.1.22" },
-    { name = "click", marker = "extra == 'cli'", specifier = ">=8.1.0" },
+    { name = "click", specifier = ">=8.1.0" },
     { name = "cssselect", marker = "extra == 'dev'", specifier = ">=1.2.0" },
     { name = "fastmcp", marker = "extra == 'mcp'", specifier = ">=2.14.3" },
     { name = "feedparser", specifier = ">=6.0.12" },
@@ -2391,7 +2389,7 @@ requires-dist = [
     { name = "trafilatura", specifier = ">=2.0.0" },
     { name = "yfinance", marker = "extra == 'dev'", specifier = ">=0.2.0" },
 ]
-provides-extras = ["dev", "mcp", "cli", "playwright", "automation", "scheduler", "scraper", "pdf", "chart"]
+provides-extras = ["dev", "mcp", "playwright", "automation", "scheduler", "scraper", "pdf", "chart"]
 
 [package.metadata.requires-dev]
 dev = [

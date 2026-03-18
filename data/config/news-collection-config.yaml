@@ -121,6 +121,11 @@ extraction:
     headless: true           # true: ヘッドレスモード（推奨）
     timeout_seconds: 30      # Playwright固有のタイムアウト
 
+  # JS必須ドメイン（trafilaturaをスキップし、最初からPlaywrightで取得）
+  # React/Next.js等のSPAで記事本文がJSレンダリングされるサイト向け
+  playwright_required_domains:
+    - cnbc.com
+
   # [Phase 10] User-Agent ローテーション
   # ボット検出を回避するため、複数のUser-Agentをランダムに使用
   # 各リクエストでリストからランダムに1つを選択

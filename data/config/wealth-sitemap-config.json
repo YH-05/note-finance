@@ -1,5 +1,5 @@
 {
-    "version": "1.1",
+    "version": "1.2",
     "sites": [
         {
             "domain": "getrichslowly.org",
@@ -173,6 +173,17 @@
             "backfill_tier": "B",
             "url_patterns": ["/"],
             "exclude_patterns": ["/category/", "/tag/", "/author/", "/attachment/", "/page/"]
+        },
+        {
+            "domain": "zerohedge.com",
+            "source_key": "zerohedge",
+            "sitemap_url": "https://www.zerohedge.com/sitemap.xml",
+            "sitemap_format": "custom",
+            "tier": 2,
+            "backfill_tier": "B",
+            "url_patterns": ["/markets/", "/economics/", "/geopolitical/", "/commodities/"],
+            "exclude_patterns": ["/category/", "/tag/", "/author/", "/page/", "/premium/"],
+            "robots_notes": "High-traffic site; conservative rate limit 3s"
         }
     ]
 }

@@ -133,11 +133,7 @@ class NewsWorkflowOrchestrator:
         self._config = config
         self._callback = progress_callback or ConsoleProgressCallback()
         self._collector = RSSCollector(config)
-        self._extractor = TrafilaturaExtractor(
-            min_body_length=config.extraction.min_body_length,
-            max_retries=config.extraction.max_retries,
-            timeout_seconds=config.extraction.timeout_seconds,
-        )
+        self._extractor = TrafilaturaExtractor.from_config(config.extraction)
         self._summarizer = Summarizer(config)
         self._publisher = Publisher(config)
         self._grouper = ArticleGrouper(
@@ -268,6 +264,39 @@ class NewsWorkflowOrchestrator:
         if not collected:
             return self._finalize_empty(started_at, feed_errors, stage_metrics_list)
 
+        # Initialize Playwright browser for JS-rendered page fallback
+        await self._extractor.__aenter__()
+        try:
+            return await self._run_pipeline(
+                collected,
+                feed_errors,
+                early_dedup_count,
+                started_at,
+                stage_metrics_list,
+                total_stages,
+                dry_run,
+                export_only,
+                is_per_category,
+            )
+        finally:
+            await self._extractor.__aexit__(None, None, None)
+
+    async def _run_pipeline(
+        self,
+        collected: list[CollectedArticle],
+        feed_errors: list[FeedError],
+        early_dedup_count: int,
+        started_at: datetime,
+        stage_metrics_list: list[StageMetrics],
+        total_stages: int,
+        dry_run: bool,
+        export_only: bool,
+        is_per_category: bool,
+    ) -> WorkflowResult:
+        """Execute the pipeline stages after collection.
+
+        Separated from run() to enable proper Playwright lifecycle management.
+        """
         # Stage 2: Extraction
         extracted, extracted_success, domain_rates = await self._run_extraction(
             collected, total_stages, stage_metrics_list

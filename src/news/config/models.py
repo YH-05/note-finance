@@ -733,6 +733,10 @@ class ExtractionConfig(BaseModel):
         default_factory=PlaywrightFallbackConfig,
         description="Playwright fallback configuration for JS-rendered pages",
     )
+    playwright_required_domains: list[str] = Field(
+        default_factory=list,
+        description="Domains requiring Playwright for JS rendering (skip trafilatura)",
+    )
 
 
 class SummarizationConfig(BaseModel):
