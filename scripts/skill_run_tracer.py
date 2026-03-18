@@ -38,12 +38,17 @@ import uuid
 from datetime import datetime, timezone
 from typing import Any
 
+from pathlib import Path
+
 try:
     from neo4j import GraphDatabase
 except ImportError:
     GraphDatabase = None  # type: ignore[assignment, misc]
 
-from session_utils import get_logger
+try:
+    from finance.utils.logging_config import get_logger
+except ImportError:
+    from session_utils import get_logger  # type: ignore[no-redef]
 
 logger = get_logger(__name__)
 
@@ -254,7 +259,7 @@ def build_complete_cypher(
         "end_at": end_at,
         "duration_ms": duration_ms,
         "output_summary": truncate_summary(output_summary),
-        "error_message": error_message,
+        "error_message": truncate_summary(error_message),
         "error_type": error_type,
     }
     return query, params
@@ -427,9 +432,7 @@ def parse_feedback_file(path: str) -> list[tuple[str, str]]:
         (parent_id, child_id) のタプルリスト。ファイル不存在や JSON 不正時は空リスト。
     """
     try:
-        from pathlib import Path as _Path
-
-        with _Path(path).open(encoding="utf-8") as f:
+        with Path(path).open(encoding="utf-8") as f:
             data = json.load(f)
         invocations = data.get("invocations", [])
         return [(inv["parent_id"], inv["child_id"]) for inv in invocations]
@@ -442,12 +445,55 @@ def parse_feedback_file(path: str) -> list[tuple[str, str]]:
 
 
 # ---------------------------------------------------------------------------
+# Driver lifecycle helper
+# ---------------------------------------------------------------------------
+
+
+def _get_neo4j_password() -> str | None:
+    """環境変数 ``NEO4J_PASSWORD`` からパスワードを取得する。"""
+    return os.environ.get("NEO4J_PASSWORD")
+
+
+def _run_with_driver(
+    args: argparse.Namespace,
+    queries: list[tuple[str, dict[str, Any]]],
+) -> list[bool]:
+    """ドライバのライフサイクルを管理し、クエリリストを実行する。
+
+    Parameters
+    ----------
+    args : argparse.Namespace
+        CLI 引数（neo4j_uri, neo4j_user を含む）。
+    queries : list[tuple[str, dict[str, Any]]]
+        (Cypher, params) のリスト。
+
+    Returns
+    -------
+    list[bool]
+        各クエリの実行結果リスト。
+    """
+    driver = create_neo4j_driver(
+        uri=args.neo4j_uri,
+        user=args.neo4j_user,
+        password=_get_neo4j_password(),
+    )
+    try:
+        return [execute_cypher(driver, q, p) for q, p in queries]
+    finally:
+        if driver is not None:
+            driver.close()
+
+
+# ---------------------------------------------------------------------------
 # CLI subcommands
 # ---------------------------------------------------------------------------
 
 
 def _cmd_start(args: argparse.Namespace) -> None:
-    """start サブコマンドの実行。"""
+    """start サブコマンド: SkillRun ノードを作成し skill_run_id を stdout に出力する。
+
+    Neo4j 未起動時はグレースフルデグラデーションにより合成 ID を stdout に出力する。
+    """
     session_id = get_session_id()
     start_at = datetime.now(timezone.utc).isoformat()
     skill_run_id = generate_skill_run_id(args.skill_name, session_id, start_at)
@@ -459,12 +505,6 @@ def _cmd_start(args: argparse.Namespace) -> None:
         session_id=session_id,
     )
 
-    driver = create_neo4j_driver(
-        uri=args.neo4j_uri,
-        user=args.neo4j_user,
-        password=args.neo4j_password,
-    )
-
     query, params = build_start_cypher(
         skill_run_id=skill_run_id,
         skill_name=args.skill_name,
@@ -474,23 +514,20 @@ def _cmd_start(args: argparse.Namespace) -> None:
         input_summary=args.input_summary,
     )
 
-    success = execute_cypher(driver, query, params)
-    if not success:
+    results = _run_with_driver(args, [(query, params)])
+    if not results[0]:
         logger.warning(
             "skill_run_start_degraded",
             msg="Neo4j unavailable; returning synthetic ID",
             skill_run_id=skill_run_id,
         )
 
-    if driver is not None:
-        driver.close()
-
     # skill_run_id を stdout に出力（シェルスクリプトでキャプチャ可能）
     print(skill_run_id)
 
 
 def _cmd_complete(args: argparse.Namespace) -> None:
-    """complete サブコマンドの実行。"""
+    """complete サブコマンド: SkillRun の status/duration_ms/error 等を更新する。"""
     end_at = datetime.now(timezone.utc).isoformat()
     duration_ms = args.duration_ms
 
@@ -498,12 +535,6 @@ def _cmd_complete(args: argparse.Namespace) -> None:
         "skill_run_complete",
         skill_run_id=args.skill_run_id,
         status=args.status,
-    )
-
-    driver = create_neo4j_driver(
-        uri=args.neo4j_uri,
-        user=args.neo4j_user,
-        password=args.neo4j_password,
     )
 
     query, params = build_complete_cypher(
@@ -516,47 +547,33 @@ def _cmd_complete(args: argparse.Namespace) -> None:
         error_type=args.error_type,
     )
 
-    success = execute_cypher(driver, query, params)
-    if not success:
+    results = _run_with_driver(args, [(query, params)])
+    if not results[0]:
         logger.warning(
             "skill_run_complete_degraded",
             msg="Neo4j unavailable; complete operation skipped",
             skill_run_id=args.skill_run_id,
         )
 
-    if driver is not None:
-        driver.close()
-
 
 def _cmd_feedback(args: argparse.Namespace) -> None:
-    """feedback サブコマンドの実行。"""
+    """feedback サブコマンド: feedback_score を更新し、INVOKED_SKILL リレーションを作成する。"""
     logger.info(
         "skill_run_feedback",
         skill_run_id=args.skill_run_id,
         score=args.score,
     )
 
-    driver = create_neo4j_driver(
-        uri=args.neo4j_uri,
-        user=args.neo4j_user,
-        password=args.neo4j_password,
-    )
+    # feedback_score 更新 + INVOKED_SKILL リレーション作成
+    queries: list[tuple[str, dict[str, Any]]] = []
 
-    # feedback_score 更新
-    query, params = build_feedback_cypher(
+    fb_query, fb_params = build_feedback_cypher(
         skill_run_id=args.skill_run_id,
         feedback_score=args.score,
     )
+    queries.append((fb_query, fb_params))
 
-    success = execute_cypher(driver, query, params)
-    if not success:
-        logger.warning(
-            "skill_run_feedback_degraded",
-            msg="Neo4j unavailable; feedback operation skipped",
-            skill_run_id=args.skill_run_id,
-        )
-
-    # INVOKED_SKILL リレーション作成（--feedback-file 指定時）
+    # --feedback-file 指定時は INVOKED_SKILL リレーション一括追加
     if args.feedback_file:
         invocations = parse_feedback_file(args.feedback_file)
         for parent_id, child_id in invocations:
@@ -564,16 +581,27 @@ def _cmd_feedback(args: argparse.Namespace) -> None:
                 parent_id=parent_id,
                 child_id=child_id,
             )
-            rel_ok = execute_cypher(driver, rel_query, rel_params)
-            if rel_ok:
+            queries.append((rel_query, rel_params))
+
+    results = _run_with_driver(args, queries)
+
+    if not results[0]:
+        logger.warning(
+            "skill_run_feedback_degraded",
+            msg="Neo4j unavailable; feedback operation skipped",
+            skill_run_id=args.skill_run_id,
+        )
+
+    # invocations のログ出力
+    if args.feedback_file and len(results) > 1:
+        invocations = parse_feedback_file(args.feedback_file)
+        for i, (parent_id, child_id) in enumerate(invocations):
+            if results[i + 1]:
                 logger.info(
                     "invoked_skill_created",
                     parent_id=parent_id,
                     child_id=child_id,
                 )
-
-    if driver is not None:
-        driver.close()
 
 
 # ---------------------------------------------------------------------------
@@ -593,7 +621,7 @@ def build_parser() -> argparse.ArgumentParser:
         description="SkillRun node CRUD utility for Neo4j",
     )
 
-    # 共通引数
+    # 共通引数（パスワードは環境変数 NEO4J_PASSWORD のみ受付）
     parser.add_argument(
         "--neo4j-uri",
         default=os.environ.get("NEO4J_URI", DEFAULT_NEO4J_URI),
@@ -603,11 +631,6 @@ def build_parser() -> argparse.ArgumentParser:
         "--neo4j-user",
         default=os.environ.get("NEO4J_USER", DEFAULT_NEO4J_USER),
         help=f"Neo4j username (default: {DEFAULT_NEO4J_USER})",
-    )
-    parser.add_argument(
-        "--neo4j-password",
-        default=os.environ.get("NEO4J_PASSWORD"),
-        help="Neo4j password (set NEO4J_PASSWORD env var)",
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -674,9 +697,16 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
         help="skill_run_id to update",
     )
+    def _score_type(value: str) -> float:
+        v = float(value)
+        if not 0.0 <= v <= 1.0:
+            msg = f"score must be between 0.0 and 1.0, got {v}"
+            raise argparse.ArgumentTypeError(msg)
+        return v
+
     feedback_parser.add_argument(
         "--score",
-        type=float,
+        type=_score_type,
         required=True,
         help="Quality score 0.0 - 1.0",
     )

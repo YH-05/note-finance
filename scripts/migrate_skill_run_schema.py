@@ -141,11 +141,6 @@ def main() -> None:
         help="Neo4j username",
     )
     parser.add_argument(
-        "--neo4j-password",
-        default=os.environ.get("NEO4J_PASSWORD"),
-        help="Neo4j password (required: set NEO4J_PASSWORD env var)",
-    )
-    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Print DDL statements without executing",
@@ -159,10 +154,10 @@ def main() -> None:
         print(summary)
         return
 
-    if not args.neo4j_password:
+    neo4j_password = os.environ.get("NEO4J_PASSWORD")
+    if not neo4j_password:
         parser.error(
-            "Neo4j password is required. "
-            "Set NEO4J_PASSWORD environment variable or use --neo4j-password."
+            "Neo4j password is required. Set NEO4J_PASSWORD environment variable."
         )
 
     logger.info(
@@ -172,7 +167,7 @@ def main() -> None:
     )
     driver = GraphDatabase.driver(
         args.neo4j_uri,
-        auth=(args.neo4j_user, args.neo4j_password),
+        auth=(args.neo4j_user, neo4j_password),
     )
 
     try:

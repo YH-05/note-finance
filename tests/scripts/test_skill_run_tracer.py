@@ -3,10 +3,15 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from datetime import datetime, timezone
+from typing import TYPE_CHECKING
 from unittest.mock import MagicMock, patch
 
 import pytest
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 # ---------------------------------------------------------------------------
 # generate_skill_run_id
@@ -454,12 +459,8 @@ class TestCreateNeo4jDriver:
 class TestParseFeedbackFile:
     """parse_feedback_file のテスト。"""
 
-    def test_正常系_JSONファイルから親子IDを取得(
-        self, tmp_path: pytest.TempPathFactory
-    ) -> None:
+    def test_正常系_JSONファイルから親子IDを取得(self, tmp_path: Path) -> None:
         """JSON ファイルから parent/child ID リストを取得できることを確認。"""
-        import json
-
         from scripts.skill_run_tracer import parse_feedback_file
 
         feedback = {
@@ -468,7 +469,7 @@ class TestParseFeedbackFile:
                 {"parent_id": "p1", "child_id": "c2"},
             ]
         }
-        path = tmp_path / "feedback.json"  # type: ignore[operator]
+        path = tmp_path / "feedback.json"
         path.write_text(json.dumps(feedback))
 
         result = parse_feedback_file(str(path))
@@ -483,12 +484,194 @@ class TestParseFeedbackFile:
         result = parse_feedback_file("/nonexistent/path.json")
         assert result == []
 
-    def test_異常系_不正JSONで空リスト(self, tmp_path: pytest.TempPathFactory) -> None:
+    def test_異常系_不正JSONで空リスト(self, tmp_path: Path) -> None:
         """不正な JSON ファイルで空リストを返すことを確認。"""
         from scripts.skill_run_tracer import parse_feedback_file
 
-        path = tmp_path / "bad.json"  # type: ignore[operator]
+        path = tmp_path / "bad.json"
         path.write_text("not json")
 
         result = parse_feedback_file(str(path))
         assert result == []
+
+    def test_異常系_必須キー欠損で空リスト(self, tmp_path: Path) -> None:
+        """invocations エントリに child_id が欠損している場合空リストを返すことを確認。"""
+        from scripts.skill_run_tracer import parse_feedback_file
+
+        bad = {"invocations": [{"parent_id": "p1"}]}
+        path = tmp_path / "missing_key.json"
+        path.write_text(json.dumps(bad))
+
+        result = parse_feedback_file(str(path))
+        assert result == []
+
+
+# ---------------------------------------------------------------------------
+# truncate_summary (edge cases)
+# ---------------------------------------------------------------------------
+
+
+class TestTruncateSummaryEdgeCases:
+    """truncate_summary の境界値テスト。"""
+
+    def test_エッジケース_ちょうど500文字は切り詰めない(self) -> None:
+        """ちょうど 500 文字の入力がそのまま返されることを確認。"""
+        from scripts.skill_run_tracer import truncate_summary
+
+        text = "a" * 500
+        assert truncate_summary(text) == text
+
+    def test_エッジケース_501文字は切り詰める(self) -> None:
+        """501 文字の入力が切り詰められることを確認。"""
+        from scripts.skill_run_tracer import truncate_summary
+
+        text = "a" * 501
+        result = truncate_summary(text)
+        assert result is not None
+        assert len(result) == 503  # 500 + "..."
+        assert result.endswith("...")
+
+
+# ---------------------------------------------------------------------------
+# _cmd_start / _cmd_complete / _cmd_feedback (CLI subcommands)
+# ---------------------------------------------------------------------------
+
+
+class TestCmdStart:
+    """_cmd_start のテスト。"""
+
+    def test_正常系_degraded時にstdoutにIDを出力(
+        self, capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        """Neo4j 未起動時に合成 ID を stdout に出力することを確認。"""
+        from scripts.skill_run_tracer import _cmd_start, build_parser
+
+        args = build_parser().parse_args(["start", "--skill-name", "test-skill"])
+
+        with patch("scripts.skill_run_tracer.create_neo4j_driver", return_value=None):
+            _cmd_start(args)
+
+        captured = capsys.readouterr()
+        # stdout の最終行が skill_run_id（ロガー出力もstdoutに混在するため）
+        last_line = captured.out.strip().split("\n")[-1]
+        assert len(last_line) == 32
+
+    def test_正常系_Neo4j接続時にstdoutにIDを出力(
+        self, capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        """Neo4j 接続時に skill_run_id を stdout に出力することを確認。"""
+        from scripts.skill_run_tracer import _cmd_start, build_parser
+
+        args = build_parser().parse_args(["start", "--skill-name", "test-skill"])
+
+        mock_driver = MagicMock()
+        mock_session = MagicMock()
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
+        mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
+
+        with patch(
+            "scripts.skill_run_tracer.create_neo4j_driver", return_value=mock_driver
+        ):
+            _cmd_start(args)
+
+        captured = capsys.readouterr()
+        last_line = captured.out.strip().split("\n")[-1]
+        assert len(last_line) == 32
+        mock_driver.close.assert_called_once()
+
+
+class TestCmdComplete:
+    """_cmd_complete のテスト。"""
+
+    def test_正常系_degraded時にwarningログ(self) -> None:
+        """Neo4j 未起動時に degraded 警告を出すことを確認。"""
+        from scripts.skill_run_tracer import _cmd_complete, build_parser
+
+        args = build_parser().parse_args(
+            [
+                "complete",
+                "--skill-run-id",
+                "a" * 32,
+                "--status",
+                "success",
+            ]
+        )
+
+        with (
+            patch("scripts.skill_run_tracer.create_neo4j_driver", return_value=None),
+            patch("scripts.skill_run_tracer.logger") as mock_logger,
+        ):
+            _cmd_complete(args)
+
+        mock_logger.warning.assert_called()
+
+
+class TestCmdFeedback:
+    """_cmd_feedback のテスト。"""
+
+    def test_正常系_degraded時にwarningログ(self) -> None:
+        """Neo4j 未起動時に degraded 警告を出すことを確認。"""
+        from scripts.skill_run_tracer import _cmd_feedback, build_parser
+
+        args = build_parser().parse_args(
+            [
+                "feedback",
+                "--skill-run-id",
+                "a" * 32,
+                "--score",
+                "0.8",
+            ]
+        )
+
+        with (
+            patch("scripts.skill_run_tracer.create_neo4j_driver", return_value=None),
+            patch("scripts.skill_run_tracer.logger") as mock_logger,
+        ):
+            _cmd_feedback(args)
+
+        mock_logger.warning.assert_called()
+
+
+# ---------------------------------------------------------------------------
+# score validation
+# ---------------------------------------------------------------------------
+
+
+class TestScoreValidation:
+    """--score 引数のバリデーションテスト。"""
+
+    def test_異常系_負の値でエラー(self) -> None:
+        """--score に負の値を渡すとエラーになることを確認。"""
+        from scripts.skill_run_tracer import build_parser
+
+        parser = build_parser()
+        with pytest.raises(SystemExit):
+            parser.parse_args(
+                ["feedback", "--skill-run-id", "a" * 32, "--score", "-0.1"]
+            )
+
+    def test_異常系_1超でエラー(self) -> None:
+        """--score に 1.0 超を渡すとエラーになることを確認。"""
+        from scripts.skill_run_tracer import build_parser
+
+        parser = build_parser()
+        with pytest.raises(SystemExit):
+            parser.parse_args(
+                ["feedback", "--skill-run-id", "a" * 32, "--score", "1.5"]
+            )
+
+    def test_正常系_0と1は受け付ける(self) -> None:
+        """--score に 0.0 と 1.0 を渡せることを確認。"""
+        from scripts.skill_run_tracer import build_parser
+
+        parser = build_parser()
+        args0 = parser.parse_args(
+            ["feedback", "--skill-run-id", "a" * 32, "--score", "0.0"]
+        )
+        args1 = parser.parse_args(
+            ["feedback", "--skill-run-id", "a" * 32, "--score", "1.0"]
+        )
+        assert args0.score == 0.0
+        assert args1.score == 1.0
