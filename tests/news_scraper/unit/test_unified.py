@@ -215,6 +215,30 @@ class TestCollectFinancialNews:
         assert len(df) == 1
         assert df.articles[0].source == "nasdaq"
 
+    def test_正常系_reuters_jpソースのみで収集できる(self) -> None:
+        """collect_financial_news with reuters_jp source only."""
+        reuters_articles = [
+            _make_article(
+                title="Reuters JP Article",
+                url="https://jp.reuters.com/1",
+                source="reuters_jp",
+            ),
+        ]
+        with patch(
+            "news_scraper.reuters_jp.collect_news", return_value=reuters_articles
+        ) as mock_reuters:
+            df = collect_financial_news(sources=["reuters_jp"])
+            mock_reuters.assert_called_once()
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        assert df.articles[0].source == "reuters_jp"
+
+    def test_正常系_reuters_jpがSOURCE_REGISTRYに登録されている(self) -> None:
+        """reuters_jp is registered in SOURCE_REGISTRY."""
+        from news_scraper.unified import SOURCE_REGISTRY
+
+        assert "reuters_jp" in SOURCE_REGISTRY
+
     def test_正常系_configがソースコレクターに渡される(self) -> None:
         """collect_financial_news passes config to source collectors."""
         config = ScraperConfig(max_articles_per_source=10, include_content=True)
