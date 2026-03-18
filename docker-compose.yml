@@ -40,24 +40,31 @@ services:
 
     working_dir: /app
 
-  neo4j:
+  neo4j-note:
     image: neo4j:5-community
-    container_name: finance-neo4j
+    container_name: note-neo4j
     ports:
       - "7474:7474"  # Browser UI
       - "7687:7687"  # Bolt protocol
     volumes:
-      - /Volumes/NeoData/neo4j/data:/data
-      - /Volumes/NeoData/neo4j/logs:/logs
-      - /Volumes/NeoData/neo4j/plugins:/plugins
-      - /Volumes/NeoData/neo4j/import:/var/lib/neo4j/import
+      - note_neo4j-data:/data
+      - note_neo4j-logs:/logs
     environment:
       - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-gomasuke}
       - NEO4J_PLUGINS=["apoc"]
       - NEO4J_apoc_export_file_enabled=true
       - NEO4J_apoc_import_file_enabled=true
       - NEO4J_apoc_import_file_use__neo4j__config=true
+      - NEO4J_server_memory_heap_initial__size=256m
+      - NEO4J_server_memory_heap_max__size=512m
+      - NEO4J_server_memory_pagecache_size=256m
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   neo4j-research:
     image: neo4j:5-community
@@ -118,3 +125,5 @@ services:
 volumes:
   claude-config:  # Claude Code 設定の永続化
   venv:           # Python 仮想環境の隔離
+  note_neo4j-data:  # note-neo4j データ永続化
+  note_neo4j-logs:  # note-neo4j ログ永続化
