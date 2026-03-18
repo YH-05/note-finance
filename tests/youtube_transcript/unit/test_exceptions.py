@@ -105,6 +105,6 @@ class TestExceptionHierarchy:
                 f"{cls.__name__} should be a subclass of YouTubeTranscriptError"
             )
 
-    def test_正常系_サブクラスが6つ存在する(self) -> None:
+    def test_正常系_サブクラスが7つ存在する(self) -> None:
         subclasses = YouTubeTranscriptError.__subclasses__()
-        assert len(subclasses) == 6
+        assert len(subclasses) == 7

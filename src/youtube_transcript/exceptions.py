@@ -151,3 +151,26 @@ class StorageError(YouTubeTranscriptError):
     """
 
     pass
+
+
+class FileLockError(YouTubeTranscriptError):
+    """Exception raised when a file lock cannot be acquired.
+
+    This exception is raised when the file lock acquisition times out,
+    indicating that another process holds the lock longer than expected.
+
+    Parameters
+    ----------
+    message : str
+        Description of the error, typically including the lock file path
+        and timeout duration.
+
+    Examples
+    --------
+    >>> raise FileLockError("Failed to acquire lock for channels.lock after 10.0 seconds")
+    Traceback (most recent call last):
+        ...
+    FileLockError: Failed to acquire lock for channels.lock after 10.0 seconds
+    """
+
+    pass
