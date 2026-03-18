@@ -40,7 +40,7 @@ import httpx
 
 from news_scraper._html_utils import (
     JP_DEFAULT_HEADERS,
-    fetch_html,
+    async_fetch_html,
     parse_html,
     resolve_relative_url,
 )
@@ -173,11 +173,12 @@ def _row_to_article(
 # ─────────────────────────────────────────────────────────────────────────────
 
 
-def collect_news(config: ScraperConfig | None = None) -> list[Article]:
+async def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     """Collect recent news articles from kabutan.jp.
 
-    Fetches the market news page, parses all rows from both ``s_news_list``
-    tables using XPath, and converts them to :class:`Article` instances.
+    Fetches the market news page asynchronously, parses all rows from both
+    ``s_news_list`` tables using XPath, and converts them to
+    :class:`Article` instances.
 
     Parameters
     ----------
@@ -195,9 +196,10 @@ def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     --------
     >>> from news_scraper.kabutan import collect_news
     >>> from news_scraper.types import ScraperConfig
+    >>> import asyncio
     >>> config = ScraperConfig(max_articles_per_source=10)
     >>> # In tests this is mocked to avoid real HTTP calls
-    >>> articles = collect_news(config=config)
+    >>> articles = asyncio.run(collect_news(config=config))
     >>> isinstance(articles, list)
     True
     """
@@ -214,8 +216,8 @@ def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     articles: list[Article] = []
 
     try:
-        with httpx.Client(timeout=config.request_timeout) as client:
-            html_content = fetch_html(
+        async with httpx.AsyncClient(timeout=config.request_timeout) as client:
+            html_content = await async_fetch_html(
                 KABUTAN_NEWS_URL,
                 client,
                 headers=JP_DEFAULT_HEADERS,

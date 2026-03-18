@@ -1,15 +1,14 @@
 """Unit tests for src/news_scraper/nasdaq.py.
 
 Tests cover helper functions and the main collect_news entry point.
-HTTP calls are mocked via pytest-httpserver or unittest.mock to avoid
-real network access.
+HTTP calls are mocked via unittest.mock to avoid real network access.
+collect_news is now async (asyncio-based).
 """
 
 from __future__ import annotations
 
-import json
 from datetime import datetime, timezone
-from unittest.mock import MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 import pytest
@@ -17,7 +16,7 @@ import pytest
 from news_scraper.nasdaq import (
     NASDAQ_API_CATEGORIES_SET,
     _extract_rows_from_response,
-    _fetch_category,
+    _fetch_category_async,
     _parse_nasdaq_date,
     _row_to_article,
     collect_news,
@@ -157,8 +156,9 @@ class TestExtractRowsFromResponse:
         assert _extract_rows_from_response({"data": {}}) == []
 
 
-class TestFetchCategory:
-    def test_正常系_HTTPレスポンスから記事を収集(self) -> None:
+class TestFetchCategoryAsync:
+    async def test_正常系_HTTPレスポンスから記事を収集(self) -> None:
+        """_fetch_category_async returns articles from API response."""
         payload = {
             "data": {
                 "rows": [
@@ -171,47 +171,53 @@ class TestFetchCategory:
         mock_response.json.return_value = payload
         mock_response.raise_for_status.return_value = None
 
-        mock_client = MagicMock()
-        mock_client.get.return_value = mock_response
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(return_value=mock_response)
 
-        articles = _fetch_category(mock_client, "Markets", 10)
+        articles = await _fetch_category_async(mock_client, "Markets", 10)
         assert len(articles) == 2
 
-    def test_正常系_whitelistに含まれないカテゴリをスキップ(self) -> None:
-        mock_client = MagicMock()
-        articles = _fetch_category(mock_client, "InvalidCategory", 10)
+    async def test_正常系_whitelistに含まれないカテゴリをスキップ(self) -> None:
+        """_fetch_category_async skips categories not in whitelist."""
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock()
+        articles = await _fetch_category_async(mock_client, "InvalidCategory", 10)
         assert articles == []
         mock_client.get.assert_not_called()
 
-    def test_異常系_HTTPStatusErrorで空リストを返す(self) -> None:
+    async def test_異常系_HTTPStatusErrorで空リストを返す(self) -> None:
+        """_fetch_category_async returns empty list on HTTP error."""
         mock_response = MagicMock()
         mock_response.status_code = 404
-        mock_client = MagicMock()
-        mock_client.get.side_effect = httpx.HTTPStatusError(
-            "404", request=MagicMock(), response=mock_response
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(
+            side_effect=httpx.HTTPStatusError(
+                "404", request=MagicMock(), response=mock_response
+            )
         )
-        articles = _fetch_category(mock_client, "Markets", 10)
+        articles = await _fetch_category_async(mock_client, "Markets", 10)
         assert articles == []
 
-    def test_異常系_RequestErrorで空リストを返す(self) -> None:
-        mock_client = MagicMock()
-        mock_client.get.side_effect = httpx.RequestError("Connection failed")
-        articles = _fetch_category(mock_client, "Markets", 10)
+    async def test_異常系_RequestErrorで空リストを返す(self) -> None:
+        """_fetch_category_async returns empty list on request error."""
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(side_effect=httpx.RequestError("Connection failed"))
+        articles = await _fetch_category_async(mock_client, "Markets", 10)
         assert articles == []
 
-    def test_正常系_httpxのparamsでURLエンコードされる(self) -> None:
+    async def test_正常系_httpxのparamsでURLエンコードされる(self) -> None:
+        """_fetch_category_async passes params to client.get."""
         payload = {"data": {"rows": []}}
         mock_response = MagicMock()
         mock_response.json.return_value = payload
         mock_response.raise_for_status.return_value = None
-        mock_client = MagicMock()
-        mock_client.get.return_value = mock_response
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(return_value=mock_response)
 
-        _fetch_category(mock_client, "Markets", 5)
+        await _fetch_category_async(mock_client, "Markets", 5)
 
         call_kwargs = mock_client.get.call_args
         assert call_kwargs is not None
-        # params should be passed as keyword argument
         _, kwargs = call_kwargs
         assert "params" in kwargs
         assert kwargs["params"]["category"] == "Markets"
@@ -230,10 +236,8 @@ class TestNasdaqApiCategoriesSet:
 
 
 class TestCollectNews:
-    @patch("news_scraper.nasdaq.httpx.Client")
-    def test_正常系_ThreadPoolExecutorで複数カテゴリを収集(
-        self, mock_client_class: MagicMock
-    ) -> None:
+    async def test_正常系_asyncio_gatherで複数カテゴリを収集(self) -> None:
+        """collect_news uses asyncio.gather for parallel category fetching."""
         payload = {
             "data": {
                 "rows": [
@@ -245,31 +249,42 @@ class TestCollectNews:
         mock_response.json.return_value = payload
         mock_response.raise_for_status.return_value = None
 
-        mock_client = MagicMock()
-        mock_client.get.return_value = mock_response
-        mock_client_class.return_value.__enter__.return_value = mock_client
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(return_value=mock_response)
 
-        config = ScraperConfig(max_articles_per_source=10)
-        articles = collect_news(config=config, categories=["Markets", "Earnings"])
+        with patch("httpx.AsyncClient") as mock_async_client_cls:
+            mock_async_client_cls.return_value.__aenter__ = AsyncMock(
+                return_value=mock_client
+            )
+            mock_async_client_cls.return_value.__aexit__ = AsyncMock(return_value=None)
+
+            config = ScraperConfig(max_articles_per_source=10)
+            articles = await collect_news(
+                config=config, categories=["Markets", "Earnings"]
+            )
 
         assert isinstance(articles, list)
         # Called once per category
         assert mock_client.get.call_count == 2
 
-    @patch("news_scraper.nasdaq.httpx.Client")
-    def test_正常系_デフォルトで全カテゴリを収集(
-        self, mock_client_class: MagicMock
-    ) -> None:
+    async def test_正常系_デフォルトで全カテゴリを収集(self) -> None:
+        """collect_news without categories fetches all NASDAQ categories."""
         payload = {"data": {"rows": []}}
         mock_response = MagicMock()
         mock_response.json.return_value = payload
         mock_response.raise_for_status.return_value = None
 
-        mock_client = MagicMock()
-        mock_client.get.return_value = mock_response
-        mock_client_class.return_value.__enter__.return_value = mock_client
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(return_value=mock_response)
 
-        articles = collect_news()
+        with patch("httpx.AsyncClient") as mock_async_client_cls:
+            mock_async_client_cls.return_value.__aenter__ = AsyncMock(
+                return_value=mock_client
+            )
+            mock_async_client_cls.return_value.__aexit__ = AsyncMock(return_value=None)
+
+            articles = await collect_news()
+
         assert isinstance(articles, list)
         # Should attempt all 8 NASDAQ categories
         assert mock_client.get.call_count == 8

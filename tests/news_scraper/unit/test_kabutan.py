@@ -12,7 +12,7 @@ Tests cover:
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from unittest.mock import MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 import lxml.html
@@ -239,42 +239,38 @@ _KABUTAN_HTML_SPLIT_TABLES = """<!DOCTYPE html>
 </html>"""
 
 
-def _make_mock_client(html: str = _KABUTAN_HTML_TWO_ROWS) -> MagicMock:
-    """Build a mock httpx.Client context-manager that returns the given HTML.
+def _make_async_mock_client(html: str = _KABUTAN_HTML_TWO_ROWS) -> AsyncMock:
+    """Build a mock httpx.AsyncClient context-manager that returns the given HTML.
 
-    The returned mock supports ``with httpx.Client(...) as client:`` usage:
-    - ``__enter__`` returns a mock with ``get()`` set up
-    - ``get()`` returns a mock response whose ``.text`` is the given HTML
+    The returned mock supports ``async with httpx.AsyncClient(...) as client:`` usage.
     """
     mock_response = MagicMock()
     mock_response.text = html
     mock_response.status_code = 200
     mock_response.raise_for_status = MagicMock()
 
-    # The instance returned from __enter__
-    inner = MagicMock()
-    inner.get.return_value = mock_response
+    inner = AsyncMock()
+    inner.get = AsyncMock(return_value=mock_response)
 
-    # The object returned by httpx.Client(...)
-    outer = MagicMock()
-    outer.__enter__ = MagicMock(return_value=inner)
-    outer.__exit__ = MagicMock(return_value=False)
+    outer = AsyncMock()
+    outer.__aenter__ = AsyncMock(return_value=inner)
+    outer.__aexit__ = AsyncMock(return_value=False)
     return outer
 
 
-def _make_error_client(exc: Exception) -> MagicMock:
-    """Build a mock httpx.Client whose get() raises the given exception."""
-    inner = MagicMock()
-    inner.get.side_effect = exc
+def _make_async_error_client(exc: Exception) -> AsyncMock:
+    """Build a mock httpx.AsyncClient whose get() raises the given exception."""
+    inner = AsyncMock()
+    inner.get = AsyncMock(side_effect=exc)
 
-    outer = MagicMock()
-    outer.__enter__ = MagicMock(return_value=inner)
-    outer.__exit__ = MagicMock(return_value=False)
+    outer = AsyncMock()
+    outer.__aenter__ = AsyncMock(return_value=inner)
+    outer.__aexit__ = AsyncMock(return_value=False)
     return outer
 
 
-def _make_http_status_error_client() -> MagicMock:
-    """Build a mock httpx.Client whose get() response.raise_for_status() raises."""
+def _make_async_http_status_error_client() -> AsyncMock:
+    """Build a mock httpx.AsyncClient whose get() response.raise_for_status() raises."""
     mock_response = MagicMock()
     mock_response.raise_for_status.side_effect = httpx.HTTPStatusError(
         "403 Forbidden",
@@ -282,112 +278,114 @@ def _make_http_status_error_client() -> MagicMock:
         response=MagicMock(),
     )
 
-    inner = MagicMock()
-    inner.get.return_value = mock_response
+    inner = AsyncMock()
+    inner.get = AsyncMock(return_value=mock_response)
 
-    outer = MagicMock()
-    outer.__enter__ = MagicMock(return_value=inner)
-    outer.__exit__ = MagicMock(return_value=False)
+    outer = AsyncMock()
+    outer.__aenter__ = AsyncMock(return_value=inner)
+    outer.__aexit__ = AsyncMock(return_value=False)
     return outer
 
 
 class TestCollectNews:
-    """Tests for the collect_news entry point."""
+    """Tests for the collect_news entry point (async)."""
 
-    def test_正常系_list_Articleを返す(self) -> None:
+    async def test_正常系_list_Articleを返す(self) -> None:
         """collect_news returns a list of Article objects."""
         with patch(
-            "news_scraper.kabutan.httpx.Client", return_value=_make_mock_client()
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert isinstance(result, list)
 
-    def test_正常系_記事を収集する(self) -> None:
+    async def test_正常系_記事を収集する(self) -> None:
         """collect_news collects articles from HTML."""
         with patch(
-            "news_scraper.kabutan.httpx.Client", return_value=_make_mock_client()
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert len(result) == 2
         titles = [a.title for a in result]
         assert "テク記事1" in titles
         assert "市況記事2" in titles
 
-    def test_正常系_max_articles_per_sourceを遵守する(self) -> None:
+    async def test_正常系_max_articles_per_sourceを遵守する(self) -> None:
         """collect_news respects max_articles_per_source limit."""
         config = ScraperConfig(max_articles_per_source=1)
 
         with patch(
-            "news_scraper.kabutan.httpx.Client", return_value=_make_mock_client()
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_mock_client(),
         ):
-            result = collect_news(config=config)
+            result = await collect_news(config=config)
 
         assert len(result) <= 1
 
-    def test_異常系_HTTPエラー時に空リストを返す(self) -> None:
+    async def test_異常系_HTTPエラー時に空リストを返す(self) -> None:
         """collect_news returns empty list on HTTPStatusError."""
         with patch(
-            "news_scraper.kabutan.httpx.Client",
-            return_value=_make_http_status_error_client(),
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_http_status_error_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert result == []
 
-    def test_異常系_接続エラー時に空リストを返す(self) -> None:
+    async def test_異常系_接続エラー時に空リストを返す(self) -> None:
         """collect_news returns empty list on connection error."""
         with patch(
-            "news_scraper.kabutan.httpx.Client",
-            return_value=_make_error_client(httpx.ConnectError("Connection failed")),
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_error_client(
+                httpx.ConnectError("Connection failed")
+            ),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert result == []
 
-    def test_正常系_configがNoneの場合もデフォルトで動作する(self) -> None:
+    async def test_正常系_configがNoneの場合もデフォルトで動作する(self) -> None:
         """collect_news works with config=None (uses defaults)."""
         with patch(
-            "news_scraper.kabutan.httpx.Client", return_value=_make_mock_client()
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_mock_client(),
         ):
-            result = collect_news(config=None)
+            result = await collect_news(config=None)
 
         assert isinstance(result, list)
 
-    def test_正常系_URLが絶対URLに変換される(self) -> None:
+    async def test_正常系_URLが絶対URLに変換される(self) -> None:
         """collect_news returns articles with absolute URLs."""
         with patch(
-            "news_scraper.kabutan.httpx.Client", return_value=_make_mock_client()
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         for article in result:
             assert article.url.startswith("https://")
 
-    def test_正常系_publishedがUTCである(self) -> None:
+    async def test_正常系_publishedがUTCである(self) -> None:
         """collect_news returns articles with UTC published datetimes."""
         with patch(
-            "news_scraper.kabutan.httpx.Client", return_value=_make_mock_client()
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         for article in result:
             assert article.published.tzinfo == timezone.utc
 
-    def test_正常系_2分割テーブルから全記事を取得する(self) -> None:
-        """collect_news parses both s_news_list mgbt0 and s_news_list mgt0 tables.
-
-        Kabutan page structure splits news into two tables separated by an ad div:
-        - ``<table class="s_news_list mgbt0">`` (top 10)
-        - ``<table class="s_news_list mgt0">``  (bottom 5)
-        KABUTAN_ROW_XPATH uses ``contains(@class, 's_news_list')`` to match both.
-        """
+    async def test_正常系_2分割テーブルから全記事を取得する(self) -> None:
+        """collect_news parses both s_news_list mgbt0 and s_news_list mgt0 tables."""
         with patch(
-            "news_scraper.kabutan.httpx.Client",
-            return_value=_make_mock_client(_KABUTAN_HTML_SPLIT_TABLES),
+            "news_scraper.kabutan.httpx.AsyncClient",
+            return_value=_make_async_mock_client(_KABUTAN_HTML_SPLIT_TABLES),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert len(result) == 3
         titles = [a.title for a in result]

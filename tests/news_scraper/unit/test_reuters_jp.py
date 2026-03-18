@@ -6,13 +6,13 @@ Tests cover:
 - _parse_markets_page: HeroCard + BasicCard extraction, relative URL resolution
 - _parse_business_page: MediaStoryCard hero/hub variant extraction
 - _card_to_article: conversion of card elements to Articles
-- collect_news: ThreadPoolExecutor parallel fetch, 429/403 graceful degradation
+- collect_news: asyncio.gather parallel fetch, 429/403 graceful degradation
 """
 
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from unittest.mock import MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 import lxml.html
@@ -137,25 +137,25 @@ def _make_mock_response(html: str, status_code: int = 200) -> MagicMock:
 def _make_mock_client(
     markets_html: str = _MARKETS_HTML,
     business_html: str = _BUSINESS_HTML,
-) -> MagicMock:
-    """Build a mock httpx.Client that returns different HTML per URL."""
+) -> AsyncMock:
+    """Build a mock httpx.AsyncClient that returns different HTML per URL."""
 
-    def _get(url: str, **kwargs: object) -> MagicMock:
+    async def _get(url: str, **kwargs: object) -> MagicMock:
         if "markets" in url:
             return _make_mock_response(markets_html)
         return _make_mock_response(business_html)
 
-    inner = MagicMock()
-    inner.get.side_effect = _get
+    inner = AsyncMock()
+    inner.get = _get
 
-    outer = MagicMock()
-    outer.__enter__ = MagicMock(return_value=inner)
-    outer.__exit__ = MagicMock(return_value=False)
+    outer = AsyncMock()
+    outer.__aenter__ = AsyncMock(return_value=inner)
+    outer.__aexit__ = AsyncMock(return_value=False)
     return outer
 
 
-def _make_http_error_client(status_code: int = 403) -> MagicMock:
-    """Build a mock httpx.Client whose get() raises HTTPStatusError."""
+def _make_http_error_client(status_code: int = 403) -> AsyncMock:
+    """Build a mock httpx.AsyncClient whose get() raises HTTPStatusError."""
     mock_response = MagicMock()
     mock_response.status_code = status_code
     mock_response.raise_for_status.side_effect = httpx.HTTPStatusError(
@@ -164,23 +164,23 @@ def _make_http_error_client(status_code: int = 403) -> MagicMock:
         response=mock_response,
     )
 
-    inner = MagicMock()
-    inner.get.return_value = mock_response
+    inner = AsyncMock()
+    inner.get = AsyncMock(return_value=mock_response)
 
-    outer = MagicMock()
-    outer.__enter__ = MagicMock(return_value=inner)
-    outer.__exit__ = MagicMock(return_value=False)
+    outer = AsyncMock()
+    outer.__aenter__ = AsyncMock(return_value=inner)
+    outer.__aexit__ = AsyncMock(return_value=False)
     return outer
 
 
-def _make_connect_error_client() -> MagicMock:
-    """Build a mock httpx.Client whose get() raises ConnectError."""
-    inner = MagicMock()
-    inner.get.side_effect = httpx.ConnectError("Connection refused")
+def _make_connect_error_client() -> AsyncMock:
+    """Build a mock httpx.AsyncClient whose get() raises ConnectError."""
+    inner = AsyncMock()
+    inner.get = AsyncMock(side_effect=httpx.ConnectError("Connection refused"))
 
-    outer = MagicMock()
-    outer.__enter__ = MagicMock(return_value=inner)
-    outer.__exit__ = MagicMock(return_value=False)
+    outer = AsyncMock()
+    outer.__aenter__ = AsyncMock(return_value=inner)
+    outer.__aexit__ = AsyncMock(return_value=False)
     return outer
 
 
@@ -450,148 +450,148 @@ class TestParseBusinessPage:
 
 
 class TestCollectNews:
-    """Tests for the collect_news entry point."""
+    """Tests for the collect_news entry point (async)."""
 
-    def test_正常系_list_Articleを返す(self) -> None:
+    async def test_正常系_list_Articleを返す(self) -> None:
         """collect_news returns a list of Article objects."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert isinstance(result, list)
 
-    def test_正常系_marketsとbusinessから記事を収集する(self) -> None:
+    async def test_正常系_marketsとbusinessから記事を収集する(self) -> None:
         """collect_news collects articles from both markets and business pages."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert len(result) >= 2  # at least one from each page
 
-    def test_正常系_marketsページの記事が含まれる(self) -> None:
+    async def test_正常系_marketsページの記事が含まれる(self) -> None:
         """collect_news includes articles from the markets page."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         titles = [a.title for a in result]
         assert any("日銀" in t for t in titles)
 
-    def test_正常系_businessページの記事が含まれる(self) -> None:
+    async def test_正常系_businessページの記事が含まれる(self) -> None:
         """collect_news includes articles from the business page."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         titles = [a.title for a in result]
         assert any("GDP" in t or "トヨタ" in t for t in titles)
 
-    def test_正常系_全URLがhttpsで始まる(self) -> None:
+    async def test_正常系_全URLがhttpsで始まる(self) -> None:
         """collect_news returns articles with absolute HTTPS URLs."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         for article in result:
             assert article.url.startswith("https://"), (
                 f"Expected https URL, got: {article.url}"
             )
 
-    def test_正常系_publishedがUTCである(self) -> None:
+    async def test_正常系_publishedがUTCである(self) -> None:
         """collect_news returns articles with UTC published datetimes."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         for article in result:
             assert article.published.tzinfo == timezone.utc
 
-    def test_正常系_configがNoneの場合もデフォルトで動作する(self) -> None:
+    async def test_正常系_configがNoneの場合もデフォルトで動作する(self) -> None:
         """collect_news works with config=None (uses defaults)."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news(config=None)
+            result = await collect_news(config=None)
 
         assert isinstance(result, list)
 
-    def test_正常系_configを渡しても動作する(self) -> None:
+    async def test_正常系_configを渡しても動作する(self) -> None:
         """collect_news works with an explicit ScraperConfig."""
         config = ScraperConfig(request_delay=0.0, max_articles_per_source=5)
 
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news(config=config)
+            result = await collect_news(config=config)
 
         assert isinstance(result, list)
 
-    def test_異常系_403エラー時に空リストを返す(self) -> None:
+    async def test_異常系_403エラー時に空リストを返す(self) -> None:
         """collect_news returns empty list on HTTP 403 Forbidden."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_http_error_client(status_code=403),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert result == []
 
-    def test_異常系_429エラー時に空リストを返す(self) -> None:
+    async def test_異常系_429エラー時に空リストを返す(self) -> None:
         """collect_news returns empty list on HTTP 429 Too Many Requests."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_http_error_client(status_code=429),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert result == []
 
-    def test_異常系_接続エラー時に空リストを返す(self) -> None:
+    async def test_異常系_接続エラー時に空リストを返す(self) -> None:
         """collect_news returns empty list on connection error."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_connect_error_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         assert result == []
 
-    def test_正常系_重複URLが除外される(self) -> None:
+    async def test_正常系_重複URLが除外される(self) -> None:
         """collect_news deduplicates articles by URL."""
         # Both pages return same HTML to create duplicates
         duplicate_html = _MARKETS_HTML
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(
                 markets_html=duplicate_html, business_html=duplicate_html
             ),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         urls = [a.url for a in result]
         assert len(urls) == len(set(urls)), "Duplicate URLs found in result"
 
-    def test_正常系_sourceが全てreuters_jpである(self) -> None:
+    async def test_正常系_sourceが全てreuters_jpである(self) -> None:
         """collect_news returns articles all with source='reuters_jp'."""
         with patch(
-            "news_scraper.reuters_jp.httpx.Client",
+            "news_scraper.reuters_jp.httpx.AsyncClient",
             return_value=_make_mock_client(),
         ):
-            result = collect_news()
+            result = await collect_news()
 
         for article in result:
             assert article.source == "reuters_jp"

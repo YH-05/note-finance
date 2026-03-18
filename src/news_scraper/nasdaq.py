@@ -28,7 +28,7 @@ True
 
 from __future__ import annotations
 
-from concurrent.futures import ThreadPoolExecutor
+import asyncio
 from datetime import datetime, timezone
 
 import httpx
@@ -199,17 +199,17 @@ def _extract_rows_from_response(data: dict) -> list[dict]:
     return []
 
 
-def _fetch_category(
-    client: httpx.Client,
+async def _fetch_category_async(
+    client: httpx.AsyncClient,
     category: str,
     max_per_source: int,
 ) -> list[Article]:
-    """Fetch articles for a single NASDAQ category.
+    """Fetch articles for a single NASDAQ category asynchronously.
 
     Parameters
     ----------
-    client : httpx.Client
-        HTTP client to use for requests.
+    client : httpx.AsyncClient
+        Async HTTP client to use for requests.
     category : str
         NASDAQ category name.
     max_per_source : int
@@ -226,10 +226,10 @@ def _fetch_category(
 
     params = {"category": category, "limit": max_per_source}
     url = f"{NASDAQ_API_BASE}/category"
-    logger.debug("Fetching NASDAQ category", category=category, url=url)
+    logger.debug("Fetching NASDAQ category (async)", category=category, url=url)
 
     try:
-        response = client.get(url, params=params)
+        response = await client.get(url, params=params)
         response.raise_for_status()
         rows = _extract_rows_from_response(response.json())
         articles = []
@@ -268,13 +268,14 @@ def _fetch_category(
     return []
 
 
-def collect_news(
+async def collect_news(
     config: ScraperConfig | None = None,
     categories: list[str] | None = None,
 ) -> list[Article]:
     """Collect recent news articles from the NASDAQ API.
 
-    Fetches articles from NASDAQ's JSON API for the specified categories.
+    Fetches articles from NASDAQ's JSON API for the specified categories
+    in parallel using ``asyncio.gather``.
     If no categories are specified, fetches from all available API categories.
 
     Parameters
@@ -295,9 +296,10 @@ def collect_news(
     --------
     >>> from news_scraper.nasdaq import collect_news
     >>> from news_scraper.types import ScraperConfig
+    >>> import asyncio
     >>> config = ScraperConfig(max_articles_per_source=5)
     >>> # In tests, HTTP calls are mocked
-    >>> articles = collect_news(config=config)
+    >>> articles = asyncio.run(collect_news(config=config))
     >>> isinstance(articles, list)
     True
     """
@@ -308,24 +310,27 @@ def collect_news(
     max_per_source = config.max_articles_per_source
 
     logger.info(
-        "Starting NASDAQ news collection",
+        "Starting NASDAQ news collection (async)",
         categories=categories_to_fetch,
         max_articles_per_source=max_per_source,
     )
 
     all_articles: list[Article] = []
 
-    with httpx.Client(
+    async with httpx.AsyncClient(
         timeout=config.request_timeout,
         headers=DEFAULT_HEADERS,
         follow_redirects=True,
     ) as client:
-
-        def _task(cat: str) -> list[Article]:
-            return _fetch_category(client, cat, max_per_source)
-
-        with ThreadPoolExecutor(max_workers=3) as executor:
-            for result in executor.map(_task, categories_to_fetch):
+        tasks = [
+            _fetch_category_async(client, cat, max_per_source)
+            for cat in categories_to_fetch
+        ]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        for result in results:
+            if isinstance(result, Exception):
+                logger.error("NASDAQ category task failed", error=str(result))
+            elif isinstance(result, list):
                 all_articles.extend(result)
 
     deduplicated = deduplicate_by_url(all_articles)

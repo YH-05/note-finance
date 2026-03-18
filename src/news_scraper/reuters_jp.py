@@ -37,8 +37,8 @@ True
 
 from __future__ import annotations
 
+import asyncio
 import re
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING
 
@@ -46,7 +46,7 @@ import httpx
 
 from news_scraper._html_utils import (
     JP_DEFAULT_HEADERS,
-    fetch_html,
+    async_fetch_html,
     parse_html,
     resolve_relative_url,
 )
@@ -307,12 +307,13 @@ def _parse_business_page(html: str) -> list[Article]:
     return articles
 
 
-def _fetch_section(
+async def _fetch_section_async(
     section_name: str,
     section_url: str,
     config: ScraperConfig,
+    client: httpx.AsyncClient,
 ) -> list[Article]:
-    """Fetch and parse a single Reuters Japan section page.
+    """Fetch and parse a single Reuters Japan section page asynchronously.
 
     Parameters
     ----------
@@ -322,6 +323,8 @@ def _fetch_section(
         Full URL of the section page.
     config : ScraperConfig
         Scraper configuration for timeout and delay settings.
+    client : httpx.AsyncClient
+        Shared async HTTP client.
 
     Returns
     -------
@@ -340,8 +343,7 @@ def _fetch_section(
     logger.info("Fetching Reuters JP section", section=section_name, url=section_url)
 
     try:
-        with httpx.Client(timeout=config.request_timeout) as client:
-            html = fetch_html(section_url, client, headers=JP_DEFAULT_HEADERS)
+        html = await async_fetch_html(section_url, client, headers=JP_DEFAULT_HEADERS)
     except httpx.HTTPStatusError as exc:
         logger.warning(
             "HTTP error fetching Reuters JP section",
@@ -369,6 +371,11 @@ def _fetch_section(
 
     articles = parse_fn(html)
     max_per_source = config.max_articles_per_source
+    logger.info(
+        "Reuters JP section complete",
+        section=section_name,
+        count=len(articles[:max_per_source]),
+    )
     return articles[:max_per_source]
 
 
@@ -377,11 +384,11 @@ def _fetch_section(
 # ─────────────────────────────────────────────────────────────────────────────
 
 
-def collect_news(config: ScraperConfig | None = None) -> list[Article]:
+async def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     """Collect recent news articles from Reuters Japan.
 
     Fetches the ``/markets/`` and ``/business/`` pages in parallel using
-    :class:`~concurrent.futures.ThreadPoolExecutor` with 2 workers.
+    ``asyncio.gather`` with a shared ``httpx.AsyncClient``.
 
     The recommended request delay for Reuters Japan is 2.0 seconds.  If the
     caller provides a config with a shorter delay, the configured value is
@@ -406,9 +413,10 @@ def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     --------
     >>> from news_scraper.reuters_jp import collect_news
     >>> from news_scraper.types import ScraperConfig
+    >>> import asyncio
     >>> config = ScraperConfig(max_articles_per_source=10)
     >>> # In tests this is mocked to avoid real HTTP calls
-    >>> articles = collect_news(config=config)
+    >>> articles = asyncio.run(collect_news(config=config))
     >>> isinstance(articles, list)
     True
     """
@@ -426,30 +434,21 @@ def collect_news(config: ScraperConfig | None = None) -> list[Article]:
 
     all_articles: list[Article] = []
 
-    with ThreadPoolExecutor(max_workers=2) as executor:
-        futures = {
-            executor.submit(
-                _fetch_section, section_name, section_url, config
-            ): section_name
+    async with httpx.AsyncClient(timeout=config.request_timeout) as client:
+        tasks = [
+            _fetch_section_async(section_name, section_url, config, client)
             for section_name, section_url in sections
-        }
-        for future in as_completed(futures):
-            section_name = futures[future]
-            try:
-                articles = future.result()
-                all_articles.extend(articles)
-                logger.info(
-                    "Reuters JP section complete",
-                    section=section_name,
-                    count=len(articles),
-                )
-            except Exception as exc:
+        ]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        for result in results:
+            if isinstance(result, Exception):
                 logger.error(
-                    "Reuters JP section future raised unexpectedly",
-                    section=section_name,
-                    error=str(exc),
+                    "Reuters JP section raised unexpectedly",
+                    error=str(result),
                     exc_info=True,
                 )
+            elif isinstance(result, list):
+                all_articles.extend(result)
 
     deduplicated = deduplicate_by_url(all_articles)
 

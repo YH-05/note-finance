@@ -1,7 +1,7 @@
 """Common HTML fetch and parse utilities for news_scraper package.
 
 This module provides shared utilities used by all HTML scrapers:
-HTTP retrieval via httpx.Client, lxml parsing, URL resolution,
+HTTP retrieval via httpx.AsyncClient, lxml parsing, URL resolution,
 and rate-limit sleep helpers.
 
 Constants
@@ -12,7 +12,9 @@ JP_DEFAULT_HEADERS : dict[str, str]
 Functions
 ---------
 fetch_html
-    Fetch HTML content from a URL using an injected httpx.Client.
+    Fetch HTML content from a URL using an injected httpx.Client (sync).
+async_fetch_html
+    Async version: fetch HTML content using an injected httpx.AsyncClient.
 parse_html
     Parse an HTML string into an lxml HtmlElement.
 resolve_relative_url
@@ -166,6 +168,53 @@ def resolve_relative_url(relative: str, base: str) -> str:
     resolved = urljoin(base, relative)
     logger.debug("Resolved URL", relative=relative, base=base, resolved=resolved)
     return resolved
+
+
+async def async_fetch_html(
+    url: str,
+    client: httpx.AsyncClient,
+    headers: dict[str, str] | None = None,
+) -> str:
+    """Fetch HTML content from a URL using the provided httpx.AsyncClient.
+
+    Parameters
+    ----------
+    url : str
+        URL to fetch.
+    client : httpx.AsyncClient
+        Injected async HTTP client to use for the request.
+    headers : dict[str, str] | None
+        Optional request headers. Defaults to ``JP_DEFAULT_HEADERS`` when None.
+
+    Returns
+    -------
+    str
+        HTML content as a string.
+
+    Raises
+    ------
+    httpx.HTTPStatusError
+        Re-raised when the server returns a 4xx or 5xx response.
+    httpx.ConnectError
+        Re-raised when the connection cannot be established.
+    """
+    effective_headers = headers if headers is not None else JP_DEFAULT_HEADERS
+    logger.debug("Async fetching HTML", url=url)
+    try:
+        response = await client.get(url, headers=effective_headers)
+        response.raise_for_status()
+        logger.info("HTML fetched (async)", url=url, status_code=response.status_code)
+        return response.text
+    except httpx.HTTPStatusError as exc:
+        logger.error(
+            "HTTP error fetching HTML (async)",
+            url=url,
+            status_code=exc.response.status_code,
+        )
+        raise
+    except Exception as exc:
+        logger.error("Error fetching HTML (async)", url=url, error=str(exc))
+        raise
 
 
 def rate_limit_sleep(config: ScraperConfig | None) -> None:

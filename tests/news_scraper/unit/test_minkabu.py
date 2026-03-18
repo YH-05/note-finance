@@ -4,7 +4,7 @@ Tests cover:
 - MINKABU_NEWS_URL constant definition
 - collect_news: returns empty list when config=None (use_playwright defaults to False)
 - collect_news: returns empty list when config.use_playwright=False
-- collect_news: uses sync_playwright to fetch page and parses HTML with lxml
+- collect_news: uses async_playwright to fetch page and parses HTML with lxml
 - collect_news: respects max_articles_per_source
 - collect_news: returns empty list on Playwright launch error (graceful degradation)
 - _entry_to_article: converts a valid element to Article
@@ -14,7 +14,7 @@ Tests cover:
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from unittest.mock import MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import lxml.html
 import pytest
@@ -200,26 +200,26 @@ class TestEntryToArticle:
 class TestCollectNewsGracefulDegradation:
     """Tests for graceful degradation when use_playwright=False."""
 
-    def test_正常系_configがNoneの場合は空リストを返す(self) -> None:
+    async def test_正常系_configがNoneの場合は空リストを返す(self) -> None:
         """collect_news returns empty list when config=None (use_playwright defaults False)."""
-        result = collect_news(config=None)
+        result = await collect_news(config=None)
         assert result == []
 
-    def test_正常系_use_playwright_Falseで空リストを返す(self) -> None:
+    async def test_正常系_use_playwright_Falseで空リストを返す(self) -> None:
         """collect_news returns empty list when config.use_playwright=False."""
         config = ScraperConfig(use_playwright=False)
-        result = collect_news(config=config)
+        result = await collect_news(config=config)
         assert result == []
 
-    def test_正常系_use_playwright_FalseはlistArticleを返す(self) -> None:
+    async def test_正常系_use_playwright_FalseはlistArticleを返す(self) -> None:
         """collect_news returns a list type when use_playwright=False."""
         config = ScraperConfig(use_playwright=False)
-        result = collect_news(config=config)
+        result = await collect_news(config=config)
         assert isinstance(result, list)
 
-    def test_正常系_use_playwright_Falseはlist型を返す_configなし(self) -> None:
+    async def test_正常系_use_playwright_Falseはlist型を返す_configなし(self) -> None:
         """collect_news(config=None) returns list type."""
-        result = collect_news()
+        result = await collect_news()
         assert isinstance(result, list)
 
 
@@ -230,148 +230,154 @@ class TestCollectNewsGracefulDegradation:
 
 def _make_playwright_mock(
     html: str = _MINKABU_PAGE_HTML,
-) -> tuple[MagicMock, MagicMock]:
-    """Build mock objects for sync_playwright context manager.
+) -> tuple[MagicMock, AsyncMock]:
+    """Build mock objects for async_playwright context manager.
 
     Returns
     -------
-    tuple[MagicMock, MagicMock]
-        (sync_playwright_patch_target, page_mock)
-        where sync_playwright_patch_target is suitable for use with patch().
+    tuple[MagicMock, AsyncMock]
+        (async_playwright_patch_target, page_mock)
+        where async_playwright_patch_target is suitable for use with patch().
     """
-    # page mock
-    page = MagicMock()
-    page.content.return_value = html
+    # page mock (async)
+    page = AsyncMock()
+    page.content = AsyncMock(return_value=html)
+    page.goto = AsyncMock()
+    page.evaluate = AsyncMock()
+    page.wait_for_timeout = AsyncMock()
 
-    # browser mock
-    browser = MagicMock()
-    browser.new_page.return_value = page
+    # browser mock (async)
+    browser = AsyncMock()
+    browser.new_page = AsyncMock(return_value=page)
+    browser.close = AsyncMock()
 
     # playwright instance mock
     playwright_instance = MagicMock()
-    playwright_instance.chromium.launch.return_value = browser
+    playwright_instance.chromium.launch = AsyncMock(return_value=browser)
 
-    # sync_playwright() context manager
-    sync_pw = MagicMock()
-    sync_pw.__enter__ = MagicMock(return_value=playwright_instance)
-    sync_pw.__exit__ = MagicMock(return_value=False)
+    # async_playwright() async context manager
+    async_pw = MagicMock()
+    async_pw.__aenter__ = AsyncMock(return_value=playwright_instance)
+    async_pw.__aexit__ = AsyncMock(return_value=False)
 
-    # sync_playwright callable that returns the context manager
-    sync_playwright_fn = MagicMock(return_value=sync_pw)
+    # async_playwright callable that returns the context manager
+    async_playwright_fn = MagicMock(return_value=async_pw)
 
-    return sync_playwright_fn, page
+    return async_playwright_fn, page
 
 
 class TestCollectNewsWithPlaywright:
     """Tests for collect_news when use_playwright=True."""
 
-    def test_正常系_list_Articleを返す(self) -> None:
+    async def test_正常系_list_Articleを返す(self) -> None:
         """collect_news returns a list of Article objects."""
         config = ScraperConfig(use_playwright=True)
-        sync_playwright_fn, _ = _make_playwright_mock()
+        async_playwright_fn, _ = _make_playwright_mock()
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         assert isinstance(result, list)
 
-    def test_正常系_記事を収集する(self) -> None:
+    async def test_正常系_記事を収集する(self) -> None:
         """collect_news collects articles from the Playwright-rendered page."""
         config = ScraperConfig(use_playwright=True, max_articles_per_source=50)
-        sync_playwright_fn, _ = _make_playwright_mock()
+        async_playwright_fn, _ = _make_playwright_mock()
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         assert len(result) >= 0  # May parse 0 or more articles depending on HTML
 
-    def test_正常系_URLが絶対URLである(self) -> None:
+    async def test_正常系_URLが絶対URLである(self) -> None:
         """collect_news returns articles with absolute URLs."""
         config = ScraperConfig(use_playwright=True)
-        sync_playwright_fn, _ = _make_playwright_mock()
+        async_playwright_fn, _ = _make_playwright_mock()
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         for article in result:
             assert article.url.startswith("https://")
 
-    def test_正常系_publishedがUTCである(self) -> None:
+    async def test_正常系_publishedがUTCである(self) -> None:
         """collect_news returns articles with UTC published datetimes."""
         config = ScraperConfig(use_playwright=True)
-        sync_playwright_fn, _ = _make_playwright_mock()
+        async_playwright_fn, _ = _make_playwright_mock()
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         for article in result:
             assert article.published.tzinfo == timezone.utc
 
-    def test_正常系_max_articles_per_sourceを遵守する(self) -> None:
+    async def test_正常系_max_articles_per_sourceを遵守する(self) -> None:
         """collect_news respects max_articles_per_source limit."""
         config = ScraperConfig(use_playwright=True, max_articles_per_source=1)
-        sync_playwright_fn, _ = _make_playwright_mock()
+        async_playwright_fn, _ = _make_playwright_mock()
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         assert len(result) <= 1
 
-    def test_正常系_sourceがminkabuである(self) -> None:
+    async def test_正常系_sourceがminkabuである(self) -> None:
         """collect_news returns articles with source='minkabu'."""
         config = ScraperConfig(use_playwright=True)
-        sync_playwright_fn, _ = _make_playwright_mock()
+        async_playwright_fn, _ = _make_playwright_mock()
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         for article in result:
             assert article.source == "minkabu"
 
-    def test_異常系_Playwright起動エラー時に空リストを返す(self) -> None:
+    async def test_異常系_Playwright起動エラー時に空リストを返す(self) -> None:
         """collect_news returns empty list when Playwright raises an exception."""
         config = ScraperConfig(use_playwright=True)
 
-        sync_pw = MagicMock()
-        sync_pw.__enter__ = MagicMock(side_effect=Exception("Playwright not installed"))
-        sync_pw.__exit__ = MagicMock(return_value=False)
-        sync_playwright_fn = MagicMock(return_value=sync_pw)
+        async_pw = MagicMock()
+        async_pw.__aenter__ = AsyncMock(
+            side_effect=Exception("Playwright not installed")
+        )
+        async_pw.__aexit__ = AsyncMock(return_value=False)
+        async_playwright_fn = MagicMock(return_value=async_pw)
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         assert result == []
 
-    def test_異常系_browser_launch失敗時に空リストを返す(self) -> None:
+    async def test_異常系_browser_launch失敗時に空リストを返す(self) -> None:
         """collect_news returns empty list when browser.launch() raises."""
         config = ScraperConfig(use_playwright=True)
 
         playwright_instance = MagicMock()
-        playwright_instance.chromium.launch.side_effect = RuntimeError(
-            "Browser launch failed"
+        playwright_instance.chromium.launch = AsyncMock(
+            side_effect=RuntimeError("Browser launch failed")
         )
 
-        sync_pw = MagicMock()
-        sync_pw.__enter__ = MagicMock(return_value=playwright_instance)
-        sync_pw.__exit__ = MagicMock(return_value=False)
-        sync_playwright_fn = MagicMock(return_value=sync_pw)
+        async_pw = MagicMock()
+        async_pw.__aenter__ = AsyncMock(return_value=playwright_instance)
+        async_pw.__aexit__ = AsyncMock(return_value=False)
+        async_playwright_fn = MagicMock(return_value=async_pw)
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
-            result = collect_news(config=config)
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
+            result = await collect_news(config=config)
 
         assert result == []
 
-    def test_異常系_例外が上位に伝播しない(self) -> None:
+    async def test_異常系_例外が上位に伝播しない(self) -> None:
         """collect_news does not raise exceptions to the caller."""
         config = ScraperConfig(use_playwright=True)
 
-        sync_pw = MagicMock()
-        sync_pw.__enter__ = MagicMock(side_effect=Exception("Fatal error"))
-        sync_pw.__exit__ = MagicMock(return_value=False)
-        sync_playwright_fn = MagicMock(return_value=sync_pw)
+        async_pw = MagicMock()
+        async_pw.__aenter__ = AsyncMock(side_effect=Exception("Fatal error"))
+        async_pw.__aexit__ = AsyncMock(return_value=False)
+        async_playwright_fn = MagicMock(return_value=async_pw)
 
-        with patch("news_scraper.minkabu.sync_playwright", sync_playwright_fn):
+        with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
             # Should not raise
-            result = collect_news(config=config)
+            result = await collect_news(config=config)
 
         assert isinstance(result, list)

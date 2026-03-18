@@ -51,12 +51,12 @@ if TYPE_CHECKING:
     import lxml.html
 
 # Lazily imported at module level so unit tests can patch it.
-# ``from playwright.sync_api import sync_playwright`` is deferred to avoid
+# ``from playwright.async_api import async_playwright`` is deferred to avoid
 # import errors when playwright is not installed.
 try:
-    from playwright.sync_api import sync_playwright
+    from playwright.async_api import async_playwright
 except ImportError:  # pragma: no cover
-    sync_playwright = None  # type: ignore[assignment]
+    async_playwright = None  # type: ignore[assignment]
 
 logger = get_logger(__name__, module="minkabu")
 
@@ -354,14 +354,14 @@ def _extract_articles_from_html(
 # ─────────────────────────────────────────────────────────────────────────────
 
 
-def collect_news(config: ScraperConfig | None = None) -> list[Article]:
+async def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     """Collect recent news articles from minkabu.jp.
 
     Requires ``config.use_playwright=True`` to actually fetch articles.
     When ``use_playwright=False`` (the default), returns an empty list
     immediately without launching Playwright.
 
-    Uses :func:`playwright.sync_api.sync_playwright` to launch a headless
+    Uses :func:`playwright.async_api.async_playwright` to launch a headless
     Chromium browser, navigate to the news listing page, and scroll to load
     more articles until ``max_articles_per_source`` is reached.
 
@@ -383,11 +383,12 @@ def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     --------
     >>> from news_scraper.minkabu import collect_news
     >>> from news_scraper.types import ScraperConfig
+    >>> import asyncio
     >>> config = ScraperConfig()
-    >>> collect_news(config=config)
+    >>> asyncio.run(collect_news(config=config))
     []
     >>> config_pw = ScraperConfig(use_playwright=True, max_articles_per_source=5)
-    >>> # articles = collect_news(config=config_pw)  # requires Playwright
+    >>> # articles = asyncio.run(collect_news(config=config_pw))  # requires Playwright
     """
     # ── Graceful degradation: skip when use_playwright=False ──────────────
     if config is None or not config.use_playwright:
@@ -406,13 +407,13 @@ def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     )
 
     try:
-        if sync_playwright is None:
+        if async_playwright is None:
             logger.warning(
                 "Playwright is not installed; skipping minkabu collection. "
                 "Install with: uv add playwright && playwright install chromium"
             )
             return []
-        articles = _collect_with_playwright(sync_playwright, config, max_articles)
+        articles = await _collect_with_async_playwright(async_playwright, max_articles)
     except Exception as exc:
         logger.warning(
             "Playwright error during minkabu collection",
@@ -427,22 +428,19 @@ def collect_news(config: ScraperConfig | None = None) -> list[Article]:
     return articles
 
 
-def _collect_with_playwright(
-    sync_playwright: Any,
-    config: ScraperConfig,
+async def _collect_with_async_playwright(
+    async_playwright_fn: Any,
     max_articles: int,
 ) -> list[Article]:
-    """Fetch minkabu news using Playwright and return Article list.
+    """Fetch minkabu news using async Playwright and return Article list.
 
     Separated from collect_news to enable unit testing with a mocked
-    sync_playwright callable.
+    async_playwright callable.
 
     Parameters
     ----------
-    sync_playwright : callable
-        The ``playwright.sync_api.sync_playwright`` function (or a mock).
-    config : ScraperConfig
-        Scraper configuration.
+    async_playwright_fn : callable
+        The ``playwright.async_api.async_playwright`` function (or a mock).
     max_articles : int
         Maximum number of articles to collect.
 
@@ -462,18 +460,18 @@ def _collect_with_playwright(
     articles: list[Article] = []
     seen_urls: set[str] = set()
 
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch()
+    async with async_playwright_fn() as playwright:
+        browser = await playwright.chromium.launch()
         try:
-            page = browser.new_page()
-            page.goto(MINKABU_NEWS_URL)
+            page = await browser.new_page()
+            await page.goto(MINKABU_NEWS_URL)
 
             for _ in range(max_scrolls):
                 if len(articles) >= max_articles:
                     break
 
                 # Get current HTML and extract articles
-                html = page.content()
+                html = await page.content()
                 new_articles = _extract_articles_from_html(html, max_articles)
 
                 for article in new_articles:
@@ -485,9 +483,9 @@ def _collect_with_playwright(
                     break
 
                 # Scroll down to load more articles
-                page.evaluate("window.scrollBy(0, window.innerHeight)")
-                page.wait_for_timeout(_DEFAULT_SCROLL_WAIT_MS)
+                await page.evaluate("window.scrollBy(0, window.innerHeight)")
+                await page.wait_for_timeout(_DEFAULT_SCROLL_WAIT_MS)
         finally:
-            browser.close()
+            await browser.close()
 
     return articles
