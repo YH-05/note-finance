@@ -354,6 +354,63 @@ gh project list --owner @me
 - [ ] **Issue が Project #15 に追加されている（Status: Weekly Report）**
 - [ ] 結果サマリーが表示されている
 
+## Observability
+
+スキル実行のトレースを `scripts/skill_run_tracer.py` で記録する。
+Neo4j 未起動時はグレースフルデグラデーションにより合成 ID を返し、スキル実行をブロックしない。
+
+### 実行開始時（Phase 1 の前）
+
+```bash
+SKILL_RUN_ID=$(python3 scripts/skill_run_tracer.py start \
+    --skill-name generate-market-report \
+    --command-source "/generate-market-report" \
+    --input-summary "mode=${MODE:-weekly}, date=${DATE}, project=${PROJECT:-15}, no_search=${NO_SEARCH:-false}")
+```
+
+### 実行完了時（成功 — 最終 Phase 完了後）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status success \
+    --output-summary "Report generated: ${WORD_COUNT} chars, issue=#${ISSUE_NUMBER}, period=${START_DATE}~${END_DATE}"
+```
+
+### 実行完了時（部分成功 — レポート生成済みだが Issue 投稿失敗時）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status partial \
+    --output-summary "Report generated: ${WORD_COUNT} chars, period=${START_DATE}~${END_DATE} (Issue publish skipped)" \
+    --error-message "Phase 7: ${ERROR_MSG}" \
+    --error-type "issue_publish"
+```
+
+### 実行完了時（エラー — 任意の Phase で失敗時）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status failure \
+    --error-message "Phase ${PHASE}: ${ERROR_MSG}" \
+    --error-type "${ERROR_TYPE}"
+```
+
+`error_type` の分類:
+
+| error_type | 説明 |
+|------------|------|
+| script_execution | Python スクリプト実行エラー（E001） |
+| data_collection | 市場データ収集失敗（Phase 2） |
+| hypothesis_generation | 仮説生成失敗（Phase 3） |
+| news_search | ニュース検索・取得失敗（Phase 4） |
+| github_project_access | GitHub Project アクセスエラー（E010） |
+| report_generation | レポート生成失敗（Phase 5） |
+| quality_validation | 品質検証失敗（E013） |
+| issue_publish | GitHub Issue 作成・Project 追加失敗（Phase 7） |
+
 ## 関連コマンド
 
 - `/finance-news-workflow`: ニュース収集
