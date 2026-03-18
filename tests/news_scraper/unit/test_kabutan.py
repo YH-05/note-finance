@@ -210,6 +210,34 @@ _KABUTAN_HTML_TWO_ROWS = """<!DOCTYPE html>
 </body>
 </html>"""
 
+# HTML replicating the real kabutan.jp two-table layout split by an ad div.
+# Top table uses class "s_news_list mgbt0", bottom table uses "s_news_list mgt0".
+_KABUTAN_HTML_SPLIT_TABLES = """<!DOCTYPE html>
+<html>
+<body>
+<table class="s_news_list mgbt0">
+  <tr>
+    <td class="news_time"><time datetime="2026-03-18T18:00:00+09:00">03/18 18:00</time></td>
+    <td><div class="newslist_ctg newsctg4_b">テク</div></td>
+    <td><a href="/news/marketnews/?&b=n202603181001">上部テーブル記事1</a></td>
+  </tr>
+  <tr>
+    <td class="news_time"><time datetime="2026-03-18T17:00:00+09:00">03/18 17:00</time></td>
+    <td><div class="newslist_ctg newsctg1_b">市況</div></td>
+    <td><a href="/news/marketnews/?&b=n202603181002">上部テーブル記事2</a></td>
+  </tr>
+</table>
+<div class="advert">広告</div>
+<table class="s_news_list mgt0">
+  <tr>
+    <td class="news_time"><time datetime="2026-03-18T16:00:00+09:00">03/18 16:00</time></td>
+    <td><div class="newslist_ctg newsctg2_b">材料</div></td>
+    <td><a href="/news/marketnews/?&b=n202603181003">下部テーブル記事3</a></td>
+  </tr>
+</table>
+</body>
+</html>"""
+
 
 def _make_mock_client(html: str = _KABUTAN_HTML_TWO_ROWS) -> MagicMock:
     """Build a mock httpx.Client context-manager that returns the given HTML.
@@ -346,3 +374,23 @@ class TestCollectNews:
 
         for article in result:
             assert article.published.tzinfo == timezone.utc
+
+    def test_正常系_2分割テーブルから全記事を取得する(self) -> None:
+        """collect_news parses both s_news_list mgbt0 and s_news_list mgt0 tables.
+
+        Kabutan page structure splits news into two tables separated by an ad div:
+        - ``<table class="s_news_list mgbt0">`` (top 10)
+        - ``<table class="s_news_list mgt0">``  (bottom 5)
+        KABUTAN_ROW_XPATH uses ``contains(@class, 's_news_list')`` to match both.
+        """
+        with patch(
+            "news_scraper.kabutan.httpx.Client",
+            return_value=_make_mock_client(_KABUTAN_HTML_SPLIT_TABLES),
+        ):
+            result = collect_news()
+
+        assert len(result) == 3
+        titles = [a.title for a in result]
+        assert "上部テーブル記事1" in titles
+        assert "上部テーブル記事2" in titles
+        assert "下部テーブル記事3" in titles
