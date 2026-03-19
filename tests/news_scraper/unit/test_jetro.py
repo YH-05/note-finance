@@ -12,7 +12,9 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
+from news_scraper._jetro_crawler import CrawledEntry
 from news_scraper.jetro import (
+    _crawled_entry_to_article,
     _entry_to_article,
     _extract_article_body,
     _extract_tags_from_page,
@@ -22,7 +24,7 @@ from news_scraper.jetro import (
     _to_article,
     collect_news,
 )
-from news_scraper.types import ScraperConfig
+from news_scraper.types import Article, ScraperConfig
 
 # ---------------------------------------------------------------------------
 # Fixture paths
@@ -527,6 +529,270 @@ class TestCollectNews:
         articles = collect_news(config=None)
         assert isinstance(articles, list)
         for article in articles:
-            from news_scraper.types import Article
-
             assert isinstance(article, Article)
+
+
+# ---------------------------------------------------------------------------
+# TestCrawledEntryToArticle
+# ---------------------------------------------------------------------------
+
+
+class TestCrawledEntryToArticle:
+    """Tests for _crawled_entry_to_article (CrawledEntry -> Article)."""
+
+    def _make_crawled_entry(
+        self,
+        title: str = "テスト記事タイトル",
+        url: str = "https://www.jetro.go.jp/biznews/2026/03/test.html",
+        category: str = "world",
+        subcategory: str = "cn",
+        content_type: str | None = "ビジネス短信",
+        published: str | None = "2026年03月18日",
+    ) -> CrawledEntry:
+        return CrawledEntry(
+            title=title,
+            url=url,
+            category=category,
+            subcategory=subcategory,
+            content_type=content_type,
+            published=published,
+        )
+
+    def test_正常系_有効なCrawledEntryからArticleを生成(self) -> None:
+        """有効な CrawledEntry を Article に変換する。"""
+        entry = self._make_crawled_entry()
+        article = _crawled_entry_to_article(entry)
+        assert article is not None
+        assert isinstance(article, Article)
+        assert article.title == "テスト記事タイトル"
+        assert article.url == "https://www.jetro.go.jp/biznews/2026/03/test.html"
+        assert article.source == "jetro"
+        assert article.category == "world"
+
+    def test_異常系_title空でNoneを返す(self) -> None:
+        """title が空文字の CrawledEntry は None を返す。"""
+        entry = self._make_crawled_entry(title="")
+        assert _crawled_entry_to_article(entry) is None
+
+    def test_異常系_url空でNoneを返す(self) -> None:
+        """url が空文字の CrawledEntry は None を返す。"""
+        entry = self._make_crawled_entry(url="")
+        assert _crawled_entry_to_article(entry) is None
+
+    def test_正常系_content_typeがtagsに反映(self) -> None:
+        """content_type が tags リストに含まれる。"""
+        entry = self._make_crawled_entry(content_type="ビジネス短信")
+        article = _crawled_entry_to_article(entry)
+        assert article is not None
+        assert "ビジネス短信" in article.tags
+
+    def test_正常系_content_typeがNoneでtagsは空(self) -> None:
+        """content_type が None の場合 tags は空リスト。"""
+        entry = self._make_crawled_entry(content_type=None)
+        article = _crawled_entry_to_article(entry)
+        assert article is not None
+        assert article.tags == []
+
+    def test_正常系_metadataにfeed_sourceとsubcategoryが含まれる(self) -> None:
+        """metadata に feed_source='jetro_category' と subcategory が含まれる。"""
+        entry = self._make_crawled_entry(subcategory="kr")
+        article = _crawled_entry_to_article(entry)
+        assert article is not None
+        assert article.metadata["feed_source"] == "jetro_category"
+        assert article.metadata["content_type"] == "ビジネス短信"
+        assert article.metadata["subcategory"] == "kr"
+
+    def test_正常系_日本語日付のパース(self) -> None:
+        """published の日本語日付文字列が正しくパースされる。"""
+        entry = self._make_crawled_entry(published="2026年03月18日")
+        article = _crawled_entry_to_article(entry)
+        assert article is not None
+        assert article.published.year == 2026
+        assert article.published.month == 3
+        assert article.published.day == 18
+
+    def test_正常系_publishedがNoneで現在時刻(self) -> None:
+        """published が None の場合は現在時刻が設定される。"""
+        before = datetime.now(timezone.utc)
+        entry = self._make_crawled_entry(published=None)
+        article = _crawled_entry_to_article(entry)
+        after = datetime.now(timezone.utc)
+        assert article is not None
+        assert before <= article.published <= after
+
+
+# ---------------------------------------------------------------------------
+# TestCollectNewsPhase2
+# ---------------------------------------------------------------------------
+
+
+class TestCollectNewsPhase2:
+    """Tests for collect_news Phase 2 (category page crawling)."""
+
+    def _make_feed_entry_mock(self, i: int) -> MagicMock:
+        data = {
+            "title": f"JETRO記事 {i}",
+            "link": f"https://www.jetro.go.jp/biznews/2026/03/article{i}.html",
+            "published": "Mon, 18 Mar 2026 09:00:00 +0900",
+            "summary": f"記事 {i} の概要",
+            "category": "ビジネス短信",
+            "tags": [],
+        }
+        return _make_entry(data)
+
+    @patch("news_scraper.jetro.feedparser.parse")
+    def test_正常系_categories指定でPhase2実行(self, mock_parse: MagicMock) -> None:
+        """categories を指定すると Phase 2 のカテゴリクロールが実行される。"""
+        # Phase 1: RSS returns empty
+        mock_feed = MagicMock()
+        mock_feed.bozo = True
+        mock_feed.entries = []
+        mock_parse.return_value = mock_feed
+
+        # Phase 2: Mock category crawler returning CrawledEntry
+        mock_crawler = MagicMock()
+        mock_crawler.crawl_all.return_value = [
+            CrawledEntry(
+                title="カテゴリ記事1",
+                url="https://www.jetro.go.jp/biznews/2026/03/cat1.html",
+                category="world",
+                subcategory="cn",
+                content_type="ビジネス短信",
+                published="2026年03月18日",
+            ),
+        ]
+        mock_crawler_cls = MagicMock(return_value=mock_crawler)
+
+        # Patch the class inside the module that gets imported locally
+        with patch(
+            "news_scraper._jetro_crawler.JetroCategoryCrawler",
+            mock_crawler_cls,
+        ):
+            config = ScraperConfig(max_articles_per_source=50)
+            articles = collect_news(
+                config=config,
+                categories=["world"],
+                regions={"asia": ["cn"]},
+            )
+
+        assert len(articles) == 1
+        assert articles[0].title == "カテゴリ記事1"
+        assert articles[0].metadata["feed_source"] == "jetro_category"
+        mock_crawler.crawl_all.assert_called_once_with(
+            categories=["world"],
+            regions={"asia": ["cn"]},
+        )
+
+    @patch("news_scraper.jetro.feedparser.parse")
+    def test_正常系_ImportErrorでPlaywright未インストール警告(
+        self, mock_parse: MagicMock
+    ) -> None:
+        """Playwright 未インストール時は ImportError を捕捉してスキップする。"""
+        mock_feed = MagicMock()
+        mock_feed.bozo = True
+        mock_feed.entries = []
+        mock_parse.return_value = mock_feed
+
+        # Phase 2: Make the local import raise ImportError
+        import sys
+
+        original_module = sys.modules.get("news_scraper._jetro_crawler")
+        sys.modules["news_scraper._jetro_crawler"] = None  # type: ignore[assignment]
+        try:
+            # Should not raise, just warn and return empty
+            articles = collect_news(
+                categories=["world"],
+                regions={"asia": ["cn"]},
+            )
+            assert articles == []
+        finally:
+            if original_module is not None:
+                sys.modules["news_scraper._jetro_crawler"] = original_module
+            else:
+                sys.modules.pop("news_scraper._jetro_crawler", None)
+
+
+# ---------------------------------------------------------------------------
+# TestCollectNewsPhase3
+# ---------------------------------------------------------------------------
+
+
+class TestCollectNewsPhase3:
+    """Tests for collect_news Phase 3 (archive page crawling)."""
+
+    @patch("news_scraper.jetro.feedparser.parse")
+    def test_正常系_archive_pages指定でPhase3実行(self, mock_parse: MagicMock) -> None:
+        """archive_pages > 0 かつ regions 指定で Phase 3 が実行される。"""
+        mock_feed = MagicMock()
+        mock_feed.bozo = True
+        mock_feed.entries = []
+        mock_parse.return_value = mock_feed
+
+        mock_crawler = MagicMock()
+
+        async def mock_crawl_archive(**kwargs: object) -> list[CrawledEntry]:
+            return [
+                CrawledEntry(
+                    title="アーカイブ記事",
+                    url="https://www.jetro.go.jp/biznews/2025/12/archive1.html",
+                    category="world",
+                    subcategory="cn",
+                    content_type="ビジネス短信",
+                    published="2025年12月01日",
+                ),
+            ]
+
+        mock_crawler.crawl_archive_pages = mock_crawl_archive
+        mock_crawler_cls = MagicMock(return_value=mock_crawler)
+
+        with patch(
+            "news_scraper._jetro_crawler.JetroCategoryCrawler",
+            mock_crawler_cls,
+        ):
+            config = ScraperConfig(max_articles_per_source=100)
+            articles = collect_news(
+                config=config,
+                archive_pages=1,
+                regions={"asia": ["cn"]},
+            )
+
+        assert len(articles) > 0
+        assert any(a.title == "アーカイブ記事" for a in articles)
+
+    @patch("news_scraper.jetro.feedparser.parse")
+    def test_正常系_archive_pages_0でPhase3スキップ(
+        self, mock_parse: MagicMock
+    ) -> None:
+        """archive_pages = 0 の場合 Phase 3 はスキップされる。"""
+        mock_feed = MagicMock()
+        mock_feed.bozo = True
+        mock_feed.entries = []
+        mock_parse.return_value = mock_feed
+
+        articles = collect_news(archive_pages=0, regions={"asia": ["cn"]})
+        assert articles == []
+
+    @patch("news_scraper.jetro.feedparser.parse")
+    def test_正常系_regionsがNoneでPhase3スキップ(self, mock_parse: MagicMock) -> None:
+        """regions が None の場合 Phase 3 はスキップされる。"""
+        mock_feed = MagicMock()
+        mock_feed.bozo = True
+        mock_feed.entries = []
+        mock_parse.return_value = mock_feed
+
+        articles = collect_news(archive_pages=3, regions=None)
+        assert articles == []
+
+    @patch("news_scraper.jetro.feedparser.parse")
+    def test_正常系_regions空dictでPhase3スキップ(self, mock_parse: MagicMock) -> None:
+        """regions が空 dict の場合 Phase 3 はスキップされる。"""
+        mock_feed = MagicMock()
+        mock_feed.bozo = True
+        mock_feed.entries = []
+        mock_parse.return_value = mock_feed
+
+        # archive_pages > 0 but regions is empty dict {}
+        # In Python, empty dict is falsy, so `if archive_pages > 0 and regions:`
+        # evaluates to False and Phase 3 is skipped entirely.
+        articles = collect_news(archive_pages=3, regions={})
+        assert articles == []

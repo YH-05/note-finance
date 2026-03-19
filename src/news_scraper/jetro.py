@@ -438,26 +438,264 @@ def _to_article(
     return article
 
 
+def _crawled_entry_to_article(entry: Any) -> Article | None:
+    """Convert a CrawledEntry from the category crawler to an Article.
+
+    Parameters
+    ----------
+    entry : Any
+        A ``CrawledEntry`` dataclass instance from ``_jetro_crawler``.
+
+    Returns
+    -------
+    Article | None
+        Converted Article, or None if the entry is invalid.
+    """
+    if not entry.title or not entry.url:
+        return None
+
+    published = _parse_jetro_date(entry.published)
+
+    return Article(
+        title=entry.title.strip(),
+        url=entry.url.strip(),
+        published=published,
+        source="jetro",
+        category=entry.category,
+        summary=None,
+        tags=[entry.content_type] if entry.content_type else [],
+        metadata={
+            "feed_source": "jetro_category",
+            "content_type": entry.content_type,
+            "subcategory": entry.subcategory,
+        },
+    )
+
+
+def _collect_rss_articles(
+    entries: list[Any],
+    config: ScraperConfig,
+    delay: float,
+) -> list[Article]:
+    """Phase 1: Collect articles from RSS entries.
+
+    Parameters
+    ----------
+    entries : list[Any]
+        Feedparser entry objects.
+    config : ScraperConfig
+        Scraper configuration.
+    delay : float
+        Delay between requests in seconds.
+
+    Returns
+    -------
+    list[Article]
+        Articles collected from RSS entries.
+    """
+    articles: list[Article] = []
+    if not entries:
+        return articles
+
+    if not config.include_content:
+        for entry in entries:
+            article = _entry_to_article(entry)
+            if article is not None:
+                articles.append(article)
+    else:
+        with httpx.Client(
+            timeout=config.request_timeout,
+            headers=_DEFAULT_HEADERS,
+            follow_redirects=True,
+        ) as client:
+            for i, entry in enumerate(entries):
+                url = entry.get("link")
+                content: str | None = None
+                page_tags: list[str] = []
+
+                if url and isinstance(url, str):
+                    html_content = _fetch_article_detail(url, client)
+                    if html_content:
+                        content = _extract_article_body(html_content)
+                        page_tags = _extract_tags_from_page(html_content)
+
+                article = _to_article(entry, None, content, page_tags)
+                if article is not None:
+                    articles.append(article)
+
+                if i < len(entries) - 1:
+                    time.sleep(delay)
+
+    return articles
+
+
+def _collect_category_articles(
+    categories: list[str],
+    regions: dict[str, list[str]] | None,
+) -> list[Article]:
+    """Phase 2: Crawl JETRO category pages via Playwright.
+
+    Parameters
+    ----------
+    categories : list[str]
+        Category groups to crawl.
+    regions : dict[str, list[str]] | None
+        Region-to-country mapping.
+
+    Returns
+    -------
+    list[Article]
+        Articles collected from category pages.
+    """
+    articles: list[Article] = []
+    logger.info(
+        "Starting JETRO category page crawling",
+        categories=categories,
+        regions=regions,
+    )
+    try:
+        from news_scraper._jetro_crawler import JetroCategoryCrawler
+
+        crawler = JetroCategoryCrawler()
+        crawled_entries = crawler.crawl_all(
+            categories=categories,
+            regions=regions,
+        )
+        logger.info("Category crawl complete", crawled_entries=len(crawled_entries))
+        for crawled in crawled_entries:
+            article = _crawled_entry_to_article(crawled)
+            if article is not None:
+                articles.append(article)
+    except ImportError:
+        logger.warning(
+            "Playwright not installed, skipping category crawl. "
+            "Install with: uv add playwright && playwright install chromium"
+        )
+    except Exception as e:
+        logger.error("Category crawl failed", error=str(e), exc_info=True)
+    return articles
+
+
+def _collect_archive_articles(
+    archive_pages: int,
+    regions: dict[str, list[str]],
+) -> list[Article]:
+    """Phase 3: Crawl paginated archive pages for historical articles.
+
+    Parameters
+    ----------
+    archive_pages : int
+        Number of archive pages to crawl per country per content type.
+    regions : dict[str, list[str]]
+        Region-to-country mapping.
+
+    Returns
+    -------
+    list[Article]
+        Articles collected from archive pages.
+    """
+    import asyncio
+
+    articles: list[Article] = []
+    logger.info(
+        "Starting JETRO archive page crawling",
+        archive_pages=archive_pages,
+        regions=regions,
+    )
+
+    archive_types = {
+        "ビジネス短信": "biznewstop/{region}/{code}/biznews/",
+        "地域・分析レポート": "areareportstop/{region}/{code}/areareports/",
+        "調査レポート": "reportstop/{region}/{code}/reports/",
+    }
+
+    try:
+        from news_scraper._jetro_crawler import JetroCategoryCrawler
+
+        crawler = JetroCategoryCrawler()
+
+        async def _crawl_archives() -> list[Any]:
+            all_crawled: list[Any] = []
+            for region_key, country_codes in regions.items():
+                for code in country_codes:
+                    for content_type, url_pattern in archive_types.items():
+                        archive_url = (
+                            f"https://www.jetro.go.jp/"
+                            f"{url_pattern.format(region=region_key, code=code)}"
+                        )
+                        try:
+                            crawled = await crawler.crawl_archive_pages(
+                                url=archive_url,
+                                category="world",
+                                subcategory=code,
+                                content_type=content_type,
+                                max_pages=archive_pages,
+                            )
+                            all_crawled.extend(crawled)
+                        except Exception as e:
+                            logger.warning(
+                                "Archive crawl failed for URL",
+                                url=archive_url,
+                                error=str(e),
+                            )
+            return all_crawled
+
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            loop = None
+
+        if loop is not None and loop.is_running():
+            import concurrent.futures
+
+            with concurrent.futures.ThreadPoolExecutor() as pool:
+                archive_entries = pool.submit(asyncio.run, _crawl_archives()).result()
+        else:
+            archive_entries = asyncio.run(_crawl_archives())
+
+        logger.info("Archive crawl complete", archive_entries=len(archive_entries))
+        for crawled in archive_entries:
+            article = _crawled_entry_to_article(crawled)
+            if article is not None:
+                articles.append(article)
+
+    except ImportError:
+        logger.warning("Playwright not installed, skipping archive crawl")
+    except Exception as e:
+        logger.error("Archive crawl failed", error=str(e), exc_info=True)
+
+    return articles
+
+
 def collect_news(
     config: ScraperConfig | None = None,
     categories: list[str] | None = None,
-    regions: list[str] | None = None,
+    regions: dict[str, list[str]] | None = None,
+    archive_pages: int = 0,
 ) -> list[Article]:
-    """Collect recent news articles from JETRO RSS feeds and pages.
+    """Collect recent news articles from JETRO RSS feeds and category pages.
 
     Fetches articles from JETRO's Business Brief RSS feed. When
-    ``config.include_content`` is True, also scrapes individual article
-    pages for full body text and tags.
+    ``categories`` is provided, also crawls JETRO category pages
+    (world/theme/industry) using Playwright to collect additional articles.
+    When ``archive_pages`` > 0, crawls the paginated archive pages for
+    each country to collect historical articles (30 articles per page).
 
     Parameters
     ----------
     config : ScraperConfig | None, optional
         Scraper configuration. If None, uses default settings.
     categories : list[str] | None, optional
-        List of JETRO category groups to fetch (reserved for future use).
-        Currently only RSS feed is fetched regardless of this parameter.
-    regions : list[str] | None, optional
-        List of JETRO region keys to filter (reserved for future use).
+        List of JETRO category groups to crawl via Playwright.
+        Valid values: ``"world"``, ``"theme"``, ``"industry"``.
+        When None, only the RSS feed is fetched.
+    regions : dict[str, list[str]] | None, optional
+        Mapping of JETRO region key to country codes for the ``"world"``
+        category. E.g. ``{"asia": ["cn", "kr"]}``.
+    archive_pages : int, optional
+        Number of archive pages to crawl per country per content type
+        (default 0 = disabled). Each page has ~30 articles.
+        E.g. ``archive_pages=3`` fetches up to 90 articles per content type.
 
     Returns
     -------
@@ -484,54 +722,38 @@ def collect_news(
         "Starting JETRO news collection",
         max_articles_per_source=max_per_source,
         include_content=config.include_content,
+        categories=categories,
     )
 
-    # Phase 1: Fetch RSS entries
+    # Phase 1: RSS
     entries = _fetch_rss_entries()
-    if not entries:
-        logger.info("No JETRO RSS entries found")
-        return []
+    articles = _collect_rss_articles(entries, config, delay)
+    logger.info("RSS phase complete", rss_articles=len(articles))
 
-    # Limit entries to max_per_source
-    entries = entries[:max_per_source]
+    # Phase 2: Category page crawling
+    if categories:
+        articles.extend(_collect_category_articles(categories, regions))
 
-    articles: list[Article] = []
-
-    if not config.include_content:
-        # Fast path: RSS-only, no detail scraping
-        for entry in entries:
-            article = _entry_to_article(entry)
-            if article is not None:
-                articles.append(article)
-    else:
-        # Full path: RSS + detail page scraping
-        with httpx.Client(
-            timeout=config.request_timeout,
-            headers=_DEFAULT_HEADERS,
-            follow_redirects=True,
-        ) as client:
-            for i, entry in enumerate(entries):
-                url = entry.get("link")
-                content: str | None = None
-                page_tags: list[str] = []
-
-                if url and isinstance(url, str):
-                    html_content = _fetch_article_detail(url, client)
-                    if html_content:
-                        content = _extract_article_body(html_content)
-                        page_tags = _extract_tags_from_page(html_content)
-
-                article = _to_article(entry, None, content, page_tags)
-                if article is not None:
-                    articles.append(article)
-
-                # Rate limiting between requests
-                if i < len(entries) - 1:
-                    time.sleep(delay)
+    # Phase 3: Archive page crawling
+    if archive_pages > 0 and regions:
+        articles.extend(_collect_archive_articles(archive_pages, regions))
 
     deduplicated = deduplicate_by_url(articles)
+
+    # Apply max_per_source limit after deduplication
+    if len(deduplicated) > max_per_source:
+        logger.info(
+            "Limiting articles to max_per_source",
+            before=len(deduplicated),
+            after=max_per_source,
+        )
+        deduplicated = deduplicated[:max_per_source]
+
     logger.info(
         "JETRO news collection complete",
         total_articles=len(deduplicated),
+        rss_count=len(entries) if entries else 0,
+        category_crawl=categories is not None,
+        archive_crawl=archive_pages > 0,
     )
     return deduplicated
