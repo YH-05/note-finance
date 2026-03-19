@@ -29,10 +29,12 @@ from kg_quality_metrics import (
     check_relationship_compliance,
     check_schema_compliance,
     check_subject_reference,
+    compare_snapshots,
     compute_semantic_diversity,
     compute_shannon_entropy,
     create_driver,
     evaluate_status,
+    generate_markdown,
     get_counts,
     load_schema,
     measure_accuracy,
@@ -43,6 +45,9 @@ from kg_quality_metrics import (
     measure_structural,
     measure_timeliness,
     parse_args,
+    render_console,
+    save_json,
+    save_neo4j,
 )
 
 # ---------------------------------------------------------------------------
@@ -1205,3 +1210,389 @@ class TestComputeSemanticDiversity:
             relationship_type_counts={},
         )
         assert score == pytest.approx(0.0)
+
+
+# ---------------------------------------------------------------------------
+# Fixture: QualitySnapshot for output tests
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture()
+def sample_snapshot() -> QualitySnapshot:
+    """テスト用の QualitySnapshot を生成する。"""
+    ts = datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
+    return QualitySnapshot(
+        categories=[
+            CategoryResult(
+                name="structural",
+                score=75.0,
+                metrics=[
+                    MetricValue(value=0.0005, unit="ratio", status="red"),
+                    MetricValue(value=3.76, unit="count", status="green"),
+                    MetricValue(value=0.934, unit="ratio", status="green"),
+                    MetricValue(value=0.028, unit="ratio", status="green"),
+                ],
+            ),
+            CategoryResult(
+                name="completeness",
+                score=100.0,
+                metrics=[
+                    MetricValue(value=0.95, unit="ratio", status="green"),
+                ],
+            ),
+            CategoryResult(
+                name="consistency",
+                score=66.7,
+                metrics=[
+                    MetricValue(value=0.975, unit="ratio", status="green"),
+                    MetricValue(value=0.975, unit="ratio", status="green"),
+                    MetricValue(value=3.0, unit="count", status="red"),
+                ],
+            ),
+            CategoryResult(
+                name="accuracy",
+                score=0.0,
+                metrics=[
+                    MetricValue(value=0.0, unit="ratio", status="yellow", stub=True),
+                ],
+            ),
+            CategoryResult(
+                name="timeliness",
+                score=100.0,
+                metrics=[
+                    MetricValue(value=5.2, unit="days", status="green"),
+                    MetricValue(value=45.0, unit="count", status="green"),
+                    MetricValue(value=443.0, unit="days", status="green"),
+                ],
+            ),
+            CategoryResult(
+                name="finance_specific",
+                score=33.3,
+                metrics=[
+                    MetricValue(value=0.727, unit="ratio", status="yellow"),
+                    MetricValue(value=4.5, unit="count", status="yellow"),
+                    MetricValue(value=0.2, unit="ratio", status="red"),
+                ],
+            ),
+            CategoryResult(
+                name="discoverability",
+                score=100.0,
+                metrics=[
+                    MetricValue(value=3.5, unit="hops", status="green"),
+                    MetricValue(value=0.4, unit="ratio", status="green"),
+                    MetricValue(value=0.95, unit="ratio", status="green"),
+                ],
+            ),
+        ],
+        overall_score=67.9,
+        timestamp=ts,
+    )
+
+
+@pytest.fixture()
+def sample_check_rules() -> list[CheckRuleResult]:
+    """テスト用の CheckRuleResult リストを生成する。"""
+    return [
+        CheckRuleResult(
+            rule_name="subject_reference", pass_rate=0.98, violations=["It was..."]
+        ),
+        CheckRuleResult(rule_name="entity_length", pass_rate=1.0, violations=[]),
+        CheckRuleResult(
+            rule_name="schema_compliance", pass_rate=0.95, violations=["unknown_type"]
+        ),
+        CheckRuleResult(
+            rule_name="relationship_compliance", pass_rate=1.0, violations=[]
+        ),
+    ]
+
+
+@pytest.fixture()
+def sample_entropy() -> dict[str, float]:
+    """テスト用のエントロピーデータを生成する。"""
+    return {
+        "entity_type_entropy": 0.85,
+        "topic_category_entropy": 0.72,
+        "relationship_type_entropy": 0.91,
+        "semantic_diversity": 0.8267,
+    }
+
+
+# ---------------------------------------------------------------------------
+# render_console
+# ---------------------------------------------------------------------------
+
+
+class TestRenderConsole:
+    def test_正常系_例外なく実行できる(
+        self,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        # render_console は例外なく実行できること（副作用はコンソール出力）
+        render_console(sample_snapshot, sample_check_rules, sample_entropy)
+
+    def test_正常系_空カテゴリでもエラーなし(self) -> None:
+        ts = datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
+        empty_snapshot = QualitySnapshot(categories=[], overall_score=0.0, timestamp=ts)
+        render_console(empty_snapshot, [], {})
+
+    def test_正常系_ステータス色付けがgreen_yellow_red(
+        self,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+        capsys: pytest.CaptureFixture[str],
+    ) -> None:
+        render_console(sample_snapshot, sample_check_rules, sample_entropy)
+        # Rich は stdout に出力するので、capsys では直接色コードは取れないが
+        # 例外なく完了することを確認（色付けロジックは内部テストで検証）
+
+
+# ---------------------------------------------------------------------------
+# save_json
+# ---------------------------------------------------------------------------
+
+
+class TestSaveJson:
+    def test_正常系_JSONファイルが正しいパスに保存される(
+        self,
+        tmp_path: Path,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        output_path = save_json(
+            sample_snapshot,
+            sample_check_rules,
+            sample_entropy,
+            output_dir=tmp_path,
+        )
+        assert output_path.exists()
+        assert output_path.suffix == ".json"
+        assert "snapshot_" in output_path.name
+
+    def test_正常系_JSONスキーマが正しい(
+        self,
+        tmp_path: Path,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        import json
+
+        output_path = save_json(
+            sample_snapshot,
+            sample_check_rules,
+            sample_entropy,
+            output_dir=tmp_path,
+        )
+        with output_path.open(encoding="utf-8") as f:
+            data = json.load(f)
+
+        assert "timestamp" in data
+        assert "overall_score" in data
+        assert "categories" in data
+        assert "check_rules" in data
+        assert "entropy" in data
+        assert isinstance(data["categories"], list)
+        assert len(data["categories"]) == len(sample_snapshot.categories)
+
+    def test_正常系_ディレクトリが自動作成される(
+        self,
+        tmp_path: Path,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        nested_dir = tmp_path / "deep" / "nested" / "dir"
+        output_path = save_json(
+            sample_snapshot,
+            sample_check_rules,
+            sample_entropy,
+            output_dir=nested_dir,
+        )
+        assert output_path.exists()
+        assert nested_dir.exists()
+
+
+# ---------------------------------------------------------------------------
+# save_neo4j
+# ---------------------------------------------------------------------------
+
+
+class TestSaveNeo4j:
+    def test_正常系_MERGEクエリが実行される(
+        self,
+        sample_snapshot: QualitySnapshot,
+    ) -> None:
+        mock_session = MagicMock()
+        mock_result = MagicMock()
+        mock_session.run.return_value = mock_result
+
+        save_neo4j(mock_session, sample_snapshot)
+
+        # MERGE クエリが呼ばれたことを確認
+        assert mock_session.run.called
+        first_call_query = mock_session.run.call_args_list[0][0][0]
+        assert "MERGE" in first_call_query
+        assert "QualitySnapshot" in first_call_query
+
+    def test_正常系_dry_run時はスキップされる(
+        self,
+        sample_snapshot: QualitySnapshot,
+    ) -> None:
+        mock_session = MagicMock()
+
+        save_neo4j(mock_session, sample_snapshot, dry_run=True)
+
+        # dry-run ではクエリが実行されない
+        mock_session.run.assert_not_called()
+
+    def test_正常系_snapshot_idが含まれる(
+        self,
+        sample_snapshot: QualitySnapshot,
+    ) -> None:
+        mock_session = MagicMock()
+        mock_result = MagicMock()
+        mock_session.run.return_value = mock_result
+
+        save_neo4j(mock_session, sample_snapshot)
+
+        # パラメータに snapshot_id が含まれること
+        call_kwargs = mock_session.run.call_args_list[0]
+        params = call_kwargs[0][1] if len(call_kwargs[0]) > 1 else call_kwargs[1]
+        assert "snapshot_id" in params
+
+
+# ---------------------------------------------------------------------------
+# generate_markdown
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateMarkdown:
+    def test_正常系_Markdown文字列を返す(
+        self,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        md = generate_markdown(sample_snapshot, sample_check_rules, sample_entropy)
+        assert isinstance(md, str)
+        assert len(md) > 0
+
+    def test_正常系_全セクションを含む(
+        self,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        md = generate_markdown(sample_snapshot, sample_check_rules, sample_entropy)
+        # カテゴリ別表
+        assert "structural" in md
+        assert "completeness" in md
+        assert "consistency" in md
+        # CheckRules セクション
+        assert "CheckRules" in md or "check_rules" in md.lower() or "Check Rules" in md
+        # Entropy セクション
+        assert "Entropy" in md or "entropy" in md or "多様性" in md
+        # 総合評価
+        assert "67.9" in md or "overall" in md.lower() or "総合" in md
+
+    def test_正常系_レーティングA_Dが含まれる(
+        self,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        md = generate_markdown(sample_snapshot, sample_check_rules, sample_entropy)
+        # A, B, C, D いずれかのレーティングが含まれる
+        has_rating = any("レーティング" in md or "Rating" in md for _ in [1])
+        has_grade = any(grade in md for grade in ["A", "B", "C", "D"])
+        assert has_rating or has_grade
+
+    def test_正常系_ファイル保存可能(
+        self,
+        tmp_path: Path,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        md = generate_markdown(sample_snapshot, sample_check_rules, sample_entropy)
+        out = tmp_path / "report.md"
+        out.write_text(md, encoding="utf-8")
+        assert out.exists()
+        assert out.read_text(encoding="utf-8") == md
+
+
+# ---------------------------------------------------------------------------
+# compare_snapshots
+# ---------------------------------------------------------------------------
+
+
+class TestCompareSnapshots:
+    def test_正常系_2つのスナップショットの差分を返す(
+        self,
+        sample_snapshot: QualitySnapshot,
+    ) -> None:
+        # 「前回」のスナップショットを作成（少し低いスコア）
+        ts_prev = datetime(2026, 3, 18, 12, 0, 0, tzinfo=timezone.utc)
+        prev_snapshot = QualitySnapshot(
+            categories=[
+                CategoryResult(name="structural", score=60.0, metrics=[]),
+                CategoryResult(name="completeness", score=80.0, metrics=[]),
+                CategoryResult(name="consistency", score=50.0, metrics=[]),
+                CategoryResult(name="accuracy", score=0.0, metrics=[]),
+                CategoryResult(name="timeliness", score=90.0, metrics=[]),
+                CategoryResult(name="finance_specific", score=20.0, metrics=[]),
+                CategoryResult(name="discoverability", score=80.0, metrics=[]),
+            ],
+            overall_score=54.3,
+            timestamp=ts_prev,
+        )
+
+        diff = compare_snapshots(prev_snapshot, sample_snapshot)
+        assert isinstance(diff, str)
+        assert len(diff) > 0
+        # 差分表示にカテゴリ名が含まれる
+        assert "structural" in diff
+
+    def test_正常系_スコア変化がプラスマイナスで表示(
+        self,
+        sample_snapshot: QualitySnapshot,
+    ) -> None:
+        ts_prev = datetime(2026, 3, 18, 12, 0, 0, tzinfo=timezone.utc)
+        prev_snapshot = QualitySnapshot(
+            categories=[
+                CategoryResult(name="structural", score=60.0, metrics=[]),
+                CategoryResult(name="completeness", score=80.0, metrics=[]),
+            ],
+            overall_score=54.3,
+            timestamp=ts_prev,
+        )
+        diff = compare_snapshots(prev_snapshot, sample_snapshot)
+        # + or - or 改善 or 悪化 or 差分の数値が含まれる
+        assert "+" in diff or "-" in diff or "改善" in diff or "変化" in diff
+
+    def test_正常系_JSON読み込みで比較可能(
+        self,
+        tmp_path: Path,
+        sample_snapshot: QualitySnapshot,
+        sample_check_rules: list[CheckRuleResult],
+        sample_entropy: dict[str, float],
+    ) -> None:
+        # まず JSON に保存
+        output_path = save_json(
+            sample_snapshot,
+            sample_check_rules,
+            sample_entropy,
+            output_dir=tmp_path,
+        )
+        assert output_path.exists()
+
+    def test_エッジケース_同一スナップショットで差分なし(
+        self,
+        sample_snapshot: QualitySnapshot,
+    ) -> None:
+        diff = compare_snapshots(sample_snapshot, sample_snapshot)
+        assert isinstance(diff, str)

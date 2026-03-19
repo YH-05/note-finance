@@ -30,12 +30,15 @@ Usage
 from __future__ import annotations
 
 import argparse
+import json
 import math
 import os
 import random
 import sys
 import unicodedata
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
+from datetime import datetime as dt
+from datetime import timezone
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
@@ -983,7 +986,9 @@ def measure_discoverability(
     node_ids: list[str] = [r["nid"] for r in node_id_result.data()]
 
     if len(node_ids) < 2:
-        logger.warning("Not enough nodes for discoverability sampling: %d", len(node_ids))
+        logger.warning(
+            "Not enough nodes for discoverability sampling: %d", len(node_ids)
+        )
         metrics = [
             MetricValue(value=0.0, unit="hops", status="red"),
             MetricValue(value=0.0, unit="ratio", status="red"),
@@ -1136,7 +1141,9 @@ def check_subject_reference(texts: list[str]) -> CheckRuleResult:
         ``"subject_reference"`` ルールの検証結果。
     """
     if not texts:
-        return CheckRuleResult(rule_name="subject_reference", pass_rate=1.0, violations=[])
+        return CheckRuleResult(
+            rule_name="subject_reference", pass_rate=1.0, violations=[]
+        )
 
     violations: list[str] = []
     for text in texts:
@@ -1223,9 +1230,13 @@ def check_schema_compliance(entity_types: list[str]) -> CheckRuleResult:
         ``"schema_compliance"`` ルールの検証結果。
     """
     if not entity_types:
-        return CheckRuleResult(rule_name="schema_compliance", pass_rate=1.0, violations=[])
+        return CheckRuleResult(
+            rule_name="schema_compliance", pass_rate=1.0, violations=[]
+        )
 
-    violations: list[str] = [et for et in entity_types if et not in ALLOWED_ENTITY_TYPES]
+    violations: list[str] = [
+        et for et in entity_types if et not in ALLOWED_ENTITY_TYPES
+    ]
     total = len(entity_types)
     pass_count = total - len(violations)
     pass_rate = pass_count / total if total > 0 else 1.0
@@ -1255,7 +1266,9 @@ def check_relationship_compliance(rel_types: list[str]) -> CheckRuleResult:
             rule_name="relationship_compliance", pass_rate=1.0, violations=[]
         )
 
-    violations: list[str] = [rt for rt in rel_types if rt not in ALLOWED_RELATIONSHIP_TYPES]
+    violations: list[str] = [
+        rt for rt in rel_types if rt not in ALLOWED_RELATIONSHIP_TYPES
+    ]
     total = len(rel_types)
     pass_count = total - len(violations)
     pass_rate = pass_count / total if total > 0 else 1.0
@@ -1355,6 +1368,625 @@ def compute_semantic_diversity(
 
 
 # ---------------------------------------------------------------------------
+# Output: Rating Helper
+# ---------------------------------------------------------------------------
+
+
+def _compute_rating(score: float) -> str:
+    """総合スコアからレーティング（A-D）を算出する。
+
+    Parameters
+    ----------
+    score : float
+        総合スコア（0.0 - 100.0）。
+
+    Returns
+    -------
+    str
+        ``"A"`` / ``"B"`` / ``"C"`` / ``"D"`` のいずれか。
+    """
+    if score >= 80.0:
+        return "A"
+    if score >= 60.0:
+        return "B"
+    if score >= 40.0:
+        return "C"
+    return "D"
+
+
+_METRIC_LABELS: dict[str, list[str]] = {
+    "structural": ["Edge Density", "Avg Degree", "Connected Ratio", "Orphan Ratio"],
+    "completeness": ["Required Property Coverage"],
+    "consistency": ["Type Consistency", "Dedup Score", "Constraint Violations"],
+    "accuracy": ["LLM-as-Judge (stub)"],
+    "timeliness": [
+        "Avg Freshness (days)",
+        "Recent Sources (30d)",
+        "Coverage Span (days)",
+    ],
+    "finance_specific": ["Sector Coverage", "Metrics/Company", "Entity-Entity Density"],
+    "discoverability": ["Avg Path Length", "Path Diversity", "Bridge Rate"],
+}
+"""カテゴリごとのメトリクスラベル。render_console / generate_markdown で使用。"""
+
+
+# ---------------------------------------------------------------------------
+# Output: render_console (Rich Console)
+# ---------------------------------------------------------------------------
+
+
+def _get_threshold_str(label: str) -> str:
+    """メトリクスラベルに対応する閾値文字列を取得する。"""
+    threshold_info = THRESHOLDS.get(label, {})
+    if threshold_info:
+        return f"G≥{threshold_info.get('green', '-')}"
+    for key, th in THRESHOLDS.items():
+        if key in label.lower().replace(" ", "_"):
+            return f"G≥{th['green']}"
+    return ""
+
+
+def _pass_rate_style(pass_rate: float) -> str:
+    """CheckRule 通過率に対応する Rich スタイルを返す。"""
+    if pass_rate >= 0.95:
+        return "green"
+    return "yellow" if pass_rate >= 0.8 else "red"
+
+
+def _render_category_tables(console: Any, snapshot: QualitySnapshot) -> None:
+    """カテゴリ別テーブルを Rich Console に出力する。"""
+    from rich.table import Table
+
+    for cat in snapshot.categories:
+        table = Table(title=f"[bold]{cat.name}[/bold] (Score: {cat.score:.1f})")
+        table.add_column("Metric", style="cyan", no_wrap=True)
+        table.add_column("Value", justify="right")
+        table.add_column("Status", justify="center")
+        table.add_column("Threshold", justify="right")
+
+        labels = _METRIC_LABELS.get(cat.name, [])
+        for i, metric in enumerate(cat.metrics):
+            label = labels[i] if i < len(labels) else f"Metric {i + 1}"
+            status_style = (
+                metric.status
+                if metric.status in ("green", "yellow", "red")
+                else "white"
+            )
+            stub_marker = " (stub)" if metric.stub else ""
+            table.add_row(
+                label,
+                f"{metric.value}{stub_marker}",
+                f"[{status_style}]{metric.status}[/{status_style}]",
+                _get_threshold_str(label),
+            )
+        console.print(table)
+        console.print()
+
+
+def render_console(
+    snapshot: QualitySnapshot,
+    check_rules: list[CheckRuleResult],
+    entropy: dict[str, float],
+) -> None:
+    """Rich Console に品質ダッシュボードを出力する。
+
+    カテゴリごとに Table（Metric/Value/Status/Threshold）を表示し、
+    全体サマリーを Panel で囲む。
+
+    Parameters
+    ----------
+    snapshot : QualitySnapshot
+        品質スナップショット。
+    check_rules : list[CheckRuleResult]
+        チェックルール結果リスト。
+    entropy : dict[str, float]
+        エントロピーデータ。
+    """
+    try:
+        from rich.console import Console
+        from rich.panel import Panel
+        from rich.table import Table
+    except ImportError:
+        logger.error("Rich is not installed. Run: uv add rich")
+        return
+
+    console = Console()
+    rating = _compute_rating(snapshot.overall_score)
+    console.print()
+    console.print(
+        Panel(
+            f"[bold]KG Quality Dashboard[/bold]\n"
+            f"Timestamp: {snapshot.timestamp.isoformat()}\n"
+            f"Overall Score: [bold]{snapshot.overall_score:.1f}[/bold] / 100.0\n"
+            f"Rating: [bold]{rating}[/bold]",
+            title="Summary",
+            border_style="blue",
+        )
+    )
+
+    _render_category_tables(console, snapshot)
+
+    if check_rules:
+        cr_table = Table(title="[bold]CheckRules[/bold]")
+        cr_table.add_column("Rule", style="cyan")
+        cr_table.add_column("Pass Rate", justify="right")
+        cr_table.add_column("Violations", justify="right")
+        for rule in check_rules:
+            style = _pass_rate_style(rule.pass_rate)
+            cr_table.add_row(
+                rule.rule_name,
+                f"[{style}]{rule.pass_rate:.2%}[/{style}]",
+                str(len(rule.violations)),
+            )
+        console.print(cr_table)
+        console.print()
+
+    if entropy:
+        ent_table = Table(title="[bold]Entropy / Diversity[/bold]")
+        ent_table.add_column("Axis", style="cyan")
+        ent_table.add_column("Value", justify="right")
+        for key, val in entropy.items():
+            ent_table.add_row(key, f"{val:.4f}")
+        console.print(ent_table)
+        console.print()
+
+    logger.info("Console rendering completed")
+
+
+# ---------------------------------------------------------------------------
+# Output: save_json
+# ---------------------------------------------------------------------------
+
+
+def _snapshot_to_dict(
+    snapshot: QualitySnapshot,
+    check_rules: list[CheckRuleResult],
+    entropy: dict[str, float],
+) -> dict[str, Any]:
+    """QualitySnapshot + CheckRules + Entropy を JSON 出力用辞書に変換する。
+
+    Parameters
+    ----------
+    snapshot : QualitySnapshot
+        品質スナップショット。
+    check_rules : list[CheckRuleResult]
+        チェックルール結果リスト。
+    entropy : dict[str, float]
+        エントロピーデータ。
+
+    Returns
+    -------
+    dict[str, Any]
+        JSON シリアライズ可能な辞書。
+    """
+    categories_data = []
+    for cat in snapshot.categories:
+        metrics_data = [asdict(m) for m in cat.metrics]
+        categories_data.append(
+            {
+                "name": cat.name,
+                "score": cat.score,
+                "metrics": metrics_data,
+            }
+        )
+
+    check_rules_data = [asdict(cr) for cr in check_rules]
+
+    return {
+        "timestamp": snapshot.timestamp.isoformat(),
+        "overall_score": snapshot.overall_score,
+        "rating": _compute_rating(snapshot.overall_score),
+        "categories": categories_data,
+        "check_rules": check_rules_data,
+        "entropy": entropy,
+    }
+
+
+def save_json(
+    snapshot: QualitySnapshot,
+    check_rules: list[CheckRuleResult],
+    entropy: dict[str, float],
+    *,
+    output_dir: Path | None = None,
+) -> Path:
+    """計測結果を JSON ファイルとして保存する。
+
+    出力先: ``{output_dir}/snapshot_{date}.json``
+
+    Parameters
+    ----------
+    snapshot : QualitySnapshot
+        品質スナップショット。
+    check_rules : list[CheckRuleResult]
+        チェックルール結果リスト。
+    entropy : dict[str, float]
+        エントロピーデータ。
+    output_dir : Path | None
+        出力先ディレクトリ。``None`` の場合は
+        ``data/processed/kg_quality/`` を使用する。
+
+    Returns
+    -------
+    Path
+        保存された JSON ファイルのパス。
+    """
+    if output_dir is None:
+        output_dir = Path("data/processed/kg_quality")
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    date_str = snapshot.timestamp.strftime("%Y%m%d")
+    output_path = output_dir / f"snapshot_{date_str}.json"
+
+    data = _snapshot_to_dict(snapshot, check_rules, entropy)
+
+    with output_path.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+    logger.info("JSON snapshot saved: %s", output_path)
+    return output_path
+
+
+# ---------------------------------------------------------------------------
+# Output: save_neo4j
+# ---------------------------------------------------------------------------
+
+
+def save_neo4j(
+    session: Any,
+    snapshot: QualitySnapshot,
+    *,
+    dry_run: bool = False,
+) -> None:
+    """品質スナップショットを Neo4j に保存する。
+
+    ``MERGE (qs:QualitySnapshot {snapshot_id: $snapshot_id})`` パターンで
+    冪等に保存する。``--dry-run`` 時はスキップ。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    snapshot : QualitySnapshot
+        品質スナップショット。
+    dry_run : bool
+        ``True`` の場合はスキップ。
+    """
+    if dry_run:
+        logger.info("save_neo4j: skipped (dry-run mode)")
+        return
+
+    date_str = snapshot.timestamp.strftime("%Y%m%d")
+    snapshot_id = f"qs_{date_str}"
+
+    # カテゴリスコアを辞書化
+    category_scores = {cat.name: cat.score for cat in snapshot.categories}
+
+    merge_query = """
+    MERGE (qs:QualitySnapshot {snapshot_id: $snapshot_id})
+    SET qs.timestamp = datetime($timestamp),
+        qs.overall_score = $overall_score,
+        qs.rating = $rating,
+        qs.structural_score = $structural_score,
+        qs.completeness_score = $completeness_score,
+        qs.consistency_score = $consistency_score,
+        qs.accuracy_score = $accuracy_score,
+        qs.timeliness_score = $timeliness_score,
+        qs.finance_specific_score = $finance_specific_score,
+        qs.discoverability_score = $discoverability_score,
+        qs.updated_at = datetime()
+    """
+
+    params = {
+        "snapshot_id": snapshot_id,
+        "timestamp": snapshot.timestamp.isoformat(),
+        "overall_score": snapshot.overall_score,
+        "rating": _compute_rating(snapshot.overall_score),
+        "structural_score": category_scores.get("structural", 0.0),
+        "completeness_score": category_scores.get("completeness", 0.0),
+        "consistency_score": category_scores.get("consistency", 0.0),
+        "accuracy_score": category_scores.get("accuracy", 0.0),
+        "timeliness_score": category_scores.get("timeliness", 0.0),
+        "finance_specific_score": category_scores.get("finance_specific", 0.0),
+        "discoverability_score": category_scores.get("discoverability", 0.0),
+    }
+
+    session.run(merge_query, params)
+    logger.info("QualitySnapshot saved to Neo4j: %s", snapshot_id)
+
+
+# ---------------------------------------------------------------------------
+# Output: generate_markdown
+# ---------------------------------------------------------------------------
+
+
+_RATING_DESCRIPTIONS: dict[str, str] = {
+    "A": "> 優秀: KG品質は高水準です。",
+    "B": "> 良好: 改善の余地はありますが、実用レベルです。",
+    "C": "> 要改善: いくつかのカテゴリで改善が必要です。",
+    "D": "> 要対応: 複数のカテゴリで重大な問題があります。",
+}
+"""レーティング別の評価コメント。"""
+
+
+def _md_category_details(snapshot: QualitySnapshot) -> list[str]:
+    """カテゴリ詳細の Markdown 行を生成する。"""
+    lines: list[str] = []
+    for cat in snapshot.categories:
+        lines.append(f"### {cat.name}")
+        lines.append("")
+        lines.append("| Metric | Value | Unit | Status |")
+        lines.append("|--------|------:|------|--------|")
+        labels = _METRIC_LABELS.get(cat.name, [])
+        for i, metric in enumerate(cat.metrics):
+            label = labels[i] if i < len(labels) else f"Metric {i + 1}"
+            stub_marker = " (stub)" if metric.stub else ""
+            lines.append(
+                f"| {label} | {metric.value}{stub_marker} | {metric.unit} | {metric.status} |"
+            )
+        lines.append("")
+    return lines
+
+
+def _md_check_rules_section(check_rules: list[CheckRuleResult]) -> list[str]:
+    """CheckRules セクションの Markdown 行を生成する。"""
+    lines: list[str] = ["## CheckRules", ""]
+    if not check_rules:
+        lines.append("No check rules executed.")
+        return lines
+
+    lines.append("| Rule | Pass Rate | Violations |")
+    lines.append("|------|----------:|-----------:|")
+    for rule in check_rules:
+        lines.append(
+            f"| {rule.rule_name} | {rule.pass_rate:.2%} | {len(rule.violations)} |"
+        )
+    for rule in check_rules:
+        if rule.violations:
+            lines.append("")
+            lines.append(f"**{rule.rule_name} violations** (sample):")
+            for v in rule.violations[:5]:
+                lines.append(f"- `{v}`")
+    return lines
+
+
+def generate_markdown(
+    snapshot: QualitySnapshot,
+    check_rules: list[CheckRuleResult],
+    entropy: dict[str, float],
+) -> str:
+    """品質レポートを Markdown 形式で生成する。
+
+    カテゴリ別表・CheckRules・Entropy・総合評価を含む。
+
+    Parameters
+    ----------
+    snapshot : QualitySnapshot
+        品質スナップショット。
+    check_rules : list[CheckRuleResult]
+        チェックルール結果リスト。
+    entropy : dict[str, float]
+        エントロピーデータ。
+
+    Returns
+    -------
+    str
+        Markdown 形式のレポート文字列。
+    """
+    rating = _compute_rating(snapshot.overall_score)
+    lines: list[str] = [
+        "# KG Quality Report",
+        "",
+        f"**Timestamp**: {snapshot.timestamp.isoformat()}",
+        f"**Overall Score**: {snapshot.overall_score:.1f} / 100.0",
+        f"**Rating**: {rating}",
+        "",
+        "## Categories",
+        "",
+        "| Category | Score | Rating |",
+        "|----------|------:|--------|",
+    ]
+
+    for cat in snapshot.categories:
+        lines.append(f"| {cat.name} | {cat.score:.1f} | {_compute_rating(cat.score)} |")
+    lines.append("")
+
+    lines.extend(_md_category_details(snapshot))
+    lines.extend(_md_check_rules_section(check_rules))
+    lines.append("")
+
+    # Entropy
+    lines.append("## Entropy / Semantic Diversity")
+    lines.append("")
+    if entropy:
+        lines.extend(["| Axis | Value |", "|------|------:|"])
+        for key, val in entropy.items():
+            lines.append(f"| {key} | {val:.4f} |")
+    else:
+        lines.append("No entropy data available.")
+    lines.append("")
+
+    # 総合評価
+    lines.extend(
+        [
+            "## 総合評価",
+            "",
+            f"総合スコア **{snapshot.overall_score:.1f}** / 100.0 — レーティング **{rating}**",
+            "",
+            _RATING_DESCRIPTIONS.get(rating, ""),
+            "",
+        ]
+    )
+
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
+# Output: compare_snapshots
+# ---------------------------------------------------------------------------
+
+
+def _load_snapshot_from_json(json_path: Path) -> QualitySnapshot:
+    """JSON ファイルから QualitySnapshot を読み込む。
+
+    Parameters
+    ----------
+    json_path : Path
+        スナップショット JSON ファイルのパス。
+
+    Returns
+    -------
+    QualitySnapshot
+        読み込んだスナップショット。
+
+    Raises
+    ------
+    FileNotFoundError
+        JSON ファイルが存在しない場合。
+    """
+    if not json_path.exists():
+        msg = f"Snapshot file not found: {json_path}"
+        raise FileNotFoundError(msg)
+
+    with json_path.open(encoding="utf-8") as f:
+        data = json.load(f)
+
+    categories = []
+    for cat_data in data.get("categories", []):
+        metrics = [
+            MetricValue(
+                value=m["value"],
+                unit=m["unit"],
+                status=m["status"],
+                stub=m.get("stub", False),
+            )
+            for m in cat_data.get("metrics", [])
+        ]
+        categories.append(
+            CategoryResult(
+                name=cat_data["name"],
+                score=cat_data["score"],
+                metrics=metrics,
+            )
+        )
+
+    timestamp = dt.fromisoformat(data["timestamp"])
+
+    return QualitySnapshot(
+        categories=categories,
+        overall_score=data["overall_score"],
+        timestamp=timestamp,
+    )
+
+
+def _find_latest_snapshot(output_dir: Path | None = None) -> Path | None:
+    """最新のスナップショット JSON ファイルを検索する。
+
+    Parameters
+    ----------
+    output_dir : Path | None
+        検索ディレクトリ。``None`` の場合は
+        ``data/processed/kg_quality/`` を使用。
+
+    Returns
+    -------
+    Path | None
+        最新のスナップショットファイルのパス。見つからない場合は ``None``。
+    """
+    if output_dir is None:
+        output_dir = Path("data/processed/kg_quality")
+
+    if not output_dir.exists():
+        return None
+
+    snapshots = sorted(output_dir.glob("snapshot_*.json"), reverse=True)
+    return snapshots[0] if snapshots else None
+
+
+def compare_snapshots(
+    prev: QualitySnapshot,
+    current: QualitySnapshot,
+) -> str:
+    """2つのスナップショットの差分を比較する。
+
+    Parameters
+    ----------
+    prev : QualitySnapshot
+        比較元（前回）のスナップショット。
+    current : QualitySnapshot
+        比較先（今回）のスナップショット。
+
+    Returns
+    -------
+    str
+        差分比較結果の文字列。
+    """
+    lines: list[str] = []
+
+    lines.append("# KG Quality Comparison")
+    lines.append("")
+    lines.append(f"Previous: {prev.timestamp.isoformat()}")
+    lines.append(f"Current:  {current.timestamp.isoformat()}")
+    lines.append("")
+
+    # Overall score diff
+    overall_diff = current.overall_score - prev.overall_score
+    sign = "+" if overall_diff >= 0 else ""
+    lines.append(
+        f"**Overall Score**: {prev.overall_score:.1f} → {current.overall_score:.1f} "
+        f"({sign}{overall_diff:.1f})"
+    )
+    lines.append("")
+
+    # カテゴリ別比較
+    lines.append("| Category | Previous | Current | Change |")
+    lines.append("|----------|--------:|--------:|-------:|")
+
+    prev_scores = {cat.name: cat.score for cat in prev.categories}
+    curr_scores = {cat.name: cat.score for cat in current.categories}
+
+    all_categories = list(
+        dict.fromkeys(
+            [cat.name for cat in prev.categories]
+            + [cat.name for cat in current.categories]
+        )
+    )
+
+    for cat_name in all_categories:
+        p_score = prev_scores.get(cat_name, 0.0)
+        c_score = curr_scores.get(cat_name, 0.0)
+        diff = c_score - p_score
+        sign = "+" if diff >= 0 else ""
+        lines.append(
+            f"| {cat_name} | {p_score:.1f} | {c_score:.1f} | {sign}{diff:.1f} |"
+        )
+
+    lines.append("")
+
+    # 改善/悪化のサマリー
+    improved = [
+        cat_name
+        for cat_name in all_categories
+        if curr_scores.get(cat_name, 0.0) > prev_scores.get(cat_name, 0.0)
+    ]
+    degraded = [
+        cat_name
+        for cat_name in all_categories
+        if curr_scores.get(cat_name, 0.0) < prev_scores.get(cat_name, 0.0)
+    ]
+
+    if improved:
+        lines.append(f"**改善**: {', '.join(improved)}")
+    if degraded:
+        lines.append(f"**悪化**: {', '.join(degraded)}")
+    if not improved and not degraded:
+        lines.append("**変化なし**")
+    lines.append("")
+
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -1433,6 +2065,162 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 # ---------------------------------------------------------------------------
 
 
+def _collect_check_rules(session: Any) -> list[CheckRuleResult]:
+    """CheckRules 用データを Neo4j から取得し、4ルールを検証する。"""
+    text_query = """
+    MATCH (n) WHERE NOT 'Memory' IN labels(n)
+    AND (n:Fact OR n:Claim) AND n.content IS NOT NULL
+    RETURN n.content AS text LIMIT 500
+    """
+    texts = [r["text"] for r in session.run(text_query).data()]
+
+    entity_query = """
+    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
+    AND n.name IS NOT NULL RETURN n.name AS name
+    """
+    entity_names = [r["name"] for r in session.run(entity_query).data()]
+
+    et_query = """
+    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
+    AND n.entity_type IS NOT NULL RETURN n.entity_type AS et
+    """
+    entity_types = [r["et"] for r in session.run(et_query).data()]
+
+    rt_query = """
+    MATCH (a)-[r]->(b) WHERE NOT 'Memory' IN labels(a)
+    AND NOT 'Memory' IN labels(b) RETURN DISTINCT type(r) AS rt
+    """
+    rel_types = [r["rt"] for r in session.run(rt_query).data()]
+
+    return [
+        check_subject_reference(texts),
+        check_entity_length(entity_names),
+        check_schema_compliance(entity_types),
+        check_relationship_compliance(rel_types),
+    ]
+
+
+def _collect_entropy(session: Any) -> dict[str, float]:
+    """Entropy / Semantic Diversity 用データを Neo4j から取得する。"""
+    et_dist_query = """
+    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
+    AND n.entity_type IS NOT NULL
+    RETURN n.entity_type AS et, count(n) AS cnt
+    """
+    entity_type_counts = {r["et"]: r["cnt"] for r in session.run(et_dist_query).data()}
+
+    tc_dist_query = """
+    MATCH (n:Topic) WHERE NOT 'Memory' IN labels(n)
+    AND n.category IS NOT NULL
+    RETURN n.category AS cat, count(n) AS cnt
+    """
+    topic_category_counts = {
+        r["cat"]: r["cnt"] for r in session.run(tc_dist_query).data()
+    }
+
+    rt_dist_query = """
+    MATCH (a)-[r]->(b) WHERE NOT 'Memory' IN labels(a)
+    AND NOT 'Memory' IN labels(b)
+    RETURN type(r) AS rt, count(r) AS cnt
+    """
+    rel_type_counts = {r["rt"]: r["cnt"] for r in session.run(rt_dist_query).data()}
+
+    return {
+        "entity_type_entropy": compute_shannon_entropy(entity_type_counts),
+        "topic_category_entropy": compute_shannon_entropy(topic_category_counts),
+        "relationship_type_entropy": compute_shannon_entropy(rel_type_counts),
+        "semantic_diversity": compute_semantic_diversity(
+            entity_type_counts=entity_type_counts,
+            topic_category_counts=topic_category_counts,
+            relationship_type_counts=rel_type_counts,
+        ),
+    }
+
+
+def _run_measurements(
+    session: Any,
+    schema: dict[str, Any],
+    category: str,
+) -> tuple[QualitySnapshot, list[CheckRuleResult], dict[str, float]]:
+    """指定カテゴリの計測を実行し、QualitySnapshot を構築する。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    schema : dict[str, Any]
+        スキーマ定義。
+    category : str
+        計測カテゴリ（``"all"`` で全カテゴリ）。
+
+    Returns
+    -------
+    tuple[QualitySnapshot, list[CheckRuleResult], dict[str, float]]
+        スナップショット、チェックルール結果、エントロピーデータ。
+    """
+    # カテゴリ別計測（ディスパッチテーブル）
+    measure_funcs: dict[str, Any] = {
+        "structural": lambda: measure_structural(session),
+        "completeness": lambda: measure_completeness(session, schema),
+        "consistency": lambda: measure_consistency(session),
+        "accuracy": lambda: measure_accuracy(session),
+        "timeliness": lambda: measure_timeliness(session),
+        "finance_specific": lambda: measure_finance_specific(session),
+        "discoverability": lambda: measure_discoverability(session),
+    }
+
+    categories: list[CategoryResult] = []
+    for cat_name, func in measure_funcs.items():
+        if category in ("all", cat_name):
+            categories.append(func())
+
+    overall_score = (
+        round(sum(c.score for c in categories) / len(categories), 1)
+        if categories
+        else 0.0
+    )
+
+    snapshot = QualitySnapshot(
+        categories=categories,
+        overall_score=overall_score,
+        timestamp=dt.now(tz=timezone.utc),
+    )
+
+    check_rules = (
+        _collect_check_rules(session) if category in ("all", "consistency") else []
+    )
+    entropy = (
+        _collect_entropy(session) if category in ("all", "discoverability") else {}
+    )
+
+    return snapshot, check_rules, entropy
+
+
+def _resolve_compare_path(compare_arg: str) -> Path | None:
+    """--compare 引数からスナップショットファイルパスを解決する。
+
+    Parameters
+    ----------
+    compare_arg : str
+        ``"latest"`` または日付文字列またはファイルパス。
+
+    Returns
+    -------
+    Path | None
+        スナップショットファイルのパス。見つからない場合は ``None``。
+    """
+    if compare_arg == "latest":
+        return _find_latest_snapshot()
+
+    search_dir = Path("data/processed/kg_quality")
+    candidate = search_dir / f"snapshot_{compare_arg}.json"
+    if candidate.exists():
+        return candidate
+
+    direct_path = Path(compare_arg)
+    return direct_path if direct_path.exists() else None
+
+
 def main() -> None:
     """エントリーポイント。"""
     args = parse_args()
@@ -1462,8 +2250,29 @@ def main() -> None:
     try:
         schema = load_schema(Path("data/config/knowledge-graph-schema.yaml"))
         with driver.session() as session:
-            counts = get_counts(session)
-            logger.info("Base counts: %s", counts)
+            snapshot, check_rules, entropy = _run_measurements(
+                session, schema, args.category
+            )
+            render_console(snapshot, check_rules, entropy)
+
+            if args.save_snapshot:
+                save_json(snapshot, check_rules, entropy)
+                save_neo4j(session, snapshot, dry_run=args.dry_run)
+
+            if args.report:
+                md = generate_markdown(snapshot, check_rules, entropy)
+                report_path = Path(args.report)
+                report_path.parent.mkdir(parents=True, exist_ok=True)
+                report_path.write_text(md, encoding="utf-8")
+                logger.info("Markdown report saved: %s", report_path)
+
+            if args.compare:
+                prev_path = _resolve_compare_path(args.compare)
+                if prev_path is None:
+                    logger.warning("Compare target not found: %s", args.compare)
+                else:
+                    prev_snapshot = _load_snapshot_from_json(prev_path)
+                    print(compare_snapshots(prev_snapshot, snapshot))
     finally:
         driver.close()
 
