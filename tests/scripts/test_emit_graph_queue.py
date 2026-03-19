@@ -57,6 +57,7 @@ from emit_graph_queue import (
     map_wealth_scrape,
     map_wealth_scrape_backfill,
     map_wealth_scrape_incremental,
+    map_web_research,
     parse_args,
     resolve_category,
     resolve_metric_id,
@@ -4601,3 +4602,166 @@ class TestBuildTrendEdgesWithMetricId:
 
         edges = _build_trend_edges(datapoints, periods, for_period)
         assert len(edges) == 1
+
+
+# ---------------------------------------------------------------------------
+# map_web_research
+# ---------------------------------------------------------------------------
+
+
+def _web_research_mapper_data() -> dict[str, Any]:
+    """Return a minimal web-research input for testing."""
+    return {
+        "session_id": "web-research-test-001",
+        "research_question": "日銀の金融政策動向",
+        "sources": [
+            {
+                "url": "https://www.boj.or.jp/policy/2026/mar.html",
+                "title": "日銀 金融政策決定会合（2026年3月）",
+                "published_at": "2026-03-15",
+                "source_type": "central_bank_report",
+                "authority_level": "official",
+            },
+            {
+                "url": "https://www.reuters.com/markets/boj-policy-2026",
+                "title": "BOJ holds rates steady in March",
+                "published_at": "2026-03-15",
+                "source_type": "news_article",
+                "authority_level": "media",
+            },
+        ],
+        "facts": [
+            {
+                "content": "日銀は2026年3月の金融政策決定会合で金利を据え置いた",
+                "source_url": "https://www.boj.or.jp/policy/2026/mar.html",
+                "confidence": 0.95,
+                "about_entities": [
+                    {"name": "日本銀行", "entity_type": "organization"},
+                    {"name": "日本", "entity_type": "country"},
+                ],
+            },
+            {
+                "content": "市場は次回会合での利上げを織り込んでいる",
+                "source_url": "https://www.reuters.com/markets/boj-policy-2026",
+                "confidence": 0.80,
+                "about_entities": [
+                    {"name": "日本銀行", "entity_type": "organization"},
+                ],
+            },
+        ],
+        "topics": [
+            {"name": "金融政策", "category": "monetary_policy"},
+            {"name": "日本経済", "category": "macro"},
+        ],
+    }
+
+
+class TestMapWebResearch:
+    """Tests for map_web_research mapper."""
+
+    def test_正常系_基本マッピング_ソースとファクトとエンティティ(self) -> None:
+        """sources/facts/entities が正しくマッピングされること。"""
+        data = _web_research_mapper_data()
+        result = map_web_research(data)
+
+        assert result["session_id"] == "web-research-test-001"
+        assert result["batch_label"] == "web-research"
+        assert len(result["sources"]) == 2
+        assert len(result["facts"]) == 2
+
+        # Entity: 日本銀行, 日本 の2つ（重複排除後）
+        entity_names = {e["name"] for e in result["entities"]}
+        assert entity_names == {"日本銀行", "日本"}
+
+        # Sources have authority_level from input
+        for src in result["sources"]:
+            assert "authority_level" in src
+            assert "source_id" in src
+
+    def test_正常系_全4リレーション種が生成される(self) -> None:
+        """source_fact, fact_entity, tagged, extracted_from_fact の4種が存在すること。"""
+        data = _web_research_mapper_data()
+        result = map_web_research(data)
+        rels = result["relations"]
+
+        assert "source_fact" in rels
+        assert "fact_entity" in rels
+        assert "tagged" in rels
+        assert "extracted_from_fact" in rels
+
+        assert len(rels["source_fact"]) == 2
+        assert len(rels["fact_entity"]) == 3  # 2 + 1 entity refs
+        assert len(rels["tagged"]) > 0
+        assert len(rels["extracted_from_fact"]) == 2
+
+        # fact_entity uses RELATES_TO type
+        for rel in rels["fact_entity"]:
+            assert rel["type"] == "RELATES_TO"
+
+        # extracted_from_fact has no 'type' field
+        for rel in rels["extracted_from_fact"]:
+            assert "type" not in rel
+
+    def test_正常系_エンティティ重複排除(self) -> None:
+        """同名+同typeのエンティティが重複しないことを確認。"""
+        data = _web_research_mapper_data()
+        # 日本銀行 appears in both facts
+        result = map_web_research(data)
+
+        entity_keys = [e["entity_key"] for e in result["entities"]]
+        assert len(entity_keys) == len(set(entity_keys))
+
+        # 日本銀行::organization should appear only once
+        boj_entities = [e for e in result["entities"] if e["name"] == "日本銀行"]
+        assert len(boj_entities) == 1
+        assert boj_entities[0]["entity_key"] == "日本銀行::organization"
+
+    def test_正常系_ソースURL紐付け_ファクトからソースへ(self) -> None:
+        """extracted_from_fact でファクトが正しいソースに紐付くこと。"""
+        data = _web_research_mapper_data()
+        result = map_web_research(data)
+
+        # Build source_id lookup by URL
+        url_to_source_id = {s["url"]: s["source_id"] for s in result["sources"]}
+
+        extracted_rels = result["relations"]["extracted_from_fact"]
+        assert len(extracted_rels) == 2
+
+        # Each fact's to_id should match its source_url's source_id
+        fact_id_to_source_url = {}
+        for f in result["facts"]:
+            fact_id_to_source_url[f["fact_id"]] = data["facts"][
+                result["facts"].index(f)
+            ]["source_url"]
+
+        for rel in extracted_rels:
+            expected_source_id = url_to_source_id[fact_id_to_source_url[rel["from_id"]]]
+            assert rel["to_id"] == expected_source_id
+
+    def test_エッジケース_空のfacts配列(self) -> None:
+        """facts=[] のとき正常に空結果が返ること。"""
+        data = _web_research_mapper_data()
+        data["facts"] = []
+        result = map_web_research(data)
+
+        assert result["facts"] == []
+        assert result["entities"] == []
+        assert result["relations"]["source_fact"] == []
+        assert result["relations"]["fact_entity"] == []
+        assert result["relations"]["extracted_from_fact"] == []
+        # topics and tagged rels should still be present
+        assert len(result["topics"]) == 2
+        assert len(result["relations"]["tagged"]) > 0
+
+    def test_エッジケース_about_entities未指定時(self) -> None:
+        """about_entities が存在しないファクトで正常動作すること。"""
+        data = _web_research_mapper_data()
+        for fact in data["facts"]:
+            del fact["about_entities"]
+        result = map_web_research(data)
+
+        assert result["entities"] == []
+        assert result["relations"]["fact_entity"] == []
+        # facts and source_fact rels should still exist
+        assert len(result["facts"]) == 2
+        assert len(result["relations"]["source_fact"]) == 2
