@@ -3036,6 +3036,8 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     ------
     KeyError
         If any source is missing the ``authority_level`` field.
+    ValueError
+        If any source has an invalid ``authority_level`` value.
     """
     raw_sources: list[dict[str, Any]] = data.get("sources", [])
     raw_facts: list[dict[str, Any]] = data.get("facts", [])
@@ -3048,7 +3050,16 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     for src in raw_sources:
         # authority_level is mandatory
         authority = src["authority_level"]  # KeyError if missing
+        if authority not in _VALID_AUTHORITY_LEVELS:
+            msg = (
+                f"Invalid authority_level {authority!r}. "
+                f"Expected one of {sorted(_VALID_AUTHORITY_LEVELS)}"
+            )
+            raise ValueError(msg)
         url = src.get("url", "")
+        if not url:
+            logger.warning("Source missing URL, skipping (title=%r)", src.get("title", ""))
+            continue
         sid = generate_source_id(url)
         url_to_source_id[url] = sid
 
@@ -3096,7 +3107,7 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     source_fact_rels: list[dict[str, str]] = []
     fact_entity_rels: list[dict[str, str]] = []
     extracted_from_fact_rels: list[dict[str, str]] = []
-    seen_entity_keys: set[str] = set()
+    entity_id_map: dict[str, str] = {}  # ekey → eid
 
     for raw_fact in raw_facts:
         content = raw_fact.get("content", "")
@@ -3144,10 +3155,10 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
             ename = ent.get("name", "")
             etype = ent.get("entity_type", "")
             ekey = f"{ename}::{etype}"
+            eid = generate_entity_id(ename, etype)
 
-            if ekey not in seen_entity_keys:
-                seen_entity_keys.add(ekey)
-                eid = generate_entity_id(ename, etype)
+            if ekey not in entity_id_map:
+                entity_id_map[ekey] = eid
                 entities.append(
                     {
                         "entity_id": eid,
@@ -3157,7 +3168,6 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
                     }
                 )
 
-            eid = generate_entity_id(ename, etype)
             fact_entity_rels.append(
                 {
                     "from_id": fid,
