@@ -1,0 +1,25 @@
+{
+  "total_collected": 0,
+  "total_extracted": 0,
+  "total_summarized": 0,
+  "total_published": 0,
+  "total_duplicates": 0,
+  "total_early_duplicates": 0,
+  "extraction_failures": [],
+  "summarization_failures": [],
+  "publication_failures": [],
+  "started_at": "2026-03-18T14:41:02.765786Z",
+  "finished_at": "2026-03-18T14:41:02.766277Z",
+  "elapsed_seconds": 0.000491,
+  "published_articles": [],
+  "feed_errors": [],
+  "category_results": [],
+  "stage_metrics": [
+    {
+      "stage": "collection",
+      "elapsed_seconds": 0.0,
+      "item_count": 2
+    }
+  ],
+  "domain_extraction_rates": []
+}
