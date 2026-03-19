@@ -4679,8 +4679,8 @@ class TestMapWebResearch:
             assert "authority_level" in src
             assert "source_id" in src
 
-    def test_正常系_全4リレーション種が生成される(self) -> None:
-        """source_fact, fact_entity, tagged, extracted_from_fact の4種が存在すること。"""
+    def test_正常系_全4リレーション種のキーと件数(self) -> None:
+        """source_fact, fact_entity, tagged, extracted_from_fact の4種が正しい件数で存在すること。"""
         data = _web_research_mapper_data()
         result = map_web_research(data)
         rels = result["relations"]
@@ -4691,18 +4691,25 @@ class TestMapWebResearch:
         assert "extracted_from_fact" in rels
 
         assert len(rels["source_fact"]) == 2
-        assert len(rels["fact_entity"]) == 3  # 2 + 1 entity refs
+        # fact1: 日本銀行+日本(2件), fact2: 日本銀行(1件) = 3件
+        assert len(rels["fact_entity"]) == 3
         # (2 sources + 2 facts) × 2 topics = 8
         assert len(rels["tagged"]) == 8
         assert len(rels["extracted_from_fact"]) == 2
 
-        # fact_entity uses RELATES_TO type
-        for rel in rels["fact_entity"]:
+    def test_正常系_fact_entityリレーションはRELATES_TO型(self) -> None:
+        """fact_entity リレーションの type が RELATES_TO であること。"""
+        data = _web_research_mapper_data()
+        result = map_web_research(data)
+        for rel in result["relations"]["fact_entity"]:
             assert rel["type"] == "RELATES_TO"
 
-        # extracted_from_fact has no 'type' field
-        for rel in rels["extracted_from_fact"]:
-            assert "type" not in rel
+    def test_正常系_extracted_from_factリレーションはEXTRACTED_FROM型(self) -> None:
+        """extracted_from_fact リレーションの type が EXTRACTED_FROM であること。"""
+        data = _web_research_mapper_data()
+        result = map_web_research(data)
+        for rel in result["relations"]["extracted_from_fact"]:
+            assert rel["type"] == "EXTRACTED_FROM"
 
     def test_正常系_エンティティ重複排除(self) -> None:
         """同名+同typeのエンティティが重複しないことを確認。"""
@@ -4751,8 +4758,10 @@ class TestMapWebResearch:
         # 2 sources × 2 topics = 4 (no facts → no fact-topic tagged)
         assert len(result["relations"]["tagged"]) == 4
 
-    def test_エッジケース_about_entities未指定時(self) -> None:
-        """about_entities が存在しないファクトで正常動作すること。"""
+    def test_エッジケース_about_entities未指定でエンティティとリレーションが空(
+        self,
+    ) -> None:
+        """about_entities が存在しないファクトでエンティティとfact_entityリレーションが空になること。"""
         data = _web_research_mapper_data()
         for fact in data["facts"]:
             del fact["about_entities"]

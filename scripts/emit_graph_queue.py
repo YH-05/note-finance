@@ -1178,7 +1178,7 @@ def _build_entity_nodes(
     for entity in chunk.get("entities", []):
         name = entity.get("name", "")
         entity_type = entity.get("entity_type", "")
-        entity_key = f"{name}:{entity_type}"
+        entity_key = f"{name}::{entity_type}"
         if entity_key not in seen_entity_keys:
             seen_entity_keys.add(entity_key)
             eid = generate_entity_id(name, entity_type)
@@ -3012,6 +3012,204 @@ _VALID_AUTHORITY_LEVELS = frozenset(
 )
 
 
+def _build_wr_sources(
+    raw_sources: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], dict[str, str]]:
+    """Build Source nodes from web-research input.
+
+    Returns
+    -------
+    tuple
+        (sources, url_to_source_id) — source nodes and URL→ID lookup.
+
+    Raises
+    ------
+    KeyError
+        If any source is missing ``authority_level``.
+    ValueError
+        If any source has an invalid ``authority_level``.
+    """
+    sources: list[dict[str, Any]] = []
+    url_to_source_id: dict[str, str] = {}
+
+    for src in raw_sources:
+        authority = src["authority_level"]  # KeyError if missing
+        if authority not in _VALID_AUTHORITY_LEVELS:
+            msg = (
+                f"Invalid authority_level {authority!r}. "
+                f"Expected one of {sorted(_VALID_AUTHORITY_LEVELS)}"
+            )
+            raise ValueError(msg)
+        url = src.get("url", "")
+        if not url:
+            logger.warning(
+                "Source missing URL, skipping (title=%r)", src.get("title", "")
+            )
+            continue
+        sid = generate_source_id(url)
+        url_to_source_id[url] = sid
+        sources.append(
+            {
+                "source_id": sid,
+                "url": url,
+                "title": src.get("title", ""),
+                "published": src.get("published_at", ""),
+                "source_type": src.get("source_type", ""),
+                "authority_level": authority,
+                "command_source": "web-research",
+            }
+        )
+
+    return sources, url_to_source_id
+
+
+def _build_wr_topics(
+    raw_topics: list[dict[str, Any]],
+    sources: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    """Build Topic nodes and Source→Topic TAGGED rels.
+
+    All sources are tagged with all topics (full cross-product by design).
+    """
+    topics: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+
+    for raw_topic in raw_topics:
+        name = raw_topic.get("name", "")
+        category = raw_topic.get("category", "")
+        tid = generate_topic_id(name, category)
+        topics.append(
+            {
+                "topic_id": tid,
+                "name": name,
+                "category": category,
+                "topic_key": f"{name}::{category}",
+            }
+        )
+        # All sources tagged with each topic (intentional full cross-product)
+        for src_node in sources:
+            tagged_rels.append(
+                {
+                    "from_id": src_node["source_id"],
+                    "to_id": tid,
+                    "type": "TAGGED",
+                }
+            )
+
+    return topics, tagged_rels
+
+
+def _validate_confidence(raw_value: object) -> float | None:
+    """Validate and clamp confidence to [0.0, 1.0]."""
+    if raw_value is None:
+        return None
+    try:
+        value = float(raw_value)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        logger.warning("Invalid confidence value: %r, ignoring", raw_value)
+        return None
+    if not (0.0 <= value <= 1.0):
+        logger.warning("confidence out of range [0,1]: %s, clamping", value)
+        return max(0.0, min(1.0, value))
+    return value
+
+
+def _build_wr_facts(
+    raw_facts: list[dict[str, Any]],
+    url_to_source_id: dict[str, str],
+    topics: list[dict[str, Any]],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    dict[str, list[dict[str, str]]],
+    list[dict[str, str]],
+]:
+    """Build Fact/Entity nodes and all fact-related relations.
+
+    Returns
+    -------
+    tuple
+        (facts, entities, fact_rels, tagged_rels) where fact_rels contains
+        source_fact, fact_entity, and extracted_from_fact relation lists.
+        All facts are tagged with all topics (intentional full cross-product).
+    """
+    facts: list[dict[str, Any]] = []
+    entities: list[dict[str, Any]] = []
+    source_fact_rels: list[dict[str, str]] = []
+    fact_entity_rels: list[dict[str, str]] = []
+    extracted_from_fact_rels: list[dict[str, str]] = []
+    tagged_rels: list[dict[str, str]] = []
+    entity_id_map: dict[str, str] = {}  # ekey → eid
+
+    for raw_fact in raw_facts:
+        content = raw_fact.get("content", "")
+        source_url = raw_fact.get("source_url", "")
+
+        if source_url not in url_to_source_id:
+            logger.warning(
+                "Fact source_url not found in sources, skipping: %s",
+                source_url,
+            )
+            continue
+
+        fid = generate_fact_id(content)
+        sid = url_to_source_id[source_url]
+
+        facts.append(
+            {
+                "fact_id": fid,
+                "content": content,
+                "confidence": _validate_confidence(raw_fact.get("confidence")),
+            }
+        )
+
+        source_fact_rels.append(
+            {"from_id": sid, "to_id": fid, "type": "STATES_FACT"}
+        )
+        extracted_from_fact_rels.append(
+            {"from_id": fid, "to_id": sid, "type": "EXTRACTED_FROM"}
+        )
+
+        # Entity dedup & RELATES_TO rels
+        for ent in raw_fact.get("about_entities", []):
+            ename = ent.get("name", "")
+            etype = ent.get("entity_type", "")
+            ekey = f"{ename}::{etype}"
+            eid = generate_entity_id(ename, etype)
+
+            if ekey not in entity_id_map:
+                entity_id_map[ekey] = eid
+                entities.append(
+                    {
+                        "entity_id": eid,
+                        "name": ename,
+                        "entity_type": etype,
+                        "entity_key": ekey,
+                    }
+                )
+
+            fact_entity_rels.append(
+                {"from_id": fid, "to_id": eid, "type": "RELATES_TO"}
+            )
+
+        # All facts tagged with all topics (intentional full cross-product)
+        for topic_node in topics:
+            tagged_rels.append(
+                {
+                    "from_id": fid,
+                    "to_id": topic_node["topic_id"],
+                    "type": "TAGGED",
+                }
+            )
+
+    fact_rels = {
+        "source_fact": source_fact_rels,
+        "fact_entity": fact_entity_rels,
+        "extracted_from_fact": extracted_from_fact_rels,
+    }
+    return facts, entities, fact_rels, tagged_rels
+
+
 def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     """Map web-research session data to graph-queue components.
 
@@ -3039,152 +3237,12 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     ValueError
         If any source has an invalid ``authority_level`` value.
     """
-    raw_sources: list[dict[str, Any]] = data.get("sources", [])
-    raw_facts: list[dict[str, Any]] = data.get("facts", [])
-    raw_topics: list[dict[str, Any]] = data.get("topics", [])
-
-    # --- Source nodes ---
-    sources: list[dict[str, Any]] = []
-    url_to_source_id: dict[str, str] = {}
-
-    for src in raw_sources:
-        # authority_level is mandatory
-        authority = src["authority_level"]  # KeyError if missing
-        if authority not in _VALID_AUTHORITY_LEVELS:
-            msg = (
-                f"Invalid authority_level {authority!r}. "
-                f"Expected one of {sorted(_VALID_AUTHORITY_LEVELS)}"
-            )
-            raise ValueError(msg)
-        url = src.get("url", "")
-        if not url:
-            logger.warning("Source missing URL, skipping (title=%r)", src.get("title", ""))
-            continue
-        sid = generate_source_id(url)
-        url_to_source_id[url] = sid
-
-        sources.append(
-            {
-                "source_id": sid,
-                "url": url,
-                "title": src.get("title", ""),
-                "published": src.get("published_at", ""),
-                "source_type": src.get("source_type", ""),
-                "authority_level": authority,
-                "command_source": "web-research",
-            }
-        )
-
-    # --- Topic nodes & tagged rels (Source → Topic) ---
-    topics: list[dict[str, Any]] = []
-    tagged_rels: list[dict[str, str]] = []
-
-    for raw_topic in raw_topics:
-        name = raw_topic.get("name", "")
-        category = raw_topic.get("category", "")
-        tid = generate_topic_id(name, category)
-        topics.append(
-            {
-                "topic_id": tid,
-                "name": name,
-                "category": category,
-                "topic_key": f"{name}::{category}",
-            }
-        )
-        # Tag each source with this topic
-        for src_node in sources:
-            tagged_rels.append(
-                {
-                    "from_id": src_node["source_id"],
-                    "to_id": tid,
-                    "type": "TAGGED",
-                }
-            )
-
-    # --- Fact nodes & relations ---
-    facts: list[dict[str, Any]] = []
-    entities: list[dict[str, Any]] = []
-    source_fact_rels: list[dict[str, str]] = []
-    fact_entity_rels: list[dict[str, str]] = []
-    extracted_from_fact_rels: list[dict[str, str]] = []
-    entity_id_map: dict[str, str] = {}  # ekey → eid
-
-    for raw_fact in raw_facts:
-        content = raw_fact.get("content", "")
-        source_url = raw_fact.get("source_url", "")
-
-        # Skip facts whose source_url is not in sources
-        if source_url not in url_to_source_id:
-            logger.warning(
-                "Fact source_url not found in sources, skipping: %s",
-                source_url,
-            )
-            continue
-
-        fid = generate_fact_id(content)
-        sid = url_to_source_id[source_url]
-
-        facts.append(
-            {
-                "fact_id": fid,
-                "content": content,
-                "confidence": raw_fact.get("confidence"),
-            }
-        )
-
-        # source_fact: Source → Fact (STATES_FACT)
-        source_fact_rels.append(
-            {
-                "from_id": sid,
-                "to_id": fid,
-                "type": "STATES_FACT",
-            }
-        )
-
-        # extracted_from_fact: Fact → Source (no type field)
-        extracted_from_fact_rels.append(
-            {
-                "from_id": fid,
-                "to_id": sid,
-            }
-        )
-
-        # fact_entity: Fact → Entity (RELATES_TO) & entity dedup
-        about_entities = raw_fact.get("about_entities", [])
-        for ent in about_entities:
-            ename = ent.get("name", "")
-            etype = ent.get("entity_type", "")
-            ekey = f"{ename}::{etype}"
-            eid = generate_entity_id(ename, etype)
-
-            if ekey not in entity_id_map:
-                entity_id_map[ekey] = eid
-                entities.append(
-                    {
-                        "entity_id": eid,
-                        "name": ename,
-                        "entity_type": etype,
-                        "entity_key": ekey,
-                    }
-                )
-
-            fact_entity_rels.append(
-                {
-                    "from_id": fid,
-                    "to_id": eid,
-                    "type": "RELATES_TO",
-                }
-            )
-
-        # tagged: Fact → Topic (TAGGED)
-        for topic_node in topics:
-            tagged_rels.append(
-                {
-                    "from_id": fid,
-                    "to_id": topic_node["topic_id"],
-                    "type": "TAGGED",
-                }
-            )
+    sources, url_to_source_id = _build_wr_sources(data.get("sources", []))
+    topics, tagged_rels = _build_wr_topics(data.get("topics", []), sources)
+    facts, entities, fact_rels, fact_tagged = _build_wr_facts(
+        data.get("facts", []), url_to_source_id, topics
+    )
+    tagged_rels.extend(fact_tagged)
 
     return _mapped_result(
         data,
@@ -3193,12 +3251,7 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
         facts=facts,
         entities=entities,
         topics=topics,
-        relations={
-            "source_fact": source_fact_rels,
-            "fact_entity": fact_entity_rels,
-            "tagged": tagged_rels,
-            "extracted_from_fact": extracted_from_fact_rels,
-        },
+        relations={**fact_rels, "tagged": tagged_rels},
     )
 
 
