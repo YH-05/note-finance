@@ -83,8 +83,7 @@ mcp = FastMCP(
 def _get_data_dir() -> Path:
     """Get the RSS data directory, creating it if necessary.
 
-    RSS_DATA_DIR environment variable takes priority. If not set,
-    falls back to data_paths.get_path("raw/rss").
+    Priority: RSS_DATA_DIR env var > NAS > local fallback.
 
     Returns
     -------
@@ -92,8 +91,12 @@ def _get_data_dir() -> Path:
         The RSS data directory path
     """
     env_dir = os.environ.get("RSS_DATA_DIR")
-    # AIDEV-NOTE: resolve() で正規化し、".." を含むパストラバーサルを防止 (CWE-22)
-    data_dir = Path(env_dir).resolve() if env_dir else get_path("raw/rss")
+    if env_dir:
+        # AIDEV-NOTE: resolve() で正規化し、".." を含むパストラバーサルを防止 (CWE-22)
+        data_dir = Path(env_dir).resolve()
+    else:
+        nas_dir = Path("/Volumes/personal_folder/scraped/rss")
+        data_dir = nas_dir if nas_dir.parent.exists() else get_path("raw/rss")
     data_dir.mkdir(parents=True, exist_ok=True)
     return data_dir
 

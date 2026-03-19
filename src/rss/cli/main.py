@@ -47,8 +47,9 @@ def _get_logger() -> Any:
 
 logger: Any = _get_logger()
 
-# Default data directory (resolved via data_paths)
-DEFAULT_DATA_DIR = get_path("raw/rss")
+# Default data directory (NAS preferred, local fallback)
+_NAS_RSS_DIR = Path("/Volumes/personal_folder/scraped/rss")
+DEFAULT_DATA_DIR = _NAS_RSS_DIR if _NAS_RSS_DIR.parent.exists() else get_path("raw/rss")
 
 # Console for rich output
 console = Console()

@@ -2,7 +2,7 @@
 """Finance news scraping script for automated collection.
 
 Collects financial news from CNBC and NASDAQ, saves articles as JSON
-to NAS (or local fallback), and optionally cleans up old data.
+to NAS (or local fallback) in **source-specific directories**.
 
 This script is intended to be run by macOS launchd on a schedule
 (every 6 hours), but can also be run manually.
@@ -13,10 +13,9 @@ Basic (default settings):
 
     $ uv run python scripts/scrape_finance_news.py
 
-Specify output directory and sources:
+Specify sources:
 
     $ uv run python scripts/scrape_finance_news.py \\
-        --output-dir /Volumes/personal_folder/finance-news \\
         --sources cnbc nasdaq \\
         --include-content
 
@@ -26,8 +25,9 @@ Clean up old data (30+ days):
 
 Notes
 -----
-- Output file: ``{output_dir}/{YYYY-MM-DD}/news_{HHMMSS}.json``
-- NAS fallback: ``data/scraped/`` when NAS is not mounted
+- Output file: ``{NAS}/{source}/{YYYY-MM-DD}/news_{HHMMSS}.json``
+  e.g. ``/Volumes/personal_folder/scraped/cnbc/2026-03-19/news_031218.json``
+- NAS fallback: ``data/scraped/{source}/`` when NAS is not mounted
 - Structured logging via structlog
 """
 
@@ -49,16 +49,39 @@ from news_scraper._logging import get_logger
 
 logger = get_logger(__name__, module="scrape_finance_news")
 
-# Default paths (overridable via environment variables)
-# FINANCE_NEWS_NAS_DIR  : NAS マウントパス（優先）
-# FINANCE_NEWS_LOCAL_DIR: NAS 未マウント時のローカルフォールバック
-DEFAULT_NAS_OUTPUT = Path(
-    os.environ.get("FINANCE_NEWS_NAS_DIR", "/Volumes/personal_folder/scraped/finance-news")
-)
-_local_dir_env = os.environ.get("FINANCE_NEWS_LOCAL_DIR")
-DEFAULT_LOCAL_FALLBACK = Path(_local_dir_env) if _local_dir_env else get_path("scraped")
+# Default paths
+# NAS ベースディレクトリ（ソース別サブディレクトリを持つ）
+NAS_SCRAPED_BASE = Path("/Volumes/personal_folder/scraped")
 DEFAULT_SOURCES = ["cnbc", "nasdaq"]
 DEFAULT_CLEANUP_DAYS = 30
+
+
+def _resolve_source_output_dir(source: str) -> Path:
+    """Resolve per-source output directory (NAS preferred, local fallback).
+
+    Parameters
+    ----------
+    source : str
+        Source name (e.g. "cnbc", "nasdaq").
+
+    Returns
+    -------
+    Path
+        Resolved output directory for the source.
+    """
+    nas_dir = NAS_SCRAPED_BASE / source
+    if NAS_SCRAPED_BASE.exists():
+        logger.info("NAS is mounted, using NAS output", source=source, path=str(nas_dir))
+        return nas_dir
+
+    local_dir = get_path(f"scraped/{source}")
+    logger.warning(
+        "NAS is not mounted, falling back to local storage",
+        source=source,
+        nas_path=str(nas_dir),
+        fallback_path=str(local_dir),
+    )
+    return local_dir
 
 
 def _positive_int(value: str) -> int:
@@ -102,19 +125,9 @@ def _parse_args() -> argparse.Namespace:
         epilog="""
 Examples:
   uv run python scripts/scrape_finance_news.py
-  uv run python scripts/scrape_finance_news.py --output-dir /Volumes/NAS/finance-news
   uv run python scripts/scrape_finance_news.py --sources cnbc --include-content
   uv run python scripts/scrape_finance_news.py --cleanup-days 30
         """,
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=Path,
-        default=None,
-        help=(
-            f"Output directory for JSON files (default: {DEFAULT_NAS_OUTPUT}, "
-            f"fallback: {DEFAULT_LOCAL_FALLBACK})"
-        ),
     )
     parser.add_argument(
         "--sources",
@@ -122,6 +135,12 @@ Examples:
         choices=["cnbc", "nasdaq"],
         default=DEFAULT_SOURCES,
         help="News sources to collect from (default: cnbc nasdaq)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Override output directory (ignores per-source NAS resolution)",
     )
     parser.add_argument(
         "--include-content",
@@ -152,36 +171,28 @@ Examples:
     return parser.parse_args()
 
 
-def _resolve_output_dir(requested: Path | None) -> Path:
-    """Resolve the output directory, falling back to local if NAS is unavailable.
+def _resolve_output_dir(requested: Path | None, source: str) -> Path:
+    """Resolve the output directory for a specific source.
 
     Parameters
     ----------
     requested : Path | None
-        User-requested output directory. If None, tries NAS first.
+        User-requested output directory override.
+    source : str
+        Source name (e.g. "cnbc", "nasdaq").
 
     Returns
     -------
     Path
-        Resolved output directory (NAS or local fallback).
+        Resolved output directory.
     """
-    # Use user-provided path if specified
     if requested is not None:
-        logger.info("Using requested output directory", path=str(requested))
-        return requested
+        # When user overrides, use a source subdirectory under the requested path
+        out = requested / source
+        logger.info("Using requested output directory", source=source, path=str(out))
+        return out
 
-    # Try NAS mount
-    if DEFAULT_NAS_OUTPUT.exists():
-        logger.info("NAS is mounted, using NAS output", path=str(DEFAULT_NAS_OUTPUT))
-        return DEFAULT_NAS_OUTPUT
-
-    # Fall back to local directory
-    logger.warning(
-        "NAS is not mounted, falling back to local storage",
-        nas_path=str(DEFAULT_NAS_OUTPUT),
-        fallback_path=str(DEFAULT_LOCAL_FALLBACK),
-    )
-    return DEFAULT_LOCAL_FALLBACK
+    return _resolve_source_output_dir(source)
 
 
 def _create_dated_output_dir(base_dir: Path, date: datetime) -> Path:
@@ -320,6 +331,8 @@ def _cleanup_old_data(base_dir: Path, max_age_days: int) -> int:
 def main() -> int:
     """Run the finance news scraping script.
 
+    Saves articles to per-source directories (cnbc/, nasdaq/).
+
     Returns
     -------
     int
@@ -344,9 +357,6 @@ def main() -> int:
         max_articles=args.max_articles,
     )
 
-    # Resolve output directory
-    output_dir = _resolve_output_dir(args.output_dir)
-
     # Setup scraper config
     config = ScraperConfig(
         include_content=args.include_content,
@@ -369,31 +379,57 @@ def main() -> int:
         logger.warning("No articles collected, skipping save")
         return 0
 
-    # Create dated subdirectory
-    try:
-        dated_dir = _create_dated_output_dir(output_dir, now)
-    except OSError as e:
-        logger.error("Failed to create output directory", error=str(e), exc_info=True)
-        return 1
+    # Save per source
+    saved_files: list[str] = []
+    all_articles = df.to_json()
+    for source in args.sources:
+        source_articles_json = [a for a in all_articles if a.get("source") == source]
 
-    # Save to JSON
-    try:
-        articles_json = df.to_json()
-        output_path = _save_articles_json(articles_json, dated_dir, now)
-        logger.info("Save complete", output_file=str(output_path))
-    except OSError as e:
-        logger.error("Failed to save articles", error=str(e), exc_info=True)
-        return 1
+        if not source_articles_json:
+            logger.info("No articles for source, skipping", source=source)
+            continue
 
-    # Optional cleanup
-    if args.cleanup_days is not None:
-        logger.info("Running cleanup", max_age_days=args.cleanup_days)
-        deleted = _cleanup_old_data(output_dir, args.cleanup_days)
-        logger.info("Cleanup finished", deleted_directories=deleted)
+        # Resolve per-source output directory
+        source_output_dir = _resolve_output_dir(args.output_dir, source)
+
+        try:
+            dated_dir = _create_dated_output_dir(source_output_dir, now)
+        except OSError as e:
+            logger.error(
+                "Failed to create output directory",
+                source=source,
+                error=str(e),
+                exc_info=True,
+            )
+            return 1
+
+        try:
+            output_path = _save_articles_json(source_articles_json, dated_dir, now)
+            saved_files.append(str(output_path))
+            logger.info(
+                "Save complete",
+                source=source,
+                output_file=str(output_path),
+                count=len(source_articles_json),
+            )
+        except OSError as e:
+            logger.error(
+                "Failed to save articles",
+                source=source,
+                error=str(e),
+                exc_info=True,
+            )
+            return 1
+
+        # Optional cleanup (per-source directory)
+        if args.cleanup_days is not None:
+            logger.info("Running cleanup", source=source, max_age_days=args.cleanup_days)
+            deleted = _cleanup_old_data(source_output_dir, args.cleanup_days)
+            logger.info("Cleanup finished", source=source, deleted_directories=deleted)
 
     logger.info(
         "Scraper finished successfully",
-        output_file=str(output_path),
+        saved_files=saved_files,
         total_articles=len(df),
     )
     return 0
