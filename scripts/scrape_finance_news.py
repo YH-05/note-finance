@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Finance news scraping script for automated collection.
 
-Collects financial news from CNBC and NASDAQ, saves articles as JSON
-to NAS (or local fallback) in **source-specific directories**.
+Collects financial news from multiple sources (CNBC, NASDAQ, Kabutan,
+Reuters JP, Minkabu, JETRO), saves articles as JSON to NAS (or local
+fallback), and optionally cleans up old data.
 
 This script is intended to be run by macOS launchd on a schedule
 (every 6 hours), but can also be run manually.
@@ -33,13 +34,19 @@ Notes
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# AIDEV-NOTE: パッケージ衝突の保険として src/ を確実に Python パスに含める
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
 import argparse
+import asyncio
 import json
 import os
 import shutil
-import sys
 from datetime import datetime, timezone
-from pathlib import Path
+from typing import Any
 
 import structlog
 
@@ -52,7 +59,7 @@ logger = get_logger(__name__, module="scrape_finance_news")
 # Default paths
 # NAS ベースディレクトリ（ソース別サブディレクトリを持つ）
 NAS_SCRAPED_BASE = Path("/Volumes/personal_folder/scraped")
-DEFAULT_SOURCES = ["cnbc", "nasdaq"]
+DEFAULT_SOURCES = ["cnbc"]
 DEFAULT_CLEANUP_DAYS = 30
 
 
@@ -120,7 +127,7 @@ def _parse_args() -> argparse.Namespace:
         Parsed arguments.
     """
     parser = argparse.ArgumentParser(
-        description="Collect financial news from CNBC and NASDAQ",
+        description="Collect financial news from multiple sources",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -132,9 +139,9 @@ Examples:
     parser.add_argument(
         "--sources",
         nargs="+",
-        choices=["cnbc", "nasdaq"],
+        choices=["cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu", "jetro"],
         default=DEFAULT_SOURCES,
-        help="News sources to collect from (default: cnbc nasdaq)",
+        help="News sources to collect from (default: cnbc)",
     )
     parser.add_argument(
         "--output-dir",
@@ -167,6 +174,34 @@ Examples:
         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
         default="INFO",
         help="Log level (default: INFO)",
+    )
+    # JETRO-specific options
+    parser.add_argument(
+        "--jetro-categories",
+        nargs="+",
+        default=None,
+        metavar="CAT",
+        help="JETRO category groups to crawl (e.g. world theme industry)",
+    )
+    parser.add_argument(
+        "--jetro-regions",
+        type=str,
+        default=None,
+        metavar="JSON",
+        help='JETRO regions as JSON (e.g. \'{"asia": ["cn", "kr"]}\')',
+    )
+    parser.add_argument(
+        "--jetro-archive-pages",
+        type=int,
+        default=0,
+        metavar="N",
+        help="Number of JETRO archive pages to crawl per country (default: 0)",
+    )
+    parser.add_argument(
+        "--use-playwright",
+        action="store_true",
+        default=False,
+        help="Use Playwright for JavaScript-rendered pages",
     )
     return parser.parse_args()
 
@@ -357,10 +392,43 @@ def main() -> int:
         max_articles=args.max_articles,
     )
 
+    # Build per-source options from CLI arguments
+    source_options: dict[str, dict[str, Any]] = {}
+    if args.jetro_categories or args.jetro_regions or args.jetro_archive_pages:
+        jetro_opts: dict[str, Any] = {}
+        if args.jetro_categories:
+            jetro_opts["categories"] = args.jetro_categories
+        if args.jetro_regions:
+            try:
+                raw_regions = json.loads(args.jetro_regions)
+            except json.JSONDecodeError:
+                logger.error(
+                    "Invalid JSON for --jetro-regions", raw=args.jetro_regions
+                )
+                return 1
+            if not isinstance(raw_regions, dict) or not all(
+                isinstance(k, str)
+                and isinstance(v, list)
+                and all(isinstance(c, str) for c in v)
+                for k, v in raw_regions.items()
+            ):
+                logger.error(
+                    "--jetro-regions must be dict[str, list[str]]",
+                    raw=args.jetro_regions,
+                )
+                return 1
+            jetro_opts["regions"] = raw_regions
+        if args.jetro_archive_pages > 0:
+            jetro_opts["archive_pages"] = args.jetro_archive_pages
+        source_options["jetro"] = jetro_opts
+
+
     # Setup scraper config
     config = ScraperConfig(
         include_content=args.include_content,
         max_articles_per_source=args.max_articles,
+        use_playwright=args.use_playwright,
+        source_options=source_options,
     )
 
     # Collect news
@@ -368,7 +436,7 @@ def main() -> int:
     logger.info("Starting news collection", sources=args.sources)
 
     try:
-        df = collect_financial_news(sources=args.sources, config=config)
+        df = asyncio.run(collect_financial_news(sources=args.sources, config=config))
     except Exception as e:
         logger.error("News collection failed", error=str(e), exc_info=True)
         return 1

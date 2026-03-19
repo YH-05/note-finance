@@ -13,7 +13,7 @@ JetroCategoryCrawler
 
 Notes
 -----
-JETRO category pages (e.g. ``/biznewstop/asia/cn.html``) load article
+JETRO category pages (e.g. ``/world/asia/cn/``) load article
 lists via AJAX, so a headless browser is required.  The crawler attempts
 ``networkidle`` first, then falls back to ``domcontentloaded`` on timeout.
 
@@ -32,8 +32,9 @@ True
 from __future__ import annotations
 
 import asyncio
-import concurrent.futures
 import re
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 from dataclasses import dataclass
 from typing import Any
 from urllib.parse import urlparse
@@ -177,8 +178,35 @@ class JetroCategoryCrawler:
         timeout_ms: int = 30_000,
         headless: bool = True,
     ) -> None:
+        """Initialize the crawler with Playwright settings."""
         self._timeout_ms = timeout_ms
         self._headless = headless
+
+    @asynccontextmanager
+    async def _managed_browser(self, browser: Any | None) -> AsyncIterator[Any]:
+        """Provide a Playwright browser, creating one if needed.
+
+        Parameters
+        ----------
+        browser : Any | None
+            Existing browser instance, or None to create a new one.
+
+        Yields
+        ------
+        Any
+            A Playwright browser instance.
+        """
+        if browser is not None:
+            yield browser
+            return
+        pw_ctx = async_playwright()
+        pw = await pw_ctx.__aenter__()
+        new_browser = await pw.chromium.launch(headless=self._headless)
+        try:
+            yield new_browser
+        finally:
+            await new_browser.close()
+            await pw_ctx.__aexit__(None, None, None)
 
     # ------------------------------------------------------------------
     # Static HTML extraction (testable without Playwright)
@@ -244,19 +272,9 @@ class JetroCategoryCrawler:
             if not title or not href:
                 continue
 
-            # Convert relative URL to absolute with domain validation
-            parsed_href = urlparse(href)
-            if parsed_href.scheme and parsed_href.scheme not in ("http", "https"):
-                continue  # Skip javascript:, data:, etc.
-            if href.startswith("/"):
-                url = f"{JETRO_BASE_URL}{href}"
-            elif href.startswith("http"):
-                if parsed_href.netloc != _JETRO_HOST:
-                    logger.debug("Skipping off-domain URL", href=href)
-                    continue
-                url = href
-            else:
-                url = f"{JETRO_BASE_URL}/{href}"
+            url = self._resolve_href(href)
+            if url is None:
+                continue
 
             # Extract date from <span class="date"> if present
             date_elements = li.cssselect("span.date")
@@ -281,6 +299,118 @@ class JetroCategoryCrawler:
             content_type=content_type,
             count=len(entries),
         )
+        return entries
+
+    @staticmethod
+    def _resolve_href(href: str) -> str | None:
+        """Resolve an href to an absolute JETRO URL, or None if invalid.
+
+        Parameters
+        ----------
+        href : str
+            The href attribute value from an ``<a>`` element.
+
+        Returns
+        -------
+        str | None
+            Absolute URL, or ``None`` if the href should be skipped.
+        """
+        parsed = urlparse(href)
+        if parsed.scheme and parsed.scheme not in ("http", "https"):
+            return None
+        if href.startswith("/"):
+            return f"{JETRO_BASE_URL}{href}"
+        if href.startswith("http"):
+            return href if parsed.netloc == _JETRO_HOST else None
+        return f"{JETRO_BASE_URL}/{href}"
+
+    def _extract_dd_entries(
+        self,
+        container: Any,
+        category: str,
+        subcategory: str,
+        content_type: str,
+    ) -> list[CrawledEntry]:
+        """Extract entries from ``<dd><a>`` + ``<dt>`` pairs in a container.
+
+        Parameters
+        ----------
+        container : Any
+            lxml element containing ``<dl>`` with ``<dt>``/``<dd>`` pairs.
+        category, subcategory, content_type : str
+            Metadata for the created entries.
+
+        Returns
+        -------
+        list[CrawledEntry]
+            Extracted entries.
+        """
+        entries: list[CrawledEntry] = []
+        dd_links = container.cssselect("dd a")
+        dt_elements = container.cssselect("dt")
+        dates = [dt.text_content().strip() for dt in dt_elements]
+
+        for i, dd_link in enumerate(dd_links):
+            title = dd_link.text_content().strip()
+            href = dd_link.get("href", "")
+            if not title or not href or title == "もっと見る":
+                continue
+            url = self._resolve_href(href)
+            if url is None:
+                continue
+            published = dates[i] if i < len(dates) else None
+            entries.append(
+                CrawledEntry(
+                    title=title,
+                    url=url,
+                    category=category,
+                    subcategory=subcategory,
+                    content_type=content_type,
+                    published=published,
+                )
+            )
+        return entries
+
+    def _extract_li_entries(
+        self,
+        container: Any,
+        category: str,
+        subcategory: str,
+        content_type: str,
+    ) -> list[CrawledEntry]:
+        """Fallback extraction from ``<li><a>`` elements (e.g. 特集 section).
+
+        Parameters
+        ----------
+        container : Any
+            lxml element containing ``<ul><li><a>`` links.
+        category, subcategory, content_type : str
+            Metadata for the created entries.
+
+        Returns
+        -------
+        list[CrawledEntry]
+            Extracted entries.
+        """
+        entries: list[CrawledEntry] = []
+        for link_el in container.cssselect("li a"):
+            title = link_el.text_content().strip()
+            href = link_el.get("href", "")
+            if not title or not href or title == "もっと見る":
+                continue
+            url = self._resolve_href(href)
+            if url is None:
+                continue
+            entries.append(
+                CrawledEntry(
+                    title=title,
+                    url=url,
+                    category=category,
+                    subcategory=subcategory,
+                    content_type=content_type,
+                    published=None,
+                )
+            )
         return entries
 
     def _extract_entries_by_heading(
@@ -311,21 +441,21 @@ class JetroCategoryCrawler:
         """
         entries: list[CrawledEntry] = []
 
-        heading_map: dict[str, str] = {
-            "ビジネス短信": "ビジネス短信",
-            "地域・分析レポート": "地域・分析レポート",
-            "調査レポート": "調査レポート",
-            "特集": "特集",
-        }
+        _recognized_headings: frozenset[str] = frozenset(
+            {
+                "ビジネス短信",
+                "地域・分析レポート",
+                "調査レポート",
+                "特集",
+            }
+        )
 
-        h2_elements = tree.cssselect("h2")
-        for h2 in h2_elements:
+        for h2 in tree.cssselect("h2"):
             heading_text = h2.text_content().strip()
-            content_type = heading_map.get(heading_text)
-            if not content_type:
+            if heading_text not in _recognized_headings:
                 continue
+            content_type = heading_text
 
-            # h2 is inside div.elem_heading_lv2; articles are in the next sibling
             heading_div = h2.getparent()
             if heading_div is None:
                 continue
@@ -333,88 +463,26 @@ class JetroCategoryCrawler:
             if article_container is None:
                 continue
 
-            # Extract from <dd><a> + <dt> pairs
-            dd_links = article_container.cssselect("dd a")
-            dt_elements = article_container.cssselect("dt")
-
-            dates: list[str] = [dt.text_content().strip() for dt in dt_elements]
-
-            section_count = 0
-            for i, dd_link in enumerate(dd_links):
-                title = dd_link.text_content().strip()
-                href = dd_link.get("href", "")
-
-                if not title or not href:
-                    continue
-                # Skip "もっと見る" navigation links
-                if title == "もっと見る":
-                    continue
-
-                parsed_href = urlparse(href)
-                if parsed_href.scheme and parsed_href.scheme not in ("http", "https"):
-                    continue
-                if href.startswith("/"):
-                    url = f"{JETRO_BASE_URL}{href}"
-                elif href.startswith("http"):
-                    if parsed_href.netloc != _JETRO_HOST:
-                        continue
-                    url = href
-                else:
-                    url = f"{JETRO_BASE_URL}/{href}"
-
-                published = dates[i] if i < len(dates) else None
-                entries.append(
-                    CrawledEntry(
-                        title=title,
-                        url=url,
-                        category=category,
-                        subcategory=subcategory,
-                        content_type=content_type,
-                        published=published,
-                    )
+            section_entries = self._extract_dd_entries(
+                article_container,
+                category,
+                subcategory,
+                content_type,
+            )
+            if not section_entries:
+                section_entries = self._extract_li_entries(
+                    article_container,
+                    category,
+                    subcategory,
+                    content_type,
                 )
-                section_count += 1
 
-            # Fallback: <ul><li><a> pattern (特集 section)
-            if section_count == 0:
-                li_links = article_container.cssselect("li a")
-                for link_el in li_links:
-                    title = link_el.text_content().strip()
-                    href = link_el.get("href", "")
-                    if not title or not href or title == "もっと見る":
-                        continue
-                    parsed_href = urlparse(href)
-                    if parsed_href.scheme and parsed_href.scheme not in (
-                        "http",
-                        "https",
-                    ):
-                        continue
-                    if href.startswith("/"):
-                        url = f"{JETRO_BASE_URL}{href}"
-                    elif href.startswith("http"):
-                        if parsed_href.netloc != _JETRO_HOST:
-                            continue
-                        url = href
-                    else:
-                        url = f"{JETRO_BASE_URL}/{href}"
-
-                    entries.append(
-                        CrawledEntry(
-                            title=title,
-                            url=url,
-                            category=category,
-                            subcategory=subcategory,
-                            content_type=content_type,
-                            published=None,
-                        )
-                    )
-                    section_count += 1
-
+            entries.extend(section_entries)
             logger.debug(
                 "Heading-based entries extracted",
                 heading=heading_text,
                 content_type=content_type,
-                count=section_count,
+                count=len(section_entries),
             )
 
         logger.info(
@@ -526,21 +594,8 @@ class JetroCategoryCrawler:
             subcategory=subcategory,
         )
 
-        own_browser = browser is None
-        pw_ctx = None
-        try:
-            if own_browser:
-                pw_ctx = async_playwright()
-                pw = await pw_ctx.__aenter__()
-                browser = await pw.chromium.launch(headless=self._headless)
-
-            html_content = await self._load_page_html(url, browser)
-        finally:
-            if own_browser:
-                if browser is not None:
-                    await browser.close()
-                if pw_ctx is not None:
-                    await pw_ctx.__aexit__(None, None, None)
+        async with self._managed_browser(browser) as br:
+            html_content = await self._load_page_html(url, br)
 
         if not html_content:
             logger.warning("No HTML content retrieved", url=url)
@@ -639,9 +694,7 @@ class JetroCategoryCrawler:
 
             # Extract date from <div class="date">
             date_div = li.cssselect("div.date")
-            published = (
-                date_div[0].text_content().strip() if date_div else None
-            )
+            published = date_div[0].text_content().strip() if date_div else None
 
             entries.append(
                 CrawledEntry(
@@ -697,17 +750,11 @@ class JetroCategoryCrawler:
             max_pages=max_pages,
         )
 
-        own_browser = browser is None
-        pw_ctx = None
         all_entries: list[CrawledEntry] = []
+        pages_crawled = 0
 
-        try:
-            if own_browser:
-                pw_ctx = async_playwright()
-                pw = await pw_ctx.__aenter__()
-                browser = await pw.chromium.launch(headless=self._headless)
-
-            page = await browser.new_page()
+        async with self._managed_browser(browser) as br:
+            page = await br.new_page()
             try:
                 await page.goto(
                     url,
@@ -728,7 +775,10 @@ class JetroCategoryCrawler:
                         break
 
                     entries = self._extract_archive_entries(
-                        tree, category, subcategory, content_type,
+                        tree,
+                        category,
+                        subcategory,
+                        content_type,
                     )
                     if not entries:
                         logger.debug(
@@ -737,6 +787,7 @@ class JetroCategoryCrawler:
                         )
                         break
 
+                    pages_crawled += 1
                     all_entries.extend(entries)
                     logger.info(
                         "Archive page extracted",
@@ -752,25 +803,18 @@ class JetroCategoryCrawler:
                             logger.debug("No next button found, stopping")
                             break
                         await next_button.click()
-                        # Wait for content to update
-                        await page.wait_for_load_state("networkidle")
-                        await page.wait_for_timeout(1000)
+                        await page.wait_for_load_state(
+                            "networkidle", timeout=self._timeout_ms
+                        )
 
             finally:
                 await page.close()
-
-        finally:
-            if own_browser:
-                if browser is not None:
-                    await browser.close()
-                if pw_ctx is not None:
-                    await pw_ctx.__aexit__(None, None, None)
 
         logger.info(
             "Archive crawl complete",
             url=url,
             total_entries=len(all_entries),
-            pages_crawled=min(max_pages, len(all_entries) // 30 + 1),
+            pages_crawled=pages_crawled,
         )
         return all_entries
 
@@ -952,23 +996,9 @@ class JetroCategoryCrawler:
         )
 
         try:
-            # Use asyncio.run() for sync wrapper
-            # If already in an event loop, use the loop directly
-            try:
-                loop = asyncio.get_running_loop()
-            except RuntimeError:
-                loop = None
+            from news_scraper.jetro import _run_async
 
-            if loop is not None and loop.is_running():
-                # Already in an async context: run in a thread
-                with concurrent.futures.ThreadPoolExecutor() as pool:
-                    result = pool.submit(
-                        asyncio.run,
-                        self._crawl_all_async(categories, regions),
-                    ).result()
-                return result  # type: ignore[return-value]
-            else:
-                return asyncio.run(self._crawl_all_async(categories, regions))
+            return _run_async(self._crawl_all_async(categories, regions))
 
         except Exception as exc:
             logger.error(

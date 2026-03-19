@@ -55,7 +55,7 @@ _SAFE_IDENTIFIER = re.compile(r"^[A-Za-z][A-Za-z0-9_]*$")
 _JP_PATTERN = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff\uff66-\uff9f]")
 
 try:
-    from finance.utils.logging_config import get_logger
+    from quants.utils.logging_config import get_logger
 
     logger = get_logger(__name__)
 except ImportError:

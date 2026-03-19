@@ -303,6 +303,13 @@ async def collect_news(
     >>> isinstance(articles, list)
     True
     """
+    # AIDEV-TODO: NASDAQ API returns 404 on all endpoints as of 2026-03.
+    # Remove this source or replace with an alternative when a successor is identified.
+    logger.warning(
+        "NASDAQ API is deprecated: all endpoints return 404 as of 2026-03. "
+        "Results will be empty.",
+    )
+
     if config is None:
         config = ScraperConfig()
 

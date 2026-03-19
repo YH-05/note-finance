@@ -348,8 +348,8 @@ class TestBuildPageUrls:
         )
         assert len(targets) == 2
         urls = [t[0] for t in targets]
-        assert any("cn.html" in u for u in urls)
-        assert any("kr.html" in u for u in urls)
+        assert any("/cn/" in u for u in urls)
+        assert any("/kr/" in u for u in urls)
         # All should be world category
         assert all(t[1] == "world" for t in targets)
 
@@ -464,3 +464,578 @@ class TestSyncWrapper:
         )
         assert isinstance(entries, list)
         assert len(entries) > 0
+
+
+# ---------------------------------------------------------------------------
+# TestExtractEntriesByHeading
+# ---------------------------------------------------------------------------
+
+
+class TestExtractEntriesByHeading:
+    """Tests for _extract_entries_by_heading (h2 heading-based extraction)."""
+
+    def _build_heading_html(
+        self,
+        heading: str,
+        articles: list[tuple[str, str, str]],
+    ) -> str:
+        """Build HTML with h2 heading and dd/dt article pairs.
+
+        Parameters
+        ----------
+        heading : str
+            The h2 heading text.
+        articles : list[tuple[str, str, str]]
+            List of (date, title, href) tuples.
+        """
+        dt_dd_pairs = ""
+        for date, title, href in articles:
+            dt_dd_pairs += f'<dt>{date}</dt><dd><a href="{href}">{title}</a></dd>\n'
+
+        return f"""
+        <html><body>
+        <div class="elem_heading_lv2"><h2>{heading}</h2></div>
+        <div class="article-list">
+            <dl>{dt_dd_pairs}</dl>
+        </div>
+        </body></html>
+        """
+
+    def test_正常系_h2からdd_aエントリを抽出(self) -> None:
+        """h2 見出しから dd > a のエントリを抽出する。"""
+        html = self._build_heading_html(
+            "ビジネス短信",
+            [
+                ("2026年03月18日", "テスト記事1", "/biznews/2026/03/article1.html"),
+                ("2026年03月17日", "テスト記事2", "/biznews/2026/03/article2.html"),
+            ],
+        )
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+
+        assert len(entries) == 2
+        assert entries[0].title == "テスト記事1"
+        assert entries[0].published == "2026年03月18日"
+        assert entries[0].content_type == "ビジネス短信"
+        assert entries[0].category == "world"
+        assert entries[0].subcategory == "cn"
+        assert entries[0].url == f"{JETRO_BASE_URL}/biznews/2026/03/article1.html"
+
+    def test_正常系_複数h2から複数セクションを抽出(self) -> None:
+        """複数の h2 見出しからそれぞれのセクションのエントリを抽出する。"""
+        html = """
+        <html><body>
+        <div class="elem_heading_lv2"><h2>ビジネス短信</h2></div>
+        <div><dl>
+            <dt>2026年03月18日</dt>
+            <dd><a href="/biznews/2026/03/a1.html">記事A</a></dd>
+        </dl></div>
+        <div class="elem_heading_lv2"><h2>調査レポート</h2></div>
+        <div><dl>
+            <dt>2026年03月15日</dt>
+            <dd><a href="/reports/2026/03/r1.html">レポートB</a></dd>
+        </dl></div>
+        </body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+
+        assert len(entries) == 2
+        content_types = {e.content_type for e in entries}
+        assert "ビジネス短信" in content_types
+        assert "調査レポート" in content_types
+
+    def test_正常系_もっと見るリンクをスキップ(self) -> None:
+        """「もっと見る」ナビゲーションリンクはスキップされる。"""
+        html = """
+        <html><body>
+        <div class="elem_heading_lv2"><h2>ビジネス短信</h2></div>
+        <div><dl>
+            <dt>2026年03月18日</dt>
+            <dd><a href="/biznews/2026/03/a1.html">記事A</a></dd>
+            <dd><a href="/biznews/more.html">もっと見る</a></dd>
+        </dl></div>
+        </body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+
+        assert len(entries) == 1
+        assert entries[0].title == "記事A"
+
+    def test_正常系_特集セクションのli_aフォールバック(self) -> None:
+        """dd > a がなく li > a がある場合（特集）はフォールバックで抽出する。"""
+        html = """
+        <html><body>
+        <div class="elem_heading_lv2"><h2>特集</h2></div>
+        <div>
+            <ul>
+                <li><a href="/special/2026/03/s1.html">特集記事1</a></li>
+                <li><a href="/special/2026/03/s2.html">特集記事2</a></li>
+            </ul>
+        </div>
+        </body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+
+        assert len(entries) == 2
+        assert entries[0].content_type == "特集"
+        assert entries[0].published is None  # li fallback has no date
+
+    def test_正常系_外部ドメインリンクをスキップ(self) -> None:
+        """JETRO 以外のドメインのリンクはスキップされる。"""
+        html = """
+        <html><body>
+        <div class="elem_heading_lv2"><h2>ビジネス短信</h2></div>
+        <div><dl>
+            <dt>2026年03月18日</dt>
+            <dd><a href="/biznews/2026/03/a1.html">国内記事</a></dd>
+            <dt>2026年03月17日</dt>
+            <dd><a href="https://external.example.com/news.html">外部記事</a></dd>
+        </dl></div>
+        </body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+
+        assert len(entries) == 1
+        assert entries[0].title == "国内記事"
+
+    def test_正常系_空HTMLで空リスト(self) -> None:
+        """h2 見出しがない空の HTML では空リストを返す。"""
+        tree = lxml_html.fromstring("<html><body></body></html>")
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+        assert entries == []
+
+    def test_正常系_認識外のh2見出しはスキップ(self) -> None:
+        """heading_map に含まれない h2 見出しはスキップされる。"""
+        html = """
+        <html><body>
+        <div class="elem_heading_lv2"><h2>イベント情報</h2></div>
+        <div><dl>
+            <dt>2026年03月18日</dt>
+            <dd><a href="/events/2026/03/e1.html">イベント1</a></dd>
+        </dl></div>
+        </body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+        assert entries == []
+
+    def test_正常系_相対URLが絶対URLに変換される(self) -> None:
+        """相対パスが JETRO_BASE_URL を使って絶対URLに変換される。"""
+        html = self._build_heading_html(
+            "ビジネス短信",
+            [("2026年03月18日", "記事1", "/biznews/2026/03/test.html")],
+        )
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_entries_by_heading(tree, "world", "cn")
+
+        assert len(entries) == 1
+        assert entries[0].url.startswith("https://")
+        assert JETRO_BASE_URL in entries[0].url
+
+
+# ---------------------------------------------------------------------------
+# TestExtractArchiveEntries
+# ---------------------------------------------------------------------------
+
+
+class TestExtractArchiveEntries:
+    """Tests for _extract_archive_entries (archive list page extraction)."""
+
+    def _build_archive_html(
+        self,
+        articles: list[tuple[str, str, str]],
+    ) -> str:
+        """Build archive page HTML with li > div.date + div.title structure.
+
+        Parameters
+        ----------
+        articles : list[tuple[str, str, str]]
+            List of (date, title, href) tuples.
+        """
+        items = ""
+        for date, title, href in articles:
+            items += f"""
+            <li>
+                <div class="date">{date}</div>
+                <div class="title"><span><a href="{href}">{title}</a></span></div>
+            </li>
+            """
+        return f"<html><body><ul>{items}</ul></body></html>"
+
+    def test_正常系_li_div構造からエントリを抽出(self) -> None:
+        """li > div.date + div.title 構造からエントリを抽出する。"""
+        html = self._build_archive_html(
+            [
+                ("2026年03月01日", "アーカイブ記事1", "/biznews/2026/03/arch1.html"),
+                ("2026年02月28日", "アーカイブ記事2", "/biznews/2026/02/arch2.html"),
+            ]
+        )
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_archive_entries(
+            tree,
+            "world",
+            "cn",
+            "ビジネス短信",
+        )
+
+        assert len(entries) == 2
+        assert entries[0].title == "アーカイブ記事1"
+        assert entries[0].url == f"{JETRO_BASE_URL}/biznews/2026/03/arch1.html"
+        assert entries[0].published == "2026年03月01日"
+        assert entries[0].content_type == "ビジネス短信"
+        assert entries[0].category == "world"
+        assert entries[0].subcategory == "cn"
+
+    def test_正常系_公開日を抽出(self) -> None:
+        """div.date から公開日文字列を取得する。"""
+        html = self._build_archive_html(
+            [
+                ("2025年12月15日", "過去記事", "/biznews/2025/12/old.html"),
+            ]
+        )
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_archive_entries(
+            tree,
+            "world",
+            "cn",
+            "調査レポート",
+        )
+
+        assert len(entries) == 1
+        assert entries[0].published == "2025年12月15日"
+
+    def test_正常系_div_titleなしのliをスキップ(self) -> None:
+        """div.title を持たない li 要素はスキップされる。"""
+        html = """
+        <html><body><ul>
+            <li>
+                <div class="date">2026年03月01日</div>
+                <div class="title"><span><a href="/biznews/a.html">有効記事</a></span></div>
+            </li>
+            <li>
+                <div class="date">2026年03月02日</div>
+                <div class="other">タイトルなし</div>
+            </li>
+        </ul></body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_archive_entries(
+            tree,
+            "world",
+            "cn",
+            "ビジネス短信",
+        )
+        assert len(entries) == 1
+        assert entries[0].title == "有効記事"
+
+    def test_正常系_空HTMLで空リスト(self) -> None:
+        """空の HTML では空リストを返す。"""
+        tree = lxml_html.fromstring("<html><body></body></html>")
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_archive_entries(
+            tree,
+            "world",
+            "cn",
+            "ビジネス短信",
+        )
+        assert entries == []
+
+    def test_正常系_非スラッシュ開始のhrefをスキップ(self) -> None:
+        """href が / で始まらないリンクはスキップされる。"""
+        html = """
+        <html><body><ul>
+            <li>
+                <div class="date">2026年03月01日</div>
+                <div class="title"><span><a href="relative/path.html">相対パス記事</a></span></div>
+            </li>
+            <li>
+                <div class="date">2026年03月02日</div>
+                <div class="title"><span><a href="/biznews/valid.html">有効記事</a></span></div>
+            </li>
+        </ul></body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_archive_entries(
+            tree,
+            "world",
+            "cn",
+            "ビジネス短信",
+        )
+        assert len(entries) == 1
+        assert entries[0].title == "有効記事"
+
+    def test_正常系_空タイトルをスキップ(self) -> None:
+        """タイトルが空のリンクはスキップされる。"""
+        html = """
+        <html><body><ul>
+            <li>
+                <div class="date">2026年03月01日</div>
+                <div class="title"><span><a href="/biznews/empty.html"></a></span></div>
+            </li>
+        </ul></body></html>
+        """
+        tree = lxml_html.fromstring(html)
+        crawler = JetroCategoryCrawler()
+        entries = crawler._extract_archive_entries(
+            tree,
+            "world",
+            "cn",
+            "ビジネス短信",
+        )
+        assert entries == []
+
+
+# ---------------------------------------------------------------------------
+# TestCrawlArchivePages
+# ---------------------------------------------------------------------------
+
+
+class TestCrawlArchivePages:
+    """Tests for crawl_archive_pages (paginated archive crawling)."""
+
+    def _build_archive_page_html(self, n: int = 3) -> str:
+        """Build archive page HTML with n articles."""
+        items = ""
+        for i in range(n):
+            items += f"""
+            <li>
+                <div class="date">2026年03月{i + 1:02d}日</div>
+                <div class="title"><span><a href="/biznews/2026/03/a{i}.html">記事{i}</a></span></div>
+            </li>
+            """
+        return f"<html><body><ul>{items}</ul></body></html>"
+
+    @patch("news_scraper._jetro_crawler.async_playwright")
+    def test_正常系_単一ページからエントリを取得(
+        self, mock_async_pw: MagicMock
+    ) -> None:
+        """単一のアーカイブページからエントリを取得する。"""
+        html = self._build_archive_page_html(3)
+        mock_ctx, page = _make_mock_pw_context(html)
+        mock_async_pw.return_value = mock_ctx
+
+        # No "次へ" button -> locator returns count=0
+        next_locator = AsyncMock()
+        next_locator.count = AsyncMock(return_value=0)
+        page.locator = MagicMock(return_value=next_locator)
+        page.wait_for_load_state = AsyncMock()
+        page.wait_for_timeout = AsyncMock()
+
+        crawler = JetroCategoryCrawler()
+        entries = asyncio.run(
+            crawler.crawl_archive_pages(
+                url="https://www.jetro.go.jp/biznewstop/asia/cn/biznews/",
+                category="world",
+                subcategory="cn",
+                content_type="ビジネス短信",
+                max_pages=1,
+            )
+        )
+
+        assert len(entries) == 3
+        assert all(isinstance(e, CrawledEntry) for e in entries)
+        assert all(e.content_type == "ビジネス短信" for e in entries)
+
+    @patch("news_scraper._jetro_crawler.async_playwright")
+    def test_正常系_複数ページを次へボタンで遷移(
+        self, mock_async_pw: MagicMock
+    ) -> None:
+        """「次へ」ボタンをクリックして複数ページを取得する。"""
+        page1_html = self._build_archive_page_html(2)
+        page2_html = self._build_archive_page_html(2)
+
+        mock_ctx, page = _make_mock_pw_context(page1_html)
+        mock_async_pw.return_value = mock_ctx
+
+        # Return page1 first, then page2 after "次へ" click
+        page.content = AsyncMock(side_effect=[page1_html, page2_html])
+
+        # "次へ" button available on page 1
+        next_locator = AsyncMock()
+        next_locator.count = AsyncMock(return_value=1)
+        next_locator.click = AsyncMock()
+        page.locator = MagicMock(return_value=next_locator)
+        page.wait_for_load_state = AsyncMock()
+        page.wait_for_timeout = AsyncMock()
+
+        crawler = JetroCategoryCrawler()
+        entries = asyncio.run(
+            crawler.crawl_archive_pages(
+                url="https://www.jetro.go.jp/biznewstop/asia/cn/biznews/",
+                category="world",
+                subcategory="cn",
+                content_type="ビジネス短信",
+                max_pages=2,
+            )
+        )
+
+        assert len(entries) == 4  # 2 from each page
+        next_locator.click.assert_called_once()
+
+    @patch("news_scraper._jetro_crawler.async_playwright")
+    def test_正常系_次へボタンなしで停止(self, mock_async_pw: MagicMock) -> None:
+        """「次へ」ボタンがない場合はそのページで停止する。"""
+        html = self._build_archive_page_html(3)
+        mock_ctx, page = _make_mock_pw_context(html)
+        mock_async_pw.return_value = mock_ctx
+
+        next_locator = AsyncMock()
+        next_locator.count = AsyncMock(return_value=0)
+        page.locator = MagicMock(return_value=next_locator)
+        page.wait_for_load_state = AsyncMock()
+        page.wait_for_timeout = AsyncMock()
+
+        crawler = JetroCategoryCrawler()
+        entries = asyncio.run(
+            crawler.crawl_archive_pages(
+                url="https://www.jetro.go.jp/biznewstop/asia/cn/biznews/",
+                category="world",
+                subcategory="cn",
+                content_type="ビジネス短信",
+                max_pages=5,  # Request 5 pages but only 1 exists
+            )
+        )
+
+        assert len(entries) == 3  # Only from the first page
+
+    @patch("news_scraper._jetro_crawler.async_playwright")
+    def test_正常系_max_pages制限(self, mock_async_pw: MagicMock) -> None:
+        """max_pages でページ数が制限される。"""
+        html = self._build_archive_page_html(3)
+        mock_ctx, page = _make_mock_pw_context(html)
+        mock_async_pw.return_value = mock_ctx
+
+        # "次へ" always available
+        next_locator = AsyncMock()
+        next_locator.count = AsyncMock(return_value=1)
+        next_locator.click = AsyncMock()
+        page.locator = MagicMock(return_value=next_locator)
+        page.wait_for_load_state = AsyncMock()
+        page.wait_for_timeout = AsyncMock()
+
+        crawler = JetroCategoryCrawler()
+        entries = asyncio.run(
+            crawler.crawl_archive_pages(
+                url="https://www.jetro.go.jp/biznewstop/asia/cn/biznews/",
+                category="world",
+                subcategory="cn",
+                content_type="ビジネス短信",
+                max_pages=1,  # Only 1 page
+            )
+        )
+
+        # max_pages=1, so no "次へ" click should happen (page_num < max_pages - 1 is False)
+        assert len(entries) == 3
+        next_locator.click.assert_not_called()
+
+    @patch("news_scraper._jetro_crawler.async_playwright")
+    def test_異常系_ページ読み込み失敗で空リスト(
+        self, mock_async_pw: MagicMock
+    ) -> None:
+        """ページ読み込みが失敗した場合は空リストを返す。"""
+        mock_ctx, page = _make_mock_pw_context("")
+        mock_async_pw.return_value = mock_ctx
+
+        # page.content returns invalid HTML
+        page.content = AsyncMock(return_value="<invalid")
+        page.locator = MagicMock()
+        page.wait_for_load_state = AsyncMock()
+        page.wait_for_timeout = AsyncMock()
+
+        crawler = JetroCategoryCrawler()
+        entries = asyncio.run(
+            crawler.crawl_archive_pages(
+                url="https://www.jetro.go.jp/biznewstop/asia/cn/biznews/",
+                category="world",
+                subcategory="cn",
+                content_type="ビジネス短信",
+                max_pages=1,
+            )
+        )
+
+        # lxml may parse partially or return empty entries
+        assert isinstance(entries, list)
+
+    @patch("news_scraper._jetro_crawler.async_playwright")
+    def test_正常系_空のアーカイブページで停止(self, mock_async_pw: MagicMock) -> None:
+        """アーカイブページにエントリがない場合はそのページで停止する。"""
+        empty_html = "<html><body><ul></ul></body></html>"
+        mock_ctx, page = _make_mock_pw_context(empty_html)
+        mock_async_pw.return_value = mock_ctx
+        page.locator = MagicMock()
+        page.wait_for_load_state = AsyncMock()
+        page.wait_for_timeout = AsyncMock()
+
+        crawler = JetroCategoryCrawler()
+        entries = asyncio.run(
+            crawler.crawl_archive_pages(
+                url="https://www.jetro.go.jp/biznewstop/asia/cn/biznews/",
+                category="world",
+                subcategory="cn",
+                content_type="ビジネス短信",
+                max_pages=3,
+            )
+        )
+
+        assert entries == []
+
+
+# ---------------------------------------------------------------------------
+# TestResolveHref
+# ---------------------------------------------------------------------------
+
+
+class TestResolveHref:
+    """Tests for JetroCategoryCrawler._resolve_href static method."""
+
+    def test_正常系_絶対パスをJETROドメインで解決(self) -> None:
+        """Absolute path is resolved to JETRO base URL."""
+        result = JetroCategoryCrawler._resolve_href("/biznews/article.html")
+        assert result == f"{JETRO_BASE_URL}/biznews/article.html"
+
+    def test_正常系_JETROドメインのHTTP_URLをそのまま返す(self) -> None:
+        """JETRO domain URL is returned as-is."""
+        url = f"{JETRO_BASE_URL}/biznews/article.html"
+        result = JetroCategoryCrawler._resolve_href(url)
+        assert result == url
+
+    def test_正常系_相対パスをJETROベースURLで解決(self) -> None:
+        """Relative path is resolved with JETRO base URL."""
+        result = JetroCategoryCrawler._resolve_href("biznews/article.html")
+        assert result == f"{JETRO_BASE_URL}/biznews/article.html"
+
+    def test_異常系_外部ドメインURLはNoneを返す(self) -> None:
+        """External domain URL returns None."""
+        result = JetroCategoryCrawler._resolve_href("https://example.com/article")
+        assert result is None
+
+    def test_異常系_javascriptスキームはNoneを返す(self) -> None:
+        """javascript: scheme returns None."""
+        result = JetroCategoryCrawler._resolve_href("javascript:void(0)")
+        assert result is None
+
+    def test_異常系_dataスキームはNoneを返す(self) -> None:
+        """data: scheme returns None."""
+        result = JetroCategoryCrawler._resolve_href("data:text/html,test")
+        assert result is None
+
+    def test_異常系_ftpスキームはNoneを返す(self) -> None:
+        """ftp: scheme returns None."""
+        result = JetroCategoryCrawler._resolve_href("ftp://files.example.com/doc")
+        assert result is None

@@ -235,6 +235,65 @@ class TestNasdaqApiCategoriesSet:
         assert isinstance(NASDAQ_API_CATEGORIES_SET, frozenset)
 
 
+class TestCollectNewsDeprecation:
+    """Tests for NASDAQ API deprecation warning."""
+
+    async def test_正常系_collect_news呼び出し時にdeprecation_warningログが出力される(
+        self,
+    ) -> None:
+        """collect_news emits a deprecation warning log at the start."""
+        payload = {"data": {"rows": []}}
+        mock_response = MagicMock()
+        mock_response.json.return_value = payload
+        mock_response.raise_for_status.return_value = None
+
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(return_value=mock_response)
+
+        with (
+            patch("httpx.AsyncClient") as mock_async_client_cls,
+            patch("news_scraper.nasdaq.logger") as mock_logger,
+        ):
+            mock_async_client_cls.return_value.__aenter__ = AsyncMock(
+                return_value=mock_client
+            )
+            mock_async_client_cls.return_value.__aexit__ = AsyncMock(return_value=None)
+
+            await collect_news(categories=["Markets"])
+
+        mock_logger.warning.assert_any_call(
+            "NASDAQ API is deprecated: all endpoints return 404 as of 2026-03. "
+            "Results will be empty.",
+        )
+
+    async def test_正常系_deprecation_warningが最初のログとして出力される(
+        self,
+    ) -> None:
+        """collect_news emits the deprecation warning as the first log call."""
+        payload = {"data": {"rows": []}}
+        mock_response = MagicMock()
+        mock_response.json.return_value = payload
+        mock_response.raise_for_status.return_value = None
+
+        mock_client = AsyncMock()
+        mock_client.get = AsyncMock(return_value=mock_response)
+
+        with (
+            patch("httpx.AsyncClient") as mock_async_client_cls,
+            patch("news_scraper.nasdaq.logger") as mock_logger,
+        ):
+            mock_async_client_cls.return_value.__aenter__ = AsyncMock(
+                return_value=mock_client
+            )
+            mock_async_client_cls.return_value.__aexit__ = AsyncMock(return_value=None)
+
+            await collect_news(categories=["Markets"])
+
+        # The first call on logger should be the deprecation warning
+        first_call = mock_logger.warning.call_args_list[0]
+        assert "deprecated" in first_call.args[0].lower()
+
+
 class TestCollectNews:
     async def test_正常系_asyncio_gatherで複数カテゴリを収集(self) -> None:
         """collect_news uses asyncio.gather for parallel category fetching."""

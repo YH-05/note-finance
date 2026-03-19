@@ -51,9 +51,22 @@ async def _collect_cnbc(config: ScraperConfig) -> list[Article]:
 async def _collect_jetro(config: ScraperConfig) -> list[Article]:
     # AIDEV-NOTE: Lazy import to decouple from optional playwright dependency at load time.
     # jetro.collect_news is synchronous; wrap with to_thread to avoid blocking.
+    # Extract JETRO-specific parameters (categories, regions, archive_pages)
+    # from config.source_options to pass through without changing the unified signature.
     from news_scraper.jetro import collect_news as _collect
 
-    return await asyncio.to_thread(_collect, config=config)
+    jetro_opts = config.source_options.get("jetro", {})
+    categories = jetro_opts.get("categories")
+    regions = jetro_opts.get("regions")
+    archive_pages = jetro_opts.get("archive_pages", 0)
+
+    return await asyncio.to_thread(
+        _collect,
+        config=config,
+        categories=categories,
+        regions=regions,
+        archive_pages=archive_pages,
+    )
 
 
 async def _collect_nasdaq(config: ScraperConfig) -> list[Article]:
@@ -75,6 +88,12 @@ async def _collect_reuters_jp(config: ScraperConfig) -> list[Article]:
 
 
 async def _collect_minkabu(config: ScraperConfig) -> list[Article]:
+    if not config.use_playwright:
+        logger.info(
+            "Minkabu requires Playwright: set use_playwright=True in config "
+            "to collect articles. Skipping minkabu source.",
+        )
+        return []
     from news_scraper.minkabu import (  # pyright: ignore[reportMissingImports]
         collect_news as _collect,
     )

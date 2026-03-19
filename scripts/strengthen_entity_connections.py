@@ -42,7 +42,7 @@ from typing import Any
 from neo4j_utils import create_driver
 
 try:
-    from finance.utils.logging_config import get_logger
+    from quants.utils.logging_config import get_logger
 
     logger = get_logger(__name__)
 except ImportError:

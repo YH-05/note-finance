@@ -46,7 +46,7 @@ except ImportError:
     GraphDatabase = None  # type: ignore[assignment, misc]
 
 try:
-    from finance.utils.logging_config import get_logger
+    from quants.utils.logging_config import get_logger
 except ImportError:
     from session_utils import get_logger  # type: ignore[no-redef]
 
