@@ -33,13 +33,17 @@ Notes
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# AIDEV-NOTE: パッケージ衝突の保険として src/ を確実に Python パスに含める
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
 import argparse
 import json
 import os
 import shutil
-import sys
 from datetime import datetime, timezone
-from pathlib import Path
 
 import structlog
 
