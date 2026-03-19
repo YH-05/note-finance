@@ -326,6 +326,24 @@ class TestCollectFinancialNews:
         # jetro should NOT be called by default
 
 
+class TestCollectMinkabuPlaywrightLog:
+    """Tests for _collect_minkabu info log when use_playwright=False."""
+
+    async def test_正常系_use_playwright_Falseでinfoログが出力される(self) -> None:
+        """_collect_minkabu logs info message when use_playwright=False."""
+        from news_scraper.unified import _collect_minkabu
+
+        config = ScraperConfig(use_playwright=False)
+
+        with patch("news_scraper.unified.logger") as mock_logger:
+            await _collect_minkabu(config)
+
+            mock_logger.info.assert_any_call(
+                "Minkabu requires Playwright: set use_playwright=True in config "
+                "to collect articles. Skipping minkabu source.",
+            )
+
+
 class TestSourceRegistry:
     """Tests for SOURCE_REGISTRY configuration."""
 
