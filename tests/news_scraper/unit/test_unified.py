@@ -341,7 +341,14 @@ class TestSourceRegistry:
 
     def test_正常系_全ソースがSOURCE_REGISTRYに登録されている(self) -> None:
         """SOURCE_REGISTRY contains all expected sources."""
-        expected_sources = {"cnbc", "jetro", "kabutan", "minkabu", "nasdaq", "reuters_jp"}
+        expected_sources = {
+            "cnbc",
+            "jetro",
+            "kabutan",
+            "minkabu",
+            "nasdaq",
+            "reuters_jp",
+        }
         assert set(SOURCE_REGISTRY.keys()) == expected_sources
 
     def test_正常系_jetroコレクターがcallableである(self) -> None:

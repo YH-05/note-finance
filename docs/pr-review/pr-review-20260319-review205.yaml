@@ -1,0 +1,98 @@
+# PRレビューレポート
+# 生成日時: 2026-03-19
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-19"
+  pr_number: 205
+  pr_title: "feat(kg): Phase 4-A/4-B KG品質ダッシュボード + Entity接続強化 (#199-#204)"
+  base_branch: "main"
+  head_branch: "feature/prj89"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 11
+  additions: 5051
+  deletions: 26
+
+scores:
+  code_quality:
+    readability: 87
+    design: 68
+    performance: 62
+    quant: null
+  security:
+    code: 62
+    infra: 72
+  test:
+    coverage: 72
+    quality: 82
+
+# Round 1 修正済み項目
+fixes_applied:
+  round: 1
+  items:
+    - id: SEC-001
+      severity: HIGH
+      description: "ハードコードパスワード 'gomasuke' をデフォルト値から削除"
+      status: fixed
+    - id: SEC-002
+      severity: HIGH
+      description: "argparse --neo4j-password のヘルプからパスワード平文表示を排除"
+      status: fixed
+    - id: SEC-003
+      severity: MEDIUM
+      description: "Cypher 識別子バリデーション（_SAFE_IDENTIFIER）追加"
+      status: fixed
+    - id: READ-HIGH
+      severity: HIGH
+      description: "measure_timeliness の重複 datetime インポート削除"
+      status: fixed
+    - id: PERF-MED-002
+      severity: MEDIUM
+      description: "_is_japanese を正規表現に最適化"
+      status: fixed
+    - id: TEST-HIGH
+      severity: HIGH
+      description: "TestMain の pass テストを実装に置換"
+      status: fixed
+    - id: INFRA-004
+      severity: LOW
+      description: "ENTITY_RELATIONSHIP_TYPES 同期コメント追加"
+      status: fixed
+
+# 修正後も残存する指摘（改善推奨・次スプリント対応）
+remaining_issues:
+  performance:
+    - id: CRIT-001
+      severity: CRITICAL
+      description: "measure_discoverability の全ノードID Python ロード → UNWIND バッチ化推奨"
+    - id: CRIT-002
+      severity: CRITICAL
+      description: "最短パスクエリ N+1 → UNWIND バッチ化推奨"
+    - id: HIGH-001
+      severity: HIGH
+      description: "measure_completeness の N×M クエリ → UNWIND 一括化推奨"
+    - id: HIGH-002
+      severity: HIGH
+      description: "strengthen_entity_connections の N+1 MERGE → UNWIND 一括化推奨"
+  design:
+    - id: DRY-001
+      severity: HIGH
+      description: "create_driver が2ファイルに重複 → 共有ユーティリティ抽出推奨"
+    - id: DRY-002
+      severity: HIGH
+      description: "check_* 4関数の末尾パターン重複 → ヘルパー抽出推奨"
+    - id: DRY-003
+      severity: HIGH
+      description: "lower_co_mention/strengthen_topic の共通フロー → 統合推奨"
+    - id: SRP-001
+      severity: MEDIUM
+      description: "measure_discoverability 約120行・4責務 → 分割推奨"
+
+summary:
+  verdict: "COMMENT"
+  comment: >
+    セキュリティの主要指摘（ハードコードパスワード）とテスト品質の主要指摘は修正済み。
+    パフォーマンス（N+1クエリ）と設計（DRY違反）は次スプリントでの改善を推奨。
+    CI全チェックパス確認済み。

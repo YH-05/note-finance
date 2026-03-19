@@ -42,7 +42,7 @@ class _DummyQuotaTracker:
     常に quota 消費を許可する。
     """
 
-    def consume(self, units: int) -> None:  # noqa: ARG002
+    def consume(self, units: int) -> None:
         """quota 消費を記録せずに通過させる."""
 
 
@@ -150,7 +150,9 @@ class TestChannelFetcherIntegration:
         # YT_API_KEY のセットは確認済みだが、意図的に無効なキーを使用
         _ = _get_api_key()  # スキップ条件チェックのみ
         tracker = _DummyQuotaTracker()
-        fetcher = ChannelFetcher(api_key="INVALID_API_KEY_FOR_TEST", quota_tracker=tracker)
+        fetcher = ChannelFetcher(
+            api_key="INVALID_API_KEY_FOR_TEST", quota_tracker=tracker
+        )
 
         with pytest.raises(APIError):
             fetcher.get_channel_info(_TEST_CHANNEL_ID)
