@@ -193,6 +193,59 @@ class TestQualitySnapshot:
 
 
 # ---------------------------------------------------------------------------
+# DataClasses 統合テスト（MetricValue / CategoryResult / QualitySnapshot）
+# ---------------------------------------------------------------------------
+
+
+class TestDataClasses:
+    """Issue #203 指定: MetricValue / CategoryResult / QualitySnapshot の統合テスト。"""
+
+    def test_正常系_MetricValueの等値比較(self) -> None:
+        mv1 = MetricValue(value=0.95, unit="%", status="green")
+        mv2 = MetricValue(value=0.95, unit="%", status="green")
+        assert mv1 == mv2
+
+    def test_正常系_CategoryResultにMetricValueリストを格納(self) -> None:
+        metrics = [
+            MetricValue(value=0.9, unit="ratio", status="green"),
+            MetricValue(value=0.5, unit="count", status="yellow"),
+            MetricValue(value=0.1, unit="ratio", status="red"),
+        ]
+        cr = CategoryResult(name="test_category", score=50.0, metrics=metrics)
+        assert cr.name == "test_category"
+        assert cr.score == 50.0
+        assert len(cr.metrics) == 3
+        assert cr.metrics[0].status == "green"
+        assert cr.metrics[2].status == "red"
+
+    def test_正常系_QualitySnapshotにCategoryResultリストを格納(self) -> None:
+        ts = datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
+        cat1 = CategoryResult(name="structural", score=80.0, metrics=[])
+        cat2 = CategoryResult(name="completeness", score=90.0, metrics=[])
+        qs = QualitySnapshot(
+            categories=[cat1, cat2],
+            overall_score=85.0,
+            timestamp=ts,
+        )
+        assert len(qs.categories) == 2
+        assert qs.overall_score == 85.0
+        assert qs.categories[0].name == "structural"
+        assert qs.categories[1].name == "completeness"
+
+    def test_正常系_CheckRuleResultのデフォルト値(self) -> None:
+        crr = CheckRuleResult(rule_name="test_rule", pass_rate=1.0)
+        assert crr.violations == []
+
+    def test_正常系_MetricValueのstubデフォルトはFalse(self) -> None:
+        mv = MetricValue(value=0.0, unit="count", status="yellow")
+        assert mv.stub is False
+
+    def test_正常系_CategoryResultのmetricsデフォルトは空リスト(self) -> None:
+        cr = CategoryResult(name="test", score=0.0)
+        assert cr.metrics == []
+
+
+# ---------------------------------------------------------------------------
 # THRESHOLDS 定数
 # ---------------------------------------------------------------------------
 
@@ -221,6 +274,23 @@ class TestAllowedEntityTypes:
         expected = {"company", "index", "sector", "indicator", "currency"}
         for et in expected:
             assert et in ALLOWED_ENTITY_TYPES, f"'{et}' not in ALLOWED_ENTITY_TYPES"
+
+
+# ---------------------------------------------------------------------------
+# ALLOWED_RELATIONSHIP_TYPES 定数
+# ---------------------------------------------------------------------------
+
+
+class TestAllowedRelationshipTypes:
+    def test_正常系_ALLOWED_RELATIONSHIP_TYPESがセットまたはリスト(self) -> None:
+        assert isinstance(ALLOWED_RELATIONSHIP_TYPES, (set, list, tuple, frozenset))
+
+    def test_正常系_基本的なrelationship_typeが含まれる(self) -> None:
+        expected = {"STATES_FACT", "MAKES_CLAIM", "RELATES_TO", "ABOUT", "TREND"}
+        for rt in expected:
+            assert rt in ALLOWED_RELATIONSHIP_TYPES, (
+                f"'{rt}' not in ALLOWED_RELATIONSHIP_TYPES"
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -1054,6 +1124,32 @@ class TestCheckEntityLength:
         result = check_entity_length(entities)
         assert result.pass_rate < 1.0
         assert len(result.violations) >= 1
+
+    def test_境界値_英語ちょうど5語で通過(self) -> None:
+        entities = ["Bank of New York Mellon"]  # 5語
+        result = check_entity_length(entities)
+        assert result.pass_rate == 1.0
+        assert result.violations == []
+
+    def test_境界値_英語ちょうど6語で違反(self) -> None:
+        entities = ["Bank of New York Mellon Corporation"]  # 6語
+        result = check_entity_length(entities)
+        assert result.pass_rate == 0.0
+        assert len(result.violations) == 1
+
+    def test_境界値_日本語ちょうど10文字で通過(self) -> None:
+        entities = ["トヨタ自動車株式会社"]  # 10文字
+        assert len("トヨタ自動車株式会社") == 10  # 長さ確認
+        result = check_entity_length(entities)
+        assert result.pass_rate == 1.0
+        assert result.violations == []
+
+    def test_境界値_日本語ちょうど11文字で違反(self) -> None:
+        entities = ["トヨタ自動車株式会社東"]  # 11文字
+        assert len("トヨタ自動車株式会社東") == 11  # 長さ確認
+        result = check_entity_length(entities)
+        assert result.pass_rate == 0.0
+        assert len(result.violations) == 1
 
     def test_正常系_英語日本語の自動判定(self) -> None:
         entities = ["Apple Inc", "三菱商事"]
