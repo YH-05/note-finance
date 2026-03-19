@@ -73,6 +73,10 @@ CREATE CONSTRAINT unique_datapoint_id IF NOT EXISTS
 -- FiscalPeriod ノード制約 [v2 新規]
 CREATE CONSTRAINT unique_period_id IF NOT EXISTS
   FOR (fp:FiscalPeriod) REQUIRE fp.period_id IS UNIQUE;
+
+-- Author ノード制約 [academic-fetch 新規]
+CREATE CONSTRAINT unique_author_id IF NOT EXISTS
+  FOR (a:Author) REQUIRE a.author_id IS UNIQUE;
 ```
 
 > **v2 変更点**: `unique_source_url` 制約を削除（PDF ソース等で URL が null になるため）。代わりに `source_hash` インデックスで重複検出。Fact, Chunk, FinancialDataPoint, FiscalPeriod の 4 制約を追加。
@@ -143,6 +147,7 @@ CREATE CONSTRAINT unique_fact_id IF NOT EXISTS FOR (f:Fact) REQUIRE f.fact_id IS
 CREATE CONSTRAINT unique_chunk_id IF NOT EXISTS FOR (ch:Chunk) REQUIRE ch.chunk_id IS UNIQUE;
 CREATE CONSTRAINT unique_datapoint_id IF NOT EXISTS FOR (dp:FinancialDataPoint) REQUIRE dp.datapoint_id IS UNIQUE;
 CREATE CONSTRAINT unique_period_id IF NOT EXISTS FOR (fp:FiscalPeriod) REQUIRE fp.period_id IS UNIQUE;
+CREATE CONSTRAINT unique_author_id IF NOT EXISTS FOR (a:Author) REQUIRE a.author_id IS UNIQUE;
 // インデックス（13個）
 CREATE INDEX idx_source_category IF NOT EXISTS FOR (s:Source) ON (s.category);
 CREATE INDEX idx_source_collected_at IF NOT EXISTS FOR (s:Source) ON (s.collected_at);
@@ -1043,6 +1048,20 @@ UNWIND $authored_by AS rel
 MATCH (s:Source {source_id: rel.from_id})
 MATCH (a:Author {author_id: rel.to_id})
 MERGE (s)-[:AUTHORED_BY]->(a)
+
+-- CITES: Source -> Source (academic-fetch)
+UNWIND $cites AS rel
+MATCH (s1:Source {source_id: rel.from_id})
+MATCH (s2:Source {source_id: rel.to_id})
+MERGE (s1)-[:CITES]->(s2)
+
+-- COAUTHORED_WITH: Author -> Author (academic-fetch)
+UNWIND $coauthored_with AS rel
+MATCH (a1:Author {author_id: rel.from_id})
+MATCH (a2:Author {author_id: rel.to_id})
+MERGE (a1)-[r:COAUTHORED_WITH]->(a2)
+SET r.paper_count = rel.paper_count,
+    r.first_collaboration = rel.first_collaboration
 ```
 
 ### Wave 2 リレーション投入

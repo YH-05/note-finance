@@ -3424,6 +3424,38 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# map_academic_fetch
+# ---------------------------------------------------------------------------
+
+
+def map_academic_fetch(data: dict[str, Any]) -> dict[str, Any]:
+    """Map academic paper data to graph-queue format.
+
+    Thin wrapper around ``academic.mapper.map_academic_papers``.
+
+    Input
+    -----
+    ``{"papers": [...], "existing_source_ids": [...]}``
+
+    The academic mapper already produces complete graph-queue node arrays
+    (sources, authors) and relations (authored_by, cites, coauthored_with).
+    This function extracts them into the standard ``_mapped_result`` format
+    so that ``_build_queue_doc`` can wrap them consistently.
+    """
+    from academic.mapper import map_academic_papers
+
+    mapped = map_academic_papers(data)
+
+    return _mapped_result(
+        data,
+        "academic-fetch",
+        sources=mapped.get("sources", []),
+        authors=mapped.get("authors", []),
+        relations=mapped.get("relations", {}),
+    )
+
+
+# ---------------------------------------------------------------------------
 # Command → Mapper dispatch
 # ---------------------------------------------------------------------------
 
@@ -3438,6 +3470,7 @@ COMMAND_MAPPERS: dict[str, MapperFn] = {
     "wealth-scrape": map_wealth_scrape,
     "topic-discovery": map_topic_discovery,
     "web-research": map_web_research,
+    "academic-fetch": map_academic_fetch,
 }
 """Dispatch table mapping command names to their mapper functions."""
 
