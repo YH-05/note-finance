@@ -7,6 +7,12 @@
 #   - Schema changes should be made here first, then applied to Neo4j
 #
 # Changelog:
+#   v2.4 (2026-03-19): Schema alignment with DB reality — expanded entity_type enum & relationship types
+#     - Expanded: Entity.entity_type += technology, central_bank, broker, etf, bond, currency_pair,
+#       exchange, government, region, subsidiary, product, macro, fintech, theme
+#     - Added: 16 relationship types (SHARES_TOPIC, CO_MENTIONED_WITH, MEASURES, IN_SECTOR,
+#       COMPETES_WITH, CUSTOMER_OF, SUBSIDIARY_OF, PARTNERS_WITH, INVESTED_IN, GOVERNS,
+#       OPERATES_IN, INFLUENCES, LED_BY, SPUN_OFF_FROM, MENTIONS, SOURCED_FROM, BELONGS_TO, FOR_METRIC)
 #   v2.3 (2026-03-18): Source authority classification, DB consolidation & SkillRun namespace
 #     - Added: Source.authority_level (official/analyst/media/blog/social/academic)
 #     - Consolidated: article-neo4j merged into research-neo4j
@@ -33,7 +39,7 @@
 #       - Insight node for AI-generated knowledge circulation
 #   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
-version: "2.3"
+version: "2.4"
 
 # ============================================================
 # Node Definitions
@@ -235,13 +241,20 @@ nodes:
       entity_type:
         type: string
         required: true
-        enum: [company, index, sector, indicator, currency, commodity, person, organization, country, instrument]
+        enum: [company, index, sector, indicator, currency, commodity, person, organization, country, instrument, technology, central_bank, broker, etf, bond, currency_pair, exchange, government, region, subsidiary, product, macro, fintech, theme]
         indexed: true
         description: >
           company=publicly traded company, index=stock index, sector=industry sector,
           indicator=economic indicator, currency=currency pair, commodity=commodity,
           person=individual, organization=non-market org, country=sovereign nation,
-          instrument=financial instrument (bond, derivative, etc.)
+          instrument=financial instrument (bond, derivative, etc.),
+          technology=technology/platform, central_bank=central banking institution,
+          broker=brokerage/securities firm, etf=exchange-traded fund,
+          bond=fixed income instrument, currency_pair=FX pair,
+          exchange=stock exchange, government=government body,
+          region=geographic region, subsidiary=subsidiary company,
+          product=product/service, macro=macroeconomic concept,
+          fintech=fintech company, theme=investment/content theme
       ticker:
         type: string
         indexed: true
@@ -674,6 +687,103 @@ relationships:
         type: string
         enum: [Fact, Claim, FinancialDataPoint]
         description: "Label of the to-node (Neo4j CE workaround for multi-label MATCH)"
+
+  # Entity analysis (strengthen_entity_connections.py)
+  SHARES_TOPIC:
+    from: Entity
+    to: Entity
+    description: "Two entities share multiple topics (threshold: >=3 shared topics)"
+    properties:
+      shared_topic_count:
+        type: integer
+        description: "Number of shared topics"
+
+  CO_MENTIONED_WITH:
+    from: Entity
+    to: Entity
+    description: "Two entities co-mentioned in same source"
+
+  MEASURES:
+    from: FinancialDataPoint
+    to: Entity
+    description: "Financial data point measures/belongs to this entity"
+
+  IN_SECTOR:
+    from: Entity
+    to: Entity
+    description: "Entity belongs to this sector entity"
+
+  # Business relationships
+  COMPETES_WITH:
+    from: Entity
+    to: Entity
+    description: "Competitive relationship between entities"
+
+  CUSTOMER_OF:
+    from: Entity
+    to: Entity
+    description: "Entity is a customer of another entity"
+
+  SUBSIDIARY_OF:
+    from: Entity
+    to: Entity
+    description: "Entity is a subsidiary of another entity"
+
+  PARTNERS_WITH:
+    from: Entity
+    to: Entity
+    description: "Strategic partnership between entities"
+
+  INVESTED_IN:
+    from: Entity
+    to: Entity
+    description: "Entity has invested in another entity"
+
+  GOVERNS:
+    from: Entity
+    to: Entity
+    description: "Regulatory/governance relationship"
+
+  OPERATES_IN:
+    from: Entity
+    to: Entity
+    description: "Entity operates in a region/market"
+
+  INFLUENCES:
+    from: Entity
+    to: Entity
+    description: "Entity influences another entity"
+
+  LED_BY:
+    from: Entity
+    to: Entity
+    description: "Entity is led by a person"
+
+  SPUN_OFF_FROM:
+    from: Entity
+    to: Entity
+    description: "Entity was spun off from another entity"
+
+  # Source provenance
+  MENTIONS:
+    from: Source
+    to: Entity
+    description: "Source mentions this entity"
+
+  SOURCED_FROM:
+    from: [Fact, Claim]
+    to: Source
+    description: "Fact/Claim sourced from this source (legacy provenance)"
+
+  BELONGS_TO:
+    from: Entity
+    to: Entity
+    description: "Organizational membership/belonging"
+
+  FOR_METRIC:
+    from: FinancialDataPoint
+    to: Entity
+    description: "Data point is for this metric entity"
 
   # Question relationships (Wave 4)
   ASKS_ABOUT:

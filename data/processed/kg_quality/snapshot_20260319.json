@@ -1,0 +1,220 @@
+{
+  "timestamp": "2026-03-19T07:36:24.446083+00:00",
+  "overall_score": 53.6,
+  "rating": "C",
+  "categories": [
+    {
+      "name": "structural",
+      "score": 75.0,
+      "metrics": [
+        {
+          "value": 0.000881,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 9.51,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.9865,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.002,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "completeness",
+      "score": 50.0,
+      "metrics": [
+        {
+          "value": 0.8618,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "consistency",
+      "score": 50.0,
+      "metrics": [
+        {
+          "value": 0.967,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.9442,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        },
+        {
+          "value": 136.0,
+          "unit": "count",
+          "status": "red",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "accuracy",
+      "score": 0.0,
+      "metrics": [
+        {
+          "value": 0.0,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": true
+        }
+      ]
+    },
+    {
+      "name": "timeliness",
+      "score": 66.7,
+      "metrics": [
+        {
+          "value": 0.9,
+          "unit": "days",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 11.0,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 2,
+          "unit": "days",
+          "status": "red",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "finance_specific",
+      "score": 66.7,
+      "metrics": [
+        {
+          "value": 1.0,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 2.09,
+          "unit": "count",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 2.6085,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "discoverability",
+      "score": 66.7,
+      "metrics": [
+        {
+          "value": 3.9,
+          "unit": "hops",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.0305,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 0.985,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    }
+  ],
+  "check_rules": [
+    {
+      "rule_name": "subject_reference",
+      "pass_rate": 0.984,
+      "violations": [
+        "This is a comparison of Wednesday's Federal Open Market Committee statement with",
+        "These are some of the stocks posting the largest moves midday.",
+        "This week's meeting offers little suspense and probably not much action, even as",
+        "These are the stocks posting the largest moves in extended trading.",
+        "These are the stocks posting the largest moves before the bell.",
+        "These are some of the stocks posting the largest moves in extended trading.",
+        "These are the stocks posting the largest moves in midday trading.",
+        "These are the stocks posting the largest moves in early trading."
+      ]
+    },
+    {
+      "rule_name": "entity_length",
+      "pass_rate": 0.9858,
+      "violations": [
+        "TOPIX連動型上場投資信託",
+        "日経高配当株50 ETF",
+        "Fidelity MSCI Real Estate Index ETF",
+        "First Trust Global Tactical Commodity Strategy Fund",
+        "Ministry of Internal Affairs and Communications",
+        "Ministry of Health Labour and Welfare"
+      ]
+    },
+    {
+      "rule_name": "schema_compliance",
+      "pass_rate": 0.967,
+      "violations": [
+        "article_proposal",
+        "article_proposal",
+        "article_proposal",
+        "article_proposal",
+        "article_proposal",
+        "article_proposal",
+        "article_proposal",
+        "data_center",
+        "data_center",
+        "data_center",
+        "digital_bank",
+        "fintech_holding",
+        "fintech_holding",
+        "it_services"
+      ]
+    },
+    {
+      "rule_name": "relationship_compliance",
+      "pass_rate": 0.9167,
+      "violations": [
+        "RELATED_TO",
+        "HAS_FACT",
+        "TAGGED_WITH"
+      ]
+    }
+  ],
+  "entropy": {
+    "entity_type_entropy": 0.6656,
+    "topic_category_entropy": 0.8255,
+    "relationship_type_entropy": 0.4422,
+    "semantic_diversity": 0.6444
+  }
+}

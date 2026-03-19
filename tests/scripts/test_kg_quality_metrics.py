@@ -812,13 +812,14 @@ class TestMeasureTimeliness:
     def test_正常系_鮮度と更新頻度と時間カバレッジを返す(self) -> None:
         mock_session = MagicMock()
 
-        # 鮮度: 最新 Source の fetched_at からの経過日数
+        # 鮮度+更新頻度: fetched_at を collect して Python 側で計算
         mock_freshness = MagicMock()
-        mock_freshness.single.return_value = {"avg_age_days": 5.2}
-
-        # 更新頻度: 過去30日のSource投入数
-        mock_frequency = MagicMock()
-        mock_frequency.single.return_value = {"recent_count": 45}
+        mock_freshness.single.return_value = {
+            "fetched_dates": [
+                "2026-03-14T00:00:00+00:00",
+                "2026-03-19T00:00:00+00:00",
+            ]
+        }
 
         # 時間カバレッジ: fetched_at の最古/最新
         mock_coverage = MagicMock()
@@ -827,7 +828,7 @@ class TestMeasureTimeliness:
             "latest": "2026-03-19T00:00:00Z",
         }
 
-        mock_session.run.side_effect = [mock_freshness, mock_frequency, mock_coverage]
+        mock_session.run.side_effect = [mock_freshness, mock_coverage]
 
         result = measure_timeliness(mock_session)
         assert isinstance(result, CategoryResult)
@@ -838,21 +839,22 @@ class TestMeasureTimeliness:
         mock_session = MagicMock()
 
         mock_freshness = MagicMock()
-        mock_freshness.single.return_value = {"avg_age_days": 5.0}
-        mock_frequency = MagicMock()
-        mock_frequency.single.return_value = {"recent_count": 30}
+        mock_freshness.single.return_value = {
+            "fetched_dates": ["2026-03-19T00:00:00+00:00"]
+        }
         mock_coverage = MagicMock()
         mock_coverage.single.return_value = {
             "earliest": "2025-01-01T00:00:00Z",
             "latest": "2026-03-19T00:00:00Z",
         }
-        mock_session.run.side_effect = [mock_freshness, mock_frequency, mock_coverage]
+        mock_session.run.side_effect = [mock_freshness, mock_coverage]
 
         measure_timeliness(mock_session)
         calls = mock_session.run.call_args_list
         for call in calls:
             query = call[0][0]
-            assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
+            if query:  # skip empty frequency_query
+                assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
 
 
 # ---------------------------------------------------------------------------

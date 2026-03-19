@@ -196,12 +196,27 @@ ALLOWED_ENTITY_TYPES: frozenset[str] = frozenset(
         "organization",
         "country",
         "instrument",
+        "technology",
+        "central_bank",
+        "broker",
+        "etf",
+        "bond",
+        "currency_pair",
+        "exchange",
+        "government",
+        "region",
+        "subsidiary",
+        "product",
+        "macro",
+        "fintech",
+        "theme",
     }
 )
-"""Entity.entity_type の許可リスト。knowledge-graph-schema.yaml v2.3 準拠。"""
+"""Entity.entity_type の許可リスト。knowledge-graph-schema.yaml v2.4 準拠。"""
 
 ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
     {
+        # Schema v2.3 core
         "CONTAINS_CHUNK",
         "EXTRACTED_FROM",
         "STATES_FACT",
@@ -227,9 +242,30 @@ ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
         "ASKS_ABOUT",
         "MOTIVATED_BY",
         "ANSWERED_BY",
+        # Entity analysis (strengthen_entity_connections.py)
+        "SHARES_TOPIC",
+        "CO_MENTIONED_WITH",
+        "MEASURES",
+        "IN_SECTOR",
+        # Business relationships
+        "COMPETES_WITH",
+        "CUSTOMER_OF",
+        "SUBSIDIARY_OF",
+        "PARTNERS_WITH",
+        "INVESTED_IN",
+        "GOVERNS",
+        "OPERATES_IN",
+        "INFLUENCES",
+        "LED_BY",
+        "SPUN_OFF_FROM",
+        # Source provenance
+        "MENTIONS",
+        "SOURCED_FROM",
+        "BELONGS_TO",
+        "FOR_METRIC",
     }
 )
-"""リレーションタイプの許可リスト。knowledge-graph-schema.yaml v2.3 準拠。"""
+"""リレーションタイプの許可リスト。knowledge-graph-schema.yaml v2.4 準拠。"""
 
 # 代名詞パターン（英語・日本語）
 _ENGLISH_PRONOUNS: frozenset[str] = frozenset(
@@ -763,24 +799,34 @@ def measure_timeliness(session: Any) -> CategoryResult:
         ``"timeliness"`` カテゴリの計測結果。
     """
     # 1. 鮮度: Source.fetched_at からの平均経過日数
+    # AIDEV-NOTE: fetched_at は DATETIME/STRING が混在し得るため toString() で統一し Python 側で計算
     freshness_query = """
     MATCH (s:Source)
     WHERE NOT 'Memory' IN labels(s)
     AND s.fetched_at IS NOT NULL
-    RETURN avg(duration.between(s.fetched_at, datetime()).days) AS avg_age_days
+    RETURN collect(toString(s.fetched_at)) AS fetched_dates
     """
     freshness_result = session.run(freshness_query)
-    avg_age_days: float = freshness_result.single()["avg_age_days"] or 0.0
+    fetched_dates: list[str] = freshness_result.single()["fetched_dates"] or []
+    now = dt.now(tz=timezone.utc)
+    age_days_list: list[float] = []
+    recent_count = 0
+    thirty_days_ago = now - __import__("datetime").timedelta(days=30)
+    for date_str in fetched_dates:
+        try:
+            fetched_dt = dt.fromisoformat(date_str[:19].replace("Z", "+00:00"))
+            if fetched_dt.tzinfo is None:
+                fetched_dt = fetched_dt.replace(tzinfo=timezone.utc)
+            age = (now - fetched_dt).days
+            age_days_list.append(age)
+            if fetched_dt >= thirty_days_ago:
+                recent_count += 1
+        except (ValueError, TypeError):
+            continue
+    avg_age_days: float = sum(age_days_list) / len(age_days_list) if age_days_list else 0.0
 
-    # 2. 更新頻度: 過去30日に追加された Source 数
-    frequency_query = """
-    MATCH (s:Source)
-    WHERE NOT 'Memory' IN labels(s)
-    AND s.fetched_at >= datetime() - duration('P30D')
-    RETURN count(s) AS recent_count
-    """
-    frequency_result = session.run(frequency_query)
-    recent_count: int = frequency_result.single()["recent_count"]
+    # 2. 更新頻度: 過去30日に追加された Source 数（上記ループで計算済み）
+    frequency_query = ""  # computed in loop above
 
     # 3. 時間カバレッジ: fetched_at の最古/最新
     coverage_query = """
