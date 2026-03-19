@@ -176,7 +176,7 @@ class TestParseArgs:
 
 class TestCreateDriver:
     @patch.dict("os.environ", {"NEO4J_PASSWORD": "envpass"})
-    @patch("strengthen_entity_connections.GraphDatabase")
+    @patch("neo4j_utils.GraphDatabase")
     def test_正常系_環境変数からパスワード取得(self, mock_gdb: MagicMock) -> None:
         mock_driver = MagicMock()
         mock_gdb.driver.return_value = mock_driver
@@ -190,7 +190,7 @@ class TestCreateDriver:
         mock_driver.verify_connectivity.assert_called_once()
         assert driver is mock_driver
 
-    @patch("strengthen_entity_connections.GraphDatabase")
+    @patch("neo4j_utils.GraphDatabase")
     def test_正常系_カスタムURIとパスワードで接続(self, mock_gdb: MagicMock) -> None:
         mock_driver = MagicMock()
         mock_gdb.driver.return_value = mock_driver
@@ -270,13 +270,12 @@ class TestLowerCoMentionThreshold:
             )
         )
 
-        # MERGE 結果
+        # UNWIND バッチ MERGE 結果
         mock_merge_result = MagicMock()
-        mock_merge_result.single.return_value = {"created": 1}
+        mock_merge_result.single.return_value = {"created": 2}
 
         mock_session.run.side_effect = [
             mock_candidates,
-            mock_merge_result,
             mock_merge_result,
         ]
 
@@ -351,6 +350,7 @@ class TestStrengthenTopicLinks:
             )
         )
 
+        # UNWIND バッチ MERGE 結果
         mock_merge_result = MagicMock()
         mock_merge_result.single.return_value = {"created": 1}
 
@@ -407,16 +407,6 @@ class TestMain:
         mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
         mock_create_driver.return_value = mock_driver
 
-        # count_isolated_entities の結果
-        mock_count = MagicMock()
-        mock_count.single.return_value = {"count": 97}
-
-        # 候補検索の結果（空）
-        mock_empty = MagicMock()
-        mock_empty.__iter__ = MagicMock(return_value=iter([]))
-
-        mock_session.run.return_value = mock_count
-
         # dry-run モードで実行
         mock_session = MagicMock()
         mock_driver.__enter__ = MagicMock(return_value=mock_driver)
@@ -429,13 +419,15 @@ class TestMain:
         # 各クエリの戻り値を設定
         mock_count = MagicMock()
         mock_count.single.return_value = {"count": 10}
-        mock_candidates = MagicMock()
-        mock_candidates.data.return_value = []
+        # 候補検索の結果（空、iterable）
+        mock_candidates_co = MagicMock()
+        mock_candidates_co.__iter__ = MagicMock(return_value=iter([]))
+        mock_candidates_topic = MagicMock()
+        mock_candidates_topic.__iter__ = MagicMock(return_value=iter([]))
         mock_session.run.side_effect = [
             mock_count,  # count_isolated_entities (before)
-            mock_candidates,  # lower_co_mention_threshold find
-            mock_count,  # count_isolated_entities (topic find placeholder)
-            mock_candidates,  # strengthen_topic_links find
+            mock_candidates_co,  # lower_co_mention_threshold find
+            mock_candidates_topic,  # strengthen_topic_links find
             mock_count,  # count_isolated_entities (after)
         ]
 
@@ -462,7 +454,7 @@ class TestMain:
         mock_count = MagicMock()
         mock_count.single.return_value = {"count": 5}
         mock_candidates = MagicMock()
-        mock_candidates.data.return_value = []
+        mock_candidates.__iter__ = MagicMock(return_value=iter([]))
         mock_session.run.side_effect = [
             mock_count,  # count_isolated_entities (before)
             mock_candidates,  # lower_co_mention_threshold find

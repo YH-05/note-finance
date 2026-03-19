@@ -35,16 +35,11 @@ Usage
 from __future__ import annotations
 
 import argparse
-import os
 import sys
 from dataclasses import dataclass
 from typing import Any
 
-try:
-    from neo4j import GraphDatabase
-except ImportError:
-    print("neo4j driver not installed. Run: uv add neo4j")
-    sys.exit(1)
+from neo4j_utils import create_driver
 
 try:
     from finance.utils.logging_config import get_logger
@@ -186,54 +181,6 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 # ---------------------------------------------------------------------------
-# インフラ関数
-# ---------------------------------------------------------------------------
-
-
-def create_driver(
-    uri: str = "bolt://localhost:7688",
-    user: str = "neo4j",
-    password: str | None = None,
-) -> Any:
-    """Neo4j ドライバーを作成し接続確認を行う。
-
-    Parameters
-    ----------
-    uri : str
-        Neo4j 接続 URI。
-    user : str
-        Neo4j ユーザー名。
-    password : str | None
-        Neo4j パスワード。``None`` の場合は環境変数 ``NEO4J_PASSWORD`` を参照する。
-        環境変数も未設定の場合は ``ValueError`` を送出する。
-
-    Returns
-    -------
-    Any
-        接続確認済みの Neo4j ドライバー。
-
-    Raises
-    ------
-    ValueError
-        パスワードが指定されず ``NEO4J_PASSWORD`` も未設定の場合。
-    """
-    if password is None:
-        password = os.environ.get("NEO4J_PASSWORD")
-    if not password:
-        msg = (
-            "Neo4j password is required. "
-            "Set NEO4J_PASSWORD environment variable or pass --neo4j-password."
-        )
-        raise ValueError(msg)
-
-    logger.info("Connecting to Neo4j: %s", uri)
-    driver = GraphDatabase.driver(uri, auth=(user, password))
-    driver.verify_connectivity()
-    logger.info("Neo4j connection verified")
-    return driver
-
-
-# ---------------------------------------------------------------------------
 # 計測関数
 # ---------------------------------------------------------------------------
 
@@ -280,6 +227,104 @@ def count_isolated_entities(session: Any) -> int:
 # 接続強化手法
 # ---------------------------------------------------------------------------
 
+_MERGE_BATCH_SIZE = 500
+"""UNWIND MERGE のバッチサイズ。"""
+
+
+def _execute_strengthen_method(
+    session: Any,
+    find_query: str,
+    merge_query: str,
+    method_name: str,
+    count_key: str,
+    *,
+    dry_run: bool = False,
+    limit: int | None = None,
+) -> MethodStats:
+    """接続強化メソッドの共通実行フローを処理する。
+
+    候補取得 -> limit 適用 -> dry_run 分岐 -> UNWIND バッチ MERGE -> 統計返却
+    のパターンを共通化する。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    find_query : str
+        候補ペア検索用 Cypher クエリ。
+    merge_query : str
+        UNWIND バッチ MERGE 用 Cypher クエリ。
+    method_name : str
+        手法名（"co_mention", "topic"）。
+    count_key : str
+        候補レコード内のカウント値キー（"shared", "shared_topics"）。
+    dry_run : bool
+        True の場合はリレーション作成を行わない。
+    limit : int | None
+        処理する候補ペアの上限。None の場合は全件処理。
+
+    Returns
+    -------
+    MethodStats
+        実行統計。
+    """
+    candidates_result = session.run(find_query)
+    candidates = list(candidates_result)
+
+    if limit is not None:
+        candidates = candidates[:limit]
+
+    candidates_found = len(candidates)
+    relationships_created = 0
+
+    if dry_run:
+        for c in candidates:
+            logger.info(
+                "  [DRY-RUN] %s: %s <-> %s (%s=%d)",
+                method_name,
+                c["e1_key"],
+                c["e2_key"],
+                count_key,
+                c[count_key],
+            )
+        logger.info(
+            "%s: %d 候補ペア検出 (dry-run)",
+            method_name,
+            candidates_found,
+        )
+    else:
+        # HIGH-002: UNWIND バッチ MERGE（バッチサイズ 500 件ずつ）
+        for i in range(0, len(candidates), _MERGE_BATCH_SIZE):
+            batch = [
+                {
+                    "e1_key": c["e1_key"],
+                    "e2_key": c["e2_key"],
+                    "count_val": c[count_key],
+                }
+                for c in candidates[i : i + _MERGE_BATCH_SIZE]
+            ]
+            result = session.run(
+                merge_query,
+                batch=batch,
+                method_label=method_name,
+            )
+            record = result.single()
+            relationships_created += record["created"] if record else 0
+
+        logger.info(
+            "%s: %d 候補 → %d リレーション作成",
+            method_name,
+            candidates_found,
+            relationships_created,
+        )
+
+    return MethodStats(
+        method=method_name,
+        candidates_found=candidates_found,
+        relationships_created=relationships_created,
+        dry_run=dry_run,
+    )
+
 
 def lower_co_mention_threshold(
     session: Any,
@@ -307,7 +352,6 @@ def lower_co_mention_threshold(
     MethodStats
         実行統計。
     """
-    # 共通 Claim で共起するが、まだ直接リレーションがない Entity ペアを検出
     # AIDEV-NOTE: type(existing) IN [...] は ENTITY_RELATIONSHIP_TYPES 定数と同期すること
     find_query = """
     MATCH (e1:Entity)<-[:ABOUT]-(c:Claim)-[:ABOUT]->(e2:Entity)
@@ -328,60 +372,29 @@ def lower_co_mention_threshold(
     RETURN e1.entity_key AS e1_key, e2.entity_key AS e2_key, shared
     ORDER BY shared DESC
     """
-    candidates_result = session.run(find_query)
-    candidates = list(candidates_result)
 
-    if limit is not None:
-        candidates = candidates[:limit]
+    # AIDEV-NOTE: rel_type は定数文字列なので f-string 埋め込みは安全
+    merge_query = """
+    UNWIND $batch AS c
+    MATCH (e1:Entity {entity_key: c.e1_key})
+    MATCH (e2:Entity {entity_key: c.e2_key})
+    WHERE NOT 'Memory' IN labels(e1)
+      AND NOT 'Memory' IN labels(e2)
+    MERGE (e1)-[r:CO_MENTIONED_WITH]-(e2)
+    ON CREATE SET r.shared_claims = c.count_val,
+                  r.method = $method_label,
+                  r.created_at = datetime()
+    RETURN count(r) AS created
+    """
 
-    candidates_found = len(candidates)
-    relationships_created = 0
-
-    if dry_run:
-        for c in candidates:
-            logger.info(
-                "  [DRY-RUN] CO_MENTIONED_WITH: %s <-> %s (shared=%d)",
-                c["e1_key"],
-                c["e2_key"],
-                c["shared"],
-            )
-        logger.info(
-            "CO_MENTIONED_WITH 閾値緩和: %d 候補ペア検出 (dry-run)",
-            candidates_found,
-        )
-    else:
-        merge_query = """
-        MATCH (e1:Entity {entity_key: $e1_key})
-        MATCH (e2:Entity {entity_key: $e2_key})
-        WHERE NOT 'Memory' IN labels(e1)
-          AND NOT 'Memory' IN labels(e2)
-        MERGE (e1)-[r:CO_MENTIONED_WITH]-(e2)
-        ON CREATE SET r.shared_claims = $shared,
-                      r.method = 'threshold_relaxation',
-                      r.created_at = datetime()
-        RETURN count(r) AS created
-        """
-        for c in candidates:
-            result = session.run(
-                merge_query,
-                e1_key=c["e1_key"],
-                e2_key=c["e2_key"],
-                shared=c["shared"],
-            )
-            created = result.single()["created"]
-            relationships_created += created
-
-        logger.info(
-            "CO_MENTIONED_WITH 閾値緩和: %d 候補 → %d リレーション作成",
-            candidates_found,
-            relationships_created,
-        )
-
-    return MethodStats(
-        method="co_mention",
-        candidates_found=candidates_found,
-        relationships_created=relationships_created,
+    return _execute_strengthen_method(
+        session,
+        find_query,
+        merge_query,
+        method_name="co_mention",
+        count_key="shared",
         dry_run=dry_run,
+        limit=limit,
     )
 
 
@@ -424,60 +437,28 @@ def strengthen_topic_links(
     RETURN e1.entity_key AS e1_key, e2.entity_key AS e2_key, shared_topics
     ORDER BY shared_topics DESC
     """
-    candidates_result = session.run(find_query)
-    candidates = list(candidates_result)
 
-    if limit is not None:
-        candidates = candidates[:limit]
+    merge_query = """
+    UNWIND $batch AS c
+    MATCH (e1:Entity {entity_key: c.e1_key})
+    MATCH (e2:Entity {entity_key: c.e2_key})
+    WHERE NOT 'Memory' IN labels(e1)
+      AND NOT 'Memory' IN labels(e2)
+    MERGE (e1)-[r:SHARES_TOPIC]-(e2)
+    ON CREATE SET r.shared_count = c.count_val,
+                  r.method = $method_label,
+                  r.created_at = datetime()
+    RETURN count(r) AS created
+    """
 
-    candidates_found = len(candidates)
-    relationships_created = 0
-
-    if dry_run:
-        for c in candidates:
-            logger.info(
-                "  [DRY-RUN] SHARES_TOPIC: %s <-> %s (topics=%d)",
-                c["e1_key"],
-                c["e2_key"],
-                c["shared_topics"],
-            )
-        logger.info(
-            "SHARES_TOPIC 拡充: %d 候補ペア検出 (dry-run)",
-            candidates_found,
-        )
-    else:
-        merge_query = """
-        MATCH (e1:Entity {entity_key: $e1_key})
-        MATCH (e2:Entity {entity_key: $e2_key})
-        WHERE NOT 'Memory' IN labels(e1)
-          AND NOT 'Memory' IN labels(e2)
-        MERGE (e1)-[r:SHARES_TOPIC]-(e2)
-        ON CREATE SET r.shared_count = $shared_topics,
-                      r.method = 'topic_threshold_relaxation',
-                      r.created_at = datetime()
-        RETURN count(r) AS created
-        """
-        for c in candidates:
-            result = session.run(
-                merge_query,
-                e1_key=c["e1_key"],
-                e2_key=c["e2_key"],
-                shared_topics=c["shared_topics"],
-            )
-            created = result.single()["created"]
-            relationships_created += created
-
-        logger.info(
-            "SHARES_TOPIC 拡充: %d 候補 → %d リレーション作成",
-            candidates_found,
-            relationships_created,
-        )
-
-    return MethodStats(
-        method="topic",
-        candidates_found=candidates_found,
-        relationships_created=relationships_created,
+    return _execute_strengthen_method(
+        session,
+        find_query,
+        merge_query,
+        method_name="topic",
+        count_key="shared_topics",
         dry_run=dry_run,
+        limit=limit,
     )
 
 

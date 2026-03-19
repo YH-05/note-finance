@@ -43,6 +43,9 @@ from datetime import timezone
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
+import yaml
+from neo4j_utils import create_driver
+
 if TYPE_CHECKING:
     from datetime import datetime
 
@@ -50,14 +53,6 @@ if TYPE_CHECKING:
 _SAFE_IDENTIFIER = re.compile(r"^[A-Za-z][A-Za-z0-9_]*$")
 # 日本語検出用正規表現（CJK 統合漢字・ひらがな・カタカナ・半角カナ）
 _JP_PATTERN = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff\uff66-\uff9f]")
-
-import yaml
-
-try:
-    from neo4j import GraphDatabase
-except ImportError:
-    print("neo4j driver not installed. Run: uv add neo4j")
-    sys.exit(1)
 
 try:
     from finance.utils.logging_config import get_logger
@@ -276,49 +271,6 @@ _JAPANESE_PRONOUNS: tuple[str, ...] = (
 # ---------------------------------------------------------------------------
 # インフラ関数
 # ---------------------------------------------------------------------------
-
-
-def create_driver(
-    uri: str = "bolt://localhost:7688",
-    user: str = "neo4j",
-    password: str | None = None,
-) -> Any:
-    """Neo4j ドライバーを作成し接続確認を行う。
-
-    Parameters
-    ----------
-    uri : str
-        Neo4j 接続 URI。デフォルトは ``bolt://localhost:7688``。
-    user : str
-        Neo4j ユーザー名。
-    password : str | None
-        Neo4j パスワード。``None`` の場合は ``NEO4J_PASSWORD`` 環境変数を参照する。
-        環境変数も未設定の場合は ``ValueError`` を送出する。
-
-    Returns
-    -------
-    Any
-        接続確認済みの Neo4j ドライバー。
-
-    Raises
-    ------
-    ValueError
-        パスワードが指定されず ``NEO4J_PASSWORD`` も未設定の場合。
-    """
-    if password is None:
-        password = os.environ.get("NEO4J_PASSWORD")
-    if not password:
-        msg = (
-            "Neo4j password is required. "
-            "Set NEO4J_PASSWORD environment variable or pass --neo4j-password."
-        )
-        raise ValueError(msg)
-
-    logger.info("Connecting to Neo4j: %s", uri)
-    driver = GraphDatabase.driver(uri, auth=(user, password))
-    driver.verify_connectivity()
-    logger.info("Neo4j connection verified")
-    return driver
 
 
 def load_schema(schema_path: Path) -> dict[str, Any]:
@@ -594,6 +546,7 @@ def measure_completeness(session: Any, schema: dict[str, Any]) -> CategoryResult
     # スキーマ YAML から required プロパティを抽出して充填率を計測
     # AIDEV-NOTE: label/prop_name は信頼済みスキーマ YAML 由来（ユーザー入力ではない）
     # セキュリティ強化: 識別子バリデーションで Cypher インジェクションを防止
+    # HIGH-001: 同一ラベルの複数プロパティを1クエリで取得（N x M -> N に削減）
     nodes_def = schema.get("nodes", {})
     for label, node_def in nodes_def.items():
         if not _SAFE_IDENTIFIER.match(label):
@@ -603,22 +556,32 @@ def measure_completeness(session: Any, schema: dict[str, Any]) -> CategoryResult
         required_props = [
             prop_name
             for prop_name, prop_def in props.items()
-            if prop_def.get("required", False)
+            if prop_def.get("required", False) and _SAFE_IDENTIFIER.match(prop_name)
         ]
-        for prop_name in required_props:
-            if not _SAFE_IDENTIFIER.match(prop_name):
+        # 無効な識別子をスキップ（ログ出力）
+        for prop_name, prop_def in props.items():
+            if prop_def.get("required", False) and not _SAFE_IDENTIFIER.match(
+                prop_name
+            ):
                 logger.warning("Invalid property in schema, skipping: %r", prop_name)
-                continue
-            query = f"""
-            MATCH (n:{label})
-            WHERE NOT 'Memory' IN labels(n)
-            RETURN count(n) AS total,
-                   count(n.{prop_name}) AS filled
-            """
-            result = session.run(query)
-            record = result.single()
-            total = record["total"]
-            filled = record["filled"]
+
+        if not required_props:
+            continue
+
+        # 同一ラベルの全 required props を1クエリで取得
+        prop_exprs = ", ".join(
+            f"count(n.{p}) AS filled_{i}" for i, p in enumerate(required_props)
+        )
+        query = f"""
+        MATCH (n:{label})
+        WHERE NOT 'Memory' IN labels(n)
+        RETURN count(n) AS total, {prop_exprs}
+        """
+        result = session.run(query)
+        record = result.single()
+        total = record["total"]
+        for i in range(len(required_props)):
+            filled = record[f"filled_{i}"]
             rate = filled / total if total > 0 else 1.0
             fill_rates.append(rate)
 
@@ -972,6 +935,146 @@ def measure_finance_specific(session: Any) -> CategoryResult:
 # measure_discoverability
 # ---------------------------------------------------------------------------
 
+_DISCOVERABILITY_BATCH_SIZE = 30
+"""UNWIND バッチサイズ（ペア数/バッチ）。"""
+
+
+def _sample_node_pairs(session: Any, sample_size: int) -> list[tuple[str, str]]:
+    """ノードIDを取得しランダムペアをサンプリングする。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    sample_size : int
+        サンプリングするペア数。
+
+    Returns
+    -------
+    list[tuple[str, str]]
+        サンプリングされたノードペアのリスト。ノード数が2未満の場合は空リスト。
+    """
+    node_id_query = """
+    MATCH (n)
+    WHERE NOT 'Memory' IN labels(n)
+    RETURN elementId(n) AS nid
+    """
+    node_id_result = session.run(node_id_query)
+    node_ids: list[str] = [r["nid"] for r in node_id_result.data()]
+
+    if len(node_ids) < 2:
+        logger.warning(
+            "Not enough nodes for discoverability sampling: %d", len(node_ids)
+        )
+        return []
+
+    actual_sample = min(sample_size, len(node_ids) * (len(node_ids) - 1) // 2)
+    pairs: list[tuple[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+    attempts = 0
+    max_attempts = actual_sample * 10
+
+    while len(pairs) < actual_sample and attempts < max_attempts:
+        a, b = random.sample(node_ids, 2)
+        pair_key = (min(a, b), max(a, b))
+        if pair_key not in seen:
+            seen.add(pair_key)
+            pairs.append((a, b))
+        attempts += 1
+
+    return pairs
+
+
+def _measure_path_lengths(
+    session: Any,
+    pairs: list[tuple[str, str]],
+    timeout_sec: int,
+) -> tuple[list[int], int, int]:
+    """UNWIND バッチで最短パス長を計測する。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    pairs : list[tuple[str, str]]
+        ノードペアのリスト。
+    timeout_sec : int
+        タイムアウト（秒）。未使用だが互換性のため保持。
+
+    Returns
+    -------
+    tuple[list[int], int, int]
+        (パス長リスト, パスなし数, タイムアウト数)。
+    """
+    _ = timeout_sec  # UNWIND バッチではペア単位タイムアウト不要
+    path_lengths: list[int] = []
+    no_path_count = 0
+    timeout_count = 0
+
+    batch_query = """
+    UNWIND $pairs AS pair
+    MATCH (a), (b)
+    WHERE elementId(a) = pair[0] AND elementId(b) = pair[1]
+    AND NOT 'Memory' IN labels(a) AND NOT 'Memory' IN labels(b)
+    OPTIONAL MATCH p = shortestPath((a)-[*..15]-(b))
+    RETURN pair[0] AS src, pair[1] AS dst,
+           CASE WHEN p IS NULL THEN null ELSE length(p) END AS path_length
+    """
+
+    for i in range(0, len(pairs), _DISCOVERABILITY_BATCH_SIZE):
+        batch = [[a, b] for a, b in pairs[i : i + _DISCOVERABILITY_BATCH_SIZE]]
+        try:
+            result = session.run(batch_query, pairs=batch)
+            for record in result:
+                pl = record["path_length"]
+                if pl is not None:
+                    path_lengths.append(pl)
+                else:
+                    no_path_count += 1
+        except Exception:
+            timeout_count += len(batch)
+            logger.debug(
+                "Discoverability: timeout/error for batch starting at index %d",
+                i,
+            )
+
+    return path_lengths, no_path_count, timeout_count
+
+
+def _compute_discoverability_metrics(
+    path_lengths: list[int],
+    no_path_count: int,
+    pairs_count: int,
+) -> tuple[float, float, float]:
+    """パス長データから discoverability メトリクスを算出する。
+
+    Parameters
+    ----------
+    path_lengths : list[int]
+        計測されたパス長のリスト。
+    no_path_count : int
+        パスが見つからなかったペア数。
+    pairs_count : int
+        試行したペア総数。
+
+    Returns
+    -------
+    tuple[float, float, float]
+        (平均パス長, パス多様性, ブリッジ率)。
+    """
+    if path_lengths:
+        avg_path_length = sum(path_lengths) / len(path_lengths)
+        unique_lengths = len(set(path_lengths))
+        path_diversity = unique_lengths / len(path_lengths) if path_lengths else 0.0
+        reachable_pairs = len(path_lengths)
+        bridge_rate = reachable_pairs / pairs_count if pairs_count > 0 else 0.0
+    else:
+        avg_path_length = 0.0
+        path_diversity = 0.0
+        bridge_rate = 0.0
+
+    return avg_path_length, path_diversity, bridge_rate
+
 
 def measure_discoverability(
     session: Any,
@@ -991,26 +1094,16 @@ def measure_discoverability(
     sample_size : int
         サンプリングするペア数。デフォルトは200。
     timeout_sec : int
-        1ペアあたりの shortestPath タイムアウト（秒）。デフォルトは5。
+        shortestPath タイムアウト（秒）。デフォルトは5。
 
     Returns
     -------
     CategoryResult
         ``"discoverability"`` カテゴリの計測結果。
     """
-    # 1. 全ノードIDを取得
-    node_id_query = """
-    MATCH (n)
-    WHERE NOT 'Memory' IN labels(n)
-    RETURN elementId(n) AS nid
-    """
-    node_id_result = session.run(node_id_query)
-    node_ids: list[str] = [r["nid"] for r in node_id_result.data()]
+    pairs = _sample_node_pairs(session, sample_size)
 
-    if len(node_ids) < 2:
-        logger.warning(
-            "Not enough nodes for discoverability sampling: %d", len(node_ids)
-        )
+    if not pairs:
         metrics = [
             MetricValue(value=0.0, unit="hops", status="red"),
             MetricValue(value=0.0, unit="ratio", status="red"),
@@ -1018,69 +1111,12 @@ def measure_discoverability(
         ]
         return CategoryResult(name="discoverability", score=0.0, metrics=metrics)
 
-    # 2. ランダムペアサンプリング
-    actual_sample = min(sample_size, len(node_ids) * (len(node_ids) - 1) // 2)
-    pairs: list[tuple[str, str]] = []
-    seen: set[tuple[str, str]] = set()
-    attempts = 0
-    max_attempts = actual_sample * 10
-
-    while len(pairs) < actual_sample and attempts < max_attempts:
-        a, b = random.sample(node_ids, 2)
-        pair_key = (min(a, b), max(a, b))
-        if pair_key not in seen:
-            seen.add(pair_key)
-            pairs.append((a, b))
-        attempts += 1
-
-    # 3. 各ペアの最短パス長を計測
-    path_lengths: list[int] = []
-    timeout_count = 0
-    no_path_count = 0
-
-    for src, dst in pairs:
-        shortest_path_query = """
-        CALL {
-            MATCH (a), (b)
-            WHERE elementId(a) = $src AND elementId(b) = $dst
-            AND NOT 'Memory' IN labels(a) AND NOT 'Memory' IN labels(b)
-            MATCH p = shortestPath((a)-[*..15]-(b))
-            RETURN length(p) AS path_length
-        } IN TRANSACTIONS OF 1 ROW
-        """
-        try:
-            result = session.run(
-                shortest_path_query,
-                src=src,
-                dst=dst,
-            )
-            record = result.single()
-            if record is not None and record["path_length"] is not None:
-                path_lengths.append(record["path_length"])
-            else:
-                no_path_count += 1
-        except Exception:
-            timeout_count += 1
-            logger.debug(
-                "Discoverability: timeout/error for pair (%s, %s)",
-                src[:20],
-                dst[:20],
-            )
-
-    # 4. メトリクス計算
-    if path_lengths:
-        avg_path_length = sum(path_lengths) / len(path_lengths)
-        # パス多様性: パス長のユニーク値数 / 理論最大（サンプル数）
-        unique_lengths = len(set(path_lengths))
-        path_diversity = unique_lengths / len(path_lengths) if path_lengths else 0.0
-        # ブリッジ率: 到達可能ペアの割合
-        total_attempted = len(pairs)
-        reachable_pairs = len(path_lengths)
-        bridge_rate = reachable_pairs / total_attempted if total_attempted > 0 else 0.0
-    else:
-        avg_path_length = 0.0
-        path_diversity = 0.0
-        bridge_rate = 0.0
+    path_lengths, no_path_count, timeout_count = _measure_path_lengths(
+        session, pairs, timeout_sec
+    )
+    avg_path_length, path_diversity, bridge_rate = _compute_discoverability_metrics(
+        path_lengths, no_path_count, len(pairs)
+    )
 
     metrics = [
         MetricValue(
@@ -1122,6 +1158,34 @@ def measure_discoverability(
 # ---------------------------------------------------------------------------
 # CheckRules（4純粋関数）
 # ---------------------------------------------------------------------------
+
+
+def _compute_check_result(
+    rule_name: str, total: int, violations: list[str]
+) -> CheckRuleResult:
+    """チェックルール結果の共通集計を行う。
+
+    Parameters
+    ----------
+    rule_name : str
+        ルール名。
+    total : int
+        検査対象の総数。
+    violations : list[str]
+        違反リスト。
+
+    Returns
+    -------
+    CheckRuleResult
+        集計済みのチェックルール結果。
+    """
+    pass_count = total - len(violations)
+    pass_rate = pass_count / total if total > 0 else 1.0
+    return CheckRuleResult(
+        rule_name=rule_name,
+        pass_rate=round(pass_rate, 4),
+        violations=violations,
+    )
 
 
 def _is_japanese(text: str) -> bool:
@@ -1181,15 +1245,7 @@ def check_subject_reference(texts: list[str]) -> CheckRuleResult:
                 violations.append(stripped[:80])
                 break
 
-    total = len(texts)
-    pass_count = total - len(violations)
-    pass_rate = pass_count / total if total > 0 else 1.0
-
-    return CheckRuleResult(
-        rule_name="subject_reference",
-        pass_rate=round(pass_rate, 4),
-        violations=violations,
-    )
+    return _compute_check_result("subject_reference", len(texts), violations)
 
 
 def check_entity_length(entities: list[str]) -> CheckRuleResult:
@@ -1223,15 +1279,7 @@ def check_entity_length(entities: list[str]) -> CheckRuleResult:
             if word_count > 5:
                 violations.append(entity)
 
-    total = len(entities)
-    pass_count = total - len(violations)
-    pass_rate = pass_count / total if total > 0 else 1.0
-
-    return CheckRuleResult(
-        rule_name="entity_length",
-        pass_rate=round(pass_rate, 4),
-        violations=violations,
-    )
+    return _compute_check_result("entity_length", len(entities), violations)
 
 
 def check_schema_compliance(entity_types: list[str]) -> CheckRuleResult:
@@ -1255,15 +1303,7 @@ def check_schema_compliance(entity_types: list[str]) -> CheckRuleResult:
     violations: list[str] = [
         et for et in entity_types if et not in ALLOWED_ENTITY_TYPES
     ]
-    total = len(entity_types)
-    pass_count = total - len(violations)
-    pass_rate = pass_count / total if total > 0 else 1.0
-
-    return CheckRuleResult(
-        rule_name="schema_compliance",
-        pass_rate=round(pass_rate, 4),
-        violations=violations,
-    )
+    return _compute_check_result("schema_compliance", len(entity_types), violations)
 
 
 def check_relationship_compliance(rel_types: list[str]) -> CheckRuleResult:
@@ -1287,15 +1327,7 @@ def check_relationship_compliance(rel_types: list[str]) -> CheckRuleResult:
     violations: list[str] = [
         rt for rt in rel_types if rt not in ALLOWED_RELATIONSHIP_TYPES
     ]
-    total = len(rel_types)
-    pass_count = total - len(violations)
-    pass_rate = pass_count / total if total > 0 else 1.0
-
-    return CheckRuleResult(
-        rule_name="relationship_compliance",
-        pass_rate=round(pass_rate, 4),
-        violations=violations,
-    )
+    return _compute_check_result("relationship_compliance", len(rel_types), violations)
 
 
 # ---------------------------------------------------------------------------

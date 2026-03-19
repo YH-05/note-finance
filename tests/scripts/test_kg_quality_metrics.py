@@ -304,7 +304,7 @@ class TestCreateDriver:
         with pytest.raises(ValueError, match="Neo4j password is required"):
             create_driver()
 
-    @patch("kg_quality_metrics.GraphDatabase")
+    @patch("neo4j_utils.GraphDatabase")
     def test_正常系_カスタムURIとパスワードで接続(self, mock_gdb: MagicMock) -> None:
         mock_driver = MagicMock()
         mock_gdb.driver.return_value = mock_driver
@@ -322,7 +322,7 @@ class TestCreateDriver:
         assert driver is mock_driver
 
     @patch.dict("os.environ", {"NEO4J_PASSWORD": "env_pass"})
-    @patch("kg_quality_metrics.GraphDatabase")
+    @patch("neo4j_utils.GraphDatabase")
     def test_正常系_環境変数からパスワード取得(self, mock_gdb: MagicMock) -> None:
         mock_driver = MagicMock()
         mock_gdb.driver.return_value = mock_driver
@@ -659,20 +659,31 @@ class TestMeasureCompleteness:
         schema = yaml.safe_load(sample_schema_with_required.read_text(encoding="utf-8"))
         mock_session = MagicMock()
 
-        # Source: 3 required (source_id, title, source_type, authority_level, fetched_at=5)
-        # Entity: 3 required (entity_id, name, entity_type)
-        # Each query returns {total, filled}
+        # HIGH-001: 同一ラベルの全 required props を1クエリで取得
+        # yaml.dump sorts keys alphabetically: Entity (3 required) before Source (5 required)
         mock_results: list[MagicMock] = []
-        # Source の5つの required property
-        for _ in range(5):
-            r = MagicMock()
-            r.single.return_value = {"total": 100, "filled": 95}
-            mock_results.append(r)
-        # Entity の3つの required property
-        for _ in range(3):
-            r = MagicMock()
-            r.single.return_value = {"total": 200, "filled": 190}
-            mock_results.append(r)
+
+        # Entity の1バッチクエリ結果 (3 required: entity_id, entity_type, name)
+        r_entity = MagicMock()
+        r_entity.single.return_value = {
+            "total": 200,
+            "filled_0": 190,
+            "filled_1": 190,
+            "filled_2": 190,
+        }
+        mock_results.append(r_entity)
+
+        # Source の1バッチクエリ結果 (5 required: authority_level, fetched_at, source_id, source_type, title)
+        r_source = MagicMock()
+        r_source.single.return_value = {
+            "total": 100,
+            "filled_0": 95,
+            "filled_1": 95,
+            "filled_2": 95,
+            "filled_3": 95,
+            "filled_4": 95,
+        }
+        mock_results.append(r_source)
 
         # Sector/Metric ハードコード分（各1クエリ）
         for _ in range(2):
@@ -693,9 +704,17 @@ class TestMeasureCompleteness:
         schema = yaml.safe_load(sample_schema_with_required.read_text(encoding="utf-8"))
         mock_session = MagicMock()
 
-        # 十分なモック結果を用意
+        # HIGH-001: バッチクエリ対応のモック結果を用意
         mock_r = MagicMock()
-        mock_r.single.return_value = {"total": 100, "filled": 90, "count": 10}
+        mock_r.single.return_value = {
+            "total": 100,
+            "filled_0": 90,
+            "filled_1": 90,
+            "filled_2": 90,
+            "filled_3": 90,
+            "filled_4": 90,
+            "count": 10,
+        }
         mock_session.run.return_value = mock_r
 
         measure_completeness(mock_session, schema)
@@ -911,17 +930,27 @@ class TestMeasureDiscoverability:
         mock_node_ids = MagicMock()
         mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(400)]
 
-        # 2. shortestPath クエリ（各ペアごとに1回）
-        # 200ペア分のモック結果
-        mock_path_results: list[MagicMock] = []
-        for i in range(200):
-            r = MagicMock()
-            # パス長をバリエーション持たせる（2, 3, 4, 5 の繰り返し）
-            path_len = (i % 4) + 2
-            r.single.return_value = {"path_length": path_len}
-            mock_path_results.append(r)
+        # 2. UNWIND バッチ shortestPath クエリ結果
+        # バッチサイズ30で200ペア → ceil(200/30) = 7 バッチ
+        mock_batch_results: list[MagicMock] = []
+        for batch_idx in range(7):
+            batch_result = MagicMock()
+            batch_size = min(30, 200 - batch_idx * 30)
+            records = []
+            for j in range(batch_size):
+                rec = MagicMock()
+                rec.__getitem__ = MagicMock(
+                    side_effect=lambda key, _j=j, _bi=batch_idx: {
+                        "src": f"node-{_bi * 30 + _j}",
+                        "dst": f"node-{_bi * 30 + _j + 1}",
+                        "path_length": (_bi * 30 + _j) % 4 + 2,
+                    }[key]
+                )
+                records.append(rec)
+            batch_result.__iter__ = MagicMock(return_value=iter(records))
+            mock_batch_results.append(batch_result)
 
-        mock_session.run.side_effect = [mock_node_ids, *mock_path_results]
+        mock_session.run.side_effect = [mock_node_ids, *mock_batch_results]
 
         result = measure_discoverability(mock_session, sample_size=200, timeout_sec=5)
         assert isinstance(result, CategoryResult)
@@ -935,14 +964,22 @@ class TestMeasureDiscoverability:
         mock_node_ids = MagicMock()
         mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(10)]
 
-        mock_path_results: list[MagicMock] = []
-        # 10ノードから5ペアをサンプリング
-        for _ in range(5):
-            r = MagicMock()
-            r.single.return_value = {"path_length": 3}
-            mock_path_results.append(r)
+        # 5ペア → 1バッチ
+        batch_result = MagicMock()
+        records = []
+        for j in range(5):
+            rec = MagicMock()
+            rec.__getitem__ = MagicMock(
+                side_effect=lambda key, _j=j: {
+                    "src": f"node-{_j}",
+                    "dst": f"node-{_j + 1}",
+                    "path_length": 3,
+                }[key]
+            )
+            records.append(rec)
+        batch_result.__iter__ = MagicMock(return_value=iter(records))
 
-        mock_session.run.side_effect = [mock_node_ids, *mock_path_results]
+        mock_session.run.side_effect = [mock_node_ids, batch_result]
 
         result = measure_discoverability(mock_session, sample_size=5, timeout_sec=5)
         # 平均パス長メトリクスを検索
@@ -950,42 +987,25 @@ class TestMeasureDiscoverability:
         assert len(avg_path) >= 1
         assert avg_path[0].value == pytest.approx(3.0, abs=0.1)
 
-    def test_正常系_タイムアウトしたペアはスキップされる(self) -> None:
+    def test_正常系_タイムアウトしたバッチはスキップされる(self) -> None:
         mock_session = MagicMock()
 
         mock_node_ids = MagicMock()
         mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(10)]
 
-        # 5ペア中2ペアがタイムアウト（例外発生）
-        mock_path_results: list[MagicMock | Exception] = []
-        for i in range(5):
-            if i < 2:
-                # タイムアウト = 例外
-                mock_path_results.append(Exception("timeout"))
-            else:
-                r = MagicMock()
-                r.single.return_value = {"path_length": 4}
-                mock_path_results.append(r)
-
+        # 5ペア → 1バッチ、バッチがエラーになるケース
         def side_effect_fn(*args, **kwargs):
-            result = mock_path_results.pop(0)
-            if isinstance(result, Exception):
-                raise result
-            return result
+            raise Exception("timeout")
 
-        # 最初の呼び出しはノードID取得
         call_count = [0]
-        original_side_effects = [mock_node_ids, *mock_path_results]
 
         def smart_side_effect(*args, **kwargs):
             idx = call_count[0]
             call_count[0] += 1
             if idx == 0:
                 return mock_node_ids
-            result = original_side_effects[idx]
-            if isinstance(result, Exception):
-                raise result
-            return result
+            # バッチクエリでエラー
+            raise Exception("timeout")
 
         mock_session.run.side_effect = smart_side_effect
 
@@ -1000,13 +1020,22 @@ class TestMeasureDiscoverability:
         mock_node_ids = MagicMock()
         mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(10)]
 
-        mock_path_results: list[MagicMock] = []
-        for _ in range(5):
-            r = MagicMock()
-            r.single.return_value = {"path_length": 3}
-            mock_path_results.append(r)
+        # 5ペア → 1バッチ
+        batch_result = MagicMock()
+        records = []
+        for j in range(5):
+            rec = MagicMock()
+            rec.__getitem__ = MagicMock(
+                side_effect=lambda key, _j=j: {
+                    "src": f"node-{_j}",
+                    "dst": f"node-{_j + 1}",
+                    "path_length": 3,
+                }[key]
+            )
+            records.append(rec)
+        batch_result.__iter__ = MagicMock(return_value=iter(records))
 
-        mock_session.run.side_effect = [mock_node_ids, *mock_path_results]
+        mock_session.run.side_effect = [mock_node_ids, batch_result]
 
         measure_discoverability(mock_session, sample_size=5, timeout_sec=5)
         # 最初のクエリ（ノードID取得）にMemory除外が含まれる
