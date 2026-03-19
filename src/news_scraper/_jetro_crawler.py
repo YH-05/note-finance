@@ -13,7 +13,7 @@ JetroCategoryCrawler
 
 Notes
 -----
-JETRO category pages (e.g. ``/biznewstop/asia/cn.html``) load article
+JETRO category pages (e.g. ``/world/asia/cn/``) load article
 lists via AJAX, so a headless browser is required.  The crawler attempts
 ``networkidle`` first, then falls back to ``domcontentloaded`` on timeout.
 
@@ -33,6 +33,8 @@ from __future__ import annotations
 
 import asyncio
 import re
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 from dataclasses import dataclass
 from typing import Any
 from urllib.parse import urlparse
@@ -176,8 +178,35 @@ class JetroCategoryCrawler:
         timeout_ms: int = 30_000,
         headless: bool = True,
     ) -> None:
+        """Initialize the crawler with Playwright settings."""
         self._timeout_ms = timeout_ms
         self._headless = headless
+
+    @asynccontextmanager
+    async def _managed_browser(self, browser: Any | None) -> AsyncIterator[Any]:
+        """Provide a Playwright browser, creating one if needed.
+
+        Parameters
+        ----------
+        browser : Any | None
+            Existing browser instance, or None to create a new one.
+
+        Yields
+        ------
+        Any
+            A Playwright browser instance.
+        """
+        if browser is not None:
+            yield browser
+            return
+        pw_ctx = async_playwright()
+        pw = await pw_ctx.__aenter__()
+        new_browser = await pw.chromium.launch(headless=self._headless)
+        try:
+            yield new_browser
+        finally:
+            await new_browser.close()
+            await pw_ctx.__aexit__(None, None, None)
 
     # ------------------------------------------------------------------
     # Static HTML extraction (testable without Playwright)
@@ -565,21 +594,8 @@ class JetroCategoryCrawler:
             subcategory=subcategory,
         )
 
-        own_browser = browser is None
-        pw_ctx = None
-        try:
-            if own_browser:
-                pw_ctx = async_playwright()
-                pw = await pw_ctx.__aenter__()
-                browser = await pw.chromium.launch(headless=self._headless)
-
-            html_content = await self._load_page_html(url, browser)
-        finally:
-            if own_browser:
-                if browser is not None:
-                    await browser.close()
-                if pw_ctx is not None:
-                    await pw_ctx.__aexit__(None, None, None)
+        async with self._managed_browser(browser) as br:
+            html_content = await self._load_page_html(url, br)
 
         if not html_content:
             logger.warning("No HTML content retrieved", url=url)
@@ -734,17 +750,11 @@ class JetroCategoryCrawler:
             max_pages=max_pages,
         )
 
-        own_browser = browser is None
-        pw_ctx = None
         all_entries: list[CrawledEntry] = []
+        pages_crawled = 0
 
-        try:
-            if own_browser:
-                pw_ctx = async_playwright()
-                pw = await pw_ctx.__aenter__()
-                browser = await pw.chromium.launch(headless=self._headless)
-
-            page = await browser.new_page()
+        async with self._managed_browser(browser) as br:
+            page = await br.new_page()
             try:
                 await page.goto(
                     url,
@@ -777,6 +787,7 @@ class JetroCategoryCrawler:
                         )
                         break
 
+                    pages_crawled += 1
                     all_entries.extend(entries)
                     logger.info(
                         "Archive page extracted",
@@ -792,25 +803,18 @@ class JetroCategoryCrawler:
                             logger.debug("No next button found, stopping")
                             break
                         await next_button.click()
-                        # Wait for content to update
-                        await page.wait_for_load_state("networkidle")
-                        await page.wait_for_timeout(1000)
+                        await page.wait_for_load_state(
+                            "networkidle", timeout=self._timeout_ms
+                        )
 
             finally:
                 await page.close()
-
-        finally:
-            if own_browser:
-                if browser is not None:
-                    await browser.close()
-                if pw_ctx is not None:
-                    await pw_ctx.__aexit__(None, None, None)
 
         logger.info(
             "Archive crawl complete",
             url=url,
             total_entries=len(all_entries),
-            pages_crawled=min(max_pages, len(all_entries) // 30 + 1),
+            pages_crawled=pages_crawled,
         )
         return all_entries
 

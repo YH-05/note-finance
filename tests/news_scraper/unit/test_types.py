@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 
 import pytest
+from freezegun import freeze_time
 from pydantic import ValidationError
 
 from news_scraper.types import (
@@ -183,17 +184,16 @@ class TestArticle:
         assert article.tags == ["markets", "earnings"]
         assert article.metadata == {"feed_category": "markets"}
 
+    @freeze_time("2026-03-19 12:00:00", tz_offset=0)
     def test_正常系_fetched_atが自動設定される(self) -> None:
         """Article.fetched_at is automatically set to current UTC time."""
-        before = datetime.now(timezone.utc)
         article = Article(
             title="Test",
             url="https://example.com/test",
             published=datetime(2026, 3, 1, tzinfo=timezone.utc),
             source="cnbc",
         )
-        after = datetime.now(timezone.utc)
-        assert before <= article.fetched_at <= after
+        assert article.fetched_at == datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
 
     def test_異常系_空タイトルでバリデーションエラー(self) -> None:
         """Article raises ValidationError for empty title."""
@@ -240,9 +240,10 @@ class TestScrapedNewsCollection:
         collection = ScrapedNewsCollection(source="cnbc", articles=articles)
         assert collection.total_count == 5
 
+    @freeze_time("2026-03-19 12:00:00", tz_offset=0)
     def test_正常系_fetched_atが自動設定される(self) -> None:
         """ScrapedNewsCollection.fetched_at is automatically set."""
-        before = datetime.now(timezone.utc)
         collection = ScrapedNewsCollection(source="cnbc", articles=[])
-        after = datetime.now(timezone.utc)
-        assert before <= collection.fetched_at <= after
+        assert collection.fetched_at == datetime(
+            2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc
+        )

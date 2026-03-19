@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -334,23 +333,36 @@ class TestMainAsyncCall:
             mock_collect.assert_called_once()
             assert result == 0
 
-    def test_正常系_helpで全6ソースが表示される(self) -> None:
-        """--help output should list all 6 sources in choices."""
-        scripts_dir = Path(__file__).parent.parent.parent.parent / "scripts"
-        result = subprocess.run(
-            [
-                "uv",
-                "run",
-                "python",
-                str(scripts_dir / "scrape_finance_news.py"),
-                "--help",
-            ],
-            capture_output=True,
-            text=True,
-            cwd=str(scripts_dir.parent),
-            timeout=30,
-            check=False,
-        )
-        help_text = result.stdout
-        for source in ["cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu", "jetro"]:
-            assert source in help_text, f"Source '{source}' not found in --help output"
+    def test_正常系_全6ソースがargparse_choicesとして定義されている(self) -> None:
+        """All 6 sources should be defined in --sources choices."""
+        expected_sources = ["cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu", "jetro"]
+        for source in expected_sources:
+            with patch("sys.argv", ["scrape_finance_news.py", "--sources", source]):
+                parsed = _parse_args()
+                assert source in parsed.sources
+
+    def test_正常系_main_jetro_regions不正JSONでエラー(self) -> None:
+        """main() returns 1 when --jetro-regions receives invalid JSON."""
+        with (
+            patch("sys.argv", [
+                "scrape_finance_news.py",
+                "--sources", "jetro",
+                "--jetro-regions", "invalid{json",
+            ]),
+            patch("scrape_finance_news.structlog"),
+        ):
+            result = main()
+            assert result == 1
+
+    def test_正常系_main_jetro_regions不正スキーマでエラー(self) -> None:
+        """main() returns 1 when --jetro-regions has invalid schema."""
+        with (
+            patch("sys.argv", [
+                "scrape_finance_news.py",
+                "--sources", "jetro",
+                "--jetro-regions", '{"asia": "not_a_list"}',
+            ]),
+            patch("scrape_finance_news.structlog"),
+        ):
+            result = main()
+            assert result == 1

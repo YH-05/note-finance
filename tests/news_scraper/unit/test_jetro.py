@@ -11,6 +11,7 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
+from freezegun import freeze_time
 
 from news_scraper._jetro_crawler import CrawledEntry
 from news_scraper.jetro import (
@@ -70,27 +71,23 @@ class TestParseJetroDate:
         assert result.day == 18
         assert result.tzinfo is not None
 
+    @freeze_time("2026-03-19 12:00:00", tz_offset=0)
     def test_正常系_Noneで現在時刻を返す(self) -> None:
         """None を渡すと現在の UTC 時刻を返す。"""
-        before = datetime.now(timezone.utc)
         result = _parse_jetro_date(None)
-        after = datetime.now(timezone.utc)
-        assert before <= result <= after
-        assert result.tzinfo is not None
+        assert result == datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
 
+    @freeze_time("2026-03-19 12:00:00", tz_offset=0)
     def test_正常系_空文字列で現在時刻を返す(self) -> None:
         """空文字列を渡すと現在の UTC 時刻を返す。"""
-        before = datetime.now(timezone.utc)
         result = _parse_jetro_date("")
-        after = datetime.now(timezone.utc)
-        assert before <= result <= after
+        assert result == datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
 
+    @freeze_time("2026-03-19 12:00:00", tz_offset=0)
     def test_異常系_不正な文字列で現在時刻を返す(self) -> None:
         """パース不可能な文字列で現在時刻を返す。"""
-        before = datetime.now(timezone.utc)
         result = _parse_jetro_date("invalid-date-string")
-        after = datetime.now(timezone.utc)
-        assert before <= result <= after
+        assert result == datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
 
     def test_正常系_日本語日付で月日が1桁の場合(self) -> None:
         """1桁の月日（例: 2026年3月1日）もパースできる。"""

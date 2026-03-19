@@ -46,6 +46,7 @@ import json
 import os
 import shutil
 from datetime import datetime, timezone
+from typing import Any
 
 import structlog
 
@@ -382,19 +383,31 @@ def main() -> int:
     output_dir = _resolve_output_dir(args.output_dir)
 
     # Build per-source options from CLI arguments
-    source_options: dict[str, dict] = {}
+    source_options: dict[str, dict[str, Any]] = {}
     if args.jetro_categories or args.jetro_regions or args.jetro_archive_pages:
-        jetro_opts: dict = {}
+        jetro_opts: dict[str, Any] = {}
         if args.jetro_categories:
             jetro_opts["categories"] = args.jetro_categories
         if args.jetro_regions:
             try:
-                jetro_opts["regions"] = json.loads(args.jetro_regions)
+                raw_regions = json.loads(args.jetro_regions)
             except json.JSONDecodeError:
                 logger.error(
                     "Invalid JSON for --jetro-regions", raw=args.jetro_regions
                 )
                 return 1
+            if not isinstance(raw_regions, dict) or not all(
+                isinstance(k, str)
+                and isinstance(v, list)
+                and all(isinstance(c, str) for c in v)
+                for k, v in raw_regions.items()
+            ):
+                logger.error(
+                    "--jetro-regions must be dict[str, list[str]]",
+                    raw=args.jetro_regions,
+                )
+                return 1
+            jetro_opts["regions"] = raw_regions
         if args.jetro_archive_pages > 0:
             jetro_opts["archive_pages"] = args.jetro_archive_pages
         source_options["jetro"] = jetro_opts

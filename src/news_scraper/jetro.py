@@ -643,8 +643,22 @@ def _collect_archive_articles(
         crawler = JetroCategoryCrawler()
 
         async def _crawl_archives() -> list[Any]:
-            """Crawl all archive URLs for the given regions and content types."""
-            all_crawled: list[Any] = []
+            """Crawl all archive URLs concurrently with Semaphore throttling."""
+            sem = asyncio.Semaphore(3)
+
+            async def _crawl_one(
+                archive_url: str, code: str, content_type: str
+            ) -> list[Any]:
+                async with sem:
+                    return await crawler.crawl_archive_pages(
+                        url=archive_url,
+                        category="world",
+                        subcategory=code,
+                        content_type=content_type,
+                        max_pages=archive_pages,
+                    )
+
+            tasks: list[asyncio.Task[list[Any]]] = []
             for region_key, country_codes in regions.items():
                 if not _safe_key_re.match(region_key):
                     logger.warning(
@@ -660,21 +674,19 @@ def _collect_archive_articles(
                             f"https://www.jetro.go.jp/"
                             f"{url_pattern.format(region=region_key, code=code)}"
                         )
-                        try:
-                            crawled = await crawler.crawl_archive_pages(
-                                url=archive_url,
-                                category="world",
-                                subcategory=code,
-                                content_type=content_type,
-                                max_pages=archive_pages,
+                        tasks.append(
+                            asyncio.create_task(
+                                _crawl_one(archive_url, code, content_type)
                             )
-                            all_crawled.extend(crawled)
-                        except Exception as e:
-                            logger.warning(
-                                "Archive crawl failed for URL",
-                                url=archive_url,
-                                error=str(e),
-                            )
+                        )
+
+            results = await asyncio.gather(*tasks, return_exceptions=True)
+            all_crawled: list[Any] = []
+            for result in results:
+                if isinstance(result, BaseException):
+                    logger.warning("Archive crawl failed", error=str(result))
+                else:
+                    all_crawled.extend(result)
             return all_crawled
 
         archive_entries = _run_async(_crawl_archives())

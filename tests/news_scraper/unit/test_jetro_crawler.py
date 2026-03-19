@@ -994,3 +994,48 @@ class TestCrawlArchivePages:
         )
 
         assert entries == []
+
+
+# ---------------------------------------------------------------------------
+# TestResolveHref
+# ---------------------------------------------------------------------------
+
+
+class TestResolveHref:
+    """Tests for JetroCategoryCrawler._resolve_href static method."""
+
+    def test_正常系_絶対パスをJETROドメインで解決(self) -> None:
+        """Absolute path is resolved to JETRO base URL."""
+        result = JetroCategoryCrawler._resolve_href("/biznews/article.html")
+        assert result == f"{JETRO_BASE_URL}/biznews/article.html"
+
+    def test_正常系_JETROドメインのHTTP_URLをそのまま返す(self) -> None:
+        """JETRO domain URL is returned as-is."""
+        url = f"{JETRO_BASE_URL}/biznews/article.html"
+        result = JetroCategoryCrawler._resolve_href(url)
+        assert result == url
+
+    def test_正常系_相対パスをJETROベースURLで解決(self) -> None:
+        """Relative path is resolved with JETRO base URL."""
+        result = JetroCategoryCrawler._resolve_href("biznews/article.html")
+        assert result == f"{JETRO_BASE_URL}/biznews/article.html"
+
+    def test_異常系_外部ドメインURLはNoneを返す(self) -> None:
+        """External domain URL returns None."""
+        result = JetroCategoryCrawler._resolve_href("https://example.com/article")
+        assert result is None
+
+    def test_異常系_javascriptスキームはNoneを返す(self) -> None:
+        """javascript: scheme returns None."""
+        result = JetroCategoryCrawler._resolve_href("javascript:void(0)")
+        assert result is None
+
+    def test_異常系_dataスキームはNoneを返す(self) -> None:
+        """data: scheme returns None."""
+        result = JetroCategoryCrawler._resolve_href("data:text/html,test")
+        assert result is None
+
+    def test_異常系_ftpスキームはNoneを返す(self) -> None:
+        """ftp: scheme returns None."""
+        result = JetroCategoryCrawler._resolve_href("ftp://files.example.com/doc")
+        assert result is None
