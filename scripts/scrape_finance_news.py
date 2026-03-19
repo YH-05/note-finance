@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Finance news scraping script for automated collection.
 
-Collects financial news from CNBC and NASDAQ, saves articles as JSON
-to NAS (or local fallback), and optionally cleans up old data.
+Collects financial news from multiple sources (CNBC, NASDAQ, Kabutan,
+Reuters JP, Minkabu, JETRO), saves articles as JSON to NAS (or local
+fallback), and optionally cleans up old data.
 
 This script is intended to be run by macOS launchd on a schedule
 (every 6 hours), but can also be run manually.
@@ -40,6 +41,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import argparse
+import asyncio
 import json
 import os
 import shutil
@@ -61,7 +63,7 @@ DEFAULT_NAS_OUTPUT = Path(
 )
 _local_dir_env = os.environ.get("FINANCE_NEWS_LOCAL_DIR")
 DEFAULT_LOCAL_FALLBACK = Path(_local_dir_env) if _local_dir_env else get_path("scraped")
-DEFAULT_SOURCES = ["cnbc", "nasdaq"]
+DEFAULT_SOURCES = ["cnbc"]
 DEFAULT_CLEANUP_DAYS = 30
 
 
@@ -101,7 +103,7 @@ def _parse_args() -> argparse.Namespace:
         Parsed arguments.
     """
     parser = argparse.ArgumentParser(
-        description="Collect financial news from CNBC and NASDAQ",
+        description="Collect financial news from multiple sources",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -123,9 +125,9 @@ Examples:
     parser.add_argument(
         "--sources",
         nargs="+",
-        choices=["cnbc", "nasdaq"],
+        choices=["cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu", "jetro"],
         default=DEFAULT_SOURCES,
-        help="News sources to collect from (default: cnbc nasdaq)",
+        help="News sources to collect from (default: cnbc)",
     )
     parser.add_argument(
         "--include-content",
@@ -362,7 +364,7 @@ def main() -> int:
     logger.info("Starting news collection", sources=args.sources)
 
     try:
-        df = collect_financial_news(sources=args.sources, config=config)
+        df = asyncio.run(collect_financial_news(sources=args.sources, config=config))
     except Exception as e:
         logger.error("News collection failed", error=str(e), exc_info=True)
         return 1
