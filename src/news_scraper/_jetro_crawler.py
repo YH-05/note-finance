@@ -32,7 +32,6 @@ True
 from __future__ import annotations
 
 import asyncio
-import concurrent.futures
 import re
 from dataclasses import dataclass
 from typing import Any
@@ -244,19 +243,9 @@ class JetroCategoryCrawler:
             if not title or not href:
                 continue
 
-            # Convert relative URL to absolute with domain validation
-            parsed_href = urlparse(href)
-            if parsed_href.scheme and parsed_href.scheme not in ("http", "https"):
-                continue  # Skip javascript:, data:, etc.
-            if href.startswith("/"):
-                url = f"{JETRO_BASE_URL}{href}"
-            elif href.startswith("http"):
-                if parsed_href.netloc != _JETRO_HOST:
-                    logger.debug("Skipping off-domain URL", href=href)
-                    continue
-                url = href
-            else:
-                url = f"{JETRO_BASE_URL}/{href}"
+            url = self._resolve_href(href)
+            if url is None:
+                continue
 
             # Extract date from <span class="date"> if present
             date_elements = li.cssselect("span.date")
@@ -423,18 +412,20 @@ class JetroCategoryCrawler:
         """
         entries: list[CrawledEntry] = []
 
-        heading_map: dict[str, str] = {
-            "ビジネス短信": "ビジネス短信",
-            "地域・分析レポート": "地域・分析レポート",
-            "調査レポート": "調査レポート",
-            "特集": "特集",
-        }
+        _recognized_headings: frozenset[str] = frozenset(
+            {
+                "ビジネス短信",
+                "地域・分析レポート",
+                "調査レポート",
+                "特集",
+            }
+        )
 
         for h2 in tree.cssselect("h2"):
             heading_text = h2.text_content().strip()
-            content_type = heading_map.get(heading_text)
-            if not content_type:
+            if heading_text not in _recognized_headings:
                 continue
+            content_type = heading_text
 
             heading_div = h2.getparent()
             if heading_div is None:
@@ -1001,23 +992,9 @@ class JetroCategoryCrawler:
         )
 
         try:
-            # Use asyncio.run() for sync wrapper
-            # If already in an event loop, use the loop directly
-            try:
-                loop = asyncio.get_running_loop()
-            except RuntimeError:
-                loop = None
+            from news_scraper.jetro import _run_async
 
-            if loop is not None and loop.is_running():
-                # Already in an async context: run in a thread
-                with concurrent.futures.ThreadPoolExecutor() as pool:
-                    result = pool.submit(
-                        asyncio.run,
-                        self._crawl_all_async(categories, regions),
-                    ).result()
-                return result  # type: ignore[return-value]
-            else:
-                return asyncio.run(self._crawl_all_async(categories, regions))
+            return _run_async(self._crawl_all_async(categories, regions))
 
         except Exception as exc:
             logger.error(

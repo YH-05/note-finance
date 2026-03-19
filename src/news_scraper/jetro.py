@@ -41,6 +41,8 @@ Examples
 
 from __future__ import annotations
 
+import asyncio
+import concurrent.futures
 import re
 import time
 from datetime import datetime, timezone
@@ -60,6 +62,31 @@ from news_scraper._logging import get_logger
 from news_scraper.types import Article, ScraperConfig, deduplicate_by_url, get_delay
 
 logger = get_logger(__name__, module="jetro")
+
+
+def _run_async(coro: Any) -> Any:
+    """Run an async coroutine from sync context, handling nested event loops.
+
+    Parameters
+    ----------
+    coro : Coroutine
+        The coroutine to run.
+
+    Returns
+    -------
+    Any
+        The result of the coroutine.
+    """
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = None
+
+    if loop is not None and loop.is_running():
+        with concurrent.futures.ThreadPoolExecutor() as pool:
+            return pool.submit(asyncio.run, coro).result()
+    return asyncio.run(coro)
+
 
 # Regex for Japanese date format: 2026年03月18日
 _JP_DATE_RE = re.compile(r"(\d{4})年(\d{1,2})月(\d{1,2})日")
@@ -594,8 +621,6 @@ def _collect_archive_articles(
     list[Article]
         Articles collected from archive pages.
     """
-    import asyncio
-
     articles: list[Article] = []
     logger.info(
         "Starting JETRO archive page crawling",
@@ -609,15 +634,27 @@ def _collect_archive_articles(
         "調査レポート": "reportstop/{region}/{code}/reports/",
     }
 
+    # Validate region keys and country codes (same pattern as _build_page_urls)
+    _safe_key_re = re.compile(r"^[a-zA-Z0-9_-]{1,32}$")
+
     try:
         from news_scraper._jetro_crawler import JetroCategoryCrawler
 
         crawler = JetroCategoryCrawler()
 
         async def _crawl_archives() -> list[Any]:
+            """Crawl all archive URLs for the given regions and content types."""
             all_crawled: list[Any] = []
             for region_key, country_codes in regions.items():
+                if not _safe_key_re.match(region_key):
+                    logger.warning(
+                        "Invalid region_key, skipping", region_key=region_key
+                    )
+                    continue
                 for code in country_codes:
+                    if not _safe_key_re.match(code):
+                        logger.warning("Invalid country code, skipping", code=code)
+                        continue
                     for content_type, url_pattern in archive_types.items():
                         archive_url = (
                             f"https://www.jetro.go.jp/"
@@ -640,18 +677,7 @@ def _collect_archive_articles(
                             )
             return all_crawled
 
-        try:
-            loop = asyncio.get_running_loop()
-        except RuntimeError:
-            loop = None
-
-        if loop is not None and loop.is_running():
-            import concurrent.futures
-
-            with concurrent.futures.ThreadPoolExecutor() as pool:
-                archive_entries = pool.submit(asyncio.run, _crawl_archives()).result()
-        else:
-            archive_entries = asyncio.run(_crawl_archives())
+        archive_entries = _run_async(_crawl_archives())
 
         logger.info("Archive crawl complete", archive_entries=len(archive_entries))
         for crawled in archive_entries:

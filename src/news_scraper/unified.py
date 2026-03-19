@@ -93,6 +93,7 @@ async def _collect_minkabu(config: ScraperConfig) -> list[Article]:
             "Minkabu requires Playwright: set use_playwright=True in config "
             "to collect articles. Skipping minkabu source.",
         )
+        return []
     from news_scraper.minkabu import (  # pyright: ignore[reportMissingImports]
         collect_news as _collect,
     )

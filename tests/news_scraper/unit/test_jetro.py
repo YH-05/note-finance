@@ -693,11 +693,11 @@ class TestCollectNewsPhase2:
         mock_feed.entries = []
         mock_parse.return_value = mock_feed
 
-        # Phase 2: Make the local import raise ImportError
+        # Phase 2: Make the local import raise ImportError using monkeypatch
         import sys
 
-        original_module = sys.modules.get("news_scraper._jetro_crawler")
-        sys.modules["news_scraper._jetro_crawler"] = None  # type: ignore[assignment]
+        monkeypatch = pytest.MonkeyPatch()
+        monkeypatch.setitem(sys.modules, "news_scraper._jetro_crawler", None)  # type: ignore[arg-type]
         try:
             # Should not raise, just warn and return empty
             articles = collect_news(
@@ -706,10 +706,7 @@ class TestCollectNewsPhase2:
             )
             assert articles == []
         finally:
-            if original_module is not None:
-                sys.modules["news_scraper._jetro_crawler"] = original_module
-            else:
-                sys.modules.pop("news_scraper._jetro_crawler", None)
+            monkeypatch.undo()
 
 
 # ---------------------------------------------------------------------------
