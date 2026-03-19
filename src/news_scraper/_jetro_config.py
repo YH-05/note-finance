@@ -59,14 +59,14 @@ JETRO_RSS_BIZNEWS: str = "https://www.jetro.go.jp/rss/biznews.xml"
 
 JETRO_CATEGORY_URLS: dict[str, dict[str, str]] = {
     "world": {
-        "asia": "https://www.jetro.go.jp/biznewstop/asia/",
-        "oceania": "https://www.jetro.go.jp/biznewstop/oceania/",
-        "n_america": "https://www.jetro.go.jp/biznewstop/n_america/",
-        "cs_america": "https://www.jetro.go.jp/biznewstop/cs_america/",
-        "europe": "https://www.jetro.go.jp/biznewstop/europe/",
-        "russia_cis": "https://www.jetro.go.jp/biznewstop/russia_cis/",
-        "middle_east": "https://www.jetro.go.jp/biznewstop/middle_east/",
-        "africa": "https://www.jetro.go.jp/biznewstop/africa/",
+        "asia": "https://www.jetro.go.jp/world/asia/",
+        "oceania": "https://www.jetro.go.jp/world/oceania/",
+        "n_america": "https://www.jetro.go.jp/world/n_america/",
+        "cs_america": "https://www.jetro.go.jp/world/cs_america/",
+        "europe": "https://www.jetro.go.jp/world/europe/",
+        "russia_cis": "https://www.jetro.go.jp/world/russia_cis/",
+        "middle_east": "https://www.jetro.go.jp/world/middle_east/",
+        "africa": "https://www.jetro.go.jp/world/africa/",
     },
     "theme": {
         "export": "https://www.jetro.go.jp/themetop/export/",

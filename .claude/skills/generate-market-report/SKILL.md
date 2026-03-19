@@ -69,7 +69,7 @@ Phase 1: 初期化
 └── 必要ツール確認
 
 Phase 2: 市場データ収集（★PerformanceAnalyzer4Agent使用）
-├── collect_market_performance.py → data/market/
+├── collect_market_performance.py → /Volumes/personal_folder/data/market/
 │   ├── {category}_{YYYYMMDD-HHMM}.json（複数期間: 1D, 1W, MTD, YTD...）
 │   └── all_performance_{YYYYMMDD-HHMM}.json（統合）
 └── データ鮮度チェック（日付ズレ警告）

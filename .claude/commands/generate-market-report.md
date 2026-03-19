@@ -39,11 +39,11 @@ argument-hint: [--date YYYY-MM-DD] [--weekly] [--weekly-comment] [--project 15] 
 
 # NAS のディレクトリを指定してフル週次レポート生成（推奨）
 /generate-market-report --weekly --date 2026-03-01 \
-    --news-dir /Volumes/personal_folder/finance-news/
+    --news-dir /Volumes/personal_folder/scraped/finance-news/
 
 # 単一 JSON ファイルを指定してフル週次レポート生成
 /generate-market-report --weekly --date 2026-03-01 \
-    --news-json /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json
+    --news-json /Volumes/personal_folder/scraped/finance-news/2026-03-01/news_120000.json
 
 # ローカルフォールバックディレクトリを使用
 /generate-market-report --weekly --date 2026-03-01 \

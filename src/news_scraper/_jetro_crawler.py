@@ -283,6 +283,148 @@ class JetroCategoryCrawler:
         )
         return entries
 
+    def _extract_entries_by_heading(
+        self,
+        tree: Any,
+        category: str,
+        subcategory: str,
+    ) -> list[CrawledEntry]:
+        """Extract article entries by finding h2 headings and their next sibling.
+
+        The current JETRO country pages use a structure where ``<h2>`` is
+        wrapped in ``div.elem_heading_lv2``, and articles appear in the
+        next sibling ``<div>`` as ``<dt>`` (date) + ``<dd>`` (link) pairs.
+
+        Parameters
+        ----------
+        tree : Any
+            Pre-parsed lxml HTML element tree.
+        category : str
+            Top-level category key.
+        subcategory : str
+            Sub-category key.
+
+        Returns
+        -------
+        list[CrawledEntry]
+            Extracted entries from all recognized sections.
+        """
+        entries: list[CrawledEntry] = []
+
+        heading_map: dict[str, str] = {
+            "ビジネス短信": "ビジネス短信",
+            "地域・分析レポート": "地域・分析レポート",
+            "調査レポート": "調査レポート",
+            "特集": "特集",
+        }
+
+        h2_elements = tree.cssselect("h2")
+        for h2 in h2_elements:
+            heading_text = h2.text_content().strip()
+            content_type = heading_map.get(heading_text)
+            if not content_type:
+                continue
+
+            # h2 is inside div.elem_heading_lv2; articles are in the next sibling
+            heading_div = h2.getparent()
+            if heading_div is None:
+                continue
+            article_container = heading_div.getnext()
+            if article_container is None:
+                continue
+
+            # Extract from <dd><a> + <dt> pairs
+            dd_links = article_container.cssselect("dd a")
+            dt_elements = article_container.cssselect("dt")
+
+            dates: list[str] = [dt.text_content().strip() for dt in dt_elements]
+
+            section_count = 0
+            for i, dd_link in enumerate(dd_links):
+                title = dd_link.text_content().strip()
+                href = dd_link.get("href", "")
+
+                if not title or not href:
+                    continue
+                # Skip "もっと見る" navigation links
+                if title == "もっと見る":
+                    continue
+
+                parsed_href = urlparse(href)
+                if parsed_href.scheme and parsed_href.scheme not in ("http", "https"):
+                    continue
+                if href.startswith("/"):
+                    url = f"{JETRO_BASE_URL}{href}"
+                elif href.startswith("http"):
+                    if parsed_href.netloc != _JETRO_HOST:
+                        continue
+                    url = href
+                else:
+                    url = f"{JETRO_BASE_URL}/{href}"
+
+                published = dates[i] if i < len(dates) else None
+                entries.append(
+                    CrawledEntry(
+                        title=title,
+                        url=url,
+                        category=category,
+                        subcategory=subcategory,
+                        content_type=content_type,
+                        published=published,
+                    )
+                )
+                section_count += 1
+
+            # Fallback: <ul><li><a> pattern (特集 section)
+            if section_count == 0:
+                li_links = article_container.cssselect("li a")
+                for link_el in li_links:
+                    title = link_el.text_content().strip()
+                    href = link_el.get("href", "")
+                    if not title or not href or title == "もっと見る":
+                        continue
+                    parsed_href = urlparse(href)
+                    if parsed_href.scheme and parsed_href.scheme not in (
+                        "http",
+                        "https",
+                    ):
+                        continue
+                    if href.startswith("/"):
+                        url = f"{JETRO_BASE_URL}{href}"
+                    elif href.startswith("http"):
+                        if parsed_href.netloc != _JETRO_HOST:
+                            continue
+                        url = href
+                    else:
+                        url = f"{JETRO_BASE_URL}/{href}"
+
+                    entries.append(
+                        CrawledEntry(
+                            title=title,
+                            url=url,
+                            category=category,
+                            subcategory=subcategory,
+                            content_type=content_type,
+                            published=None,
+                        )
+                    )
+                    section_count += 1
+
+            logger.debug(
+                "Heading-based entries extracted",
+                heading=heading_text,
+                content_type=content_type,
+                count=section_count,
+            )
+
+        logger.info(
+            "Heading-based extraction complete",
+            category=category,
+            subcategory=subcategory,
+            total_entries=len(entries),
+        )
+        return entries
+
     # ------------------------------------------------------------------
     # Playwright-based page loading
     # ------------------------------------------------------------------
@@ -412,6 +554,8 @@ class JetroCategoryCrawler:
             return []
 
         all_entries: list[CrawledEntry] = []
+
+        # Strategy 1: Legacy section-id based extraction
         for section_id, content_type in _SECTION_MAP.items():
             section_entries = self._extract_section_entries_from_tree(
                 tree=tree,
@@ -422,10 +566,211 @@ class JetroCategoryCrawler:
             )
             all_entries.extend(section_entries)
 
+        # Strategy 2: h2 heading-based extraction (current page structure)
+        if not all_entries:
+            all_entries = self._extract_entries_by_heading(
+                tree=tree,
+                category=category,
+                subcategory=subcategory,
+            )
+
         logger.info(
             "Category page crawl complete",
             url=url,
             total_entries=len(all_entries),
+        )
+        return all_entries
+
+    # ------------------------------------------------------------------
+    # Archive page crawling (paginated list pages)
+    # ------------------------------------------------------------------
+
+    def _extract_archive_entries(
+        self,
+        tree: Any,
+        category: str,
+        subcategory: str,
+        content_type: str,
+    ) -> list[CrawledEntry]:
+        """Extract article entries from an archive list page.
+
+        Archive pages use ``<li>`` elements containing a date ``<span>``
+        and an ``<a>`` link.
+
+        Parameters
+        ----------
+        tree : Any
+            Pre-parsed lxml HTML element tree.
+        category : str
+            Top-level category key.
+        subcategory : str
+            Sub-category key.
+        content_type : str
+            JETRO content-type label.
+
+        Returns
+        -------
+        list[CrawledEntry]
+            Extracted entries.
+        """
+        entries: list[CrawledEntry] = []
+
+        # Archive pages: <li> contains <div class="date"> + <div class="title">
+        # where <div class="title"> > <span> > <a> holds the article link.
+        for li in tree.cssselect("li"):
+            title_div = li.cssselect("div.title")
+            if not title_div:
+                continue
+
+            links = title_div[0].cssselect("a")
+            if not links:
+                continue
+
+            link_el = links[0]
+            href = link_el.get("href", "")
+            if not href or not href.startswith("/"):
+                continue
+
+            title = link_el.text_content().strip()
+            if not title:
+                continue
+
+            url = f"{JETRO_BASE_URL}{href}"
+
+            # Extract date from <div class="date">
+            date_div = li.cssselect("div.date")
+            published = (
+                date_div[0].text_content().strip() if date_div else None
+            )
+
+            entries.append(
+                CrawledEntry(
+                    title=title,
+                    url=url,
+                    category=category,
+                    subcategory=subcategory,
+                    content_type=content_type,
+                    published=published,
+                )
+            )
+
+        return entries
+
+    async def crawl_archive_pages(
+        self,
+        url: str,
+        category: str,
+        subcategory: str,
+        content_type: str,
+        max_pages: int = 3,
+        browser: Any = None,
+    ) -> list[CrawledEntry]:
+        """Crawl a paginated archive page with JavaScript pagination.
+
+        Navigates to the archive URL, extracts entries from the first page,
+        then clicks the "次へ" button to load subsequent pages.
+
+        Parameters
+        ----------
+        url : str
+            Full URL of the archive page.
+        category : str
+            Top-level category key.
+        subcategory : str
+            Sub-category key.
+        content_type : str
+            JETRO content-type label (e.g. ``"ビジネス短信"``).
+        max_pages : int
+            Maximum number of pages to crawl (default 3).
+        browser : Any, optional
+            Playwright browser instance.
+
+        Returns
+        -------
+        list[CrawledEntry]
+            All extracted entries across pages.
+        """
+        logger.info(
+            "Crawling JETRO archive pages",
+            url=url,
+            content_type=content_type,
+            max_pages=max_pages,
+        )
+
+        own_browser = browser is None
+        pw_ctx = None
+        all_entries: list[CrawledEntry] = []
+
+        try:
+            if own_browser:
+                pw_ctx = async_playwright()
+                pw = await pw_ctx.__aenter__()
+                browser = await pw.chromium.launch(headless=self._headless)
+
+            page = await browser.new_page()
+            try:
+                await page.goto(
+                    url,
+                    timeout=self._timeout_ms,
+                    wait_until="networkidle",
+                )
+
+                for page_num in range(max_pages):
+                    html_content = await page.content()
+                    try:
+                        tree = lxml_html.fromstring(html_content)
+                    except Exception as exc:
+                        logger.warning(
+                            "Failed to parse archive HTML",
+                            page=page_num + 1,
+                            error=str(exc),
+                        )
+                        break
+
+                    entries = self._extract_archive_entries(
+                        tree, category, subcategory, content_type,
+                    )
+                    if not entries:
+                        logger.debug(
+                            "No entries on archive page, stopping",
+                            page=page_num + 1,
+                        )
+                        break
+
+                    all_entries.extend(entries)
+                    logger.info(
+                        "Archive page extracted",
+                        page=page_num + 1,
+                        entries=len(entries),
+                        total=len(all_entries),
+                    )
+
+                    # Click "次へ" for next page (skip on last page)
+                    if page_num < max_pages - 1:
+                        next_button = page.locator("a", has_text="次へ")
+                        if await next_button.count() == 0:
+                            logger.debug("No next button found, stopping")
+                            break
+                        await next_button.click()
+                        # Wait for content to update
+                        await page.wait_for_load_state("networkidle")
+                        await page.wait_for_timeout(1000)
+
+            finally:
+                await page.close()
+
+        finally:
+            if own_browser:
+                if browser is not None:
+                    await browser.close()
+                if pw_ctx is not None:
+                    await pw_ctx.__aexit__(None, None, None)
+
+        logger.info(
+            "Archive crawl complete",
+            url=url,
+            total_entries=len(all_entries),
+            pages_crawled=min(max_pages, len(all_entries) // 30 + 1),
         )
         return all_entries
 
@@ -488,7 +833,7 @@ class JetroCategoryCrawler:
                                 code=country_code,
                             )
                             continue
-                        page_url = f"{base_url.rstrip('/')}/{country_code}.html"
+                        page_url = f"{base_url.rstrip('/')}/{country_code}/"
                         targets.append((page_url, cat_group, country_code))
             else:
                 # Use the region/subcategory URLs directly

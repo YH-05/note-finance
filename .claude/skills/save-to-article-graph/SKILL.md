@@ -31,7 +31,7 @@ research-neo4j（`bolt://localhost:7688`）を対象とし、wealth-scrape と t
 
 ```bash
 # wealth-scrape: ディレクトリ入力（バックフィル）
-/save-to-article-graph --command wealth-scrape --input data/scraped/wealth/
+/save-to-article-graph --command wealth-scrape --input /Volumes/personal_folder/scraped/wealth/
 
 # wealth-scrape: JSONファイル入力（インクリメンタル）
 /save-to-article-graph --command wealth-scrape --input .tmp/wealth-scrape-20260316-120000.json
@@ -40,7 +40,7 @@ research-neo4j（`bolt://localhost:7688`）を対象とし、wealth-scrape と t
 /save-to-article-graph --command topic-discovery --input .tmp/topic-suggestions/2026-03-16_1430.json
 
 # ドライラン（graph-queue 生成のみ、Neo4j 投入は Cypher 表示のみ）
-/save-to-article-graph --command wealth-scrape --input data/scraped/wealth/ --dry-run
+/save-to-article-graph --command wealth-scrape --input /Volumes/personal_folder/scraped/wealth/ --dry-run
 
 # 処理済みファイルを保持
 /save-to-article-graph --command topic-discovery --input .tmp/topic-suggestions/2026-03-16_1430.json --keep
@@ -77,7 +77,7 @@ research-neo4j（`bolt://localhost:7688`）を対象とし、wealth-scrape と t
 
 | パターン | 入力パス例 | モード |
 |---------|-----------|--------|
-| バックフィル | `data/scraped/wealth/` | ディレクトリ走査。ドメイン別に複数 graph-queue ファイルを生成 |
+| バックフィル | `/Volumes/personal_folder/scraped/wealth/` | ディレクトリ走査。ドメイン別に複数 graph-queue ファイルを生成 |
 | インクリメンタル | `.tmp/wealth-scrape-{YYYYMMDD}-{HHMMSS}.json` | 単一 JSON 入力 |
 
 ### topic-discovery の入力パターン

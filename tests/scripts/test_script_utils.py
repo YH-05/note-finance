@@ -42,27 +42,33 @@ class TestResolveOutputDir:
         result = resolve_output_dir(str(tmp_path / "custom"))
         assert result == Path(str(tmp_path / "custom"))
 
-    def test_正常系_argがNoneの場合はget_pathのデフォルトを返す(self) -> None:
-        """arg が None の場合は get_path(default_sub) を返す。"""
-        from scripts._script_utils import resolve_output_dir
+    def test_正常系_argがNoneの場合はNASまたはget_pathを返す(self) -> None:
+        """arg が None の場合は NAS 優先、フォールバックで get_path(default_sub) を返す。"""
+        from scripts._script_utils import _NAS_DATA_ROOT, resolve_output_dir
 
         result = resolve_output_dir(None)
-        expected = get_path("market")
-        assert result == expected
+        if _NAS_DATA_ROOT.exists():
+            assert result == _NAS_DATA_ROOT / "market"
+        else:
+            assert result == get_path("market")
 
     def test_正常系_default_subを変更できる(self) -> None:
         """default_sub パラメータでデフォルトサブパスを変更できる。"""
-        from scripts._script_utils import resolve_output_dir
+        from scripts._script_utils import _NAS_DATA_ROOT, resolve_output_dir
 
         result = resolve_output_dir(None, default_sub="exports")
-        expected = get_path("exports")
-        assert result == expected
+        if _NAS_DATA_ROOT.exists():
+            assert result == _NAS_DATA_ROOT / "exports"
+        else:
+            assert result == get_path("exports")
 
     def test_正常系_空文字列のargはtruthyとして扱われる(self) -> None:
         """空文字列は truthy ではないため None と同じ扱いになる。"""
-        from scripts._script_utils import resolve_output_dir
+        from scripts._script_utils import _NAS_DATA_ROOT, resolve_output_dir
 
-        # Python の if "" は False なので get_path(default_sub) が返る
+        # Python の if "" は False なので NAS or get_path(default_sub) が返る
         result = resolve_output_dir("")
-        expected = get_path("market")
-        assert result == expected
+        if _NAS_DATA_ROOT.exists():
+            assert result == _NAS_DATA_ROOT / "market"
+        else:
+            assert result == get_path("market")

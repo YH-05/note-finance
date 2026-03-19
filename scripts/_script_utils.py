@@ -13,9 +13,14 @@ from data_paths import get_path
 FINANCE_NEWS_THEMES_CONFIG = get_path("config/finance-news-themes.json")
 """金融ニューステーマ設定ファイルのパス。"""
 
+_NAS_DATA_ROOT = Path("/Volumes/personal_folder/data")
+"""NAS 上のデータルート。マウント時に優先使用される。"""
+
 
 def resolve_output_dir(arg: str | None, default_sub: str = "market") -> Path:
     """CLI --output 引数をパスに解決する。
+
+    NAS がマウントされている場合は NAS パスを優先する。
 
     Parameters
     ----------
@@ -31,4 +36,9 @@ def resolve_output_dir(arg: str | None, default_sub: str = "market") -> Path:
     """
     if arg:
         return Path(arg)
+    # NAS がマウントされていれば NAS を優先
+    nas_dir = _NAS_DATA_ROOT / default_sub
+    if _NAS_DATA_ROOT.exists():
+        nas_dir.mkdir(parents=True, exist_ok=True)
+        return nas_dir
     return get_path(default_sub)

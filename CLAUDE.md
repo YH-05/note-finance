@@ -53,6 +53,12 @@
 | `/publish-to-note` | `/article-publish` |
 | `/asset-management` | `/article-full --category asset_management` |
 
+## 制約事項
+
+- `template/` は変更・削除禁止
+- ファイル・ディレクトリを削除する際は `rm` ではなく `trash/` に移動すること
+- `trash/` はユーザーが定期的に確認・削除する
+
 ## Obsidian 操作ルール
 
 Obsidian を操作する際は `obsidian` コマンド（`/Applications/Obsidian.app/Contents/MacOS/obsidian`）のみを使用すること。ファイルの読み書きや検索等も `obsidian` CLI 経由で行う。

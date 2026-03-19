@@ -105,8 +105,9 @@ SITEMAP_CONFIG_PATH = Path("data/config/wealth-sitemap-config.json")
 TMP_DIR = Path(".tmp")
 """Temporary directory for session files."""
 
-SCRAPED_OUTPUT_DIR = Path("data/scraped/wealth")
-"""Base directory for scraped Markdown article files."""
+_NAS_SCRAPED_WEALTH = Path("/Volumes/personal_folder/scraped/wealth")
+SCRAPED_OUTPUT_DIR = _NAS_SCRAPED_WEALTH if _NAS_SCRAPED_WEALTH.parent.exists() else Path("data/scraped/wealth")
+"""Base directory for scraped Markdown article files (NAS preferred, local fallback)."""
 
 FEED_READ_LIMIT = 200
 """Maximum number of items to fetch from FeedReader per search call."""
@@ -526,8 +527,9 @@ def fetch_rss_items_by_source(
         source_key = resolve_source_key_wealth(domain)
         preset_mapping.append((source_key, domain, title))
 
-    # Read from local RSS data directory
-    data_dir = Path("data/raw/rss")
+    # Read from RSS data directory (NAS preferred, local fallback)
+    _nas_rss = Path("/Volumes/personal_folder/scraped/rss")
+    data_dir = _nas_rss if _nas_rss.exists() else Path("data/raw/rss")
     if data_dir.exists():
         try:
             reader = FeedReader(data_dir)

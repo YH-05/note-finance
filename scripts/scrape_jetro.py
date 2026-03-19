@@ -55,7 +55,7 @@ logger = get_logger(__name__, module="scrape_jetro")
 # JETRO_NEWS_NAS_DIR  : NAS mount path (preferred)
 # JETRO_NEWS_LOCAL_DIR: local fallback when NAS is not mounted
 DEFAULT_NAS_OUTPUT = Path(
-    os.environ.get("JETRO_NEWS_NAS_DIR", "/Volumes/personal_folder/jetro-news")
+    os.environ.get("JETRO_NEWS_NAS_DIR", "/Volumes/personal_folder/scraped/jetro")
 )
 _local_dir_env = os.environ.get("JETRO_NEWS_LOCAL_DIR")
 DEFAULT_LOCAL_FALLBACK = (

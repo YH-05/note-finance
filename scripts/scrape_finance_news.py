@@ -53,7 +53,7 @@ logger = get_logger(__name__, module="scrape_finance_news")
 # FINANCE_NEWS_NAS_DIR  : NAS マウントパス（優先）
 # FINANCE_NEWS_LOCAL_DIR: NAS 未マウント時のローカルフォールバック
 DEFAULT_NAS_OUTPUT = Path(
-    os.environ.get("FINANCE_NEWS_NAS_DIR", "/Volumes/personal_folder/finance-news")
+    os.environ.get("FINANCE_NEWS_NAS_DIR", "/Volumes/personal_folder/scraped/finance-news")
 )
 _local_dir_env = os.environ.get("FINANCE_NEWS_LOCAL_DIR")
 DEFAULT_LOCAL_FALLBACK = Path(_local_dir_env) if _local_dir_env else get_path("scraped")

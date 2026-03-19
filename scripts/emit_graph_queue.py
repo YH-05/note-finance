@@ -27,7 +27,7 @@ Usage
 
     python3 scripts/emit_graph_queue.py \\
         --command wealth-scrape \\
-        --input data/scraped/wealth/
+        --input /Volumes/personal_folder/scraped/wealth/
 
     python3 scripts/emit_graph_queue.py \\
         --command finance-news-workflow \\
@@ -2400,7 +2400,7 @@ def _scan_wealth_directory(
     Parameters
     ----------
     dir_path : Path
-        Root directory to scan (e.g. ``data/scraped/wealth/``).
+        Root directory to scan (e.g. ``/Volumes/personal_folder/scraped/wealth/``).
     theme_config_path : Path
         Path to the wealth-management theme configuration JSON.
 
