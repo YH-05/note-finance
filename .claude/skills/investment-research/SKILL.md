@@ -75,3 +75,11 @@ MCPツールは ToolSearch でロードを試みる。利用不可の場合:
 - quick: 5回以上
 - standard: 10回以上
 - deep: 15回以上
+
+## KG Output（任意）
+
+リサーチ結果をresearch-neo4jに永続化する場合:
+1. `/emit-research-queue` スキルでgraph-queue JSONを生成
+2. `/save-to-graph` でNeo4jに投入
+
+参照: `.claude/rules/neo4j-write-rules.md`（直書き禁止ルール）

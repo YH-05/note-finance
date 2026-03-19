@@ -31,24 +31,25 @@ from typing import Any
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from pydantic import BaseModel, Field
-
-from data_paths import get_path
-
 from _script_utils import FINANCE_NEWS_THEMES_CONFIG
-from rss.services.feed_reader import FeedReader
-from rss.utils.url_normalizer import normalize_url
+from pydantic import BaseModel, Field
 from session_utils import (
     ArticleData,
     BlockedArticle,
     SessionStats,
     configure_logging,
     filter_by_date,
-    get_logger as _get_logger,
     load_json_config,
     select_top_n,
     write_session_file,
 )
+from session_utils import (
+    get_logger as _get_logger,
+)
+
+from data_paths import get_path
+from rss.services.feed_reader import FeedReader
+from rss.utils.url_normalizer import normalize_url
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -69,8 +70,10 @@ DEFAULT_DATA_DIR = get_path("raw/rss")
 THEME_CONFIG_PATH = FINANCE_NEWS_THEMES_CONFIG
 """Path to theme configuration file."""
 
-TMP_DIR = Path(".tmp")
-"""Temporary directory for session files."""
+# セッションディレクトリ（NAS優先、ローカルフォールバック）
+_NAS_SESSIONS_DIR = Path("/Volumes/personal_folder/scraped/sessions")
+TMP_DIR = _NAS_SESSIONS_DIR if _NAS_SESSIONS_DIR.parent.exists() else Path(".tmp")
+"""Directory for session files (NAS preferred, local fallback)."""
 
 REPO = "YH-05/finance"
 """GitHub repository."""

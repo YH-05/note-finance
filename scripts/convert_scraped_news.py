@@ -11,15 +11,15 @@ Usage
 Single file:
 
     $ uv run python scripts/convert_scraped_news.py \\
-        --input /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json \\
+        --input /Volumes/personal_folder/scraped/cnbc/2026-03-01/news_120000.json \\
         --output articles/market_report/2026-03-01/data \\
         --start 2026-02-22 \\
         --end 2026-03-01
 
-Directory (merge multiple files):
+Directory (merge CNBC + NASDAQ):
 
     $ uv run python scripts/convert_scraped_news.py \\
-        --input-dir /Volumes/personal_folder/finance-news/ \\
+        --input-dir /Volumes/personal_folder/scraped/cnbc/ \\
         --output articles/market_report/2026-03-01/data \\
         --start 2026-02-22 \\
         --end 2026-03-01
@@ -582,13 +582,13 @@ def _parse_args() -> argparse.Namespace:
         epilog="""
 Examples:
   uv run python scripts/convert_scraped_news.py \\
-      --input /Volumes/personal_folder/finance-news/2026-03-01/news_120000.json \\
+      --input /Volumes/personal_folder/scraped/cnbc/2026-03-01/news_120000.json \\
       --output articles/market_report/2026-03-01/data \\
       --start 2026-02-22 \\
       --end 2026-03-01
 
   uv run python scripts/convert_scraped_news.py \\
-      --input-dir /Volumes/personal_folder/finance-news/ \\
+      --input-dir /Volumes/personal_folder/scraped/cnbc/ \\
       --output articles/market_report/2026-03-01/data \\
       --start 2026-02-22 \\
       --end 2026-03-01

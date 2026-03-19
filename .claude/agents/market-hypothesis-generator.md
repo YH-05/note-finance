@@ -24,7 +24,7 @@ tools:
 ## 入力
 
 ```
-入力ディレクトリ: data/market/
+入力ディレクトリ: /Volumes/personal_folder/data/market/（NAS優先、フォールバック: data/market/）
 入力ファイル: all_performance_{YYYYMMDD-HHMM}.json（最新のもの）
 ```
 
@@ -33,8 +33,9 @@ tools:
 ### Step 1: データ読み込み
 
 ```bash
-# 最新の all_performance ファイルを特定
-ls -t data/market/all_performance_*.json | head -1
+# 最新の all_performance ファイルを特定（NAS優先）
+MARKET_DIR=$( [ -d /Volumes/personal_folder/data/market ] && echo /Volumes/personal_folder/data/market || echo data/market )
+ls -t "$MARKET_DIR"/all_performance_*.json | head -1
 ```
 
 ファイルを Read ツールで読み込む。
@@ -144,7 +145,7 @@ ls -t data/market/all_performance_*.json | head -1
 ```json
 {
   "generated_at": "2026-01-29T10:30:00+09:00",
-  "source_file": "data/market/all_performance_20260129-1030.json",
+  "source_file": "/Volumes/personal_folder/data/market/all_performance_20260129-1030.json",
   "market_summary": {
     "overall_trend": "bullish",
     "trend_strength": "moderate",
@@ -207,7 +208,7 @@ ls -t data/market/all_performance_*.json | head -1
 
 ## 関連ファイル
 
-- 入力: `data/market/all_performance_{YYYYMMDD-HHMM}.json`
+- 入力: `/Volumes/personal_folder/data/market/all_performance_{YYYYMMDD-HHMM}.json`（NAS優先）
 - 入力: `src/analyze/reporting/performance_agent.py`
 - 出力: `{report_dir}/data/hypotheses_{YYYYMMDD-HHMM}.json`
 - 参照: `.claude/resources/search-templates/`（検索クエリテンプレート集）

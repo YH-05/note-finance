@@ -11,8 +11,9 @@ from youtube_transcript._logging import get_logger
 
 logger = get_logger(__name__)
 
-# Default data directory (resolved via data_paths)
-DEFAULT_DATA_DIR = get_path("raw/youtube_transcript")
+# Default data directory: NAS preferred, local fallback via data_paths
+_NAS_YT_DIR = Path("/Volumes/personal_folder/scraped/youtube_transcript")
+DEFAULT_DATA_DIR = _NAS_YT_DIR if _NAS_YT_DIR.parent.exists() else get_path("raw/youtube_transcript")
 
 
 @click.group()

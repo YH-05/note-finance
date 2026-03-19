@@ -20,6 +20,7 @@ from typing import Any
 
 from youtube_transcript._logging import get_logger
 from youtube_transcript.core.diff_detector import DiffDetector
+from youtube_transcript.core.yt_dlp_fetcher import YtDlpFetcher
 from youtube_transcript.exceptions import (
     ChannelNotFoundError,
     QuotaExceededError,
@@ -115,8 +116,10 @@ class Collector:
         self._storage = JSONStorage(data_dir)
         self._channel_fetcher = channel_fetcher
         self._transcript_fetcher = transcript_fetcher
+        self._yt_dlp_fetcher = YtDlpFetcher()
         self._quota_tracker = quota_tracker
         self._diff_detector = DiffDetector()
+        self._ip_blocked = False  # IpBlocked 検出フラグ
 
         logger.debug("Collector initialized", data_dir=str(data_dir))
 
@@ -324,7 +327,7 @@ class Collector:
 
         for video in new_videos:
             try:
-                result = self._transcript_fetcher.fetch(
+                result = self._fetch_with_fallback(
                     video.video_id,
                     languages=channel.language_priority,
                 )
@@ -388,3 +391,30 @@ class Collector:
             failed=failed,
             skipped=skipped,
         )
+
+    def _fetch_with_fallback(
+        self,
+        video_id: str,
+        languages: list[str],
+    ) -> Any:
+        """TranscriptFetcher で取得し、IpBlocked なら yt-dlp にフォールバック."""
+        # 既に IpBlocked が検出済みなら直接 yt-dlp を使う
+        if self._ip_blocked:
+            logger.debug(
+                "IpBlocked detected earlier, using yt-dlp directly",
+                video_id=video_id,
+            )
+            return self._yt_dlp_fetcher.fetch(video_id, languages=languages)
+
+        try:
+            return self._transcript_fetcher.fetch(video_id, languages=languages)
+        except Exception as exc:
+            # IpBlocked を検出（youtube_transcript_api の例外名で判定）
+            if type(exc).__name__ == "IpBlocked":
+                self._ip_blocked = True
+                logger.warning(
+                    "IpBlocked detected, falling back to yt-dlp",
+                    video_id=video_id,
+                )
+                return self._yt_dlp_fetcher.fetch(video_id, languages=languages)
+            raise

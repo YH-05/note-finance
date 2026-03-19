@@ -279,3 +279,11 @@ equity_research/{TICKER}_{EXCHANGE}/research_memo/
 | セクター別KPIカタログ | `references/sector-kpis.md` |
 | NotebookLM質問テンプレート（ISAT_IJ実績） | `docs/templates/initial-report/notebooklm-questions.md` |
 | equity_research ディレクトリ | `equity_research/` |
+
+## KG Output（任意）
+
+リサーチ結果をresearch-neo4jに永続化する場合:
+1. `/emit-research-queue` スキルでgraph-queue JSONを生成
+2. `/save-to-graph` でNeo4jに投入
+
+参照: `.claude/rules/neo4j-write-rules.md`（直書き禁止ルール）

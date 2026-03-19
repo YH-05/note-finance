@@ -10,6 +10,7 @@ References
 
 from __future__ import annotations
 
+import os
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
@@ -17,13 +18,15 @@ from typing import Any
 
 from youtube_transcript._errors import log_and_reraise
 from youtube_transcript._logging import get_logger
-from youtube_transcript.core.channel_fetcher import _parse_url_or_id
+from youtube_transcript.core.channel_fetcher import ChannelFetcher, _parse_url_or_id
 from youtube_transcript.exceptions import (
+    APIError,
     ChannelAlreadyExistsError,
     ChannelNotFoundError,
     StorageError,
 )
 from youtube_transcript.storage.json_storage import JSONStorage
+from youtube_transcript.storage.quota_tracker import QuotaTracker
 from youtube_transcript.types import Channel
 
 logger = get_logger(__name__)
@@ -139,6 +142,28 @@ class ChannelManager:
         # Normalise: extract channel_id if a full URL is given
         channel_id = _normalise_to_channel_id(url_or_id)
 
+        # If not a raw UCxxx ID, resolve via YouTube Data API
+        uploads_playlist_id = _derive_uploads_playlist_id(channel_id)
+        if not uploads_playlist_id:
+            resolved = self._resolve_channel_via_api(url_or_id)
+            if resolved is not None:
+                channel_id = resolved.channel_id
+                uploads_playlist_id = resolved.uploads_playlist_id
+                if not title or title == channel_id:
+                    title = resolved.title
+                logger.info(
+                    "Resolved channel via API",
+                    original=url_or_id,
+                    resolved_id=channel_id,
+                    uploads_playlist_id=uploads_playlist_id,
+                )
+            else:
+                logger.warning(
+                    "Could not resolve channel via API, storing as-is",
+                    url_or_id=url_or_id,
+                    channel_id=channel_id,
+                )
+
         logger.debug(
             "Adding channel",
             url_or_id=url_or_id,
@@ -165,7 +190,7 @@ class ChannelManager:
         channel = Channel(
             channel_id=channel_id,
             title=title,
-            uploads_playlist_id=_derive_uploads_playlist_id(channel_id),
+            uploads_playlist_id=uploads_playlist_id,
             language_priority=language_priority,
             enabled=enabled,
             created_at=now,
@@ -183,6 +208,36 @@ class ChannelManager:
         )
 
         return channel
+
+    # ------------------------------------------------------------------
+    # Private helpers
+    # ------------------------------------------------------------------
+
+    def _resolve_channel_via_api(self, url_or_id: str) -> Channel | None:
+        """Resolve @handle / username to UCxxx via YouTube Data API.
+
+        Returns None if YOUTUBE_API_KEY is not set or the API call fails.
+        """
+        api_key = os.environ.get("YOUTUBE_API_KEY", "")
+        if not api_key:
+            logger.debug("YOUTUBE_API_KEY not set, skipping API resolution")
+            return None
+
+        try:
+            tracker = QuotaTracker(self.data_dir)
+            fetcher = ChannelFetcher(api_key=api_key, quota_tracker=tracker)
+            return fetcher.get_channel_info(url_or_id)
+        except (APIError, Exception) as e:
+            logger.warning(
+                "API resolution failed",
+                url_or_id=url_or_id,
+                error=str(e),
+            )
+            return None
+
+    # ------------------------------------------------------------------
+    # Public API (continued)
+    # ------------------------------------------------------------------
 
     def list(self, *, enabled_only: bool = False) -> list[Channel]:
         """Return all registered channels, with optional enabled filter.

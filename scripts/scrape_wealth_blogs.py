@@ -90,7 +90,16 @@ MAX_TOP_N = 100
 WEALTH_SESSION_PREFIX = "wealth-scrape"
 """Session ID prefix for wealth scraping sessions."""
 
-WEALTH_SCRAPE_DB_PATH = Path(".tmp/wealth_scrape_state.db")
+# NAS ベースディレクトリ
+_NAS_SCRAPED_BASE = Path("/Volumes/personal_folder/scraped")
+_NAS_AVAILABLE = _NAS_SCRAPED_BASE.exists()
+
+# セッション・状態DB ディレクトリ（NAS優先、ローカルフォールバック）
+_NAS_SESSIONS_DIR = _NAS_SCRAPED_BASE / "sessions"
+SESSIONS_DIR = _NAS_SESSIONS_DIR if _NAS_AVAILABLE else Path(".tmp")
+"""Directory for session files and state DB (NAS preferred, local fallback)."""
+
+WEALTH_SCRAPE_DB_PATH = SESSIONS_DIR / "wealth_scrape_state.db"
 """Default path for the SQLite scraping state database."""
 
 THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
@@ -102,11 +111,9 @@ RSS_PRESETS_WEALTH_PATH = Path("data/config/rss-presets-wealth.json")
 SITEMAP_CONFIG_PATH = Path("data/config/wealth-sitemap-config.json")
 """Path to wealth sitemap configuration file."""
 
-TMP_DIR = Path(".tmp")
-"""Temporary directory for session files."""
-
-SCRAPED_OUTPUT_DIR = Path("data/scraped/wealth")
-"""Base directory for scraped Markdown article files."""
+_NAS_SCRAPED_WEALTH = _NAS_SCRAPED_BASE / "wealth"
+SCRAPED_OUTPUT_DIR = _NAS_SCRAPED_WEALTH if _NAS_AVAILABLE else Path("data/scraped/wealth")
+"""Base directory for scraped Markdown article files (NAS preferred, local fallback)."""
 
 FEED_READ_LIMIT = 200
 """Maximum number of items to fetch from FeedReader per search call."""
@@ -526,8 +533,9 @@ def fetch_rss_items_by_source(
         source_key = resolve_source_key_wealth(domain)
         preset_mapping.append((source_key, domain, title))
 
-    # Read from local RSS data directory
-    data_dir = Path("data/raw/rss")
+    # Read from RSS data directory (NAS preferred, local fallback)
+    _nas_rss = Path("/Volumes/personal_folder/scraped/rss")
+    data_dir = _nas_rss if _nas_rss.exists() else Path("data/raw/rss")
     if data_dir.exists():
         try:
             reader = FeedReader(data_dir)
@@ -1434,7 +1442,8 @@ def main(args: list[str] | None = None) -> int:
     )
 
     if parsed.mode == "incremental":
-        output_path = TMP_DIR / f"{generate_session_id()}.json"
+        SESSIONS_DIR.mkdir(parents=True, exist_ok=True)
+        output_path = SESSIONS_DIR / f"{generate_session_id()}.json"
         return run_incremental(
             days=parsed.days,
             top_n=parsed.top_n,

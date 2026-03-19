@@ -29,7 +29,7 @@ argument-hint: --command <command> --input <path> [--cleanup]
 | `reddit-finance-topics` | JSON | `.tmp/reddit-topics-*.json` | Topic, Source |
 | `finance-full` | JSON | `.tmp/finance-full-*.json` | Source, Claim |
 | `pdf-extraction` | JSON | `.tmp/pdf-extraction-*.json` | 全9ノード |
-| `wealth-backfill` | **ディレクトリ** | `data/scraped/wealth/` | Source, Topic, Chunk |
+| `wealth-backfill` | **ディレクトリ** | `/Volumes/personal_folder/scraped/wealth/` | Source, Topic, Chunk |
 
 ## 実行手順
 
@@ -75,7 +75,7 @@ uv run python scripts/emit_graph_queue.py \
 
 ```bash
 # wealth-backfill: スクレイプ済み記事からgraph-queue生成
-/emit-graph-queue --command wealth-backfill --input data/scraped/wealth/
+/emit-graph-queue --command wealth-backfill --input /Volumes/personal_folder/scraped/wealth/
 
 # finance-news-workflow: ニュースバッチから生成
 /emit-graph-queue --command finance-news-workflow --input .tmp/news-batches/index.json
@@ -84,7 +84,7 @@ uv run python scripts/emit_graph_queue.py \
 /emit-graph-queue --command asset-management --input .tmp/asset-mgmt-20260315-120000.json
 
 # 古いキューファイルを削除しつつ生成
-/emit-graph-queue --command wealth-backfill --input data/scraped/wealth/ --cleanup
+/emit-graph-queue --command wealth-backfill --input /Volumes/personal_folder/scraped/wealth/ --cleanup
 ```
 
 ## 関連コマンド

@@ -28,19 +28,20 @@ from scrape_finance_news import (
 class TestResolveOutputDir:
     """Tests for _resolve_output_dir function."""
 
-    def test_正常系_指定パスが存在する場合はそのまま返す(self, tmp_path: Path) -> None:
-        """_resolve_output_dir returns requested path when specified."""
-        result = _resolve_output_dir(tmp_path)
-        assert result == tmp_path
+    def test_正常系_指定パスが存在する場合はソースサブディレクトリを返す(
+        self, tmp_path: Path
+    ) -> None:
+        """_resolve_output_dir returns source subdirectory under requested path."""
+        result = _resolve_output_dir(tmp_path, "cnbc")
+        assert result == tmp_path / "cnbc"
 
     def test_正常系_Noneでデフォルトパスを検索する(self, tmp_path: Path) -> None:
         """_resolve_output_dir falls back to local when NAS not mounted."""
-        with (
-            patch("scrape_finance_news.DEFAULT_NAS_OUTPUT", tmp_path / "nonexistent"),
-            patch("scrape_finance_news.DEFAULT_LOCAL_FALLBACK", tmp_path / "local"),
+        with patch(
+            "scrape_finance_news.NAS_SCRAPED_BASE", tmp_path / "nonexistent"
         ):
-            result = _resolve_output_dir(None)
-            assert "local" in str(result)
+            result = _resolve_output_dir(None, "cnbc")
+            assert "cnbc" in str(result)
 
     def test_正常系_NASがマウントされている場合はNASパスを返す(
         self, tmp_path: Path
@@ -48,9 +49,9 @@ class TestResolveOutputDir:
         """_resolve_output_dir returns NAS path when NAS is mounted."""
         nas_path = tmp_path / "nas"
         nas_path.mkdir()
-        with patch("scrape_finance_news.DEFAULT_NAS_OUTPUT", nas_path):
-            result = _resolve_output_dir(None)
-            assert result == nas_path
+        with patch("scrape_finance_news.NAS_SCRAPED_BASE", nas_path):
+            result = _resolve_output_dir(None, "cnbc")
+            assert result == nas_path / "cnbc"
 
 
 class TestCreateDatedOutputDir:
