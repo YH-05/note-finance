@@ -1494,7 +1494,7 @@ _METRIC_LABELS: dict[str, list[str]] = {
     "structural": ["Edge Density", "Avg Degree", "Connected Ratio", "Orphan Ratio"],
     "completeness": ["Required Property Coverage"],
     "consistency": ["Type Consistency", "Dedup Score", "Constraint Violations"],
-    "accuracy": ["LLM-as-Judge (stub)"],
+    "accuracy": ["Factual Correctness", "Source Grounding", "Temporal Validity"],
     "timeliness": [
         "Avg Freshness (days)",
         "Recent Sources (30d)",
@@ -1975,7 +1975,11 @@ def _load_snapshot_from_json(json_path: Path) -> QualitySnapshot:
     )
 
 
-def _find_latest_snapshot(output_dir: Path | None = None) -> Path | None:
+def _find_latest_snapshot(
+    output_dir: Path | None = None,
+    *,
+    exclude_date: str | None = None,
+) -> Path | None:
     """最新のスナップショット JSON ファイルを検索する。
 
     Parameters
@@ -1983,6 +1987,10 @@ def _find_latest_snapshot(output_dir: Path | None = None) -> Path | None:
     output_dir : Path | None
         検索ディレクトリ。``None`` の場合は
         ``data/processed/kg_quality/`` を使用。
+    exclude_date : str | None
+        除外する日付文字列（``"YYYYMMDD"``）。
+        ``--save-snapshot`` 直後に ``--compare latest`` すると
+        自分自身と比較してしまうバグを防止する。
 
     Returns
     -------
@@ -1996,7 +2004,11 @@ def _find_latest_snapshot(output_dir: Path | None = None) -> Path | None:
         return None
 
     snapshots = sorted(output_dir.glob("snapshot_*.json"), reverse=True)
-    return snapshots[0] if snapshots else None
+    for snap in snapshots:
+        if exclude_date and snap.stem == f"snapshot_{exclude_date}":
+            continue
+        return snap
+    return None
 
 
 def compare_snapshots(
@@ -2153,6 +2165,33 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="DB 接続なしでの動作確認",
     )
+    parser.add_argument(
+        "--exit-code",
+        action="store_true",
+        help="スコアが --min-score 未満の場合に exit code 1 で終了（CI用）",
+    )
+    parser.add_argument(
+        "--min-score",
+        type=float,
+        default=30.0,
+        help="--exit-code 使用時の最小スコア閾値（デフォルト: 30.0）",
+    )
+    parser.add_argument(
+        "--skip-accuracy",
+        action="store_true",
+        help="accuracy カテゴリの LLM 評価をスキップ（stub を使用）",
+    )
+    parser.add_argument(
+        "--accuracy-sample-size",
+        type=int,
+        default=20,
+        help="accuracy 評価のサンプルサイズ（デフォルト: 20）",
+    )
+    parser.add_argument(
+        "--alert",
+        action="store_true",
+        help="品質低下時に GitHub Issue を自動作成",
+    )
     return parser.parse_args(argv)
 
 
@@ -2237,6 +2276,9 @@ def _run_measurements(
     session: Any,
     schema: dict[str, Any],
     category: str,
+    *,
+    skip_accuracy: bool = True,
+    accuracy_sample_size: int = 20,
 ) -> tuple[QualitySnapshot, list[CheckRuleResult], dict[str, float]]:
     """指定カテゴリの計測を実行し、QualitySnapshot を構築する。
 
@@ -2248,18 +2290,34 @@ def _run_measurements(
         スキーマ定義。
     category : str
         計測カテゴリ（``"all"`` で全カテゴリ）。
+    skip_accuracy : bool
+        accuracy の LLM 評価をスキップする場合 True。
+    accuracy_sample_size : int
+        accuracy 評価のサンプルサイズ。
 
     Returns
     -------
     tuple[QualitySnapshot, list[CheckRuleResult], dict[str, float]]
         スナップショット、チェックルール結果、エントロピーデータ。
     """
+
+    def _accuracy_func() -> CategoryResult:
+        if skip_accuracy:
+            return measure_accuracy(session)
+        try:
+            from kg_accuracy_judge import evaluate_accuracy
+
+            return evaluate_accuracy(session, sample_size=accuracy_sample_size)
+        except ImportError:
+            logger.warning("kg_accuracy_judge not available, using stub")
+            return measure_accuracy(session)
+
     # カテゴリ別計測（ディスパッチテーブル）
     measure_funcs: dict[str, Any] = {
         "structural": lambda: measure_structural(session),
         "completeness": lambda: measure_completeness(session, schema),
         "consistency": lambda: measure_consistency(session),
-        "accuracy": lambda: measure_accuracy(session),
+        "accuracy": _accuracy_func,
         "timeliness": lambda: measure_timeliness(session),
         "finance_specific": lambda: measure_finance_specific(session),
         "discoverability": lambda: measure_discoverability(session),
@@ -2292,13 +2350,19 @@ def _run_measurements(
     return snapshot, check_rules, entropy
 
 
-def _resolve_compare_path(compare_arg: str) -> Path | None:
+def _resolve_compare_path(
+    compare_arg: str,
+    *,
+    exclude_date: str | None = None,
+) -> Path | None:
     """--compare 引数からスナップショットファイルパスを解決する。
 
     Parameters
     ----------
     compare_arg : str
         ``"latest"`` または日付文字列またはファイルパス。
+    exclude_date : str | None
+        除外する日付文字列（``"YYYYMMDD"``）。
 
     Returns
     -------
@@ -2306,7 +2370,7 @@ def _resolve_compare_path(compare_arg: str) -> Path | None:
         スナップショットファイルのパス。見つからない場合は ``None``。
     """
     if compare_arg == "latest":
-        return _find_latest_snapshot()
+        return _find_latest_snapshot(exclude_date=exclude_date)
 
     search_dir = Path("data/processed/kg_quality")
     candidate = search_dir / f"snapshot_{compare_arg}.json"
@@ -2347,7 +2411,11 @@ def main() -> None:
         schema = load_schema(Path("data/config/knowledge-graph-schema.yaml"))
         with driver.session() as session:
             snapshot, check_rules, entropy = _run_measurements(
-                session, schema, args.category
+                session,
+                schema,
+                args.category,
+                skip_accuracy=args.skip_accuracy,
+                accuracy_sample_size=args.accuracy_sample_size,
             )
             render_console(snapshot, check_rules, entropy)
 
@@ -2363,12 +2431,36 @@ def main() -> None:
                 logger.info("Markdown report saved: %s", report_path)
 
             if args.compare:
-                prev_path = _resolve_compare_path(args.compare)
+                today_str = snapshot.timestamp.strftime("%Y%m%d")
+                prev_path = _resolve_compare_path(
+                    args.compare, exclude_date=today_str
+                )
                 if prev_path is None:
                     logger.warning("Compare target not found: %s", args.compare)
                 else:
                     prev_snapshot = _load_snapshot_from_json(prev_path)
-                    print(compare_snapshots(prev_snapshot, snapshot))
+                    comparison = compare_snapshots(prev_snapshot, snapshot)
+                    print(comparison)
+
+            if args.alert:
+                try:
+                    from kg_quality_alert import run_alert
+
+                    today_str = snapshot.timestamp.strftime("%Y%m%d")
+                    prev_path = _find_latest_snapshot(exclude_date=today_str)
+                    run_alert(snapshot, check_rules, prev_path)
+                except ImportError:
+                    logger.warning(
+                        "kg_quality_alert not available, skipping alert"
+                    )
+
+            if args.exit_code and snapshot.overall_score < args.min_score:
+                logger.error(
+                    "Overall score %.1f < min_score %.1f — exiting with code 1",
+                    snapshot.overall_score,
+                    args.min_score,
+                )
+                sys.exit(1)
     finally:
         driver.close()
 

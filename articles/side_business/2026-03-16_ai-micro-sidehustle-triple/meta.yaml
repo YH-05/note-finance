@@ -1,13 +1,13 @@
 # === Core (必須) ===
 article_id: "2026-03-16_ai-micro-sidehustle-triple"
-topic: "30代会社員・AIツール活用で月3万円の「マイクロ副業」を3つ同時に回してみた話"
+topic: "AIツールで月3万円の「マイクロ副業」を3本同時に回す――サイドスタッキング事例分析"
 category: "side_business"
-type: experience
+type: case_study
 status: "revised"
 
 # === Timestamps ===
 created_at: "2026-03-16"
-updated_at: "2026-03-16"
+updated_at: "2026-03-19"
 
 # === Content ===
 tags:
@@ -43,7 +43,7 @@ critic_score:
   fact_accuracy: 72
   reality: 72
   readability: 85
-revision_count: 1
+revision_count: 2
 note_url: null
 x_post_url: null
 research_sources: 32

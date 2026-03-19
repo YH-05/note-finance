@@ -48,6 +48,7 @@ from kg_quality_metrics import (
     render_console,
     save_json,
     save_neo4j,
+    _find_latest_snapshot,
 )
 
 # ---------------------------------------------------------------------------
@@ -460,6 +461,34 @@ class TestParseArgs:
     def test_正常系_dry_runフラグ(self) -> None:
         args = parse_args(["--dry-run"])
         assert args.dry_run is True
+
+    def test_正常系_exit_codeフラグ(self) -> None:
+        args = parse_args(["--exit-code"])
+        assert args.exit_code is True
+
+    def test_正常系_exit_codeデフォルトはFalse(self) -> None:
+        args = parse_args([])
+        assert args.exit_code is False
+
+    def test_正常系_min_scoreデフォルト値(self) -> None:
+        args = parse_args([])
+        assert args.min_score == 30.0
+
+    def test_正常系_min_scoreカスタム値(self) -> None:
+        args = parse_args(["--min-score", "50.0"])
+        assert args.min_score == 50.0
+
+    def test_正常系_skip_accuracyフラグ(self) -> None:
+        args = parse_args(["--skip-accuracy"])
+        assert args.skip_accuracy is True
+
+    def test_正常系_accuracy_sample_sizeデフォルト値(self) -> None:
+        args = parse_args([])
+        assert args.accuracy_sample_size == 20
+
+    def test_正常系_alertフラグ(self) -> None:
+        args = parse_args(["--alert"])
+        assert args.alert is True
 
 
 # ---------------------------------------------------------------------------
@@ -1714,3 +1743,43 @@ class TestCompareSnapshots:
     ) -> None:
         diff = compare_snapshots(sample_snapshot, sample_snapshot)
         assert isinstance(diff, str)
+
+
+# ---------------------------------------------------------------------------
+# _find_latest_snapshot
+# ---------------------------------------------------------------------------
+
+
+class TestFindLatestSnapshot:
+    def test_正常系_最新スナップショットを返す(self, tmp_path: Path) -> None:
+        (tmp_path / "snapshot_20260318.json").write_text("{}", encoding="utf-8")
+        (tmp_path / "snapshot_20260319.json").write_text("{}", encoding="utf-8")
+
+        result = _find_latest_snapshot(tmp_path)
+
+        assert result is not None
+        assert result.name == "snapshot_20260319.json"
+
+    def test_正常系_exclude_dateで同日を除外する(self, tmp_path: Path) -> None:
+        (tmp_path / "snapshot_20260318.json").write_text("{}", encoding="utf-8")
+        (tmp_path / "snapshot_20260319.json").write_text("{}", encoding="utf-8")
+
+        result = _find_latest_snapshot(tmp_path, exclude_date="20260319")
+
+        assert result is not None
+        assert result.name == "snapshot_20260318.json"
+
+    def test_エッジケース_除外後にスナップショットなし(self, tmp_path: Path) -> None:
+        (tmp_path / "snapshot_20260319.json").write_text("{}", encoding="utf-8")
+
+        result = _find_latest_snapshot(tmp_path, exclude_date="20260319")
+
+        assert result is None
+
+    def test_エッジケース_ディレクトリが存在しない(self, tmp_path: Path) -> None:
+        result = _find_latest_snapshot(tmp_path / "nonexistent")
+        assert result is None
+
+    def test_エッジケース_スナップショットファイルなし(self, tmp_path: Path) -> None:
+        result = _find_latest_snapshot(tmp_path)
+        assert result is None

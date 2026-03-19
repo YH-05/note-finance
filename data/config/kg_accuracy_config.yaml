@@ -1,0 +1,26 @@
+# KG Accuracy 評価設定
+# LLM-as-Judge による Fact/Claim の正確性評価パラメータ
+
+# サンプルサイズ（CLI の --accuracy-sample-size で上書き可能）
+sample_size: 20
+
+# 使用モデル（コスト効率優先）
+model: "claude-sonnet-4-20250514"
+
+# キャッシュ設定
+cache:
+  enabled: true
+  path: "data/processed/kg_quality/accuracy_cache.json"
+  ttl_days: 30
+
+# 評価軸と重み
+axes:
+  factual_correctness:
+    weight: 0.4
+    description: "Fact/Claim の事実正確性"
+  source_grounding:
+    weight: 0.3
+    description: "Source ノードとの整合性・URL有効性"
+  temporal_validity:
+    weight: 0.3
+    description: "情報の鮮度・時間的妥当性"
