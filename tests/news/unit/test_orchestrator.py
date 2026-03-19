@@ -135,6 +135,8 @@ class TestEarlyDuplicateCheck:
 
             # Setup extractor
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,
@@ -215,6 +217,8 @@ class TestEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock()
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -308,6 +312,8 @@ class TestEarlyDuplicateCheck:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(
                 side_effect=lambda a: ExtractedArticle(
                     collected=a,

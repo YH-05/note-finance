@@ -271,6 +271,8 @@ class TestPerCategoryWorkflow:
 
             # Setup extractor
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -372,6 +374,8 @@ class TestPerCategoryWorkflow:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -436,6 +440,8 @@ class TestPerCategoryWorkflow:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -498,6 +504,8 @@ class TestPerCategoryWorkflow:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -553,6 +561,8 @@ class TestPerCategoryWorkflow:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -650,6 +660,8 @@ class TestPerArticleWorkflow:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -927,6 +939,8 @@ class TestCategoryWorkflowErrorHandling:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -991,6 +1005,8 @@ class TestCategoryWorkflowErrorHandling:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1058,6 +1074,8 @@ class TestCategoryWorkflowErrorHandling:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted_market)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1125,6 +1143,8 @@ class TestWorkflowResultWithCategories:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1191,6 +1211,8 @@ class TestWorkflowResultWithCategories:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 
@@ -1251,6 +1273,8 @@ class TestWorkflowResultWithCategories:
             mock_collector_cls.return_value = mock_collector
 
             mock_extractor = MagicMock()
+            mock_extractor.__aenter__ = AsyncMock(return_value=mock_extractor)
+            mock_extractor.__aexit__ = AsyncMock(return_value=None)
             mock_extractor.extract = AsyncMock(side_effect=extracted)
             mock_extractor_cls.from_config.return_value = mock_extractor
 

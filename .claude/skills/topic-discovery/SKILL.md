@@ -216,3 +216,58 @@ Web検索を使用せず、LLM の知識のみでトピックを生成する。
 Phase 1 をスキップし、Phase 2（既存記事確認）→ Phase 3（LLM生成）→ Phase 4 → Phase 5 の流れで実行。
 従来の topic-suggester と同等の動作を維持。
 `search_insights` は `null` で保存される。
+
+## Observability
+
+スキル実行のトレースを `scripts/skill_run_tracer.py` で記録する。
+Neo4j 未起動時はグレースフルデグラデーションにより合成 ID を返し、スキル実行をブロックしない。
+
+### 実行開始時（Phase 1 の前）
+
+```bash
+SKILL_RUN_ID=$(python3 scripts/skill_run_tracer.py start \
+    --skill-name topic-discovery \
+    --command-source "/topic-discovery" \
+    --input-summary "category=${CATEGORY:-all}, count=${COUNT:-5}, no_search=${NO_SEARCH:-false}")
+```
+
+### 実行完了時（成功 — Phase 5 完了後）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status success \
+    --output-summary "${SUGGESTION_COUNT} topics suggested, top_score=${TOP_SCORE}, categories=${CATEGORIES_SUGGESTED}"
+```
+
+### 実行完了時（部分成功 — Phase 5.3 Neo4j 保存スキップ時）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status partial \
+    --output-summary "${SUGGESTION_COUNT} topics suggested (Neo4j save skipped)" \
+    --error-message "Phase 5.3: research-neo4j not running" \
+    --error-type "neo4j_connection"
+```
+
+### 実行完了時（エラー — 任意の Phase で失敗時）
+
+```bash
+python3 scripts/skill_run_tracer.py complete \
+    --skill-run-id "$SKILL_RUN_ID" \
+    --status failure \
+    --error-message "Phase ${FAILED_PHASE}: ${ERROR_MSG}" \
+    --error-type "${ERROR_TYPE}"
+```
+
+`error_type` の分類:
+
+| error_type | 説明 |
+|------------|------|
+| web_search_failure | Web検索実行の失敗（Phase 1） |
+| gap_analysis_failure | 既存記事スキャン・ギャップ分析の失敗（Phase 2） |
+| topic_generation_failure | topic-suggester 呼び出し・スコアリングの失敗（Phase 3） |
+| file_save_failure | セッションファイル・履歴ファイルの保存失敗（Phase 5.1-5.2） |
+| neo4j_connection | research-neo4j 接続失敗（Phase 5.3） |
+| cypher_execution | Cypher 実行エラー（Phase 5.3） |

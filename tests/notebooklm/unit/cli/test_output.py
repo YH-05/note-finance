@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import json
+from typing import TYPE_CHECKING
 
-import pytest  # noqa: TC002
 from pydantic import BaseModel, ConfigDict
+
+if TYPE_CHECKING:
+    import pytest
 
 from notebooklm.cli._output import output_json
 

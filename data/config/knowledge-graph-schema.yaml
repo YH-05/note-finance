@@ -7,9 +7,11 @@
 #   - Schema changes should be made here first, then applied to Neo4j
 #
 # Changelog:
-#   v2.3 (2026-03-18): Source authority classification & DB consolidation
+#   v2.3 (2026-03-18): Source authority classification, DB consolidation & SkillRun namespace
 #     - Added: Source.authority_level (official/analyst/media/blog/social/academic)
 #     - Consolidated: article-neo4j merged into research-neo4j
+#     - Added: SkillRun sub-label in memory namespace (skill execution tracing)
+#     - Added: skill_run_id UNIQUE constraint, 4 indices (skill_name, status, start_at, command_source)
 #   v2.2 (2026-03-17): Schema hygiene — added operational properties, expanded Source.source_type/Topic.category
 #     - Added: Source.command_source, Source.domain (operational tracking)
 #     - Added: Entity.entity_key, Topic.topic_key (MERGE composite keys)
@@ -31,7 +33,7 @@
 #       - Insight node for AI-generated knowledge circulation
 #   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
-version: "2.2"
+version: "2.3"
 
 # ============================================================
 # Node Definitions
@@ -739,6 +741,9 @@ constraints:
   - label: Question
     property: question_id
     type: UNIQUE
+  - label: SkillRun
+    property: skill_run_id
+    type: UNIQUE
 
 indices:
   - label: Fact
@@ -779,6 +784,14 @@ indices:
     property: priority
   - label: Question
     property: status
+  - label: SkillRun
+    property: skill_name
+  - label: SkillRun
+    property: status
+  - label: SkillRun
+    property: start_at
+  - label: SkillRun
+    property: command_source
 
 # ============================================================
 # Namespace Definitions
@@ -830,6 +843,7 @@ namespaces:
       - Research
       - Todo
       - Discussion
+      - SkillRun
     naming: PascalCase
 
   archived:

@@ -29,7 +29,7 @@ from typing import Any, Literal
 from pydantic import BaseModel, Field
 
 # Valid source names for collect_financial_news()
-type SourceName = Literal["cnbc", "nasdaq"]
+type SourceName = Literal["cnbc", "jetro", "kabutan", "minkabu", "nasdaq", "reuters_jp"]
 
 
 def deduplicate_by_url(articles: list[Article]) -> list[Article]:
@@ -50,13 +50,12 @@ def deduplicate_by_url(articles: list[Article]) -> list[Article]:
     >>> # Articles with duplicate URLs are deduplicated
     >>> # Only the first occurrence of each URL is kept
     """
-    seen: set[str] = set()
-    result: list[Article] = []
+    # AIDEV-NOTE: dict.setdefault preserves first-occurrence order using
+    # Python 3.7+ guaranteed insertion-order dict semantics.
+    seen: dict[str, Article] = {}
     for article in articles:
-        if article.url not in seen:
-            seen.add(article.url)
-            result.append(article)
-    return result
+        seen.setdefault(article.url, article)
+    return list(seen.values())
 
 
 def get_delay(config: ScraperConfig | None) -> float:

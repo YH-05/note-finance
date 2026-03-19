@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from unittest.mock import MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
 from news_scraper.types import Article, ScraperConfig
-from news_scraper.unified import NewsDataFrame, collect_financial_news
+from news_scraper.unified import (
+    SOURCE_REGISTRY,
+    NewsDataFrame,
+    collect_financial_news,
+)
 
 
 def _make_article(
@@ -99,54 +103,60 @@ class TestNewsDataFrame:
 class TestCollectFinancialNews:
     """Tests for collect_financial_news function."""
 
-    @patch("news_scraper.unified.collect_financial_news")
-    def test_正常系_NewsDataFrameを返す(self, mock_collect: MagicMock) -> None:
+    async def test_正常系_NewsDataFrameを返す(self) -> None:
         """collect_financial_news returns NewsDataFrame."""
-        mock_collect.return_value = NewsDataFrame([])
-        result = mock_collect(sources=["cnbc"])
+        with patch(
+            "news_scraper.unified._collect_cnbc",
+            new=AsyncMock(return_value=[]),
+        ):
+            result = await collect_financial_news(sources=["cnbc"])
         assert isinstance(result, NewsDataFrame)
 
-    def test_正常系_空ソースリストで空結果を返す(self) -> None:
-        """collect_financial_news with unknown sources returns empty."""
+    async def test_正常系_空ソースリストで空結果を返す(self) -> None:
+        """collect_financial_news with empty sources returns empty result."""
         with (
-            patch("news_scraper.cnbc.collect_news", return_value=[]),
-            patch("news_scraper.nasdaq.collect_news", return_value=[]),
+            patch(
+                "news_scraper.unified._collect_cnbc",
+                new=AsyncMock(return_value=[]),
+            ),
+            patch(
+                "news_scraper.unified._collect_nasdaq",
+                new=AsyncMock(return_value=[]),
+            ),
         ):
-            df = collect_financial_news(sources=["cnbc", "nasdaq"])
+            df = await collect_financial_news(sources=["cnbc", "nasdaq"])
             assert isinstance(df, NewsDataFrame)
 
-    def test_正常系_cnbcソースのみで収集できる(self) -> None:
+    async def test_正常系_cnbcソースのみで収集できる(self) -> None:
         """collect_financial_news with cnbc source only."""
         cnbc_articles = [
             _make_article(
                 title="CNBC Article", url="https://cnbc.com/1", source="cnbc"
             ),
         ]
-        with patch(
-            "news_scraper.cnbc.collect_news", return_value=cnbc_articles
-        ) as mock_cnbc:
-            df = collect_financial_news(sources=["cnbc"])
-            mock_cnbc.assert_called_once()
+        mock_collect = AsyncMock(return_value=cnbc_articles)
+        with patch("news_scraper.unified._collect_cnbc", new=mock_collect):
+            df = await collect_financial_news(sources=["cnbc"])
+            mock_collect.assert_called_once()
         assert isinstance(df, NewsDataFrame)
         assert len(df) == 1
         assert df.articles[0].source == "cnbc"
 
-    def test_正常系_nasdaqソースのみで収集できる(self) -> None:
+    async def test_正常系_nasdaqソースのみで収集できる(self) -> None:
         """collect_financial_news with nasdaq source only."""
         nasdaq_articles = [
             _make_article(
                 title="NASDAQ Article", url="https://nasdaq.com/1", source="nasdaq"
             ),
         ]
-        with patch(
-            "news_scraper.nasdaq.collect_news", return_value=nasdaq_articles
-        ) as mock_nasdaq:
-            df = collect_financial_news(sources=["nasdaq"])
-            mock_nasdaq.assert_called_once()
+        mock_collect = AsyncMock(return_value=nasdaq_articles)
+        with patch("news_scraper.unified._collect_nasdaq", new=mock_collect):
+            df = await collect_financial_news(sources=["nasdaq"])
+            mock_collect.assert_called_once()
         assert isinstance(df, NewsDataFrame)
         assert len(df) == 1
 
-    def test_正常系_複数ソースで重複URLを除外する(self) -> None:
+    async def test_正常系_複数ソースで重複URLを除外する(self) -> None:
         """collect_financial_news deduplicates articles by URL."""
         shared_url = "https://example.com/shared-article"
         cnbc_articles = [
@@ -157,17 +167,23 @@ class TestCollectFinancialNews:
             _make_article(url=shared_url, source="nasdaq"),  # Duplicate URL
         ]
         with (
-            patch("news_scraper.cnbc.collect_news", return_value=cnbc_articles),
-            patch("news_scraper.nasdaq.collect_news", return_value=nasdaq_articles),
+            patch(
+                "news_scraper.unified._collect_cnbc",
+                new=AsyncMock(return_value=cnbc_articles),
+            ),
+            patch(
+                "news_scraper.unified._collect_nasdaq",
+                new=AsyncMock(return_value=nasdaq_articles),
+            ),
         ):
-            df = collect_financial_news(sources=["cnbc", "nasdaq"])
+            df = await collect_financial_news(sources=["cnbc", "nasdaq"])
 
         # Shared URL should only appear once
         assert len(df) == 2
         urls = [a.url for a in df.articles]
         assert urls.count(shared_url) == 1
 
-    def test_正常系_記事が公開日時の降順でソートされる(self) -> None:
+    async def test_正常系_記事が公開日時の降順でソートされる(self) -> None:
         """collect_financial_news returns articles sorted by published date (newest first)."""
         old_article = _make_article(
             url="https://cnbc.com/old",
@@ -179,56 +195,176 @@ class TestCollectFinancialNews:
         )
         # Return in reverse order to verify sorting
         with patch(
-            "news_scraper.cnbc.collect_news", return_value=[old_article, new_article]
+            "news_scraper.unified._collect_cnbc",
+            new=AsyncMock(return_value=[old_article, new_article]),
         ):
-            df = collect_financial_news(sources=["cnbc"])
+            df = await collect_financial_news(sources=["cnbc"])
 
         assert df.articles[0].published > df.articles[1].published
 
-    def test_正常系_デフォルト設定で全ソースを収集する(self) -> None:
-        """collect_financial_news with no sources collects from all sources."""
+    async def test_正常系_デフォルト設定で全ソースを収集する(self) -> None:
+        """collect_financial_news with no sources collects from cnbc and nasdaq (defaults)."""
+        mock_cnbc = AsyncMock(return_value=[])
+        mock_nasdaq = AsyncMock(return_value=[])
         with (
-            patch("news_scraper.cnbc.collect_news", return_value=[]) as mock_cnbc,
-            patch("news_scraper.nasdaq.collect_news", return_value=[]) as mock_nasdaq,
+            patch("news_scraper.unified._collect_cnbc", new=mock_cnbc),
+            patch("news_scraper.unified._collect_nasdaq", new=mock_nasdaq),
         ):
-            collect_financial_news()  # No sources specified
+            await collect_financial_news()  # No sources specified
             mock_cnbc.assert_called_once()
             mock_nasdaq.assert_called_once()
 
-    def test_正常系_ソースエラー時も他のソースを処理する(self) -> None:
+    async def test_正常系_ソースエラー時も他のソースを処理する(self) -> None:
         """collect_financial_news continues when one source fails."""
         nasdaq_articles = [
             _make_article(url="https://nasdaq.com/1", source="nasdaq"),
         ]
         with (
             patch(
-                "news_scraper.cnbc.collect_news", side_effect=Exception("CNBC failed")
+                "news_scraper.unified._collect_cnbc",
+                new=AsyncMock(side_effect=Exception("CNBC failed")),
             ),
-            patch("news_scraper.nasdaq.collect_news", return_value=nasdaq_articles),
+            patch(
+                "news_scraper.unified._collect_nasdaq",
+                new=AsyncMock(return_value=nasdaq_articles),
+            ),
         ):
-            df = collect_financial_news(sources=["cnbc", "nasdaq"])
+            df = await collect_financial_news(sources=["cnbc", "nasdaq"])
 
         # Should still have nasdaq articles despite cnbc failure
         assert len(df) == 1
         assert df.articles[0].source == "nasdaq"
 
-    def test_正常系_configがソースコレクターに渡される(self) -> None:
+    async def test_正常系_reuters_jpソースのみで収集できる(self) -> None:
+        """collect_financial_news with reuters_jp source only."""
+        reuters_articles = [
+            _make_article(
+                title="Reuters JP Article",
+                url="https://jp.reuters.com/1",
+                source="reuters_jp",
+            ),
+        ]
+        mock_collect = AsyncMock(return_value=reuters_articles)
+        with patch("news_scraper.unified._collect_reuters_jp", new=mock_collect):
+            df = await collect_financial_news(sources=["reuters_jp"])
+            mock_collect.assert_called_once()
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        assert df.articles[0].source == "reuters_jp"
+
+    def test_正常系_reuters_jpがSOURCE_REGISTRYに登録されている(self) -> None:
+        """reuters_jp is registered in SOURCE_REGISTRY."""
+        from news_scraper.unified import SOURCE_REGISTRY
+
+        assert "reuters_jp" in SOURCE_REGISTRY
+
+    async def test_正常系_configがソースコレクターに渡される(self) -> None:
         """collect_financial_news passes config to source collectors."""
         config = ScraperConfig(max_articles_per_source=10, include_content=True)
-        with patch("news_scraper.cnbc.collect_news", return_value=[]) as mock_cnbc:
-            collect_financial_news(sources=["cnbc"], config=config)
-            mock_cnbc.assert_called_once_with(config=config)
+        mock_collect = AsyncMock(return_value=[])
+        with patch("news_scraper.unified._collect_cnbc", new=mock_collect):
+            await collect_financial_news(sources=["cnbc"], config=config)
+            mock_collect.assert_called_once_with(config)
 
-    def test_正常系_Noneのconfigでデフォルト設定を使用する(self) -> None:
+    async def test_正常系_Noneのconfigでデフォルト設定を使用する(self) -> None:
         """collect_financial_news uses default ScraperConfig when config is None."""
-        with patch("news_scraper.cnbc.collect_news", return_value=[]) as mock_cnbc:
-            collect_financial_news(sources=["cnbc"], config=None)
-            call_args = mock_cnbc.call_args
+        mock_collect = AsyncMock(return_value=[])
+        with patch("news_scraper.unified._collect_cnbc", new=mock_collect):
+            await collect_financial_news(sources=["cnbc"], config=None)
+            call_args = mock_collect.call_args
             assert call_args is not None
-            passed_config = (
-                call_args.kwargs.get("config") or call_args.args[0]
-                if call_args.args
-                else None
-            )
+            # Config is passed as positional arg to _collect_cnbc(config)
+            passed_config = call_args.args[0] if call_args.args else None
             if passed_config is not None:
                 assert isinstance(passed_config, ScraperConfig)
+
+    async def test_正常系_jetroソースのみで収集できる(self) -> None:
+        """collect_financial_news with jetro source only."""
+        jetro_articles = [
+            _make_article(
+                title="JETRO Article",
+                url="https://www.jetro.go.jp/biznews/2026/03/test.html",
+                source="jetro",
+            ),
+        ]
+        mock_collect = AsyncMock(return_value=jetro_articles)
+        with patch("news_scraper.unified._collect_jetro", new=mock_collect):
+            df = await collect_financial_news(sources=["jetro"])
+            mock_collect.assert_called_once()
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        assert df.articles[0].source == "jetro"
+
+    async def test_正常系_minkabuソースのみで収集できる(self) -> None:
+        """collect_financial_news with minkabu source only."""
+        minkabu_articles = [
+            _make_article(
+                title="Minkabu Article",
+                url="https://minkabu.jp/1",
+                source="minkabu",
+            ),
+        ]
+        mock_collect = AsyncMock(return_value=minkabu_articles)
+        with patch("news_scraper.unified._collect_minkabu", new=mock_collect):
+            df = await collect_financial_news(sources=["minkabu"])
+            mock_collect.assert_called_once()
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        assert df.articles[0].source == "minkabu"
+
+    async def test_正常系_デフォルトソースにjetroが含まれない(self) -> None:
+        """collect_financial_news default sources do NOT include jetro."""
+        mock_cnbc = AsyncMock(return_value=[])
+        mock_nasdaq = AsyncMock(return_value=[])
+        with (
+            patch("news_scraper.unified._collect_cnbc", new=mock_cnbc),
+            patch("news_scraper.unified._collect_nasdaq", new=mock_nasdaq),
+        ):
+            await collect_financial_news()  # No sources specified
+            mock_cnbc.assert_called_once()
+            mock_nasdaq.assert_called_once()
+        # jetro should NOT be called by default
+
+
+class TestSourceRegistry:
+    """Tests for SOURCE_REGISTRY configuration."""
+
+    def test_正常系_jetroがSOURCE_REGISTRYに登録されている(self) -> None:
+        """SOURCE_REGISTRY contains jetro entry."""
+        assert "jetro" in SOURCE_REGISTRY
+
+    def test_正常系_minkabuがSOURCE_REGISTRYに登録されている(self) -> None:
+        """minkabu is registered in SOURCE_REGISTRY."""
+        from news_scraper.unified import SOURCE_REGISTRY
+
+        assert "minkabu" in SOURCE_REGISTRY
+
+    def test_正常系_全ソースがSOURCE_REGISTRYに登録されている(self) -> None:
+        """SOURCE_REGISTRY contains all expected sources."""
+        expected_sources = {"cnbc", "jetro", "kabutan", "minkabu", "nasdaq", "reuters_jp"}
+        assert set(SOURCE_REGISTRY.keys()) == expected_sources
+
+    def test_正常系_jetroコレクターがcallableである(self) -> None:
+        """SOURCE_REGISTRY jetro entry is callable."""
+        assert callable(SOURCE_REGISTRY["jetro"])
+
+    async def test_正常系_未知ソースは空のNewsDataFrameを返す(self) -> None:
+        """collect_financial_news returns empty NewsDataFrame for unknown source."""
+        df = await collect_financial_news(sources=["unknown_source"])  # type: ignore[arg-type]
+
+        assert isinstance(df, NewsDataFrame)
+        assert df.empty
+
+    async def test_正常系_未知ソースは他ソースの収集を妨げない(self) -> None:
+        """Unknown source does not prevent valid sources from collecting."""
+        valid_articles = [
+            _make_article(url="https://nasdaq.com/1", source="nasdaq"),
+        ]
+        mock_nasdaq = AsyncMock(return_value=valid_articles)
+        with patch("news_scraper.unified._collect_nasdaq", new=mock_nasdaq):
+            df = await collect_financial_news(
+                sources=["unknown_source", "nasdaq"]  # type: ignore[arg-type]
+            )
+
+        assert len(df) == 1
+        assert df.articles[0].source == "nasdaq"
