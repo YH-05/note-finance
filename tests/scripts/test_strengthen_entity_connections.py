@@ -175,8 +175,9 @@ class TestParseArgs:
 
 
 class TestCreateDriver:
+    @patch.dict("os.environ", {"NEO4J_PASSWORD": "envpass"})
     @patch("strengthen_entity_connections.GraphDatabase")
-    def test_正常系_デフォルトURIで接続(self, mock_gdb: MagicMock) -> None:
+    def test_正常系_環境変数からパスワード取得(self, mock_gdb: MagicMock) -> None:
         mock_driver = MagicMock()
         mock_gdb.driver.return_value = mock_driver
 
@@ -184,7 +185,7 @@ class TestCreateDriver:
 
         mock_gdb.driver.assert_called_once_with(
             "bolt://localhost:7688",
-            auth=("neo4j", "gomasuke"),
+            auth=("neo4j", "envpass"),
         )
         mock_driver.verify_connectivity.assert_called_once()
         assert driver is mock_driver
@@ -201,6 +202,12 @@ class TestCreateDriver:
             auth=("neo4j", "secret"),
         )
         assert driver is mock_driver
+
+    @patch.dict("os.environ", {}, clear=True)
+    def test_異常系_パスワード未設定でValueError(self) -> None:
+        # NEO4J_PASSWORD もなく引数もない場合
+        with pytest.raises(ValueError, match="Neo4j password is required"):
+            create_driver()
 
 
 # ---------------------------------------------------------------------------
@@ -411,17 +418,58 @@ class TestMain:
         mock_session.run.return_value = mock_count
 
         # dry-run モードで実行
+        mock_session = MagicMock()
+        mock_driver.__enter__ = MagicMock(return_value=mock_driver)
+        mock_driver.__exit__ = MagicMock(return_value=False)
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
+        mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
+
+        # 各クエリの戻り値を設定
+        mock_count = MagicMock()
+        mock_count.single.return_value = {"count": 10}
+        mock_candidates = MagicMock()
+        mock_candidates.data.return_value = []
+        mock_session.run.side_effect = [
+            mock_count,  # count_isolated_entities (before)
+            mock_candidates,  # lower_co_mention_threshold find
+            mock_count,  # count_isolated_entities (topic find placeholder)
+            mock_candidates,  # strengthen_topic_links find
+            mock_count,  # count_isolated_entities (after)
+        ]
+
         with patch("sys.argv", ["prog", "--dry-run"]):
-            # main() がエラーなく終了することを確認
-            # 実際の Cypher クエリはモックで代替
-            pass  # main のテストは統合テストレベルで行う
+            from strengthen_entity_connections import main
+
+            main()
 
     @patch("strengthen_entity_connections.create_driver")
     def test_正常系_methodオプションで手法を限定(
         self, mock_create_driver: MagicMock
     ) -> None:
+        """method='co_mention' のみ指定時、topic が実行されないことを確認する。"""
         mock_driver = MagicMock()
         mock_create_driver.return_value = mock_driver
-        # method="co_mention" で topic を実行しないことを検証
-        # 統合テストとして、main内部の分岐を間接的に検証する
-        pass
+        mock_session = MagicMock()
+        mock_driver.__enter__ = MagicMock(return_value=mock_driver)
+        mock_driver.__exit__ = MagicMock(return_value=False)
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
+        mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
+
+        mock_count = MagicMock()
+        mock_count.single.return_value = {"count": 5}
+        mock_candidates = MagicMock()
+        mock_candidates.data.return_value = []
+        mock_session.run.side_effect = [
+            mock_count,  # count_isolated_entities (before)
+            mock_candidates,  # lower_co_mention_threshold find
+            mock_count,  # count_isolated_entities (after)
+        ]
+
+        with patch("sys.argv", ["prog", "--dry-run", "--method", "co_mention"]):
+            from strengthen_entity_connections import main
+
+            main()

@@ -34,6 +34,7 @@ import json
 import math
 import os
 import random
+import re
 import sys
 import unicodedata
 from dataclasses import asdict, dataclass, field
@@ -44,6 +45,11 @@ from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from datetime import datetime
+
+# Cypher 識別子（ラベル名・プロパティ名）のバリデーション用正規表現
+_SAFE_IDENTIFIER = re.compile(r"^[A-Za-z][A-Za-z0-9_]*$")
+# 日本語検出用正規表現（CJK 統合漢字・ひらがな・カタカナ・半角カナ）
+_JP_PATTERN = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff\uff66-\uff9f]")
 
 import yaml
 
@@ -286,16 +292,27 @@ def create_driver(
     user : str
         Neo4j ユーザー名。
     password : str | None
-        Neo4j パスワード。``None`` の場合は ``NEO4J_PASSWORD`` 環境変数を
-        参照し、未設定時は ``'gomasuke'`` をデフォルト値として使用する。
+        Neo4j パスワード。``None`` の場合は ``NEO4J_PASSWORD`` 環境変数を参照する。
+        環境変数も未設定の場合は ``ValueError`` を送出する。
 
     Returns
     -------
     Any
         接続確認済みの Neo4j ドライバー。
+
+    Raises
+    ------
+    ValueError
+        パスワードが指定されず ``NEO4J_PASSWORD`` も未設定の場合。
     """
     if password is None:
-        password = os.environ.get("NEO4J_PASSWORD", "gomasuke")
+        password = os.environ.get("NEO4J_PASSWORD")
+    if not password:
+        msg = (
+            "Neo4j password is required. "
+            "Set NEO4J_PASSWORD environment variable or pass --neo4j-password."
+        )
+        raise ValueError(msg)
 
     logger.info("Connecting to Neo4j: %s", uri)
     driver = GraphDatabase.driver(uri, auth=(user, password))
@@ -576,8 +593,12 @@ def measure_completeness(session: Any, schema: dict[str, Any]) -> CategoryResult
 
     # スキーマ YAML から required プロパティを抽出して充填率を計測
     # AIDEV-NOTE: label/prop_name は信頼済みスキーマ YAML 由来（ユーザー入力ではない）
+    # セキュリティ強化: 識別子バリデーションで Cypher インジェクションを防止
     nodes_def = schema.get("nodes", {})
     for label, node_def in nodes_def.items():
+        if not _SAFE_IDENTIFIER.match(label):
+            logger.warning("Invalid label in schema, skipping: %r", label)
+            continue
         props = node_def.get("properties", {})
         required_props = [
             prop_name
@@ -585,6 +606,9 @@ def measure_completeness(session: Any, schema: dict[str, Any]) -> CategoryResult
             if prop_def.get("required", False)
         ]
         for prop_name in required_props:
+            if not _SAFE_IDENTIFIER.match(prop_name):
+                logger.warning("Invalid property in schema, skipping: %r", prop_name)
+                continue
             query = f"""
             MATCH (n:{label})
             WHERE NOT 'Memory' IN labels(n)
@@ -811,8 +835,6 @@ def measure_timeliness(session: Any) -> CategoryResult:
     coverage_span_days = 0.0
     if earliest and latest and len(earliest) >= 10 and len(latest) >= 10:
         try:
-            from datetime import datetime as dt
-
             earliest_dt = dt.fromisoformat(earliest[:19].replace("Z", "+00:00"))
             latest_dt = dt.fromisoformat(latest[:19].replace("Z", "+00:00"))
             coverage_span_days = (latest_dt - earliest_dt).days
@@ -1105,7 +1127,7 @@ def measure_discoverability(
 def _is_japanese(text: str) -> bool:
     """テキストが日本語を含むかを判定する。
 
-    Unicode カテゴリで CJK 統合漢字・ひらがな・カタカナを検出する。
+    正規表現で CJK 統合漢字・ひらがな・カタカナ・半角カナを検出する。
 
     Parameters
     ----------
@@ -1117,11 +1139,7 @@ def _is_japanese(text: str) -> bool:
     bool
         日本語文字を含む場合は True。
     """
-    for ch in text:
-        name = unicodedata.name(ch, "")
-        if "CJK" in name or "HIRAGANA" in name or "KATAKANA" in name:
-            return True
-    return False
+    return bool(_JP_PATTERN.search(text))
 
 
 def check_subject_reference(texts: list[str]) -> CheckRuleResult:
@@ -2049,8 +2067,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--neo4j-password",
-        default=os.environ.get("NEO4J_PASSWORD", "gomasuke"),
-        help="Neo4j パスワード（デフォルト: 環境変数 NEO4J_PASSWORD または 'gomasuke'）",
+        default=None,
+        help="Neo4j パスワード（環境変数 NEO4J_PASSWORD から取得）",
     )
     parser.add_argument(
         "--dry-run",

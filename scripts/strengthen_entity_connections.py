@@ -180,7 +180,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--neo4j-password",
         default=None,
-        help="Neo4j パスワード (デフォルト: 環境変数 NEO4J_PASSWORD or 'gomasuke')",
+        help="Neo4j パスワード（環境変数 NEO4J_PASSWORD から取得）",
     )
     return parser.parse_args(argv)
 
@@ -204,16 +204,27 @@ def create_driver(
     user : str
         Neo4j ユーザー名。
     password : str | None
-        Neo4j パスワード。``None`` の場合は環境変数 ``NEO4J_PASSWORD`` を
-        参照し、未設定時は ``'gomasuke'`` をデフォルト値として使用する。
+        Neo4j パスワード。``None`` の場合は環境変数 ``NEO4J_PASSWORD`` を参照する。
+        環境変数も未設定の場合は ``ValueError`` を送出する。
 
     Returns
     -------
     Any
         接続確認済みの Neo4j ドライバー。
+
+    Raises
+    ------
+    ValueError
+        パスワードが指定されず ``NEO4J_PASSWORD`` も未設定の場合。
     """
     if password is None:
-        password = os.environ.get("NEO4J_PASSWORD", "gomasuke")
+        password = os.environ.get("NEO4J_PASSWORD")
+    if not password:
+        msg = (
+            "Neo4j password is required. "
+            "Set NEO4J_PASSWORD environment variable or pass --neo4j-password."
+        )
+        raise ValueError(msg)
 
     logger.info("Connecting to Neo4j: %s", uri)
     driver = GraphDatabase.driver(uri, auth=(user, password))
@@ -244,6 +255,7 @@ def count_isolated_entities(session: Any) -> int:
     int
         孤立 Entity 数。
     """
+    # AIDEV-NOTE: type(r) IN [...] は ENTITY_RELATIONSHIP_TYPES 定数と同期すること
     query = """
     MATCH (e:Entity)
     WHERE NOT 'Memory' IN labels(e)
@@ -296,6 +308,7 @@ def lower_co_mention_threshold(
         実行統計。
     """
     # 共通 Claim で共起するが、まだ直接リレーションがない Entity ペアを検出
+    # AIDEV-NOTE: type(existing) IN [...] は ENTITY_RELATIONSHIP_TYPES 定数と同期すること
     find_query = """
     MATCH (e1:Entity)<-[:ABOUT]-(c:Claim)-[:ABOUT]->(e2:Entity)
     WHERE NOT 'Memory' IN labels(e1)

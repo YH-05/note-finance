@@ -299,19 +299,10 @@ class TestAllowedRelationshipTypes:
 
 
 class TestCreateDriver:
-    @patch("kg_quality_metrics.GraphDatabase")
-    def test_正常系_デフォルトURIで接続(self, mock_gdb: MagicMock) -> None:
-        mock_driver = MagicMock()
-        mock_gdb.driver.return_value = mock_driver
-
-        driver = create_driver()
-
-        mock_gdb.driver.assert_called_once_with(
-            "bolt://localhost:7688",
-            auth=("neo4j", "gomasuke"),
-        )
-        mock_driver.verify_connectivity.assert_called_once()
-        assert driver is mock_driver
+    @patch.dict("os.environ", {}, clear=True)
+    def test_異常系_パスワード未設定でValueError(self) -> None:
+        with pytest.raises(ValueError, match="Neo4j password is required"):
+            create_driver()
 
     @patch("kg_quality_metrics.GraphDatabase")
     def test_正常系_カスタムURIとパスワードで接続(self, mock_gdb: MagicMock) -> None:
