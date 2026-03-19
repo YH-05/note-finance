@@ -35,7 +35,7 @@ class TestNlmAddCommand:
 
         runner = CliRunner()
         with patch(
-            "youtube_transcript.cli.main._build_nlm_pipeline",
+            "youtube_transcript.cli.nlm_cmd._build_nlm_pipeline",
             return_value=mock_pipeline,
         ):
             result = runner.invoke(
@@ -103,11 +103,11 @@ class TestNlmAddCommand:
         runner = CliRunner()
         with (
             patch(
-                "youtube_transcript.cli.main._build_nlm_pipeline",
+                "youtube_transcript.cli.nlm_cmd._build_nlm_pipeline",
                 return_value=mock_pipeline,
             ),
             patch(
-                "youtube_transcript.cli.main.JSONStorage",
+                "youtube_transcript.cli.nlm_cmd.JSONStorage",
                 return_value=mock_storage,
             ),
         ):
@@ -151,7 +151,7 @@ class TestNlmAddCommand:
 
         runner = CliRunner()
         with patch(
-            "youtube_transcript.cli.main._build_nlm_pipeline",
+            "youtube_transcript.cli.nlm_cmd._build_nlm_pipeline",
             return_value=mock_pipeline,
         ):
             result = runner.invoke(
@@ -190,7 +190,7 @@ class TestKgExportCommand:
 
         runner = CliRunner()
         with patch(
-            "youtube_transcript.cli.main._build_kg_exporter",
+            "youtube_transcript.cli.kg_cmd._build_kg_exporter",
             return_value=mock_exporter,
         ):
             result = runner.invoke(
@@ -222,7 +222,7 @@ class TestKgExportCommand:
 
         runner = CliRunner()
         with patch(
-            "youtube_transcript.cli.main._build_kg_exporter",
+            "youtube_transcript.cli.kg_cmd._build_kg_exporter",
             return_value=mock_exporter,
         ):
             result = runner.invoke(
@@ -271,7 +271,7 @@ class TestKgExportCommand:
 
         runner = CliRunner()
         with patch(
-            "youtube_transcript.cli.main._build_kg_exporter",
+            "youtube_transcript.cli.kg_cmd._build_kg_exporter",
             return_value=mock_exporter,
         ):
             result = runner.invoke(
