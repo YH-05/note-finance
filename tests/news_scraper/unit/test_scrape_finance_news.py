@@ -242,6 +242,71 @@ class TestParseArgs:
             assert args.sources == ["cnbc"]
 
 
+class TestJetroCLIArgs:
+    """Tests for JETRO-specific CLI arguments."""
+
+    def test_正常系_jetro_categoriesを指定できる(self) -> None:
+        """--jetro-categories accepts category values."""
+        with patch(
+            "sys.argv",
+            ["scrape_finance_news.py", "--jetro-categories", "world", "theme"],
+        ):
+            args = _parse_args()
+            assert args.jetro_categories == ["world", "theme"]
+
+    def test_正常系_jetro_categoriesのデフォルトはNone(self) -> None:
+        """--jetro-categories defaults to None."""
+        with patch("sys.argv", ["scrape_finance_news.py"]):
+            args = _parse_args()
+            assert args.jetro_categories is None
+
+    def test_正常系_jetro_regionsをJSON形式で指定できる(self) -> None:
+        """--jetro-regions accepts JSON string."""
+        regions_json = '{"asia": ["cn", "kr"]}'
+        with patch(
+            "sys.argv",
+            ["scrape_finance_news.py", "--jetro-regions", regions_json],
+        ):
+            args = _parse_args()
+            assert args.jetro_regions == regions_json
+
+    def test_正常系_jetro_regionsのデフォルトはNone(self) -> None:
+        """--jetro-regions defaults to None."""
+        with patch("sys.argv", ["scrape_finance_news.py"]):
+            args = _parse_args()
+            assert args.jetro_regions is None
+
+    def test_正常系_jetro_archive_pagesを指定できる(self) -> None:
+        """--jetro-archive-pages accepts integer value."""
+        with patch(
+            "sys.argv",
+            ["scrape_finance_news.py", "--jetro-archive-pages", "3"],
+        ):
+            args = _parse_args()
+            assert args.jetro_archive_pages == 3
+
+    def test_正常系_jetro_archive_pagesのデフォルトは0(self) -> None:
+        """--jetro-archive-pages defaults to 0."""
+        with patch("sys.argv", ["scrape_finance_news.py"]):
+            args = _parse_args()
+            assert args.jetro_archive_pages == 0
+
+    def test_正常系_use_playwrightを指定できる(self) -> None:
+        """--use-playwright flag can be set."""
+        with patch(
+            "sys.argv",
+            ["scrape_finance_news.py", "--use-playwright"],
+        ):
+            args = _parse_args()
+            assert args.use_playwright is True
+
+    def test_正常系_use_playwrightのデフォルトはFalse(self) -> None:
+        """--use-playwright defaults to False."""
+        with patch("sys.argv", ["scrape_finance_news.py"]):
+            args = _parse_args()
+            assert args.use_playwright is False
+
+
 class TestMainAsyncCall:
     """Tests for main() function async/sync handling."""
 

@@ -155,6 +155,34 @@ Examples:
         default="INFO",
         help="Log level (default: INFO)",
     )
+    # JETRO-specific options
+    parser.add_argument(
+        "--jetro-categories",
+        nargs="+",
+        default=None,
+        metavar="CAT",
+        help="JETRO category groups to crawl (e.g. world theme industry)",
+    )
+    parser.add_argument(
+        "--jetro-regions",
+        type=str,
+        default=None,
+        metavar="JSON",
+        help='JETRO regions as JSON (e.g. \'{"asia": ["cn", "kr"]}\')',
+    )
+    parser.add_argument(
+        "--jetro-archive-pages",
+        type=int,
+        default=0,
+        metavar="N",
+        help="Number of JETRO archive pages to crawl per country (default: 0)",
+    )
+    parser.add_argument(
+        "--use-playwright",
+        action="store_true",
+        default=False,
+        help="Use Playwright for JavaScript-rendered pages",
+    )
     return parser.parse_args()
 
 
@@ -353,10 +381,30 @@ def main() -> int:
     # Resolve output directory
     output_dir = _resolve_output_dir(args.output_dir)
 
+    # Build per-source options from CLI arguments
+    source_options: dict[str, dict] = {}
+    if args.jetro_categories or args.jetro_regions or args.jetro_archive_pages:
+        jetro_opts: dict = {}
+        if args.jetro_categories:
+            jetro_opts["categories"] = args.jetro_categories
+        if args.jetro_regions:
+            try:
+                jetro_opts["regions"] = json.loads(args.jetro_regions)
+            except json.JSONDecodeError:
+                logger.error(
+                    "Invalid JSON for --jetro-regions", raw=args.jetro_regions
+                )
+                return 1
+        if args.jetro_archive_pages > 0:
+            jetro_opts["archive_pages"] = args.jetro_archive_pages
+        source_options["jetro"] = jetro_opts
+
     # Setup scraper config
     config = ScraperConfig(
         include_content=args.include_content,
         max_articles_per_source=args.max_articles,
+        use_playwright=args.use_playwright,
+        source_options=source_options,
     )
 
     # Collect news

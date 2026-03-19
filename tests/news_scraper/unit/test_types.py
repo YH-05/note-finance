@@ -52,6 +52,38 @@ class TestScraperConfig:
         assert config.request_delay == 1.0
         assert config.max_articles_per_source == 50
         assert config.use_playwright is False
+        assert config.source_options == {}
+
+    def test_正常系_source_optionsがデフォルトで空dictである(self) -> None:
+        """ScraperConfig.source_options defaults to empty dict."""
+        config = ScraperConfig()
+        assert config.source_options == {}
+        assert isinstance(config.source_options, dict)
+
+    def test_正常系_source_optionsにJETROパラメータを設定できる(self) -> None:
+        """ScraperConfig.source_options can hold JETRO-specific parameters."""
+        jetro_opts = {
+            "categories": ["world", "theme"],
+            "regions": {"asia": ["cn", "kr"]},
+            "archive_pages": 3,
+        }
+        config = ScraperConfig(source_options={"jetro": jetro_opts})
+        assert "jetro" in config.source_options
+        assert config.source_options["jetro"]["categories"] == ["world", "theme"]
+        assert config.source_options["jetro"]["regions"] == {"asia": ["cn", "kr"]}
+        assert config.source_options["jetro"]["archive_pages"] == 3
+
+    def test_正常系_source_optionsに複数ソースを設定できる(self) -> None:
+        """ScraperConfig.source_options can hold options for multiple sources."""
+        config = ScraperConfig(
+            source_options={
+                "jetro": {"categories": ["world"]},
+                "nasdaq": {"market": "us"},
+            }
+        )
+        assert len(config.source_options) == 2
+        assert "jetro" in config.source_options
+        assert "nasdaq" in config.source_options
 
     def test_正常系_include_contentをTrueに設定できる(self) -> None:
         """ScraperConfig can enable include_content."""

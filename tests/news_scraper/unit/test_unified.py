@@ -375,3 +375,85 @@ class TestSourceRegistry:
 
         assert len(df) == 1
         assert df.articles[0].source == "nasdaq"
+
+
+class TestJetroSourceOptionsPassthrough:
+    """Tests for JETRO source_options passthrough via unified.py."""
+
+    async def test_正常系_source_optionsのJETROパラメータがcollect_newsに渡される(
+        self,
+    ) -> None:
+        """_collect_jetro passes source_options JETRO params to jetro.collect_news."""
+        jetro_articles = [
+            _make_article(
+                title="JETRO Passthrough",
+                url="https://www.jetro.go.jp/biznews/2026/03/pass.html",
+                source="jetro",
+            ),
+        ]
+        jetro_opts = {
+            "categories": ["world", "theme"],
+            "regions": {"asia": ["cn", "kr"]},
+            "archive_pages": 2,
+        }
+        config = ScraperConfig(source_options={"jetro": jetro_opts})
+
+        mock_collect = MagicMock(return_value=jetro_articles)
+        with patch("news_scraper.jetro.collect_news", mock_collect):
+            df = await collect_financial_news(sources=["jetro"], config=config)
+
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        # Verify that JETRO-specific parameters were passed through
+        mock_collect.assert_called_once()
+        call_kwargs = mock_collect.call_args
+        # Should pass categories, regions, archive_pages from source_options
+        assert call_kwargs.kwargs.get("categories") == ["world", "theme"]
+        assert call_kwargs.kwargs.get("regions") == {"asia": ["cn", "kr"]}
+        assert call_kwargs.kwargs.get("archive_pages") == 2
+
+    async def test_正常系_source_optionsが空の場合デフォルトでJETROを収集する(
+        self,
+    ) -> None:
+        """_collect_jetro works with empty source_options (default behavior)."""
+        jetro_articles = [
+            _make_article(
+                title="JETRO Default",
+                url="https://www.jetro.go.jp/biznews/2026/03/default.html",
+                source="jetro",
+            ),
+        ]
+        config = ScraperConfig()  # No source_options
+
+        mock_collect = MagicMock(return_value=jetro_articles)
+        with patch("news_scraper.jetro.collect_news", mock_collect):
+            df = await collect_financial_news(sources=["jetro"], config=config)
+
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1
+        mock_collect.assert_called_once()
+        # With no source_options, should not pass categories/regions/archive_pages
+        call_kwargs = mock_collect.call_args
+        assert call_kwargs.kwargs.get("categories") is None
+        assert call_kwargs.kwargs.get("regions") is None
+        assert call_kwargs.kwargs.get("archive_pages", 0) == 0
+
+    async def test_正常系_source_optionsにjetroがない場合デフォルト動作(
+        self,
+    ) -> None:
+        """_collect_jetro uses defaults when source_options has no 'jetro' key."""
+        jetro_articles = [
+            _make_article(
+                title="JETRO No Key",
+                url="https://www.jetro.go.jp/biznews/2026/03/nokey.html",
+                source="jetro",
+            ),
+        ]
+        config = ScraperConfig(source_options={"nasdaq": {"market": "us"}})
+
+        mock_collect = MagicMock(return_value=jetro_articles)
+        with patch("news_scraper.jetro.collect_news", mock_collect):
+            df = await collect_financial_news(sources=["jetro"], config=config)
+
+        assert isinstance(df, NewsDataFrame)
+        assert len(df) == 1

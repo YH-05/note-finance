@@ -101,6 +101,9 @@ class ScraperConfig(BaseModel):
     use_playwright : bool
         Whether to use Playwright for JavaScript-rendered pages (default: False).
         Required for NASDAQ archive scraping (Wave 3+).
+    source_options : dict[str, dict[str, Any]]
+        Per-source configuration overrides keyed by source name (default: {}).
+        For JETRO: ``{"jetro": {"categories": [...], "regions": {...}, "archive_pages": N}}``.
 
     Examples
     --------
@@ -140,6 +143,10 @@ class ScraperConfig(BaseModel):
             "Whether to use Playwright for JavaScript-rendered pages. "
             "Required for NASDAQ archive scraping."
         ),
+    )
+    source_options: dict[str, dict[str, Any]] = Field(
+        default_factory=dict,
+        description="Per-source configuration (e.g. JETRO categories, regions).",
     )
 
 
