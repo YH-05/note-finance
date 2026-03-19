@@ -19,11 +19,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "scripts"
 
 from kg_quality_metrics import (
     ALLOWED_ENTITY_TYPES,
+    ALLOWED_RELATIONSHIP_TYPES,
     THRESHOLDS,
     CategoryResult,
     CheckRuleResult,
     MetricValue,
     QualitySnapshot,
+    check_entity_length,
+    check_relationship_compliance,
+    check_schema_compliance,
+    check_subject_reference,
+    compute_semantic_diversity,
+    compute_shannon_entropy,
     create_driver,
     evaluate_status,
     get_counts,
@@ -31,6 +38,7 @@ from kg_quality_metrics import (
     measure_accuracy,
     measure_completeness,
     measure_consistency,
+    measure_discoverability,
     measure_finance_specific,
     measure_structural,
     measure_timeliness,
@@ -822,3 +830,378 @@ class TestMeasureFinanceSpecific:
         for call in calls:
             query = call[0][0]
             assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
+
+
+# ---------------------------------------------------------------------------
+# measure_discoverability
+# ---------------------------------------------------------------------------
+
+
+class TestMeasureDiscoverability:
+    def test_正常系_CategoryResultを返す(self) -> None:
+        mock_session = MagicMock()
+
+        # 1. ノードID一覧取得（200ペアサンプリング用）
+        mock_node_ids = MagicMock()
+        mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(400)]
+
+        # 2. shortestPath クエリ（各ペアごとに1回）
+        # 200ペア分のモック結果
+        mock_path_results: list[MagicMock] = []
+        for i in range(200):
+            r = MagicMock()
+            # パス長をバリエーション持たせる（2, 3, 4, 5 の繰り返し）
+            path_len = (i % 4) + 2
+            r.single.return_value = {"path_length": path_len}
+            mock_path_results.append(r)
+
+        mock_session.run.side_effect = [mock_node_ids, *mock_path_results]
+
+        result = measure_discoverability(mock_session, sample_size=200, timeout_sec=5)
+        assert isinstance(result, CategoryResult)
+        assert result.name == "discoverability"
+        assert len(result.metrics) >= 3  # avg_path_length, path_diversity, bridge_rate
+
+    def test_正常系_平均パス長が含まれる(self) -> None:
+        mock_session = MagicMock()
+
+        # 全ペアでパス長3
+        mock_node_ids = MagicMock()
+        mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(10)]
+
+        mock_path_results: list[MagicMock] = []
+        # 10ノードから5ペアをサンプリング
+        for _ in range(5):
+            r = MagicMock()
+            r.single.return_value = {"path_length": 3}
+            mock_path_results.append(r)
+
+        mock_session.run.side_effect = [mock_node_ids, *mock_path_results]
+
+        result = measure_discoverability(mock_session, sample_size=5, timeout_sec=5)
+        # 平均パス長メトリクスを検索
+        avg_path = [m for m in result.metrics if m.unit == "hops"]
+        assert len(avg_path) >= 1
+        assert avg_path[0].value == pytest.approx(3.0, abs=0.1)
+
+    def test_正常系_タイムアウトしたペアはスキップされる(self) -> None:
+        mock_session = MagicMock()
+
+        mock_node_ids = MagicMock()
+        mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(10)]
+
+        # 5ペア中2ペアがタイムアウト（例外発生）
+        mock_path_results: list[MagicMock | Exception] = []
+        for i in range(5):
+            if i < 2:
+                # タイムアウト = 例外
+                mock_path_results.append(Exception("timeout"))
+            else:
+                r = MagicMock()
+                r.single.return_value = {"path_length": 4}
+                mock_path_results.append(r)
+
+        def side_effect_fn(*args, **kwargs):
+            result = mock_path_results.pop(0)
+            if isinstance(result, Exception):
+                raise result
+            return result
+
+        # 最初の呼び出しはノードID取得
+        call_count = [0]
+        original_side_effects = [mock_node_ids, *mock_path_results]
+
+        def smart_side_effect(*args, **kwargs):
+            idx = call_count[0]
+            call_count[0] += 1
+            if idx == 0:
+                return mock_node_ids
+            result = original_side_effects[idx]
+            if isinstance(result, Exception):
+                raise result
+            return result
+
+        mock_session.run.side_effect = smart_side_effect
+
+        result = measure_discoverability(mock_session, sample_size=5, timeout_sec=5)
+        assert isinstance(result, CategoryResult)
+        # タイムアウトがあっても結果を返す
+        assert result.name == "discoverability"
+
+    def test_正常系_Memory除外フィルタがノードID取得に含まれる(self) -> None:
+        mock_session = MagicMock()
+
+        mock_node_ids = MagicMock()
+        mock_node_ids.data.return_value = [{"nid": f"node-{i}"} for i in range(10)]
+
+        mock_path_results: list[MagicMock] = []
+        for _ in range(5):
+            r = MagicMock()
+            r.single.return_value = {"path_length": 3}
+            mock_path_results.append(r)
+
+        mock_session.run.side_effect = [mock_node_ids, *mock_path_results]
+
+        measure_discoverability(mock_session, sample_size=5, timeout_sec=5)
+        # 最初のクエリ（ノードID取得）にMemory除外が含まれる
+        first_call = mock_session.run.call_args_list[0]
+        query = first_call[0][0]
+        assert "Memory" in query, (
+            f"Memory filter missing in node ID query: {query[:80]}"
+        )
+
+    def test_エッジケース_ノード数不足でスコア0(self) -> None:
+        mock_session = MagicMock()
+
+        # ノードが1つしかない場合（ペアを作れない）
+        mock_node_ids = MagicMock()
+        mock_node_ids.data.return_value = [{"nid": "node-0"}]
+
+        mock_session.run.side_effect = [mock_node_ids]
+
+        result = measure_discoverability(mock_session, sample_size=200, timeout_sec=5)
+        assert isinstance(result, CategoryResult)
+        assert result.score == 0.0
+
+
+# ---------------------------------------------------------------------------
+# CheckRules: check_subject_reference (代名詞検出)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckSubjectReference:
+    def test_正常系_代名詞なしで通過(self) -> None:
+        texts = [
+            "Apple reported strong quarterly earnings.",
+            "S&P 500 reached all-time highs.",
+            "日本銀行が金利据え置きを決定した。",
+        ]
+        result = check_subject_reference(texts)
+        assert isinstance(result, CheckRuleResult)
+        assert result.rule_name == "subject_reference"
+        assert result.pass_rate == 1.0
+        assert result.violations == []
+
+    def test_異常系_英語代名詞を検出(self) -> None:
+        texts = [
+            "It reported strong earnings.",  # "It" は代名詞
+            "Apple had a good quarter.",
+            "They announced a merger.",  # "They" は代名詞
+        ]
+        result = check_subject_reference(texts)
+        assert result.pass_rate < 1.0
+        assert len(result.violations) == 2
+
+    def test_異常系_日本語代名詞を検出(self) -> None:
+        texts = [
+            "それは好決算を発表した。",  # 「それ」は代名詞
+            "トヨタが増収増益を達成。",
+            "これにより株価が上昇した。",  # 「これ」は代名詞
+        ]
+        result = check_subject_reference(texts)
+        assert result.pass_rate < 1.0
+        assert len(result.violations) >= 1
+
+    def test_エッジケース_空リストでpass_rate_1(self) -> None:
+        result = check_subject_reference([])
+        assert result.pass_rate == 1.0
+        assert result.violations == []
+
+    def test_正常系_純粋関数として副作用なし(self) -> None:
+        texts = ["Apple grew revenue.", "Google launched a product."]
+        original_texts = texts.copy()
+        check_subject_reference(texts)
+        assert texts == original_texts  # 入力が変更されていない
+
+
+# ---------------------------------------------------------------------------
+# CheckRules: check_entity_length (エンティティ長検証)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckEntityLength:
+    def test_正常系_英語5語以下で通過(self) -> None:
+        entities = ["Apple", "S&P 500 Index", "Bank of America"]
+        result = check_entity_length(entities)
+        assert isinstance(result, CheckRuleResult)
+        assert result.rule_name == "entity_length"
+        assert result.pass_rate == 1.0
+
+    def test_異常系_英語6語以上で違反(self) -> None:
+        entities = [
+            "Apple",
+            "The Very Long Company Name That Exceeds Limit",  # 8語
+        ]
+        result = check_entity_length(entities)
+        assert result.pass_rate < 1.0
+        assert len(result.violations) == 1
+
+    def test_正常系_日本語10文字以下で通過(self) -> None:
+        entities = ["トヨタ自動車", "日本銀行", "三菱UFJ銀行"]
+        result = check_entity_length(entities)
+        assert result.pass_rate == 1.0
+
+    def test_異常系_日本語11文字以上で違反(self) -> None:
+        entities = [
+            "トヨタ",
+            "このエンティティ名はとても長すぎます制限超え",  # 20文字以上
+        ]
+        result = check_entity_length(entities)
+        assert result.pass_rate < 1.0
+        assert len(result.violations) >= 1
+
+    def test_正常系_英語日本語の自動判定(self) -> None:
+        entities = ["Apple Inc", "三菱商事"]
+        result = check_entity_length(entities)
+        assert result.pass_rate == 1.0
+
+    def test_エッジケース_空リストでpass_rate_1(self) -> None:
+        result = check_entity_length([])
+        assert result.pass_rate == 1.0
+        assert result.violations == []
+
+
+# ---------------------------------------------------------------------------
+# CheckRules: check_schema_compliance (entity_type許可リスト検証)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckSchemaCompliance:
+    def test_正常系_全て許可リスト内で通過(self) -> None:
+        entity_types = ["company", "index", "sector", "indicator"]
+        result = check_schema_compliance(entity_types)
+        assert isinstance(result, CheckRuleResult)
+        assert result.rule_name == "schema_compliance"
+        assert result.pass_rate == 1.0
+        assert result.violations == []
+
+    def test_異常系_許可リスト外のentity_typeで違反(self) -> None:
+        entity_types = ["company", "INVALID_TYPE", "index", "unknown"]
+        result = check_schema_compliance(entity_types)
+        assert result.pass_rate < 1.0
+        assert "INVALID_TYPE" in result.violations
+        assert "unknown" in result.violations
+
+    def test_正常系_ALLOWED_ENTITY_TYPES全てが通過(self) -> None:
+        entity_types = list(ALLOWED_ENTITY_TYPES)
+        result = check_schema_compliance(entity_types)
+        assert result.pass_rate == 1.0
+
+    def test_エッジケース_空リストでpass_rate_1(self) -> None:
+        result = check_schema_compliance([])
+        assert result.pass_rate == 1.0
+
+
+# ---------------------------------------------------------------------------
+# CheckRules: check_relationship_compliance (リレーション型スキーマ検証)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckRelationshipCompliance:
+    def test_正常系_全て許可リスト内で通過(self) -> None:
+        rel_types = ["STATES_FACT", "MAKES_CLAIM", "RELATES_TO", "ABOUT"]
+        result = check_relationship_compliance(rel_types)
+        assert isinstance(result, CheckRuleResult)
+        assert result.rule_name == "relationship_compliance"
+        assert result.pass_rate == 1.0
+        assert result.violations == []
+
+    def test_異常系_許可リスト外のリレーション型で違反(self) -> None:
+        rel_types = ["STATES_FACT", "UNKNOWN_REL", "ABOUT"]
+        result = check_relationship_compliance(rel_types)
+        assert result.pass_rate < 1.0
+        assert "UNKNOWN_REL" in result.violations
+
+    def test_エッジケース_空リストでpass_rate_1(self) -> None:
+        result = check_relationship_compliance([])
+        assert result.pass_rate == 1.0
+
+
+# ---------------------------------------------------------------------------
+# EntropyAnalysis: compute_shannon_entropy
+# ---------------------------------------------------------------------------
+
+
+class TestComputeShannonEntropy:
+    def test_正常系_均一分布で最大値(self) -> None:
+        # 均一分布: 各カテゴリが同数 → 正規化エントロピー = 1.0
+        counts = {"a": 10, "b": 10, "c": 10, "d": 10}
+        entropy = compute_shannon_entropy(counts)
+        assert entropy == pytest.approx(1.0, abs=0.01)
+
+    def test_正常系_単一値で0(self) -> None:
+        # 単一カテゴリのみ → 正規化エントロピー = 0.0
+        counts = {"a": 100}
+        entropy = compute_shannon_entropy(counts)
+        assert entropy == pytest.approx(0.0, abs=0.01)
+
+    def test_正常系_偏った分布で中間値(self) -> None:
+        counts = {"a": 90, "b": 5, "c": 3, "d": 2}
+        entropy = compute_shannon_entropy(counts)
+        assert 0.0 < entropy < 1.0
+
+    def test_エッジケース_空辞書で0(self) -> None:
+        entropy = compute_shannon_entropy({})
+        assert entropy == pytest.approx(0.0)
+
+    def test_正常系_2カテゴリ均一分布(self) -> None:
+        counts = {"a": 50, "b": 50}
+        entropy = compute_shannon_entropy(counts)
+        assert entropy == pytest.approx(1.0, abs=0.01)
+
+    def test_エッジケース_カウント0のエントリは無視(self) -> None:
+        counts = {"a": 50, "b": 50, "c": 0}
+        entropy = compute_shannon_entropy(counts)
+        # c=0 は無視されるので、実質2カテゴリ均一分布
+        assert entropy == pytest.approx(1.0, abs=0.01)
+
+
+# ---------------------------------------------------------------------------
+# EntropyAnalysis: compute_semantic_diversity
+# ---------------------------------------------------------------------------
+
+
+class TestComputeSemanticDiversity:
+    def test_正常系_3軸統合スコアを返す(self) -> None:
+        entity_type_counts = {"company": 50, "index": 30, "sector": 20}
+        topic_category_counts = {"macro": 40, "stock": 35, "ai": 25}
+        relationship_type_counts = {"STATES_FACT": 100, "MAKES_CLAIM": 80, "ABOUT": 60}
+
+        score = compute_semantic_diversity(
+            entity_type_counts=entity_type_counts,
+            topic_category_counts=topic_category_counts,
+            relationship_type_counts=relationship_type_counts,
+        )
+        assert 0.0 <= score <= 1.0
+
+    def test_正常系_均一分布で高スコア(self) -> None:
+        entity_type_counts = {"company": 10, "index": 10, "sector": 10}
+        topic_category_counts = {"macro": 10, "stock": 10, "ai": 10}
+        relationship_type_counts = {"STATES_FACT": 10, "MAKES_CLAIM": 10, "ABOUT": 10}
+
+        score = compute_semantic_diversity(
+            entity_type_counts=entity_type_counts,
+            topic_category_counts=topic_category_counts,
+            relationship_type_counts=relationship_type_counts,
+        )
+        assert score >= 0.9  # 全軸が均一なので高スコア
+
+    def test_正常系_単一カテゴリのみで低スコア(self) -> None:
+        entity_type_counts = {"company": 100}
+        topic_category_counts = {"macro": 100}
+        relationship_type_counts = {"STATES_FACT": 100}
+
+        score = compute_semantic_diversity(
+            entity_type_counts=entity_type_counts,
+            topic_category_counts=topic_category_counts,
+            relationship_type_counts=relationship_type_counts,
+        )
+        assert score == pytest.approx(0.0, abs=0.01)
+
+    def test_エッジケース_全軸空で0(self) -> None:
+        score = compute_semantic_diversity(
+            entity_type_counts={},
+            topic_category_counts={},
+            relationship_type_counts={},
+        )
+        assert score == pytest.approx(0.0)

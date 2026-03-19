@@ -287,7 +287,9 @@ class TestCollectNewsWithPlaywright:
         with patch("news_scraper.minkabu.async_playwright", async_playwright_fn):
             result = await collect_news(config=config)
 
-        assert isinstance(result, list)  # Result is a list (possibly empty depending on HTML)
+        assert isinstance(
+            result, list
+        )  # Result is a list (possibly empty depending on HTML)
 
     async def test_正常系_URLが絶対URLである(self) -> None:
         """collect_news returns articles with absolute URLs."""

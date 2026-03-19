@@ -49,12 +49,12 @@ from news_scraper.types import ScraperConfig, get_delay
 
 __all__ = [
     "JP_DEFAULT_HEADERS",
-    "fetch_html",
     "async_fetch_html",
-    "parse_html",
-    "resolve_relative_url",
-    "rate_limit_sleep",
     "async_rate_limit_sleep",
+    "fetch_html",
+    "parse_html",
+    "rate_limit_sleep",
+    "resolve_relative_url",
 ]
 
 logger = get_logger(__name__, module="html_utils")

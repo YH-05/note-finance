@@ -30,8 +30,11 @@ Usage
 from __future__ import annotations
 
 import argparse
+import math
 import os
+import random
 import sys
+import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
@@ -192,6 +195,73 @@ ALLOWED_ENTITY_TYPES: frozenset[str] = frozenset(
     }
 )
 """Entity.entity_type の許可リスト。knowledge-graph-schema.yaml v2.3 準拠。"""
+
+ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
+    {
+        "CONTAINS_CHUNK",
+        "EXTRACTED_FROM",
+        "STATES_FACT",
+        "MAKES_CLAIM",
+        "SUPPORTED_BY",
+        "CONTRADICTS",
+        "RELATES_TO",
+        "ABOUT",
+        "AUTHORED_BY",
+        "TAGGED",
+        "FOR_PERIOD",
+        "HAS_DATAPOINT",
+        "DERIVED_FROM",
+        "VALIDATES",
+        "CHALLENGES",
+        "HOLDS_STANCE",
+        "ON_ENTITY",
+        "BASED_ON",
+        "SUPERSEDES",
+        "NEXT_PERIOD",
+        "TREND",
+        "CAUSES",
+        "ASKS_ABOUT",
+        "MOTIVATED_BY",
+        "ANSWERED_BY",
+    }
+)
+"""リレーションタイプの許可リスト。knowledge-graph-schema.yaml v2.3 準拠。"""
+
+# 代名詞パターン（英語・日本語）
+_ENGLISH_PRONOUNS: frozenset[str] = frozenset(
+    {
+        "it",
+        "its",
+        "they",
+        "them",
+        "their",
+        "theirs",
+        "he",
+        "him",
+        "his",
+        "she",
+        "her",
+        "hers",
+        "this",
+        "that",
+        "these",
+        "those",
+    }
+)
+"""検出対象の英語代名詞（文頭での使用を検出）。"""
+
+_JAPANESE_PRONOUNS: tuple[str, ...] = (
+    "それ",
+    "これ",
+    "あれ",
+    "その",
+    "この",
+    "あの",
+    "彼",
+    "彼女",
+    "彼ら",
+)
+"""検出対象の日本語代名詞（文頭での使用を検出）。"""
 
 
 # ---------------------------------------------------------------------------
@@ -871,6 +941,417 @@ def measure_finance_specific(session: Any) -> CategoryResult:
         score,
     )
     return CategoryResult(name="finance_specific", score=score, metrics=metrics)
+
+
+# ---------------------------------------------------------------------------
+# measure_discoverability
+# ---------------------------------------------------------------------------
+
+
+def measure_discoverability(
+    session: Any,
+    *,
+    sample_size: int = 200,
+    timeout_sec: int = 5,
+) -> CategoryResult:
+    """発見可能性指標を計測する。
+
+    ランダムにサンプリングしたノードペア間の最短パスを計測し、
+    パス多様性スコア・ブリッジ率・平均パス長を返す。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    sample_size : int
+        サンプリングするペア数。デフォルトは200。
+    timeout_sec : int
+        1ペアあたりの shortestPath タイムアウト（秒）。デフォルトは5。
+
+    Returns
+    -------
+    CategoryResult
+        ``"discoverability"`` カテゴリの計測結果。
+    """
+    # 1. 全ノードIDを取得
+    node_id_query = """
+    MATCH (n)
+    WHERE NOT 'Memory' IN labels(n)
+    RETURN elementId(n) AS nid
+    """
+    node_id_result = session.run(node_id_query)
+    node_ids: list[str] = [r["nid"] for r in node_id_result.data()]
+
+    if len(node_ids) < 2:
+        logger.warning("Not enough nodes for discoverability sampling: %d", len(node_ids))
+        metrics = [
+            MetricValue(value=0.0, unit="hops", status="red"),
+            MetricValue(value=0.0, unit="ratio", status="red"),
+            MetricValue(value=0.0, unit="ratio", status="red"),
+        ]
+        return CategoryResult(name="discoverability", score=0.0, metrics=metrics)
+
+    # 2. ランダムペアサンプリング
+    actual_sample = min(sample_size, len(node_ids) * (len(node_ids) - 1) // 2)
+    pairs: list[tuple[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+    attempts = 0
+    max_attempts = actual_sample * 10
+
+    while len(pairs) < actual_sample and attempts < max_attempts:
+        a, b = random.sample(node_ids, 2)
+        pair_key = (min(a, b), max(a, b))
+        if pair_key not in seen:
+            seen.add(pair_key)
+            pairs.append((a, b))
+        attempts += 1
+
+    # 3. 各ペアの最短パス長を計測
+    path_lengths: list[int] = []
+    timeout_count = 0
+    no_path_count = 0
+
+    for src, dst in pairs:
+        shortest_path_query = """
+        CALL {
+            MATCH (a), (b)
+            WHERE elementId(a) = $src AND elementId(b) = $dst
+            AND NOT 'Memory' IN labels(a) AND NOT 'Memory' IN labels(b)
+            MATCH p = shortestPath((a)-[*..15]-(b))
+            RETURN length(p) AS path_length
+        } IN TRANSACTIONS OF 1 ROW
+        """
+        try:
+            result = session.run(
+                shortest_path_query,
+                src=src,
+                dst=dst,
+            )
+            record = result.single()
+            if record is not None and record["path_length"] is not None:
+                path_lengths.append(record["path_length"])
+            else:
+                no_path_count += 1
+        except Exception:
+            timeout_count += 1
+            logger.debug(
+                "Discoverability: timeout/error for pair (%s, %s)",
+                src[:20],
+                dst[:20],
+            )
+
+    # 4. メトリクス計算
+    if path_lengths:
+        avg_path_length = sum(path_lengths) / len(path_lengths)
+        # パス多様性: パス長のユニーク値数 / 理論最大（サンプル数）
+        unique_lengths = len(set(path_lengths))
+        path_diversity = unique_lengths / len(path_lengths) if path_lengths else 0.0
+        # ブリッジ率: 到達可能ペアの割合
+        total_attempted = len(pairs)
+        reachable_pairs = len(path_lengths)
+        bridge_rate = reachable_pairs / total_attempted if total_attempted > 0 else 0.0
+    else:
+        avg_path_length = 0.0
+        path_diversity = 0.0
+        bridge_rate = 0.0
+
+    metrics = [
+        MetricValue(
+            value=round(avg_path_length, 2),
+            unit="hops",
+            status=evaluate_status("path_reachability", bridge_rate),
+        ),
+        MetricValue(
+            value=round(path_diversity, 4),
+            unit="ratio",
+            status="green"
+            if path_diversity >= 0.3
+            else "yellow"
+            if path_diversity >= 0.1
+            else "red",
+        ),
+        MetricValue(
+            value=round(bridge_rate, 4),
+            unit="ratio",
+            status=evaluate_status("path_reachability", bridge_rate),
+        ),
+    ]
+
+    score = _compute_category_score(metrics)
+
+    logger.info(
+        "Discoverability: avg_path=%.2f, diversity=%.4f, bridge_rate=%.4f, "
+        "timeouts=%d, no_path=%d, score=%.1f",
+        avg_path_length,
+        path_diversity,
+        bridge_rate,
+        timeout_count,
+        no_path_count,
+        score,
+    )
+    return CategoryResult(name="discoverability", score=score, metrics=metrics)
+
+
+# ---------------------------------------------------------------------------
+# CheckRules（4純粋関数）
+# ---------------------------------------------------------------------------
+
+
+def _is_japanese(text: str) -> bool:
+    """テキストが日本語を含むかを判定する。
+
+    Unicode カテゴリで CJK 統合漢字・ひらがな・カタカナを検出する。
+
+    Parameters
+    ----------
+    text : str
+        判定対象のテキスト。
+
+    Returns
+    -------
+    bool
+        日本語文字を含む場合は True。
+    """
+    for ch in text:
+        name = unicodedata.name(ch, "")
+        if "CJK" in name or "HIRAGANA" in name or "KATAKANA" in name:
+            return True
+    return False
+
+
+def check_subject_reference(texts: list[str]) -> CheckRuleResult:
+    """代名詞による主語参照を検出する。
+
+    Fact/Claim の content テキストが代名詞で始まっている場合を違反とする。
+    英語・日本語の代名詞に対応。
+
+    Parameters
+    ----------
+    texts : list[str]
+        検証対象のテキストリスト。
+
+    Returns
+    -------
+    CheckRuleResult
+        ``"subject_reference"`` ルールの検証結果。
+    """
+    if not texts:
+        return CheckRuleResult(rule_name="subject_reference", pass_rate=1.0, violations=[])
+
+    violations: list[str] = []
+    for text in texts:
+        stripped = text.strip()
+        if not stripped:
+            continue
+
+        # 英語: 最初の単語が代名詞か
+        first_word = stripped.split()[0].lower().rstrip(",.;:")
+        if first_word in _ENGLISH_PRONOUNS:
+            violations.append(stripped[:80])
+            continue
+
+        # 日本語: 先頭が代名詞で始まるか
+        for pronoun in _JAPANESE_PRONOUNS:
+            if stripped.startswith(pronoun):
+                violations.append(stripped[:80])
+                break
+
+    total = len(texts)
+    pass_count = total - len(violations)
+    pass_rate = pass_count / total if total > 0 else 1.0
+
+    return CheckRuleResult(
+        rule_name="subject_reference",
+        pass_rate=round(pass_rate, 4),
+        violations=violations,
+    )
+
+
+def check_entity_length(entities: list[str]) -> CheckRuleResult:
+    """エンティティ名の長さを検証する。
+
+    英語は5語以下、日本語は10文字以下を基準とする。
+    言語判定は文字種（CJK/ひらがな/カタカナ）の有無で自動判定。
+
+    Parameters
+    ----------
+    entities : list[str]
+        検証対象のエンティティ名リスト。
+
+    Returns
+    -------
+    CheckRuleResult
+        ``"entity_length"`` ルールの検証結果。
+    """
+    if not entities:
+        return CheckRuleResult(rule_name="entity_length", pass_rate=1.0, violations=[])
+
+    violations: list[str] = []
+    for entity in entities:
+        if _is_japanese(entity):
+            # 日本語: 10文字以下
+            if len(entity) > 10:
+                violations.append(entity)
+        else:
+            # 英語: 5語以下
+            word_count = len(entity.split())
+            if word_count > 5:
+                violations.append(entity)
+
+    total = len(entities)
+    pass_count = total - len(violations)
+    pass_rate = pass_count / total if total > 0 else 1.0
+
+    return CheckRuleResult(
+        rule_name="entity_length",
+        pass_rate=round(pass_rate, 4),
+        violations=violations,
+    )
+
+
+def check_schema_compliance(entity_types: list[str]) -> CheckRuleResult:
+    """entity_type の許可リスト遵守を検証する。
+
+    Parameters
+    ----------
+    entity_types : list[str]
+        検証対象の entity_type リスト。
+
+    Returns
+    -------
+    CheckRuleResult
+        ``"schema_compliance"`` ルールの検証結果。
+    """
+    if not entity_types:
+        return CheckRuleResult(rule_name="schema_compliance", pass_rate=1.0, violations=[])
+
+    violations: list[str] = [et for et in entity_types if et not in ALLOWED_ENTITY_TYPES]
+    total = len(entity_types)
+    pass_count = total - len(violations)
+    pass_rate = pass_count / total if total > 0 else 1.0
+
+    return CheckRuleResult(
+        rule_name="schema_compliance",
+        pass_rate=round(pass_rate, 4),
+        violations=violations,
+    )
+
+
+def check_relationship_compliance(rel_types: list[str]) -> CheckRuleResult:
+    """リレーションタイプのスキーマ遵守を検証する。
+
+    Parameters
+    ----------
+    rel_types : list[str]
+        検証対象のリレーションタイプリスト。
+
+    Returns
+    -------
+    CheckRuleResult
+        ``"relationship_compliance"`` ルールの検証結果。
+    """
+    if not rel_types:
+        return CheckRuleResult(
+            rule_name="relationship_compliance", pass_rate=1.0, violations=[]
+        )
+
+    violations: list[str] = [rt for rt in rel_types if rt not in ALLOWED_RELATIONSHIP_TYPES]
+    total = len(rel_types)
+    pass_count = total - len(violations)
+    pass_rate = pass_count / total if total > 0 else 1.0
+
+    return CheckRuleResult(
+        rule_name="relationship_compliance",
+        pass_rate=round(pass_rate, 4),
+        violations=violations,
+    )
+
+
+# ---------------------------------------------------------------------------
+# EntropyAnalysis
+# ---------------------------------------------------------------------------
+
+
+def compute_shannon_entropy(counts: dict[str, int]) -> float:
+    """正規化シャノンエントロピーを計算する。
+
+    均一分布で最大値 1.0、単一値で 0.0 を返す。
+
+    Parameters
+    ----------
+    counts : dict[str, int]
+        カテゴリ名をキー、出現回数を値とする辞書。
+
+    Returns
+    -------
+    float
+        正規化エントロピー（0.0 - 1.0）。
+    """
+    # 0以下のカウントを除外
+    positive_counts = {k: v for k, v in counts.items() if v > 0}
+    n_categories = len(positive_counts)
+
+    if n_categories <= 1:
+        return 0.0
+
+    total = sum(positive_counts.values())
+    if total == 0:
+        return 0.0
+
+    # シャノンエントロピー H = -Σ p_i * log2(p_i)
+    entropy = 0.0
+    for count in positive_counts.values():
+        p = count / total
+        if p > 0:
+            entropy -= p * math.log2(p)
+
+    # 正規化: H / log2(n) で 0-1 にスケーリング
+    max_entropy = math.log2(n_categories)
+    normalized = entropy / max_entropy if max_entropy > 0 else 0.0
+
+    return round(normalized, 4)
+
+
+def compute_semantic_diversity(
+    *,
+    entity_type_counts: dict[str, int],
+    topic_category_counts: dict[str, int],
+    relationship_type_counts: dict[str, int],
+) -> float:
+    """3軸統合セマンティック多様性スコアを計算する。
+
+    Entity.entity_type、Topic.category、リレーションタイプの
+    3軸の正規化シャノンエントロピーの平均値を返す。
+
+    Parameters
+    ----------
+    entity_type_counts : dict[str, int]
+        Entity.entity_type の分布。
+    topic_category_counts : dict[str, int]
+        Topic.category の分布。
+    relationship_type_counts : dict[str, int]
+        リレーションタイプの分布。
+
+    Returns
+    -------
+    float
+        3軸統合多様性スコア（0.0 - 1.0）。
+    """
+    entity_entropy = compute_shannon_entropy(entity_type_counts)
+    topic_entropy = compute_shannon_entropy(topic_category_counts)
+    rel_entropy = compute_shannon_entropy(relationship_type_counts)
+
+    # 3軸の単純平均
+    diversity = (entity_entropy + topic_entropy + rel_entropy) / 3.0
+
+    logger.info(
+        "Semantic diversity: entity=%.4f, topic=%.4f, rel=%.4f, combined=%.4f",
+        entity_entropy,
+        topic_entropy,
+        rel_entropy,
+        diversity,
+    )
+    return round(diversity, 4)
 
 
 # ---------------------------------------------------------------------------

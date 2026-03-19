@@ -75,13 +75,17 @@ def _make_transcript(video_id: str = "testVideo001") -> TranscriptResult:
         language="en",
         entries=[
             TranscriptEntry(start=0.0, duration=3.0, text="Hello, this is a test."),
-            TranscriptEntry(start=3.0, duration=2.0, text="Integration test transcript."),
+            TranscriptEntry(
+                start=3.0, duration=2.0, text="Integration test transcript."
+            ),
         ],
         fetched_at="2026-03-19T01:00:00+00:00",
     )
 
 
-def _setup_storage(data_dir: Path, channel: Channel, video: Video, transcript: TranscriptResult) -> None:
+def _setup_storage(
+    data_dir: Path, channel: Channel, video: Video, transcript: TranscriptResult
+) -> None:
     """JSONStorage にテストデータをセットアップする."""
     storage = JSONStorage(data_dir)
     storage.save_channels([channel])
@@ -355,7 +359,9 @@ class TestNeo4jConnectionIntegration:
             "relations",
         ]
         for field in required_top_level:
-            assert field in content, f"必須フィールド '{field}' が graph-queue JSON に存在しません"
+            assert field in content, (
+                f"必須フィールド '{field}' が graph-queue JSON に存在しません"
+            )
 
         # relations の必須キーを確認
         required_relations = [

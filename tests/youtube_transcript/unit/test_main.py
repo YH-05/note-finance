@@ -136,7 +136,9 @@ class TestChannelAdd:
     ) -> None:
         """channel add が正常に動作し、テキスト出力を返す."""
         channel = make_channel()
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.add.return_value = channel
 
@@ -162,7 +164,9 @@ class TestChannelAdd:
     ) -> None:
         """channel add --json がJSON形式で出力する."""
         channel = make_channel()
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.add.return_value = channel
 
@@ -192,7 +196,9 @@ class TestChannelAdd:
         """channel add で既存チャンネルの場合はエラーになる."""
         from youtube_transcript.exceptions import ChannelAlreadyExistsError
 
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.add.side_effect = ChannelAlreadyExistsError(
                 "Channel 'UCabc123' already exists"
@@ -228,7 +234,9 @@ class TestChannelList:
     ) -> None:
         """channel list がテキスト形式で一覧表示する."""
         channels = [make_channel(), make_channel(channel_id="UCdef456", title="Chan2")]
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.list.return_value = channels
 
@@ -245,7 +253,9 @@ class TestChannelList:
     ) -> None:
         """channel list --json がJSON配列を出力する."""
         channels = [make_channel()]
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.list.return_value = channels
 
@@ -264,7 +274,9 @@ class TestChannelList:
         self, runner: CliRunner, tmp_data_dir: Path, cli
     ) -> None:
         """channel list でチャンネルが0件の場合に適切なメッセージを表示する."""
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.list.return_value = []
 
@@ -288,7 +300,9 @@ class TestChannelRemove:
         self, runner: CliRunner, tmp_data_dir: Path, cli
     ) -> None:
         """channel remove が正常に動作する."""
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.remove.return_value = None
 
@@ -310,7 +324,9 @@ class TestChannelRemove:
         self, runner: CliRunner, tmp_data_dir: Path, cli
     ) -> None:
         """channel remove --json がJSON出力する."""
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.remove.return_value = None
 
@@ -336,7 +352,9 @@ class TestChannelRemove:
         """channel remove で存在しないチャンネルはエラーになる."""
         from youtube_transcript.exceptions import ChannelNotFoundError
 
-        with patch("youtube_transcript.cli.channel_cmd.ChannelManager") as mock_manager_cls:
+        with patch(
+            "youtube_transcript.cli.channel_cmd.ChannelManager"
+        ) as mock_manager_cls:
             mock_manager = mock_manager_cls.return_value
             mock_manager.remove.side_effect = ChannelNotFoundError(
                 "Channel 'UCxxx' not found"
@@ -639,7 +657,9 @@ class TestStats:
         quota = QuotaUsage(date="2026-03-18", units_used=1500, budget=9000)
 
         with (
-            patch("youtube_transcript.cli.media_cmd.ChannelManager") as mock_manager_cls,
+            patch(
+                "youtube_transcript.cli.media_cmd.ChannelManager"
+            ) as mock_manager_cls,
             patch("youtube_transcript.cli.media_cmd.QuotaTracker") as mock_tracker_cls,
         ):
             mock_manager = mock_manager_cls.return_value
@@ -668,7 +688,9 @@ class TestStats:
         """stats --json がquota情報を含むJSONを出力する."""
         channels = [make_channel()]
         with (
-            patch("youtube_transcript.cli.media_cmd.ChannelManager") as mock_manager_cls,
+            patch(
+                "youtube_transcript.cli.media_cmd.ChannelManager"
+            ) as mock_manager_cls,
             patch("youtube_transcript.cli.media_cmd.QuotaTracker") as mock_tracker_cls,
         ):
             mock_manager = mock_manager_cls.return_value
@@ -695,7 +717,9 @@ class TestStats:
     ) -> None:
         """stats でチャンネルが0件でも動作する."""
         with (
-            patch("youtube_transcript.cli.media_cmd.ChannelManager") as mock_manager_cls,
+            patch(
+                "youtube_transcript.cli.media_cmd.ChannelManager"
+            ) as mock_manager_cls,
             patch("youtube_transcript.cli.media_cmd.QuotaTracker") as mock_tracker_cls,
         ):
             mock_manager = mock_manager_cls.return_value
@@ -859,7 +883,9 @@ class TestCollectRetryFailed:
         collect_result = CollectResult(
             total=2, success=1, unavailable=0, failed=0, skipped=1
         )
-        with patch("youtube_transcript.cli.collect_cmd._build_retry_service") as mock_build:
+        with patch(
+            "youtube_transcript.cli.collect_cmd._build_retry_service"
+        ) as mock_build:
             mock_service = MagicMock()
             mock_build.return_value = mock_service
             mock_service.retry_failed.return_value = collect_result
@@ -886,7 +912,9 @@ class TestCollectRetryFailed:
         collect_results = [
             CollectResult(total=1, success=1, unavailable=0, failed=0, skipped=0)
         ]
-        with patch("youtube_transcript.cli.collect_cmd._build_retry_service") as mock_build:
+        with patch(
+            "youtube_transcript.cli.collect_cmd._build_retry_service"
+        ) as mock_build:
             mock_service = MagicMock()
             mock_build.return_value = mock_service
             mock_service.retry_all_failed.return_value = collect_results
@@ -912,7 +940,9 @@ class TestCollectRetryFailed:
         collect_result = CollectResult(
             total=3, success=2, unavailable=0, failed=1, skipped=0
         )
-        with patch("youtube_transcript.cli.collect_cmd._build_retry_service") as mock_build:
+        with patch(
+            "youtube_transcript.cli.collect_cmd._build_retry_service"
+        ) as mock_build:
             mock_service = MagicMock()
             mock_build.return_value = mock_service
             mock_service.retry_failed.return_value = collect_result

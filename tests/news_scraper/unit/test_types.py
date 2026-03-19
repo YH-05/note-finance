@@ -28,7 +28,14 @@ class TestSourceName:
 
     def test_正常系_全ソース名が定義されている(self) -> None:
         """SourceName includes all expected source names."""
-        expected: set[str] = {"cnbc", "jetro", "kabutan", "minkabu", "nasdaq", "reuters_jp"}
+        expected: set[str] = {
+            "cnbc",
+            "jetro",
+            "kabutan",
+            "minkabu",
+            "nasdaq",
+            "reuters_jp",
+        }
         # Access the Literal args from the type alias
         source_args = set(SourceName.__value__.__args__)
         assert source_args == expected
