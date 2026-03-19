@@ -155,6 +155,7 @@ def fix_entity_ids(
         return 0
 
     fixed_count = 0
+    skipped_count = 0
     batch_size = 100
     for i in range(0, len(entities), batch_size):
         batch = entities[i : i + batch_size]
@@ -162,6 +163,27 @@ def fix_entity_ids(
             et = entity.entity_type or "unknown"
             new_id = generate_entity_id(entity.name, et)
             new_key = f"{entity.name}::{et}"
+
+            # entity_key のユニーク制約違反を回避:
+            # 同じ entity_key を持つ別ノードが既に存在する場合はスキップ
+            check_query = """
+            MATCH (existing:Entity {entity_key: $entity_key})
+            WHERE elementId(existing) <> $element_id
+            RETURN count(existing) AS cnt
+            """
+            check_result = session.run(
+                check_query,
+                entity_key=new_key,
+                element_id=entity.element_id,
+            )
+            if check_result.single()["cnt"] > 0:
+                logger.warning(
+                    "Skipped %s: entity_key '%s' already exists on another node",
+                    entity.name,
+                    new_key,
+                )
+                skipped_count += 1
+                continue
 
             update_query = """
             MATCH (n:Entity)
@@ -179,7 +201,11 @@ def fix_entity_ids(
 
         logger.info("Fixed batch %d-%d (%d total)", i, i + len(batch), fixed_count)
 
-    logger.info("Fixed %d entities total", fixed_count)
+    logger.info(
+        "Fixed %d entities total (skipped %d due to duplicate entity_key)",
+        fixed_count,
+        skipped_count,
+    )
     return fixed_count
 
 

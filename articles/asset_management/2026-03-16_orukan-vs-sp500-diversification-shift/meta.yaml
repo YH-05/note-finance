@@ -7,7 +7,7 @@ status: "revised"
 
 # === Timestamps ===
 created_at: "2026-03-16"
-updated_at: "2026-03-16"
+updated_at: "2026-03-19"
 
 # === Content ===
 tags:
@@ -29,7 +29,7 @@ theme: "asset_management"
 
 # === Tracking ===
 critic_score: null
-revision_count: 1
+revision_count: 2
 note_url: null
 x_post_url: null
 research_sources: 12

@@ -1,0 +1,182 @@
+{
+  "cc264219811a6463": {
+    "fact_id": "",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.7,
+    "overall": 0.64,
+    "reasoning": "Specific financial metrics (P/E, ROE, TSR) with forward estimates. High factual value.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "7745f4e3a4506257": {
+    "fact_id": "",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.3,
+    "overall": 0.46,
+    "reasoning": "Space news, specific event but date-bound and non-financial.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "fa4b27b51d4d979d": {
+    "fact_id": "",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.75,
+    "overall": 0.675,
+    "reasoning": "Specific macro data with GDP ratios and quarterly detail. High factual and analytical value.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "5b3c536ca9089897": {
+    "fact_id": "",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.4,
+    "temporal_validity": 0.7,
+    "overall": 0.67,
+    "reasoning": "CEO quote with source attribution (Fortune). Specific contract details.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "37f82314536fce7c": {
+    "fact_id": "",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.85,
+    "overall": 0.705,
+    "reasoning": "Demographic data. Very high factual accuracy and long temporal validity.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "d5a139d6f99a4ec7": {
+    "fact_id": "",
+    "factual_correctness": 0.3,
+    "source_grounding": 0.2,
+    "temporal_validity": 0.2,
+    "overall": 0.24,
+    "reasoning": "Raw HTML from HackerNews. Noise data with no substantive content.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "ecd8bdfed4f39f6e": {
+    "fact_id": "",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.3,
+    "overall": 0.52,
+    "reasoning": "Specific commodity prices with date. Accurate at capture but rapidly stale.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "526950830e9c4b87": {
+    "fact_id": "",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.5,
+    "overall": 0.52,
+    "reasoning": "Tech strategy claim. Vague but directionally plausible.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "697ee5136085870f": {
+    "fact_id": "",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.35,
+    "temporal_validity": 0.85,
+    "overall": 0.72,
+    "reasoning": "Extremely detailed demographic/economic data with multiple source references (WEF, CSIS). Highest quality fact in sample.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "2db85cd06582fde9": {
+    "fact_id": "",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.75,
+    "overall": 0.655,
+    "reasoning": "Specific FDI data with analytical insight on distribution. High value.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "faa2b3224fe48e95": {
+    "fact_id": "",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.7,
+    "overall": 0.66,
+    "reasoning": "Specific earnings data with consensus comparison. Very high factual value.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "151c191f552fbd70": {
+    "fact_id": "",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.2,
+    "temporal_validity": 0.3,
+    "overall": 0.39,
+    "reasoning": "Vague market commentary fragment. Low specificity.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "48770803bab2d4f4": {
+    "fact_id": "",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.4,
+    "temporal_validity": 0.75,
+    "overall": 0.705,
+    "reasoning": "AMRO official forecast with source attribution. Specific growth and inflation numbers.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "69c4b0c4165b1f38": {
+    "fact_id": "",
+    "factual_correctness": 0.65,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.4,
+    "overall": 0.47,
+    "reasoning": "Specific fundraising data but clickbait framing. Moderate value.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "d37eea96d231d9c3": {
+    "fact_id": "",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.6,
+    "overall": 0.61,
+    "reasoning": "Specific cybersecurity incident with named threat actor and date. Risk disclosure.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "98f8d9d9c572ce3a": {
+    "fact_id": "",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.8,
+    "overall": 0.69,
+    "reasoning": "Comprehensive internet penetration data across ASEAN. High factual and temporal value.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "c8797804efbf318b": {
+    "fact_id": "",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.3,
+    "overall": 0.5,
+    "reasoning": "Geopolitical event claim. Specific but rapidly date-bound.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "9009e2958fb8b606": {
+    "fact_id": "",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.8,
+    "overall": 0.67,
+    "reasoning": "Detailed regulatory analysis with specific law references. High informational density.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "0499a6b8a6b26dce": {
+    "fact_id": "",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.2,
+    "overall": 0.39,
+    "reasoning": "Truncated options data. Date-specific and incomplete.",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  },
+  "54e73d493b78cf8c": {
+    "fact_id": "",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.5,
+    "overall": 0.52,
+    "reasoning": "ETF comparison data. Specific but poorly formatted (no space after heading).",
+    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  }
+}
