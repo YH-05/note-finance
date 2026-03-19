@@ -318,3 +318,11 @@ equity_research/macro_research/
 | equity-stock-research | `.claude/skills/equity-stock-research/SKILL.md` |
 | 週次マーケットレポート | `.claude/skills/generate-market-report/SKILL.md` |
 | macro_research ディレクトリ | `equity_research/macro_research/` |
+
+## KG Output（任意）
+
+リサーチ結果をresearch-neo4jに永続化する場合:
+1. `/emit-research-queue` スキルでgraph-queue JSONを生成
+2. `/save-to-graph` でNeo4jに投入
+
+参照: `.claude/rules/neo4j-write-rules.md`（直書き禁止ルール）

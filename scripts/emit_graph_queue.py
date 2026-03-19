@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Emit graph-queue JSON from various command outputs.
 
-Converts outputs from 9 different finance workflow commands into a
+Converts outputs from 10 different finance workflow commands into a
 unified graph-queue format. Each command produces data in a different
 JSON structure; this script normalises them all into a single schema.
 
@@ -16,6 +16,7 @@ Supported commands
 - pdf-extraction
 - wealth-scrape (supports both JSON file and directory input)
 - topic-discovery
+- web-research
 
 Usage
 -----
@@ -55,6 +56,8 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, TypedDict
 
+from authority_classifier import classify_authority
+
 from pdf_pipeline.services.id_generator import (
     generate_author_id,
     generate_claim_id,
@@ -65,7 +68,6 @@ from pdf_pipeline.services.id_generator import (
     generate_source_id,
     generate_stance_id,
 )
-from authority_classifier import classify_authority
 
 type MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 
@@ -331,7 +333,9 @@ def resolve_category(theme_key: str) -> str:
 # Metric alias index (Phase 2 Step B-2)
 # ---------------------------------------------------------------------------
 
-_METRIC_MASTER_PATH = Path(__file__).resolve().parent.parent / "data" / "config" / "metric_master.json"
+_METRIC_MASTER_PATH = (
+    Path(__file__).resolve().parent.parent / "data" / "config" / "metric_master.json"
+)
 
 
 @functools.lru_cache(maxsize=1)
@@ -697,9 +701,9 @@ def _build_trend_edges(
     # Group by (ticker_prefix, metric_key, source_hash) — Source-scoped TREND
     # Each sell-side report's projections form a coherent time series;
     # cross-report comparison is invalid due to unit/methodology differences.
-    groups: dict[
-        tuple[str, str, str], list[tuple[dict[str, Any], str | None]]
-    ] = defaultdict(list)
+    groups: dict[tuple[str, str, str], list[tuple[dict[str, Any], str | None]]] = (
+        defaultdict(list)
+    )
     for dp in financial_datapoints:
         dp_id = dp["datapoint_id"]
 
@@ -722,9 +726,7 @@ def _build_trend_edges(
         sorted_group = sorted(
             group,
             key=lambda item: _period_sort_key(
-                period_to_label.get(
-                    dp_to_period.get(item[0]["datapoint_id"], ""), ""
-                )
+                period_to_label.get(dp_to_period.get(item[0]["datapoint_id"], ""), "")
             ),
         )
         for i in range(1, len(sorted_group)):
@@ -751,8 +753,7 @@ def _build_trend_edges(
             if resolved_mid:
                 rel_dict["metric_id"] = resolved_mid
 
-            rels.append(rel_dict
-            )
+            rels.append(rel_dict)
 
     return rels
 
@@ -1177,7 +1178,7 @@ def _build_entity_nodes(
     for entity in chunk.get("entities", []):
         name = entity.get("name", "")
         entity_type = entity.get("entity_type", "")
-        entity_key = f"{name}:{entity_type}"
+        entity_key = f"{name}::{entity_type}"
         if entity_key not in seen_entity_keys:
             seen_entity_keys.add(entity_key)
             eid = generate_entity_id(name, entity_type)
@@ -3003,6 +3004,258 @@ def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# map_web_research
+# ---------------------------------------------------------------------------
+
+_VALID_AUTHORITY_LEVELS = frozenset(
+    {"official", "analyst", "media", "blog", "social", "academic"}
+)
+
+
+def _build_wr_sources(
+    raw_sources: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], dict[str, str]]:
+    """Build Source nodes from web-research input.
+
+    Returns
+    -------
+    tuple
+        (sources, url_to_source_id) — source nodes and URL→ID lookup.
+
+    Raises
+    ------
+    KeyError
+        If any source is missing ``authority_level``.
+    ValueError
+        If any source has an invalid ``authority_level``.
+    """
+    sources: list[dict[str, Any]] = []
+    url_to_source_id: dict[str, str] = {}
+
+    for src in raw_sources:
+        authority = src["authority_level"]  # KeyError if missing
+        if authority not in _VALID_AUTHORITY_LEVELS:
+            msg = (
+                f"Invalid authority_level {authority!r}. "
+                f"Expected one of {sorted(_VALID_AUTHORITY_LEVELS)}"
+            )
+            raise ValueError(msg)
+        url = src.get("url", "")
+        if not url:
+            logger.warning(
+                "Source missing URL, skipping (title=%r)", src.get("title", "")
+            )
+            continue
+        sid = generate_source_id(url)
+        url_to_source_id[url] = sid
+        sources.append(
+            {
+                "source_id": sid,
+                "url": url,
+                "title": src.get("title", ""),
+                "published": src.get("published_at", ""),
+                "source_type": src.get("source_type", ""),
+                "authority_level": authority,
+                "command_source": "web-research",
+            }
+        )
+
+    return sources, url_to_source_id
+
+
+def _build_wr_topics(
+    raw_topics: list[dict[str, Any]],
+    sources: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    """Build Topic nodes and Source→Topic TAGGED rels.
+
+    All sources are tagged with all topics (full cross-product by design).
+    """
+    topics: list[dict[str, Any]] = []
+    tagged_rels: list[dict[str, str]] = []
+
+    for raw_topic in raw_topics:
+        name = raw_topic.get("name", "")
+        category = raw_topic.get("category", "")
+        tid = generate_topic_id(name, category)
+        topics.append(
+            {
+                "topic_id": tid,
+                "name": name,
+                "category": category,
+                "topic_key": f"{name}::{category}",
+            }
+        )
+        # All sources tagged with each topic (intentional full cross-product)
+        for src_node in sources:
+            tagged_rels.append(
+                {
+                    "from_id": src_node["source_id"],
+                    "to_id": tid,
+                    "type": "TAGGED",
+                }
+            )
+
+    return topics, tagged_rels
+
+
+def _validate_confidence(raw_value: object) -> float | None:
+    """Validate and clamp confidence to [0.0, 1.0]."""
+    if raw_value is None:
+        return None
+    try:
+        value = float(raw_value)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        logger.warning("Invalid confidence value: %r, ignoring", raw_value)
+        return None
+    if not (0.0 <= value <= 1.0):
+        logger.warning("confidence out of range [0,1]: %s, clamping", value)
+        return max(0.0, min(1.0, value))
+    return value
+
+
+def _build_wr_facts(
+    raw_facts: list[dict[str, Any]],
+    url_to_source_id: dict[str, str],
+    topics: list[dict[str, Any]],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    dict[str, list[dict[str, str]]],
+    list[dict[str, str]],
+]:
+    """Build Fact/Entity nodes and all fact-related relations.
+
+    Returns
+    -------
+    tuple
+        (facts, entities, fact_rels, tagged_rels) where fact_rels contains
+        source_fact, fact_entity, and extracted_from_fact relation lists.
+        All facts are tagged with all topics (intentional full cross-product).
+    """
+    facts: list[dict[str, Any]] = []
+    entities: list[dict[str, Any]] = []
+    source_fact_rels: list[dict[str, str]] = []
+    fact_entity_rels: list[dict[str, str]] = []
+    extracted_from_fact_rels: list[dict[str, str]] = []
+    tagged_rels: list[dict[str, str]] = []
+    entity_id_map: dict[str, str] = {}  # ekey → eid
+
+    for raw_fact in raw_facts:
+        content = raw_fact.get("content", "")
+        source_url = raw_fact.get("source_url", "")
+
+        if source_url not in url_to_source_id:
+            logger.warning(
+                "Fact source_url not found in sources, skipping: %s",
+                source_url,
+            )
+            continue
+
+        fid = generate_fact_id(content)
+        sid = url_to_source_id[source_url]
+
+        facts.append(
+            {
+                "fact_id": fid,
+                "content": content,
+                "confidence": _validate_confidence(raw_fact.get("confidence")),
+            }
+        )
+
+        source_fact_rels.append(
+            {"from_id": sid, "to_id": fid, "type": "STATES_FACT"}
+        )
+        extracted_from_fact_rels.append(
+            {"from_id": fid, "to_id": sid, "type": "EXTRACTED_FROM"}
+        )
+
+        # Entity dedup & RELATES_TO rels
+        for ent in raw_fact.get("about_entities", []):
+            ename = ent.get("name", "")
+            etype = ent.get("entity_type", "")
+            ekey = f"{ename}::{etype}"
+            eid = generate_entity_id(ename, etype)
+
+            if ekey not in entity_id_map:
+                entity_id_map[ekey] = eid
+                entities.append(
+                    {
+                        "entity_id": eid,
+                        "name": ename,
+                        "entity_type": etype,
+                        "entity_key": ekey,
+                    }
+                )
+
+            fact_entity_rels.append(
+                {"from_id": fid, "to_id": eid, "type": "RELATES_TO"}
+            )
+
+        # All facts tagged with all topics (intentional full cross-product)
+        for topic_node in topics:
+            tagged_rels.append(
+                {
+                    "from_id": fid,
+                    "to_id": topic_node["topic_id"],
+                    "type": "TAGGED",
+                }
+            )
+
+    fact_rels = {
+        "source_fact": source_fact_rels,
+        "fact_entity": fact_entity_rels,
+        "extracted_from_fact": extracted_from_fact_rels,
+    }
+    return facts, entities, fact_rels, tagged_rels
+
+
+def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
+    """Map web-research session data to graph-queue components.
+
+    Converts ad-hoc web research data into the formal pipeline format
+    consumed by ``/save-to-graph``.
+
+    Parameters
+    ----------
+    data : dict[str, Any]
+        Input data with ``session_id``, ``sources[]``, ``facts[]``, and
+        ``topics[]``.
+
+    Returns
+    -------
+    dict[str, Any]
+        Mapped components with ``sources[]``, ``facts[]``, ``entities[]``,
+        ``topics[]``, and ``relations`` containing the four relation types
+        ``source_fact``, ``fact_entity``, ``tagged``, and
+        ``extracted_from_fact``.
+
+    Raises
+    ------
+    KeyError
+        If any source is missing the ``authority_level`` field.
+    ValueError
+        If any source has an invalid ``authority_level`` value.
+    """
+    sources, url_to_source_id = _build_wr_sources(data.get("sources", []))
+    topics, tagged_rels = _build_wr_topics(data.get("topics", []), sources)
+    facts, entities, fact_rels, fact_tagged = _build_wr_facts(
+        data.get("facts", []), url_to_source_id, topics
+    )
+    tagged_rels.extend(fact_tagged)
+
+    return _mapped_result(
+        data,
+        "web-research",
+        sources=sources,
+        facts=facts,
+        entities=entities,
+        topics=topics,
+        relations={**fact_rels, "tagged": tagged_rels},
+    )
+
+
+# ---------------------------------------------------------------------------
 # Command → Mapper dispatch
 # ---------------------------------------------------------------------------
 
@@ -3016,6 +3269,7 @@ COMMAND_MAPPERS: dict[str, MapperFn] = {
     "pdf-extraction": map_pdf_extraction,
     "wealth-scrape": map_wealth_scrape,
     "topic-discovery": map_topic_discovery,
+    "web-research": map_web_research,
 }
 """Dispatch table mapping command names to their mapper functions."""
 

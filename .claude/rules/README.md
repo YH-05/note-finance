@@ -20,6 +20,7 @@
 | `evidence-based.md` | エビデンスベース開発（禁止語、推奨語、証拠要件など） |
 | `subagent-data-passing.md` | **サブエージェントへのデータ渡しルール（完全なデータ構造必須）** |
 | `article-quality-standards.md` | **記事品質ルール（表の画像化・ソースURL埋め込み必須）** |
+| `neo4j-write-rules.md` | **Neo4j直書き禁止ルール（全データ投入はパイプライン経由必須）** |
 
 ## 使用方法
 
