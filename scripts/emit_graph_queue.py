@@ -122,6 +122,34 @@ WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
 DIRECTORY_COMMANDS: frozenset[str] = frozenset({"wealth-scrape"})
 """Commands that accept directory input in addition to JSON files."""
 
+_SOURCE_TYPE_NORMALIZATION: dict[str, str] = {
+    "tower_company_analysis": "analysis",
+    "company_analysis": "analysis",
+    "digital_services_analysis": "analysis",
+    "regulatory_analysis": "analysis",
+    "political_analysis": "analysis",
+    "macro_data": "data",
+    "spectrum_data": "data",
+    "web-research": "web",
+    "annual_report": "company_filing",
+    "regulatory_filing": "company_filing",
+    "research": "report",
+    "official": "report",
+    "original": "report",
+}
+"""source_type normalization mapping (25→12 canonical types)."""
+
+
+def _normalize_source_type(raw: str) -> str:
+    """Normalize source_type to one of 12 canonical values."""
+    return _SOURCE_TYPE_NORMALIZATION.get(raw, raw)
+
+
+def _normalize_entity_type(raw: str) -> str:
+    """Normalize entity_type to lowercase."""
+    return raw.lower() if raw else raw
+
+
 THEME_TO_CATEGORY: dict[str, str] = {
     "index": "stock",
     "stock": "stock",
@@ -786,6 +814,8 @@ def _make_source(
         "published": published,
         **extra,
     }
+    if "source_type" in source:
+        source["source_type"] = _normalize_source_type(source["source_type"])
     if "authority_level" not in source:
         source["authority_level"] = classify_authority(
             source_type=source.get("source_type", ""),
@@ -1177,7 +1207,7 @@ def _build_entity_nodes(
 
     for entity in chunk.get("entities", []):
         name = entity.get("name", "")
-        entity_type = entity.get("entity_type", "")
+        entity_type = _normalize_entity_type(entity.get("entity_type", ""))
         entity_key = f"{name}::{entity_type}"
         if entity_key not in seen_entity_keys:
             seen_entity_keys.add(entity_key)
@@ -2926,7 +2956,7 @@ def map_topic_discovery(data: dict[str, Any]) -> dict[str, Any]:
         {
             "source_id": session_id,
             "title": f"トピック提案セッション {generated_at_date}",
-            "source_type": "original",
+            "source_type": "report",
             "fetched_at": generated_at,
             "language": "ja",
             "command_source": "topic-discovery",
@@ -3048,17 +3078,20 @@ def _build_wr_sources(
             continue
         sid = generate_source_id(url)
         url_to_source_id[url] = sid
-        sources.append(
-            {
-                "source_id": sid,
-                "url": url,
-                "title": src.get("title", ""),
-                "published": src.get("published_at", ""),
-                "source_type": src.get("source_type", ""),
-                "authority_level": authority,
-                "command_source": "web-research",
-            }
-        )
+        node: dict[str, Any] = {
+            "source_id": sid,
+            "url": url,
+            "title": src.get("title", ""),
+            "published": src.get("published_at", ""),
+            "source_type": _normalize_source_type(src.get("source_type", "")),
+            "authority_level": authority,
+            "command_source": "web-research",
+        }
+        # Passthrough optional data_source for provenance tracking
+        data_source = src.get("data_source", "")
+        if data_source:
+            node["data_source"] = data_source
+        sources.append(node)
 
     return sources, url_to_source_id
 
@@ -3210,6 +3243,100 @@ def _build_wr_facts(
     return facts, entities, fact_rels, tagged_rels
 
 
+def _build_wr_claims(
+    raw_claims: list[dict[str, Any]],
+    url_to_source_id: dict[str, str],
+    entity_id_map: dict[str, str],
+    existing_entities: list[dict[str, Any]],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    dict[str, list[dict[str, str]]],
+]:
+    """Build Claim/Entity nodes and claim-related relations for web-research.
+
+    Parameters
+    ----------
+    raw_claims : list[dict[str, Any]]
+        Raw claim data from the input JSON.  Each entry should have
+        ``content``, ``source_url``, and optionally ``claim_type``,
+        ``sentiment``, and ``about_entities``.
+    url_to_source_id : dict[str, str]
+        URL → source_id mapping built by ``_build_wr_sources``.
+    entity_id_map : dict[str, str]
+        Mutable entity_key → entity_id map shared with ``_build_wr_facts``
+        for deduplication.
+    existing_entities : list[dict[str, Any]]
+        Mutable list of entity dicts shared with ``_build_wr_facts``.
+
+    Returns
+    -------
+    tuple
+        (claims, new_entities, claim_rels) where claim_rels contains
+        ``source_claim`` and ``claim_entity`` relation lists.
+    """
+    claims: list[dict[str, Any]] = []
+    new_entities: list[dict[str, Any]] = []
+    source_claim_rels: list[dict[str, str]] = []
+    claim_entity_rels: list[dict[str, str]] = []
+
+    for raw_claim in raw_claims:
+        content = raw_claim.get("content", "")
+        if not content:
+            continue
+        source_url = raw_claim.get("source_url", "")
+
+        if source_url and source_url not in url_to_source_id:
+            logger.warning(
+                "Claim source_url not found in sources, skipping: %s",
+                source_url,
+            )
+            continue
+
+        cid = generate_claim_id(content)
+        claims.append(
+            {
+                "claim_id": cid,
+                "content": content,
+                "claim_type": raw_claim.get("claim_type", ""),
+                "sentiment": raw_claim.get("sentiment", ""),
+            }
+        )
+
+        if source_url:
+            sid = url_to_source_id[source_url]
+            source_claim_rels.append(
+                {"from_id": sid, "to_id": cid, "type": "MAKES_CLAIM"}
+            )
+
+        for ent in raw_claim.get("about_entities", []):
+            ename = ent.get("name", "")
+            etype = ent.get("entity_type", "")
+            ekey = f"{ename}::{etype}"
+            eid = generate_entity_id(ename, etype)
+
+            if ekey not in entity_id_map:
+                entity_id_map[ekey] = eid
+                entity_node = {
+                    "entity_id": eid,
+                    "name": ename,
+                    "entity_type": etype,
+                    "entity_key": ekey,
+                }
+                new_entities.append(entity_node)
+                existing_entities.append(entity_node)
+
+            claim_entity_rels.append(
+                {"from_id": cid, "to_id": eid, "type": "ABOUT"}
+            )
+
+    claim_rels = {
+        "source_claim": source_claim_rels,
+        "claim_entity": claim_entity_rels,
+    }
+    return claims, new_entities, claim_rels
+
+
 def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     """Map web-research session data to graph-queue components.
 
@@ -3219,16 +3346,47 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     Parameters
     ----------
     data : dict[str, Any]
-        Input data with ``session_id``, ``sources[]``, ``facts[]``, and
-        ``topics[]``.
+        Input data with the following top-level keys:
+
+        - ``sources[]`` — list of source dicts, each with:
+            - ``url`` (str, required): Source URL.
+            - ``title`` (str): Source title.
+            - ``source_type`` (str): e.g. ``"web"``, ``"pdf"``.
+            - ``authority_level`` (str, required): One of ``"official"``,
+              ``"analyst"``, ``"media"``, ``"blog"``, ``"social"``,
+              ``"academic"``.
+            - ``publisher`` (str): Publisher name.
+            - ``data_source`` (str, optional): Data provenance tag, e.g.
+              ``"gemini-search"``, ``"tavily"``, ``"manual"``.
+        - ``facts[]`` — list of fact dicts, each with:
+            - ``content`` (str, required): The factual statement.
+            - ``source_url`` (str, required): Must match a URL in
+              ``sources[]``.
+            - ``confidence`` (float): 0.0–1.0.
+            - ``fact_type`` (str): e.g. ``"financial_metric"``,
+              ``"operational_kpi"``.
+            - ``about_entities`` (list[dict]): Each with ``name`` (str)
+              and ``entity_type`` (str).
+        - ``claims[]`` — list of claim dicts, each with:
+            - ``content`` (str, required): The claim/opinion text.
+            - ``source_url`` (str): Must match a URL in ``sources[]``.
+            - ``claim_type`` (str): e.g. ``"analyst_opinion"``,
+              ``"analyst_forecast"``.
+            - ``sentiment`` (str): ``"positive"``, ``"negative"``,
+              ``"neutral"``.
+            - ``about_entities`` (list[dict]): Each with ``name`` (str)
+              and ``entity_type`` (str).
+        - ``topics[]`` — list of topic dicts, each with:
+            - ``name`` (str): Topic name.
+            - ``category`` (str): Topic category.
 
     Returns
     -------
     dict[str, Any]
-        Mapped components with ``sources[]``, ``facts[]``, ``entities[]``,
-        ``topics[]``, and ``relations`` containing the four relation types
-        ``source_fact``, ``fact_entity``, ``tagged``, and
-        ``extracted_from_fact``.
+        Mapped components with ``sources[]``, ``facts[]``, ``claims[]``,
+        ``entities[]``, ``topics[]``, and ``relations`` containing
+        ``source_fact``, ``fact_entity``, ``extracted_from_fact``,
+        ``source_claim``, ``claim_entity``, and ``tagged``.
 
     Raises
     ------
@@ -3244,14 +3402,24 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     )
     tagged_rels.extend(fact_tagged)
 
+    # Build entity_id_map from entities already created by _build_wr_facts
+    entity_id_map: dict[str, str] = {
+        e["entity_key"]: e["entity_id"] for e in entities
+    }
+
+    claims, claim_entities, claim_rels = _build_wr_claims(
+        data.get("claims", []), url_to_source_id, entity_id_map, entities
+    )
+
     return _mapped_result(
         data,
         "web-research",
         sources=sources,
         facts=facts,
+        claims=claims,
         entities=entities,
         topics=topics,
-        relations={**fact_rels, "tagged": tagged_rels},
+        relations={**fact_rels, **claim_rels, "tagged": tagged_rels},
     )
 
 

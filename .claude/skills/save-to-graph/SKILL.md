@@ -180,20 +180,28 @@ v1 キューファイル（`schema_version: "1.0"`）の場合、ステップ 2.
 
 ### ステップ 2.1: Topic ノード MERGE
 
+> **MERGEキー**: `topic_key`（ビジネスキー）を使用する。
+> `topic_id` はパイプラインごとに異なる値が生成される可能性があるため、
+> UNIQUE制約がある `topic_key` でMERGEし、`topic_id` は ON CREATE で設定する。
+
 ```cypher
-MERGE (t:Topic {topic_id: $topic_id})
+MERGE (t:Topic {topic_key: $topic_key})
+ON CREATE SET t.topic_id = $topic_id
 SET t.name = $name,
-    t.category = $category,
-    t.topic_key = $name + '::' + $category
+    t.category = $category
 ```
 
 ### ステップ 2.2: Entity ノード MERGE
 
+> **MERGEキー**: `entity_key`（ビジネスキー）を使用する。
+> `entity_id` はパイプラインごとに異なる値が生成される可能性があるため、
+> UNIQUE制約がある `entity_key` でMERGEし、`entity_id` は ON CREATE で設定する。
+
 ```cypher
-MERGE (e:Entity {entity_id: $entity_id})
+MERGE (e:Entity {entity_key: $entity_key})
+ON CREATE SET e.entity_id = $entity_id
 SET e.name = $name,
-    e.entity_type = $entity_type,
-    e.entity_key = $name + '::' + $entity_type
+    e.entity_type = $entity_type
 ```
 
 ### ステップ 2.3: FiscalPeriod ノード MERGE [v2 新規]
@@ -285,8 +293,9 @@ SET dp.metric_name = $metric_name,
 `--dry-run` 指定時は、生成される Cypher クエリを標準出力に表示するが実行しない:
 
 ```
-[DRY-RUN] MERGE (t:Topic {topic_id: "abc-123"})
-          SET t.name = "S&P 500", t.category = "stock", t.topic_key = "S&P 500::stock"
+[DRY-RUN] MERGE (t:Topic {topic_key: "S&P 500::stock"})
+          ON CREATE SET t.topic_id = "abc-123"
+          SET t.name = "S&P 500", t.category = "stock"
 [DRY-RUN] MERGE (s:Source {source_id: "def-456"})
           SET s.url = "https://...", s.title = "..."
 [DRY-RUN] MERGE (ch:Chunk {chunk_id: "a1b2c3_chunk_0"})

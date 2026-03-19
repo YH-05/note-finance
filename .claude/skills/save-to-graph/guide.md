@@ -631,25 +631,35 @@ SET s.url = $url,
 
 #### Topic ノード
 
+> **MERGEキー**: `topic_key`（ビジネスキー）を使用する。
+> `topic_id` はパイプラインごとに異なる値が生成される可能性があるため、
+> UNIQUE制約がある `topic_key` でMERGEし、`topic_id` は ON CREATE で設定する。
+
 ```cypher
-MERGE (t:Topic {topic_id: $topic_id})
+MERGE (t:Topic {topic_key: $topic_key})
+ON CREATE SET t.topic_id = $topic_id
 SET t.name = $name,
-    t.category = $category,
-    t.topic_key = $name + '::' + $category
+    t.category = $category
 ```
 
 **パラメータマッピング**:
 
 | パラメータ | graph-queue フィールド |
 |-----------|----------------------|
+| `$topic_key` | `topics[].topic_key` |
 | `$topic_id` | `topics[].topic_id` |
 | `$name` | `topics[].name` |
 | `$category` | `topics[].category` |
 
 #### Entity ノード
 
+> **MERGEキー**: `entity_key`（ビジネスキー）を使用する。
+> `entity_id` はパイプラインごとに異なる値が生成される可能性があるため、
+> UNIQUE制約がある `entity_key` でMERGEし、`entity_id` は ON CREATE で設定する。
+
 ```cypher
-MERGE (e:Entity {entity_id: $entity_id})
+MERGE (e:Entity {entity_key: $entity_key})
+ON CREATE SET e.entity_id = $entity_id
 SET e.name = $name,
     e.entity_type = $entity_type,
     e.entity_key = $name + '::' + $entity_type
@@ -931,7 +941,7 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
   --param "topic_id => 'uuid-here'" \
   --param "name => 'S&P 500'" \
   --param "category => 'stock'" \
-  "MERGE (t:Topic {topic_id: \$topic_id}) SET t.name = \$name, t.category = \$category, t.topic_key = \$name + '::' + \$category"
+  "MERGE (t:Topic {topic_key: \$topic_key}) ON CREATE SET t.topic_id = \$topic_id SET t.name = \$name, t.category = \$category"
 ```
 
 > **注意**: 値の直接埋め込み（`'S&P 500'` 等）は Cypher インジェクションのリスクがあるため、
@@ -942,12 +952,12 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 大量のノードを効率的に投入するため、UNWIND を使用:
 
 ```cypher
--- Topic バッチ投入
+-- Topic バッチ投入（topic_key でMERGE）
 UNWIND $topics AS topic
-MERGE (t:Topic {topic_id: topic.topic_id})
+MERGE (t:Topic {topic_key: topic.topic_key})
+ON CREATE SET t.topic_id = topic.topic_id
 SET t.name = topic.name,
-    t.category = topic.category,
-    t.topic_key = topic.name + '::' + topic.category
+    t.category = topic.category
 
 -- Source バッチ投入
 UNWIND $sources AS src

@@ -127,98 +127,59 @@ KG v2 スキーマ（`data/config/knowledge-graph-schema.yaml`）に準拠する
 
 全リレーションは KG v2 スキーマに定義済み。
 
-## Cypher テンプレート
+## 投入方法（パイプライン準拠）
 
-### 全ノード・リレーション一括投入
+**重要**: Cypher 直書き（`docker exec cypher-shell`）は `.claude/rules/neo4j-write-rules.md` により禁止。
+標準パイプライン（`emit_graph_queue.py → /save-to-graph`）経由で投入する。
 
-以下の順序で Cypher 文を生成し、セミコロン区切りで `/tmp/topic-discovery-neo4j.cypher` に書き出す。
-
-```cypher
-// === 1. Source ノード ===
-MERGE (s:Source {source_id: $session_id})
-SET s.title = $title,
-    s.source_type = 'original',
-    s.fetched_at = datetime($generated_at),
-    s.language = 'ja',
-    s.command_source = 'topic-discovery',
-    s.suggestion_count = $suggestion_count,
-    s.top_score = $top_score,
-    s.search_queries_count = $search_queries_count,
-    s.recommendation = $recommendation;
-
-// === 2. Topic ノード（カテゴリごと、MERGE で冪等） ===
-MERGE (t:Topic {topic_id: 'content:market_report'})
-SET t.name = 'マーケットレポート', t.category = 'content_planning';
-
-// === 3. Claim ノード（提案ごと） ===
-MERGE (c:Claim {claim_id: 'ts:topic-suggestion-2026-03-16T1430:rank1'})
-SET c.content = 'トピック名: 提案理由',
-    c.claim_type = 'recommendation',
-    c.sentiment = 'neutral',
-    c.magnitude = 'strong',
-    c.created_at = datetime('2026-03-16T14:30:00+09:00'),
-    c.rank = 1,
-    c.topic_title = 'トピック名',
-    c.total_score = 41,
-    c.timeliness = 9,
-    c.information_availability = 8,
-    c.reader_interest = 8,
-    c.feasibility = 9,
-    c.uniqueness = 7,
-    c.estimated_word_count = 4000,
-    c.target_audience = 'intermediate',
-    c.selected = null,
-    c.key_points = '["ポイント1","ポイント2"]',
-    c.suggested_period = '2026-03-10 to 2026-03-14';
-
-// === 4. Entity ノード（MERGE で冪等） ===
-MERGE (e:Entity {entity_id: 'symbol:^GSPC'})
-SET e.name = '^GSPC', e.entity_type = 'index', e.ticker = '^GSPC';
-
-// === 5. Fact ノード（検索トレンド、--no-search 時は省略） ===
-MERGE (f:Fact {fact_id: 'trend:topic-suggestion-2026-03-16T1430:0:0'})
-SET f.content = 'S&P 500 が週間で2%上昇',
-    f.fact_type = 'event',
-    f.as_of_date = date('2026-03-16'),
-    f.created_at = datetime('2026-03-16T14:30:00+09:00'),
-    f.search_query = 'S&P 500 weekly performance',
-    f.search_source = 'tavily';
-
-// === 6. リレーション ===
-// Source -[TAGGED]-> Topic
-MATCH (s:Source {source_id: $session_id})
-MATCH (t:Topic {topic_id: $topic_id})
-MERGE (s)-[:TAGGED]->(t);
-
-// Source -[MAKES_CLAIM]-> Claim
-MATCH (s:Source {source_id: $session_id})
-MATCH (c:Claim {claim_id: $claim_id})
-MERGE (s)-[:MAKES_CLAIM]->(c);
-
-// Claim -[TAGGED]-> Topic
-MATCH (c:Claim {claim_id: $claim_id})
-MATCH (t:Topic {topic_id: $topic_id})
-MERGE (c)-[:TAGGED]->(t);
-
-// Claim -[ABOUT]-> Entity（suggested_symbols がある場合のみ）
-MATCH (c:Claim {claim_id: $claim_id})
-MATCH (e:Entity {entity_id: $entity_id})
-MERGE (c)-[:ABOUT]->(e);
-
-// Source -[STATES_FACT]-> Fact（--no-search 時は省略）
-MATCH (s:Source {source_id: $session_id})
-MATCH (f:Fact {fact_id: $fact_id})
-MERGE (s)-[:STATES_FACT]->(f);
-```
-
-### 実行方法
+### 入力JSON → graph-queue JSON → Neo4j
 
 ```bash
-# Cypher スクリプトをパイプで実行
-docker exec -i research-neo4j cypher-shell \
-  -u neo4j \
-  -p "${NEO4J_PASSWORD:-gomasuke}" \
-  < /tmp/topic-discovery-neo4j.cypher
+# 1. 入力JSON を構築して保存
+# .tmp/research-input/{session_id}.json
+
+# 2. graph-queue JSON を生成
+uv run python scripts/emit_graph_queue.py \
+  --command topic-discovery \
+  --input .tmp/research-input/{session_id}.json
+
+# 3. Neo4j に投入
+# /save-to-graph スキルを呼び出す
+```
+
+`emit_graph_queue.py` が `topic-discovery` コマンドをサポートしていない場合は `web-research` で代替する。
+
+### 入力JSON フォーマット
+
+```json
+{
+  "session_id": "topic-suggestion-2026-03-16T1430",
+  "research_topic": "トピック提案セッション 2026-03-16",
+  "as_of_date": "2026-03-16",
+  "sources": [
+    {
+      "url": "internal://topic-discovery/topic-suggestion-2026-03-16T1430",
+      "title": "トピック提案セッション 2026-03-16",
+      "authority_level": "blog",
+      "published_at": "2026-03-16",
+      "source_type": "original"
+    }
+  ],
+  "entities": [
+    { "name": "^GSPC", "entity_type": "index" },
+    { "name": "NVDA", "entity_type": "company" }
+  ],
+  "topics": [
+    { "name": "マーケットレポート", "category": "content_planning" }
+  ],
+  "facts": [
+    {
+      "content": "S&P 500 が週間で2%上昇",
+      "source_url": "internal://topic-discovery/topic-suggestion-2026-03-16T1430",
+      "confidence": 0.8
+    }
+  ]
+}
 ```
 
 ## グレースフルデグラデーション

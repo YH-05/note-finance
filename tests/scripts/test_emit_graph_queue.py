@@ -2541,7 +2541,7 @@ class TestMapTopicDiscovery:
         assert len(result["sources"]) == 1
         src = result["sources"][0]
         assert src["source_id"] == "topic-suggestion-2026-03-16T1430"
-        assert src["source_type"] == "original"
+        assert src["source_type"] == "report"
         assert src["command_source"] == "topic-discovery"
         assert src["suggestion_count"] == 2
         assert src["top_score"] == 41

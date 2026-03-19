@@ -1,14 +1,15 @@
 ---
 name: topic-discovery
 description: |
-  記事トピック発掘のオーケストレーター。Web検索ベースのトレンドリサーチ、既存記事ギャップ分析、topic-suggesterによるスコアリングでデータ駆動のトピック提案を生成。
+  記事トピック発掘のオーケストレーター。research-neo4jからの知識ギャップ発掘、Web検索ベースのトレンドリサーチ、既存記事ギャップ分析、topic-suggesterによるスコアリングでデータ駆動のトピック提案を生成。
+  検索結果はresearch-neo4jに永続化する。
   Use PROACTIVELY when suggesting article topics, discovering content gaps, or planning new finance articles.
 allowed-tools: Read, Bash, Glob, Grep, Task
 ---
 
 # topic-discovery スキル
 
-記事トピック発掘のオーケストレータースキル。Web検索ベースのトレンドリサーチで、データ駆動のトピック提案を生成する。
+記事トピック発掘のオーケストレータースキル。research-neo4j の知識ギャップとWeb検索トレンドを組み合わせ、データ駆動のトピック提案を生成する。
 Web検索ツールの選択は `.claude/skills/web-search/SKILL.md` に従う。
 
 ## パラメータ
@@ -18,8 +19,51 @@ Web検索ツールの選択は `.claude/skills/web-search/SKILL.md` に従う。
 | --category | - | 全カテゴリ | 特定カテゴリに限定（market_report, stock_analysis, macro_economy, asset_management, side_business, quant_analysis, investment_education） |
 | --count | - | 5 | 提案数 |
 | --no-search | - | false | Web検索を使用せずLLM知識のみでトピック生成（従来動作互換） |
+| --skip-kg | - | false | KG照会をスキップする（Neo4j未起動時に使用） |
 
-## 処理フロー
+## 処理フロー概要
+
+```
+Phase 0: KGトピック発掘（research-neo4j 照会）
+Phase 1: トレンドリサーチ（Web検索 8-12回）
+Phase 2: ギャップ分析（既存記事確認）
+Phase 3: トピック生成・評価（KG補正付きスコアリング）
+Phase 4: 構造化レポート出力
+Phase 5: 結果の保存（ファイル + research-neo4j）
+```
+
+### Phase 0: KGトピック発掘
+
+参照: `references/kg-topic-mining.md`（Cypherクエリテンプレート・候補生成ロジック）
+
+research-neo4j（bolt://localhost:7688）から既存データをマイニングし、KG由来のトピック候補を生成する。
+`mcp__neo4j-research__research-read_neo4j_cypher` を ToolSearch でロードして使用する。
+
+**Neo4j未起動時**: 警告を出力して Phase 0 をスキップし、Phase 1 に進む。
+
+#### Phase 0-A: KGデータマイニング（8クエリ）
+
+1. **未回答Question** (Q1): status: open の Question → 知識ギャップから記事テーマ候補
+2. **Insight (gap)** (Q2): AI検出済みの情報ギャップ → 記事テーマ候補
+3. **Entity カバレッジ密度** (Q3): Fact/Claim が少ないが関連が多い Entity → 深掘り記事
+4. **ソース急増Entity** (Q4): 直近30日でソースが急増 → トレンドテーマ
+5. **過去の未決定提案** (Q5): 前回 `selected: null` の提案 → 再評価
+6. **Entity 間リレーション** (Q6): COMPETES_WITH/CAUSES 等 → クロスカッティング切り口
+7. **センチメント対立** (Q7): bullish/bearish 拮抗 → 論争テーマ
+8. **KG 全体統計** (Q8): 照会のコンテキスト把握
+
+#### Phase 0-B: KG由来トピック候補の生成
+
+マイニング結果から4種のトピック候補を生成:
+
+| 候補種別 | ソース | kg_gap_score 目安 |
+|---------|--------|-----------------|
+| Knowledge Gap | Q1 (Question) + Q2 (Insight gap) | 6-10 |
+| Underexplored Entity | Q3 (薄カバレッジ Entity) | 4-8 |
+| Trending Entity | Q4 (ソース急増) | 3-6 |
+| Controversy | Q7 (センチメント対立) | 5-9 |
+
+各候補に `kg_gap_score`（0-10）を付与し、Phase 3 のスコアリング補正に使用する。
 
 ### Phase 1: トレンドリサーチ（`--no-search` 時はスキップ）
 
@@ -39,16 +83,21 @@ Web検索を 8-12回実行し、現在のトレンド情報を収集する。
 
 1. `articles/` フォルダをスキャンし、既存記事の `meta.yaml` を読み込む
 2. カテゴリ分布を集計
-3. Phase 1 の検索結果と既存記事を比較し、カバーされていないトピックを特定
+3. Phase 0 の KG 由来候補 + Phase 1 の検索結果と既存記事を比較し、カバーされていないトピックを特定
 
-### Phase 3: トピック生成・評価
+### Phase 3: トピック生成・評価（KG補正付き）
 
-参照: `references/scoring-rubric.md`（5軸評価ルーブリック）
+参照: `references/scoring-rubric.md`（5軸評価ルーブリック + KGデータ補正ルール）
 参照: `references/reader-profile.md`（note.com 読者特性）
 
-1. Phase 1-2 の結果を入力として topic-suggester エージェントを呼び出す
+1. Phase 0-2 の結果を入力として topic-suggester エージェントを呼び出す
+   - **KG由来候補も候補リストに含める**（Web検索候補とマージ）
 2. 5軸評価（timeliness, information_availability, reader_interest, feasibility, uniqueness）
-3. スコア順にソート
+3. **KGデータ補正を適用**:
+   - Information Availability: KG に Fact/Claim が豊富 → 加算
+   - Uniqueness: KG 由来/Controversy トピック → 加算、過去提案済み → 減算
+   - KG Gap Score ボーナス: kg_gap_score 8-10 → +3点、5-7 → +2点、3-4 → +1点
+4. 補正後スコア順にソート
 
 ### Phase 4: 構造化レポート出力
 
@@ -147,10 +196,13 @@ echo '{"session_id":"...","generated_at":"...","count":5,"top_topic":"...","top_
 
 `selected_topics` は `/new-finance-article` でトピック採用時に更新される。
 
-#### 5.3 research-neo4j への保存
+#### 5.3 research-neo4j への保存（パイプライン経由）
 
-提案結果を research-neo4j（bolt://localhost:7688）に保存する。
-データモデルの詳細は `references/neo4j-mapping.md` を参照。
+参照: `.claude/rules/neo4j-write-rules.md`（直書き禁止ルール）
+参照: `.claude/skills/emit-research-queue/SKILL.md`
+
+提案結果を research-neo4j に保存する。
+**重要**: Cypher 直書きは禁止。標準パイプライン（`emit_graph_queue.py → /save-to-graph`）経由で投入する。
 
 **前提条件チェック**:
 
@@ -159,41 +211,72 @@ docker inspect research-neo4j --format='{{.State.Status}}' 2>/dev/null
 ```
 
 - `running` → 保存処理を続行
-- それ以外 → 「research-neo4j が起動していないため Neo4j 保存をスキップしました」と警告し、Phase 5.3 をスキップ（Phase 5.1-5.2 のファイル保存は完了済みなのでデータは失われない）
+- それ以外 → 警告出力して Phase 5.3 をスキップ（入力JSONは `.tmp/research-input/` に保持、後から投入可能）
 
-**保存対象ノード**:
+**ステップ 5.3.1: 入力JSON構築**
 
-| ノード | ソースデータ | KG v2 マッピング |
-|--------|-------------|-----------------|
-| Source | セッション情報 | source_type: `"original"`, command_source: `"topic-discovery"` |
-| Topic | suggestions[].category | topic_id: `content:{category}`, category: `"content_planning"` |
-| Claim | suggestions[] | claim_type: `"recommendation"`, スコア各軸をプロパティに保存 |
-| Entity | suggestions[].suggested_symbols | ticker ベースで MERGE（`^` 始まり → index, 他 → stock） |
-| Fact | search_insights.trends[].key_findings | fact_type: `"event"`（`--no-search` 時はスキップ） |
+セッションファイル（Phase 5.1）の内容から `emit_graph_queue.py --command topic-discovery` の入力JSONを構築する。
 
-**リレーション**:
+```json
+{
+  "session_id": "{session_id}",
+  "research_topic": "トピック提案セッション {YYYY-MM-DD}",
+  "as_of_date": "{today}",
+  "sources": [
+    {
+      "url": "internal://topic-discovery/{session_id}",
+      "title": "トピック提案セッション {YYYY-MM-DD}",
+      "authority_level": "blog",
+      "published_at": "{today}",
+      "source_type": "original"
+    }
+  ],
+  "entities": [
+    {
+      "name": "{ticker}",
+      "entity_type": "{index|company}"
+    }
+  ],
+  "topics": [
+    {
+      "name": "{カテゴリ日本語名}",
+      "category": "content_planning"
+    }
+  ],
+  "facts": [
+    {
+      "content": "{key_finding テキスト}",
+      "source_url": "internal://topic-discovery/{session_id}",
+      "confidence": 0.8,
+      "about_entities": []
+    }
+  ]
+}
+```
 
-| リレーション | From → To | 条件 |
-|-------------|-----------|------|
-| TAGGED | Source → Topic | セッション → 提案に含まれるカテゴリ |
-| MAKES_CLAIM | Source → Claim | セッション → 各トピック提案 |
-| TAGGED | Claim → Topic | 提案 → そのカテゴリ |
-| ABOUT | Claim → Entity | 提案 → 推奨銘柄/指数（suggested_symbols がある場合のみ） |
-| STATES_FACT | Source → Fact | セッション → 検索トレンド（`--no-search` 時はスキップ） |
+**データマッピング**:
 
-**実行手順**:
+| セッションデータ | 入力JSON フィールド |
+|----------------|-------------------|
+| suggestions[].suggested_symbols | entities[]（`^` 始まり → index, 他 → company） |
+| suggestions[].category | topics[]（カテゴリ名マッピング適用） |
+| search_insights.trends[].key_findings | facts[]（`--no-search` 時は空配列） |
 
-1. `references/neo4j-mapping.md` の Cypher テンプレートに従い、Cypher スクリプトを `/tmp/topic-discovery-neo4j.cypher` に書き出す
-2. 実行:
-   ```bash
-   docker exec -i research-neo4j cypher-shell \
-     -u neo4j -p "${NEO4J_PASSWORD:-gomasuke}" \
-     < /tmp/topic-discovery-neo4j.cypher
-   ```
-3. 実行結果を確認し、ノード・リレーション作成数を報告
-4. 一時ファイルを削除: `rm /tmp/topic-discovery-neo4j.cypher`
+**ステップ 5.3.2: graph-queue JSON 生成**
 
-**エラー時**: Cypher 実行エラーが発生した場合、エラー内容を警告表示するがスキルは正常終了とする（Phase 5.1-5.2 のファイル保存は完了済み）。
+```bash
+uv run python scripts/emit_graph_queue.py \
+  --command topic-discovery \
+  --input .tmp/research-input/{session_id}.json
+```
+
+`emit_graph_queue.py` が `topic-discovery` コマンドをサポートしていない場合は `web-research` で代替する。
+
+**ステップ 5.3.3: Neo4j 投入**
+
+`/save-to-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
+
+**エラー時**: graph-queue 生成または Neo4j 投入でエラーが発生した場合、エラー内容を警告表示するがスキルは正常終了とする（Phase 5.1-5.2 のファイル保存は完了済み）。
 
 ## 出力
 

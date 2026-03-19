@@ -1,0 +1,40 @@
+title: "日銀利上げと円安の構造分析"
+slug: boj-rate-hike-yen-structural-analysis
+category: macro_economy
+created_at: "2026-03-19"
+target_wordcount: 6000
+status: initialized
+
+tags:
+  - 日銀
+  - 金融政策
+  - 円安
+  - 利上げ
+  - マクロ経済
+
+research_context:
+  entities:
+    - Bank of Japan
+    - Kazuo Ueda
+    - Federal Reserve
+    - USD/JPY
+  topics:
+    - BOJ Policy
+    - US Monetary Policy
+    - FX Markets
+    - Inflation
+  neo4j_facts: 67
+
+workflow:
+  init: done
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+human_feedback:
+  HF1_topic_approval: pending
+  HF3_claims_review: pending
+  HF5_draft_review: pending
+  HF6_final_approval: pending
