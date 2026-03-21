@@ -161,8 +161,13 @@ MERGE (d:Discussion {discussion_id: $discussion_id})
 SET d.title = $title,
     d.date = date($date),
     d.summary = $summary,
+    d.topics = $topics,
+    d.doc_path = $doc_path,
     d.created_at = datetime()
 ```
+
+- `topics`: summary から主要キーワードを抽出してリスト形式で設定する（**必須**）
+- `doc_path`: Phase 3.4 で保存するドキュメントの相対パスを設定する（**必須**）
 
 **Decision ノード**:
 ```cypher
@@ -170,8 +175,13 @@ MERGE (dec:Decision {decision_id: $decision_id})
 SET dec.content = $content,
     dec.context = $context,
     dec.decided_at = date($date),
-    dec.status = 'active'
+    dec.status = 'active',
+    dec.created_at = datetime()
 ```
+
+- `status` の許可値: **`active`**, **`superseded`**, **`revoked`** のみ。他の値（`completed`, `implemented` 等）は禁止。
+- `context` は**必須**。Decision の背景・理由を必ず記載する。
+- `created_at` は**必須**。`datetime()` で自動設定する。
 
 **ActionItem ノード**:
 ```cypher
@@ -182,6 +192,10 @@ SET a.description = $description,
     a.due_date = CASE WHEN $due_date IS NOT NULL THEN date($due_date) ELSE null END,
     a.created_at = datetime()
 ```
+
+- `status` の許可値: **`pending`**, **`in_progress`**, **`completed`**, **`blocked`** のみ。他の値（`deferred` 等）は禁止。
+- status を `completed` に変更する際は `completed_at = datetime()` も同時に設定すること。
+- status を `blocked` に変更する際は `blocked_reason` も同時に設定すること。
 
 **リレーション**:
 ```cypher
@@ -268,8 +282,11 @@ MERGE (p)-[:HAS_DISCUSSION]->(d)
 | ノード | ID 形式 | 例 |
 |--------|---------|-----|
 | Discussion | `disc-{YYYY-MM-DD}-{topic-slug}` | `disc-2026-03-09-market-strategy` |
-| Decision | `dec-{YYYY-MM-DD}-{sequential}` | `dec-2026-03-09-001` |
-| ActionItem | `act-{YYYY-MM-DD}-{sequential}` | `act-2026-03-09-001` |
+| Decision | `dec-{YYYY-MM-DD}-{NNN}` または `dec-{YYYY-MM-DD}-{topic-slug}` | `dec-2026-03-09-001` or `dec-2026-03-09-kg-ops-phase-a` |
+| ActionItem | `act-{YYYY-MM-DD}-{NNN}` | `act-2026-03-09-001` |
+
+Decision の ID は連番形式（`-NNN`）またはスラッグ形式（`-topic-slug`）のいずれかを使用してよい。
+1つの Discussion 内では混在させず、どちらかに統一すること。
 
 ## MUST / SHOULD / NEVER
 
@@ -280,6 +297,12 @@ MERGE (p)-[:HAS_DISCUSSION]->(d)
 - Phase 1 では note-neo4j (`mcp__neo4j-note__note-read_neo4j_cypher`) で Discussion/Decision/ActionItem を取得する
 - Phase 3 の保存は note-neo4j (`mcp__neo4j-note__note-write_neo4j_cypher`) に MERGE ベースで冪等に行う
 - ドキュメント保存時はファイル名に日付を含める
+- Discussion 保存時に `topics`（キーワードリスト）と `doc_path`（ドキュメント相対パス）を必ず設定する
+- Decision 保存時に `created_at = datetime()` と `context` を必ず設定する
+- Decision の `status` は `active` / `superseded` / `revoked` のみ使用する
+- ActionItem の `status` は `pending` / `in_progress` / `completed` / `blocked` のみ使用する
+- ActionItem を `completed` にする際は `completed_at = datetime()` を同時設定する
+- ActionItem を `blocked` にする際は `blocked_reason` を同時設定する
 
 ### SHOULD
 

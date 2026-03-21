@@ -108,3 +108,6 @@ notebooklm_*.png
 
 # Scraped web content (external copyrighted material)
 data/scraped/
+
+# Academic cache DB
+data/cache/

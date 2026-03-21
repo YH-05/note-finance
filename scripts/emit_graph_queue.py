@@ -3240,7 +3240,7 @@ def _build_wr_facts(
         "fact_entity": fact_entity_rels,
         "extracted_from_fact": extracted_from_fact_rels,
     }
-    return facts, entities, fact_rels, tagged_rels
+    return facts, entities, fact_rels, tagged_rels, entity_id_map
 
 
 def _build_wr_claims(
@@ -3337,6 +3337,58 @@ def _build_wr_claims(
     return claims, new_entities, claim_rels
 
 
+def _build_wr_causal_rels(
+    causal_links: list[dict[str, Any]],
+    entity_id_map: dict[str, str],
+) -> dict[str, list[dict[str, str]]]:
+    """Build CAUSES / CONTRADICTS / SUPPORTED_BY relations from explicit input.
+
+    Each causal_link has:
+    - ``from_entity``: ``"name::entity_type"`` entity_key
+    - ``to_entity``: ``"name::entity_type"`` entity_key
+    - ``rel_type``: ``"CAUSES"`` | ``"CONTRADICTS"`` | ``"SUPPORTED_BY"`` |
+                     ``"DERIVED_FROM"`` | ``"INFLUENCES"``
+    - ``mechanism`` (optional): causal mechanism description
+    - ``via`` (optional): intermediary entity name
+    """
+    allowed = {"CAUSES", "CONTRADICTS", "SUPPORTED_BY", "DERIVED_FROM", "INFLUENCES"}
+    causes_rels: list[dict[str, str]] = []
+
+    for link in causal_links:
+        rel_type = link.get("rel_type", "CAUSES")
+        if rel_type not in allowed:
+            logger.warning("Invalid causal rel_type: %s, skipping", rel_type)
+            continue
+
+        from_key = link.get("from_entity", "")
+        to_key = link.get("to_entity", "")
+
+        from_id = entity_id_map.get(from_key, "")
+        to_id = entity_id_map.get(to_key, "")
+
+        if not from_id or not to_id:
+            logger.warning(
+                "Causal link entity not found: %s → %s, skipping",
+                from_key,
+                to_key,
+            )
+            continue
+
+        rel_data: dict[str, str] = {
+            "from_id": from_id,
+            "to_id": to_id,
+            "type": rel_type,
+        }
+        if link.get("mechanism"):
+            rel_data["mechanism"] = link["mechanism"]
+        if link.get("via"):
+            rel_data["via"] = link["via"]
+
+        causes_rels.append(rel_data)
+
+    return {"causal": causes_rels} if causes_rels else {}
+
+
 def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     """Map web-research session data to graph-queue components.
 
@@ -3397,18 +3449,18 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     """
     sources, url_to_source_id = _build_wr_sources(data.get("sources", []))
     topics, tagged_rels = _build_wr_topics(data.get("topics", []), sources)
-    facts, entities, fact_rels, fact_tagged = _build_wr_facts(
+    facts, entities, fact_rels, fact_tagged, entity_id_map = _build_wr_facts(
         data.get("facts", []), url_to_source_id, topics
     )
     tagged_rels.extend(fact_tagged)
 
-    # Build entity_id_map from entities already created by _build_wr_facts
-    entity_id_map: dict[str, str] = {
-        e["entity_key"]: e["entity_id"] for e in entities
-    }
-
     claims, claim_entities, claim_rels = _build_wr_claims(
         data.get("claims", []), url_to_source_id, entity_id_map, entities
+    )
+
+    # Build causal / emergent relations from input (optional)
+    causal_rels = _build_wr_causal_rels(
+        data.get("causal_links", []), entity_id_map
     )
 
     return _mapped_result(
@@ -3419,7 +3471,12 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
         claims=claims,
         entities=entities,
         topics=topics,
-        relations={**fact_rels, **claim_rels, "tagged": tagged_rels},
+        relations={
+            **fact_rels,
+            **claim_rels,
+            **causal_rels,
+            "tagged": tagged_rels,
+        },
     )
 
 

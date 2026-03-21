@@ -45,10 +45,28 @@ Neo4j ナレッジグラフに投入するためのパッケージ。
 
 ## アクションアイテム
 
-- [ ] research-neo4j に Author UNIQUE 制約を実行（優先度: 高）
-- [ ] テストスイート移植: `tests/academic/` の unit/property テスト（優先度: 中）
-- [ ] `/academic-fetch` スラッシュコマンド作成（優先度: 中）
-- [ ] S2 API キー取得・設定（優先度: 低）
+- [x] research-neo4j に Author UNIQUE 制約を実行（優先度: 高）— 完了
+- [x] テストスイート移植: `tests/academic/` の unit/property テスト（優先度: 中）— **34テスト全合格**
+- [x] `/academic-fetch` スラッシュコマンド作成（優先度: 中）— `.claude/commands/academic-fetch.md`
+- [ ] S2 API キー取得・設定（優先度: 低）— ユーザー手動申請待ち（`S2_API_KEY` 環境変数）
+
+### テストスイート詳細
+
+```
+tests/academic/
+├── conftest.py                          # 共通フィクスチャ
+├── unit/
+│   ├── test_mapper.py                   # mapper 単体テスト（20テスト）
+│   └── test_cache.py                    # cache 単体テスト（8テスト）
+└── property/
+    └── test_mapper_property.py          # プロパティベーステスト（6テスト）
+```
+
+移植時の変更点:
+- `database.id_generator` → `pdf_pipeline.services.id_generator`
+- ID キー `"id"` → `"source_id"` / `"author_id"`
+- `schema_version "2.1"` → `"2.2"`
+- cache テストはスタンドアロン SQLiteCache に対応して再実装
 
 ## 参考情報
 

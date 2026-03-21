@@ -1,0 +1,99 @@
+{
+  "timestamp": "2026-03-19T12:30:56.234437+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 10,
+    "indirect_paths": 0,
+    "stance_entities": 2,
+    "insights_existing": 10,
+    "multi_topic_entities": 10
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "AI データセンター投資 → エネルギー補助金 → 財政圧力 → 通信規制環境への波及",
+      "description": "インドネシアAI市場$2.4B→$10.9B(CAGR 29%)の成長に伴い、NVIDIA $200M + Microsoft $1.7Bの大型投資が流入。AIデータセンター建設は電力需要を大幅に増加させる。一方、エネルギー補助金はIDR 381T(GDP比1.5%)で原油$1/bbl上昇ごとにIDR 10.3T増加。AI電力需要増→補助金負担増→財政赤字拡大→周波数オークション価格引き上げ圧力、という3ドメイン横断の因果連鎖が想定される。",
+      "entities_involved": [
+        "Indonesia",
+        "Nvidia",
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "Crude Oil"
+      ],
+      "supporting_evidence": [
+        "AI市場$2.4B→$10.9B (CAGR 29%)",
+        "NVIDIA $200M + Microsoft $1.7B投資",
+        "エネルギー補助金 IDR 381T, $1/bbl → IDR 10.3T増",
+        "BHP(周波数使用料)は大規模キャッシュアウトフローリスク"
+      ],
+      "evidence_count": 6
+    },
+    {
+      "type": "contradiction_tension",
+      "title": "ISAT AI TechCo路線 vs TLKM インフラ資産分離路線の戦略的分岐",
+      "description": "ISATはGPUaaS先行者利益・AI-RAN・NVIDIA NCP独占で「AI TechCo」に全面投資。TLKMはInfranexia分離・NeutraDC売却・55→22社統合で「資産軽量化」を推進。EBITDA Marginが4年連続低下(52.9%→50.0%)のTLKMにとって、AI投資せずに収益成長できるか疑問。一方ISATのGPUaaS顧客基盤(6社+判明)は競合にない強み。同一市場・同一セクターで対極的な戦略を取る2社の比較は、通信セクター分析の核心テーマ。",
+      "entities_involved": [
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "Vikram Sinha"
+      ],
+      "supporting_evidence": [
+        "ISAT: GPUaaS(H100 SXM + GB200 NVL72), BDx JV 10MW→1GW",
+        "TLKM: EBITDA Margin FY21 52.9%→FY24 50.0%(-360bps)",
+        "TLKM: Revenue FY21-24 CAGR 1.6%で頭打ち",
+        "ISAT: 4Q25 ARPU IDR 44,000でTelkomsel(43,400)を逆転"
+      ],
+      "evidence_count": 8
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "親会社・持株会社レイヤーの完全欠落 — グラフの構造的盲点",
+      "description": "CK Hutchison(91トピック)とOoredoo Group(91トピック)はProbe Eで最もクロストピックなEntityだが、Probe Dで「親会社レイヤーが完全欠落」と指摘。ISAT株主構造(Ooredoo+CK Hutchison=65.64%)の意思決定ロジック、Axiata→XL Axiata→XLSmartの統合文脈が追えない。構造的接続は豊富だがFactual substanceが欠如するという、グラフの「見かけの接続性」と「実質的情報密度」のギャップ。",
+      "entities_involved": [
+        "CK Hutchison",
+        "Ooredoo Group",
+        "Indosat Ooredoo Hutchison",
+        "XLSmart"
+      ],
+      "supporting_evidence": [
+        "CK Hutchison: 91トピック接続、FinancialDataPoint不明",
+        "Ooredoo Group: 91トピック接続、戦略・財務データなし",
+        "XLSmart: 5指標のスナップショットのみ",
+        "Insight: 親会社レイヤー完全欠落の指摘"
+      ],
+      "evidence_count": 4
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "学術クラスタと金融分析クラスタの断絶",
+      "description": "Probe Aの上位10ペアは全てCategory Theory関連(Buehler, Spivak, Kan Extension等、各14共有Fact)の学術ドメインに集中。金融・投資ドメインとのクロスドメインブリッジが見えない。理論的KGフレームワークと実際の金融データ分析が別の島として存在し、応用的接続(例: Causal Emergence概念の投資分析への適用)が未構築。",
+      "entities_involved": [
+        "Category Theory",
+        "David Spivak",
+        "Markus Buehler",
+        "Causal Emergence"
+      ],
+      "supporting_evidence": [
+        "Top 10クロスドメインペア全てが学術ドメイン内",
+        "学術クラスタ: 14共有Fact/ペア(非常に密)",
+        "金融クラスタ: Insight 10件の充実した分析",
+        "2クラスタ間のFact共有ゼロ"
+      ],
+      "evidence_count": 4
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.6,
+    "hypothesis_novelty": 0.6,
+    "evidence_density": 0.7,
+    "actionability": 0.7,
+    "overall": 0.645
+  },
+  "improvement_suggestions": [
+    "Source Grounding 緊急改善: 20件中20件がsource_url=nullは致命的。STATES_FACT/MAKES_CLAIM→Chunk→Source のリレーションチェーン修復が最優先",
+    "CONTRADICTS リレーション追加: ISAT vs TLKM の戦略対立をグラフ構造で表現し、矛盾検出を可能にする",
+    "親会社データ補完: CK Hutchison/Ooredoo Group/Axiata Group の財務データ・戦略文書を収集し、持株構造分析を可能にする",
+    "XLSmart データ強化: 3社寡占分析の基盤として、Revenue/EBITDA/ARPU/加入者の時系列データが必須",
+    "学術↔金融ブリッジ: Category Theory概念の投資分析適用事例をFactとして追加し、2クラスタ間を接続",
+    "Stance content補完: Indosat(40件)/Telkom(34件)のStanceにsummaryが全てnull。content充填が必要"
+  ]
+}

@@ -1,182 +1,182 @@
 {
-  "cc264219811a6463": {
-    "fact_id": "",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.7,
-    "overall": 0.64,
-    "reasoning": "Specific financial metrics (P/E, ROE, TSR) with forward estimates. High factual value.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "7745f4e3a4506257": {
-    "fact_id": "",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.3,
-    "overall": 0.46,
-    "reasoning": "Space news, specific event but date-bound and non-financial.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "fa4b27b51d4d979d": {
-    "fact_id": "",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.75,
-    "overall": 0.675,
-    "reasoning": "Specific macro data with GDP ratios and quarterly detail. High factual and analytical value.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "5b3c536ca9089897": {
-    "fact_id": "",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.4,
-    "temporal_validity": 0.7,
-    "overall": 0.67,
-    "reasoning": "CEO quote with source attribution (Fortune). Specific contract details.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "37f82314536fce7c": {
-    "fact_id": "",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.85,
-    "overall": 0.705,
-    "reasoning": "Demographic data. Very high factual accuracy and long temporal validity.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "d5a139d6f99a4ec7": {
-    "fact_id": "",
-    "factual_correctness": 0.3,
-    "source_grounding": 0.2,
-    "temporal_validity": 0.2,
-    "overall": 0.24,
-    "reasoning": "Raw HTML from HackerNews. Noise data with no substantive content.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "ecd8bdfed4f39f6e": {
-    "fact_id": "",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.3,
-    "overall": 0.52,
-    "reasoning": "Specific commodity prices with date. Accurate at capture but rapidly stale.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "526950830e9c4b87": {
-    "fact_id": "",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.5,
-    "overall": 0.52,
-    "reasoning": "Tech strategy claim. Vague but directionally plausible.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "697ee5136085870f": {
-    "fact_id": "",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.35,
-    "temporal_validity": 0.85,
-    "overall": 0.72,
-    "reasoning": "Extremely detailed demographic/economic data with multiple source references (WEF, CSIS). Highest quality fact in sample.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "2db85cd06582fde9": {
-    "fact_id": "",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.75,
-    "overall": 0.655,
-    "reasoning": "Specific FDI data with analytical insight on distribution. High value.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "faa2b3224fe48e95": {
-    "fact_id": "",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.7,
-    "overall": 0.66,
-    "reasoning": "Specific earnings data with consensus comparison. Very high factual value.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "151c191f552fbd70": {
-    "fact_id": "",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.2,
-    "temporal_validity": 0.3,
-    "overall": 0.39,
-    "reasoning": "Vague market commentary fragment. Low specificity.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "48770803bab2d4f4": {
-    "fact_id": "",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.4,
-    "temporal_validity": 0.75,
-    "overall": 0.705,
-    "reasoning": "AMRO official forecast with source attribution. Specific growth and inflation numbers.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "69c4b0c4165b1f38": {
-    "fact_id": "",
-    "factual_correctness": 0.65,
-    "source_grounding": 0.3,
+  "ef04168f64bf42a8": {
+    "fact_id": "ef04168f64bf42a8",
+    "factual_correctness": 0.5,
+    "source_grounding": 0.0,
     "temporal_validity": 0.4,
-    "overall": 0.47,
-    "reasoning": "Specific fundraising data but clickbait framing. Moderate value.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+    "overall": 0.32,
+    "reasoning": "Generic financial commentary with no specific data. No source linked. Dec 2025 quarter, somewhat dated.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
   },
-  "d37eea96d231d9c3": {
-    "fact_id": "",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.6,
-    "overall": 0.61,
-    "reasoning": "Specific cybersecurity incident with named threat actor and date. Risk disclosure.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "98f8d9d9c572ce3a": {
-    "fact_id": "",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.8,
-    "overall": 0.69,
-    "reasoning": "Comprehensive internet penetration data across ASEAN. High factual and temporal value.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "c8797804efbf318b": {
-    "fact_id": "",
+  "3601b27ca95c97d1": {
+    "fact_id": "8eb336058b988ffc9abb7cbd05a90b31",
     "factual_correctness": 0.8,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.3,
-    "overall": 0.5,
-    "reasoning": "Geopolitical event claim. Specific but rapidly date-bound.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.53,
+    "reasoning": "Specific CPI score and ranking. Verifiable against Transparency International data. No source linked.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
   },
-  "9009e2958fb8b606": {
-    "fact_id": "",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.8,
-    "overall": 0.67,
-    "reasoning": "Detailed regulatory analysis with specific law references. High informational density.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+  "4f5095cfed313299": {
+    "fact_id": "xlsmart-spectrum5g",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.57,
+    "reasoning": "Highly specific spectrum data (152MHz, 37MHz sub-1GHz, 5G 2.3GHz). Domain-expert quality. No source linked.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
   },
-  "0499a6b8a6b26dce": {
-    "fact_id": "",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.2,
-    "overall": 0.39,
-    "reasoning": "Truncated options data. Date-specific and incomplete.",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
-  },
-  "54e73d493b78cf8c": {
-    "fact_id": "",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.3,
+  "46374886491afbcf": {
+    "fact_id": "fe2435c979e62d1e",
+    "factual_correctness": 0.4,
+    "source_grounding": 0.0,
     "temporal_validity": 0.5,
-    "overall": 0.52,
-    "reasoning": "ETF comparison data. Specific but poorly formatted (no space after heading).",
-    "evaluated_at": "2026-03-19T11:08:11.096189+00:00"
+    "overall": 0.31,
+    "reasoning": "Headline fragment with \"Key Points\" prefix - noise artifact. No source.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "bfa5beb329ba157f": {
+    "fact_id": "adef62d0dd4b020c661fe88e2826e96c",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.54,
+    "reasoning": "Specific tower count and fiber data. Late 2024 reference, somewhat dated.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "2da89b3f577c1bf3": {
+    "fact_id": "a6cf40336fbb1e82151f6729140068f5",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.57,
+    "reasoning": "Detailed FY2025 financials with precise numbers. No source linked.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "90c6fbd494a75921": {
+    "fact_id": "auto-claim-126cbfba-a1ae-5a1b-b4ad-34314b93cf7e",
+    "factual_correctness": 0.3,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.4,
+    "overall": 0.24,
+    "reasoning": "Headline only, no substantive data. Title-only noise.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "e16c43c8b91daf9b": {
+    "fact_id": "cf90141b3077b101",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.42,
+    "reasoning": "Analyst opinion/forward-looking claim. Reasonable but subjective.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "80dde0e31b20db1d": {
+    "fact_id": "fact-69d300b79540cd1f",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.57,
+    "reasoning": "Precise BTS count with breakdown (4G/5G). High-quality operational data.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "b1631f7a7c5c3bdb": {
+    "fact_id": "dd117525f67eeee3",
+    "factual_correctness": 0.4,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.4,
+    "overall": 0.28,
+    "reasoning": "Vague headline aggregation. No specific numbers.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "33b0697f120ce2bd": {
+    "fact_id": "6b15db90fca4766e",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.3,
+    "overall": 0.37,
+    "reasoning": "Specific dollar amount but \"approximate\". Weekly ephemeral data.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "65c7b6530b698420": {
+    "fact_id": "idn-spectrum-risk",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.4,
+    "overall": 0.4,
+    "reasoning": "Forward-looking, timeline may have passed. Analytical but potentially outdated.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "9ffcf68ff07cccc7": {
+    "fact_id": "fact_t_competitive_ai_demand_fy2025",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.42,
+    "reasoning": "Corporate outlook statement. Subjective but reasonable.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "301984025dd6aba1": {
+    "fact_id": "d8248c9c602ee7ac",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.3,
+    "overall": 0.37,
+    "reasoning": "Verifiable political event but highly ephemeral news.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "a5fed446cd4a3d25": {
+    "fact_id": "9f95885b8eb19389a4f0326e0b9ad6d4",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.54,
+    "reasoning": "Precise budget data with sensitivity analysis. No source URL.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "f59ef98053d50edc": {
+    "fact_id": "4c2838aeb972df24",
+    "factual_correctness": 0.5,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.3,
+    "overall": 0.29,
+    "reasoning": "Vague claim without specific numbers or timeframe.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "3d50b1dff7166dd1": {
+    "fact_id": "53356744739790e9",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.5,
+    "reasoning": "Specific percentage decline. Analyst-quality operational metric.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "ffd0683d55bd3bf4": {
+    "fact_id": "f00beb99aa3234d4",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.43,
+    "reasoning": "Specific investment amount. Verifiable corporate action.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "5af19c5367a74679": {
+    "fact_id": "66de6716e66110fd",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.4,
+    "overall": 0.36,
+    "reasoning": "Lists investors but startup name missing. Incomplete information.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+  },
+  "dfdb54a4cd300a48": {
+    "fact_id": "cbaa562c1bf2ab74deec51f374e0cb9d",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.8,
+    "overall": 0.6,
+    "reasoning": "Highly specific macro data. Recent (Feb 2026), verifiable against BI data.",
+    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
   }
 }
