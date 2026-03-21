@@ -5,7 +5,7 @@
 全コードにログを実装すること。
 
 ```python
-from finance.utils.logging_config import get_logger
+from quants.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 
@@ -79,7 +79,7 @@ async def get_task(id: str) -> Task:
 ## プロファイリング使用例
 
 ```python
-from finance.utils.profiling import profile, timeit, profile_context
+from quants.utils.profiling import profile, timeit, profile_context
 
 @profile  # 詳細プロファイリング
 def heavy_function():
