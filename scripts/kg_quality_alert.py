@@ -54,6 +54,29 @@ class AlertCondition:
 # ---------------------------------------------------------------------------
 
 
+def _extract_orphan_entity_count(snapshot: Any) -> int | None:
+    """QualitySnapshot の structural カテゴリから Orphan Entity Count を抽出する。
+
+    Parameters
+    ----------
+    snapshot
+        QualitySnapshot インスタンス。
+
+    Returns
+    -------
+    int | None
+        Orphan Entity Count の値。structural カテゴリまたは該当メトリクスが
+        見つからない場合は None。
+    """
+    for cat in snapshot.categories:
+        # structural metrics の 5番目（index=4）が Orphan Entity Count
+        # _METRIC_LABELS: ["Edge Density", "Avg Degree", "Connected Ratio",
+        #                   "Orphan Ratio", "Orphan Entity Count"]
+        if cat.name == "structural" and len(cat.metrics) >= 5:
+            return int(cat.metrics[4].value)
+    return None
+
+
 def evaluate_alerts(
     current: Any,
     previous: Any | None,
@@ -117,6 +140,42 @@ def evaluate_alerts(
                     threshold=0.95,
                 )
             )
+
+    # 3. Orphan Entity 絶対数アラート
+    try:
+        from kg_quality_metrics import ORPHAN_ENTITY_CRIT, ORPHAN_ENTITY_WARN
+
+        orphan_entity_count = _extract_orphan_entity_count(current)
+        if orphan_entity_count is not None:
+            if orphan_entity_count >= ORPHAN_ENTITY_CRIT:
+                alerts.append(
+                    AlertCondition(
+                        name="orphan_entity_critical",
+                        severity="critical",
+                        message=f"Orphan Entity count: {orphan_entity_count} "
+                        f"(threshold: {ORPHAN_ENTITY_CRIT})\n"
+                        "  → save-to-graph の fact_entity RELATES_TO 投入を確認してください\n"
+                        "  → 対処: Entity名でFact.contentを検索し RELATES_TO を接続",
+                        current_value=float(orphan_entity_count),
+                        threshold=float(ORPHAN_ENTITY_CRIT),
+                    )
+                )
+            elif orphan_entity_count >= ORPHAN_ENTITY_WARN:
+                alerts.append(
+                    AlertCondition(
+                        name="orphan_entity_warning",
+                        severity="warning",
+                        message=f"Orphan Entity count: {orphan_entity_count} "
+                        f"(threshold: {ORPHAN_ENTITY_WARN})\n"
+                        "  → 大量投入後の Entity 接続を確認してください",
+                        current_value=float(orphan_entity_count),
+                        threshold=float(ORPHAN_ENTITY_WARN),
+                    )
+                )
+    except ImportError:
+        logger.warning(
+            "Could not import orphan entity thresholds from kg_quality_metrics"
+        )
 
     logger.info("Alert evaluation: %d alerts triggered", len(alerts))
     return alerts
@@ -258,7 +317,9 @@ def create_github_issue(
         logger.info("Open kg-quality-alert issue already exists, skipping")
         return None
 
-    max_severity = "critical" if any(a.severity == "critical" for a in alerts) else "warning"
+    max_severity = (
+        "critical" if any(a.severity == "critical" for a in alerts) else "warning"
+    )
     title = f"[KG品質] {max_severity}: スコア低下検出 ({current.overall_score:.1f}pt)"
     body = _format_issue_body(alerts, current)
 

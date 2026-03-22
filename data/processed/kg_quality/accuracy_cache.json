@@ -1,182 +1,182 @@
 {
-  "ef04168f64bf42a8": {
-    "fact_id": "ef04168f64bf42a8",
-    "factual_correctness": 0.5,
-    "source_grounding": 0.0,
+  "3edfe74d4ed6a856": {
+    "fact_id": "73836e8d862fc484",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.8,
     "temporal_validity": 0.4,
-    "overall": 0.32,
-    "reasoning": "Generic financial commentary with no specific data. No source linked. Dec 2025 quarter, somewhat dated.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+    "overall": 0.64,
+    "reasoning": "Market data with source URL. Time-specific.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
   },
-  "3601b27ca95c97d1": {
-    "fact_id": "8eb336058b988ffc9abb7cbd05a90b31",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.53,
-    "reasoning": "Specific CPI score and ranking. Verifiable against Transparency International data. No source linked.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "4f5095cfed313299": {
-    "fact_id": "xlsmart-spectrum5g",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.57,
-    "reasoning": "Highly specific spectrum data (152MHz, 37MHz sub-1GHz, 5G 2.3GHz). Domain-expert quality. No source linked.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "46374886491afbcf": {
-    "fact_id": "fe2435c979e62d1e",
-    "factual_correctness": 0.4,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.5,
-    "overall": 0.31,
-    "reasoning": "Headline fragment with \"Key Points\" prefix - noise artifact. No source.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "bfa5beb329ba157f": {
-    "fact_id": "adef62d0dd4b020c661fe88e2826e96c",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.54,
-    "reasoning": "Specific tower count and fiber data. Late 2024 reference, somewhat dated.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "2da89b3f577c1bf3": {
-    "fact_id": "a6cf40336fbb1e82151f6729140068f5",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.57,
-    "reasoning": "Detailed FY2025 financials with precise numbers. No source linked.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "90c6fbd494a75921": {
-    "fact_id": "auto-claim-126cbfba-a1ae-5a1b-b4ad-34314b93cf7e",
+  "c960aad0d6548d93": {
+    "fact_id": "auto-claim-5098f6af",
     "factual_correctness": 0.3,
-    "source_grounding": 0.0,
+    "source_grounding": 0.8,
     "temporal_validity": 0.4,
-    "overall": 0.24,
-    "reasoning": "Headline only, no substantive data. Title-only noise.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+    "overall": 0.48,
+    "reasoning": "Headline only, minimal content. Has source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
   },
-  "e16c43c8b91daf9b": {
-    "fact_id": "cf90141b3077b101",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.42,
-    "reasoning": "Analyst opinion/forward-looking claim. Reasonable but subjective.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "80dde0e31b20db1d": {
-    "fact_id": "fact-69d300b79540cd1f",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.57,
-    "reasoning": "Precise BTS count with breakdown (4G/5G). High-quality operational data.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "b1631f7a7c5c3bdb": {
-    "fact_id": "dd117525f67eeee3",
-    "factual_correctness": 0.4,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.4,
-    "overall": 0.28,
-    "reasoning": "Vague headline aggregation. No specific numbers.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "33b0697f120ce2bd": {
-    "fact_id": "6b15db90fca4766e",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.3,
-    "overall": 0.37,
-    "reasoning": "Specific dollar amount but \"approximate\". Weekly ephemeral data.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "65c7b6530b698420": {
-    "fact_id": "idn-spectrum-risk",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.4,
-    "overall": 0.4,
-    "reasoning": "Forward-looking, timeline may have passed. Analytical but potentially outdated.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "9ffcf68ff07cccc7": {
-    "fact_id": "fact_t_competitive_ai_demand_fy2025",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.42,
-    "reasoning": "Corporate outlook statement. Subjective but reasonable.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "301984025dd6aba1": {
-    "fact_id": "d8248c9c602ee7ac",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.3,
-    "overall": 0.37,
-    "reasoning": "Verifiable political event but highly ephemeral news.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "a5fed446cd4a3d25": {
-    "fact_id": "9f95885b8eb19389a4f0326e0b9ad6d4",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.54,
-    "reasoning": "Precise budget data with sensitivity analysis. No source URL.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "f59ef98053d50edc": {
-    "fact_id": "4c2838aeb972df24",
-    "factual_correctness": 0.5,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.3,
-    "overall": 0.29,
-    "reasoning": "Vague claim without specific numbers or timeframe.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "3d50b1dff7166dd1": {
-    "fact_id": "53356744739790e9",
+  "2fc34adbc138fb3e": {
+    "fact_id": "fcad07d341a4a8c8",
     "factual_correctness": 0.8,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.5,
-    "reasoning": "Specific percentage decline. Analyst-quality operational metric.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+    "source_grounding": 0.7,
+    "temporal_validity": 0.7,
+    "overall": 0.74,
+    "reasoning": "JSAI paper fact with specific methodology. SIG-FIN URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
   },
-  "ffd0683d55bd3bf4": {
-    "fact_id": "f00beb99aa3234d4",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.5,
-    "overall": 0.43,
-    "reasoning": "Specific investment amount. Verifiable corporate action.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "5af19c5367a74679": {
-    "fact_id": "66de6716e66110fd",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.4,
-    "overall": 0.36,
-    "reasoning": "Lists investors but startup name missing. Incomplete information.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
-  },
-  "dfdb54a4cd300a48": {
-    "fact_id": "cbaa562c1bf2ab74deec51f374e0cb9d",
+  "c221b4ba8cd98a54": {
+    "fact_id": "55d1e634e69ed819",
     "factual_correctness": 0.9,
-    "source_grounding": 0.0,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.5,
+    "overall": 0.75,
+    "reasoning": "Very specific financial data with source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "4018c020ced9ed61": {
+    "fact_id": "b754fce6066f746c",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.5,
+    "temporal_validity": 0.7,
+    "overall": 0.64,
+    "reasoning": "Academic finding. Source is pdf hash only.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "1139ea0de8622d49": {
+    "fact_id": "a2e06b12a5fdb3e0",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.7,
+    "overall": 0.77,
+    "reasoning": "JSAI paper with specific quantitative result. Has URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "acb9b4d426105fc9": {
+    "fact_id": "aaf78efa37219be9",
+    "factual_correctness": 0.3,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.2,
+    "overall": 0.42,
+    "reasoning": "Social media noise. Has source URL but low factual value.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "099f4a5287c485df": {
+    "fact_id": "trend:topic-suggestion",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.1,
+    "temporal_validity": 0.5,
+    "overall": 0.5,
+    "reasoning": "Specific data but NO source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "65176345e606c782": {
+    "fact_id": "25ef580528f3eb3b",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.3,
+    "overall": 0.57,
+    "reasoning": "Opinion/analysis with source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "5bce18db5902e6c9": {
+    "fact_id": "e432c5f33718e004",
+    "factual_correctness": 0.5,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.4,
+    "overall": 0.56,
+    "reasoning": "News claim with source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "96010980fb0c2d89": {
+    "fact_id": "154c14204417440b",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.5,
+    "overall": 0.75,
+    "reasoning": "Very specific financial data with source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "0a8fe50a0af0dc69": {
+    "fact_id": "7792dd55b5bef802",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
     "temporal_validity": 0.8,
-    "overall": 0.6,
-    "reasoning": "Highly specific macro data. Recent (Feb 2026), verifiable against BI data.",
-    "evaluated_at": "2026-03-19T12:30:10.444374+00:00"
+    "overall": 0.77,
+    "reasoning": "Technical methodology from JSAI paper. Durable academic content.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "fbfe4fbbb14d566b": {
+    "fact_id": "f34cfff228102812",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.4,
+    "overall": 0.68,
+    "reasoning": "Specific financial data with source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "64d636d6973e585d": {
+    "fact_id": "7acf0dc16ed67815",
+    "factual_correctness": 0.3,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.2,
+    "overall": 0.42,
+    "reasoning": "Scheduling noise. Has source URL but no value.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "ae79948e62a6318a": {
+    "fact_id": "fact_my_telecom_market_2024",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.1,
+    "temporal_validity": 0.6,
+    "overall": 0.53,
+    "reasoning": "Specific data but NO source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "74eb19607096518f": {
+    "fact_id": "8ce6a5b5569573d4",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.8,
+    "overall": 0.87,
+    "reasoning": "Core TDA finding from arxiv paper. Full source link.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "83d1c23a59516079": {
+    "fact_id": "49ce344b5a922adc",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.5,
+    "temporal_validity": 0.5,
+    "overall": 0.66,
+    "reasoning": "Specific metric. Source is nomura: prefix, not full URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "ab84ed57e88d407c": {
+    "fact_id": "51745a9e494a2d82",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.1,
+    "overall": 0.51,
+    "reasoning": "Daily market data, very transient. Has source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "9b37be2ac1d6b1ec": {
+    "fact_id": "5151dd56d80e2394",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.5,
+    "temporal_validity": 0.7,
+    "overall": 0.68,
+    "reasoning": "Specific statistical result. Source is pdf hash only.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+  },
+  "dc9b825c6d7895fe": {
+    "fact_id": "1277924768714dc4",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.4,
+    "overall": 0.68,
+    "reasoning": "Earnings data with source URL.",
+    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
   }
 }

@@ -1,6 +1,6 @@
 ---
 name: save-to-graph
-description: graph-queue JSON を読み込み、Neo4j にノードとリレーションを MERGE ベースで冪等投入するスキル。4フェーズ構成（キュー検出 → ノード投入 → リレーション投入 → 完了処理）。v2 スキーマ（9 ノード・9+ リレーション）対応。
+description: graph-queue JSON を読み込み、Neo4j にノードとリレーションを MERGE ベースで冪等投入するスキル。5フェーズ構成（キュー検出 → ノード投入 → リレーション投入 → 投入検証 → 完了処理）。v2 スキーマ（9 ノード・9+ リレーション）対応。
 allowed-tools: Read, Bash, Grep, Glob
 ---
 
@@ -48,9 +48,14 @@ v2 スキーマでは 9 種のノード（Topic, Entity, Source, Claim, Fact, Ch
   |     +-- TAGGED: カテゴリマッチング（新Source↔既存Topic, 新Topic↔既存Source）
   |     +-- ABOUT: コンテンツマッチング（新Claim↔既存Entity, 新Entity↔既存Claim）
   |
+  +-- Phase 3c: 投入検証（Ingestion Verification）
+  |     +-- graph-queue JSON の期待リレーション数を集計
+  |     +-- Neo4j 上の実際のリレーション数をカウント（Source 単位）
+  |     +-- 期待値と実績値の差異を判定（OK / WARNING / ERROR）
+  |
   +-- Phase 4: 完了処理
         +-- 処理済みファイルの削除 or 移動（--keep で保持）
-        +-- 統計サマリー出力
+        +-- 統計サマリー出力（検証結果を含む）
 ```
 
 ## 使用方法
@@ -476,6 +481,172 @@ MERGE (c)-[:ABOUT]->(e)
 [DRY-RUN] Cross-link ABOUT: 0 new Entities × 0 existing Claims (content match)
 ```
 
+## Phase 3c: 投入検証（Ingestion Verification）
+
+Phase 3a/3b 完了後、graph-queue JSON の期待値と Neo4j 上の実際の投入数を比較検証する。
+`--dry-run` 指定時はスキップ。
+
+### 背景
+
+Phase 3a で RELATES_TO（fact_entity）リレーションが投入されないケースが過去に234件発生した。
+graph-queue JSON には fact_entity が含まれていたにもかかわらず、Neo4j への投入フェーズでスキップまたは失敗していた。
+この Phase 3c はそのような投入漏れを即座に検出するための検証ステップである。
+
+### ステップ 3c.1: 期待値の集計
+
+graph-queue JSON の `relations` オブジェクトから、各リレーションタイプの期待件数を集計する。
+
+```python
+# graph-queue JSON から期待値を算出
+expected = {}
+relations = data.get("relations", {})
+
+# 主要リレーションタイプごとに件数を集計
+relation_keys = {
+    "tagged":               "TAGGED (intra-file)",
+    "source_claim":         "MAKES_CLAIM",
+    "claim_entity":         "ABOUT (intra-file)",
+    "contains_chunk":       "CONTAINS_CHUNK",
+    "extracted_from_fact":  "EXTRACTED_FROM (fact)",
+    "extracted_from_claim": "EXTRACTED_FROM (claim)",
+    "source_fact":          "STATES_FACT",
+    "fact_entity":          "RELATES_TO (fact_entity)",
+    "datapoint_entity":     "RELATES_TO (datapoint_entity)",
+    "has_datapoint":        "HAS_DATAPOINT",
+    "for_period":           "FOR_PERIOD",
+}
+
+for key, label in relation_keys.items():
+    expected[label] = len(relations.get(key, []))
+```
+
+### ステップ 3c.2: 実績値のカウント
+
+今回投入した Source の source_id リストを使い、Neo4j 上の実際のリレーション数をカウントする。
+
+```cypher
+// RELATES_TO (fact_entity): Source -> Fact -> Entity
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})-[:STATES_FACT]->(f:Fact)-[:RELATES_TO]->(e:Entity)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// RELATES_TO (datapoint_entity): Source -> FinancialDataPoint -> Entity
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})-[:HAS_DATAPOINT]->(dp:FinancialDataPoint)-[:RELATES_TO]->(e:Entity)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// STATES_FACT: Source -> Fact
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})-[:STATES_FACT]->(f:Fact)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// MAKES_CLAIM: Source -> Claim
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})-[:MAKES_CLAIM]->(c:Claim)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// ABOUT (intra-file): Claim -> Entity（今回投入した Claim のみ）
+UNWIND $claim_ids AS cid
+MATCH (c:Claim {claim_id: cid})-[:ABOUT]->(e:Entity)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// CONTAINS_CHUNK: Source -> Chunk
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})-[:CONTAINS_CHUNK]->(ch:Chunk)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// EXTRACTED_FROM (fact): Fact -> Chunk（今回投入した Fact のみ）
+UNWIND $fact_ids AS fid
+MATCH (f:Fact {fact_id: fid})-[:EXTRACTED_FROM]->(ch:Chunk)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// EXTRACTED_FROM (claim): Claim -> Chunk（今回投入した Claim のみ）
+UNWIND $claim_ids AS cid
+MATCH (c:Claim {claim_id: cid})-[:EXTRACTED_FROM]->(ch:Chunk)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// HAS_DATAPOINT: Source -> FinancialDataPoint
+UNWIND $source_ids AS sid
+MATCH (s:Source {source_id: sid})-[:HAS_DATAPOINT]->(dp:FinancialDataPoint)
+RETURN count(*) AS actual_count
+```
+
+```cypher
+// FOR_PERIOD: FinancialDataPoint -> FiscalPeriod（今回投入した DP のみ）
+UNWIND $datapoint_ids AS dpid
+MATCH (dp:FinancialDataPoint {datapoint_id: dpid})-[:FOR_PERIOD]->(fp:FiscalPeriod)
+RETURN count(*) AS actual_count
+```
+
+### ステップ 3c.3: 差異判定
+
+期待値と実績値を比較し、差異率に応じてアクションを決定する。
+
+| 条件 | 判定 | アクション |
+|------|------|----------|
+| 全リレーションで期待値 = 実績値 | OK | Phase 4 へ進む |
+| いずれかのリレーションで差異あり かつ 差異率 < 10% | WARNING | 差異を報告し Phase 4 へ進む |
+| いずれかのリレーションで差異率 >= 10% | ERROR | ユーザーに確認を求める。自動進行しない |
+
+差異率の算出:
+
+```python
+def calc_discrepancy_rate(expected: int, actual: int) -> float:
+    """期待値と実績値の差異率を算出する。期待値が0の場合は0%を返す。"""
+    if expected == 0:
+        return 0.0
+    return abs(expected - actual) / expected * 100
+```
+
+### 検証結果の出力フォーマット
+
+```markdown
+### Phase 3c: 投入検証結果
+
+| リレーションタイプ | 期待値 | 実績値 | 差異 | 判定 |
+|-------------------|--------|--------|------|------|
+| RELATES_TO (fact_entity) | 234 | 234 | 0 | OK |
+| RELATES_TO (datapoint_entity) | 12 | 12 | 0 | OK |
+| STATES_FACT | 80 | 80 | 0 | OK |
+| MAKES_CLAIM | 45 | 45 | 0 | OK |
+| ABOUT (intra-file) | 30 | 28 | -2 | WARNING |
+| CONTAINS_CHUNK | 16 | 16 | 0 | OK |
+| EXTRACTED_FROM (fact) | 60 | 60 | 0 | OK |
+| EXTRACTED_FROM (claim) | 20 | 20 | 0 | OK |
+| HAS_DATAPOINT | 12 | 12 | 0 | OK |
+| FOR_PERIOD | 8 | 8 | 0 | OK |
+
+**総合判定**: WARNING（1件の差異あり、差異率 6.7%）
+→ Phase 4 へ進む
+```
+
+### ERROR 時の対応手順
+
+差異率が10%以上の場合、以下の情報をユーザーに提示して確認を求める:
+
+1. 差異のあるリレーションタイプと件数
+2. graph-queue JSON ファイル名
+3. 推奨アクション:
+   - graph-queue JSON を `--keep` 付きで再投入する
+   - Neo4j ログを確認して失敗原因を調査する
+   - `relations.{key}` の from_id / to_id が Phase 2 で投入したノードの ID と一致しているか確認する
+
 ## Phase 4: 完了処理
 
 ### ステップ 4.1: 処理済みファイルの処理
@@ -518,6 +689,23 @@ MERGE (c)-[:ABOUT]->(e)
 | クロスリンク ABOUT | {about_cross_count} |
 | スキップ（検証エラー） | {skipped_count} |
 
+### 投入検証結果（Phase 3c）
+
+| リレーションタイプ | 期待値 | 実績値 | 差異 | 判定 |
+|-------------------|--------|--------|------|------|
+| RELATES_TO (fact_entity) | {expected} | {actual} | {diff} | {verdict} |
+| RELATES_TO (datapoint_entity) | {expected} | {actual} | {diff} | {verdict} |
+| STATES_FACT | {expected} | {actual} | {diff} | {verdict} |
+| MAKES_CLAIM | {expected} | {actual} | {diff} | {verdict} |
+| ABOUT (intra-file) | {expected} | {actual} | {diff} | {verdict} |
+| CONTAINS_CHUNK | {expected} | {actual} | {diff} | {verdict} |
+| EXTRACTED_FROM (fact) | {expected} | {actual} | {diff} | {verdict} |
+| EXTRACTED_FROM (claim) | {expected} | {actual} | {diff} | {verdict} |
+| HAS_DATAPOINT | {expected} | {actual} | {diff} | {verdict} |
+| FOR_PERIOD | {expected} | {actual} | {diff} | {verdict} |
+
+**総合判定**: {overall_verdict}
+
 ### ファイル別統計
 
 | ファイル | コマンドソース | ver | Source | Topic | Entity | Claim | Fact | Chunk | DP | FP | ステータス |
@@ -553,6 +741,7 @@ MERGE (c)-[:ABOUT]->(e)
 | E003: JSON スキーマ検証エラー | ファイルの `schema_version` と必須キーを確認。`emit_graph_queue.py` を再実行 |
 | E004: Cypher 実行エラー | Neo4j のログを確認。制約・インデックスが未作成の場合は初回セットアップを実行 |
 | E005: ファイル削除/移動エラー | ファイルの権限を確認 |
+| E006: 投入検証エラー（差異率 >= 10%） | Phase 3c の ERROR 時対応手順に従い原因調査。`--keep` 付きで再投入を検討 |
 
 ## 環境変数
 
@@ -584,6 +773,16 @@ MERGE (c)-[:ABOUT]->(e)
 | finance-full | 記事執筆 | Source, Claim |
 
 ## 変更履歴
+
+### 2026-03-22: Phase 3c 投入検証を追加
+
+- Phase 3b と Phase 4 の間に Phase 3c（投入検証）を追加
+- graph-queue JSON の期待リレーション数と Neo4j 実績値を比較検証
+- 差異率に応じた3段階判定: OK / WARNING（< 10%）/ ERROR（>= 10%）
+- ERROR 時はユーザーに確認を求め自動進行しない
+- Phase 4 の統計サマリーに検証結果テーブルを追加
+- エラーコード E006（投入検証エラー）を追加
+- 背景: Phase 3a で RELATES_TO（fact_entity）が234件投入漏れした事案の再発防止
 
 ### 2026-03-12: v2 スキーマ対応（Issue #67）
 
@@ -651,3 +850,4 @@ python3 scripts/skill_run_tracer.py complete \
 | schema_validation | JSON スキーマ検証エラー（E003） |
 | cypher_execution | Cypher 実行エラー（E004） |
 | file_operation | ファイル削除/移動エラー（E005） |
+| ingestion_verification | 投入検証エラー（E006） |

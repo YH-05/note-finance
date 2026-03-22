@@ -1,0 +1,35 @@
+# Creator Neo4j - SNS収益化用ナレッジグラフ
+# 使い方: docker compose -f docker/creator-neo4j/docker-compose.yml up -d
+#
+# 既存 note-neo4j (7474/7687), research-neo4j (7475/7688) とは独立して動作
+# Creator スキーマ: Fact, Tip, Story, Source, Topic, Genre, Service, Post, Account
+
+services:
+  neo4j-creator:
+    image: neo4j:5-community
+    container_name: creator-neo4j
+    ports:
+      - "7476:7474"  # Browser UI (+2 で既存と分離)
+      - "7689:7687"  # Bolt protocol (+2 で既存と分離)
+    volumes:
+      - /Volumes/NeoData/neo4j-creator/data:/data
+      - /Volumes/NeoData/neo4j-creator/logs:/logs
+      - /Volumes/NeoData/neo4j-creator/plugins:/plugins
+      - /Volumes/NeoData/neo4j-creator/import:/var/lib/neo4j/import
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-gomasuke}
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      # メモリ設定（creator-neo4j用）
+      - NEO4J_server_memory_heap_initial__size=256m
+      - NEO4J_server_memory_heap_max__size=512m
+      - NEO4J_server_memory_pagecache_size=256m
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s

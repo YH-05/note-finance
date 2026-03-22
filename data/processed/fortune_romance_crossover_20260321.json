@@ -1,0 +1,249 @@
+{
+  "genre": ["spiritual", "beauty-romance"],
+  "research_date": "2026-03-21",
+  "summary": "占い×恋愛クロスオーバーコンテンツの調査結果。星座別恋愛傾向、恋愛タロット、相性診断（MBTI・数秘術・血液型）、投稿テンプレート、SNSバズパターンの5領域を網羅",
+  "facts": [
+    {
+      "id": "fr01",
+      "category": "zodiac_love_tendency",
+      "genre": "spiritual",
+      "text": "12星座は4エレメント（火・地・風・水）に分類され、同エレメント同士は価値観・行動パターンが似て自然体でいられるため恋愛相性が高い。火（牡羊・獅子・射手）、地（牡牛・乙女・山羊）、風（双子・天秤・水瓶）、水（蟹・蠍・魚）",
+      "source_url": "https://christian-museum.jp/2026-horoscope-compatibility/"
+    },
+    {
+      "id": "fr02",
+      "category": "zodiac_love_tendency",
+      "genre": "spiritual",
+      "text": "牡羊座は情熱的なハンター気質で好きな人には何が何でもアプローチ。ライバルがいると燃える負けず嫌い。熱しやすく冷めやすいが恋に落ちた時のエネルギーは12星座随一",
+      "source_url": "https://rensa.jp.net/constellation-01"
+    },
+    {
+      "id": "fr03",
+      "category": "zodiac_love_tendency",
+      "genre": "spiritual",
+      "text": "牡牛座は慎重派で一目惚れより徐々に距離を縮めるタイプ。共通の趣味や価値観から仲良くなり恋に発展する。マイペースで片思いも楽しめるポジティブさが特徴",
+      "source_url": "https://rensa.jp.net/constellation-02"
+    },
+    {
+      "id": "fr04",
+      "category": "zodiac_love_tendency",
+      "genre": "spiritual",
+      "text": "蠍座は控えめで感情をあまり表に出さないミステリアスな雰囲気を持つが、心を許した相手には12星座中最も一途に尽くす。深い絆を求める恋愛スタイル",
+      "source_url": "https://oggi.jp/6070750"
+    },
+    {
+      "id": "fr05",
+      "category": "zodiac_love_tendency",
+      "genre": "spiritual",
+      "text": "魚座は感受性が強くロマンティスト。独自の世界観があり人の気持ちに寄り添って物事を考える「天下無敵の愛されキャラ」。共感力の高さが恋愛での最大の武器",
+      "source_url": "https://www.luft.co.jp/media/constellation-personality/"
+    },
+    {
+      "id": "fr06",
+      "category": "zodiac_compatibility_ranking",
+      "genre": "spiritual",
+      "text": "星座カップル相性ベスト例：山羊座×蟹座（堅実で安定感抜群）、獅子座×牡羊座（火のエレメント同士で初対面からフィーリング◎）、牡牛座×魚座（穏やかな関係構築）、蟹座×蠍座（愛情深いタイプ同士で価値観が一致）",
+      "source_url": "https://woman.mynavi.jp/article/240422-10/"
+    },
+    {
+      "id": "fr07",
+      "category": "zodiac_compatibility_ranking",
+      "genre": "spiritual",
+      "text": "星座カップル相性ワースト例：乙女座男×射手座女（几帳面vs自由人でリズム不一致）、蟹座男×水瓶座女（感情重視と理性重視のすれ違い）、獅子座男×山羊座女（表に出たい男と影で支えたい女のミスマッチ）",
+      "source_url": "https://takanashiya.com/2025/05/01/%E3%80%90%E8%A6%81%E6%B3%A8%E6%84%8F%E3%80%91%E6%98%9F%E5%BA%A7%E5%88%A5%E3%83%AF%E3%83%BC%E3%82%B9%E3%83%88%E7%9B%B8%E6%80%A7%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0top10%EF%BD%9C%E6%81%8B/"
+    },
+    {
+      "id": "fr08",
+      "category": "zodiac_compatibility_ranking",
+      "genre": "spiritual",
+      "text": "Ameba占い館SATORIが2026年版12星座恋愛相性ランキング全144位を公開。モデルプレスも星座×星座の恋愛運78位ランキングを発表するなど、年始の定番コンテンツとして定着",
+      "source_url": "https://amb-uranai.ameba.jp/special_content/2026/column/love_affinity_ranking_2026"
+    },
+    {
+      "id": "fr09",
+      "category": "tarot_love_spread",
+      "genre": "spiritual",
+      "text": "恋愛タロットで最も人気の相談テーマは「彼の気持ち」。ワンオラクル（1枚引き）は初心者向けで回答明確、ヘキサグラム（6枚）は関係性の全体像把握、ケルト十字（10枚）は相手の気持ち・問題の根源・障害・未来まで詳細に読める",
+      "source_url": "https://uranaitv.jp/content/554738"
+    },
+    {
+      "id": "fr10",
+      "category": "tarot_love_spread",
+      "genre": "spiritual",
+      "text": "恋愛タロット専用スプレッド「ラブヴォヤージュ」が人気。相手の気持ちと2人の今後を同時に読み取れるオリジナル展開法で、「彼の気持ち」リーディングの需要に特化",
+      "source_url": "https://tarot.gogomano.com/lovevoyage/"
+    },
+    {
+      "id": "fr11",
+      "category": "tarot_love_meaning",
+      "genre": "spiritual",
+      "text": "大アルカナ6番「恋人」は恋愛面で相思相愛・情熱的アプローチを示唆。異なるものが調和しバランスがとれた状態を象徴し、祝福される結婚も意味する。逆位置では選択の迷い・不調和を暗示",
+      "source_url": "https://sup.andyou.jp/tarot/arcana6/"
+    },
+    {
+      "id": "fr12",
+      "category": "tarot_love_meaning",
+      "genre": "spiritual",
+      "text": "大アルカナ3番「女帝」は恋愛で最も吉兆のカードの一つ。正位置で「充実・安定した幸福な恋愛」を意味し、好きな人と気持ちが通じ合い心身ともに満たされる愛を象徴。母性・豊かさ・受容力の女性的魅力を表す",
+      "source_url": "https://sup.andyou.jp/tarot/arcana3/"
+    },
+    {
+      "id": "fr13",
+      "category": "tarot_love_meaning",
+      "genre": "spiritual",
+      "text": "大アルカナ17番「星」は恋愛面で希望・可能性・才能を意味。自分の中の輝く才能が可能性に満ちた方向へ導く。片思い中に出れば良い兆し、復縁にも希望を示すカード",
+      "source_url": "https://sup.andyou.jp/tarot/arcana17/"
+    },
+    {
+      "id": "fr14",
+      "category": "compatibility_mbti",
+      "genre": "beauty-romance",
+      "text": "MBTI恋愛相性の「ゴールデンペア」：INFP×ENFJ（価値観を深く理解し合える理想的関係）、INTJ×ENFP（論理的思考を豊かな感情が補完）、INFJ×ENTP（洞察力の共鳴）。主要心理機能を共有し内向・外向が逆の組み合わせが最強",
+      "source_url": "https://trami.jp/tramaga/archives/27169"
+    },
+    {
+      "id": "fr15",
+      "category": "compatibility_mbti",
+      "genre": "beauty-romance",
+      "text": "MBTI×星座の相性は科学的根拠はないが、MBTIで「考え方のタイプ」を知り星座で「恋愛の感じ方」を補う複合診断が人気。異なる理論体系の掛け合わせがコンテンツとしての新規性を生む",
+      "source_url": "https://16labo.jp/mbti-and-constellations/"
+    },
+    {
+      "id": "fr16",
+      "category": "compatibility_numerology",
+      "genre": "spiritual",
+      "text": "数秘術の恋愛相性は生年月日から算出するライフパスナンバーで判定。同じナンバー同士は基本性質が似て理解しやすい。「ケミストリーナンバー」は2人のライフパスを足して1桁に縮め、2人が交わるエネルギーを読み解く独自手法",
+      "source_url": "https://wirotte.info/numerology/life-pass-number/"
+    },
+    {
+      "id": "fr17",
+      "category": "compatibility_numerology",
+      "genre": "spiritual",
+      "text": "数秘術の恋愛相性ではソウルナンバーが特に重要。恋愛に限らず多くの時間を共有する人との関係性を理解する手掛かりになり、ライフパスよりも「魂の本質的な相性」を見るとされる",
+      "source_url": "https://numero33.net/q023.html"
+    },
+    {
+      "id": "fr18",
+      "category": "compatibility_blood_zodiac",
+      "genre": "beauty-romance",
+      "text": "血液型×星座の恋愛相性は日本独自の文化。4血液型×12星座＝48パターンだが、カップル相性は全パターン掛け合わせで膨大な組み合わせに。A型×O型は相性抜群（補い合い）、AB型同士は変わり者同士で理解し合える",
+      "source_url": "https://www.iid.co.jp/contents-marriage/column/sign-bloodtype/"
+    },
+    {
+      "id": "fr19",
+      "category": "compatibility_blood_zodiac",
+      "genre": "beauty-romance",
+      "text": "血液型別恋愛傾向：A型は真面目で大らかなO型と好相性、O型は一途で好みがはっきり、B型はマイペースで自由な恋愛を好む、AB型は好きな相手にわざと冷たく振る舞うツンデレタイプが多い",
+      "source_url": "https://fortune.line.me/charmmy/article/1178"
+    },
+    {
+      "id": "fr20",
+      "category": "posting_template",
+      "genre": "beauty-romance",
+      "text": "恋愛占い投稿の定番テンプレート3パターン：①「今月の恋愛運ランキング」（12星座別ランキング形式）、②「あなたの運命の人の特徴」（生年月日ベースの個別診断）、③「彼との関係がうまくいく方法」（カード引き＋アドバイス形式）",
+      "source_url": "https://uranai-housoku.com/instagram/"
+    },
+    {
+      "id": "fr21",
+      "category": "posting_template",
+      "genre": "beauty-romance",
+      "text": "「運命の人」コンテンツは占い×恋愛の最強フォーマット。運命の人の7つのサイン（価値観の共通点・一緒にいて心が穏やか等）を占い的切り口で解説する形式が高エンゲージメント。出会いの時期・見た目の特徴まで踏み込むと保存率UP",
+      "source_url": "https://uranaitv.jp/content/605235"
+    },
+    {
+      "id": "fr22",
+      "category": "posting_template",
+      "genre": "spiritual",
+      "text": "星座占いの投稿は「今日の運勢」「今月の運勢」をランキング形式で発表するのが最も反応が良い。毎朝の12星座占い投稿はフォロワー獲得に直結しやすく、Threadsでは特に効果的",
+      "source_url": "https://aiblog-lab.com/ai-side-job-fortune-telling/"
+    },
+    {
+      "id": "fr23",
+      "category": "sns_buzz_pattern",
+      "genre": "beauty-romance",
+      "text": "占い×恋愛コンテンツがバズる3条件：①ターゲットを絞る（「○月生まれのあなたへ」等）、②「これ私のことだ！友達に教えたい！」と思わせるDMシェア誘発、③テーマの一貫性を保つ。2026年のInstagramは「保存」より「シェア（DM送信）」が拡散の鍵",
+      "source_url": "https://note.com/proper_yarrow836/n/n9fbaa5a98015"
+    },
+    {
+      "id": "fr24",
+      "category": "sns_buzz_pattern",
+      "genre": "beauty-romance",
+      "text": "TikTokで反応が良い占い×恋愛コンテンツ：「○月生まれのあなたへ」等ターゲット限定の運勢紹介、「今週の恋愛運」短尺テンポ良動画、タロットカードのリアルタイム鑑定動画。2026年TikTokは視聴完了率とテーマ一貫性を最重視",
+      "source_url": "https://note.com/ai_uranai_labo/n/n77f906c6a723"
+    },
+    {
+      "id": "fr25",
+      "category": "sns_buzz_pattern",
+      "genre": "beauty-romance",
+      "text": "MBTI診断は「動物占い」の流行と同じ構造で気軽に試せてシェアしやすい。占い×MBTI×恋愛の三重掛け合わせコンテンツ（例：INFP×獅子座の恋愛傾向）は2025-2026年のバズジャンルとして急成長",
+      "source_url": "https://yard-style.info/7-insta-genres-buzz-2025/"
+    },
+    {
+      "id": "fr26",
+      "category": "seasonal_event",
+      "genre": "beauty-romance",
+      "text": "バレンタイン×占いは最強の季節連動コンテンツ。ゲッターズ飯田は五星三心タイプ別「相手が喜ぶバレンタイン」特別鑑定を毎年実施。「告白の成功率タロット」「チョコあげたら喜ぶ？占い」等の特化コンテンツが多数展開",
+      "source_url": "https://sp.gettersiida.net/article/gettersiida/unsei/22485/"
+    },
+    {
+      "id": "fr27",
+      "category": "seasonal_event",
+      "genre": "beauty-romance",
+      "text": "占い×恋愛の季節イベントカレンダー：1-2月（バレンタイン告白占い）、3月（ホワイトデー相性診断）、5月（出会い運UP春占い）、7月（七夕・運命の人占い）、10月（ハロウィン×タロット）、12月（クリスマス恋愛運・年末年始総合運勢）",
+      "source_url": "https://www.goodfortune.jp/keyword/Valentine"
+    },
+    {
+      "id": "fr28",
+      "category": "sns_buzz_pattern",
+      "genre": "spiritual",
+      "text": "占い×恋愛相談の組み合わせが高収益化しやすい。占い師がLステップで恋愛オンライン講座（15,000円）をLINE内800人に配信→41人購入（成約率5%）で約62万円売上の実績。恋愛悩み×占いの信頼構築がCVの鍵",
+      "source_url": "https://lflow.net/column/how-fortune-tellers-use-line/"
+    },
+    {
+      "id": "fr29",
+      "category": "zodiac_love_tendency",
+      "genre": "spiritual",
+      "text": "天秤座は会話上手で軽やかな恋を楽しむタイプ。相手の知的な部分に惹かれやすく刺激のある関係を好む「エレガントなエゴイスト」。獅子座は堅実なセレブリティ、射手座は冒険心・探究心が強く情熱的で行動力がある",
+      "source_url": "https://sanctuarybooks.jp/webmag/20230921-14155.html"
+    },
+    {
+      "id": "fr30",
+      "category": "content_format",
+      "genre": "beauty-romance",
+      "text": "Instagramの占い恋愛投稿はリール（短尺動画）が最も拡散力が高い。Canvaに占い専用テンプレート（グラデーション・星座・スピリチュアルテーマ）が豊富にあり、デザインスキル不要で高品質な投稿画像を量産可能",
+      "source_url": "https://www.canva.com/ja_jp/templates/s/uranai/"
+    }
+  ],
+  "tips": [
+    {
+      "id": "t01",
+      "category": "content_strategy",
+      "genre": "beauty-romance",
+      "text": "占い×恋愛コンテンツは「掛け合わせ」の数を増やすほどニッチになりバズりやすい。星座単体→星座×血液型（48パターン）→星座×血液型×MBTI（768パターン）→星座×血液型×生まれ順（192パターン）とレイヤーを追加するほど「自分のことだ！」感が増す"
+    },
+    {
+      "id": "t02",
+      "category": "content_strategy",
+      "genre": "spiritual",
+      "text": "恋愛タロット投稿は「彼の気持ち」が最も需要が高い。ワンオラクル（1枚引き）は毎日投稿向き、ケルト十字は深堀り記事向き、ラブヴォヤージュは「気持ち＋今後」を同時に見せられる差別化フォーマット"
+    },
+    {
+      "id": "t03",
+      "category": "monetization",
+      "genre": "beauty-romance",
+      "text": "占い×恋愛のマネタイズ導線：SNS投稿（無料・認知獲得）→LINE公式（リスト獲得）→恋愛占い講座/個別鑑定（有料化）。パワーストーン占い店の事例ではLINE友だち2,800→13,000人（4.6倍）に成長"
+    },
+    {
+      "id": "t04",
+      "category": "seasonal_planning",
+      "genre": "beauty-romance",
+      "text": "恋愛占いは季節イベントの2-3週前から仕込むのが鉄則。バレンタイン（1月下旬〜）、七夕（6月中旬〜）、クリスマス（11月下旬〜）に恋愛占い特化コンテンツを投下すると検索・発見欄経由の流入が急増する"
+    },
+    {
+      "id": "t05",
+      "category": "algorithm",
+      "genre": "beauty-romance",
+      "text": "Instagramで占いジャンル認知をAIに学習させるには一貫性のある投稿が約60投稿必要。恋愛占い特化なら「#恋愛占い #星座占い #タロット恋愛」等のハッシュタグを固定化してジャンルをブラさないことが重要"
+    }
+  ]
+}

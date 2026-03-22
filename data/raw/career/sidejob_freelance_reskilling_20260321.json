@@ -1,0 +1,386 @@
+{
+  "metadata": {
+    "genre": "career",
+    "collected_at": "2026-03-21T00:00:00+09:00",
+    "topics": ["副業・複業", "フリーランス市場", "リスキリング", "パラレルキャリア"],
+    "description": "副業・フリーランス・リスキリング・パラレルキャリアに関する最新データとノウハウ"
+  },
+  "facts": [
+    {
+      "id": "fact_sidejob_001",
+      "category": "副業・複業",
+      "subcategory": "企業の副業容認率",
+      "content": "経団連調査で副業を「認めている・認める予定」の企業は70.5%に到達。常用労働者5,000人以上の大企業では83.9%が制度化済み",
+      "source_url": "https://www.zaikei.co.jp/article/20260312/846682.html",
+      "year": 2026
+    },
+    {
+      "id": "fact_sidejob_002",
+      "category": "副業・複業",
+      "subcategory": "企業の副業容認率",
+      "content": "パーソル総合研究所の調査で副業を容認する企業の割合が64%と過去最高を記録。副業者を受け入れる企業も29%と過去最高",
+      "source_url": "https://rc.persol-group.co.jp/thinktank/data/sidejob4/",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_003",
+      "category": "副業・複業",
+      "subcategory": "副業実施率",
+      "content": "正社員の副業実施率は11%で、2023年から4ポイント増加。制度は整備が進むものの実践者はまだ少数派",
+      "source_url": "https://www.nikkei.com/article/DGXZQOUC281R10Y5A021C2000000/",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_004",
+      "category": "副業・複業",
+      "subcategory": "副業経験者割合",
+      "content": "全体の39.2%が副業経験あり。年収701万〜1,000万円の層で最も多い。今後66.7%が「始めたい・続けたい」と回答",
+      "source_url": "https://www.hrpro.co.jp/keiei/articles/news/3628",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_005",
+      "category": "副業・複業",
+      "subcategory": "副業収入",
+      "content": "副業の平均月収は6万5,093円。実際に得た平均収入は月5.4万円だが、理想の平均収入は月10.8万円と実態と理想に2倍のギャップ",
+      "source_url": "https://doda.jp/guide/fukugyo/",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_006",
+      "category": "副業・複業",
+      "subcategory": "副業収入",
+      "content": "副業月収「20万円以上30万円未満」の回答が14.4%まで上昇し、2022年調査開始以降で過去最多。高収入副業者の増加傾向",
+      "source_url": "https://jinjibu.jp/news/detl/25227/",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_007",
+      "category": "副業・複業",
+      "subcategory": "人気職種",
+      "content": "2026年の副業人気職種: 1位WEBライター、2位データ入力、上位はパソコン1つで在宅可能な職種が中心。動画編集・Webデザインも人気",
+      "source_url": "https://canvas-college.com/sidejob-ranking2025/",
+      "year": 2026
+    },
+    {
+      "id": "fact_sidejob_008",
+      "category": "副業・複業",
+      "subcategory": "AI活用と副業収入",
+      "content": "AI活用者の副業平均月収は約4.6万円、AI非活用者は約2.5万円。AI活用で副業収入が約1.8倍に向上する調査結果",
+      "source_url": "https://japan-design.jp/side-job/9268/",
+      "year": 2026
+    },
+    {
+      "id": "fact_sidejob_009",
+      "category": "副業・複業",
+      "subcategory": "本業への影響（プラス）",
+      "content": "企業側調査で「従業員の収入増につながった」43.3%、「モチベーション向上」42.8%、「定着率向上」38.2%と副業容認の効果を実感",
+      "source_url": "https://jobsoken.jp/info/20250804/",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_010",
+      "category": "副業・複業",
+      "subcategory": "本業への影響（マイナス）",
+      "content": "副業による過重労働で「仕事に支障をきたした」「体調を崩した」と回答した副業実施者は26.9%。調査開始以来最高の過重労働率",
+      "source_url": "https://rc.persol-group.co.jp/thinktank/data/sidejob4/",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_011",
+      "category": "副業・複業",
+      "subcategory": "副業の不安・懸念",
+      "content": "副業の不安TOP3: 「収入に見合わない労力」43.4%、「プライベートが犠牲になる」34.5%、「本業が疎かにならないか」31.7%",
+      "source_url": "https://jobsoken.jp/info/20250804/",
+      "year": 2025
+    },
+    {
+      "id": "fact_sidejob_012",
+      "category": "副業・複業",
+      "subcategory": "業種別の副業容認率",
+      "content": "副業容認率が最も高い業種は不動産業（85.7%）、次いで金融・保険業（76.0%）。業種間で20ポイント以上の差がある",
+      "source_url": "https://www.keidanren.or.jp/journal/times/2022/1027_04.html",
+      "year": 2022
+    },
+    {
+      "id": "fact_freelance_001",
+      "category": "フリーランス市場",
+      "subcategory": "人口・市場規模",
+      "content": "2024年のフリーランス経済規模は20兆3,200億円、フリーランス人口は1,303万人。労働力人口の約19%がフリーランス",
+      "source_url": "https://freelance.levtech.jp/guide/detail/1241/",
+      "year": 2024
+    },
+    {
+      "id": "fact_freelance_002",
+      "category": "フリーランス市場",
+      "subcategory": "IT特化の市場規模",
+      "content": "ITフリーランス市場規模は2025年に1兆1,849億円（2015年の7,199億円から1.6倍に成長）。ITフリーランス人口は2024年に35万人突破、2028年には45万人予測",
+      "source_url": "https://prtimes.jp/main/html/rd/p/000000024.000116595.html",
+      "year": 2025
+    },
+    {
+      "id": "fact_freelance_003",
+      "category": "フリーランス市場",
+      "subcategory": "エージェント市場",
+      "content": "フリーランスエージェント市場は2015年の787億円から2025年に3,063億円（成長率389%）、2030年には4,579億円規模に到達見込み",
+      "source_url": "https://prtimes.jp/main/html/rd/p/000000024.000116595.html",
+      "year": 2025
+    },
+    {
+      "id": "fact_freelance_004",
+      "category": "フリーランス市場",
+      "subcategory": "エンジニア単価相場",
+      "content": "フリーランスエンジニアの月額平均単価は78.3万円（2025年12月時点）、年収換算で約940万円。一般的な相場は月60万〜80万円",
+      "source_url": "https://corp.en-japan.com/newsrelease/2026/44299.html",
+      "year": 2025
+    },
+    {
+      "id": "fact_freelance_005",
+      "category": "フリーランス市場",
+      "subcategory": "職種別単価",
+      "content": "フリーランス職種別単価: コンサルタント月111.2万円、PM月106万円、フロントエンド月81万円。ブロックチェーンエンジニアの単価が上昇傾向",
+      "source_url": "https://freelance.levtech.jp/guide/detail/875/",
+      "year": 2025
+    },
+    {
+      "id": "fact_freelance_006",
+      "category": "フリーランス市場",
+      "subcategory": "言語別単価",
+      "content": "開発言語別単価ランキング: 1位Rust、2位Go言語、3位TypeScript。Kotlin平均月額89.7万円。モダン言語が高単価を維持",
+      "source_url": "https://corp.en-japan.com/newsrelease/2025/43060.html",
+      "year": 2025
+    },
+    {
+      "id": "fact_freelance_007",
+      "category": "フリーランス市場",
+      "subcategory": "常駐vs.リモート",
+      "content": "2026年は「常駐案件の単価上昇」トレンドが顕著。常駐案件はリモート案件より10〜20%程度単価が高い傾向",
+      "source_url": "https://freelance-concierge.jp/articles/detail/87/",
+      "year": 2026
+    },
+    {
+      "id": "fact_freelance_008",
+      "category": "フリーランス市場",
+      "subcategory": "フリーランス保護法",
+      "content": "フリーランス・事業者間取引適正化等法が2024年11月1日施行。正式名称「特定受託事業者に係る取引の適正化等に関する法律」",
+      "source_url": "https://www.gov-online.go.jp/article/202408/entry-6301.html",
+      "year": 2024
+    },
+    {
+      "id": "fact_freelance_009",
+      "category": "フリーランス市場",
+      "subcategory": "フリーランス保護法",
+      "content": "フリーランス新法の3大義務: (1)契約書面による取引条件の即時明示、(2)報酬は給付受領日から60日以内の支払い義務、(3)ハラスメント防止体制・相談窓口の整備義務",
+      "source_url": "https://www.jftc.go.jp/freelancelaw_2024/",
+      "year": 2024
+    },
+    {
+      "id": "fact_freelance_010",
+      "category": "フリーランス市場",
+      "subcategory": "フリーランス保護法",
+      "content": "フリーランス新法は発注側の資本金規模に関わらず適用（下請法と異なる点）。従業員を使用しない個人・一人社長の法人が保護対象。育児介護への配慮も義務化",
+      "source_url": "https://www.freee.co.jp/kb/kb-trend/freelance-new-law/",
+      "year": 2024
+    },
+    {
+      "id": "fact_reskilling_001",
+      "category": "リスキリング",
+      "subcategory": "政府支援策",
+      "content": "経済産業省「リスキリングを通じたキャリアアップ支援事業」で個人向けに講座受講費の最大70%（最大56万円）を補助。講座受講のみで50%、転職・継続就業で追加20%",
+      "source_url": "https://careerup.reskilling.go.jp/",
+      "year": 2025
+    },
+    {
+      "id": "fact_reskilling_002",
+      "category": "リスキリング",
+      "subcategory": "政府支援策",
+      "content": "厚生労働省「人材開発支援助成金」で中小企業の経費助成率が最大75%に拡大（2025年改正）。賃金助成額も1時間あたり980円→1,000円に引き上げ",
+      "source_url": "https://ai-keiei.shift-ai.co.jp/reskilling-subsidy-2025/",
+      "year": 2025
+    },
+    {
+      "id": "fact_reskilling_003",
+      "category": "リスキリング",
+      "subcategory": "政府支援策",
+      "content": "東京都DXリスキリング助成金: 中小企業向けに対象経費の75%を助成。上限は1人1研修75,000円、1社あたり上限100万円",
+      "source_url": "https://stock-sun.com/column/dx_reskilling_joseikin/",
+      "year": 2026
+    },
+    {
+      "id": "fact_reskilling_004",
+      "category": "リスキリング",
+      "subcategory": "人気スキル",
+      "content": "リスキリング人気分野: 生成AI活用、データ分析・データサイエンス、クラウド技術、セキュリティ、Webマーケティング。DX関連スキルが中心",
+      "source_url": "https://www.skillupai.com/blog/for-business/reskilling-subsidy/",
+      "year": 2025
+    },
+    {
+      "id": "fact_reskilling_005",
+      "category": "リスキリング",
+      "subcategory": "成功事例",
+      "content": "38歳事務職がBI講座受講後にダッシュボードを自作→データアナリストにキャリアチェンジ成功。41歳営業職がCRM講座修了後に顧客フロー自動化で営業効率15%向上→CRM運用担当に抜擢",
+      "source_url": "https://reskilling.kotora.jp/reskill-003/",
+      "year": 2025
+    },
+    {
+      "id": "fact_reskilling_006",
+      "category": "リスキリング",
+      "subcategory": "成功事例",
+      "content": "前職で働きながら半年間のリスキリング講座を受講し未経験からITエンジニアに転身成功。講座の柔軟なスケジュールと転職サポートが成功の鍵",
+      "source_url": "https://careerup.reskilling.go.jp/worker/interview/02/",
+      "year": 2025
+    },
+    {
+      "id": "fact_reskilling_007",
+      "category": "リスキリング",
+      "subcategory": "転職効果",
+      "content": "リスキリング後の転職者の60%以上が転職直後に給与アップに成功。転職後の職種は事務系職種が93%を占める",
+      "source_url": "https://www.kotora.jp/c/66356/",
+      "year": 2025
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip_sidejob_001",
+      "category": "副業・複業",
+      "subcategory": "会社にバレない副業",
+      "content": "副業が会社にバレる最大の原因は住民税。確定申告書の第二表で「自分で納付（普通徴収）」を選択すれば、副業分の住民税が会社に通知されない",
+      "source_url": "https://biz.moneyforward.com/tax_return/basic/55747/",
+      "year": 2025
+    },
+    {
+      "id": "tip_sidejob_002",
+      "category": "副業・複業",
+      "subcategory": "会社にバレない副業",
+      "content": "副業が「給与所得」の場合は普通徴収が認められないケースが多い。業務委託・雑所得型の副業（ライティング、コンサル等）なら普通徴収が機能しやすい",
+      "source_url": "https://sera-tax.jp/",
+      "year": 2025
+    },
+    {
+      "id": "tip_sidejob_003",
+      "category": "副業・複業",
+      "subcategory": "会社にバレない副業",
+      "content": "SNSでの情報発信に注意。本名・顔写真・勤務先が推測できる情報を公開しながら副業投稿すると同僚経由でバレるリスクが高い",
+      "source_url": "https://sogyotecho.jp/undetectable-side-job/",
+      "year": 2026
+    },
+    {
+      "id": "tip_sidejob_004",
+      "category": "副業・複業",
+      "subcategory": "副業の始め方",
+      "content": "2026年の副業トレンドは「AI活用×得意を活かす」。ChatGPTやClaude等の生成AIを活用するだけで副業収入が約1.8倍になるデータあり。まずはAIツールの習得から始めるのが効率的",
+      "source_url": "https://japan-design.jp/side-job/9268/",
+      "year": 2026
+    },
+    {
+      "id": "tip_parallel_001",
+      "category": "パラレルキャリア",
+      "subcategory": "本業×副業の組み合わせ",
+      "content": "起業移行型: 本業に従事しながら独立予定分野の活動で実績・人脈を構築。パラレルキャリアで積んだ実績により、いきなり独立するよりスムーズな移行が可能",
+      "source_url": "https://it-partners.type.jp/report/parallel-carrier/",
+      "year": 2025
+    },
+    {
+      "id": "tip_parallel_002",
+      "category": "パラレルキャリア",
+      "subcategory": "本業×副業の組み合わせ",
+      "content": "ワークライフブレンド型: 本業で得た知識・スキル・人脈を副業に活かし、副業の経験を本業にフィードバック。両方のキャリアの相乗効果を狙う戦略",
+      "source_url": "https://it-partners.type.jp/report/parallel-carrier/",
+      "year": 2025
+    },
+    {
+      "id": "tip_parallel_003",
+      "category": "パラレルキャリア",
+      "subcategory": "独立タイミング",
+      "content": "独立の目安: 副業収入が本業を超え、安定的に月30万円以上が3〜4ヶ月継続すること。独立前に生活費6ヶ月分以上の貯蓄を確保すべき",
+      "source_url": "https://note.com/shimizu_ax/n/n1614f338497f",
+      "year": 2025
+    },
+    {
+      "id": "tip_parallel_004",
+      "category": "パラレルキャリア",
+      "subcategory": "独立タイミング",
+      "content": "エンジニアのフリーランス独立は実務経験3年目が目安。独立前に顧客人脈を構築し案件獲得の道筋を立てておくことで、収入空白期間を最小化できる",
+      "source_url": "https://engineer-style.jp/articles/10149",
+      "year": 2025
+    },
+    {
+      "id": "tip_parallel_005",
+      "category": "パラレルキャリア",
+      "subcategory": "注意点",
+      "content": "パラレルキャリアの落とし穴: 本業で重要ミッションが始まる時期は集中すべき。「何にパワーを注ぐか」のタイミングを見誤ると両方が中途半端になる",
+      "source_url": "https://next.rikunabi.com/journal/20230228_d01_s/",
+      "year": 2025
+    },
+    {
+      "id": "tip_freelance_001",
+      "category": "フリーランス市場",
+      "subcategory": "独立準備",
+      "content": "フリーランス独立のステップ: (1)副業で実績を積む→(2)顧客との信頼関係構築→(3)市場で求められるスキルを把握→(4)生活費6ヶ月分の貯蓄→(5)開業届提出（開業から1ヶ月以内推奨）",
+      "source_url": "https://techbiz.com/media/column/freelance-timing",
+      "year": 2025
+    },
+    {
+      "id": "tip_freelance_002",
+      "category": "フリーランス市場",
+      "subcategory": "単価アップ",
+      "content": "高単価を狙うならRust・Go・TypeScriptなどモダン言語を習得。PM経験があれば月100万円超の案件も。2026年は常駐案件が10〜20%高い傾向",
+      "source_url": "https://corp.en-japan.com/newsrelease/2025/43060.html",
+      "year": 2026
+    },
+    {
+      "id": "tip_reskilling_001",
+      "category": "リスキリング",
+      "subcategory": "活用法",
+      "content": "経産省のリスキリング支援は在職中の会社員が対象。キャリア相談→リスキリング講座受講→転職支援まで一体的にサポート。年齢・雇用形態の制限なし",
+      "source_url": "https://careerup.reskilling.go.jp/",
+      "year": 2025
+    },
+    {
+      "id": "tip_reskilling_002",
+      "category": "リスキリング",
+      "subcategory": "活用法",
+      "content": "リスキリングの補助金は「受講のみ50%」+「転職成功で追加20%」の2段階。転職しなくても50%は受けられるので、スキルアップ目的だけでも活用価値あり",
+      "source_url": "https://hojyokin-portal.jp/columns/reskilling_careerup_hojyokin",
+      "year": 2025
+    }
+  ],
+  "stories": [
+    {
+      "id": "story_reskilling_001",
+      "category": "リスキリング",
+      "subcategory": "キャリアチェンジ",
+      "title": "38歳事務職→データアナリストへの転身",
+      "content": "38歳の事務職がBI（ビジネスインテリジェンス）講座を受講。社内データを活用したダッシュボードを自作し、その実績が評価されてデータアナリストにキャリアチェンジ成功。リスキリング補助金を活用して受講費用を大幅に軽減した",
+      "source_url": "https://reskilling.kotora.jp/reskill-003/",
+      "year": 2025
+    },
+    {
+      "id": "story_reskilling_002",
+      "category": "リスキリング",
+      "subcategory": "キャリアチェンジ",
+      "title": "41歳営業職→CRM運用担当に抜擢",
+      "content": "41歳の営業職がCRM講座を修了後、顧客リマインドフローを自動化。営業効率を15%向上させた実績が社内で評価され、CRM運用担当に抜擢された。本業を続けながらの学習で収入を維持しつつキャリア転換に成功",
+      "source_url": "https://reskilling.kotora.jp/reskill-003/",
+      "year": 2025
+    },
+    {
+      "id": "story_reskilling_003",
+      "category": "リスキリング",
+      "subcategory": "未経験転職",
+      "title": "半年間のリスキリングで未経験からITエンジニアへ",
+      "content": "前職で働きながら半年間のリスキリング講座を受講し、未経験からITエンジニアに転身。講座スケジュールの柔軟性（平日夜・週末対応）と専門の転職相談サポートが成功の鍵だった。経産省のキャリアアップ支援事業を活用",
+      "source_url": "https://careerup.reskilling.go.jp/worker/interview/02/",
+      "year": 2025
+    },
+    {
+      "id": "story_parallel_001",
+      "category": "パラレルキャリア",
+      "subcategory": "副業→独立",
+      "title": "副業月収30万円安定で独立を決断",
+      "content": "会社員時代に副業で月30万円以上を3〜4ヶ月安定して稼げるようになったタイミングで独立を決意。独立前に生活費6ヶ月分の貯蓄を確保し、副業時代に構築した顧客との関係を維持することで収入空白期間をゼロにした",
+      "source_url": "https://note.com/shimizu_ax/n/n1614f338497f",
+      "year": 2025
+    }
+  ]
+}

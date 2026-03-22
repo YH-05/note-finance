@@ -1,0 +1,466 @@
+{
+  "meta": {
+    "genre": "beauty-romance",
+    "research_date": "2026-03-21",
+    "total_items": 42,
+    "categories": {
+      "facts": 18,
+      "tips": 14,
+      "stories": 10
+    }
+  },
+  "facts": [
+    {
+      "id": "fact-br-001",
+      "type": "fact",
+      "category": "matching-app-asp",
+      "title": "マッチングアプリASP報酬単価の相場",
+      "content": "マッチングアプリのアフィリエイト報酬単価は2,000〜5,000円が相場。恋活系(Pairs/with/tapple)が2,000〜5,000円、婚活系(ゼクシィ縁結び/エン婚活)が5,000〜15,000円、再婚・シニア向け(マリッシュ/パートナーズ)が3,000〜8,000円。結婚相談所(IBJ等)は新規入会で40,000円の超高単価案件もある。",
+      "sources": [
+        "https://willfu.jp/affiliate-genre/",
+        "https://zoomy01.com/high-priced-affiliate",
+        "https://www.colorfulbox.jp/media/matching-app-affiliate/"
+      ]
+    },
+    {
+      "id": "fact-br-002",
+      "type": "fact",
+      "category": "matching-app-asp",
+      "title": "主要マッチングアプリ個別ASP単価・成果地点",
+      "content": "afb経由の主要案件: Pairs(ペアーズ)=3,021円(インストール+登録), ペイターズ=5,076円, ペリア=2,115円, マリーゴー=2,200円, バチェラーデート=1,538円。成果地点は大半が「アプリインストール後の会員登録」で、ユーザーの課金不要。タップル・Withなど大手は割引コード方式でアフィリエイト制度がない場合もあるため要確認。",
+      "sources": [
+        "https://note.com/nichijo_diary/n/ndaef74515fd6",
+        "/Users/yukihata/Desktop/note-finance/docs/plan/SideBusiness/2026-03-21_discussion-asp-research.md"
+      ]
+    },
+    {
+      "id": "fact-br-003",
+      "type": "fact",
+      "category": "matching-app-asp",
+      "title": "マッチングアプリ市場規模と成長予測",
+      "content": "マッチングアプリ業界の市場規模は2028年にかけて右肩上がりの成長予測(タップル2023年度調査)。2026年に1,657億円(2021年比2.2倍)への拡大見込み。オンラインでの出会いが一般化し、マッチングアプリへの抵抗感が薄れていることが成長要因。人間の根本的欲求に関連するため一時的ブームで終わらず長期需要が見込める。",
+      "sources": [
+        "https://www.colorfulbox.jp/media/matching-app-affiliate/",
+        "https://namitei.com/matching-app-affiliate/"
+      ]
+    },
+    {
+      "id": "fact-br-004",
+      "type": "fact",
+      "category": "matching-app-asp",
+      "title": "マッチングアプリASPの承認率・YMYL非該当の優位性",
+      "content": "マッチングアプリの成果地点は「無料会員登録」が大半のため承認率が高い。銀行口座開設(郵送+入金必要)や物販(返品リスク)と異なり、ユーザー負担ゼロで成果確定。また、YMYL(Your Money or Your Life)に該当しないため、個人ブログでもSEOで上位表示が狙えるジャンル。企業サイトとの競争が金融・健康ジャンルより緩やか。",
+      "sources": [
+        "https://www.colorfulbox.jp/media/matching-app-affiliate/",
+        "https://note.com/nichijo_diary/n/ndaef74515fd6"
+      ]
+    },
+    {
+      "id": "fact-br-005",
+      "type": "fact",
+      "category": "beauty-asp",
+      "title": "美容系ASP案件の単価相場一覧",
+      "content": "美容系高単価案件(2026年版): 美容クリニック新規カウンセリング=15,000円, 美容整形=19,000円, 全身脱毛新規契約=25,000円, 医療脱毛=15,000〜20,000円, 家庭用脱毛器=10,000〜15,000円, アートメイク=10,000円, 国産美顔器=25,000円, エステサロン=7,500〜10,560円, マウスピース矯正=20,000円, AGA治療=13,000〜37,000円。",
+      "sources": [
+        "https://zoomy01.com/high-priced-affiliate",
+        "https://hinakira.com/list-of-affiliate-high-paying-projects/"
+      ]
+    },
+    {
+      "id": "fact-br-006",
+      "type": "fact",
+      "category": "beauty-asp",
+      "title": "afbの美容案件の特徴と優位性",
+      "content": "afb(アフィビー)は美容・健康・金融に強い中堅ASP。主な特徴: (1)報酬に消費税10%が上乗せ(2,000円の案件→実質2,200円), (2)最低振込額777円と業界最低水準, (3)振込手数料無料, (4)翌月末払いで業界最速の支払いサイクル, (5)高収入アフィリエイター満足度13年連続No.1。スキンケア報酬例: 5,000〜10,000円, サプリ定期購入: 3,000〜8,000円。",
+      "sources": [
+        "https://turicco.com/asp/",
+        "https://note.com/nichijo_diary/n/ndaef74515fd6"
+      ]
+    },
+    {
+      "id": "fact-br-007",
+      "type": "fact",
+      "category": "beauty-asp",
+      "title": "A8.netコスメ・スキンケアランキング上位案件",
+      "content": "A8.net 2026年3月時点のコスメ・スキンケアランキング上位: KATAN Cica ダーマヒットセラム10(初回購入2,000円), ハリッチプレミアムリッチプラス(初回購入7,519円), ハックティック(初回購入4,422円), C-マックスローション(新規購入2,000〜2,250円), 花西子フローラシス(購入10%), KISO(購入10%), オルビスユードット(新規購入1,800円)。",
+      "sources": [
+        "https://support.a8.net/as/HintOfProgram/ranking/cosme.php",
+        "https://support.a8.net/as/HintOfProgram/ranking/beautygoods.php"
+      ]
+    },
+    {
+      "id": "fact-br-008",
+      "type": "fact",
+      "category": "beauty-asp",
+      "title": "美容家電ASP案件の高単価ランキング",
+      "content": "A8.net美容ランキング(2026年3月): Ulike Air10 IPL光美容器(購入16.92%), 韓国美顔器(初回購入10,000円), dot shot光脱毛器(初回購入15%), ミラブルゼロ(新規購入10,000円), 韓国美顔器Dr.tengle(初回購入9,500円), VリフトLEDネックケア(初回購入5,000円), CurrentBody(購入5%), ミラブル(購入7,500円)。",
+      "sources": [
+        "https://support.a8.net/as/HintOfProgram/ranking/beautygoods.php"
+      ]
+    },
+    {
+      "id": "fact-br-009",
+      "type": "fact",
+      "category": "skincare-trend",
+      "title": "2026年スキンケア成分トレンド: PDRN・エクソソームが主役に",
+      "content": "2026年の最注目成分はPDRN(ポリデオキシリボヌクレオチド、通称サーモン注射成分)とエクソソーム。PDRNは肌の修復・キメ改善の即効性で美容医療から一般スキンケアへ一般化。エクソソームは「ヒト幹細胞由来」から「植物バイオ由来」「高純度精製」へ進化し、遺伝子検査に基づくパーソナライズ化が進行中。innisfreeの「レチノールPDRNアドバンスドセラム」などが話題。",
+      "sources": [
+        "https://note.com/camellia_lilm515/n/n59e9175f500d",
+        "https://www.funliday.com/posts/korea-recoomend-coseme-brand/"
+      ]
+    },
+    {
+      "id": "fact-br-010",
+      "type": "fact",
+      "category": "skincare-trend",
+      "title": "レチノール・ナイアシンアミドの2026年トレンド変化",
+      "content": "レチノール: 高濃度ブームの反動で「マイルド化」が主流に。敏感肌化リスクを考慮し、D-パントテニルアルコールやライスパワーNo.11+との併用型が伸長。ナイアシンアミド: 「入っていればOK」から「濃度・組み合わせで差がつく」段階へ。資生堂のマイクロニードルデバイスがナイアシンアミドを皮膚深部に届ける技術を導入(2025年1月)。@cosmeクチコミでは「薄肌」ワード出現率が昨対2.6倍に増加。",
+      "sources": [
+        "https://note.com/hearty_ibis4755/n/na67abbb8f215",
+        "https://prtimes.jp/main/html/rd/p/000000457.000005126.html",
+        "https://www.atpress.ne.jp/news/2705535"
+      ]
+    },
+    {
+      "id": "fact-br-011",
+      "type": "fact",
+      "category": "skincare-trend",
+      "title": "@cosme 2026上半期トレンド予測5キーワード",
+      "content": "@cosmeベストコスメアワード2026上半期トレンド予測: (1)美湯(ビュ)〜ティタイム(バスタイム美容), (2)日本プライドコスメ(J-Beauty再評価、訪日客の3人に1人がコスメ購入), (3)超キラメロコスメ(平成リバイバル、多色偏光パール), (4)0秒ケア(浴室内ボディオイル・ミスト), (5)肌守り市場拡大(攻めと守りの両立スキンケア)。",
+      "sources": [
+        "https://prtimes.jp/main/html/rd/p/000000457.000005126.html",
+        "https://www.cosme.net/bestcosme/articles/2025-next-trend/"
+      ]
+    },
+    {
+      "id": "fact-br-012",
+      "type": "fact",
+      "category": "skincare-trend",
+      "title": "韓国コスメの日本市場シェア: 輸入額30%超を獲得",
+      "content": "韓国化粧品の日本への輸入額は2024年に1,342.9億円に達し、全化粧品輸入額の30.3%を占める圧倒的シェアを確立。2021年の587億円から3年で228%の急成長。フランス(18.1%)、中国(12.4%)を大幅に上回る。消費者購入率は2019年の0.4%から2023年に2.6%へ6倍以上に拡大し、20代中心から40〜50代以上へ年齢層が拡大中。",
+      "sources": [
+        "https://www.motherearth-jp.com/post/日本化粧品マーケット構造分析レポート（簡易版）",
+        "https://www.yano.co.jp/press-release/show/press_id/3922"
+      ]
+    },
+    {
+      "id": "fact-br-013",
+      "type": "fact",
+      "category": "skincare-trend",
+      "title": "日本スキンケア市場規模と成長予測",
+      "content": "日本のスキンケア市場は2025年に88億米ドル(約1.3兆円)に達し、2034年までに128億米ドルに成長予測(CAGR 4.24%)。国内化粧品市場全体では2024年度2兆5,800億円(前年比104.1%)、2025年度2兆6,500億円(前年比102.7%)予測。スキンケアが構成比46.3%(1兆1,950億円)で最大カテゴリ。",
+      "sources": [
+        "https://www.atpress.ne.jp/news/2705535",
+        "https://www.yano.co.jp/press-release/show/press_id/3922"
+      ]
+    },
+    {
+      "id": "fact-br-014",
+      "type": "fact",
+      "category": "skincare-trend",
+      "title": "プチプラvsデパコスの2026年構図",
+      "content": "2026年のプチプラvsデパコス構図: デパコスは「ロンジェビティ(長寿)」訴求で高付加価値化(ポーラB.A、SK-II、クレドポー等が「全域ハリ」「細胞レベル再生」)。プチプラは韓国コスメ主導で成分高濃度×低価格が台頭(DERMA FACTORYトラネキサム酸クリーム1,500円級、KISO レチノールクリーム2,323円等)。ちふれ保湿クリーム770円が「高価格帯に引けを取らない」と高評価を獲得。",
+      "sources": [
+        "https://note.com/hearty_ibis4755/n/na67abbb8f215",
+        "https://www.ozmall.co.jp/beauty/feature/44707/"
+      ]
+    },
+    {
+      "id": "fact-br-015",
+      "type": "fact",
+      "category": "sns-beauty",
+      "title": "美容系SNSアカウントの収益構造とフォロワー別単価",
+      "content": "Instagram美容アカウントの収益モデル: フォロワー1万人前後=1投稿1〜3万円(月4投稿で4〜12万円), 5万人規模=1投稿5〜10万円(年間数百万円可能), 10万人以上=1投稿10〜30万円, 50万人以上=1件50万円以上+継続ブランド契約。美容・コスメ系は「単価が高くPR案件が豊富」で最も収益性の高いジャンルの一つ。",
+      "sources": [
+        "https://www.koukoku.jp/service/suketto/marketer/sns/"
+      ]
+    },
+    {
+      "id": "fact-br-016",
+      "type": "fact",
+      "category": "sns-beauty",
+      "title": "LIPS: 美容特化SNSの購買影響力",
+      "content": "LIPS(リップス)はコスメ・美容特化型レビューSNS。利用者の98%が女性、特にZ世代(18-24歳)が中心。LIPSを参考に商品購入したことがあるユーザーが97%と驚異的な高率で、美容商材の購買決定に極めて強い影響力を持つ。レチノール・CICA・韓国コスメのレビューが特に活発。",
+      "sources": [
+        "https://www.comnico.jp/we-love-social/sns-users",
+        "https://lipscosme.com/themes/44450"
+      ]
+    },
+    {
+      "id": "fact-br-017",
+      "type": "fact",
+      "category": "matching-app-asp",
+      "title": "恋愛・婚活ASP別の取扱案件と特徴",
+      "content": "ASP別マッチングアプリ取扱: A8.net=Pairs・タップル等の大手案件豊富, afb=バチェラーデート・Match・Healmate+報酬に消費税10%上乗せ, アクセストレード=Pairs・Omiai・イヴイヴ(老舗で安定), バナーブリッジ=ワクワクメール・Dine等アダルト系OK, マッチングアフィ=マッチングアプリ特化のクローズドASP。恋愛電子書籍はinfocart(300件以上、承認率100%)が有力。",
+      "sources": [
+        "https://note.com/nichijo_diary/n/ndaef74515fd6",
+        "https://start-affiliate-blog.com/recommend-blog-for-dating-apps/"
+      ]
+    },
+    {
+      "id": "fact-br-018",
+      "type": "fact",
+      "category": "skincare-trend",
+      "title": "韓国ビューティートレンド2026: 4つのキーワード",
+      "content": "韓国市場2026年の4キーワード(ampule・Glowdayz・Cosme Hunt調査): (1)オリジナリティー=バズ依存からヘリテージ(特許技術・独自処方)回帰, (2)ノスタルジア=AI時代の反動で手触り感・アナログ価値が復権, (3)情緒ケア=機能訴求から体験価値(瞑想クレンジング等)へシフト, (4)持続可能性=第二世代クリーンビューティー(原料調達〜廃棄まで全工程で環境配慮)。",
+      "sources": [
+        "https://ginzaclear.jp/column/reverse-aging-beauty-trend-2026-part2/"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip-br-001",
+      "type": "tip",
+      "category": "matching-app-strategy",
+      "title": "マッチングアプリ比較記事の勝ちパターン",
+      "content": "2026年のマッチングアプリ比較記事で強いのは「目的別比較」。「全部おすすめ」ではなく「どういう人に向いているか」を分ける。切り口: (1)年齢層特化(30代後半からの本気婚活3選), (2)目的特化(オタク趣味理解/再婚向け), (3)地域特化(福岡で出会えるアプリ体験談), (4)軸別比較(料金・会員数・真剣度)。恋活系(Pairs=真剣交際, タップル=趣味おでかけ起点)の差を言語化できる記事が勝つ。",
+      "sources": [
+        "https://note.com/joe_siteaf/n/nd7f40b9f56b8",
+        "https://note.com/suntaiyou666/n/nbc8c43f7dd16"
+      ]
+    },
+    {
+      "id": "tip-br-002",
+      "type": "tip",
+      "category": "matching-app-strategy",
+      "title": "恋活・婚活と出会い系は必ずサイト分離する",
+      "content": "Pairs・タップル・with等の恋活・婚活アプリと、PCMAX・ハッピーメール等の出会い系は同じサイトで混在させると崩壊する。Pairsは「累計登録2,500万突破の恋活・婚活アプリ」、タップルも「恋活・婚活アプリ」とクリーンなブランディング。混在させるとCVR低下+ASP審査リスク。ブランド文脈を明確に分離すること。",
+      "sources": [
+        "https://note.com/joe_siteaf/n/nd7f40b9f56b8"
+      ]
+    },
+    {
+      "id": "tip-br-003",
+      "type": "tip",
+      "category": "beauty-asp-strategy",
+      "title": "美容系アフィリエイトの導線設計: 3段階ファネル",
+      "content": "美容系アフィリエイトの最適導線: (1)集客記事(SEO/SNS)=「プチプラ スキンケア おすすめ」「30代 毛穴 ケア」等の悩み系KW, (2)比較・レビュー記事=実際の使用感・ビフォーアフター・成分解説, (3)キラーページ=読者の不安を拾い「このアイテムで変われるかも」と自然に思わせるセールスページ。全投稿の最後尾にCTA画像を設置し、ハイライトやプロフィールリンクで導線を確保する。",
+      "sources": [
+        "https://www.yukemuri-blog.com/matching-affiliate/",
+        "https://sns-sakiyomi.com/blog/case-study/case-study3/"
+      ]
+    },
+    {
+      "id": "tip-br-004",
+      "type": "tip",
+      "category": "beauty-asp-strategy",
+      "title": "afb活用の最適戦略: 消費税上乗せ+最速支払い",
+      "content": "afb活用のコツ: (1)スキンケア・コスメ案件はafbで消費税10%上乗せ(他ASPより実質10%高い報酬), (2)翌月末払いでキャッシュフロー改善, (3)最低振込777円で少額から受取可能, (4)美容ジャンルのクローズド案件(レントラックスが最高単価だが招待制)を中期目標に設定, (5)A8.netで3ヶ月確定20万超→特単申請(1.5倍程度)を並行で狙う。",
+      "sources": [
+        "https://turicco.com/asp/",
+        "https://note.com/nichijo_diary/n/ndaef74515fd6"
+      ]
+    },
+    {
+      "id": "tip-br-005",
+      "type": "tip",
+      "category": "skincare-content",
+      "title": "2026年に刺さるスキンケア記事の成分訴求パターン",
+      "content": "2026年のスキンケア記事で訴求力のある成分切り口: (1)PDRN(サーモン注射成分)の一般化→「美容医療級を自宅で」訴求, (2)レチノール×ナイアシンアミド併用型→「攻めと守りの両立」, (3)CICA+バリア機能→「肌の治安を守る」(@cosmeで「治安」昨対1.2倍), (4)マイクロニードルデバイス→「成分を皮膚深部に届ける」技術訴求, (5)美湯〜ティタイム→バスタイム美容の新提案。",
+      "sources": [
+        "https://note.com/hearty_ibis4755/n/na67abbb8f215",
+        "https://prtimes.jp/main/html/rd/p/000000457.000005126.html"
+      ]
+    },
+    {
+      "id": "tip-br-006",
+      "type": "tip",
+      "category": "skincare-content",
+      "title": "韓国コスメ紹介記事の2026年アプローチ",
+      "content": "韓国コスメ記事の効果的アプローチ: (1)Olive Young受賞歴を権威性として活用, (2)VT CICA・LANEIGE・numbuzin・Dr.G等の定番ブランド比較, (3)日本限定カラー・デザインの希少性訴求, (4)「皮膚科医監修」「特許技術」のヘリテージ訴求がバズ依存より支持される傾向, (5)Qoo10メガ割のタイミングに合わせた記事公開で検索需要を獲得。輸入額30%超の市場浸透度は記事の信頼性担保に使える。",
+      "sources": [
+        "https://www.funliday.com/posts/korea-recoomend-coseme-brand/",
+        "https://ginzaclear.jp/column/reverse-aging-beauty-trend-2026-part2/"
+      ]
+    },
+    {
+      "id": "tip-br-007",
+      "type": "tip",
+      "category": "sns-strategy",
+      "title": "Instagram美容アカウントのCV動線設計: 月100万円事例",
+      "content": "「こまちメイク」事例(12ヶ月で7万フォロワー、月間1,000万リーチ、月100万円売上): CV動線3段階=(1)フィード投稿でアフィ商品紹介・魅力訴求, (2)ハイライトにアフィリンク仕込み(新規流入ユーザーも回遊→高確率CV), (3)全フィード投稿の最後尾にCTA画像設置(アフィ商品訴求 or ハイライト誘導)。3C分析でアカウント設計し、20〜30代前半女性をターゲットに、ビフォーアフター+リール投稿で拡散。",
+      "sources": [
+        "https://sns-sakiyomi.com/blog/case-study/case-study3/"
+      ]
+    },
+    {
+      "id": "tip-br-008",
+      "type": "tip",
+      "category": "sns-strategy",
+      "title": "コスメレビュー投稿の勝ちテンプレート",
+      "content": "コスメレビュー投稿テンプレート: (1)1枚目=ビフォーアフターまたは商品スウォッチ(グリッド表示で目に止まる大袈裟な差を演出), (2)2-3枚目=テクスチャー・使用感の詳細, (3)4枚目=成分解説(権威性), (4)5枚目=他商品との比較, (5)最終枚=CTA画像(ハイライト誘導)。キャプションは「具体的な数値」「使用期間」「肌質情報」を含める。リール投稿は「権威性提示→詳細紹介→複数商品展開」の3要素で保存・再生数が伸びる。",
+      "sources": [
+        "https://sns-sakiyomi.com/blog/case-study/case-study3/",
+        "https://find-model.jp/insta-lab/instagram-beauty-case-study/"
+      ]
+    },
+    {
+      "id": "tip-br-009",
+      "type": "tip",
+      "category": "sns-strategy",
+      "title": "Before/Afterコンテンツの効果と注意点",
+      "content": "ビフォーアフターはコスメレビューで最も保存率・CV率が高いフォーマット。効果: (1)視覚的インパクトで停止率(thumb-stop)向上, (2)実証感で信頼性UP, (3)保存→リピート閲覧→購買意欲醸成。注意点: (1)照明・角度を統一して公平な比較を示す, (2)「個人の感想です」注記は必須, (3)過度な加工は薬機法・景表法リスク+フォロワー信頼喪失, (4)使用期間を明記して現実的な期待値設定。",
+      "sources": [
+        "https://sns-sakiyomi.com/blog/case-study/case-study3/",
+        "https://find-model.jp/insta-lab/instagram-beauty-case-study/"
+      ]
+    },
+    {
+      "id": "tip-br-010",
+      "type": "tip",
+      "category": "sns-strategy",
+      "title": "Threads美容アカウントの運用ポイント",
+      "content": "Threads活用の2026年ポイント: (1)MAA 4億以上(2025年8月)で急成長中、2025年4月に広告機能スタート, (2)Instagramとの連携前提設計でフォロー関係引き継ぎ可能, (3)テキスト中心だが画像・リンク併用可, (4)「会話や共感」重視のアルゴリズムで美容系の悩み共有コンテンツと好相性, (5)PR明記必須(Meta規約), (6)直接収益プログラムは日本未対応→外部ASP経由が基本。導線: Threads(集客)→Instagram/ブログ→ASPリンク→CV。",
+      "sources": [
+        "https://www.comnico.jp/we-love-social/sns-users"
+      ]
+    },
+    {
+      "id": "tip-br-011",
+      "type": "tip",
+      "category": "beauty-asp-strategy",
+      "title": "ASP登録の最適優先順位(美容×恋愛ジャンル)",
+      "content": "美容×恋愛ジャンルのASP登録優先順: (1)A8.net=審査なし・案件最多・まず登録, (2)afb=美容案件高単価+消費税上乗せ+最速支払い, (3)もしもアフィリエイト=W報酬12%・Amazon/楽天連携・物販用, (4)アクセストレード=マッチングアプリ老舗・高単価, (5)バリューコマース=大手EC連携, (6)バナーブリッジ=出会い系OKの独自案件, (7)レントラックス=招待制・中期目標(最高単価クローズドASP)。",
+      "sources": [
+        "https://turicco.com/asp/",
+        "https://muroyaaffiliate.co.jp/asp-osusume/"
+      ]
+    },
+    {
+      "id": "tip-br-012",
+      "type": "tip",
+      "category": "matching-app-strategy",
+      "title": "マッチングアプリアフィの法的注意点",
+      "content": "マッチングアプリアフィリエイトの法的注意: (1)「必ず出会える」等の誇大広告は厳禁(景表法違反リスク), (2)紹介アプリが「インターネット異性紹介事業」届出済みか確認, (3)Instagram/Xでの直接リンク貼りはアカウント凍結リスクあり→規約確認必須, (4)成人向けコンテンツを扱う場合はアダルトOKサーバー(mixhost等)が必要(エックスサーバー等大手はNG), (5)恋活・婚活と出会い系のサイト分離を推奨。",
+      "sources": [
+        "https://note.com/suntaiyou666/n/nbc8c43f7dd16",
+        "https://namitei.com/matching-app-affiliate/"
+      ]
+    },
+    {
+      "id": "tip-br-013",
+      "type": "tip",
+      "category": "skincare-content",
+      "title": "「肌守り」市場を狙うコンテンツ戦略",
+      "content": "@cosmeデータで「薄肌」ワード昨対2.6倍、「敏感肌コンセプトに惹かれる」37.1%、「肌の治安を守りたい意識が高まった」63.0%。攻略法: (1)「攻め(レチノール等)で肌荒れした人向けの守りケア」記事, (2)美容医療後のデリケート肌保護ファンデ紹介, (3)花粉・寒暖差対策のバリア機能スキンケア特集, (4)敏感肌を自認していない人の48%が実は「やや敏感」→潜在層へのリーチ余地大。",
+      "sources": [
+        "https://prtimes.jp/main/html/rd/p/000000457.000005126.html"
+      ]
+    },
+    {
+      "id": "tip-br-014",
+      "type": "tip",
+      "category": "beauty-asp-strategy",
+      "title": "恋愛電子書籍アフィリエイトの高単価活用法",
+      "content": "恋愛系電子書籍ASPの活用: infocart(恋愛関連300件以上、報酬率平均30%超、1万円超え案件多数、承認率100%、クッキー90日間)とinfotop(100件以上、平均1〜2万円、承認率100%)。審査なし・ブログ不要で登録可能。恋愛コーチング系コンテンツとの組み合わせで「マッチングアプリ+恋愛テクニック教材」の2段階マネタイズが可能。",
+      "sources": [
+        "https://start-affiliate-blog.com/recommend-blog-for-dating-apps/"
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "id": "story-br-001",
+      "type": "story",
+      "category": "sns-success",
+      "title": "こまちメイク: 12ヶ月で7万フォロワー・月100万円達成の軌跡",
+      "content": "コスメ系オウンドメディア企業がSAKIYOMI支援のもとInstagramアカウント「こまちメイク」を立ち上げ。ターゲットは20〜30代前半の一般女性。3C分析でペルソナ設定し、ビフォーアフター投稿+リール+美容外科医監修の権威性で差別化。全フィード投稿最後尾にCTA画像、ハイライトにアフィリンク設置。12ヶ月で7万フォロワー(最終9万超)、月間1,000万リーチ、アフィリエイト月売上100万円を達成。成功後は自社プロダクト開発も視野に。",
+      "sources": [
+        "https://sns-sakiyomi.com/blog/case-study/case-study3/"
+      ]
+    },
+    {
+      "id": "story-br-002",
+      "type": "story",
+      "category": "sns-success",
+      "title": "キャンメイク公式: Instagram診断コンテンツで1,500件超コメント",
+      "content": "プチプラコスメブランド「CANMAKE」の公式Instagramアカウントが「キャンメイクInstagram診断」を実施。恋愛タイプとお守りリップを答えてくれるコンテンツで、フォロー+DM/コメントで「診断する」と送信する参加方式。1,500件超のコメントを獲得し、若年女性層のエンゲージメントを大幅向上。リール投稿で新商品をスライドショー的に紹介する手法も特徴的で、スワイプ不要で情報を次々閲覧させる工夫が成果に繋がった。",
+      "sources": [
+        "https://find-model.jp/insta-lab/instagram-beauty-case-study/"
+      ]
+    },
+    {
+      "id": "story-br-003",
+      "type": "story",
+      "category": "sns-success",
+      "title": "BOTANIST: SNS映えで市場席巻→オフライン展開の逆パターン成功",
+      "content": "株式会社I-neが「BOTANISTはInstagramに全振りしよう」と決定し、商品開発段階からSNS映えを意識。シンプルなボタニカルパッケージで#ボタニスト投稿を促進し、UGC(ユーザー生成コンテンツ)の爆発的拡散に成功。知人スタイリスト・モデル経由の地道なシーディングから始め、Instagram→EC売上急増の好循環を構築。その後バラエティショップ・ドラッグストアにオフライン展開する「デジタル→リアル」の逆パターンで、大手資本なしでも市場席巻できることを証明した。",
+      "sources": [
+        "https://www.brainpad.co.jp/rtoaster/blog/cosme_ec/"
+      ]
+    },
+    {
+      "id": "story-br-004",
+      "type": "story",
+      "category": "market-trend",
+      "title": "韓国コスメ228%急成長: 日本市場で輸入シェア30%超を獲得するまで",
+      "content": "韓国化粧品の日本輸入額は2021年の587億円から2024年の1,342.9億円へ3年で228%急成長し、全化粧品輸入額の30.3%を占める圧倒的シェアを確立。背景にはCICA(シカ)ブームによるVT CICA クリームの大ヒット、Olive Youngアワード受賞商品の信頼性、楽天・ロフト・@cosme等のオムニチャネル展開(年平均100%以上の売上成長)がある。購入層は20代中心から40〜50代以上に拡大し、日本の化粧品産業に構造変革を迫っている。",
+      "sources": [
+        "https://www.motherearth-jp.com/post/日本化粧品マーケット構造分析レポート（簡易版）"
+      ]
+    },
+    {
+      "id": "story-br-005",
+      "type": "story",
+      "category": "market-trend",
+      "title": "レチノール沼からの「肌守り」回帰: 攻めと守りの二極化",
+      "content": "@cosmeの調査(5,786人)で「レチノール製品使用後に肌が荒れた・痛みがあった」経験者が多数報告。「薄肌」ワード出現率が昨対2.6倍に急増。これはレチノール・ビタミンC等の「攻め」成分ブームの反動で、自身の肌の繊細さに気づく人が増加した結果。2026年は「攻めの成分で肌悩みを改善しつつ、普段使いの化粧水・乳液は守りの敏感肌向けを選ぶ」という二極化スタイルが定着。メーカーもマイルド化レチノール(D-パントテニルアルコール併用型)を投入。",
+      "sources": [
+        "https://prtimes.jp/main/html/rd/p/000000457.000005126.html",
+        "https://note.com/hearty_ibis4755/n/na67abbb8f215"
+      ]
+    },
+    {
+      "id": "story-br-006",
+      "type": "story",
+      "category": "market-trend",
+      "title": "J-Beauty再評価: 訪日客の3人に1人がコスメ購入する時代",
+      "content": "@cosmeが2026年上半期トレンドとして「日本プライドコスメ」を予測。訪日観光客の約3人に1人がコスメをお土産に購入しており、高機能×安心感の国産ブランドへの信頼感が急上昇。FASのザブラックデイクリーム(700種以上の成分からなる黒米発酵液+ナイアシンアミド)がベスコス受賞。海外韓国コスメトレンドを経て日本人自身が「日本の良さ」を再発見する流れが加速。J-Beautyが「誇れるプライドビューティー」として再評価される動き。",
+      "sources": [
+        "https://www.cosme.net/bestcosme/articles/2025-next-trend/"
+      ]
+    },
+    {
+      "id": "story-br-007",
+      "type": "story",
+      "category": "sns-success",
+      "title": "資生堂: ナノインフルエンサー活用で#資生堂スキンケア5万件突破",
+      "content": "資生堂がフォロワー1,000〜10,000人のナノインフルエンサーを厳選し、「#資生堂スキンケア」キャンペーンを展開。20〜40代女性をターゲットに、PR色を抑えた自然な商品レビュー投稿を促進。結果、投稿数5万件以上に増加し、実店舗・ECでの商品購入が増加。メガインフルエンサー1人より、複数のナノインフルエンサー活用の費用対効果が高いことを実証した事例。",
+      "sources": [
+        "https://deap.co.jp/column/c25111/"
+      ]
+    },
+    {
+      "id": "story-br-008",
+      "type": "story",
+      "category": "market-trend",
+      "title": "The Ordinary: 成分×低価格でインディブランドから大手買収までの軌跡",
+      "content": "カナダ発のThe Ordinary(ジオーディナリー)は、高品質成分を極めて低価格で提供する戦略がSNSで評判を呼び、無名の独立系企業から急成長。ナイアシンアミド・レチノール等の単一成分高濃度処方がスキンケア上級者に支持され、「成分買い」トレンドを牽引。後にエスティローダーグループに買収された。大手ブランドの平均成長率2.2%に対し、ニッチ市場を開拓する新興ブランドがより高い成長を示す構造が世界的に進行中。",
+      "sources": [
+        "https://note.com/suzacque/n/n796c8041c1c1"
+      ]
+    },
+    {
+      "id": "story-br-009",
+      "type": "story",
+      "category": "sns-success",
+      "title": "アルビオン: フォロー&コメントキャンペーンで高級コスメの認知拡大",
+      "content": "高級化粧品メーカーのアルビオンがInstagramで「ラ プードル」の認知度向上を目的にフォロー&コメントキャンペーンを実施。高価格帯コスメでも参加ハードルの低いキャンペーン設計でエンゲージメントを獲得。記念日・季節イベントに合わせたコンテンツ企画で、ユーザーの関心を継続的にキャッチ。デパコスブランドのSNS活用成功事例として、高級感の維持とSNSの親しみやすさを両立させた好例。",
+      "sources": [
+        "https://camtsuku.com/guide/1445"
+      ]
+    },
+    {
+      "id": "story-br-010",
+      "type": "story",
+      "category": "market-trend",
+      "title": "美湯〜ティタイム: バスタイムが美容のメインステージに変貌",
+      "content": "@cosmeが2026年上半期ネクストトレンドとして「美湯(ビュ)〜ティタイム」を選出。暖差による「肌疲れ」を解消するため、バスタイムを本格的なスキンケア時間に変えるアイテムが急伸。入浴中パック・ヘアマスク(スチーム美容)、高機能バスソルト(マグネシウム・重炭酸配合)、風呂上がり「0秒」ケア(浴室内ボディオイル・ミスト)の3カテゴリが成長。スリープテック市場とも連動し「睡眠×美容」の複合トレンドへ発展中。",
+      "sources": [
+        "https://note.com/camellia_lilm515/n/n59e9175f500d",
+        "https://prtimes.jp/main/html/rd/p/000000457.000005126.html"
+      ]
+    }
+  ]
+}

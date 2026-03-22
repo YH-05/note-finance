@@ -40,6 +40,121 @@
       "status": "completed",
       "filename": "Nomura ISAT@IJ Quick Note - Indosat (ISAT IJ) (Buy) - FY25 results –.pdf",
       "processed_at": "2026-03-12T08:12:42.270720+00:00"
+    },
+    "2c4f6ff143f26289d6abde95c90d57b6bff541509f048ebb156092ee205bbbd3": {
+      "status": "completed",
+      "filename": "2310.05767.pdf",
+      "processed_at": "2026-03-21T06:42:37.486721+00:00"
+    },
+    "2669e2040563c73fce401ea9244de7fa9e183289b584699f759f35dd5d7188ed": {
+      "status": "completed",
+      "filename": "2304.06877.pdf",
+      "processed_at": "2026-03-21T06:43:44.744976+00:00"
+    },
+    "03701b604a91231b44f8ca3bb5e7e8102dda143d3fa6d7285b702cf650e63d9c": {
+      "status": "completed",
+      "filename": "2601.03974.pdf",
+      "processed_at": "2026-03-21T06:46:57.839259+00:00"
+    },
+    "3687fe2d85121f4f0e2d4628bc084da22e94a5615a914afc0d81d21128e429b2": {
+      "status": "completed",
+      "filename": "2503.17836.pdf",
+      "processed_at": "2026-03-21T06:51:00.501376+00:00"
+    },
+    "1128ab82d104edd7361f980b697a4276a0f62f29d4a86faaa0fd4bd923e0e015": {
+      "status": "completed",
+      "filename": "アナリストレポートを用いた経済ナラティブの定量化に関する一 検討.pdf",
+      "processed_at": "2026-03-21T07:19:44.206806+00:00"
+    },
+    "8e32072aea912a15d592a75902ba53b3f8fb5220dba9cc138ce2d9f0ba6d6124": {
+      "status": "completed",
+      "filename": "大規模言語モデルを用いたベージュブックのセンチメント評価と 暗号資産市場の分析.pdf",
+      "processed_at": "2026-03-21T07:20:22.504099+00:00"
+    },
+    "b3062bfed3f1f125922f24be6aded9d217c6b8874ca0e7678afb185bcab870e7": {
+      "status": "completed",
+      "filename": "企業類似性評価のための会計の表現学習.pdf",
+      "processed_at": "2026-03-21T07:21:09.270344+00:00"
+    },
+    "d60150d1eca289481509e8b83a517c1d768e6326ca80d2edd2fa97a4391b2507": {
+      "status": "completed",
+      "filename": "クラウド:ローカルLLMsを用いた日本企業の利益予測の分析と アウトオブサンプル評価.pdf",
+      "processed_at": "2026-03-21T07:25:14.321977+00:00"
+    },
+    "63688bbb80a285b30a2a24497905f7b9517b03ee071c38b90ac7f6bffc8c1459": {
+      "status": "completed",
+      "filename": "歴史テキストからの動的知識グラフ構築と 探索的分析手法の提案.pdf",
+      "processed_at": "2026-03-21T07:30:27.862686+00:00"
+    },
+    "375cca02d1ba3d8d1b1d250c2777c7df39073c9643912f70af4e2ad8e10a5889": {
+      "status": "completed",
+      "filename": "順序付き信用スコアに対するコンフォーマル予測区間.pdf",
+      "processed_at": "2026-03-21T07:30:35.140118+00:00"
+    },
+    "b95106cc2685e7934e5cca219e2177af0f2e5f959e8657ebed6b0679c5996e27": {
+      "status": "completed",
+      "filename": "大規模言語モデルによるマルチファクター運用の実証分析.pdf",
+      "processed_at": "2026-03-21T07:34:33.572933+00:00"
+    },
+    "35256f0546ed310c499953e7f91d62e3f32279f2a0108c647d1ef082bf07fe11": {
+      "status": "completed",
+      "filename": "代表者略歴と事業内容の意味的整合度に基づく経営者ノウハウ充足指標の構築と検証.pdf",
+      "processed_at": "2026-03-21T07:36:25.250253+00:00"
+    },
+    "15a37267ba00a54771b27e1543bd9703414c2784f0bdcd93de022f846a1ea28a": {
+      "status": "completed",
+      "filename": "選好考慮型多目的ベイズ最適化を用いた リスクに関するユーザの選好に適応したポートフォリオ最適化.pdf",
+      "processed_at": "2026-03-21T07:37:13.796044+00:00"
+    },
+    "13c61dbc8c0dd12912c92ca596ccddce9f98c2d0e4884319d668594db7204f31": {
+      "status": "completed",
+      "filename": "市場構造の類似性に基づく検索型資産配分.pdf",
+      "processed_at": "2026-03-21T07:38:14.735154+00:00"
+    },
+    "58fc576cd94a61ba9627124ba02742429dab89d43ba6db7acb228832b40c7bbb": {
+      "status": "completed",
+      "filename": "線形価格インパクトモデルの推定結果をどう解釈すべきか？.pdf",
+      "processed_at": "2026-03-21T07:39:27.632329+00:00"
+    },
+    "1a820b094bb297e92b06936f201cfd96fa61d3aa48ad77d2617a3100d0239c48": {
+      "status": "completed",
+      "filename": "1809.05923.pdf",
+      "processed_at": "2026-03-21T07:40:59.284370+00:00"
+    },
+    "af3402bc93eb6d9dd4ac683130e20aa9779629f7c2985bca8638983836d9210a": {
+      "status": "completed",
+      "filename": "主成分分析とガウス型グラフィカルモデルによる 残差リターンの抽出とモメンタム戦略への応用.pdf",
+      "processed_at": "2026-03-21T07:44:09.848723+00:00"
+    },
+    "c2b538a1caff12027e62769bfd6133e768885371d2d8016f4b364505f69bf6a7": {
+      "status": "completed",
+      "filename": "トラックデータを用いた企業業績及び決算サプライズのナウキャスティングの有効性.pdf",
+      "processed_at": "2026-03-21T07:44:17.775400+00:00"
+    },
+    "029b8874a893ebf5268a2872b274327360e6c373e93c7ec8482f795af0f6047f": {
+      "status": "completed",
+      "filename": "BERT を用いた強度付きマルチラベル分類による統合報告書 テキストからの資本変換情報抽出の試み.pdf",
+      "processed_at": "2026-03-21T07:44:17.885791+00:00"
+    },
+    "0ea1c4ff1e4181ff2aa28bc3ed97b809f04e3e9f62469ca8f8e0f597efe4cdf5": {
+      "status": "completed",
+      "filename": "効用を考慮したリランキングに基づく株式推薦.pdf",
+      "processed_at": "2026-03-21T07:45:13.055149+00:00"
+    },
+    "7574f82953386da6543b668f9914ee6d0aa94ee466d6d02c0f0777dedb1c428d": {
+      "status": "completed",
+      "filename": "特別損失に関する適時開示資料のゼロショット構造化手法の検討.pdf",
+      "processed_at": "2026-03-21T07:49:33.461673+00:00"
+    },
+    "ac3c67b513d520bd845235021f88b1de37c170845bf6d0bdb6811e9ce43b9df3": {
+      "status": "completed",
+      "filename": "罰則付き一般化モーメント法のもとでのインデックス複製.pdf",
+      "processed_at": "2026-03-21T07:53:02.623580+00:00"
+    },
+    "5b0a7e679e4d0e71a3a1345f7ec8511bfc4ff353667f5ddbb1e51e67096db78e": {
+      "status": "completed",
+      "filename": "有価証券報告書から抽出した事業リスク独立成分の時系列分析.pdf",
+      "processed_at": "2026-03-21T07:56:16.944086+00:00"
     }
   },
   "batches": {}

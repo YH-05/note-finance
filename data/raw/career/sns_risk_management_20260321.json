@@ -1,0 +1,352 @@
+{
+  "metadata": {
+    "genre": "career",
+    "collected_at": "2026-03-21T00:00:00+09:00",
+    "topic": "SNS運用リスク管理",
+    "description": "SNS炎上リスク管理、アカウントBAN回避、AI生成コンテンツリスク、法的リスク、レピュテーション管理に関するファクト・ティップス",
+    "sources": [
+      "https://webbr-lab.jp/webrisk-column/company-snstrouble/",
+      "https://snsschool.net/column/business-sns/backlash",
+      "https://effectual.co.jp/sorila/blog/sns-enjo/",
+      "https://www.elplanning.co.jp/column/digital_risk_measures/reputation-crisis-trends-2026/",
+      "https://note.com/decided/n/ned2cee4c5990",
+      "https://mangaiti.com/threads-account-suspension/",
+      "https://note.com/aimama_life/n/n52d76cf16bb2",
+      "https://addness.co.jp/media/threads-algorithms/",
+      "https://www.koukoku.jp/service/suketto/marketer/sns/",
+      "https://note.com/ai_buzzcloud/n/n6dfa80be1b2e",
+      "https://www.profuture.co.jp/mk/column/how-to-avoid-shadowbans",
+      "https://uravation.com/media/ai-usage-guidelines-5rules/",
+      "https://a-x.inc/blog/ai-regulation/",
+      "https://www.lac.co.jp/lacwatch/service/20260109_004588.html",
+      "https://www.dir.co.jp/report/column/20251222_012361.html",
+      "https://www.fsa.go.jp/sesc/keisai/2025/20250509-1.pdf",
+      "https://note.com/correct_law/n/n5fd2f4e68ba3",
+      "https://media.ys-law.jp/it/post-136/"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_risk_001",
+      "category": "SNS炎上パターン",
+      "subcategory": "原因分類",
+      "content": "SNS炎上の主要パターンは5類型に分類される: (1)不適切発言・表現、(2)従業員の不祥事（バイトテロ）、(3)無配慮な広告表現、(4)顧客対応の不備、(5)モラル・コンプライアンス違反。2024-2025年の炎上事例ではジェンダー・多様性に関するセンシティビティが特に高まっている",
+      "source_url": "https://effectual.co.jp/sorila/blog/sns-enjo/",
+      "year": 2026
+    },
+    {
+      "id": "fact_risk_002",
+      "category": "SNS炎上パターン",
+      "subcategory": "拡散メカニズム",
+      "content": "炎上は「批判型」「嘲笑型」「誹謗中傷型」の3種類に大別される。批判型は賛否両論で長期化しやすく、嘲笑型はミーム化して若年層で急速に拡散し、誹謗中傷型は悪意の集中により法的対応が必要になるケースが多い",
+      "source_url": "https://www.koukoku.jp/service/suketto/marketer/sns/%E3%80%902025%E5%B9%B4%E6%B1%BA%E5%AE%9A%E7%89%88%E3%80%91sns%E7%82%8E%E4%B8%8A%E3%83%AA%E3%82%B9%E3%82%AF%E3%82%92%E5%85%88%E8%AA%AD%E3%81%BF/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_003",
+      "category": "SNS炎上パターン",
+      "subcategory": "新トレンド",
+      "content": "2025年下半期、BeReal経由のバイトテロが新パターンとして出現。「1日1回ランダム通知・2分以内に撮影」という仕組みが勤務中の不適切投稿を誘発し、X等のオープンSNSで二次拡散されて炎上する事例が多発",
+      "source_url": "https://www.elplanning.co.jp/column/digital_risk_measures/reputation-crisis-trends-2026/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_004",
+      "category": "SNS炎上パターン",
+      "subcategory": "新トレンド",
+      "content": "2025年にはタレント起用・インフルエンサーマーケティングで「起用そのもの」が批判される新パターンが顕在化。未成年タレントの結婚情報雑誌モデル起用やステマ疑惑など、タレント個人の不祥事以外の理由での炎上が増加",
+      "source_url": "https://www.elplanning.co.jp/column/digital_risk_measures/reputation-crisis-trends-2026/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_005",
+      "category": "SNS炎上パターン",
+      "subcategory": "AI関連炎上",
+      "content": "2025年、メーカー企業がAI生成キャンペーンビジュアルを使用したところ「人の手が6本ある」「フェイク広告では」と批判が拡散。AI生成であることを事前に明示していなかったことが不信感を招いた。AI活用自体は問題ではなく「どう伝えるか」が分かれ目",
+      "source_url": "https://snsschool.net/column/business-sns/backlash",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_006",
+      "category": "アカウントBAN",
+      "subcategory": "Instagram BAN基準",
+      "content": "2026年のInstagram BANは「行動速度」「不自然な投稿パターン」「外部リンク誘導の仕方」の3要素でほぼ決まる。即BAN行動: 作成24時間以内の大量フォロー、1時間100件以上のいいね、同一文章コピペDM連投、リール投稿30分以内のフォロー爆増",
+      "source_url": "https://note.com/decided/n/ned2cee4c5990",
+      "year": 2026
+    },
+    {
+      "id": "fact_risk_007",
+      "category": "アカウントBAN",
+      "subcategory": "Instagram安全基準",
+      "content": "Instagram 1日の安全アクション量（2026年版）: フォロー30-50件以内、いいね100件以内、コメント20件以内、DM 3-5件以内（コピペ禁止）。投稿安全ライン: リール1-4本/日、フィード0-1本/日。リールやフィードで毎回リンクを貼り続けると100%シャドウBANされる",
+      "source_url": "https://note.com/decided/n/ned2cee4c5990",
+      "year": 2026
+    },
+    {
+      "id": "fact_risk_008",
+      "category": "アカウントBAN",
+      "subcategory": "Threads制限段階",
+      "content": "Threadsの制限措置は3段階: (1)アクションブロック（低・一時的）= 特定操作がエラー→24-48時間放置で解除、(2)シャドウバン（中）= おすすめ非表示・インプレッション激減→運用見直し、(3)アカウント停止（高・危険）= ログイン不可→異議申し立て必須（14日以内に行動しないとデータ完全削除）",
+      "source_url": "https://mangaiti.com/threads-account-suspension/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_009",
+      "category": "アカウントBAN",
+      "subcategory": "X凍結基準",
+      "content": "X（旧Twitter）では2024年11月の利用規約改定により「実質的な活動がないアカウント」の取り締まりが大幅強化。BOTや自動化ツールによる機械的な投稿が「非実質的活動」として判定されるリスクが高まっており、人間らしいコミュニケーションが重要に",
+      "source_url": "https://www.profuture.co.jp/mk/column/how-to-avoid-shadowbans",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_010",
+      "category": "アカウントBAN",
+      "subcategory": "X凍結回避不可",
+      "content": "Xで凍結後に新規アカウントを作成する行為は「凍結の回避を禁止するルール」に違反。同一端末・電話番号での再作成は数日で再凍結される。凍結されたアカウントにログインしたことがない端末が必要",
+      "source_url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12325471682",
+      "year": 2026
+    },
+    {
+      "id": "fact_risk_011",
+      "category": "自動化リスク",
+      "subcategory": "ボット判定",
+      "content": "SNS自動化ツール使用時の最大リスクは「フォロー→解除→フォロー→解除」の繰り返し（即ボット判定）、短時間での大量操作、毎日同時刻の投稿。投稿間隔にランダムな揺らぎを持たせ、人間の行動パターンを模倣することが必須",
+      "source_url": "https://note.com/ai_buzzcloud/n/n6dfa80be1b2e",
+      "year": 2026
+    },
+    {
+      "id": "fact_risk_012",
+      "category": "自動化リスク",
+      "subcategory": "安全な自動化",
+      "content": "安全なSNS自動化の原則: (1)公式API経由のツールのみ使用（HootSuite、Buffer等の公式パートナー）、(2)非公認スクレイピングツールは即BAN対象、(3)投稿時間に数分〜数十分のランダムなズレを設計、(4)同一プロンプトによる定型文量産を避ける",
+      "source_url": "https://note.com/ai_buzzcloud/n/n6dfa80be1b2e",
+      "year": 2026
+    },
+    {
+      "id": "fact_risk_013",
+      "category": "AI生成コンテンツリスク",
+      "subcategory": "ハルシネーション",
+      "content": "生成AIのハルシネーション（事実に基づかないもっともらしい嘘）は企業に深刻なリスクをもたらす。実例: コンサル大手がオーストラリア政府に提出したAI使用レポートに存在しない学術文献3件が参照されており代金の一部返金に追い込まれた",
+      "source_url": "https://patent-revenue.iprich.jp/%E5%B0%82%E9%96%80%E5%AE%B6%E5%90%91%E3%81%91/4347/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_014",
+      "category": "AI生成コンテンツリスク",
+      "subcategory": "法規制動向",
+      "content": "2025年5月に日本初の包括的AI法「人工知能関連技術の研究開発及び活用の推進に関する法律（AI推進法）」が成立。AIを開発・提供・利用する事業者にAIシステムの透明性、説明責任、リスク評価の責務を求めている",
+      "source_url": "https://a-x.inc/blog/ai-regulation/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_015",
+      "category": "AI生成コンテンツリスク",
+      "subcategory": "著作権リスク",
+      "content": "2025年11月、AI生成画像を無断で書籍の表紙に使った事例が全国初の摘発として話題に。「AI生成物には著作権がない＝自由に使える」は誤り。AI生成コンテンツが既存著作物と酷似するリスクは常に存在する",
+      "source_url": "https://boostx-inc.com/blog/generative-ai-security-information-leakage-risk/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_016",
+      "category": "法的リスク",
+      "subcategory": "金融商品取引法",
+      "content": "投資助言・代理業の無登録営業は金商法第29条違反。個人: 5年以下の懲役または500万円以下の罰金（併科あり）、法人: 5億円以下の罰金。SNSやブログで特定銘柄を推奨し広告収入や投げ銭を得る行為、有料noteやメルマガでの売買判断提示は違反の可能性が高い",
+      "source_url": "https://note.com/correct_law/n/n17d3245d2d46",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_017",
+      "category": "法的リスク",
+      "subcategory": "金融商品取引法",
+      "content": "投資助言・代理業に「該当しない」条件: 会員登録不要、自由にアクセス可能（パスワード制限なし）、不特定多数が閲覧可能、無料で閲覧可能。ただし経済動向の解説が株価見通しの助言と評価されるかは曖昧で、慎重な判断が必要",
+      "source_url": "https://note.com/correct_law/n/n5fd2f4e68ba3",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_018",
+      "category": "法的リスク",
+      "subcategory": "著作権・肖像権",
+      "content": "SNS上での著作物掲載は「公衆送信」に該当し、「私的使用」の例外は適用されない可能性が高い。クローズドなSNSでも著作権侵害リスクは存在する。肖像権についても対象人物の了解がない限り、SNS掲載は肖像権侵害が成立すると考えるのが無難",
+      "source_url": "https://media.ys-law.jp/it/post-136/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_019",
+      "category": "法的リスク",
+      "subcategory": "ステマ規制",
+      "content": "2023年10月から景品表示法改正により、事業者が自社商品について一般消費者の投稿を装った宣伝（ステルスマーケティング）を行うことが明確に禁止。SNS広告では「#PR」「#広告」等のハッシュタグ表示が必須",
+      "source_url": "https://outside.no-limit.careers/digital_marketing/",
+      "year": 2023
+    },
+    {
+      "id": "fact_risk_020",
+      "category": "法的リスク",
+      "subcategory": "業界固有規制",
+      "content": "SNSコンテンツの業界固有規制チェックが必要な分野: 薬機法（化粧品・健康食品の効能効果表現）、健康増進法（健康食品の虚偽誇大広告）、金融商品取引法（投資商品の勧誘）、宅建業法（不動産広告）。違反するとプラットフォームのアカウント凍結に加え行政処分のリスク",
+      "source_url": "https://outside.no-limit.careers/digital_marketing/",
+      "year": 2025
+    },
+    {
+      "id": "fact_risk_021",
+      "category": "レピュテーションリスク",
+      "subcategory": "炎上影響",
+      "content": "SNS炎上が企業に及ぼす3大悪影響: (1)ブランドイメージ低下（ネガティブ情報は拡散されやすく検索結果にも長期残存）、(2)不買運動リスク（「もう買わない」投稿が他の消費者行動に連鎖的影響）、(3)採用活動への打撃（企業名検索で炎上情報が表示され応募者減少）",
+      "source_url": "https://effectual.co.jp/sorila/blog/sns-enjo/",
+      "year": 2026
+    },
+    {
+      "id": "fact_risk_022",
+      "category": "レピュテーションリスク",
+      "subcategory": "危機事例",
+      "content": "亀田製菓の2024年炎上事例: CEOの発言が記事タイトルで誤解を招く形に編集され移民反対派から反感→不買運動→株価下落。意図と受け取り方のズレが炎上の本質であり、メディア露出時は記事タイトルのコントロールも重要",
+      "source_url": "https://webbr-lab.jp/webrisk-column/company-snstrouble/",
+      "year": 2024
+    },
+    {
+      "id": "fact_risk_023",
+      "category": "レピュテーションリスク",
+      "subcategory": "成功事例",
+      "content": "チロルチョコの2024年炎上対応は「炎上をチャンスに変えた稀な事例」と評価された。虫混入を指摘する投稿に対し、公式SNSが冷静に事実確認を行い、投稿主の商品が古い長期保管品であることを判明させた上で、不快に感じた消費者に謝罪。ブランドイメージが逆に強化された",
+      "source_url": "https://webbr-lab.jp/webrisk-column/company-snstrouble/",
+      "year": 2024
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip_risk_001",
+      "category": "炎上対策",
+      "subcategory": "初動対応",
+      "content": "炎上発生時の初動5ステップ: (1)事実確認と緊急度評価（リプライ100件以上・ネガティブ率30%以上で「要対応」）、(2)社内緊急通知（5分以内にオンライン会議で現状共有）、(3)対応方針決定（ガイドラインに基づきテンプレ謝罪文をベースに判断）、(4)公式コメント発信（10分以内に投稿、最初の50件を優先返信）、(5)対応履歴保全と改善アクション策定",
+      "source_url": "https://www.koukoku.jp/service/suketto/marketer/sns/%E3%80%902025%E5%B9%B4%E6%B1%BA%E5%AE%9A%E7%89%88%E3%80%91sns%E7%82%8E%E4%B8%8A%E3%83%AA%E3%82%B9%E3%82%AF%E3%82%92%E5%85%88%E8%AA%AD%E3%81%BF/",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_002",
+      "category": "炎上対策",
+      "subcategory": "鎮火ポイント",
+      "content": "炎上鎮火の4原則: (1)事実確認を最優先する、(2)社内情報共有を迅速に行い現場だけで完結させない、(3)SNS個別返信と公式声明で矛盾が生じないよう対応方針を統一してから発信、(4)問題の投稿を安易に削除しない（「隠蔽」と受け取られ炎上加速のリスク）",
+      "source_url": "https://www.elplanning.co.jp/column/digital_risk_measures/reputation-crisis-trends-2026/",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_003",
+      "category": "炎上対策",
+      "subcategory": "投稿前チェック",
+      "content": "投稿前チェックリスト: (1)ジェンダー・年齢・外見のステレオタイプを助長していないか、(2)歴史的・社会的にセンシティブなテーマを連想させないか、(3)特定の層を侮辱・からかう描写がないか、(4)性的表現が過度でないか、(5)「企業の意図」と「ユーザーの受け取り方」にズレがないか複数人で確認",
+      "source_url": "https://effectual.co.jp/sorila/blog/sns-enjo/",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_004",
+      "category": "アカウントBAN回避",
+      "subcategory": "Instagram安全運用",
+      "content": "Instagramで外部リンクを安全に使う方法: プロフィールに1つにまとめる、ストーリーでリンク（乱用はNG）、ハイライトにまとめる。キャプションに毎回リンクを貼る、DMでリンクを大量送信、リール概要欄に毎回URL貼りは全てシャドウBAN対象",
+      "source_url": "https://note.com/decided/n/ned2cee4c5990",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_005",
+      "category": "アカウントBAN回避",
+      "subcategory": "シャドウBAN対処",
+      "content": "シャドウBANを疑うべきサイン: 発見欄からの流入が0、リールの初速が極端に低下、ハッシュタグからの流入消失、ストーリー表示数が半減。対処法: (1)48時間投稿停止、(2)フォロー・いいね禁止で行動量リセット、(3)キャッシュ削除、(4)ハッシュタグを新しいものに変更",
+      "source_url": "https://note.com/decided/n/ned2cee4c5990",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_006",
+      "category": "アカウントBAN回避",
+      "subcategory": "Threads安全運用",
+      "content": "Threads安全運用7か条: (1)リンク投稿は必要時のみ（毎回noteやLPリンクを貼らない）、(2)フォロー・アンフォローを一気にしない、(3)AI生成文・テンプレ投稿の連発を避ける、(4)Instagramの状態を常に健全に保つ（連携元の影響を受ける）、(5)別アカウントで自分の投稿表示を定期チェック、(6)異議申し立ては諦めず複数回チャレンジ、(7)発信のバックアップ（note・メルマガ・X等）を持つ",
+      "source_url": "https://note.com/aimama_life/n/n52d76cf16bb2",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_007",
+      "category": "アカウントBAN回避",
+      "subcategory": "アカウントステータス確認",
+      "content": "Threadsのアカウント状態は「Account Status Dashboard」で確認可能。手順: Threadsアプリ→プロフィールアイコン→メニュー≡→設定→アカウントステータス。投稿制限・露出制限・ペナルティの有無が表示される。「おすすめに出ていない」表示があればシャドウバン状態のサイン",
+      "source_url": "https://note.com/aimama_life/n/n52d76cf16bb2",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_008",
+      "category": "アカウントBAN回避",
+      "subcategory": "X凍結対策",
+      "content": "X（旧Twitter）シャドウバン対処法: (1)24-48時間一切のアクション停止、(2)連携している外部アプリを整理、(3)興味関心のデータを設定から削除、(4)自動化ツールを一時停止し手動運用に移行。焦って不自然な動きを重ねるとAI判定がさらに厳しくなる",
+      "source_url": "https://www.profuture.co.jp/mk/column/how-to-avoid-shadowbans",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_009",
+      "category": "AI生成コンテンツ",
+      "subcategory": "ファクトチェック体制",
+      "content": "AI生成コンテンツのファクトチェック4ステップ: (1)AI出力は「下書き」であり「完成品」ではないと認識、(2)数字・固有名詞・法的記述は必ず人間が一次ソースと照合、(3)複数のAIツールで同じ質問をしてクロスチェック、(4)AIが提示した出典URLが実在するか・リンク先の内容が引用と一致するか確認",
+      "source_url": "https://www.itscom.co.jp/forbiz/column/office-environment/17399/",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_010",
+      "category": "AI生成コンテンツ",
+      "subcategory": "AI臭さ回避",
+      "content": "InstagramでAI生成コンテンツがBANされないためのコツ: (1)文章は必ず口語にする、(2)1投稿につき1回は自分の体験を入れる、(3)同じ語尾を3回以上続けない、(4)AI画像は修正してから使う。避けるべきAI臭: 漢字多め硬い文章、ですます調なのに営業っぽい内容、テンプレすぎるキャプション、AI特有の不自然な肌・指の画像",
+      "source_url": "https://note.com/decided/n/ned2cee4c5990",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_011",
+      "category": "AI生成コンテンツ",
+      "subcategory": "AI開示基準",
+      "content": "AI生成コンテンツを開示すべきケース: (1)広告・キャンペーンビジュアルにAI生成画像を使用する場合、(2)対外的に発信する資料やプレスリリース、(3)顧客への送信物（メール・提案書・見積書）。「AI活用自体は問題ではなく、透明性が評価の分かれ目」になるため、制作過程を明示する姿勢が重要",
+      "source_url": "https://snsschool.net/column/business-sns/backlash",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_012",
+      "category": "AI生成コンテンツ",
+      "subcategory": "入力情報管理",
+      "content": "AI入力前の「3秒チェック」習慣: (1)個人情報（氏名・住所・電話番号・メールアドレス）が含まれていないか、(2)機密情報（未公開の売上データ・戦略資料・顧客リスト）が含まれていないか、(3)契約情報（NDA対象の取引先名・契約条件）が含まれていないか。導入だけで不適切入力インシデントが月平均8件→0件に激減した企業事例あり",
+      "source_url": "https://uravation.com/media/ai-usage-guidelines-5rules/",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_013",
+      "category": "法的リスク管理",
+      "subcategory": "投資コンテンツ安全発信",
+      "content": "投資情報を安全にSNSで発信するための原則: (1)「一般的な投資知識の共有」「市場全体の動向紹介」にとどめる、(2)「この銘柄は買うべき」等の具体的投資判断を断定しない、(3)有料noteやメルマガでの具体的売買判断は投資助言に該当するリスク大、(4)報酬を得ていなくても継続的・反復的に行えば「業として」とみなされる可能性あり",
+      "source_url": "https://note.com/correct_law/n/n5fd2f4e68ba3",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_014",
+      "category": "法的リスク管理",
+      "subcategory": "個人情報保護",
+      "content": "個人情報漏えい時の対応: 2022年の個人情報保護法改正により、漏えい報告は速やかに（概ね3-5日以内の速報＋30日以内の確報）個人情報保護委員会に行う義務がある。AIに顧客情報を入力して漏えいした場合も対象となるため、AIツールへの入力ルールの明文化が必須",
+      "source_url": "https://boostx-inc.com/blog/generative-ai-security-information-leakage-risk/",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_015",
+      "category": "レピュテーション管理",
+      "subcategory": "ネガティブコメント対応",
+      "content": "ネガティブコメントへの対応3原則: (1)正しさより「感じの良さ」を重視（「詳細はサイトを確認してください」→「お問い合わせありがとうございます。詳細は以下のページにございます」）、(2)感情的な反応に流されず事実関係を整理してから発信、(3)削除・謝罪の順序を間違えない（削除先行は隠蔽と受け取られるリスク）",
+      "source_url": "https://snsschool.net/column/business-sns/backlash",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_016",
+      "category": "レピュテーション管理",
+      "subcategory": "複数アカウント運用",
+      "content": "複数アカウント運用のリスク管理: (1)Instagramで複数アカウントを短時間で使い分けるとシャドウBANの原因になる、(2)過去にBANされた端末でのログインは新アカウントもBAN対象、(3)Xでは凍結後の新規アカウント作成自体が規約違反。プラットフォームごとに1メインアカウントを育てる戦略が安全",
+      "source_url": "https://note.com/decided/n/ned2cee4c5990",
+      "actionable": true
+    },
+    {
+      "id": "tip_risk_017",
+      "category": "レピュテーション管理",
+      "subcategory": "プラットフォーム分散",
+      "content": "リスクヘッジとしてのプラットフォーム分散戦略: 1つのSNSに依存せず、Threads・Instagram・X・note・メルマガ等の複数チャネルで発信基盤を持つ。いずれかのアカウントが停止されても「伝える場所」を確保できる。コンテンツのバックアップも定期的に取得すること",
+      "source_url": "https://note.com/aimama_life/n/n52d76cf16bb2",
+      "actionable": true
+    }
+  ]
+}

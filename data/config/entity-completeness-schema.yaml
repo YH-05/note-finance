@@ -1,0 +1,220 @@
+# Entity Completeness Schema
+# equity-stock-research の7フェーズ構造から導出した、entity_type別の必須データ定義。
+# KG品質チェックの completeness カテゴリで自動評価に使用。
+#
+# 用途: ギャップ検出のみ（検出A方式）。データが欠落している場合はレポートに出力し、
+# 自動収集は行わない。次回リサーチの優先度付けに使用する。
+
+version: "1.0"
+
+# 共通定義: 全 company Entity に必要なデータ
+common:
+  # Phase 1: Company Overview
+  phase1_overview:
+    facts:
+      - pattern: "事業モデル|business model|revenue model"
+        label: "事業モデル"
+        priority: high
+      - pattern: "セグメント|segment|事業構成"
+        label: "事業セグメント構成"
+        priority: high
+      - pattern: "CEO|CFO|経営陣|management"
+        label: "経営陣情報"
+        priority: medium
+      - pattern: "株主|shareholder|大株主"
+        label: "株主構成"
+        priority: medium
+    relationships:
+      - type: RELATES_TO
+        min_count: 3
+        label: "Fact接続（最低3件）"
+
+  # Phase 4: Financial Analysis
+  phase4_financials:
+    datapoints:
+      - metric_pattern: "Revenue|売上|売上高"
+        label: "Revenue"
+        priority: high
+        min_periods: 2  # 最低2期分の時系列
+      - metric_pattern: "EBITDA"
+        label: "EBITDA"
+        priority: high
+        min_periods: 2
+      - metric_pattern: "Net Income|純利益|当期利益"
+        label: "Net Income"
+        priority: medium
+      - metric_pattern: "EBITDA Margin|EBITDAマージン"
+        label: "EBITDA Margin"
+        priority: medium
+      - metric_pattern: "Capex|設備投資|資本的支出"
+        label: "Capex"
+        priority: medium
+      - metric_pattern: "FCF|Free Cash Flow|フリーキャッシュフロー"
+        label: "FCF"
+        priority: low
+      - metric_pattern: "Net Debt|純有利子負債|ネットデット"
+        label: "Net Debt"
+        priority: low
+      - metric_pattern: "ROE|自己資本利益率"
+        label: "ROE"
+        priority: low
+
+  # Phase 5: Valuation
+  phase5_valuation:
+    facts:
+      - pattern: "EV/EBITDA|PER|P/E|バリュエーション|valuation"
+        label: "バリュエーション指標"
+        priority: medium
+    claims:
+      - pattern: "Buy|Sell|Hold|target price|目標株価|Rating"
+        label: "セルサイド見解"
+        priority: medium
+
+  # Phase 6: Catalysts & Risks
+  phase6_catalysts:
+    claims:
+      - pattern: "リスク|risk|懸念|downside"
+        label: "リスク評価"
+        priority: medium
+      - pattern: "カタリスト|catalyst|upside|ポジティブ"
+        label: "カタリスト"
+        priority: low
+
+# セクター別KPI定義
+sectors:
+  telecom:
+    match_pattern: "telecom|通信|テレコム|telco"
+    kpis:
+      - metric_pattern: "ARPU"
+        label: "ARPU"
+        priority: high
+        min_periods: 4  # 四半期4期分
+      - metric_pattern: "加入者|subscriber|sub count"
+        label: "加入者数"
+        priority: high
+      - metric_pattern: "チャーン|churn|解約"
+        label: "チャーン率"
+        priority: medium
+      - metric_pattern: "Data Traffic|データ通信量"
+        label: "Data Traffic"
+        priority: medium
+      - metric_pattern: "Data Yield|データ単価"
+        label: "Data Yield (IDR/GB)"
+        priority: medium
+      - metric_pattern: "基地局|BTS|tower"
+        label: "基地局数"
+        priority: low
+      - metric_pattern: "周波数|spectrum|MHz"
+        label: "周波数帯域幅"
+        priority: low
+
+  software_saas:
+    match_pattern: "SaaS|software|ソフトウェア"
+    kpis:
+      - metric_pattern: "ARR|MRR|リカーリング"
+        label: "ARR/MRR"
+        priority: high
+      - metric_pattern: "NDR|Net Dollar Retention|NRR"
+        label: "NDR"
+        priority: high
+      - metric_pattern: "CAC|Customer Acquisition"
+        label: "CAC"
+        priority: medium
+      - metric_pattern: "LTV|Lifetime Value"
+        label: "LTV/CAC"
+        priority: medium
+      - metric_pattern: "Rule of 40"
+        label: "Rule of 40"
+        priority: low
+
+  semiconductor:
+    match_pattern: "半導体|semiconductor|chip|ファブ"
+    kpis:
+      - metric_pattern: "ASP|Average Selling Price|平均販売単価"
+        label: "ASP"
+        priority: high
+      - metric_pattern: "稼働率|utilization"
+        label: "ファブ稼働率"
+        priority: high
+      - metric_pattern: "Book-to-Bill|受注出荷"
+        label: "Book-to-Bill"
+        priority: medium
+      - metric_pattern: "在庫日数|DOI|Days of Inventory"
+        label: "在庫日数"
+        priority: medium
+
+  banking:
+    match_pattern: "銀行|bank|金融|financial"
+    kpis:
+      - metric_pattern: "NIM|Net Interest Margin|純金利"
+        label: "NIM"
+        priority: high
+      - metric_pattern: "CET1|自己資本比率|capital ratio"
+        label: "CET1 Ratio"
+        priority: high
+      - metric_pattern: "NPL|不良債権"
+        label: "NPL Ratio"
+        priority: medium
+      - metric_pattern: "Cost.to.Income|経費率"
+        label: "Cost-to-Income Ratio"
+        priority: medium
+      - metric_pattern: "Loan Growth|貸出成長"
+        label: "Loan Growth"
+        priority: medium
+
+  energy:
+    match_pattern: "エネルギー|energy|石油|oil|gas|資源"
+    kpis:
+      - metric_pattern: "生産量|production|BOE"
+        label: "生産量"
+        priority: high
+      - metric_pattern: "埋蔵量|reserve|RRR"
+        label: "埋蔵量"
+        priority: medium
+      - metric_pattern: "リフティングコスト|lifting cost|採掘コスト"
+        label: "リフティングコスト"
+        priority: medium
+      - metric_pattern: "ブレークイーブン|breakeven"
+        label: "ブレークイーブン油価"
+        priority: medium
+
+  retail:
+    match_pattern: "小売|retail|消費|consumer"
+    kpis:
+      - metric_pattern: "SSS|Same.Store|既存店"
+        label: "既存店売上成長率"
+        priority: high
+      - metric_pattern: "客数|客単価|traffic|basket"
+        label: "客数/客単価"
+        priority: medium
+      - metric_pattern: "EC比率|ecommerce|オンライン"
+        label: "EC比率"
+        priority: medium
+
+  reit:
+    match_pattern: "REIT|不動産|real estate"
+    kpis:
+      - metric_pattern: "NOI|Net Operating Income"
+        label: "NOI"
+        priority: high
+      - metric_pattern: "稼働率|occupancy"
+        label: "稼働率"
+        priority: high
+      - metric_pattern: "CAP Rate|還元利回り"
+        label: "CAP Rate"
+        priority: medium
+      - metric_pattern: "FFO|AFFO"
+        label: "FFO/AFFO"
+        priority: medium
+      - metric_pattern: "NAV|純資産"
+        label: "NAV"
+        priority: medium
+
+# スコアリング設定
+scoring:
+  weights:
+    high: 3
+    medium: 2
+    low: 1
+  # completeness_score = 充足項目の重み合計 / 全項目の重み合計
+  # 0.0 ~ 1.0 のスコア

@@ -1,0 +1,467 @@
+{
+  "metadata": {
+    "genre": "career",
+    "collected_at": "2026-03-21T00:00:00+09:00",
+    "target_industries": ["IT", "consulting", "healthcare"],
+    "description": "IT・コンサル・医療の3業界に特化した転職ノウハウ・データ"
+  },
+  "facts": [
+    {
+      "id": "fact_it_001",
+      "category": "IT業界転職",
+      "subcategory": "職種別年収",
+      "content": "ITエンジニアの平均年収は約600万円で、給与所得者全体の平均478万円と比べて約120万円高い水準",
+      "source_url": "https://jobs.qiita.com/engineer-annualsalary/",
+      "year": 2026
+    },
+    {
+      "id": "fact_it_002",
+      "category": "IT業界転職",
+      "subcategory": "職種別年収",
+      "content": "IT職種の年収上位: デジタルビジネスイノベーター752万円、プロジェクトマネージャー664万円、セールスエンジニア659万円、プリセールス658万円、品質管理エンジニア625万円",
+      "source_url": "https://mynavi-agent.jp/knowledge/it/284.html",
+      "year": 2026
+    },
+    {
+      "id": "fact_it_003",
+      "category": "IT業界転職",
+      "subcategory": "職種別年収",
+      "content": "リードエンジニアの平均年収は約718万円、エンジニアリングマネージャーは1,000万〜2,000万円の年収レンジ",
+      "source_url": "https://willof.jp/techcareer/column/6557/",
+      "year": 2025
+    },
+    {
+      "id": "fact_it_004",
+      "category": "IT業界転職",
+      "subcategory": "求人動向",
+      "content": "グローバルSaaS市場は2029年に5,760億ドルに拡大する予測。日本国内も2029年に3.4兆円規模が見込まれる",
+      "source_url": "https://smacie.co.jp/knowledge/saas-daijoubu-ka-saaspocalypse-ai-agent-career-senryaku-mitooshi-2026/",
+      "year": 2026
+    },
+    {
+      "id": "fact_it_005",
+      "category": "IT業界転職",
+      "subcategory": "求人動向",
+      "content": "2026年の転職市場は21業界中20業界が活況と予測。AIネイティブSaaS、バーティカルSaaS、サイバーセキュリティ領域が急成長",
+      "source_url": "https://www.jac-recruitment.jp/market/articles/marketInsights/",
+      "year": 2026
+    },
+    {
+      "id": "fact_it_006",
+      "category": "IT業界転職",
+      "subcategory": "求人動向",
+      "content": "セキュリティエンジニアはdoda調査で「IT職種経験者で転職前後の平均年収増加幅が最も大きいポジション1位」",
+      "source_url": "https://mynavi-agent.jp/knowledge/it/284.html",
+      "year": 2025
+    },
+    {
+      "id": "fact_it_007",
+      "category": "IT業界転職",
+      "subcategory": "キャリアパス",
+      "content": "エンジニアの68.3%がマネジメント経験を「必要」と回答。ICとマネジメント間の行き来が降格ではなく異なるキャリア選択として認識される傾向が強まっている",
+      "source_url": "https://willof.jp/techcareer/column/6557/",
+      "year": 2025
+    },
+    {
+      "id": "fact_it_008",
+      "category": "IT業界転職",
+      "subcategory": "キャリアパス",
+      "content": "エンジニアの中堅ステージ（経験4〜10年目）でマネジメントとスペシャリストの適性が見えてくる。テックリードのような役割を目指し両方の経験を積むのが推奨される",
+      "source_url": "https://www.geekly.co.jp/column/cat-position/engineer_careerpath_introduce/",
+      "year": 2025
+    },
+    {
+      "id": "fact_it_009",
+      "category": "IT業界転職",
+      "subcategory": "技術面接",
+      "content": "2025年のエンジニア採用市場では「技術的な自走力」が最も重視されている。技術選定から実装・運用まで主体的に推進できる能力が求められる",
+      "source_url": "https://offers.jp/media/job-change/a_7515",
+      "year": 2025
+    },
+    {
+      "id": "fact_it_010",
+      "category": "IT業界転職",
+      "subcategory": "求人動向",
+      "content": "ミドル世代（35歳以上）対象の求人について、転職コンサルタントの81%が2026年は「増加する」と予測。理由トップは「若手人材の不足による採用年齢幅拡大」",
+      "source_url": "https://corp.en-japan.com/newsrelease/2025/43751.html",
+      "year": 2026
+    },
+    {
+      "id": "fact_consul_001",
+      "category": "コンサル業界転職",
+      "subcategory": "BIG4年収",
+      "content": "BIG4平均年収: デロイト1,422万円、EY 1,393万円、KPMG 1,328万円、PwC 1,316万円",
+      "source_url": "https://consul.global/post10428/",
+      "year": 2026
+    },
+    {
+      "id": "fact_consul_002",
+      "category": "コンサル業界転職",
+      "subcategory": "BIG4年収",
+      "content": "BIG4初任給（学部卒）: デロイト580万円、KPMG 570万円、EY 550万円、PwC 550万円",
+      "source_url": "https://www.kotora.jp/c/51855/",
+      "year": 2026
+    },
+    {
+      "id": "fact_consul_003",
+      "category": "コンサル業界転職",
+      "subcategory": "BIG4年収",
+      "content": "デロイトで28歳マネージャー昇格時の年収は1,000〜1,200万円。PwCシニアアソシエイトのトップ層は約1,300万円",
+      "source_url": "https://sincereed-agent.com/column/big4-consulting-salary/",
+      "year": 2026
+    },
+    {
+      "id": "fact_consul_004",
+      "category": "コンサル業界転職",
+      "subcategory": "戦略vs総合",
+      "content": "戦略コンサル（MBB）は初年度から年収1,200万〜1,800万円。総合コンサルのジュニア〜中堅層は600万〜900万円がボリュームゾーン。外資系で比較すると戦略1,800万円以上 vs 総合1,500万円以上で約2割の差",
+      "source_url": "https://www.axc.ne.jp/media/careertips/firm-annualincome/01.htm",
+      "year": 2025
+    },
+    {
+      "id": "fact_consul_005",
+      "category": "コンサル業界転職",
+      "subcategory": "未経験転職",
+      "content": "コンサル未経験からの転職者の約60%が20代。社会人経験2〜3年以内であれば第二新卒として入社可能で、新卒と同様の手厚い研修（2〜3ヶ月）を受けられる",
+      "source_url": "https://my-vision.co.jp/success",
+      "year": 2026
+    },
+    {
+      "id": "fact_consul_006",
+      "category": "コンサル業界転職",
+      "subcategory": "戦略vs総合",
+      "content": "MBB（マッキンゼー、BCG、ベイン）は企業の経営層向けに全社戦略・新規事業戦略の立案を行い、成果に応じた報酬体系。総合コンサルは戦略立案から実行まで幅広いフェーズを担い、段階的な昇進・昇格の仕組み",
+      "source_url": "https://www.movin.co.jp/column/column72.html",
+      "year": 2025
+    },
+    {
+      "id": "fact_med_001",
+      "category": "医療・介護業界転職",
+      "subcategory": "看護師転職市場",
+      "content": "看護師の有効求人倍率は2.05倍（2024年度）。看護師100人に対し205件以上の求人がある売り手市場",
+      "source_url": "https://doctorsfile.jp/jobs/jobs_magazines/118/",
+      "year": 2025
+    },
+    {
+      "id": "fact_med_002",
+      "category": "医療・介護業界転職",
+      "subcategory": "看護師転職市場",
+      "content": "看護師の平均年収は約519.7万円（2025年版賃金構造基本統計調査）。前年比約11万円の上昇。女性517.89万円、男性534.83万円",
+      "source_url": "https://doctorsfile.jp/jobs/jobs_magazines/118/",
+      "year": 2025
+    },
+    {
+      "id": "fact_med_003",
+      "category": "医療・介護業界転職",
+      "subcategory": "介護職",
+      "content": "介護関係職種の有効求人倍率は全国平均3.97倍（令和7年3月時点）。全職業平均1.16倍の約3.4倍で圧倒的な売り手市場",
+      "source_url": "https://heartrock-noma.com/contents_2314.html",
+      "year": 2025
+    },
+    {
+      "id": "fact_med_004",
+      "category": "医療・介護業界転職",
+      "subcategory": "介護職",
+      "content": "2025年に約32万人、2040年には約69万人の介護職員が不足する見通し。2026年度までに年間6万3,000人ペースでの新規増員が必要",
+      "source_url": "https://gemmed.ghc-j.com/?p=61764",
+      "year": 2025
+    },
+    {
+      "id": "fact_med_005",
+      "category": "医療・介護業界転職",
+      "subcategory": "処遇改善",
+      "content": "2024年度介護報酬改定で処遇改善加算3種が統合、加算率最大2.3%引き上げ。訪問介護の最大加算率は24.5%。月給常勤の介護職員で基本給等が11,130円増加、平均給与額13,960円増加",
+      "source_url": "https://www.mhlw.go.jp/shogu-kaizen/",
+      "year": 2025
+    },
+    {
+      "id": "fact_med_006",
+      "category": "医療・介護業界転職",
+      "subcategory": "処遇改善",
+      "content": "2026年度臨時介護報酬改定で処遇改善加算をさらに拡充予定。訪問看護やケアマネ事業所も新たに対象に追加",
+      "source_url": "https://gemmed.ghc-j.com/?p=71934",
+      "year": 2026
+    },
+    {
+      "id": "fact_med_007",
+      "category": "医療・介護業界転職",
+      "subcategory": "医療IT",
+      "content": "クラウド型電子カルテの市場規模は2032年に2018年比4.8倍に成長予測。医療システム関連職の転職者平均年収は約875万円、中央値924万円（JAC 2023-2025年サポート実績）",
+      "source_url": "https://www.jac-recruitment.jp/market/medical/medical-system/",
+      "year": 2025
+    },
+    {
+      "id": "fact_cross_001",
+      "category": "業界横断キャリアチェンジ",
+      "subcategory": "異業種転職",
+      "content": "転職で年収アップした人の65.6%が転職の前後で業種を変えている（doda 2023年8月〜12月データ）",
+      "source_url": "https://doda.jp/guide/saiyo/012.html",
+      "year": 2024
+    },
+    {
+      "id": "fact_cross_002",
+      "category": "業界横断キャリアチェンジ",
+      "subcategory": "異業種転職",
+      "content": "異業種転職の成功パターン例: メーカー営業→IT営業マネージャー、金融バックオフィス→ベンチャーCFO候補、製造技術者→DXコンサルタント",
+      "source_url": "https://note.com/happy_recipes/n/n2d7ae4047b7f",
+      "year": 2025
+    },
+    {
+      "id": "fact_it_011",
+      "category": "IT業界転職",
+      "subcategory": "求人動向",
+      "content": "IoT領域やセキュリティ領域は採用ニーズが拡大するものの対応できる人材は不足。ゼロトラストが2026年最も重要なサイバーセキュリティトレンドの一つ",
+      "source_url": "https://www.jac-recruitment.jp/market/articles/marketInsights/",
+      "year": 2026
+    },
+    {
+      "id": "fact_med_008",
+      "category": "医療・介護業界転職",
+      "subcategory": "看護師転職市場",
+      "content": "看護師の平均年収が最も高い都道府県は東京都で約568万円。年収がピークになるのは50代で、ボーナスは40代後半〜50代後半に100万円超",
+      "source_url": "https://nurse-hellowork.jp/blog/average-annual-salary-for-nurses",
+      "year": 2025
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip_it_001",
+      "category": "IT業界転職",
+      "subcategory": "ポートフォリオ",
+      "content": "GitHubにポートフォリオを公開することで、ソースコード・実際の動作・行動履歴を採用担当者に手軽にアピールできる。GitHub Pagesを使えばサーバー不要でポートフォリオサイトを構築可能",
+      "source_url": "https://career.levtech.jp/guide/knowhow/article/61013/",
+      "actionable": true
+    },
+    {
+      "id": "tip_it_002",
+      "category": "IT業界転職",
+      "subcategory": "ポートフォリオ",
+      "content": "ポートフォリオは独自ドメインを取得して専用サイトを作成し、GitHub・LinkedInとリンクさせる。視覚的に魅力的なデザインを心がけ、採用担当者が詳細情報にアクセスしやすくすることが重要",
+      "source_url": "https://jinjib.co.jp/job-change/portfolio",
+      "actionable": true
+    },
+    {
+      "id": "tip_it_003",
+      "category": "IT業界転職",
+      "subcategory": "技術面接対策",
+      "content": "コーディングテスト対策は、例題にチャレンジできるWebサービス（LeetCode、AtCoder等）の活用とアルゴリズム書籍での学習の2軸が有効。技術面接はオンサイト/オンラインで2〜3時間が一般的",
+      "source_url": "https://paiza.hatenablog.com/entry/2024/03/04/130000",
+      "actionable": true
+    },
+    {
+      "id": "tip_it_004",
+      "category": "IT業界転職",
+      "subcategory": "キャリアパス",
+      "content": "経験4〜10年目のエンジニアはテックリードの役割を目指し、ICとマネジメント両方の経験を積むのが推奨。両者の行き来は降格ではなくキャリア選択として企業も認識する傾向が強まっている",
+      "source_url": "https://www.geekly.co.jp/column/cat-position/engineer_careerpath_introduce/",
+      "actionable": true
+    },
+    {
+      "id": "tip_consul_001",
+      "category": "コンサル業界転職",
+      "subcategory": "ケース面接対策",
+      "content": "ケース面接は「フェルミ推定」「ビジネスケース」「抽象系」の3種類。4P分析、3C分析、SWOT分析、AIDMAなど定番フレームワークを使いこなせると問題の構造整理がしやすくなる",
+      "source_url": "https://www.movin.co.jp/consulinfo/case/framework.html",
+      "actionable": true
+    },
+    {
+      "id": "tip_consul_002",
+      "category": "コンサル業界転職",
+      "subcategory": "ケース面接対策",
+      "content": "ケース面接で最も有効な対策は多くの問題に触れて論理的思考力を磨くこと。「対策本でインプット」→「フレームワーク活用した思考整理」→「転職エージェントとの実践練習」の3ステップが推奨",
+      "source_url": "https://www.antelope.co.jp/navigation/consul/case/",
+      "actionable": true
+    },
+    {
+      "id": "tip_consul_003",
+      "category": "コンサル業界転職",
+      "subcategory": "未経験転職",
+      "content": "コンサル未経験転職の成功者は「経験そのもの」ではなく、経験を抽象化して「再現性のあるスキル」として説明できる点が共通。特定業界（金融・医療）や機能（財務・IT・人事）特化ファームは未経験でも採用可能性が比較的高い",
+      "source_url": "https://my-vision.co.jp/success",
+      "actionable": true
+    },
+    {
+      "id": "tip_consul_004",
+      "category": "コンサル業界転職",
+      "subcategory": "未経験転職",
+      "content": "第二新卒（社会人2〜3年以内）はBIG4の中途入社で新卒と同様の手厚い研修を受けられ、最速出世組（20代でマネージャー昇格）に追いつける可能性がある",
+      "source_url": "https://fortna.co.jp/consultants/potential/",
+      "actionable": true
+    },
+    {
+      "id": "tip_med_001",
+      "category": "医療・介護業界転職",
+      "subcategory": "看護師転職",
+      "content": "看護師の転職市場は有効求人倍率2.05倍の売り手市場。50代がキャリアの年収ピークだが、専門看護師・認定看護師等の資格取得で30〜40代でも年収アップを目指せる",
+      "source_url": "https://doctorsfile.jp/jobs/jobs_magazines/118/",
+      "actionable": true
+    },
+    {
+      "id": "tip_med_002",
+      "category": "医療・介護業界転職",
+      "subcategory": "医療IT",
+      "content": "医療IT（電子カルテ・HIS）は転職者平均年収875万円と高水準。医療現場の運用ヒアリング→システム設計→初期設定→操作研修まで担当する導入SEが特に需要が高い",
+      "source_url": "https://www.jac-recruitment.jp/market/medical/medical-system/",
+      "actionable": true
+    },
+    {
+      "id": "tip_cross_001",
+      "category": "業界横断キャリアチェンジ",
+      "subcategory": "ポータブルスキル",
+      "content": "異業種転職では課題発見力、プロジェクトマネジメント、交渉力、傾聴力などのポータブルスキルが評価される。キャリアの棚卸しで強み・得意分野を言語化し、応募先で活かせる経験をピックアップすることが鍵",
+      "source_url": "https://www.e-falcon.co.jp/column/hr/portable-skills",
+      "actionable": true
+    },
+    {
+      "id": "tip_cross_002",
+      "category": "業界横断キャリアチェンジ",
+      "subcategory": "異業種転職",
+      "content": "年収アップして転職した人の65.6%が業種を変えている。異業種転職は年収ダウンではなく、むしろスキルの市場価値を正しく評価される機会になり得る",
+      "source_url": "https://doda.jp/guide/saiyo/012.html",
+      "actionable": true
+    }
+  ],
+  "stories": [
+    {
+      "id": "story_001",
+      "category": "業界横断キャリアチェンジ",
+      "title": "メーカー営業からIT営業マネージャーへの転身",
+      "content": "製造業での営業経験で培った法人営業スキル・交渉力をポータブルスキルとして言語化し、IT業界の法人営業マネージャーポジションへ転職に成功。営業プロセスの構築経験やチームマネジメントの実績が評価された",
+      "source_url": "https://note.com/happy_recipes/n/n2d7ae4047b7f"
+    },
+    {
+      "id": "story_002",
+      "category": "コンサル業界転職",
+      "title": "日本IBMから戦略コンサル（MBB）へ転身、年収400万円アップ",
+      "content": "日本IBMのコンサルタントからMBB戦略コンサルへ転職し、年収が400万円アップ。ただし労働時間は2倍になったというリアルな実態",
+      "source_url": "https://plus.onecareer.jp/articles/585"
+    },
+    {
+      "id": "story_003",
+      "category": "コンサル業界転職",
+      "title": "オフィスワーク未経験からアクセンチュアのコンサルタントへ",
+      "content": "異業種からのキャリアチェンジでアクセンチュアに入社。前職での経験を再現性のあるスキルとして言語化し、特定領域での専門性をアピールすることで未経験からの転職を実現",
+      "source_url": "https://www.accenture.com/jp-ja/blogs/japan-careers-blog/daini-01"
+    },
+    {
+      "id": "story_004",
+      "category": "業界横断キャリアチェンジ",
+      "title": "製造技術者からDXコンサルタントへの転身",
+      "content": "製造業のエンジニアリング経験を活かし、DXコンサルタントへキャリアチェンジ。ITと製造技術の橋渡しができる人材として、製造業クライアントのDX推進プロジェクトで即戦力として活躍",
+      "source_url": "https://note.com/happy_recipes/n/n2d7ae4047b7f"
+    },
+    {
+      "id": "story_005",
+      "category": "業界横断キャリアチェンジ",
+      "title": "金融バックオフィスからベンチャーCFO候補へ",
+      "content": "金融機関のバックオフィスで培った財務分析・リスク管理スキルをポータブルスキルとして再定義し、成長ベンチャー企業のCFO候補ポジションへ転職。異業種でも経営管理の専門性が高く評価された",
+      "source_url": "https://note.com/happy_recipes/n/n2d7ae4047b7f"
+    }
+  ],
+  "sources": [
+    {
+      "title": "【2026年最新】ITエンジニアの平均年収 - Qiita Job Change",
+      "url": "https://jobs.qiita.com/engineer-annualsalary/"
+    },
+    {
+      "title": "ITエンジニアの職種別年収ランキング - マイナビ転職エージェント",
+      "url": "https://mynavi-agent.jp/knowledge/it/284.html"
+    },
+    {
+      "title": "エンジニア平均年収ランキング - Geekly",
+      "url": "https://www.geekly.co.jp/column/cat-position/engineer-income-ranking/"
+    },
+    {
+      "title": "エンジニアのマネジメントキャリアパス完全ガイド - ウィルオブテック",
+      "url": "https://willof.jp/techcareer/column/6557/"
+    },
+    {
+      "title": "2026年転職市場・中途採用動向 - JAC Recruitment",
+      "url": "https://www.jac-recruitment.jp/market/articles/marketInsights/"
+    },
+    {
+      "title": "SaaS大丈夫か？2026年最新の業界動向 - smacie",
+      "url": "https://smacie.co.jp/knowledge/saas-daijoubu-ka-saaspocalypse-ai-agent-career-senryaku-mitooshi-2026/"
+    },
+    {
+      "title": "2026年ミドルの求人動向調査 - エン・ジャパン",
+      "url": "https://corp.en-japan.com/newsrelease/2025/43751.html"
+    },
+    {
+      "title": "コンサルBIG4への転職【2026年最新】- ムービン",
+      "url": "https://www.hc-movin.com/company/big4-consulting-firms.html"
+    },
+    {
+      "title": "コンサルのBig4の年収 - consul.global",
+      "url": "https://consul.global/post10428/"
+    },
+    {
+      "title": "BIG4コンサルの年収 - シンシアード",
+      "url": "https://sincereed-agent.com/column/big4-consulting-salary/"
+    },
+    {
+      "title": "戦略コンサルと総合コンサルの違い - ムービン",
+      "url": "https://www.movin.co.jp/column/column72.html"
+    },
+    {
+      "title": "外資と国内 戦略と総合の年収比較 - アクシスコンサルティング",
+      "url": "https://www.axc.ne.jp/media/careertips/firm-annualincome/01.htm"
+    },
+    {
+      "title": "コンサル転職は未経験でも可能？ - マイビジョン",
+      "url": "https://my-vision.co.jp/success"
+    },
+    {
+      "title": "ケース面接で使えるフレームワーク15選 - ムービン",
+      "url": "https://www.movin.co.jp/consulinfo/case/framework.html"
+    },
+    {
+      "title": "看護師の平均年収2025年版 - ドクターズ・ファイル ジョブズ",
+      "url": "https://doctorsfile.jp/jobs/jobs_magazines/118/"
+    },
+    {
+      "title": "看護師の平均年収 都道府県別 - ハローワーク看護師求人",
+      "url": "https://nurse-hellowork.jp/blog/average-annual-salary-for-nurses"
+    },
+    {
+      "title": "介護職員の処遇改善 - 厚生労働省",
+      "url": "https://www.mhlw.go.jp/shogu-kaizen/"
+    },
+    {
+      "title": "2026年度臨時介護報酬改定で処遇改善加算を拡充 - GemMed",
+      "url": "https://gemmed.ghc-j.com/?p=71934"
+    },
+    {
+      "title": "介護関係職種 有効求人倍率 - Office Heart Rock",
+      "url": "https://heartrock-noma.com/contents_2314.html"
+    },
+    {
+      "title": "2026年度までに年間6万3000人ペースでの介護人材増員が必要 - GemMed",
+      "url": "https://gemmed.ghc-j.com/?p=61764"
+    },
+    {
+      "title": "医療システムへの転職 - JAC Recruitment",
+      "url": "https://www.jac-recruitment.jp/market/medical/medical-system/"
+    },
+    {
+      "title": "電子カルテ業界の市場規模・将来性 - 医療転職.com",
+      "url": "https://www.iryo-tenshoku.com/column/detail.html&id=211"
+    },
+    {
+      "title": "異業種への転職 成功者のデータ - doda",
+      "url": "https://doda.jp/guide/saiyo/012.html"
+    },
+    {
+      "title": "ポータブルスキル 種類や鍛え方 - e-falcon",
+      "url": "https://www.e-falcon.co.jp/column/hr/portable-skills"
+    },
+    {
+      "title": "エンジニア転職でポートフォリオをGitHubに公開 - レバテック",
+      "url": "https://career.levtech.jp/guide/knowhow/article/61013/"
+    },
+    {
+      "title": "コーディングテスト対策 - paiza",
+      "url": "https://paiza.hatenablog.com/entry/2024/03/04/130000"
+    }
+  ]
+}

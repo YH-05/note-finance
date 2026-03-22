@@ -159,6 +159,7 @@ THRESHOLDS: dict[str, dict[str, float]] = {
     "avg_degree": {"green": 3.0, "yellow": 1.5},
     "connected_component_ratio": {"green": 0.9, "yellow": 0.7},
     "orphan_node_ratio": {"green": 0.05, "yellow": 0.15},
+    "orphan_entity_count": {"green": 50, "yellow": 200},
     "property_fill_rate": {"green": 0.8, "yellow": 0.6},
     "required_property_coverage": {"green": 0.95, "yellow": 0.8},
     "label_consistency": {"green": 0.95, "yellow": 0.8},
@@ -180,9 +181,16 @@ LOWER_IS_BETTER: frozenset[str] = frozenset(
     {
         "source_freshness_days",
         "orphan_node_ratio",
+        "orphan_entity_count",
     }
 )
 """値が小さいほど良いメトリクス。evaluate_status で閾値の比較方向を反転する。"""
+
+# Orphan Entity アラート閾値（絶対数）
+ORPHAN_ENTITY_WARN: int = 50
+"""WARNING: Orphan Entity が 50 件以上で警告。"""
+ORPHAN_ENTITY_CRIT: int = 200
+"""CRITICAL: Orphan Entity が 200 件以上で重大アラート。"""
 
 ALLOWED_ENTITY_TYPES: frozenset[str] = frozenset(
     {
@@ -481,6 +489,32 @@ def measure_structural(session: Any) -> CategoryResult:
     orphan_count: int = orphan_result.single()["orphan_count"]
     orphan_ratio = orphan_count / node_count if node_count > 0 else 0.0
 
+    # Orphan Entity 数（Entity ラベルかつリレーション 0 のノード）
+    orphan_entity_query = """
+    MATCH (e:Entity)
+    WHERE NOT 'Memory' IN labels(e) AND NOT (e)--()
+    RETURN count(e) AS orphan_entity_count
+    """
+    orphan_entity_result = session.run(orphan_entity_query)
+    orphan_entity_count: int = orphan_entity_result.single()["orphan_entity_count"]
+
+    # Orphan Entity アラートログ出力
+    if orphan_entity_count >= ORPHAN_ENTITY_CRIT:
+        logger.error(
+            "[CRITICAL] Orphan Entity count: %d (threshold: %d)\n"
+            "  → save-to-graph の fact_entity RELATES_TO 投入を確認してください\n"
+            "  → 対処: Entity名でFact.contentを検索し RELATES_TO を接続",
+            orphan_entity_count,
+            ORPHAN_ENTITY_CRIT,
+        )
+    elif orphan_entity_count >= ORPHAN_ENTITY_WARN:
+        logger.warning(
+            "[WARNING] Orphan Entity count: %d (threshold: %d)\n"
+            "  → 大量投入後の Entity 接続を確認してください",
+            orphan_entity_count,
+            ORPHAN_ENTITY_WARN,
+        )
+
     # 連結性（BFS 近似）: ランダムな開始ノードから到達可能なノード比率
     start_query = """
     MATCH (n)
@@ -542,17 +576,24 @@ def measure_structural(session: Any) -> CategoryResult:
             unit="ratio",
             status=evaluate_status("orphan_node_ratio", orphan_ratio),
         ),
+        MetricValue(
+            value=float(orphan_entity_count),
+            unit="count",
+            status=evaluate_status("orphan_entity_count", float(orphan_entity_count)),
+        ),
     ]
 
     score = _compute_category_score(metrics)
 
     logger.info(
         "Structural: edge_density=%.6f, avg_degree=%.2f, "
-        "connected_ratio=%.4f, orphan_ratio=%.4f, score=%.1f",
+        "connected_ratio=%.4f, orphan_ratio=%.4f, "
+        "orphan_entity_count=%d, score=%.1f",
         edge_density,
         avg_degree,
         connected_ratio,
         orphan_ratio,
+        orphan_entity_count,
         score,
     )
     return CategoryResult(name="structural", score=score, metrics=metrics)
@@ -823,7 +864,9 @@ def measure_timeliness(session: Any) -> CategoryResult:
                 recent_count += 1
         except (ValueError, TypeError):
             continue
-    avg_age_days: float = sum(age_days_list) / len(age_days_list) if age_days_list else 0.0
+    avg_age_days: float = (
+        sum(age_days_list) / len(age_days_list) if age_days_list else 0.0
+    )
 
     # 2. 更新頻度: 過去30日に追加された Source 数（上記ループで計算済み）
     frequency_query = ""  # computed in loop above
@@ -1491,7 +1534,13 @@ def _compute_rating(score: float) -> str:
 
 
 _METRIC_LABELS: dict[str, list[str]] = {
-    "structural": ["Edge Density", "Avg Degree", "Connected Ratio", "Orphan Ratio"],
+    "structural": [
+        "Edge Density",
+        "Avg Degree",
+        "Connected Ratio",
+        "Orphan Ratio",
+        "Orphan Entity Count",
+    ],
     "completeness": ["Required Property Coverage"],
     "consistency": ["Type Consistency", "Dedup Score", "Constraint Violations"],
     "accuracy": ["Factual Correctness", "Source Grounding", "Temporal Validity"],
@@ -1513,13 +1562,26 @@ _METRIC_LABELS: dict[str, list[str]] = {
 
 def _get_threshold_str(label: str) -> str:
     """メトリクスラベルに対応する閾値文字列を取得する。"""
-    threshold_info = THRESHOLDS.get(label, {})
+    normalized = label.lower().replace(" ", "_")
+    matched_key: str | None = None
+    matched_th: dict[str, float] | None = None
+
+    threshold_info = THRESHOLDS.get(label)
     if threshold_info:
-        return f"G≥{threshold_info.get('green', '-')}"
-    for key, th in THRESHOLDS.items():
-        if key in label.lower().replace(" ", "_"):
-            return f"G≥{th['green']}"
-    return ""
+        matched_key = label
+        matched_th = threshold_info
+    else:
+        for key, th in THRESHOLDS.items():
+            if key in normalized:
+                matched_key = key
+                matched_th = th
+                break
+
+    if matched_key is None or matched_th is None:
+        return ""
+
+    op = "≤" if matched_key in LOWER_IS_BETTER else "≥"
+    return f"G{op}{matched_th['green']}"
 
 
 def _pass_rate_style(pass_rate: float) -> str:
@@ -2432,9 +2494,7 @@ def main() -> None:
 
             if args.compare:
                 today_str = snapshot.timestamp.strftime("%Y%m%d")
-                prev_path = _resolve_compare_path(
-                    args.compare, exclude_date=today_str
-                )
+                prev_path = _resolve_compare_path(args.compare, exclude_date=today_str)
                 if prev_path is None:
                     logger.warning("Compare target not found: %s", args.compare)
                 else:
@@ -2450,9 +2510,7 @@ def main() -> None:
                     prev_path = _find_latest_snapshot(exclude_date=today_str)
                     run_alert(snapshot, check_rules, prev_path)
                 except ImportError:
-                    logger.warning(
-                        "kg_quality_alert not available, skipping alert"
-                    )
+                    logger.warning("kg_quality_alert not available, skipping alert")
 
             if args.exit_code and snapshot.overall_score < args.min_score:
                 logger.error(

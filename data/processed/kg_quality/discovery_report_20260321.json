@@ -1,0 +1,100 @@
+{
+  "timestamp": "2026-03-21T06:23:30.195904+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 10,
+    "indirect_paths": 10,
+    "stance_entities": 2,
+    "insights_existing": 10,
+    "multi_topic_entities": 10
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "インドネシア・マクロ-テレコム-コモディティ連環仮説",
+      "description": "Indonesia がハブとなり、コモディティ(原油6件,石炭4件,ニッケル2件)、マクロ指標(労働市場,家計支出,信用成長,GDP,国債)、テレコム(Indosat 6件)を接続する。コモディティ価格→財政収入→政府支出→家計可処分所得→テレコムARPU持続性の因果チェーンが成立。Purbaya財務相の財政赤字3%上限制約下で、コモディティ下落局面ではISATのARPU回復(38,400→44,000 IDR)が脆弱化するリスクがある。",
+      "entities_involved": [
+        "Indonesia",
+        "Crude Oil",
+        "Coal",
+        "Indosat Ooredoo Hutchison",
+        "Indonesia Household Spending",
+        "Indonesia GDP"
+      ],
+      "supporting_evidence": [
+        "Crude Oil-Indonesia shared_facts: 6",
+        "ISAT-Indonesia shared_facts: 6",
+        "Purbaya財務相の3%赤字上限発言(Fact)",
+        "ARPU推移 2Q24 38,400→4Q25 44,000 IDR (Insight)",
+        "Indonesia Household Spending-Indonesia shared_facts: 3"
+      ],
+      "evidence_count": 6
+    },
+    {
+      "type": "contradiction_analysis",
+      "title": "ISAT EBITDA Margin 4年連続低下 vs AI TechCo大型投資の矛盾",
+      "description": "EBITDA Margin: FY21 52.9%→FY24 50.0%(360bps縮小)。Revenue横ばい(CAGR 1.6%, ~150T IDR)。新経営陣は6T IDRコスト削減を宣言するが、同時にGPUaaS(H100 SXM+GB200 NVL72)、BDx JV 10MW→1GW、AI-RAN等に大規模投資。コスト削減とAI投資の両立可能性に構造的緊張がある。Telkomはインフラ資産分離(Infranexia, NeutraDC売却)路線で対照的。",
+      "entities_involved": [
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "Nvidia"
+      ],
+      "supporting_evidence": [
+        "EBITDA Margin FY21-FY24推移 (Insight: analytical_finding)",
+        "6T IDRコスト削減目標 (Insight)",
+        "GPUaaS事業: H100 SXM + GB200 NVL72 (Insight)",
+        "Revenue ~150T IDR頭打ち (Insight)",
+        "TLKM子会社55→22社統合リスク (Insight)"
+      ],
+      "evidence_count": 5
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "ASEAN テレコム比較データの完全欠落",
+      "description": "Thai telecom (True Corp+DTAC統合, 2023年3月完了)のデータが皆無。IOH統合の直接比較ケースにもかかわらず、AIS(ADVANC TB)・True Corp(TRUE TB)のEntity/FinancialDataPointがゼロ。XLSmart(EXCL IJ)も5指標のみで時系列・セルサイド見解なし。3社寡占の競争分析基盤が欠落し、ISATの投資判断に必要なピア比較が不可能。",
+      "entities_involved": [
+        "XL Axiata",
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia"
+      ],
+      "supporting_evidence": [
+        "information_gap: タイ通信市場データ完全欠落 (Insight)",
+        "data_quality: XLSmart 5指標のみ (Insight)",
+        "data_quality: TLKM充実 vs EXCL貧弱の非対称性 (Insight)"
+      ],
+      "evidence_count": 3
+    },
+    {
+      "type": "structural_observation",
+      "title": "圏論アカデミック・クラスタの金融ドメインからの孤立",
+      "description": "Category Theory/Kan Extension/Grothendieck Topology/Causal Emergence等の学術エンティティが14 shared factsの密結合クラスタを形成(Probe A上位10件全て)。KG設計理論として有用だが、実際の金融Entity(Indosat, AT&T, Verizon等)との接続がゼロ。Sheaf理論のlocal-to-global推論をインドネシアテレコム競争分析に適用する「メタ発見」の可能性はあるが、現状のグラフ構造では橋渡しノードが存在しない。",
+      "entities_involved": [
+        "Category Theory",
+        "David Spivak",
+        "Markus Buehler",
+        "Kan Extension",
+        "Grothendieck Topology",
+        "Causal Emergence"
+      ],
+      "supporting_evidence": [
+        "Probe A: 上位10ペア全て14 shared facts",
+        "entity_type: technology/person のみ",
+        "金融Entity(company/commodity/macro)との接続ゼロ"
+      ],
+      "evidence_count": 3
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.65,
+    "hypothesis_novelty": 0.6,
+    "evidence_density": 0.7,
+    "actionability": 0.7,
+    "overall": 0.66
+  },
+  "improvement_suggestions": [
+    "Source Grounding 致命的欠陥: Fact/Claim→Chunk→Source リレーションチェーンが全件断絶。STATES_FACT/MAKES_CLAIM リレーション投入パイプラインの修正が最優先",
+    "ASEAN テレコムデータ補完: True Corp(TRUE TB), AIS(ADVANC TB), XLSmart(EXCL IJ)のFinancialDataPoint・Fact投入",
+    "Stance ノードの content 欠落: 76件のStanceのsummaryが全てnull。投入パイプラインでsummary生成を追加すべき",
+    "ノイズ Fact/Claim の除去: ヘッドラインのみ(#8)や主語欠落(#3)のデータをフィルタリングする品質ゲート導入",
+    "CONTRADICTS リレーション追加: EBITDA低下 vs コスト削減等の矛盾を明示的にグラフ構造で表現"
+  ]
+}
