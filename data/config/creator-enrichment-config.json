@@ -1,0 +1,68 @@
+{
+  "version": "1.1",
+  "cycle_settings": {
+    "min_cycle_interval_seconds": 30,
+    "max_consecutive_empty_cycles": 3,
+    "empty_cycle_wait_seconds": 60
+  },
+  "genres": {
+    "career": {
+      "name_ja": "転職・副業",
+      "tavily_queries_en": [
+        "side hustle {topic} tips {year}",
+        "freelance {topic} income statistics {year}",
+        "career change {topic} success story {year}",
+        "{topic} remote work tips"
+      ],
+      "tavily_queries_jp": [
+        "{topic} 副業 成功事例 {year}",
+        "{topic} フリーランス 収入 {year}",
+        "{topic} 転職 体験談 {year}"
+      ],
+      "webfetch_sites": [
+        {"domain": "note.com", "search_prefix": "site:note.com 副業 {topic}"},
+        {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 副業 {topic}"}
+      ],
+      "subreddits": ["sidehustle", "careerguidance", "Entrepreneur", "freelance"],
+      "entity_types_focus": ["occupation", "platform", "company", "technique"]
+    },
+    "beauty-romance": {
+      "name_ja": "美容・恋愛",
+      "tavily_queries_en": [
+        "dating app {topic} statistics {year}",
+        "skincare {topic} trend {year}",
+        "relationship advice {topic} tips"
+      ],
+      "tavily_queries_jp": [
+        "{topic} マッチングアプリ 成功率 {year}",
+        "{topic} 美容 トレンド {year}",
+        "{topic} 婚活 体験談 {year}"
+      ],
+      "webfetch_sites": [
+        {"domain": "note.com", "search_prefix": "site:note.com 恋愛 {topic}"},
+        {"domain": "ameblo.jp", "search_prefix": "site:ameblo.jp 美容 {topic}"}
+      ],
+      "subreddits": ["SkincareAddiction", "dating_advice", "relationship_advice"],
+      "entity_types_focus": ["service", "product", "technique", "metric"]
+    },
+    "spiritual": {
+      "name_ja": "占い・スピリチュアル",
+      "tavily_queries_en": [
+        "astrology business {topic} monetization {year}",
+        "tarot reading {topic} online business {year}",
+        "spiritual coaching {topic} income"
+      ],
+      "tavily_queries_jp": [
+        "{topic} 占い ビジネス 収益化 {year}",
+        "{topic} タロット 副業 {year}",
+        "{topic} スピリチュアル SNS集客 {year}"
+      ],
+      "webfetch_sites": [
+        {"domain": "note.com", "search_prefix": "site:note.com 占い {topic}"},
+        {"domain": "ameblo.jp", "search_prefix": "site:ameblo.jp スピリチュアル {topic}"}
+      ],
+      "subreddits": ["tarot", "astrology", "psychic"],
+      "entity_types_focus": ["platform", "service", "technique", "concept"]
+    }
+  }
+}
