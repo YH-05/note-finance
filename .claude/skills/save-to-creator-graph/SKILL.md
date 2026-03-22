@@ -1,6 +1,6 @@
 ---
 name: save-to-creator-graph
-description: creator-graph-queue JSON を読み込み、creator-neo4j にノードとリレーションを MERGE ベースで冪等投入するスキル。5フェーズ構成。Entity/MENTIONS/RELATES_TO対応。
+description: creator-graph-queue JSON を読み込み、creator-neo4j にノードとリレーションを MERGE ベースで冪等投入するスキル。5フェーズ構成。v1(creator-1.0)とv2(creator-2.0)の両スキーマに対応。
 allowed-tools: Read, Bash, Grep, Glob
 ---
 
@@ -8,6 +8,17 @@ allowed-tools: Read, Bash, Grep, Glob
 
 creator-graph-queue JSON ファイルを読み込み、**creator-neo4j** (bolt://localhost:7689) にナレッジグラフデータを投入するスキル。
 MERGE ベースの Cypher クエリにより冪等性を保証する。
+
+## スキーマバージョン判定
+
+JSON の `schema_version` で使用するガイドを切り替える:
+
+| schema_version | ガイド | ノード | リレーション |
+|----------------|--------|--------|------------|
+| `"creator-1.0"` | `guide.md` | 7種（Genre,Topic,Source,Entity,Fact,Tip,Story） | 6種 |
+| `"creator-2.0"` | `guide-v2.md` | 10種（+ConceptCategory,Concept,Domain,Alias） | 11種 |
+
+Phase 1 で schema_version を確認し、対応するガイドの MERGE パターンを使用すること。
 
 > **⚠️ /save-to-graph（research-neo4j 専用, bolt://localhost:7688）は使用禁止。creator-neo4j へのデータ投入には必ずこのスキルを使うこと。**
 
