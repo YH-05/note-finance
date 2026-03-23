@@ -25,6 +25,7 @@ from kg_quality_metrics import (
     CheckRuleResult,
     MetricValue,
     QualitySnapshot,
+    _find_latest_snapshot,
     check_entity_length,
     check_relationship_compliance,
     check_schema_compliance,
@@ -48,7 +49,6 @@ from kg_quality_metrics import (
     render_console,
     save_json,
     save_neo4j,
-    _find_latest_snapshot,
 )
 
 # ---------------------------------------------------------------------------
@@ -883,7 +883,9 @@ class TestMeasureTimeliness:
         for call in calls:
             query = call[0][0]
             if query:  # skip empty frequency_query
-                assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
+                assert "Memory" in query, (
+                    f"Memory filter missing in query: {query[:80]}"
+                )
 
 
 # ---------------------------------------------------------------------------

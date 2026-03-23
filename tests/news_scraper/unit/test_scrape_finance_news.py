@@ -37,9 +37,7 @@ class TestResolveOutputDir:
 
     def test_正常系_Noneでデフォルトパスを検索する(self, tmp_path: Path) -> None:
         """_resolve_output_dir falls back to local when NAS not mounted."""
-        with patch(
-            "scrape_finance_news.NAS_SCRAPED_BASE", tmp_path / "nonexistent"
-        ):
+        with patch("scrape_finance_news.NAS_SCRAPED_BASE", tmp_path / "nonexistent"):
             result = _resolve_output_dir(None, "cnbc")
             assert "cnbc" in str(result)
 
@@ -336,7 +334,14 @@ class TestMainAsyncCall:
 
     def test_正常系_全6ソースがargparse_choicesとして定義されている(self) -> None:
         """All 6 sources should be defined in --sources choices."""
-        expected_sources = ["cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu", "jetro"]
+        expected_sources = [
+            "cnbc",
+            "nasdaq",
+            "kabutan",
+            "reuters_jp",
+            "minkabu",
+            "jetro",
+        ]
         for source in expected_sources:
             with patch("sys.argv", ["scrape_finance_news.py", "--sources", source]):
                 parsed = _parse_args()
@@ -345,11 +350,16 @@ class TestMainAsyncCall:
     def test_正常系_main_jetro_regions不正JSONでエラー(self) -> None:
         """main() returns 1 when --jetro-regions receives invalid JSON."""
         with (
-            patch("sys.argv", [
-                "scrape_finance_news.py",
-                "--sources", "jetro",
-                "--jetro-regions", "invalid{json",
-            ]),
+            patch(
+                "sys.argv",
+                [
+                    "scrape_finance_news.py",
+                    "--sources",
+                    "jetro",
+                    "--jetro-regions",
+                    "invalid{json",
+                ],
+            ),
             patch("scrape_finance_news.structlog"),
         ):
             result = main()
@@ -358,11 +368,16 @@ class TestMainAsyncCall:
     def test_正常系_main_jetro_regions不正スキーマでエラー(self) -> None:
         """main() returns 1 when --jetro-regions has invalid schema."""
         with (
-            patch("sys.argv", [
-                "scrape_finance_news.py",
-                "--sources", "jetro",
-                "--jetro-regions", '{"asia": "not_a_list"}',
-            ]),
+            patch(
+                "sys.argv",
+                [
+                    "scrape_finance_news.py",
+                    "--sources",
+                    "jetro",
+                    "--jetro-regions",
+                    '{"asia": "not_a_list"}',
+                ],
+            ),
             patch("scrape_finance_news.structlog"),
         ):
             result = main()

@@ -1,0 +1,119 @@
+# =============================================================================
+# schema.yaml - creator instance
+# =============================================================================
+# neo4j-lifecycle Phase A-3 で生成されたスキーマ定義。
+# 制約・インデックスの定義を含む。
+# =============================================================================
+
+schema_version: "creator-2.0"
+instance_name: "creator"
+created_at: "2026-03-23T11:26:00+09:00"
+updated_at: "2026-03-23T11:26:00+09:00"
+
+# ---------------------------------------------------------------------------
+# 制約（UNIQUE Constraints）
+# ---------------------------------------------------------------------------
+constraints:
+  # --- 共通ノード ---
+  - name: unique_creator_entity_entity_key
+    label: Entity
+    property: entity_key
+    type: UNIQUE
+
+  - name: unique_creator_source_source_id
+    label: Source
+    property: source_id
+    type: UNIQUE
+
+  # --- Content Types ---
+  - name: unique_creator_fact_fact_id
+    label: Fact
+    property: fact_id
+    type: UNIQUE
+
+  - name: unique_creator_tip_tip_id
+    label: Tip
+    property: tip_id
+    type: UNIQUE
+
+  - name: unique_creator_story_story_id
+    label: Story
+    property: story_id
+    type: UNIQUE
+
+  # --- カテゴリ・分類ノード ---
+  - name: unique_creator_conceptcategory_name
+    label: ConceptCategory
+    property: name
+    type: UNIQUE
+
+  - name: unique_creator_concept_name
+    label: Concept
+    property: name
+    type: UNIQUE
+
+  - name: unique_creator_genre_name
+    label: Genre
+    property: name
+    type: UNIQUE
+
+  - name: unique_creator_domain_name
+    label: Domain
+    property: name
+    type: UNIQUE
+
+# ---------------------------------------------------------------------------
+# インデックス
+# ---------------------------------------------------------------------------
+indexes:
+  # --- Full-Text Index ---
+  - name: creator_entity_fulltext
+    type: FULLTEXT
+    label: Entity
+    properties: [name]
+
+  - name: creator_concept_fulltext
+    type: FULLTEXT
+    label: Concept
+    properties: [name]
+
+  - name: creator_fact_fulltext
+    type: FULLTEXT
+    label: Fact
+    properties: [text]
+
+  - name: creator_tip_fulltext
+    type: FULLTEXT
+    label: Tip
+    properties: [text]
+
+  - name: creator_story_fulltext
+    type: FULLTEXT
+    label: Story
+    properties: [text]
+
+  # --- B-Tree Index（フィルター用） ---
+  - name: idx_creator_entity_entity_type
+    type: BTREE
+    label: Entity
+    properties: [entity_type]
+
+  - name: idx_creator_fact_category
+    type: BTREE
+    label: Fact
+    properties: [category]
+
+  - name: idx_creator_tip_category
+    type: BTREE
+    label: Tip
+    properties: [category]
+
+  - name: idx_creator_source_source_type
+    type: BTREE
+    label: Source
+    properties: [source_type]
+
+  - name: idx_creator_conceptcategory_layer
+    type: BTREE
+    label: ConceptCategory
+    properties: [layer]
