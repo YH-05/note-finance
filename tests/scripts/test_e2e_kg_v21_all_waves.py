@@ -58,7 +58,7 @@ GRAPH_QUEUE_REQUIRED_KEYS: set[str] = {
 """graph-queue JSON v2.0 の必須トップレベルキー。"""
 
 V21_ALL_RELATION_KEYS: set[str] = {
-    # v2.0 base (11 keys)
+    # v2.1 relation keys (21)
     "source_fact",
     "source_claim",
     "fact_entity",
@@ -70,23 +70,39 @@ V21_ALL_RELATION_KEYS: set[str] = {
     "for_period",
     "datapoint_entity",
     "tagged",
-    # Wave 1: Stance relations
     "holds_stance",
     "on_entity",
     "based_on",
     "supersedes",
-    # Wave 2: Causal chain
     "causes",
-    # Wave 3: Temporal chain
     "next_period",
     "trend",
-    # Wave 4: Question relations
     "asks_about",
     "motivated_by",
-    # v2.2: Authorship
     "authored_by",
+    # v3.0 classification relation keys (20)
+    "is_source_type",
+    "from_domain",
+    "rated_as",
+    "in_language",
+    "ingested_via",
+    "is_type",
+    "has_identifier",
+    "in_industry",
+    "is_fact_type",
+    "is_claim_type",
+    "in_unit",
+    "is_datapoint_type",
+    "is_category",
+    "is_author_type",
+    "affiliated_with",
+    "alias_of",
+    "parent_class",
+    "in_parent_sector",
+    "issued_by",
+    "is_instrument_class",
 }
-"""v2.2 で定義される全 21 種のリレーションキー。"""
+"""v3.0 で定義される全 41 種のリレーションキー。"""
 
 
 # ---------------------------------------------------------------------------
@@ -457,8 +473,8 @@ class TestV21FormatCompliance:
         output_file = _generate_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "2.2"
-        assert SCHEMA_VERSION == "2.2"
+        assert queue_data["schema_version"] == "3.0"
+        assert SCHEMA_VERSION == "3.0"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_必須トップレベルキーが全て存在する(self, tmp_path: Path) -> None:
@@ -478,8 +494,8 @@ class TestV21FormatCompliance:
         assert queue_data["command_source"] == "pdf-extraction"
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_全20種のリレーションキーが存在する(self, tmp_path: Path) -> None:
-        """v2.1 で定義される全 20 リレーションキーが relations に存在。"""
+    def test_正常系_全41種のリレーションキーが存在する(self, tmp_path: Path) -> None:
+        """v3.0 で定義される全 41 リレーションキーが relations に存在。"""
         data = _full_v21_pdf_extraction_data()
         output_file = _generate_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
