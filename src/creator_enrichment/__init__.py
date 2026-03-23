@@ -4,6 +4,7 @@
 サイクルで繰り返し、creator-neo4j のナレッジグラフを自動拡充する。
 """
 
+from .session_log import SessionLogger
 from .types import (
     CycleData,
     CycleError,
@@ -22,4 +23,5 @@ __all__ = [
     "GapAnalysisResult",
     "IngestResult",
     "RawItem",
+    "SessionLogger",
 ]
