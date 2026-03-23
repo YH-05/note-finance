@@ -11,9 +11,9 @@ instance_name: creator
 connection:
   bolt_uri: "bolt://localhost:7689"
   user: neo4j
-  # パスワードは環境変数参照を推奨。平文フォールバックも可。
-  # 環境変数: export NEO4J_CREATOR_PASSWORD="your_password"
-  # 平文指定: password: "your_password"
+  # WARNING: 平文パスワードをここに記載して commit しないこと！
+  # 必ず環境変数参照 ${NEO4J_CREATOR_PASSWORD} を使用すること。
+  # 設定方法: export NEO4J_CREATOR_PASSWORD="your_password"
   password: "${NEO4J_CREATOR_PASSWORD}"
 
 # ---------------------------------------------------------------------------

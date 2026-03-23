@@ -70,7 +70,10 @@ logger = logging.getLogger(__name__)
 # Default connection values (creator-neo4j, for backward compatibility)
 _DEFAULT_URI = "bolt://localhost:7689"
 _DEFAULT_USER = "neo4j"
-_DEFAULT_PASSWORD = "gomasuke"
+_DEFAULT_PASSWORD = os.environ.get("NEO4J_CREATOR_PASSWORD", "")
+
+# Allowed instance names (validated in load_instance_config)
+_ALLOWED_INSTANCES = frozenset({"creator", "research", "note"})
 
 # Default config directory
 _DEFAULT_CONFIG_DIR = (
@@ -115,6 +118,11 @@ def load_instance_config(
     ValueError
         If a ``${ENV_VAR}`` password reference cannot be resolved.
     """
+    # Validate instance name to prevent path traversal (CWE-22)
+    if not re.match(r"^[a-zA-Z0-9_-]{1,64}$", instance):
+        msg = f"Invalid instance name: {instance!r}"
+        raise ValueError(msg)
+
     cfg_dir = config_dir or _DEFAULT_CONFIG_DIR
     yaml_path = cfg_dir / f"{instance}.yaml"
 
@@ -154,7 +162,17 @@ def load_instance_config(
 
 
 class Neo4jClient:
-    """Generic Neo4j client for any instance."""
+    """Generic Neo4j client for any instance.
+
+    Parameters
+    ----------
+    uri
+        Neo4j bolt URI (e.g. ``bolt://localhost:7689``).
+    user
+        Neo4j user name.
+    password
+        Neo4j password.
+    """
 
     def __init__(
         self,
@@ -165,9 +183,15 @@ class Neo4jClient:
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
     def close(self) -> None:
+        """Close the Neo4j driver connection."""
         self.driver.close()
 
     def query(self, cypher: str, **params: Any) -> list[dict[str, Any]]:
+        """Run a Cypher query and return results as a list of dicts.
+
+        Returns an empty list if the query references a missing fulltext
+        index.  All other exceptions are re-raised.
+        """
         with self.driver.session() as session:
             try:
                 result = session.run(cypher, **params)
