@@ -23,7 +23,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Protocol
 
-from creator_enrichment.types import CycleError, GapAnalysisResult
+from creator_enrichment.types import GapAnalysisResult, PhaseError
 
 logger = logging.getLogger(__name__)
 
@@ -158,14 +158,14 @@ class GapAnalyzer:
 
         Raises
         ------
-        CycleError
+        PhaseError
             Neo4j 接続エラーが発生した場合。
         """
         try:
             return self._execute_analysis(prev_genre, genre_filter)
         except (ConnectionError, OSError) as e:
             logger.error("Neo4j connection error: %s", e)
-            raise CycleError(cycle_num=0, cause=e) from e
+            raise PhaseError(f"Neo4j connection error: {e}") from e
 
     # ------------------------------------------------------------------
     # Private: 分析実行

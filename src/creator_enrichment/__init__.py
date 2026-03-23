@@ -8,12 +8,18 @@ from .neo4j_writer import CreatorGraphWriter
 from .orchestrator import CreatorEnrichmentOrchestrator, FatalError
 from .session_log import SessionLogger
 from .types import (
+    CrossEnricherProtocol,
     CycleData,
     CycleError,
     CycleReport,
+    ExtractionResult,
+    ExtractorProtocol,
     GapAnalysisResult,
+    GapAnalyzerProtocol,
     IngestResult,
+    PhaseError,
     RawItem,
+    SearcherProtocol,
 )
 
 __version__ = "0.1.0"
@@ -21,12 +27,18 @@ __version__ = "0.1.0"
 __all__ = [
     "CreatorEnrichmentOrchestrator",
     "CreatorGraphWriter",
+    "CrossEnricherProtocol",
     "CycleData",
     "CycleError",
     "CycleReport",
+    "ExtractionResult",
+    "ExtractorProtocol",
     "FatalError",
     "GapAnalysisResult",
+    "GapAnalyzerProtocol",
     "IngestResult",
+    "PhaseError",
     "RawItem",
+    "SearcherProtocol",
     "SessionLogger",
 ]

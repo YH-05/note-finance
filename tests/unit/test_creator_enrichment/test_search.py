@@ -3,7 +3,7 @@
 ClaudeCodeSearcher によるエージェント検索ロジックを検証する。
 - RawItem 変換の正常系
 - リトライ動作（2回失敗 -> 3回目成功）
-- タイムアウト時の CycleError 変換
+- タイムアウト時の PhaseError 変換
 - 不正 JSON レスポンスのエラーハンドリング
 - 空結果のハンドリング
 - ```json コードブロックラッピングのパース
@@ -20,7 +20,7 @@ from creator_enrichment.phases.search import (
     AgentProvider,
     ClaudeCodeSearcher,
 )
-from creator_enrichment.types import CycleError, RawItem
+from creator_enrichment.types import PhaseError, RawItem
 
 
 # ---------------------------------------------------------------------------
@@ -223,19 +223,19 @@ class TestRetryBehavior:
         assert len(results) == 3
         assert mock_provider.query.call_count == 3
 
-    def test_異常系_3回連続失敗でCycleError(
+    def test_異常系_3回連続失敗でPhaseError(
         self,
         mock_provider: MagicMock,
     ) -> None:
-        """3回連続失敗で CycleError が発生する."""
+        """3回連続失敗で PhaseError が発生する."""
         mock_provider.query.side_effect = RuntimeError("Persistent failure")
 
         searcher = ClaudeCodeSearcher(provider=mock_provider)
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             searcher.search(queries=["test"], genre="career")
 
-        assert isinstance(exc_info.value.cause, RuntimeError)
+        assert isinstance(exc_info.value.__cause__, RuntimeError)
         assert mock_provider.query.call_count == 3
 
 
@@ -243,21 +243,21 @@ class TestRetryBehavior:
 # タイムアウト
 # ---------------------------------------------------------------------------
 class TestTimeout:
-    """タイムアウト時の CycleError 変換テスト."""
+    """タイムアウト時の PhaseError 変換テスト."""
 
-    def test_異常系_TimeoutErrorがCycleErrorに変換される(
+    def test_異常系_TimeoutErrorがPhaseErrorに変換される(
         self,
         mock_provider: MagicMock,
     ) -> None:
-        """TimeoutError が CycleError にラップされる."""
+        """TimeoutError が PhaseError にラップされる."""
         mock_provider.query.side_effect = TimeoutError("Search timed out after 120s")
 
         searcher = ClaudeCodeSearcher(provider=mock_provider)
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             searcher.search(queries=["test"], genre="career")
 
-        assert isinstance(exc_info.value.cause, TimeoutError)
+        assert isinstance(exc_info.value.__cause__, TimeoutError)
 
 
 # ---------------------------------------------------------------------------
@@ -266,47 +266,47 @@ class TestTimeout:
 class TestInvalidJsonResponse:
     """不正 JSON レスポンスのエラーハンドリングテスト."""
 
-    def test_異常系_不正JSONでCycleError(
+    def test_異常系_不正JSONでPhaseError(
         self,
         mock_provider: MagicMock,
     ) -> None:
-        """パース不能な JSON が CycleError に変換される."""
+        """パース不能な JSON が PhaseError に変換される."""
         mock_provider.query.return_value = "This is not valid JSON"
 
         searcher = ClaudeCodeSearcher(provider=mock_provider)
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             searcher.search(queries=["test"], genre="career")
 
-        assert isinstance(exc_info.value.cause, (json.JSONDecodeError, ValueError))
+        assert isinstance(exc_info.value.__cause__, (json.JSONDecodeError, ValueError))
 
-    def test_異常系_itemsキーがないJSONでCycleError(
+    def test_異常系_itemsキーがないJSONでPhaseError(
         self,
         mock_provider: MagicMock,
     ) -> None:
-        """items キーのない JSON が CycleError に変換される."""
+        """items キーのない JSON が PhaseError に変換される."""
         mock_provider.query.return_value = json.dumps({"data": []})
 
         searcher = ClaudeCodeSearcher(provider=mock_provider)
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             searcher.search(queries=["test"], genre="career")
 
-        assert isinstance(exc_info.value.cause, (KeyError, ValueError))
+        assert isinstance(exc_info.value.__cause__, (KeyError, ValueError))
 
-    def test_異常系_itemsが非リストでCycleError(
+    def test_異常系_itemsが非リストでPhaseError(
         self,
         mock_provider: MagicMock,
     ) -> None:
-        """items がリストでない場合 CycleError に変換される."""
+        """items がリストでない場合 PhaseError に変換される."""
         mock_provider.query.return_value = json.dumps({"items": "not a list"})
 
         searcher = ClaudeCodeSearcher(provider=mock_provider)
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             searcher.search(queries=["test"], genre="career")
 
-        assert isinstance(exc_info.value.cause, (TypeError, ValueError))
+        assert isinstance(exc_info.value.__cause__, (TypeError, ValueError))
 
 
 # ---------------------------------------------------------------------------

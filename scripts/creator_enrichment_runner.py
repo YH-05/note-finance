@@ -14,11 +14,22 @@ from __future__ import annotations
 import logging
 import sys
 
+
+def _setup_logging() -> None:
+    """プロジェクト標準のロギング設定を適用する."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(name)s %(levelname)s %(message)s",
+    )
+
+
 logger = logging.getLogger(__name__)
 
 
 def main() -> None:
     """CLI entrypoint for creator-enrichment orchestrator."""
+    _setup_logging()
+
     from creator_enrichment.config import load_config, parse_args
     from creator_enrichment.orchestrator import (
         CreatorEnrichmentOrchestrator,
@@ -34,8 +45,10 @@ def main() -> None:
         sys.exit(1)
 
     logger.info(
-        "Starting creator enrichment",
-        extra={"until": str(config.until_time), "genre": config.genre, "dry_run": config.dry_run},
+        "Starting creator enrichment: until=%s, genre=%s, dry_run=%s",
+        config.until_time,
+        config.genre,
+        config.dry_run,
     )
 
     try:

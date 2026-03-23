@@ -4,7 +4,7 @@
 Python 3.12+ PEP 695 スタイルの型ヒントを使用。
 """
 
-from typing import Literal, TypedDict
+from typing import Any, Literal, Protocol, TypedDict
 
 
 # ---------------------------------------------------------------------------
@@ -105,12 +105,41 @@ class CycleReport(TypedDict):
 
 
 # ---------------------------------------------------------------------------
-# サイクル隔離用例外
+# Phase 3: 抽出結果（単一アイテム）
 # ---------------------------------------------------------------------------
+class ExtractionResult(TypedDict):
+    """extract_single() の戻り値型.
+
+    LLM が返す JSON をパースした結果。
+    """
+
+    content_type: str
+    title: str
+    body: str
+    source_url: str
+    source_type: str
+    language: str
+    entities: list[dict[str, str]]
+    concepts: list[dict[str, Any]]
+    serves_as: list[dict[str, str]]
+    concept_relations: list[dict[str, str]]
+
+
+# ---------------------------------------------------------------------------
+# フェーズ例外（orchestrator が CycleError にラップする）
+# ---------------------------------------------------------------------------
+class PhaseError(Exception):
+    """フェーズ内で発生したエラー.
+
+    各フェーズは PhaseError を raise し、orchestrator が
+    CycleError(cycle_num=N) でラップする。
+    """
+
+
 class CycleError(Exception):
     """サイクル実行中に発生したエラーを隔離する例外.
 
-    個別サイクルの失敗を他のサイクルに波及させないために使用する。
+    orchestrator が PhaseError を catch して cycle_num 付きで再ラップする。
 
     Attributes
     ----------
@@ -124,3 +153,36 @@ class CycleError(Exception):
         self.cycle_num = cycle_num
         self.cause = cause
         super().__init__(f"Cycle {cycle_num} failed: {cause}")
+
+
+# ---------------------------------------------------------------------------
+# Phase Protocols（orchestrator の依存性逆転用）
+# ---------------------------------------------------------------------------
+class GapAnalyzerProtocol(Protocol):
+    """Phase 1 ギャップ分析のプロトコル."""
+
+    def analyze(
+        self,
+        prev_genre: str | None,
+        genre_filter: str | None,
+    ) -> GapAnalysisResult: ...
+
+
+class SearcherProtocol(Protocol):
+    """Phase 2 検索のプロトコル."""
+
+    def search(self, queries: list[str], genre: str) -> list[RawItem]: ...
+
+
+class ExtractorProtocol(Protocol):
+    """Phase 3 抽出のプロトコル."""
+
+    def extract_batch(
+        self, *, items: list[RawItem], genre: str
+    ) -> CycleData: ...
+
+
+class CrossEnricherProtocol(Protocol):
+    """Phase 4.5 横断リレーション強化のプロトコル."""
+
+    def run(self, cycle_count: int) -> int: ...

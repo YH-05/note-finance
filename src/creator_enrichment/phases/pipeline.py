@@ -27,7 +27,7 @@ from typing import Any
 
 from creator_enrichment.config import GENRE_NAMES
 from creator_enrichment.neo4j_writer import CreatorGraphWriter
-from creator_enrichment.types import CycleData, CycleError, IngestResult
+from creator_enrichment.types import CycleData, IngestResult, PhaseError
 
 logger = logging.getLogger(__name__)
 
@@ -116,7 +116,7 @@ def run_pipeline(
 
     Raises
     ------
-    CycleError
+    PhaseError
         ジャンルが不正な場合、または各ステップでエラーが発生した場合
     """
     cycle_id = cycle_data["cycle_id"]
@@ -127,7 +127,7 @@ def run_pipeline(
     if genre not in GENRE_NAMES:
         msg = f"Invalid genre: {genre!r}. Valid genres: {GENRE_NAMES}"
         logger.error(msg)
-        raise CycleError(cycle_num=0, cause=ValueError(msg))
+        raise PhaseError(msg)
 
     # --- Step 4.0: Entity linking ---
     logger.info("Step 4.0: Entity linking started")

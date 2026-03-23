@@ -23,7 +23,7 @@ import time
 from datetime import datetime
 
 from creator_enrichment.config import ANTHROPIC_MAX_TOKENS, ANTHROPIC_MODEL
-from creator_enrichment.types import CycleData, RawItem
+from creator_enrichment.types import CycleData, ExtractionResult, RawItem
 from creator_enrichment.utils import strip_json_codeblock
 
 logger = logging.getLogger(__name__)
@@ -33,6 +33,15 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 _SLEEP_INTERVAL = 1
 """API 呼び出し間のスリープ秒数."""
+
+_CONTENT_TRUNCATE_LIMIT = 4000
+"""プロンプトに埋め込む外部コンテンツの最大文字数."""
+
+_VALID_CONTENT_TYPES = frozenset({"Fact", "Tip", "Story"})
+"""LLM 出力で許可される content_type."""
+
+_VALID_ENTITY_TYPES = frozenset({"platform", "company", "person", "organization"})
+"""LLM 出力で許可される entity_type."""
 
 
 # ---------------------------------------------------------------------------
@@ -129,7 +138,7 @@ class ContentExtractor:
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
-    def extract_single(self, *, item: RawItem, genre: str) -> dict:
+    def extract_single(self, *, item: RawItem, genre: str) -> ExtractionResult:
         """1 件の RawItem からコンテンツ分類・抽出を行う.
 
         Parameters
@@ -141,19 +150,22 @@ class ContentExtractor:
 
         Returns
         -------
-        dict
-            抽出結果の辞書（content_type, entities, concepts 等を含む）
+        ExtractionResult
+            抽出結果（content_type, entities, concepts 等を含む）
 
         Raises
         ------
         ValueError
-            レスポンスが空、または JSON パースに失敗した場合
+            レスポンスが空、JSON パース失敗、またはスキーマ不正の場合
         """
+        # コンテンツをトランケーション（プロンプトインジェクション軽減）
+        safe_content = item["content"][:_CONTENT_TRUNCATE_LIMIT]
+
         prompt = _EXTRACTION_PROMPT.format(
             title=item["title"],
             source_url=item["url"],
             genre=genre,
-            content=item["content"],
+            content=safe_content,
         )
 
         logger.debug(
@@ -182,13 +194,34 @@ class ContentExtractor:
                 f"Failed to parse JSON response for item: {item['title']}"
             ) from e
 
+        # スキーマ検証: content_type
+        ct = parsed.get("content_type", "Fact")
+        if ct not in _VALID_CONTENT_TYPES:
+            logger.warning(
+                "Invalid content_type=%s, falling back to Fact", ct
+            )
+            parsed["content_type"] = "Fact"
+
+        # スキーマ検証: entity_type
+        for ent in parsed.get("entities", []):
+            if ent.get("entity_type") not in _VALID_ENTITY_TYPES:
+                logger.warning(
+                    "Filtering invalid entity_type=%s for entity=%s",
+                    ent.get("entity_type"),
+                    ent.get("name"),
+                )
+        parsed["entities"] = [
+            e for e in parsed.get("entities", [])
+            if e.get("entity_type") in _VALID_ENTITY_TYPES
+        ]
+
         logger.info(
             "Extraction completed: title=%s, content_type=%s",
             item["title"],
             parsed.get("content_type", "unknown"),
         )
 
-        return parsed
+        return parsed  # type: ignore[return-value]
 
     def extract_batch(self, *, items: list[RawItem], genre: str) -> CycleData:
         """複数の RawItem をバッチ処理し CycleData に集約する.

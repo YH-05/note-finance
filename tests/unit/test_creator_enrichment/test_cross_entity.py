@@ -569,3 +569,46 @@ class TestRunMergeQuery:
 
         # SKIP を除いた 1 件
         assert result == 1
+
+
+# ---------------------------------------------------------------------------
+# エッジケース: LLM 不正 JSON
+# ---------------------------------------------------------------------------
+class TestLlmInvalidJson:
+    """LLM が不正 JSON を返した場合のテスト."""
+
+    def test_エッジケース_不正JSONで0を返す(
+        self,
+        mock_driver: MagicMock,
+        mock_anthropic_client: MagicMock,
+    ) -> None:
+        """LLM が不正 JSON を返した場合、0 を返し MERGE が実行されない."""
+        session = mock_driver.session.return_value.__enter__.return_value
+
+        co_occurrence_records = [
+            _make_co_occurrence_record(
+                from_name="A",
+                from_type="platform",
+                from_id="ent-a",
+                to_name="B",
+                to_type="company",
+                to_id="ent-b",
+            ),
+        ]
+
+        session.run.side_effect = [
+            iter(co_occurrence_records),
+            iter([]),
+        ]
+
+        # LLM が不正 JSON を返す
+        mock_anthropic_client.messages.create.return_value = _make_mock_response(
+            "This is not valid JSON at all"
+        )
+
+        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        result = enricher.run(cycle_count=3)
+
+        assert result == 0
+        # MERGE クエリは実行されない（session.run は候補クエリ2回のみ）
+        assert session.run.call_count == 2

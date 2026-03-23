@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 import pytest
 
 from creator_enrichment.phases.pipeline import _save_intermediate, run_pipeline
-from creator_enrichment.types import CycleData, CycleError, IngestResult
+from creator_enrichment.types import CycleData, IngestResult, PhaseError
 
 # ---------------------------------------------------------------------------
 # パッチターゲット定数
@@ -164,12 +164,12 @@ def mock_queue_doc() -> dict:
 class TestGenrePreValidation:
     """ジャンル事前バリデーションのテスト."""
 
-    def test_異常系_不正ジャンルでCycleError(
+    def test_異常系_不正ジャンルでPhaseError(
         self,
         mock_neo4j_client: MagicMock,
         mock_neo4j_driver: MagicMock,
     ) -> None:
-        """不正なジャンル名で CycleError が発生する."""
+        """不正なジャンル名で PhaseError が発生する."""
         invalid_data = CycleData(
             genre="invalid-genre",
             cycle_id="cycle-invalid",
@@ -183,22 +183,21 @@ class TestGenrePreValidation:
             concept_relations=[],
         )
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             run_pipeline(
                 cycle_data=invalid_data,
                 neo4j_client=mock_neo4j_client,
                 neo4j_driver=mock_neo4j_driver,
             )
 
-        assert exc_info.value.cycle_num == 0
-        assert "Invalid genre" in str(exc_info.value.cause)
+        assert "Invalid genre" in str(exc_info.value)
 
-    def test_異常系_空ジャンルでCycleError(
+    def test_異常系_空ジャンルでPhaseError(
         self,
         mock_neo4j_client: MagicMock,
         mock_neo4j_driver: MagicMock,
     ) -> None:
-        """空文字のジャンル名で CycleError が発生する."""
+        """空文字のジャンル名で PhaseError が発生する."""
         empty_genre_data = CycleData(
             genre="",
             cycle_id="cycle-empty-genre",
@@ -212,14 +211,14 @@ class TestGenrePreValidation:
             concept_relations=[],
         )
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             run_pipeline(
                 cycle_data=empty_genre_data,
                 neo4j_client=mock_neo4j_client,
                 neo4j_driver=mock_neo4j_driver,
             )
 
-        assert exc_info.value.cycle_num == 0
+        assert "Invalid genre" in str(exc_info.value)
 
     def test_正常系_バリデーション通過後にresolve_allが呼ばれる(
         self,

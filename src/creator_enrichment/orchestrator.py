@@ -3,7 +3,7 @@
 Phase 1 (Gap Analysis) -> Phase 2 (Search) -> Phase 3 (Extract)
 -> Phase 4 (Pipeline) -> Phase 4.5 (Cross-entity) のサイクルを制御する。
 
-until_time / max_cycles でループ制御し、CycleError を隔離して
+until_time / max_cycles でループ制御し、PhaseError / CycleError を隔離して
 連続5回の失敗で FatalError を送出する。
 
 Usage
@@ -28,14 +28,18 @@ from typing import TYPE_CHECKING, Any
 
 from creator_enrichment.phases.pipeline import run_pipeline
 from creator_enrichment.session_log import SessionLogger
-from creator_enrichment.types import CycleError, CycleReport
+from creator_enrichment.types import (
+    CrossEnricherProtocol,
+    CycleError,
+    CycleReport,
+    ExtractorProtocol,
+    GapAnalyzerProtocol,
+    PhaseError,
+    SearcherProtocol,
+)
 
 if TYPE_CHECKING:
     from creator_enrichment.config import OrchestratorConfig
-    from creator_enrichment.phases.cross_entity import CrossEntityEnricher
-    from creator_enrichment.phases.extract import ContentExtractor
-    from creator_enrichment.phases.gap_analysis import GapAnalyzer
-    from creator_enrichment.phases.search import ClaudeCodeSearcher
 
 logger = logging.getLogger(__name__)
 
@@ -60,14 +64,14 @@ class CreatorEnrichmentOrchestrator:
     ----------
     config : OrchestratorConfig
         オーケストレーター設定
-    gap_analyzer : GapAnalyzer | None
-        Phase 1 ギャップ分析（None の場合は内部で生成）
-    searcher : ClaudeCodeSearcher | None
-        Phase 2 検索（None の場合は内部で生成）
-    extractor : ContentExtractor | None
-        Phase 3 抽出（None の場合は内部で生成）
-    cross_enricher : CrossEntityEnricher | None
-        Phase 4.5 Cross-entity（None の場合は内部で生成）
+    gap_analyzer : GapAnalyzerProtocol | None
+        Phase 1 ギャップ分析
+    searcher : SearcherProtocol | None
+        Phase 2 検索
+    extractor : ExtractorProtocol | None
+        Phase 3 抽出
+    cross_enricher : CrossEnricherProtocol | None
+        Phase 4.5 Cross-entity
     neo4j_client : Any
         Neo4j クライアント
     neo4j_driver : Any
@@ -78,10 +82,10 @@ class CreatorEnrichmentOrchestrator:
         self,
         config: OrchestratorConfig,
         *,
-        gap_analyzer: GapAnalyzer | None = None,
-        searcher: ClaudeCodeSearcher | None = None,
-        extractor: ContentExtractor | None = None,
-        cross_enricher: CrossEntityEnricher | None = None,
+        gap_analyzer: GapAnalyzerProtocol | None = None,
+        searcher: SearcherProtocol | None = None,
+        extractor: ExtractorProtocol | None = None,
+        cross_enricher: CrossEnricherProtocol | None = None,
         neo4j_client: Any = None,
         neo4j_driver: Any = None,
     ) -> None:
@@ -105,12 +109,14 @@ class CreatorEnrichmentOrchestrator:
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
-    def run(self) -> None:
+    def run(self) -> None:  # noqa: PLR0915
         """メインループを実行する.
 
         until_time / max_cycles の条件を満たすまでサイクルを繰り返す。
         連続5回の CycleError で FatalError を送出する。
         連続 max_consecutive_empty_cycles 回の空結果でループを終了する。
+
+        PhaseError は CycleError(cycle_num=N) にラップされる。
 
         Raises
         ------
@@ -142,16 +148,16 @@ class CreatorEnrichmentOrchestrator:
 
             try:
                 # Phase 1: Gap Analysis
-                gap_result = self._gap_analyzer.analyze(  # type: ignore[union-attr]
+                assert self._gap_analyzer is not None
+                gap_result = self._gap_analyzer.analyze(
                     prev_genre, self._config.genre
                 )
                 prev_genre = gap_result["genre"]
 
                 # Phase 2: Search
                 queries = gap_result["low_coverage_concepts"][:5]
-                raw_items = self._searcher.search(  # type: ignore[union-attr]
-                    queries, gap_result["genre"]
-                )
+                assert self._searcher is not None
+                raw_items = self._searcher.search(queries, gap_result["genre"])
 
                 if not raw_items:
                     consecutive_empty += 1
@@ -174,7 +180,8 @@ class CreatorEnrichmentOrchestrator:
                 consecutive_empty = 0
 
                 # Phase 3: Extract
-                cycle_data = self._extractor.extract_batch(  # type: ignore[union-attr]
+                assert self._extractor is not None
+                cycle_data = self._extractor.extract_batch(
                     items=raw_items, genre=gap_result["genre"]
                 )
 
@@ -189,9 +196,8 @@ class CreatorEnrichmentOrchestrator:
                 # Phase 4.5: Cross-entity (every 3 cycles)
                 cross_added = 0
                 if cycle_count % 3 == 0 and not self._config.dry_run:
-                    cross_added = self._cross_enricher.run(  # type: ignore[union-attr]
-                        cycle_count
-                    )
+                    assert self._cross_enricher is not None
+                    cross_added = self._cross_enricher.run(cycle_count)
 
                 # Record cycle
                 report = CycleReport(
@@ -217,6 +223,20 @@ class CreatorEnrichmentOrchestrator:
                     len(raw_items),
                     cross_added,
                 )
+
+            except PhaseError as e:
+                # PhaseError → CycleError にラップ
+                cycle_err = CycleError(cycle_num=cycle_count, cause=e)
+                consecutive_errors += 1
+                session_logger.record_error(cycle_count, cycle_err)
+                logger.error(
+                    "Cycle %d failed (PhaseError): consecutive_errors=%d/5, error=%s",
+                    cycle_count,
+                    consecutive_errors,
+                    e,
+                )
+                if consecutive_errors >= 5:
+                    raise FatalError("5 consecutive cycle errors") from cycle_err
 
             except CycleError as e:
                 consecutive_errors += 1

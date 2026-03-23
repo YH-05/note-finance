@@ -4,7 +4,7 @@ GapAnalyzer によるギャップ分析ロジックを検証する。
 - ジャンルローテーション
 - genre_filter による固定ジャンル選択
 - 低カバレッジ Concept 抽出
-- Neo4j 接続エラーの CycleError 変換
+- Neo4j 接続エラーの PhaseError 変換
 - Q2-Q6 の並列実行
 """
 
@@ -16,7 +16,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from creator_enrichment.phases.gap_analysis import GapAnalyzer
-from creator_enrichment.types import CycleError
+from creator_enrichment.types import PhaseError
 
 # ---------------------------------------------------------------------------
 # クエリディスパッチ用ヘルパー
@@ -398,41 +398,60 @@ class TestExistingSamples:
 
 
 # ---------------------------------------------------------------------------
-# Neo4j 接続エラーの CycleError 変換
+# Neo4j 接続エラーの PhaseError 変換
 # ---------------------------------------------------------------------------
 class TestNeo4jErrorHandling:
-    """Neo4j 接続エラー時の CycleError 変換テスト."""
+    """Neo4j 接続エラー時の PhaseError 変換テスト."""
 
-    def test_異常系_Neo4j接続エラーがCycleErrorに変換される(
+    def test_異常系_Neo4j接続エラーがPhaseErrorに変換される(
         self,
         mock_neo4j_client: MagicMock,
     ) -> None:
-        """Neo4j への接続エラーが CycleError にラップされる."""
+        """Neo4j への接続エラーが PhaseError にラップされる."""
         mock_neo4j_client.execute_query.side_effect = ConnectionError(
             "Failed to connect to Neo4j"
         )
 
         analyzer = GapAnalyzer(mock_neo4j_client)
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             analyzer.analyze(prev_genre=None, genre_filter=None)
 
-        assert isinstance(exc_info.value.cause, ConnectionError)
+        assert isinstance(exc_info.value.__cause__, ConnectionError)
         assert "Failed to connect to Neo4j" in str(exc_info.value)
 
-    def test_異常系_OSErrorもCycleErrorに変換される(
+    def test_異常系_OSErrorもPhaseErrorに変換される(
         self,
         mock_neo4j_client: MagicMock,
     ) -> None:
-        """OSError(ネットワーク系)も CycleError にラップされる."""
+        """OSError(ネットワーク系)も PhaseError にラップされる."""
         mock_neo4j_client.execute_query.side_effect = OSError("Network unreachable")
 
         analyzer = GapAnalyzer(mock_neo4j_client)
 
-        with pytest.raises(CycleError) as exc_info:
+        with pytest.raises(PhaseError) as exc_info:
             analyzer.analyze(prev_genre=None, genre_filter=None)
 
-        assert isinstance(exc_info.value.cause, OSError)
+        assert isinstance(exc_info.value.__cause__, OSError)
+
+
+# ---------------------------------------------------------------------------
+# エッジケース: Q1 空リスト
+# ---------------------------------------------------------------------------
+class TestQ1EmptyFallback:
+    """Q1 が空を返した場合のフォールバックテスト."""
+
+    def test_エッジケース_Q1空リストでcareerにフォールバック(
+        self,
+        mock_neo4j_client: MagicMock,
+    ) -> None:
+        """Q1 が空リストを返した場合、デフォルトで 'career' が選択される."""
+        mock_neo4j_client.execute_query.return_value = []
+
+        analyzer = GapAnalyzer(mock_neo4j_client)
+        result = analyzer.analyze(prev_genre=None, genre_filter=None)
+
+        assert result["genre"] == "career"
 
 
 # ---------------------------------------------------------------------------

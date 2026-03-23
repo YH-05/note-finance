@@ -27,7 +27,7 @@ from typing import Protocol, runtime_checkable
 
 import tenacity
 
-from creator_enrichment.types import CycleError, RawItem
+from creator_enrichment.types import PhaseError, RawItem
 
 logger = logging.getLogger(__name__)
 
@@ -152,7 +152,7 @@ class ClaudeCodeSearcher:
 
         Raises
         ------
-        CycleError
+        PhaseError
             リトライ上限超過・タイムアウト・パースエラー時
         """
         logger.info(
@@ -165,22 +165,22 @@ class ClaudeCodeSearcher:
             raw_response = self._call_with_retry(queries=queries, genre=genre)
         except TimeoutError as e:
             logger.error("Search timed out: %s", e)
-            raise CycleError(cycle_num=0, cause=e) from e
+            raise PhaseError(f"Search failed: {e}") from e
         except tenacity.RetryError as e:
             last_exc = e.last_attempt.exception() if e.last_attempt else None
             original: Exception = last_exc if isinstance(last_exc, Exception) else e
             logger.error("Search failed after retries: %s", original)
-            raise CycleError(cycle_num=0, cause=original) from e
+            raise PhaseError(f"Search failed after retries: {original}") from e
         except (RuntimeError, OSError) as e:
             # reraise=True の場合、tenacity は元の例外を直接 re-raise する
             logger.error("Search failed after retries: %s", e)
-            raise CycleError(cycle_num=0, cause=e) from e
+            raise PhaseError(f"Search failed: {e}") from e
 
         try:
             items = self._parse_response(raw_response)
         except (json.JSONDecodeError, KeyError, TypeError, ValueError) as e:
             logger.error("Failed to parse search response: %s", e)
-            raise CycleError(cycle_num=0, cause=e) from e
+            raise PhaseError(f"Search failed: {e}") from e
 
         logger.info("Search completed: %d items found", len(items))
         return items

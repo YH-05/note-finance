@@ -70,6 +70,8 @@ class SessionLogger:
 
         self._log_dir.mkdir(parents=True, exist_ok=True)
         self._write_header()
+        # ファイルパーミッションを owner-only に設定（スタックトレース漏洩防止）
+        self.log_path.chmod(0o600)
         logger.info(
             "SessionLogger initialized: session_id=%s, log_path=%s",
             session_id,
