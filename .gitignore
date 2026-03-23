@@ -111,3 +111,9 @@ data/scraped/
 
 # Academic cache DB
 data/cache/
+
+# Neo4j instance config (may contain plaintext passwords)
+# Keep registry.yaml tracked; individual instance configs are gitignored
+data/config/neo4j-instances/creator.yaml
+data/config/neo4j-instances/research.yaml
+data/config/neo4j-instances/note.yaml

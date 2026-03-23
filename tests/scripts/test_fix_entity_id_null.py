@@ -21,7 +21,6 @@ from fix_entity_id_null import (
     parse_args,
 )
 
-
 # ---------------------------------------------------------------------------
 # generate_entity_id
 # ---------------------------------------------------------------------------
@@ -97,6 +96,12 @@ class TestFixEntityIds:
 
     def test_正常系_executeで書き込みする(self) -> None:
         mock_session = MagicMock()
+        mock_check = MagicMock()
+        mock_check.single.return_value = {"cnt": 0}
+        mock_session.run.side_effect = [
+            mock_check, MagicMock(),  # entity 1: check + update
+            mock_check, MagicMock(),  # entity 2: check + update
+        ]
         entities = [
             NullEntityRecord(element_id="elem:1", name="Apple", entity_type="company"),
             NullEntityRecord(element_id="elem:2", name="Google", entity_type=None),
@@ -105,10 +110,13 @@ class TestFixEntityIds:
         result = fix_entity_ids(mock_session, entities, dry_run=False)
 
         assert result == 2
-        assert mock_session.run.call_count == 2
+        assert mock_session.run.call_count == 4  # 2 check + 2 update
 
     def test_正常系_entity_typeがNoneの場合unknownにフォールバック(self) -> None:
         mock_session = MagicMock()
+        mock_check = MagicMock()
+        mock_check.single.return_value = {"cnt": 0}
+        mock_session.run.side_effect = [mock_check, MagicMock()]
         entities = [
             NullEntityRecord(element_id="elem:1", name="Test", entity_type=None),
         ]
@@ -125,6 +133,9 @@ class TestFixEntityIds:
 
     def test_正常系_entity_keyが正しく設定される(self) -> None:
         mock_session = MagicMock()
+        mock_check = MagicMock()
+        mock_check.single.return_value = {"cnt": 0}
+        mock_session.run.side_effect = [mock_check, MagicMock()]
         entities = [
             NullEntityRecord(element_id="elem:1", name="Apple", entity_type="company"),
         ]

@@ -668,7 +668,7 @@ class TestTopicDiscoveryGraphQueue:
         for key in TOPIC_DISCOVERY_SOURCE_REQUIRED_KEYS:
             assert key in src, f"Source missing key: {key}"
         assert src["source_id"] == "topic-suggestion-2026-03-16T1800"
-        assert src["source_type"] == "original"
+        assert src["source_type"] == "report"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_トピックノードがカテゴリ数と一致(self, tmp_path: Path) -> None:

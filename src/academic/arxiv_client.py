@@ -7,12 +7,12 @@ arXiv API は引用情報を提供しないため、references/citations は常�
 from __future__ import annotations
 
 import xml.etree.ElementTree as ET  # nosec B405 - ET.ParseError type only
+from typing import Any
 
 import defusedxml.ElementTree as DefusedET
 import feedparser
 import httpx
 import structlog
-from typing import Any
 
 from .errors import PaperNotFoundError, ParseError
 from .rate_limiter import RateLimiter
@@ -57,9 +57,7 @@ class ArxivClient:
         @self._retry
         def _do_fetch() -> PaperMetadata:
             self._rate_limiter.acquire()
-            response = self._http_client.get(
-                "/query", params={"id_list": arxiv_id}
-            )
+            response = self._http_client.get("/query", params={"id_list": arxiv_id})
             if response.status_code != 200:
                 raise classify_http_error(response.status_code, response)
             return _parse_atom_response(response.text, arxiv_id)
@@ -93,9 +91,7 @@ def _parse_atom_response(text: str, arxiv_id: str) -> PaperMetadata:
         raise ParseError(f"arXiv Atom フィードのパースに失敗しました: {bozo_exception}")
 
     if not feed.entries:
-        raise PaperNotFoundError(
-            f"論文が見つかりません: {arxiv_id}", status_code=404
-        )
+        raise PaperNotFoundError(f"論文が見つかりません: {arxiv_id}", status_code=404)
 
     entry = feed.entries[0]
     authors = _extract_authors_from_root(root)

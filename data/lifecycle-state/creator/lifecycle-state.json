@@ -1,0 +1,145 @@
+{
+  "instance_name": "creator",
+  "mode": "redesign",
+  "dry_run": true,
+  "created_at": "2026-03-23T11:25:40+09:00",
+  "updated_at": "2026-03-23T11:27:00+09:00",
+  "current_phase": "B",
+  "phases": {
+    "A": {
+      "status": "completed",
+      "tasks": {
+        "A-1": {
+          "status": "completed",
+          "artifacts": [],
+          "decisions": {
+            "domain": "コンテンツ創作（副業・美容・スピリチュアル等）",
+            "use_cases": [
+              "テーマ別知識検索",
+              "コンテンツ企画支援",
+              "creator-enrichment",
+              "entity-linker",
+              "content-theme管理"
+            ],
+            "query_requirements": [
+              "トピック横断検索",
+              "カバレッジ分析",
+              "コンセプト別コンテンツ一覧",
+              "エンティティ関連コンテンツ取得"
+            ],
+            "data_migration_strategy": "full",
+            "existing_data": {
+              "total_nodes": 2747,
+              "total_relationships": 5119,
+              "labels": {
+                "Concept": 1438,
+                "Source": 426,
+                "Fact": 372,
+                "Tip": 270,
+                "Domain": 86,
+                "Story": 81,
+                "Entity": 57,
+                "ConceptCategory": 14,
+                "Genre": 3
+              },
+              "relationship_types": {
+                "ABOUT": 2662,
+                "IS_A": 1438,
+                "IN_GENRE": 1088,
+                "FROM_SOURCE": 662,
+                "MENTIONS": 142,
+                "FROM_DOMAIN": 100,
+                "ENABLES": 15,
+                "REQUIRES": 5,
+                "COMPETES_WITH": 4,
+                "SERVES_AS": 3
+              }
+            }
+          }
+        },
+        "A-2": {
+          "status": "completed",
+          "artifacts": ["data/lifecycle-state/creator/ontology.yaml"],
+          "decisions": {
+            "concept_categories_count": 14,
+            "entity_types": ["platform", "company", "person", "organization"],
+            "content_types": ["Fact", "Tip", "Story"],
+            "relation_types_count": 11,
+            "data_model_validation": "passed"
+          }
+        },
+        "A-3": {
+          "status": "completed",
+          "artifacts": ["data/lifecycle-state/creator/schema.yaml"],
+          "decisions": {
+            "constraints_count": 9,
+            "fulltext_indexes_count": 5,
+            "btree_indexes_count": 4
+          }
+        },
+        "A-4": {
+          "status": "completed",
+          "artifacts": ["data/lifecycle-state/creator/ontology.yaml"],
+          "decisions": {
+            "normalization_rules": {
+              "general": ["全角英数字は半角に統一", "不要なスペースは除去", "末尾の句読点は除去"],
+              "per_entity_type": {
+                "platform": "公式英語表記",
+                "company": "公式英語表記",
+                "person": "日本人は漢字、外国人はアルファベット",
+                "organization": "公式名称"
+              }
+            },
+            "alias_strategy": {
+              "enabled": true,
+              "fuzzy_layers": 2
+            }
+          }
+        }
+      }
+    },
+    "B": {
+      "status": "pending",
+      "tasks": {
+        "B-1": { "status": "pending", "artifacts": [] },
+        "B-2": { "status": "pending", "artifacts": [] },
+        "B-3": { "status": "pending", "artifacts": [] },
+        "B-4": { "status": "pending", "artifacts": [] }
+      }
+    },
+    "C": {
+      "status": "pending",
+      "tasks": {
+        "C-1": { "status": "pending", "artifacts": [] },
+        "C-2": { "status": "pending", "artifacts": [] },
+        "C-3": { "status": "pending", "artifacts": [] },
+        "C-4": { "status": "pending", "artifacts": [] }
+      }
+    },
+    "D": {
+      "status": "pending",
+      "tasks": {
+        "D-1": { "status": "pending", "artifacts": [] },
+        "D-2": { "status": "pending", "artifacts": [] },
+        "D-3": { "status": "pending", "artifacts": [] },
+        "D-4": { "status": "pending", "artifacts": [] }
+      }
+    },
+    "E": {
+      "status": "pending",
+      "tasks": {
+        "E-1": { "status": "pending", "artifacts": [] },
+        "E-2": { "status": "pending", "artifacts": [] },
+        "E-3": { "status": "pending", "artifacts": [] }
+      }
+    },
+    "F": {
+      "status": "pending",
+      "tasks": {
+        "F-1": { "status": "pending", "artifacts": [] },
+        "F-2": { "status": "pending", "artifacts": [] },
+        "F-3": { "status": "pending", "artifacts": [] }
+      }
+    }
+  }
+}

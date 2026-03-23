@@ -25,6 +25,7 @@ from kg_quality_metrics import (
     CheckRuleResult,
     MetricValue,
     QualitySnapshot,
+    _find_latest_snapshot,
     check_entity_length,
     check_relationship_compliance,
     check_schema_compliance,
@@ -48,7 +49,6 @@ from kg_quality_metrics import (
     render_console,
     save_json,
     save_neo4j,
-    _find_latest_snapshot,
 )
 
 # ---------------------------------------------------------------------------
@@ -549,6 +549,10 @@ def _make_mock_session_for_structural() -> MagicMock:
     mock_orphan = MagicMock()
     mock_orphan.single.return_value = {"orphan_count": 97}
 
+    # 孤立 Entity ノード数
+    mock_orphan_entity = MagicMock()
+    mock_orphan_entity.single.return_value = {"orphan_entity_count": 5}
+
     # BFS 連結性（開始ノードID + 到達可能ノード数）
     mock_start_node = MagicMock()
     mock_start_node.single.return_value = {"start_id": "node-1"}
@@ -561,6 +565,7 @@ def _make_mock_session_for_structural() -> MagicMock:
         mock_rel_result,
         mock_avg_degree,
         mock_orphan,
+        mock_orphan_entity,
         mock_start_node,
         mock_reachable,
     ]
@@ -630,12 +635,12 @@ def sample_schema_with_required(tmp_path: Path) -> Path:
 
 
 class TestMeasureStructural:
-    def test_正常系_4指標を返す(self) -> None:
+    def test_正常系_5指標を返す(self) -> None:
         mock_session = _make_mock_session_for_structural()
         result = measure_structural(mock_session)
         assert isinstance(result, CategoryResult)
         assert result.name == "structural"
-        assert len(result.metrics) == 4
+        assert len(result.metrics) == 5
 
     def test_正常系_エッジ密度が含まれる(self) -> None:
         mock_session = _make_mock_session_for_structural()
@@ -883,7 +888,9 @@ class TestMeasureTimeliness:
         for call in calls:
             query = call[0][0]
             if query:  # skip empty frequency_query
-                assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
+                assert "Memory" in query, (
+                    f"Memory filter missing in query: {query[:80]}"
+                )
 
 
 # ---------------------------------------------------------------------------

@@ -193,7 +193,9 @@ class TestArticle:
             published=datetime(2026, 3, 1, tzinfo=timezone.utc),
             source="cnbc",
         )
-        assert article.fetched_at == datetime(2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc)
+        assert article.fetched_at == datetime(
+            2026, 3, 19, 12, 0, 0, tzinfo=timezone.utc
+        )
 
     def test_異常系_空タイトルでバリデーションエラー(self) -> None:
         """Article raises ValidationError for empty title."""

@@ -1,0 +1,26 @@
+# Neo4j Instance Registry
+#
+# neo4j-lifecycle スキルの Phase 0 で有効インスタンスを検証するために使用。
+# 各インスタンスの詳細設定は yaml_path に記載された個別 YAML を参照。
+#
+# WARNING: パスワードを含む個別 YAML をコミットする場合は、
+# 環境変数参照形式 (${NEO4J_*_PASSWORD}) を使用し、
+# 平文パスワードを含むファイルは .gitignore に追加すること。
+
+version: "1.0"
+
+instances:
+  creator:
+    yaml_path: creator.yaml
+    description: "コンテンツ創作ナレッジグラフ（副業・美容・スピリチュアル等）"
+    use_case: "creator-enrichment / entity-linker / content-theme管理"
+
+  research:
+    yaml_path: research.yaml
+    description: "金融リサーチ・銘柄調査ナレッジグラフ"
+    use_case: "web-research / save-to-graph / kg-quality-check / topic-discovery"
+
+  note:
+    yaml_path: note.yaml
+    description: "会話履歴・意思決定ログ（Discussion/Decision/ActionItem）"
+    use_case: "project-discuss / note-quality-check / conversation管理"

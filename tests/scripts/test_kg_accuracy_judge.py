@@ -26,7 +26,6 @@ from kg_accuracy_judge import (
     sample_facts,
 )
 
-
 # ---------------------------------------------------------------------------
 # _content_hash
 # ---------------------------------------------------------------------------
@@ -162,7 +161,9 @@ class TestEvaluateSingle:
         assert result.factual_correctness == 0.9
         assert result.source_grounding == 0.8
         assert result.temporal_validity == 0.7
-        assert result.overall == pytest.approx(0.9 * 0.4 + 0.8 * 0.3 + 0.7 * 0.3, abs=0.001)
+        assert result.overall == pytest.approx(
+            0.9 * 0.4 + 0.8 * 0.3 + 0.7 * 0.3, abs=0.001
+        )
 
     def test_異常系_パース失敗でデフォルト値(self) -> None:
         mock_client = MagicMock()

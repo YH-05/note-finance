@@ -19,7 +19,6 @@ from kg_quality_alert import (
     run_alert,
 )
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
@@ -172,8 +171,14 @@ class TestRunAlert:
 
         assert len(alerts) == 1
 
-    @patch("kg_quality_alert._load_snapshot_from_json" if False else "kg_quality_alert.create_github_issue")
-    def test_正常系_アラートなしではIssue作成しない(self, mock_create: MagicMock) -> None:
+    @patch(
+        "kg_quality_alert._load_snapshot_from_json"
+        if False
+        else "kg_quality_alert.create_github_issue"
+    )
+    def test_正常系_アラートなしではIssue作成しない(
+        self, mock_create: MagicMock
+    ) -> None:
         snapshot = _make_snapshot(50.0)
         check_rules = [_make_check_rule("test", 0.99)]
 

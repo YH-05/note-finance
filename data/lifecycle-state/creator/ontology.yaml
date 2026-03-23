@@ -1,0 +1,261 @@
+# =============================================================================
+# ontology.yaml - creator instance
+# =============================================================================
+# neo4j-lifecycle Phase A で生成されたオントロジー定義。
+# --mode redesign --dry-run による既存グラフ分析に基づく再設計ドラフト。
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# メタ情報
+# ---------------------------------------------------------------------------
+schema_version: "creator-2.0"
+instance_name: "creator"
+domain: "コンテンツ創作（副業・美容・スピリチュアル等）のナレッジグラフ"
+created_at: "2026-03-23T11:26:00+09:00"
+updated_at: "2026-03-23T11:26:00+09:00"
+
+# ---------------------------------------------------------------------------
+# ConceptCategory 定義
+# ---------------------------------------------------------------------------
+# 既存グラフの 14 ConceptCategory を維持。What/How レイヤーで分類。
+
+concept_categories:
+  # --- What レイヤー（何についてか） ---
+  - name: MonetizationMethod
+    name_ja: 収益化手段
+    layer: What
+    description: 収入を生み出す手段やビジネスモデル
+
+  - name: AcquisitionChannel
+    name_ja: 集客チャネル
+    layer: What
+    description: 顧客獲得・集客のためのチャネル
+
+  - name: Skill
+    name_ja: スキル・技能
+    layer: What
+    description: 専門的な技能や知識
+
+  - name: Audience
+    name_ja: ターゲット層
+    layer: What
+    description: 想定読者・顧客のセグメント
+
+  - name: RevenueModel
+    name_ja: 収益モデル
+    layer: What
+    description: 収益構造のパターン
+
+  - name: SuccessMetric
+    name_ja: 成果指標
+    layer: What
+    description: KPI・成果の計測基準
+
+  - name: ContentFormat
+    name_ja: コンテンツ形式
+    layer: What
+    description: コンテンツの配信フォーマット
+
+  - name: Regulation
+    name_ja: 法規制
+    layer: What
+    description: 法令・コンプライアンス規制
+
+  - name: Milestone
+    name_ja: マイルストーン
+    layer: What
+    description: 時間軸の目安・到達点
+
+  # --- How レイヤー（どう伝えるか） ---
+  - name: PersuasionTechnique
+    name_ja: 説得技法
+    layer: How
+    description: 説得・影響力の技法
+
+  - name: EmotionalHook
+    name_ja: 感情トリガー
+    layer: How
+    description: 読者の感情を動かす仕掛け
+
+  - name: CopyFramework
+    name_ja: 文章構成パターン
+    layer: How
+    description: ライティングのフレームワーク
+
+  - name: Objection
+    name_ja: 反論・障壁
+    layer: How
+    description: 読者が抱く反論や購買障壁
+
+  - name: Transformation
+    name_ja: 変化パターン
+    layer: How
+    description: ビフォーアフターの変容パターン
+
+# ---------------------------------------------------------------------------
+# Entity Type 定義
+# ---------------------------------------------------------------------------
+# 既存グラフの entity_type 分布: platform(50), company(6), person(1)
+# organization を追加（公的機関・団体用）
+
+entity_types:
+  - key: platform
+    name_ja: プラットフォーム
+    description: サービス・プラットフォーム・ツール
+    examples: [Instagram, Coconala, ChatGPT, Canva, note]
+    normalization: 公式英語表記（インスタ → Instagram、ココナラ → Coconala）
+
+  - key: company
+    name_ja: 企業・組織
+    description: 企業・組織
+    examples: [Google, Match Group, リクルート]
+    normalization: 公式英語表記
+
+  - key: person
+    name_ja: 人物
+    description: 実在の人物
+    examples: [林知佳, Elon Musk]
+    normalization: 日本人は漢字、外国人はアルファベット
+
+  - key: organization
+    name_ja: 公的機関・団体
+    description: 公的機関・団体
+    examples: [厚生労働省, 国税庁, 消費者庁]
+    normalization: 公式名称
+
+# ---------------------------------------------------------------------------
+# Content Type 定義
+# ---------------------------------------------------------------------------
+# 既存グラフの Fact(372), Tip(270), Story(81) を維持。
+
+content_types:
+  - label: Fact
+    description: 事実・データ（統計、調査結果、公式発表）
+    key_property: fact_id
+    text_property: text
+    extra_properties: [category, confidence]
+
+  - label: Tip
+    description: ハウツー・ノウハウ（手順、推奨事項、ベストプラクティス）
+    key_property: tip_id
+    text_property: text
+    extra_properties: [category, difficulty]
+
+  - label: Story
+    description: 体験談・事例（個人体験、ケーススタディ）
+    key_property: story_id
+    text_property: text
+    extra_properties: [outcome, timeline]
+
+# ---------------------------------------------------------------------------
+# Relation Type 定義
+# ---------------------------------------------------------------------------
+# 既存グラフの全リレーションタイプを定義。
+
+relation_types:
+  - type: IS_A
+    from_label: Concept
+    to_label: ConceptCategory
+    description: Concept がどの上位カテゴリに属するか
+    cardinality: "N:1"
+
+  - type: SERVES_AS
+    from_label: Entity
+    to_label: Concept
+    description: Entity が Concept に対して果たす役割
+    properties: [context]
+    cardinality: "N:M"
+
+  - type: ABOUT
+    from_label: "[Fact|Tip|Story]"
+    to_label: Concept
+    description: コンテンツが扱う概念トピック
+    cardinality: "N:M"
+
+  - type: MENTIONS
+    from_label: "[Fact|Tip|Story]"
+    to_label: Entity
+    description: コンテンツが言及する固有名詞
+    cardinality: "N:M"
+
+  - type: FROM_SOURCE
+    from_label: "[Fact|Tip|Story]"
+    to_label: Source
+    description: コンテンツの出典ソース
+    cardinality: "N:1"
+
+  - type: IN_GENRE
+    from_label: "[Fact|Tip|Story]"
+    to_label: Genre
+    description: コンテンツのジャンル分類
+    cardinality: "N:1"
+
+  - type: FROM_DOMAIN
+    from_label: Source
+    to_label: Domain
+    description: ソースのドメイン（Webサイト）
+    cardinality: "N:1"
+
+  - type: ALIAS_OF
+    from_label: Alias
+    to_label: "[Entity|Concept]"
+    description: 別名・略称の正規化
+    cardinality: "N:1"
+
+  - type: ENABLES
+    from_label: Concept
+    to_label: Concept
+    description: AがBを可能にする関係
+    cardinality: "N:M"
+
+  - type: REQUIRES
+    from_label: Concept
+    to_label: Concept
+    description: AにはBが必要な関係
+    cardinality: "N:M"
+
+  - type: COMPETES_WITH
+    from_label: Concept
+    to_label: Concept
+    description: AとBは代替・競合関係
+    cardinality: "N:M"
+
+# ---------------------------------------------------------------------------
+# 共通ノード定義（全インスタンス共通）
+# ---------------------------------------------------------------------------
+common_nodes:
+  - label: Source
+    key_property: source_id
+    description: データの出典元（URL、論文、書籍等）
+    required_properties: [source_id, url, title, source_type]
+    optional_properties: [authority_level, language, domain, collected_at, published_at]
+
+  - label: Entity
+    key_property: entity_key
+    description: 固有名詞（企業、人物、プラットフォーム等）
+    required_properties: [entity_key, entity_id, name, entity_type]
+    optional_properties: [updated_at]
+
+# ---------------------------------------------------------------------------
+# 正規化ルール
+# ---------------------------------------------------------------------------
+normalization_rules:
+  general:
+    - 全角英数字は半角に統一
+    - 不要なスペースは除去
+    - 末尾の句読点は除去
+  per_entity_type:
+    platform: 公式英語表記（インスタ → Instagram、ココナラ → Coconala）
+    company: 公式英語表記
+    person: 日本人は漢字、外国人はアルファベット
+    organization: 公式名称
+
+# ---------------------------------------------------------------------------
+# Alias 戦略
+# ---------------------------------------------------------------------------
+alias_strategy:
+  enabled: true
+  fuzzy_layers: 2
+  sources:
+    - entity-aliases.yaml
+    - auto_detected
