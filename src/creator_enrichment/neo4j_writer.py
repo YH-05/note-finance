@@ -106,6 +106,14 @@ class CreatorGraphWriter:
         ("ALIAS_OF", "Alias", "Entity", "value", "entity_id", "alias_of"),
     ]
 
+    # 許可リスト（Cypher インジェクション防止）
+    _ALLOWED_LABELS: ClassVar[frozenset[str]] = frozenset(
+        label for label, _, _ in _NODE_ORDER  # type: ignore[misc]
+    )
+    _ALLOWED_KEY_FIELDS: ClassVar[frozenset[str]] = frozenset(
+        key for _, key, _ in _NODE_ORDER  # type: ignore[misc]
+    )
+
     def __init__(self, driver: Any) -> None:
         self._driver = driver
         logger.info("CreatorGraphWriter initialized")
@@ -277,6 +285,10 @@ class CreatorGraphWriter:
         """
         if not items:
             return 0
+
+        if label not in self._ALLOWED_LABELS:
+            msg = f"Disallowed label: {label!r}"
+            raise ValueError(msg)
 
         query = f"""
         UNWIND $items AS row

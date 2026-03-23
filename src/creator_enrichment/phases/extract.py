@@ -22,50 +22,17 @@ import logging
 import time
 from datetime import datetime
 
+from creator_enrichment.config import ANTHROPIC_MAX_TOKENS, ANTHROPIC_MODEL
 from creator_enrichment.types import CycleData, RawItem
+from creator_enrichment.utils import strip_json_codeblock
 
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # 定数
 # ---------------------------------------------------------------------------
-_MODEL = "claude-haiku-4-5-20251001"
-"""使用する Anthropic モデル名."""
-
-_MAX_TOKENS = 2000
-"""API 呼び出しの max_tokens."""
-
 _SLEEP_INTERVAL = 1
 """API 呼び出し間のスリープ秒数."""
-
-
-# ---------------------------------------------------------------------------
-# JSON コードブロック除去
-# ---------------------------------------------------------------------------
-def _strip_json_codeblock(text: str) -> str:
-    """LLM レスポンスから JSON コードブロックマーカーを除去する.
-
-    ``````json ... `````` または ````` ... ````` ラッピングに対応する。
-    restructure_claims.py のパターンを踏襲。
-
-    Parameters
-    ----------
-    text : str
-        LLM のテキストレスポンス
-
-    Returns
-    -------
-    str
-        コードブロックマーカーを除去した文字列
-    """
-    text = text.strip()
-    if text.startswith("```json"):
-        text = text[len("```json") :]
-    elif text.startswith("```"):
-        text = text[len("```") :]
-    if text.endswith("```"):
-        text = text[: -len("```")]
-    return text.strip()
 
 
 # ---------------------------------------------------------------------------
@@ -196,8 +163,8 @@ class ContentExtractor:
         )
 
         response = self._client.messages.create(  # type: ignore[union-attr]
-            model=_MODEL,
-            max_tokens=_MAX_TOKENS,
+            model=ANTHROPIC_MODEL,
+            max_tokens=ANTHROPIC_MAX_TOKENS,
             messages=[{"role": "user", "content": prompt}],
         )
 
@@ -206,7 +173,7 @@ class ContentExtractor:
         if not response_text or not response_text.strip():
             raise ValueError(f"Empty response from API for item: {item['title']}")
 
-        cleaned = _strip_json_codeblock(response_text)
+        cleaned = strip_json_codeblock(response_text)
 
         try:
             parsed = json.loads(cleaned)

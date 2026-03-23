@@ -18,19 +18,27 @@ import json
 import logging
 from typing import Any
 
+from creator_enrichment.config import ANTHROPIC_MAX_TOKENS, ANTHROPIC_MODEL
+from creator_enrichment.utils import strip_json_codeblock
+
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # 定数
 # ---------------------------------------------------------------------------
-_MODEL = "claude-haiku-4-5-20251001"
-"""使用する Anthropic モデル名."""
-
-_MAX_TOKENS = 2000
-"""API 呼び出しの max_tokens."""
-
 _MAX_PAIRS = 25
 """LLM に送信するペアの上限数."""
+
+_ALLOWED_REL_DETAILS = frozenset({
+    "ENABLES",
+    "USES",
+    "COMPETES_WITH",
+    "PART_OF",
+    "MEASURES",
+    "PRODUCES",
+    "RELATED",
+})
+"""LLM 判定で許可される rel_detail 値."""
 
 # ---------------------------------------------------------------------------
 # Cypher クエリ
@@ -107,34 +115,6 @@ _JUDGMENT_PROMPT = """\
 
 
 # ---------------------------------------------------------------------------
-# JSON コードブロック除去
-# ---------------------------------------------------------------------------
-def _strip_json_codeblock(text: str) -> str:
-    """LLM レスポンスから JSON コードブロックマーカーを除去する.
-
-    extract.py のパターンを踏襲。
-
-    Parameters
-    ----------
-    text : str
-        LLM のテキストレスポンス
-
-    Returns
-    -------
-    str
-        コードブロックマーカーを除去した文字列
-    """
-    text = text.strip()
-    if text.startswith("```json"):
-        text = text[len("```json") :]
-    elif text.startswith("```"):
-        text = text[len("```") :]
-    if text.endswith("```"):
-        text = text[: -len("```")]
-    return text.strip()
-
-
-# ---------------------------------------------------------------------------
 # CrossEntityEnricher
 # ---------------------------------------------------------------------------
 class CrossEntityEnricher:
@@ -175,27 +155,23 @@ class CrossEntityEnricher:
             cycle_count,
         )
 
-        # Step 1: 共起候補クエリ
+        # Step 1 + 2: 共起候補 + 同一タイプ未接続ペアを同一セッションで取得
         with self._driver.session() as session:
             co_occurrence_candidates = [
                 dict(record) for record in session.run(_CO_OCCURRENCE_QUERY)
             ]
+            logger.info(
+                "Co-occurrence candidates: %d pairs",
+                len(co_occurrence_candidates),
+            )
 
-        logger.info(
-            "Co-occurrence candidates: %d pairs",
-            len(co_occurrence_candidates),
-        )
-
-        # Step 2: 同一タイプ未接続ペアクエリ
-        with self._driver.session() as session:
             same_type_candidates = [
                 dict(record) for record in session.run(_SAME_TYPE_QUERY)
             ]
-
-        logger.info(
-            "Same-type candidates: %d pairs",
-            len(same_type_candidates),
-        )
+            logger.info(
+                "Same-type candidates: %d pairs",
+                len(same_type_candidates),
+            )
 
         # Step 3: 候補の結合とトランケーション
         all_candidates = co_occurrence_candidates + same_type_candidates
@@ -221,13 +197,13 @@ class CrossEntityEnricher:
         logger.debug("Calling LLM for judgment: %d pairs", len(all_candidates))
 
         response = self._client.messages.create(  # type: ignore[union-attr]
-            model=_MODEL,
-            max_tokens=_MAX_TOKENS,
+            model=ANTHROPIC_MODEL,
+            max_tokens=ANTHROPIC_MAX_TOKENS,
             messages=[{"role": "user", "content": prompt}],
         )
 
         response_text = response.content[0].text
-        cleaned = _strip_json_codeblock(response_text)
+        cleaned = strip_json_codeblock(response_text)
 
         try:
             judgments: list[dict[str, str]] = json.loads(cleaned)
@@ -235,8 +211,11 @@ class CrossEntityEnricher:
             logger.error("Failed to parse LLM response: %s", str(e))
             return 0
 
-        # Step 4: SKIP をフィルタし MERGE
-        non_skip_rels = [j for j in judgments if j.get("rel_detail") != "SKIP"]
+        # Step 4: SKIP をフィルタし、許可リスト外の rel_detail も除外して MERGE
+        non_skip_rels = [
+            j for j in judgments
+            if j.get("rel_detail") in _ALLOWED_REL_DETAILS
+        ]
 
         if not non_skip_rels:
             logger.info("All pairs judged as SKIP, no relations to MERGE")

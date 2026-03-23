@@ -31,6 +31,12 @@ logger = logging.getLogger(__name__)
 GENRE_NAMES: list[str] = ["career", "beauty-romance", "spiritual"]
 """有効なジャンル名のリスト."""
 
+ANTHROPIC_MODEL: str = "claude-haiku-4-5-20251001"
+"""Anthropic API で使用するモデル名."""
+
+ANTHROPIC_MAX_TOKENS: int = 2000
+"""Anthropic API 呼び出しの max_tokens."""
+
 _DEFAULT_CONFIG_PATH = Path("data/config/creator-enrichment-config.json")
 
 

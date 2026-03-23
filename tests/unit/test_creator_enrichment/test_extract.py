@@ -15,11 +15,9 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from creator_enrichment.phases.extract import (
-    ContentExtractor,
-    _strip_json_codeblock,
-)
+from creator_enrichment.phases.extract import ContentExtractor
 from creator_enrichment.types import CycleData, RawItem
+from creator_enrichment.utils import strip_json_codeblock
 
 
 # ---------------------------------------------------------------------------
@@ -85,40 +83,40 @@ def _make_mock_response(text: str) -> MagicMock:
 # JSON コードブロック除去
 # ---------------------------------------------------------------------------
 class TestStripJsonCodeblock:
-    """_strip_json_codeblock のテスト."""
+    """strip_json_codeblock のテスト."""
 
     def test_正常系_jsonコードブロックを除去できる(self) -> None:
         """```json ... ``` コードブロックを正しく除去する."""
         raw = '```json\n{"key": "value"}\n```'
-        result = _strip_json_codeblock(raw)
+        result = strip_json_codeblock(raw)
         assert result == '{"key": "value"}'
 
     def test_正常系_言語指定なしコードブロックを除去できる(self) -> None:
         """``` ... ``` コードブロック（言語指定なし）を正しく除去する."""
         raw = '```\n{"key": "value"}\n```'
-        result = _strip_json_codeblock(raw)
+        result = strip_json_codeblock(raw)
         assert result == '{"key": "value"}'
 
     def test_正常系_コードブロックなしはそのまま(self) -> None:
         """コードブロックなしの文字列はそのまま返す."""
         raw = '{"key": "value"}'
-        result = _strip_json_codeblock(raw)
+        result = strip_json_codeblock(raw)
         assert result == '{"key": "value"}'
 
     def test_正常系_前後の空白を除去する(self) -> None:
         """前後の空白を除去する."""
         raw = '  \n```json\n{"key": "value"}\n```\n  '
-        result = _strip_json_codeblock(raw)
+        result = strip_json_codeblock(raw)
         assert result == '{"key": "value"}'
 
     def test_正常系_空文字列(self) -> None:
         """空文字列を渡した場合は空文字列を返す."""
-        assert _strip_json_codeblock("") == ""
+        assert strip_json_codeblock("") == ""
 
     def test_正常系_コードブロック内の複数行(self) -> None:
         """コードブロック内に複数行の JSON がある場合も正しく処理する."""
         raw = '```json\n{\n  "key": "value",\n  "num": 42\n}\n```'
-        result = _strip_json_codeblock(raw)
+        result = strip_json_codeblock(raw)
         parsed = json.loads(result)
         assert parsed == {"key": "value", "num": 42}
 
