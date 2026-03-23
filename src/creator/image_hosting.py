@@ -69,7 +69,7 @@ class R2ImageHost:
             raise FileNotFoundError(f"File not found: {path}")
 
         # content-hash でファイル名を生成（重複アップロード防止）
-        file_hash = hashlib.md5(path.read_bytes()).hexdigest()[:12]
+        file_hash = hashlib.md5(path.read_bytes(), usedforsecurity=False).hexdigest()[:12]
         ext = path.suffix.lower()
         key = f"{prefix}/{file_hash}{ext}"
 
