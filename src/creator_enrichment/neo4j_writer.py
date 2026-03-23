@@ -18,7 +18,7 @@ Usage
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import Any, ClassVar
 
 from .types import IngestResult
 
@@ -47,7 +47,7 @@ class CreatorGraphWriter:
     # ノード定義: (label, key_field, has_cycle_id)
     # 依存関係順に並べる
     # ------------------------------------------------------------------
-    _NODE_ORDER: list[tuple[str, str, bool]] = [
+    _NODE_ORDER: ClassVar[list[tuple[str, str, bool]]] = [
         ("Genre", "genre_id", False),
         ("ConceptCategory", "name", False),
         ("Concept", "concept_id", False),
@@ -63,7 +63,7 @@ class CreatorGraphWriter:
     # ------------------------------------------------------------------
     # queue_doc キーとノード定義のマッピング
     # ------------------------------------------------------------------
-    _NODE_KEY_MAP: dict[str, str] = {
+    _NODE_KEY_MAP: ClassVar[dict[str, str]] = {
         "Genre": "genres",
         "ConceptCategory": "concept_categories",
         "Concept": "concepts",
@@ -80,7 +80,7 @@ class CreatorGraphWriter:
     # リレーション定義:
     # (rel_type, from_label, to_label, from_key, to_key, queue_key)
     # ------------------------------------------------------------------
-    _REL_ORDER: list[tuple[str, str, str, str, str, str]] = [
+    _REL_ORDER: ClassVar[list[tuple[str, str, str, str, str, str]]] = [
         ("IS_A", "Concept", "ConceptCategory", "concept_id", "name", "is_a"),
         ("SERVES_AS", "Entity", "Concept", "entity_key", "concept_id", "serves_as"),
         ("ABOUT", "Fact", "Concept", "fact_id", "concept_id", "about_fact"),
@@ -94,7 +94,14 @@ class CreatorGraphWriter:
         ("IN_GENRE", "Story", "Genre", "story_id", "genre_id", "in_genre_story"),
         ("FROM_SOURCE", "Fact", "Source", "fact_id", "source_id", "from_source_fact"),
         ("FROM_SOURCE", "Tip", "Source", "tip_id", "source_id", "from_source_tip"),
-        ("FROM_SOURCE", "Story", "Source", "story_id", "source_id", "from_source_story"),
+        (
+            "FROM_SOURCE",
+            "Story",
+            "Source",
+            "story_id",
+            "source_id",
+            "from_source_story",
+        ),
         ("FROM_DOMAIN", "Source", "Domain", "source_id", "name", "from_domain"),
         ("ALIAS_OF", "Alias", "Entity", "value", "entity_id", "alias_of"),
     ]
@@ -129,7 +136,7 @@ class CreatorGraphWriter:
 
         # 全ノード種が空かチェック
         has_data = False
-        for label, key_field, has_cycle_id in self._NODE_ORDER:
+        for label, _key_field, _has_cycle_id in self._NODE_ORDER:
             queue_key = self._NODE_KEY_MAP[label]
             items = queue_doc.get(queue_key, [])
             if items:
@@ -151,7 +158,11 @@ class CreatorGraphWriter:
                 items = queue_doc.get(queue_key, [])
                 cid = cycle_id if has_cycle_id else None
                 created = self._merge_nodes(
-                    session, label, items, key_field, cycle_id=cid,
+                    session,
+                    label,
+                    items,
+                    key_field,
+                    cycle_id=cid,
                 )
                 total_nodes += created
                 if items:
@@ -165,7 +176,14 @@ class CreatorGraphWriter:
             # Phase 2: リレーション MERGE（ノード MERGE 完了後）
             logger.info("Starting relationship MERGE phase")
             relations = queue_doc.get("relations", {})
-            for rel_type, from_label, to_label, from_key, to_key, queue_key in self._REL_ORDER:
+            for (
+                rel_type,
+                from_label,
+                to_label,
+                from_key,
+                to_key,
+                queue_key,
+            ) in self._REL_ORDER:
                 items = relations.get(queue_key, [])
                 created = self._merge_relations(
                     session,

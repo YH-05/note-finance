@@ -19,8 +19,11 @@ logger = logging.getLogger(__name__)
 
 def main() -> None:
     """CLI entrypoint for creator-enrichment orchestrator."""
-    from creator_enrichment.config import parse_args, load_config
-    from creator_enrichment.orchestrator import CreatorEnrichmentOrchestrator, FatalError
+    from creator_enrichment.config import load_config, parse_args
+    from creator_enrichment.orchestrator import (
+        CreatorEnrichmentOrchestrator,
+        FatalError,
+    )
 
     args = parse_args()
 

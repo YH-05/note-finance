@@ -227,14 +227,13 @@ class TestIngestNodeOrder:
             if "MERGE" in query and "MATCH" not in query:
                 # "MERGE (n:Genre" のような形式からラベルを抽出
                 for label, _, _ in CreatorGraphWriter._NODE_ORDER:
-                    if f":{label} " in query or f":{label}" in query:
-                        if label not in node_labels_in_order:
+                    if (f":{label} " in query or f":{label}" in query) and label not in node_labels_in_order:
                             node_labels_in_order.append(label)
 
         expected_order = [label for label, _, _ in CreatorGraphWriter._NODE_ORDER]
         # 実際に MERGE されたラベルだけで順序を検証
         # （空リストのラベルはスキップされる可能性がある）
-        actual_filtered = [l for l in expected_order if l in node_labels_in_order]
+        actual_filtered = [lbl for lbl in expected_order if lbl in node_labels_in_order]
         assert node_labels_in_order == actual_filtered
 
     def test_正常系_ノードMERGEがリレーションMERGEの前に実行される(
@@ -561,7 +560,7 @@ class TestValidate:
         mock_record2.__getitem__ = lambda self, key: {"label": "Tip", "count": 3}[key]
         session.run.return_value = [mock_record1, mock_record2]
 
-        result = writer.validate("cycle-test-001")
+        writer.validate("cycle-test-001")
 
         # session.run が cycle_id パラメータ付きで呼ばれたことを確認
         session.run.assert_called()
@@ -654,7 +653,11 @@ class TestMergeNodes:
         items = [{"fact_id": "f1", "text": "test"}]
 
         writer._merge_nodes(
-            session, "Fact", items, "fact_id", cycle_id="cycle-abc",
+            session,
+            "Fact",
+            items,
+            "fact_id",
+            cycle_id="cycle-abc",
         )
 
         query = session.run.call_args.args[0]
