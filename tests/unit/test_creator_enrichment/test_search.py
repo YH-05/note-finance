@@ -334,8 +334,20 @@ class TestEmptyResults:
 class TestDefaultProvider:
     """デフォルトプロバイダーロードのテスト."""
 
-    def test_異常系_claude_agent_sdk未インストールでRuntimeError(self) -> None:
+    def test_異常系_claude_agent_sdk未インストールでRuntimeError(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         """provider=None かつ claude_agent_sdk 未インストール時に RuntimeError."""
+        import builtins
+
+        real_import = builtins.__import__
+
+        def _mock_import(name: str, *args: object, **kwargs: object) -> object:
+            if name == "claude_agent_sdk":
+                raise ImportError("mocked")
+            return real_import(name, *args, **kwargs)
+
+        monkeypatch.setattr(builtins, "__import__", _mock_import)
         with pytest.raises(RuntimeError, match="claude_agent_sdk"):
             ClaudeCodeSearcher(provider=None)
 

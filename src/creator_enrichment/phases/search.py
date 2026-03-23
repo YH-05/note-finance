@@ -347,9 +347,7 @@ class ClaudeCodeSearcher:
             claude_agent_sdk が未インストールの場合
         """
         try:
-            from claude_agent_sdk import (
-                query as sdk_query,  # type: ignore[import-untyped]
-            )
+            import claude_agent_sdk
 
             class _SdkProvider:
                 """claude_agent_sdk.query() をラップするプロバイダー."""
@@ -357,11 +355,27 @@ class ClaudeCodeSearcher:
                 def query(
                     self, *, system_prompt: str, prompt: str, timeout: int
                 ) -> str:
-                    return sdk_query(
+                    import asyncio
+
+                    options = claude_agent_sdk.ClaudeAgentOptions(
                         system_prompt=system_prompt,
-                        prompt=prompt,
-                        timeout=timeout,
+                        max_turns=1,
                     )
+                    full_prompt = f"{system_prompt}\n\n{prompt}"
+
+                    async def _run() -> str:
+                        result_text = ""
+                        async for msg in claude_agent_sdk.query(
+                            prompt=full_prompt,
+                            options=options,
+                        ):
+                            if hasattr(msg, "content"):
+                                for block in msg.content:
+                                    if hasattr(block, "text"):
+                                        result_text += block.text
+                        return result_text
+
+                    return asyncio.run(_run())
 
             logger.info("Default provider loaded from claude_agent_sdk")
             return _SdkProvider()
