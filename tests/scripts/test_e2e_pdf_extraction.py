@@ -63,6 +63,7 @@ GRAPH_QUEUE_REQUIRED_KEYS: set[str] = {
 """graph-queue JSON v2.0 の必須トップレベルキー。"""
 
 PDF_RELATION_KEYS: set[str] = {
+    # v2.1 relation keys (21)
     "source_fact",
     "source_claim",
     "fact_entity",
@@ -84,8 +85,29 @@ PDF_RELATION_KEYS: set[str] = {
     "asks_about",
     "motivated_by",
     "authored_by",
+    # v3.0 classification relation keys (20)
+    "is_source_type",
+    "from_domain",
+    "rated_as",
+    "in_language",
+    "ingested_via",
+    "is_type",
+    "has_identifier",
+    "in_industry",
+    "is_fact_type",
+    "is_claim_type",
+    "in_unit",
+    "is_datapoint_type",
+    "is_category",
+    "is_author_type",
+    "affiliated_with",
+    "alias_of",
+    "parent_class",
+    "in_parent_sector",
+    "issued_by",
+    "is_instrument_class",
 }
-"""pdf-extraction で生成される 21 種のリレーションキー（v2.2）。"""
+"""pdf-extraction で生成される 41 種のリレーションキー（v3.0）。"""
 
 
 # ---------------------------------------------------------------------------
@@ -448,14 +470,14 @@ class TestPdfExtractionFormatCompliance:
         assert isinstance(queue_data, dict)
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_schema_versionが2_1である(self, tmp_path: Path) -> None:
-        """受け入れ条件: schema_version が '2.2' であること。"""
+    def test_正常系_schema_versionが3_0である(self, tmp_path: Path) -> None:
+        """受け入れ条件: schema_version が '3.0' であること。"""
         data = _realistic_pdf_extraction_data()
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "2.2"
-        assert SCHEMA_VERSION == "2.2"
+        assert queue_data["schema_version"] == "3.0"
+        assert SCHEMA_VERSION == "3.0"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_必須トップレベルキーが全て存在する(self, tmp_path: Path) -> None:
@@ -799,7 +821,7 @@ class TestRelations:
     """11 種のリレーションキーが全て存在し、正しいリンクを持つことを検証。"""
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_全20種のリレーションキーが存在する(self, tmp_path: Path) -> None:
+    def test_正常系_全41種のリレーションキーが存在する(self, tmp_path: Path) -> None:
         data = _realistic_pdf_extraction_data()
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
@@ -1096,7 +1118,7 @@ class TestMinimalPdfExtraction:
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "2.2"
+        assert queue_data["schema_version"] == "3.0"
         assert queue_data["command_source"] == "pdf-extraction"
 
     @freeze_time(FROZEN_TIME)
@@ -1129,7 +1151,7 @@ class TestMinimalPdfExtraction:
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "2.2"
+        assert queue_data["schema_version"] == "3.0"
         assert len(queue_data["sources"]) == 1  # source always created
         assert queue_data["entities"] == []
         assert queue_data["facts"] == []

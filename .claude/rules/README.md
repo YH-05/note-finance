@@ -21,6 +21,7 @@
 | `subagent-data-passing.md` | **サブエージェントへのデータ渡しルール（完全なデータ構造必須）** |
 | `article-quality-standards.md` | **記事品質ルール（表の画像化・ソースURL埋め込み必須）** |
 | `neo4j-write-rules.md` | **Neo4j直書き禁止ルール（全データ投入はパイプライン経由必須）** |
+| `neo4j-query-construction.md` | **Cypherクエリ構築ルール（スキーマ事前取得必須・動的LIMIT）** |
 
 ## 使用方法
 

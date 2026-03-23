@@ -1,0 +1,564 @@
+# =============================================================================
+# enrichment-config.yaml — research-neo4j v3.0 Phase E-1
+# =============================================================================
+# research-enrichment スキルの設定ファイル。
+# Phase D 品質レポート（Grade B, 83.5）の結果を反映し、
+# エンティティタイプ別のエンリッチメント戦略を定義する。
+# =============================================================================
+
+schema_version: "research-3.0"
+instance_name: "research"
+domain: "金融リサーチ・銘柄調査のナレッジグラフ"
+generated_at: "2026-03-23"
+phase: "E-1"
+quality_baseline:
+  grade: "B"
+  score: 83.5
+  report: "data/lifecycle-state/research/quality-report-20260323.md"
+
+# =============================================================================
+# Phase B 成果物への参照
+# =============================================================================
+references:
+  # 抽出プロンプト（LLM にテキストを渡し構造化 JSON を抽出する）
+  extraction_prompt: "data/lifecycle-state/research/extraction-prompt.md"
+
+  # MERGE ガイド（制約・インデックス・MERGE パターン）
+  merge_guide: "data/lifecycle-state/research/merge-guide.md"
+
+  # エンティティリンカー設定（照合・統合の設定）
+  entity_linker_config: "data/lifecycle-state/research/entity-linker-config.yaml"
+
+  # オントロジー定義
+  ontology: "data/lifecycle-state/research/ontology.yaml"
+
+# =============================================================================
+# MCP ツール設定
+# =============================================================================
+mcp_tools:
+  read: "mcp__neo4j-research__research-read_neo4j_cypher"
+  write: "mcp__neo4j-research__research-write_neo4j_cypher"
+  schema: "mcp__neo4j-research__research-get_neo4j_schema"
+
+# =============================================================================
+# エンリッチメント戦略（14 entity_type 別）
+# =============================================================================
+# 各戦略は以下を定義:
+#   - sources: データ取得元
+#   - target_properties: 充填対象プロパティ
+#   - priority: エンリッチメント優先度（P0/P1/P2/P3）
+#   - frequency: 更新頻度
+#   - relationships: エンリッチメントで作成すべきリレーション
+
+enrichment_strategies:
+  # ---------------------------------------------------------------------------
+  # company（190件、セクター充填率 13.7%、ティッカー充填率 11.1%）
+  # ---------------------------------------------------------------------------
+  company:
+    priority: P0
+    frequency: weekly
+    description: "企業エンティティの財務・識別情報のエンリッチメント"
+    sources:
+      - name: "SEC Edgar"
+        tool: "mcp__sec-edgar-mcp__get_company_info"
+        description: "CIK/ティッカーから企業概要・セクター・SIC コードを取得"
+        target_properties: [sec_cik, sector, industry]
+      - name: "SEC Edgar Financials"
+        tool: "mcp__sec-edgar-mcp__get_financials"
+        description: "最新決算データ（Revenue, Net Income 等）を FDP として投入"
+        target_properties: []  # FDP ノードとして作成
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "企業の最新ニュース・IR 情報を補完"
+        query_template: "{name} investor relations financial results {year}"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "企業概要・設立年・本社所在地の補完"
+        target_properties: [description]
+    target_properties:
+      - property: sector
+        current_coverage: "13.7%"
+        target_coverage: "80%"
+      - property: ticker
+        current_coverage: "11.1%"
+        target_coverage: "90%"
+      - property: sec_cik
+        current_coverage: "3.3%"
+        target_coverage: "50%"
+      - property: industry
+        current_coverage: "9.0%"
+        target_coverage: "60%"
+    relationships:
+      - type: IN_SECTOR
+        description: "SEC Edgar の SIC/GICS コードから Sector ノードに接続"
+      - type: IN_INDUSTRY
+        description: "SEC Edgar の Industry 情報から Industry ノードに接続"
+      - type: HAS_IDENTIFIER
+        description: "ティッカー・CIK・ISIN 等を Identifier ノードとして作成・接続"
+      - type: OPERATES_IN
+        description: "本社所在国・主要事業展開国への接続"
+
+  # ---------------------------------------------------------------------------
+  # technology（275件、最大カテゴリ）
+  # ---------------------------------------------------------------------------
+  technology:
+    priority: P2
+    frequency: monthly
+    description: "テクノロジーエンティティの定義・関連情報のエンリッチメント"
+    sources:
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "技術の定義・歴史・用途を取得"
+        target_properties: [description]
+      - name: "Academic Papers"
+        tool: "mcp__alphaxiv__embedding_similarity_search"
+        description: "関連学術論文を検索し Source として投入"
+        query_template: "{name} technology overview"
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "最新の技術動向・市場規模を取得"
+        query_template: "{name} technology market size trends {year}"
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "50%"
+    relationships:
+      - type: INFLUENCES
+        description: "技術が影響を与える企業・セクターへの接続"
+      - type: CO_MENTIONED_WITH
+        description: "同一ソースで共起するエンティティとの接続"
+
+  # ---------------------------------------------------------------------------
+  # organization（127件、中央銀行・政府機関等を含む）
+  # ---------------------------------------------------------------------------
+  organization:
+    priority: P1
+    frequency: monthly
+    description: "機関エンティティの公式情報エンリッチメント"
+    sources:
+      - name: "Official Website"
+        tool: "mcp__tavily__tavily_search"
+        description: "公式サイトから組織概要・ミッション・主要政策を取得"
+        query_template: "{name} official site mission"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "組織の歴史・役割・所在地を取得"
+        target_properties: [description]
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "最新の政策発表・人事異動を取得"
+        query_template: "{name} policy announcement {year}"
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "60%"
+    relationships:
+      - type: GOVERNS
+        description: "規制・監督対象の企業・セクターへの接続"
+      - type: OPERATES_IN
+        description: "所在国・管轄地域への接続"
+      - type: LED_BY
+        description: "組織のリーダー（person エンティティ）への接続"
+
+  # ---------------------------------------------------------------------------
+  # person（89件）
+  # ---------------------------------------------------------------------------
+  person:
+    priority: P2
+    frequency: quarterly
+    description: "人物エンティティの経歴・所属情報のエンリッチメント"
+    sources:
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "経歴・現職・主要な発言を取得"
+        query_template: "{name} biography career finance"
+      - name: "News Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "最新のニュース・インタビューを取得"
+        query_template: "{name} latest news interview {year}"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "経歴・学歴・主要業績を取得"
+        target_properties: [description]
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "50%"
+    relationships:
+      - type: AFFILIATED_WITH
+        description: "Author ノード経由で所属組織に接続"
+      - type: LED_BY
+        description: "リーダーとして組織エンティティから接続"
+
+  # ---------------------------------------------------------------------------
+  # index（39件）
+  # ---------------------------------------------------------------------------
+  index:
+    priority: P1
+    frequency: weekly
+    description: "株価指数エンティティの構成銘柄・パフォーマンスデータのエンリッチメント"
+    sources:
+      - name: "SEC Edgar"
+        tool: "mcp__sec-edgar-mcp__get_company_facts"
+        description: "ETF 経由で構成銘柄情報を取得（SPY, QQQ 等）"
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "指数の最新パフォーマンス・構成銘柄変更を取得"
+        query_template: "{name} index performance constituents {year}"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "指数の概要・算出方法・歴史を取得"
+        target_properties: [description]
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "80%"
+    relationships:
+      - type: HAS_IDENTIFIER
+        description: "ティッカー（^GSPC, ^DJI 等）を Identifier として接続"
+      - type: IN_SECTOR
+        description: "セクター指数の場合、対応セクターに接続"
+      - type: FOR_METRIC
+        description: "指数水準・リターンを FDP → Metric として接続"
+
+  # ---------------------------------------------------------------------------
+  # indicator（28件 + metric 10件の統合候補）
+  # ---------------------------------------------------------------------------
+  indicator:
+    priority: P1
+    frequency: monthly
+    description: "経済指標エンティティの定義・最新データのエンリッチメント"
+    sources:
+      - name: "Official Data"
+        tool: "mcp__tavily__tavily_search"
+        description: "公式統計機関（BLS, BEA, 総務省等）からデータを取得"
+        query_template: "{name} latest data official statistics {year}"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "指標の定義・算出方法・歴史的推移を取得"
+        target_properties: [description]
+      - name: "FRED"
+        tool: "mcp__tavily__tavily_search"
+        description: "FRED（Federal Reserve Economic Data）から時系列データを取得"
+        query_template: "site:fred.stlouisfed.org {name}"
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "70%"
+    relationships:
+      - type: MEASURES
+        description: "Metric ノードとして登録し、対象国・セクターに MEASURES 接続"
+      - type: INFLUENCES
+        description: "指標が影響を与える市場・セクターへの接続"
+
+  # ---------------------------------------------------------------------------
+  # instrument（22件 + ETF/通貨等の統合候補 16件）
+  # ---------------------------------------------------------------------------
+  instrument:
+    priority: P1
+    frequency: weekly
+    description: "金融商品エンティティのティッカー・運用情報のエンリッチメント"
+    sources:
+      - name: "SEC Edgar"
+        tool: "mcp__sec-edgar-mcp__get_company_info"
+        description: "ETF/ファンドの運用会社・純資産・経費率を取得"
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "最新の NAV・パフォーマンス・保有銘柄情報を取得"
+        query_template: "{name} fund ETF performance holdings {year}"
+    target_properties:
+      - property: ticker
+        current_coverage: "low"
+        target_coverage: "90%"
+    relationships:
+      - type: IS_INSTRUMENT_CLASS
+        description: "FIBO 金融商品分類に基づく InstrumentClass ノードへの接続"
+      - type: HAS_IDENTIFIER
+        description: "ISIN/ティッカー/FIGI を Identifier として接続"
+
+  # ---------------------------------------------------------------------------
+  # commodity（16件）
+  # ---------------------------------------------------------------------------
+  commodity:
+    priority: P2
+    frequency: monthly
+    description: "コモディティエンティティの市場データ・関連情報のエンリッチメント"
+    sources:
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "最新の市場価格・需給動向を取得"
+        query_template: "{name} commodity price supply demand {year}"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "コモディティの概要・主要生産国・用途を取得"
+        target_properties: [description]
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "60%"
+    relationships:
+      - type: IS_INSTRUMENT_CLASS
+        description: "commodity 分類の InstrumentClass ノードに接続"
+
+  # ---------------------------------------------------------------------------
+  # country（15件 + region 1件の統合候補）
+  # ---------------------------------------------------------------------------
+  country:
+    priority: P2
+    frequency: quarterly
+    description: "国・地域エンティティのマクロ経済データ・基本情報のエンリッチメント"
+    sources:
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "国の基本情報（GDP, 人口, 主要産業）を取得"
+        target_properties: [description]
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "最新の経済指標・政策動向を取得"
+        query_template: "{name} economy GDP growth outlook {year}"
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "80%"
+    relationships:
+      - type: OPERATES_IN
+        description: "当該国で事業展開する企業からの逆参照"
+      - type: GOVERNS
+        description: "当該国の規制機関からの参照"
+
+  # ---------------------------------------------------------------------------
+  # sector（13件 + market 1件の統合候補）
+  # ---------------------------------------------------------------------------
+  sector:
+    priority: P2
+    frequency: monthly
+    description: "セクターエンティティの GICS 情報・市場動向のエンリッチメント"
+    sources:
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "セクターの市場規模・トレンド・主要企業を取得"
+        query_template: "{name} sector analysis market overview {year}"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "GICS セクター定義・構成産業を取得"
+        target_properties: [description]
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "80%"
+    relationships:
+      - type: IN_SECTOR
+        description: "セクターに属する企業エンティティからの逆参照"
+      - type: IN_PARENT_SECTOR
+        description: "Industry ノードの親セクターとして接続"
+
+  # ---------------------------------------------------------------------------
+  # concept（53件 + model/method/theme 等の統合候補 38件）
+  # ---------------------------------------------------------------------------
+  concept:
+    priority: P3
+    frequency: quarterly
+    description: "概念エンティティの定義・関連情報のエンリッチメント"
+    sources:
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "概念の定義・歴史・応用を取得"
+        target_properties: [description]
+      - name: "Academic Papers"
+        tool: "mcp__alphaxiv__embedding_similarity_search"
+        description: "関連学術論文を検索"
+        query_template: "{name} finance theory methodology"
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "40%"
+    relationships:
+      - type: INFLUENCES
+        description: "概念が影響を与える投資手法・セクターへの接続"
+
+  # ---------------------------------------------------------------------------
+  # regulation（3件）
+  # ---------------------------------------------------------------------------
+  regulation:
+    priority: P3
+    frequency: quarterly
+    description: "規制・政策エンティティの公式情報のエンリッチメント"
+    sources:
+      - name: "Official Website"
+        tool: "mcp__tavily__tavily_search"
+        description: "公式サイトから規制の全文・施行日を取得"
+        query_template: "{name} regulation official text implementation"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "規制の概要・背景・影響を取得"
+        target_properties: [description]
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "100%"
+    relationships:
+      - type: GOVERNS
+        description: "規制が影響する企業・セクターへの接続"
+
+  # ---------------------------------------------------------------------------
+  # broker（9件）
+  # ---------------------------------------------------------------------------
+  broker:
+    priority: P2
+    frequency: quarterly
+    description: "ブローカーエンティティのアナリストカバレッジ・財務情報のエンリッチメント"
+    sources:
+      - name: "SEC Edgar"
+        tool: "mcp__sec-edgar-mcp__get_company_info"
+        description: "上場ブローカーの企業情報・CIK を取得"
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "アナリストカバレッジ・主要レポートを取得"
+        query_template: "{name} research analyst coverage reports"
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "80%"
+    relationships:
+      - type: AFFILIATED_WITH
+        description: "Author ノード経由でアナリストとの接続"
+      - type: COMPETES_WITH
+        description: "同業他社との競合関係を接続"
+
+  # ---------------------------------------------------------------------------
+  # product（7件 + dataset/data_center の統合候補 5件）
+  # ---------------------------------------------------------------------------
+  product:
+    priority: P3
+    frequency: quarterly
+    description: "プロダクトエンティティの基本情報エンリッチメント"
+    sources:
+      - name: "Web Search"
+        tool: "mcp__tavily__tavily_search"
+        description: "製品の機能・市場ポジション・競合製品を取得"
+        query_template: "{name} product features market share"
+      - name: "Wikipedia"
+        tool: "mcp__wikipedia__get_summary"
+        description: "製品の概要・リリース履歴を取得"
+        target_properties: [description]
+    target_properties:
+      - property: description
+        current_coverage: "low"
+        target_coverage: "50%"
+    relationships:
+      - type: SUBSIDIARY_OF
+        description: "製品を提供する企業エンティティへの接続（親子関係）"
+
+# =============================================================================
+# エンリッチメント実行ルール
+# =============================================================================
+execution_rules:
+  # 一度のバッチで処理するエンティティ数の上限
+  batch_size: 20
+
+  # エンリッチメント間の待機時間（秒）— API レート制限対策
+  rate_limit_interval_sec: 2
+
+  # エンリッチメント済みフラグ
+  enriched_flag:
+    property: "enriched_at"
+    description: "エンリッチメント完了日時を ISO 8601 形式で設定"
+
+  # 再エンリッチメントの判定基準
+  re_enrichment:
+    stale_threshold_days: 90
+    description: "enriched_at が 90 日以上前のエンティティを再エンリッチメント対象とする"
+
+  # エラーハンドリング
+  error_handling:
+    max_retries: 3
+    backoff_strategy: "exponential"
+    skip_on_failure: true
+    description: "3回リトライ後もエラーの場合はスキップし、次のエンティティに進む"
+
+# =============================================================================
+# 品質閾値（Phase D 結果に基づく目標値）
+# =============================================================================
+quality_thresholds:
+  # 現在のスコア → 目標スコア
+  overall:
+    current: 83.5
+    target: 90.0
+    grade_target: "A"
+
+  # D-1: オントロジー準拠（93.5% → 97%）
+  ontology_conformance:
+    current: 93.5
+    target: 97.0
+    actions:
+      - "entity_type 正規化: 127件の非正規型を14種に統合"
+      - "source_type 正規化: 46件の非正規型を統合"
+      - "topic category マッピング: 75件の未分類を 8 ConceptCategory に分類"
+
+  # D-2: 重複検出（99.4% → 99.8%）
+  duplicate_detection:
+    current: 99.4
+    target: 99.8
+    actions:
+      - "真の重複 7ペアのマージ（NVIDIA/Nvidia, Federal Reserve 等）"
+      - "Topic 重複 8ペアの統合"
+      - "Source URL 重複 4ペアの統合"
+
+  # D-3: 孤立ノード検出（89.7% → 95%）
+  orphan_detection:
+    current: 89.7
+    target: 95.0
+    actions:
+      - "Entity 孤立 254件の接続（entity-linker 再実行）"
+      - "Source 未分類 247件の TAGGED 付与"
+      - "Fact 孤立 18件の Source 接続"
+      - "Claim 孤立 7件の Source 接続"
+
+  # D-4: カバレッジマトリクス（52.6% → 70%）
+  coverage_matrix:
+    current: 52.6
+    target: 70.0
+    actions:
+      - "Entity プロパティ充填: sector, ticker, enriched_at"
+      - "Source プロパティ充填: language, domain"
+      - "FOR_METRIC カバレッジ: 5.1% → 50%"
+      - "v3.0 ハブノード実体化: 16分類ノード作成"
+
+# =============================================================================
+# 優先実行順序
+# =============================================================================
+execution_priority:
+  - phase: "P0-1"
+    description: "Entity 孤立ノード解消（254件）"
+    strategy: "entity-linker 再実行 + 手動リンク"
+    target_improvement: "D-3 Score +6%"
+
+  - phase: "P0-2"
+    description: "FOR_METRIC ギャップ充填（430 FDP → 55 Metric マッチング）"
+    strategy: "FDP.metric_name を Metric.name と照合"
+    target_improvement: "D-4 Score +5%"
+
+  - phase: "P1-1"
+    description: "Source TAGGED ギャップ充填（247件）"
+    strategy: "Source.title からトピック推定 + TAGGED リレーション作成"
+    target_improvement: "D-3 Score +3%"
+
+  - phase: "P1-2"
+    description: "entity_type / source_type 正規化"
+    strategy: "consolidates ルールに基づくプロパティ更新"
+    target_improvement: "D-1 Score +3%"
+
+  - phase: "P1-3"
+    description: "company エンティティのエンリッチメント（190件）"
+    strategy: "SEC Edgar + Web Search で sector/ticker/industry 充填"
+    target_improvement: "D-4 Score +5%"
+
+  - phase: "P2-1"
+    description: "v3.0 分類ハブノードの実体化（16ラベル）"
+    strategy: "ontology.yaml の canonical_values から MERGE 実行"
+    target_improvement: "D-4 Score +3%"
+
+  - phase: "P2-2"
+    description: "横断リレーション強化（CO_MENTIONED_WITH, INFLUENCES 等）"
+    strategy: "cross-rel-rules.yaml に基づく自動/手動適用"
+    target_improvement: "グラフ密度向上"

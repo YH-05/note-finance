@@ -55,6 +55,7 @@ from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, TypedDict
+from urllib.parse import urlparse
 
 from authority_classifier import classify_authority
 
@@ -113,8 +114,8 @@ DEFAULT_OUTPUT_BASE = Path(".tmp/graph-queue")
 DEFAULT_MAX_AGE_DAYS = 7
 """Default maximum age in days for auto-cleanup."""
 
-SCHEMA_VERSION = "2.2"
-"""Graph-queue schema version (v2.2: entity_key/topic_key support)."""
+SCHEMA_VERSION = "3.0"
+"""Graph-queue schema version (v3.0: classification layer support)."""
 
 WEALTH_THEME_CONFIG_PATH = Path("data/config/wealth-management-themes.json")
 """Path to the wealth-management theme configuration file."""
@@ -164,6 +165,573 @@ THEME_TO_CATEGORY: dict[str, str] = {
     "finance_other": "finance",
 }
 """Theme key to category mapping table."""
+
+# ---------------------------------------------------------------------------
+# V3.0 Classification Layer Constants
+# ---------------------------------------------------------------------------
+
+V3_STRIP_FLAT_PROPS: bool = os.environ.get("GRAPH_QUEUE_V3_STRIP", "0") == "1"
+"""When True, strip flat classification properties after post-processing.
+
+Set ``GRAPH_QUEUE_V3_STRIP=1`` to enable.  Default is ``False`` for
+backward compatibility with save-to-graph consumers.
+"""
+
+CONCEPT_CATEGORY_MAP: dict[str, str] = {
+    # MacroEconomics
+    "macro": "MacroEconomics",
+    "political": "MacroEconomics",
+    "geopolitical": "MacroEconomics",
+    "geopolitics": "MacroEconomics",
+    # EquityResearch
+    "stock": "EquityResearch",
+    "earnings": "EquityResearch",
+    "valuation": "EquityResearch",
+    "equity_research": "EquityResearch",
+    "competition": "EquityResearch",
+    "competitive_analysis": "EquityResearch",
+    "kpi": "EquityResearch",
+    # SectorAnalysis
+    "sector": "SectorAnalysis",
+    "sector_analysis": "SectorAnalysis",
+    "cross_sector": "SectorAnalysis",
+    "industry-trend": "SectorAnalysis",
+    "cost_competition": "SectorAnalysis",
+    # InvestmentStrategy
+    "investment_strategy": "InvestmentStrategy",
+    "investment_framework": "InvestmentStrategy",
+    "investment": "InvestmentStrategy",
+    "institutional_investing": "InvestmentStrategy",
+    "capital-allocation": "InvestmentStrategy",
+    "fund_comparison": "InvestmentStrategy",
+    "strategy": "InvestmentStrategy",
+    # Technology
+    "technology": "Technology",
+    "ai": "Technology",
+    "quantitative_finance": "Technology",
+    "data_analysis": "Technology",
+    # WealthManagement
+    "wealth": "WealthManagement",
+    "assets": "WealthManagement",
+    "wealth-management": "WealthManagement",
+    "asset-management": "WealthManagement",
+    # Regulation
+    "regulatory": "Regulation",
+    "regulation": "Regulation",
+    "governance": "Regulation",
+    "corporate-action": "Regulation",
+    # ContentPlanning
+    "content_planning": "ContentPlanning",
+    "reddit": "ContentPlanning",
+    "theme": "ContentPlanning",
+    # Fallback mappings from THEME_TO_CATEGORY output
+    "finance": "InvestmentStrategy",
+    "other": "MacroEconomics",
+}
+"""Maps 46+ topic.category values to 8 ConceptCategory names."""
+
+CONCEPT_CATEGORY_META: dict[str, dict[str, str]] = {
+    "MacroEconomics": {"name_ja": "マクロ経済", "layer": "What"},
+    "EquityResearch": {"name_ja": "株式リサーチ", "layer": "What"},
+    "SectorAnalysis": {"name_ja": "セクター分析", "layer": "What"},
+    "InvestmentStrategy": {"name_ja": "投資戦略", "layer": "What"},
+    "Technology": {"name_ja": "テクノロジー", "layer": "What"},
+    "WealthManagement": {"name_ja": "資産形成", "layer": "What"},
+    "Regulation": {"name_ja": "規制", "layer": "What"},
+    "ContentPlanning": {"name_ja": "コンテンツ企画", "layer": "Meta"},
+}
+"""ConceptCategory node metadata (name_ja, layer)."""
+
+ENTITY_TYPE_CONSOLIDATION: dict[str, str] = {
+    # company -> company
+    "company": "company",
+    "fintech": "company",
+    "subsidiary": "company",
+    "fintech_holding": "company",
+    "digital_bank": "company",
+    "it_services": "company",
+    # technology -> technology
+    "technology": "technology",
+    "system": "technology",
+    # organization -> organization
+    "organization": "organization",
+    "central_bank": "organization",
+    "government": "organization",
+    "government_agency": "organization",
+    "institution": "organization",
+    "exchange": "organization",
+    # person -> person
+    "person": "person",
+    # index -> index
+    "index": "index",
+    # indicator -> indicator
+    "indicator": "indicator",
+    "metric": "indicator",
+    # instrument -> instrument
+    "instrument": "instrument",
+    "etf": "instrument",
+    "currency": "instrument",
+    "currency_pair": "instrument",
+    "fund": "instrument",
+    "bond": "instrument",
+    "asset": "instrument",
+    # commodity -> commodity
+    "commodity": "commodity",
+    # country -> country
+    "country": "country",
+    "region": "country",
+    # sector -> sector
+    "sector": "sector",
+    "market": "sector",
+    # concept -> concept
+    "concept": "concept",
+    "model": "concept",
+    "method": "concept",
+    "theme": "concept",
+    "article_proposal": "concept",
+    "event": "concept",
+    # regulation -> regulation
+    "regulation": "regulation",
+    # broker -> broker
+    "broker": "broker",
+    # product -> product
+    "product": "product",
+    "dataset": "product",
+    "data_center": "product",
+    # domain -> concept (legacy wealth-scrape type)
+    "domain": "concept",
+}
+"""Maps 42 raw entity_types to 14 canonical types."""
+
+ENTITY_TYPE_META: dict[str, str] = {
+    "company": "企業",
+    "technology": "テクノロジー",
+    "organization": "機関",
+    "person": "人物",
+    "index": "株価指数",
+    "indicator": "経済指標",
+    "instrument": "金融商品",
+    "commodity": "コモディティ",
+    "country": "国・地域",
+    "sector": "セクター",
+    "concept": "概念",
+    "regulation": "規制・政策",
+    "broker": "ブローカー",
+    "product": "プロダクト",
+}
+"""EntityType name_ja metadata for 14 canonical types."""
+
+DATAPOINT_TYPE_MAP: dict[bool, str] = {
+    True: "estimate",
+    False: "actual",
+}
+"""Maps is_estimate boolean to DataPointType name."""
+
+SOURCE_TYPE_NORMALIZATION: dict[str, str] = {
+    "academic_paper": "academic",
+    "academic-paper": "academic",
+    "research_paper": "academic",
+    "tower_company_analysis": "analysis",
+    "company_analysis": "analysis",
+    "digital_services_analysis": "analysis",
+    "regulatory_analysis": "analysis",
+    "political_analysis": "analysis",
+    "macro_data": "data",
+    "spectrum_data": "data",
+    "web-research": "web",
+    "annual_report": "company_filing",
+    "regulatory_filing": "company_filing",
+    "research": "report",
+    "official": "report",
+    "original": "report",
+}
+"""Maps 16 additional source types to 12 canonical types for SourceType nodes."""
+
+TRUST_LEVEL_NORMALIZATION: dict[str, str] = {
+    # Direct mappings (already canonical)
+    "official": "official",
+    "academic": "academic",
+    "company": "company",
+    "institutional": "institutional",
+    "analyst": "analyst",
+    "industry": "industry",
+    "media": "media",
+    "primary": "primary",
+    "blog": "blog",
+    "social": "social",
+    # Synonym mappings
+    "government": "official",
+    "regulatory": "official",
+    "research": "academic",
+    "peer_reviewed": "academic",
+    "corporate": "company",
+    "sell_side": "analyst",
+    "buy_side": "institutional",
+    "news": "media",
+    "press": "media",
+    "user_generated": "social",
+}
+"""Maps 20 authority level strings to 10 canonical TrustLevel names."""
+
+TRUST_LEVEL_META: dict[str, dict[str, Any]] = {
+    "official": {"name_ja": "公的機関", "rank": 1},
+    "academic": {"name_ja": "学術", "rank": 2},
+    "company": {"name_ja": "企業公式", "rank": 3},
+    "institutional": {"name_ja": "機関投資家", "rank": 4},
+    "analyst": {"name_ja": "アナリスト", "rank": 5},
+    "industry": {"name_ja": "業界", "rank": 6},
+    "media": {"name_ja": "メディア", "rank": 7},
+    "primary": {"name_ja": "一次データ", "rank": 8},
+    "blog": {"name_ja": "ブログ", "rank": 9},
+    "social": {"name_ja": "ソーシャル", "rank": 10},
+}
+"""TrustLevel node metadata (name_ja, rank)."""
+
+LANGUAGE_META: dict[str, str] = {
+    "ja": "日本語",
+    "en": "英語",
+    "zh": "中国語",
+    "ko": "韓国語",
+}
+"""Language name_ja metadata for common languages."""
+
+PIPELINE_META: dict[str, dict[str, str]] = {
+    "finance-news-workflow": {
+        "description": "金融ニュース自動収集ワークフロー",
+        "category": "news",
+    },
+    "wealth-scrape": {
+        "description": "資産形成コンテンツスクレイピング",
+        "category": "scrape",
+    },
+    "web-research": {
+        "description": "アドホックWeb調査データ投入",
+        "category": "research",
+    },
+    "pdf-archive": {
+        "description": "PDF文書アーカイブ投入",
+        "category": "archive",
+    },
+    "academic-fetch": {
+        "description": "学術論文フェッチ",
+        "category": "academic",
+    },
+    "pdf-extraction": {
+        "description": "PDF構造化抽出",
+        "category": "extraction",
+    },
+    "reddit-finance-topics": {
+        "description": "Reddit金融コミュニティトピック発見",
+        "category": "community",
+    },
+    "manual-research": {
+        "description": "手動リサーチ投入",
+        "category": "manual",
+    },
+    "topic-discovery": {
+        "description": "トピック自動発見",
+        "category": "discovery",
+    },
+    "equity-research": {
+        "description": "エクイティリサーチレポート",
+        "category": "research",
+    },
+}
+"""Pipeline node metadata (description, category)."""
+
+AUTHOR_TYPE_META: dict[str, str] = {
+    "analyst": "アナリスト",
+    "sell_side": "セルサイドアナリスト",
+    "buy_side": "バイサイドアナリスト",
+    "journalist": "ジャーナリスト",
+    "official": "公的機関",
+    "researcher": "研究者",
+    "blogger": "ブロガー",
+    "editor": "編集者",
+}
+"""AuthorType name_ja metadata."""
+
+FACT_TYPE_META: dict[str, str] = {
+    "statistic": "統計",
+    "financial_metric": "財務指標",
+    "macro_indicator": "マクロ指標",
+    "event": "イベント",
+    "empirical": "実証データ",
+    "regulatory": "規制",
+    "market_data": "市場データ",
+    "strategic": "戦略",
+    "methodology": "方法論",
+    "risk": "リスク",
+}
+"""FactType name_ja metadata."""
+
+CLAIM_TYPE_META: dict[str, dict[str, str]] = {
+    "fundamental": {"name_ja": "ファンダメンタル分析", "direction": "neutral"},
+    "bullish": {"name_ja": "強気", "direction": "positive"},
+    "bearish": {"name_ja": "弱気", "direction": "negative"},
+    "technical": {"name_ja": "テクニカル分析", "direction": "neutral"},
+    "risk_event": {"name_ja": "リスクイベント", "direction": "negative"},
+    "policy_hawkish": {"name_ja": "タカ派", "direction": "negative"},
+    "sector_rotation": {"name_ja": "セクターローテーション", "direction": "neutral"},
+    "earnings_beat": {"name_ja": "決算上振れ", "direction": "positive"},
+    "analyst_view": {"name_ja": "アナリスト見解", "direction": "neutral"},
+    "political_risk": {"name_ja": "政治リスク", "direction": "negative"},
+    "recommendation": {"name_ja": "推奨", "direction": "neutral"},
+}
+"""ClaimType node metadata (name_ja, direction)."""
+
+DATAPOINT_TYPE_META: dict[str, str] = {
+    "actual": "実績",
+    "estimate": "会社予想",
+    "forecast": "アナリスト予測",
+    "consensus": "コンセンサス",
+}
+"""DataPointType name_ja metadata."""
+
+
+# ---------------------------------------------------------------------------
+# Classification Node Builders (v3.0)
+# ---------------------------------------------------------------------------
+
+
+def _extract_url_domain(url: str) -> str | None:
+    """Extract the domain name from a URL.
+
+    Parameters
+    ----------
+    url : str
+        Source URL to extract domain from.
+
+    Returns
+    -------
+    str | None
+        Domain name (e.g. ``"www.cnbc.com"``), or ``None`` if the URL
+        is empty or unparseable.
+    """
+    if not url:
+        return None
+    try:
+        parsed = urlparse(url)
+        return parsed.netloc or None
+    except Exception:
+        logger.debug("Failed to parse URL for domain extraction: %s", url)
+        return None
+
+
+def _make_classification_node(
+    label: str,
+    key_prop: str,
+    key_value: str,
+    **extra: Any,
+) -> dict[str, Any]:
+    """Build a classification node dict for graph-queue output.
+
+    Parameters
+    ----------
+    label : str
+        Node label (e.g. ``"SourceType"``, ``"EntityType"``).
+    key_prop : str
+        Key property name (e.g. ``"source_type_id"``).
+    key_value : str
+        Key property value (e.g. ``"news"``).
+    **extra : Any
+        Additional properties merged into the node dict.
+
+    Returns
+    -------
+    dict[str, Any]
+        Classification node dict with ``label``, ``key_property``,
+        ``key_value``, and ``properties``.
+    """
+    props = {k: v for k, v in extra.items() if v is not None}
+    return {
+        "label": label,
+        "key_property": key_prop,
+        "key_value": key_value,
+        "properties": props,
+    }
+
+
+def _make_source_type_node(name: str) -> dict[str, Any]:
+    """Build a SourceType classification node."""
+    return _make_classification_node("SourceType", "source_type_id", name, name=name)
+
+
+def _make_domain_node(
+    domain_name: str, *, base_url: str = "", default_language: str = ""
+) -> dict[str, Any]:
+    """Build a Domain classification node."""
+    return _make_classification_node(
+        "Domain",
+        "domain_id",
+        domain_name,
+        name=domain_name,
+        base_url=base_url,
+        default_language=default_language,
+    )
+
+
+def _make_trust_level_node(name: str) -> dict[str, Any]:
+    """Build a TrustLevel classification node."""
+    meta = TRUST_LEVEL_META.get(name, {})
+    return _make_classification_node(
+        "TrustLevel",
+        "trust_level_id",
+        name,
+        name=name,
+        name_ja=meta.get("name_ja", ""),
+        rank=meta.get("rank"),
+    )
+
+
+def _make_language_node(code: str) -> dict[str, Any]:
+    """Build a Language classification node."""
+    return _make_classification_node(
+        "Language",
+        "language_id",
+        code,
+        name=code,
+        name_ja=LANGUAGE_META.get(code, ""),
+    )
+
+
+def _make_pipeline_node(pipeline_id: str) -> dict[str, Any]:
+    """Build a Pipeline classification node."""
+    meta = PIPELINE_META.get(pipeline_id, {})
+    return _make_classification_node(
+        "Pipeline",
+        "pipeline_id",
+        pipeline_id,
+        name=pipeline_id,
+        description=meta.get("description", ""),
+        category=meta.get("category", ""),
+    )
+
+
+def _make_entity_type_node(name: str) -> dict[str, Any]:
+    """Build an EntityType classification node."""
+    return _make_classification_node(
+        "EntityType",
+        "entity_type_id",
+        name,
+        name=name,
+        name_ja=ENTITY_TYPE_META.get(name, ""),
+    )
+
+
+def _make_identifier_node(
+    identifier_id: str,
+    *,
+    id_type: str = "",
+    value: str = "",
+    scheme: str = "",
+) -> dict[str, Any]:
+    """Build an Identifier classification node."""
+    return _make_classification_node(
+        "Identifier",
+        "identifier_id",
+        identifier_id,
+        type=id_type,
+        value=value,
+        scheme=scheme,
+    )
+
+
+def _make_fact_type_node(name: str) -> dict[str, Any]:
+    """Build a FactType classification node."""
+    return _make_classification_node(
+        "FactType",
+        "fact_type_id",
+        name,
+        name=name,
+        name_ja=FACT_TYPE_META.get(name, ""),
+    )
+
+
+def _make_claim_type_node(name: str) -> dict[str, Any]:
+    """Build a ClaimType classification node."""
+    meta = CLAIM_TYPE_META.get(name, {})
+    return _make_classification_node(
+        "ClaimType",
+        "claim_type_id",
+        name,
+        name=name,
+        name_ja=meta.get("name_ja", ""),
+        direction=meta.get("direction", ""),
+    )
+
+
+def _make_unit_of_measure_node(
+    unit_id: str, *, name: str = "", symbol: str = "", dimension: str = ""
+) -> dict[str, Any]:
+    """Build a UnitOfMeasure classification node."""
+    return _make_classification_node(
+        "UnitOfMeasure",
+        "unit_id",
+        unit_id,
+        name=name or unit_id,
+        symbol=symbol,
+        dimension=dimension,
+    )
+
+
+def _make_datapoint_type_node(name: str) -> dict[str, Any]:
+    """Build a DataPointType classification node."""
+    return _make_classification_node(
+        "DataPointType",
+        "datapoint_type_id",
+        name,
+        name=name,
+        name_ja=DATAPOINT_TYPE_META.get(name, ""),
+    )
+
+
+def _make_concept_category_node(name: str) -> dict[str, Any]:
+    """Build a ConceptCategory classification node."""
+    meta = CONCEPT_CATEGORY_META.get(name, {})
+    return _make_classification_node(
+        "ConceptCategory",
+        "concept_category_id",
+        name,
+        name=name,
+        name_ja=meta.get("name_ja", ""),
+        layer=meta.get("layer", ""),
+    )
+
+
+def _make_author_type_node(name: str) -> dict[str, Any]:
+    """Build an AuthorType classification node."""
+    return _make_classification_node(
+        "AuthorType",
+        "author_type_id",
+        name,
+        name=name,
+        name_ja=AUTHOR_TYPE_META.get(name, ""),
+    )
+
+
+def _make_classification_rel(
+    rel_type: str,
+    from_id: str,
+    to_id: str,
+) -> dict[str, str]:
+    """Build a classification relation dict.
+
+    Parameters
+    ----------
+    rel_type : str
+        Relation type (e.g. ``"IS_SOURCE_TYPE"``).
+    from_id : str
+        From-node key value.
+    to_id : str
+        To-node key value.
+
+    Returns
+    -------
+    dict[str, str]
+        Relation dict with ``type``, ``from_id``, ``to_id``.
+    """
+    return {"type": rel_type, "from_id": from_id, "to_id": to_id}
 
 
 # ---------------------------------------------------------------------------
@@ -840,6 +1408,8 @@ def _mapped_result(
     stances: list[dict[str, Any]] | None = None,
     questions: list[dict[str, Any]] | None = None,
     relations: dict[str, Any] | None = None,
+    classification_nodes: list[dict[str, Any]] | None = None,
+    classification_rels: list[dict[str, str]] | None = None,
 ) -> dict[str, Any]:
     """Build the standard mapper result dict.
 
@@ -855,6 +1425,10 @@ def _mapped_result(
         Node lists (default to empty lists).
     relations : dict | None
         Relation dict (default to empty dict).
+    classification_nodes : list[dict] | None
+        Classification layer nodes (default to empty list).
+    classification_rels : list[dict] | None
+        Classification layer relations (default to empty list).
 
     Returns
     -------
@@ -876,6 +1450,8 @@ def _mapped_result(
         "stances": stances or [],
         "questions": questions or [],
         "relations": relations or {},
+        "classification_nodes": classification_nodes or [],
+        "classification_rels": classification_rels or [],
     }
 
 
@@ -1955,6 +2531,7 @@ def _extend_rels(
 
 RELATION_KEYS: frozenset[str] = frozenset(
     {
+        # v2.1 relation keys (21)
         "source_fact",
         "source_claim",
         "fact_entity",
@@ -1976,9 +2553,30 @@ RELATION_KEYS: frozenset[str] = frozenset(
         "trend",
         "asks_about",
         "motivated_by",
+        # v3.0 classification relation keys (20)
+        "is_source_type",
+        "from_domain",
+        "rated_as",
+        "in_language",
+        "ingested_via",
+        "is_type",
+        "has_identifier",
+        "in_industry",
+        "is_fact_type",
+        "is_claim_type",
+        "in_unit",
+        "is_datapoint_type",
+        "is_category",
+        "is_author_type",
+        "affiliated_with",
+        "alias_of",
+        "parent_class",
+        "in_parent_sector",
+        "issued_by",
+        "is_instrument_class",
     }
 )
-"""All 21 relation keys in the graph-queue schema (v2.1)."""
+"""All 41 relation keys in the graph-queue schema (v3.0)."""
 
 
 def _empty_rels() -> dict[str, list[dict[str, str]]]:
@@ -3686,8 +4284,332 @@ def _load_and_parse(
     return mapper(data)
 
 
+# ---------------------------------------------------------------------------
+# Classification Layer Post-Processor (v3.0)
+# ---------------------------------------------------------------------------
+
+
+def _apply_classification_layer(
+    mapped: dict[str, Any],
+    command: str,
+) -> None:
+    """Apply v3.0 classification layer to mapper output (in-place).
+
+    Iterates over sources, entities, facts, claims, financial_datapoints,
+    authors, topics, and stances to create classification nodes and
+    relations.  Results are added to ``mapped["classification_nodes"]``
+    and ``mapped["classification_rels"]``.
+
+    Does NOT modify existing mapper functions.  Optionally strips flat
+    properties when ``V3_STRIP_FLAT_PROPS`` is ``True``.
+
+    Parameters
+    ----------
+    mapped : dict[str, Any]
+        Output from a mapper function (mutated in-place).
+    command : str
+        Source command name (used for Pipeline node generation).
+    """
+    classification_nodes: list[dict[str, Any]] = []
+    classification_rels: list[dict[str, str]] = []
+
+    # Deduplication sets: track (label, key_value) to avoid duplicates
+    seen_nodes: set[tuple[str, str]] = set()
+
+    def _add_node(node: dict[str, Any]) -> None:
+        """Add a classification node if not already seen."""
+        key = (node["label"], node["key_value"])
+        if key not in seen_nodes:
+            seen_nodes.add(key)
+            classification_nodes.append(node)
+
+    def _add_rel(rel: dict[str, str]) -> None:
+        """Add a classification relation."""
+        classification_rels.append(rel)
+
+    # -------------------------------------------------------------------
+    # Sources -> SourceType, Domain, TrustLevel, Language, Pipeline
+    # -------------------------------------------------------------------
+    for source in mapped.get("sources", []):
+        source_id = source.get("source_id", "")
+        if not source_id:
+            continue
+
+        # SourceType
+        raw_source_type = source.get("source_type", "")
+        if raw_source_type:
+            canonical_st = SOURCE_TYPE_NORMALIZATION.get(
+                raw_source_type, raw_source_type
+            )
+            _add_node(_make_source_type_node(canonical_st))
+            _add_rel(
+                _make_classification_rel("IS_SOURCE_TYPE", source_id, canonical_st)
+            )
+
+        # Domain (from URL)
+        url = source.get("url", "")
+        domain_name = _extract_url_domain(url)
+        if domain_name:
+            _add_node(_make_domain_node(domain_name, base_url=f"https://{domain_name}"))
+            _add_rel(_make_classification_rel("FROM_DOMAIN", source_id, domain_name))
+
+        # TrustLevel (from authority_level)
+        raw_authority = source.get("authority_level", "")
+        if raw_authority:
+            canonical_tl = TRUST_LEVEL_NORMALIZATION.get(raw_authority, raw_authority)
+            if canonical_tl in TRUST_LEVEL_META:
+                _add_node(_make_trust_level_node(canonical_tl))
+                _add_rel(
+                    _make_classification_rel("RATED_AS", source_id, canonical_tl)
+                )
+            else:
+                logger.debug(
+                    "Unknown authority_level, skipping TrustLevel: %s", raw_authority
+                )
+
+        # Language (from language property if present)
+        language = source.get("language", "")
+        if language:
+            _add_node(_make_language_node(language))
+            _add_rel(_make_classification_rel("IN_LANGUAGE", source_id, language))
+
+        # Pipeline (from command)
+        _add_node(_make_pipeline_node(command))
+        _add_rel(_make_classification_rel("INGESTED_VIA", source_id, command))
+
+    # -------------------------------------------------------------------
+    # Entities -> EntityType, Identifier
+    # -------------------------------------------------------------------
+    for entity in mapped.get("entities", []):
+        entity_id = entity.get("entity_id", "")
+        entity_key = entity.get("entity_key", "")
+        ref_id = entity_key or entity_id
+        if not ref_id:
+            continue
+
+        # EntityType (consolidated)
+        raw_etype = entity.get("entity_type", "")
+        if raw_etype:
+            canonical_etype = ENTITY_TYPE_CONSOLIDATION.get(raw_etype, raw_etype)
+            _add_node(_make_entity_type_node(canonical_etype))
+            _add_rel(_make_classification_rel("IS_TYPE", ref_id, canonical_etype))
+
+        # Identifier (from ticker)
+        ticker = entity.get("ticker")
+        if ticker:
+            id_key = f"ticker:{ticker}"
+            _add_node(
+                _make_identifier_node(
+                    id_key, id_type="ticker", value=ticker, scheme="exchange"
+                )
+            )
+            _add_rel(_make_classification_rel("HAS_IDENTIFIER", ref_id, id_key))
+
+    # -------------------------------------------------------------------
+    # Facts -> FactType
+    # -------------------------------------------------------------------
+    for fact in mapped.get("facts", []):
+        fact_id = fact.get("fact_id", "")
+        if not fact_id:
+            continue
+
+        raw_fact_type = fact.get("fact_type", "")
+        if raw_fact_type:
+            _add_node(_make_fact_type_node(raw_fact_type))
+            _add_rel(
+                _make_classification_rel("IS_FACT_TYPE", fact_id, raw_fact_type)
+            )
+
+    # -------------------------------------------------------------------
+    # Claims -> ClaimType
+    # -------------------------------------------------------------------
+    for claim in mapped.get("claims", []):
+        claim_id = claim.get("claim_id", "")
+        if not claim_id:
+            continue
+
+        raw_claim_type = claim.get("claim_type", "")
+        if raw_claim_type:
+            _add_node(_make_claim_type_node(raw_claim_type))
+            _add_rel(
+                _make_classification_rel("IS_CLAIM_TYPE", claim_id, raw_claim_type)
+            )
+
+    # -------------------------------------------------------------------
+    # FinancialDataPoints -> UnitOfMeasure, DataPointType
+    # -------------------------------------------------------------------
+    for dp in mapped.get("financial_datapoints", []):
+        dp_id = dp.get("datapoint_id", "")
+        if not dp_id:
+            continue
+
+        # UnitOfMeasure (from unit property)
+        unit = dp.get("unit", "")
+        if unit:
+            _add_node(
+                _make_unit_of_measure_node(unit, name=unit, dimension="monetary_value")
+            )
+            _add_rel(_make_classification_rel("IN_UNIT", dp_id, unit))
+
+        # UnitOfMeasure (from currency property if different from unit)
+        dp_currency = dp.get("currency")
+        if dp_currency and dp_currency != unit:
+            _add_node(
+                _make_unit_of_measure_node(
+                    dp_currency, name=dp_currency, dimension="currency"
+                )
+            )
+            _add_rel(_make_classification_rel("IN_UNIT", dp_id, dp_currency))
+
+        # DataPointType (from is_estimate boolean)
+        is_estimate = dp.get("is_estimate")
+        if is_estimate is not None:
+            dp_type_name = DATAPOINT_TYPE_MAP.get(bool(is_estimate), "actual")
+            _add_node(_make_datapoint_type_node(dp_type_name))
+            _add_rel(
+                _make_classification_rel("IS_DATAPOINT_TYPE", dp_id, dp_type_name)
+            )
+
+    # -------------------------------------------------------------------
+    # Authors -> AuthorType, AFFILIATED_WITH
+    # -------------------------------------------------------------------
+    for author in mapped.get("authors", []):
+        author_id = author.get("author_id", "")
+        if not author_id:
+            continue
+
+        # AuthorType
+        raw_author_type = author.get("author_type", "")
+        if raw_author_type:
+            _add_node(_make_author_type_node(raw_author_type))
+            _add_rel(
+                _make_classification_rel("IS_AUTHOR_TYPE", author_id, raw_author_type)
+            )
+
+        # AFFILIATED_WITH (from organization property -> Entity lookup)
+        org_name = author.get("organization")
+        if org_name:
+            # Try to find existing entity by name
+            entity_match = None
+            for ent in mapped.get("entities", []):
+                if ent.get("name") == org_name:
+                    entity_match = ent.get("entity_key") or ent.get("entity_id")
+                    break
+            if entity_match:
+                _add_rel(
+                    _make_classification_rel(
+                        "AFFILIATED_WITH", author_id, entity_match
+                    )
+                )
+
+    # -------------------------------------------------------------------
+    # Topics -> ConceptCategory (IS_CATEGORY)
+    # -------------------------------------------------------------------
+    for topic in mapped.get("topics", []):
+        topic_id = topic.get("topic_id", "")
+        topic_key = topic.get("topic_key", "")
+        ref_id = topic_key or topic_id
+        if not ref_id:
+            continue
+
+        raw_category = topic.get("category", "")
+        if raw_category:
+            concept_name = CONCEPT_CATEGORY_MAP.get(raw_category)
+            if concept_name:
+                _add_node(_make_concept_category_node(concept_name))
+                _add_rel(
+                    _make_classification_rel("IS_CATEGORY", ref_id, concept_name)
+                )
+            else:
+                logger.debug(
+                    "No ConceptCategory mapping for topic.category=%r", raw_category
+                )
+
+    # -------------------------------------------------------------------
+    # Stances -> UnitOfMeasure (currency from target_price_currency)
+    # -------------------------------------------------------------------
+    for stance in mapped.get("stances", []):
+        stance_id = stance.get("stance_id", "")
+        if not stance_id:
+            continue
+
+        currency = stance.get("target_price_currency")
+        if currency:
+            _add_node(
+                _make_unit_of_measure_node(
+                    currency, name=currency, dimension="currency"
+                )
+            )
+            _add_rel(_make_classification_rel("IN_UNIT", stance_id, currency))
+
+    # -------------------------------------------------------------------
+    # Optionally strip flat properties
+    # -------------------------------------------------------------------
+    if V3_STRIP_FLAT_PROPS:
+        _strip_flat_classification_props(mapped)
+
+    # -------------------------------------------------------------------
+    # Attach results to mapped
+    # -------------------------------------------------------------------
+    mapped["classification_nodes"] = classification_nodes
+    mapped["classification_rels"] = classification_rels
+
+    logger.info(
+        "Classification layer applied: %d nodes, %d rels",
+        len(classification_nodes),
+        len(classification_rels),
+    )
+
+
+def _strip_flat_classification_props(mapped: dict[str, Any]) -> None:
+    """Strip flat classification properties from node dicts.
+
+    Only called when ``V3_STRIP_FLAT_PROPS`` is ``True``.
+    Removes properties that have been promoted to classification nodes.
+
+    Parameters
+    ----------
+    mapped : dict[str, Any]
+        Mapped data (mutated in-place).
+    """
+    source_strip_keys = {"source_type", "authority_level", "language"}
+    entity_strip_keys = {"entity_type"}
+    fact_strip_keys = {"fact_type"}
+    claim_strip_keys = {"claim_type"}
+    dp_strip_keys = {"is_estimate", "currency", "unit"}
+    author_strip_keys = {"author_type", "organization"}
+    stance_strip_keys = {"target_price_currency"}
+
+    for source in mapped.get("sources", []):
+        for k in source_strip_keys:
+            source.pop(k, None)
+    for entity in mapped.get("entities", []):
+        for k in entity_strip_keys:
+            entity.pop(k, None)
+    for fact in mapped.get("facts", []):
+        for k in fact_strip_keys:
+            fact.pop(k, None)
+    for claim in mapped.get("claims", []):
+        for k in claim_strip_keys:
+            claim.pop(k, None)
+    for dp in mapped.get("financial_datapoints", []):
+        for k in dp_strip_keys:
+            dp.pop(k, None)
+    for author in mapped.get("authors", []):
+        for k in author_strip_keys:
+            author.pop(k, None)
+    for stance in mapped.get("stances", []):
+        for k in stance_strip_keys:
+            stance.pop(k, None)
+
+    logger.debug("Stripped flat classification properties from mapped data")
+
+
 def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
     """Build the graph-queue document from mapped data.
+
+    Applies the v3.0 classification layer post-processor before
+    assembling the final document.
 
     Parameters
     ----------
@@ -3701,6 +4623,9 @@ def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
     dict[str, Any]
         Complete graph-queue document ready for serialisation.
     """
+    # Apply v3.0 classification layer (mutates mapped in-place)
+    _apply_classification_layer(mapped, command)
+
     queue_id = generate_queue_id()
     now = datetime.now(timezone.utc)
 
@@ -3723,6 +4648,8 @@ def _build_queue_doc(command: str, mapped: dict[str, Any]) -> dict[str, Any]:
         "stances": mapped.get("stances", []),
         "questions": mapped.get("questions", []),
         "relations": mapped.get("relations", {}),
+        "classification_nodes": mapped.get("classification_nodes", []),
+        "classification_rels": mapped.get("classification_rels", []),
     }
 
 

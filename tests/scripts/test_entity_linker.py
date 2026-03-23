@@ -2,7 +2,8 @@
 
 entity_linker.py の --instance パラメータ追加と Neo4jClient 汎用化のユニットテスト。
 load_instance_config / Neo4jClient / CLI 引数パース / 後方互換性 /
-_NodeResolveConfig / バッチExact / URI マスキングを検証。
+_NodeResolveConfig / バッチExact / URI マスキング / v3.0 EntityType 統合 /
+名前正規化 / Identifier サポートを検証。
 """
 
 from __future__ import annotations
@@ -605,3 +606,383 @@ class TestLoadEmbeddingModelCache:
         from entity_linker import _load_embedding_model
 
         assert hasattr(_load_embedding_model, "cache_info")
+
+
+# ---------------------------------------------------------------------------
+# v3.0 EntityType Consolidation tests
+# ---------------------------------------------------------------------------
+
+
+class TestEntityTypeConsolidation:
+    """v3.0 EntityType 統合マッピングのテスト (42 -> 14 canonical types)。"""
+
+    def test_正常系_既にcanonicalなタイプはそのまま返す(self) -> None:
+        """canonical type は変換されないこと。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("company") == "company"
+        assert consolidate_entity_type("person") == "person"
+        assert consolidate_entity_type("index") == "index"
+        assert consolidate_entity_type("broker") == "broker"
+
+    def test_正常系_fintechがcompanyに統合される(self) -> None:
+        """fintech が company に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("fintech") == "company"
+        assert consolidate_entity_type("subsidiary") == "company"
+        assert consolidate_entity_type("digital_bank") == "company"
+        assert consolidate_entity_type("it_services") == "company"
+        assert consolidate_entity_type("fintech_holding") == "company"
+
+    def test_正常系_central_bankがorganizationに統合される(self) -> None:
+        """central_bank 等が organization に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("central_bank") == "organization"
+        assert consolidate_entity_type("government") == "organization"
+        assert consolidate_entity_type("government_agency") == "organization"
+        assert consolidate_entity_type("institution") == "organization"
+        assert consolidate_entity_type("exchange") == "organization"
+
+    def test_正常系_etfがinstrumentに統合される(self) -> None:
+        """etf, currency 等が instrument に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("etf") == "instrument"
+        assert consolidate_entity_type("currency") == "instrument"
+        assert consolidate_entity_type("currency_pair") == "instrument"
+        assert consolidate_entity_type("fund") == "instrument"
+        assert consolidate_entity_type("bond") == "instrument"
+        assert consolidate_entity_type("asset") == "instrument"
+
+    def test_正常系_regionがcountryに統合される(self) -> None:
+        """region が country に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("region") == "country"
+
+    def test_正常系_modelがconceptに統合される(self) -> None:
+        """model, method, theme 等が concept に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("model") == "concept"
+        assert consolidate_entity_type("method") == "concept"
+        assert consolidate_entity_type("theme") == "concept"
+        assert consolidate_entity_type("article_proposal") == "concept"
+        assert consolidate_entity_type("event") == "concept"
+
+    def test_正常系_metricがindicatorに統合される(self) -> None:
+        """metric が indicator に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("metric") == "indicator"
+
+    def test_正常系_marketがsectorに統合される(self) -> None:
+        """market が sector に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("market") == "sector"
+
+    def test_正常系_datasetがproductに統合される(self) -> None:
+        """dataset, data_center が product に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("dataset") == "product"
+        assert consolidate_entity_type("data_center") == "product"
+
+    def test_正常系_systemがtechnologyに統合される(self) -> None:
+        """system が technology に統合されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("system") == "technology"
+
+    def test_エッジケース_大文字混在タイプが正規化される(self) -> None:
+        """大文字を含む entity_type が小文字に正規化されること。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("Company") == "company"
+        assert consolidate_entity_type("ETF") == "instrument"
+
+    def test_エッジケース_未知のタイプがそのまま返される(self) -> None:
+        """未知の entity_type はそのまま返されること (warning ログ)。"""
+        from entity_linker import consolidate_entity_type
+
+        assert consolidate_entity_type("unknown_type") == "unknown_type"
+
+    def test_正常系_VALID_ENTITY_TYPESに14タイプが含まれる(self) -> None:
+        """VALID_ENTITY_TYPES が正確に 14 種であること。"""
+        from entity_linker import VALID_ENTITY_TYPES
+
+        assert len(VALID_ENTITY_TYPES) == 14
+        assert "company" in VALID_ENTITY_TYPES
+        assert "broker" in VALID_ENTITY_TYPES
+        assert "product" in VALID_ENTITY_TYPES
+
+    def test_正常系_全42マッピングが14タイプに収束する(self) -> None:
+        """ENTITY_TYPE_CONSOLIDATION の全バリューが VALID_ENTITY_TYPES に含まれること。"""
+        from entity_linker import ENTITY_TYPE_CONSOLIDATION, VALID_ENTITY_TYPES
+
+        for source, target in ENTITY_TYPE_CONSOLIDATION.items():
+            assert target in VALID_ENTITY_TYPES, (
+                f"{source} -> {target} is not in VALID_ENTITY_TYPES"
+            )
+
+
+# ---------------------------------------------------------------------------
+# v3.0 Name Normalization tests
+# ---------------------------------------------------------------------------
+
+
+class TestNormalizeName:
+    """v3.0 名前正規化のテスト。"""
+
+    def test_正常系_全角英数字が半角に変換される(self) -> None:
+        """全角英数字が半角に統一されること。"""
+        from entity_linker import normalize_name
+
+        assert normalize_name("ＡＢＣ１２３") == "ABC123"
+
+    def test_正常系_余分なスペースが除去される(self) -> None:
+        """先頭末尾と連続スペースが正規化されること。"""
+        from entity_linker import normalize_name
+
+        assert normalize_name("  Apple   Inc.  ") == "Apple Inc."
+
+    def test_正常系_末尾句読点が除去される(self) -> None:
+        """末尾の CJK 句読点・カンマ・セミコロンが除去されること。"""
+        from entity_linker import normalize_name
+
+        assert normalize_name("トヨタ自動車。") == "トヨタ自動車"
+        assert normalize_name("Apple Inc.,") == "Apple Inc."
+        assert normalize_name("Goldman Sachs;") == "Goldman Sachs"
+
+    def test_正常系_通常の名前は変化しない(self) -> None:
+        """正規化不要の名前はそのまま返されること。"""
+        from entity_linker import normalize_name
+
+        assert normalize_name("Apple Inc.") == "Apple Inc."
+        assert normalize_name("BOJ") == "BOJ"
+
+
+# ---------------------------------------------------------------------------
+# v3.0 build_entity_key tests
+# ---------------------------------------------------------------------------
+
+
+class TestBuildEntityKey:
+    """v3.0 entity_key 生成のテスト。"""
+
+    def test_正常系_entity_keyが正しいフォーマットで生成される(self) -> None:
+        """Name::type フォーマットで entity_key が生成されること。"""
+        from entity_linker import build_entity_key
+
+        assert build_entity_key("Apple Inc.", "company") == "Apple Inc.::company"
+        assert build_entity_key("S&P 500", "index") == "S&P 500::index"
+        assert build_entity_key("BOJ", "organization") == "BOJ::organization"
+
+
+# ---------------------------------------------------------------------------
+# v3.0 Identifier Support tests
+# ---------------------------------------------------------------------------
+
+
+class TestIdentifierSupport:
+    """v3.0 Identifier ノード参照生成のテスト。"""
+
+    def test_正常系_ticker付きエンティティからIdentifier参照が生成される(self) -> None:
+        """ticker フィールドがある場合に Identifier 参照が返されること。"""
+        from entity_linker import _build_identifier_ref
+
+        entity = {"name": "Apple Inc.", "entity_type": "company", "ticker": "AAPL"}
+        result = _build_identifier_ref(entity)
+
+        assert result is not None
+        assert result["type"] == "ticker"
+        assert result["value"] == "AAPL"
+        assert result["scheme"] == "exchange_ticker"
+
+    def test_正常系_ticker未設定でNoneが返される(self) -> None:
+        """ticker フィールドがない場合に None が返されること。"""
+        from entity_linker import _build_identifier_ref
+
+        entity = {"name": "Apple Inc.", "entity_type": "company"}
+        assert _build_identifier_ref(entity) is None
+
+    def test_エッジケース_空tickerでNoneが返される(self) -> None:
+        """空文字列の ticker で None が返されること。"""
+        from entity_linker import _build_identifier_ref
+
+        entity = {"name": "Apple Inc.", "entity_type": "company", "ticker": ""}
+        assert _build_identifier_ref(entity) is None
+
+    def test_正常系_ticker値の前後空白が除去される(self) -> None:
+        """ticker の前後空白が除去されること。"""
+        from entity_linker import _build_identifier_ref
+
+        entity = {"name": "Toyota", "entity_type": "company", "ticker": " 7203 "}
+        result = _build_identifier_ref(entity)
+        assert result is not None
+        assert result["value"] == "7203"
+
+
+# ---------------------------------------------------------------------------
+# v3.0 LinkerSearchConfig tests
+# ---------------------------------------------------------------------------
+
+
+class TestLinkerSearchConfig:
+    """LinkerSearchConfig の読み込みテスト。"""
+
+    def test_正常系_存在しないファイルでデフォルト値が返る(self, tmp_path: Path) -> None:
+        """config ファイルが存在しない場合にデフォルト値が返されること。"""
+        from entity_linker import LinkerSearchConfig, load_linker_config
+
+        result = load_linker_config(tmp_path / "nonexistent.yaml")
+
+        assert result == LinkerSearchConfig()
+        assert result.fulltext_index == "research_entity_fulltext"
+        assert result.alias_fulltext_index == "research_alias_fulltext"
+        assert result.similarity_threshold == 0.85
+
+    def test_正常系_YAMLファイルから設定を読み込む(self, tmp_path: Path) -> None:
+        """YAML ファイルから search 設定が正しく読み込まれること。"""
+        from entity_linker import load_linker_config
+
+        config_file = tmp_path / "linker-config.yaml"
+        config_file.write_text(
+            "search:\n"
+            "  fulltext_index: custom_entity_ft\n"
+            "  alias_fulltext_index: custom_alias_ft\n"
+            "  similarity_threshold: 0.90\n"
+            "  max_candidates: 20\n"
+            "  fulltext_score_threshold: 0.6\n",
+            encoding="utf-8",
+        )
+
+        result = load_linker_config(config_file)
+
+        assert result.fulltext_index == "custom_entity_ft"
+        assert result.alias_fulltext_index == "custom_alias_ft"
+        assert result.similarity_threshold == 0.90
+        assert result.max_candidates == 20
+        assert result.fulltext_score_threshold == 0.6
+
+
+# ---------------------------------------------------------------------------
+# v3.0 CLI argument tests
+# ---------------------------------------------------------------------------
+
+
+class TestV3CLIArguments:
+    """v3.0 CLI 引数のテスト。"""
+
+    def test_正常系_v3フラグを受け付ける(self) -> None:
+        """--v3 フラグがパーサーに追加されていること。"""
+        from entity_linker import _build_parser
+
+        parser = _build_parser()
+        args = parser.parse_args(["--input", "test.json", "--v3"])
+        assert args.v3 is True
+
+    def test_正常系_v3デフォルトはFalse(self) -> None:
+        """--v3 未指定時のデフォルト値が False であること。"""
+        from entity_linker import _build_parser
+
+        parser = _build_parser()
+        args = parser.parse_args(["--input", "test.json"])
+        assert args.v3 is False
+
+    def test_正常系_linker_configオプションを受け付ける(self) -> None:
+        """--linker-config オプションがパーサーに追加されていること。"""
+        from entity_linker import _build_parser
+
+        parser = _build_parser()
+        args = parser.parse_args([
+            "--input", "test.json", "--linker-config", "/path/to/config.yaml",
+        ])
+        assert str(args.linker_config) == "/path/to/config.yaml"
+
+
+# ---------------------------------------------------------------------------
+# v3.0 Backward Compatibility tests
+# ---------------------------------------------------------------------------
+
+
+class TestV3BackwardCompatibility:
+    """v3.0 追加パラメータの後方互換性テスト。"""
+
+    def test_正常系_resolve_entity_by_textにuse_v3パラメータがある(self) -> None:
+        """resolve_entity_by_text に use_v3 パラメータが存在すること。"""
+        import inspect
+
+        from entity_linker import resolve_entity_by_text
+
+        sig = inspect.signature(resolve_entity_by_text)
+        params = sig.parameters
+        assert "use_v3" in params
+        assert params["use_v3"].default is False
+
+    def test_正常系_resolve_entity_by_textにsearch_configパラメータがある(self) -> None:
+        """resolve_entity_by_text に search_config パラメータが存在すること。"""
+        import inspect
+
+        from entity_linker import resolve_entity_by_text
+
+        sig = inspect.signature(resolve_entity_by_text)
+        params = sig.parameters
+        assert "search_config" in params
+        assert params["search_config"].default is None
+
+    def test_正常系_resolve_allにuse_v3パラメータがある(self) -> None:
+        """resolve_all に use_v3 パラメータが存在すること。"""
+        import inspect
+
+        from entity_linker import resolve_all
+
+        sig = inspect.signature(resolve_all)
+        params = sig.parameters
+        assert "use_v3" in params
+        assert params["use_v3"].default is False
+
+    def test_正常系_resolve_allにsearch_configパラメータがある(self) -> None:
+        """resolve_all に search_config パラメータが存在すること。"""
+        import inspect
+
+        from entity_linker import resolve_all
+
+        sig = inspect.signature(resolve_all)
+        params = sig.parameters
+        assert "search_config" in params
+        assert params["search_config"].default is None
+
+    def test_正常系_NORMALIZATION_RULESに14タイプ分のルールがある(self) -> None:
+        """NORMALIZATION_RULES が 14 種のエンティティタイプをカバーすること。"""
+        from entity_linker import NORMALIZATION_RULES, VALID_ENTITY_TYPES
+
+        assert set(NORMALIZATION_RULES.keys()) == VALID_ENTITY_TYPES
+
+
+# ---------------------------------------------------------------------------
+# v3.0 _make_v3_entity_config tests
+# ---------------------------------------------------------------------------
+
+
+class TestMakeV3EntityConfig:
+    """_make_v3_entity_config のテスト。"""
+
+    def test_正常系_v3EntityConfigがsearch_configのインデックスを使用する(self) -> None:
+        """v3 entity config が search_config のインデックス名を使用すること。"""
+        from entity_linker import LinkerSearchConfig, _make_v3_entity_config
+
+        search_config = LinkerSearchConfig(
+            fulltext_index="custom_entity_ft",
+            alias_fulltext_index="custom_alias_ft",
+        )
+        config = _make_v3_entity_config(search_config)
+
+        assert config.label == "Entity"
+        assert config.node_index == "custom_entity_ft"
+        assert config.alias_index == "custom_alias_ft"
+        assert config.id_key == "entity_id"
+        assert config.key_key == "entity_key"

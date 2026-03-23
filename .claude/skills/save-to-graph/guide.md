@@ -9,10 +9,11 @@
 3. [ID 生成戦略](#id-生成戦略)
 4. [Cypher テンプレート](#cypher-テンプレート)
 5. [ノード投入詳細](#ノード投入詳細)
-6. [Phase 3a: ファイル内リレーション投入詳細](#phase-3a-ファイル内リレーション投入詳細)
-7. [Phase 3b: クロスファイルリレーション投入詳細](#phase-3b-クロスファイルリレーション投入詳細)
-8. [冪等性の仕組み](#冪等性の仕組み)
-9. [エラーハンドリング詳細](#エラーハンドリング詳細)
+6. [Phase 1.5: Classification Node Processing](#phase-15-classification-node-processing)
+7. [Phase 3a: ファイル内リレーション投入詳細](#phase-3a-ファイル内リレーション投入詳細)
+8. [Phase 3b: クロスファイルリレーション投入詳細](#phase-3b-クロスファイルリレーション投入詳細)
+9. [冪等性の仕組み](#冪等性の仕組み)
+10. [エラーハンドリング詳細](#エラーハンドリング詳細)
 
 ---
 
@@ -252,7 +253,7 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
 
 ```json
 {
-  "schema_version": "2.0",
+  "schema_version": "2.0",  // or "2.2" or "3.0"
   "queue_id": "gq-20260307120000-a1b2",
   "created_at": "2026-03-07T12:00:00+00:00",
   "command_source": "pdf-extraction",
@@ -266,6 +267,7 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
   "chunks": [...],
   "financial_datapoints": [...],
   "fiscal_periods": [...],
+  "classification_nodes": [...],
   "relations": {
     "contains_chunk": [...],
     "extracted_from_fact": [...],
@@ -285,7 +287,7 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
 
 | フィールド | 型 | v1 必須 | v2 必須 | 説明 |
 |-----------|------|---------|---------|------|
-| `schema_version` | string | Yes | Yes | スキーマバージョン（`"1.0"` or `"2.0"`） |
+| `schema_version` | string | Yes | Yes | スキーマバージョン（`"1.0"`, `"2.0"`, `"2.2"`, or `"3.0"`） |
 | `queue_id` | string | Yes | Yes | キュー一意ID（`gq-{timestamp}-{hash4}`） |
 | `created_at` | string | Yes | Yes | 生成日時（ISO 8601） |
 | `command_source` | string | Yes | Yes | 生成元コマンド名 |
@@ -299,6 +301,7 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
 | `chunks` | array | No | Yes | Chunk ノードデータ配列 [v2 新規] |
 | `financial_datapoints` | array | No | Yes | FinancialDataPoint ノードデータ配列 [v2 新規] |
 | `fiscal_periods` | array | No | Yes | FiscalPeriod ノードデータ配列 [v2 新規] |
+| `classification_nodes` | array | No | No | Classification ノードデータ配列 [v3.0 新規] |
 | `relations` | object | Yes | Yes | リレーションデータ（v2 では明示的定義を含む） |
 
 ### sources 配列の要素
@@ -454,6 +457,49 @@ gq-{YYYYMMDDHHmmss}-{hash4}.json
 | `period_type` | string | Yes | annual, quarterly, half_year, monthly |
 | `period_label` | string | Yes | 人間可読ラベル（FY2025, 4Q25, 1H26 等） |
 
+### classification_nodes 配列の要素 [v3.0 新規]
+
+```json
+{
+  "label": "SourceType",
+  "key_property": "source_type_id",
+  "properties": {
+    "source_type_id": "news",
+    "name": "news",
+    "name_ja": "ニュース"
+  }
+}
+```
+
+| フィールド | 型 | 必須 | 説明 |
+|-----------|------|------|------|
+| `label` | string | Yes | Classification ノードのラベル名（PascalCase） |
+| `key_property` | string | Yes | MERGE キーとなるプロパティ名 |
+| `properties` | object | Yes | ノードの全プロパティ（key_property の値を含む） |
+
+対応する Classification ノードラベル（16種）:
+
+| ラベル | key_property | 分類カテゴリ |
+|--------|-------------|-------------|
+| SourceType | source_type_id | Source 由来 |
+| Domain | domain_id | Source 由来 |
+| TrustLevel | trust_level_id | Source 由来 |
+| Language | language_id | Source 由来 |
+| Pipeline | pipeline_id | Source 由来 |
+| EntityType | entity_type_id | Entity 由来 |
+| Identifier | identifier_id | Entity 由来 |
+| Industry | industry_id | Entity 由来 |
+| Alias | alias_id | Entity 由来 |
+| FactType | fact_type_id | Content 由来 |
+| ClaimType | claim_type_id | Content 由来 |
+| UnitOfMeasure | unit_id | Content 由来 |
+| DataPointType | datapoint_type_id | Content 由来 |
+| ConceptCategory | concept_category_id | Domain |
+| AuthorType | author_type_id | Domain |
+| InstrumentClass | instrument_class_id | Domain |
+
+> **後方互換性**: `classification_nodes` が graph-queue JSON に存在しない場合（v2.0/v2.2 キュー）、このフェーズはスキップされる。
+
 ### relations オブジェクト
 
 v1 キューでは空オブジェクト `{}` として出力される。リレーションは各ノードデータ内の `source_id` 等のフィールドから暗黙推論される。
@@ -495,6 +541,28 @@ v2 キューでは明示的なリレーション定義を含む:
     ],
     "datapoint_entity": [
       {"from_id": "datapoint-id", "to_id": "entity-uuid", "type": "RELATES_TO"}
+    ],
+    "classification": [
+      {"from_id": "source-uuid", "from_label": "Source", "to_id": "news", "to_label": "SourceType", "type": "IS_SOURCE_TYPE"},
+      {"from_id": "source-uuid", "from_label": "Source", "to_id": "example.com", "to_label": "Domain", "type": "FROM_DOMAIN"},
+      {"from_id": "source-uuid", "from_label": "Source", "to_id": "media", "to_label": "TrustLevel", "type": "RATED_AS"},
+      {"from_id": "source-uuid", "from_label": "Source", "to_id": "en", "to_label": "Language", "type": "IN_LANGUAGE"},
+      {"from_id": "source-uuid", "from_label": "Source", "to_id": "finance-news-workflow", "to_label": "Pipeline", "type": "INGESTED_VIA"},
+      {"from_id": "entity-key", "from_label": "Entity", "to_id": "company", "to_label": "EntityType", "type": "IS_TYPE"},
+      {"from_id": "entity-key", "from_label": "Entity", "to_id": "ticker-id", "to_label": "Identifier", "type": "HAS_IDENTIFIER"},
+      {"from_id": "entity-key", "from_label": "Entity", "to_id": "industry-id", "to_label": "Industry", "type": "IN_INDUSTRY"},
+      {"from_id": "fact-hash", "from_label": "Fact", "to_id": "statistic", "to_label": "FactType", "type": "IS_FACT_TYPE"},
+      {"from_id": "claim-hash", "from_label": "Claim", "to_id": "bullish", "to_label": "ClaimType", "type": "IS_CLAIM_TYPE"},
+      {"from_id": "datapoint-id", "from_label": "FinancialDataPoint", "to_id": "usd", "to_label": "UnitOfMeasure", "type": "IN_UNIT"},
+      {"from_id": "datapoint-id", "from_label": "FinancialDataPoint", "to_id": "actual", "to_label": "DataPointType", "type": "IS_DATAPOINT_TYPE"},
+      {"from_id": "topic-key", "from_label": "Topic", "to_id": "macro", "to_label": "ConceptCategory", "type": "IS_CATEGORY"},
+      {"from_id": "author-id", "from_label": "Author", "to_id": "analyst", "to_label": "AuthorType", "type": "IS_AUTHOR_TYPE"},
+      {"from_id": "author-id", "from_label": "Author", "to_id": "entity-key", "to_label": "Entity", "type": "AFFILIATED_WITH"},
+      {"from_id": "alias-id", "from_label": "Alias", "to_id": "entity-key", "to_label": "Entity", "type": "ALIAS_OF"},
+      {"from_id": "child-ic-id", "from_label": "InstrumentClass", "to_id": "parent-ic-id", "to_label": "InstrumentClass", "type": "PARENT_CLASS"},
+      {"from_id": "industry-id", "from_label": "Industry", "to_id": "sector-id", "to_label": "Sector", "type": "IN_PARENT_SECTOR"},
+      {"from_id": "identifier-id", "from_label": "Identifier", "to_id": "entity-key", "to_label": "Entity", "type": "ISSUED_BY"},
+      {"from_id": "entity-key", "from_label": "Entity", "to_id": "ic-id", "to_label": "InstrumentClass", "type": "IS_INSTRUMENT_CLASS"}
     ]
   }
 }
@@ -924,19 +992,42 @@ MERGE (c)-[:ABOUT]->(e)
 依存関係に基づき、以下の順序で投入します:
 
 ```
-1. Topic            (他ノードに依存しない)
-2. Entity           (他ノードに依存しない)
-3. FiscalPeriod     (他ノードに依存しない) [v2 新規]
-4. Source           (他ノードに依存しない)
-5. Author           (他ノードに依存しない) [v2 新規]
-6. Chunk            (CONTAINS_CHUNK で Source を参照) [v2 新規]
-7. Fact             (STATES_FACT で Source を参照、EXTRACTED_FROM で Chunk を参照) [v2 新規]
-8. Claim            (MAKES_CLAIM で Source を参照、EXTRACTED_FROM で Chunk を参照)
-9. FinancialDataPoint (HAS_DATAPOINT で Source を参照、FOR_PERIOD で FiscalPeriod を参照) [v2 新規]
+Phase 2-0: Master Nodes（v2 互換。v3 では Phase 1.5 で処理）
+  -- v2 キューの場合のみ。分類ノードが classification_nodes にない場合のフォールバック。
+
+Phase 1.5: Classification Nodes [v3.0 新規]
+  1. SourceType, Domain, TrustLevel, Language, Pipeline   (Source 分類)
+  2. EntityType, Identifier, Industry, Alias              (Entity 分類)
+  3. FactType, ClaimType, UnitOfMeasure, DataPointType    (Content 分類)
+  4. ConceptCategory, AuthorType, InstrumentClass         (Domain 分類)
+  -- classification_nodes が JSON にない場合はスキップ（v2.0 互換）
+
+Phase 2: Core Nodes
+  1. Topic            (他ノードに依存しない)
+  2. Entity           (他ノードに依存しない)
+  3. FiscalPeriod     (他ノードに依存しない) [v2 新規]
+  4. Source           (他ノードに依存しない)
+  5. Author           (他ノードに依存しない) [v2 新規]
+
+Phase 2-3: Content Nodes
+  6. Chunk            (CONTAINS_CHUNK で Source を参照) [v2 新規]
+  7. Fact             (STATES_FACT で Source を参照、EXTRACTED_FROM で Chunk を参照) [v2 新規]
+  8. Claim            (MAKES_CLAIM で Source を参照、EXTRACTED_FROM で Chunk を参照)
+  9. FinancialDataPoint (HAS_DATAPOINT で Source を参照、FOR_PERIOD で FiscalPeriod を参照) [v2 新規]
+
+Phase 3-0: Classification Relationships [v3.0 新規]
+  -- relations.classification 配列の処理（20種の分類リレーション）
+  -- classification_nodes/relations.classification が JSON にない場合はスキップ
+
+Phase 3: Core Relationships
+  -- 従来の TAGGED, MAKES_CLAIM, ABOUT, CONTAINS_CHUNK 等
 ```
+
+全体の処理順序: **Master nodes → Classification nodes → Core nodes → Content nodes → Classification rels → Core rels**
 
 ノード自体は独立していますが、リレーション投入時にすべてのノードが存在している必要があります。
 v1 キューファイルの場合、ステップ 3, 5, 6, 7, 9 はスキップされます（対象データが空配列）。
+v2 キューファイルの場合、classification_nodes が存在しないため Phase 1.5 / Phase 3-0 はスキップされます。
 
 ### cypher-shell での実行方法
 
@@ -1279,6 +1370,417 @@ SET r.answered_at = CASE
 | asset-management | rss |
 | reddit-finance-topics | reddit |
 | finance-full | mixed |
+
+---
+
+## Phase 1.5: Classification Node Processing
+
+> **v3.0 新規**。`classification_nodes` 配列が graph-queue JSON に含まれる場合に実行される。
+> v2.0/v2.2 キューでは `classification_nodes` が存在しないため、このフェーズ全体をスキップする（後方互換）。
+
+### 概要
+
+Classification ノードは、Core/Content ノードのプロパティを外部化した薄いハブノードです。
+v3.0 オントロジーでは 16 種の Classification ノードが定義されており、
+Core/Content ノードと分類リレーション（20種）で接続されます。
+
+### 後方互換性チェック
+
+```python
+def should_process_classification_nodes(queue_data: dict) -> bool:
+    """classification_nodes の存在をチェック。v2.0 互換。"""
+    classification_nodes = queue_data.get("classification_nodes")
+    if classification_nodes is None or len(classification_nodes) == 0:
+        logger.info("classification_nodes not found, skipping Phase 1.5 (v2.0 compat)")
+        return False
+    return True
+```
+
+### schema_version チェック
+
+```python
+SUPPORTED_SCHEMA_VERSIONS = {"1.0", "2.0", "2.2", "3.0"}
+
+def validate_schema_version(version: str) -> None:
+    if version not in SUPPORTED_SCHEMA_VERSIONS:
+        raise ValueError(
+            f"Unsupported schema_version: {version}. "
+            f"Supported: {', '.join(sorted(SUPPORTED_SCHEMA_VERSIONS))}"
+        )
+```
+
+### Classification ノードの MERGE パターン
+
+各 Classification ノードは `label` と `key_property` で MERGE される。
+MERGE パターンは `merge-guide.md` に準拠する。
+
+#### 汎用 MERGE テンプレート
+
+```python
+def merge_classification_node(tx, node: dict) -> None:
+    """Classification ノードを MERGE する汎用関数。"""
+    label = node["label"]
+    key_prop = node["key_property"]
+    props = node["properties"]
+    key_value = props[key_prop]
+
+    # 動的 Cypher 生成
+    set_clauses = ", ".join(
+        f"n.{k} = ${k}" for k in props if k != key_prop
+    )
+    cypher = f"""
+        MERGE (n:{label} {{{key_prop}: ${key_prop}}})
+        ON CREATE SET {set_clauses}
+        ON MATCH SET {set_clauses}
+    """
+    tx.run(cypher, **props)
+```
+
+#### 各ラベルの Cypher パターン（merge-guide.md 準拠）
+
+##### SourceType
+
+```cypher
+MERGE (n:SourceType {source_type_id: $source_type_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja
+ON MATCH SET n.name_ja = $name_ja
+```
+
+##### Domain
+
+```cypher
+MERGE (n:Domain {domain_id: $domain_id})
+ON CREATE SET n.name = $name, n.base_url = $base_url, n.default_language = $default_language
+ON MATCH SET n.base_url = COALESCE($base_url, n.base_url), n.default_language = COALESCE($default_language, n.default_language)
+```
+
+##### TrustLevel
+
+```cypher
+MERGE (n:TrustLevel {trust_level_id: $trust_level_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja, n.rank = $rank
+ON MATCH SET n.name_ja = $name_ja, n.rank = $rank
+```
+
+##### Language
+
+```cypher
+MERGE (n:Language {language_id: $language_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja
+ON MATCH SET n.name_ja = $name_ja
+```
+
+##### Pipeline
+
+```cypher
+MERGE (n:Pipeline {pipeline_id: $pipeline_id})
+ON CREATE SET n.name = $name, n.description = $description, n.category = $category
+ON MATCH SET n.description = $description, n.category = $category
+```
+
+##### EntityType
+
+```cypher
+MERGE (n:EntityType {entity_type_id: $entity_type_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja, n.description = $description, n.normalization_rule = $normalization_rule
+ON MATCH SET n.name_ja = $name_ja
+```
+
+##### Identifier
+
+```cypher
+MERGE (n:Identifier {identifier_id: $identifier_id})
+ON CREATE SET n.type = $type, n.value = $value, n.scheme = $scheme
+ON MATCH SET n.value = $value, n.scheme = $scheme
+```
+
+##### Industry
+
+```cypher
+MERGE (n:Industry {industry_id: $industry_id})
+ON CREATE SET n.name = $name
+ON MATCH SET n.name = $name
+```
+
+##### Alias
+
+```cypher
+MERGE (n:Alias {alias_id: $alias_id})
+ON CREATE SET n.name = $name, n.alias_type = $alias_type, n.language = $language
+ON MATCH SET n.name = $name
+```
+
+##### FactType
+
+```cypher
+MERGE (n:FactType {fact_type_id: $fact_type_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja, n.category = $category
+ON MATCH SET n.name_ja = $name_ja
+```
+
+##### ClaimType
+
+```cypher
+MERGE (n:ClaimType {claim_type_id: $claim_type_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja, n.direction = $direction
+ON MATCH SET n.name_ja = $name_ja
+```
+
+##### UnitOfMeasure
+
+```cypher
+MERGE (n:UnitOfMeasure {unit_id: $unit_id})
+ON CREATE SET n.name = $name, n.symbol = $symbol, n.dimension = $dimension
+ON MATCH SET n.symbol = $symbol, n.dimension = $dimension
+```
+
+##### DataPointType
+
+```cypher
+MERGE (n:DataPointType {datapoint_type_id: $datapoint_type_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja
+ON MATCH SET n.name_ja = $name_ja
+```
+
+##### ConceptCategory
+
+```cypher
+MERGE (n:ConceptCategory {concept_category_id: $concept_category_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja, n.layer = $layer
+ON MATCH SET n.name_ja = $name_ja, n.layer = $layer
+```
+
+##### AuthorType
+
+```cypher
+MERGE (n:AuthorType {author_type_id: $author_type_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja
+ON MATCH SET n.name_ja = $name_ja
+```
+
+##### InstrumentClass
+
+```cypher
+MERGE (n:InstrumentClass {instrument_class_id: $instrument_class_id})
+ON CREATE SET n.name = $name, n.name_ja = $name_ja, n.fibo_domain = $fibo_domain
+ON MATCH SET n.name_ja = $name_ja, n.fibo_domain = $fibo_domain
+```
+
+### バッチ投入パターン
+
+```python
+def batch_merge_classification_nodes(tx, classification_nodes: list[dict]) -> int:
+    """Classification ノードをバッチ MERGE する。"""
+    count = 0
+    for node in classification_nodes:
+        merge_classification_node(tx, node)
+        count += 1
+    logger.info("Classification nodes merged", count=count)
+    return count
+```
+
+### Classification リレーション投入（Phase 3-0）
+
+Classification ノード投入後、Core/Content ノードとの分類リレーションを投入する。
+`relations.classification` 配列から読み取る。
+
+#### 対応リレーション一覧（20種）
+
+| リレーションタイプ | From | To | 説明 |
+|-------------------|------|-----|------|
+| IS_SOURCE_TYPE | Source | SourceType | ソースの種類分類 |
+| FROM_DOMAIN | Source | Domain | ソースのWebドメイン |
+| RATED_AS | Source | TrustLevel | ソースの信頼度評価 |
+| IN_LANGUAGE | Source | Language | ソースの言語 |
+| INGESTED_VIA | Source | Pipeline | データ投入パイプライン |
+| IS_TYPE | Entity | EntityType | エンティティのサブタイプ |
+| HAS_IDENTIFIER | Entity | Identifier | FIBO hasIdentifier パターン |
+| IN_INDUSTRY | Entity | Industry | 産業分類 |
+| ALIAS_OF | Alias | Entity/Topic | 別名の正規化リンク |
+| IS_INSTRUMENT_CLASS | Entity | InstrumentClass | FIBO 金融商品種類分類 |
+| IS_FACT_TYPE | Fact | FactType | 事実の種類分類 |
+| IS_CLAIM_TYPE | Claim | ClaimType | 主張の種類分類 |
+| IN_UNIT | FDP/Stance | UnitOfMeasure | 単位（通貨含む） |
+| IS_DATAPOINT_TYPE | FinancialDataPoint | DataPointType | 実績/予想/予測/コンセンサス |
+| IS_CATEGORY | Topic | ConceptCategory | トピックの上位概念カテゴリ |
+| IS_AUTHOR_TYPE | Author | AuthorType | 著者の種類分類 |
+| AFFILIATED_WITH | Author | Entity | 著者の所属組織 |
+| PARENT_CLASS | InstrumentClass | InstrumentClass | InstrumentClass L2→L1 階層 |
+| IN_PARENT_SECTOR | Industry | Sector | 産業の親セクター |
+| ISSUED_BY | Identifier | Entity | 識別子の発行機関 |
+
+#### Classification リレーション MERGE テンプレート
+
+```python
+# Classification リレーションの MERGE パターンマッピング
+CLASSIFICATION_REL_PATTERNS = {
+    "IS_SOURCE_TYPE":    {"from": ("Source", "source_id"),       "to": ("SourceType", "source_type_id")},
+    "FROM_DOMAIN":       {"from": ("Source", "source_id"),       "to": ("Domain", "domain_id")},
+    "RATED_AS":          {"from": ("Source", "source_id"),       "to": ("TrustLevel", "trust_level_id")},
+    "IN_LANGUAGE":       {"from": ("Source", "source_id"),       "to": ("Language", "language_id")},
+    "INGESTED_VIA":      {"from": ("Source", "source_id"),       "to": ("Pipeline", "pipeline_id")},
+    "IS_TYPE":           {"from": ("Entity", "entity_key"),      "to": ("EntityType", "entity_type_id")},
+    "HAS_IDENTIFIER":    {"from": ("Entity", "entity_key"),      "to": ("Identifier", "identifier_id")},
+    "IN_INDUSTRY":       {"from": ("Entity", "entity_key"),      "to": ("Industry", "industry_id")},
+    "ALIAS_OF":          {"from": ("Alias", "alias_id"),         "to": None},  # dynamic target
+    "IS_INSTRUMENT_CLASS": {"from": ("Entity", "entity_key"),    "to": ("InstrumentClass", "instrument_class_id")},
+    "IS_FACT_TYPE":      {"from": ("Fact", "fact_id"),           "to": ("FactType", "fact_type_id")},
+    "IS_CLAIM_TYPE":     {"from": ("Claim", "claim_id"),        "to": ("ClaimType", "claim_type_id")},
+    "IN_UNIT":           {"from": None, "to": ("UnitOfMeasure", "unit_id")},  # dynamic source
+    "IS_DATAPOINT_TYPE": {"from": ("FinancialDataPoint", "datapoint_id"), "to": ("DataPointType", "datapoint_type_id")},
+    "IS_CATEGORY":       {"from": ("Topic", "topic_key"),       "to": ("ConceptCategory", "concept_category_id")},
+    "IS_AUTHOR_TYPE":    {"from": ("Author", "author_id"),      "to": ("AuthorType", "author_type_id")},
+    "AFFILIATED_WITH":   {"from": ("Author", "author_id"),      "to": ("Entity", "entity_key")},
+    "PARENT_CLASS":      {"from": ("InstrumentClass", "instrument_class_id"), "to": ("InstrumentClass", "instrument_class_id")},
+    "IN_PARENT_SECTOR":  {"from": ("Industry", "industry_id"),  "to": ("Sector", "sector_id")},
+    "ISSUED_BY":         {"from": ("Identifier", "identifier_id"), "to": ("Entity", "entity_key")},
+}
+```
+
+#### Cypher テンプレート（各リレーション）
+
+```cypher
+// IS_SOURCE_TYPE: Source → SourceType
+MATCH (s:Source {source_id: $from_id})
+MATCH (t:SourceType {source_type_id: $to_id})
+MERGE (s)-[:IS_SOURCE_TYPE]->(t)
+
+// FROM_DOMAIN: Source → Domain
+MATCH (s:Source {source_id: $from_id})
+MATCH (d:Domain {domain_id: $to_id})
+MERGE (s)-[:FROM_DOMAIN]->(d)
+
+// RATED_AS: Source → TrustLevel
+MATCH (s:Source {source_id: $from_id})
+MATCH (t:TrustLevel {trust_level_id: $to_id})
+MERGE (s)-[:RATED_AS]->(t)
+
+// IN_LANGUAGE: Source → Language
+MATCH (s:Source {source_id: $from_id})
+MATCH (l:Language {language_id: $to_id})
+MERGE (s)-[:IN_LANGUAGE]->(l)
+
+// INGESTED_VIA: Source → Pipeline
+MATCH (s:Source {source_id: $from_id})
+MATCH (p:Pipeline {pipeline_id: $to_id})
+MERGE (s)-[:INGESTED_VIA]->(p)
+
+// IS_TYPE: Entity → EntityType
+MATCH (e:Entity {entity_key: $from_id})
+MATCH (t:EntityType {entity_type_id: $to_id})
+MERGE (e)-[:IS_TYPE]->(t)
+
+// HAS_IDENTIFIER: Entity → Identifier
+MATCH (e:Entity {entity_key: $from_id})
+MATCH (i:Identifier {identifier_id: $to_id})
+MERGE (e)-[:HAS_IDENTIFIER]->(i)
+
+// IN_INDUSTRY: Entity → Industry
+MATCH (e:Entity {entity_key: $from_id})
+MATCH (i:Industry {industry_id: $to_id})
+MERGE (e)-[:IN_INDUSTRY]->(i)
+
+// IS_INSTRUMENT_CLASS: Entity → InstrumentClass
+MATCH (e:Entity {entity_key: $from_id})
+MATCH (ic:InstrumentClass {instrument_class_id: $to_id})
+MERGE (e)-[:IS_INSTRUMENT_CLASS]->(ic)
+
+// IS_FACT_TYPE: Fact → FactType
+MATCH (f:Fact {fact_id: $from_id})
+MATCH (ft:FactType {fact_type_id: $to_id})
+MERGE (f)-[:IS_FACT_TYPE]->(ft)
+
+// IS_CLAIM_TYPE: Claim → ClaimType
+MATCH (c:Claim {claim_id: $from_id})
+MATCH (ct:ClaimType {claim_type_id: $to_id})
+MERGE (c)-[:IS_CLAIM_TYPE]->(ct)
+
+// IN_UNIT: FDP/Stance → UnitOfMeasure (from_label で分岐)
+// from_label = "FinancialDataPoint":
+MATCH (fdp:FinancialDataPoint {datapoint_id: $from_id})
+MATCH (u:UnitOfMeasure {unit_id: $to_id})
+MERGE (fdp)-[:IN_UNIT]->(u)
+// from_label = "Stance":
+MATCH (st:Stance {stance_id: $from_id})
+MATCH (u:UnitOfMeasure {unit_id: $to_id})
+MERGE (st)-[:IN_UNIT]->(u)
+
+// IS_DATAPOINT_TYPE: FinancialDataPoint → DataPointType
+MATCH (fdp:FinancialDataPoint {datapoint_id: $from_id})
+MATCH (dt:DataPointType {datapoint_type_id: $to_id})
+MERGE (fdp)-[:IS_DATAPOINT_TYPE]->(dt)
+
+// IS_CATEGORY: Topic → ConceptCategory
+MATCH (t:Topic {topic_key: $from_id})
+MATCH (cc:ConceptCategory {concept_category_id: $to_id})
+MERGE (t)-[:IS_CATEGORY]->(cc)
+
+// IS_AUTHOR_TYPE: Author → AuthorType
+MATCH (a:Author {author_id: $from_id})
+MATCH (at:AuthorType {author_type_id: $to_id})
+MERGE (a)-[:IS_AUTHOR_TYPE]->(at)
+
+// AFFILIATED_WITH: Author → Entity
+MATCH (a:Author {author_id: $from_id})
+MATCH (e:Entity {entity_key: $to_id})
+MERGE (a)-[:AFFILIATED_WITH]->(e)
+
+// ALIAS_OF: Alias → Entity|Topic (to_label で分岐)
+// to_label = "Entity":
+MATCH (al:Alias {alias_id: $from_id})
+MATCH (e:Entity {entity_key: $to_id})
+MERGE (al)-[:ALIAS_OF]->(e)
+// to_label = "Topic":
+MATCH (al:Alias {alias_id: $from_id})
+MATCH (t:Topic {topic_key: $to_id})
+MERGE (al)-[:ALIAS_OF]->(t)
+
+// PARENT_CLASS: InstrumentClass (L2) → InstrumentClass (L1)
+MATCH (child:InstrumentClass {instrument_class_id: $from_id})
+MATCH (parent:InstrumentClass {instrument_class_id: $to_id})
+MERGE (child)-[:PARENT_CLASS]->(parent)
+
+// IN_PARENT_SECTOR: Industry → Sector
+MATCH (i:Industry {industry_id: $from_id})
+MATCH (s:Sector {sector_id: $to_id})
+MERGE (i)-[:IN_PARENT_SECTOR]->(s)
+
+// ISSUED_BY: Identifier → Entity
+MATCH (id:Identifier {identifier_id: $from_id})
+MATCH (e:Entity {entity_key: $to_id})
+MERGE (id)-[:ISSUED_BY]->(e)
+```
+
+#### バッチ処理（擬似コード）
+
+```python
+def phase_3_0_classification_relations(
+    queue_data: dict,
+) -> dict:
+    """Phase 3-0: Classification リレーション投入。"""
+    relations = queue_data.get("relations", {})
+    classification_rels = relations.get("classification", [])
+
+    if not classification_rels:
+        logger.info("No classification relations found, skipping Phase 3-0")
+        return {"skipped": True}
+
+    stats = {}
+    for rel in classification_rels:
+        rel_type = rel["type"]
+        from_id = rel["from_id"]
+        to_id = rel["to_id"]
+        from_label = rel.get("from_label", "")
+        to_label = rel.get("to_label", "")
+
+        cypher = build_classification_rel_cypher(rel_type, from_label, to_label)
+        run_cypher(cypher, from_id=from_id, to_id=to_id)
+
+        stats[rel_type] = stats.get(rel_type, 0) + 1
+
+    logger.info("Classification relations merged", stats=stats)
+    return stats
+```
 
 ---
 
@@ -1648,7 +2150,7 @@ python3 scripts/emit_graph_queue.py \
 ### E003: JSON スキーマ検証エラー
 
 **発生条件**:
-- `schema_version` が `"1.0"` でも `"2.0"` でもない
+- `schema_version` が `"1.0"`, `"2.0"`, `"2.2"`, `"3.0"` のいずれでもない
 - 必須フィールド（`queue_id`, `command_source`, `sources` 等）が欠落
 - v2 キューで `facts`, `chunks`, `financial_datapoints`, `fiscal_periods` が欠落
 
@@ -1963,6 +2465,7 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 | Chunk ノード数 | 変化なし |
 | FinancialDataPoint ノード数 | 変化なし |
 | FiscalPeriod ノード数 | 変化なし |
+| Classification ノード数（16種） | 変化なし |
 | TAGGED リレーション数 | 変化なし |
 | MAKES_CLAIM リレーション数 | 変化なし |
 | ABOUT リレーション数 | 変化なし |
@@ -1972,6 +2475,7 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 | HAS_DATAPOINT リレーション数 | 変化なし |
 | FOR_PERIOD リレーション数 | 変化なし |
 | RELATES_TO リレーション数 | 変化なし |
+| Classification リレーション数（20種） | 変化なし |
 
 冪等性が保証される理由:
 1. 全 ID は入力データから**決定論的**に生成される（UUID5 / SHA-256）
@@ -2024,3 +2528,5 @@ uv run pytest tests/scripts/ -v
 | graph-queue テスト | `tests/scripts/test_emit_graph_queue.py` | 生成スクリプトのテスト |
 | E2E テスト | `tests/scripts/test_e2e_graph_pipeline.py` | E2E 検証・冪等性テスト |
 | KG スキーマ定義 | `data/config/knowledge-graph-schema.yaml` | ノード・リレーション・制約の定義 |
+| v3.0 オントロジー | `data/lifecycle-state/research/ontology.yaml` | v3.0 ノード・リレーション定義（33ラベル/59種） |
+| v3.0 MERGE ガイド | `data/lifecycle-state/research/merge-guide.md` | v3.0 MERGE パターン・投入順序 |
