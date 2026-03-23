@@ -128,6 +128,54 @@
 
 ---
 
+## How層向け検索テンプレート（全ジャンル共通）
+
+Gap Analysis Q2/Q3 で How層カテゴリ（EmotionalHook/CopyFramework/Objection/PersuasionTechnique）が
+不足と判定された場合、ジャンル固有クエリに加えて以下のテンプレートを使用する。
+
+### Tavily 英語クエリ（How層）
+
+| # | カテゴリ | クエリテンプレート |
+|---|---------|-------------------|
+| H1 | EmotionalHook | `emotional hook copywriting {topic} examples` |
+| H2 | EmotionalHook | `headline hook formulas that convert {topic}` |
+| H3 | CopyFramework | `copywriting framework {topic} PASONA AIDA PAS` |
+| H4 | CopyFramework | `{topic} sales page structure template` |
+| H5 | Objection | `common objections {topic} how to overcome` |
+| H6 | Objection | `{topic} customer hesitation barriers buying` |
+| H7 | PersuasionTechnique | `persuasion techniques {topic} social proof scarcity` |
+| H8 | PersuasionTechnique | `influence psychology {topic} Cialdini principles` |
+
+### Tavily 日本語クエリ（How層）
+
+| # | カテゴリ | クエリテンプレート |
+|---|---------|-------------------|
+| H1 | EmotionalHook | `{topic} 感情に刺さる キャッチコピー 作り方` |
+| H2 | EmotionalHook | `{topic} 読者の心を掴む フック 書き出し` |
+| H3 | CopyFramework | `{topic} セールスライティング テンプレート PASONAの法則` |
+| H4 | CopyFramework | `{topic} LP 構成 コピーライティング フレームワーク` |
+| H5 | Objection | `{topic} よくある反論 不安 解消 方法` |
+| H6 | Objection | `{topic} 購入障壁 心理的ハードル 克服` |
+| H7 | PersuasionTechnique | `{topic} 説得力 社会的証明 権威性 テクニック` |
+| H8 | PersuasionTechnique | `{topic} 限定性 希少性 マーケティング 心理学` |
+
+### Reddit サブレディット（How層）
+
+- r/copywriting
+- r/marketing
+- r/Entrepreneur（セールス・説得系投稿）
+
+### 使用基準
+
+Q3 で以下のいずれかが低カバレッジ TOP 5 に入った場合、そのカテゴリの H* クエリを優先的に実行する：
+
+- EmotionalHook（現在1件）
+- CopyFramework（現在1件）
+- Objection（現在1件）
+- PersuasionTechnique（現在0件）
+
+---
+
 ## プレースホルダー
 
 | プレースホルダー | 置換内容 | ソース |

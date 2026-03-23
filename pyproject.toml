@@ -28,6 +28,7 @@ dependencies = [
     "youtube-transcript-api>=1.0.0",
     "google-api-python-client>=2.193.0",
     "defusedxml>=0.7.1",
+    "boto3>=1.42.73",
 ]
 
 [project.optional-dependencies]

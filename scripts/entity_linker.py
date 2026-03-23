@@ -688,7 +688,10 @@ def resolve_all(
         client, concepts, concept_exact, "concept", model
     )
 
-    return {
+    # Preserve all input fields (sources, facts, tips, stories, genre, etc.)
+    # and overlay resolved entities/concepts
+    result = {k: v for k, v in data.items() if k not in ("entities", "concepts")}
+    result.update({
         "entities": resolved_entities,
         "concepts": resolved_concepts,
         "serves_as": data.get("serves_as", []),
@@ -697,7 +700,8 @@ def resolve_all(
             "entities": _compute_stats(resolved_entities),
             "concepts": _compute_stats(resolved_concepts),
         },
-    }
+    })
+    return result
 
 
 def _resolve_items(

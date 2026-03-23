@@ -333,7 +333,7 @@ class TestMain:
     def test_正常系_regionsオプションが渡される(
         self, mock_collect: MagicMock, tmp_path: Path
     ) -> None:
-        """--regions us cn が collect_news に渡されることを確認。"""
+        """--regions us cn が region->countries dict に変換されて渡される。"""
         mock_collect.return_value = []
 
         with patch(
@@ -352,7 +352,9 @@ class TestMain:
         assert exit_code == 0
         call_kwargs = mock_collect.call_args
         regions = call_kwargs.kwargs.get("regions") or call_kwargs[1].get("regions")
-        assert regions == ["us", "cn"]
+        # Country codes are resolved to region->countries dict
+        assert isinstance(regions, dict)
+        assert regions == {"n_america": ["us"], "asia": ["cn"]}
 
     @patch("scrape_jetro.collect_news")
     def test_正常系_JSONファイルが正しい形式で出力される(

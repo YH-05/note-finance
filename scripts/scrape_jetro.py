@@ -53,6 +53,9 @@ from news_scraper._logging import get_logger
 from news_scraper.jetro import collect_news
 from news_scraper.types import Article, ScraperConfig
 
+# JETRO category config for country->region reverse lookup
+_JETRO_CATEGORIES_PATH = Path(__file__).resolve().parent.parent / "data" / "config" / "jetro-categories.json"
+
 logger = get_logger(__name__, module="scrape_jetro")
 
 # Default paths (overridable via environment variables)
@@ -378,6 +381,52 @@ def _cleanup_old_data(base_dir: Path, max_age_days: int) -> int:
     return deleted_count
 
 
+def _resolve_regions(country_codes: list[str]) -> dict[str, list[str]]:
+    """Resolve CLI country codes to a region->countries dict.
+
+    Reads ``data/config/jetro-categories.json`` and builds a mapping
+    from region key (e.g. ``"asia"``) to the subset of *country_codes*
+    that belong to that region.
+
+    Parameters
+    ----------
+    country_codes : list[str]
+        Country codes from the ``--regions`` CLI argument (e.g. ``["cn", "us"]``).
+
+    Returns
+    -------
+    dict[str, list[str]]
+        Region-to-country mapping suitable for ``collect_news(regions=...)``.
+        E.g. ``{"asia": ["cn"], "n_america": ["us"]}``.
+    """
+    if not _JETRO_CATEGORIES_PATH.exists():
+        logger.warning(
+            "jetro-categories.json not found, cannot resolve regions",
+            path=str(_JETRO_CATEGORIES_PATH),
+        )
+        return {}
+
+    with _JETRO_CATEGORIES_PATH.open(encoding="utf-8") as f:
+        config = json.load(f)
+
+    # Build reverse lookup: country_code -> region_key
+    code_to_region: dict[str, str] = {}
+    for region_key, region_data in config.get("regions", {}).items():
+        for code in region_data.get("countries", {}):
+            code_to_region[code] = region_key
+
+    regions: dict[str, list[str]] = {}
+    for code in country_codes:
+        region = code_to_region.get(code)
+        if region is None:
+            logger.warning("Unknown country code, skipping", code=code)
+            continue
+        regions.setdefault(region, []).append(code)
+
+    logger.info("Resolved regions from country codes", input=country_codes, resolved=regions)
+    return regions
+
+
 def _articles_to_json(articles: list[Article]) -> list[dict]:
     """Convert Article models to JSON-serializable dicts.
 
@@ -441,11 +490,19 @@ def main() -> int:
         regions=args.regions,
     )
 
+    # Resolve regions: CLI passes a list of country codes,
+    # but collect_news expects dict[str, list[str]]
+    resolved_regions: dict[str, list[str]] | None = None
+    if args.regions:
+        resolved_regions = _resolve_regions(args.regions)
+        if not resolved_regions:
+            logger.warning("No valid regions resolved from codes", codes=args.regions)
+
     try:
         articles = collect_news(
             config=config,
             categories=args.categories,
-            regions=args.regions,
+            regions=resolved_regions,
         )
     except Exception as e:
         logger.error("JETRO news collection failed", error=str(e), exc_info=True)

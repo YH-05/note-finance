@@ -33,10 +33,12 @@ from __future__ import annotations
 
 import asyncio
 import re
-from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from dataclasses import dataclass
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from collections.abc import AsyncIterator
 from urllib.parse import urlparse
 
 from lxml import html as lxml_html

@@ -160,15 +160,37 @@ Step 0 で特定されたギャップ情報を各スキルに渡し、**ギャ�
 
 #### side_business
 
-既存の `experience-db-workflow` スキルの Phase 1-2 に処理を委譲します。
+**Step 0.5: creator-neo4j 素材照会**（side_business 専用追加ステップ）
+
+記事テーマに関連する素材を creator-neo4j (bolt://localhost:7689) から事前取得し、Web検索の方向性を決定する。
 
 ```
 実行内容:
-- Phase 1: ソース収集（Reddit + RSS + Web検索 + note.com巡回）
-- Phase 2: 合成パターン生成（experience-synthesizer）
+- Q1: テーマ×ジャンル → 素材一括取得
+- Q2: How層（PersuasionTechnique/EmotionalHook/CopyFramework/Objection）素材取得
+- Q4: Story（体験談）取得
+- Q6: クロスジャンルパターン発見
 ```
 
-出力先: `01_research/` 配下にソースと合成データを保存
+参照: `.claude/skills/creator-enrichment/references/article-material-queries.md`
+
+MCP ツール: `mcp__neo4j-creator__creator-read_neo4j_cypher`
+
+**creator-neo4j 未起動時**: 警告を出力してStep 0.5をスキップし通常のWeb検索に進む。
+
+取得した素材は `01_research/creator_neo4j_materials.md` に保存し、以降のリサーチでは **既にグラフにある素材は再検索せず、不足分のみWeb検索で補完** する。
+
+---
+
+その後、Web検索＋Reddit で補完リサーチを実行する。
+
+```
+実行内容:
+- Phase 1: creator-neo4j 素材で不足している領域をWeb検索で補完
+- Phase 2: 事例分析型記事の場合、Web検索 + Reddit + RSS（事例収集+パターン抽出）
+```
+
+出力先: `01_research/` 配下にソースと素材データを保存
 
 #### market_report
 
