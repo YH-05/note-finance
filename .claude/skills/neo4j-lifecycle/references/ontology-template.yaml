@@ -1,0 +1,441 @@
+# =============================================================================
+# ontology-template.yaml
+# =============================================================================
+# neo4j-lifecycle Phase A で使用するドメイン非依存のオントロジー定義テンプレート。
+# プレースホルダー（{{UPPER_SNAKE_CASE}}）を対象インスタンスの値で置換して使用する。
+#
+# Phase B での埋め込み手順:
+#   1. instance YAML の use_case / description を参照して各プレースホルダーを埋める
+#   2. ユーザーとの対話（Phase A-2）で確定した値を反映する
+#   3. 確定後、data/lifecycle-state/{instance}/ontology.yaml として保存する
+#   4. extraction-prompt-template.md / merge-patterns-template.md が本ファイルを参照する
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# メタ情報
+# ---------------------------------------------------------------------------
+schema_version: "{{SCHEMA_VERSION}}"          # 例: "creator-2.0", "research-2.0"
+instance_name: "{{INSTANCE_NAME}}"            # 例: "creator", "research"
+domain: "{{DOMAIN_DESCRIPTION}}"              # 例: "コンテンツ創作", "金融リサーチ"
+created_at: "{{CREATED_AT}}"                  # ISO 8601 形式
+updated_at: "{{UPDATED_AT}}"
+
+# ---------------------------------------------------------------------------
+# ConceptCategory 定義
+# ---------------------------------------------------------------------------
+# 上位概念カテゴリ。Concept ノードを分類する。
+# layer で What（何についてか）/ How（どう伝えるか）等の軸を区別する。
+#
+# --- creator v2 参考例 ---
+# concept_categories:
+#   - name: MonetizationMethod
+#     name_ja: 収益化手段
+#     layer: What
+#     description: 収入を生み出す手段やビジネスモデル
+#   - name: AcquisitionChannel
+#     name_ja: 集客チャネル
+#     layer: What
+#     description: 顧客獲得・集客のためのチャネル
+#   - name: Skill
+#     name_ja: スキル・技能
+#     layer: What
+#     description: 専門的な技能や知識
+#   - name: Audience
+#     name_ja: ターゲット層
+#     layer: What
+#     description: 想定読者・顧客のセグメント
+#   - name: RevenueModel
+#     name_ja: 収益モデル
+#     layer: What
+#     description: 収益構造のパターン
+#   - name: SuccessMetric
+#     name_ja: 成果指標
+#     layer: What
+#     description: KPI・成果の計測基準
+#   - name: ContentFormat
+#     name_ja: コンテンツ形式
+#     layer: What
+#     description: コンテンツの配信フォーマット
+#   - name: Regulation
+#     name_ja: 法規制
+#     layer: What
+#     description: 法令・コンプライアンス規制
+#   - name: Milestone
+#     name_ja: マイルストーン
+#     layer: What
+#     description: 時間軸の目安・到達点
+#   - name: PersuasionTechnique
+#     name_ja: 説得技法
+#     layer: How
+#     description: 説得・影響力の技法
+#   - name: EmotionalHook
+#     name_ja: 感情トリガー
+#     layer: How
+#     description: 読者の感情を動かす仕掛け
+#   - name: CopyFramework
+#     name_ja: 文章構成パターン
+#     layer: How
+#     description: ライティングのフレームワーク
+#   - name: Objection
+#     name_ja: 反論・障壁
+#     layer: How
+#     description: 読者が抱く反論や購買障壁
+#   - name: Transformation
+#     name_ja: 変化パターン
+#     layer: How
+#     description: ビフォーアフターの変容パターン
+# ---
+
+concept_categories:
+  - name: "{{CONCEPT_CATEGORY_1_NAME}}"
+    name_ja: "{{CONCEPT_CATEGORY_1_NAME_JA}}"
+    layer: "{{CONCEPT_CATEGORY_1_LAYER}}"       # What | How | Meta 等
+    description: "{{CONCEPT_CATEGORY_1_DESC}}"
+  # 必要数だけ追加。推奨: 8-20 カテゴリ。
+  # - name: "{{CONCEPT_CATEGORY_N_NAME}}"
+  #   name_ja: "{{CONCEPT_CATEGORY_N_NAME_JA}}"
+  #   layer: "{{CONCEPT_CATEGORY_N_LAYER}}"
+  #   description: "{{CONCEPT_CATEGORY_N_DESC}}"
+
+# ---------------------------------------------------------------------------
+# Entity Type 定義
+# ---------------------------------------------------------------------------
+# 固有名詞ノード（Entity）のサブタイプ。
+# entity_type プロパティに格納される値。
+#
+# --- creator v2 参考例 ---
+# entity_types:
+#   - key: platform
+#     name_ja: プラットフォーム
+#     description: サービス・プラットフォーム・ツール
+#     examples: [Instagram, Coconala, ChatGPT, Canva]
+#     normalization: 公式英語表記
+#   - key: company
+#     name_ja: 企業・組織
+#     description: 企業・組織
+#     examples: [Google, Match Group, リクルート]
+#     normalization: 公式英語表記
+#   - key: person
+#     name_ja: 人物
+#     description: 実在の人物
+#     examples: [林知佳, Elon Musk]
+#     normalization: 日本人は漢字、外国人はアルファベット
+#   - key: organization
+#     name_ja: 公的機関・団体
+#     description: 公的機関・団体
+#     examples: [厚生労働省, 国税庁]
+#     normalization: 公式名称
+# ---
+#
+# --- research v2 参考例 ---
+# entity_types:
+#   - key: company
+#     name_ja: 企業
+#     description: 上場企業・非上場企業
+#     examples: [Apple Inc., トヨタ自動車]
+#     normalization: 公式英語表記またはティッカー
+#   - key: index
+#     name_ja: 株価指数
+#     description: 株価指数・ベンチマーク
+#     examples: [S&P 500, TOPIX]
+#     normalization: 公式略称
+#   - key: commodity
+#     name_ja: コモディティ
+#     description: 商品先物・原材料
+#     examples: [WTI Crude Oil, Gold]
+#     normalization: 公式英語名
+#   - key: country
+#     name_ja: 国・地域
+#     description: 国家・経済圏
+#     examples: [United States, Indonesia]
+#     normalization: 英語正式名
+#   - key: organization
+#     name_ja: 機関
+#     description: 中央銀行・規制当局・国際機関
+#     examples: [Federal Reserve, Bank Indonesia, IMF]
+#     normalization: 公式英語略称
+#   - key: person
+#     name_ja: 人物
+#     description: 経営者・政策担当者・アナリスト
+#     examples: [Jerome Powell, Sri Mulyani]
+#     normalization: アルファベットフルネーム
+#   - key: sector
+#     name_ja: セクター
+#     description: 産業セクター・業種分類
+#     examples: [Technology, Financials, Consumer Staples]
+#     normalization: GICS セクター名
+#   - key: regulation
+#     name_ja: 規制・政策
+#     description: 法規制・政策・条約
+#     examples: [Basel III, Dodd-Frank Act]
+#     normalization: 公式英語名
+# ---
+
+entity_types:
+  - key: "{{ENTITY_TYPE_1_KEY}}"
+    name_ja: "{{ENTITY_TYPE_1_NAME_JA}}"
+    description: "{{ENTITY_TYPE_1_DESC}}"
+    examples: "{{ENTITY_TYPE_1_EXAMPLES}}"      # YAML リスト形式
+    normalization: "{{ENTITY_TYPE_1_NORM}}"      # 正規化ルール
+  # 必要数だけ追加。推奨: 4-10 タイプ。
+  # - key: "{{ENTITY_TYPE_N_KEY}}"
+  #   name_ja: "{{ENTITY_TYPE_N_NAME_JA}}"
+  #   description: "{{ENTITY_TYPE_N_DESC}}"
+  #   examples: "{{ENTITY_TYPE_N_EXAMPLES}}"
+  #   normalization: "{{ENTITY_TYPE_N_NORM}}"
+
+# ---------------------------------------------------------------------------
+# Content Type 定義
+# ---------------------------------------------------------------------------
+# ナレッジの種類。コンテンツノードのラベルに対応する。
+#
+# --- creator v2 参考例 ---
+# content_types:
+#   - label: Fact
+#     description: 事実・データ（統計、調査結果、公式発表）
+#     key_property: fact_id
+#     text_property: text
+#     extra_properties: [category, confidence]
+#   - label: Tip
+#     description: ハウツー・ノウハウ（手順、推奨事項、ベストプラクティス）
+#     key_property: tip_id
+#     text_property: text
+#     extra_properties: [category, difficulty]
+#   - label: Story
+#     description: 体験談・事例（個人体験、ケーススタディ）
+#     key_property: story_id
+#     text_property: text
+#     extra_properties: [outcome, timeline]
+# ---
+#
+# --- research v2 参考例 ---
+# content_types:
+#   - label: Fact
+#     description: 検証済みの事実・データ
+#     key_property: fact_id
+#     text_property: content
+#     extra_properties: [category, confidence, temporal_scope]
+#   - label: Claim
+#     description: 主張・意見・予測
+#     key_property: claim_id
+#     text_property: content
+#     extra_properties: [claim_type, stance]
+#   - label: Chunk
+#     description: ソースドキュメントの断片
+#     key_property: chunk_id
+#     text_property: text
+#     extra_properties: [chunk_index, token_count]
+#   - label: FinancialDataPoint
+#     description: 定量的な財務・経済データ
+#     key_property: datapoint_id
+#     text_property: null
+#     extra_properties: [metric_name, value, unit, period]
+# ---
+
+content_types:
+  - label: "{{CONTENT_TYPE_1_LABEL}}"
+    description: "{{CONTENT_TYPE_1_DESC}}"
+    key_property: "{{CONTENT_TYPE_1_KEY_PROP}}"
+    text_property: "{{CONTENT_TYPE_1_TEXT_PROP}}"
+    extra_properties: "{{CONTENT_TYPE_1_EXTRA}}"  # YAML リスト形式
+  # 必要数だけ追加。推奨: 2-5 タイプ。
+  # - label: "{{CONTENT_TYPE_N_LABEL}}"
+  #   description: "{{CONTENT_TYPE_N_DESC}}"
+  #   key_property: "{{CONTENT_TYPE_N_KEY_PROP}}"
+  #   text_property: "{{CONTENT_TYPE_N_TEXT_PROP}}"
+  #   extra_properties: "{{CONTENT_TYPE_N_EXTRA}}"
+
+# ---------------------------------------------------------------------------
+# Relation Type 定義
+# ---------------------------------------------------------------------------
+# リレーションのカタログ。from_label → to_label の接続ルール。
+#
+# --- creator v2 参考例 ---
+# relation_types:
+#   - type: IS_A
+#     from_label: Concept
+#     to_label: ConceptCategory
+#     description: Concept がどの上位カテゴリに属するか
+#     cardinality: "N:1"
+#   - type: SERVES_AS
+#     from_label: Entity
+#     to_label: Concept
+#     description: Entity が Concept に対して果たす役割
+#     properties: [context]
+#     cardinality: "N:M"
+#   - type: ABOUT
+#     from_label: "[Fact|Tip|Story]"
+#     to_label: Concept
+#     description: コンテンツが扱う概念トピック
+#     cardinality: "N:M"
+#   - type: MENTIONS
+#     from_label: "[Fact|Tip|Story]"
+#     to_label: Entity
+#     description: コンテンツが言及する固有名詞
+#     cardinality: "N:M"
+#   - type: FROM_SOURCE
+#     from_label: "[Fact|Tip|Story]"
+#     to_label: Source
+#     description: コンテンツの出典ソース
+#     cardinality: "N:1"
+#   - type: IN_GENRE
+#     from_label: "[Fact|Tip|Story]"
+#     to_label: Genre
+#     description: コンテンツのジャンル分類
+#     cardinality: "N:1"
+#   - type: FROM_DOMAIN
+#     from_label: Source
+#     to_label: Domain
+#     description: ソースのドメイン（Webサイト）
+#     cardinality: "N:1"
+#   - type: ALIAS_OF
+#     from_label: Alias
+#     to_label: "[Entity|Concept]"
+#     description: 別名・略称の正規化
+#     cardinality: "N:1"
+#   - type: ENABLES
+#     from_label: Concept
+#     to_label: Concept
+#     description: AがBを可能にする関係
+#     cardinality: "N:M"
+#   - type: REQUIRES
+#     from_label: Concept
+#     to_label: Concept
+#     description: AにはBが必要な関係
+#     cardinality: "N:M"
+#   - type: COMPETES_WITH
+#     from_label: Concept
+#     to_label: Concept
+#     description: AとBは代替・競合関係
+#     cardinality: "N:M"
+# ---
+#
+# --- research v2 参考例 ---
+# relation_types:
+#   - type: TAGGED
+#     from_label: Source
+#     to_label: Topic
+#     description: ソースのトピック分類
+#     cardinality: "N:M"
+#   - type: RELATES_TO
+#     from_label: "[Fact|FinancialDataPoint]"
+#     to_label: Entity
+#     description: データが言及するエンティティ
+#     cardinality: "N:M"
+#   - type: CONTAINS_CHUNK
+#     from_label: Source
+#     to_label: Chunk
+#     description: ソースの断片化
+#     cardinality: "1:N"
+#   - type: EXTRACTED_FROM
+#     from_label: "[Fact|Claim]"
+#     to_label: Chunk
+#     description: Chunk からの抽出元
+#     cardinality: "N:1"
+#   - type: STATES_FACT
+#     from_label: Source
+#     to_label: Fact
+#     description: ソースが述べる事実
+#     cardinality: "1:N"
+#   - type: MAKES_CLAIM
+#     from_label: Source
+#     to_label: Claim
+#     description: ソースが主張する内容
+#     cardinality: "1:N"
+#   - type: HAS_DATAPOINT
+#     from_label: Source
+#     to_label: FinancialDataPoint
+#     description: ソースに含まれる定量データ
+#     cardinality: "1:N"
+#   - type: FOR_PERIOD
+#     from_label: FinancialDataPoint
+#     to_label: FiscalPeriod
+#     description: データの対象期間
+#     cardinality: "N:1"
+#   - type: AUTHORED_BY
+#     from_label: Source
+#     to_label: Author
+#     description: ソースの著者
+#     cardinality: "N:M"
+# ---
+
+relation_types:
+  - type: "{{RELATION_TYPE_1}}"
+    from_label: "{{RELATION_1_FROM}}"
+    to_label: "{{RELATION_1_TO}}"
+    description: "{{RELATION_1_DESC}}"
+    properties: "{{RELATION_1_PROPS}}"          # YAML リスト（省略可）
+    cardinality: "{{RELATION_1_CARD}}"          # "1:1" | "1:N" | "N:1" | "N:M"
+  # 必要数だけ追加。推奨: 5-15 リレーション。
+  # - type: "{{RELATION_TYPE_N}}"
+  #   from_label: "{{RELATION_N_FROM}}"
+  #   to_label: "{{RELATION_N_TO}}"
+  #   description: "{{RELATION_N_DESC}}"
+  #   properties: "{{RELATION_N_PROPS}}"
+  #   cardinality: "{{RELATION_N_CARD}}"
+
+# ---------------------------------------------------------------------------
+# 共通ノード定義（全インスタンス共通）
+# ---------------------------------------------------------------------------
+# 以下のノードは全インスタンスに存在する基盤ノード。
+# instance 固有のオントロジーで上書きする必要はない。
+
+common_nodes:
+  - label: Source
+    key_property: source_id
+    description: データの出典元（URL、論文、書籍等）
+    required_properties: [source_id, url, title, source_type]
+    optional_properties: [authority_level, language, domain, collected_at, published_at]
+
+  - label: Entity
+    key_property: entity_key
+    description: 固有名詞（企業、人物、プラットフォーム等）
+    required_properties: [entity_key, entity_id, name, entity_type]
+    optional_properties: [updated_at]
+
+# ---------------------------------------------------------------------------
+# 正規化ルール
+# ---------------------------------------------------------------------------
+# Entity 名の正規化ルール。entity_linker.py が参照する。
+#
+# --- creator v2 参考例 ---
+# normalization_rules:
+#   general:
+#     - 全角英数字は半角に統一
+#     - 不要なスペースは除去
+#     - 末尾の句読点は除去
+#   per_entity_type:
+#     platform: 公式英語表記（インスタ → Instagram、ココナラ → Coconala）
+#     company: 公式英語表記
+#     person: 日本人は漢字、外国人はアルファベット
+#     organization: 公式名称
+# ---
+
+normalization_rules:
+  general:
+    - "{{NORM_RULE_GENERAL_1}}"
+    - "{{NORM_RULE_GENERAL_2}}"
+  per_entity_type:
+    "{{ENTITY_TYPE_1_KEY}}": "{{NORM_RULE_TYPE_1}}"
+    # 各 entity_type に対応するルールを追加
+
+# ---------------------------------------------------------------------------
+# Alias 戦略
+# ---------------------------------------------------------------------------
+# Entity/Concept の別名解決戦略。
+#
+# --- creator v2 参考例 ---
+# alias_strategy:
+#   enabled: true
+#   fuzzy_layers: 2                # ファジーマッチングの層数
+#   sources:
+#     - entity-aliases.yaml        # 手動定義
+#     - auto_detected              # entity_linker.py が自動検出
+# ---
+
+alias_strategy:
+  enabled: "{{ALIAS_ENABLED}}"                  # true | false
+  fuzzy_layers: "{{ALIAS_FUZZY_LAYERS}}"        # 推奨: 1-3
+  sources:
+    - "{{ALIAS_SOURCE_1}}"
+    # 必要数だけ追加
