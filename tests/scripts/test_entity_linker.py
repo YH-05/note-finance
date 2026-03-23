@@ -531,10 +531,13 @@ class TestMainInstanceIntegration:
                 "user": "neo4j",
                 "password": "test_dummy_pass",
             }
-            with patch(
-                "sys.argv",
-                ["entity_linker.py", "--input", str(nonexistent)],
-            ), pytest.raises(SystemExit) as exc_info:
+            with (
+                patch(
+                    "sys.argv",
+                    ["entity_linker.py", "--input", str(nonexistent)],
+                ),
+                pytest.raises(SystemExit) as exc_info,
+            ):
                 main()
 
         assert exc_info.value.code == 1

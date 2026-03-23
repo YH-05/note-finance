@@ -94,7 +94,9 @@ def run_refresh() -> None:
             new_token = result["access_token"]
             expires_in = result.get("expires_in", 0)
             update_env_var(ENV_PATH, "THREADS_ACCESS_TOKEN", new_token)
-            print(f"  Threads: refreshed (expires_in={expires_in}s = {expires_in // 86400}d)")
+            print(
+                f"  Threads: refreshed (expires_in={expires_in}s = {expires_in // 86400}d)"
+            )
         except httpx.HTTPStatusError as e:
             error_body = e.response.json() if e.response.content else {}
             print(f"  Threads: FAILED - {error_body}")
@@ -111,7 +113,9 @@ def run_refresh() -> None:
             new_token = result["access_token"]
             expires_in = result.get("expires_in", 0)
             update_env_var(ENV_PATH, "INSTAGRAM_ACCESS_TOKEN", new_token)
-            print(f"  Instagram: refreshed (expires_in={expires_in}s = {expires_in // 86400}d)")
+            print(
+                f"  Instagram: refreshed (expires_in={expires_in}s = {expires_in // 86400}d)"
+            )
         except httpx.HTTPStatusError as e:
             error_body = e.response.json() if e.response.content else {}
             print(f"  Instagram: FAILED - {error_body}")
