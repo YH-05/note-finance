@@ -1,0 +1,53 @@
+{
+  "current_cycle": 1,
+  "cycle_position": 1,
+  "total_posts": 1,
+  "cycle_schedule": ["有益", "有益", "エンゲージメント", "有益", "有益", "有益", "有益", "エンゲージメント", "収益化", "有益"],
+  "daily_schedule": {
+    "slots": ["朝", "昼", "夜"],
+    "posts_per_day": 3,
+    "instagram_per_day": 1,
+    "instagram_priority_types": ["型4", "型2", "型1", "型3"]
+  },
+  "type_rotation": {
+    "有益": 1,
+    "エンゲージメント": 0,
+    "収益化": 0
+  },
+  "type_sequence": {
+    "有益": ["型1", "型2", "型4", "型3"],
+    "エンゲージメント": ["型1-A", "型1-B"],
+    "収益化": ["型3"]
+  },
+  "themes": [
+    {"id": "T1", "name": "面接対策", "keywords": ["面接", "志望動機", "自己PR"], "weight": 1.0},
+    {"id": "T2", "name": "職務経歴書・書類", "keywords": ["職務経歴書", "履歴書", "書類"], "weight": 1.0},
+    {"id": "T3", "name": "年収・待遇交渉", "keywords": ["年収", "給料", "交渉", "待遇"], "weight": 1.0},
+    {"id": "T4", "name": "キャリアチェンジ", "keywords": ["異業種", "未経験", "キャリアチェンジ"], "weight": 1.0},
+    {"id": "T5", "name": "転職エージェント活用", "keywords": ["エージェント", "転職サイト", "求人"], "weight": 0.8},
+    {"id": "T6", "name": "退職・転職タイミング", "keywords": ["退職", "タイミング", "辞める"], "weight": 0.8},
+    {"id": "T7", "name": "メンタル・マインドセット", "keywords": ["怖い", "不安", "悩む", "自信"], "weight": 1.2},
+    {"id": "T8", "name": "スキル・自己分析", "keywords": ["スキル", "強み", "翻訳", "ポータブル"], "weight": 1.0}
+  ],
+  "recent_themes": ["T7"],
+  "theme_use_counts": {
+    "T1": 0, "T2": 0, "T3": 0, "T4": 0,
+    "T5": 0, "T6": 0, "T7": 1, "T8": 0
+  },
+  "used_material_ids": [],
+  "post_history": [
+    {
+      "post_id": "2026-03-23_001",
+      "date": "2026-03-23",
+      "slot": "夜",
+      "category": "有益",
+      "type": "型1",
+      "theme": "T7",
+      "material_ids": [],
+      "instagram": false,
+      "posted_at": "2026-03-23T06:16:44+00:00",
+      "threads_permalink": "https://www.threads.com/@career_sister/post/DWN3DvUE3vF",
+      "instagram_permalink": null
+    }
+  ]
+}

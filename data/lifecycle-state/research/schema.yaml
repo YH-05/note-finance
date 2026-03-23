@@ -1,0 +1,264 @@
+# =============================================================================
+# research-neo4j schema.yaml
+# =============================================================================
+# Phase A-3 で生成。既存データに基づく制約・インデックス定義。
+# ontology.yaml のカスタマイズ確定後に更新すること。
+# =============================================================================
+
+schema_version: "research-2.0"
+instance_name: "research"
+created_at: "2026-03-23T15:09:06+09:00"
+updated_at: "2026-03-23T15:09:06+09:00"
+status: "confirmed"  # 2026-03-23 全カスタマイズ反映済み
+
+# ---------------------------------------------------------------------------
+# UNIQUE 制約
+# ---------------------------------------------------------------------------
+constraints:
+  # Common Nodes
+  - name: unique_research_source_id
+    label: Source
+    property: source_id
+    type: UNIQUE
+
+  - name: unique_research_entity_key
+    label: Entity
+    property: entity_key
+    type: UNIQUE
+
+  # Content Types
+  - name: unique_research_fact_id
+    label: Fact
+    property: fact_id
+    type: UNIQUE
+
+  - name: unique_research_claim_id
+    label: Claim
+    property: claim_id
+    type: UNIQUE
+
+  - name: unique_research_chunk_id
+    label: Chunk
+    property: chunk_id
+    type: UNIQUE
+
+  - name: unique_research_datapoint_id
+    label: FinancialDataPoint
+    property: datapoint_id
+    type: UNIQUE
+
+  - name: unique_research_insight_id
+    label: Insight
+    property: insight_id
+    type: UNIQUE
+
+  # Domain Nodes
+  - name: unique_research_topic_key
+    label: Topic
+    property: topic_key
+    type: UNIQUE
+
+  - name: unique_research_author_id
+    label: Author
+    property: author_id
+    type: UNIQUE
+
+  - name: unique_research_stance_id
+    label: Stance
+    property: stance_id
+    type: UNIQUE
+
+  - name: unique_research_metric_id
+    label: Metric
+    property: metric_id
+    type: UNIQUE
+
+  - name: unique_research_period_id
+    label: FiscalPeriod
+    property: period_id
+    type: UNIQUE
+
+  - name: unique_research_sector_id
+    label: Sector
+    property: sector_id
+    type: UNIQUE
+
+  # ① 新設ノード (Source 由来)
+  - name: unique_research_domain_id
+    label: Domain
+    property: domain_id
+    type: UNIQUE
+
+  - name: unique_research_trust_level_id
+    label: TrustLevel
+    property: trust_level_id
+    type: UNIQUE
+
+  - name: unique_research_language_id
+    label: Language
+    property: language_id
+    type: UNIQUE
+
+  - name: unique_research_pipeline_id
+    label: Pipeline
+    property: pipeline_id
+    type: UNIQUE
+
+  # ① 新設ノード (Entity 由来)
+  - name: unique_research_entity_type_id
+    label: EntityType
+    property: entity_type_id
+    type: UNIQUE
+
+  - name: unique_research_ticker_id
+    label: TickerSymbol
+    property: ticker_id
+    type: UNIQUE
+
+  - name: unique_research_sec_registration_id
+    label: SECRegistration
+    property: sec_registration_id
+    type: UNIQUE
+
+  - name: unique_research_industry_id
+    label: Industry
+    property: industry_id
+    type: UNIQUE
+
+  - name: unique_research_alias_id
+    label: Alias
+    property: alias_id
+    type: UNIQUE
+
+  # ② 新設ノード
+  - name: unique_research_fact_type_id
+    label: FactType
+    property: fact_type_id
+    type: UNIQUE
+
+  - name: unique_research_claim_type_id
+    label: ClaimType
+    property: claim_type_id
+    type: UNIQUE
+
+  - name: unique_research_unit_id
+    label: UnitOfMeasure
+    property: unit_id
+    type: UNIQUE
+
+  - name: unique_research_currency_id
+    label: Currency
+    property: currency_id
+    type: UNIQUE
+
+  # ③⑤ 新設ノード
+  - name: unique_research_concept_category_id
+    label: ConceptCategory
+    property: concept_category_id
+    type: UNIQUE
+
+  - name: unique_research_author_type_id
+    label: AuthorType
+    property: author_type_id
+    type: UNIQUE
+
+# ---------------------------------------------------------------------------
+# Full-Text Index
+# ---------------------------------------------------------------------------
+fulltext_indexes:
+  - name: research_entity_fulltext
+    type: FULLTEXT
+    label: Entity
+    properties: [name]
+    description: Entity 名のフルテキスト検索
+
+  - name: research_topic_fulltext
+    type: FULLTEXT
+    label: Topic
+    properties: [name]
+    description: Topic 名のフルテキスト検索
+
+  - name: research_fact_fulltext
+    type: FULLTEXT
+    label: Fact
+    properties: [content]
+    description: Fact テキストのフルテキスト検索
+
+  - name: research_claim_fulltext
+    type: FULLTEXT
+    label: Claim
+    properties: [content]
+    description: Claim テキストのフルテキスト検索
+
+  - name: research_source_fulltext
+    type: FULLTEXT
+    label: Source
+    properties: [title]
+    description: Source タイトルのフルテキスト検索
+
+  - name: research_alias_fulltext
+    type: FULLTEXT
+    label: Alias
+    properties: [name]
+    description: Alias 名のフルテキスト検索（ファジーマッチング用）
+
+# ---------------------------------------------------------------------------
+# B-Tree Index (フィルタリング用)
+# ---------------------------------------------------------------------------
+btree_indexes:
+  # Source (維持)
+  - name: idx_research_source_type
+    type: BTREE
+    label: Source
+    properties: [source_type]
+    description: Source のタイプ別フィルタリング
+
+  - name: idx_research_source_published
+    type: BTREE
+    label: Source
+    properties: [published_at]
+    description: Source の公開日時フィルタリング
+
+  # Topic (維持)
+  - name: idx_research_topic_category
+    type: BTREE
+    label: Topic
+    properties: [category]
+    description: Topic のカテゴリ別フィルタリング
+
+  # Content Types (維持)
+  - name: idx_research_claim_type
+    type: BTREE
+    label: Claim
+    properties: [claim_type]
+    description: Claim のタイプ別フィルタリング
+
+  - name: idx_research_fact_type
+    type: BTREE
+    label: Fact
+    properties: [fact_type]
+    description: Fact のタイプ別フィルタリング
+
+  - name: idx_research_fdp_metric
+    type: BTREE
+    label: FinancialDataPoint
+    properties: [metric_name]
+    description: FinancialDataPoint の指標名フィルタリング
+
+  # ① 新設ノード用
+  - name: idx_research_ticker_symbol
+    type: BTREE
+    label: TickerSymbol
+    properties: [symbol]
+    description: TickerSymbol のシンボル検索
+
+  - name: idx_research_entity_type_name
+    type: BTREE
+    label: EntityType
+    properties: [name]
+    description: EntityType の名前検索
+
+  # Deprecated (リレーション化により不要)
+  # - idx_research_entity_type → IS_TYPE リレーションで代替
+  # - idx_research_source_category → TAGGED リレーションで代替
+  # - idx_research_entity_ticker → HAS_TICKER リレーションで代替

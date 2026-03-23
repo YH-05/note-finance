@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    page-break-after: always;
+  }
+
+  /* --- Title Slide --- */
+  .slide-title {
+    background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 100%);
+    color: #ffffff;
+  }
+  .slide-title .hook {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+  }
+  .slide-title .sub {
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .slide-title .accent-line {
+    width: 120px;
+    height: 4px;
+    background: #5ba3f5;
+    margin: 40px 0;
+    border-radius: 2px;
+  }
+
+  /* --- Content Slide --- */
+  .slide-content {
+    background: #ffffff;
+    color: #1a2744;
+  }
+  .slide-content .content-number {
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(26, 39, 68, 0.08);
+    position: absolute;
+    top: 40px;
+    right: 60px;
+  }
+  .slide-content .content-heading {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    color: #1a2744;
+    text-align: left;
+    width: 100%;
+  }
+  .slide-content .content-body {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #3a4a6a;
+    text-align: left;
+    width: 100%;
+  }
+  .slide-content .highlight {
+    background: linear-gradient(transparent 60%, #d4e6ff 60%);
+    font-weight: 700;
+  }
+  .slide-content .left-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, #5ba3f5, #1a2744);
+  }
+
+  /* --- Point Slide (bullet points) --- */
+  .slide-points {
+    background: #f5f8fc;
+    color: #1a2744;
+  }
+  .slide-points .points-heading {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+  }
+  .slide-points .point-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+    width: 100%;
+  }
+  .slide-points .point-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: #1a2744;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .slide-points .point-text {
+    font-size: 36px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  /* --- CTA Slide --- */
+  .slide-cta {
+    background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 100%);
+    color: #ffffff;
+    text-align: center;
+  }
+  .slide-cta .cta-message {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 50px;
+  }
+  .slide-cta .cta-account {
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 30px;
+  }
+  .slide-cta .cta-button {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 3px solid #5ba3f5;
+    border-radius: 50px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #5ba3f5;
+  }
+
+  /* --- Utility --- */
+  .relative { position: relative; }
+</style>
+</head>
+<body>
+<!-- Slides will be injected by render_carousel.py -->
+
+    <div class="slide slide-title">
+        <div class="hook">年収交渉で「正直に答えて」
+50万円損した話</div>
+        <div class="accent-line"></div>
+        <div class="sub">キャリアお姉さん @career_sister</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">01</div>
+        <div class="content-heading">やらかしたこと</div>
+        <div class="content-body">面接官「希望年収は？」<br><br>私「現年収が420万なので<br>同じくらいで大丈夫です」<br><br>…結果、<span class="highlight">オファーは420万</span>。<br><br>後で知った。<br>その職種の相場は<span class="highlight">470万だった</span>。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">02</div>
+        <div class="content-heading">なぜ失敗したのか</div>
+        <div class="content-body"><span class="highlight">現年収ベースで答えた</span>のが原因。<br><br>企業は安く採れるならそうする。<br>「同じでいい」は<br><span class="highlight">値引き交渉に応じたのと同じ</span>。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">03</div>
+        <div class="content-heading">鉄板の伝え方</div>
+        <div class="content-body">ステップ1<br><span class="highlight">相場を調べる</span>（転職サイトの年収データ）<br><br>ステップ2<br><span class="highlight">根拠と一緒に伝える</span><br><br>「同職種の市場相場と<br>自身の経験年数を踏まえ<br><span class="highlight">470〜500万円</span>を希望します」</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">04</div>
+        <div class="content-heading">覚えておいてほしいこと</div>
+        <div class="content-body">年収交渉は<span class="highlight">ワガママじゃない</span>。<br><br>自分の市場価値を<br><span class="highlight">正しく伝えるスキル</span>。<br><br>根拠があれば<br>企業も<span class="highlight">納得して出してくれる</span>。</div>
+    </div>
+
+    <div class="slide slide-points">
+        <div class="points-heading">まとめ</div>
+        
+        <div class="point-item">
+            <div class="point-icon">1</div>
+            <div class="point-text">現年収ベースで答えると損をする</div>
+        </div>
+        <div class="point-item">
+            <div class="point-icon">2</div>
+            <div class="point-text">必ず市場相場を事前に調べる</div>
+        </div>
+        <div class="point-item">
+            <div class="point-icon">3</div>
+            <div class="point-text">根拠+希望額をセットで伝える</div>
+        </div>
+    </div>
+
+    <div class="slide slide-cta">
+        <div class="cta-message">転職のリアルを<br>毎日発信中</div>
+        <div class="cta-account">@career_sister</div>
+        <div class="cta-button">フォローする</div>
+    </div>
+</body>
+</html>

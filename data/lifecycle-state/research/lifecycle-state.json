@@ -1,0 +1,100 @@
+{
+  "instance_name": "research",
+  "mode": "new",
+  "created_at": "2026-03-23T15:09:06+09:00",
+  "updated_at": "2026-03-23T17:00:00+09:00",
+  "current_phase": "B",
+  "phases": {
+    "A": {
+      "status": "completed",
+      "tasks": {
+        "A-1": {
+          "status": "completed",
+          "artifacts": [],
+          "decisions": {
+            "domain": "金融リサーチ・銘柄調査",
+            "use_cases": ["トピック別関連ソース検索", "企業間関連性探索", "時系列データ追跡", "センチメント分析", "ギャップ分析"],
+            "query_requirements": ["トピック横断検索", "エンティティ間関連性", "カバレッジ分析", "時系列トレンド"],
+            "data_migration_strategy": "none"
+          }
+        },
+        "A-2": {
+          "status": "completed",
+          "artifacts": ["ontology.yaml"],
+          "decisions": {
+            "entity_types_count": 14,
+            "concept_categories_count": 8,
+            "content_types_count": 5,
+            "domain_nodes_count": 6,
+            "relation_types_count": 39,
+            "status_note": "draft - カスタマイズ計画 pending"
+          }
+        },
+        "A-3": {
+          "status": "completed",
+          "artifacts": ["schema.yaml"],
+          "decisions": {
+            "constraints_count": 13,
+            "fulltext_indexes_count": 5,
+            "btree_indexes_count": 9,
+            "status_note": "draft - ontology 確定後に更新"
+          }
+        },
+        "A-4": {
+          "status": "completed",
+          "artifacts": ["ontology.yaml"],
+          "decisions": {
+            "normalization_rules": "general(3) + per_entity_type(14)",
+            "alias_strategy": "enabled, fuzzy_layers=2, auto_detected"
+          }
+        }
+      },
+      "customization_plan": "customization-plan.md",
+      "note": "6項目全てのカスタマイズ完了。プロパティ→リレーション変換を大幅に適用。新設ノード15種、新設リレーション16種。"
+    },
+    "B": {
+      "status": "pending",
+      "tasks": {
+        "B-1": { "status": "pending", "artifacts": [] },
+        "B-2": { "status": "pending", "artifacts": [] },
+        "B-3": { "status": "pending", "artifacts": [] },
+        "B-4": { "status": "pending", "artifacts": [] }
+      }
+    },
+    "C": {
+      "status": "skipped",
+      "tasks": {
+        "C-1": { "status": "skipped", "artifacts": [] },
+        "C-2": { "status": "skipped", "artifacts": [] },
+        "C-3": { "status": "skipped", "artifacts": [] },
+        "C-4": { "status": "skipped", "artifacts": [] }
+      },
+      "note": "mode=new のため Phase C はスキップ"
+    },
+    "D": {
+      "status": "pending",
+      "tasks": {
+        "D-1": { "status": "pending", "artifacts": [] },
+        "D-2": { "status": "pending", "artifacts": [] },
+        "D-3": { "status": "pending", "artifacts": [] },
+        "D-4": { "status": "pending", "artifacts": [] }
+      }
+    },
+    "E": {
+      "status": "pending",
+      "tasks": {
+        "E-1": { "status": "pending", "artifacts": [] },
+        "E-2": { "status": "pending", "artifacts": [] },
+        "E-3": { "status": "pending", "artifacts": [] }
+      }
+    },
+    "F": {
+      "status": "pending",
+      "tasks": {
+        "F-1": { "status": "pending", "artifacts": [] },
+        "F-2": { "status": "pending", "artifacts": [] },
+        "F-3": { "status": "pending", "artifacts": [] }
+      }
+    }
+  }
+}

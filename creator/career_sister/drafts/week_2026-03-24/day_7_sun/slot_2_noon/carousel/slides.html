@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    page-break-after: always;
+  }
+
+  /* --- Title Slide --- */
+  .slide-title {
+    background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 100%);
+    color: #ffffff;
+  }
+  .slide-title .hook {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+  }
+  .slide-title .sub {
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .slide-title .accent-line {
+    width: 120px;
+    height: 4px;
+    background: #5ba3f5;
+    margin: 40px 0;
+    border-radius: 2px;
+  }
+
+  /* --- Content Slide --- */
+  .slide-content {
+    background: #ffffff;
+    color: #1a2744;
+  }
+  .slide-content .content-number {
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(26, 39, 68, 0.08);
+    position: absolute;
+    top: 40px;
+    right: 60px;
+  }
+  .slide-content .content-heading {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    color: #1a2744;
+    text-align: left;
+    width: 100%;
+  }
+  .slide-content .content-body {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #3a4a6a;
+    text-align: left;
+    width: 100%;
+  }
+  .slide-content .highlight {
+    background: linear-gradient(transparent 60%, #d4e6ff 60%);
+    font-weight: 700;
+  }
+  .slide-content .left-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, #5ba3f5, #1a2744);
+  }
+
+  /* --- Point Slide (bullet points) --- */
+  .slide-points {
+    background: #f5f8fc;
+    color: #1a2744;
+  }
+  .slide-points .points-heading {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+  }
+  .slide-points .point-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+    width: 100%;
+  }
+  .slide-points .point-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: #1a2744;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .slide-points .point-text {
+    font-size: 36px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  /* --- CTA Slide --- */
+  .slide-cta {
+    background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 100%);
+    color: #ffffff;
+    text-align: center;
+  }
+  .slide-cta .cta-message {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 50px;
+  }
+  .slide-cta .cta-account {
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 30px;
+  }
+  .slide-cta .cta-button {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 3px solid #5ba3f5;
+    border-radius: 50px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #5ba3f5;
+  }
+
+  /* --- Utility --- */
+  .relative { position: relative; }
+</style>
+</head>
+<body>
+<!-- Slides will be injected by render_carousel.py -->
+
+    <div class="slide slide-title">
+        <div class="hook">2026年「伸びるスキル」
+TOP5が人間力だった件</div>
+        <div class="accent-line"></div>
+        <div class="sub">キャリアお姉さん @career_sister</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">01</div>
+        <div class="content-heading">LinkedIn調査の結果</div>
+        <div class="content-body">LinkedIn Skills on the Rise 2026。<br><br>注目すべきは<br><span class="highlight">人間力系スキル</span>が<br>テクニカルスキルと<br><span class="highlight">同等の重要度</span>で並んでいること。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">02</div>
+        <div class="content-heading">注目スキル TOP5</div>
+        <div class="content-body">1位 <span class="highlight">コンフリクトマネジメント</span><br>2位 <span class="highlight">適応力（アダプタビリティ）</span><br>3位 <span class="highlight">AI活用リテラシー</span><br>4位 <span class="highlight">プロセス最適化</span><br>5位 <span class="highlight">戦略的思考力</span><br><br>1位と2位が<span class="highlight">ヒューマンスキル</span>。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">03</div>
+        <div class="content-heading">なぜ人間力なのか</div>
+        <div class="content-body">AIが定型業務を代替する時代。<br><br>残るのは<br>**人と人の間で起きる問題を<br>解決できる力**。<br><br>対立を調整し、<br>変化に適応できる人が<span class="highlight">最強</span>。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">04</div>
+        <div class="content-heading">今日からできること</div>
+        <div class="content-body">特別な資格はいらない。<br><br>**意見が割れた場面で<br>双方の立場を整理する**<br><br>これだけで<br><span class="highlight">コンフリクトマネジメント</span>の<br>実践になる。<br><br>日常が<span class="highlight">スキルの訓練場</span>。</div>
+    </div>
+
+    <div class="slide slide-points">
+        <div class="points-heading">まとめ</div>
+        
+        <div class="point-item">
+            <div class="point-icon">1</div>
+            <div class="point-text">2026年はヒューマンスキルが急上昇</div>
+        </div>
+        <div class="point-item">
+            <div class="point-icon">2</div>
+            <div class="point-text">AIが進むほど「人間力」の価値が上がる</div>
+        </div>
+        <div class="point-item">
+            <div class="point-icon">3</div>
+            <div class="point-text">日常の対立調整がスキルの訓練になる</div>
+        </div>
+    </div>
+
+    <div class="slide slide-cta">
+        <div class="cta-message">転職のリアルを<br>毎日発信中</div>
+        <div class="cta-account">@career_sister</div>
+        <div class="cta-button">フォローする</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,876 @@
+{
+  "version": "2.9",
+  "children": [
+    {
+      "type": "frame",
+      "id": "2NQJt",
+      "x": 0,
+      "y": 0,
+      "name": "Cover - 表紙",
+      "clip": true,
+      "width": 1080,
+      "height": 1080,
+      "fill": "#FFF8F0",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ZYE88",
+          "name": "Top Color Block",
+          "width": "fill_container",
+          "height": 480,
+          "fill": "#D4A574",
+          "layout": "vertical",
+          "padding": [
+            0,
+            60,
+            40,
+            60
+          ],
+          "justifyContent": "end",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "RApmu",
+              "name": "tl",
+              "opacity": 0.8,
+              "fill": "#FFFFFF",
+              "content": "CAREER TIPS",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "500",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VgGfS",
+          "name": "Bottom Text Block",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFF8F0",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            40,
+            60
+          ],
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "p6ikf",
+              "name": "ht",
+              "fill": "#2D2D2D",
+              "content": "「転職で一番\n聴かれるのは\n志望動機じゃない」",
+              "lineHeight": 1.4,
+              "fontFamily": "Nunito",
+              "fontSize": 52,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "sNaO1",
+              "name": "an",
+              "fill": "#D4A574",
+              "content": "@career_sister",
+              "fontFamily": "Nunito",
+              "fontSize": 22
+            },
+            {
+              "type": "text",
+              "id": "tcpBt",
+              "name": "sh",
+              "opacity": 0.5,
+              "fill": "#2D2D2D",
+              "content": "スワイプで読む →",
+              "fontFamily": "Nunito",
+              "fontSize": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "uuFte",
+      "x": 1180,
+      "y": 0,
+      "name": "Body1 - 問題提起",
+      "clip": true,
+      "width": 1080,
+      "height": 1080,
+      "fill": "#FFF8F0",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "cYnYB",
+          "name": "b2",
+          "width": "fill_container",
+          "height": 8,
+          "fill": "#D4A574"
+        },
+        {
+          "type": "frame",
+          "id": "kYLgm",
+          "name": "w2",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            60,
+            60,
+            40,
+            60
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "3mUN8",
+              "name": "n2",
+              "opacity": 0.2,
+              "fill": "#D4A574",
+              "content": "01",
+              "fontFamily": "Nunito",
+              "fontSize": 72,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "Vr7uM",
+              "name": "h2",
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "面接で一番聞かれるのは\n「志望動機」じゃなくて…",
+              "lineHeight": 1.5,
+              "fontFamily": "Nunito",
+              "fontSize": 40,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "gkv5K",
+              "name": "t2",
+              "opacity": 0.85,
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "実は面接官が一番知りたいのは\n「なぜ今の会社を辞めるのか」\n\nここを曖昧にすると\nどんなに志望動機を磨いても\n響かないんだよね。",
+              "lineHeight": 1.7,
+              "fontFamily": "Nunito",
+              "fontSize": 28
+            },
+            {
+              "type": "frame",
+              "id": "7cFKj",
+              "name": "d2",
+              "width": 80,
+              "height": 4,
+              "fill": "#D4A574",
+              "cornerRadius": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Yq9MA",
+          "name": "f2",
+          "width": "fill_container",
+          "height": 60,
+          "padding": [
+            0,
+            60
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "B37uS",
+              "name": "a2",
+              "fill": "#D4A574",
+              "content": "@career_sister",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "V5eoR",
+              "name": "p2",
+              "opacity": 0.3,
+              "fill": "#2D2D2D",
+              "content": "1/5",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "jtSb1",
+      "x": 2360,
+      "y": 0,
+      "name": "Body2 - ポイント1",
+      "clip": true,
+      "width": 1080,
+      "height": 1080,
+      "fill": "#FFF8F0",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "JxdCi",
+          "name": "b3",
+          "width": "fill_container",
+          "height": 8,
+          "fill": "#D4A574"
+        },
+        {
+          "type": "frame",
+          "id": "aJsjI",
+          "name": "w3",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            60,
+            60,
+            40,
+            60
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "VQ39i",
+              "name": "n3",
+              "opacity": 0.2,
+              "fill": "#D4A574",
+              "content": "02",
+              "fontFamily": "Nunito",
+              "fontSize": 72,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "XE9X1",
+              "name": "h3",
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "転職理由は\n「ネガティブ→ポジティブ」\nに変換する",
+              "lineHeight": 1.5,
+              "fontFamily": "Nunito",
+              "fontSize": 38,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "0hByI",
+              "name": "t3",
+              "opacity": 0.85,
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "❌「残業が多くて…」\n→ 会社の悪口に聞こえる\n\n⭕「もっと〇〇に挑戦したい」\n→ 前向きな成長意欲が伝わる\n\n事実は変えなくていい。\n「伝え方」を変えるだけ。",
+              "lineHeight": 1.7,
+              "fontFamily": "Nunito",
+              "fontSize": 26
+            },
+            {
+              "type": "frame",
+              "id": "t2KrK",
+              "name": "d3",
+              "width": 80,
+              "height": 4,
+              "fill": "#D4A574",
+              "cornerRadius": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "mRWau",
+          "name": "f3",
+          "width": "fill_container",
+          "height": 60,
+          "padding": [
+            0,
+            60
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "UcFqv",
+              "name": "a3",
+              "fill": "#D4A574",
+              "content": "@career_sister",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "5Ugmt",
+              "name": "p3",
+              "opacity": 0.3,
+              "fill": "#2D2D2D",
+              "content": "2/5",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "9lRQA",
+      "x": 3540,
+      "y": 0,
+      "name": "Body3 - ポイント2",
+      "clip": true,
+      "width": 1080,
+      "height": 1080,
+      "fill": "#FFF8F0",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "P4GDb",
+          "name": "b4",
+          "width": "fill_container",
+          "height": 8,
+          "fill": "#D4A574"
+        },
+        {
+          "type": "frame",
+          "id": "ryp1A",
+          "name": "w4",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            60,
+            60,
+            40,
+            60
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "LuCV9",
+              "name": "n4",
+              "opacity": 0.2,
+              "fill": "#D4A574",
+              "content": "03",
+              "fontFamily": "Nunito",
+              "fontSize": 72,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "l9nt3",
+              "name": "h4",
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "「御社でなければ\nダメな理由」は\n3つの軸で作れる",
+              "lineHeight": 1.5,
+              "fontFamily": "Nunito",
+              "fontSize": 38,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "WQMzN",
+              "name": "t4",
+              "opacity": 0.85,
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "① 事業内容 × 自分の経験\n「前職の〇〇の経験が活かせる」\n\n② カルチャー × 自分の価値観\n「挑戦を推奨する風土に共感」\n\n③ 成長性 × 自分のキャリアプラン\n「この領域で専門性を高めたい」",
+              "lineHeight": 1.7,
+              "fontFamily": "Nunito",
+              "fontSize": 26
+            },
+            {
+              "type": "frame",
+              "id": "vA4ml",
+              "name": "d4",
+              "width": 80,
+              "height": 4,
+              "fill": "#D4A574",
+              "cornerRadius": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pqqvH",
+          "name": "f4",
+          "width": "fill_container",
+          "height": 60,
+          "padding": [
+            0,
+            60
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "hgurJ",
+              "name": "a4",
+              "fill": "#D4A574",
+              "content": "@career_sister",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "mWdkh",
+              "name": "p4",
+              "opacity": 0.3,
+              "fill": "#2D2D2D",
+              "content": "3/5",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "WInd9",
+      "x": 4720,
+      "y": 0,
+      "name": "Body4 - ポイント3",
+      "clip": true,
+      "width": 1080,
+      "height": 1080,
+      "fill": "#FFF8F0",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "L9fDB",
+          "name": "b5",
+          "width": "fill_container",
+          "height": 8,
+          "fill": "#D4A574"
+        },
+        {
+          "type": "frame",
+          "id": "5sXvt",
+          "name": "w5",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            60,
+            60,
+            40,
+            60
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "LnXgC",
+              "name": "n5",
+              "opacity": 0.2,
+              "fill": "#D4A574",
+              "content": "04",
+              "fontFamily": "Nunito",
+              "fontSize": 72,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "oTb8U",
+              "name": "h5",
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "面接の最後\n「何か質問は？」で\n差がつく逆質問",
+              "lineHeight": 1.5,
+              "fontFamily": "Nunito",
+              "fontSize": 38,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "3w2og",
+              "name": "t5",
+              "opacity": 0.85,
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "✅ 入社後の成長イメージを聞く\n「1年後に期待される成果は？」\n\n✅ チームの雰囲気を聞く\n「チームの意思決定スタイルは？」\n\n❌ 調べれば分かることを聞く\n「御社の売上は？」← NG",
+              "lineHeight": 1.7,
+              "fontFamily": "Nunito",
+              "fontSize": 26
+            },
+            {
+              "type": "frame",
+              "id": "PMprR",
+              "name": "d5",
+              "width": 80,
+              "height": 4,
+              "fill": "#D4A574",
+              "cornerRadius": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KK0mf",
+          "name": "f5",
+          "width": "fill_container",
+          "height": 60,
+          "padding": [
+            0,
+            60
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "KldRr",
+              "name": "a5",
+              "fill": "#D4A574",
+              "content": "@career_sister",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Onu5U",
+              "name": "p5",
+              "opacity": 0.3,
+              "fill": "#2D2D2D",
+              "content": "4/5",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "zfqFu",
+      "x": 5900,
+      "y": 0,
+      "name": "Body5 - まとめ",
+      "clip": true,
+      "width": 1080,
+      "height": 1080,
+      "fill": "#FFF8F0",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "1DoyM",
+          "name": "b6",
+          "width": "fill_container",
+          "height": 8,
+          "fill": "#D4A574"
+        },
+        {
+          "type": "frame",
+          "id": "kSogm",
+          "name": "w6",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            60,
+            60,
+            40,
+            60
+          ],
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "n7adS",
+              "name": "n6",
+              "opacity": 0.2,
+              "fill": "#D4A574",
+              "content": "05",
+              "fontFamily": "Nunito",
+              "fontSize": 72,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "CqTLx",
+              "name": "hd",
+              "fill": "#2D2D2D",
+              "content": "まとめ",
+              "fontFamily": "Nunito",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "8xyxJ",
+              "name": "Summary Box",
+              "width": "fill_container",
+              "fill": "#F5E6D3",
+              "cornerRadius": 16,
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 32,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Ka9qk",
+                  "name": "z1",
+                  "fill": "#2D2D2D",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "✔ 面接で一番聞かれるのは「退職理由」",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Nunito",
+                  "fontSize": 26,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "HpO74",
+                  "name": "z2",
+                  "fill": "#2D2D2D",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "✔ ネガティブ→ポジティブに変換して伝える",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Nunito",
+                  "fontSize": 26,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "onORm",
+                  "name": "z3",
+                  "fill": "#2D2D2D",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "✔ 志望動機は3軸で組み立てる",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Nunito",
+                  "fontSize": 26,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "cGpTi",
+                  "name": "z4",
+                  "fill": "#2D2D2D",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "✔ 逆質問で意欲と相性を見せる",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Nunito",
+                  "fontSize": 26,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "8lkMY",
+              "name": "dv",
+              "width": 80,
+              "height": 4,
+              "fill": "#D4A574",
+              "cornerRadius": 2
+            },
+            {
+              "type": "text",
+              "id": "yk2sL",
+              "name": "cl",
+              "opacity": 0.8,
+              "fill": "#2D2D2D",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "準備した人だけが\n「面接が楽しかった」って\n言えるようになるよ。",
+              "lineHeight": 1.6,
+              "fontFamily": "Nunito",
+              "fontSize": 28
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jyyZw",
+          "name": "f6",
+          "width": "fill_container",
+          "height": 60,
+          "padding": [
+            0,
+            60
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "z55F7",
+              "name": "a6",
+              "fill": "#D4A574",
+              "content": "@career_sister",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "AZQak",
+              "name": "p6",
+              "opacity": 0.3,
+              "fill": "#2D2D2D",
+              "content": "5/5",
+              "fontFamily": "Nunito",
+              "fontSize": 18,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "M5Jq4",
+      "x": 7080,
+      "y": 0,
+      "name": "CTA - フォロー",
+      "clip": true,
+      "width": 1080,
+      "height": 1080,
+      "fill": "#D4A574",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Rtaip",
+          "name": "cw",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": 60,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "n4Vgu",
+              "name": "ch",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "この投稿が\n役に立ったら",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Nunito",
+              "fontSize": 36,
+              "fontWeight": "500"
+            },
+            {
+              "type": "text",
+              "id": "77Y9d",
+              "name": "ce",
+              "fill": "#FFFFFF",
+              "content": "♡ いいね & 保存",
+              "textAlign": "center",
+              "fontFamily": "Nunito",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "pXpjm",
+              "name": "cd",
+              "opacity": 0.5,
+              "width": 120,
+              "height": 3,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2
+            },
+            {
+              "type": "frame",
+              "id": "qN5fD",
+              "name": "Follow Button",
+              "width": 360,
+              "height": 72,
+              "fill": "#FFF8F0",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XrZo8",
+                  "name": "ct",
+                  "fill": "#D4A574",
+                  "content": "フォローする",
+                  "fontFamily": "Nunito",
+                  "fontSize": 28,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "L1AzK",
+              "name": "ca",
+              "opacity": 0.9,
+              "fill": "#FFFFFF",
+              "content": "@career_sister",
+              "fontFamily": "Nunito",
+              "fontSize": 24,
+              "fontWeight": "500"
+            },
+            {
+              "type": "text",
+              "id": "ugArv",
+              "name": "cg",
+              "opacity": 0.8,
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "転職の不安を、\n一歩踏み出す勇気に変える。",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Nunito",
+              "fontSize": 22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

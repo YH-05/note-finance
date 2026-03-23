@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    page-break-after: always;
+  }
+
+  /* --- Title Slide --- */
+  .slide-title {
+    background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 100%);
+    color: #ffffff;
+  }
+  .slide-title .hook {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+  }
+  .slide-title .sub {
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .slide-title .accent-line {
+    width: 120px;
+    height: 4px;
+    background: #5ba3f5;
+    margin: 40px 0;
+    border-radius: 2px;
+  }
+
+  /* --- Content Slide --- */
+  .slide-content {
+    background: #ffffff;
+    color: #1a2744;
+  }
+  .slide-content .content-number {
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(26, 39, 68, 0.08);
+    position: absolute;
+    top: 40px;
+    right: 60px;
+  }
+  .slide-content .content-heading {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    color: #1a2744;
+    text-align: left;
+    width: 100%;
+  }
+  .slide-content .content-body {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #3a4a6a;
+    text-align: left;
+    width: 100%;
+  }
+  .slide-content .highlight {
+    background: linear-gradient(transparent 60%, #d4e6ff 60%);
+    font-weight: 700;
+  }
+  .slide-content .left-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, #5ba3f5, #1a2744);
+  }
+
+  /* --- Point Slide (bullet points) --- */
+  .slide-points {
+    background: #f5f8fc;
+    color: #1a2744;
+  }
+  .slide-points .points-heading {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+  }
+  .slide-points .point-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+    width: 100%;
+  }
+  .slide-points .point-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: #1a2744;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .slide-points .point-text {
+    font-size: 36px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  /* --- CTA Slide --- */
+  .slide-cta {
+    background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 100%);
+    color: #ffffff;
+    text-align: center;
+  }
+  .slide-cta .cta-message {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 50px;
+  }
+  .slide-cta .cta-account {
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 30px;
+  }
+  .slide-cta .cta-button {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 3px solid #5ba3f5;
+    border-radius: 50px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #5ba3f5;
+  }
+
+  /* --- Utility --- */
+  .relative { position: relative; }
+</style>
+</head>
+<body>
+<!-- Slides will be injected by render_carousel.py -->
+
+    <div class="slide slide-title">
+        <div class="hook">2026年 企業が求めるスキル
+TOP5が意外すぎた</div>
+        <div class="accent-line"></div>
+        <div class="sub">キャリアお姉さん @career_sister</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">01</div>
+        <div class="content-heading">第1位の衝撃</div>
+        <div class="content-body">2026年に企業が最も求めるスキル<br>第1位は…<br><br><span class="highlight">チェンジマネジメント</span>。<br><br>DXでもAIでもなく、<br><span class="highlight">「変化を推進できる力」</span>が<br>トップに来た。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">02</div>
+        <div class="content-heading">TOP5 一覧</div>
+        <div class="content-body">1位 <span class="highlight">チェンジマネジメント</span><br>2位 <span class="highlight">データリテラシー</span><br>3位 <span class="highlight">クロスファンクショナル連携</span><br>4位 <span class="highlight">AI活用スキル</span><br>5位 <span class="highlight">ストーリーテリング</span><br><br>技術だけじゃない。<br><span class="highlight">人を動かす力</span>が求められている。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">03</div>
+        <div class="content-heading">転職経験者が強い理由</div>
+        <div class="content-body">転職って<br><span class="highlight">環境・文化・ルールが全部変わる</span><br>経験のこと。<br><br>つまり転職経験者は<br><span class="highlight">チェンジマネジメントの実践者</span>。<br><br>あなたの経験、<br>実は<span class="highlight">市場価値が高い</span>。</div>
+    </div>
+
+    <div class="slide slide-content relative">
+        <div class="left-bar"></div>
+        <div class="content-number">04</div>
+        <div class="content-heading">面接での伝え方</div>
+        <div class="content-body">「前職から転職した経験で<br><span class="highlight">変化への適応力</span>を磨きました」<br><br>→ これだけで<br>企業が欲しがる人材像に<br><span class="highlight">ドンピシャで刺さる</span>。</div>
+    </div>
+
+    <div class="slide slide-points">
+        <div class="points-heading">まとめ</div>
+        
+        <div class="point-item">
+            <div class="point-icon">1</div>
+            <div class="point-text">2026年1位スキルはチェンジマネジメント</div>
+        </div>
+        <div class="point-item">
+            <div class="point-icon">2</div>
+            <div class="point-text">転職経験=変化対応力の実績</div>
+        </div>
+        <div class="point-item">
+            <div class="point-icon">3</div>
+            <div class="point-text">面接では「適応力」を武器にする</div>
+        </div>
+    </div>
+
+    <div class="slide slide-cta">
+        <div class="cta-message">転職のリアルを<br>毎日発信中</div>
+        <div class="cta-account">@career_sister</div>
+        <div class="cta-button">フォローする</div>
+    </div>
+</body>
+</html>
