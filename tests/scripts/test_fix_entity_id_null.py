@@ -99,8 +99,10 @@ class TestFixEntityIds:
         mock_check = MagicMock()
         mock_check.single.return_value = {"cnt": 0}
         mock_session.run.side_effect = [
-            mock_check, MagicMock(),  # entity 1: check + update
-            mock_check, MagicMock(),  # entity 2: check + update
+            mock_check,
+            MagicMock(),  # entity 1: check + update
+            mock_check,
+            MagicMock(),  # entity 2: check + update
         ]
         entities = [
             NullEntityRecord(element_id="elem:1", name="Apple", entity_type="company"),

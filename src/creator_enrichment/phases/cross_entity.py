@@ -29,15 +29,17 @@ logger = logging.getLogger(__name__)
 _MAX_PAIRS = 25
 """LLM に送信するペアの上限数."""
 
-_ALLOWED_REL_DETAILS = frozenset({
-    "ENABLES",
-    "USES",
-    "COMPETES_WITH",
-    "PART_OF",
-    "MEASURES",
-    "PRODUCES",
-    "RELATED",
-})
+_ALLOWED_REL_DETAILS = frozenset(
+    {
+        "ENABLES",
+        "USES",
+        "COMPETES_WITH",
+        "PART_OF",
+        "MEASURES",
+        "PRODUCES",
+        "RELATED",
+    }
+)
 """LLM 判定で許可される rel_detail 値."""
 
 # ---------------------------------------------------------------------------
@@ -213,8 +215,7 @@ class CrossEntityEnricher:
 
         # Step 4: SKIP をフィルタし、許可リスト外の rel_detail も除外して MERGE
         non_skip_rels = [
-            j for j in judgments
-            if j.get("rel_detail") in _ALLOWED_REL_DETAILS
+            j for j in judgments if j.get("rel_detail") in _ALLOWED_REL_DETAILS
         ]
 
         if not non_skip_rels:

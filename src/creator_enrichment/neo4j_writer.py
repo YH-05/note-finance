@@ -108,10 +108,12 @@ class CreatorGraphWriter:
 
     # 許可リスト（Cypher インジェクション防止）
     _ALLOWED_LABELS: ClassVar[frozenset[str]] = frozenset(
-        label for label, _, _ in _NODE_ORDER  # type: ignore[misc]
+        label
+        for label, _, _ in _NODE_ORDER  # type: ignore[misc]
     )
     _ALLOWED_KEY_FIELDS: ClassVar[frozenset[str]] = frozenset(
-        key for _, key, _ in _NODE_ORDER  # type: ignore[misc]
+        key
+        for _, key, _ in _NODE_ORDER  # type: ignore[misc]
     )
 
     def __init__(self, driver: Any) -> None:

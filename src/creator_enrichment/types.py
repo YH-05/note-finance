@@ -177,9 +177,7 @@ class SearcherProtocol(Protocol):
 class ExtractorProtocol(Protocol):
     """Phase 3 抽出のプロトコル."""
 
-    def extract_batch(
-        self, *, items: list[RawItem], genre: str
-    ) -> CycleData: ...
+    def extract_batch(self, *, items: list[RawItem], genre: str) -> CycleData: ...
 
 
 class CrossEnricherProtocol(Protocol):

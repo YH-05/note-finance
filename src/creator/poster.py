@@ -44,7 +44,9 @@ class PostResult:
 class ThreadsConfig:
     """Threads API 設定."""
 
-    access_token: str = field(default_factory=lambda: os.getenv("THREADS_ACCESS_TOKEN", ""))
+    access_token: str = field(
+        default_factory=lambda: os.getenv("THREADS_ACCESS_TOKEN", "")
+    )
     user_id: str = field(default_factory=lambda: os.getenv("THREADS_USER_ID", ""))
 
 
@@ -52,7 +54,9 @@ class ThreadsConfig:
 class InstagramConfig:
     """Instagram API 設定."""
 
-    access_token: str = field(default_factory=lambda: os.getenv("INSTAGRAM_ACCESS_TOKEN", ""))
+    access_token: str = field(
+        default_factory=lambda: os.getenv("INSTAGRAM_ACCESS_TOKEN", "")
+    )
     user_id: str = field(default_factory=lambda: os.getenv("INSTAGRAM_USER_ID", ""))
 
 

@@ -197,9 +197,7 @@ class ContentExtractor:
         # スキーマ検証: content_type
         ct = parsed.get("content_type", "Fact")
         if ct not in _VALID_CONTENT_TYPES:
-            logger.warning(
-                "Invalid content_type=%s, falling back to Fact", ct
-            )
+            logger.warning("Invalid content_type=%s, falling back to Fact", ct)
             parsed["content_type"] = "Fact"
 
         # スキーマ検証: entity_type
@@ -211,7 +209,8 @@ class ContentExtractor:
                     ent.get("name"),
                 )
         parsed["entities"] = [
-            e for e in parsed.get("entities", [])
+            e
+            for e in parsed.get("entities", [])
             if e.get("entity_type") in _VALID_ENTITY_TYPES
         ]
 

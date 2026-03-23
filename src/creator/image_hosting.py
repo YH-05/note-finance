@@ -69,7 +69,7 @@ class R2ImageHost:
             raise FileNotFoundError(f"File not found: {path}")
 
         # content-hash でファイル名を生成（重複アップロード防止）
-        file_hash = hashlib.md5(path.read_bytes()).hexdigest()[:12]  # noqa: S324
+        file_hash = hashlib.md5(path.read_bytes()).hexdigest()[:12]
         ext = path.suffix.lower()
         key = f"{prefix}/{file_hash}{ext}"
 
@@ -101,7 +101,5 @@ class R2ImageHost:
 
     def list_objects(self, prefix: str = "") -> list[dict]:
         """R2 上のオブジェクト一覧."""
-        resp = self._client.list_objects_v2(
-            Bucket=self.bucket_name, Prefix=prefix
-        )
+        resp = self._client.list_objects_v2(Bucket=self.bucket_name, Prefix=prefix)
         return resp.get("Contents", [])

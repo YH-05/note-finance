@@ -227,8 +227,10 @@ class TestIngestNodeOrder:
             if "MERGE" in query and "MATCH" not in query:
                 # "MERGE (n:Genre" のような形式からラベルを抽出
                 for label, _, _ in CreatorGraphWriter._NODE_ORDER:
-                    if (f":{label} " in query or f":{label}" in query) and label not in node_labels_in_order:
-                            node_labels_in_order.append(label)
+                    if (
+                        f":{label} " in query or f":{label}" in query
+                    ) and label not in node_labels_in_order:
+                        node_labels_in_order.append(label)
 
         expected_order = [label for label, _, _ in CreatorGraphWriter._NODE_ORDER]
         # 実際に MERGE されたラベルだけで順序を検証

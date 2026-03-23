@@ -149,9 +149,7 @@ class CreatorEnrichmentOrchestrator:
             try:
                 # Phase 1: Gap Analysis
                 assert self._gap_analyzer is not None
-                gap_result = self._gap_analyzer.analyze(
-                    prev_genre, self._config.genre
-                )
+                gap_result = self._gap_analyzer.analyze(prev_genre, self._config.genre)
                 prev_genre = gap_result["genre"]
 
                 # Phase 2: Search

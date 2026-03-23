@@ -370,9 +370,9 @@ class ClaudeCodeSearcher:
                             options=options,
                         ):
                             if hasattr(msg, "content"):
-                                for block in msg.content:
+                                for block in msg.content:  # type: ignore[union-attr]
                                     if hasattr(block, "text"):
-                                        result_text += block.text
+                                        result_text += block.text  # type: ignore[union-attr]
                         return result_text
 
                     return asyncio.run(_run())

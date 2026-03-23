@@ -12,6 +12,7 @@ ClaudeCodeSearcher によるエージェント検索ロジックを検証する�
 from __future__ import annotations
 
 import json
+from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
@@ -342,7 +343,7 @@ class TestDefaultProvider:
 
         real_import = builtins.__import__
 
-        def _mock_import(name: str, *args: object, **kwargs: object) -> object:
+        def _mock_import(name: str, *args: Any, **kwargs: Any) -> Any:
             if name == "claude_agent_sdk":
                 raise ImportError("mocked")
             return real_import(name, *args, **kwargs)
