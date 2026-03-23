@@ -1,182 +1,182 @@
 {
-  "3edfe74d4ed6a856": {
-    "fact_id": "73836e8d862fc484",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.4,
-    "overall": 0.64,
-    "reasoning": "Market data with source URL. Time-specific.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "c960aad0d6548d93": {
-    "fact_id": "auto-claim-5098f6af",
-    "factual_correctness": 0.3,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.4,
-    "overall": 0.48,
-    "reasoning": "Headline only, minimal content. Has source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "2fc34adbc138fb3e": {
-    "fact_id": "fcad07d341a4a8c8",
+  "0141fef656b4db98": {
+    "fact_id": "asean-telco-5g-maturity-ranking-2025",
     "factual_correctness": 0.8,
-    "source_grounding": 0.7,
+    "source_grounding": 0.4,
     "temporal_validity": 0.7,
-    "overall": 0.74,
-    "reasoning": "JSAI paper fact with specific methodology. SIG-FIN URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+    "overall": 0.65,
+    "reasoning": "Specific data with penetration rates. No URL but compiled from 44+ sources. 2025 data, moderately current.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
   },
-  "c221b4ba8cd98a54": {
-    "fact_id": "55d1e634e69ed819",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.5,
-    "overall": 0.75,
-    "reasoning": "Very specific financial data with source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "4018c020ced9ed61": {
-    "fact_id": "b754fce6066f746c",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.5,
-    "temporal_validity": 0.7,
-    "overall": 0.64,
-    "reasoning": "Academic finding. Source is pdf hash only.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "1139ea0de8622d49": {
-    "fact_id": "a2e06b12a5fdb3e0",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.7,
-    "overall": 0.77,
-    "reasoning": "JSAI paper with specific quantitative result. Has URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "acb9b4d426105fc9": {
-    "fact_id": "aaf78efa37219be9",
-    "factual_correctness": 0.3,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.2,
-    "overall": 0.42,
-    "reasoning": "Social media noise. Has source URL but low factual value.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "099f4a5287c485df": {
-    "fact_id": "trend:topic-suggestion",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.5,
-    "overall": 0.5,
-    "reasoning": "Specific data but NO source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "65176345e606c782": {
-    "fact_id": "25ef580528f3eb3b",
+  "304519a89d3f2187": {
+    "fact_id": "cd281f952cdd868c",
     "factual_correctness": 0.6,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.3,
-    "overall": 0.57,
-    "reasoning": "Opinion/analysis with source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "5bce18db5902e6c9": {
-    "fact_id": "e432c5f33718e004",
-    "factual_correctness": 0.5,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.4,
-    "overall": 0.56,
-    "reasoning": "News claim with source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "96010980fb0c2d89": {
-    "fact_id": "154c14204417440b",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.5,
-    "overall": 0.75,
-    "reasoning": "Very specific financial data with source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "0a8fe50a0af0dc69": {
-    "fact_id": "7792dd55b5bef802",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.7,
-    "temporal_validity": 0.8,
-    "overall": 0.77,
-    "reasoning": "Technical methodology from JSAI paper. Durable academic content.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "fbfe4fbbb14d566b": {
-    "fact_id": "f34cfff228102812",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.4,
-    "overall": 0.68,
-    "reasoning": "Specific financial data with source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "64d636d6973e585d": {
-    "fact_id": "7acf0dc16ed67815",
-    "factual_correctness": 0.3,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.2,
-    "overall": 0.42,
-    "reasoning": "Scheduling noise. Has source URL but no value.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "ae79948e62a6318a": {
-    "fact_id": "fact_my_telecom_market_2024",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.6,
-    "overall": 0.53,
-    "reasoning": "Specific data but NO source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "74eb19607096518f": {
-    "fact_id": "8ce6a5b5569573d4",
-    "factual_correctness": 0.9,
     "source_grounding": 0.9,
-    "temporal_validity": 0.8,
-    "overall": 0.87,
-    "reasoning": "Core TDA finding from arxiv paper. Full source link.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "83d1c23a59516079": {
-    "fact_id": "49ce344b5a922adc",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.5,
     "temporal_validity": 0.5,
     "overall": 0.66,
-    "reasoning": "Specific metric. Source is nomura: prefix, not full URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+    "reasoning": "Opinion-based claim about censorship fears. Strong source (Ars Technica URL). Jan 2026 news, aging.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
   },
-  "ab84ed57e88d407c": {
-    "fact_id": "51745a9e494a2d82",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.1,
-    "overall": 0.51,
-    "reasoning": "Daily market data, very transient. Has source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
-  },
-  "9b37be2ac1d6b1ec": {
-    "fact_id": "5151dd56d80e2394",
-    "factual_correctness": 0.8,
+  "b6f8907692ce929d": {
+    "fact_id": "82c71fa05278cdda",
+    "factual_correctness": 0.9,
     "source_grounding": 0.5,
-    "temporal_validity": 0.7,
-    "overall": 0.68,
-    "reasoning": "Specific statistical result. Source is pdf hash only.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+    "temporal_validity": 0.9,
+    "overall": 0.78,
+    "reasoning": "Well-known BTC mechanism. PDF source only. Timeless technical fact.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
   },
-  "dc9b825c6d7895fe": {
-    "fact_id": "1277924768714dc4",
+  "8fc148d5f5d3448b": {
+    "fact_id": "d48768d25acfa5af",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.6,
+    "overall": 0.55,
+    "reasoning": "Reasonable risk assessment for TLKM. No URL, NotebookLM memo source.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "a52421509137d02d": {
+    "fact_id": "836559aadb0d5c96",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.5,
+    "overall": 0.78,
+    "reasoning": "Specific numbers (M Series E, B). TechCrunch URL. Jan 2026, valuation may change.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "f14892d98cdb4ff9": {
+    "fact_id": "06e5b035c211eef8",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.8,
+    "overall": 0.61,
+    "reasoning": "Valid methodological limitation. PDF without title. Timeless academic point.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "52ad9f59065e1e00": {
+    "fact_id": "b92d4fd15df1cc92",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.3,
+    "temporal_validity": 0.8,
+    "overall": 0.61,
+    "reasoning": "Academic methodology claim. PDF source. Timeless.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "caa9dbf0ace2c2e0": {
+    "fact_id": "67aec28c44e666b0",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.5,
+    "overall": 0.78,
+    "reasoning": "Precise data. URL + date (minkabu). Feb 2026 snapshot.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "cd41fcdb7843ec01": {
+    "fact_id": "2ebc6979b8afc0e5",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.5,
+    "overall": 0.7,
+    "reasoning": "Forward-looking claim. CNBC URL. Jan 2026 context.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "442bcd40e2206c41": {
+    "fact_id": "dc36780633539fe8",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.5,
+    "temporal_validity": 0.9,
+    "overall": 0.78,
+    "reasoning": "Historical fact with specific date and value (~B). Local file source. Timeless.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "e127d8223ddc3064": {
+    "fact_id": "72938408a9c6",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.2,
+    "temporal_validity": 0.7,
+    "overall": 0.59,
+    "reasoning": "Factual partnership. WRONG URL (TechCrunch about ICE, not Telkomsel). Source-content mismatch.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "8c6dff1cb2954193": {
+    "fact_id": "7da2b2c108c71711",
     "factual_correctness": 0.8,
     "source_grounding": 0.8,
-    "temporal_validity": 0.4,
+    "temporal_validity": 0.8,
+    "overall": 0.8,
+    "reasoning": "Academic finding. arXiv URL. Timeless research.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "b9a19c415b3bb25e": {
+    "fact_id": "4a9cfc24401a27e4",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.8,
+    "overall": 0.77,
+    "reasoning": "Technical academic claim. Academic URL. Timeless methodology.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "56e284b65d9200e4": {
+    "fact_id": "36454db3376c5b9b",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.5,
+    "overall": 0.74,
+    "reasoning": "Specific business claim. CNBC URL. Jan 2026 earnings.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "a691eb2e87423cb5": {
+    "fact_id": "92342bf4da0b5383",
+    "factual_correctness": 0.5,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.1,
+    "overall": 0.5,
+    "reasoning": "Ephemeral news about upcoming earnings. URL present. Completely outdated.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "031b75996d531555": {
+    "fact_id": "b4c5082552a50a84",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.9,
+    "overall": 0.83,
+    "reasoning": "Academic mathematical claim. arXiv URL. Timeless.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "a23c07ce52cd661d": {
+    "fact_id": "25d33cf83d1d336a",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.2,
+    "overall": 0.58,
+    "reasoning": "Time-specific market data. Yahoo Finance URL. Jan 2026 snapshot, now stale.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "8c622621202fe5ae": {
+    "fact_id": "4371779db42d5f5e",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.4,
+    "temporal_validity": 0.8,
+    "overall": 0.64,
+    "reasoning": "Research finding about sentiment-mining difficulty correlation. PDF source.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "d27a042576c2b055": {
+    "fact_id": "claim-b4add4fd4e1e6fdd",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.3,
+    "overall": 0.72,
+    "reasoning": "Precise daily price data. Nasdaq URL. Single-day data point.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+  },
+  "c8979bf189c34026": {
+    "fact_id": "a6b082d6ff5136f7",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.4,
+    "temporal_validity": 0.8,
     "overall": 0.68,
-    "reasoning": "Earnings data with source URL.",
-    "evaluated_at": "2026-03-21T12:02:10.049831+00:00"
+    "reasoning": "Specific quantitative academic result. PDF source. Timeless research.",
+    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
   }
 }

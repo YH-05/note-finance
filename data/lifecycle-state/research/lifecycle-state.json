@@ -1,8 +1,8 @@
 {
   "instance_name": "research",
-  "mode": "new",
+  "mode": "redesign",
   "created_at": "2026-03-23T15:09:06+09:00",
-  "updated_at": "2026-03-23T22:00:00+09:00",
+  "updated_at": "2026-03-23T22:40:00+09:00",
   "current_phase": "F",
   "phases": {
     "A": {
@@ -62,14 +62,14 @@
       }
     },
     "C": {
-      "status": "skipped",
+      "status": "completed",
       "tasks": {
-        "C-1": { "status": "skipped", "artifacts": [] },
-        "C-2": { "status": "skipped", "artifacts": [] },
-        "C-3": { "status": "skipped", "artifacts": [] },
-        "C-4": { "status": "skipped", "artifacts": [] }
+        "C-1": { "status": "completed", "artifacts": ["migration-plan.md"], "note": "全1013 Entity に IS_TYPE あり。entity_type null ゼロ。再分類不要。" },
+        "C-2": { "status": "completed", "artifacts": ["migration-plan.md"], "note": "IS_FACT_TYPE 650件 + IS_CLAIM_TYPE 348件 バックフィル完了。全分類リレーション100%カバレッジ達成。" },
+        "C-3": { "status": "completed", "artifacts": ["migration-plan.md"], "note": "updated_at null 5378件を created_at/ingested_at からバックフィル。ラベルなし孤立ノード1件削除。" },
+        "C-4": { "status": "completed", "artifacts": ["migration-plan.md"], "note": "旧ラベル0件、旧リレーション0件。クリーンアップ不要。" }
       },
-      "note": "mode=new のため Phase C はスキップ"
+      "note": "v3.0 移行完了。AuraDB バックアップ確認済み。主要作業: IS_FACT_TYPE 650件 + IS_CLAIM_TYPE 348件バックフィル + updated_at 5378件設定。"
     },
     "D": {
       "status": "completed",

@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-03-23T13:57:46.020992+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 8,
+    "stance_entities": 2,
+    "multi_topic_entities": 8
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "Crude Oil → Indonesia macro → ISAT/TLKM ARPU 波及経路",
+      "description": "Crude Oil(commodity)がIndonesia(country)のマクロ経済(経常収支/IDR為替)を通じて、Indosat/Telkom(company)のARPU・設備投資余力に影響する3ドメイン横断の因果チェーン。Coal(commodity)も同様のパスを持ち、資源価格→テレコム投資サイクルの仮説を構築可能。",
+      "entities_involved": [
+        "Crude Oil",
+        "Coal",
+        "Indonesia",
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia"
+      ],
+      "supporting_evidence": [
+        "WTI crude +2.71 (March 2026)",
+        "ISAT EBITDA margin trends",
+        "Indonesia macro indicators in KG"
+      ],
+      "evidence_count": 12
+    },
+    {
+      "type": "contradiction_discovery",
+      "title": "ISAT Stance集中: 40件全てBullish - 反論エビデンス欠如",
+      "description": "Indosat Ooredoo Hutchisonに対して40件のStanceが全てbullish/Buy。Bear caseのStanceが完全に欠如。健全なリサーチには反対意見が必須。spectrum risk, competitive risk等のClaimは存在するがStanceとしてstructuredされていない。",
+      "entities_involved": [
+        "Indosat Ooredoo Hutchison"
+      ],
+      "supporting_evidence": [
+        "40 stances all bullish/Buy",
+        "Claim nodes with risk_assessment/competitive_risk exist but unlinked to bearish Stance"
+      ],
+      "evidence_count": 40
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "Category Theory - Finance ドメイン間接続の欠如",
+      "description": "Category Theory/Sheaf Theory/Ologs等の数学的ツール群(technology)とCausal Emergence(indicator)は14件の共有Factで密結合だが、金融ドメイン(company/index/macro)との直接接続がない。圏論的手法を金融リスクモデリングやポートフォリオ最適化に応用する仮説の根拠が薄い。",
+      "entities_involved": [
+        "Category Theory",
+        "Sheaf Theory",
+        "Causal Emergence"
+      ],
+      "supporting_evidence": [
+        "14 shared facts in math domain",
+        "No RELATES_TO to financial entities"
+      ],
+      "evidence_count": 14
+    },
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "CK Hutchison 30カテゴリ横断 - コングロマリットディスカウント仮説",
+      "description": "CK Hutchison(organization)が30のTopicカテゴリにまたがる91トピックに接続。Ooredoo Groupも同等。この極端な多角性はコングロマリットディスカウントの構造的根拠を示唆。ISATの親会社構造がバリュエーション上のリスクプレミアムを生んでいる可能性。",
+      "entities_involved": [
+        "CK Hutchison",
+        "Ooredoo Group",
+        "Indosat Ooredoo Hutchison"
+      ],
+      "supporting_evidence": [
+        "91 topics across 30 categories for CK Hutchison",
+        "ISAT valuation data points"
+      ],
+      "evidence_count": 8
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.7,
+    "hypothesis_novelty": 0.6,
+    "evidence_density": 0.65,
+    "actionability": 0.7,
+    "overall": 0.662
+  },
+  "improvement_suggestions": [
+    "Bear caseのStanceを追加: ISATに対するbearish見解をstructured Stanceとして登録",
+    "Source-Content整合性チェック: Telkomsel FactのSource URLが別記事(ICE)を指している問題を修正",
+    "Category Theory → Finance接続: TDA/圏論の金融応用論文をKGに追加し間接ブリッジを構築",
+    "Ephemeral Factのアーカイブ: 日次ニュース(MAG7 earnings等)にexpiry_dateを設定"
+  ]
+}
