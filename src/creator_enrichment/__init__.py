@@ -5,6 +5,7 @@
 """
 
 from .neo4j_writer import CreatorGraphWriter
+from .orchestrator import CreatorEnrichmentOrchestrator, FatalError
 from .session_log import SessionLogger
 from .types import (
     CycleData,
@@ -18,10 +19,12 @@ from .types import (
 __version__ = "0.1.0"
 
 __all__ = [
+    "CreatorEnrichmentOrchestrator",
     "CreatorGraphWriter",
     "CycleData",
     "CycleError",
     "CycleReport",
+    "FatalError",
     "GapAnalysisResult",
     "IngestResult",
     "RawItem",
