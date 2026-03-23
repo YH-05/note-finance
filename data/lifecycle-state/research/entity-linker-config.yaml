@@ -1,0 +1,287 @@
+# =============================================================================
+# entity-linker-config.yaml — research-neo4j v3.0
+# =============================================================================
+# エンティティリンカー設定。抽出されたエンティティを既存 Neo4j ノードと
+# 照合・統合するための設定。
+# =============================================================================
+
+schema_version: "research-3.0"
+instance_name: "research"
+domain: "金融リサーチ・銘柄調査のナレッジグラフ"
+created_at: "2026-03-23"
+
+# =============================================================================
+# 接続設定
+# =============================================================================
+connection:
+  uri: "bolt://localhost:7688"
+  database: "neo4j"
+
+# =============================================================================
+# 検索設定
+# =============================================================================
+search:
+  # フルテキスト検索インデックス
+  fulltext_index: "research_entity_fulltext"
+  # Alias 用フルテキストインデックス（ファジーマッチング第2層）
+  alias_fulltext_index: "research_alias_fulltext"
+
+  # 類似度閾値（Jaro-Winkler 距離）
+  similarity_threshold: 0.85
+
+  # ファジーマッチング階層数
+  # Layer 1: 完全一致（fulltext exact match）
+  # Layer 2: ファジー一致（Jaro-Winkler > similarity_threshold）
+  fuzzy_layers: 2
+
+  # 検索候補の最大取得数
+  max_candidates: 10
+
+  # フルテキスト検索のスコア閾値
+  fulltext_score_threshold: 0.5
+
+# =============================================================================
+# 有効な entity_type 一覧（14種）
+# =============================================================================
+valid_entity_types:
+  - company
+  - technology
+  - organization
+  - person
+  - index
+  - indicator
+  - instrument
+  - commodity
+  - country
+  - sector
+  - concept
+  - regulation
+  - broker
+  - product
+
+# =============================================================================
+# エンティティタイプ別正規化ルール
+# =============================================================================
+normalization:
+  # 全タイプ共通ルール
+  general:
+    - rule: "fullwidth_to_halfwidth"
+      description: "全角英数字は半角に統一"
+    - rule: "strip_whitespace"
+      description: "不要なスペースは除去"
+    - rule: "strip_trailing_punctuation"
+      description: "末尾の句読点は除去"
+
+  # タイプ別正規化ルール
+  per_entity_type:
+    company:
+      canonical_form: "公式英語表記またはティッカー"
+      consolidates_from: [company, fintech, subsidiary, fintech_holding, digital_bank, it_services]
+      examples:
+        - input: "トヨタ自動車"
+          output: "Toyota Motor"
+        - input: "アップル"
+          output: "Apple Inc."
+        - input: "ソフトバンクグループ"
+          output: "SoftBank Group"
+
+    technology:
+      canonical_form: "公式英語表記"
+      consolidates_from: [technology, system]
+      examples:
+        - input: "人工知能"
+          output: "Artificial Intelligence"
+        - input: "ブロックチェーン"
+          output: "Blockchain"
+
+    organization:
+      canonical_form: "公式英語略称"
+      consolidates_from: [organization, central_bank, government, government_agency, institution, exchange]
+      examples:
+        - input: "日本銀行"
+          output: "BOJ"
+        - input: "米連邦準備制度理事会"
+          output: "Federal Reserve"
+        - input: "東京証券取引所"
+          output: "TSE"
+        - input: "国際通貨基金"
+          output: "IMF"
+
+    person:
+      canonical_form: "アルファベットフルネーム"
+      examples:
+        - input: "植田和男"
+          output: "Kazuo Ueda"
+        - input: "ジェローム・パウエル"
+          output: "Jerome Powell"
+
+    index:
+      canonical_form: "公式略称"
+      examples:
+        - input: "日経平均株価"
+          output: "Nikkei 225"
+        - input: "S&P500"
+          output: "S&P 500"
+        - input: "ダウ工業株30種平均"
+          output: "DJIA"
+
+    indicator:
+      canonical_form: "公式略称"
+      consolidates_from: [indicator, metric]
+      examples:
+        - input: "消費者物価指数"
+          output: "CPI"
+        - input: "国内総生産"
+          output: "GDP"
+        - input: "失業率"
+          output: "Unemployment Rate"
+
+    instrument:
+      canonical_form: "ティッカーまたは公式名称"
+      consolidates_from: [instrument, etf, currency, currency_pair, fund, bond, asset]
+      examples:
+        - input: "VTI"
+          output: "VTI"
+        - input: "米国10年国債"
+          output: "US 10-Year Treasury"
+        - input: "ドル円"
+          output: "USD/JPY"
+
+    commodity:
+      canonical_form: "公式英語名"
+      examples:
+        - input: "原油"
+          output: "Crude Oil"
+        - input: "金"
+          output: "Gold"
+
+    country:
+      canonical_form: "英語正式名"
+      consolidates_from: [country, region]
+      examples:
+        - input: "米国"
+          output: "United States"
+        - input: "日本"
+          output: "Japan"
+        - input: "東南アジア"
+          output: "Southeast Asia"
+
+    sector:
+      canonical_form: "GICS セクター名"
+      consolidates_from: [sector, market]
+      examples:
+        - input: "半導体"
+          output: "Semiconductors"
+        - input: "情報技術"
+          output: "Information Technology"
+
+    concept:
+      canonical_form: "公式英語表記"
+      consolidates_from: [concept, model, method, theme, article_proposal, event]
+      examples:
+        - input: "量的緩和"
+          output: "Quantitative Easing"
+        - input: "ドルコスト平均法"
+          output: "Dollar-Cost Averaging"
+
+    regulation:
+      canonical_form: "公式英語名"
+      examples:
+        - input: "バーゼルIII"
+          output: "Basel III"
+        - input: "金融商品取引法"
+          output: "FIEA"
+
+    broker:
+      canonical_form: "公式英語表記"
+      examples:
+        - input: "ゴールドマン・サックス"
+          output: "Goldman Sachs"
+        - input: "野村證券"
+          output: "Nomura Securities"
+
+    product:
+      canonical_form: "公式英語名"
+      consolidates_from: [product, dataset, data_center]
+      examples:
+        - input: "iPhone 16"
+          output: "iPhone 16"
+        - input: "AWS"
+          output: "AWS"
+
+# =============================================================================
+# entity_key 生成ルール
+# =============================================================================
+key_generation:
+  format: "{name}::{entity_type}"
+  description: "正規化済み名前 + '::' + entity_type"
+  examples:
+    - entity_key: "Apple Inc.::company"
+    - entity_key: "S&P 500::index"
+    - entity_key: "BOJ::organization"
+    - entity_key: "CPI::indicator"
+
+# =============================================================================
+# リンキングロジック
+# =============================================================================
+linking:
+  # ステップ1: 完全一致検索
+  step_1_exact_match:
+    query: |
+      MATCH (e:Entity {entity_key: $entity_key})
+      RETURN e
+    description: "entity_key による完全一致検索"
+
+  # ステップ2: フルテキスト検索 + 類似度フィルタ
+  step_2_fulltext_search:
+    query: |
+      CALL db.index.fulltext.queryNodes('research_entity_fulltext', $name)
+      YIELD node, score
+      WHERE score > $fulltext_score_threshold
+      RETURN node, score
+      ORDER BY score DESC
+      LIMIT $max_candidates
+    description: "名前によるフルテキスト検索"
+
+  # ステップ3: Alias 検索（ファジーマッチング第2層）
+  step_3_alias_search:
+    query: |
+      CALL db.index.fulltext.queryNodes('research_alias_fulltext', $name)
+      YIELD node AS alias, score
+      WHERE score > $fulltext_score_threshold
+      MATCH (alias)-[:ALIAS_OF]->(target)
+      RETURN target, score
+      ORDER BY score DESC
+      LIMIT $max_candidates
+    description: "Alias 経由のファジー検索"
+
+  # マッチ判定: Jaro-Winkler 類似度
+  similarity_function: "jaro_winkler"
+  merge_strategy: "match_or_create"
+  description: |
+    1. entity_key 完全一致 → 既存ノードにリンク
+    2. フルテキスト検索 → Jaro-Winkler > 0.85 → 既存ノードにリンク
+    3. Alias 検索 → Jaro-Winkler > 0.85 → 既存ノードにリンク
+    4. いずれもマッチしない → 新規ノード作成
+
+# =============================================================================
+# Topic リンキング
+# =============================================================================
+topic_linking:
+  fulltext_index: "research_topic_fulltext"
+  key_format: "{name}::{category}"
+  similarity_threshold: 0.85
+
+  step_1_exact_match:
+    query: |
+      MATCH (t:Topic {topic_key: $topic_key})
+      RETURN t
+
+  step_2_fulltext_search:
+    query: |
+      CALL db.index.fulltext.queryNodes('research_topic_fulltext', $name)
+      YIELD node, score
+      WHERE score > 0.5
+      RETURN node, score
+      ORDER BY score DESC
+      LIMIT 5

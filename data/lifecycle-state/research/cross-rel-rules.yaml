@@ -1,0 +1,570 @@
+# =============================================================================
+# cross-rel-rules.yaml — research-neo4j v3.0 Phase E-3
+# =============================================================================
+# 横断リレーション強化ルール。
+# Phase D 品質レポート（Grade B, 83.5）で検出された孤立ノード・低接続密度の
+# 改善を目的として、エンティティ間・ソース間のリレーションを強化する。
+# =============================================================================
+
+schema_version: "research-3.0"
+instance_name: "research"
+generated_at: "2026-03-23"
+phase: "E-3"
+
+quality_baseline:
+  grade: "B"
+  score: 83.5
+  entity_orphan_rate: "25.1%"  # 254 / 1,013
+  source_untagged_rate: "14.5%"  # 247 / 1,709
+
+# =============================================================================
+# ルール 1: CO_MENTIONED_WITH — 共起リレーション自動生成
+# =============================================================================
+# 目的: 同一 Source 内で2件以上の Entity が言及されている場合、
+#        Entity 間に CO_MENTIONED_WITH リレーションを自動生成する。
+# 期待効果: 孤立 Entity の間接接続、エンティティ間の関連性の可視化。
+
+co_mentioned_with:
+  relation_type: "CO_MENTIONED_WITH"
+  direction: "bidirectional"  # 無向グラフとして扱う（片方向のみ MERGE）
+  auto_apply: true
+  description: "同一 Source から言及・参照されている Entity ペアに共起リレーションを作成"
+
+  # 生成条件
+  conditions:
+    min_co_occurrence: 2  # 最低共起回数（同一 Source で2回以上）
+    max_pairs_per_batch: 100  # 一回の実行で作成するペア数上限
+    exclude_entity_types: []  # 除外する entity_type はなし
+    exclude_operational: true  # Memory/SkillRun ラベルを除外
+
+  # 検出クエリ
+  detection_query: |
+    // 同一 Source から RELATES_TO/MENTIONS で接続される Entity ペアを検出
+    MATCH (s:Source)-[:STATES_FACT|MAKES_CLAIM]->(content)-[:RELATES_TO|MENTIONS]->(e1:Entity),
+          (s)-[:STATES_FACT|MAKES_CLAIM]->(content2)-[:RELATES_TO|MENTIONS]->(e2:Entity)
+    WHERE e1 <> e2
+      AND id(e1) < id(e2)
+      AND NOT 'Memory' IN labels(e1)
+      AND NOT 'Memory' IN labels(e2)
+    WITH e1, e2, count(DISTINCT s) AS co_occurrence
+    WHERE co_occurrence >= 2
+      AND NOT (e1)-[:CO_MENTIONED_WITH]-(e2)
+    RETURN e1.entity_key AS entity_1,
+           e2.entity_key AS entity_2,
+           e1.name AS name_1,
+           e2.name AS name_2,
+           e1.entity_type AS type_1,
+           e2.entity_type AS type_2,
+           co_occurrence
+    ORDER BY co_occurrence DESC
+    LIMIT 100
+
+  # 適用クエリ
+  apply_query: |
+    MATCH (s:Source)-[:STATES_FACT|MAKES_CLAIM]->(content)-[:RELATES_TO|MENTIONS]->(e1:Entity),
+          (s)-[:STATES_FACT|MAKES_CLAIM]->(content2)-[:RELATES_TO|MENTIONS]->(e2:Entity)
+    WHERE e1 <> e2
+      AND id(e1) < id(e2)
+      AND NOT 'Memory' IN labels(e1)
+      AND NOT 'Memory' IN labels(e2)
+    WITH e1, e2, count(DISTINCT s) AS co_occurrence
+    WHERE co_occurrence >= 2
+      AND NOT (e1)-[:CO_MENTIONED_WITH]-(e2)
+    MERGE (e1)-[r:CO_MENTIONED_WITH]->(e2)
+    ON CREATE SET r.co_occurrence = co_occurrence,
+                  r.created_at = datetime(),
+                  r.source = 'cross-rel-rules'
+    ON MATCH SET r.co_occurrence = co_occurrence,
+                 r.updated_at = datetime()
+    RETURN count(r) AS relationships_created
+
+  # プロパティ
+  relationship_properties:
+    - name: co_occurrence
+      type: integer
+      description: "共起した Source の数"
+    - name: created_at
+      type: datetime
+      description: "リレーション作成日時"
+    - name: source
+      type: string
+      value: "cross-rel-rules"
+      description: "生成元の識別子"
+
+# =============================================================================
+# ルール 2: INFLUENCES — 影響関係の推論ルール
+# =============================================================================
+# 目的: ドメイン知識に基づき、Entity 間の影響関係を推論する。
+# 適用条件: 手動確認が必要（auto_apply: false）。
+
+influences:
+  relation_type: "INFLUENCES"
+  direction: "directed"
+  auto_apply: false
+  description: "ドメイン知識に基づくエンティティ間の影響関係の推論"
+
+  # ルール 2-1: 中央銀行 → 国
+  # 中央銀行（organization タイプ + 名前に 'Bank'/'Reserve'/'央行' を含む）が
+  # country タイプの Entity に影響する
+  inference_rules:
+    - rule_id: "inf_central_bank_country"
+      name: "中央銀行 → 国の金融政策影響"
+      from_conditions:
+        entity_type: "organization"
+        name_pattern: "(?i).*(central bank|reserve|bank of|monetary authority|央行|日銀|BOJ|Fed|ECB|BOE|PBOC).*"
+      to_conditions:
+        entity_type: "country"
+      detection_query: |
+        MATCH (org:Entity)
+        WHERE org.entity_type = 'organization'
+          AND (org.name =~ '(?i).*(central bank|reserve|bank of|monetary authority).*'
+               OR org.name IN ['BOJ', 'Federal Reserve', 'ECB', 'BOE', 'PBOC', 'RBI', 'Bank of Thailand'])
+          AND NOT 'Memory' IN labels(org)
+        MATCH (country:Entity)
+        WHERE country.entity_type = 'country'
+          AND NOT 'Memory' IN labels(country)
+          AND NOT (org)-[:INFLUENCES]->(country)
+        WITH org, country,
+             CASE
+               WHEN org.name IN ['BOJ', 'Bank of Japan'] AND country.name = 'Japan' THEN true
+               WHEN org.name = 'Federal Reserve' AND country.name = 'United States' THEN true
+               WHEN org.name = 'ECB' AND country.name IN ['Germany', 'France', 'Italy'] THEN true
+               WHEN org.name = 'BOE' AND country.name = 'United Kingdom' THEN true
+               WHEN org.name = 'PBOC' AND country.name = 'China' THEN true
+               WHEN org.name = 'RBI' AND country.name = 'India' THEN true
+               WHEN org.name = 'Bank of Thailand' AND country.name = 'Thailand' THEN true
+               ELSE false
+             END AS is_match
+        WHERE is_match = true
+        RETURN org.entity_key AS from_key,
+               org.name AS from_name,
+               country.entity_key AS to_key,
+               country.name AS to_name
+      apply_query: |
+        // 上記 detection_query の結果を確認後、個別に実行
+        MATCH (org:Entity {entity_key: $from_key})
+        MATCH (country:Entity {entity_key: $to_key})
+        MERGE (org)-[r:INFLUENCES]->(country)
+        ON CREATE SET r.influence_type = 'monetary_policy',
+                      r.created_at = datetime(),
+                      r.source = 'cross-rel-rules'
+        RETURN org.name, country.name
+
+    # ルール 2-2: 規制 → セクター/企業
+    - rule_id: "inf_regulation_sector"
+      name: "規制 → セクター/企業への影響"
+      from_conditions:
+        entity_type: "regulation"
+      to_conditions:
+        entity_type: ["sector", "company"]
+      detection_query: |
+        // 同一 Source 内で regulation と company/sector が共起している場合
+        MATCH (s:Source)-[:STATES_FACT|MAKES_CLAIM]->(c1)-[:RELATES_TO|MENTIONS]->(reg:Entity),
+              (s)-[:STATES_FACT|MAKES_CLAIM]->(c2)-[:RELATES_TO|MENTIONS]->(target:Entity)
+        WHERE reg.entity_type = 'regulation'
+          AND target.entity_type IN ['sector', 'company']
+          AND reg <> target
+          AND NOT (reg)-[:INFLUENCES]->(target)
+        WITH reg, target, count(DISTINCT s) AS co_occurrence
+        WHERE co_occurrence >= 1
+        RETURN reg.entity_key AS from_key,
+               reg.name AS from_name,
+               target.entity_key AS to_key,
+               target.name AS to_name,
+               target.entity_type AS to_type,
+               co_occurrence
+        ORDER BY co_occurrence DESC
+
+    # ルール 2-3: 経済指標 → 市場/セクター
+    - rule_id: "inf_indicator_market"
+      name: "経済指標 → 市場/セクターへの影響"
+      from_conditions:
+        entity_type: "indicator"
+      to_conditions:
+        entity_type: ["sector", "index"]
+      detection_query: |
+        MATCH (s:Source)-[:STATES_FACT|MAKES_CLAIM]->(c1)-[:RELATES_TO|MENTIONS]->(ind:Entity),
+              (s)-[:STATES_FACT|MAKES_CLAIM]->(c2)-[:RELATES_TO|MENTIONS]->(target:Entity)
+        WHERE ind.entity_type = 'indicator'
+          AND target.entity_type IN ['sector', 'index']
+          AND ind <> target
+          AND NOT (ind)-[:INFLUENCES]->(target)
+        WITH ind, target, count(DISTINCT s) AS co_occurrence
+        WHERE co_occurrence >= 2
+        RETURN ind.entity_key AS from_key,
+               ind.name AS from_name,
+               target.entity_key AS to_key,
+               target.name AS to_name,
+               co_occurrence
+        ORDER BY co_occurrence DESC
+
+# =============================================================================
+# ルール 3: COMPETES_WITH — 競合関係の推論
+# =============================================================================
+# 目的: 同一セクター + 同一 entity_type の Entity 間で競合関係を推論する。
+
+competes_with:
+  relation_type: "COMPETES_WITH"
+  direction: "bidirectional"
+  auto_apply: false
+  description: "同一セクター + 同一 entity_type の Entity 間の競合関係を推論"
+
+  conditions:
+    same_entity_type: true
+    same_sector: true
+    min_co_occurrence: 2  # 同一 Source で2回以上共起
+
+  # セクタープロパティベース検出
+  detection_query_sector: |
+    // Entity.sector プロパティが同一で、company タイプのペアを検出
+    MATCH (e1:Entity), (e2:Entity)
+    WHERE e1.entity_type = 'company'
+      AND e2.entity_type = 'company'
+      AND e1.sector IS NOT NULL
+      AND e1.sector = e2.sector
+      AND id(e1) < id(e2)
+      AND NOT (e1)-[:COMPETES_WITH]-(e2)
+      AND NOT 'Memory' IN labels(e1)
+      AND NOT 'Memory' IN labels(e2)
+    RETURN e1.entity_key AS entity_1,
+           e2.entity_key AS entity_2,
+           e1.name AS name_1,
+           e2.name AS name_2,
+           e1.sector AS sector
+    ORDER BY e1.sector, e1.name
+    LIMIT 50
+
+  # IN_SECTOR リレーションベース検出
+  detection_query_in_sector: |
+    // IN_SECTOR リレーション経由で同一 Sector に属する company ペアを検出
+    MATCH (e1:Entity)-[:IN_SECTOR]->(s:Sector)<-[:IN_SECTOR]-(e2:Entity)
+    WHERE e1.entity_type = 'company'
+      AND e2.entity_type = 'company'
+      AND id(e1) < id(e2)
+      AND NOT (e1)-[:COMPETES_WITH]-(e2)
+      AND NOT 'Memory' IN labels(e1)
+      AND NOT 'Memory' IN labels(e2)
+    RETURN e1.entity_key AS entity_1,
+           e2.entity_key AS entity_2,
+           e1.name AS name_1,
+           e2.name AS name_2,
+           s.name AS sector
+    LIMIT 50
+
+  # 共起ベース検出（セクター情報がない場合のフォールバック）
+  detection_query_co_occurrence: |
+    // 同一 Source で company 同士が共起 + 同一 Topic を持つ場合
+    MATCH (s:Source)-[:STATES_FACT|MAKES_CLAIM]->(c1)-[:RELATES_TO|MENTIONS]->(e1:Entity),
+          (s)-[:STATES_FACT|MAKES_CLAIM]->(c2)-[:RELATES_TO|MENTIONS]->(e2:Entity)
+    WHERE e1.entity_type = 'company'
+      AND e2.entity_type = 'company'
+      AND e1 <> e2 AND id(e1) < id(e2)
+      AND NOT (e1)-[:COMPETES_WITH]-(e2)
+      AND NOT 'Memory' IN labels(e1)
+      AND NOT 'Memory' IN labels(e2)
+    WITH e1, e2, count(DISTINCT s) AS co_occurrence
+    WHERE co_occurrence >= 3
+    // 共通 Topic の確認
+    OPTIONAL MATCH (s1:Source)-[:STATES_FACT|MAKES_CLAIM]->(c3)-[:RELATES_TO|MENTIONS]->(e1),
+                   (s1)-[:TAGGED]->(t:Topic)<-[:TAGGED]-(s2:Source)-[:STATES_FACT|MAKES_CLAIM]->(c4)-[:RELATES_TO|MENTIONS]->(e2)
+    WITH e1, e2, co_occurrence, count(DISTINCT t) AS shared_topics
+    WHERE shared_topics >= 2
+    RETURN e1.entity_key AS entity_1,
+           e2.entity_key AS entity_2,
+           e1.name AS name_1,
+           e2.name AS name_2,
+           co_occurrence,
+           shared_topics
+    ORDER BY co_occurrence DESC
+    LIMIT 30
+
+  apply_query: |
+    MATCH (e1:Entity {entity_key: $entity_key_1})
+    MATCH (e2:Entity {entity_key: $entity_key_2})
+    MERGE (e1)-[r:COMPETES_WITH]->(e2)
+    ON CREATE SET r.created_at = datetime(),
+                  r.source = 'cross-rel-rules',
+                  r.evidence = $evidence
+    RETURN e1.name, e2.name
+
+# =============================================================================
+# ルール 4: SHARES_TOPIC — トピック共有リレーション自動生成
+# =============================================================================
+# 目的: 3件以上の共通 Topic を持つ Source ペアに SHARES_TOPIC を自動作成。
+# 期待効果: Source 間の関連性の可視化、類似コンテンツの発見。
+
+shares_topic:
+  relation_type: "SHARES_TOPIC"
+  direction: "bidirectional"
+  auto_apply: true
+  description: "3件以上の共通 Topic を持つ Source ペアに SHARES_TOPIC リレーションを作成"
+
+  conditions:
+    min_shared_topics: 3  # 最低共通 Topic 数
+    max_pairs_per_batch: 200  # 一回の実行で作成するペア数上限
+
+  detection_query: |
+    // 3件以上の共通 Topic を持つ Source ペアを検出
+    MATCH (s1:Source)-[:TAGGED]->(t:Topic)<-[:TAGGED]-(s2:Source)
+    WHERE id(s1) < id(s2)
+      AND NOT (s1)-[:SHARES_TOPIC]-(s2)
+    WITH s1, s2, count(DISTINCT t) AS shared_topic_count,
+         collect(DISTINCT t.name)[..5] AS shared_topics
+    WHERE shared_topic_count >= 3
+    RETURN s1.source_id AS source_1,
+           s2.source_id AS source_2,
+           s1.title AS title_1,
+           s2.title AS title_2,
+           shared_topic_count,
+           shared_topics
+    ORDER BY shared_topic_count DESC
+    LIMIT 200
+
+  apply_query: |
+    MATCH (s1:Source)-[:TAGGED]->(t:Topic)<-[:TAGGED]-(s2:Source)
+    WHERE id(s1) < id(s2)
+      AND NOT (s1)-[:SHARES_TOPIC]-(s2)
+    WITH s1, s2, count(DISTINCT t) AS shared_topic_count
+    WHERE shared_topic_count >= 3
+    MERGE (s1)-[r:SHARES_TOPIC]->(s2)
+    ON CREATE SET r.shared_topic_count = shared_topic_count,
+                  r.created_at = datetime(),
+                  r.source = 'cross-rel-rules'
+    RETURN count(r) AS relationships_created
+
+  relationship_properties:
+    - name: shared_topic_count
+      type: integer
+      description: "共通 Topic の数"
+    - name: created_at
+      type: datetime
+    - name: source
+      type: string
+      value: "cross-rel-rules"
+
+# =============================================================================
+# ルール 5: IN_SECTOR — Entity.sector プロパティからのバックフィル
+# =============================================================================
+# 目的: Entity.sector プロパティを持つ 139件の Entity に
+#        IN_SECTOR リレーションを作成し、Sector ノードと接続する。
+# 現状: IN_SECTOR リレーションは 143件のみ（14.1%）。
+
+in_sector_backfill:
+  relation_type: "IN_SECTOR"
+  direction: "directed"  # Entity → Sector
+  auto_apply: true
+  description: "Entity.sector プロパティから Sector ノードへの IN_SECTOR リレーションをバックフィル"
+
+  target_count: 139  # sector プロパティを持つ Entity 数
+
+  detection_query: |
+    // sector プロパティを持つが IN_SECTOR リレーションがない Entity を検出
+    MATCH (e:Entity)
+    WHERE e.sector IS NOT NULL
+      AND NOT (e)-[:IN_SECTOR]->()
+      AND NOT 'Memory' IN labels(e)
+    RETURN e.entity_key,
+           e.name,
+           e.entity_type,
+           e.sector AS sector_value
+    ORDER BY e.sector, e.name
+
+  # ステップ1: Sector ノードの存在確認・作成
+  ensure_sector_query: |
+    // Entity.sector プロパティからユニークな Sector 値を抽出し、Sector ノードを作成
+    MATCH (e:Entity)
+    WHERE e.sector IS NOT NULL
+      AND NOT 'Memory' IN labels(e)
+    WITH DISTINCT e.sector AS sector_name
+    MERGE (s:Sector {sector_id: toLower(replace(sector_name, ' ', '_'))})
+    ON CREATE SET s.name = sector_name
+    RETURN s.sector_id, s.name
+
+  # ステップ2: IN_SECTOR リレーションの一括作成
+  apply_query: |
+    MATCH (e:Entity)
+    WHERE e.sector IS NOT NULL
+      AND NOT (e)-[:IN_SECTOR]->()
+      AND NOT 'Memory' IN labels(e)
+    WITH e, toLower(replace(e.sector, ' ', '_')) AS sector_id
+    MATCH (s:Sector {sector_id: sector_id})
+    MERGE (e)-[r:IN_SECTOR]->(s)
+    ON CREATE SET r.created_at = datetime(),
+                  r.source = 'cross-rel-rules-backfill'
+    RETURN count(r) AS relationships_created
+
+# =============================================================================
+# ルール 6: FOR_METRIC — FDP.metric_name からのバックフィル
+# =============================================================================
+# 目的: 430件の FinancialDataPoint のうち FOR_METRIC が 22件（5.1%）しかない。
+#        FDP.metric_name プロパティを Metric ノードと照合し、FOR_METRIC を作成。
+
+for_metric_backfill:
+  relation_type: "FOR_METRIC"
+  direction: "directed"  # FDP → Metric
+  auto_apply: true  # 完全一致のみ自動適用
+  description: "FDP.metric_name を Metric.name と照合し FOR_METRIC リレーションをバックフィル"
+
+  target_count: 430  # 全 FDP 数
+  current_coverage: "5.1%"  # 22 / 430
+  target_coverage: "50%"
+
+  # ステップ1: 診断 — FDP.metric_name と Metric.name の照合
+  detection_query: |
+    // FDP.metric_name → Metric.name の完全一致候補を検出
+    MATCH (fdp:FinancialDataPoint)
+    WHERE fdp.metric_name IS NOT NULL
+      AND NOT (fdp)-[:FOR_METRIC]->()
+    WITH fdp
+    MATCH (m:Metric)
+    WHERE toLower(m.name) = toLower(fdp.metric_name)
+    RETURN fdp.datapoint_id,
+           fdp.metric_name,
+           m.metric_id,
+           m.name AS matched_metric
+    LIMIT 50
+
+  # ステップ2: 完全一致の自動適用
+  apply_exact_match_query: |
+    MATCH (fdp:FinancialDataPoint)
+    WHERE fdp.metric_name IS NOT NULL
+      AND NOT (fdp)-[:FOR_METRIC]->()
+    WITH fdp
+    MATCH (m:Metric)
+    WHERE toLower(m.name) = toLower(fdp.metric_name)
+    MERGE (fdp)-[r:FOR_METRIC]->(m)
+    ON CREATE SET r.created_at = datetime(),
+                  r.source = 'cross-rel-rules-backfill',
+                  r.match_type = 'exact'
+    RETURN count(r) AS relationships_created
+
+  # ステップ3: 部分一致候補の検出（手動確認用）
+  detection_partial_match_query: |
+    // 部分一致候補を提示（手動確認後に適用）
+    MATCH (fdp:FinancialDataPoint)
+    WHERE fdp.metric_name IS NOT NULL
+      AND NOT (fdp)-[:FOR_METRIC]->()
+    WITH fdp.metric_name AS metric_name, collect(fdp.datapoint_id) AS fdp_ids, count(*) AS cnt
+    WITH metric_name, fdp_ids, cnt
+    WHERE NOT EXISTS {
+      MATCH (m:Metric)
+      WHERE toLower(m.name) = toLower(metric_name)
+    }
+    RETURN metric_name,
+           cnt AS unmatched_fdp_count,
+           fdp_ids[..3] AS sample_ids
+    ORDER BY cnt DESC
+    LIMIT 20
+
+  # ステップ4: 新規 Metric ノード作成 + FOR_METRIC（手動確認後）
+  create_new_metric_query: |
+    // 既存 Metric にマッチしない metric_name から新規 Metric を作成
+    MATCH (fdp:FinancialDataPoint)
+    WHERE fdp.metric_name IS NOT NULL
+      AND NOT (fdp)-[:FOR_METRIC]->()
+    WITH fdp.metric_name AS metric_name, collect(fdp) AS fdps
+    WHERE NOT EXISTS {
+      MATCH (m:Metric)
+      WHERE toLower(m.name) = toLower(metric_name)
+    }
+    WITH metric_name, fdps,
+         toLower(replace(metric_name, ' ', '_')) AS new_metric_id
+    MERGE (m:Metric {metric_id: new_metric_id})
+    ON CREATE SET m.name = metric_name
+    WITH m, fdps
+    UNWIND fdps AS fdp
+    MERGE (fdp)-[r:FOR_METRIC]->(m)
+    ON CREATE SET r.created_at = datetime(),
+                  r.source = 'cross-rel-rules-backfill',
+                  r.match_type = 'new_metric'
+    RETURN m.metric_id, m.name, count(*) AS links_created
+    ORDER BY links_created DESC
+
+# =============================================================================
+# 実行順序とスケジュール
+# =============================================================================
+execution_schedule:
+  # 即時実行（auto_apply: true のルール）
+  immediate:
+    - rule: "in_sector_backfill"
+      description: "Entity.sector → Sector ノードの IN_SECTOR バックフィル（139件対象）"
+      estimated_time: "30秒"
+      prerequisite: "Sector ノードが存在すること（ensure_sector_query 先行実行）"
+
+    - rule: "for_metric_backfill"
+      description: "FDP.metric_name → Metric の FOR_METRIC バックフィル（完全一致のみ）"
+      estimated_time: "30秒"
+      prerequisite: "Metric ノードが存在すること"
+
+    - rule: "co_mentioned_with"
+      description: "共起 Entity ペアに CO_MENTIONED_WITH 作成"
+      estimated_time: "2分"
+      prerequisite: "Entity 孤立解消（gap-analysis G1）の後に実行推奨"
+
+    - rule: "shares_topic"
+      description: "共通 Topic 3件以上の Source ペアに SHARES_TOPIC 作成"
+      estimated_time: "3分"
+      prerequisite: "Source TAGGED ギャップ充填（gap-analysis G3）の後に実行推奨"
+
+  # 手動確認後に実行（auto_apply: false のルール）
+  manual_review:
+    - rule: "influences"
+      description: "中央銀行→国、規制→セクター等の影響関係"
+      review_method: "detection_query の結果を確認し、妥当なペアのみ apply_query で適用"
+
+    - rule: "competes_with"
+      description: "同一セクター・同一タイプの競合関係"
+      review_method: "detection_query の結果を確認し、実際に競合関係にあるペアのみ適用"
+
+# =============================================================================
+# 検証クエリ（適用後の確認）
+# =============================================================================
+verification_queries:
+  # 新規作成されたリレーションのカウント
+  count_new_relationships: |
+    MATCH ()-[r]->()
+    WHERE r.source = 'cross-rel-rules'
+       OR r.source = 'cross-rel-rules-backfill'
+    RETURN type(r) AS rel_type,
+           count(r) AS count,
+           r.source AS creation_source
+    ORDER BY count DESC
+
+  # 孤立 Entity の減少確認
+  verify_orphan_reduction: |
+    MATCH (e:Entity)
+    WHERE NOT (e)--()
+      AND NOT 'Memory' IN labels(e)
+    RETURN count(e) AS remaining_orphans
+
+  # IN_SECTOR カバレッジの確認
+  verify_in_sector_coverage: |
+    MATCH (e:Entity)
+    WHERE NOT 'Memory' IN labels(e)
+    WITH count(e) AS total
+    MATCH (e2:Entity)-[:IN_SECTOR]->()
+    WHERE NOT 'Memory' IN labels(e2)
+    WITH total, count(DISTINCT e2) AS linked
+    RETURN total, linked, round(100.0 * linked / total, 1) AS coverage_pct
+
+  # FOR_METRIC カバレッジの確認
+  verify_for_metric_coverage: |
+    MATCH (fdp:FinancialDataPoint)
+    WITH count(fdp) AS total
+    MATCH (fdp2:FinancialDataPoint)-[:FOR_METRIC]->()
+    WITH total, count(DISTINCT fdp2) AS linked
+    RETURN total, linked, round(100.0 * linked / total, 1) AS coverage_pct
+
+  # CO_MENTIONED_WITH の統計
+  verify_co_mentioned: |
+    MATCH (e1:Entity)-[r:CO_MENTIONED_WITH]->(e2:Entity)
+    RETURN count(r) AS total_pairs,
+           avg(r.co_occurrence) AS avg_co_occurrence,
+           max(r.co_occurrence) AS max_co_occurrence
+
+  # SHARES_TOPIC の統計
+  verify_shares_topic: |
+    MATCH (s1:Source)-[r:SHARES_TOPIC]->(s2:Source)
+    RETURN count(r) AS total_pairs,
+           avg(r.shared_topic_count) AS avg_shared_topics,
+           max(r.shared_topic_count) AS max_shared_topics

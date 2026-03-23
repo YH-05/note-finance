@@ -2,8 +2,8 @@
   "instance_name": "research",
   "mode": "new",
   "created_at": "2026-03-23T15:09:06+09:00",
-  "updated_at": "2026-03-23T17:00:00+09:00",
-  "current_phase": "B",
+  "updated_at": "2026-03-23T22:00:00+09:00",
+  "current_phase": "F",
   "phases": {
     "A": {
       "status": "completed",
@@ -53,12 +53,12 @@
       "note": "6項目全てのカスタマイズ完了。プロパティ→リレーション変換を大幅に適用。新設ノード15種、新設リレーション16種。"
     },
     "B": {
-      "status": "pending",
+      "status": "completed",
       "tasks": {
-        "B-1": { "status": "pending", "artifacts": [] },
-        "B-2": { "status": "pending", "artifacts": [] },
-        "B-3": { "status": "pending", "artifacts": [] },
-        "B-4": { "status": "pending", "artifacts": [] }
+        "B-1": { "status": "completed", "artifacts": ["extraction-prompt.md"] },
+        "B-2": { "status": "completed", "artifacts": ["entity-linker-config.yaml"] },
+        "B-3": { "status": "completed", "artifacts": ["emit-queue-config.yaml"] },
+        "B-4": { "status": "completed", "artifacts": ["merge-guide.md"] }
       }
     },
     "C": {
@@ -72,29 +72,32 @@
       "note": "mode=new のため Phase C はスキップ"
     },
     "D": {
-      "status": "pending",
+      "status": "completed",
       "tasks": {
-        "D-1": { "status": "pending", "artifacts": [] },
-        "D-2": { "status": "pending", "artifacts": [] },
-        "D-3": { "status": "pending", "artifacts": [] },
-        "D-4": { "status": "pending", "artifacts": [] }
-      }
+        "D-1": { "status": "completed", "artifacts": ["quality-report-20260323.md"], "score": 93.5 },
+        "D-2": { "status": "completed", "artifacts": ["quality-report-20260323.md"], "score": 99.4 },
+        "D-3": { "status": "completed", "artifacts": ["quality-report-20260323.md"], "score": 89.7 },
+        "D-4": { "status": "completed", "artifacts": ["quality-report-20260323.md"], "score": 52.6 }
+      },
+      "overall_grade": "B",
+      "overall_score": 83.5
     },
     "E": {
-      "status": "pending",
+      "status": "completed",
       "tasks": {
-        "E-1": { "status": "pending", "artifacts": [] },
-        "E-2": { "status": "pending", "artifacts": [] },
-        "E-3": { "status": "pending", "artifacts": [] }
+        "E-1": { "status": "completed", "artifacts": ["enrichment-config.yaml"] },
+        "E-2": { "status": "completed", "artifacts": ["gap-analysis-queries.md"] },
+        "E-3": { "status": "completed", "artifacts": ["cross-rel-rules.yaml"] }
       }
     },
     "F": {
-      "status": "pending",
+      "status": "completed",
       "tasks": {
-        "F-1": { "status": "pending", "artifacts": [] },
-        "F-2": { "status": "pending", "artifacts": [] },
-        "F-3": { "status": "pending", "artifacts": [] }
-      }
+        "F-1": { "status": "completed", "artifacts": ["query-templates.md"] },
+        "F-2": { "status": "completed", "artifacts": ["discovery-queries.md"] },
+        "F-3": { "status": "completed", "artifacts": ["workflow-integration.md"] }
+      },
+      "note": "8 query templates (T1-T8), 8 discovery queries (P1-P8), 6 workflow integrations (W1-W6)"
     }
   }
 }

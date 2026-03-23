@@ -110,19 +110,32 @@ constraints:
     property: entity_type_id
     type: UNIQUE
 
-  - name: unique_research_ticker_id
-    label: TickerSymbol
-    property: ticker_id
-    type: UNIQUE
-
-  - name: unique_research_sec_registration_id
-    label: SECRegistration
-    property: sec_registration_id
+  # FIBO統合: TickerSymbol + SECRegistration → Identifier
+  - name: unique_research_identifier_id
+    label: Identifier
+    property: identifier_id
     type: UNIQUE
 
   - name: unique_research_industry_id
     label: Industry
     property: industry_id
+    type: UNIQUE
+
+  # FIBO準拠: InstrumentClass
+  - name: unique_research_instrument_class_id
+    label: InstrumentClass
+    property: instrument_class_id
+    type: UNIQUE
+
+  # 追加精査で新設
+  - name: unique_research_source_type_id
+    label: SourceType
+    property: source_type_id
+    type: UNIQUE
+
+  - name: unique_research_datapoint_type_id
+    label: DataPointType
+    property: datapoint_type_id
     type: UNIQUE
 
   - name: unique_research_alias_id
@@ -146,10 +159,7 @@ constraints:
     property: unit_id
     type: UNIQUE
 
-  - name: unique_research_currency_id
-    label: Currency
-    property: currency_id
-    type: UNIQUE
+  # Currency は UnitOfMeasure に統合済み
 
   # ③⑤ 新設ノード
   - name: unique_research_concept_category_id
@@ -206,12 +216,8 @@ fulltext_indexes:
 # B-Tree Index (フィルタリング用)
 # ---------------------------------------------------------------------------
 btree_indexes:
-  # Source (維持)
-  - name: idx_research_source_type
-    type: BTREE
-    label: Source
-    properties: [source_type]
-    description: Source のタイプ別フィルタリング
+  # Source
+  # idx_research_source_type は IS_SOURCE_TYPE リレーションに移行のため廃止
 
   - name: idx_research_source_published
     type: BTREE
@@ -246,11 +252,12 @@ btree_indexes:
     description: FinancialDataPoint の指標名フィルタリング
 
   # ① 新設ノード用
-  - name: idx_research_ticker_symbol
+  # FIBO統合: Identifier 検索用
+  - name: idx_research_identifier_type_value
     type: BTREE
-    label: TickerSymbol
-    properties: [symbol]
-    description: TickerSymbol のシンボル検索
+    label: Identifier
+    properties: [type, value]
+    description: Identifier のタイプ+値 複合検索（例: ticker+AAPL）
 
   - name: idx_research_entity_type_name
     type: BTREE

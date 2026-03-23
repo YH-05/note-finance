@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
-"""Entity Linker for Neo4j instances.
+"""Entity Linker for Neo4j instances (v3.0).
 
 Resolves extracted entity/concept names to existing nodes in Neo4j
-using a 3-layer matching strategy:
+using a multi-stage matching strategy aligned with research-neo4j v3.0
+ontology (EntityType consolidation, Identifier pattern, Alias fallback).
 
-Layer 1: LLM normalization (already done in extraction prompt)
-Layer 2+3: Full-Text Index + APOC string similarity (unified via Alias nodes)
-Layer 4: multilingual-e5-small embedding similarity
+Matching stages
+---------------
+
+Stage 1: entity_key exact match (``Name::type``)
+Stage 2: Full-text search via ``research_entity_fulltext`` index
+Stage 3: Alias fallback via ``research_alias_fulltext`` index
+Stage 4 (optional): multilingual-e5-small embedding similarity
 
 Usage
 -----
@@ -19,7 +24,7 @@ Input JSON format::
 
     {
       "entities": [
-        {"name": "Instagram", "entity_type": "platform"}
+        {"name": "トヨタ自動車", "entity_type": "company", "ticker": "7203"}
       ],
       "concepts": [
         {"name": "SNS集客", "category": "AcquisitionChannel"}
@@ -30,9 +35,11 @@ Output JSON format::
 
     {
       "entities": [
-        {"name": "Instagram", "entity_type": "platform",
-         "resolved": true, "entity_key": "Instagram::platform",
-         "match_layer": "exact"}
+        {"name": "トヨタ自動車", "entity_type": "company",
+         "canonical_type": "company",
+         "resolved": true, "entity_key": "トヨタ自動車::company",
+         "match_layer": "exact",
+         "identifier": {"type": "ticker", "value": "7203"}}
       ],
       "concepts": [
         {"name": "SNS集客", "category": "AcquisitionChannel",
@@ -51,7 +58,8 @@ import json
 import os
 import re
 import sys
-from dataclasses import dataclass
+import unicodedata
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal
 from urllib.parse import urlparse, urlunparse
@@ -82,11 +90,189 @@ _DEFAULT_CONFIG_DIR = (
     Path(__file__).resolve().parent.parent / "data" / "config" / "neo4j-instances"
 )
 
+# Default entity-linker config path (v3.0)
+_DEFAULT_LINKER_CONFIG_PATH = (
+    Path(__file__).resolve().parent.parent
+    / "data"
+    / "lifecycle-state"
+    / "research"
+    / "entity-linker-config.yaml"
+)
+
 SIMILARITY_THRESHOLD_APOC = 0.8
 SIMILARITY_THRESHOLD_EMBEDDING = 0.8
 
 # Pattern to match environment variable references like ${VAR_NAME}
 _ENV_VAR_PATTERN = re.compile(r"^\$\{([^}]+)\}$")
+
+
+# ---------------------------------------------------------------------------
+# v3.0 EntityType Consolidation (42 -> 14 canonical types)
+# ---------------------------------------------------------------------------
+
+# Maps legacy / fine-grained entity_type values to the 14 canonical types
+# defined in ontology.yaml (research-3.0).  Types already canonical map to
+# themselves.
+ENTITY_TYPE_CONSOLIDATION: dict[str, str] = {
+    # company (6 sources)
+    "company": "company",
+    "fintech": "company",
+    "subsidiary": "company",
+    "fintech_holding": "company",
+    "digital_bank": "company",
+    "it_services": "company",
+    # technology (2 sources)
+    "technology": "technology",
+    "system": "technology",
+    # organization (6 sources)
+    "organization": "organization",
+    "central_bank": "organization",
+    "government": "organization",
+    "government_agency": "organization",
+    "institution": "organization",
+    "exchange": "organization",
+    # person (1)
+    "person": "person",
+    # index (1)
+    "index": "index",
+    # indicator (2 sources)
+    "indicator": "indicator",
+    "metric": "indicator",
+    # instrument (7 sources)
+    "instrument": "instrument",
+    "etf": "instrument",
+    "currency": "instrument",
+    "currency_pair": "instrument",
+    "fund": "instrument",
+    "bond": "instrument",
+    "asset": "instrument",
+    # commodity (1)
+    "commodity": "commodity",
+    # country (2 sources)
+    "country": "country",
+    "region": "country",
+    # sector (2 sources)
+    "sector": "sector",
+    "market": "sector",
+    # concept (6 sources)
+    "concept": "concept",
+    "model": "concept",
+    "method": "concept",
+    "theme": "concept",
+    "article_proposal": "concept",
+    "event": "concept",
+    # regulation (1)
+    "regulation": "regulation",
+    # broker (1)
+    "broker": "broker",
+    # product (3 sources)
+    "product": "product",
+    "dataset": "product",
+    "data_center": "product",
+}
+
+# The 14 canonical types (for validation)
+VALID_ENTITY_TYPES: frozenset[str] = frozenset({
+    "company",
+    "technology",
+    "organization",
+    "person",
+    "index",
+    "indicator",
+    "instrument",
+    "commodity",
+    "country",
+    "sector",
+    "concept",
+    "regulation",
+    "broker",
+    "product",
+})
+
+# Per-entity-type normalization rule descriptions (informational for logging)
+NORMALIZATION_RULES: dict[str, str] = {
+    "company": "公式英語表記またはティッカー",
+    "technology": "公式英語表記",
+    "organization": "公式英語略称",
+    "person": "アルファベットフルネーム",
+    "index": "公式略称",
+    "indicator": "公式略称",
+    "instrument": "ティッカーまたは公式名称",
+    "commodity": "公式英語名",
+    "country": "英語正式名",
+    "sector": "GICS セクター名",
+    "concept": "公式英語表記",
+    "regulation": "公式英語名",
+    "broker": "公式英語表記",
+    "product": "公式英語名",
+}
+
+
+# ---------------------------------------------------------------------------
+# v3.0 Search Config
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class LinkerSearchConfig:
+    """Search parameters loaded from entity-linker-config.yaml.
+
+    Attributes
+    ----------
+    fulltext_index
+        Name of the Entity fulltext index (stage 2).
+    alias_fulltext_index
+        Name of the Alias fulltext index (stage 3).
+    similarity_threshold
+        Jaro-Winkler similarity threshold for fuzzy matching.
+    max_candidates
+        Maximum candidate nodes returned from fulltext queries.
+    fulltext_score_threshold
+        Minimum score from fulltext index to consider a candidate.
+    """
+
+    fulltext_index: str = "research_entity_fulltext"
+    alias_fulltext_index: str = "research_alias_fulltext"
+    similarity_threshold: float = 0.85
+    max_candidates: int = 10
+    fulltext_score_threshold: float = 0.5
+
+
+def load_linker_config(
+    config_path: Path | None = None,
+) -> LinkerSearchConfig:
+    """Load entity-linker search config from YAML.
+
+    Parameters
+    ----------
+    config_path
+        Path to ``entity-linker-config.yaml``.
+        Defaults to ``data/lifecycle-state/research/entity-linker-config.yaml``.
+
+    Returns
+    -------
+    LinkerSearchConfig
+        Parsed search configuration.
+    """
+    path = config_path or _DEFAULT_LINKER_CONFIG_PATH
+    if not path.exists():
+        logger.debug(
+            "Linker config not found at %s, using defaults", path,
+        )
+        return LinkerSearchConfig()
+
+    with path.open(encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+
+    search = data.get("search", {})
+    return LinkerSearchConfig(
+        fulltext_index=search.get("fulltext_index", "research_entity_fulltext"),
+        alias_fulltext_index=search.get(
+            "alias_fulltext_index", "research_alias_fulltext",
+        ),
+        similarity_threshold=search.get("similarity_threshold", 0.85),
+        max_candidates=search.get("max_candidates", 10),
+        fulltext_score_threshold=search.get("fulltext_score_threshold", 0.5),
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -101,7 +287,7 @@ class _NodeResolveConfig:
     label: str  # "Entity" or "Concept"
     id_key: str  # "entity_id" or "concept_id"
     key_key: str | None  # "entity_key" or None
-    alias_index: str  # "alias_fulltext"
+    alias_index: str  # "alias_fulltext" or v3.0 index name
     node_index: str  # "entity_fulltext" or "concept_fulltext"
 
 
@@ -120,6 +306,147 @@ _CONCEPT_CONFIG = _NodeResolveConfig(
     alias_index="alias_fulltext",
     node_index="concept_fulltext",
 )
+
+
+def _make_v3_entity_config(search_config: LinkerSearchConfig) -> _NodeResolveConfig:
+    """Create a v3.0 Entity resolve config using search config index names.
+
+    Parameters
+    ----------
+    search_config
+        Search configuration loaded from entity-linker-config.yaml.
+
+    Returns
+    -------
+    _NodeResolveConfig
+        Entity resolve config using v3.0 index names.
+    """
+    return _NodeResolveConfig(
+        label="Entity",
+        id_key="entity_id",
+        key_key="entity_key",
+        alias_index=search_config.alias_fulltext_index,
+        node_index=search_config.fulltext_index,
+    )
+
+
+# ---------------------------------------------------------------------------
+# v3.0 Name Normalization
+# ---------------------------------------------------------------------------
+
+
+def normalize_name(name: str) -> str:
+    """Apply general normalization rules to an entity name.
+
+    Rules (from ontology.yaml normalization_rules.general):
+
+    1. Convert fullwidth alphanumeric characters to halfwidth.
+    2. Strip leading/trailing whitespace and collapse internal runs.
+    3. Strip trailing punctuation (。、．，).
+
+    Parameters
+    ----------
+    name
+        Raw entity name.
+
+    Returns
+    -------
+    str
+        Normalized name.
+    """
+    # Rule 1: fullwidth -> halfwidth (NFKC normalizes CJK compatibility chars)
+    normalized = unicodedata.normalize("NFKC", name)
+
+    # Rule 2: strip whitespace, collapse internal runs
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+
+    # Rule 3: strip trailing CJK punctuation and trailing commas/semicolons
+    # Preserve periods (.) that may be part of abbreviations like "Inc."
+    normalized = re.sub(r"[。、．，,;:]+$", "", normalized)
+
+    return normalized
+
+
+def consolidate_entity_type(raw_type: str) -> str:
+    """Map a raw entity_type to one of the 14 canonical types.
+
+    Parameters
+    ----------
+    raw_type
+        Entity type as extracted (may be a legacy fine-grained type).
+
+    Returns
+    -------
+    str
+        Canonical entity type.  Returns the input lowercased if not
+        found in the consolidation mapping.
+    """
+    key = raw_type.lower().strip()
+    canonical = ENTITY_TYPE_CONSOLIDATION.get(key)
+    if canonical is None:
+        logger.warning(
+            "Unknown entity_type '%s', passing through as-is", raw_type,
+        )
+        return key
+    if canonical != key:
+        logger.debug(
+            "Consolidated entity_type: %s -> %s", raw_type, canonical,
+        )
+    return canonical
+
+
+def build_entity_key(name: str, entity_type: str) -> str:
+    """Build a v3.0 entity_key from name and canonical entity_type.
+
+    Format: ``{name}::{entity_type}``
+
+    Parameters
+    ----------
+    name
+        Normalized entity name.
+    entity_type
+        Canonical entity type (one of the 14 valid types).
+
+    Returns
+    -------
+    str
+        Entity key in ``Name::type`` format.
+    """
+    return f"{name}::{entity_type}"
+
+
+# ---------------------------------------------------------------------------
+# v3.0 Identifier Support
+# ---------------------------------------------------------------------------
+
+
+def _build_identifier_ref(entity: dict[str, Any]) -> dict[str, str] | None:
+    """Build an Identifier node reference if the entity has a ticker.
+
+    The Identifier node is not created directly here; it is emitted as
+    metadata for ``emit_graph_queue.py`` to handle via the classification
+    post-processor.
+
+    Parameters
+    ----------
+    entity
+        Entity dict that may contain a ``ticker`` field.
+
+    Returns
+    -------
+    dict or None
+        Identifier reference with ``type``, ``value``, and ``scheme``
+        fields, or None if no ticker is present.
+    """
+    ticker = entity.get("ticker")
+    if not ticker:
+        return None
+
+    return {
+        "type": "ticker",
+        "value": str(ticker).strip(),
+        "scheme": "exchange_ticker",
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -278,7 +605,7 @@ class Neo4jClient:
 
 
 # ---------------------------------------------------------------------------
-# Layer 2+3: Full-Text + APOC Matching (unified)
+# 3-Stage Linking (v3.0)
 # ---------------------------------------------------------------------------
 
 
@@ -297,11 +624,18 @@ def _resolve_by_text(
     config: _NodeResolveConfig,
     *,
     entity_key: str | None = None,
+    search_config: LinkerSearchConfig | None = None,
 ) -> dict[str, Any] | None:
-    """Resolve a node by exact match, alias, and fuzzy text similarity.
+    """Resolve a node using the 3-stage linking strategy.
 
     This is the unified resolution logic for both Entity and Concept
     nodes, parameterised by ``config``.
+
+    Stages (v3.0)
+    --------------
+    Stage 1: entity_key exact match (Entity only) + name exact match
+    Stage 2: Full-text search on Entity/Concept node name index
+    Stage 3: Alias fulltext search + ALIAS_OF traversal
 
     Parameters
     ----------
@@ -314,10 +648,28 @@ def _resolve_by_text(
     entity_key
         Optional composite key (``name::type``) for Entity-only exact
         match.  Ignored for Concept.
+    search_config
+        Optional v3.0 search configuration.  When provided, uses the
+        configured thresholds instead of defaults.
     """
     ret = _return_clause(config)
+    ft_threshold = (
+        search_config.fulltext_score_threshold
+        if search_config
+        else 0.3
+    )
+    sim_threshold = (
+        search_config.similarity_threshold
+        if search_config
+        else SIMILARITY_THRESHOLD_APOC
+    )
+    max_candidates = (
+        search_config.max_candidates
+        if search_config
+        else 10
+    )
 
-    # Step 0 (Entity only): entity_key exact match
+    # Stage 1a (Entity only): entity_key exact match
     if entity_key is not None and config.key_key is not None:
         results = client.query(
             f"MATCH (n:{config.label} {{{config.key_key}: $key}}) RETURN {ret}",
@@ -326,7 +678,7 @@ def _resolve_by_text(
         if results:
             return _build_result(results[0], config, "exact")
 
-    # Step 1: name exact match
+    # Stage 1b: name exact match
     results = client.query(
         f"MATCH (n:{config.label} {{name: $name}}) RETURN {ret}",
         name=name,
@@ -335,43 +687,47 @@ def _resolve_by_text(
         layer = "exact_name" if entity_key is not None else "exact"
         return _build_result(results[0], config, layer)
 
-    # Step 2: Alias Full-Text + APOC similarity
+    # Stage 2: Full-text search on node name index + similarity filter
+    results = client.query(
+        f'CALL db.index.fulltext.queryNodes("{config.node_index}", $name) '
+        f"YIELD node AS n, score WHERE score > $ft_threshold "
+        f"WITH n, score, "
+        f"     apoc.text.levenshteinSimilarity(n.name, $name) AS lev "
+        f"WHERE lev > $sim_threshold "
+        f"RETURN {ret}, lev AS similarity "
+        f"ORDER BY lev DESC LIMIT $max_candidates",
+        name=name,
+        ft_threshold=ft_threshold,
+        sim_threshold=sim_threshold,
+        max_candidates=max_candidates,
+    )
+    if results:
+        return _build_result(
+            results[0], config, "fulltext", similarity=results[0]["similarity"],
+        )
+
+    # Stage 3: Alias fulltext search + ALIAS_OF traversal
     results = client.query(
         f'CALL db.index.fulltext.queryNodes("{config.alias_index}", $name) '
-        f"YIELD node AS alias, score WHERE score > 0.3 "
+        f"YIELD node AS alias, score WHERE score > $ft_threshold "
         f"MATCH (alias)-[:ALIAS_OF]->(n:{config.label}) "
         f"WITH n, alias, score, "
-        f"     apoc.text.levenshteinSimilarity(alias.value, $name) AS lev "
-        f"WHERE lev > $threshold "
-        f"RETURN {ret}, alias.value AS matched_alias, lev AS similarity "
-        f"ORDER BY lev DESC LIMIT 1",
+        f"     apoc.text.levenshteinSimilarity(alias.name, $name) AS lev "
+        f"WHERE lev > $sim_threshold "
+        f"RETURN {ret}, alias.name AS matched_alias, lev AS similarity "
+        f"ORDER BY lev DESC LIMIT $max_candidates",
         name=name,
-        threshold=SIMILARITY_THRESHOLD_APOC,
+        ft_threshold=ft_threshold,
+        sim_threshold=sim_threshold,
+        max_candidates=max_candidates,
     )
     if results:
         return _build_result(
             results[0],
             config,
-            "alias_fuzzy",
+            "alias",
             matched_alias=results[0]["matched_alias"],
             similarity=results[0]["similarity"],
-        )
-
-    # Step 3: Node name Full-Text + APOC
-    results = client.query(
-        f'CALL db.index.fulltext.queryNodes("{config.node_index}", $name) '
-        f"YIELD node AS n, score WHERE score > 0.3 "
-        f"WITH n, score, "
-        f"     apoc.text.levenshteinSimilarity(n.name, $name) AS lev "
-        f"WHERE lev > $threshold "
-        f"RETURN {ret}, lev AS similarity "
-        f"ORDER BY lev DESC LIMIT 1",
-        name=name,
-        threshold=SIMILARITY_THRESHOLD_APOC,
-    )
-    if results:
-        return _build_result(
-            results[0], config, "name_fuzzy", similarity=results[0]["similarity"]
         )
 
     return None
@@ -381,8 +737,11 @@ def resolve_entity_by_text(
     client: Neo4jClient,
     name: str,
     entity_type: str,
+    *,
+    search_config: LinkerSearchConfig | None = None,
+    use_v3: bool = False,
 ) -> dict[str, Any] | None:
-    """Resolve entity by exact match, alias, and fuzzy text similarity.
+    """Resolve entity by 3-stage matching (exact, fulltext, alias).
 
     Parameters
     ----------
@@ -391,23 +750,55 @@ def resolve_entity_by_text(
     name
         Extracted entity name (already normalized by LLM).
     entity_type
-        Entity type (platform, company, person, organization).
+        Entity type (may be legacy fine-grained or canonical).
+    search_config
+        Optional v3.0 search configuration.
+    use_v3
+        When True, applies v3.0 EntityType consolidation and uses
+        v3.0 fulltext index names from ``search_config``.
 
     Returns
     -------
     dict or None
         Resolved entity info, or None if no match found.
     """
+    if use_v3:
+        canonical_type = consolidate_entity_type(entity_type)
+        normalized = normalize_name(name)
+        entity_key = build_entity_key(normalized, canonical_type)
+        config = (
+            _make_v3_entity_config(search_config)
+            if search_config
+            else _ENTITY_CONFIG
+        )
+        result = _resolve_by_text(
+            client,
+            normalized,
+            config,
+            entity_key=entity_key,
+            search_config=search_config,
+        )
+        if result is not None:
+            result["canonical_type"] = canonical_type
+        return result
+
+    # Legacy path (backward compatible)
     return _resolve_by_text(
-        client, name, _ENTITY_CONFIG, entity_key=f"{name}::{entity_type}"
+        client,
+        name,
+        _ENTITY_CONFIG,
+        entity_key=f"{name}::{entity_type}",
+        search_config=search_config,
     )
 
 
 def resolve_concept_by_text(
     client: Neo4jClient,
     name: str,
+    *,
+    search_config: LinkerSearchConfig | None = None,
 ) -> dict[str, Any] | None:
-    """Resolve concept by exact match, alias, and fuzzy text similarity.
+    """Resolve concept by exact match, fulltext, and alias fallback.
 
     Parameters
     ----------
@@ -415,13 +806,17 @@ def resolve_concept_by_text(
         Neo4j client.
     name
         Extracted concept name.
+    search_config
+        Optional v3.0 search configuration.
 
     Returns
     -------
     dict or None
         Resolved concept info, or None if no match found.
     """
-    return _resolve_by_text(client, name, _CONCEPT_CONFIG)
+    return _resolve_by_text(
+        client, name, _CONCEPT_CONFIG, search_config=search_config,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -564,18 +959,42 @@ def resolve_by_embedding(
 def _batch_exact_entities(
     client: Neo4jClient,
     entities: list[dict[str, Any]],
+    *,
+    use_v3: bool = False,
 ) -> dict[str, dict[str, Any]]:
     """Batch exact match for entities (2 queries instead of 2*N).
 
-    Returns a dict mapping ``name::type`` → resolution result.
+    Parameters
+    ----------
+    client
+        Neo4j client.
+    entities
+        List of entity dicts with ``name`` and ``entity_type`` fields.
+    use_v3
+        When True, applies v3.0 EntityType consolidation and name
+        normalization before building entity keys.
+
+    Returns
+    -------
+    dict[str, dict[str, Any]]
+        Mapping of ``name::type`` -> resolution result.
     """
     if not entities:
         return {}
 
     matches: dict[str, dict[str, Any]] = {}
 
+    # Build keys with optional v3.0 normalization
+    def _make_key(e: dict[str, Any]) -> str:
+        if use_v3:
+            canonical_type = consolidate_entity_type(e["entity_type"])
+            normalized_name = normalize_name(e["name"])
+            return build_entity_key(normalized_name, canonical_type)
+        return f"{e['name']}::{e['entity_type']}"
+
+    keys = [_make_key(e) for e in entities]
+
     # Step 1: entity_key exact match
-    keys = [f"{e['name']}::{e['entity_type']}" for e in entities]
     results = client.query(
         "UNWIND $keys AS key "
         "MATCH (e:Entity {entity_key: key}) "
@@ -592,10 +1011,15 @@ def _batch_exact_entities(
 
     # Step 2: name exact match for unresolved
     unresolved = [
-        e for e in entities if f"{e['name']}::{e['entity_type']}" not in matches
+        (e, _make_key(e))
+        for e in entities
+        if _make_key(e) not in matches
     ]
     if unresolved:
-        names = list({e["name"] for e in unresolved})
+        if use_v3:
+            names = list({normalize_name(e["name"]) for e, _ in unresolved})
+        else:
+            names = list({e["name"] for e, _ in unresolved})
         name_results = client.query(
             "UNWIND $names AS n "
             "MATCH (e:Entity {name: n}) "
@@ -604,9 +1028,9 @@ def _batch_exact_entities(
             names=names,
         )
         for r in name_results:
-            for e in unresolved:
-                k = f"{e['name']}::{e['entity_type']}"
-                if e["name"] == r["input_name"] and k not in matches:
+            for e, k in unresolved:
+                check_name = normalize_name(e["name"]) if use_v3 else e["name"]
+                if check_name == r["input_name"] and k not in matches:
                     matches[k] = {
                         "entity_id": r["id"],
                         "entity_key": r["entity_key"],
@@ -623,7 +1047,7 @@ def _batch_exact_concepts(
 ) -> dict[str, dict[str, Any]]:
     """Batch exact match for concepts (1 query instead of N).
 
-    Returns a dict mapping concept name → resolution result.
+    Returns a dict mapping concept name -> resolution result.
     """
     if not concepts:
         return {}
@@ -654,6 +1078,9 @@ def resolve_all(
     client: Neo4jClient,
     data: dict[str, Any],
     use_embedding: bool = True,
+    *,
+    use_v3: bool = False,
+    search_config: LinkerSearchConfig | None = None,
 ) -> dict[str, Any]:
     """Resolve all entities and concepts in input data.
 
@@ -668,6 +1095,11 @@ def resolve_all(
         Input JSON with "entities" and "concepts" lists.
     use_embedding
         Whether to use embedding layer (layer 4).
+    use_v3
+        When True, enables v3.0 features: EntityType consolidation,
+        name normalization, 3-stage linking, and Identifier output.
+    search_config
+        Optional v3.0 search configuration.
 
     Returns
     -------
@@ -679,13 +1111,22 @@ def resolve_all(
     concepts = data.get("concepts", [])
 
     # Phase 1: Batch exact match (O(1) queries per type)
-    entity_exact = _batch_exact_entities(client, entities)
+    entity_exact = _batch_exact_entities(client, entities, use_v3=use_v3)
     concept_exact = _batch_exact_concepts(client, concepts)
 
     # Phase 2: Sequential fuzzy + embedding for unresolved
-    resolved_entities = _resolve_items(client, entities, entity_exact, "entity", model)
+    resolved_entities = _resolve_items(
+        client,
+        entities,
+        entity_exact,
+        "entity",
+        model,
+        use_v3=use_v3,
+        search_config=search_config,
+    )
     resolved_concepts = _resolve_items(
-        client, concepts, concept_exact, "concept", model
+        client, concepts, concept_exact, "concept", model,
+        search_config=search_config,
     )
 
     # Preserve all input fields (sources, facts, tips, stories, genre, etc.)
@@ -710,12 +1151,43 @@ def _resolve_items(
     exact_matches: dict[str, dict[str, Any]],
     item_type: Literal["entity", "concept"],
     model: Any,
+    *,
+    use_v3: bool = False,
+    search_config: LinkerSearchConfig | None = None,
 ) -> list[dict[str, Any]]:
-    """Resolve a list of items using pre-computed exact matches + sequential fallback."""
+    """Resolve items using pre-computed exact matches + sequential fallback.
+
+    Parameters
+    ----------
+    client
+        Neo4j client.
+    items
+        List of entity or concept dicts.
+    exact_matches
+        Pre-computed batch exact match results.
+    item_type
+        ``"entity"`` or ``"concept"``.
+    model
+        SentenceTransformer model (or None).
+    use_v3
+        When True, enables v3.0 EntityType consolidation, name
+        normalization, and Identifier output for entities.
+    search_config
+        Optional v3.0 search configuration.
+    """
     resolved = []
     for item in items:
         name = item["name"]
-        lookup_key = f"{name}::{item['entity_type']}" if item_type == "entity" else name
+
+        if item_type == "entity":
+            if use_v3:
+                canonical_type = consolidate_entity_type(item["entity_type"])
+                normalized_name = normalize_name(name)
+                lookup_key = build_entity_key(normalized_name, canonical_type)
+            else:
+                lookup_key = f"{name}::{item['entity_type']}"
+        else:
+            lookup_key = name
 
         # Check batch exact match first
         match = exact_matches.get(lookup_key)
@@ -723,9 +1195,17 @@ def _resolve_items(
         # Fallback: sequential fuzzy text matching
         if match is None:
             if item_type == "entity":
-                match = resolve_entity_by_text(client, name, item["entity_type"])
+                match = resolve_entity_by_text(
+                    client,
+                    name,
+                    item["entity_type"],
+                    search_config=search_config,
+                    use_v3=use_v3,
+                )
             else:
-                match = resolve_concept_by_text(client, name)
+                match = resolve_concept_by_text(
+                    client, name, search_config=search_config,
+                )
 
         # Fallback: embedding
         if match is None and model is not None:
@@ -737,11 +1217,18 @@ def _resolve_items(
             item["resolved"] = False
             item["match_layer"] = "new"
 
+        # v3.0: Add canonical_type and identifier for entities
+        if item_type == "entity" and use_v3:
+            item["canonical_type"] = consolidate_entity_type(item["entity_type"])
+            identifier = _build_identifier_ref(item)
+            if identifier is not None:
+                item["identifier"] = identifier
+
         resolved.append(item)
         layer = item.get("match_layer", "new")
         label = "Entity" if item_type == "entity" else "Concept"
         logger.info(
-            "%s: %s → %s (%s)", label, name, item.get("matched_name", "NEW"), layer
+            "%s: %s -> %s (%s)", label, name, item.get("matched_name", "NEW"), layer,
         )
 
     return resolved
@@ -800,6 +1287,18 @@ def _build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Skip embedding layer (faster, less accurate)",
     )
+    parser.add_argument(
+        "--v3",
+        action="store_true",
+        help="Enable v3.0 ontology features: EntityType consolidation, "
+        "name normalization, 3-stage linking, Identifier output",
+    )
+    parser.add_argument(
+        "--linker-config",
+        type=Path,
+        default=None,
+        help="Path to entity-linker-config.yaml (default: auto-detect)",
+    )
     return parser
 
 
@@ -822,6 +1321,18 @@ def main() -> None:
     data = json.loads(input_path.read_text(encoding="utf-8"))
     logger.info("Read input: %s", input_path)
 
+    # Load linker config (v3.0)
+    search_config: LinkerSearchConfig | None = None
+    if args.v3:
+        search_config = load_linker_config(args.linker_config)
+        logger.info(
+            "v3.0 mode enabled: fulltext_index=%s, alias_index=%s, "
+            "similarity_threshold=%.2f",
+            search_config.fulltext_index,
+            search_config.alias_fulltext_index,
+            search_config.similarity_threshold,
+        )
+
     # Load instance config and connect
     config = load_instance_config(args.instance)
     logger.info(
@@ -834,7 +1345,13 @@ def main() -> None:
         password=config["password"],
     )
     try:
-        resolved = resolve_all(client, data, use_embedding=not args.no_embedding)
+        resolved = resolve_all(
+            client,
+            data,
+            use_embedding=not args.no_embedding,
+            use_v3=args.v3,
+            search_config=search_config,
+        )
     finally:
         client.close()
 

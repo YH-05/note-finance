@@ -1,0 +1,637 @@
+# =============================================================================
+# emit-queue-config.yaml — research-neo4j v3.0
+# =============================================================================
+# graph-queue JSON 生成時のバリデーション・マッピング設定。
+# emit_graph_queue.py が参照し、正しいノード・リレーション構造を保証する。
+# =============================================================================
+
+schema_version: "research-3.0"
+instance_name: "research"
+domain: "金融リサーチ・銘柄調査のナレッジグラフ"
+created_at: "2026-03-23"
+
+# =============================================================================
+# 有効なコンテンツタイプ（5種）
+# =============================================================================
+valid_content_types:
+  - Fact
+  - Claim
+  - Chunk
+  - FinancialDataPoint
+  - Insight
+
+# =============================================================================
+# 有効なエンティティタイプ（14種）
+# =============================================================================
+valid_entity_types:
+  - company
+  - technology
+  - organization
+  - person
+  - index
+  - indicator
+  - instrument
+  - commodity
+  - country
+  - sector
+  - concept
+  - regulation
+  - broker
+  - product
+
+# =============================================================================
+# 有効な ConceptCategory（8種）
+# =============================================================================
+valid_concept_categories:
+  - name: MacroEconomics
+    name_ja: マクロ経済
+    layer: What
+    source_categories: [macro, political, geopolitical, geopolitics]
+
+  - name: EquityResearch
+    name_ja: 株式リサーチ
+    layer: What
+    source_categories: [stock, earnings, valuation, equity_research, competition, competitive_analysis, kpi]
+
+  - name: SectorAnalysis
+    name_ja: セクター分析
+    layer: What
+    source_categories: [sector, sector_analysis, cross_sector, industry-trend, cost_competition]
+
+  - name: InvestmentStrategy
+    name_ja: 投資戦略
+    layer: What
+    source_categories: [investment_strategy, investment_framework, investment, institutional_investing, capital-allocation, fund_comparison, strategy]
+
+  - name: Technology
+    name_ja: テクノロジー
+    layer: What
+    source_categories: [technology, ai, quantitative_finance, data_analysis]
+
+  - name: WealthManagement
+    name_ja: 資産形成
+    layer: What
+    source_categories: [wealth, assets]
+
+  - name: Regulation
+    name_ja: 規制
+    layer: What
+    source_categories: [regulatory, regulation, governance, corporate-action]
+
+  - name: ContentPlanning
+    name_ja: コンテンツ企画
+    layer: Meta
+    source_categories: [content_planning, reddit, theme]
+
+# =============================================================================
+# リレーションタイプマッピング（59種）
+# =============================================================================
+relation_type_mappings:
+
+  # --- コンテンツ接続（7）---
+  content_connections:
+    - type: TAGGED
+      from: Source
+      to: Topic
+      cardinality: "N:M"
+      description: ソースのトピック分類
+
+    - type: STATES_FACT
+      from: Source
+      to: Fact
+      cardinality: "1:N"
+      description: ソースが述べる事実
+
+    - type: MAKES_CLAIM
+      from: Source
+      to: Claim
+      cardinality: "1:N"
+      description: ソースが主張する内容
+
+    - type: CONTAINS_CHUNK
+      from: Source
+      to: Chunk
+      cardinality: "1:N"
+      description: ソースの断片化
+
+    - type: EXTRACTED_FROM
+      from: [Fact, Claim]
+      to: Chunk
+      cardinality: "N:1"
+      description: Chunk からの抽出元
+
+    - type: HAS_DATAPOINT
+      from: Source
+      to: FinancialDataPoint
+      cardinality: "1:N"
+      description: ソースに含まれる定量データ
+
+    - type: ABOUT
+      from: [Fact, Claim]
+      to: Topic
+      cardinality: "N:M"
+      description: コンテンツが扱うトピック
+
+  # --- エンティティ関連（4）---
+  entity_connections:
+    - type: RELATES_TO
+      from: [Fact, FinancialDataPoint]
+      to: Entity
+      cardinality: "N:M"
+      description: データが言及するエンティティ
+
+    - type: MENTIONS
+      from: [Fact, Claim, Chunk]
+      to: Entity
+      cardinality: "N:M"
+      description: コンテンツがエンティティに言及
+
+    - type: IN_SECTOR
+      from: Entity
+      to: Sector
+      cardinality: "N:1"
+      description: エンティティのセクター分類
+
+    - type: ON_ENTITY
+      from: Stance
+      to: Entity
+      cardinality: "N:1"
+      description: スタンスの対象エンティティ
+
+  # --- 分析・推論（6）---
+  analysis_inference:
+    - type: SUPPORTED_BY
+      from: Claim
+      to: Fact
+      cardinality: "N:M"
+      description: 主張を裏付ける事実
+
+    - type: CONTRADICTS
+      from: Claim
+      to: Claim
+      cardinality: "N:M"
+      description: 矛盾する主張
+
+    - type: INFLUENCES
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: エンティティ間の影響関係
+
+    - type: CAUSES
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: 因果関係
+
+    - type: DERIVED_FROM
+      from: Insight
+      to: Fact
+      cardinality: "N:M"
+      description: 洞察の導出元
+
+    - type: SHARES_TOPIC
+      from: Source
+      to: Source
+      cardinality: "N:M"
+      description: 同一トピックを共有するソース
+
+  # --- 時系列（3）---
+  temporal:
+    - type: FOR_PERIOD
+      from: FinancialDataPoint
+      to: FiscalPeriod
+      cardinality: "N:1"
+      description: データの対象期間
+
+    - type: NEXT_PERIOD
+      from: FiscalPeriod
+      to: FiscalPeriod
+      cardinality: "1:1"
+      description: 次の会計期間
+
+    - type: TREND
+      from: FinancialDataPoint
+      to: FinancialDataPoint
+      cardinality: "N:M"
+      description: 時系列チェーン
+
+  # --- エンティティ間（9）---
+  entity_to_entity:
+    - type: COMPETES_WITH
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: 競合関係
+
+    - type: CUSTOMER_OF
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: 顧客関係
+
+    - type: SUBSIDIARY_OF
+      from: Entity
+      to: Entity
+      cardinality: "N:1"
+      description: 子会社関係
+
+    - type: PARTNERS_WITH
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: パートナーシップ
+
+    - type: INVESTED_IN
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: 投資関係
+
+    - type: GOVERNS
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: 規制・監督関係
+
+    - type: OPERATES_IN
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: 事業展開先
+
+    - type: SPUN_OFF_FROM
+      from: Entity
+      to: Entity
+      cardinality: "N:1"
+      description: スピンオフ元
+
+    - type: LED_BY
+      from: Entity
+      to: Entity
+      cardinality: "N:1"
+      description: 経営リーダー
+
+  # --- メタ・スタンス（8）---
+  meta_stance:
+    - type: AUTHORED_BY
+      from: Source
+      to: Author
+      cardinality: "N:M"
+      description: ソースの著者
+
+    - type: COAUTHORED_WITH
+      from: Author
+      to: Author
+      cardinality: "N:M"
+      description: 共著関係
+
+    - type: CO_MENTIONED_WITH
+      from: Entity
+      to: Entity
+      cardinality: "N:M"
+      description: 共起関係
+
+    - type: MEASURES
+      from: Metric
+      to: Entity
+      cardinality: "N:M"
+      description: 指標の計測対象
+
+    - type: FOR_METRIC
+      from: FinancialDataPoint
+      to: Metric
+      cardinality: "N:1"
+      description: データポイントの指標種別
+
+    - type: HOLDS_STANCE
+      from: Source
+      to: Stance
+      cardinality: "1:N"
+      description: ソースが示すスタンス
+
+    - type: BASED_ON
+      from: Stance
+      to: Source
+      cardinality: "N:1"
+      description: スタンスの根拠ソース
+
+    - type: SOURCED_FROM
+      from: [Fact, Claim]
+      to: Source
+      cardinality: "N:1"
+      description: コンテンツの出典ソース
+
+  # --- レガシー（2）---
+  legacy:
+    - type: BELONGS_TO
+      from: [Entity, Topic]
+      to: [Sector, Topic]
+      cardinality: "N:1"
+      description: 所属関係
+
+    - type: ASKS_ABOUT
+      from: Question
+      to: Topic
+      cardinality: "N:M"
+      description: 調査質問のトピック
+
+  # --- Source 分類（5）---
+  source_classification:
+    - type: IS_SOURCE_TYPE
+      from: Source
+      to: SourceType
+      cardinality: "N:1"
+      description: ソースの種類分類
+
+    - type: FROM_DOMAIN
+      from: Source
+      to: Domain
+      cardinality: "N:1"
+      description: ソースのWebドメイン
+
+    - type: RATED_AS
+      from: Source
+      to: TrustLevel
+      cardinality: "N:1"
+      description: ソースの信頼度評価
+
+    - type: IN_LANGUAGE
+      from: Source
+      to: Language
+      cardinality: "N:1"
+      description: ソースの言語
+
+    - type: INGESTED_VIA
+      from: Source
+      to: Pipeline
+      cardinality: "N:1"
+      description: データ投入パイプライン
+
+  # --- Entity 分類（5）---
+  entity_classification:
+    - type: IS_TYPE
+      from: Entity
+      to: EntityType
+      cardinality: "N:1"
+      description: エンティティのサブタイプ
+
+    - type: HAS_IDENTIFIER
+      from: Entity
+      to: Identifier
+      cardinality: "N:M"
+      description: FIBO hasIdentifier パターン
+
+    - type: IN_INDUSTRY
+      from: Entity
+      to: Industry
+      cardinality: "N:1"
+      description: 産業分類（Sectorの下位）
+
+    - type: ALIAS_OF
+      from: Alias
+      to: [Entity, Topic]
+      cardinality: "N:1"
+      description: 別名の正規化リンク
+
+    - type: IS_INSTRUMENT_CLASS
+      from: Entity
+      to: InstrumentClass
+      cardinality: "N:1"
+      description: FIBO 金融商品種類分類
+
+  # --- Content 分類（4）---
+  content_classification:
+    - type: IS_FACT_TYPE
+      from: Fact
+      to: FactType
+      cardinality: "N:1"
+      description: 事実の種類分類
+
+    - type: IS_CLAIM_TYPE
+      from: Claim
+      to: ClaimType
+      cardinality: "N:1"
+      description: 主張の種類分類
+
+    - type: IN_UNIT
+      from: [FinancialDataPoint, Stance]
+      to: UnitOfMeasure
+      cardinality: "N:1"
+      description: 単位（通貨含む）
+
+    - type: IS_DATAPOINT_TYPE
+      from: FinancialDataPoint
+      to: DataPointType
+      cardinality: "N:1"
+      description: 実績/予想/予測/コンセンサス
+
+  # --- Domain 分類（3）---
+  domain_classification:
+    - type: IS_CATEGORY
+      from: Topic
+      to: ConceptCategory
+      cardinality: "N:1"
+      description: トピックの上位概念カテゴリ
+
+    - type: AFFILIATED_WITH
+      from: Author
+      to: Entity
+      cardinality: "N:1"
+      description: 著者の所属組織
+
+    - type: IS_AUTHOR_TYPE
+      from: Author
+      to: AuthorType
+      cardinality: "N:1"
+      description: 著者の種類分類
+
+  # --- 階層・参照（3）---
+  hierarchy_reference:
+    - type: PARENT_CLASS
+      from: InstrumentClass
+      to: InstrumentClass
+      cardinality: "N:1"
+      description: InstrumentClass L2→L1 階層
+
+    - type: IN_PARENT_SECTOR
+      from: Industry
+      to: Sector
+      cardinality: "N:1"
+      description: 産業の親セクター
+
+    - type: ISSUED_BY
+      from: Identifier
+      to: Entity
+      cardinality: "N:1"
+      description: 識別子の発行機関
+
+# =============================================================================
+# 分類ノードマッピング
+# =============================================================================
+# 抽出結果から分類ノードへのマッピング定義。
+# emit_graph_queue.py がコンテンツ属性を適切な分類ノードに変換する。
+# =============================================================================
+classification_node_mappings:
+
+  # Source 由来の分類
+  source_type:
+    node_label: SourceType
+    key_property: source_type_id
+    relation_type: IS_SOURCE_TYPE
+    valid_values: [news, blog, web, pdf, analysis, company_filing, data, academic, presentation, financial_statement, report, transcript]
+
+  trust_level:
+    node_label: TrustLevel
+    key_property: trust_level_id
+    relation_type: RATED_AS
+    valid_values:
+      - {id: official, name_ja: 公的機関, rank: 1}
+      - {id: academic, name_ja: 学術, rank: 2}
+      - {id: company, name_ja: 企業公式, rank: 3}
+      - {id: institutional, name_ja: 機関投資家, rank: 4}
+      - {id: analyst, name_ja: アナリスト, rank: 5}
+      - {id: industry, name_ja: 業界, rank: 6}
+      - {id: media, name_ja: メディア, rank: 7}
+      - {id: primary, name_ja: 一次データ, rank: 8}
+      - {id: blog, name_ja: ブログ, rank: 9}
+      - {id: social, name_ja: ソーシャル, rank: 10}
+
+  language:
+    node_label: Language
+    key_property: language_id
+    relation_type: IN_LANGUAGE
+    common_values: [ja, en, zh, ko]
+
+  pipeline:
+    node_label: Pipeline
+    key_property: pipeline_id
+    relation_type: INGESTED_VIA
+    known_values: [finance-news-workflow, wealth-scrape, web-research, pdf-archive, academic-fetch, pdf-extraction, reddit-finance-topics, manual-research, topic-discovery, equity-research]
+
+  domain:
+    node_label: Domain
+    key_property: domain_id
+    relation_type: FROM_DOMAIN
+    description: "URL からドメインを自動抽出して MERGE"
+
+  # Entity 由来の分類
+  entity_type:
+    node_label: EntityType
+    key_property: entity_type_id
+    relation_type: IS_TYPE
+    valid_values: [company, technology, organization, person, index, indicator, instrument, commodity, country, sector, concept, regulation, broker, product]
+
+  instrument_class:
+    node_label: InstrumentClass
+    key_property: instrument_class_id
+    relation_type: IS_INSTRUMENT_CLASS
+    description: "entity_type=instrument の場合に FIBO 階層に基づいて分類"
+
+  industry:
+    node_label: Industry
+    key_property: industry_id
+    relation_type: IN_INDUSTRY
+    description: "Sector の下位分類"
+
+  # Content 由来の分類
+  fact_type:
+    node_label: FactType
+    key_property: fact_type_id
+    relation_type: IS_FACT_TYPE
+    valid_values: [statistic, financial_metric, macro_indicator, event, empirical, regulatory, market_data, strategic, methodology, risk]
+
+  claim_type:
+    node_label: ClaimType
+    key_property: claim_type_id
+    relation_type: IS_CLAIM_TYPE
+    valid_values: [fundamental, bullish, bearish, technical, risk_event, policy_hawkish, sector_rotation, earnings_beat, analyst_view, political_risk]
+
+  unit_of_measure:
+    node_label: UnitOfMeasure
+    key_property: unit_id
+    relation_type: IN_UNIT
+    dimensions: [currency, percentage, ratio, count, weight, volume, time, monetary_value]
+
+  datapoint_type:
+    node_label: DataPointType
+    key_property: datapoint_type_id
+    relation_type: IS_DATAPOINT_TYPE
+    valid_values: [actual, estimate, forecast, consensus]
+
+  # Domain 分類
+  concept_category:
+    node_label: ConceptCategory
+    key_property: concept_category_id
+    relation_type: IS_CATEGORY
+    valid_values: [MacroEconomics, EquityResearch, SectorAnalysis, InvestmentStrategy, Technology, WealthManagement, Regulation, ContentPlanning]
+
+  author_type:
+    node_label: AuthorType
+    key_property: author_type_id
+    relation_type: IS_AUTHOR_TYPE
+    description: "著者の種類分類（analyst, journalist, official 等）"
+
+# =============================================================================
+# 出力フォーマット仕様
+# =============================================================================
+output_format:
+  file_pattern: ".tmp/graph-queue-{command}-{timestamp}.json"
+  encoding: "utf-8"
+
+  structure:
+    nodes:
+      description: "MERGE 対象のノードリスト"
+      fields:
+        - label: "ノードラベル"
+        - key_property: "UNIQUE 制約のプロパティ名"
+        - key_value: "UNIQUE 制約のプロパティ値"
+        - properties: "SET するプロパティ（キー除く）"
+
+    relationships:
+      description: "MERGE 対象のリレーションリスト"
+      fields:
+        - type: "リレーションタイプ"
+        - from_label: "始点ノードラベル"
+        - from_key: "始点ノードのキー値"
+        - to_label: "終点ノードラベル"
+        - to_key: "終点ノードのキー値"
+        - properties: "リレーションのプロパティ"
+
+  example:
+    nodes:
+      - label: Source
+        key_property: source_id
+        key_value: "src_20260323_001"
+        properties:
+          url: "https://example.com/article"
+          title: "記事タイトル"
+          collected_at: "2026-03-23T10:00:00+09:00"
+
+      - label: Entity
+        key_property: entity_key
+        key_value: "Apple Inc.::company"
+        properties:
+          name: "Apple Inc."
+
+      - label: EntityType
+        key_property: entity_type_id
+        key_value: "company"
+        properties:
+          name: "company"
+          name_ja: "企業"
+
+    relationships:
+      - type: MENTIONS
+        from_label: Fact
+        from_key: "fact_001"
+        to_label: Entity
+        to_key: "Apple Inc.::company"
+        properties: {}
+
+      - type: IS_TYPE
+        from_label: Entity
+        from_key: "Apple Inc.::company"
+        to_label: EntityType
+        to_key: "company"
+        properties: {}
