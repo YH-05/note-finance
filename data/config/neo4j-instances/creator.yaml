@@ -1,0 +1,41 @@
+# creator-neo4j インスタンス設定
+#
+# コンテンツ創作（副業・美容・スピリチュアル等）のナレッジグラフ。
+# creator-enrichment スキルや entity_linker.py が使用。
+
+instance_name: creator
+
+# ---------------------------------------------------------------------------
+# 接続情報
+# ---------------------------------------------------------------------------
+connection:
+  bolt_uri: "bolt://localhost:7689"
+  user: neo4j
+  # パスワードは環境変数参照を推奨。平文フォールバックも可。
+  # 環境変数: export NEO4J_CREATOR_PASSWORD="your_password"
+  # 平文指定: password: "your_password"
+  password: "${NEO4J_CREATOR_PASSWORD}"
+
+# ---------------------------------------------------------------------------
+# MCP 設定
+# ---------------------------------------------------------------------------
+mcp:
+  prefix: "mcp__neo4j-creator__creator-"
+  tools:
+    read: "mcp__neo4j-creator__creator-read_neo4j_cypher"
+    write: "mcp__neo4j-creator__creator-write_neo4j_cypher"
+    schema: "mcp__neo4j-creator__creator-get_neo4j_schema"
+
+# ---------------------------------------------------------------------------
+# スキーマ
+# ---------------------------------------------------------------------------
+schema_version: "creator-2.0"
+
+# ---------------------------------------------------------------------------
+# 用途・説明
+# ---------------------------------------------------------------------------
+use_case: "creator-enrichment / entity-linker / content-theme管理"
+description: >
+  コンテンツ創作ドメインのナレッジグラフ。
+  ConceptCategory / Concept / Entity / Alias ノードを中心に、
+  テーマ別のコンテンツ企画・SEO戦略の知識を構造化。

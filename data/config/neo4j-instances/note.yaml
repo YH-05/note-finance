@@ -1,0 +1,45 @@
+# note-neo4j インスタンス設定
+#
+# 会話履歴・意思決定ログ用のナレッジグラフ。
+# Discussion / Decision / ActionItem ノードを中心に、
+# project-discuss スキルが読み書きする。
+
+instance_name: note
+
+# ---------------------------------------------------------------------------
+# 接続情報
+# ---------------------------------------------------------------------------
+connection:
+  bolt_uri: "bolt://localhost:7687"
+  user: neo4j
+  # パスワードは環境変数参照を推奨。平文フォールバックも可。
+  # 環境変数: export NEO4J_NOTE_PASSWORD="your_password"
+  # 平文指定: password: "your_password"
+  password: "${NEO4J_NOTE_PASSWORD}"
+
+# ---------------------------------------------------------------------------
+# MCP 設定
+# ---------------------------------------------------------------------------
+mcp:
+  prefix: "mcp__neo4j-note__note-"
+  tools:
+    read: "mcp__neo4j-note__note-read_neo4j_cypher"
+    write: "mcp__neo4j-note__note-write_neo4j_cypher"
+    schema: "mcp__neo4j-note__note-get_neo4j_schema"
+
+# ---------------------------------------------------------------------------
+# スキーマ
+# ---------------------------------------------------------------------------
+# note-neo4j は独自スキーマ（Discussion/Decision/ActionItem 中心）。
+# knowledge-graph-schema.yaml のKG v2 スキーマとは別系統。
+schema_version: "note-1.0"
+
+# ---------------------------------------------------------------------------
+# 用途・説明
+# ---------------------------------------------------------------------------
+use_case: "Discussion / Decision / ActionItem 管理"
+description: >
+  会話履歴・プロジェクト意思決定ログ用のナレッジグラフ。
+  project-discuss スキルが Discussion / Decision / ActionItem を
+  MERGE ベースで冪等に保存・検索する。
+  note-quality-check コマンドで品質チェックを実行。
