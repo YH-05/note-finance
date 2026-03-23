@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entity Linker for creator-neo4j.
+"""Entity Linker for Neo4j instances.
 
 Resolves extracted entity/concept names to existing nodes in Neo4j
 using a 3-layer matching strategy:
@@ -13,6 +13,7 @@ Usage
 ::
 
     python scripts/entity_linker.py --input extracted.json --output resolved.json
+    python scripts/entity_linker.py --input extracted.json --instance research
 
 Input JSON format::
 
@@ -47,10 +48,13 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
+import re
 import sys
 from pathlib import Path
 from typing import Any
 
+import yaml
 from neo4j import GraphDatabase
 
 # ---------------------------------------------------------------------------
@@ -63,26 +67,100 @@ logger = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-NEO4J_URI = "bolt://localhost:7689"
-NEO4J_USER = "neo4j"
-NEO4J_PASSWORD = "gomasuke"
+# Default connection values (creator-neo4j, for backward compatibility)
+_DEFAULT_URI = "bolt://localhost:7689"
+_DEFAULT_USER = "neo4j"
+_DEFAULT_PASSWORD = "gomasuke"
+
+# Default config directory
+_DEFAULT_CONFIG_DIR = (
+    Path(__file__).resolve().parent.parent / "data" / "config" / "neo4j-instances"
+)
 
 SIMILARITY_THRESHOLD_APOC = 0.8
 SIMILARITY_THRESHOLD_EMBEDDING = 0.8
+
+# Pattern to match environment variable references like ${VAR_NAME}
+_ENV_VAR_PATTERN = re.compile(r"^\$\{([^}]+)\}$")
+
+
+# ---------------------------------------------------------------------------
+# Instance Config Loader
+# ---------------------------------------------------------------------------
+
+
+def load_instance_config(
+    instance: str,
+    config_dir: Path | None = None,
+) -> dict[str, str]:
+    """Load Neo4j instance connection config from YAML.
+
+    Parameters
+    ----------
+    instance
+        Instance name (e.g. "creator", "research", "note").
+    config_dir
+        Directory containing ``{instance}.yaml`` files.
+        Defaults to ``data/config/neo4j-instances/``.
+
+    Returns
+    -------
+    dict[str, str]
+        Connection parameters with keys: ``bolt_uri``, ``user``, ``password``.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the YAML file for the instance does not exist.
+    ValueError
+        If a ``${ENV_VAR}`` password reference cannot be resolved.
+    """
+    cfg_dir = config_dir or _DEFAULT_CONFIG_DIR
+    yaml_path = cfg_dir / f"{instance}.yaml"
+
+    if not yaml_path.exists():
+        msg = f"Instance config not found: {instance} ({yaml_path})"
+        raise FileNotFoundError(msg)
+
+    with yaml_path.open(encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+
+    conn = data["connection"]
+    password = conn["password"]
+
+    # Resolve environment variable references
+    env_match = _ENV_VAR_PATTERN.match(str(password))
+    if env_match:
+        env_var = env_match.group(1)
+        resolved = os.environ.get(env_var)
+        if resolved is None:
+            msg = (
+                f"Environment variable {env_var} is not set "
+                f"(required by {instance}.yaml)"
+            )
+            raise ValueError(msg)
+        password = resolved
+
+    return {
+        "bolt_uri": conn["bolt_uri"],
+        "user": conn["user"],
+        "password": password,
+    }
+
 
 # ---------------------------------------------------------------------------
 # Neo4j Connection
 # ---------------------------------------------------------------------------
 
 
-class CreatorNeo4jClient:
-    """Neo4j client for creator-neo4j."""
+class Neo4jClient:
+    """Generic Neo4j client for any instance."""
 
     def __init__(
         self,
-        uri: str = NEO4J_URI,
-        user: str = NEO4J_USER,
-        password: str = NEO4J_PASSWORD,
+        uri: str = _DEFAULT_URI,
+        user: str = _DEFAULT_USER,
+        password: str = _DEFAULT_PASSWORD,
     ) -> None:
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
@@ -107,7 +185,7 @@ class CreatorNeo4jClient:
 
 
 def resolve_entity_by_text(
-    client: CreatorNeo4jClient,
+    client: Neo4jClient,
     name: str,
     entity_type: str,
 ) -> dict[str, Any] | None:
@@ -213,7 +291,7 @@ def resolve_entity_by_text(
 
 
 def resolve_concept_by_text(
-    client: CreatorNeo4jClient,
+    client: Neo4jClient,
     name: str,
 ) -> dict[str, Any] | None:
     """Resolve concept by exact match, alias, and fuzzy text similarity.
@@ -316,7 +394,7 @@ def _load_embedding_model() -> Any:
 
 
 def resolve_by_embedding(
-    client: CreatorNeo4jClient,
+    client: Neo4jClient,
     name: str,
     target_type: str,
     model: Any,
@@ -396,7 +474,7 @@ def resolve_by_embedding(
 
 
 def resolve_all(
-    client: CreatorNeo4jClient,
+    client: Neo4jClient,
     data: dict[str, Any],
     use_embedding: bool = True,
 ) -> dict[str, Any]:
@@ -499,10 +577,16 @@ def _compute_stats(items: list[dict[str, Any]]) -> dict[str, int]:
 # ---------------------------------------------------------------------------
 
 
-def main() -> None:
-    """CLI entry point."""
+def _build_parser() -> argparse.ArgumentParser:
+    """Build argument parser for entity_linker CLI.
+
+    Returns
+    -------
+    argparse.ArgumentParser
+        Configured argument parser.
+    """
     parser = argparse.ArgumentParser(
-        description="Resolve extracted entities/concepts against creator-neo4j."
+        description="Resolve extracted entities/concepts against a Neo4j instance."
     )
     parser.add_argument(
         "--input",
@@ -517,10 +601,23 @@ def main() -> None:
         help="Output JSON file (default: input with .resolved.json suffix)",
     )
     parser.add_argument(
+        "--instance",
+        type=str,
+        default="creator",
+        help="Neo4j instance name (default: creator). "
+        "Reads config from data/config/neo4j-instances/{instance}.yaml",
+    )
+    parser.add_argument(
         "--no-embedding",
         action="store_true",
         help="Skip embedding layer (faster, less accurate)",
     )
+    return parser
+
+
+def main() -> None:
+    """CLI entry point."""
+    parser = _build_parser()
     args = parser.parse_args()
 
     logging.basicConfig(
@@ -537,8 +634,15 @@ def main() -> None:
     data = json.loads(input_path.read_text(encoding="utf-8"))
     logger.info("Read input: %s", input_path)
 
-    # Connect and resolve
-    client = CreatorNeo4jClient()
+    # Load instance config and connect
+    config = load_instance_config(args.instance)
+    logger.info("Connecting to %s (instance: %s)", config["bolt_uri"], args.instance)
+
+    client = Neo4jClient(
+        uri=config["bolt_uri"],
+        user=config["user"],
+        password=config["password"],
+    )
     try:
         resolved = resolve_all(client, data, use_embedding=not args.no_embedding)
     finally:
