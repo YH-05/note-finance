@@ -372,19 +372,53 @@ class ClaudeCodeSearcher:
 
                     async def _run() -> str:
                         result_text = ""
-                        async for msg in claude_agent_sdk.query(
-                            prompt=prompt,
-                            options=options,
-                        ):
-                            # ResultMessage.result を優先（最終出力テキスト）
-                            if hasattr(msg, "result") and msg.result:
-                                return msg.result
-                            # AssistantMessage の TextBlock からテキストを収集
-                            if hasattr(msg, "content"):
-                                for block in msg.content:  # type: ignore[union-attr]
-                                    if hasattr(block, "text"):
-                                        result_text += block.text  # type: ignore[union-attr]
-                        return result_text
+                        final_result: str | None = None
+                        try:
+                            async for msg in claude_agent_sdk.query(
+                                prompt=prompt,
+                                options=options,
+                            ):
+                                msg_type = type(msg).__name__
+                                logger.debug("SDK message: type=%s", msg_type)
+                                # ResultMessage の result を記録
+                                if hasattr(msg, "result"):
+                                    final_result = msg.result
+                                    logger.debug(
+                                        "ResultMessage: is_error=%s, "
+                                        "result_len=%d",
+                                        getattr(msg, "is_error", None),
+                                        len(msg.result) if msg.result else 0,
+                                    )
+                                    if (
+                                        hasattr(msg, "is_error") and msg.is_error
+                                    ):
+                                        logger.warning(
+                                            "Agent returned error: %s",
+                                            msg.result,
+                                        )
+                                # AssistantMessage の TextBlock を収集
+                                if hasattr(msg, "content"):
+                                    for block in msg.content:  # type: ignore[union-attr]
+                                        if hasattr(block, "text"):
+                                            result_text += block.text  # type: ignore[union-attr]
+                        except (RuntimeError, GeneratorExit) as e:
+                            # SDK async generator の cleanup エラーを許容
+                            logger.debug(
+                                "SDK cleanup error (non-fatal): %s", e
+                            )
+
+                        # ResultMessage.result を優先
+                        # (TextBlock はツール応答等を含み不完全な場合がある)
+                        if final_result:
+                            return final_result
+                        if result_text.strip():
+                            return result_text
+
+                        logger.warning(
+                            "Agent returned empty response "
+                            "(no text blocks, no result)"
+                        )
+                        return ""
 
                     try:
                         return asyncio.run(_run())
