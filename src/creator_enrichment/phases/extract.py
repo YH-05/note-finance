@@ -1,16 +1,16 @@
 """creator_enrichment Phase 3: ContentExtractor.
 
-Anthropic API (claude-haiku-4-5-20251001) を使用して RawItem からコンテンツ分類・
+claude_agent_sdk 経由で RawItem からコンテンツ分類・
 Entity/Concept 抽出・リレーション検出を行う。
 
 entity-extraction-prompt-v2.md テンプレートに基づき、1 RawItem あたり
-1 API 呼び出しで全4タスクを実行する。
+1 LLM 呼び出しで全4タスクを実行する。
 
 Usage
 -----
 ::
 
-    extractor = ContentExtractor(client=anthropic_client)
+    extractor = ContentExtractor(llm_client=SdkLLMClient())
     result = extractor.extract_single(item=raw_item, genre="career")
     cycle_data = extractor.extract_batch(items=raw_items, genre="career")
 """
@@ -22,7 +22,7 @@ import logging
 import time
 from datetime import datetime
 
-from creator_enrichment.config import ANTHROPIC_MAX_TOKENS, ANTHROPIC_MODEL
+from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.types import CycleData, ExtractionResult, RawItem
 from creator_enrichment.utils import strip_json_codeblock
 
@@ -122,17 +122,17 @@ Entity が Concept に対してどのような役割を果たしているかを�
 # ContentExtractor
 # ---------------------------------------------------------------------------
 class ContentExtractor:
-    """Anthropic API を使用してコンテンツ分類・Entity/Concept 抽出を行う.
+    """LLM クライアントを使用してコンテンツ分類・Entity/Concept 抽出を行う.
 
     Parameters
     ----------
-    client : object
-        ``messages.create()`` メソッドを持つ Anthropic クライアント
-        （ダックタイピング: anthropic.Anthropic 互換であれば何でも可）
+    llm_client : LLMClient
+        ``query(prompt)`` メソッドを持つ LLM クライアント。
+        SdkLLMClient（claude_agent_sdk 経由）またはモック。
     """
 
-    def __init__(self, client: object) -> None:
-        self._client = client
+    def __init__(self, llm_client: LLMClient) -> None:
+        self._client = llm_client
         logger.info("ContentExtractor initialized")
 
     # ------------------------------------------------------------------
@@ -169,21 +169,15 @@ class ContentExtractor:
         )
 
         logger.debug(
-            "Calling API: title=%s, genre=%s",
+            "Calling LLM: title=%s, genre=%s",
             item["title"],
             genre,
         )
 
-        response = self._client.messages.create(  # type: ignore[union-attr]
-            model=ANTHROPIC_MODEL,
-            max_tokens=ANTHROPIC_MAX_TOKENS,
-            messages=[{"role": "user", "content": prompt}],
-        )
-
-        response_text = response.content[0].text
+        response_text = self._client.query(prompt)
 
         if not response_text or not response_text.strip():
-            raise ValueError(f"Empty response from API for item: {item['title']}")
+            raise ValueError(f"Empty response from LLM for item: {item['title']}")
 
         cleaned = strip_json_codeblock(response_text)
 
@@ -225,7 +219,7 @@ class ContentExtractor:
     def extract_batch(self, *, items: list[RawItem], genre: str) -> CycleData:
         """複数の RawItem をバッチ処理し CycleData に集約する.
 
-        1 RawItem あたり 1 API 呼び出しを行い、呼び出し間に
+        1 RawItem あたり 1 LLM 呼び出しを行い、呼び出し間に
         1 秒のスリープを挟む（速度制限考慮）。
 
         個別アイテムの抽出失敗はログに記録してスキップし、

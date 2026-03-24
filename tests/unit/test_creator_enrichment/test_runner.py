@@ -16,12 +16,11 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 
-def _mock_bootstrap() -> tuple[MagicMock, MagicMock, MagicMock]:
+def _mock_bootstrap() -> tuple[MagicMock, MagicMock]:
     """_bootstrap() のモック戻り値を生成する."""
     driver = MagicMock()
     neo4j_client = MagicMock()
-    anthropic_client = MagicMock()
-    return driver, neo4j_client, anthropic_client
+    return driver, neo4j_client
 
 
 class TestMainNormalExit:

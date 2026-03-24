@@ -73,12 +73,12 @@ class _Neo4jClientAdapter:
 # ---------------------------------------------------------------------------
 # Bootstrap
 # ---------------------------------------------------------------------------
-def _bootstrap() -> tuple[Any, Any, Any]:
-    """Neo4j ドライバ / クライアント / Anthropic クライアントを生成する.
+def _bootstrap() -> tuple[Any, Any]:
+    """Neo4j ドライバ / クライアントを生成する.
 
     Returns
     -------
-    tuple[neo4j.Driver, entity_linker.Neo4jClient, anthropic.Anthropic]
+    tuple[neo4j.Driver, entity_linker.Neo4jClient]
     """
     from neo4j import GraphDatabase
 
@@ -99,22 +99,7 @@ def _bootstrap() -> tuple[Any, Any, Any]:
         password=_CREATOR_NEO4J_PASSWORD,
     )
 
-    import os
-
-    import anthropic
-
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        msg = (
-            "ANTHROPIC_API_KEY が未設定です。"
-            "Phase 3 (Extract) と Phase 4.5 (Cross-entity) に必要です。"
-        )
-        logger.error(msg)
-        raise RuntimeError(msg)
-
-    anthropic_client = anthropic.Anthropic()
-    logger.info("Anthropic client initialized")
-
-    return driver, neo4j_client, anthropic_client
+    return driver, neo4j_client
 
 
 # ---------------------------------------------------------------------------
@@ -129,6 +114,7 @@ def main() -> None:
         CreatorEnrichmentOrchestrator,
         FatalError,
     )
+    from creator_enrichment.llm_client import SdkLLMClient
     from creator_enrichment.phases.cross_entity import CrossEntityEnricher
     from creator_enrichment.phases.extract import ContentExtractor
     from creator_enrichment.phases.gap_analysis import GapAnalyzer
@@ -151,20 +137,22 @@ def main() -> None:
 
     # --- Bootstrap: 外部リソースの初期化 ---
     try:
-        driver, neo4j_client, anthropic_client = _bootstrap()
+        driver, neo4j_client = _bootstrap()
     except Exception as e:
         logger.error("Bootstrap failed: %s", e)
         sys.exit(1)
 
     # --- 各フェーズの実クラスをワイヤリング ---
     gap_adapter = _Neo4jClientAdapter(neo4j_client)
+    llm_client = SdkLLMClient()
+    logger.info("SdkLLMClient initialized (ANTHROPIC_API_KEY 不要)")
 
     orchestrator = CreatorEnrichmentOrchestrator(
         config,
         gap_analyzer=GapAnalyzer(gap_adapter),
         searcher=ClaudeCodeSearcher(),
-        extractor=ContentExtractor(anthropic_client),
-        cross_enricher=CrossEntityEnricher(driver, anthropic_client),
+        extractor=ContentExtractor(llm_client=llm_client),
+        cross_enricher=CrossEntityEnricher(driver, llm_client=llm_client),
         neo4j_client=neo4j_client,
         neo4j_driver=driver,
     )

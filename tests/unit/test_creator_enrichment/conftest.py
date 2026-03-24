@@ -37,7 +37,7 @@ def mock_neo4j_client() -> MagicMock:
 
 @pytest.fixture
 def mock_anthropic_client() -> MagicMock:
-    """Anthropic クライアントのモック.
+    """Anthropic クライアントのモック（後方互換用）.
 
     Returns
     -------
@@ -47,6 +47,22 @@ def mock_anthropic_client() -> MagicMock:
     client = MagicMock()
     client.messages = MagicMock()
     client.messages.create = MagicMock(return_value=MagicMock())
+    return client
+
+
+@pytest.fixture
+def mock_llm_client() -> MagicMock:
+    """LLMClient プロトコルのモック.
+
+    Returns
+    -------
+    MagicMock
+        query(prompt) -> str メソッドを持つモック
+    """
+    from creator_enrichment.llm_client import LLMClient
+
+    client = MagicMock(spec=LLMClient)
+    client.query = MagicMock(return_value="{}")
     return client
 
 

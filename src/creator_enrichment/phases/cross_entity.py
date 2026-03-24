@@ -1,14 +1,14 @@
 """creator_enrichment Phase 4.5: CrossEntityEnricher.
 
 3サイクルに1回実行され、共起候補クエリで Entity ペアを抽出し、
-claude-haiku-4-5-20251001 で最大 25 ペアを一括判定して SKIP 以外の
+claude_agent_sdk 経由で最大 25 ペアを一括判定して SKIP 以外の
 リレーションを MERGE する。
 
 Usage
 -----
 ::
 
-    enricher = CrossEntityEnricher(neo4j_driver, anthropic_client)
+    enricher = CrossEntityEnricher(neo4j_driver, llm_client=SdkLLMClient())
     added = enricher.run(cycle_count=3)
 """
 
@@ -18,7 +18,7 @@ import json
 import logging
 from typing import Any
 
-from creator_enrichment.config import ANTHROPIC_MAX_TOKENS, ANTHROPIC_MODEL
+from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.utils import strip_json_codeblock
 
 logger = logging.getLogger(__name__)
@@ -123,20 +123,20 @@ class CrossEntityEnricher:
     """Entity ペアの意味的関係を LLM で判定し RELATES_TO を MERGE する.
 
     Neo4j の共起候補クエリと同一タイプクエリで Entity ペアを抽出し、
-    最大 25 ペアを claude-haiku-4-5-20251001 で一括判定する。
+    claude_agent_sdk 経由で最大 25 ペアを一括判定する。
     SKIP 以外のリレーションのみ MERGE する。
 
     Parameters
     ----------
     neo4j_driver : Any
         neo4j.Driver 互換のドライバオブジェクト（ダックタイプ）
-    anthropic_client : Any
-        ``messages.create()`` メソッドを持つ Anthropic クライアント
+    llm_client : LLMClient
+        ``query(prompt)`` メソッドを持つ LLM クライアント
     """
 
-    def __init__(self, neo4j_driver: Any, anthropic_client: Any) -> None:
+    def __init__(self, neo4j_driver: Any, llm_client: LLMClient) -> None:
         self._driver = neo4j_driver
-        self._client = anthropic_client
+        self._client = llm_client
         logger.info("CrossEntityEnricher initialized")
 
     def run(self, cycle_count: int) -> int:
@@ -198,13 +198,7 @@ class CrossEntityEnricher:
 
         logger.debug("Calling LLM for judgment: %d pairs", len(all_candidates))
 
-        response = self._client.messages.create(  # type: ignore[union-attr]
-            model=ANTHROPIC_MODEL,
-            max_tokens=ANTHROPIC_MAX_TOKENS,
-            messages=[{"role": "user", "content": prompt}],
-        )
-
-        response_text = response.content[0].text
+        response_text = self._client.query(prompt)
         cleaned = strip_json_codeblock(response_text)
 
         try:
