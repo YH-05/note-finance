@@ -15,6 +15,7 @@ from session_memory.extractor import (
     extract_chunks_batch,
     rule_based_predetect,
 )
+from session_memory.linker import LinkerConfig, LinkResult, NoteLinker
 from session_memory.searcher import SearchMode, SearchResult, merge_rrf
 from session_memory.types import ChunkRow
 
@@ -24,6 +25,9 @@ __all__ = [
     "ExtractedDecision",
     "ExtractedEntity",
     "ExtractedTopic",
+    "LinkResult",
+    "LinkerConfig",
+    "NoteLinker",
     "SearchMode",
     "SearchResult",
     "SessionMemoryDB",
