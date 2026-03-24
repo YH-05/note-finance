@@ -1,10 +1,10 @@
 ---
 name: site-investigator
 description: >
-  新しいサイトのスクレイピング前調査スキル。Playwright CLI でサイトにアクセスし、
+  新しいサイトのスクレイピング前調査スキル。browser-use CLI 2.0 でサイトにアクセスし、
   ページ構造・セレクタ・ページネーション・RSS/サイトマップ・動的挙動を自動解析して
   JSON + Markdown レポートを生成する。
-  ハイブリッド方式: 調査は Playwright CLI（トークン効率優先）、検証は Playwright MCP。
+  ハイブリッド方式: 調査は browser-use CLI（トークン効率優先）、検証は Playwright MCP。
   「サイト調査」「サイト構造を調べて」「スクレイピング前に構造を確認」「このURLの構造を解析」
   「セレクタを特定して」「ページネーションの仕組みを調べて」「RSSがあるか確認」
   と言われたら必ずこのスキルを使うこと。
@@ -16,12 +16,14 @@ description: >
 未知のサイトを体系的に調査し、スクレイピングに必要な構造情報をまとめるスキル。
 
 **ハイブリッド方式**:
-- **Phase 1-5（調査）**: Playwright CLI を Bash 経由で使用（トークン効率 ~4x 改善）
+- **Phase 1-5（調査）**: browser-use CLI 2.0 を Bash 経由で使用（トークン効率優先）
 - **検証フェーズ（オプション）**: Playwright MCP でセレクタの詳細テスト
 
 ## 前提条件
 
-- Playwright CLI が利用可能であること（`npx -y @playwright/cli@latest` で自動インストール）
+- browser-use CLI がインストール済みであること
+  - インストール: `curl -fsSL https://browser-use.com/cli/install.sh | bash`
+  - venv: `~/.browser-use-env/`
 - Playwright MCP が Claude Code に設定済みであること（検証フェーズ用、オプション）
 
 ## 使い方
@@ -32,59 +34,95 @@ description: >
 
 引数としてサイトの URL を受け取り、5 Phase の調査を実行する。
 
-## Playwright CLI 基本コマンド
+## browser-use CLI 基本コマンド
 
 Phase 1-5 では全て Bash 経由で CLI コマンドを実行する。
-スナップショットはファイルに保存し、必要な部分のみ Read で読むことでトークンを節約する。
+browser-use はデーモンアーキテクチャ（~50ms レイテンシ）でセッションを維持する。
+
+**重要**: 全コマンドの先頭に venv のアクティベーションが必要:
 
 ```bash
-# ブラウザを開いて URL にアクセス（初回）
-npx -y @playwright/cli@latest open <url>
-
-# 同一セッション内で URL 遷移
-npx -y @playwright/cli@latest goto <url>
-
-# スナップショットをファイルに保存（コンテキスト外）
-npx -y @playwright/cli@latest snapshot --filename <path>.md
-
-# スクリーンショットをファイルに保存
-npx -y @playwright/cli@latest screenshot --filename <path>.png
-
-# 要素をクリック（ref はスナップショットから取得）
-npx -y @playwright/cli@latest click <ref>
-
-# JavaScript を実行（結果は stdout）
-npx -y @playwright/cli@latest eval '<js expression>'
-
-# ネットワークリクエスト一覧
-npx -y @playwright/cli@latest network
-
-# ダイアログ操作
-npx -y @playwright/cli@latest dialog-accept
-npx -y @playwright/cli@latest dialog-dismiss
-
-# ブラウザを閉じる
-npx -y @playwright/cli@latest close
+source ~/.browser-use-env/bin/activate && browser-use <command>
 ```
 
-### スナップショットの効率的な読み方
+### ナビゲーション
 
-スナップショットファイルは全体を読む必要はない。
-Read ツールの offset/limit パラメータで必要な部分のみ取得する:
-
-```
-# 冒頭50行（ナビゲーション構造の把握）
-Read: path, limit=50
-
-# 特定セクションを検索
-Grep: pattern="article|listitem" in snapshot file
+```bash
+browser-use open <url>              # URL にアクセス（ブラウザ起動 + ナビゲーション）
+browser-use back                    # 履歴を戻る
+browser-use scroll down             # 下にスクロール
+browser-use scroll up               # 上にスクロール
+browser-use scroll down --amount 1000  # ピクセル指定スクロール
 ```
 
-### eval の注意点
+### ページ状態の取得
 
-- 外側はシングルクォート、内側はダブルクォートを使用
-- 複雑なオブジェクトは `JSON.stringify()` で文字列化して返す
-- 非常に複雑な JS は `.tmp/` にファイル保存して実行を検討
+```bash
+browser-use state                   # URL, タイトル, クリック可能要素一覧（index付き）
+browser-use screenshot <path>.png   # スクリーンショット保存
+browser-use screenshot --full <path>.png  # フルページスクリーンショット
+browser-use get title               # ページタイトル
+browser-use get html                # 全 HTML
+browser-use get html --selector "h1"  # セレクタ指定で HTML 取得
+browser-use get text <index>        # 要素テキスト取得
+browser-use get attributes <index>  # 要素の全属性取得
+```
+
+### インタラクション
+
+```bash
+browser-use click <index>           # index で要素をクリック（state の出力から取得）
+browser-use type "text"             # フォーカス要素にテキスト入力
+browser-use input <index> "text"    # 要素を選択してテキスト入力
+browser-use keys "Enter"            # キー送信
+browser-use select <index> "value"  # ドロップダウン選択
+```
+
+### JavaScript 実行
+
+```bash
+browser-use eval 'document.title'                    # 単純な式
+browser-use eval 'JSON.stringify({...})'             # オブジェクトは JSON.stringify 必須
+browser-use eval 'document.querySelectorAll("a").length'  # DOM クエリ
+```
+
+### 待機
+
+```bash
+browser-use wait selector ".loading" --state hidden  # 要素消滅待機
+browser-use wait text "Success"                      # テキスト出現待機
+browser-use wait selector "h1" --timeout 5000        # タイムアウト指定
+```
+
+### セッション管理
+
+```bash
+browser-use --session NAME open <url>   # 名前付きセッション
+browser-use sessions                    # アクティブセッション一覧
+browser-use close                       # 現在セッションを閉じる
+browser-use close --all                 # 全セッション終了
+```
+
+### state の出力例
+
+```
+viewport: 1710x1107
+page: 1710x3200
+scroll: (0, 0)
+Example Blog - Latest Posts
+[0]<a />  Home
+[1]<a />  About
+[2]<a />  Contact
+[3]<article />
+  [4]<a />  Article Title 1
+  [5]<time />  2026-03-20
+[6]<article />
+  [7]<a />  Article Title 2
+  [8]<time />  2026-03-19
+[9]<a />  Next Page →
+```
+
+`[N]` が index。`click <index>` でクリックできる。
 
 ## 調査プロトコル（5 Phase）
 
@@ -99,32 +137,33 @@ Grep: pattern="article|listitem" in snapshot file
 
 1. ブラウザを開いて対象 URL にアクセス:
    ```bash
-   npx -y @playwright/cli@latest open {url}
+   source ~/.browser-use-env/bin/activate && browser-use open {url}
    ```
 
 2. スクリーンショットを保存:
    ```bash
-   npx -y @playwright/cli@latest screenshot --filename .tmp/site-reports/{domain}/screenshots/phase1-home.png
+   source ~/.browser-use-env/bin/activate && browser-use screenshot .tmp/site-reports/{domain}/screenshots/phase1-home.png
    ```
 
-3. スナップショットをファイルに保存:
+3. ページ状態を取得:
    ```bash
-   npx -y @playwright/cli@latest snapshot --filename .tmp/site-reports/{domain}/snapshots/phase1-home.md
+   source ~/.browser-use-env/bin/activate && browser-use state
    ```
+   - `state` の出力からページ種別・クリック可能要素を把握
 
-4. スナップショットファイルを Read で読み込み（冒頭100行程度で判定可能）、以下を判定:
+4. 出力から以下を判定:
    - ページ種別（一覧 / 単体記事 / トップページ / SPA）
    - 言語（日本語 / 英語 / 他）
    - CMS/フレームワーク推定（WordPress, Next.js, etc.）
 
 5. Cookie 同意バナーやポップアップがあれば:
    ```bash
-   npx -y @playwright/cli@latest click <ref>
+   source ~/.browser-use-env/bin/activate && browser-use click <index>
    ```
-   （ref はスナップショット内の「Accept」「同意」ボタンの ref 値）
+   （index は `state` 出力の「Accept」「同意」ボタンの番号）
 
-**判定ロジック**: アクセシビリティツリーで `article` 要素の繰り返しがあれば一覧ページ、
-単一の長い `article` なら個別記事ページ、と判断する。
+**判定ロジック**: `state` の出力で `<article>` 要素の繰り返しがあれば一覧ページ、
+単一の長い `<article>` なら個別記事ページ、と判断する。
 
 ### Phase 2: メタ情報の収集
 
@@ -132,43 +171,33 @@ Grep: pattern="article|listitem" in snapshot file
 
 1. **RSS フィード検出**:
    ```bash
-   npx -y @playwright/cli@latest eval '(() => {
-     const feeds = document.querySelectorAll("link[type=\"application/rss+xml\"], link[type=\"application/atom+xml\"]");
-     return JSON.stringify(Array.from(feeds).map(f => ({ href: f.href, title: f.title })));
-   })()'
+   source ~/.browser-use-env/bin/activate && browser-use eval 'JSON.stringify(Array.from(document.querySelectorAll("link[type=\"application/rss+xml\"], link[type=\"application/atom+xml\"]")).map(f => ({ href: f.href, title: f.title })))'
    ```
    - 見つからない場合、以下のパスを順に試す:
    ```bash
-   npx -y @playwright/cli@latest goto {base_url}/feed
-   npx -y @playwright/cli@latest goto {base_url}/rss
-   npx -y @playwright/cli@latest goto {base_url}/feed.xml
-   npx -y @playwright/cli@latest goto {base_url}/atom.xml
+   source ~/.browser-use-env/bin/activate && browser-use open {base_url}/feed
+   source ~/.browser-use-env/bin/activate && browser-use open {base_url}/rss
+   source ~/.browser-use-env/bin/activate && browser-use open {base_url}/feed.xml
    ```
 
 2. **サイトマップ検出**:
    ```bash
-   npx -y @playwright/cli@latest goto {base_url}/sitemap.xml
-   npx -y @playwright/cli@latest snapshot --filename .tmp/site-reports/{domain}/snapshots/phase2-sitemap.md
+   source ~/.browser-use-env/bin/activate && browser-use open {base_url}/sitemap.xml
+   source ~/.browser-use-env/bin/activate && browser-use get html
    ```
    - 404 なら `/sitemap_index.xml`, `/sitemap/` も試す
 
 3. **robots.txt 確認**:
    ```bash
-   npx -y @playwright/cli@latest goto {base_url}/robots.txt
-   npx -y @playwright/cli@latest snapshot --filename .tmp/site-reports/{domain}/snapshots/phase2-robots.md
+   source ~/.browser-use-env/bin/activate && browser-use open {base_url}/robots.txt
+   source ~/.browser-use-env/bin/activate && browser-use get html
    ```
-   - Read でファイルを読み、Disallow ルール、Crawl-delay、Sitemap 指定を抽出
+   - Disallow ルール、Crawl-delay、Sitemap 指定を抽出
 
 4. **meta タグ収集**:
    ```bash
-   npx -y @playwright/cli@latest goto {url}
-   npx -y @playwright/cli@latest eval '(() => {
-     const metas = document.querySelectorAll("meta");
-     return JSON.stringify(Array.from(metas).map(m => ({
-       name: m.name || m.getAttribute("property"),
-       content: m.content
-     })));
-   })()'
+   source ~/.browser-use-env/bin/activate && browser-use open {url}
+   source ~/.browser-use-env/bin/activate && browser-use eval 'JSON.stringify(Array.from(document.querySelectorAll("meta")).map(m => ({ name: m.name || m.getAttribute("property"), content: m.content })))'
    ```
 
 ### Phase 3: 一覧ページの構造解析
@@ -177,42 +206,40 @@ Grep: pattern="article|listitem" in snapshot file
 
 Phase 1 で一覧ページと判定された場合（または一覧ページに遷移して）実行。
 
-1. スナップショットから繰り返し構造を発見:
+1. ページ状態から繰り返し構造を発見:
    ```bash
-   npx -y @playwright/cli@latest goto {list_page_url}
-   npx -y @playwright/cli@latest snapshot --filename .tmp/site-reports/{domain}/snapshots/phase3-list.md
+   source ~/.browser-use-env/bin/activate && browser-use open {list_page_url}
+   source ~/.browser-use-env/bin/activate && browser-use state
    ```
-   - Read でスナップショットを読み、同一構造の `article`, `li`, `div` が並んでいるパターンを探す
+   - `state` 出力で同じ構造の `<article>`, `<a>` が並んでいるパターンを探す
    - 各アイテム内のタイトル（リンク）、日付、サムネイル、著者を特定
 
 2. セレクタの検証:
    ```bash
-   npx -y @playwright/cli@latest eval '(() => {
-     return JSON.stringify({
-       count: document.querySelectorAll("article.post-card").length,
-       sample: document.querySelector("article.post-card")?.textContent?.substring(0, 100)
-     });
-   })()'
+   source ~/.browser-use-env/bin/activate && browser-use eval 'JSON.stringify({ count: document.querySelectorAll("article.post-card").length, sample: document.querySelector("article.post-card")?.textContent?.substring(0, 100) })'
    ```
 
-3. ページネーション方式の特定:
-   - スナップショット内で `navigation` や `pagination` を含む要素を Grep で検索
+3. 特定要素の HTML を直接取得:
+   ```bash
+   source ~/.browser-use-env/bin/activate && browser-use get html --selector "nav.pagination"
+   source ~/.browser-use-env/bin/activate && browser-use get html --selector "article:first-of-type"
+   ```
+
+4. ページネーション方式の特定:
+   - `state` 出力で `Next`, `次へ`, `→` 等のリンクを探す
    - 方式を判定:
      - **numbered**: `?page=2` や `/page/2/` 形式のリンク
      - **next/prev**: 「次へ」「前へ」ボタン
-     - **infinite scroll**: スクロールイベントで追加読み込み
+     - **infinite scroll**: スクロールで追加読み込み
      - **load more**: 「もっと見る」ボタン
    - infinite scroll の検出:
      ```bash
-     npx -y @playwright/cli@latest eval '(() => {
-       return JSON.stringify({
-         hasIntersectionObserver: typeof IntersectionObserver !== "undefined",
-         scrollListeners: typeof getEventListeners !== "undefined" ? (getEventListeners(window).scroll?.length || 0) : "unknown"
-       });
-     })()'
+     source ~/.browser-use-env/bin/activate && browser-use scroll down
+     source ~/.browser-use-env/bin/activate && browser-use state
      ```
+     （スクロール後に新しい要素が増えていれば infinite scroll）
 
-4. URL パターンの分析:
+5. URL パターンの分析:
    - 記事リンクの href から URL パターンを抽出
    - 例: `/blog/{slug}`, `/articles/{id}`, `/{year}/{month}/{slug}`
 
@@ -222,15 +249,24 @@ Phase 1 で一覧ページと判定された場合（または一覧ページに
 
 1. Phase 3 で見つけた記事リンクの 1 つをクリック:
    ```bash
-   npx -y @playwright/cli@latest click <ref>
+   source ~/.browser-use-env/bin/activate && browser-use click <index>
    ```
 
-2. 記事ページのスナップショットを保存:
+2. 記事ページの状態を取得:
    ```bash
-   npx -y @playwright/cli@latest snapshot --filename .tmp/site-reports/{domain}/snapshots/phase4-article.md
+   source ~/.browser-use-env/bin/activate && browser-use state
+   source ~/.browser-use-env/bin/activate && browser-use screenshot .tmp/site-reports/{domain}/screenshots/phase4-article.png
    ```
 
-3. Read でスナップショットを読み、以下の要素を特定:
+3. 主要要素の HTML を取得:
+   ```bash
+   source ~/.browser-use-env/bin/activate && browser-use get html --selector "h1"
+   source ~/.browser-use-env/bin/activate && browser-use get html --selector "article"
+   source ~/.browser-use-env/bin/activate && browser-use get html --selector "time"
+   source ~/.browser-use-env/bin/activate && browser-use get html --selector "[rel=author]"
+   ```
+
+4. 以下の要素を特定:
    - **タイトル**: 通常 `h1` 要素
    - **本文**: `article`, `div.content`, `div.entry-content` 等のコンテナ
    - **公開日**: `time` 要素、`datetime` 属性
@@ -239,24 +275,9 @@ Phase 1 で一覧ページと判定された場合（または一覧ページに
    - **関連記事**: 記事下部のリンクリスト
    - **コメント欄**: 有無の確認
 
-4. ペイウォール/ログイン壁の検出:
+5. ペイウォール/ログイン壁の検出:
    ```bash
-   npx -y @playwright/cli@latest eval '(() => {
-     return JSON.stringify({
-       paywallOverlay: !!document.querySelector("[class*=\"paywall\"], [class*=\"subscribe\"], [id*=\"paywall\"]"),
-       loginModal: !!document.querySelector("[class*=\"login-modal\"], [class*=\"signin\"], [class*=\"auth-wall\"]"),
-       readMore: !!document.querySelector("[class*=\"read-more-gate\"], [class*=\"premium-content\"]"),
-       bodyLength: document.querySelector("article")?.textContent?.length || 0
-     });
-   })()'
-   ```
-
-5. セレクタの検証:
-   ```bash
-   npx -y @playwright/cli@latest eval '(() => {
-     const body = document.querySelector("div.entry-content");
-     return body ? body.textContent.substring(0, 200) : null;
-   })()'
+   source ~/.browser-use-env/bin/activate && browser-use eval 'JSON.stringify({ paywallOverlay: !!document.querySelector("[class*=\"paywall\"], [class*=\"subscribe\"], [id*=\"paywall\"]"), loginModal: !!document.querySelector("[class*=\"login-modal\"], [class*=\"signin\"]"), bodyLength: document.querySelector("article")?.textContent?.length || 0 })'
    ```
 
 ### Phase 5: 動的挙動の検出
@@ -265,38 +286,22 @@ Phase 1 で一覧ページと判定された場合（または一覧ページに
 
 1. **SPA / CSR 判定**:
    ```bash
-   npx -y @playwright/cli@latest eval '(() => {
-     return JSON.stringify({
-       hasReact: !!document.querySelector("[data-reactroot], #__next"),
-       hasVue: !!document.querySelector("[data-v-], #__nuxt"),
-       hasAngular: !!document.querySelector("[ng-version], [_nghost]"),
-       bodyTextLength: document.body.innerText.length
-     });
-   })()'
+   source ~/.browser-use-env/bin/activate && browser-use eval 'JSON.stringify({ hasReact: !!document.querySelector("[data-reactroot], #__next"), hasVue: !!document.querySelector("[data-v-], #__nuxt"), hasAngular: !!document.querySelector("[ng-version], [_nghost]"), bodyTextLength: document.body.innerText.length })'
    ```
 
-2. **API エンドポイントの発見**:
+2. **lazy load 検出**:
    ```bash
-   npx -y @playwright/cli@latest network
-   ```
-   - JSON レスポンスを返す API があれば、直接 API を叩く方がスクレイピングより効率的
-
-3. **lazy load 検出**:
-   ```bash
-   npx -y @playwright/cli@latest eval '(() => {
-     return JSON.stringify({
-       lazyImages: document.querySelectorAll("img[loading=\"lazy\"], img[data-src]").length,
-       totalImages: document.querySelectorAll("img").length
-     });
-   })()'
+   source ~/.browser-use-env/bin/activate && browser-use eval 'JSON.stringify({ lazyImages: document.querySelectorAll("img[loading=\"lazy\"], img[data-src]").length, totalImages: document.querySelectorAll("img").length })'
    ```
 
-4. **レート制限の確認**:
-   - `network` コマンドの出力からレスポンスヘッダーの `X-RateLimit-*`, `Retry-After` を確認
-
-5. ブラウザを閉じる:
+3. **パフォーマンス情報**:
    ```bash
-   npx -y @playwright/cli@latest close
+   source ~/.browser-use-env/bin/activate && browser-use eval 'JSON.stringify({ protocol: performance.getEntriesByType("navigation")[0]?.nextHopProtocol, domContentLoaded: Math.round(performance.getEntriesByType("navigation")[0]?.domContentLoadedEventEnd), transferSize: Math.round(performance.getEntriesByType("navigation")[0]?.transferSize / 1024) + "KB" })'
+   ```
+
+4. ブラウザを閉じる:
+   ```bash
+   source ~/.browser-use-env/bin/activate && browser-use close
    ```
 
 ## 検証フェーズ（オプション）
@@ -306,9 +311,9 @@ Phase 1-5 完了後、ユーザーがセレクタの詳細検証を求めた場�
 
 ### 切り替え手順
 
-1. CLI セッションが開いていれば閉じる:
+1. browser-use セッションが開いていれば閉じる:
    ```bash
-   npx -y @playwright/cli@latest close
+   source ~/.browser-use-env/bin/activate && browser-use close
    ```
 
 2. Playwright MCP でページにアクセス:
@@ -429,9 +434,9 @@ Phase 1-5 完了後、ユーザーがセレクタの詳細検証を求めた場�
 | サイト到達不可 | エラー報告して終了 |
 | Cookie 同意で操作困難 | スクリーンショット撮影 → 手動対応を提案 |
 | ログイン必須 | Phase 1 でその旨を報告、認証情報の提供を求める |
-| SPA で snapshot が薄い | `eval` で DOM を直接読む |
-| タイムアウト | 30秒待って再試行、3回失敗で報告 |
-| Playwright CLI が利用不可 | Playwright MCP にフォールバック（全 Phase を MCP で実行） |
+| SPA で state が薄い | `eval` で DOM を直接読む、`get html` でセレクタ指定取得 |
+| タイムアウト | `wait` コマンドで明示的に待機、3回失敗で報告 |
+| browser-use CLI が利用不可 | Playwright MCP にフォールバック（全 Phase を MCP で実行） |
 
 ## 注意事項
 
