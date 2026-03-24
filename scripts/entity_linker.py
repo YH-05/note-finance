@@ -424,7 +424,7 @@ def _build_identifier_ref(entity: dict[str, Any]) -> dict[str, str] | None:
     """Build an Identifier node reference if the entity has a ticker.
 
     The Identifier node is not created directly here; it is emitted as
-    metadata for ``emit_graph_queue.py`` to handle via the classification
+    metadata for ``emit_research_queue.py`` to handle via the classification
     post-processor.
 
     Parameters

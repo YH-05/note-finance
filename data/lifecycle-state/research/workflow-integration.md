@@ -45,8 +45,8 @@ research-neo4j ナレッジグラフを既存のワークフロー（記事執�
   │   └── （ギャップレポートに基づきWeb検索を実施）
   │
   └── Step 4: KG 永続化
-      ├── emit_graph_queue.py --command web-research
-      └── /save-to-graph
+      ├── emit_research_queue.py --command web-research
+      └── /save-to-research-graph
 ```
 
 ### 照会クエリ（Step 0 で使用）
@@ -603,15 +603,15 @@ RETURN e.name AS entity,
 
 ---
 
-## W6: emit_graph_queue.py v3.0 統合
+## W6: emit_research_queue.py v3.0 統合
 
-**既存スクリプト**: `scripts/emit_graph_queue.py`
+**既存スクリプト**: `scripts/emit_research_queue.py`
 **統合ポイント**: Classification Post-Processor（v3.0 で追加予定の分類ハブノード自動生成）
 
 ### 現状（v2.x）
 
 ```
-入力 JSON → emit_graph_queue.py → graph-queue JSON → /save-to-graph → Neo4j
+入力 JSON → emit_research_queue.py → graph-queue JSON → /save-to-research-graph → Neo4j
                                         ↑
                               プロパティベースの分類
                               (entity_type, source_type 等は文字列プロパティ)
@@ -620,7 +620,7 @@ RETURN e.name AS entity,
 ### v3.0 目標
 
 ```
-入力 JSON → emit_graph_queue.py → Classification Post-Processor → graph-queue JSON → /save-to-graph
+入力 JSON → emit_research_queue.py → Classification Post-Processor → graph-queue JSON → /save-to-research-graph
                                         ↑
                               ハブノードの自動生成・リレーション付与
                               (EntityType, SourceType, Domain, TrustLevel 等)
@@ -631,7 +631,7 @@ RETURN e.name AS entity,
 #### 1. EntityType ハブノード自動生成
 
 ```python
-# emit_graph_queue.py 内の Post-Processor ロジック（疑似コード）
+# emit_research_queue.py 内の Post-Processor ロジック（疑似コード）
 
 ENTITY_TYPE_MAP = {
     # ontology.yaml の canonical_values に基づく
@@ -854,7 +854,7 @@ RETURN 'Source without FROM_DOMAIN' AS gap, count(s) AS count
 
 - [ ] `/article-research` Step 0 で KG 照会を実施したか
 - [ ] kg_gap_report.md を確認し、ギャップ優先でリサーチしたか
-- [ ] リサーチ結果を `emit_graph_queue.py --command web-research` で KG に永続化したか
+- [ ] リサーチ結果を `emit_research_queue.py --command web-research` で KG に永続化したか
 - [ ] 記事内の根拠データに Source URL を埋め込んだか
 
 ### 週次レポート作成時

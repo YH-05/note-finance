@@ -18,7 +18,7 @@ instances:
   research:
     yaml_path: research.yaml
     description: "金融リサーチ・銘柄調査ナレッジグラフ"
-    use_case: "web-research / save-to-graph / kg-quality-check / topic-discovery"
+    use_case: "web-research / save-to-research-graph / kg-quality-check / topic-discovery"
 
   note:
     yaml_path: note.yaml

@@ -22,15 +22,15 @@ Usage
 -----
 ::
 
-    python3 scripts/emit_graph_queue.py \\
+    python3 scripts/emit_research_queue.py \\
         --command finance-news-workflow \\
         --input .tmp/news-batches/index.json
 
-    python3 scripts/emit_graph_queue.py \\
+    python3 scripts/emit_research_queue.py \\
         --command wealth-scrape \\
         --input /Volumes/personal_folder/scraped/wealth/
 
-    python3 scripts/emit_graph_queue.py \\
+    python3 scripts/emit_research_queue.py \\
         --command finance-news-workflow \\
         --input .tmp/news-batches/index.json \\
         --cleanup
@@ -174,7 +174,7 @@ V3_STRIP_FLAT_PROPS: bool = os.environ.get("GRAPH_QUEUE_V3_STRIP", "0") == "1"
 """When True, strip flat classification properties after post-processing.
 
 Set ``GRAPH_QUEUE_V3_STRIP=1`` to enable.  Default is ``False`` for
-backward compatibility with save-to-graph consumers.
+backward compatibility with save-to-research-graph consumers.
 """
 
 CONCEPT_CATEGORY_MAP: dict[str, str] = {
@@ -3991,7 +3991,7 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     """Map web-research session data to graph-queue components.
 
     Converts ad-hoc web research data into the formal pipeline format
-    consumed by ``/save-to-graph``.
+    consumed by ``/save-to-research-graph``.
 
     Parameters
     ----------
@@ -4273,6 +4273,22 @@ def _load_and_parse(
         logger.error("Invalid JSON in %s: %s", input_path, exc)
         print(f"Error: Invalid JSON in {input_path}: {exc}", file=sys.stderr)
         return None
+
+    # AIDEV-NOTE: Layer 2 原文保存フック — 全コマンドの入力JSONから原文をRawStoreに保存
+    try:
+        from data_pipeline.integrations.bridge import save_from_emit_input
+
+        save_result = save_from_emit_input(data, command)
+        logger.info(
+            "RawStore: saved=%d, dup=%d, empty=%d (command=%s)",
+            save_result.saved,
+            save_result.skipped_duplicate,
+            save_result.skipped_empty,
+            command,
+        )
+    except Exception as exc:
+        # 原文保存の失敗はNeo4j投入をブロックしない
+        logger.warning("RawStore save failed (non-blocking): %s", exc)
 
     mapper = COMMAND_MAPPERS.get(command)
     if mapper is None:

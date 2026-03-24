@@ -38,7 +38,7 @@ Status: 合意済み（元プランに反映完了: 2026-03-11）
 | B | Master Entity統合 | Entity拡張方式: 既存Entityノードにis_master/isin/official_name/sector追加。別ノード不要 |
 | C | 抽出プロンプト戦略 | テキスト: 2パス（Pass1 Entity → Pass2 Fact/Claim）、テーブル: ルールベース変換 |
 | D | コスト見積もり | 不要。1日あたりのGemini CLI限界で対処 |
-| E | グラフDB書き込み | ハイブリッド: Python graph_writer.py新規作成、save-to-graphのMERGEパターン/ID生成を継承 |
+| E | グラフDB書き込み | ハイブリッド: Python graph_writer.py新規作成、save-to-research-graphのMERGEパターン/ID生成を継承 |
 
 ---
 
@@ -88,7 +88,7 @@ Status: 合意済み（元プランに反映完了: 2026-03-11）
 
 - Phase 7-8 を改訂:
   - graph-queue JSON出力 → Python graph_writer.py による直接書き込み
-  - save-to-graphスキルは使用せず、MERGEパターンとID生成ロジックを継承
+  - save-to-research-graphスキルは使用せず、MERGEパターンとID生成ロジックを継承
 - ファイル構成の `services/` セクション更新:
   ```
   services/
@@ -96,8 +96,8 @@ Status: 合意済み（元プランに反映完了: 2026-03-11）
   ├── gemini_provider.py      # GeminiCLIProvider
   ├── claude_provider.py      # ClaudeCodeProvider
   ├── provider_chain.py       # フォールバック制御
-  ├── graph_writer.py         # Neo4j書き込み（NEW: save-to-graphパターン継承）
-  ├── id_generator.py         # UUID5/SHA256 ID生成（emit_graph_queue.pyから移植）
+  ├── graph_writer.py         # Neo4j書き込み（NEW: save-to-research-graphパターン継承）
+  ├── id_generator.py         # UUID5/SHA256 ID生成（emit_research_queue.pyから移植）
   ├── schema_validator.py     # スキーマバリデーション
   └── state_manager.py        # 処理状態管理
   ```

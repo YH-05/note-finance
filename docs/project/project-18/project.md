@@ -29,7 +29,7 @@ SkillRun ログ基盤 → 分析スキル → 改善提案機能の3段階で、
 
 - **Neo4j ドライバー接続**: `scripts/validate_neo4j_schema.py` の `GraphDatabase.driver` パターン
 - **SHA-256 ID 生成**: `src/pdf_pipeline/services/id_generator.py` の `_sha256_prefix[:32]`
-- **CLI 設計**: `scripts/emit_graph_queue.py` の argparse + structlog パターン
+- **CLI 設計**: `scripts/emit_research_queue.py` の argparse + structlog パターン
 - **デュアルラベル**: `Memory:SkillRun` で既存 KG v2 から `WHERE NOT 'Memory' IN labels(n)` で自動除外
 
 ### 参考実装
@@ -37,7 +37,7 @@ SkillRun ログ基盤 → 分析スキル → 改善提案機能の3段階で、
 | ファイル | 参考にすべき点 |
 |---------|-------------|
 | `scripts/validate_neo4j_schema.py` | Neo4j ドライバー接続・argparse パターン |
-| `scripts/emit_graph_queue.py` | CLI サブコマンド構成 |
+| `scripts/emit_research_queue.py` | CLI サブコマンド構成 |
 | `src/pdf_pipeline/services/id_generator.py` | SHA-256[:32] ID 生成 |
 | `scripts/session_utils.py` | structlog get_logger パターン |
 | `scripts/migrate_article_to_research.py` | マイグレーションスクリプト構造 |
@@ -118,7 +118,7 @@ cognee の Observe→Inspect→Amend→Evaluate ループを3段階で独自実�
 
 ### Wave 3（全5タスク並行可能）
 
-- [ ] save-to-graph SKILL.md に Observability セクションを追記
+- [ ] save-to-research-graph SKILL.md に Observability セクションを追記
   - Issue: [#189](https://github.com/YH-05/note-finance/issues/189)
   - ステータス: todo
   - 依存: #188
@@ -179,7 +179,7 @@ graph TD
     task-003["task-003 Cypher 制約追記"]
     task-004["task-004 migrate スクリプト"]
     task-005["task-005 tracer CLI"]
-    task-006["task-006 save-to-graph"]
+    task-006["task-006 save-to-research-graph"]
     task-007["task-007 pdf-to-knowledge"]
     task-008["task-008 topic-discovery"]
     task-009["task-009 generate-market-report"]

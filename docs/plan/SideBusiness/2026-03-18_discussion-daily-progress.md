@@ -14,7 +14,7 @@
 - Phase 1: 制約・インデックス同期（entity_key UNIQUE, topic_key UNIQUE, Source インデックス）
 - Phase 2: レガシーノード整理（Discussion/Decision/ActionItem → Archived ラベル付与）
 - Phase 3: YAML 定義更新（`docker/article-neo4j/` 配下）
-- Phase 4: emit_graph_queue.py のマッパー更新（command_source/domain/entity_key/topic_key 対応）
+- Phase 4: emit_research_queue.py のマッパー更新（command_source/domain/entity_key/topic_key 対応）
 
 ### 2. research-neo4j Wave 1-4 全実装・統合検証完了
 - **Wave 1 (#143)**: Author=publisher 実体化 + Claim→Stance 遡及バッチ（`scripts/backfill_stance_from_claims.py`）

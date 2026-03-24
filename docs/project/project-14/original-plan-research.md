@@ -39,7 +39,7 @@ Wave 4: Question ノード            ← P1（+ consensus_divergence, predictio
 
 ### 実装ステップ
 
-1. **`scripts/emit_graph_queue.py` L891-899 修正** — `claims.append()` に4プロパティ追加:
+1. **`scripts/emit_research_queue.py` L891-899 修正** — `claims.append()` に4プロパティ追加:
    ```python
    "magnitude": claim.get("magnitude"),
    "target_price": claim.get("target_price"),
@@ -47,9 +47,9 @@ Wave 4: Question ノード            ← P1（+ consensus_divergence, predictio
    "time_horizon": claim.get("time_horizon"),
    ```
 
-2. **`.claude/skills/save-to-graph/guide.md` Claim MERGE Cypher 更新** — `target_price`, `rating`, `time_horizon` を SET に追加
+2. **`.claude/skills/save-to-research-graph/guide.md` Claim MERGE Cypher 更新** — `target_price`, `rating`, `time_horizon` を SET に追加
 
-3. **`tests/scripts/test_emit_graph_queue.py` に `TestMapPdfExtraction` 追加** (~100行)
+3. **`tests/scripts/test_emit_research_queue.py` に `TestMapPdfExtraction` 追加** (~100行)
    - ヘルパー `_pdf_extraction_data()` で全プロパティ含むサンプル生成
    - `test_正常系_Claimのtarget_priceとratingが保持される`
    - `test_正常系_FiscalPeriodが正しく派生される`
@@ -86,7 +86,7 @@ Wave 4: Question ノード            ← P1（+ consensus_divergence, predictio
 2. **`src/pdf_pipeline/services/id_generator.py`** — `generate_stance_id()`, `generate_author_id()` 追加
 3. **`src/pdf_pipeline/schemas/extraction.py`** — `ExtractedStance` モデル追加、`ChunkExtractionResult.stances` フィールド追加
 4. **`src/pdf_pipeline/core/knowledge_extractor.py`** — `_EXTRACTION_PROMPT` に `stances[]` 追加（author_name は除外、map_pdf_extraction 内で Source.publisher から自動設定）
-5. **`scripts/emit_graph_queue.py`**:
+5. **`scripts/emit_research_queue.py`**:
    - `_build_author_node(publisher)` — Source.publisher → Author ノード dict
    - `_build_stance_nodes(chunk, source_id, publisher, entity_name_to_id)` — Stance + リレーション生成
    - `_build_supersedes_chain(all_stances)` — 同一(author, entity)で日付順にSUPERSEDES連鎖
@@ -95,7 +95,7 @@ Wave 4: Question ノード            ← P1（+ consensus_divergence, predictio
    - `_process_chunk()` に `_build_stance_nodes()` 呼び出し追加
    - `map_pdf_extraction()` に後処理追加（Author構築、SUPERSEDES連鎖、AUTHORED_BY）
 6. **`scripts/backfill_stance_from_claims.py` (新規)** — 既存 Claim → Stance 遡及バッチ（research-neo4j 固有）
-7. **`.claude/skills/save-to-graph/guide.md`** — Author/Stance MERGE + 5リレーション Cypher + 制約/インデックス追加
+7. **`.claude/skills/save-to-research-graph/guide.md`** — Author/Stance MERGE + 5リレーション Cypher + 制約/インデックス追加
 8. **テスト** — `TestBuildStanceNodes`, `TestBuildSupersedesChain`, `TestGenerateStanceId`, `TestGenerateAuthorId`
 
 ### AI推論パス
@@ -131,8 +131,8 @@ article-neo4j プランと同一設計。
 1. **`data/config/knowledge-graph-schema.yaml`** — CAUSES リレーション追加
 2. **`src/pdf_pipeline/schemas/extraction.py`** — `ExtractedCausalLink` モデル追加、`ChunkExtractionResult.causal_links` フィールド追加
 3. **`src/pdf_pipeline/core/knowledge_extractor.py`** — `_EXTRACTION_PROMPT` に `causal_links[]` 追加
-4. **`scripts/emit_graph_queue.py`** — `_build_causal_links(chunk, content_to_id_map)` 追加。`_empty_rels()` に `causes` 追加。graph-queue 要素に `from_label`, `to_label` を含める（Neo4j CE のラベル指定用）
-5. **`.claude/skills/save-to-graph/guide.md`** — CAUSES MERGE Cypher（6パターンのラベル別分岐）
+4. **`scripts/emit_research_queue.py`** — `_build_causal_links(chunk, content_to_id_map)` 追加。`_empty_rels()` に `causes` 追加。graph-queue 要素に `from_label`, `to_label` を含める（Neo4j CE のラベル指定用）
+5. **`.claude/skills/save-to-research-graph/guide.md`** — CAUSES MERGE Cypher（6パターンのラベル別分岐）
 6. **テスト** — `TestBuildCausalLinks`
 
 ### AI推論パス
@@ -150,7 +150,7 @@ RETURN [n IN nodes(chain) | coalesce(n.content, n.metric_name)] AS causal_chain
 
 ### research-neo4j 固有の設計判断
 
-1. **TREND は Metric.metric_id でグルーピング** — `metric_master.json` の alias_index を `emit_graph_queue.py` に組み込み、`(entity_id, metric_id, period_sort_key)` でグルーピング。表記揺れ（"Revenue" vs "Total Revenue"）を回避
+1. **TREND は Metric.metric_id でグルーピング** — `metric_master.json` の alias_index を `emit_research_queue.py` に組み込み、`(entity_id, metric_id, period_sort_key)` でグルーピング。表記揺れ（"Revenue" vs "Total Revenue"）を回避
 2. **MEASURES 未リンク DP は TREND 対象外** — 未正規化の metric_name 同士を比較しても誤解を招く。`apply_metric_master.py` 再実行でカバレッジ改善が正道
 3. **TREND に metric_id プロパティ付与** — Metric ノード経由せずに同一指標チェーンを辿れる（クエリ効率化）
 4. **NEXT_PERIOD は Entity-scoped** — period_id が `{ticker}_{period_label}` 形式のため、同一 ticker 内でのみチェーン構築
@@ -165,7 +165,7 @@ RETURN [n IN nodes(chain) | coalesce(n.content, n.metric_name)] AS causal_chain
 ### 実装ステップ
 
 1. **`data/config/knowledge-graph-schema.yaml`** — NEXT_PERIOD, TREND リレーション追加
-2. **`scripts/emit_graph_queue.py`** に新関数追加:
+2. **`scripts/emit_research_queue.py`** に新関数追加:
    - `_load_metric_alias_index()` — `data/config/metric_master.json` からエイリアス→metric_id ルックアップ構築（`apply_metric_master.py` のロジック流用）
    - `_period_sort_key(label)` — `FY2025→(2025,0)`, `3Q25→(2025,3)`, `1H26→(2026,1)`
    - `_build_next_period_chain(fiscal_periods)` — 同一 ticker/period_type でソート → NEXT_PERIOD 生成
@@ -173,7 +173,7 @@ RETURN [n IN nodes(chain) | coalesce(n.content, n.metric_name)] AS causal_chain
    - `map_pdf_extraction()` に後処理追加（`_build_next_period_chain`, `_build_trend_edges`）
    - `_empty_rels()` に `next_period`, `trend` 追加
 3. **`scripts/backfill_temporal_chain.py` (新規)** — 既存 166 DP / 16 FP から NEXT_PERIOD + TREND 遡及生成（research-neo4j 固有）
-4. **`.claude/skills/save-to-graph/guide.md`** — NEXT_PERIOD, TREND Cypher テンプレート
+4. **`.claude/skills/save-to-research-graph/guide.md`** — NEXT_PERIOD, TREND Cypher テンプレート
 5. **テスト** — `TestPeriodSortKey`, `TestBuildNextPeriodChain`, `TestBuildTrendEdges`, `TestLoadMetricAliasIndex`
 
 ### TREND 計算ロジック
@@ -235,8 +235,8 @@ article-neo4j プランと基本同一 + research-neo4j 固有 question_type 2�
 2. `src/pdf_pipeline/services/id_generator.py` — `generate_question_id()` 追加
 3. `src/pdf_pipeline/schemas/extraction.py` — `ExtractedQuestion` モデル追加
 4. `src/pdf_pipeline/core/knowledge_extractor.py` — `_EXTRACTION_PROMPT` に `questions[]` 追加
-5. `scripts/emit_graph_queue.py` — `_build_question_nodes()` + リレーション追加
-6. `.claude/skills/save-to-graph/guide.md` — Question Cypher テンプレート
+5. `scripts/emit_research_queue.py` — `_build_question_nodes()` + リレーション追加
+6. `.claude/skills/save-to-research-graph/guide.md` — Question Cypher テンプレート
 7. テスト — `TestBuildQuestionNodes`
 
 ---
@@ -260,9 +260,9 @@ article-neo4j プランと基本同一 + research-neo4j 固有 question_type 2�
 | `src/pdf_pipeline/services/id_generator.py` | 1,4 | generate_stance_id, generate_author_id, generate_question_id |
 | `src/pdf_pipeline/schemas/extraction.py` | 1,2,4 | ExtractedStance, ExtractedCausalLink, ExtractedQuestion |
 | `src/pdf_pipeline/core/knowledge_extractor.py` | 1,2,4 | _EXTRACTION_PROMPT 拡張 |
-| `scripts/emit_graph_queue.py` | 0-4 | バグ修正 + 新builder関数群 + _load_metric_alias_index |
-| `.claude/skills/save-to-graph/guide.md` | 0-4 | Cypher テンプレート追加 |
-| `tests/scripts/test_emit_graph_queue.py` | 0-4 | TestMapPdfExtraction + 各Wave テスト |
+| `scripts/emit_research_queue.py` | 0-4 | バグ修正 + 新builder関数群 + _load_metric_alias_index |
+| `.claude/skills/save-to-research-graph/guide.md` | 0-4 | Cypher テンプレート追加 |
+| `tests/scripts/test_emit_research_queue.py` | 0-4 | TestMapPdfExtraction + 各Wave テスト |
 | `scripts/backfill_stance_from_claims.py` (新規) | 1 | 既存Claim → Stance遡及生成 |
 | `scripts/backfill_temporal_chain.py` (新規) | 3 | 既存DP/FP → NEXT_PERIOD + TREND遡及生成 |
 | `data/config/metric_master.json` | 3 | 参照のみ（変更なし） |
@@ -272,14 +272,14 @@ article-neo4j プランと基本同一 + research-neo4j 固有 question_type 2�
 ```bash
 # 各Wave共通
 make check-all
-uv run pytest tests/scripts/test_emit_graph_queue.py -v
+uv run pytest tests/scripts/test_emit_research_queue.py -v
 
 # graph-queue 生成テスト
-uv run python scripts/emit_graph_queue.py --command pdf-extraction --input data/processed/HSBC_ISAT/
+uv run python scripts/emit_research_queue.py --command pdf-extraction --input data/processed/HSBC_ISAT/
 
 # research-neo4j 投入テスト (port 7688)
 docker start research-neo4j
-NEO4J_URI=bolt://localhost:7688 /save-to-graph --file .tmp/graph-queue/pdf-extraction/gq-*.json
+NEO4J_URI=bolt://localhost:7688 /save-to-research-graph --file .tmp/graph-queue/pdf-extraction/gq-*.json
 
 # 推論クエリ検証
 cypher-shell -a bolt://localhost:7688 -u neo4j -p "$NEO4J_PASSWORD" \

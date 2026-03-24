@@ -64,7 +64,7 @@ alphaxiv MCP で検索、key papers のコンテンツ取得、graph-queue パ�
 
 ### Part 6: パイプライン修正
 
-`emit_graph_queue.py` に `_build_wr_causal_rels()` 追加。
+`emit_research_queue.py` に `_build_wr_causal_rels()` 追加。
 入力 JSON の `causal_links` で CAUSES/CONTRADICTS/SUPPORTED_BY/DERIVED_FROM/INFLUENCES を指定可能に。
 
 ## 決定事項
@@ -100,7 +100,7 @@ alphaxiv MCP で検索、key papers のコンテンツ取得、graph-queue パ�
 
 ### 修正ファイル
 - `scripts/kg_quality_metrics.py` — --exit-code, --min-score, --skip-accuracy, --accuracy-sample-size, --alert, _find_latest_snapshot exclude_date
-- `scripts/emit_graph_queue.py` — _build_wr_causal_rels() 追加
+- `scripts/emit_research_queue.py` — _build_wr_causal_rels() 追加
 - `Makefile` — kg-quality ターゲット追加
 - `.github/workflows/ci.yml` — kg-quality dry-run job 追加
 

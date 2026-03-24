@@ -9,7 +9,7 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 creator-neo4j（bolt://localhost:7689）のナレッジグラフを自動拡充する5フェーズループ。
 終了時刻（`--until`）まで、ギャップ分析→検索→分類・Entity抽出→パイプライン投入を繰り返す。
 
-> **警告**: `/save-to-graph` は research-neo4j 専用です。creator-neo4j への投入には必ず `/save-to-creator-graph` を使用してください。
+> **警告**: `/save-to-research-graph` は research-neo4j 専用です。creator-neo4j への投入には必ず `/save-to-creator-graph` を使用してください。
 
 ---
 
@@ -267,7 +267,7 @@ PersuasionTechnique, EmotionalHook, CopyFramework, Objection, Transformation
 
 ## Phase 4: Pipeline（パイプライン投入）
 
-> **警告**: `/save-to-graph` は research-neo4j 専用です。creator-neo4j には `/save-to-creator-graph` を使用してください。
+> **警告**: `/save-to-research-graph` は research-neo4j 専用です。creator-neo4j には `/save-to-creator-graph` を使用してください。
 
 ### 4-0. Entity リンキング（Phase 3.5）
 

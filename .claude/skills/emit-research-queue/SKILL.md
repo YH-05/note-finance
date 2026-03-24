@@ -2,8 +2,8 @@
 name: emit-research-queue
 description: |
   アドホック調査データを research-neo4j に投入するためのスキル。
-  リサーチ結果の入力 JSON を構築し、emit_graph_queue.py --command web-research で
-  graph-queue JSON を生成した後、/save-to-graph でNeo4jに投入する。
+  リサーチ結果の入力 JSON を構築し、emit_research_queue.py --command web-research で
+  graph-queue JSON を生成した後、/save-to-research-graph でNeo4jに投入する。
   Use PROACTIVELY when リサーチ結果をナレッジグラフに永続化したい場合。
 allowed-tools: Read, Write, Bash, Glob
 ---
@@ -11,20 +11,20 @@ allowed-tools: Read, Write, Bash, Glob
 # emit-research-queue スキル
 
 アドホック調査データ（Web検索、論文、レポート等）を research-neo4j に投入するためのスキル。
-`emit_graph_queue.py --command web-research` のラッパーとして、リサーチ後の Neo4j 永続化フローを統一する。
+`emit_research_queue.py --command web-research` のラッパーとして、リサーチ後の Neo4j 永続化フローを統一する。
 
 ## 処理フロー
 
 ```
 1. 入力 JSON 構築（インラインまたはファイル指定）
-2. uv run python scripts/emit_graph_queue.py --command web-research --input {file}
+2. uv run python scripts/emit_research_queue.py --command web-research --input {file}
 3. graph-queue JSON を生成（.tmp/graph-queue/web-research/ に出力）
-4. /save-to-graph チェーン呼び出し
+4. /save-to-research-graph チェーン呼び出し
 ```
 
 ## 入力 JSON スキーマ
 
-入力 JSON は `.tmp/research-input/` に保存し、`emit_graph_queue.py` に渡す。
+入力 JSON は `.tmp/research-input/` に保存し、`emit_research_queue.py` に渡す。
 
 ### 全体構造
 
@@ -170,7 +170,7 @@ mkdir -p .tmp/research-input
 ### ステップ 2: graph-queue JSON を生成
 
 ```bash
-uv run python scripts/emit_graph_queue.py \
+uv run python scripts/emit_research_queue.py \
   --command web-research \
   --input .tmp/research-input/{session_id}.json
 ```
@@ -179,10 +179,10 @@ uv run python scripts/emit_graph_queue.py \
 
 ### ステップ 3: Neo4j に投入
 
-`/save-to-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
+`/save-to-research-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
 
 ```bash
-/save-to-graph --source web-research
+/save-to-research-graph --source web-research
 ```
 
 ## 投入前チェックリスト
@@ -191,9 +191,9 @@ uv run python scripts/emit_graph_queue.py \
 
 - [ ] 入力 JSON に `sources[].authority_level` が設定されているか
 - [ ] `facts[].source_url` が `sources` 内の URL と一致しているか
-- [ ] `emit_graph_queue.py --command web-research` で graph-queue JSON が生成できるか
+- [ ] `emit_research_queue.py --command web-research` で graph-queue JSON が生成できるか
 - [ ] graph-queue JSON の `fact_entity` のリレーションタイプが `RELATES_TO` であるか
-- [ ] `/save-to-graph` 実行前に MATCH クエリで対象データ件数を確認したか
+- [ ] `/save-to-research-graph` 実行前に MATCH クエリで対象データ件数を確認したか
 
 ## エラーハンドリング
 
@@ -202,14 +202,14 @@ uv run python scripts/emit_graph_queue.py \
 | `KeyError: 'authority_level'` | sources に authority_level が未設定 | 全ソースに authority_level を設定 |
 | `Fact source_url not found in sources` | facts の source_url が sources に存在しない | source_url を sources 内の URL と一致させる |
 | graph-queue JSON が空 | 入力 JSON のフォーマット不正 | 入力 JSON スキーマを確認 |
-| `/save-to-graph` 失敗 | Neo4j 未起動 | Neo4j を起動してから再実行 |
+| `/save-to-research-graph` 失敗 | Neo4j 未起動 | Neo4j を起動してから再実行 |
 
 ## 関連ファイル
 
 | リソース | パス |
 |---------|------|
-| graph-queue 生成スクリプト | `scripts/emit_graph_queue.py` |
-| Neo4j 投入スキル | `.claude/skills/save-to-graph/SKILL.md` |
+| graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
+| Neo4j 投入スキル | `.claude/skills/save-to-research-graph/SKILL.md` |
 | Neo4j 直書き禁止ルール | `.claude/rules/neo4j-write-rules.md` |
 | ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
 | graph-queue 出力先 | `.tmp/graph-queue/web-research/` |

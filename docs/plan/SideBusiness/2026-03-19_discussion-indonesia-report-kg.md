@@ -26,7 +26,7 @@ ASEAN市場調査の一環として、Nomura の "Indonesia Equity Strategy - Tu
 ### Phase 3: Graph-Queue 生成
 
 ```bash
-uv run python scripts/emit_graph_queue.py --command web-research --input .tmp/indonesia-report-input.json
+uv run python scripts/emit_research_queue.py --command web-research --input .tmp/indonesia-report-input.json
 ```
 
 ### Phase 4: Neo4j 投入 (research-neo4j, bolt://localhost:7688)

@@ -334,4 +334,4 @@ Decision の ID は連番形式（`-NNN`）またはスラッグ形式（`-topic
 | SideBusiness ドキュメント | `docs/plan/SideBusiness/` |
 | note-neo4j Cypher MCP | `mcp__neo4j-note__note-*` (bolt://localhost:7687) |
 | Neo4j Data Modeling MCP | `mcp__neo4j-data-modeling__*` |
-| save-to-graph スキル | `.claude/skills/save-to-graph/SKILL.md` |
+| save-to-research-graph スキル | `.claude/skills/save-to-research-graph/SKILL.md` |

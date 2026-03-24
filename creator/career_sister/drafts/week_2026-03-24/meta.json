@@ -8,11 +8,11 @@
   "cycles_consumed": 2.1,
   "days": [
     {
-      "date": "2026-03-24", "day_label": "月", "status": "draft",
+      "date": "2026-03-24", "day_label": "月", "status": "published",
       "slots": [
-        {"slot": "朝", "category": "有益", "type": "型2", "theme": "T1", "instagram": false},
-        {"slot": "昼", "category": "エンゲージメント", "type": "型1-A", "theme": "T3", "instagram": false},
-        {"slot": "夜", "category": "有益", "type": "型4", "theme": "T2", "instagram": true, "carousel_slides": 6}
+        {"slot": "朝", "category": "有益", "type": "型2", "theme": "T1", "instagram": false, "status": "published", "published_at": "2026-03-24T12:05:37+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWQF-5xE0fO"},
+        {"slot": "昼", "category": "エンゲージメント", "type": "型1-A", "theme": "T3", "instagram": false, "status": "published", "published_at": "2026-03-24T12:42:27+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWQKMqbE5mQ"},
+        {"slot": "夜", "category": "有益", "type": "型4", "theme": "T2", "instagram": true, "carousel_slides": 6, "status": "published", "published_at": "2026-03-24T12:43:26+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWQKTz4k3Ba", "instagram_permalink": "https://www.instagram.com/p/DWQKgUak9G8/"}
       ]
     },
     {

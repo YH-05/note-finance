@@ -1,9 +1,9 @@
 """E2E integration tests for graph-queue pipeline.
 
 graph-queue 生成 → フォーマット検証 → 冪等性確認の一連の流れを検証。
-Neo4j 接続は不要で、emit_graph_queue.py の出力品質と冪等性を保証する。
+Neo4j 接続は不要で、emit_research_queue.py の出力品質と冪等性を保証する。
 
-Issue #50: [Wave3] save-to-graph E2E 検証・冪等性テスト
+Issue #50: [Wave3] save-to-research-graph E2E 検証・冪等性テスト
 """
 
 from __future__ import annotations

@@ -30,7 +30,7 @@ Selective Reification（選択的実体化）戦略により、推論に必要�
 
 | パターン | 説明 |
 |---------|------|
-| `_build_*_nodes()` ヘルパー関数 | scripts/emit_graph_queue.py L665-1060 — 5つのbuilder関数が存在 |
+| `_build_*_nodes()` ヘルパー関数 | scripts/emit_research_queue.py L665-1060 — 5つのbuilder関数が存在 |
 | UUID5 / SHA-256 ID戦略 | id_generator.py — UUID5（source/entity/chunk/period）、SHA-256[:32]（claim/fact/datapoint） |
 | `_mapped_result()` 9キーワード引数 | sources/topics/claims/facts/entities/chunks/financial_datapoints/fiscal_periods/relations |
 | テスト命名規則 | test_正常系_*/test_異常系_*/test_エッジケース_* |
@@ -39,9 +39,9 @@ Selective Reification（選択的実体化）戦略により、推論に必要�
 
 | ファイル | 参考にすべき点 |
 |---------|-------------|
-| `scripts/emit_graph_queue.py` L665-1060 | `_build_*_nodes()` パターン — 新builder関数もこの形式に統一 |
+| `scripts/emit_research_queue.py` L665-1060 | `_build_*_nodes()` パターン — 新builder関数もこの形式に統一 |
 | `src/pdf_pipeline/schemas/extraction.py` L132-195 | `ExtractedClaim` パターン — 新モデルもこの形式に統一 |
-| `tests/scripts/test_emit_graph_queue.py` | テストクラス・ヘルパー関数パターン |
+| `tests/scripts/test_emit_research_queue.py` | テストクラス・ヘルパー関数パターン |
 
 ### 技術的考慮事項
 
@@ -60,7 +60,7 @@ PDF → KnowledgeExtractor（LLMプロンプト）
   → _process_chunk()（chunk内builder群）
   → map_pdf_extraction()（後処理: SUPERSEDES/NEXT_PERIOD/TREND連鎖生成）
   → _mapped_result()（graph-queue JSON）
-  → save-to-graph スキル（Cypher MERGE）
+  → save-to-research-graph スキル（Cypher MERGE）
   → article-neo4j（bolt://localhost:7689）/ research-neo4j（bolt://localhost:7688）
 ```
 

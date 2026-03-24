@@ -63,7 +63,7 @@ def kg_export(
     """Export YouTube transcripts to graph-queue JSON for Neo4j ingestion.
 
     Generates graph-queue JSON files in .tmp/graph-queue/youtube_transcript/.
-    Use the /save-to-graph skill to ingest the generated files into Neo4j.
+    Use the /save-to-research-graph skill to ingest the generated files into Neo4j.
     """
     if not channel_id:
         msg = "Specify --channel-id <id>"

@@ -59,7 +59,7 @@ ORDER BY total DESC
 
 | スキル名 | 実行回数 | 成功 | 失敗 | partial | timeout | running | 成功率 (%) |
 |----------|---------|------|------|---------|---------|---------|-----------|
-| save-to-graph | 45 | 40 | 3 | 1 | 1 | 0 | 88.9 |
+| save-to-research-graph | 45 | 40 | 3 | 1 | 1 | 0 | 88.9 |
 | finance-news-workflow | 30 | 28 | 2 | 0 | 0 | 0 | 93.3 |
 
 ---
@@ -104,7 +104,7 @@ LIMIT 10
 | スキル名 | 総実行 | 失敗数 | 失敗率 (%) | 主なエラータイプ |
 |----------|--------|--------|-----------|-----------------|
 | pdf-to-knowledge | 10 | 5 | 50.0 | cypher_execution |
-| save-to-graph | 45 | 4 | 8.9 | neo4j_connection |
+| save-to-research-graph | 45 | 4 | 8.9 | neo4j_connection |
 
 ---
 
@@ -209,7 +209,7 @@ ORDER BY count DESC
 
 | エラータイプ | 件数 | 影響スキル数 | 影響スキル | 代表エラーメッセージ |
 |-------------|------|-------------|-----------|---------------------|
-| neo4j_connection | 8 | 3 | [save-to-graph, ...] | Connection refused to bolt://... |
+| neo4j_connection | 8 | 3 | [save-to-research-graph, ...] | Connection refused to bolt://... |
 | cypher_execution | 5 | 2 | [pdf-to-knowledge, ...] | SyntaxError: Invalid input... |
 
 ### error_type 分類一覧
@@ -274,8 +274,8 @@ LIMIT 10
 
 | 親スキル | 子スキル | 親ステータス | 子ステータス | 発生回数 |
 |----------|---------|-------------|-------------|---------|
-| finance-news-workflow | save-to-graph | failure | failure | 3 |
-| pdf-to-knowledge | save-to-graph | success | failure | 2 |
+| finance-news-workflow | save-to-research-graph | failure | failure | 3 |
+| pdf-to-knowledge | save-to-research-graph | success | failure | 2 |
 
 ### カスケード深度分析（3 階層以上）
 

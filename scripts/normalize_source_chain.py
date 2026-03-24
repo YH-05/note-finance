@@ -16,8 +16,8 @@ Usage
     # Phase 1: Generate graph-queue JSON (read-only)
     uv run python scripts/normalize_source_chain.py
 
-    # Phase 2: Ingest via /save-to-graph
-    # (run /save-to-graph on the generated JSON)
+    # Phase 2: Ingest via /save-to-research-graph
+    # (run /save-to-research-graph on the generated JSON)
 
     # Phase 3: Cleanup old EXTRACTED_FROM(Fact/Claim → Source)
     uv run python scripts/normalize_source_chain.py --cleanup-report
@@ -322,7 +322,7 @@ def main() -> None:
 
         logger.info("Graph-queue written: %s", output_path)
         print(f"\nNext steps:")
-        print(f"  1. /save-to-graph {output_path}")
+        print(f"  1. /save-to-research-graph {output_path}")
         print(f"  2. Verify: MATCH (f)-[:EXTRACTED_FROM]->(ch:Chunk) RETURN count(f)")
         print(f"  3. Cleanup: uv run python scripts/normalize_source_chain.py --cleanup-report")
     finally:

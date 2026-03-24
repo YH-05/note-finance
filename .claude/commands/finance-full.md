@@ -207,10 +207,10 @@ Phase 3: 記事執筆
 ### Step 3.2: graph-queue 出力（任意）
 
 ```bash
-python scripts/emit_graph_queue.py \
+python scripts/emit_research_queue.py \
   --command finance-full \
   --input "articles/${article_id}/01_research/"
-echo "graph-queue files generated. Run /save-to-graph to ingest."
+echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 ```
 
 ## 完了報告

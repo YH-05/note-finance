@@ -16,7 +16,7 @@ Neo4j ナレッジグラフに投入するためのパッケージである。
 
 - note-finance の研究ワークフローで alphaxiv MCP を使用して論文を調査した後、
   その論文の著者ネットワーク・引用グラフを Neo4j に自動構築する
-- 既存の graph-queue パイプライン（`emit_graph_queue.py` → `/save-to-graph`）と統合する
+- 既存の graph-queue パイプライン（`emit_research_queue.py` → `/save-to-research-graph`）と統合する
 
 ### 移植方針
 
@@ -263,7 +263,7 @@ python -m academic backfill --ids-file ids.txt --output-dir .tmp/academic
 | リレーション: about | あり | `about` → 維持 |
 | quants 固有リレーション | exploits, evaluates, quantified_by 等 | **除外**（note-finance 未使用） |
 
-academic mapper が出力する graph-queue は note-finance の `/save-to-graph` コマンドと完全互換。
+academic mapper が出力する graph-queue は note-finance の `/save-to-research-graph` コマンドと完全互換。
 
 ---
 
@@ -331,7 +331,7 @@ python -m academic backfill \
 
 # 4. graph-queue → Neo4j 投入
 /emit-graph-queue --command academic-fetch --input .tmp/academic/graph-queue.json
-/save-to-graph
+/save-to-research-graph
 ```
 
 ### Python API
@@ -366,7 +366,7 @@ graph_queue = map_academic_papers({
 
 | 項目 | 優先度 | 説明 |
 |------|--------|------|
-| `emit_graph_queue.py` に `academic-fetch` マッパー追加 | 高 | `/emit-graph-queue --command academic-fetch` 対応 |
+| `emit_research_queue.py` に `academic-fetch` マッパー追加 | 高 | `/emit-graph-queue --command academic-fetch` 対応 |
 | テストスイート移植 | 中 | `tests/academic/` の unit/property テスト |
 | `/academic-fetch` スラッシュコマンド作成 | 中 | Claude Code コマンドとして統合 |
 | S2 API キー取得・設定 | 低 | レート制限緩和（100 req/sec） |

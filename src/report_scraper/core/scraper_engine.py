@@ -183,6 +183,37 @@ class ScraperEngine:
             duration_seconds=round(elapsed, 2),
         )
 
+        # AIDEV-NOTE: Layer 2 原文保存フック
+        try:
+            from data_pipeline.integrations.bridge import save_report_scraper_results
+
+            for cr in results:
+                reports_dict = [
+                    {
+                        "metadata": {
+                            "url": r.metadata.url,
+                            "title": r.metadata.title,
+                            "published": r.metadata.published.isoformat() if r.metadata.published else None,
+                            "source_key": r.metadata.source_key,
+                            "author": r.metadata.author,
+                            "tags": list(r.metadata.tags),
+                        },
+                        "content": {
+                            "text": r.content.text if r.content else "",
+                            "method": r.content.method if r.content else None,
+                        },
+                    }
+                    for r in cr.reports
+                ]
+                if reports_dict:
+                    sr = save_report_scraper_results(reports_dict, source_id=cr.source_key)
+                    logger.info(
+                        "RawStore: saved=%d, dup=%d (source=%s)",
+                        sr.saved, sr.skipped_duplicate, cr.source_key,
+                    )
+        except Exception as exc:
+            logger.warning("RawStore save failed (non-blocking): %s", exc)
+
         return RunSummary(
             timestamp=timestamp,
             results=tuple(results),

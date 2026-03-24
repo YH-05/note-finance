@@ -6,7 +6,7 @@ argument-hint: --command <command> --input <path> [--cleanup]
 # /emit-graph-queue - graph-queue JSON 生成
 
 各種ワークフローの出力データを graph-queue JSON に変換し、`.tmp/graph-queue/` に出力します。
-生成された JSON は `/save-to-graph` で Neo4j に投入できます。
+生成された JSON は `/save-to-research-graph` で Neo4j に投入できます。
 
 ## 引数の解析
 
@@ -47,10 +47,10 @@ test -f "${INPUT_PATH}" && echo "OK" || echo "ERROR: File not found"
 test -d "${INPUT_PATH}" && echo "OK" || echo "ERROR: Directory not found"
 ```
 
-### Step 3: emit_graph_queue.py の実行
+### Step 3: emit_research_queue.py の実行
 
 ```bash
-uv run python scripts/emit_graph_queue.py \
+uv run python scripts/emit_research_queue.py \
   --command "${COMMAND}" \
   --input "${INPUT_PATH}"
 ```
@@ -68,7 +68,7 @@ uv run python scripts/emit_graph_queue.py \
 | 入力 | ${INPUT_PATH} |
 | 出力 | ${OUTPUT_FILE} |
 
-次のステップ: `/save-to-graph` で Neo4j に投入
+次のステップ: `/save-to-research-graph` で Neo4j に投入
 ```
 
 ## 使用例
@@ -89,7 +89,7 @@ uv run python scripts/emit_graph_queue.py \
 
 ## 関連コマンド
 
-- **Neo4j 投入**: `/save-to-graph`（生成済み graph-queue JSON → Neo4j）
+- **Neo4j 投入**: `/save-to-research-graph`（生成済み graph-queue JSON → Neo4j）
 - **ウェルスブログ収集**: `/scrape-finance-blog`（backfill 記事を収集）
 - **ニュース収集**: `/collect-finance-news`
 - **マーケットレポート**: `/generate-market-report`
@@ -98,7 +98,7 @@ uv run python scripts/emit_graph_queue.py \
 
 | リソース | パス |
 |---------|------|
-| 生成スクリプト | `scripts/emit_graph_queue.py` |
+| 生成スクリプト | `scripts/emit_research_queue.py` |
 | graph-queue 出力先 | `.tmp/graph-queue/{command}/` |
-| save-to-graph スキル | `.claude/skills/save-to-graph/SKILL.md` |
+| save-to-research-graph スキル | `.claude/skills/save-to-research-graph/SKILL.md` |
 | KG スキーマ定義 | `data/config/knowledge-graph-schema.yaml` |

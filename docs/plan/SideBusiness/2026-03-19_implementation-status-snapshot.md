@@ -84,7 +84,7 @@
 5. **topic-discovery KG統合**: Phase 0 (KG トピック発掘 8クエリ→4種候補生成) を追加
 6. **generate-image-prompt スキル新設**: Nano Banana向け英語プロンプト、カテゴリ別スタイル対応
 7. **ISAT競合企業分析**: Telkomsel/XLSmart/Telkom Indonesia のデータ拡充、パイプライン3問題修正
-8. **KGパイプライン正規化**: emit_graph_queue.py に _normalize_entity_type()/_normalize_source_type() 追加
+8. **KGパイプライン正規化**: emit_research_queue.py に _normalize_entity_type()/_normalize_source_type() 追加
 
 ## 未完了 ActionItems
 
@@ -100,7 +100,7 @@
 - [ ] REVISED状態の記事をnote.comに投稿 (優先: macro_economy 3本, stock_analysis 1本)
 - [ ] レガシーリレーション名をリネーム (110件)
 - [ ] kg_quality_metrics.py の定期実行設定 (週次cron or GitHub Actions)
-- [ ] emit_graph_queue.py に topic-discovery コマンドを追加するか検証
+- [ ] emit_research_queue.py に topic-discovery コマンドを追加するか検証
 - [ ] 各カテゴリスキルへのKGギャップ分析統合を検討
 
 ## 参考情報

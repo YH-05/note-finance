@@ -29,9 +29,9 @@ PDF ファイルからナレッジグラフ投入までを一括実行するワ�
   |     +-- extraction.json 生成（CLI ヘルパー）
   |
   +-- Phase 3: Graph-Queue 生成
-  |     +-- emit_graph_queue.py でキュー JSON 出力
+  |     +-- emit_research_queue.py でキュー JSON 出力
   |
-  +-- Phase 4: Neo4j 投入 (save-to-graph スキルのロジック)
+  +-- Phase 4: Neo4j 投入 (save-to-research-graph スキルのロジック)
         +-- キュー検出・検証
         +-- ノード投入（MERGE）
         +-- リレーション投入（MERGE）
@@ -281,7 +281,7 @@ extraction.json から graph-queue JSON を生成する。
 ### 実行コマンド
 
 ```bash
-python3 scripts/emit_graph_queue.py \
+python3 scripts/emit_research_queue.py \
     --command pdf-extraction \
     --input "{OUTPUT_DIR}/extraction.json"
 ```
@@ -302,7 +302,7 @@ python3 scripts/emit_graph_queue.py \
 
 ### graph-queue JSON の検出
 
-emit_graph_queue.py の出力パスを取得するため、以下のいずれかの方法を使用:
+emit_research_queue.py の出力パスを取得するため、以下のいずれかの方法を使用:
 
 1. **stdout 出力の確認**: スクリプトが出力パスを表示する
 2. **ディレクトリ走査**: `.tmp/graph-queue/pdf-extraction/` 配下の最新ファイルを取得
@@ -320,13 +320,13 @@ Phase 3 で失敗した場合、**extraction.json は残す**。Phase 4 はス�
 |--------|------|------|
 | extraction.json 不存在 | Phase 2 の結果が見つからない | Phase 2 を確認 |
 | JSON パースエラー | extraction.json の形式不正 | Phase 2 を再実行 |
-| emit_graph_queue.py 実行エラー | マッパー関数のエラー | スクリプトのログを確認 |
+| emit_research_queue.py 実行エラー | マッパー関数のエラー | スクリプトのログを確認 |
 
 ---
 
 ## Phase 4: Neo4j 投入
 
-save-to-graph スキルのロジックを使用して、graph-queue JSON を Neo4j に投入する。詳細は `.claude/skills/save-to-graph/SKILL.md` を参照。
+save-to-research-graph スキルのロジックを使用して、graph-queue JSON を Neo4j に投入する。詳細は `.claude/skills/save-to-research-graph/SKILL.md` を参照。
 
 ### 前提条件（Phase 4 固有）
 
@@ -336,7 +336,7 @@ save-to-graph スキルのロジックを使用して、graph-queue JSON を Neo
 
 ### 実行方式
 
-save-to-graph スキルの処理フローに従い、以下を実行:
+save-to-research-graph スキルの処理フローに従い、以下を実行:
 
 1. **Neo4j 接続確認**
    ```bash
@@ -359,7 +359,7 @@ save-to-graph スキルの処理フローに従い、以下を実行:
 
 ### パラメータ連携
 
-| 本スキルパラメータ | save-to-graph 相当 |
+| 本スキルパラメータ | save-to-research-graph 相当 |
 |-------------------|-------------------|
 | `--dry-run` | `--dry-run` |
 | `--keep` | `--keep` |
@@ -381,7 +381,7 @@ Phase 4（Neo4j 投入）が失敗しました。
 graph-queue ファイルは保持されています: {GQ_FILE}
 
 Neo4j が利用可能になったら、以下のコマンドで手動投入できます:
-  /save-to-graph --file {GQ_FILE}
+  /save-to-research-graph --file {GQ_FILE}
 ```
 
 ---
@@ -529,12 +529,12 @@ Phase 4（Neo4j 投入）はスキップされました。
 | リソース | パス |
 |---------|------|
 | convert-pdf スキル | `.claude/skills/convert-pdf/SKILL.md` |
-| save-to-graph スキル | `.claude/skills/save-to-graph/SKILL.md` |
-| save-to-graph 詳細ガイド | `.claude/skills/save-to-graph/guide.md` |
+| save-to-research-graph スキル | `.claude/skills/save-to-research-graph/SKILL.md` |
+| save-to-research-graph 詳細ガイド | `.claude/skills/save-to-research-graph/guide.md` |
 | CLI ヘルパー | `src/pdf_pipeline/cli/helpers.py` |
 | KnowledgeExtractor | `src/pdf_pipeline/core/knowledge_extractor.py` |
 | MarkdownChunker | `src/pdf_pipeline/core/chunker.py` |
-| graph-queue 生成スクリプト | `scripts/emit_graph_queue.py` |
+| graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
 | ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
 | StateManager | `src/pdf_pipeline/services/state_manager.py` |
 | data_paths | `src/data_paths/` |
@@ -554,8 +554,8 @@ Phase 4（Neo4j 投入）はスキップされました。
 - 4 フェーズ構成ワークフロースキル新規作成
 - Phase 1: convert-pdf スキルのロジック統合
 - Phase 2: extract_knowledge CLI ヘルパー連携
-- Phase 3: emit_graph_queue.py (pdf-extraction コマンド) 連携
-- Phase 4: save-to-graph スキルのロジック統合
+- Phase 3: emit_research_queue.py (pdf-extraction コマンド) 連携
+- Phase 4: save-to-research-graph スキルのロジック統合
 - グレースフルデグラデーション対応
 - 複数 PDF 連続処理対応
 - --force, --skip-neo4j, --dry-run, --keep パラメータ対応

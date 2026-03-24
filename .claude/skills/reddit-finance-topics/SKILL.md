@@ -323,10 +323,10 @@ with open(output_file, "w", encoding="utf-8") as f:
 ### ステップ 1.9: graph-queue 出力（任意）
 
 ```bash
-python scripts/emit_graph_queue.py \
+python scripts/emit_research_queue.py \
   --command reddit-finance-topics \
   --input ".tmp/reddit-topics/${timestamp}.json"
-echo "graph-queue files generated. Run /save-to-graph to ingest."
+echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 ```
 
 ---
@@ -589,8 +589,8 @@ reddit-topic-analyzer がカテゴリごとに独立して出力するファイ�
 | 深掘り分析エージェント | `.claude/agents/reddit-topic-analyzer.md` |
 | フォーク元スキル | `.claude/skills/ai-research-workflow/SKILL.md` |
 | Reddit MCP サンプル | `.claude/agents_sample/research-reddit.md` |
-| graph-queue 出力スクリプト | `scripts/emit_graph_queue.py` |
-| graph-queue 取込コマンド | `/save-to-graph` |
+| graph-queue 出力スクリプト | `scripts/emit_research_queue.py` |
+| graph-queue 取込コマンド | `/save-to-research-graph` |
 
 ## 変更履歴
 

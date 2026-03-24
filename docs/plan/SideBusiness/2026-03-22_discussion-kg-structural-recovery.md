@@ -20,7 +20,7 @@
 ### 2. 根本原因分析
 
 4つの原因を特定:
-1. **save-to-graph Phase 3a で fact_entity RELATES_TO が欠落** — Entity MERGEは成功したがリレーション投入がスキップ/失敗（234件）
+1. **save-to-research-graph Phase 3a で fact_entity RELATES_TO が欠落** — Entity MERGEは成功したがリレーション投入がスキップ/失敗（234件）
 2. **academic-fetch と pdf-to-knowledge の Source 二重投入** — 同一論文に2つのSource、Author↔Fact断絶
 3. **Person Entity（著者）64件の孤立** — Author ノードとは別にEntityとして作成
 4. **直接MCP writeの20件** — リレーション未作成
@@ -29,7 +29,7 @@
 
 | 再発防止策 | 修正内容 |
 |-----------|---------|
-| save-to-graph Phase 3c検証 | 期待値vs実績の3段階判定（OK/WARNING/ERROR）、E006エラー定義 |
+| save-to-research-graph Phase 3c検証 | 期待値vs実績の3段階判定（OK/WARNING/ERROR）、E006エラー定義 |
 | Source重複統合 | 既存2件統合 + academic-fetch.mdに推奨ワークフロー追記 |
 | Orphanアラート | kg_quality_metrics.pyに閾値50(WARN)/200(CRIT)追加 |
 

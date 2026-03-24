@@ -251,11 +251,11 @@ for theme in themes:
 
 ```bash
 for batch_file in .tmp/news-batches/*.json; do
-  python scripts/emit_graph_queue.py \
+  python scripts/emit_research_queue.py \
     --command finance-news-workflow \
     --input "$batch_file"
 done
-echo "graph-queue files generated. Run /save-to-graph to ingest."
+echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 ```
 
 ## パラメータ一覧
@@ -290,8 +290,8 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 | Python CLI前処理 | `scripts/prepare_news_session.py` |
 | テーマ設定 | `data/config/finance-news-themes.json` |
 | news-article-fetcher | `.claude/agents/news-article-fetcher.md` |
-| graph-queue 出力スクリプト | `scripts/emit_graph_queue.py` |
-| graph-queue 取込コマンド | `/save-to-graph` |
+| graph-queue 出力スクリプト | `scripts/emit_research_queue.py` |
+| graph-queue 取込コマンド | `/save-to-research-graph` |
 | GitHub Project | https://github.com/users/YH-05/projects/15 |
 
 ## エラーハンドリング

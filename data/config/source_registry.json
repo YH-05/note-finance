@@ -1,0 +1,432 @@
+{
+    "version": "1.0",
+    "updated_at": "2026-03-24T00:00:00+09:00",
+    "sources": [
+        {
+            "source_id": "cnbc",
+            "name": "CNBC",
+            "name_ja": "CNBC",
+            "collection_method": "rss",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets.json",
+                "item_count": 21
+            },
+            "emit_command": "finance-news-workflow",
+            "tags": ["us_market", "news", "equity", "macro"],
+            "url": "https://www.cnbc.com",
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "nasdaq",
+            "name": "NASDAQ",
+            "name_ja": "NASDAQ",
+            "collection_method": "rss",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": false,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets.json",
+                "item_count": 3
+            },
+            "emit_command": "finance-news-workflow",
+            "tags": ["us_market", "news", "equity", "etf"],
+            "url": "https://www.nasdaq.com",
+            "neo4j_connected": true,
+            "notes": "全フィードHTTP 403 Bot検知のため無効化"
+        },
+        {
+            "source_id": "seeking-alpha",
+            "name": "Seeking Alpha",
+            "name_ja": "シーキング・アルファ",
+            "collection_method": "rss",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets.json",
+                "item_count": 1
+            },
+            "emit_command": "finance-news-workflow",
+            "tags": ["us_market", "equity", "analysis"],
+            "url": "https://seekingalpha.com",
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "investing-com",
+            "name": "Investing.com",
+            "name_ja": "インベスティング・ドットコム",
+            "collection_method": "rss",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets.json",
+                "item_count": 1
+            },
+            "emit_command": "finance-news-workflow",
+            "tags": ["global_market", "news"],
+            "url": "https://www.investing.com",
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "fed-imf",
+            "name": "FRB / IMF / Trading Economics",
+            "name_ja": "FRB・IMF・Trading Economics",
+            "collection_method": "rss",
+            "authority_level": 5,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets.json",
+                "item_count": 3
+            },
+            "emit_command": "finance-news-workflow",
+            "tags": ["macro", "central_bank", "official"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "tech-media",
+            "name": "Tech Media (HN / TechCrunch / Ars Technica)",
+            "name_ja": "テックメディア",
+            "collection_method": "rss",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets.json",
+                "item_count": 4
+            },
+            "emit_command": "finance-news-workflow",
+            "tags": ["tech", "ai", "news"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "marketwatch",
+            "name": "MarketWatch",
+            "name_ja": "マーケットウォッチ",
+            "collection_method": "rss",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": false,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets.json",
+                "item_count": 1
+            },
+            "tags": ["us_market", "news"],
+            "url": "https://www.marketwatch.com",
+            "neo4j_connected": true,
+            "notes": "Bot検知により本文抽出不可のため無効化"
+        },
+        {
+            "source_id": "jp-finance",
+            "name": "Japan Finance (FSA / BOJ / Daiwa / JPX / MOF)",
+            "name_ja": "日本金融（金融庁・日銀・大和総研・JPX・財務省）",
+            "collection_method": "rss",
+            "authority_level": 5,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets-jp.json",
+                "item_count": 10
+            },
+            "emit_command": "finance-news-workflow",
+            "tags": ["jp_market", "macro", "official", "regulatory"],
+            "neo4j_connected": false,
+            "notes": "Neo4j投入パイプライン未構築（優先度: 高）"
+        },
+        {
+            "source_id": "jp-media",
+            "name": "Japan Media (Toyo Keizai / Japan Times)",
+            "name_ja": "日本メディア（東洋経済・Japan Times）",
+            "collection_method": "rss",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets-jp.json",
+                "item_count": 4
+            },
+            "tags": ["jp_market", "news", "analysis"],
+            "neo4j_connected": false,
+            "notes": "Neo4j投入パイプライン未構築（優先度: 高）"
+        },
+        {
+            "source_id": "jp-trade",
+            "name": "JETRO",
+            "name_ja": "ジェトロ",
+            "collection_method": "rss",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "weekly",
+            "config_ref": {
+                "file": "rss-presets-jp.json",
+                "item_count": 2
+            },
+            "tags": ["jp_market", "trade", "asean"],
+            "url": "https://www.jetro.go.jp",
+            "neo4j_connected": false,
+            "notes": "Neo4j投入パイプライン未構築"
+        },
+        {
+            "source_id": "wealth-blogs-rss",
+            "name": "Wealth Management Blogs (RSS)",
+            "name_ja": "資産形成ブログRSS",
+            "collection_method": "rss",
+            "authority_level": 2,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "rss-presets-wealth.json",
+                "item_count": 11
+            },
+            "emit_command": "wealth-scrape",
+            "tags": ["wealth", "personal_finance", "blog"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "wealth-blogs-scrape",
+            "name": "Wealth Management Blogs (Scraping)",
+            "name_ja": "資産形成ブログ（サイトマップ）",
+            "collection_method": "scraping",
+            "authority_level": 2,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "weekly",
+            "config_ref": {
+                "file": "wealth-sitemap-config.json",
+                "item_count": 17
+            },
+            "emit_command": "wealth-scrape",
+            "tags": ["wealth", "personal_finance", "blog"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "report-scraper",
+            "name": "Sell-side / Buy-side Reports",
+            "name_ja": "セルサイド・バイサイドレポート",
+            "collection_method": "scraping",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "weekly",
+            "config_ref": {
+                "file": "report-scraper-config.yaml",
+                "item_count": 16
+            },
+            "emit_command": "pdf-extraction",
+            "tags": ["equity", "macro", "fixed_income", "research_report"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "ai-research",
+            "name": "AI Investment Value Chain (77 companies)",
+            "name_ja": "AI投資バリューチェーン（77社）",
+            "collection_method": "scraping",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "weekly",
+            "config_ref": {
+                "file": "prepare_ai_research_session.py",
+                "key": "COMPANY_CATEGORIES",
+                "item_count": 77
+            },
+            "emit_command": "ai-research-collect",
+            "tags": ["ai", "tech", "equity", "value_chain"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "yfinance",
+            "name": "Yahoo Finance Market Data",
+            "name_ja": "Yahoo Finance 市場データ",
+            "collection_method": "api",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "yfinance_tickers.json",
+                "item_count": 150
+            },
+            "emit_command": "generate-market-report",
+            "tags": ["quantitative", "market_data", "price", "index"],
+            "url": "https://finance.yahoo.com",
+            "neo4j_connected": false,
+            "notes": "週次レポート生成のみ利用。FinancialDataPointとしてのNeo4j投入パイプライン未構築（優先度: 高）"
+        },
+        {
+            "source_id": "fred",
+            "name": "FRED (Federal Reserve Economic Data)",
+            "name_ja": "FRED 経済指標",
+            "collection_method": "api",
+            "authority_level": 5,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "fred_series.json",
+                "item_count": 100
+            },
+            "emit_command": "generate-market-report",
+            "tags": ["quantitative", "macro", "economic_indicator", "official"],
+            "url": "https://fred.stlouisfed.org",
+            "neo4j_connected": false,
+            "notes": "週次レポート生成のみ利用。FinancialDataPointとしてのNeo4j投入パイプライン未構築（優先度: 高）"
+        },
+        {
+            "source_id": "sec-edgar",
+            "name": "SEC EDGAR",
+            "name_ja": "SEC EDGAR",
+            "collection_method": "api",
+            "authority_level": 5,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "tags": ["equity", "regulatory", "filing", "official"],
+            "url": "https://www.sec.gov/cgi-bin/browse-edgar",
+            "neo4j_connected": true,
+            "notes": "sec-edgar MCP経由。web-researchコマンドでNeo4j投入"
+        },
+        {
+            "source_id": "reddit",
+            "name": "Reddit Finance Communities",
+            "name_ja": "Reddit金融コミュニティ",
+            "collection_method": "api",
+            "authority_level": 1,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "weekly",
+            "config_ref": {
+                "file": "reddit-subreddits.json"
+            },
+            "emit_command": "reddit-finance-topics",
+            "tags": ["sentiment", "ugc", "discussion"],
+            "url": "https://www.reddit.com",
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "arxiv",
+            "name": "arXiv Academic Papers",
+            "name_ja": "arXiv学術論文",
+            "collection_method": "api",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "emit_command": "academic-fetch",
+            "tags": ["academic", "research", "ai", "finance"],
+            "url": "https://arxiv.org",
+            "neo4j_connected": true,
+            "notes": "alphaxiv MCP経由"
+        },
+        {
+            "source_id": "wikipedia",
+            "name": "Wikipedia",
+            "name_ja": "ウィキペディア",
+            "collection_method": "api",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "tags": ["background", "entity_enrichment", "reference"],
+            "url": "https://en.wikipedia.org",
+            "neo4j_connected": false,
+            "notes": "wikipedia MCP利用可能だがNeo4j投入パイプライン未構築。Entity充填率改善に必要（優先度: 中）"
+        },
+        {
+            "source_id": "tavily",
+            "name": "Tavily Search",
+            "name_ja": "Tavily検索",
+            "collection_method": "web_search",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "emit_command": "web-research",
+            "tags": ["search", "ad_hoc"],
+            "neo4j_connected": true,
+            "notes": "Tavily MCP経由。web-researchコマンドでNeo4j投入"
+        },
+        {
+            "source_id": "gemini-search",
+            "name": "Gemini Search",
+            "name_ja": "Gemini検索",
+            "collection_method": "web_search",
+            "authority_level": 3,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "emit_command": "web-research",
+            "tags": ["search", "ad_hoc"],
+            "neo4j_connected": true,
+            "notes": "Gemini CLI経由。web-researchコマンドでNeo4j投入"
+        },
+        {
+            "source_id": "pdf-sellside",
+            "name": "Sell-side Report PDFs",
+            "name_ja": "セルサイドレポートPDF",
+            "collection_method": "pdf",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "emit_command": "pdf-extraction",
+            "tags": ["equity", "macro", "research_report"],
+            "neo4j_connected": true,
+            "notes": "pdf-to-knowledge スキルで変換→Neo4j投入"
+        },
+        {
+            "source_id": "pdf-earnings",
+            "name": "Earnings Report PDFs",
+            "name_ja": "決算資料PDF",
+            "collection_method": "pdf",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "emit_command": "pdf-extraction",
+            "tags": ["equity", "earnings", "financial_statement"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "pdf-research",
+            "name": "Research Paper PDFs",
+            "name_ja": "リサーチペーパーPDF",
+            "collection_method": "pdf",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": true,
+            "schedule": "on_demand",
+            "emit_command": "pdf-extraction",
+            "tags": ["academic", "research"],
+            "neo4j_connected": true
+        },
+        {
+            "source_id": "industry-research",
+            "name": "Industry Research (McKinsey / BCG / Goldman / Gartner)",
+            "name_ja": "業界リサーチ",
+            "collection_method": "scraping",
+            "authority_level": 4,
+            "target_instance": "research",
+            "enabled": false,
+            "schedule": "weekly",
+            "tags": ["sector", "strategy", "research_report"],
+            "neo4j_connected": false,
+            "notes": "Neo4j投入パイプライン未構築（優先度: 低）。スクレイピング基盤の整備が先"
+        }
+    ]
+}

@@ -205,12 +205,12 @@ ORDER BY period
 
 ## 使用例
 
-### 例: save-to-graph スキルの改善提案
+### 例: save-to-research-graph スキルの改善提案
 
 ```markdown
 ## 1. Evidence
 
-**対象スキル**: `save-to-graph`
+**対象スキル**: `save-to-research-graph`
 **集計期間**: 2026-02-18 - 2026-03-18
 **総実行数**: 45
 
@@ -227,14 +227,14 @@ ORDER BY period
 
 - **重大度**: High
 - **根拠**: 失敗 8 件中 5 件が neo4j_connection エラー
-- **影響範囲**: save-to-graph, pdf-to-knowledge（カスケード）
+- **影響範囲**: save-to-research-graph, pdf-to-knowledge（カスケード）
 - **発生パターン**: Docker コンテナ再起動直後に集中
 
 ## 3. Proposed Changes
 
 #### Change 1: 接続リトライロジックの追加（→ Issue 1 対応）
 
-- **変更対象**: `.claude/skills/save-to-graph/SKILL.md`
+- **変更対象**: `.claude/skills/save-to-research-graph/SKILL.md`
 - **変更種別**: 追加
 - **変更内容**:
   - Neo4j 接続失敗時のリトライガイダンスを追加（3 回、指数バックオフ）

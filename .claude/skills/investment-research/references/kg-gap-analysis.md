@@ -210,7 +210,7 @@ RETURN e.name AS entity,
 
 ### 検索結果 → 入力JSON変換ルール
 
-Web検索結果を `emit_graph_queue.py --command web-research` の入力JSONに変換する。
+Web検索結果を `emit_research_queue.py --command web-research` の入力JSONに変換する。
 
 ```json
 {
@@ -279,7 +279,7 @@ SET q.status = 'answered'
 | リソース | パス |
 |---------|------|
 | emit-research-queue スキル | `.claude/skills/emit-research-queue/SKILL.md` |
-| save-to-graph スキル | `.claude/skills/save-to-graph/SKILL.md` |
+| save-to-research-graph スキル | `.claude/skills/save-to-research-graph/SKILL.md` |
 | Neo4j直書き禁止ルール | `.claude/rules/neo4j-write-rules.md` |
 | ソース信頼度定義 | `.claude/skills/investment-research/references/source-reliability.md` |
 | KGスキーマ定義 | `data/config/knowledge-graph-schema.yaml` |

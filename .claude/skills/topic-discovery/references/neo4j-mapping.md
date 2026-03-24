@@ -130,7 +130,7 @@ KG v2 スキーマ（`data/config/knowledge-graph-schema.yaml`）に準拠する
 ## 投入方法（パイプライン準拠）
 
 **重要**: Cypher 直書き（`docker exec cypher-shell`）は `.claude/rules/neo4j-write-rules.md` により禁止。
-標準パイプライン（`emit_graph_queue.py → /save-to-graph`）経由で投入する。
+標準パイプライン（`emit_research_queue.py → /save-to-research-graph`）経由で投入する。
 
 ### 入力JSON → graph-queue JSON → Neo4j
 
@@ -139,15 +139,15 @@ KG v2 スキーマ（`data/config/knowledge-graph-schema.yaml`）に準拠する
 # .tmp/research-input/{session_id}.json
 
 # 2. graph-queue JSON を生成
-uv run python scripts/emit_graph_queue.py \
+uv run python scripts/emit_research_queue.py \
   --command topic-discovery \
   --input .tmp/research-input/{session_id}.json
 
 # 3. Neo4j に投入
-# /save-to-graph スキルを呼び出す
+# /save-to-research-graph スキルを呼び出す
 ```
 
-`emit_graph_queue.py` が `topic-discovery` コマンドをサポートしていない場合は `web-research` で代替する。
+`emit_research_queue.py` が `topic-discovery` コマンドをサポートしていない場合は `web-research` で代替する。
 
 ### 入力JSON フォーマット
 

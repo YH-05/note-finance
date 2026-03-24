@@ -27,7 +27,7 @@ article-research への KG ギャップ分析統合に続き、topic-discovery �
    - Uniqueness: KG由来トピック → +2点、Controversy → +1点
    - KG Gap Score ボーナス: 8-10 → +3点、5-7 → +2点、3-4 → +1点
 
-3. **Phase 5.3 パイプライン準拠化**: `docker exec cypher-shell` → `emit_graph_queue.py → /save-to-graph`
+3. **Phase 5.3 パイプライン準拠化**: `docker exec cypher-shell` → `emit_research_queue.py → /save-to-research-graph`
 
 ## 変更ファイル
 
@@ -36,12 +36,12 @@ article-research への KG ギャップ分析統合に続き、topic-discovery �
 | `references/kg-topic-mining.md` | **新規**: 8クエリテンプレート + 4種候補生成ロジック |
 | `SKILL.md` | Phase 0追加、Phase 3 KG補正、Phase 5.3 パイプライン移行、`--skip-kg` パラメータ |
 | `references/scoring-rubric.md` | KGデータ補正ルール（IA/Uniqueness補正 + KG Gap Scoreボーナス） |
-| `references/neo4j-mapping.md` | Cypher直書き → emit_graph_queue + save-to-graph パイプラインに移行 |
+| `references/neo4j-mapping.md` | Cypher直書き → emit_graph_queue + save-to-research-graph パイプラインに移行 |
 
 ## アクションアイテム
 
 - [ ] /finance-suggest-topics でPhase 0の動作確認 (優先度: 高)
-- [ ] emit_graph_queue.py の topic-discovery コマンド対応検証 (優先度: 中)
+- [ ] emit_research_queue.py の topic-discovery コマンド対応検証 (優先度: 中)
 
 ## 次回の議論トピック
 

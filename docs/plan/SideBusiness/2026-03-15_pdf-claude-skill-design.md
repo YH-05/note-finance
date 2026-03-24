@@ -44,7 +44,7 @@
 ### 6. コマンド体系（スキル分離 + ワークフロー統合）
 - `/convert-pdf` — スキル1: 単一PDF → Markdown変換（方式B）
 - `/convert-pdf-batch` — スキル1拡張: バッチ変換（方式A、後で実装）
-- `/save-to-graph` — スキル2: 既存スキル（chunks.json → Neo4j）
+- `/save-to-research-graph` — スキル2: 既存スキル（chunks.json → Neo4j）
 - `/pdf-to-knowledge` — ワークフロー: スキル1 → スキル2 一括実行
 - デバッグのためスキル1とスキル2は独立して呼び出し可能
 
@@ -55,7 +55,7 @@
 3. 出力形式γ: report.md + chunks.json + metadata.json
 4. 出力パス: ミラー + ファイル名 + 短ハッシュ8文字
 5. 分割単位: 30ページ
-6. スキル分離: /convert-pdf と /save-to-graph を独立、/pdf-to-knowledge で一括
+6. スキル分離: /convert-pdf と /save-to-research-graph を独立、/pdf-to-knowledge で一括
 
 ## アクションアイテム
 

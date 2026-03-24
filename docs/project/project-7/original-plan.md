@@ -70,7 +70,7 @@ Docling MCP + Gemini CLIでの変換を試みたが、以下の課題が発生:
 **設計判断**:
 - Markdownは本文テキスト（Track A）にのみ使用。表・数値データ（Track B）はJSON形式で直接構造化抽出
 - グラフDB保存が最終目的であり、Markdown化は中間ステップ
-- Neo4j書き込みはPython `graph_writer.py` で直接実行（save-to-graphスキルのMERGEパターン/ID生成を継承）
+- Neo4j書き込みはPython `graph_writer.py` で直接実行（save-to-research-graphスキルのMERGEパターン/ID生成を継承）
 
 ---
 
@@ -357,16 +357,16 @@ ISAT:
 
 ### Phase 7: Neo4j投入（Python graph_writer.py）
 
-save-to-graphスキルは使用せず、**Python実装のgraph_writer.py**で直接書き込む。
+save-to-research-graphスキルは使用せず、**Python実装のgraph_writer.py**で直接書き込む。
 
 **設計判断**:
-- save-to-graphはプロンプトベースで記事レベルの粒度向け。PDFパイプラインは1PDFあたり数百ノードのバルク投入が必要
-- save-to-graphのMERGEパターン + ID生成ロジック（UUID5/SHA256）は継承
-- 既存ワークフロー（ニュース収集等）でのsave-to-graph使用には影響なし
+- save-to-research-graphはプロンプトベースで記事レベルの粒度向け。PDFパイプラインは1PDFあたり数百ノードのバルク投入が必要
+- save-to-research-graphのMERGEパターン + ID生成ロジック（UUID5/SHA256）は継承
+- 既存ワークフロー（ニュース収集等）でのsave-to-research-graph使用には影響なし
 
-**書き込み方式**: `cypher-shell` CLI経由のMERGEベース冪等クエリ（save-to-graphと同じパターン）
+**書き込み方式**: `cypher-shell` CLI経由のMERGEベース冪等クエリ（save-to-research-graphと同じパターン）
 
-**ID生成（`emit_graph_queue.py`から移植）**:
+**ID生成（`emit_research_queue.py`から移植）**:
 | ノード | 生成方式 | 形式 |
 |--------|---------|------|
 | Source | UUID5(NAMESPACE_URL, url) | UUID v5 |
@@ -670,8 +670,8 @@ src/pdf_pipeline/
 │   ├── gemini_provider.py          # GeminiCLIProvider
 │   ├── claude_provider.py          # ClaudeCodeProvider（lazy import）
 │   ├── provider_chain.py           # フォールバック制御
-│   ├── graph_writer.py             # Neo4j MERGEベース書き込み（save-to-graphパターン継承）
-│   ├── id_generator.py             # UUID5/SHA256 ID生成（emit_graph_queue.pyから移植）
+│   ├── graph_writer.py             # Neo4j MERGEベース書き込み（save-to-research-graphパターン継承）
+│   ├── id_generator.py             # UUID5/SHA256 ID生成（emit_research_queue.pyから移植）
 │   ├── schema_validator.py         # スキーマバリデーション（mcp-neo4j-data-modeling連携）
 │   └── state_manager.py            # 処理状態管理（冪等性）
 └── cli/
@@ -759,7 +759,7 @@ tests/pdf_pipeline/
 
 1. `data/config/master-entities.yaml` 初期データ作成
 2. `core/entity_resolver.py` 3段階照合ロジック
-3. `services/id_generator.py` ID生成（emit_graph_queue.pyから移植）
+3. `services/id_generator.py` ID生成（emit_research_queue.pyから移植）
 4. `services/graph_writer.py` Neo4j MERGEベース書き込み
 5. E2Eテスト（PDF → Neo4jノード生成）
 
@@ -883,8 +883,8 @@ uv run python -m pdf_pipeline.cli reprocess --hash <sha256>
 | `docs/plan/KnowledgeGraph/2026-03-11_first-memo.md` | ナレッジグラフ構築メモ（上位計画） |
 | `data/config/knowledge-graph-schema.yaml` | グラフスキーマ定義（拡張対象） |
 | `data/config/master-entities.yaml` | Master Entity参照テーブル（新規作成） |
-| `scripts/emit_graph_queue.py` | ID生成パターン（移植元） |
-| `.claude/skills/save-to-graph/guide.md` | MERGEパターン参考 |
+| `scripts/emit_research_queue.py` | ID生成パターン（移植元） |
+| `.claude/skills/save-to-research-graph/guide.md` | MERGEパターン参考 |
 | `src/report_scraper/storage/pdf_store.py` | PDF保存パターン（参考） |
 | `src/report_scraper/types.py` | Pydantic+dataclassパターン（参考） |
 | `data/sample_report/` | 検証用サンプルPDF |

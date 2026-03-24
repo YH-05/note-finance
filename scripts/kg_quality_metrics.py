@@ -502,7 +502,7 @@ def measure_structural(session: Any) -> CategoryResult:
     if orphan_entity_count >= ORPHAN_ENTITY_CRIT:
         logger.error(
             "[CRITICAL] Orphan Entity count: %d (threshold: %d)\n"
-            "  → save-to-graph の fact_entity RELATES_TO 投入を確認してください\n"
+            "  → save-to-research-graph の fact_entity RELATES_TO 投入を確認してください\n"
             "  → 対処: Entity名でFact.contentを検索し RELATES_TO を接続",
             orphan_entity_count,
             ORPHAN_ENTITY_CRIT,

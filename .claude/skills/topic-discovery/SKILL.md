@@ -202,7 +202,7 @@ echo '{"session_id":"...","generated_at":"...","count":5,"top_topic":"...","top_
 参照: `.claude/skills/emit-research-queue/SKILL.md`
 
 提案結果を research-neo4j に保存する。
-**重要**: Cypher 直書きは禁止。標準パイプライン（`emit_graph_queue.py → /save-to-graph`）経由で投入する。
+**重要**: Cypher 直書きは禁止。標準パイプライン（`emit_research_queue.py → /save-to-research-graph`）経由で投入する。
 
 **前提条件チェック**:
 
@@ -215,7 +215,7 @@ docker inspect research-neo4j --format='{{.State.Status}}' 2>/dev/null
 
 **ステップ 5.3.1: 入力JSON構築**
 
-セッションファイル（Phase 5.1）の内容から `emit_graph_queue.py --command topic-discovery` の入力JSONを構築する。
+セッションファイル（Phase 5.1）の内容から `emit_research_queue.py --command topic-discovery` の入力JSONを構築する。
 
 ```json
 {
@@ -265,16 +265,16 @@ docker inspect research-neo4j --format='{{.State.Status}}' 2>/dev/null
 **ステップ 5.3.2: graph-queue JSON 生成**
 
 ```bash
-uv run python scripts/emit_graph_queue.py \
+uv run python scripts/emit_research_queue.py \
   --command topic-discovery \
   --input .tmp/research-input/{session_id}.json
 ```
 
-`emit_graph_queue.py` が `topic-discovery` コマンドをサポートしていない場合は `web-research` で代替する。
+`emit_research_queue.py` が `topic-discovery` コマンドをサポートしていない場合は `web-research` で代替する。
 
 **ステップ 5.3.3: Neo4j 投入**
 
-`/save-to-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
+`/save-to-research-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
 
 **エラー時**: graph-queue 生成または Neo4j 投入でエラーが発生した場合、エラー内容を警告表示するがスキルは正常終了とする（Phase 5.1-5.2 のファイル保存は完了済み）。
 

@@ -24,7 +24,7 @@ research-neo4jにはインデックス投資・NISA・オルカン・S&P500関�
 
 ### Phase 3: research-neo4jへのデータ投入
 
-`emit_graph_queue.py --command web-research` → `/save-to-graph` パイプラインで投入:
+`emit_research_queue.py --command web-research` → `/save-to-research-graph` パイプラインで投入:
 
 | 項目 | 件数 |
 |------|------|

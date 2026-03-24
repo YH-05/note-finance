@@ -1,4 +1,4 @@
-"""Tests for scripts/emit_graph_queue.py.
+"""Tests for scripts/emit_research_queue.py.
 
 graph-queue 生成スクリプトの単体テスト。
 9コマンドのマッピングロジック、ID生成、CLI引数パース、自動クリーンアップを検証。

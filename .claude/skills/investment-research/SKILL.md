@@ -154,7 +154,7 @@ Phase 1-3 で収集した検索結果を research-neo4j に永続化する。
 
 #### ステップ 5-1: 入力JSON構築
 
-検索結果から `emit_graph_queue.py --command web-research` の入力JSONを構築する。
+検索結果から `emit_research_queue.py --command web-research` の入力JSONを構築する。
 
 ```json
 {
@@ -177,14 +177,14 @@ Phase 1-3 で収集した検索結果を research-neo4j に永続化する。
 #### ステップ 5-2: graph-queue JSON 生成
 
 ```bash
-uv run python scripts/emit_graph_queue.py \
+uv run python scripts/emit_research_queue.py \
   --command web-research \
   --input .tmp/research-input/{session_id}.json
 ```
 
 #### ステップ 5-3: Neo4j 投入
 
-`/save-to-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
+`/save-to-research-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
 
 #### ステップ 5-4: 投入結果の記録
 
@@ -233,6 +233,6 @@ MCPツールは ToolSearch でロードを試みる。利用不可の場合:
 | 調査深度基準 | `references/research-depth-criteria.md` |
 | 出力フォーマット | `references/output-format.md` |
 | emit-research-queue | `.claude/skills/emit-research-queue/SKILL.md` |
-| save-to-graph | `.claude/skills/save-to-graph/SKILL.md` |
+| save-to-research-graph | `.claude/skills/save-to-research-graph/SKILL.md` |
 | Neo4j直書き禁止ルール | `.claude/rules/neo4j-write-rules.md` |
 | KGスキーマ定義 | `data/config/knowledge-graph-schema.yaml` |

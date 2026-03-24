@@ -732,7 +732,7 @@ lsof -i :7689
 | | research-neo4j | creator-neo4j |
 |---|---|---|
 | Neo4j URI | bolt://localhost:7688 | bolt://localhost:7689 |
-| emit スクリプト | emit_graph_queue.py | emit_creator_queue.py |
+| emit スクリプト | emit_research_queue.py | emit_creator_queue.py |
 | 中間ファイル | .tmp/graph-queue/ | .tmp/creator-graph-queue/ |
 | 投入スキル | /save-to-graph | /save-to-creator-graph |
 | MCP write | research-write_neo4j_cypher | creator-write_neo4j_cypher |

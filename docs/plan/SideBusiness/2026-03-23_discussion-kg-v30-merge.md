@@ -39,4 +39,4 @@ PR は feature/kg-v3-ontology-redesign ブランチで開発され、22ファイ
 
 - v3.0 移行の実行タイミングと手順確認
 - 移行後のデータ整合性検証結果レビュー
-- save-to-graph スキルの v3.0 対応状況確認
+- save-to-research-graph スキルの v3.0 対応状況確認

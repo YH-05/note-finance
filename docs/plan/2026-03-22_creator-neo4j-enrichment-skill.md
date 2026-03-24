@@ -83,7 +83,7 @@ CREATE INDEX idx_creator_entity_type IF NOT EXISTS
 
 **ファイル**: `scripts/emit_creator_queue.py`（~400行）
 
-research-neo4j 用の `emit_graph_queue.py` とはスキーマが異なるため独立スクリプトとして作成。ただし Entity ID 生成は共有。
+research-neo4j 用の `emit_research_queue.py` とはスキーマが異なるため独立スクリプトとして作成。ただし Entity ID 生成は共有。
 
 ### 入力 JSON 仕様
 
@@ -204,11 +204,11 @@ Entity ID を research-neo4j と共有することで、将来的なクロスグ
 
 `.tmp/creator-graph-queue/cq-{timestamp}-{hash8}.json`
 
-> **⚠️ `/save-to-graph` は research-neo4j 専用（`.tmp/graph-queue/` をスキャン）。creator の出力は `.tmp/creator-graph-queue/` に完全分離。**
+> **⚠️ `/save-to-research-graph` は research-neo4j 専用（`.tmp/graph-queue/` をスキャン）。creator の出力は `.tmp/creator-graph-queue/` に完全分離。**
 
 ### 実装の参考
 
-- `scripts/emit_graph_queue.py` の構造（argparse, MapperFn, ID 生成ヘルパー）
+- `scripts/emit_research_queue.py` の構造（argparse, MapperFn, ID 生成ヘルパー）
 - `src/pdf_pipeline/services/id_generator.py` の `generate_entity_id()`, `generate_source_id()`
 
 ---
@@ -219,7 +219,7 @@ Entity ID を research-neo4j と共有することで、将来的なクロスグ
 
 creator-neo4j 専用の投入スキル。`bolt://localhost:7689` に接続し、MERGE ベースで冪等投入。
 
-> **⚠️ `/save-to-graph`（research-neo4j 専用, bolt://localhost:7688）は使用禁止。creator-neo4j へのデータ投入には必ず `/save-to-creator-graph` を使うこと。**
+> **⚠️ `/save-to-research-graph`（research-neo4j 専用, bolt://localhost:7688）は使用禁止。creator-neo4j へのデータ投入には必ず `/save-to-creator-graph` を使うこと。**
 
 ### 接続情報
 
@@ -367,7 +367,7 @@ ORDER BY cnt DESC
   |
   +-- Phase 4: パイプライン投入
   |     +-- 4.1: emit_creator_queue.py 実行 → .tmp/creator-graph-queue/ に JSON 生成
-  |     +-- 4.2: /save-to-creator-graph 実行（⚠️ /save-to-graph ではない）
+  |     +-- 4.2: /save-to-creator-graph 実行（⚠️ /save-to-research-graph ではない）
   |     |         → mcp__neo4j-creator__creator-write_neo4j_cypher で MERGE
   |     |         → bolt://localhost:7689 に接続
   |     +-- 4.3: 投入結果の検証（mcp__neo4j-creator__creator-read_neo4j_cypher）
@@ -575,21 +575,21 @@ priority_score = 1.0 / (content_count + 1)
 | ファイル | 再利用ポイント |
 |---------|---------------|
 | `src/pdf_pipeline/services/id_generator.py` | `generate_entity_id()` (L273), `generate_source_id()` (L62) |
-| `scripts/emit_graph_queue.py` | argparse構造、mapper設計パターン、entity dedup |
+| `scripts/emit_research_queue.py` | argparse構造、mapper設計パターン、entity dedup |
 | `.claude/skills/web-search/SKILL.md` | Tavily MCP ツール選択ガイド |
 | `.claude/skills/investment-research/SKILL.md` | マルチソース検索パターン |
 | `data/config/reddit-subreddits.json` | subreddit 設定形式 |
 
-> **⚠️ `/save-to-graph` は参照しない。** MERGE パターンは `/save-to-creator-graph/guide.md` に独立定義する。
+> **⚠️ `/save-to-research-graph` は参照しない。** MERGE パターンは `/save-to-creator-graph/guide.md` に独立定義する。
 
 ### パイプライン対比表
 
 | | research-neo4j | creator-neo4j |
 |---|---|---|
 | Neo4j URI | bolt://localhost:7688 | bolt://localhost:7689 |
-| emit スクリプト | emit_graph_queue.py | emit_creator_queue.py |
+| emit スクリプト | emit_research_queue.py | emit_creator_queue.py |
 | 中間ファイル | .tmp/graph-queue/ | .tmp/creator-graph-queue/ |
-| 投入スキル | /save-to-graph | /save-to-creator-graph |
+| 投入スキル | /save-to-research-graph | /save-to-creator-graph |
 | MCP write | research-write_neo4j_cypher | creator-write_neo4j_cypher |
 | MCP read | research-read_neo4j_cypher | creator-read_neo4j_cypher |
 | schema_version | "2.2" | "creator-1.0" |

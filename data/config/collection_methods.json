@@ -1,0 +1,53 @@
+{
+    "version": "1.0",
+    "methods": {
+        "rss": {
+            "method_id": "rss",
+            "name": "RSS Feed",
+            "description": "RSSフィードからニュース・記事を定期取得する",
+            "required_config": ["url"],
+            "optional_config": ["category", "fetch_interval"],
+            "default_schedule": "daily"
+        },
+        "scraping": {
+            "method_id": "scraping",
+            "name": "Web Scraping",
+            "description": "Webサイトをスクレイピングして記事・レポートを取得する",
+            "required_config": ["listing_url"],
+            "optional_config": ["article_selector", "sitemap_url", "tier", "rendering"],
+            "default_schedule": "weekly"
+        },
+        "api": {
+            "method_id": "api",
+            "name": "API",
+            "description": "外部APIから構造化データを取得する（MCP含む）",
+            "required_config": [],
+            "optional_config": ["api_endpoint", "mcp_server", "auth_type"],
+            "default_schedule": "daily"
+        },
+        "web_search": {
+            "method_id": "web_search",
+            "name": "Web Search",
+            "description": "検索エンジン経由でアドホック情報を取得する",
+            "required_config": [],
+            "optional_config": ["search_provider", "max_results"],
+            "default_schedule": "on_demand"
+        },
+        "pdf": {
+            "method_id": "pdf",
+            "name": "PDF Conversion",
+            "description": "PDFドキュメントをMarkdownに変換して取り込む",
+            "required_config": [],
+            "optional_config": ["input_dir", "output_dir", "provider"],
+            "default_schedule": "on_demand"
+        },
+        "manual": {
+            "method_id": "manual",
+            "name": "Manual Input",
+            "description": "手動でのアドホック調査・入力",
+            "required_config": [],
+            "optional_config": [],
+            "default_schedule": "manual"
+        }
+    }
+}

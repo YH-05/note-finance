@@ -1,7 +1,7 @@
 ---
 name: save-to-article-graph
 description: |
-  emit_graph_queue.py と save-to-graph を連結するオーケストレータースキル。
+  emit_research_queue.py と save-to-graph を連結するオーケストレータースキル。
   wealth-scrape / topic-discovery の出力を research-neo4j（bolt://localhost:7688）に投入する。
   2フェーズ構成（graph-queue 生成 → Neo4j 投入）。
 allowed-tools: Read, Bash, Glob, Grep
@@ -9,7 +9,7 @@ allowed-tools: Read, Bash, Glob, Grep
 
 # save-to-article-graph スキル
 
-`emit_graph_queue.py` による graph-queue JSON 生成と、`save-to-graph` スキルによる Neo4j 投入を一括実行するオーケストレータースキル。
+`emit_research_queue.py` による graph-queue JSON 生成と、`save-to-graph` スキルによる Neo4j 投入を一括実行するオーケストレータースキル。
 research-neo4j（`bolt://localhost:7688`）を対象とし、wealth-scrape と topic-discovery の 2 コマンドに対応する。
 
 ## アーキテクチャ
@@ -18,7 +18,7 @@ research-neo4j（`bolt://localhost:7688`）を対象とし、wealth-scrape と t
 /save-to-article-graph (このスキル = オーケストレーター)
   |
   +-- Phase 1: graph-queue 生成
-  |     +-- emit_graph_queue.py --command {command} --input {input}
+  |     +-- emit_research_queue.py --command {command} --input {input}
   |     +-- 出力先: .tmp/graph-queue/{command}/gq-{timestamp}-{hash4}.json
   |
   +-- Phase 2: Neo4j 投入（save-to-graph スキルのロジック）
@@ -57,14 +57,14 @@ research-neo4j（`bolt://localhost:7688`）を対象とし、wealth-scrape と t
 
 ## 前提条件
 
-1. **uv**: パッケージマネージャ。`uv run` で `emit_graph_queue.py` を実行
+1. **uv**: パッケージマネージャ。`uv run` で `emit_research_queue.py` を実行
 2. **research-neo4j が起動中であること**（Phase 2 のみ）
    ```bash
    docker inspect research-neo4j --format='{{.State.Status}}' 2>/dev/null
    # → "running" であること
    ```
 3. **入力ファイル/ディレクトリが存在すること**
-4. **pdf_pipeline パッケージ**: `emit_graph_queue.py` が依存する ID 生成ユーティリティ
+4. **pdf_pipeline パッケージ**: `emit_research_queue.py` が依存する ID 生成ユーティリティ
 
 ## 対応コマンド
 
@@ -90,12 +90,12 @@ research-neo4j（`bolt://localhost:7688`）を対象とし、wealth-scrape と t
 
 ## Phase 1: graph-queue 生成
 
-`emit_graph_queue.py` を実行して graph-queue JSON を生成する。
+`emit_research_queue.py` を実行して graph-queue JSON を生成する。
 
 ### 実行コマンド
 
 ```bash
-uv run python scripts/emit_graph_queue.py \
+uv run python scripts/emit_research_queue.py \
     --command {command} \
     --input {input}
 ```
@@ -122,7 +122,7 @@ uv run python scripts/emit_graph_queue.py \
 ### graph-queue ファイルの検出
 
 ```bash
-# emit_graph_queue.py 実行直後に生成ファイルを取得
+# emit_research_queue.py 実行直後に生成ファイルを取得
 GQ_FILES=$(ls -t .tmp/graph-queue/{command}/*.json 2>/dev/null | head -20)
 ```
 
@@ -132,7 +132,7 @@ GQ_FILES=$(ls -t .tmp/graph-queue/{command}/*.json 2>/dev/null | head -20)
 |--------|------|
 | --command が不正 | `wealth-scrape` または `topic-discovery` を指定するよう案内 |
 | 入力パスが存在しない | パスを確認するよう案内 |
-| emit_graph_queue.py 実行エラー | スクリプトのエラーログを表示して処理中断 |
+| emit_research_queue.py 実行エラー | スクリプトのエラーログを表示して処理中断 |
 
 ---
 
@@ -211,7 +211,7 @@ research-neo4j が利用可能になったら、以下のコマンドで手動�
 
 | Phase | エラー | 対処 | 成果物の状態 |
 |-------|--------|------|-------------|
-| Phase 1 | emit_graph_queue.py 失敗 | **全体中断**（エラーサマリー出力） | なし |
+| Phase 1 | emit_research_queue.py 失敗 | **全体中断**（エラーサマリー出力） | なし |
 | Phase 2 | research-neo4j 未起動 | Phase 2 スキップ、手動投入を案内 | graph-queue JSON は残す |
 | Phase 2 | Cypher 実行エラー | 手動投入を案内 | graph-queue JSON は残す |
 
@@ -298,7 +298,7 @@ NEO4J_URI=bolt://localhost:7688 /save-to-graph --source {command}
 |---------|------|
 | save-to-graph スキル | `.claude/skills/save-to-graph/SKILL.md` |
 | save-to-graph 詳細ガイド | `.claude/skills/save-to-graph/guide.md` |
-| graph-queue 生成スクリプト | `scripts/emit_graph_queue.py` |
+| graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
 | topic-discovery スキル | `.claude/skills/topic-discovery/SKILL.md` |
 | scrape-finance-blog スキル | `.claude/skills/scrape-finance-blog/SKILL.md` |
 | ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
@@ -311,7 +311,7 @@ NEO4J_URI=bolt://localhost:7688 /save-to-graph --source {command}
 ### 2026-03-16: 初版作成（Issue #133）
 
 - 2 フェーズ構成オーケストレータースキル新規作成
-- Phase 1: emit_graph_queue.py による graph-queue JSON 生成
+- Phase 1: emit_research_queue.py による graph-queue JSON 生成
 - Phase 2: save-to-graph スキルのロジックで research-neo4j に投入
 - wealth-scrape / topic-discovery の 2 コマンド対応
 - --dry-run / --keep パラメータ対応

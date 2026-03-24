@@ -1,10 +1,11 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "presets": [
         {
             "url": "https://www.fsa.go.jp/fsaNewsListAll_rss2.xml",
             "title": "金融庁 新着情報",
             "category": "regulation",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -12,6 +13,7 @@
             "url": "https://www.boj.or.jp/rss/whatsnew.xml",
             "title": "日本銀行 新着情報",
             "category": "macro",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -19,6 +21,7 @@
             "url": "https://www.boj.or.jp/rss/statistics.xml",
             "title": "日本銀行 統計",
             "category": "macro",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -26,6 +29,7 @@
             "url": "https://www.dir.co.jp/feed/economics.atom",
             "title": "大和総研 経済分析",
             "category": "macro",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -33,6 +37,7 @@
             "url": "https://www.dir.co.jp/feed/asset.atom",
             "title": "大和総研 資産運用・投資主体",
             "category": "asset_management",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -40,6 +45,7 @@
             "url": "https://www.dir.co.jp/feed/capital-mkt.atom",
             "title": "大和総研 金融資本市場分析",
             "category": "market",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -47,6 +53,7 @@
             "url": "https://www.dir.co.jp/feed/finance.atom",
             "title": "大和総研 金融ビジネス・金融IT",
             "category": "finance",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -54,6 +61,7 @@
             "url": "https://www.jpx.co.jp/rss/jpx-news.xml",
             "title": "JPX お知らせ",
             "category": "market",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -61,35 +69,7 @@
             "url": "https://www.jpx.co.jp/rss/markets_news.xml",
             "title": "JPX マーケットニュース",
             "category": "market",
-            "fetch_interval": "daily",
-            "enabled": true
-        },
-        {
-            "url": "https://news.web.nhk.or.jp/n-data/conf/na/rss/cat5.xml",
-            "title": "NHK 経済ニュース",
-            "category": "market",
-            "fetch_interval": "daily",
-            "enabled": false,
-            "note": "2025年10月URL変更。新URLの外部アクセス可否を要検証。RSSリーダーからは取得可能な場合あり"
-        },
-        {
-            "url": "https://www.japantimes.co.jp/feed/",
-            "title": "The Japan Times",
-            "category": "market",
-            "fetch_interval": "daily",
-            "enabled": true
-        },
-        {
-            "url": "https://www.jetro.go.jp/rss/biznews.xml",
-            "title": "JETRO ビジネス短信",
-            "category": "trade",
-            "fetch_interval": "daily",
-            "enabled": true
-        },
-        {
-            "url": "https://www.jetro.go.jp/rss/news.xml",
-            "title": "JETRO お知らせ・記者発表",
-            "category": "trade",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -97,6 +77,24 @@
             "url": "https://www.mof.go.jp/news.rss",
             "title": "財務省 新着情報",
             "category": "macro",
+            "source_id": "jp-finance",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://news.web.nhk.or.jp/n-data/conf/na/rss/cat5.xml",
+            "title": "NHK 経済ニュース",
+            "category": "market",
+            "source_id": "jp-media",
+            "fetch_interval": "daily",
+            "enabled": false,
+            "note": "2025年10月URL変更。新URLの外部アクセス可否を要検証"
+        },
+        {
+            "url": "https://www.japantimes.co.jp/feed/",
+            "title": "The Japan Times",
+            "category": "market",
+            "source_id": "jp-media",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -104,6 +102,23 @@
             "url": "https://toyokeizai.net/list/feed/rss",
             "title": "東洋経済オンライン",
             "category": "stock",
+            "source_id": "jp-media",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.jetro.go.jp/rss/biznews.xml",
+            "title": "JETRO ビジネス短信",
+            "category": "trade",
+            "source_id": "jp-trade",
+            "fetch_interval": "daily",
+            "enabled": true
+        },
+        {
+            "url": "https://www.jetro.go.jp/rss/news.xml",
+            "title": "JETRO お知らせ・記者発表",
+            "category": "trade",
+            "source_id": "jp-trade",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -111,14 +126,16 @@
             "url": "https://emaxis.jp/special/rss/index.html",
             "title": "eMAXIS レポート",
             "category": "asset_management",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": false,
-            "note": "ランディングページへの301リダイレクト（emaxis.am.mufg.jp）のため無効化。RSS配信なし"
+            "note": "ランディングページへの301リダイレクト。RSS配信なし"
         },
         {
             "url": "https://www.morningstar.co.jp/news/blog/rss.html",
             "title": "モーニングスタージャパン",
             "category": "asset_management",
+            "source_id": "jp-finance",
             "fetch_interval": "daily",
             "enabled": false,
             "note": "ibbotson.co.jpへ301リダイレクト。RSS配信終了"

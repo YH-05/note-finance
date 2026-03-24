@@ -25,13 +25,13 @@ accuracy カテゴリの Source Grounding が 0.000 という致命的な問題�
 ### 正規化の実行
 
 1. `scripts/normalize_source_chain.py` を作成（graph-queue JSON 生成）
-2. `/save-to-graph` パイプライン経由で投入（neo4j-write-rules 準拠）
+2. `/save-to-research-graph` パイプライン経由で投入（neo4j-write-rules 準拠）
 3. 旧 `EXTRACTED_FROM(Fact→Source)` 632件をrepair削除
 
 ## 決定事項
 
 1. **計測基準の不変性**: KG品質の計測クエリを変更してスコアを上げることは禁止。データをスキーマに合わせる。
-2. **パイプライン経由の正規化**: normalize_source_chain.py → graph-queue JSON → /save-to-graph で実行。
+2. **パイプライン経由の正規化**: normalize_source_chain.py → graph-queue JSON → /save-to-research-graph で実行。
 
 ## 正規化結果
 

@@ -312,4 +312,4 @@ MERGE (p)-[:HAS_DISCUSSION]->(d)
 | 詳細ガイド | `.claude/skills/project-discuss/guide.md` |
 | SideBusiness ドキュメント | `docs/plan/SideBusiness/` |
 | Neo4j MCP ツール | `mcp__neo4j-cypher__note-finance-*` |
-| save-to-graph スキル | `.claude/skills/save-to-graph/SKILL.md` |
+| save-to-research-graph スキル | `.claude/skills/save-to-research-graph/SKILL.md` |

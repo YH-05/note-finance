@@ -2,7 +2,7 @@
 #
 # 金融リサーチ・銘柄調査のナレッジグラフ。
 # KG v2 スキーマ（Source / Chunk / Fact / Claim / Entity / Topic 等）を使用。
-# web-research / save-to-graph / kg-quality-check 等が使用。
+# web-research / save-to-research-graph / kg-quality-check 等が使用。
 
 instance_name: research
 
@@ -35,7 +35,7 @@ schema_version: "2.0"
 # ---------------------------------------------------------------------------
 # 用途・説明
 # ---------------------------------------------------------------------------
-use_case: "web-research / save-to-graph / kg-quality-check / topic-discovery"
+use_case: "web-research / save-to-research-graph / kg-quality-check / topic-discovery"
 description: >
   金融リサーチ専用ナレッジグラフ。
   KG v2 スキーマに基づき Source / Author / Chunk / Fact / Claim /

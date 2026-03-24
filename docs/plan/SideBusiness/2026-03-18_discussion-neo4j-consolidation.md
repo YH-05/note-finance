@@ -63,17 +63,17 @@ Neo4jコンテナが3台（finance-neo4j, research-neo4j, article-neo4j）稼働
 - 全1,127 Source ノードに authority_level を付与
 - Neo4j インデックス `source_authority_level` 作成
 - 分類ロジックを `scripts/authority_classifier.py` として独立モジュール化
-- `scripts/emit_graph_queue.py` の `_make_source` に自動分類を組み込み
+- `scripts/emit_research_queue.py` の `_make_source` に自動分類を組み込み
 - KG v2 スキーマ → v2.3 に更新（`data/config/knowledge-graph-schema.yaml`）
-- save-to-graph スキルの Cypher テンプレートに authority_level 追加
+- save-to-research-graph スキルの Cypher テンプレートに authority_level 追加
 
 ### 更新ファイル（Phase 2）
 - `scripts/authority_classifier.py`: 分類ロジックモジュール（新規）
 - `scripts/classify_authority_level.py`: 既存データ一括分類スクリプト（新規）
-- `scripts/emit_graph_queue.py`: `_make_source` に authority_level 自動付与
+- `scripts/emit_research_queue.py`: `_make_source` に authority_level 自動付与
 - `data/config/knowledge-graph-schema.yaml`: v2.3（authority_level 追加）
-- `.claude/skills/save-to-graph/SKILL.md`: Cypher テンプレートに authority_level
-- `.claude/skills/save-to-graph/guide.md`: 同上
+- `.claude/skills/save-to-research-graph/SKILL.md`: Cypher テンプレートに authority_level
+- `.claude/skills/save-to-research-graph/guide.md`: 同上
 
 ## アクションアイテム
 
@@ -89,6 +89,6 @@ Neo4jコンテナが3台（finance-neo4j, research-neo4j, article-neo4j）稼働
 - [x] 既存1,127 Source に authority_level 付与
 - [x] Neo4j インデックス作成
 - [x] 分類ロジックのモジュール化（authority_classifier.py）
-- [x] emit_graph_queue.py に自動分類組み込み
+- [x] emit_research_queue.py に自動分類組み込み
 - [x] KG v2.3 スキーマ更新
-- [x] save-to-graph Cypher テンプレート更新
+- [x] save-to-research-graph Cypher テンプレート更新

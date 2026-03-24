@@ -1,4 +1,4 @@
-"""Unit tests for pdf-extraction mapper in emit_graph_queue.py.
+"""Unit tests for pdf-extraction mapper in emit_research_queue.py.
 
 Tests cover:
 - graph-queue JSON format validation

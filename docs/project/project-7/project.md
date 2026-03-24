@@ -31,8 +31,8 @@ Phase 1（基盤）+ Phase 2-4（PDF→MD変換）を優先実装し、セルサ
 - **structlog logging**: `report_scraper/_logging.py` のget_logger(name, **context)パターンを複製
 - **YAML config + Pydantic**: `report_scraper/config/loader.py` のyaml.safe_load→model_validateパターン
 - **Click CLI + Rich**: `report_scraper/cli/main.py` のパターン（@click.group() + Rich Console/Table）
-- **ID生成**: `scripts/emit_graph_queue.py` のUUID5/SHA-256パターンを移植
-- **MERGE書き込み**: `.claude/skills/save-to-graph/guide.md` のMERGE + UNWINDパターンを参考
+- **ID生成**: `scripts/emit_research_queue.py` のUUID5/SHA-256パターンを移植
+- **MERGE書き込み**: `.claude/skills/save-to-research-graph/guide.md` のMERGE + UNWINDパターンを参考
 
 ### 参考実装
 
@@ -43,7 +43,7 @@ Phase 1（基盤）+ Phase 2-4（PDF→MD変換）を優先実装し、セルサ
 | `src/report_scraper/config/loader.py` | YAML + Pydantic バリデーション |
 | `src/report_scraper/cli/main.py` | Click CLI + Rich 出力 |
 | `src/report_scraper/exceptions.py` | 例外階層パターン |
-| `scripts/emit_graph_queue.py` | ID生成（UUID5/SHA-256） |
+| `scripts/emit_research_queue.py` | ID生成（UUID5/SHA-256） |
 | `src/report_scraper/storage/pdf_store.py` | PDF保存・パス安全性 |
 
 ### 技術的考慮事項

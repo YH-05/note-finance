@@ -40,7 +40,7 @@
 | `/push` | ✓ | 変更をコミットしてリモートにプッシュ |
 | `/merge-pr` | ✓ | PRのコンフリクトチェック・CI確認・マージ |
 | `/gemini-search` | ✓ | Gemini CLIを使用してWeb検索 |
-| `/save-to-graph` | ✓ | graph-queueのデータをNeo4jに投入 |
+| `/save-to-research-graph` | ✓ | graph-queueのデータをNeo4jに投入 |
 
 ## Obsidian 操作ルール
 

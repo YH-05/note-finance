@@ -1,4 +1,4 @@
-# save-to-graph スキル実装
+# save-to-research-graph スキル実装
 
 **作成日**: 2026-03-07
 **ステータス**: 計画中
@@ -21,7 +21,7 @@ Neo4j グラフDB にソース情報を蓄積することで：
 ### 成功基準
 
 - [ ] 6コマンドから graph-queue ファイルが生成される
-- [ ] `/save-to-graph` で Neo4j に冪等にデータが投入される
+- [ ] `/save-to-research-graph` で Neo4j に冪等にデータが投入される
 - [ ] 同じデータを2回投入しても重複ノードが作成されない
 - [ ] Source → Topic, Source → Claim → Entity のグラフ構造が正しく構築される
 
@@ -46,7 +46,7 @@ Neo4j グラフDB にソース情報を蓄積することで：
 
 - Neo4j 5 Community は複合一意制約が使えない → `topic_key`, `entity_key` 連結キーで対応
 - `fetched_at` → `collected_at` リネームはスキーマ定義のみ（既存 Python コードの `fetched_at` は別概念）
-- emit_graph_queue.py は標準ライブラリのみ（structlog/Pydantic 不使用）
+- emit_research_queue.py は標準ライブラリのみ（structlog/Pydantic 不使用）
 
 ## 実装計画
 
@@ -54,10 +54,10 @@ Neo4j グラフDB にソース情報を蓄積することで：
 
 ```
 各コマンド実行
-  └→ 末尾ステップで scripts/emit_graph_queue.py を呼び出し
+  └→ 末尾ステップで scripts/emit_research_queue.py を呼び出し
        └→ .tmp/graph-queue/{command}/{queue_id}.json に出力
 
-/save-to-graph（非同期、手動実行）
+/save-to-research-graph（非同期、手動実行）
   └→ .tmp/graph-queue/ 配下の未処理 JSON を検出
        └→ Neo4j MCP (write_neo4j_cypher) で MERGE ベース投入
             └→ 処理済みファイルを削除
@@ -67,11 +67,11 @@ Neo4j グラフDB にソース情報を蓄積することで：
 
 | 操作 | ファイルパス | 説明 |
 |------|------------|------|
-| 新規作成 | `scripts/emit_graph_queue.py` | graph-queue 生成スクリプト |
-| 新規作成 | `.claude/skills/save-to-graph/SKILL.md` | スキル定義 |
-| 新規作成 | `.claude/skills/save-to-graph/guide.md` | 詳細ガイド |
-| 新規作成 | `.claude/commands/save-to-graph.md` | スラッシュコマンド |
-| 新規作成 | `tests/scripts/test_emit_graph_queue.py` | ユニットテスト |
+| 新規作成 | `scripts/emit_research_queue.py` | graph-queue 生成スクリプト |
+| 新規作成 | `.claude/skills/save-to-research-graph/SKILL.md` | スキル定義 |
+| 新規作成 | `.claude/skills/save-to-research-graph/guide.md` | 詳細ガイド |
+| 新規作成 | `.claude/commands/save-to-research-graph.md` | スラッシュコマンド |
+| 新規作成 | `tests/scripts/test_emit_research_queue.py` | ユニットテスト |
 | 変更 | `data/config/knowledge-graph-schema.yaml` | スキーマ更新 |
 | 変更 | `.claude/skills/finance-news-workflow/SKILL.md` | ステップ追加 |
 | 変更 | `.claude/skills/ai-research-workflow/SKILL.md` | ステップ追加 |
@@ -97,20 +97,20 @@ Neo4j グラフDB にソース情報を蓄積することで：
   - ステータス: todo
   - 見積もり: S
 
-- [ ] scripts/emit_graph_queue.py の実装
+- [ ] scripts/emit_research_queue.py の実装
   - Issue: [#3754](https://github.com/YH-05/finance/issues/3754)
   - ステータス: todo
   - 見積もり: L
 
 ### Wave 2（Wave 1 完了後）
 
-- [ ] emit_graph_queue.py のユニットテスト
+- [ ] emit_research_queue.py のユニットテスト
   - Issue: [#3755](https://github.com/YH-05/finance/issues/3755)
   - ステータス: todo
   - 依存: #3754
   - 見積もり: M
 
-- [ ] save-to-graph スキル・コマンドの実装
+- [ ] save-to-research-graph スキル・コマンドの実装
   - Issue: [#3756](https://github.com/YH-05/finance/issues/3756)
   - ステータス: todo
   - 依存: #3754
@@ -141,7 +141,7 @@ Neo4j グラフDB にソース情報を蓄積することで：
 ```mermaid
 graph TD
     A["#3753 schema.yaml 更新"] --> END["完了"]
-    B["#3754 emit_graph_queue.py"] --> C["#3755 テスト"]
+    B["#3754 emit_research_queue.py"] --> C["#3755 テスト"]
     B --> D["#3756 スキル実装"]
     B --> E["#3757 news/ai統合"]
     B --> F["#3758 残り4統合"]
