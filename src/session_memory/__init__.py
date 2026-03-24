@@ -15,6 +15,7 @@ from session_memory.extractor import (
     extract_chunks_batch,
     rule_based_predetect,
 )
+from session_memory.graph import SessionGraphWriter
 from session_memory.hook import (
     HookInput,
     parse_hook_input,
@@ -36,6 +37,7 @@ __all__ = [
     "NoteLinker",
     "SearchMode",
     "SearchResult",
+    "SessionGraphWriter",
     "SessionMemoryDB",
     "extract_chunk",
     "extract_chunks_batch",
