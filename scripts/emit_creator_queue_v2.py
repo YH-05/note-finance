@@ -531,6 +531,31 @@ def main() -> None:
     data = json.loads(input_path.read_text(encoding="utf-8"))
     logger.info("Read input: %s", input_path)
 
+    # AIDEV-NOTE: Layer 2 原文保存フック — creator-neo4j 投入データの原文をRawStoreに保存
+    try:
+        from data_pipeline.integrations.bridge import save_raw_texts
+
+        items = []
+        for content_key in ("facts", "tips", "stories"):
+            for item in data.get(content_key, []):
+                content = item.get("content", "")
+                source_url = item.get("source_url", "")
+                if content and source_url:
+                    items.append({
+                        "url": source_url,
+                        "title": item.get("title", content[:60]),
+                        "raw_text": content,
+                        "metadata": {"content_type": content_key, "genre": item.get("genre", "")},
+                    })
+        if items:
+            sr = save_raw_texts(items, source_id="creator-enrichment", collection_method="scraping")
+            logger.info(
+                "RawStore: saved=%d, dup=%d, empty=%d",
+                sr.saved, sr.skipped_duplicate, sr.skipped_empty,
+            )
+    except Exception as exc:
+        logger.warning("RawStore save failed (non-blocking): %s", exc)
+
     queue_doc = map_creator_enrichment_v2(data)
 
     output_dir: Path = args.output_dir

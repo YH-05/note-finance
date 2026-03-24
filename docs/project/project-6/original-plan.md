@@ -1,4 +1,4 @@
-# save-to-graph スキル設計プラン
+# save-to-research-graph スキル設計プラン
 
 ## Context
 
@@ -19,10 +19,10 @@ Neo4j グラフDB にソース情報を蓄積することで：
 
 ```
 各コマンド実行
-  └→ 末尾ステップで scripts/emit_graph_queue.py を呼び出し
+  └→ 末尾ステップで scripts/emit_research_queue.py を呼び出し
        └→ .tmp/graph-queue/{command}/{queue_id}.json に出力
 
-/save-to-graph（非同期、手動実行）
+/save-to-research-graph（非同期、手動実行）
   └→ .tmp/graph-queue/ 配下の未処理 JSON を検出
        └→ Neo4j MCP (write_neo4j_cypher) で MERGE ベース投入
             └→ 処理済みファイルを _processed/ に移動
@@ -39,11 +39,11 @@ graph-queue ファイルは中間データであり、投入完了後は不要�
 
 | 層 | 対策 | タイミング |
 |----|------|-----------|
-| 1. 投入時削除 | `/save-to-graph` 成功後にキューファイルを**削除**（`_processed/` に移動しない） | 投入完了時 |
+| 1. 投入時削除 | `/save-to-research-graph` 成功後にキューファイルを**削除**（`_processed/` に移動しない） | 投入完了時 |
 | 2. `--keep` フラグ | デバッグ用に `--keep` 指定時のみ `_processed/` に保存 | 任意 |
-| 3. 定期クリーンアップ | `emit_graph_queue.py --cleanup` で7日以上前のキューファイル（未処理含む）を削除 | 手動 or スクリプト末尾 |
+| 3. 定期クリーンアップ | `emit_research_queue.py --cleanup` で7日以上前のキューファイル（未処理含む）を削除 | 手動 or スクリプト末尾 |
 
-**emit_graph_queue.py 実行時の自動クリーンアップ**:
+**emit_research_queue.py 実行時の自動クリーンアップ**:
 - キュー生成のたびに `.tmp/graph-queue/` 内の7日以上前のファイルを自動削除
 - 新しいファイル生成と古いファイル削除を同時に行うことで、手動クリーンアップを不要にする
 
@@ -51,7 +51,7 @@ graph-queue ファイルは中間データであり、投入完了後は不要�
 ```
 .tmp/graph-queue/
   finance-news-workflow/
-    gq-20260307-120000-a1b2.json    # 未処理（/save-to-graph で消える）
+    gq-20260307-120000-a1b2.json    # 未処理（/save-to-research-graph で消える）
   ai-research-collect/
     gq-20260307-130000-c3d4.json
   # _processed/ は --keep 時のみ作成
@@ -140,7 +140,7 @@ graph-queue ファイルは中間データであり、投入完了後は不要�
 ```
 .tmp/graph-queue/
   finance-news-workflow/
-    gq-20260307-120000-a1b2.json    # 未処理（/save-to-graph 成功後に削除）
+    gq-20260307-120000-a1b2.json    # 未処理（/save-to-research-graph 成功後に削除）
   ai-research-collect/
     gq-20260307-130000-c3d4.json
 ```
@@ -250,21 +250,21 @@ graph-queue ファイルは中間データであり、投入完了後は不要�
 
 ---
 
-## 4. scripts/emit_graph_queue.py（共通変換スクリプト）
+## 4. scripts/emit_research_queue.py（共通変換スクリプト）
 
 各コマンドの SKILL.md 末尾から呼び出す共通 Python スクリプト。マッピングロジックを1箇所に集約する。
 
 ```bash
 # 使用例
-python scripts/emit_graph_queue.py \
+python scripts/emit_research_queue.py \
   --command finance-news-workflow \
   --input .tmp/news-batches/index.json
 
-python scripts/emit_graph_queue.py \
+python scripts/emit_research_queue.py \
   --command ai-research-collect \
   --input .tmp/ai-research-batches/ai_llm.json
 
-python scripts/emit_graph_queue.py \
+python scripts/emit_research_queue.py \
   --command generate-market-report \
   --input articles/market_report/2026-03-05/data/
 ```
@@ -277,22 +277,22 @@ python scripts/emit_graph_queue.py \
 
 ---
 
-## 5. save-to-graph スキル
+## 5. save-to-research-graph スキル
 
 ### 5.1 ファイル構成
 
 ```
-.claude/skills/save-to-graph/
+.claude/skills/save-to-research-graph/
   SKILL.md              # メインスキル定義（処理フロー、パラメータ、エラー処理）
   guide.md              # 詳細ガイド（graph-queue フォーマット仕様、Cypher テンプレート）
 
-.claude/commands/save-to-graph.md   # スラッシュコマンド定義
+.claude/commands/save-to-research-graph.md   # スラッシュコマンド定義
 ```
 
 ### 5.2 処理フロー
 
 ```
-/save-to-graph [--source <command>] [--dry-run] [--file <path>]
+/save-to-research-graph [--source <command>] [--dry-run] [--file <path>]
   |
   +-- Phase 1: キュー検出・検証（30秒以内）
   |     +-- .tmp/graph-queue/ 配下の未処理 JSON を Glob で検出
@@ -441,11 +441,11 @@ RETURN count(*) AS about_count
 \```bash
 # テーマ別バッチファイルから graph-queue を生成
 for batch_file in .tmp/news-batches/*.json; do
-  python scripts/emit_graph_queue.py \
+  python scripts/emit_research_queue.py \
     --command finance-news-workflow \
     --input "$batch_file"
 done
-echo "graph-queue files generated. Run /save-to-graph to ingest."
+echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 \```
 ```
 
@@ -473,8 +473,8 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 | Entity ノード | 構造化メタデータから（company_key, ticker 等） |
 | Claim ノード + MAKES_CLAIM | RSS summary の軽量 Claim、finance-full の claims.json |
 | ABOUT リレーション | Claim → Entity（ticker/company 紐付け） |
-| scripts/emit_graph_queue.py | 共通変換スクリプト |
-| save-to-graph スキル | Neo4j 投入スキル |
+| scripts/emit_research_queue.py | 共通変換スクリプト |
+| save-to-research-graph スキル | Neo4j 投入スキル |
 
 ### Phase 2（将来拡張）
 
@@ -494,9 +494,9 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 ## 8. 実装順序
 
 1. **Neo4j 制約作成** - `mcp__neo4j-cypher__write_neo4j_cypher` で制約・インデックスを作成
-2. **scripts/emit_graph_queue.py** - 全6コマンドのマッピングロジックを含む共通スクリプト
-3. **save-to-graph スキル** - `.claude/skills/save-to-graph/SKILL.md` + `guide.md`
-4. **save-to-graph コマンド** - `.claude/commands/save-to-graph.md`
+2. **scripts/emit_research_queue.py** - 全6コマンドのマッピングロジックを含む共通スクリプト
+3. **save-to-research-graph スキル** - `.claude/skills/save-to-research-graph/SKILL.md` + `guide.md`
+4. **save-to-research-graph コマンド** - `.claude/commands/save-to-research-graph.md`
 5. **finance-news-workflow への統合** - 最もシンプルなマッピング、最大データ量で検証
 6. **残り5コマンドへの統合** - 1コマンドずつ追加
 7. **冪等性テスト** - 同じデータを2回投入して重複なしを確認
@@ -508,8 +508,8 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 ### 機能検証
 
 1. `finance-news-workflow` 実行後に `.tmp/graph-queue/` にキューファイルが生成されることを確認
-2. `/save-to-graph --dry-run` でファイル検証のみ実行
-3. `/save-to-graph` で Neo4j に投入、`mcp__neo4j-cypher__read_neo4j_cypher` で確認:
+2. `/save-to-research-graph --dry-run` でファイル検証のみ実行
+3. `/save-to-research-graph` で Neo4j に投入、`mcp__neo4j-cypher__read_neo4j_cypher` で確認:
    ```cypher
    MATCH (s:Source)-[:TAGGED]->(t:Topic)
    RETURN t.name, count(s) ORDER BY count(s) DESC
@@ -532,10 +532,10 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 
 | ファイル | 説明 |
 |---------|------|
-| `scripts/emit_graph_queue.py` | graph-queue 生成スクリプト（全マッピングロジック） |
-| `.claude/skills/save-to-graph/SKILL.md` | スキル定義 |
-| `.claude/skills/save-to-graph/guide.md` | 詳細ガイド |
-| `.claude/commands/save-to-graph.md` | スラッシュコマンド |
+| `scripts/emit_research_queue.py` | graph-queue 生成スクリプト（全マッピングロジック） |
+| `.claude/skills/save-to-research-graph/SKILL.md` | スキル定義 |
+| `.claude/skills/save-to-research-graph/guide.md` | 詳細ガイド |
+| `.claude/commands/save-to-research-graph.md` | スラッシュコマンド |
 
 ### 変更（末尾にステップ追加のみ）
 

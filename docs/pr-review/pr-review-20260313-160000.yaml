@@ -38,12 +38,12 @@ code_quality:
   issues:
     critical: []
     high:
-      - location: "scripts/emit_graph_queue.py + src/pdf_pipeline/services/id_generator.py"
+      - location: "scripts/emit_research_queue.py + src/pdf_pipeline/services/id_generator.py"
         description: "ID生成関数が2箇所に重複（DRY違反）"
         recommendation: "長期的にid_generator.pyに統合"
         status: "deferred"
     medium:
-      - location: "scripts/emit_graph_queue.py:921,989"
+      - location: "scripts/emit_research_queue.py:921,989"
         description: "generate_datapoint_id の重複計算"
         recommendation: "dp_id_map で排除"
         status: "fixed (1806c98)"

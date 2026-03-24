@@ -57,7 +57,7 @@ Docling MCP + Gemini CLIでの変換を試みたが、以下の課題が発生:
                   graph-queue JSON出力
                        │
                        ▼
-                  save-to-graph → Neo4j
+                  save-to-research-graph → Neo4j
 ```
 
 **設計判断**: Markdownは本文テキスト（Track A）にのみ使用。表・数値データ（Track B）はJSON形式で直接構造化抽出する。グラフDB保存が最終目的であり、Markdown化は中間ステップに過ぎない。
@@ -165,12 +165,12 @@ class ExtractedEntity(BaseModel):
 
 ### Phase 7: graph-queue JSON出力
 
-- 既存の `save-to-graph` スキルが消費可能な形式で出力
+- 既存の `save-to-research-graph` スキルが消費可能な形式で出力
 - 出力先: `.tmp/graph-queue/pdf-report-pipeline/`
 
 ### Phase 8: Neo4j投入
 
-- 既存 `/save-to-graph --source pdf-report-pipeline` で冪等投入
+- 既存 `/save-to-research-graph --source pdf-report-pipeline` で冪等投入
 
 ---
 
@@ -314,7 +314,7 @@ tests/pdf_pipeline/
 
 - Phase 5-6: 知識抽出（Fact/Claim/Entity） + Entity名寄せ
 - Phase 7: graph-queue JSON出力
-- Phase 8: save-to-graph拡張 + Neo4j投入
+- Phase 8: save-to-research-graph拡張 + Neo4j投入
 - スキーマ拡張（Chunkノード追加等）は知識抽出Phase時に実施
 
 ---
@@ -369,7 +369,7 @@ uv run python -m pdf_pipeline.cli reprocess --hash <sha256>
 |---------|------|
 | `docs/plan/KnowledgeGraph/2026-03-11_first-memo.md` | ナレッジグラフ構築メモ（上位計画） |
 | `data/config/knowledge-graph-schema.yaml` | グラフスキーマ定義（拡張対象） |
-| `.claude/skills/save-to-graph/SKILL.md` | Neo4j投入スキル（拡張対象） |
+| `.claude/skills/save-to-research-graph/SKILL.md` | Neo4j投入スキル（拡張対象） |
 | `src/report_scraper/storage/pdf_store.py` | PDF保存パターン（参考） |
 | `src/report_scraper/types.py` | Pydantic+dataclassパターン（参考） |
 | `data/sample_report/` | 検証用サンプルPDF・Markdown |

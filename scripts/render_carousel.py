@@ -33,21 +33,31 @@ TEMPLATE_PATH = Path(__file__).parent.parent / "templates" / "career_sister" / "
 
 
 def _render_title_slide(slide: dict) -> str:
-    hook = escape(slide.get("hook", ""))
-    sub = escape(slide.get("sub", ""))
+    hook = escape(slide.get("hook", "")).replace("\n", "<br>")
     return f"""
     <div class="slide slide-title">
-        <div class="hook">{hook}</div>
-        <div class="accent-line"></div>
-        <div class="sub">{sub}</div>
+        <div class="top-block">
+            <div class="top-label">CAREER TIPS</div>
+        </div>
+        <div class="bottom-block">
+            <div class="hook">{hook}</div>
+            <div class="account-name">@career_sister</div>
+            <div class="swipe-hint">スワイプで読む →</div>
+        </div>
     </div>"""
 
 
+# スライド総数を追跡するためのカウンタ（build_html側で設定）
+_total_body_slides = 0
+_current_body_index = 0
+
+
 def _render_content_slide(slide: dict) -> str:
-    heading = escape(slide.get("heading", ""))
+    global _current_body_index
+    _current_body_index += 1
+    heading = escape(slide.get("heading", "")).replace("\n", "<br>")
     body = slide.get("body", "")
     number = escape(slide.get("number", ""))
-    # body内の **text** を <span class="highlight">text</span> に変換
     import re
 
     body_html = re.sub(
@@ -56,41 +66,66 @@ def _render_content_slide(slide: dict) -> str:
         escape(body),
     )
     body_html = body_html.replace("\n", "<br>")
+    page = f"{_current_body_index}/{_total_body_slides}"
     return f"""
-    <div class="slide slide-content relative">
-        <div class="left-bar"></div>
-        <div class="content-number">{number}</div>
-        <div class="content-heading">{heading}</div>
-        <div class="content-body">{body_html}</div>
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">{number}</div>
+            <div class="content-heading">{heading}</div>
+            <div class="content-body">{body_html}</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">{page}</div>
+        </div>
     </div>"""
 
 
 def _render_points_slide(slide: dict) -> str:
+    global _current_body_index
+    _current_body_index += 1
     heading = escape(slide.get("heading", ""))
     items = slide.get("items", [])
-    items_html = ""
-    for i, item in enumerate(items, 1):
-        items_html += f"""
-        <div class="point-item">
-            <div class="point-icon">{i}</div>
-            <div class="point-text">{escape(item)}</div>
-        </div>"""
+    closing = escape(slide.get("closing", ""))
+    number = f"{_current_body_index:02d}"
+    items_html = "\n".join(
+        f'            <div class="point-item">✔ {escape(item)}</div>'
+        for item in items
+    )
+    page = f"{_current_body_index}/{_total_body_slides}"
+    closing_html = ""
+    if closing:
+        closing_html = f'<div class="closing">{closing.replace(chr(10), "<br>")}</div>'
     return f"""
     <div class="slide slide-points">
-        <div class="points-heading">{heading}</div>
-        {items_html}
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="points-number">{number}</div>
+            <div class="points-heading">{heading}</div>
+            <div class="summary-box">
+{items_html}
+            </div>
+            <div class="divider"></div>
+            {closing_html}
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">{page}</div>
+        </div>
     </div>"""
 
 
 def _render_cta_slide(slide: dict) -> str:
-    message = escape(slide.get("message", "フォローして\n転職の最新情報をゲット"))
-    account = escape(slide.get("account", "@career_sister"))
-    message_html = message.replace("\n", "<br>")
     return f"""
     <div class="slide slide-cta">
-        <div class="cta-message">{message_html}</div>
-        <div class="cta-account">{account}</div>
+        <div class="cta-heading">この投稿が<br>役に立ったら</div>
+        <div class="cta-emphasis">♡ いいね &amp; 保存</div>
+        <div class="cta-divider"></div>
         <div class="cta-button">フォローする</div>
+        <div class="cta-account">@career_sister</div>
+        <div class="cta-tagline">転職の不安を、<br>一歩踏み出す勇気に変える。</div>
     </div>"""
 
 
@@ -104,6 +139,13 @@ RENDERERS = {
 
 def build_html(slides: list[dict]) -> str:
     """スライドJSONからフルHTMLを生成."""
+    global _total_body_slides, _current_body_index
+    # title と cta を除いた本文スライド数をカウント
+    _total_body_slides = sum(
+        1 for s in slides if s.get("type") in ("content", "points")
+    )
+    _current_body_index = 0
+
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
     body_parts: list[str] = []
     for slide in slides:
@@ -134,7 +176,7 @@ async def render_slides(slides: list[dict], output_dir: Path) -> list[Path]:
     output_paths: list[Path] = []
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        page = await browser.new_page(viewport={"width": 1080, "height": 1350})
+        page = await browser.new_page(viewport={"width": 1080, "height": 1080})
         await page.set_content(html)
 
         # 各スライドをスクリーンショット

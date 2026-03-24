@@ -154,7 +154,7 @@ def evaluate_alerts(
                         severity="critical",
                         message=f"Orphan Entity count: {orphan_entity_count} "
                         f"(threshold: {ORPHAN_ENTITY_CRIT})\n"
-                        "  → save-to-graph の fact_entity RELATES_TO 投入を確認してください\n"
+                        "  → save-to-research-graph の fact_entity RELATES_TO 投入を確認してください\n"
                         "  → 対処: Entity名でFact.contentを検索し RELATES_TO を接続",
                         current_value=float(orphan_entity_count),
                         threshold=float(ORPHAN_ENTITY_CRIT),

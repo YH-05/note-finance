@@ -29,7 +29,7 @@ creator-neo4j で手動実行した Phase A-E（設計→パイプライン実�
 |---------|--------|---------|
 | マルチフェーズ・オーケストレーター | `.claude/skills/creator-enrichment/SKILL.md` | Phase 0-F の構造テンプレート |
 | 対話型設計 | `.claude/skills/project-discuss/SKILL.md` | Phase A/F の AskUserQuestion ループ |
-| グラフ投入パイプライン | `.claude/skills/save-to-graph/SKILL.md` | Phase B の MERGE ガイド生成参考 |
+| グラフ投入パイプライン | `.claude/skills/save-to-research-graph/SKILL.md` | Phase B の MERGE ガイド生成参考 |
 | 品質チェック | `.claude/skills/kg-quality-check/SKILL.md` | Phase D の品質検証クエリ参考（独立実装） |
 
 ### 参考実装
@@ -39,7 +39,7 @@ creator-neo4j で手動実行した Phase A-E（設計→パイプライン実�
 | `.claude/skills/creator-enrichment/SKILL.md` | Phase 0 の ToolSearch + 接続確認パターン |
 | `.claude/skills/project-discuss/SKILL.md` | AskUserQuestion ループ + note-neo4j 保存 |
 | `scripts/entity_linker.py` | 3層マッチング構造（改修対象） |
-| `scripts/emit_graph_queue.py` | graph-queue パイプライン |
+| `scripts/emit_research_queue.py` | graph-queue パイプライン |
 
 ### 技術的考慮事項
 

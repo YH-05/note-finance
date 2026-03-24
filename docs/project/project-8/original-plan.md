@@ -9,7 +9,7 @@ KG スキーマ v2 設計議論（`docs/plan/KnowledgeGraph/2026-03-12_discussio
 - Pydantic モデルの enum 拡張 + 新フィールド追加
 - FinancialDataPoint / FiscalPeriod の Pydantic モデル新設
 - LLM 抽出プロンプトの v2 対応
-- emit_graph_queue.py の Fact/Claim 分離 + 新ノード対応
+- emit_research_queue.py の Fact/Claim 分離 + 新ノード対応
 - neo4j-pdf-constraints.cypher の全制約・インデックス追加
 
 **スコープ外**: Step 5（pipeline 統合）、Step 6（Neo4j 投入）、既存データマイグレーション、Insight 生成ロジック — これらは本プラン完了後に別途実装。
@@ -101,9 +101,9 @@ financial_datapoints: list[ExtractedFinancialDataPoint] = []
 
 `_KNOWLEDGE_EXTRACT_PROMPT`（L90-103）を knowledge_extractor.py と同じ v2 仕様に更新。
 
-## Phase 4: emit_graph_queue.py v2 更新
+## Phase 4: emit_research_queue.py v2 更新
 
-**ファイル**: `scripts/emit_graph_queue.py`
+**ファイル**: `scripts/emit_research_queue.py`
 
 ### 4.1 `map_pdf_extraction()` の修正（L530-662）
 
@@ -270,7 +270,7 @@ cat data/config/neo4j-pdf-constraints.cypher | cypher-shell -u neo4j -p <passwor
 
 1. サンプル PDF でチャンク→抽出→graph-queue JSON 生成
 2. graph-queue JSON の構造確認（facts/claims 分離、financial_datapoints 存在、FiscalPeriod 派生）
-3. `save-to-graph` スキルで Neo4j 投入（別プランのスコープだが手動確認は可能）
+3. `save-to-research-graph` スキルで Neo4j 投入（別プランのスコープだが手動確認は可能）
 
 ## 対象ファイル一覧
 
@@ -280,7 +280,7 @@ cat data/config/neo4j-pdf-constraints.cypher | cypher-shell -u neo4j -p <passwor
 | `src/pdf_pipeline/schemas/extraction.py` | 2 | confidence 削除、enum 拡張、新フィールド、新モデル |
 | `src/pdf_pipeline/core/knowledge_extractor.py` | 3 | プロンプト v2 更新 |
 | `src/pdf_pipeline/services/gemini_provider.py` | 3 | プロンプト v2 更新 |
-| `scripts/emit_graph_queue.py` | 4 | Fact 分離、新ノード、新リレーション、confidence 削除 |
+| `scripts/emit_research_queue.py` | 4 | Fact 分離、新ノード、新リレーション、confidence 削除 |
 | `data/config/neo4j-pdf-constraints.cypher` | 5 | 全制約・インデックス追加 |
 | `tests/pdf_pipeline/unit/test_extraction_schema.py` | 6 | confidence テスト削除、v2 テスト追加 |
 | `tests/pdf_pipeline/unit/test_knowledge_extractor.py` | 6 | confidence 削除、v2 データ更新 |

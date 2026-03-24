@@ -1,6 +1,6 @@
 """creator_enrichment.phases.extract のテスト.
 
-ContentExtractor による Anthropic API 呼び出し・抽出ロジックを検証する。
+ContentExtractor による LLMClient 呼び出し・抽出ロジックを検証する。
 - プロンプトテンプレート適用（genre, title 等の埋め込み）
 - JSON コードブロック除去
 - CycleData 変換（全4タスク出力の統合）
@@ -70,15 +70,6 @@ def _make_extraction_response(
     }
 
 
-def _make_mock_response(text: str) -> MagicMock:
-    """Anthropic API レスポンスのモックを生成する."""
-    mock_content = MagicMock()
-    mock_content.text = text
-    mock_response = MagicMock()
-    mock_response.content = [mock_content]
-    return mock_response
-
-
 # ---------------------------------------------------------------------------
 # JSON コードブロック除去
 # ---------------------------------------------------------------------------
@@ -129,15 +120,15 @@ class TestPromptTemplate:
 
     def test_正常系_genreがプロンプトに埋め込まれる(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """genre 文字列がプロンプトに正しく埋め込まれる."""
         response_data = _make_extraction_response()
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="テスト記事",
@@ -146,21 +137,20 @@ class TestPromptTemplate:
         )
         extractor.extract_single(item=item, genre="career")
 
-        call_args = mock_anthropic_client.messages.create.call_args
-        prompt = call_args.kwargs["messages"][0]["content"]
+        prompt = mock_llm_client.query.call_args[0][0]
         assert "career" in prompt
 
     def test_正常系_titleがプロンプトに埋め込まれる(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """title がプロンプトに正しく埋め込まれる."""
         response_data = _make_extraction_response()
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="副業の始め方ガイド",
@@ -169,21 +159,20 @@ class TestPromptTemplate:
         )
         extractor.extract_single(item=item, genre="career")
 
-        call_args = mock_anthropic_client.messages.create.call_args
-        prompt = call_args.kwargs["messages"][0]["content"]
+        prompt = mock_llm_client.query.call_args[0][0]
         assert "副業の始め方ガイド" in prompt
 
     def test_正常系_source_urlがプロンプトに埋め込まれる(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """source_url がプロンプトに正しく埋め込まれる."""
         response_data = _make_extraction_response()
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/my-article",
             title="テスト記事",
@@ -192,53 +181,8 @@ class TestPromptTemplate:
         )
         extractor.extract_single(item=item, genre="career")
 
-        call_args = mock_anthropic_client.messages.create.call_args
-        prompt = call_args.kwargs["messages"][0]["content"]
+        prompt = mock_llm_client.query.call_args[0][0]
         assert "https://example.com/my-article" in prompt
-
-    def test_正常系_modelが正しく指定される(
-        self,
-        mock_anthropic_client: MagicMock,
-    ) -> None:
-        """API 呼び出しに claude-haiku-4-5-20251001 モデルが使用される."""
-        response_data = _make_extraction_response()
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
-        )
-
-        extractor = ContentExtractor(client=mock_anthropic_client)
-        item = RawItem(
-            url="https://example.com/article-1",
-            title="テスト記事",
-            content="テスト本文",
-            source="tavily_search",
-        )
-        extractor.extract_single(item=item, genre="career")
-
-        call_args = mock_anthropic_client.messages.create.call_args
-        assert call_args.kwargs["model"] == "claude-haiku-4-5-20251001"
-
-    def test_正常系_max_tokensが2000に設定される(
-        self,
-        mock_anthropic_client: MagicMock,
-    ) -> None:
-        """API 呼び出しの max_tokens が 2000 に設定される."""
-        response_data = _make_extraction_response()
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
-        )
-
-        extractor = ContentExtractor(client=mock_anthropic_client)
-        item = RawItem(
-            url="https://example.com/article-1",
-            title="テスト記事",
-            content="テスト本文",
-            source="tavily_search",
-        )
-        extractor.extract_single(item=item, genre="career")
-
-        call_args = mock_anthropic_client.messages.create.call_args
-        assert call_args.kwargs["max_tokens"] == 2000
 
 
 # ---------------------------------------------------------------------------
@@ -249,15 +193,15 @@ class TestExtractSingle:
 
     def test_正常系_JSONレスポンスをパースして辞書を返す(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """正常な JSON レスポンスが辞書としてパースされる."""
         response_data = _make_extraction_response()
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="テスト記事",
@@ -275,17 +219,15 @@ class TestExtractSingle:
 
     def test_正常系_jsonコードブロック付きレスポンスをパースできる(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """```json ... ``` でラップされたレスポンスを正しくパースする."""
         response_data = _make_extraction_response()
         raw_json = json.dumps(response_data, ensure_ascii=False)
         wrapped = f"```json\n{raw_json}\n```"
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            wrapped
-        )
+        mock_llm_client.query.return_value = wrapped
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="テスト記事",
@@ -298,14 +240,12 @@ class TestExtractSingle:
 
     def test_異常系_不正JSONでValueError(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """パース不能な JSON で ValueError が発生する."""
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            "This is not valid JSON at all"
-        )
+        mock_llm_client.query.return_value = "This is not valid JSON at all"
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="テスト記事",
@@ -318,12 +258,12 @@ class TestExtractSingle:
 
     def test_異常系_空レスポンスでValueError(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """空レスポンスで ValueError が発生する."""
-        mock_anthropic_client.messages.create.return_value = _make_mock_response("")
+        mock_llm_client.query.return_value = ""
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="テスト記事",
@@ -336,15 +276,15 @@ class TestExtractSingle:
 
     def test_正常系_content_typeがTipの場合(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """content_type=Tip のレスポンスが正しくパースされる."""
         response_data = _make_extraction_response(content_type="Tip")
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="テスト記事",
@@ -357,15 +297,15 @@ class TestExtractSingle:
 
     def test_正常系_content_typeがStoryの場合(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """content_type=Story のレスポンスが正しくパースされる."""
         response_data = _make_extraction_response(content_type="Story")
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         item = RawItem(
             url="https://example.com/article-1",
             title="テスト記事",
@@ -385,7 +325,7 @@ class TestExtractBatch:
 
     def test_正常系_複数アイテムをCycleDataに集約する(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """複数アイテムの抽出結果を CycleData に正しく集約する."""
         # Fact, Tip, Story の3タイプ
@@ -410,11 +350,11 @@ class TestExtractBatch:
             ),
         ]
 
-        mock_anthropic_client.messages.create.side_effect = [
-            _make_mock_response(json.dumps(r, ensure_ascii=False)) for r in responses
+        mock_llm_client.query.side_effect = [
+            json.dumps(r, ensure_ascii=False) for r in responses
         ]
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         items = [
             RawItem(
                 url="https://example.com/fact",
@@ -457,10 +397,10 @@ class TestExtractBatch:
 
     def test_正常系_空リストで空のCycleDataを返す(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """空の items リストを渡すと空の CycleData を返す."""
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
 
         result = extractor.extract_batch(items=[], genre="career")
 
@@ -477,18 +417,18 @@ class TestExtractBatch:
 
     def test_正常系_APIが呼び出し間にsleepを実行する(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """複数アイテム処理時に sleep が呼び出し間に実行される."""
         responses = [
             _make_extraction_response(source_url="https://example.com/1"),
             _make_extraction_response(source_url="https://example.com/2"),
         ]
-        mock_anthropic_client.messages.create.side_effect = [
-            _make_mock_response(json.dumps(r, ensure_ascii=False)) for r in responses
+        mock_llm_client.query.side_effect = [
+            json.dumps(r, ensure_ascii=False) for r in responses
         ]
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         items = [
             RawItem(
                 url="https://example.com/1",
@@ -512,12 +452,12 @@ class TestExtractBatch:
 
     def test_正常系_cycle_idのフォーマットが正しい(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """cycle_id が cycle-YYYYMMDD-HHMMSS 形式である."""
         import re
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         result = extractor.extract_batch(items=[], genre="career")
 
         pattern = r"^cycle-\d{8}-\d{6}$"
@@ -525,15 +465,15 @@ class TestExtractBatch:
 
     def test_正常系_sourcesにurl_titleが含まれる(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """sources の各要素に url と title が含まれる."""
         response_data = _make_extraction_response()
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         items = [
             RawItem(
                 url="https://example.com/article-1",
@@ -551,7 +491,7 @@ class TestExtractBatch:
 
     def test_正常系_factsにbodyとsource_urlが含まれる(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """facts の各要素に text, source_url 等が含まれる."""
         response_data = _make_extraction_response(
@@ -559,11 +499,11 @@ class TestExtractBatch:
             body="統計データの要約",
             source_url="https://example.com/fact-1",
         )
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(response_data, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
         )
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         items = [
             RawItem(
                 url="https://example.com/fact-1",
@@ -583,7 +523,7 @@ class TestExtractBatch:
 
     def test_異常系_1件失敗しても他は処理される(
         self,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """バッチ中の1件が失敗しても他のアイテムは処理される."""
         good_response = _make_extraction_response(
@@ -591,14 +531,12 @@ class TestExtractBatch:
             source_url="https://example.com/good",
         )
 
-        mock_anthropic_client.messages.create.side_effect = [
-            _make_mock_response("invalid json"),  # 1件目: 失敗
-            _make_mock_response(
-                json.dumps(good_response, ensure_ascii=False)
-            ),  # 2件目: 成功
+        mock_llm_client.query.side_effect = [
+            "invalid json",  # 1件目: 失敗
+            json.dumps(good_response, ensure_ascii=False),  # 2件目: 成功
         ]
 
-        extractor = ContentExtractor(client=mock_anthropic_client)
+        extractor = ContentExtractor(llm_client=mock_llm_client)
         items = [
             RawItem(
                 url="https://example.com/bad",

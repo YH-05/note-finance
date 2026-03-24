@@ -30,8 +30,8 @@ workflow(1), research(1), todo(1), Discussion(1)※既にPascalCase
 |---------|------|
 | `data/config/knowledge-graph-schema.yaml` | KG v2スキーマSSoT（10ノード・15リレーション） |
 | `data/config/neo4j-pdf-constraints.cypher` | UNIQUE制約10個 + インデックス13個 |
-| `.claude/skills/save-to-graph/guide.md` | KGデータ投入のCypherテンプレート |
-| `scripts/emit_graph_queue.py` | graph-queue JSON生成（v2.0） |
+| `.claude/skills/save-to-research-graph/guide.md` | KGデータ投入のCypherテンプレート |
+| `scripts/emit_research_queue.py` | graph-queue JSON生成（v2.0） |
 | `scripts/save_conversations_to_neo4j.py` | 会話履歴保存（ConversationSession等） |
 | `.claude/skills/project-discuss/SKILL.md` | Memory create_entities呼び出し例（既にPascalCase） |
 | `.mcp.json` → `memory` | mcp-neo4j-memory サーバー設定 |
@@ -252,7 +252,7 @@ namespaces:
 
 ## Phase 6: 既存コード修正
 
-`.claude/skills/save-to-graph/guide.md` 内のクロスファイルリレーション推論クエリに `WHERE NOT 'Memory' IN labels(n)` フィルタを追加。
+`.claude/skills/save-to-research-graph/guide.md` 内のクロスファイルリレーション推論クエリに `WHERE NOT 'Memory' IN labels(n)` フィルタを追加。
 
 ---
 
@@ -263,7 +263,7 @@ namespaces:
 | `data/config/knowledge-graph-schema.yaml` | `namespaces` セクション追加 |
 | `.claude/rules/neo4j-namespace-convention.md` | **新規作成**: ラベル命名規約・クエリガイドライン |
 | `scripts/validate_neo4j_schema.py` | **新規作成**: スキーマ検証スクリプト |
-| `.claude/skills/save-to-graph/guide.md` | クエリにMemoryフィルタ追加 |
+| `.claude/skills/save-to-research-graph/guide.md` | クエリにMemoryフィルタ追加 |
 
 ## 実装順序
 
@@ -275,7 +275,7 @@ namespaces:
 | 4 | 3b-d | レガシーノードクリーンアップ | 中（Cypherで変更） |
 | 5 | 4 | 命名規約ドキュメント作成 | なし |
 | 6 | 5 | スキーマ検証スクリプト作成 | なし |
-| 7 | 6 | 既存コード修正（save-to-graph） | 低 |
+| 7 | 6 | 既存コード修正（save-to-research-graph） | 低 |
 
 ## 検証方法
 

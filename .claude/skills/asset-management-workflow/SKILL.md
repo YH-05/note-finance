@@ -284,10 +284,10 @@ revised_draft.md を出力してください。"""
 ### Step 4.2: graph-queue 出力（任意）
 
 ```bash
-python scripts/emit_graph_queue.py \
+python scripts/emit_research_queue.py \
   --command asset-management \
   --input ".tmp/asset-mgmt-*.json"
-echo "graph-queue files generated. Run /save-to-graph to ingest."
+echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 ```
 
 ## テーマ一覧
@@ -326,8 +326,8 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 | リスク開示スニペット | `snippets/investment-risk.md` |
 | NISA免責スニペット | `snippets/nisa-disclaimer.md` |
 | 詳細ガイド | `.claude/skills/asset-management-workflow/guide.md` |
-| graph-queue 出力スクリプト | `scripts/emit_graph_queue.py` |
-| graph-queue 取込コマンド | `/save-to-graph` |
+| graph-queue 出力スクリプト | `scripts/emit_research_queue.py` |
+| graph-queue 取込コマンド | `/save-to-research-graph` |
 
 ## エラーハンドリング
 

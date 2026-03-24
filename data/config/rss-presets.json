@@ -1,10 +1,11 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "presets": [
         {
             "url": "https://hnrss.org/newest?points=100",
             "title": "Hacker News (100+ points)",
             "category": "tech",
+            "source_id": "tech-media",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -12,6 +13,7 @@
             "url": "https://techcrunch.com/feed/",
             "title": "TechCrunch",
             "category": "tech",
+            "source_id": "tech-media",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -19,6 +21,7 @@
             "url": "https://feeds.arstechnica.com/arstechnica/index",
             "title": "Ars Technica",
             "category": "tech",
+            "source_id": "tech-media",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -26,13 +29,16 @@
             "url": "https://www.theverge.com/rss/index.xml",
             "title": "The Verge",
             "category": "tech",
+            "source_id": "tech-media",
             "fetch_interval": "daily",
-            "enabled": true
+            "enabled": false,
+            "note": "HTTP 420 Bot検知のため無効化"
         },
         {
             "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
             "title": "MarketWatch Top Stories",
             "category": "market",
+            "source_id": "marketwatch",
             "fetch_interval": "daily",
             "enabled": false,
             "note": "Bot検知により本文抽出不可のため無効化"
@@ -41,6 +47,7 @@
             "url": "https://seekingalpha.com/feed.xml",
             "title": "Seeking Alpha",
             "category": "market",
+            "source_id": "seeking-alpha",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -48,6 +55,7 @@
             "url": "https://finance.yahoo.com/news/rssindex",
             "title": "Yahoo Finance",
             "category": "finance",
+            "source_id": "yahoo-finance",
             "fetch_interval": "daily",
             "enabled": false,
             "note": "HTTP 429 (Too Many Requests) エラーのため無効化"
@@ -56,6 +64,7 @@
             "url": "https://www.ft.com/markets?format=rss",
             "title": "Financial Times - Markets",
             "category": "finance",
+            "source_id": "ft",
             "fetch_interval": "daily",
             "enabled": false,
             "note": "HTTP 301 リダイレクトによりフィード取得不可のため無効化"
@@ -64,6 +73,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114",
             "title": "CNBC - Top News",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -71,6 +81,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362",
             "title": "CNBC - World News",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -78,6 +89,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15837362",
             "title": "CNBC - US News",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -85,6 +97,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20907743",
             "title": "CNBC - Markets",
             "category": "market",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": false,
             "note": "フィードフォーマットが無効のため無効化"
@@ -93,6 +106,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069",
             "title": "CNBC - Investing",
             "category": "market",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -100,6 +114,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
             "title": "CNBC - Economy",
             "category": "macro",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -107,6 +122,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
             "title": "CNBC - Finance",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -114,6 +130,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19854910",
             "title": "CNBC - Technology",
             "category": "tech",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -121,6 +138,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390",
             "title": "CNBC - Asia News",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -128,6 +146,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19794221",
             "title": "CNBC - Europe News",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -135,6 +154,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147",
             "title": "CNBC - Business",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -142,6 +162,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839135",
             "title": "CNBC - Earnings",
             "category": "stock",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -149,6 +170,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000113",
             "title": "CNBC - Politics",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -156,6 +178,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000108",
             "title": "CNBC - Health Care",
             "category": "sector",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -163,6 +186,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000115",
             "title": "CNBC - Real Estate",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -170,6 +194,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001054",
             "title": "CNBC - Wealth",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -177,6 +202,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000101",
             "title": "CNBC - Autos",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -184,6 +210,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19836768",
             "title": "CNBC - Energy",
             "category": "sector",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -191,6 +218,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000110",
             "title": "CNBC - Media",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -198,6 +226,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000116",
             "title": "CNBC - Retail",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -205,6 +234,7 @@
             "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000739",
             "title": "CNBC - Travel",
             "category": "finance",
+            "source_id": "cnbc",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -212,27 +242,34 @@
             "url": "https://www.nasdaq.com/feed/rssoutbound?category=stocks",
             "title": "Nasdaq Stock News",
             "category": "stock",
+            "source_id": "nasdaq",
             "fetch_interval": "daily",
-            "enabled": true
+            "enabled": false,
+            "note": "HTTP 403 Bot検知のため無効化"
         },
         {
             "url": "https://www.nasdaq.com/feed/rssoutbound?category=etfs",
             "title": "Nasdaq ETFs",
             "category": "sector",
+            "source_id": "nasdaq",
             "fetch_interval": "daily",
-            "enabled": true
+            "enabled": false,
+            "note": "HTTP 403 Bot検知のため無効化"
         },
         {
             "url": "https://www.nasdaq.com/feed/rssoutbound?category=markets",
             "title": "Nasdaq Markets",
             "category": "market",
+            "source_id": "nasdaq",
             "fetch_interval": "daily",
-            "enabled": true
+            "enabled": false,
+            "note": "HTTP 403 Bot検知のため無効化"
         },
         {
             "url": "https://www.investing.com/rss/news_25.rss",
             "title": "Investing.com",
             "category": "market",
+            "source_id": "investing-com",
             "fetch_interval": "daily",
             "enabled": true
         },
@@ -240,6 +277,7 @@
             "url": "https://www.federalreserve.gov/feeds/press_all.xml",
             "title": "Federal Reserve Press",
             "category": "macro",
+            "source_id": "fed-imf",
             "fetch_interval": "daily",
             "enabled": true
         }

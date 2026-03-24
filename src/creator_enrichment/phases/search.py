@@ -1,147 +1,223 @@
-"""creator_enrichment Phase 2: ClaudeCodeSearcher.
+"""creator_enrichment Phase 2: DirectSearcher.
 
-Claude Code エージェントを使用して Web 検索を実行し、
-Tavily / Reddit から取得した結果を ``RawItem[]`` に変換する。
+Step 2a: LLM (SdkLLMClient) でギャップ分析結果から検索クエリを生成
+Step 2b: Tavily REST API (httpx) で検索を実行し RawItem[] に変換
 
-``claude_agent_sdk`` パッケージの利用可否が不確定であるため、
-``AgentProvider`` Protocol で抽象化し、差し替え可能な設計とする。
+Tavily API キーは ``TavilyKeyPool`` で複数ローテーション可能。
+432 エラー（上限到達）時に自動で次のキーに切り替える。
 
 Usage
 -----
 ::
 
-    # provider を注入する場合
-    searcher = ClaudeCodeSearcher(provider=my_provider)
-    items = searcher.search(queries=["side hustle tips"], genre="career")
-
-    # デフォルトプロバイダーを使用する場合（claude_agent_sdk 必須）
-    searcher = ClaudeCodeSearcher()
-    items = searcher.search(queries=["副業 始め方"], genre="career")
+    pool = TavilyKeyPool.from_env()  # TAVILY_API_KEYS から読み込み
+    searcher = DirectSearcher(
+        llm_client=SdkLLMClient(),
+        genre_config=config_json["genres"],
+        tavily_key_pool=pool,
+    )
+    items = searcher.search(queries=["FOMO活用", "PASONAの法則"], genre="career")
 """
 
 from __future__ import annotations
 
 import json
 import logging
-from typing import Protocol, runtime_checkable
+import os
+from datetime import datetime
+from typing import Any
 
-import tenacity
+import httpx
 
+from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.types import PhaseError, RawItem
+from creator_enrichment.utils import strip_json_codeblock
 
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # 定数
 # ---------------------------------------------------------------------------
-_TIMEOUT_SECONDS = 120
-"""エージェント呼び出しのタイムアウト（秒）."""
+_TAVILY_SEARCH_URL = "https://api.tavily.com/search"
+"""Tavily Search REST API エンドポイント."""
 
-_MAX_RETRY_ATTEMPTS = 3
-"""最大リトライ回数."""
+_TAVILY_TIMEOUT = 30
+"""Tavily API のタイムアウト（秒）."""
 
-_RETRY_WAIT_BASE = 2
-"""リトライ待機時間の基数（秒）。指数バックオフ: 2s -> 4s -> 8s."""
+_MAX_RESULTS_PER_QUERY = 5
+"""1クエリあたりの最大検索結果数."""
 
-# ---------------------------------------------------------------------------
-# システムプロンプト
-# ---------------------------------------------------------------------------
-_SYSTEM_PROMPT = """\
-You are a research assistant with access to MCP tools.
-Use the following tools to search for information:
+_MAX_QUERY_GENERATION = 12
+"""LLM に生成させるクエリの上限数."""
 
-1. **tavily_search**: Execute web searches.
-   - Run 3 English queries and 3 Japanese queries (6 total).
-   - Each query should target different aspects of the topic.
-
-2. **reddit**: Search Reddit for relevant discussions and experiences.
-   - Search relevant subreddits for the given genre.
-
-## Output format
-
-Return ONLY a JSON object with the following structure (no markdown, no explanation):
-
-{
-  "items": [
-    {
-      "url": "https://...",
-      "title": "Article or post title",
-      "content": "Article content or summary text",
-      "source": "tavily_search"
-    }
-  ]
-}
-
-The "source" field must be one of: "tavily_search", "reddit".
-Include all results from all searches in a single "items" array.
-Do NOT include any text before or after the JSON object.
-"""
-
-# ---------------------------------------------------------------------------
-# AgentProvider Protocol
-# ---------------------------------------------------------------------------
-
-
-@runtime_checkable
-class AgentProvider(Protocol):
-    """Claude Code エージェントプロバイダーのプロトコル.
-
-    ``query()`` メソッドを持つ任意のオブジェクトを受け付ける。
-    テスト時にモック注入するためのダックタイピングインターフェース。
-    """
-
-    def query(self, *, system_prompt: str, prompt: str, timeout: int) -> str:
-        """エージェントにクエリを送信し、テキストレスポンスを返す.
-
-        Parameters
-        ----------
-        system_prompt : str
-            システムプロンプト
-        prompt : str
-            ユーザープロンプト
-        timeout : int
-            タイムアウト（秒）
-
-        Returns
-        -------
-        str
-            エージェントのテキストレスポンス
-        """
-        ...
+_TAVILY_RATE_LIMIT_STATUS = 432
+"""Tavily API のプラン上限超過ステータスコード."""
 
 
 # ---------------------------------------------------------------------------
-# ClaudeCodeSearcher
+# TavilyKeyPool
 # ---------------------------------------------------------------------------
-class ClaudeCodeSearcher:
-    """Claude Code エージェント経由で Web 検索を実行する.
+class TavilyKeyPool:
+    """複数の Tavily API キーをローテーションする.
+
+    432 エラー（プラン上限）が発生したキーをプールから除外し、
+    次のキーに自動切り替えする。
 
     Parameters
     ----------
-    provider : AgentProvider | None
-        エージェントプロバイダー。None の場合は ``claude_agent_sdk`` から
-        デフォルトプロバイダーをロードする。
-
-    Raises
-    ------
-    RuntimeError
-        provider=None かつ ``claude_agent_sdk`` 未インストールの場合
+    keys : list[str]
+        Tavily API キーのリスト
     """
 
-    def __init__(self, provider: AgentProvider | None = None) -> None:
-        self._provider = provider or self._load_default_provider()
-        logger.info("ClaudeCodeSearcher initialized")
+    def __init__(self, keys: list[str]) -> None:
+        self._keys = list(keys)
+        self._exhausted: set[str] = set()
+        self._index = 0
+        logger.info("TavilyKeyPool initialized: %d keys", len(self._keys))
+
+    @classmethod
+    def from_env(cls) -> TavilyKeyPool:
+        """環境変数から TavilyKeyPool を生成する.
+
+        ``TAVILY_API_KEY_1``, ``TAVILY_API_KEY_2``, ... の連番を収集。
+        連番が無い場合は ``TAVILY_API_KEY``（単一キー）にフォールバック。
+
+        Returns
+        -------
+        TavilyKeyPool
+            空の場合もインスタンスは生成される（has_keys() で判定）
+        """
+        keys: list[str] = []
+
+        # 連番キーを収集: TAVILY_API_KEY_1, _2, _3, ...
+        for i in range(1, 100):
+            val = os.environ.get(f"TAVILY_API_KEY_{i}", "")
+            if not val:
+                break
+            keys.append(val)
+
+        # フォールバック: TAVILY_API_KEY（単一キー）
+        if not keys:
+            single = os.environ.get("TAVILY_API_KEY", "")
+            if single:
+                keys.append(single)
+
+        return cls(keys)
+
+    def has_keys(self) -> bool:
+        """利用可能なキーが残っているか."""
+        return bool(self._available_keys())
+
+    def get_key(self) -> str | None:
+        """次に使用するキーを返す。枯渇時は None."""
+        available = self._available_keys()
+        if not available:
+            return None
+        self._index = self._index % len(available)
+        key = available[self._index]
+        self._index = (self._index + 1) % len(available)
+        return key
+
+    def mark_exhausted(self, key: str) -> None:
+        """432 エラーのキーを除外する."""
+        self._exhausted.add(key)
+        remaining = len(self._available_keys())
+        logger.warning(
+            "Tavily key exhausted (432): ...%s, remaining=%d",
+            key[-8:],
+            remaining,
+        )
+
+    def _available_keys(self) -> list[str]:
+        return [k for k in self._keys if k not in self._exhausted]
+
+
+_SEARCH_SYSTEM_PROMPT = """\
+You are a research assistant. Execute web searches for the given queries \
+and return all results as a JSON object.
+
+Return ONLY a JSON object with this structure (no markdown, no explanation):
+{"items": [{"url": "...", "title": "...", "content": "...", "source": "web_search"}]}
+"""
+
+# ---------------------------------------------------------------------------
+# クエリ生成プロンプト
+# ---------------------------------------------------------------------------
+_QUERY_GENERATION_PROMPT = """\
+あなたは creator-neo4j ナレッジグラフを拡充するための検索クエリを設計する専門家です。
+
+## コンテキスト
+
+ジャンル: {genre} ({genre_name_ja})
+低カバレッジ概念: {low_coverage_concepts}
+現在年: {year}
+
+## タスク
+
+以下の2種類の検索クエリを合計 {max_queries} 本生成してください:
+
+### 1. ギャップ補充クエリ（{gap_count}本）
+低カバレッジ概念を深掘りする具体的なクエリ。英語3本 + 日本語3本を目安に。
+
+### 2. 探索クエリ（{explore_count}本）
+隣接領域・新トレンド・意外な切り口を発見するクエリ。
+低カバレッジ概念から連想される未知のトピックを探る。
+Reddit の体験談や成功事例を含めること。
+
+## 出力形式
+
+JSON配列で返してください。各要素は {{"query": "検索クエリ文", "type": "gap|explore", "language": "en|ja"}} の形式。
+
+```json
+[
+  {{"query": "affiliate marketing side hustle tips 2026", "type": "gap", "language": "en"}},
+  {{"query": "副業 アフィリエイト 成功事例 2026", "type": "gap", "language": "ja"}},
+  {{"query": "unconventional side hustle ideas reddit 2026", "type": "explore", "language": "en"}}
+]
+```
+"""
+
+
+# ---------------------------------------------------------------------------
+# DirectSearcher
+# ---------------------------------------------------------------------------
+class DirectSearcher:
+    """LLM でクエリ生成 + Tavily REST API で検索実行する.
+
+    Parameters
+    ----------
+    llm_client : LLMClient
+        クエリ生成に使用する LLM クライアント
+    genre_config : dict[str, Any]
+        creator-enrichment-config.json の ``genres`` セクション
+    tavily_key_pool : TavilyKeyPool | None
+        Tavily API キープール。None の場合は SDK フォールバックのみ。
+    """
+
+    def __init__(
+        self,
+        llm_client: LLMClient,
+        genre_config: dict[str, Any],
+        tavily_key_pool: TavilyKeyPool | None = None,
+    ) -> None:
+        self._llm = llm_client
+        self._genre_config = genre_config
+        self._key_pool = tavily_key_pool
+        logger.info(
+            "DirectSearcher initialized (tavily_keys=%s)",
+            "available" if tavily_key_pool and tavily_key_pool.has_keys() else "none",
+        )
 
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
     def search(self, queries: list[str], genre: str) -> list[RawItem]:
-        """検索クエリを実行し RawItem リストを返す.
+        """検索クエリを生成・実行し RawItem リストを返す.
 
         Parameters
         ----------
         queries : list[str]
-            検索クエリのリスト
+            低カバレッジ概念のリスト（Gap Analysis Q4 由来）
         genre : str
             対象ジャンル（career / beauty-romance / spiritual）
 
@@ -153,254 +229,297 @@ class ClaudeCodeSearcher:
         Raises
         ------
         PhaseError
-            リトライ上限超過・タイムアウト・パースエラー時
+            クエリ生成失敗または全検索失敗時
         """
         logger.info(
-            "Search started: genre=%s, query_count=%d",
+            "Search started: genre=%s, concept_count=%d",
             genre,
             len(queries),
         )
 
-        try:
-            raw_response = self._call_with_retry(queries=queries, genre=genre)
-        except TimeoutError as e:
-            logger.error("Search timed out: %s", e)
-            raise PhaseError(f"Search failed: {e}") from e
-        except tenacity.RetryError as e:
-            last_exc = e.last_attempt.exception() if e.last_attempt else None
-            original: Exception = last_exc if isinstance(last_exc, Exception) else e
-            logger.error("Search failed after retries: %s", original)
-            raise PhaseError(f"Search failed after retries: {original}") from e
-        except (RuntimeError, OSError) as e:
-            # reraise=True の場合、tenacity は元の例外を直接 re-raise する
-            logger.error("Search failed after retries: %s", e)
-            raise PhaseError(f"Search failed: {e}") from e
+        # Step 2a: LLM でクエリ生成
+        search_queries = self._generate_queries(queries, genre)
+        logger.info("Generated %d search queries", len(search_queries))
 
-        try:
-            items = self._parse_response(raw_response)
-        except (json.JSONDecodeError, KeyError, TypeError, ValueError) as e:
-            logger.error("Failed to parse search response: %s", e)
-            raise PhaseError(f"Search failed: {e}") from e
-
+        # Step 2b: Tavily REST API で検索実行
+        items = self._execute_searches(search_queries)
         logger.info("Search completed: %d items found", len(items))
         return items
 
     # ------------------------------------------------------------------
-    # Private: リトライ付きエージェント呼び出し
+    # Step 2a: LLM クエリ生成
     # ------------------------------------------------------------------
-    @tenacity.retry(
-        stop=tenacity.stop_after_attempt(_MAX_RETRY_ATTEMPTS),
-        wait=tenacity.wait_exponential(multiplier=_RETRY_WAIT_BASE, max=16),
-        retry=tenacity.retry_if_exception_type((RuntimeError, OSError)),
-        reraise=True,
-    )
-    def _call_with_retry(self, *, queries: list[str], genre: str) -> str:
-        """リトライ付きでエージェントを呼び出す.
+    def _generate_queries(
+        self, concepts: list[str], genre: str
+    ) -> list[dict[str, str]]:
+        """LLM で検索クエリを生成する.
 
         Parameters
         ----------
-        queries : list[str]
-            検索クエリリスト
+        concepts : list[str]
+            低カバレッジ概念リスト
         genre : str
             対象ジャンル
 
         Returns
         -------
-        str
-            エージェントのテキストレスポンス
+        list[dict[str, str]]
+            生成されたクエリリスト（query, type, language）
 
         Raises
         ------
-        TimeoutError
-            タイムアウト時
-        RuntimeError
-            エージェント呼び出しエラー時（リトライ対象）
+        PhaseError
+            LLM 呼び出しまたはパースに失敗した場合
         """
-        prompt = self._build_user_prompt(queries, genre)
+        genre_info = self._genre_config.get(genre, {})
+        genre_name_ja = genre_info.get("name_ja", genre)
+        year = datetime.now().year
 
-        logger.debug(
-            "Calling agent: genre=%s, timeout=%ds",
-            genre,
-            _TIMEOUT_SECONDS,
+        gap_count = min(7, _MAX_QUERY_GENERATION)
+        explore_count = _MAX_QUERY_GENERATION - gap_count
+
+        prompt = _QUERY_GENERATION_PROMPT.format(
+            genre=genre,
+            genre_name_ja=genre_name_ja,
+            low_coverage_concepts=", ".join(concepts[:10]),
+            year=year,
+            max_queries=_MAX_QUERY_GENERATION,
+            gap_count=gap_count,
+            explore_count=explore_count,
         )
 
-        return self._provider.query(
-            system_prompt=_SYSTEM_PROMPT,
-            prompt=prompt,
-            timeout=_TIMEOUT_SECONDS,
+        try:
+            response = self._llm.query(prompt)
+        except (RuntimeError, OSError) as e:
+            logger.error("LLM query generation failed: %s", e)
+            raise PhaseError(f"Query generation failed: {e}") from e
+
+        cleaned = strip_json_codeblock(response)
+
+        try:
+            generated = json.loads(cleaned)
+        except json.JSONDecodeError as e:
+            logger.error("Failed to parse LLM query response: %s", e)
+            raise PhaseError(f"Query generation parse failed: {e}") from e
+
+        if not isinstance(generated, list):
+            raise PhaseError(
+                f"Expected list of queries, got {type(generated).__name__}"
+            )
+
+        logger.info(
+            "Query generation: %d gap + %d explore",
+            sum(1 for q in generated if q.get("type") == "gap"),
+            sum(1 for q in generated if q.get("type") == "explore"),
         )
+        return generated[:_MAX_QUERY_GENERATION]
 
     # ------------------------------------------------------------------
-    # Private: レスポンスパース
+    # Step 2b: 検索実行（Tavily → SDK フォールバック）
     # ------------------------------------------------------------------
-    @staticmethod
-    def _parse_response(raw_response: str) -> list[RawItem]:
-        """エージェントレスポンスをパースし RawItem リストに変換する.
-
-        ```json ... ``` コードブロックラッピングにも対応する。
+    def _execute_searches(
+        self, search_queries: list[dict[str, str]]
+    ) -> list[RawItem]:
+        """検索を実行する。Tavily API → SDK WebSearch のフォールバック付き.
 
         Parameters
         ----------
-        raw_response : str
-            エージェントのテキストレスポンス
+        search_queries : list[dict[str, str]]
+            LLM 生成の検索クエリリスト
 
         Returns
         -------
         list[RawItem]
-            パースされた RawItem リスト
-
-        Raises
-        ------
-        json.JSONDecodeError
-            JSON パースに失敗した場合
-        KeyError
-            ``items`` キーが存在しない場合
-        TypeError
-            ``items`` がリストでない場合
-        ValueError
-            ``items`` キーが存在しないか不正な型の場合
+            全検索結果の正規化アイテムリスト
         """
-        text = raw_response.strip()
+        # まず Tavily API を試行
+        if self._key_pool and self._key_pool.has_keys():
+            items = self._execute_via_tavily(search_queries)
+            if items:
+                return items
+            logger.warning("Tavily returned 0 results, falling back to SDK")
 
-        # ```json ... ``` コードブロックを除去
-        if text.startswith("```"):
-            lines = text.split("\n")
-            json_lines: list[str] = []
-            in_block = False
-            for line in lines:
-                if line.startswith("```") and not in_block:
-                    in_block = True
-                    continue
-                if line.startswith("```") and in_block:
-                    break
-                if in_block:
-                    json_lines.append(line)
-            text = "\n".join(json_lines)
+        # フォールバック: SDK WebSearch
+        return self._execute_via_sdk(search_queries)
 
-        parsed = json.loads(text)
+    def _execute_via_tavily(
+        self, search_queries: list[dict[str, str]]
+    ) -> list[RawItem]:
+        """Tavily REST API で検索を実行する."""
+        all_items: list[RawItem] = []
+        seen_urls: set[str] = set()
 
-        if "items" not in parsed:
-            raise ValueError("Response JSON missing 'items' key")
+        for i, sq in enumerate(search_queries):
+            query_text = sq.get("query", "")
+            if not query_text:
+                continue
 
-        items_raw = parsed["items"]
-        if not isinstance(items_raw, list):
-            raise TypeError(
-                f"Expected 'items' to be a list, got {type(items_raw).__name__}"
-            )
+            is_reddit = "reddit" in query_text.lower()
+            include_domains = ["reddit.com"] if is_reddit else []
 
-        result: list[RawItem] = []
-        for item in items_raw:
-            result.append(
-                RawItem(
-                    url=str(item.get("url", "")),
-                    title=str(item.get("title", "")),
-                    content=str(item.get("content", "")),
-                    source=str(item.get("source", "")),
+            try:
+                items = self._tavily_search_with_rotation(
+                    query=query_text,
+                    include_domains=include_domains,
                 )
-            )
+            except (httpx.HTTPError, httpx.TimeoutException) as e:
+                logger.warning(
+                    "Tavily query %d/%d failed (skipping): %s",
+                    i + 1,
+                    len(search_queries),
+                    e,
+                )
+                continue
 
-        return result
+            for item in items:
+                if item["url"] not in seen_urls:
+                    seen_urls.add(item["url"])
+                    all_items.append(item)
 
-    # ------------------------------------------------------------------
-    # Private: プロンプト構築
-    # ------------------------------------------------------------------
-    @staticmethod
-    def _build_user_prompt(queries: list[str], genre: str) -> str:
-        """検索用のユーザープロンプトを構築する.
+        return all_items
 
-        Parameters
-        ----------
-        queries : list[str]
-            検索クエリリスト
-        genre : str
-            対象ジャンル
+    def _execute_via_sdk(
+        self, search_queries: list[dict[str, str]]
+    ) -> list[RawItem]:
+        """claude_agent_sdk (max_turns=10) で WebSearch を実行する.
 
-        Returns
-        -------
-        str
-            構築されたユーザープロンプト
+        SdkLLMClient（max_turns=1）ではツール呼び出しできないため、
+        専用の SDK セッションを起動する。
         """
-        queries_text = "\n".join(f"- {q}" for q in queries)
-        return (
-            f"Genre: {genre}\n\n"
-            f"Search queries:\n{queries_text}\n\n"
-            "Execute tavily_search for each query (EN 3 + JP 3) "
-            "and reddit search for relevant subreddits. "
-            "Return all results as a single JSON object."
-        )
+        import asyncio
 
-    # ------------------------------------------------------------------
-    # Private: デフォルトプロバイダーロード
-    # ------------------------------------------------------------------
-    @staticmethod
-    def _load_default_provider() -> AgentProvider:
-        """claude_agent_sdk からデフォルトプロバイダーをロードする.
-
-        Returns
-        -------
-        AgentProvider
-            SDK ラッパープロバイダー
-
-        Raises
-        ------
-        RuntimeError
-            claude_agent_sdk が未インストールの場合
-        """
         try:
             import claude_agent_sdk
-
-            from creator_enrichment.config import ANTHROPIC_MODEL
-
-            class _SdkProvider:
-                """claude_agent_sdk.query() をラップするプロバイダー."""
-
-                def query(
-                    self, *, system_prompt: str, prompt: str, timeout: int
-                ) -> str:
-                    import asyncio
-                    import os
-
-                    # ネストセッション回避: CLAUDECODE を一時的にクリア
-                    saved_env = os.environ.pop("CLAUDECODE", None)
-
-                    options = claude_agent_sdk.ClaudeAgentOptions(
-                        system_prompt=system_prompt,
-                        model=ANTHROPIC_MODEL,
-                        max_turns=20,
-                        permission_mode="bypassPermissions",
-                    )
-
-                    async def _run() -> str:
-                        result_text = ""
-                        async for msg in claude_agent_sdk.query(
-                            prompt=prompt,
-                            options=options,
-                        ):
-                            # ResultMessage.result を優先（最終出力テキスト）
-                            if hasattr(msg, "result") and msg.result:
-                                return msg.result
-                            # AssistantMessage の TextBlock からテキストを収集
-                            if hasattr(msg, "content"):
-                                for block in msg.content:  # type: ignore[union-attr]
-                                    if hasattr(block, "text"):
-                                        result_text += block.text  # type: ignore[union-attr]
-                        return result_text
-
-                    try:
-                        return asyncio.run(_run())
-                    finally:
-                        if saved_env is not None:
-                            os.environ["CLAUDECODE"] = saved_env
-
-            logger.info(
-                "Default provider loaded from claude_agent_sdk (model=%s)",
-                ANTHROPIC_MODEL,
-            )
-            return _SdkProvider()
         except ImportError:
-            msg = (
-                "claude_agent_sdk not installed. "
-                "Install with: uv add --optional automation claude-agent-sdk"
+            logger.error("claude_agent_sdk not installed, cannot fallback")
+            return []
+
+        from creator_enrichment.config import ANTHROPIC_MODEL
+
+        queries_text = "\n".join(
+            f"- {sq['query']}" for sq in search_queries if sq.get("query")
+        )
+        prompt = (
+            f"Execute web searches for ALL of the following queries "
+            f"and return results as JSON.\n\n"
+            f"Queries:\n{queries_text}\n\n"
+            f"Return ONLY JSON: "
+            f'{{\"items\": [{{\"url\": \"...\", \"title\": \"...\", '
+            f'\"content\": \"...\", \"source\": \"web_search\"}}]}}'
+        )
+
+        saved_env = os.environ.pop("CLAUDECODE", None)
+
+        options = claude_agent_sdk.ClaudeAgentOptions(
+            system_prompt=_SEARCH_SYSTEM_PROMPT,
+            model=ANTHROPIC_MODEL,
+            max_turns=10,
+            permission_mode="bypassPermissions",
+        )
+
+        async def _run() -> str:
+            result_text = ""
+            final_result: str | None = None
+            try:
+                async for msg in claude_agent_sdk.query(
+                    prompt=prompt, options=options,
+                ):
+                    if hasattr(msg, "result"):
+                        final_result = msg.result
+                    if hasattr(msg, "content"):
+                        for block in msg.content:  # type: ignore[union-attr]
+                            if hasattr(block, "text"):
+                                result_text += block.text  # type: ignore[union-attr]
+            except (RuntimeError, GeneratorExit):
+                pass
+            return final_result if final_result else result_text
+
+        try:
+            response = asyncio.run(_run())
+        except Exception as e:
+            logger.error("SDK search failed: %s", e)
+            return []
+        finally:
+            if saved_env is not None:
+                os.environ["CLAUDECODE"] = saved_env
+
+        cleaned = strip_json_codeblock(response)
+        try:
+            parsed = json.loads(cleaned)
+        except json.JSONDecodeError:
+            logger.error("Failed to parse SDK search response")
+            return []
+
+        items_raw = parsed.get("items", [])
+        if not isinstance(items_raw, list):
+            return []
+
+        seen_urls: set[str] = set()
+        results: list[RawItem] = []
+        for item in items_raw:
+            url = str(item.get("url", ""))
+            if url and url not in seen_urls:
+                seen_urls.add(url)
+                results.append(
+                    RawItem(
+                        url=url,
+                        title=str(item.get("title", "")),
+                        content=str(item.get("content", "")),
+                        source=str(item.get("source", "web_search")),
+                    )
+                )
+        return results
+
+    def _tavily_search_with_rotation(
+        self,
+        query: str,
+        include_domains: list[str] | None = None,
+    ) -> list[RawItem]:
+        """キーローテーション付きで Tavily REST API を呼び出す.
+
+        432 エラー時にキーを除外して次のキーでリトライする。
+        全キーが枯渇した場合は空リストを返す。
+        """
+        assert self._key_pool is not None
+
+        while self._key_pool.has_keys():
+            key = self._key_pool.get_key()
+            if key is None:
+                break
+
+            payload: dict[str, Any] = {
+                "api_key": key,
+                "query": query,
+                "max_results": _MAX_RESULTS_PER_QUERY,
+                "include_raw_content": False,
+            }
+            if include_domains:
+                payload["include_domains"] = include_domains
+
+            response = httpx.post(
+                _TAVILY_SEARCH_URL,
+                json=payload,
+                timeout=_TAVILY_TIMEOUT,
             )
-            logger.error(msg)
-            raise RuntimeError(msg) from None
+
+            if response.status_code == _TAVILY_RATE_LIMIT_STATUS:
+                self._key_pool.mark_exhausted(key)
+                continue
+
+            response.raise_for_status()
+
+            data = response.json()
+            results = data.get("results", [])
+
+            return [
+                RawItem(
+                    url=str(r.get("url", "")),
+                    title=str(r.get("title", "")),
+                    content=str(r.get("content", "")),
+                    source="tavily",
+                )
+                for r in results
+            ]
+
+        logger.warning("All Tavily API keys exhausted")
+        return []

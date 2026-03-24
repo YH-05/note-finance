@@ -217,7 +217,7 @@ Neo4j 5 Community Edition では複合一意制約（Composite Unique Constraint
 
 ### 概要
 
-graph-queue JSON は `scripts/emit_graph_queue.py` が生成する中間フォーマットです。
+graph-queue JSON は `scripts/emit_research_queue.py` が生成する中間フォーマットです。
 各種ワークフローコマンドの出力を統一的なグラフデータ形式に変換したものです。
 
 ### ファイル配置
@@ -2084,7 +2084,7 @@ SET s.url = 'https://example.com', s.title = 'Example'
 ### 冪等性の保証チェーン
 
 ```
-1. emit_graph_queue.py が決定論的 ID を生成
+1. emit_research_queue.py が決定論的 ID を生成
    ↓
 2. graph-queue JSON に ID が記録される
    ↓
@@ -2142,7 +2142,7 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 ls -la .tmp/graph-queue/
 
 # graph-queue の生成
-python3 scripts/emit_graph_queue.py \
+python3 scripts/emit_research_queue.py \
   --command finance-news-workflow \
   --input .tmp/news-batches/index.json
 ```
@@ -2223,7 +2223,7 @@ save-to-graph パイプラインの全体検証手順。graph-queue 生成から
 
 - Neo4j が起動済み（Docker or ローカル）
 - 初回セットアップ（制約・インデックス作成）が完了済み
-- `scripts/emit_graph_queue.py` が利用可能
+- `scripts/emit_research_queue.py` が利用可能
 
 ### Step 1: graph-queue ファイル生成
 
@@ -2231,7 +2231,7 @@ finance-news-workflow の実データからキューファイルを生成する�
 
 ```bash
 # 実データが .tmp/news-batches/ にある場合
-python3 scripts/emit_graph_queue.py \
+python3 scripts/emit_research_queue.py \
   --command finance-news-workflow \
   --input .tmp/news-batches/index.json
 
@@ -2239,7 +2239,7 @@ python3 scripts/emit_graph_queue.py \
 for theme in index stock sector macro_cnbc ai_cnbc finance_cnbc; do
   input_file=".tmp/news-batches/${theme}.json"
   if [ -f "$input_file" ]; then
-    python3 scripts/emit_graph_queue.py \
+    python3 scripts/emit_research_queue.py \
       --command finance-news-workflow \
       --input "$input_file"
   fi
@@ -2442,7 +2442,7 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
   "MATCH (n) RETURN labels(n)[0] AS label, count(n) AS count ORDER BY label"
 
 # Step 6.2: 同じキューファイルを再生成して再投入
-python3 scripts/emit_graph_queue.py \
+python3 scripts/emit_research_queue.py \
   --command finance-news-workflow \
   --input .tmp/news-batches/index.json
 
@@ -2524,8 +2524,8 @@ uv run pytest tests/scripts/ -v
 |---------|------|------|
 | スキル定義 | `.claude/skills/save-to-graph/SKILL.md` | メインスキルファイル |
 | スラッシュコマンド | `.claude/commands/save-to-graph.md` | コマンド定義 |
-| graph-queue 生成 | `scripts/emit_graph_queue.py` | JSON 生成スクリプト |
-| graph-queue テスト | `tests/scripts/test_emit_graph_queue.py` | 生成スクリプトのテスト |
+| graph-queue 生成 | `scripts/emit_research_queue.py` | JSON 生成スクリプト |
+| graph-queue テスト | `tests/scripts/test_emit_research_queue.py` | 生成スクリプトのテスト |
 | E2E テスト | `tests/scripts/test_e2e_graph_pipeline.py` | E2E 検証・冪等性テスト |
 | KG スキーマ定義 | `data/config/knowledge-graph-schema.yaml` | ノード・リレーション・制約の定義 |
 | v3.0 オントロジー | `data/lifecycle-state/research/ontology.yaml` | v3.0 ノード・リレーション定義（33ラベル/59種） |

@@ -1,7 +1,7 @@
 """E2E dry-run tests for save-to-article-graph pipeline.
 
 topic-discovery / wealth-scrape のグラフキュー生成とドライラン Cypher 出力を検証。
-Neo4j 接続は不要。emit_graph_queue.py の出力がフォーマットに準拠し、
+Neo4j 接続は不要。emit_research_queue.py の出力がフォーマットに準拠し、
 Cypher MERGE テンプレートに正しくマッピングできることを保証する。
 
 Issue #134: [save-to-article-graph] D-1: E2E dry-run 検証
@@ -91,7 +91,7 @@ CYPHER_NODE_LABELS: set[str] = {
     "FinancialDataPoint",
     "FiscalPeriod",
 }
-"""save-to-graph が MERGE するノードラベル一覧。"""
+"""save-to-research-graph が MERGE するノードラベル一覧。"""
 
 CYPHER_RELATION_TYPES: set[str] = {
     "TAGGED",
@@ -104,7 +104,7 @@ CYPHER_RELATION_TYPES: set[str] = {
     "FOR_PERIOD",
     "RELATES_TO",
 }
-"""save-to-graph が MERGE するリレーションタイプ一覧。"""
+"""save-to-research-graph が MERGE するリレーションタイプ一覧。"""
 
 
 # ---------------------------------------------------------------------------
@@ -406,7 +406,7 @@ def _load_queue_file(path: Path) -> dict[str, Any]:
 def _generate_cypher_merge_statements(queue_data: dict[str, Any]) -> list[str]:
     """graph-queue JSON から dry-run 用 Cypher MERGE 文を生成する。
 
-    save-to-graph スキルの Cypher テンプレートと同等のロジックで、
+    save-to-research-graph スキルの Cypher テンプレートと同等のロジックで、
     各ノードとリレーションの MERGE 文を生成する。
     Neo4j 接続は不要。
 

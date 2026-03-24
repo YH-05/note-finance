@@ -48,8 +48,8 @@ Step 3: 結果保存・ステータス更新
 
 Step 4: KG永続化（全カテゴリ共通）
 ├── 検索結果から入力 JSON を構築
-├── emit_graph_queue.py --command web-research で graph-queue 生成
-├── /save-to-graph で Neo4j に投入
+├── emit_research_queue.py --command web-research で graph-queue 生成
+├── /save-to-research-graph で Neo4j に投入
 └── 01_research/kg_ingestion_report.md に投入結果を記録
 ```
 
@@ -294,14 +294,14 @@ Step 2 で収集した検索結果を research-neo4j に永続化する。
 2. **graph-queue JSON 生成**
 
    ```bash
-   uv run python scripts/emit_graph_queue.py \
+   uv run python scripts/emit_research_queue.py \
      --command web-research \
      --input .tmp/research-input/{session_id}.json
    ```
 
 3. **Neo4j 投入**
 
-   `/save-to-graph` スキルを呼び出す。
+   `/save-to-research-graph` スキルを呼び出す。
 
 4. **投入結果の記録**
 
@@ -344,8 +344,8 @@ Step 2 で収集した検索結果を research-neo4j に永続化する。
 KG照会・永続化をスキップしてリサーチを続行します。
 検索結果の入力JSONは .tmp/research-input/ に保存されます。
 Neo4j起動後に手動で投入可能です:
-  uv run python scripts/emit_graph_queue.py --command web-research --input .tmp/research-input/{session_id}.json
-  /save-to-graph --source web-research
+  uv run python scripts/emit_research_queue.py --command web-research --input .tmp/research-input/{session_id}.json
+  /save-to-research-graph --source web-research
 ```
 
 ### データ収集失敗
@@ -367,4 +367,4 @@ Neo4j起動後に手動で投入可能です:
 - **前提コマンド**: `/article-init`
 - **後続コマンド**: `/article-draft`
 - **統合コマンド**: `/article-full`
-- **使用スキル**: investment-research, asset-management-workflow, experience-db-workflow, emit-research-queue, save-to-graph
+- **使用スキル**: investment-research, asset-management-workflow, experience-db-workflow, emit-research-queue, save-to-research-graph

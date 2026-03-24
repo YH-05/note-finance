@@ -7,7 +7,7 @@ into a graph-queue format for /save-to-creator-graph.
 Output target: .tmp/creator-graph-queue/cq-{timestamp}-{rand8}.json
 
 This is the creator-neo4j (bolt://localhost:7689) counterpart of
-emit_graph_queue.py (research-neo4j). The schemas are different:
+emit_research_queue.py (research-neo4j). The schemas are different:
 - creator-neo4j: Genre, Topic, Source, Fact, Tip, Story, Entity
 - research-neo4j: Source, Fact, Claim, Entity, Topic, ...
 

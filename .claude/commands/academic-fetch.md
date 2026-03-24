@@ -6,7 +6,7 @@ argument-hint: --arxiv-id <id> | --arxiv-ids <id1> <id2> ... | --backfill --ids-
 # /academic-fetch - 論文メタデータ取得 + graph-queue 生成
 
 alphaxiv MCP で調査した論文の著者・引用文献情報を arXiv / Semantic Scholar API から自動取得し、
-graph-queue JSON を生成します。生成された JSON は `/save-to-graph` で Neo4j に投入できます。
+graph-queue JSON を生成します。生成された JSON は `/save-to-research-graph` で Neo4j に投入できます。
 
 ## 引数の解析
 
@@ -64,12 +64,12 @@ uv run python -m academic backfill --ids-file ${IDS_FILE}
 
 次のステップ:
 - fetch → 論文データを確認: `cat .tmp/academic/papers.json | python -m json.tool`
-- backfill → Neo4j 投入: `/save-to-graph`
+- backfill → Neo4j 投入: `/save-to-research-graph`
 ```
 
 ### Step 5: backfill 後の graph-queue → Neo4j 投入（オプション）
 
-ユーザーが希望する場合、続けて `/save-to-graph` を実行する。
+ユーザーが希望する場合、続けて `/save-to-research-graph` を実行する。
 
 ## 使用例
 
@@ -83,7 +83,7 @@ uv run python -m academic backfill --ids-file ${IDS_FILE}
 # バッチバックフィル（graph-queue 生成 → Neo4j 投入）
 /academic-fetch --backfill --ids-file data/arxiv-ids.txt
 
-# emit_graph_queue.py 経由でも生成可能
+# emit_research_queue.py 経由でも生成可能
 /emit-graph-queue --command academic-fetch --input .tmp/academic/papers.json
 ```
 
@@ -144,7 +144,7 @@ DETACH DELETE s_acad
 ## 関連コマンド
 
 - **graph-queue 生成**: `/emit-graph-queue --command academic-fetch`
-- **Neo4j 投入**: `/save-to-graph`
+- **Neo4j 投入**: `/save-to-research-graph`
 - **PDF 知識抽出**: `/pdf-to-knowledge`
 
 ## 関連リソース
@@ -154,4 +154,4 @@ DETACH DELETE s_acad
 | academic パッケージ | `src/academic/` |
 | 移植レポート | `academic-package-migration-report.md` |
 | graph-queue 出力先 | `.tmp/graph-queue/academic-fetch/` |
-| save-to-graph ガイド | `.claude/skills/save-to-graph/guide.md` |
+| save-to-research-graph ガイド | `.claude/skills/save-to-research-graph/guide.md` |

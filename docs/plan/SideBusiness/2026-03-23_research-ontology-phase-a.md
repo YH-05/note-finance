@@ -55,7 +55,7 @@ FIBO (Financial Industry Business Ontology) を参考にオントロジーを再
 ## アクションアイテム
 
 - [ ] **Phase B 実行**: Pipeline コンポーネント生成（抽出プロンプト、Entity Linker設定、Emit Queue設定、MERGEガイド） (優先度: 高)
-- [ ] **emit_graph_queue.py 更新**: 新オントロジー対応（15新設ノード、Identifier統一、InstrumentClass階層） (優先度: 高)
+- [ ] **emit_research_queue.py 更新**: 新オントロジー対応（15新設ノード、Identifier統一、InstrumentClass階層） (優先度: 高)
 - [ ] **entity_linker.py 更新**: EntityType ノード + Identifier パターン対応 (優先度: 高)
 - [ ] **移行計画策定**: Phase C 追加実行の判断。既存6,399ノードへのプロパティ→リレーション変換適用 (優先度: 中)
 

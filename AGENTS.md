@@ -256,7 +256,7 @@ MCP Server (`rss.mcp.server`) でRSSフィード操作可能。7ツール: list/
 | --------------------- | ------------------------------------------------------------------- |
 | `/convert-pdf`        | 単一PDFをMarkdownに変換（Claude Code直接Read方式）                  |
 | `/pdf-to-knowledge`   | PDF→Markdown→ナレッジグラフの一括ワークフロー                       |
-| `/save-to-graph`      | graph-queueのデータをNeo4jに投入                                    |
+| `/save-to-research-graph`      | graph-queueのデータをNeo4jに投入                                    |
 
 ### 開発ツール
 

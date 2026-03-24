@@ -24,7 +24,7 @@ PR #225 で以下の3つの実装変更に対してテストが追従してい�
    - エラー: `TypeError: '>' not supported between instances of 'MagicMock' and 'int'`
 
 3. **test_e2e_save_to_article_graph.py（1件失敗）**
-   - `emit_graph_queue.py` の topic-discovery で `source_type` が `"original"` → `"report"` に変更
+   - `emit_research_queue.py` の topic-discovery で `source_type` が `"original"` → `"report"` に変更
    - テストの期待値が未更新
    - エラー: `assert 'report' == 'original'`
 

@@ -1,6 +1,6 @@
 """KgExporter: ナレッジグラフエクスポーター.
 
-YouTube トランスクリプトデータを save-to-graph スキル向けの
+YouTube トランスクリプトデータを save-to-research-graph スキル向けの
 graph-queue JSON 形式に変換し、research-neo4j（port 7688）への
 投入準備を行う。
 
@@ -9,7 +9,7 @@ Architecture
 - ``export_video``: 1動画のトランスクリプトを graph-queue JSON にエクスポート
 - ``export_channel``: チャンネルの全 SUCCESS 動画を一括エクスポート
 
-graph-queue フォーマット仕様は .claude/skills/save-to-graph/guide.md を参照。
+graph-queue フォーマット仕様は .claude/skills/save-to-research-graph/guide.md を参照。
 schema_version: "2.0" で出力する。
 """
 
@@ -43,7 +43,7 @@ class KgExporter:
     """YouTube トランスクリプトを graph-queue JSON にエクスポートするクラス.
 
     TranscriptResult と Video メタデータを組み合わせて、
-    save-to-graph スキルが処理できる graph-queue フォーマット（v2.0）を生成する。
+    save-to-research-graph スキルが処理できる graph-queue フォーマット（v2.0）を生成する。
 
     Parameters
     ----------

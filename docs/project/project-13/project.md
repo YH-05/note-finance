@@ -2,7 +2,7 @@
 
 ## 概要
 
-wealth blog スクレイピングと topic-discovery スキルが収集した情報を article-neo4j（bolt://localhost:7689）に蓄積するパイプラインを構築する。既存の `emit_graph_queue.py` + `save-to-graph` パターンを拡張し、2つの新コマンドマッパーとオーケストレータースキルを追加する。
+wealth blog スクレイピングと topic-discovery スキルが収集した情報を article-neo4j（bolt://localhost:7689）に蓄積するパイプラインを構築する。既存の `emit_research_queue.py` + `save-to-research-graph` パターンを拡張し、2つの新コマンドマッパーとオーケストレータースキルを追加する。
 
 ## GitHub Project
 
@@ -29,10 +29,10 @@ wealth blog スクレイピングと topic-discovery スキルが収集した情
 
 | ファイル | 変更種別 |
 |---------|---------|
-| `scripts/emit_graph_queue.py` | 編集（マッパー2つ + フレームワーク拡張） |
+| `scripts/emit_research_queue.py` | 編集（マッパー2つ + フレームワーク拡張） |
 | `docker/article-neo4j/init/01-constraints-indexes.cypher` | 編集（Author 制約） |
 | `.claude/skills/save-to-article-graph/SKILL.md` | 新規 |
-| `tests/scripts/test_emit_graph_queue.py` | 編集（テスト追加） |
+| `tests/scripts/test_emit_research_queue.py` | 編集（テスト追加） |
 
 ## 設計判断
 

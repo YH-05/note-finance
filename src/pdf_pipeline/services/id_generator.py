@@ -63,7 +63,7 @@ def generate_source_id(url: str) -> str:
     """Generate a deterministic source ID from a URL.
 
     Uses UUID5 with NAMESPACE_URL to produce the same ID for the same URL.
-    Consistent with the pattern used in ``scripts/emit_graph_queue.py``.
+    Consistent with the pattern used in ``scripts/emit_research_queue.py``.
 
     Parameters
     ----------
@@ -123,7 +123,7 @@ def generate_datapoint_id(content: str) -> str:
 
     Uses the first 32 hex characters (128-bit) of the SHA-256 hash of
     *content*. Consistent with the claim ID pattern in
-    ``scripts/emit_graph_queue.py``.
+    ``scripts/emit_research_queue.py``.
 
     Parameters
     ----------

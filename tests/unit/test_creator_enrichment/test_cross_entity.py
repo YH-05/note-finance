@@ -11,7 +11,7 @@ CrossEntityEnricher による Entity ペア抽出・LLM 判定・リレーショ
 from __future__ import annotations
 
 import json
-from unittest.mock import MagicMock, call
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -42,14 +42,6 @@ def mock_driver() -> MagicMock:
 
     return driver
 
-
-def _make_mock_response(text: str) -> MagicMock:
-    """Anthropic API レスポンスのモックを生成する."""
-    mock_content = MagicMock()
-    mock_content.text = text
-    mock_response = MagicMock()
-    mock_response.content = [mock_content]
-    return mock_response
 
 
 def _make_co_occurrence_record(
@@ -105,12 +97,11 @@ class TestCrossEntityEnricherInit:
     def test_正常系_driverとclientを受け取りインスタンス生成(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """driver と client を渡してインスタンスが生成できる."""
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         assert enricher._driver is mock_driver
-        assert enricher._client is mock_anthropic_client
 
 
 # ---------------------------------------------------------------------------
@@ -122,14 +113,14 @@ class TestRunNoCandidates:
     def test_正常系_共起クエリ0件で0を返す(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """共起クエリが 0 件を返す場合、run() は 0 を返す."""
         session = mock_driver.session.return_value.__enter__.return_value
         # 両クエリとも空
         session.run.return_value = iter([])
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         result = enricher.run(cycle_count=3)
 
         assert result == 0
@@ -137,16 +128,16 @@ class TestRunNoCandidates:
     def test_正常系_両クエリ空でLLMが呼ばれない(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """両クエリとも空の場合、LLM は呼び出されない."""
         session = mock_driver.session.return_value.__enter__.return_value
         session.run.return_value = iter([])
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         enricher.run(cycle_count=3)
 
-        mock_anthropic_client.messages.create.assert_not_called()
+        mock_llm_client.query.assert_not_called()
 
 
 # ---------------------------------------------------------------------------
@@ -158,7 +149,7 @@ class TestRunTruncation:
     def test_正常系_25ペア超がトランケーションされる(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """30 件の共起候補が 25 ペアに制限される."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -189,16 +180,15 @@ class TestRunTruncation:
             {"from_id": f"ent-a{i}", "to_id": f"ent-b{i}", "rel_detail": "RELATED"}
             for i in range(25)
         ]
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(llm_response, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            llm_response, ensure_ascii=False
         )
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         enricher.run(cycle_count=3)
 
         # LLM に送られるペア数を検証
-        call_args = mock_anthropic_client.messages.create.call_args
-        prompt = call_args.kwargs["messages"][0]["content"]
+        prompt = mock_llm_client.query.call_args[0][0]
         # プロンプト内の from_id 数で 25 ペアを確認
         # ent-a25 以降は含まれないことを確認
         assert "ent-a24" in prompt
@@ -214,7 +204,7 @@ class TestRunSkipFiltering:
     def test_正常系_SKIPリレーションがMERGEされない(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """LLM が SKIP と判定したペアは MERGE されない."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -262,11 +252,11 @@ class TestRunSkipFiltering:
             {"from_id": "ent-google", "to_id": "ent-amazon", "rel_detail": "SKIP"},
             {"from_id": "ent-youtube", "to_id": "ent-tiktok", "rel_detail": "RELATED"},
         ]
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(llm_response, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            llm_response, ensure_ascii=False
         )
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         enricher.run(cycle_count=3)
 
         # MERGE クエリに渡される rels を検証
@@ -289,7 +279,7 @@ class TestRunSkipFiltering:
     def test_正常系_全SKIPの場合MERGEされずrun結果0(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """全ペアが SKIP の場合、MERGE は実行されず 0 を返す."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -313,11 +303,11 @@ class TestRunSkipFiltering:
         llm_response = [
             {"from_id": "ent-a", "to_id": "ent-b", "rel_detail": "SKIP"},
         ]
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(llm_response, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            llm_response, ensure_ascii=False
         )
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         result = enricher.run(cycle_count=3)
 
         assert result == 0
@@ -332,7 +322,7 @@ class TestRunLLMPrompt:
     def test_正常系_LLMに正しいプロンプトが送られる(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """LLM プロンプトに Entity ペア情報と判定基準が含まれる."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -362,15 +352,14 @@ class TestRunLLMPrompt:
                 "rel_detail": "COMPETES_WITH",
             },
         ]
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(llm_response, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            llm_response, ensure_ascii=False
         )
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         enricher.run(cycle_count=3)
 
-        call_args = mock_anthropic_client.messages.create.call_args
-        prompt = call_args.kwargs["messages"][0]["content"]
+        prompt = mock_llm_client.query.call_args[0][0]
 
         # プロンプトに Entity 名が含まれる
         assert "LinkedIn" in prompt
@@ -382,13 +371,11 @@ class TestRunLLMPrompt:
         assert "COMPETES_WITH" in prompt
         assert "SKIP" in prompt
 
-        # モデル名が正しい
-        assert call_args.kwargs["model"] == "claude-haiku-4-5-20251001"
 
     def test_正常系_同一タイプ候補もプロンプトに含まれる(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """同一タイプクエリの結果も LLM プロンプトに含まれる."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -419,22 +406,21 @@ class TestRunLLMPrompt:
                 "rel_detail": "COMPETES_WITH",
             },
         ]
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(llm_response, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            llm_response, ensure_ascii=False
         )
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         enricher.run(cycle_count=3)
 
-        call_args = mock_anthropic_client.messages.create.call_args
-        prompt = call_args.kwargs["messages"][0]["content"]
+        prompt = mock_llm_client.query.call_args[0][0]
         assert "Notion" in prompt
         assert "Obsidian" in prompt
 
     def test_正常系_JSONコードブロック付きレスポンスを処理できる(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """```json ... ``` でラップされた LLM レスポンスを処理できる."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -461,11 +447,9 @@ class TestRunLLMPrompt:
             {"from_id": "ent-a", "to_id": "ent-b", "rel_detail": "ENABLES"},
         ]
         wrapped = f"```json\n{json.dumps(llm_response, ensure_ascii=False)}\n```"
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            wrapped
-        )
+        mock_llm_client.query.return_value = wrapped
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         result = enricher.run(cycle_count=3)
 
         # コードブロックが正しくパースされ、1件の MERGE が実行される
@@ -481,7 +465,7 @@ class TestRunMergeQuery:
     def test_正常系_MERGEクエリにrel_detailとsourceとcreated_atが含まれる(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """MERGE クエリに rel_detail, source, created_at が SET される."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -506,11 +490,11 @@ class TestRunMergeQuery:
         llm_response = [
             {"from_id": "ent-a", "to_id": "ent-b", "rel_detail": "ENABLES"},
         ]
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(llm_response, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            llm_response, ensure_ascii=False
         )
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         enricher.run(cycle_count=3)
 
         # MERGE クエリの内容を検証
@@ -526,7 +510,7 @@ class TestRunMergeQuery:
     def test_正常系_返り値がMERGEされたリレーション数(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """run() の返り値が MERGE された非 SKIP リレーション数."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -560,11 +544,11 @@ class TestRunMergeQuery:
             {"from_id": "ent-a", "to_id": "ent-b", "rel_detail": "ENABLES"},
             {"from_id": "ent-c", "to_id": "ent-d", "rel_detail": "SKIP"},
         ]
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            json.dumps(llm_response, ensure_ascii=False)
+        mock_llm_client.query.return_value = json.dumps(
+            llm_response, ensure_ascii=False
         )
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         result = enricher.run(cycle_count=3)
 
         # SKIP を除いた 1 件
@@ -580,7 +564,7 @@ class TestLlmInvalidJson:
     def test_エッジケース_不正JSONで0を返す(
         self,
         mock_driver: MagicMock,
-        mock_anthropic_client: MagicMock,
+        mock_llm_client: MagicMock,
     ) -> None:
         """LLM が不正 JSON を返した場合、0 を返し MERGE が実行されない."""
         session = mock_driver.session.return_value.__enter__.return_value
@@ -602,11 +586,9 @@ class TestLlmInvalidJson:
         ]
 
         # LLM が不正 JSON を返す
-        mock_anthropic_client.messages.create.return_value = _make_mock_response(
-            "This is not valid JSON at all"
-        )
+        mock_llm_client.query.return_value = "This is not valid JSON at all"
 
-        enricher = CrossEntityEnricher(mock_driver, mock_anthropic_client)
+        enricher = CrossEntityEnricher(mock_driver, llm_client=mock_llm_client)
         result = enricher.run(cycle_count=3)
 
         assert result == 0

@@ -92,7 +92,7 @@ SKILL.md (orchestrator)
 3. 出力形式γ: report.md + chunks.json + metadata.json
 4. 出力パス: ミラー + ファイル名 + 短ハッシュ8文字
 5. 分割単位: 30ページ
-6. スキル分離: /convert-pdf と /save-to-graph を独立、/pdf-to-knowledge で一括
+6. スキル分離: /convert-pdf と /save-to-research-graph を独立、/pdf-to-knowledge で一括
 
 ## リスク
 

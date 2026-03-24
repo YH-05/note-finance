@@ -44,13 +44,13 @@ CREATE INDEX skill_run_command IF NOT EXISTS FOR (sr:SkillRun) ON (sr.command_so
 
 **新規ファイル**: `scripts/skill_run_tracer.py`
 
-CLI インターフェース（`scripts/emit_graph_queue.py` パターンに準拠）:
+CLI インターフェース（`scripts/emit_research_queue.py` パターンに準拠）:
 
 ```bash
 # 実行開始（skill_run_id を stdout に返す）
 python3 scripts/skill_run_tracer.py start \
-    --skill-name save-to-graph \
-    --command-source /save-to-graph \
+    --skill-name save-to-research-graph \
+    --command-source /save-to-research-graph \
     --input-summary "3 graph-queue files"
 
 # 実行完了
@@ -110,7 +110,7 @@ python3 scripts/skill_run_tracer.py feedback \
 
 | スキル | パス | 理由 |
 |--------|------|------|
-| save-to-graph | `.claude/skills/save-to-graph/SKILL.md` | 最重要パイプライン、失敗頻度高 |
+| save-to-research-graph | `.claude/skills/save-to-research-graph/SKILL.md` | 最重要パイプライン、失敗頻度高 |
 | pdf-to-knowledge | `.claude/skills/pdf-to-knowledge/SKILL.md` | 4Phase オーケストレータ、カスケード失敗 |
 | topic-discovery | `.claude/skills/topic-discovery/SKILL.md` | 高頻度、品質のばらつき大 |
 | generate-market-report | `.claude/skills/generate-market-report/SKILL.md` | 週次定期、トレンド分析に最適 |
@@ -265,7 +265,7 @@ A-1 (スキーマ登録) → A-2 (制約/インデックス) → A-3 (tracer CLI
 |--------|------|
 | Neo4j 未起動 | tracer はグレースフルデグラデーション（警告のみ、合成ID返却） |
 | KG v2 汚染 | `Memory:SkillRun` デュアルラベルで完全分離。既存 `WHERE NOT 'Memory'` パターンで除外 |
-| パイプライン破壊 | `emit_graph_queue.py` / `save-to-graph` のコアロジックは変更しない |
+| パイプライン破壊 | `emit_research_queue.py` / `save-to-research-graph` のコアロジックは変更しない |
 | 実行オーバーヘッド | 1回あたり MERGE 2回のみ（~5-10 runs/日で無視可能） |
 
 ## 再利用する既存リソース
@@ -273,7 +273,7 @@ A-1 (スキーマ登録) → A-2 (制約/インデックス) → A-3 (tracer CLI
 | ファイル | 再利用内容 |
 |---------|-----------|
 | `scripts/validate_neo4j_schema.py` | Neo4j ドライバー接続パターン、スキーマ検証ロジック |
-| `scripts/emit_graph_queue.py` | CLI 設計パターン（argparse + structlog） |
+| `scripts/emit_research_queue.py` | CLI 設計パターン（argparse + structlog） |
 | `scripts/session_utils.py` | get_logger、Pydantic モデルパターン |
 | `src/pdf_pipeline/services/id_generator.py` | SHA-256 ベース ID 生成 |
 | `.claude/skills/skill-expert/guide.md` | スキル品質基準の参照元 |

@@ -291,7 +291,7 @@ relation_mappings:
 
 # graph-queue JSON の出力形式
 output_format:
-  # emit_graph_queue.py が生成する JSON のキー名
+  # emit_research_queue.py が生成する JSON のキー名
   sources_key: "sources"
   entities_key: "entities"
   content_key: "content"      # content_types の label を使用

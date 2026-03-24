@@ -18,9 +18,9 @@ Created: 2026-03-12
 
 1. テーブル/画像処理をスキップ可能にする（`text_only` フラグ）
 2. テキストチャンクからEntity/Fact/Claimを LLM で抽出する（Phase 5）
-3. 抽出結果を graph-queue JSON として出力し、既存の save-to-graph で Neo4j に投入する
+3. 抽出結果を graph-queue JSON として出力し、既存の save-to-research-graph で Neo4j に投入する
 
-**既存インフラの再利用を最大化**: emit_graph_queue.py のID生成パターン、save-to-graph の MERGE パターン、graph-queue フォーマットをそのまま活用。
+**既存インフラの再利用を最大化**: emit_research_queue.py のID生成パターン、save-to-research-graph の MERGE パターン、graph-queue フォーマットをそのまま活用。
 
 ---
 
@@ -159,7 +159,7 @@ class KnowledgeExtractor:
 
 **目的**: 抽出結果を既存の graph-queue フォーマットに変換
 
-**変更ファイル**: `scripts/emit_graph_queue.py`
+**変更ファイル**: `scripts/emit_research_queue.py`
 - `pdf-extraction` マッパーを追加
 - 入力: `DocumentExtractionResult` の JSON（`{output_dir}/{source_hash}/extraction.json`）
 - 出力: graph-queue JSON（`.tmp/graph-queue/gq-{timestamp}-{hash}.json`）
@@ -235,7 +235,7 @@ def _save_extraction(self, *, source_hash: str, extraction: DocumentExtractionRe
 
 ### Step 6: Neo4j 投入（既存スキル活用）
 
-**目的**: save-to-graph スキルで graph-queue JSON を Neo4j に投入
+**目的**: save-to-research-graph スキルで graph-queue JSON を Neo4j に投入
 
 **追加制約** (`data/config/neo4j-pdf-constraints.cypher`):
 
@@ -251,12 +251,12 @@ CREATE CONSTRAINT unique_fact_id IF NOT EXISTS
 uv run python -m pdf_pipeline.cli process data/sample_report/*.pdf
 
 # 2. extraction.json → graph-queue JSON 変換
-python3 scripts/emit_graph_queue.py \
+python3 scripts/emit_research_queue.py \
   --command pdf-extraction \
   --input data/processed/{source_hash}/extraction.json
 
-# 3. Neo4j 投入（save-to-graph スキル）
-# /save-to-graph コマンドで .tmp/graph-queue/ 内の JSON を投入
+# 3. Neo4j 投入（save-to-research-graph スキル）
+# /save-to-research-graph コマンドで .tmp/graph-queue/ 内の JSON を投入
 ```
 
 ---
@@ -288,7 +288,7 @@ Step 1 と Step 2 は並行実施可。Step 3 と Step 4 も並行可。
 | `src/pdf_pipeline/core/knowledge_extractor.py` | **新規** | LLM 知識抽出 |
 | `src/pdf_pipeline/services/gemini_provider.py` | 変更 | 抽出プロンプト更新 |
 | `src/pdf_pipeline/services/id_generator.py` | 変更 | `generate_entity_id` 追加 |
-| `scripts/emit_graph_queue.py` | 変更 | `pdf-extraction` マッパー追加 |
+| `scripts/emit_research_queue.py` | 変更 | `pdf-extraction` マッパー追加 |
 | `data/config/neo4j-pdf-constraints.cypher` | **新規** | Fact 制約 |
 
 ---
@@ -298,14 +298,14 @@ Step 1 と Step 2 は並行実施可。Step 3 と Step 4 も並行可。
 1. **既存テスト**: `make test` で 334 テストが全て PASS すること（後方互換性）
 2. **テキストのみモード**: `text_only=True` でテーブル処理がスキップされ、chunks.json が生成されること
 3. **知識抽出**: サンプル PDF（HSBC ISAT）で extraction.json が生成され、Entity/Fact/Claim が含まれること
-4. **graph-queue 変換**: `emit_graph_queue.py --command pdf-extraction` で有効な graph-queue JSON が出力されること
-5. **Neo4j 投入**: save-to-graph で graph-queue JSON が Neo4j に投入されること（MERGE で冪等）
+4. **graph-queue 変換**: `emit_research_queue.py --command pdf-extraction` で有効な graph-queue JSON が出力されること
+5. **Neo4j 投入**: save-to-research-graph で graph-queue JSON が Neo4j に投入されること（MERGE で冪等）
 
 ```bash
 # E2E 検証
 uv run python -m pdf_pipeline.cli process data/sample_report/HSBC*.pdf
 cat data/processed/*/extraction.json | python3 -m json.tool
-python3 scripts/emit_graph_queue.py --command pdf-extraction --input data/processed/*/extraction.json
+python3 scripts/emit_research_queue.py --command pdf-extraction --input data/processed/*/extraction.json
 ```
 
 ---
@@ -317,4 +317,4 @@ python3 scripts/emit_graph_queue.py --command pdf-extraction --input data/proces
 | LLM 抽出のJSON構造不安定 | Pydantic バリデーション + 空結果フォールバック（パイプライン不停止） |
 | 既存334テスト破壊 | table_detector/reconstructor は Optional 化のみ。既存テストの引数は変更不要 |
 | 抽出品質が低い | 1-pass で MVP → 品質見て 2-pass 検討。プロンプトに few-shot 例を含める |
-| Neo4j 未接続時 | extraction.json → graph-queue JSON → save-to-graph の3段階分離で各段階独立実行可 |
+| Neo4j 未接続時 | extraction.json → graph-queue JSON → save-to-research-graph の3段階分離で各段階独立実行可 |

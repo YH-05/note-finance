@@ -237,12 +237,12 @@ PDF ファイル
   │  出力: extraction.json (entities, facts, claims, datapoints)
   │
   ▼  Phase 3: グラフキュー生成
-  │  scripts/emit_graph_queue.py --command pdf-extraction
+  │  scripts/emit_research_queue.py --command pdf-extraction
   │  出力: .tmp/graph-queue/pdf-extraction/gq-{timestamp}-{hash4}.json
   │  フォーマット: v2 スキーマ準拠
   │
   ▼  Phase 4: Neo4j 投入
-     save-to-graph スキル
+     save-to-research-graph スキル
      MERGE ノード → MERGE リレーション → クロスファイルリンク
 ```
 
@@ -268,7 +268,7 @@ RSS フィード (34 feeds, 6 categories)
      URL 重複チェック, Status/Date フィールド設定
 ```
 
-### 4.3 save-to-graph スキル（グラフ投入の中核）
+### 4.3 save-to-research-graph スキル（グラフ投入の中核）
 
 **4フェーズ構成**:
 
@@ -347,7 +347,7 @@ finance-news-orchestrator (Orchestrator/Opus)
 | タイプ | 説明 | 例 |
 |--------|------|-----|
 | NameKnowledgeBase | 読み取り専用のナレッジベース。ガイドライン・パターン・テンプレートを提供 | coding-standards, tdd-development, equity-stock-research |
-| Workflow | アクション実行型。複数フェーズの処理を順次実行 | pdf-to-knowledge, save-to-graph, generate-market-report |
+| Workflow | アクション実行型。複数フェーズの処理を順次実行 | pdf-to-knowledge, save-to-research-graph, generate-market-report |
 
 #### スキルの構成ファイル
 
@@ -477,7 +477,7 @@ Claude Code のファイルベースメモリ（`~/.claude/projects/{project}/me
 
 ### 8.1 4フェーズワークフローパターン
 
-pdf-to-knowledge, save-to-graph で共通する設計パターン:
+pdf-to-knowledge, save-to-research-graph で共通する設計パターン:
 
 ```
 Phase 1: 検出・検証

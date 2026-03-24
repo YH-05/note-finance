@@ -4,7 +4,7 @@
 
 research-neo4jのFact 310件を監査した結果、リレーション欠落が深刻（ABOUT 18%欠落、TAGGED 43%欠落、EXTRACTED_FROM 35%欠落）。
 
-**根本原因**: 正式な2段パイプライン（`emit_graph_queue.py` → `save-to-graph`）が存在しリレーションも正しく作成される設計だが、**アドホックなCypher直書き**（`research-write_neo4j_cypher`を直接呼ぶ）がパイプラインをバイパスし、リレーション付与が漏れている。
+**根本原因**: 正式な2段パイプライン（`emit_research_queue.py` → `save-to-research-graph`）が存在しリレーションも正しく作成される設計だが、**アドホックなCypher直書き**（`research-write_neo4j_cypher`を直接呼ぶ）がパイプラインをバイパスし、リレーション付与が漏れている。
 
 | バッチ | 件数 | 経路 | 欠落 |
 |--------|------|------|------|
@@ -12,15 +12,15 @@ research-neo4jのFact 310件を監査した結果、リレーション欠落が�
 | 3/18 ASEAN比較 | 108件 | Cypher直書き | EXTRACTED_FROM 73件 |
 | 3/19 インドネシア政経 | 35件 | Cypher直書き→事後修正 | 初回全欠落 |
 
-**対策**: アドホック調査データ用の`web-research`コマンドを`emit_graph_queue.py`に追加し、全投入を正式パイプライン経由に統一する。直書き禁止ルールを制定する。
+**対策**: アドホック調査データ用の`web-research`コマンドを`emit_research_queue.py`に追加し、全投入を正式パイプライン経由に統一する。直書き禁止ルールを制定する。
 
 ---
 
 ## 実装ステップ
 
-### Step 1: `map_web_research` 関数を `emit_graph_queue.py` に追加
+### Step 1: `map_web_research` 関数を `emit_research_queue.py` に追加
 
-**ファイル**: `scripts/emit_graph_queue.py` (L3003、`map_topic_discovery`の直後)
+**ファイル**: `scripts/emit_research_queue.py` (L3003、`map_topic_discovery`の直後)
 
 Web検索・アドホック調査の結果を graph-queue JSON に変換するマッパー関数。
 
@@ -59,7 +59,7 @@ Web検索・アドホック調査の結果を graph-queue JSON に変換する�
 - `generate_fact_id(content)` — `src/pdf_pipeline/services/id_generator.py:L216`
 - `generate_source_id(url)` — 同 `L62`
 - `generate_entity_id(name, entity_type)` — 同 `L273`
-- `_mapped_result()` — `emit_graph_queue.py` 内の共通出力整形
+- `_mapped_result()` — `emit_research_queue.py` 内の共通出力整形
 - `_empty_rels()` — リレーション累積用dict初期化
 
 **設計の要点**:
@@ -70,7 +70,7 @@ Web検索・アドホック調査の結果を graph-queue JSON に変換する�
 
 ### Step 2: `COMMAND_MAPPERS` に登録
 
-**ファイル**: `scripts/emit_graph_queue.py` L3009-3019
+**ファイル**: `scripts/emit_research_queue.py` L3009-3019
 
 ```python
 COMMAND_MAPPERS: dict[str, MapperFn] = {
@@ -81,7 +81,7 @@ COMMAND_MAPPERS: dict[str, MapperFn] = {
 
 ### Step 3: テスト追加
 
-**ファイル**: `tests/scripts/test_emit_graph_queue.py`
+**ファイル**: `tests/scripts/test_emit_research_queue.py`
 
 ```
 TestMapWebResearch:
@@ -99,7 +99,7 @@ TestMapWebResearch:
 
 内容骨子:
 1. **禁止**: `research-write_neo4j_cypher` でのノード/リレーション作成（例外: スキーマ操作、明示的承認のある修復）
-2. **必須パイプライン**: `emit_graph_queue.py` → `/save-to-graph`
+2. **必須パイプライン**: `emit_research_queue.py` → `/save-to-research-graph`
 3. **`web-research` コマンド**: アドホック調査データの標準投入経路
 4. **違反実績**: 3/16, 3/18, 3/19 の欠落データを記録（再発防止の証跡）
 5. **読み取りは自由**: `research-read_neo4j_cypher` は制限なし
@@ -121,8 +121,8 @@ make check-all
 
 | ファイル | 変更内容 |
 |---------|---------|
-| `scripts/emit_graph_queue.py` | `map_web_research` 関数追加 + COMMAND_MAPPERS登録 |
-| `tests/scripts/test_emit_graph_queue.py` | `TestMapWebResearch` テストクラス追加 |
+| `scripts/emit_research_queue.py` | `map_web_research` 関数追加 + COMMAND_MAPPERS登録 |
+| `tests/scripts/test_emit_research_queue.py` | `TestMapWebResearch` テストクラス追加 |
 | `.claude/rules/neo4j-write-rules.md` | **新規作成**: 直書き禁止ルール |
 | `.claude/rules/README.md` | エントリ追加 |
 
@@ -131,17 +131,17 @@ make check-all
 | ファイル | 参照理由 |
 |---------|---------|
 | `src/pdf_pipeline/services/id_generator.py` | ID生成関数の再利用 |
-| `.claude/skills/save-to-graph/SKILL.md` | 4フェーズ投入パイプラインの仕様 |
-| `.claude/skills/save-to-graph/guide.md` | Cypherテンプレート・リレーション仕様 |
+| `.claude/skills/save-to-research-graph/SKILL.md` | 4フェーズ投入パイプラインの仕様 |
+| `.claude/skills/save-to-research-graph/guide.md` | Cypherテンプレート・リレーション仕様 |
 | `data/config/knowledge-graph-schema.yaml` | KGスキーマ定義（SSOT） |
 
 ---
 
 ## 検証方法
 
-1. **ユニットテスト**: `uv run pytest tests/scripts/test_emit_graph_queue.py -v -k web_research`
-2. **統合テスト**: サンプル入力JSONを作成 → `python scripts/emit_graph_queue.py --command web-research --input sample.json` → 出力JSONの構造検証（5種リレーション存在確認）
-3. **E2Eテスト**: 生成された graph-queue JSON を `/save-to-graph` で research-neo4j に投入 → `MATCH (f:Fact)-[:ABOUT]->(e:Entity)` 等でリレーション存在を確認
+1. **ユニットテスト**: `uv run pytest tests/scripts/test_emit_research_queue.py -v -k web_research`
+2. **統合テスト**: サンプル入力JSONを作成 → `python scripts/emit_research_queue.py --command web-research --input sample.json` → 出力JSONの構造検証（5種リレーション存在確認）
+3. **E2Eテスト**: 生成された graph-queue JSON を `/save-to-research-graph` で research-neo4j に投入 → `MATCH (f:Fact)-[:ABOUT]->(e:Entity)` 等でリレーション存在を確認
 4. **回帰テスト**: `make check-all`
 
 ---

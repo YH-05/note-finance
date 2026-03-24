@@ -45,7 +45,7 @@ research-neo4jにISAT（Indosat Ooredoo Hutchison）の調査データが蓄積�
 
 ## 決定事項
 
-1. **save-to-graphのMERGEキー変更**: Topic は `topic_key`、Entity は `entity_key` でMERGE（`topic_id`/`entity_id` は ON CREATE で設定）
+1. **save-to-research-graphのMERGEキー変更**: Topic は `topic_key`、Entity は `entity_key` でMERGE（`topic_id`/`entity_id` は ON CREATE で設定）
 2. **Claims処理追加**: `_build_wr_claims()` を新設し `map_web_research` に統合。Claims → Claimノード + MAKES_CLAIM + ABOUT リレーション生成
 3. **data_source passthrough**: `_build_wr_sources()` に `data_source` フィールドの透過的パスを追加
 4. **url_verified**: パイプライン修正不要。運用対応（gemini-search利用時は `data_source` を入力JSONに明記）
@@ -60,9 +60,9 @@ research-neo4jにISAT（Indosat Ooredoo Hutchison）の調査データが蓄積�
 
 | ファイル | 修正内容 |
 |---------|---------|
-| `scripts/emit_graph_queue.py` | `_build_wr_claims()` 新設, `map_web_research()` Claims統合, `_build_wr_sources()` data_source追加, docstring拡充 |
-| `.claude/skills/save-to-graph/SKILL.md` | Topic/Entity MERGEキー変更 (topic_key/entity_key) |
-| `.claude/skills/save-to-graph/guide.md` | 同上 + バッチ投入例更新 |
+| `scripts/emit_research_queue.py` | `_build_wr_claims()` 新設, `map_web_research()` Claims統合, `_build_wr_sources()` data_source追加, docstring拡充 |
+| `.claude/skills/save-to-research-graph/SKILL.md` | Topic/Entity MERGEキー変更 (topic_key/entity_key) |
+| `.claude/skills/save-to-research-graph/guide.md` | 同上 + バッチ投入例更新 |
 
 ## 次回の議論トピック
 

@@ -255,10 +255,10 @@ articles/market_report/{YYYY-MM-DD}/
 ### Step 8.2: graph-queue 出力（任意）
 
 ```bash
-python scripts/emit_graph_queue.py \
+python scripts/emit_research_queue.py \
   --command generate-market-report \
   --input "articles/market_report/${date}/data/"
-echo "graph-queue files generated. Run /save-to-graph to ingest."
+echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 ```
 
 ## 関連リソース
@@ -292,8 +292,8 @@ echo "graph-queue files generated. Run /save-to-graph to ingest."
 |-----------|------|
 | `scripts/market_report_data.py` | 基本モード用データ収集 |
 | `scripts/weekly_comment_data.py` | 週次モード用データ収集 |
-| `scripts/emit_graph_queue.py` | graph-queue 出力スクリプト |
-| `/save-to-graph` | graph-queue 取込コマンド |
+| `scripts/emit_research_queue.py` | graph-queue 出力スクリプト |
+| `/save-to-research-graph` | graph-queue 取込コマンド |
 
 ## エラーハンドリング
 

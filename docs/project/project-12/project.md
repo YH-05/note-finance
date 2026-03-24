@@ -35,7 +35,7 @@ Neo4jデータベースに49個のノードラベルが存在し、3つの異な
 
 ### 既存パターン
 
-- **MERGEベース冪等投入**: save-to-graphスキルがMERGEでノード/リレーション投入を実現
+- **MERGEベース冪等投入**: save-to-research-graphスキルがMERGEでノード/リレーション投入を実現
 - **名前空間分離**: KG v2/Conversation/Memory の3名前空間が同一DBに共存
 - **PascalCase統一**: KG v2とConversation名前空間は既にPascalCase準拠
 
@@ -45,7 +45,7 @@ Neo4jデータベースに49個のノードラベルが存在し、3つの異な
 |---------|------|
 | `data/config/knowledge-graph-schema.yaml` | KG v2スキーマSSoT（10ノード・13リレーション） |
 | `data/config/neo4j-pdf-constraints.cypher` | UNIQUE制約10個 + インデックス13個 |
-| `.claude/skills/save-to-graph/guide.md` | KGデータ投入のCypherテンプレート |
+| `.claude/skills/save-to-research-graph/guide.md` | KGデータ投入のCypherテンプレート |
 | `scripts/save_conversations_to_neo4j.py` | 会話履歴保存（Neo4j接続パターン参考） |
 
 ### 技術的考慮事項
@@ -68,7 +68,7 @@ Neo4jデータベースに49個のノードラベルが存在し、3つの異な
 | 新規作成 | `.claude/rules/neo4j-namespace-convention.md` | 命名規約ドキュメント |
 | 変更 | `data/config/knowledge-graph-schema.yaml` | namespacesセクション追加 |
 | 新規作成 | `scripts/validate_neo4j_schema.py` | スキーマ検証スクリプト |
-| 変更 | `.claude/skills/save-to-graph/guide.md` | Memoryフィルタ追加 |
+| 変更 | `.claude/skills/save-to-research-graph/guide.md` | Memoryフィルタ追加 |
 
 ### リスク評価
 
@@ -114,7 +114,7 @@ Neo4jデータベースに49個のノードラベルが存在し、3つの異な
   - 依存: #108, #110
   - 見積もり: 0.5h
 
-- [ ] save-to-graph コード修正
+- [ ] save-to-research-graph コード修正
   - Issue: [#113](https://github.com/YH-05/note-finance/issues/113)
   - ステータス: todo
   - 依存: #110
@@ -136,7 +136,7 @@ graph TD
     A --> E[#112 レガシークリーンアップ]
     B[#109 命名規約・スキーマ設定] --> D[#111 検証スクリプト]
     C --> E
-    C --> F[#113 save-to-graph修正]
+    C --> F[#113 save-to-research-graph修正]
     D --> G[#114 最終検証]
     E --> G
     F --> G

@@ -44,9 +44,9 @@ research-neo4j (port 7688) と note-neo4j (port 7687) のグラフDBとしての
 
 | ファイル | 修正 |
 |---|---|
-| `emit_graph_queue.py` | `_normalize_entity_type()`, `_normalize_source_type()`, `_SOURCE_TYPE_NORMALIZATION` マップ追加 |
-| `emit_graph_queue.py:_make_source()` | source_type 自動正規化 |
-| `emit_graph_queue.py:2957` | `"original"` → `"report"` |
+| `emit_research_queue.py` | `_normalize_entity_type()`, `_normalize_source_type()`, `_SOURCE_TYPE_NORMALIZATION` マップ追加 |
+| `emit_research_queue.py:_make_source()` | source_type 自動正規化 |
+| `emit_research_queue.py:2957` | `"original"` → `"report"` |
 | `strengthen_entity_connections.py:436` | SHARES_TOPIC 閾値 >= 1 → >= 3 |
 | テスト | 292件全パス確認 |
 

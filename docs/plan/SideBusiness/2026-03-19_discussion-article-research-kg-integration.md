@@ -12,7 +12,7 @@ article-research コマンドは記事執筆ワークフローのリサーチフ
 research-neo4j の既存データを活用してリサーチの質と効率を向上させるため、article-research コマンドに以下の2つのフェーズを追加した:
 
 1. **Phase 0（KG照会+ギャップ分析）**: リサーチ前に research-neo4j を照会し、5観点で情報ギャップを特定
-2. **Phase 5（KG永続化）**: リサーチ結果を標準パイプライン（emit_graph_queue.py → save-to-graph）経由で Neo4j に保存
+2. **Phase 5（KG永続化）**: リサーチ結果を標準パイプライン（emit_research_queue.py → save-to-research-graph）経由で Neo4j に保存
 
 ## 決定事項
 
@@ -25,7 +25,7 @@ research-neo4j の既存データを活用してリサーチの質と効率を�
    - `missing_financials`: company/etf/index の FinancialDataPoint が0件
 3. **検索予算のギャップ解消/通常リサーチ配分**: standard 深度で 12-18回のうち 6-10回をギャップ解消に割り当て
 4. **グレースフルデグラデーション**: Neo4j 未起動時は Phase 0/4 をスキップし、入力 JSON を保持して後から投入可能
-5. **標準パイプライン準拠**: neo4j-write-rules.md の直書き禁止ルールに従い、emit_graph_queue.py → save-to-graph 経由でのみ投入
+5. **標準パイプライン準拠**: neo4j-write-rules.md の直書き禁止ルールに従い、emit_research_queue.py → save-to-research-graph 経由でのみ投入
 
 ## 変更ファイル
 

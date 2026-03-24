@@ -171,6 +171,44 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python $CLAUDE_PROJECT_DIR/.claude/hooks/save-web-fetch.py"
+          }
+        ]
+      },
+      {
+        "matcher": "WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python $CLAUDE_PROJECT_DIR/.claude/hooks/save-web-fetch.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__fetch__fetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python $CLAUDE_PROJECT_DIR/.claude/hooks/save-web-fetch.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__tavily__tavily_search",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python $CLAUDE_PROJECT_DIR/.claude/hooks/save-web-fetch.py"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {

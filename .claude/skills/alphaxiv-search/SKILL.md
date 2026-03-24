@@ -160,7 +160,7 @@ arXiv ID を抽出
 /emit-graph-queue --command academic-fetch --input .tmp/academic/papers.json
     |
     v
-/save-to-graph
+/save-to-research-graph
 ```
 
 ## 典型的な検索セッション例
@@ -185,7 +185,7 @@ get_paper_content(url="https://arxiv.org/abs/2601.04878")
 
 # Step 5: KG 投入
 /academic-fetch --arxiv-ids 2503.11718 2601.04878 ...
-/save-to-graph
+/save-to-research-graph
 ```
 
 ### 例2: 特定論文の存在確認
@@ -212,7 +212,7 @@ graph structures using logical inference and LLMs.")
 |---------|------|
 | academic-fetch コマンド | `.claude/commands/academic-fetch.md` |
 | academic パッケージ | `src/academic/` |
-| graph-queue 生成 | `scripts/emit_graph_queue.py` |
-| Neo4j 投入 | `.claude/skills/save-to-graph/SKILL.md` |
+| graph-queue 生成 | `scripts/emit_research_queue.py` |
+| Neo4j 投入 | `.claude/skills/save-to-research-graph/SKILL.md` |
 | Web 検索ガイド | `.claude/skills/web-search/SKILL.md` |
 | alphaxiv 使い方メモリ | `memory/feedback_alphaxiv_usage.md` |

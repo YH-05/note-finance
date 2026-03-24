@@ -395,4 +395,30 @@ async def collect_financial_news(
         sources=enabled_sources,
     )
 
+    # AIDEV-NOTE: Layer 2 原文保存フック
+    try:
+        from data_pipeline.integrations.bridge import save_news_scraper_results
+
+        articles_dict = [
+            {
+                "url": a.url,
+                "title": a.title,
+                "content": a.content,
+                "summary": a.summary,
+                "published": a.published.isoformat() if a.published else None,
+                "author": a.author,
+                "source": a.source,
+                "category": a.category,
+                "tags": a.tags,
+            }
+            for a in all_articles
+        ]
+        sr = save_news_scraper_results(articles_dict, source_id="news-scraper")
+        logger.info(
+            "RawStore: saved=%d, dup=%d, empty=%d",
+            sr.saved, sr.skipped_duplicate, sr.skipped_empty,
+        )
+    except Exception as exc:
+        logger.warning("RawStore save failed (non-blocking): %s", exc)
+
     return NewsDataFrame(all_articles)

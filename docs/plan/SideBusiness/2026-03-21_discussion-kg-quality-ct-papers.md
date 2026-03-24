@@ -71,7 +71,7 @@ alphaxivで75件の論文を検索。3つの接続レイヤーを発見:
 
 ## アクションアイテム
 
-- [ ] **[高]** emit_graph_queue.py の STATES_FACT/MAKES_CLAIM リレーションチェーン修復
+- [ ] **[高]** emit_research_queue.py の STATES_FACT/MAKES_CLAIM リレーションチェーン修復
 - [ ] **[中]** ASEAN テレコムデータ補完（True Corp, AIS, XLSmart）
 - [ ] **[中]** Stance ノード summary 欠落の修復（76件）
 - [ ] **[低]** ノイズ Fact/Claim フィルタリングゲート導入

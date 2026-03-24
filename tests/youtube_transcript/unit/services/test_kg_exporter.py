@@ -1,6 +1,6 @@
 """Tests for KgExporter: ナレッジグラフエクスポーター.
 
-KgExporter はトランスクリプトデータを save-to-graph スキル向けに整形し、
+KgExporter はトランスクリプトデータを save-to-research-graph スキル向けに整形し、
 research-neo4j（port 7688）投入用の graph-queue JSON を生成する。
 """
 

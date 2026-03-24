@@ -2,7 +2,7 @@
 
 ## Context
 
-wealth blog スクレイピング（`scrape_wealth_blogs.py`）と topic-discovery スキルが収集した情報を article-neo4j（bolt://localhost:7689）に蓄積するパイプラインが未整備。既存の `emit_graph_queue.py` + `save-to-graph` パターンを拡張し、2つの新コマンドマッパーとオーケストレータースキルを追加する。
+wealth blog スクレイピング（`scrape_wealth_blogs.py`）と topic-discovery スキルが収集した情報を article-neo4j（bolt://localhost:7689）に蓄積するパイプラインが未整備。既存の `emit_research_queue.py` + `save-to-graph` パターンを拡張し、2つの新コマンドマッパーとオーケストレータースキルを追加する。
 
 元プラン: `docs/plan/2026-03-16_save-to-article-graph-skill.md`
 
@@ -19,12 +19,12 @@ wealth blog スクレイピング（`scrape_wealth_blogs.py`）と topic-discove
 
 | ファイル | 変更種別 | 内容 |
 |---------|---------|------|
-| `scripts/emit_graph_queue.py` | 編集 | 新マッパー2つ + フレームワーク拡張 |
+| `scripts/emit_research_queue.py` | 編集 | 新マッパー2つ + フレームワーク拡張 |
 | `docker/article-neo4j/init/01-constraints-indexes.cypher` | 編集 | Author 制約・インデックス追加（将来準備） |
 | `.claude/skills/save-to-article-graph/SKILL.md` | 新規 | オーケストレータースキル |
-| `tests/scripts/test_emit_graph_queue.py` | 編集 | 新マッパーのユニットテスト追加 |
+| `tests/scripts/test_emit_research_queue.py` | 編集 | 新マッパーのユニットテスト追加 |
 
-## Phase 1: フレームワーク拡張（emit_graph_queue.py）
+## Phase 1: フレームワーク拡張（emit_research_queue.py）
 
 ### 1.1 `_empty_rels()` に `tagged` 追加（L974）
 
@@ -173,7 +173,7 @@ CREATE INDEX author_type IF NOT EXISTS FOR (a:Author) ON (a.author_type);
 `.claude/skills/save-to-article-graph/SKILL.md` 新規作成。
 
 処理フロー:
-1. `uv run python scripts/emit_graph_queue.py --command {command} --input {input}`
+1. `uv run python scripts/emit_research_queue.py --command {command} --input {input}`
 2. `NEO4J_URI=bolt://localhost:7689 /save-to-graph --source {command}`
 
 パラメータ: `--command`, `--input`, `--dry-run`, `--keep`
@@ -219,16 +219,16 @@ TestParseYamlFrontmatter (3テスト)
 
 | 関数 | パス | 用途 |
 |------|------|------|
-| `_make_source()` | `emit_graph_queue.py:239` | Source dict 生成 |
-| `_mapped_result()` | `emit_graph_queue.py:269` | マッパー出力標準化 |
-| `_empty_rels()` | `emit_graph_queue.py:974` | リレーション初期化（拡張後） |
-| `_extend_rels()` | `emit_graph_queue.py:957` | リレーションマージ |
+| `_make_source()` | `emit_research_queue.py:239` | Source dict 生成 |
+| `_mapped_result()` | `emit_research_queue.py:269` | マッパー出力標準化 |
+| `_empty_rels()` | `emit_research_queue.py:974` | リレーション初期化（拡張後） |
+| `_extend_rels()` | `emit_research_queue.py:957` | リレーションマージ |
 | `generate_source_id()` | `pdf_pipeline/services/id_generator.py` | URL → Source ID |
 | `generate_entity_id()` | 同上 | Entity ID |
 | `generate_claim_id()` | 同上 | Claim ID（SHA-256[:32]） |
 | `generate_fact_id()` | 同上 | Fact ID（SHA-256[:32]） |
-| `generate_topic_id()` | `emit_graph_queue.py:129` | Topic ID（UUID5） |
-| `map_asset_management()` | `emit_graph_queue.py:465` | テーマ→Topic パターン参照 |
+| `generate_topic_id()` | `emit_research_queue.py:129` | Topic ID（UUID5） |
+| `map_asset_management()` | `emit_research_queue.py:465` | テーマ→Topic パターン参照 |
 
 ## 実装順序（Wave グルーピング）
 
@@ -255,11 +255,11 @@ TestParseYamlFrontmatter (3テスト)
 
 ```bash
 # 1. topic-discovery emit
-uv run python scripts/emit_graph_queue.py --command topic-discovery \
+uv run python scripts/emit_research_queue.py --command topic-discovery \
   --input .tmp/topic-suggestions/2026-03-16_1800.json
 
 # 2. wealth-scrape backfill emit
-uv run python scripts/emit_graph_queue.py --command wealth-scrape \
+uv run python scripts/emit_research_queue.py --command wealth-scrape \
   --input data/scraped/wealth/
 
 # 3. dry-run save

@@ -688,6 +688,24 @@ class PdfPipeline:
         report_md = self._render_markdown(metadata=metadata, chunks=serializable_chunks)
         (output_dir / "report.md").write_text(report_md, encoding="utf-8")
 
+        # AIDEV-NOTE: Layer 2 原文保存フック
+        try:
+            from data_pipeline.integrations.bridge import save_pdf_report
+
+            pdf_title = metadata.get("original_filename", pdf_path.name)
+            sr = save_pdf_report(
+                report_md,
+                source_id="pdf-sellside",
+                pdf_url=f"file://{pdf_path}",
+                pdf_title=pdf_title,
+            )
+            logger.info(
+                "RawStore: saved=%d, dup=%d (pdf=%s)",
+                sr.saved, sr.skipped_duplicate, pdf_title,
+            )
+        except Exception as exc:
+            logger.warning("RawStore save failed (non-blocking): %s", exc)
+
         logger.debug(
             "Chunks, metadata and report.md saved",
             output_dir=str(output_dir),

@@ -83,7 +83,7 @@ LIMIT 50
 
 ```cypher
 // 孤立 Entity → Fact.content 内のテキストマッチで MENTIONS リレーションを作成
-// 注意: emit_graph_queue.py 経由で実行するのが原則。
+// 注意: emit_research_queue.py 経由で実行するのが原則。
 // このクエリは診断後の緊急修復用。実行前にユーザー承認が必要。
 MATCH (e:Entity)
 WHERE NOT (e)--()

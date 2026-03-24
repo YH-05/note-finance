@@ -28,22 +28,22 @@ Wave 4: Question ノード            ← P1（並列可）
 
 ### 実装ステップ
 
-1. **`scripts/emit_graph_queue.py` L891-899 修正**
+1. **`scripts/emit_research_queue.py` L891-899 修正**
    - Claim dict に `magnitude`, `target_price`, `rating`, `time_horizon` を追加
 
-2. **`save-to-graph/guide.md` Claim MERGE Cypher 更新**
+2. **`save-to-research-graph/guide.md` Claim MERGE Cypher 更新**
    - `target_price`, `rating`, `time_horizon` プロパティを SET に追加
 
-3. **`tests/scripts/test_emit_graph_queue.py` に `TestMapPdfExtraction` 追加**
+3. **`tests/scripts/test_emit_research_queue.py` に `TestMapPdfExtraction` 追加**
    - ヘルパー `_pdf_extraction_data()` で claim に全プロパティを含むサンプル生成
    - `test_正常系_Claimのtarget_priceとratingが保持される`
    - `test_正常系_FiscalPeriodが正しく派生される`
    - `test_エッジケース_空チャンクでも正常動作`
 
 ### 影響ファイル
-- `scripts/emit_graph_queue.py` — 4行追加
-- `.claude/skills/save-to-graph/guide.md` — Cypher更新
-- `tests/scripts/test_emit_graph_queue.py` — ~80行追加
+- `scripts/emit_research_queue.py` — 4行追加
+- `.claude/skills/save-to-research-graph/guide.md` — Cypher更新
+- `tests/scripts/test_emit_research_queue.py` — ~80行追加
 
 ---
 
@@ -78,7 +78,7 @@ Wave 4: Question ノード            ← P1（並列可）
 
 4. **`src/pdf_pipeline/core/knowledge_extractor.py`** — 抽出プロンプトに `stances[]` 出力フォーマット追加
 
-5. **`scripts/emit_graph_queue.py`**:
+5. **`scripts/emit_research_queue.py`**:
    - `_build_stance_nodes()`: Stance/Author ノード + リレーション生成
    - `_build_supersedes_chain()`: 同一(author, entity)グループ内で日付順にSUPERSEDES連鎖生成
    - `_mapped_result()`: `stances`, `authors` キー追加
@@ -86,7 +86,7 @@ Wave 4: Question ノード            ← P1（並列可）
    - `_process_chunk()`: `_build_stance_nodes()` 呼び出し追加
    - `map_pdf_extraction()`: 全チャンク処理後に `_build_supersedes_chain()` 呼び出し
 
-6. **`.claude/skills/save-to-graph/guide.md`** — Author/Stance MERGE + 4リレーション Cypher テンプレート追加
+6. **`.claude/skills/save-to-research-graph/guide.md`** — Author/Stance MERGE + 4リレーション Cypher テンプレート追加
 
 7. **テスト**:
    - `TestBuildStanceNodes` — 基本生成、SUPERSEDES連鎖、Author重複排除
@@ -154,12 +154,12 @@ Fact/Claim/FinancialDataPoint 間の因果関係を明示化し、AIが根拠チ
 
 3. **`src/pdf_pipeline/core/knowledge_extractor.py`** — 抽出プロンプトに `causal_links[]` 追加
 
-4. **`scripts/emit_graph_queue.py`**:
+4. **`scripts/emit_research_queue.py`**:
    - `_build_causal_links()`: content-to-ID マッピングで from/to を解決、CAUSES rel 生成
    - `_empty_rels()`: `causes` 追加
    - graph-queue の `relations.causes` 各要素に `from_label`, `to_label` を含める（Neo4j CE 対応）
 
-5. **`.claude/skills/save-to-graph/guide.md`** — CAUSES MERGE Cypher（ラベル別分岐）
+5. **`.claude/skills/save-to-research-graph/guide.md`** — CAUSES MERGE Cypher（ラベル別分岐）
 
 6. **テスト**: `TestBuildCausalLinks` — Fact→Claim, Claim→DataPoint, 未解決参照の無視
 
@@ -206,14 +206,14 @@ FiscalPeriod 間の時系列順序と、同一メトリックの TREND を構造
 
 1. **`data/config/knowledge-graph-schema.yaml`** — 2リレーション追加
 
-2. **`scripts/emit_graph_queue.py`**:
+2. **`scripts/emit_research_queue.py`**:
    - `_period_sort_key(label: str) -> tuple[int, int]`: 期間ラベルのソートキー
      - `FY2025` → `(2025, 0)`, `3Q25` → `(2025, 3)`, `1H26` → `(2026, 1)`
    - `_build_next_period_chain()`: ticker別・period_type別にソート → 連続ペアで NEXT_PERIOD 生成
    - `_build_trend_edges()`: (entity, metric_name)別にソート → 変化率計算 → TREND 生成
    - `_empty_rels()`: `next_period`, `trend` 追加
 
-3. **`.claude/skills/save-to-graph/guide.md`** — NEXT_PERIOD, TREND Cypher テンプレート
+3. **`.claude/skills/save-to-research-graph/guide.md`** — NEXT_PERIOD, TREND Cypher テンプレート
 
 4. **テスト**:
    - `TestPeriodSortKey` — 四半期/年次/半期のソート
@@ -276,12 +276,12 @@ RETURN d1.metric_name, d4.value
    assumption_check: 検証が必要な前提条件
    ```
 
-5. **`scripts/emit_graph_queue.py`**:
+5. **`scripts/emit_research_queue.py`**:
    - `_build_question_nodes()`: Question ノード + ASKS_ABOUT, MOTIVATED_BY リレーション生成
    - `_mapped_result()`: `questions` キー追加
    - `_empty_rels()`: `asks_about`, `motivated_by`, `answered_by` 追加
 
-6. **`.claude/skills/save-to-graph/guide.md`** — Question MERGE + 3リレーション Cypher テンプレート
+6. **`.claude/skills/save-to-research-graph/guide.md`** — Question MERGE + 3リレーション Cypher テンプレート
 
 7. **テスト**: `TestBuildQuestionNodes`
 
@@ -300,7 +300,7 @@ RETURN q.content, c.content
 
 ## 非pdf-extraction マッパーへの影響
 
-**変更不要。** `_mapped_result()` のキーワード引数にデフォルト `None` を追加するだけで、既存8マッパーは空配列を返す。save-to-graph は空配列をスキップ。
+**変更不要。** `_mapped_result()` のキーワード引数にデフォルト `None` を追加するだけで、既存8マッパーは空配列を返す。save-to-research-graph は空配列をスキップ。
 
 ## スキーマ変更サマリー
 
@@ -318,20 +318,20 @@ RETURN q.content, c.content
 ### 各Wave共通
 ```bash
 make check-all                              # format + lint + typecheck + test
-uv run pytest tests/scripts/test_emit_graph_queue.py -v  # graph-queue テスト
+uv run pytest tests/scripts/test_emit_research_queue.py -v  # graph-queue テスト
 ```
 
 ### Wave 1-4 追加検証
 ```bash
 # 1. サンプルPDFで graph-queue 生成
-uv run python scripts/emit_graph_queue.py --command pdf-extraction --input data/processed/HSBC_ISAT/
+uv run python scripts/emit_research_queue.py --command pdf-extraction --input data/processed/HSBC_ISAT/
 
 # 2. 出力JSONの新ノード/リレーション確認
 cat .tmp/graph-queue/pdf-extraction/gq-*.json | python -m json.tool | grep -c "stance_id"
 
 # 3. article-neo4j 起動 + 投入テスト
 docker start article-neo4j
-NEO4J_URI=bolt://localhost:7689 /save-to-graph --file .tmp/graph-queue/pdf-extraction/gq-*.json
+NEO4J_URI=bolt://localhost:7689 /save-to-research-graph --file .tmp/graph-queue/pdf-extraction/gq-*.json
 
 # 4. 推論クエリで検証
 cypher-shell -a bolt://localhost:7689 'MATCH (s:Stance)-[:SUPERSEDES]->(p:Stance) RETURN count(s)'
@@ -348,6 +348,6 @@ cypher-shell -a bolt://localhost:7689 'MATCH (q:Question {status: "open"}) RETUR
 | `src/pdf_pipeline/services/id_generator.py` | 1,4 | generate_stance_id, generate_author_id, generate_question_id |
 | `src/pdf_pipeline/schemas/extraction.py` | 1,2,4 | ExtractedStance, ExtractedCausalLink, ExtractedQuestion |
 | `src/pdf_pipeline/core/knowledge_extractor.py` | 1,2,4 | 抽出プロンプト拡張 |
-| `scripts/emit_graph_queue.py` | 0-4 | バグ修正 + 新builder関数群 |
-| `.claude/skills/save-to-graph/guide.md` | 0-4 | Cypher テンプレート追加 |
-| `tests/scripts/test_emit_graph_queue.py` | 0-4 | TestMapPdfExtraction + 各Wave テスト |
+| `scripts/emit_research_queue.py` | 0-4 | バグ修正 + 新builder関数群 |
+| `.claude/skills/save-to-research-graph/guide.md` | 0-4 | Cypher テンプレート追加 |
+| `tests/scripts/test_emit_research_queue.py` | 0-4 | TestMapPdfExtraction + 各Wave テスト |

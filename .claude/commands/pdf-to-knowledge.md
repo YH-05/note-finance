@@ -60,13 +60,13 @@ PDF ファイルからナレッジグラフ投入までを一括実行します�
 Phase 1: PDF -> Markdown (convert-pdf ロジック)
 Phase 2: Knowledge Extraction (知識抽出)
 Phase 3: Graph-Queue 生成
-Phase 4: Neo4j 投入 (save-to-graph ロジック)
+Phase 4: Neo4j 投入 (save-to-research-graph ロジック)
 ```
 
 ## 関連コマンド
 
 - `/convert-pdf` - PDF→Markdown 変換のみ（Phase 1 相当）
-- `/save-to-graph` - Neo4j 投入のみ（Phase 4 相当）
+- `/save-to-research-graph` - Neo4j 投入のみ（Phase 4 相当）
 
 ## 引数
 

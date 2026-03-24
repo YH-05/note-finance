@@ -15,11 +15,11 @@ Neo4j ナレッジグラフに投入するためのパッケージ。
 
 ### 検証で発見された5件の不整合
 
-1. **`emit_graph_queue.py` に `academic-fetch` マッパー未登録** — 標準パイプライン経由の投入不可
+1. **`emit_research_queue.py` に `academic-fetch` マッパー未登録** — 標準パイプライン経由の投入不可
 2. **Source/Author ノードの ID キー名不一致** — `"id"` vs `"source_id"`/`"author_id"`
 3. **`authority_level` の欠如** — neo4j-write-rules 投入前チェックリスト違反
-4. **CITES/COAUTHORED_WITH Cypher テンプレート未定義** — save-to-graph guide に未記載
-5. **backfill 出力パスの不一致** — `/save-to-graph` の自動スキャン対象外
+4. **CITES/COAUTHORED_WITH Cypher テンプレート未定義** — save-to-research-graph guide に未記載
+5. **backfill 出力パスの不一致** — `/save-to-research-graph` の自動スキャン対象外
 
 ### 修正内容
 
@@ -28,8 +28,8 @@ Neo4j ナレッジグラフに投入するためのパッケージ。
 | ファイル | 変更 |
 |---------|------|
 | `src/academic/mapper.py` | `"id"` → `"source_id"`/`"author_id"`, `authority_level: "academic"` 追加 |
-| `scripts/emit_graph_queue.py` | `map_academic_fetch` 関数追加, COMMAND_MAPPERS に登録 |
-| `.claude/skills/save-to-graph/guide.md` | CITES/COAUTHORED_WITH テンプレート + Author UNIQUE 制約追加 |
+| `scripts/emit_research_queue.py` | `map_academic_fetch` 関数追加, COMMAND_MAPPERS に登録 |
+| `.claude/skills/save-to-research-graph/guide.md` | CITES/COAUTHORED_WITH テンプレート + Author UNIQUE 制約追加 |
 | `src/academic/__main__.py` | backfill 出力先を `.tmp/graph-queue/academic-fetch/gq-{queue_id}.json` に変更 |
 
 ### テスト結果
@@ -39,7 +39,7 @@ Neo4j ナレッジグラフに投入するためのパッケージ。
 
 ## 決定事項
 
-1. academic mapper は `emit_graph_queue.py` のラッパー（`map_academic_fetch`）経由で標準パイプラインに統合
+1. academic mapper は `emit_research_queue.py` のラッパー（`map_academic_fetch`）経由で標準パイプラインに統合
 2. Source ノードの `authority_level` は `"academic"` 固定
 3. backfill 出力は標準パス `.tmp/graph-queue/academic-fetch/` に統一
 

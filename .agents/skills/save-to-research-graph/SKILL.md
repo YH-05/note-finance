@@ -85,7 +85,7 @@ MERGE ベースの Cypher クエリにより冪等性を保証する。
    - UNIQUE 制約（7つ）+ インデックス（4つ）の作成が必要
 
 4. **graph-queue JSON が存在すること**
-   - `scripts/emit_graph_queue.py` で生成される
+   - `scripts/emit_research_queue.py` で生成される
    - 出力先: `.tmp/graph-queue/{command_name}/gq-{timestamp}-{hash4}.json`
 
 ## Phase 1: キュー検出・検証
@@ -284,8 +284,8 @@ MERGE (c)-[:ABOUT]->(e)
 | エラー | 対処 |
 |--------|------|
 | E001: Neo4j 接続失敗 | 接続情報を確認。`NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD` 環境変数を設定 |
-| E002: graph-queue ディレクトリ未検出 | `scripts/emit_graph_queue.py` を先に実行して JSON を生成 |
-| E003: JSON スキーマ検証エラー | ファイルの `schema_version` と必須キーを確認。`emit_graph_queue.py` を再実行 |
+| E002: graph-queue ディレクトリ未検出 | `scripts/emit_research_queue.py` を先に実行して JSON を生成 |
+| E003: JSON スキーマ検証エラー | ファイルの `schema_version` と必須キーを確認。`emit_research_queue.py` を再実行 |
 | E004: Cypher 実行エラー | Neo4j のログを確認。制約・インデックスが未作成の場合は初回セットアップを実行 |
 | E005: ファイル削除/移動エラー | ファイルの権限を確認 |
 
@@ -303,7 +303,7 @@ MERGE (c)-[:ABOUT]->(e)
 |---------|------|
 | 詳細ガイド | `.agents/skills/save-to-graph/guide.md` |
 | スラッシュコマンド | `.claude/commands/save-to-graph.md` |
-| graph-queue 生成スクリプト | `scripts/emit_graph_queue.py` |
+| graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
 | ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
 | graph-queue 出力先 | `.tmp/graph-queue/{command_name}/` |
 

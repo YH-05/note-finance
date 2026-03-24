@@ -15,9 +15,9 @@
             "title": "Mr. Money Mustache",
             "category": "fire_wealth_building",
             "fetch_interval": "daily",
-            "enabled": true,
+            "enabled": false,
             "tier": 1,
-            "note": "FIRE movement flagship blog"
+            "note": "HTTP 403 Bot検知のため無効化"
         },
         {
             "url": "https://thecollegeinvestor.com/feed/",

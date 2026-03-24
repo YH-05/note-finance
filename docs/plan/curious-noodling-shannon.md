@@ -5,7 +5,7 @@
 KG v2.1 Phase 1（Wave 0-4 コア実装）は commit `7c14ff1` で完了済み。Phase 2（research-neo4j 固有改修）のコードも commit `7e66218`, `4c36429` で実装済み。
 
 **残タスク:**
-- **article-neo4j** (port 7689): v2.2 スキーマの DDL 実行 + emit_graph_queue.py への `entity_key`/`topic_key` プロパティ追加
+- **article-neo4j** (port 7689): v2.2 スキーマの DDL 実行 + emit_research_queue.py への `entity_key`/`topic_key` プロパティ追加
 - **research-neo4j** (port 7688): バックフィルスクリプトの実行・検証 + E2E 統合検証
 
 **Task 5 (`consensus_divergence` + `prediction_test`) は既に完了済み** — `extraction.py` L435-437、`knowledge_extractor.py` L116/136/138、`knowledge-graph-schema.yaml` L421 に実装確認済み。テスト実行のみで完了。
@@ -20,7 +20,7 @@ Track A (article-neo4j)           Track B (research-neo4j)
   A2: 制約・INDEX追加               B1: Wave 1 Stance backfill [#143]
   A3: レガシーノード Archived化       B2: Wave 3 Temporal chain [#144]
   A4: entity_key/topic_key backfill  B3: Task 5 テスト確認（コード変更なし）
-  A5: emit_graph_queue.py 修正 ←──── 合流点
+  A5: emit_research_queue.py 修正 ←──── 合流点
   A6: init cypher 更新
   A7: make check-all
                                     B4: E2E 統合検証 [#146]
@@ -103,9 +103,9 @@ MATCH (e:Entity) WHERE e.entity_key IS NULL RETURN count(e);  -- expect 0
 MATCH (t:Topic) WHERE t.topic_key IS NULL RETURN count(t);    -- expect 0
 ```
 
-### A5: emit_graph_queue.py 修正（10分）
+### A5: emit_research_queue.py 修正（10分）
 
-**ファイル**: `scripts/emit_graph_queue.py`
+**ファイル**: `scripts/emit_research_queue.py`
 
 **変更1**: `SCHEMA_VERSION` を `"2.1"` → `"2.2"` に更新（L113）
 
@@ -141,8 +141,8 @@ entities.append({
 
 各 Topic dict に `"topic_key": f"{name}::{category}"` を追加。
 
-**変更4**: save-to-graph guide の Entity/Topic MERGE Cypher に `entity_key`/`topic_key` SET 追加
-- `.claude/skills/save-to-graph/guide.md`
+**変更4**: save-to-research-graph guide の Entity/Topic MERGE Cypher に `entity_key`/`topic_key` SET 追加
+- `.claude/skills/save-to-research-graph/guide.md`
 
 ### A6: init cypher 更新（5分）
 
@@ -163,14 +163,14 @@ CREATE INDEX idx_source_command_source IF NOT EXISTS FOR (s:Source) ON (s.comman
 
 ```bash
 make check-all
-uv run pytest tests/scripts/test_emit_graph_queue.py -v
+uv run pytest tests/scripts/test_emit_research_queue.py -v
 ```
 
 **ロールバック手順（Track A）:**
 - Phase 1: `DROP CONSTRAINT unique_entity_key IF EXISTS`
 - Phase 2: `MATCH (n:Archived) REMOVE n:Archived`
 - Phase 3: `MATCH (e:Entity) REMOVE e.entity_key; MATCH (t:Topic) REMOVE t.topic_key;`
-- Code: `git checkout scripts/emit_graph_queue.py`
+- Code: `git checkout scripts/emit_research_queue.py`
 
 ---
 
@@ -276,14 +276,14 @@ MATCH ()-[r:TREND]->() DELETE r;
 - `knowledge-graph-schema.yaml` L421: enum 追加済み
 
 ```bash
-uv run pytest tests/scripts/test_emit_graph_queue.py -v -k "question"
+uv run pytest tests/scripts/test_emit_research_queue.py -v -k "question"
 ```
 
 ### B4: E2E 統合検証 [#146]（15分）
 
 **B4a: graph-queue 生成テスト**
 ```bash
-uv run python scripts/emit_graph_queue.py \
+uv run python scripts/emit_research_queue.py \
   --command pdf-extraction \
   --input data/processed/HSBC_ISAT/
 ```
@@ -349,10 +349,10 @@ RETURN a.name, e.name, st.rating, st.target_price, s.title LIMIT 10;
 
 | ファイル | 操作 | ステップ |
 |---------|------|---------|
-| `scripts/emit_graph_queue.py` | 修正 | A5: entity_key/topic_key追加, SCHEMA_VERSION bump |
+| `scripts/emit_research_queue.py` | 修正 | A5: entity_key/topic_key追加, SCHEMA_VERSION bump |
 | `docker/article-neo4j/init/01-constraints-indexes.cypher` | 修正 | A6: v2.1/v2.2制約追加 |
-| `.claude/skills/save-to-graph/guide.md` | 修正 | A5: Entity/Topic MERGE Cypher更新 |
-| `tests/scripts/test_emit_graph_queue.py` | 修正 | A7: entity_key/topic_keyのアサーション追加 |
+| `.claude/skills/save-to-research-graph/guide.md` | 修正 | A5: Entity/Topic MERGE Cypher更新 |
+| `tests/scripts/test_emit_research_queue.py` | 修正 | A7: entity_key/topic_keyのアサーション追加 |
 
 **実行のみ（コード変更なし）:**
 | スクリプト | ステップ |
