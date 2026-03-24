@@ -120,7 +120,7 @@ def main() -> None:
     from creator_enrichment.phases.cross_entity import CrossEntityEnricher
     from creator_enrichment.phases.extract import ContentExtractor
     from creator_enrichment.phases.gap_analysis import GapAnalyzer
-    from creator_enrichment.phases.search import DirectSearcher
+    from creator_enrichment.phases.search import DirectSearcher, TavilyKeyPool
 
     args = parse_args()
 
@@ -144,14 +144,12 @@ def main() -> None:
         logger.error("Bootstrap failed: %s", e)
         sys.exit(1)
 
-    # --- TAVILY_API_KEY（オプション、未設定時は SDK WebSearch にフォールバック）---
-    import os
-
-    tavily_api_key = os.environ.get("TAVILY_API_KEY", "")
-    if tavily_api_key:
-        logger.info("Tavily API key detected (primary search)")
+    # --- Tavily API キープール ---
+    tavily_pool = TavilyKeyPool.from_env()
+    if tavily_pool.has_keys():
+        logger.info("Tavily API keys loaded (primary search)")
     else:
-        logger.info("No TAVILY_API_KEY, using SDK WebSearch fallback")
+        logger.info("No Tavily keys, using SDK WebSearch fallback")
 
     # --- genre_config 読み込み ---
     config_path = Path(__file__).resolve().parent.parent / "data" / "config" / "creator-enrichment-config.json"
@@ -168,7 +166,7 @@ def main() -> None:
         searcher=DirectSearcher(
             llm_client=llm_client,
             genre_config=genre_config,
-            tavily_api_key=tavily_api_key,
+            tavily_key_pool=tavily_pool,
         ),
         extractor=ContentExtractor(llm_client=llm_client),
         cross_enricher=CrossEntityEnricher(driver, llm_client=llm_client),

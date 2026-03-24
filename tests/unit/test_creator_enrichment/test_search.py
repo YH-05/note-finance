@@ -12,11 +12,13 @@ from __future__ import annotations
 import json
 from unittest.mock import MagicMock, patch
 
+import os
+
 import httpx
 import pytest
 
 from creator_enrichment.llm_client import LLMClient
-from creator_enrichment.phases.search import DirectSearcher
+from creator_enrichment.phases.search import DirectSearcher, TavilyKeyPool
 from creator_enrichment.types import PhaseError, RawItem
 
 
@@ -39,12 +41,18 @@ def genre_config() -> dict:
 
 
 @pytest.fixture
-def searcher(mock_llm: MagicMock, genre_config: dict) -> DirectSearcher:
+def key_pool() -> TavilyKeyPool:
+    """テスト用 TavilyKeyPool."""
+    return TavilyKeyPool(["tvly-test-key-1", "tvly-test-key-2"])
+
+
+@pytest.fixture
+def searcher(mock_llm: MagicMock, genre_config: dict, key_pool: TavilyKeyPool) -> DirectSearcher:
     """DirectSearcher インスタンス."""
     return DirectSearcher(
         llm_client=mock_llm,
         genre_config=genre_config,
-        tavily_api_key="tvly-test-key",
+        tavily_key_pool=key_pool,
     )
 
 
@@ -238,4 +246,76 @@ class TestTavilyExecution:
         searcher.search(queries=["test"], genre="career")
 
         call_json = mock_post.call_args.kwargs["json"]
-        assert call_json["api_key"] == "tvly-test-key"
+        assert call_json["api_key"].startswith("tvly-test-key")
+
+    @patch("creator_enrichment.phases.search.httpx.post")
+    def test_正常系_432エラーで次のキーにローテーションする(
+        self,
+        mock_post: MagicMock,
+        searcher: DirectSearcher,
+        mock_llm: MagicMock,
+    ) -> None:
+        """432 エラーでキーが除外され次のキーでリトライする."""
+        mock_llm.query.return_value = _llm_queries_response(1)
+        # 1回目: 432、2回目: 成功
+        mock_post.side_effect = [
+            httpx.Response(
+                432,
+                json={"detail": {"error": "rate limit"}},
+                request=httpx.Request("POST", "https://api.tavily.com/search"),
+            ),
+            _tavily_api_response(),
+        ]
+
+        results = searcher.search(queries=["test"], genre="career")
+
+        assert len(results) == 2
+        assert mock_post.call_count == 2
+        # 2回目は別のキーが使われる
+        first_key = mock_post.call_args_list[0].kwargs["json"]["api_key"]
+        second_key = mock_post.call_args_list[1].kwargs["json"]["api_key"]
+        assert first_key != second_key
+
+
+# ---------------------------------------------------------------------------
+# TavilyKeyPool
+# ---------------------------------------------------------------------------
+class TestTavilyKeyPool:
+    """TavilyKeyPool のテスト."""
+
+    def test_正常系_キーをローテーションする(self) -> None:
+        pool = TavilyKeyPool(["key1", "key2", "key3"])
+        keys = [pool.get_key() for _ in range(6)]
+        assert keys == ["key1", "key2", "key3", "key1", "key2", "key3"]
+
+    def test_正常系_exhaustedキーがスキップされる(self) -> None:
+        pool = TavilyKeyPool(["key1", "key2", "key3"])
+        pool.mark_exhausted("key2")
+        keys = [pool.get_key() for _ in range(4)]
+        assert keys == ["key1", "key3", "key1", "key3"]
+
+    def test_正常系_全キー枯渇でNone(self) -> None:
+        pool = TavilyKeyPool(["key1"])
+        pool.mark_exhausted("key1")
+        assert pool.get_key() is None
+        assert not pool.has_keys()
+
+    def test_正常系_空プールでhas_keysFalse(self) -> None:
+        pool = TavilyKeyPool([])
+        assert not pool.has_keys()
+
+    @patch.dict("os.environ", {"TAVILY_API_KEYS": "k1,k2,k3"})
+    def test_正常系_from_envでカンマ区切りキーを読む(self) -> None:
+        pool = TavilyKeyPool.from_env()
+        assert pool.has_keys()
+        assert pool.get_key() == "k1"
+
+    @patch.dict("os.environ", {"TAVILY_API_KEY": "single"}, clear=False)
+    def test_正常系_from_envで単一キーにフォールバック(self) -> None:
+        # TAVILY_API_KEYS が無い場合
+        env = os.environ.copy()
+        env.pop("TAVILY_API_KEYS", None)
+        with patch.dict("os.environ", env, clear=True):
+            os.environ["TAVILY_API_KEY"] = "single"
+            pool = TavilyKeyPool.from_env()
+            assert pool.get_key() == "single"

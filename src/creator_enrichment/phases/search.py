@@ -3,14 +3,18 @@
 Step 2a: LLM (SdkLLMClient) でギャップ分析結果から検索クエリを生成
 Step 2b: Tavily REST API (httpx) で検索を実行し RawItem[] に変換
 
+Tavily API キーは ``TavilyKeyPool`` で複数ローテーション可能。
+432 エラー（上限到達）時に自動で次のキーに切り替える。
+
 Usage
 -----
 ::
 
+    pool = TavilyKeyPool.from_env()  # TAVILY_API_KEYS から読み込み
     searcher = DirectSearcher(
         llm_client=SdkLLMClient(),
         genre_config=config_json["genres"],
-        tavily_api_key="tvly-...",
+        tavily_key_pool=pool,
     )
     items = searcher.search(queries=["FOMO活用", "PASONAの法則"], genre="career")
 """
@@ -19,6 +23,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 from datetime import datetime
 from typing import Any
 
@@ -44,6 +49,79 @@ _MAX_RESULTS_PER_QUERY = 5
 
 _MAX_QUERY_GENERATION = 12
 """LLM に生成させるクエリの上限数."""
+
+_TAVILY_RATE_LIMIT_STATUS = 432
+"""Tavily API のプラン上限超過ステータスコード."""
+
+
+# ---------------------------------------------------------------------------
+# TavilyKeyPool
+# ---------------------------------------------------------------------------
+class TavilyKeyPool:
+    """複数の Tavily API キーをローテーションする.
+
+    432 エラー（プラン上限）が発生したキーをプールから除外し、
+    次のキーに自動切り替えする。
+
+    Parameters
+    ----------
+    keys : list[str]
+        Tavily API キーのリスト
+    """
+
+    def __init__(self, keys: list[str]) -> None:
+        self._keys = list(keys)
+        self._exhausted: set[str] = set()
+        self._index = 0
+        logger.info("TavilyKeyPool initialized: %d keys", len(self._keys))
+
+    @classmethod
+    def from_env(cls) -> TavilyKeyPool:
+        """環境変数から TavilyKeyPool を生成する.
+
+        ``TAVILY_API_KEYS``（カンマ区切り）を優先。
+        未設定の場合は ``TAVILY_API_KEY``（単一キー）にフォールバック。
+
+        Returns
+        -------
+        TavilyKeyPool
+            空の場合もインスタンスは生成される（has_keys() で判定）
+        """
+        keys_str = os.environ.get("TAVILY_API_KEYS", "")
+        if keys_str:
+            keys = [k.strip() for k in keys_str.split(",") if k.strip()]
+        else:
+            single = os.environ.get("TAVILY_API_KEY", "")
+            keys = [single] if single else []
+        return cls(keys)
+
+    def has_keys(self) -> bool:
+        """利用可能なキーが残っているか."""
+        return bool(self._available_keys())
+
+    def get_key(self) -> str | None:
+        """次に使用するキーを返す。枯渇時は None."""
+        available = self._available_keys()
+        if not available:
+            return None
+        self._index = self._index % len(available)
+        key = available[self._index]
+        self._index = (self._index + 1) % len(available)
+        return key
+
+    def mark_exhausted(self, key: str) -> None:
+        """432 エラーのキーを除外する."""
+        self._exhausted.add(key)
+        remaining = len(self._available_keys())
+        logger.warning(
+            "Tavily key exhausted (432): ...%s, remaining=%d",
+            key[-8:],
+            remaining,
+        )
+
+    def _available_keys(self) -> list[str]:
+        return [k for k in self._keys if k not in self._exhausted]
+
 
 _SEARCH_SYSTEM_PROMPT = """\
 You are a research assistant. Execute web searches for the given queries \
@@ -103,20 +181,23 @@ class DirectSearcher:
         クエリ生成に使用する LLM クライアント
     genre_config : dict[str, Any]
         creator-enrichment-config.json の ``genres`` セクション
-    tavily_api_key : str
-        Tavily REST API キー
+    tavily_key_pool : TavilyKeyPool | None
+        Tavily API キープール。None の場合は SDK フォールバックのみ。
     """
 
     def __init__(
         self,
         llm_client: LLMClient,
         genre_config: dict[str, Any],
-        tavily_api_key: str,
+        tavily_key_pool: TavilyKeyPool | None = None,
     ) -> None:
         self._llm = llm_client
         self._genre_config = genre_config
-        self._tavily_api_key = tavily_api_key
-        logger.info("DirectSearcher initialized")
+        self._key_pool = tavily_key_pool
+        logger.info(
+            "DirectSearcher initialized (tavily_keys=%s)",
+            "available" if tavily_key_pool and tavily_key_pool.has_keys() else "none",
+        )
 
     # ------------------------------------------------------------------
     # Public API
@@ -243,7 +324,7 @@ class DirectSearcher:
             全検索結果の正規化アイテムリスト
         """
         # まず Tavily API を試行
-        if self._tavily_api_key:
+        if self._key_pool and self._key_pool.has_keys():
             items = self._execute_via_tavily(search_queries)
             if items:
                 return items
@@ -268,7 +349,7 @@ class DirectSearcher:
             include_domains = ["reddit.com"] if is_reddit else []
 
             try:
-                items = self._tavily_search(
+                items = self._tavily_search_with_rotation(
                     query=query_text,
                     include_domains=include_domains,
                 )
@@ -337,37 +418,56 @@ class DirectSearcher:
                 )
         return results
 
-    def _tavily_search(
+    def _tavily_search_with_rotation(
         self,
         query: str,
         include_domains: list[str] | None = None,
     ) -> list[RawItem]:
-        """Tavily REST API を1回呼び出す."""
-        payload: dict[str, Any] = {
-            "api_key": self._tavily_api_key,
-            "query": query,
-            "max_results": _MAX_RESULTS_PER_QUERY,
-            "include_raw_content": False,
-        }
-        if include_domains:
-            payload["include_domains"] = include_domains
+        """キーローテーション付きで Tavily REST API を呼び出す.
 
-        response = httpx.post(
-            _TAVILY_SEARCH_URL,
-            json=payload,
-            timeout=_TAVILY_TIMEOUT,
-        )
-        response.raise_for_status()
+        432 エラー時にキーを除外して次のキーでリトライする。
+        全キーが枯渇した場合は空リストを返す。
+        """
+        assert self._key_pool is not None
 
-        data = response.json()
-        results = data.get("results", [])
+        while self._key_pool.has_keys():
+            key = self._key_pool.get_key()
+            if key is None:
+                break
 
-        return [
-            RawItem(
-                url=str(r.get("url", "")),
-                title=str(r.get("title", "")),
-                content=str(r.get("content", "")),
-                source="tavily",
+            payload: dict[str, Any] = {
+                "api_key": key,
+                "query": query,
+                "max_results": _MAX_RESULTS_PER_QUERY,
+                "include_raw_content": False,
+            }
+            if include_domains:
+                payload["include_domains"] = include_domains
+
+            response = httpx.post(
+                _TAVILY_SEARCH_URL,
+                json=payload,
+                timeout=_TAVILY_TIMEOUT,
             )
-            for r in results
-        ]
+
+            if response.status_code == _TAVILY_RATE_LIMIT_STATUS:
+                self._key_pool.mark_exhausted(key)
+                continue
+
+            response.raise_for_status()
+
+            data = response.json()
+            results = data.get("results", [])
+
+            return [
+                RawItem(
+                    url=str(r.get("url", "")),
+                    title=str(r.get("title", "")),
+                    content=str(r.get("content", "")),
+                    source="tavily",
+                )
+                for r in results
+            ]
+
+        logger.warning("All Tavily API keys exhausted")
+        return []
