@@ -3,6 +3,8 @@
 各 Phase で確認すべき項目の詳細リスト。
 SKILL.md の調査プロトコルに沿って、漏れなく調査するためのリファレンス。
 
+全て Playwright CLI（Bash 経由）で実行する。検証フェーズでは Playwright MCP に切り替え可能。
+
 ## Phase 1: 初回アクセス・概要把握
 
 ### 基本情報
@@ -14,45 +16,40 @@ SKILL.md の調査プロトコルに沿って、漏れなく調査するため�
 
 ### CMS / フレームワーク検出
 
-以下の痕跡を `browser_evaluate` で確認:
+以下の JavaScript を `eval` で実行:
 
-```javascript
-return {
-  // WordPress
-  wordpress: !!document.querySelector('meta[name="generator"][content*="WordPress"]')
-    || !!document.querySelector('link[href*="wp-content"]'),
-  // Next.js
-  nextjs: !!document.getElementById('__next')
-    || !!document.querySelector('script[src*="_next"]'),
-  // Nuxt.js
-  nuxtjs: !!document.getElementById('__nuxt')
-    || !!document.querySelector('[data-n-head]'),
-  // Gatsby
-  gatsby: !!document.getElementById('___gatsby'),
-  // Hugo
-  hugo: !!document.querySelector('meta[name="generator"][content*="Hugo"]'),
-  // Wix
-  wix: !!document.querySelector('meta[name="generator"][content*="Wix"]'),
-  // Shopify
-  shopify: !!document.querySelector('meta[name="shopify"]')
-    || !!document.querySelector('link[href*="cdn.shopify.com"]'),
-};
+```bash
+npx -y @playwright/cli@latest eval '(() => {
+  return JSON.stringify({
+    wordpress: !!document.querySelector("meta[name=\"generator\"][content*=\"WordPress\"]")
+      || !!document.querySelector("link[href*=\"wp-content\"]"),
+    nextjs: !!document.getElementById("__next")
+      || !!document.querySelector("script[src*=\"_next\"]"),
+    nuxtjs: !!document.getElementById("__nuxt")
+      || !!document.querySelector("[data-n-head]"),
+    gatsby: !!document.getElementById("___gatsby"),
+    hugo: !!document.querySelector("meta[name=\"generator\"][content*=\"Hugo\"]"),
+    wix: !!document.querySelector("meta[name=\"generator\"][content*=\"Wix\"]"),
+    shopify: !!document.querySelector("meta[name=\"shopify\"]")
+      || !!document.querySelector("link[href*=\"cdn.shopify.com\"]")
+  });
+})()'
 ```
 
 ### 障害物の処理
 
-- [ ] Cookie 同意バナー → 「Accept」「同意」ボタンを `browser_click`
-- [ ] ニュースレター登録ポップアップ → 「閉じる」「×」ボタンを `browser_click`
-- [ ] 年齢確認ダイアログ → 必要に応じて処理
+- [ ] Cookie 同意バナー → 「Accept」「同意」ボタンを `click <ref>`
+- [ ] ニュースレター登録ポップアップ → 「閉じる」「×」ボタンを `click <ref>`
+- [ ] 年齢確認ダイアログ → 必要に応じて `dialog-accept`
 - [ ] チャットウィジェット → 邪魔なら閉じる
 
 ## Phase 2: メタ情報
 
 ### RSS フィード検出チェックリスト
 
-- [ ] `<link type="application/rss+xml">` の存在
-- [ ] `<link type="application/atom+xml">` の存在
-- [ ] `/feed` パスへのアクセス
+- [ ] `<link type="application/rss+xml">` の存在（`eval` で検出）
+- [ ] `<link type="application/atom+xml">` の存在（`eval` で検出）
+- [ ] `/feed` パスへのアクセス（`goto` で確認）
 - [ ] `/rss` パスへのアクセス
 - [ ] `/feed.xml` パスへのアクセス
 - [ ] `/atom.xml` パスへのアクセス
@@ -60,7 +57,7 @@ return {
 
 ### サイトマップ検出チェックリスト
 
-- [ ] `/sitemap.xml` の存在
+- [ ] `/sitemap.xml` の存在（`goto` + `snapshot --filename` で確認）
 - [ ] `/sitemap_index.xml` の存在
 - [ ] `/sitemap/` ディレクトリの存在
 - [ ] robots.txt 内の `Sitemap:` ディレクティブ
@@ -94,6 +91,8 @@ return {
 3. `<div>` のクラス名に `card`, `item`, `post`, `entry` を含む要素
 4. `data-*` 属性で統一されたコンテナ
 
+スナップショットファイルを Grep で検索して繰り返しパターンを発見する。
+
 ### 各アイテム内の要素
 
 - [ ] タイトル: 通常 `h2` or `h3` 内のリンク
@@ -116,25 +115,25 @@ return {
 
 ### セレクタ検証スクリプト
 
-```javascript
-// browser_evaluate で実行: 候補セレクタの妥当性検証
-function validateSelectors(selectors) {
-  const results = {};
-  for (const [name, selector] of Object.entries(selectors)) {
-    const elements = document.querySelectorAll(selector);
-    results[name] = {
-      count: elements.length,
-      sample: elements[0] ? elements[0].textContent.trim().substring(0, 100) : null,
-    };
+```bash
+npx -y @playwright/cli@latest eval '(() => {
+  function validateSelectors(selectors) {
+    const results = {};
+    for (const [name, selector] of Object.entries(selectors)) {
+      const elements = document.querySelectorAll(selector);
+      results[name] = {
+        count: elements.length,
+        sample: elements[0] ? elements[0].textContent.trim().substring(0, 100) : null
+      };
+    }
+    return results;
   }
-  return results;
-}
-
-return validateSelectors({
-  article: 'article.post-card',
-  title: 'article.post-card h2 a',
-  date: 'article.post-card time',
-});
+  return JSON.stringify(validateSelectors({
+    article: "article.post-card",
+    title: "article.post-card h2 a",
+    date: "article.post-card time"
+  }));
+})()'
 ```
 
 ## Phase 4: 個別コンテンツページ
@@ -159,24 +158,21 @@ return validateSelectors({
 
 ### ペイウォール/ログイン壁検出
 
-```javascript
-// browser_evaluate で確認
-return {
-  // ペイウォール関連要素
-  paywallOverlay: !!document.querySelector(
-    '[class*="paywall"], [class*="subscribe"], [id*="paywall"]'
-  ),
-  // ログインモーダル
-  loginModal: !!document.querySelector(
-    '[class*="login-modal"], [class*="signin"], [class*="auth-wall"]'
-  ),
-  // 「続きを読む」系
-  readMore: !!document.querySelector(
-    '[class*="read-more-gate"], [class*="premium-content"]'
-  ),
-  // 本文の文字数（少なすぎれば切断の疑い）
-  bodyLength: document.querySelector('article')?.textContent?.length || 0,
-};
+```bash
+npx -y @playwright/cli@latest eval '(() => {
+  return JSON.stringify({
+    paywallOverlay: !!document.querySelector(
+      "[class*=\"paywall\"], [class*=\"subscribe\"], [id*=\"paywall\"]"
+    ),
+    loginModal: !!document.querySelector(
+      "[class*=\"login-modal\"], [class*=\"signin\"], [class*=\"auth-wall\"]"
+    ),
+    readMore: !!document.querySelector(
+      "[class*=\"read-more-gate\"], [class*=\"premium-content\"]"
+    ),
+    bodyLength: document.querySelector("article")?.textContent?.length || 0
+  });
+})()'
 ```
 
 ## Phase 5: 動的挙動
@@ -190,7 +186,11 @@ return {
 
 ### API エンドポイント発見
 
-`browser_network_requests` で以下のパターンを監視:
+`network` コマンドで以下のパターンを監視:
+
+```bash
+npx -y @playwright/cli@latest network
+```
 
 - `/api/` パスへの XHR/fetch
 - JSON レスポンス（`Content-Type: application/json`）
@@ -209,13 +209,38 @@ URL パターン、必要なヘッダー、レスポンス構造を記録する�
 
 ### パフォーマンス情報
 
-```javascript
-// browser_evaluate で収集
-const perf = performance.getEntriesByType('navigation')[0];
-return {
-  protocol: perf.nextHopProtocol, // h2, h3, http/1.1
-  domContentLoaded: Math.round(perf.domContentLoadedEventEnd),
-  loadComplete: Math.round(perf.loadEventEnd),
-  transferSize: Math.round(perf.transferSize / 1024) + 'KB',
-};
+```bash
+npx -y @playwright/cli@latest eval '(() => {
+  const perf = performance.getEntriesByType("navigation")[0];
+  return JSON.stringify({
+    protocol: perf.nextHopProtocol,
+    domContentLoaded: Math.round(perf.domContentLoadedEventEnd),
+    loadComplete: Math.round(perf.loadEventEnd),
+    transferSize: Math.round(perf.transferSize / 1024) + "KB"
+  });
+})()'
+```
+
+## 検証フェーズ（Playwright MCP）
+
+Phase 1-5 完了後、実装に移る際にセレクタの詳細検証が必要な場合は
+Playwright MCP ツールに切り替える。
+
+### MCP 切り替え後の検証パターン
+
+```
+# 1. CLI セッションを閉じる
+npx -y @playwright/cli@latest close
+
+# 2. MCP でページにアクセス
+mcp__playwright__browser_navigate(url="...")
+
+# 3. セレクタをインタラクティブに検証
+mcp__playwright__browser_evaluate(expression="document.querySelectorAll('...').length")
+
+# 4. ページ遷移を確認
+mcp__playwright__browser_click(element="...", ref="...")
+
+# 5. 遷移後の構造確認
+mcp__playwright__browser_snapshot()
 ```
