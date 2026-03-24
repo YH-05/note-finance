@@ -68,74 +68,24 @@ class TestWALMode:
 class TestTableCreation:
     """テーブル作成のテスト."""
 
-    def test_正常系_chunksテーブルが作成される(
-        self, db: SessionMemoryDB, db_path: Path
+    @pytest.mark.parametrize(
+        "table_name",
+        ["chunks", "chunks_fts", "chunks_vec", "import_log", "extraction_log"],
+    )
+    def test_パラメトライズ_各テーブルが作成される(
+        self, db: SessionMemoryDB, db_path: Path, table_name: str
     ) -> None:
-        """chunks テーブルが存在することを確認する."""
+        """各テーブルが存在することを確認する."""
         with db:
             conn = sqlite3.connect(str(db_path))
             try:
                 cursor = conn.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name='chunks'"
+                    "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+                    (table_name,),
                 )
-                assert cursor.fetchone() is not None
-            finally:
-                conn.close()
-
-    def test_正常系_chunks_ftsテーブルが作成される(
-        self, db: SessionMemoryDB, db_path: Path
-    ) -> None:
-        """chunks_fts 全文検索テーブルが存在することを確認する."""
-        with db:
-            conn = sqlite3.connect(str(db_path))
-            try:
-                cursor = conn.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name='chunks_fts'"
+                assert cursor.fetchone() is not None, (
+                    f"{table_name} テーブルが存在しない"
                 )
-                assert cursor.fetchone() is not None
-            finally:
-                conn.close()
-
-    def test_正常系_chunks_vecテーブルが作成される(
-        self, db: SessionMemoryDB, db_path: Path
-    ) -> None:
-        """chunks_vec ベクトルテーブルが存在することを確認する."""
-        with db:
-            conn = sqlite3.connect(str(db_path))
-            try:
-                # sqlite-vec の仮想テーブルは sqlite_master に登録される
-                cursor = conn.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name='chunks_vec'"
-                )
-                assert cursor.fetchone() is not None
-            finally:
-                conn.close()
-
-    def test_正常系_import_logテーブルが作成される(
-        self, db: SessionMemoryDB, db_path: Path
-    ) -> None:
-        """import_log テーブルが存在することを確認する."""
-        with db:
-            conn = sqlite3.connect(str(db_path))
-            try:
-                cursor = conn.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name='import_log'"
-                )
-                assert cursor.fetchone() is not None
-            finally:
-                conn.close()
-
-    def test_正常系_extraction_logテーブルが作成される(
-        self, db: SessionMemoryDB, db_path: Path
-    ) -> None:
-        """extraction_log テーブルが存在することを確認する."""
-        with db:
-            conn = sqlite3.connect(str(db_path))
-            try:
-                cursor = conn.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name='extraction_log'"
-                )
-                assert cursor.fetchone() is not None
             finally:
                 conn.close()
 

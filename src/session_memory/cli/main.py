@@ -248,18 +248,14 @@ def search(
     logger.info("Searching", query=query, mode=mode, limit=limit)
 
     with SessionMemoryDB(db_path) as db:
-        conn = db._require_conn()
-
-        if mode == "fts":
-            results = _search_fts(conn, query, limit)
-        else:
+        if mode != "fts":
             # vector / hybrid は将来実装
             # AIDEV-NOTE: ベクトル検索は embedder 統合後に実装予定
             console.print(
                 f"[yellow]Search mode '{mode}' is not yet implemented. "
                 f"Using FTS fallback.[/yellow]"
             )
-            results = _search_fts(conn, query, limit)
+        results = db.search_fts(query, limit)
 
     if json_output:
         _output_json([_chunk_row_to_dict(r) for r in results])
@@ -564,44 +560,13 @@ def stats(
     logger.info("Showing stats")
 
     with SessionMemoryDB(db_path) as db:
-        conn = db._require_conn()
+        stats_data = db.get_session_stats()
 
-        # 総チャンク数
-        total_chunks = db.count_chunks()
-
-        # セッション別集計
-        cursor = conn.execute(
-            """
-            SELECT session_id, COUNT(*) AS chunk_count,
-                   MIN(created_at) AS first_chunk,
-                   MAX(created_at) AS last_chunk
-            FROM chunks
-            GROUP BY session_id
-            ORDER BY last_chunk DESC
-            """
-        )
-        session_rows = cursor.fetchall()
-
-        # インポートログ数
-        cursor = conn.execute("SELECT COUNT(*) FROM import_log")
-        import_count_row = cursor.fetchone()
-        import_count = int(import_count_row[0]) if import_count_row else 0
-
-        # 抽出ログ数
-        cursor = conn.execute("SELECT COUNT(*) FROM extraction_log")
-        extraction_count_row = cursor.fetchone()
-        extraction_count = int(extraction_count_row[0]) if extraction_count_row else 0
-
-    total_sessions = len(session_rows)
-    sessions_data = [
-        {
-            "session_id": row["session_id"],
-            "chunk_count": row["chunk_count"],
-            "first_chunk": row["first_chunk"],
-            "last_chunk": row["last_chunk"],
-        }
-        for row in session_rows
-    ]
+    total_chunks = stats_data["total_chunks"]
+    total_sessions = stats_data["total_sessions"]
+    sessions_data = stats_data["sessions"]
+    import_count = stats_data["import_count"]
+    extraction_count = stats_data["extraction_count"]
 
     if json_output:
         _output_json(
@@ -620,7 +585,7 @@ def stats(
         console.print(f"  Import logs:       {import_count}")
         console.print(f"  Extraction logs:   {extraction_count}")
 
-        if session_rows:
+        if sessions_data:
             console.print()
             table = Table(title="Sessions")
             table.add_column("Session ID", style="cyan", max_width=20)
@@ -628,7 +593,7 @@ def stats(
             table.add_column("First Chunk")
             table.add_column("Last Chunk")
 
-            for row in session_rows:
+            for row in sessions_data:
                 table.add_row(
                     _truncate(row["session_id"], 20),
                     str(row["chunk_count"]),

@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -33,8 +34,10 @@ logger = get_logger(__name__)
 _DEFAULT_DB_PATH = Path("data/cache/session_memory.db")
 """デフォルトの SQLite DB パス."""
 
-_TARGET_PROJECTS: frozenset[str] = frozenset({"note-finance"})
-"""セッションメモリ投入対象のプロジェクト名."""
+_TARGET_PROJECTS: frozenset[str] = frozenset(
+    os.environ.get("SESSION_MEMORY_TARGET_PROJECTS", "note-finance").split(",")
+)
+"""セッションメモリ投入対象のプロジェクト名（SESSION_MEMORY_TARGET_PROJECTS でカンマ区切り指定可）."""
 
 _NEO4J_TIMEOUT_SECONDS = 60
 """Neo4j パイプラインのタイムアウト（秒）."""
@@ -194,8 +197,15 @@ def resolve_transcript_path(hook_input: HookInput) -> Path | None:
         logger.debug("Claude projects directory not found")
         return None
 
+    # プロジェクト境界チェック: cwd から解決したプロジェクト名に一致する
+    # ディレクトリのみを検索対象とする
+    project_name = resolve_project(hook_input.cwd)
     for project_dir in _CLAUDE_PROJECTS_DIR.iterdir():
         if not project_dir.is_dir():
+            continue
+        # プロジェクトディレクトリ名にプロジェクト名が含まれる場合のみ検索
+        dir_name = project_dir.name
+        if project_name and project_name.replace("/", "-") not in dir_name:
             continue
         candidate = project_dir / f"{hook_input.session_id}.jsonl"
         if candidate.exists():
@@ -256,7 +266,7 @@ def save_chunks_to_sqlite(
 # ---------------------------------------------------------------------------
 
 
-async def _run_neo4j_pipeline(
+async def _run_neo4j_pipeline(  # noqa: PLR0911
     chunks: list[Chunk],
     session_id: str,
 ) -> dict[str, Any]:
@@ -284,7 +294,11 @@ async def _run_neo4j_pipeline(
         # Anthropic クライアント初期化
         from anthropic import AsyncAnthropic
 
-        client = AsyncAnthropic()
+        api_key = os.environ.get("ANTHROPIC_API_KEY")
+        if not api_key:
+            logger.warning("ANTHROPIC_API_KEY is not set, skipping Neo4j pipeline")
+            return {"status": "skipped", "reason": "ANTHROPIC_API_KEY not set"}
+        client = AsyncAnthropic(api_key=api_key)
     except ImportError:
         logger.warning("anthropic package not installed, skipping Neo4j pipeline")
         return {"status": "skipped", "reason": "anthropic not installed"}
@@ -309,8 +323,6 @@ async def _run_neo4j_pipeline(
     # Neo4j リンク投入
     try:
         # note-neo4j 接続（環境変数から取得、デフォルトはローカル開発用）
-        import os
-
         from neo4j import GraphDatabase
 
         from session_memory.linker import LinkerConfig, NoteLinker
@@ -396,7 +408,7 @@ async def run_session_end_hook(
             "session_id": hook_input.session_id,
         }
 
-    # Step 2: 重複チェック
+    # Step 2: 重複チェック（DB接続は Step 5 まで再利用）
     with SessionMemoryDB(db_path) as db:
         if is_already_imported(db, hook_input.session_id):
             logger.info(
@@ -409,55 +421,54 @@ async def run_session_end_hook(
                 "session_id": hook_input.session_id,
             }
 
-    # Step 3: transcript.jsonl 読み込み
-    transcript_path = resolve_transcript_path(hook_input)
-    if transcript_path is None:
-        logger.warning(
-            "Transcript not found, skipping",
-            session_id=hook_input.session_id,
-        )
-        return {
-            "status": "skipped",
-            "reason": "Transcript file not found",
-            "session_id": hook_input.session_id,
-        }
+        # Step 3: transcript.jsonl 読み込み
+        transcript_path = resolve_transcript_path(hook_input)
+        if transcript_path is None:
+            logger.warning(
+                "Transcript not found, skipping",
+                session_id=hook_input.session_id,
+            )
+            return {
+                "status": "skipped",
+                "reason": "Transcript file not found",
+                "session_id": hook_input.session_id,
+            }
 
-    try:
-        lines = transcript_path.read_text(encoding="utf-8").strip().splitlines()
-    except Exception:
-        logger.error(
-            "Failed to read transcript",
-            path=str(transcript_path),
-            exc_info=True,
-        )
-        return {
-            "status": "error",
-            "reason": "Failed to read transcript",
-            "session_id": hook_input.session_id,
-        }
+        try:
+            lines = transcript_path.read_text(encoding="utf-8").strip().splitlines()
+        except Exception:
+            logger.error(
+                "Failed to read transcript",
+                path=str(transcript_path),
+                exc_info=True,
+            )
+            return {
+                "status": "error",
+                "reason": "Failed to read transcript",
+                "session_id": hook_input.session_id,
+            }
 
-    # Step 4: チャンク化
-    chunks = parse_transcript(lines)
-    if not chunks:
+        # Step 4: チャンク化
+        chunks = parse_transcript(lines)
+        if not chunks:
+            logger.info(
+                "No chunks extracted from transcript",
+                session_id=hook_input.session_id,
+            )
+            return {
+                "status": "skipped",
+                "reason": "No chunks in transcript",
+                "session_id": hook_input.session_id,
+                "chunks_saved": 0,
+            }
+
         logger.info(
-            "No chunks extracted from transcript",
+            "Chunks extracted",
+            chunk_count=len(chunks),
             session_id=hook_input.session_id,
         )
-        return {
-            "status": "skipped",
-            "reason": "No chunks in transcript",
-            "session_id": hook_input.session_id,
-            "chunks_saved": 0,
-        }
 
-    logger.info(
-        "Chunks extracted",
-        chunk_count=len(chunks),
-        session_id=hook_input.session_id,
-    )
-
-    # Step 5: SQLite 保存
-    with SessionMemoryDB(db_path) as db:
+        # Step 5: SQLite 保存
         saved_count = save_chunks_to_sqlite(db, chunks)
         db.log_import(
             session_id=hook_input.session_id,

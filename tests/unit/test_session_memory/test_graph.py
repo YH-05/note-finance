@@ -528,6 +528,44 @@ class TestIngestResult:
 # ---------------------------------------------------------------------------
 
 
+class TestAllowedListValidation:
+    """許可リスト検証のテスト（Cypher インジェクション防止）."""
+
+    def test_異常系_不正なラベルでValueError(
+        self,
+        writer: SessionGraphWriter,
+        mock_driver: MagicMock,
+    ) -> None:
+        """_ALLOWED_LABELS に含まれないラベルが渡された場合 ValueError."""
+        session = mock_driver.session.return_value.__enter__.return_value
+        with pytest.raises(ValueError, match="Disallowed label"):
+            writer._merge_nodes(session, "MaliciousLabel", [{"id": "1"}], "id")
+
+    def test_異常系_不正なkey_fieldでValueError(
+        self,
+        writer: SessionGraphWriter,
+        mock_driver: MagicMock,
+    ) -> None:
+        """_ALLOWED_KEY_FIELDS に含まれない key_field が渡された場合 ValueError."""
+        session = mock_driver.session.return_value.__enter__.return_value
+        with pytest.raises(ValueError, match="Disallowed key_field"):
+            writer._merge_nodes(session, "Session", [{"id": "1"}], "malicious_field")
+
+    def test_正常系_許可されたラベルとキーで成功(
+        self,
+        writer: SessionGraphWriter,
+        mock_driver: MagicMock,
+    ) -> None:
+        """許可リスト内のラベルとkey_fieldでは ValueError が発生しない."""
+        session = mock_driver.session.return_value.__enter__.return_value
+        session.run.return_value = FakeResult(FakeCounters(nodes_created=1))
+        # これは例外を投げないことを確認
+        result = writer._merge_nodes(
+            session, "Session", [{"session_id": "s1"}], "session_id"
+        )
+        assert result >= 0
+
+
 class TestSessionIdSet:
     """session_id がノードに SET されることのテスト."""
 

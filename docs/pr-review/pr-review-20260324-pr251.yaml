@@ -1,0 +1,90 @@
+# PRレビューレポート
+# 生成日時: 2026-03-24
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-24"
+  pr_number: 251
+  pr_title: "feat(session-memory): セッションメモリ全モジュール実装 (Issue #239-#250)"
+  base_branch: "main"
+  head_branch: "feature/prj99"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 37
+  additions: 9406
+  deletions: 7
+
+scores:
+  code_quality:
+    readability: 82
+    design: 79
+    performance: 78
+    quant: null
+  security:
+    code: 72
+    infra: 72
+  test:
+    coverage: 78
+    quality: 88
+
+code_quality:
+  strengths:
+    - "全モジュールに日本語・英語併記の docstring、structlog 構造化ロギングが統一的に実装"
+    - "frozen=True の dataclass を一貫して使用し不変性を保証"
+    - "各モジュールが明確な責務で分割（chunker/embedder/extractor/db/linker/searcher/graph/hook）"
+    - "UNWIND バッチ MERGE で N+1 クエリを回避"
+    - "NoteLinker の4層マッチング戦略で早期リターン最適化"
+    - "embedder の lru_cache + 遅延インポートで起動時間を最適化"
+
+  issues_fixed:
+    - "graph.py: 標準 logging → structlog に統一"
+    - "hook.py: Neo4j認証情報を環境変数化"
+    - "graph.py: key_field に _ALLOWED_KEY_FIELDS 許可リスト検証を追加"
+    - "linker.py: fulltext インデックス名に許可リスト検証を追加"
+    - "linker.py: _embedding_brute_force に LIMIT 5000 追加"
+    - "extractor.py: _TOOL_DEFINITION をモジュールレベルでキャッシュ"
+    - "extractor.py: モデル名を環境変数で上書き可能に"
+    - "extractor.py: rate_limit コメントを実装と一致するよう修正"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 0  # 修正済み
+    medium: 0  # 修正済み
+    low: 3
+
+  findings_remaining:
+    - id: "SEC-005"
+      severity: "LOW"
+      description: "resolve_transcript_path でプロジェクト境界チェックなし"
+    - id: "SEC-006"
+      severity: "LOW"
+      description: "settings.json に汎用 Bash 許可エントリ"
+    - id: "SEC-007"
+      severity: "LOW"
+      description: "Anthropic API キーの事前チェックなし"
+
+test:
+  coverage_assessment: "GOOD"
+  edge_cases_covered: true
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "PASS"
+    readability: "PASS"
+
+  notes:
+    - "テストディレクトリが tests/session_memory/unit/ と tests/unit/test_session_memory/ に分散（LOW）"
+    - "_logging.py と memory_session_end.py の専用テストが不足（MEDIUM）"
+
+recommended_actions:
+  required: []  # 全 HIGH/MEDIUM 修正済み
+  suggested:
+    - "テストディレクトリを tests/unit/test_session_memory/ に統一"
+    - "_logging.py の専用テストを追加"
+    - "cli/main.py の db._require_conn() をパブリックAPI化"
+
+summary:
+  verdict: "APPROVE"
+  comment: "全 HIGH/MEDIUM 指摘を修正済み。残存は LOW のみ。"

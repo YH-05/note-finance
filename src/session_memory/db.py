@@ -9,6 +9,7 @@
 import sqlite3
 from pathlib import Path
 from types import TracebackType
+from typing import Any
 
 import sqlite_vec
 
@@ -21,6 +22,11 @@ logger = get_logger(__name__)
 # 定数: ベクトル次元数
 # ---------------------------------------------------------------------------
 _EMBEDDING_DIM = 384
+"""sqlite-vec ベクトル次元数.
+
+cl-nagoya/ruri-v3-310m および intfloat/multilingual-e5-small の出力次元に対応。
+embedder.py の DEFAULT_MODEL を変更した場合、この値も合わせて更新すること。
+"""
 
 
 class SessionMemoryDB:
@@ -294,6 +300,114 @@ class SessionMemoryDB:
         cursor = conn.execute("SELECT COUNT(*) FROM chunks")
         result = cursor.fetchone()
         return int(result[0]) if result else 0
+
+    # ------------------------------------------------------------------
+    # 検索 API
+    # ------------------------------------------------------------------
+
+    def search_fts(self, query: str, limit: int = 20) -> list[ChunkRow]:
+        """FTS5 全文検索を実行する（LIKE フォールバック付き）.
+
+        Parameters
+        ----------
+        query : str
+            検索クエリ
+        limit : int
+            最大結果数
+
+        Returns
+        -------
+        list[ChunkRow]
+            検索結果のチャンクリスト
+        """
+        conn = self._require_conn()
+        try:
+            cursor = conn.execute(
+                """
+                SELECT c.chunk_key, c.session_id, c.content, c.role,
+                       c.token_count, c.created_at
+                FROM chunks_fts AS fts
+                JOIN chunks AS c ON fts.rowid = c.rowid
+                WHERE chunks_fts MATCH ?
+                ORDER BY fts.rank
+                LIMIT ?
+                """,
+                (query, limit),
+            )
+            rows = cursor.fetchall()
+        except Exception:
+            logger.debug("FTS search failed, falling back to LIKE", query=query)
+            cursor = conn.execute(
+                """
+                SELECT chunk_key, session_id, content, role,
+                       token_count, created_at
+                FROM chunks
+                WHERE content LIKE ?
+                ORDER BY created_at DESC
+                LIMIT ?
+                """,
+                (f"%{query}%", limit),
+            )
+            rows = cursor.fetchall()
+
+        return [
+            ChunkRow(
+                chunk_key=row["chunk_key"],
+                session_id=row["session_id"],
+                content=row["content"],
+                role=row["role"],
+                token_count=row["token_count"],
+                created_at=row["created_at"],
+            )
+            for row in rows
+        ]
+
+    def get_session_stats(self) -> dict[str, Any]:
+        """セッション統計情報を取得する.
+
+        Returns
+        -------
+        dict[str, Any]
+            total_chunks, sessions, import_count, extraction_count を含む辞書
+        """
+        conn = self._require_conn()
+        total_chunks = self.count_chunks()
+
+        cursor = conn.execute(
+            """
+            SELECT session_id, COUNT(*) AS chunk_count,
+                   MIN(created_at) AS first_chunk,
+                   MAX(created_at) AS last_chunk
+            FROM chunks
+            GROUP BY session_id
+            ORDER BY last_chunk DESC
+            """
+        )
+        session_rows = [
+            {
+                "session_id": row["session_id"],
+                "chunk_count": row["chunk_count"],
+                "first_chunk": row["first_chunk"],
+                "last_chunk": row["last_chunk"],
+            }
+            for row in cursor.fetchall()
+        ]
+
+        cursor = conn.execute("SELECT COUNT(*) FROM import_log")
+        import_count_row = cursor.fetchone()
+        import_count = int(import_count_row[0]) if import_count_row else 0
+
+        cursor = conn.execute("SELECT COUNT(*) FROM extraction_log")
+        extraction_count_row = cursor.fetchone()
+        extraction_count = int(extraction_count_row[0]) if extraction_count_row else 0
+
+        return {
+            "total_chunks": total_chunks,
+            "sessions": session_rows,
+            "total_sessions": len(session_rows),
+            "import_count": import_count,
+            "extraction_count": extraction_count,
+        }
 
     # ------------------------------------------------------------------
     # インポートログ

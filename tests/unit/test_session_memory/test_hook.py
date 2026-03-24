@@ -355,7 +355,9 @@ class TestRunSessionEndHook:
 
         # テスト用に Claude projects ディレクトリを模擬
         fake_projects_dir = tmp_path / ".claude" / "projects"
-        fake_project_dir = fake_projects_dir / "test-project"
+        # プロジェクト境界チェックのため、cwd の resolve_project 結果と
+        # 一致するディレクトリ名にする（cwd が note-finance を含む）
+        fake_project_dir = fake_projects_dir / "-Users-user-note-finance"
         fake_project_dir.mkdir(parents=True)
 
         # セッション ID に対応する transcript.jsonl を配置
