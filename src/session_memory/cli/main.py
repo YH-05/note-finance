@@ -458,6 +458,96 @@ def bulk_import(
 
 
 # ---------------------------------------------------------------------------
+# bulk-import-all サブコマンド
+# ---------------------------------------------------------------------------
+
+
+@cli.command(name="bulk-import-all")
+@click.option(
+    "--projects-dir",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Claude projects directory (default: ~/.claude/projects/)",
+)
+@click.option(
+    "--progress",
+    is_flag=True,
+    help="Show Rich progress bar",
+)
+@click.option(
+    "--parallel",
+    type=int,
+    default=1,
+    help="Number of parallel workers (default: 1)",
+)
+@click.option("--json", "json_output", is_flag=True, help="Output as JSON")
+@click.pass_context
+def bulk_import_all(
+    ctx: click.Context,
+    projects_dir: Path | None,
+    progress: bool,
+    parallel: int,
+    json_output: bool,
+) -> None:
+    """Bulk-import all sessions from ~/.claude/projects/.
+
+    Walk all project directories under ~/.claude/projects/,
+    discover transcript.jsonl files, and import them.
+    Already-imported sessions are skipped (resume support).
+    """
+    from session_memory.cli.bulk_import import run_bulk_import_all
+
+    db_path = _get_db_path(ctx)
+
+    if projects_dir is None:
+        projects_dir = Path.home() / ".claude" / "projects"
+
+    logger.info(
+        "Bulk import all starting",
+        projects_dir=str(projects_dir),
+        parallel=parallel,
+        progress=progress,
+    )
+
+    summary = run_bulk_import_all(
+        db_path=db_path,
+        projects_dir=projects_dir,
+        parallel=parallel,
+        progress=progress,
+    )
+
+    if json_output:
+        _output_json(summary)
+    else:
+        console.print("[bold]Bulk Import All - Summary[/bold]")
+        console.print(f"  Discovered:  {summary['total_discovered']} sessions")
+        console.print(f"  Imported:    {summary['imported']} sessions")
+        console.print(f"  Skipped:     {summary['skipped']} (already imported)")
+        console.print(f"  Errors:      {summary['errors']}")
+        console.print(f"  Total chunks: {summary['total_chunks']}")
+
+        if summary.get("projects"):
+            console.print()
+            table = Table(title="Projects")
+            table.add_column("Project", style="cyan", max_width=40)
+            table.add_column("Imported", justify="right")
+            table.add_column("Chunks", justify="right")
+            table.add_column("Errors", justify="right")
+
+            for proj_name, proj_data in summary["projects"].items():
+                table.add_row(
+                    _truncate(proj_name, 40),
+                    str(proj_data["imported"]),
+                    str(proj_data["chunks"]),
+                    str(proj_data["errors"]),
+                )
+
+            console.print(table)
+
+    logger.info("Bulk import all command completed")
+
+
+# ---------------------------------------------------------------------------
 # stats サブコマンド
 # ---------------------------------------------------------------------------
 
