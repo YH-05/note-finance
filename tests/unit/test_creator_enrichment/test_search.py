@@ -225,17 +225,17 @@ class TestTavilyExecution:
         assert call_json["include_domains"] == ["reddit.com"]
 
     @patch("creator_enrichment.phases.search.httpx.post")
-    def test_正常系_Tavily認証ヘッダーが設定される(
+    def test_正常系_Tavily_api_keyがbodyに設定される(
         self,
         mock_post: MagicMock,
         searcher: DirectSearcher,
         mock_llm: MagicMock,
     ) -> None:
-        """Tavily API 呼び出しに Bearer トークンが設定される."""
+        """Tavily API 呼び出しに api_key が body に設定される."""
         mock_llm.query.return_value = _llm_queries_response(1)
         mock_post.return_value = _tavily_api_response()
 
         searcher.search(queries=["test"], genre="career")
 
-        call_headers = mock_post.call_args.kwargs["headers"]
-        assert call_headers["Authorization"] == "Bearer tvly-test-key"
+        call_json = mock_post.call_args.kwargs["json"]
+        assert call_json["api_key"] == "tvly-test-key"

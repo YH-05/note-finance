@@ -45,6 +45,14 @@ _MAX_RESULTS_PER_QUERY = 5
 _MAX_QUERY_GENERATION = 12
 """LLM に生成させるクエリの上限数."""
 
+_SEARCH_SYSTEM_PROMPT = """\
+You are a research assistant. Execute web searches for the given queries \
+and return all results as a JSON object.
+
+Return ONLY a JSON object with this structure (no markdown, no explanation):
+{"items": [{"url": "...", "title": "...", "content": "...", "source": "web_search"}]}
+"""
+
 # ---------------------------------------------------------------------------
 # クエリ生成プロンプト
 # ---------------------------------------------------------------------------
@@ -217,14 +225,12 @@ class DirectSearcher:
         return generated[:_MAX_QUERY_GENERATION]
 
     # ------------------------------------------------------------------
-    # Step 2b: Tavily REST API 検索実行
+    # Step 2b: 検索実行（Tavily → SDK フォールバック）
     # ------------------------------------------------------------------
     def _execute_searches(
         self, search_queries: list[dict[str, str]]
     ) -> list[RawItem]:
-        """Tavily REST API で検索を実行する.
-
-        各クエリの失敗は個別にスキップし、他のクエリの実行を継続する。
+        """検索を実行する。Tavily API → SDK WebSearch のフォールバック付き.
 
         Parameters
         ----------
@@ -236,6 +242,20 @@ class DirectSearcher:
         list[RawItem]
             全検索結果の正規化アイテムリスト
         """
+        # まず Tavily API を試行
+        if self._tavily_api_key:
+            items = self._execute_via_tavily(search_queries)
+            if items:
+                return items
+            logger.warning("Tavily returned 0 results, falling back to SDK")
+
+        # フォールバック: SDK WebSearch
+        return self._execute_via_sdk(search_queries)
+
+    def _execute_via_tavily(
+        self, search_queries: list[dict[str, str]]
+    ) -> list[RawItem]:
+        """Tavily REST API で検索を実行する."""
         all_items: list[RawItem] = []
         seen_urls: set[str] = set()
 
@@ -244,7 +264,6 @@ class DirectSearcher:
             if not query_text:
                 continue
 
-            # Reddit 体験談は include_domains で対応
             is_reddit = "reddit" in query_text.lower()
             include_domains = ["reddit.com"] if is_reddit else []
 
@@ -262,47 +281,70 @@ class DirectSearcher:
                 )
                 continue
 
-            # URL 重複排除
             for item in items:
                 if item["url"] not in seen_urls:
                     seen_urls.add(item["url"])
                     all_items.append(item)
 
-            logger.debug(
-                "Query %d/%d: %d results (query=%s)",
-                i + 1,
-                len(search_queries),
-                len(items),
-                query_text[:50],
-            )
-
         return all_items
+
+    def _execute_via_sdk(
+        self, search_queries: list[dict[str, str]]
+    ) -> list[RawItem]:
+        """SDK WebSearch で検索を実行する（Tavily フォールバック用）."""
+        queries_text = "\n".join(
+            f"- {sq['query']}" for sq in search_queries if sq.get("query")
+        )
+        prompt = (
+            f"Execute web searches for ALL of the following queries "
+            f"and return results as JSON.\n\n"
+            f"Queries:\n{queries_text}\n\n"
+            f"Return ONLY JSON: "
+            f'{{\"items\": [{{\"url\": \"...\", \"title\": \"...\", '
+            f'\"content\": \"...\", \"source\": \"web_search\"}}]}}'
+        )
+
+        try:
+            response = self._llm.query(prompt)
+        except (RuntimeError, OSError) as e:
+            logger.error("SDK search failed: %s", e)
+            return []
+
+        cleaned = strip_json_codeblock(response)
+        try:
+            parsed = json.loads(cleaned)
+        except json.JSONDecodeError:
+            logger.error("Failed to parse SDK search response")
+            return []
+
+        items_raw = parsed.get("items", [])
+        if not isinstance(items_raw, list):
+            return []
+
+        seen_urls: set[str] = set()
+        results: list[RawItem] = []
+        for item in items_raw:
+            url = str(item.get("url", ""))
+            if url and url not in seen_urls:
+                seen_urls.add(url)
+                results.append(
+                    RawItem(
+                        url=url,
+                        title=str(item.get("title", "")),
+                        content=str(item.get("content", "")),
+                        source=str(item.get("source", "web_search")),
+                    )
+                )
+        return results
 
     def _tavily_search(
         self,
         query: str,
         include_domains: list[str] | None = None,
     ) -> list[RawItem]:
-        """Tavily REST API を1回呼び出す.
-
-        Parameters
-        ----------
-        query : str
-            検索クエリ文字列
-        include_domains : list[str] | None
-            結果を限定するドメインリスト
-
-        Returns
-        -------
-        list[RawItem]
-            検索結果
-
-        Raises
-        ------
-        httpx.HTTPError
-            API エラー時
-        """
+        """Tavily REST API を1回呼び出す."""
         payload: dict[str, Any] = {
+            "api_key": self._tavily_api_key,
             "query": query,
             "max_results": _MAX_RESULTS_PER_QUERY,
             "include_raw_content": False,
@@ -313,7 +355,6 @@ class DirectSearcher:
         response = httpx.post(
             _TAVILY_SEARCH_URL,
             json=payload,
-            headers={"Authorization": f"Bearer {self._tavily_api_key}"},
             timeout=_TAVILY_TIMEOUT,
         )
         response.raise_for_status()

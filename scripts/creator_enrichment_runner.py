@@ -144,13 +144,14 @@ def main() -> None:
         logger.error("Bootstrap failed: %s", e)
         sys.exit(1)
 
-    # --- TAVILY_API_KEY チェック ---
+    # --- TAVILY_API_KEY（オプション、未設定時は SDK WebSearch にフォールバック）---
     import os
 
     tavily_api_key = os.environ.get("TAVILY_API_KEY", "")
-    if not tavily_api_key:
-        logger.error("TAVILY_API_KEY が未設定です")
-        sys.exit(1)
+    if tavily_api_key:
+        logger.info("Tavily API key detected (primary search)")
+    else:
+        logger.info("No TAVILY_API_KEY, using SDK WebSearch fallback")
 
     # --- genre_config 読み込み ---
     config_path = Path(__file__).resolve().parent.parent / "data" / "config" / "creator-enrichment-config.json"
