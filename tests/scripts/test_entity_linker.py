@@ -834,7 +834,9 @@ class TestIdentifierSupport:
 class TestLinkerSearchConfig:
     """LinkerSearchConfig の読み込みテスト。"""
 
-    def test_正常系_存在しないファイルでデフォルト値が返る(self, tmp_path: Path) -> None:
+    def test_正常系_存在しないファイルでデフォルト値が返る(
+        self, tmp_path: Path
+    ) -> None:
         """config ファイルが存在しない場合にデフォルト値が返されること。"""
         from entity_linker import LinkerSearchConfig, load_linker_config
 
@@ -898,9 +900,14 @@ class TestV3CLIArguments:
         from entity_linker import _build_parser
 
         parser = _build_parser()
-        args = parser.parse_args([
-            "--input", "test.json", "--linker-config", "/path/to/config.yaml",
-        ])
+        args = parser.parse_args(
+            [
+                "--input",
+                "test.json",
+                "--linker-config",
+                "/path/to/config.yaml",
+            ]
+        )
         assert str(args.linker_config) == "/path/to/config.yaml"
 
 
