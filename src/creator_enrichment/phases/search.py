@@ -349,6 +349,8 @@ class ClaudeCodeSearcher:
         try:
             import claude_agent_sdk
 
+            from creator_enrichment.config import ANTHROPIC_MODEL
+
             class _SdkProvider:
                 """claude_agent_sdk.query() をラップするプロバイダー."""
 
@@ -356,28 +358,44 @@ class ClaudeCodeSearcher:
                     self, *, system_prompt: str, prompt: str, timeout: int
                 ) -> str:
                     import asyncio
+                    import os
+
+                    # ネストセッション回避: CLAUDECODE を一時的にクリア
+                    saved_env = os.environ.pop("CLAUDECODE", None)
 
                     options = claude_agent_sdk.ClaudeAgentOptions(
                         system_prompt=system_prompt,
-                        max_turns=1,
+                        model=ANTHROPIC_MODEL,
+                        max_turns=20,
+                        permission_mode="bypassPermissions",
                     )
-                    full_prompt = f"{system_prompt}\n\n{prompt}"
 
                     async def _run() -> str:
                         result_text = ""
                         async for msg in claude_agent_sdk.query(
-                            prompt=full_prompt,
+                            prompt=prompt,
                             options=options,
                         ):
+                            # ResultMessage.result を優先（最終出力テキスト）
+                            if hasattr(msg, "result") and msg.result:
+                                return msg.result
+                            # AssistantMessage の TextBlock からテキストを収集
                             if hasattr(msg, "content"):
                                 for block in msg.content:  # type: ignore[union-attr]
                                     if hasattr(block, "text"):
                                         result_text += block.text  # type: ignore[union-attr]
                         return result_text
 
-                    return asyncio.run(_run())
+                    try:
+                        return asyncio.run(_run())
+                    finally:
+                        if saved_env is not None:
+                            os.environ["CLAUDECODE"] = saved_env
 
-            logger.info("Default provider loaded from claude_agent_sdk")
+            logger.info(
+                "Default provider loaded from claude_agent_sdk (model=%s)",
+                ANTHROPIC_MODEL,
+            )
             return _SdkProvider()
         except ImportError:
             msg = (
