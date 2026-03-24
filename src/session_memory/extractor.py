@@ -18,6 +18,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import re
 from typing import Any
 
@@ -31,8 +32,10 @@ logger = get_logger(__name__)
 # 定数
 # ---------------------------------------------------------------------------
 
-_DEFAULT_MODEL = "claude-sonnet-4-20250514"
-"""デフォルトの Sonnet モデル名."""
+_DEFAULT_MODEL = os.environ.get(
+    "SESSION_MEMORY_EXTRACTOR_MODEL", "claude-sonnet-4-20250514"
+)
+"""Sonnet モデル名（SESSION_MEMORY_EXTRACTOR_MODEL 環境変数で上書き可能）."""
 
 _DEFAULT_MAX_CONCURRENCY = 10
 """デフォルトの最大並列実行数."""
@@ -384,6 +387,8 @@ def _build_tool_definition() -> dict[str, Any]:
     """Sonnet tool_use のツール定義を構築する.
 
     ``ChunkExtraction.model_json_schema()`` を ``input_schema`` に使用する。
+    モジュールレベルの ``_TOOL_DEFINITION`` にキャッシュされるため、
+    通常はそちらを参照すること。
 
     Returns
     -------
@@ -399,6 +404,10 @@ def _build_tool_definition() -> dict[str, Any]:
         ),
         "input_schema": ChunkExtraction.model_json_schema(),
     }
+
+
+# モジュールレベルでツール定義をキャッシュ（毎回の JSON Schema 生成を回避）
+_TOOL_DEFINITION: dict[str, Any] = _build_tool_definition()
 
 
 async def _call_sonnet(
@@ -428,12 +437,10 @@ async def _call_sonnet(
     Exception
         API呼び出しに失敗した場合
     """
-    tool_def = _build_tool_definition()
-
     response = await client.messages.create(
         model=model,
         max_tokens=1024,
-        tools=[tool_def],
+        tools=[_TOOL_DEFINITION],
         tool_choice={"type": "tool", "name": "extract_chunk_metadata"},
         messages=[
             {
@@ -700,9 +707,11 @@ async def extract_chunks_batch(
                     if "rate_limit" in error_msg.lower() or "429" in error_msg:
                         if not rate_limited:
                             rate_limited = True
+                            # AIDEV-NOTE: rate_limit 検出はフラグ記録のみ。
+                            # asyncio.Semaphore は動的にサイズ変更できないため、
+                            # 実際の並列数削減は未実装。指数バックオフで対応する。
                             logger.warning(
-                                "Rate limit detected, reducing concurrency",
-                                new_concurrency=_FALLBACK_CONCURRENCY,
+                                "Rate limit detected, applying exponential backoff",
                             )
                         # 指数バックオフ
                         await asyncio.sleep(2**attempt)

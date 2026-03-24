@@ -50,6 +50,14 @@ _DEFAULT_MAX_CANDIDATES = 10
 _DEFAULT_FULLTEXT_SCORE_THRESHOLD = 0.3
 """fulltext スコアの最小閾値."""
 
+_ALLOWED_FULLTEXT_INDEXES: frozenset[str] = frozenset(
+    {
+        "note_entity_fulltext",
+        "note_alias_fulltext",
+    }
+)
+"""許可された fulltext インデックス名（Cypher インジェクション防止）."""
+
 
 # ---------------------------------------------------------------------------
 # 名前正規化
@@ -437,6 +445,9 @@ class NoteLinker:
             マッチした場合は LinkResult、不一致の場合は None
         """
         index_name = self._config.entity_fulltext_index
+        if index_name not in _ALLOWED_FULLTEXT_INDEXES:
+            msg = f"Disallowed fulltext index: {index_name!r}"
+            raise ValueError(msg)
         results = self._query(
             f'CALL db.index.fulltext.queryNodes("{index_name}", $name) '
             f"YIELD node AS n, score "
@@ -479,6 +490,9 @@ class NoteLinker:
             マッチした場合は LinkResult、不一致の場合は None
         """
         index_name = self._config.alias_fulltext_index
+        if index_name not in _ALLOWED_FULLTEXT_INDEXES:
+            msg = f"Disallowed fulltext index: {index_name!r}"
+            raise ValueError(msg)
         results = self._query(
             f'CALL db.index.fulltext.queryNodes("{index_name}", $name) '
             f"YIELD node AS alias, score "
@@ -610,7 +624,8 @@ class NoteLinker:
 
         candidates = self._query(
             "MATCH (n:Entity) WHERE n.embedding IS NOT NULL "
-            "RETURN n.id AS id, n.name AS name, n.embedding AS emb"
+            "RETURN n.id AS id, n.name AS name, n.embedding AS emb "
+            "LIMIT 5000"
         )
         if not candidates:
             return None

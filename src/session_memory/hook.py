@@ -308,14 +308,19 @@ async def _run_neo4j_pipeline(
 
     # Neo4j リンク投入
     try:
+        # note-neo4j 接続（環境変数から取得、デフォルトはローカル開発用）
+        import os
+
         from neo4j import GraphDatabase
 
         from session_memory.linker import LinkerConfig, NoteLinker
 
-        # note-neo4j デフォルト接続
+        neo4j_uri = os.environ.get("NOTE_NEO4J_URI", "bolt://localhost:7687")
+        neo4j_user = os.environ.get("NOTE_NEO4J_USER", "neo4j")
+        neo4j_password = os.environ.get("NOTE_NEO4J_PASSWORD", "password")
         driver = GraphDatabase.driver(
-            "bolt://localhost:7687",
-            auth=("neo4j", "password"),
+            neo4j_uri,
+            auth=(neo4j_user, neo4j_password),
         )
         linker = NoteLinker(driver=driver, config=LinkerConfig())
 

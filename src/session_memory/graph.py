@@ -18,10 +18,11 @@ Usage
 
 from __future__ import annotations
 
-import logging
 from typing import Any, ClassVar, TypedDict
 
-logger = logging.getLogger(__name__)
+from session_memory._logging import get_logger
+
+logger = get_logger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -139,6 +140,10 @@ class SessionGraphWriter:
     _ALLOWED_LABELS: ClassVar[frozenset[str]] = frozenset(
         label
         for label, _, _, _ in _NODE_ORDER  # type: ignore[misc]
+    )
+    _ALLOWED_KEY_FIELDS: ClassVar[frozenset[str]] = frozenset(
+        key_field
+        for _, key_field, _, _ in _NODE_ORDER  # type: ignore[misc]
     )
 
     def __init__(self, driver: Any) -> None:
@@ -320,6 +325,10 @@ class SessionGraphWriter:
 
         if label not in self._ALLOWED_LABELS:
             msg = f"Disallowed label: {label!r}"
+            raise ValueError(msg)
+
+        if key_field not in self._ALLOWED_KEY_FIELDS:
+            msg = f"Disallowed key_field: {key_field!r}"
             raise ValueError(msg)
 
         query = f"""
