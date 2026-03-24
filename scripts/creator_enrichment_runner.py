@@ -114,11 +114,13 @@ def main() -> None:
         CreatorEnrichmentOrchestrator,
         FatalError,
     )
+    import json as _json
+
     from creator_enrichment.llm_client import SdkLLMClient
     from creator_enrichment.phases.cross_entity import CrossEntityEnricher
     from creator_enrichment.phases.extract import ContentExtractor
     from creator_enrichment.phases.gap_analysis import GapAnalyzer
-    from creator_enrichment.phases.search import ClaudeCodeSearcher
+    from creator_enrichment.phases.search import DirectSearcher
 
     args = parse_args()
 
@@ -142,15 +144,31 @@ def main() -> None:
         logger.error("Bootstrap failed: %s", e)
         sys.exit(1)
 
+    # --- TAVILY_API_KEY チェック ---
+    import os
+
+    tavily_api_key = os.environ.get("TAVILY_API_KEY", "")
+    if not tavily_api_key:
+        logger.error("TAVILY_API_KEY が未設定です")
+        sys.exit(1)
+
+    # --- genre_config 読み込み ---
+    config_path = Path(__file__).resolve().parent.parent / "data" / "config" / "creator-enrichment-config.json"
+    genre_config = _json.loads(config_path.read_text(encoding="utf-8")).get("genres", {})
+
     # --- 各フェーズの実クラスをワイヤリング ---
     gap_adapter = _Neo4jClientAdapter(neo4j_client)
     llm_client = SdkLLMClient()
-    logger.info("SdkLLMClient initialized (ANTHROPIC_API_KEY 不要)")
+    logger.info("SdkLLMClient initialized (model=Sonnet)")
 
     orchestrator = CreatorEnrichmentOrchestrator(
         config,
         gap_analyzer=GapAnalyzer(gap_adapter),
-        searcher=ClaudeCodeSearcher(),
+        searcher=DirectSearcher(
+            llm_client=llm_client,
+            genre_config=genre_config,
+            tavily_api_key=tavily_api_key,
+        ),
         extractor=ContentExtractor(llm_client=llm_client),
         cross_enricher=CrossEntityEnricher(driver, llm_client=llm_client),
         neo4j_client=neo4j_client,

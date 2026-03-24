@@ -1,26 +1,22 @@
 """creator_enrichment.phases.search のテスト.
 
-ClaudeCodeSearcher によるエージェント検索ロジックを検証する。
-- RawItem 変換の正常系
-- リトライ動作（2回失敗 -> 3回目成功）
-- タイムアウト時の PhaseError 変換
-- 不正 JSON レスポンスのエラーハンドリング
-- 空結果のハンドリング
-- ```json コードブロックラッピングのパース
+DirectSearcher による LLM クエリ生成 + Tavily REST API 検索を検証する。
+- LLM クエリ生成の正常系・異常系
+- Tavily API 呼び出しの正常系・異常系
+- URL 重複排除
+- 個別クエリ失敗時のスキップ動作
 """
 
 from __future__ import annotations
 
 import json
-from typing import Any
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
+import httpx
 import pytest
 
-from creator_enrichment.phases.search import (
-    AgentProvider,
-    ClaudeCodeSearcher,
-)
+from creator_enrichment.llm_client import LLMClient
+from creator_enrichment.phases.search import DirectSearcher
 from creator_enrichment.types import PhaseError, RawItem
 
 
@@ -28,343 +24,218 @@ from creator_enrichment.types import PhaseError, RawItem
 # フィクスチャ
 # ---------------------------------------------------------------------------
 @pytest.fixture
-def valid_response_json() -> str:
-    """正常な JSON レスポンス文字列."""
-    data = {
-        "items": [
+def mock_llm() -> MagicMock:
+    """LLMClient モック."""
+    return MagicMock(spec=LLMClient)
+
+
+@pytest.fixture
+def genre_config() -> dict:
+    """テスト用 genre_config."""
+    return {
+        "career": {"name_ja": "転職・副業"},
+        "beauty-romance": {"name_ja": "美容・恋愛"},
+    }
+
+
+@pytest.fixture
+def searcher(mock_llm: MagicMock, genre_config: dict) -> DirectSearcher:
+    """DirectSearcher インスタンス."""
+    return DirectSearcher(
+        llm_client=mock_llm,
+        genre_config=genre_config,
+        tavily_api_key="tvly-test-key",
+    )
+
+
+def _llm_queries_response(n: int = 3) -> str:
+    """LLM が返すクエリ生成 JSON を作成する."""
+    queries = [
+        {"query": f"test query {i}", "type": "gap", "language": "en"}
+        for i in range(n)
+    ]
+    return json.dumps(queries, ensure_ascii=False)
+
+
+def _tavily_api_response(results: list[dict] | None = None) -> httpx.Response:
+    """Tavily API レスポンスのモックを作成する."""
+    if results is None:
+        results = [
             {
                 "url": "https://example.com/article-1",
-                "title": "Side Hustle Tips 2026",
-                "content": "Here are the best tips for side hustles...",
-                "source": "tavily_search",
+                "title": "Test Article 1",
+                "content": "Content of article 1",
             },
             {
-                "url": "https://example.jp/article-2",
-                "title": "副業の始め方ガイド",
-                "content": "副業を始めるための具体的なステップ...",
-                "source": "tavily_search",
+                "url": "https://example.com/article-2",
+                "title": "Test Article 2",
+                "content": "Content of article 2",
             },
-            {
-                "url": "https://reddit.com/r/sidehustle/post-1",
-                "title": "My side hustle journey",
-                "content": "I started a side hustle and...",
-                "source": "reddit",
-            },
-        ],
-    }
-    return json.dumps(data, ensure_ascii=False)
-
-
-@pytest.fixture
-def valid_response_with_code_block(valid_response_json: str) -> str:
-    """```json コードブロックでラップされた JSON レスポンス."""
-    return f"```json\n{valid_response_json}\n```"
-
-
-@pytest.fixture
-def mock_provider() -> MagicMock:
-    """AgentProvider プロトコルに準拠するモックプロバイダー."""
-    provider = MagicMock(spec=AgentProvider)
-    return provider
+        ]
+    return httpx.Response(
+        200,
+        json={"results": results},
+        request=httpx.Request("POST", "https://api.tavily.com/search"),
+    )
 
 
 # ---------------------------------------------------------------------------
-# RawItem 変換の正常系
+# LLM クエリ生成
 # ---------------------------------------------------------------------------
-class TestRawItemConversion:
-    """JSON レスポンスから RawItem リストへの変換テスト."""
+class TestQueryGeneration:
+    """LLM クエリ生成のテスト."""
 
-    def test_正常系_JSONレスポンスからRawItemリストを生成(
-        self,
-        mock_provider: MagicMock,
-        valid_response_json: str,
+    def test_正常系_LLMがクエリリストを生成する(
+        self, searcher: DirectSearcher, mock_llm: MagicMock
     ) -> None:
-        """正常な JSON レスポンスが RawItem リストに変換される."""
-        mock_provider.query.return_value = valid_response_json
+        """LLM からクエリリストを正常に生成する."""
+        mock_llm.query.return_value = _llm_queries_response(5)
 
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-        results = searcher.search(
-            queries=["side hustle tips"],
-            genre="career",
-        )
+        with patch.object(searcher, "_execute_searches", return_value=[]):
+            searcher.search(queries=["FOMO活用"], genre="career")
 
-        assert len(results) == 3
-        assert results[0]["url"] == "https://example.com/article-1"
-        assert results[0]["title"] == "Side Hustle Tips 2026"
-        assert results[0]["source"] == "tavily_search"
-        assert results[2]["source"] == "reddit"
-
-    def test_正常系_RawItemの全フィールドが存在する(
-        self,
-        mock_provider: MagicMock,
-        valid_response_json: str,
-    ) -> None:
-        """変換された各 RawItem が url, title, content, source を持つ."""
-        mock_provider.query.return_value = valid_response_json
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-        results = searcher.search(queries=["test"], genre="career")
-
-        for item in results:
-            assert "url" in item
-            assert "title" in item
-            assert "content" in item
-            assert "source" in item
-
-    def test_正常系_コードブロックラップのJSONをパースできる(
-        self,
-        mock_provider: MagicMock,
-        valid_response_with_code_block: str,
-    ) -> None:
-        """```json ... ``` でラップされたレスポンスを正しくパースする."""
-        mock_provider.query.return_value = valid_response_with_code_block
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-        results = searcher.search(queries=["test"], genre="career")
-
-        assert len(results) == 3
-        assert results[0]["url"] == "https://example.com/article-1"
-
-
-# ---------------------------------------------------------------------------
-# プロバイダー呼び出しの検証
-# ---------------------------------------------------------------------------
-class TestProviderCalls:
-    """プロバイダーへの呼び出しパラメータのテスト."""
-
-    def test_正常系_queryメソッドが正しい引数で呼ばれる(
-        self,
-        mock_provider: MagicMock,
-        valid_response_json: str,
-    ) -> None:
-        """provider.query がシステムプロンプト・プロンプト・タイムアウトで呼ばれる."""
-        mock_provider.query.return_value = valid_response_json
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-        searcher.search(queries=["side hustle tips"], genre="career")
-
-        mock_provider.query.assert_called_once()
-        call_kwargs = mock_provider.query.call_args
-        # keyword arguments で呼ばれることを確認
-        assert "system_prompt" in call_kwargs.kwargs
-        assert "prompt" in call_kwargs.kwargs
-        assert "timeout" in call_kwargs.kwargs
-        assert call_kwargs.kwargs["timeout"] == 120
-
-    def test_正常系_システムプロンプトにtavily_searchが含まれる(
-        self,
-        mock_provider: MagicMock,
-        valid_response_json: str,
-    ) -> None:
-        """システムプロンプトに tavily_search ツール指示が含まれる."""
-        mock_provider.query.return_value = valid_response_json
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-        searcher.search(queries=["test"], genre="career")
-
-        call_kwargs = mock_provider.query.call_args.kwargs
-        assert "tavily_search" in call_kwargs["system_prompt"]
-
-    def test_正常系_システムプロンプトにredditが含まれる(
-        self,
-        mock_provider: MagicMock,
-        valid_response_json: str,
-    ) -> None:
-        """システムプロンプトに reddit ツール指示が含まれる."""
-        mock_provider.query.return_value = valid_response_json
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-        searcher.search(queries=["test"], genre="career")
-
-        call_kwargs = mock_provider.query.call_args.kwargs
-        assert "reddit" in call_kwargs["system_prompt"]
-
-    def test_正常系_プロンプトにクエリとジャンルが含まれる(
-        self,
-        mock_provider: MagicMock,
-        valid_response_json: str,
-    ) -> None:
-        """ユーザープロンプトに検索クエリとジャンルが含まれる."""
-        mock_provider.query.return_value = valid_response_json
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-        searcher.search(
-            queries=["side hustle tips", "freelance income"],
-            genre="career",
-        )
-
-        call_kwargs = mock_provider.query.call_args.kwargs
-        prompt = call_kwargs["prompt"]
-        assert "side hustle tips" in prompt
-        assert "freelance income" in prompt
+        mock_llm.query.assert_called_once()
+        prompt = mock_llm.query.call_args[0][0]
         assert "career" in prompt
+        assert "転職・副業" in prompt
+        assert "FOMO活用" in prompt
 
-
-# ---------------------------------------------------------------------------
-# リトライ動作
-# ---------------------------------------------------------------------------
-class TestRetryBehavior:
-    """tenacity リトライ動作のテスト."""
-
-    def test_正常系_2回失敗後3回目で成功(
-        self,
-        mock_provider: MagicMock,
-        valid_response_json: str,
+    def test_異常系_LLM呼び出し失敗でPhaseError(
+        self, searcher: DirectSearcher, mock_llm: MagicMock
     ) -> None:
-        """2回 RuntimeError -> 3回目で正常レスポンスを返す."""
-        mock_provider.query.side_effect = [
-            RuntimeError("Temporary failure 1"),
-            RuntimeError("Temporary failure 2"),
-            valid_response_json,
+        """LLM 呼び出し失敗で PhaseError が発生する."""
+        mock_llm.query.side_effect = RuntimeError("LLM error")
+
+        with pytest.raises(PhaseError, match="Query generation failed"):
+            searcher.search(queries=["test"], genre="career")
+
+    def test_異常系_LLMが不正JSONを返すとPhaseError(
+        self, searcher: DirectSearcher, mock_llm: MagicMock
+    ) -> None:
+        """LLM が不正 JSON を返すと PhaseError が発生する."""
+        mock_llm.query.return_value = "not valid json"
+
+        with pytest.raises(PhaseError, match="parse failed"):
+            searcher.search(queries=["test"], genre="career")
+
+    def test_異常系_LLMがリスト以外を返すとPhaseError(
+        self, searcher: DirectSearcher, mock_llm: MagicMock
+    ) -> None:
+        """LLM がリスト以外を返すと PhaseError が発生する."""
+        mock_llm.query.return_value = '{"not": "a list"}'
+
+        with pytest.raises(PhaseError, match="Expected list"):
+            searcher.search(queries=["test"], genre="career")
+
+
+# ---------------------------------------------------------------------------
+# Tavily API 検索実行
+# ---------------------------------------------------------------------------
+class TestTavilyExecution:
+    """Tavily API 検索実行のテスト."""
+
+    @patch("creator_enrichment.phases.search.httpx.post")
+    def test_正常系_Tavily結果をRawItemに変換する(
+        self,
+        mock_post: MagicMock,
+        searcher: DirectSearcher,
+        mock_llm: MagicMock,
+    ) -> None:
+        """Tavily API 結果を RawItem リストに変換する."""
+        mock_llm.query.return_value = _llm_queries_response(1)
+        mock_post.return_value = _tavily_api_response()
+
+        results = searcher.search(queries=["test"], genre="career")
+
+        assert len(results) == 2
+        assert results[0]["url"] == "https://example.com/article-1"
+        assert results[0]["title"] == "Test Article 1"
+        assert results[0]["source"] == "tavily"
+
+    @patch("creator_enrichment.phases.search.httpx.post")
+    def test_正常系_URL重複が排除される(
+        self,
+        mock_post: MagicMock,
+        searcher: DirectSearcher,
+        mock_llm: MagicMock,
+    ) -> None:
+        """同一 URL の結果が重複排除される."""
+        mock_llm.query.return_value = _llm_queries_response(2)
+        # 2クエリとも同じ URL を返す
+        mock_post.return_value = _tavily_api_response(
+            [{"url": "https://dup.com/a", "title": "Dup", "content": "..."}]
+        )
+
+        results = searcher.search(queries=["test"], genre="career")
+
+        assert len(results) == 1
+
+    @patch("creator_enrichment.phases.search.httpx.post")
+    def test_正常系_個別クエリ失敗はスキップされる(
+        self,
+        mock_post: MagicMock,
+        searcher: DirectSearcher,
+        mock_llm: MagicMock,
+    ) -> None:
+        """個別クエリの Tavily エラーはスキップされ他のクエリは続行する."""
+        mock_llm.query.return_value = _llm_queries_response(2)
+        mock_post.side_effect = [
+            httpx.TimeoutException("timeout"),
+            _tavily_api_response(),
         ]
 
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
         results = searcher.search(queries=["test"], genre="career")
 
-        assert len(results) == 3
-        assert mock_provider.query.call_count == 3
+        assert len(results) == 2  # 2番目のクエリの結果のみ
 
-    def test_異常系_3回連続失敗でPhaseError(
+    @patch("creator_enrichment.phases.search.httpx.post")
+    def test_正常系_空クエリ文字列はスキップされる(
         self,
-        mock_provider: MagicMock,
+        mock_post: MagicMock,
+        searcher: DirectSearcher,
+        mock_llm: MagicMock,
     ) -> None:
-        """3回連続失敗で PhaseError が発生する."""
-        mock_provider.query.side_effect = RuntimeError("Persistent failure")
+        """空のクエリ文字列はスキップされる."""
+        mock_llm.query.return_value = json.dumps([
+            {"query": "", "type": "gap", "language": "en"},
+            {"query": "valid query", "type": "gap", "language": "en"},
+        ])
+        mock_post.return_value = _tavily_api_response()
 
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-
-        with pytest.raises(PhaseError) as exc_info:
-            searcher.search(queries=["test"], genre="career")
-
-        assert isinstance(exc_info.value.__cause__, RuntimeError)
-        assert mock_provider.query.call_count == 3
-
-
-# ---------------------------------------------------------------------------
-# タイムアウト
-# ---------------------------------------------------------------------------
-class TestTimeout:
-    """タイムアウト時の PhaseError 変換テスト."""
-
-    def test_異常系_TimeoutErrorがPhaseErrorに変換される(
-        self,
-        mock_provider: MagicMock,
-    ) -> None:
-        """TimeoutError が PhaseError にラップされる."""
-        mock_provider.query.side_effect = TimeoutError("Search timed out after 120s")
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-
-        with pytest.raises(PhaseError) as exc_info:
-            searcher.search(queries=["test"], genre="career")
-
-        assert isinstance(exc_info.value.__cause__, TimeoutError)
-
-
-# ---------------------------------------------------------------------------
-# 不正 JSON レスポンス
-# ---------------------------------------------------------------------------
-class TestInvalidJsonResponse:
-    """不正 JSON レスポンスのエラーハンドリングテスト."""
-
-    def test_異常系_不正JSONでPhaseError(
-        self,
-        mock_provider: MagicMock,
-    ) -> None:
-        """パース不能な JSON が PhaseError に変換される."""
-        mock_provider.query.return_value = "This is not valid JSON"
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-
-        with pytest.raises(PhaseError) as exc_info:
-            searcher.search(queries=["test"], genre="career")
-
-        assert isinstance(exc_info.value.__cause__, (json.JSONDecodeError, ValueError))
-
-    def test_異常系_itemsキーがないJSONでPhaseError(
-        self,
-        mock_provider: MagicMock,
-    ) -> None:
-        """items キーのない JSON が PhaseError に変換される."""
-        mock_provider.query.return_value = json.dumps({"data": []})
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-
-        with pytest.raises(PhaseError) as exc_info:
-            searcher.search(queries=["test"], genre="career")
-
-        assert isinstance(exc_info.value.__cause__, (KeyError, ValueError))
-
-    def test_異常系_itemsが非リストでPhaseError(
-        self,
-        mock_provider: MagicMock,
-    ) -> None:
-        """items がリストでない場合 PhaseError に変換される."""
-        mock_provider.query.return_value = json.dumps({"items": "not a list"})
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
-
-        with pytest.raises(PhaseError) as exc_info:
-            searcher.search(queries=["test"], genre="career")
-
-        assert isinstance(exc_info.value.__cause__, (TypeError, ValueError))
-
-
-# ---------------------------------------------------------------------------
-# 空結果ハンドリング
-# ---------------------------------------------------------------------------
-class TestEmptyResults:
-    """空結果のハンドリングテスト."""
-
-    def test_正常系_itemsが空リストで空RawItemリスト(
-        self,
-        mock_provider: MagicMock,
-    ) -> None:
-        """items が空リストの場合は空リストを返す."""
-        mock_provider.query.return_value = json.dumps({"items": []})
-
-        searcher = ClaudeCodeSearcher(provider=mock_provider)
         results = searcher.search(queries=["test"], genre="career")
 
-        assert results == []
+        assert mock_post.call_count == 1  # 空クエリはスキップ
 
-
-# ---------------------------------------------------------------------------
-# デフォルトプロバイダーのロード
-# ---------------------------------------------------------------------------
-class TestDefaultProvider:
-    """デフォルトプロバイダーロードのテスト."""
-
-    def test_異常系_claude_agent_sdk未インストールでRuntimeError(
-        self, monkeypatch: pytest.MonkeyPatch
+    @patch("creator_enrichment.phases.search.httpx.post")
+    def test_正常系_redditクエリにinclude_domainsが設定される(
+        self,
+        mock_post: MagicMock,
+        searcher: DirectSearcher,
+        mock_llm: MagicMock,
     ) -> None:
-        """provider=None かつ claude_agent_sdk 未インストール時に RuntimeError."""
-        import builtins
+        """'reddit' を含むクエリに include_domains が設定される."""
+        mock_llm.query.return_value = json.dumps([
+            {"query": "side hustle reddit experience", "type": "explore", "language": "en"},
+        ])
+        mock_post.return_value = _tavily_api_response()
 
-        real_import = builtins.__import__
+        searcher.search(queries=["test"], genre="career")
 
-        def _mock_import(name: str, *args: Any, **kwargs: Any) -> Any:
-            if name == "claude_agent_sdk":
-                raise ImportError("mocked")
-            return real_import(name, *args, **kwargs)
+        call_json = mock_post.call_args.kwargs["json"]
+        assert call_json["include_domains"] == ["reddit.com"]
 
-        monkeypatch.setattr(builtins, "__import__", _mock_import)
-        with pytest.raises(RuntimeError, match="claude_agent_sdk"):
-            ClaudeCodeSearcher(provider=None)
+    @patch("creator_enrichment.phases.search.httpx.post")
+    def test_正常系_Tavily認証ヘッダーが設定される(
+        self,
+        mock_post: MagicMock,
+        searcher: DirectSearcher,
+        mock_llm: MagicMock,
+    ) -> None:
+        """Tavily API 呼び出しに Bearer トークンが設定される."""
+        mock_llm.query.return_value = _llm_queries_response(1)
+        mock_post.return_value = _tavily_api_response()
 
+        searcher.search(queries=["test"], genre="career")
 
-# ---------------------------------------------------------------------------
-# AgentProvider プロトコル準拠の検証
-# ---------------------------------------------------------------------------
-class TestAgentProviderProtocol:
-    """AgentProvider プロトコルの検証テスト."""
-
-    def test_正常系_runtime_checkableプロトコルである(self) -> None:
-        """AgentProvider が runtime_checkable Protocol である."""
-
-        # query メソッドを持つオブジェクトがプロトコルに準拠していること
-        class _MockProvider:
-            def query(self, *, system_prompt: str, prompt: str, timeout: int) -> str:
-                return "{}"
-
-        assert isinstance(_MockProvider(), AgentProvider)
+        call_headers = mock_post.call_args.kwargs["headers"]
+        assert call_headers["Authorization"] == "Bearer tvly-test-key"
