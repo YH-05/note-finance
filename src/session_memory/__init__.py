@@ -15,6 +15,11 @@ from session_memory.extractor import (
     extract_chunks_batch,
     rule_based_predetect,
 )
+from session_memory.hook import (
+    HookInput,
+    parse_hook_input,
+    run_session_end_hook,
+)
 from session_memory.linker import LinkerConfig, LinkResult, NoteLinker
 from session_memory.searcher import SearchMode, SearchResult, merge_rrf
 from session_memory.types import ChunkRow
@@ -25,6 +30,7 @@ __all__ = [
     "ExtractedDecision",
     "ExtractedEntity",
     "ExtractedTopic",
+    "HookInput",
     "LinkResult",
     "LinkerConfig",
     "NoteLinker",
@@ -35,5 +41,7 @@ __all__ = [
     "extract_chunks_batch",
     "get_embedder",
     "merge_rrf",
+    "parse_hook_input",
     "rule_based_predetect",
+    "run_session_end_hook",
 ]

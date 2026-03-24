@@ -161,6 +161,16 @@
           }
         ]
       }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python scripts/memory_session_end.py &"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
