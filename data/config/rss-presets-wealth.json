@@ -78,18 +78,18 @@
             "title": "Young and the Invested",
             "category": "dividend_income",
             "fetch_interval": "daily",
-            "enabled": true,
+            "enabled": false,
             "tier": 1,
-            "note": "Millennial investing and dividend growth strategies"
+            "note": "RSS意図的に無効化（HTTP 500 'Feed disabled'）。サイトマップ(news-sitemap.xml)は有効"
         },
         {
-            "url": "https://dividendgrowthstocks.com/feed/",
+            "url": "https://www.dividendgrowthinvestor.com/feeds/posts/default",
             "title": "Dividend Growth Investor",
             "category": "dividend_income",
             "fetch_interval": "daily",
             "enabled": true,
             "tier": 2,
-            "note": "Long-term dividend growth investing strategies"
+            "note": "Long-term dividend growth investing (Bloggerベース)。旧URL dividendgrowthstocks.com はDNS崩壊"
         },
         {
             "url": "https://earlyretirementnow.com/feed/",
@@ -155,13 +155,13 @@
             "note": "Asset allocation data visualization and backtesting"
         },
         {
-            "url": "https://www.zerohedge.com/fullrss.xml",
+            "url": "https://cms.zerohedge.com/fullrss2.xml",
             "title": "Zero Hedge",
             "category": "macro_markets",
             "fetch_interval": "daily",
             "enabled": true,
             "tier": 2,
-            "note": "Macro economics, geopolitics, and contrarian market analysis"
+            "note": "Macro economics, geopolitics, and contrarian market analysis。旧URL fullrss.xml は廃止、公式リンクのfullrss2.xmlに更新"
         }
     ]
 }

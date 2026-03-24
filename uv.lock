@@ -2068,6 +2068,9 @@ dev = [
     { name = "ruff" },
     { name = "yfinance" },
 ]
+embedding = [
+    { name = "sentence-transformers" },
+]
 mcp = [
     { name = "fastmcp" },
     { name = "mcp" },
@@ -2142,6 +2145,7 @@ requires-dist = [
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.14.11" },
     { name = "scrapling", extras = ["fetchers"], marker = "extra == 'scraper'", specifier = ">=0.4,<1.0" },
     { name = "seaborn", marker = "extra == 'chart'", specifier = ">=0.13.0" },
+    { name = "sentence-transformers", marker = "extra == 'embedding'", specifier = ">=3.0.0" },
     { name = "sentence-transformers", marker = "extra == 'memory'", specifier = ">=3.0.0" },
     { name = "sqlite-vec", specifier = ">=0.1.7" },
     { name = "structlog", specifier = ">=25.4.0" },
@@ -2153,7 +2157,7 @@ requires-dist = [
     { name = "youtube-transcript-api", specifier = ">=1.0.0" },
     { name = "youtube-transcript-api", marker = "extra == 'youtube'", specifier = ">=1.0.0" },
 ]
-provides-extras = ["dev", "mcp", "playwright", "automation", "scheduler", "scraper", "pdf", "chart", "youtube", "memory"]
+provides-extras = ["dev", "mcp", "playwright", "automation", "scheduler", "scraper", "embedding", "pdf", "chart", "youtube", "memory"]
 
 [package.metadata.requires-dev]
 dev = [

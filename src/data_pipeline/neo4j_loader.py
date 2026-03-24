@@ -1,9 +1,10 @@
 """graph-queue JSON → Neo4j 直接投入.
 
 neo4j Python ドライバーを使って graph-queue JSON のノードとリレーションを
-MERGE ベースで冪等に投入する。save-to-research-graph スキルの Python 版。
+MERGE ベースで冪等に投入する。
 
-接続先は NEO4J_RESEARCH_URI 環境変数、またはデフォルト bolt://localhost:7688。
+research-neo4j (7688): ingest_to_neo4j() — save-to-research-graph スキルの Python 版
+creator-neo4j (7689): ingest_to_creator_neo4j() — CreatorGraphWriter アダプター
 """
 
 from __future__ import annotations
@@ -190,3 +191,94 @@ def ingest_to_neo4j(
 
     logger.info("Ingestion complete: %d nodes, %d relations", node_count, rel_count)
     return {"nodes": node_count, "relations": rel_count}
+
+
+# ---------------------------------------------------------------------------
+# creator-neo4j 投入
+# ---------------------------------------------------------------------------
+
+_CREATOR_DEFAULT_URI = "bolt://localhost:7689"
+
+# creator-2.0 のノードセクション名一覧（dry-run カウント用）
+_CREATOR_NODE_SECTIONS = [
+    "genres", "concept_categories", "concepts", "entities",
+    "sources", "domains", "facts", "tips", "stories", "aliases",
+]
+
+_CREATOR_REL_SECTIONS = [
+    "is_a", "serves_as",
+    "about_fact", "about_tip", "about_story",
+    "from_source_fact", "from_source_tip", "from_source_story",
+    "from_domain",
+    "mentions_fact", "mentions_tip", "mentions_story",
+    "in_genre_fact", "in_genre_tip", "in_genre_story",
+    "concept_relations",
+]
+
+
+def _get_creator_driver():
+    """creator-neo4j ドライバーを取得する."""
+    uri = os.environ.get("NEO4J_CREATOR_URI", _CREATOR_DEFAULT_URI)
+    user = os.environ.get("NEO4J_CREATOR_USER", _DEFAULT_USER)
+    password = os.environ.get("NEO4J_CREATOR_PASSWORD", _DEFAULT_PASSWORD)
+    return GraphDatabase.driver(uri, auth=(user, password))
+
+
+def _count_creator_nodes_rels(queue_data: dict[str, Any]) -> dict[str, int]:
+    """creator queue_data のノード/リレーション数をカウントする（dry-run用）."""
+    node_count = sum(
+        len(queue_data.get(section, []))
+        for section in _CREATOR_NODE_SECTIONS
+    )
+    relations = queue_data.get("relations", {})
+    rel_count = sum(
+        len(relations.get(section, []))
+        for section in _CREATOR_REL_SECTIONS
+    )
+    return {"nodes": node_count, "relations": rel_count}
+
+
+def ingest_to_creator_neo4j(
+    queue_data: dict[str, Any],
+    *,
+    dry_run: bool = False,
+    cycle_id: str = "",
+) -> dict[str, int]:
+    """creator graph-queue データを creator-neo4j に投入する.
+
+    CreatorGraphWriter（creator_enrichment/neo4j_writer.py）をアダプター経由で再利用。
+
+    Parameters
+    ----------
+    queue_data : dict
+        creator graph-queue JSON のパース済みデータ。
+    dry_run : bool
+        True の場合は投入せずカウントのみ返す。
+    cycle_id : str
+        サイクルID（検証用）。
+
+    Returns
+    -------
+    dict[str, int]
+        {"nodes": N, "relations": N}
+    """
+    if dry_run:
+        counts = _count_creator_nodes_rels(queue_data)
+        logger.info(
+            "Creator dry-run: would ingest %d nodes, %d relations",
+            counts["nodes"], counts["relations"],
+        )
+        return counts
+
+    driver = _get_creator_driver()
+    try:
+        from creator_enrichment.neo4j_writer import CreatorGraphWriter
+
+        writer = CreatorGraphWriter(driver)
+        result = writer.ingest(queue_data, cycle_id=cycle_id)
+        nodes = result["nodes_created"]
+        rels = result["relations_created"]
+        logger.info("Creator ingestion complete: %d nodes, %d relations", nodes, rels)
+        return {"nodes": nodes, "relations": rels}
+    finally:
+        driver.close()
