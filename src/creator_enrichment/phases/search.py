@@ -381,7 +381,21 @@ class DirectSearcher:
     def _execute_via_sdk(
         self, search_queries: list[dict[str, str]]
     ) -> list[RawItem]:
-        """SDK WebSearch で検索を実行する（Tavily フォールバック用）."""
+        """claude_agent_sdk (max_turns=10) で WebSearch を実行する.
+
+        SdkLLMClient（max_turns=1）ではツール呼び出しできないため、
+        専用の SDK セッションを起動する。
+        """
+        import asyncio
+
+        try:
+            import claude_agent_sdk
+        except ImportError:
+            logger.error("claude_agent_sdk not installed, cannot fallback")
+            return []
+
+        from creator_enrichment.config import ANTHROPIC_MODEL
+
         queries_text = "\n".join(
             f"- {sq['query']}" for sq in search_queries if sq.get("query")
         )
@@ -394,11 +408,40 @@ class DirectSearcher:
             f'\"content\": \"...\", \"source\": \"web_search\"}}]}}'
         )
 
+        saved_env = os.environ.pop("CLAUDECODE", None)
+
+        options = claude_agent_sdk.ClaudeAgentOptions(
+            system_prompt=_SEARCH_SYSTEM_PROMPT,
+            model=ANTHROPIC_MODEL,
+            max_turns=10,
+            permission_mode="bypassPermissions",
+        )
+
+        async def _run() -> str:
+            result_text = ""
+            final_result: str | None = None
+            try:
+                async for msg in claude_agent_sdk.query(
+                    prompt=prompt, options=options,
+                ):
+                    if hasattr(msg, "result"):
+                        final_result = msg.result
+                    if hasattr(msg, "content"):
+                        for block in msg.content:  # type: ignore[union-attr]
+                            if hasattr(block, "text"):
+                                result_text += block.text  # type: ignore[union-attr]
+            except (RuntimeError, GeneratorExit):
+                pass
+            return final_result if final_result else result_text
+
         try:
-            response = self._llm.query(prompt)
-        except (RuntimeError, OSError) as e:
+            response = asyncio.run(_run())
+        except Exception as e:
             logger.error("SDK search failed: %s", e)
             return []
+        finally:
+            if saved_env is not None:
+                os.environ["CLAUDECODE"] = saved_env
 
         cleaned = strip_json_codeblock(response)
         try:

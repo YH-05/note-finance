@@ -25,6 +25,11 @@ _SRC_DIR = str(Path(__file__).resolve().parent.parent / "src")
 if _SRC_DIR not in sys.path:
     sys.path.insert(0, _SRC_DIR)
 
+# .env ファイルを自動ロード
+from dotenv import load_dotenv
+
+load_dotenv(Path(_PROJECT_ROOT) / ".env")
+
 
 def _setup_logging() -> None:
     """プロジェクト標準のロギング設定を適用する."""
