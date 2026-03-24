@@ -79,20 +79,29 @@ class TavilyKeyPool:
     def from_env(cls) -> TavilyKeyPool:
         """環境変数から TavilyKeyPool を生成する.
 
-        ``TAVILY_API_KEYS``（カンマ区切り）を優先。
-        未設定の場合は ``TAVILY_API_KEY``（単一キー）にフォールバック。
+        ``TAVILY_API_KEY_1``, ``TAVILY_API_KEY_2``, ... の連番を収集。
+        連番が無い場合は ``TAVILY_API_KEY``（単一キー）にフォールバック。
 
         Returns
         -------
         TavilyKeyPool
             空の場合もインスタンスは生成される（has_keys() で判定）
         """
-        keys_str = os.environ.get("TAVILY_API_KEYS", "")
-        if keys_str:
-            keys = [k.strip() for k in keys_str.split(",") if k.strip()]
-        else:
+        keys: list[str] = []
+
+        # 連番キーを収集: TAVILY_API_KEY_1, _2, _3, ...
+        for i in range(1, 100):
+            val = os.environ.get(f"TAVILY_API_KEY_{i}", "")
+            if not val:
+                break
+            keys.append(val)
+
+        # フォールバック: TAVILY_API_KEY（単一キー）
+        if not keys:
             single = os.environ.get("TAVILY_API_KEY", "")
-            keys = [single] if single else []
+            if single:
+                keys.append(single)
+
         return cls(keys)
 
     def has_keys(self) -> bool:

@@ -304,18 +304,21 @@ class TestTavilyKeyPool:
         pool = TavilyKeyPool([])
         assert not pool.has_keys()
 
-    @patch.dict("os.environ", {"TAVILY_API_KEYS": "k1,k2,k3"})
-    def test_正常系_from_envでカンマ区切りキーを読む(self) -> None:
+    @patch.dict("os.environ", {"TAVILY_API_KEY_1": "k1", "TAVILY_API_KEY_2": "k2", "TAVILY_API_KEY_3": "k3"})
+    def test_正常系_from_envで連番キーを読む(self) -> None:
         pool = TavilyKeyPool.from_env()
         assert pool.has_keys()
-        assert pool.get_key() == "k1"
+        keys = [pool.get_key() for _ in range(3)]
+        assert keys == ["k1", "k2", "k3"]
 
-    @patch.dict("os.environ", {"TAVILY_API_KEY": "single"}, clear=False)
     def test_正常系_from_envで単一キーにフォールバック(self) -> None:
-        # TAVILY_API_KEYS が無い場合
-        env = os.environ.copy()
-        env.pop("TAVILY_API_KEYS", None)
-        with patch.dict("os.environ", env, clear=True):
-            os.environ["TAVILY_API_KEY"] = "single"
+        with patch.dict("os.environ", {"TAVILY_API_KEY": "single"}, clear=True):
             pool = TavilyKeyPool.from_env()
             assert pool.get_key() == "single"
+
+    def test_正常系_from_envで連番が途切れたら停止(self) -> None:
+        with patch.dict("os.environ", {"TAVILY_API_KEY_1": "a", "TAVILY_API_KEY_3": "c"}, clear=True):
+            pool = TavilyKeyPool.from_env()
+            # _2 が無いので _1 だけ読まれる
+            assert pool.get_key() == "a"
+            assert pool.get_key() == "a"
