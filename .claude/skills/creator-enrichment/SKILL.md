@@ -107,27 +107,34 @@ priority_score *= 0.7  // same genre damping
 
 `references/genre-config.md` を参照し、選択ジャンルの検索設定を使用する。
 
-### 2-1. Tavily 英語クエリ（max 3件）
+**全5ステップは毎サイクル必ず実行すること。** API エラー時のみ該当ステップをスキップしてよいが、
+時間制約やコンテキスト節約を理由にステップを省略してはならない。
+特に Reddit（2-5）は英語圏の生の体験談・議論を収集する唯一のソースであり、
+Story 不足の改善に直結するため省略禁止。
+
+### 2-1. Tavily 英語クエリ（max 3件）【必須】
 
 `mcp__tavily__tavily_search` で英語クエリを実行。`{topic}` は Q3 の低カバレッジトピックから選択、`{year}` は現在年。
 
-### 2-2. Tavily 日本語クエリ（max 3件）
+### 2-2. Tavily 日本語クエリ（max 3件）【必須】
 
 同様に日本語クエリを実行。
 
-### 2-3. WebFetch（日本語サイト）
+### 2-3. WebFetch（日本語サイト）【必須】
 
 ジャンル設定の `webfetch_sites` から URL を取得し、`WebFetch` で本文を取得する。
 Tavily 検索結果の URL のうち、日本語サイト（note.com, ameblo.jp, hatenablog.com 等）を優先的に WebFetch する。
 
-### 2-4. Tavily Extract（高品質ソース）
+### 2-4. Tavily Extract（高品質ソース）【必須】
 
 Tavily 検索結果のうち、信頼性の高いドメイン（公式サイト、統計サイト等）を `mcp__tavily__tavily_extract` で詳細取得。
 
-### 2-5. Reddit
+### 2-5. Reddit【必須・省略禁止】
 
 `mcp__reddit__get_subreddit_hot_posts` または `mcp__reddit__get_subreddit_new_posts` でジャンル設定の subreddit から投稿を取得。
 有望な投稿は `mcp__reddit__get_post_content` で詳細取得。
+
+Reddit は Story（体験談・事例）の主要ソースであり、毎サイクル最低1つの subreddit から投稿を取得すること。
 
 ### 検索結果の集約
 
@@ -274,7 +281,7 @@ PersuasionTechnique, EmotionalHook, CopyFramework, Objection, Transformation
 抽出結果を既存ノードと照合し、重複作成を防ぐ。
 
 ```bash
-uv run python scripts/entity_linker.py --input .tmp/creator-cycle-{cycle_id}.json --no-embedding
+uv run --extra embedding python scripts/entity_linker.py --input .tmp/creator-cycle-{cycle_id}.json
 ```
 
 出力: `.tmp/creator-cycle-{cycle_id}.resolved.json`
@@ -453,6 +460,78 @@ SET r.rel_detail = row.rel_detail,
 
 ---
 
+## Phase 6: Post-Session Maintenance（セッション終了時メンテナンス）
+
+`--until` 到達でサイクルループ終了後、**1回だけ**以下のメンテナンスを実行する。
+全サイクルの投入完了後にまとめて実行することで、サイクル間の整合性も含めてチェックできる。
+
+### 6-1. Embedding 更新
+
+新規投入された Entity/Concept に embedding を付与する:
+
+```bash
+uv run --extra embedding python scripts/creator_embed_nodes.py
+```
+
+差分のみ処理（`WHERE embedding IS NULL`）するため、既存ノードは再計算しない。
+
+### 6-2. 自動修復（Repair Queries）
+
+以下の修復を順に実行する。全て `mcp__neo4j-creator__creator-write_neo4j_cypher` で実行。
+
+**(a) genre プロパティ補完**: IN_GENRE リレーションから genre=null を補完
+
+```cypher
+MATCH (c)-[:IN_GENRE]->(g:Genre)
+WHERE (c:Fact OR c:Tip OR c:Story) AND c.genre IS NULL
+SET c.genre = g.genre_id
+RETURN count(*) AS genre_fixed
+```
+
+**(b) ABOUT retroactive リンキング**: 未接続 Concept とコンテンツのテキストマッチ
+
+```cypher
+MATCH (concept:Concept)
+WHERE NOT (concept)<-[:ABOUT]-()
+AND concept.name IS NOT NULL AND size(concept.name) >= 4
+WITH concept
+MATCH (c)
+WHERE (c:Fact OR c:Tip OR c:Story)
+AND (c.text CONTAINS concept.name OR c.content CONTAINS concept.name)
+MERGE (c)-[:ABOUT]->(concept)
+RETURN count(*) AS about_created
+```
+
+**(c) 重複 Entity 検出（レポートのみ、自動マージしない）**:
+
+```cypher
+MATCH (e1:Entity), (e2:Entity)
+WHERE e1.embedding IS NOT NULL AND e2.embedding IS NOT NULL
+AND elementId(e1) < elementId(e2)
+CALL db.index.vector.queryNodes('entity_embedding_idx', 1, e1.embedding)
+YIELD node AS similar, score
+WHERE similar = e2 AND score >= 0.95
+RETURN e1.name AS name1, e2.name AS name2, round(score, 4) AS similarity
+```
+
+重複が検出された場合はセッションログに記録し、ユーザーに報告する（自動マージはしない）。
+
+### 6-3. 簡易品質スコア
+
+メンテナンス結果を簡易スコアとしてセッションログに記録:
+
+```markdown
+### Post-Session Maintenance
+- embedding_updated: {Entity: N, Concept: N}
+- genre_fixed: N
+- about_created: N
+- duplicate_candidates: N pairs (manual review needed)
+```
+
+詳細な品質チェックが必要な場合は `/creator-quality-check` を別途実行すること。
+
+---
+
 ## エラーハンドリング
 
 | エラー | 対応 |
@@ -466,6 +545,24 @@ SET r.rel_detail = row.rel_detail,
 | Phase 4.5 共起クエリ失敗 | Phase 4.5 をスキップし、次サイクルへ。セッションログに記録 |
 | Phase 4.5 LLM推論エラー | Phase 4.5 をスキップし、次サイクルへ。候補リストは保持 |
 | --until 時刻パース失敗 | エラーメッセージを出力して終了 |
+
+---
+
+## MUST / NEVER
+
+### MUST
+
+- Phase 2 の全5ステップ（Tavily英語・Tavily日本語・WebFetch・Tavily Extract・Reddit）を毎サイクル実行すること。API エラー時のみスキップ可
+- Reddit（Step 2-5）は毎サイクル最低1つの subreddit から投稿を取得すること。Reddit は英語圏の生の体験談・議論の唯一のソースであり、Story 不足改善に直結する
+- Phase 3 で Story 優先判定ルール（entity-extraction-prompt-v2.md）を適用し、体験談系コンテンツを Tip ではなく Story に分類すること
+- Phase 4 で /save-to-creator-graph を使用し、graph-queue JSON 経由で投入すること。Cypher 直書き禁止
+- セッションログに各ステップの実行結果（取得件数・スキップ理由）を記録すること
+
+### NEVER
+
+- 時間制約やコンテキスト節約を理由に Phase 2 のステップを省略してはならない
+- Reddit 検索を「Tavily で十分な結果が得られたから」という理由で省略してはならない
+- `mcp__neo4j-creator__creator-write_neo4j_cypher` で直接ノード・リレーションを作成してはならない（スキーマ操作を除く）
 
 ---
 

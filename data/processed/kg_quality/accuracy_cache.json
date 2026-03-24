@@ -1,182 +1,182 @@
 {
-  "0141fef656b4db98": {
-    "fact_id": "asean-telco-5g-maturity-ranking-2025",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.4,
-    "temporal_validity": 0.7,
-    "overall": 0.65,
-    "reasoning": "Specific data with penetration rates. No URL but compiled from 44+ sources. 2025 data, moderately current.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "304519a89d3f2187": {
-    "fact_id": "cd281f952cdd868c",
+  "68dcfc7ecd28ed71": {
+    "fact_id": "68dcfc7ecd28ed7122640d7c9af2aea8",
     "factual_correctness": 0.6,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.5,
-    "overall": 0.66,
-    "reasoning": "Opinion-based claim about censorship fears. Strong source (Ars Technica URL). Jan 2026 news, aging.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "b6f8907692ce929d": {
-    "fact_id": "82c71fa05278cdda",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.5,
-    "temporal_validity": 0.9,
-    "overall": 0.78,
-    "reasoning": "Well-known BTC mechanism. PDF source only. Timeless technical fact.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "8fc148d5f5d3448b": {
-    "fact_id": "d48768d25acfa5af",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.6,
-    "overall": 0.55,
-    "reasoning": "Reasonable risk assessment for TLKM. No URL, NotebookLM memo source.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "a52421509137d02d": {
-    "fact_id": "836559aadb0d5c96",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.5,
-    "overall": 0.78,
-    "reasoning": "Specific numbers (M Series E, B). TechCrunch URL. Jan 2026, valuation may change.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "f14892d98cdb4ff9": {
-    "fact_id": "06e5b035c211eef8",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.8,
-    "overall": 0.61,
-    "reasoning": "Valid methodological limitation. PDF without title. Timeless academic point.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "52ad9f59065e1e00": {
-    "fact_id": "b92d4fd15df1cc92",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.8,
-    "overall": 0.61,
-    "reasoning": "Academic methodology claim. PDF source. Timeless.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "caa9dbf0ace2c2e0": {
-    "fact_id": "67aec28c44e666b0",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.5,
-    "overall": 0.78,
-    "reasoning": "Precise data. URL + date (minkabu). Feb 2026 snapshot.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "cd41fcdb7843ec01": {
-    "fact_id": "2ebc6979b8afc0e5",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.5,
-    "overall": 0.7,
-    "reasoning": "Forward-looking claim. CNBC URL. Jan 2026 context.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "442bcd40e2206c41": {
-    "fact_id": "dc36780633539fe8",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.5,
-    "temporal_validity": 0.9,
-    "overall": 0.78,
-    "reasoning": "Historical fact with specific date and value (~B). Local file source. Timeless.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "e127d8223ddc3064": {
-    "fact_id": "72938408a9c6",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.2,
+    "source_grounding": 0.0,
     "temporal_validity": 0.7,
-    "overall": 0.59,
-    "reasoning": "Factual partnership. WRONG URL (TechCrunch about ICE, not Telkomsel). Source-content mismatch.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+    "overall": 0.45,
+    "reasoning": "LLM学習に関する妥当な主張だが数値根拠なし。ソースリンクなし。AI分野で現在も有効。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
   },
-  "8c6dff1cb2954193": {
-    "fact_id": "7da2b2c108c71711",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.8,
-    "overall": 0.8,
-    "reasoning": "Academic finding. arXiv URL. Timeless research.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "b9a19c415b3bb25e": {
-    "fact_id": "4a9cfc24401a27e4",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.7,
-    "temporal_validity": 0.8,
-    "overall": 0.77,
-    "reasoning": "Technical academic claim. Academic URL. Timeless methodology.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "56e284b65d9200e4": {
-    "fact_id": "36454db3376c5b9b",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.9,
+  "5fb52747e90f9a7e": {
+    "fact_id": "tsel-claim-margin",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
     "temporal_validity": 0.5,
-    "overall": 0.74,
-    "reasoning": "Specific business claim. CNBC URL. Jan 2026 earnings.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+    "overall": 0.43,
+    "reasoning": "具体的EBITDA数値あり。FY2025予測含む前向きClaim。ソースなし。データやや陳腐化。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
   },
-  "a691eb2e87423cb5": {
-    "fact_id": "92342bf4da0b5383",
-    "factual_correctness": 0.5,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.1,
-    "overall": 0.5,
-    "reasoning": "Ephemeral news about upcoming earnings. URL present. Completely outdated.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "031b75996d531555": {
-    "fact_id": "b4c5082552a50a84",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.9,
-    "overall": 0.83,
-    "reasoning": "Academic mathematical claim. arXiv URL. Timeless.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "a23c07ce52cd661d": {
-    "fact_id": "25d33cf83d1d336a",
+  "33f015b117271a8c": {
+    "fact_id": "1fcc65c352aca94a6d73e01591c9f9e0",
     "factual_correctness": 0.7,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.2,
-    "overall": 0.58,
-    "reasoning": "Time-specific market data. Yahoo Finance URL. Jan 2026 snapshot, now stale.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.46,
+    "reasoning": "ECB金利の具体的数値。利下げ回数・幅は概ね正確。ソースなし。金融政策は変動的。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
   },
-  "8c622621202fe5ae": {
-    "fact_id": "4371779db42d5f5e",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.4,
-    "temporal_validity": 0.8,
-    "overall": 0.64,
-    "reasoning": "Research finding about sentiment-mining difficulty correlation. PDF source.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
-  },
-  "d27a042576c2b055": {
-    "fact_id": "claim-b4add4fd4e1e6fdd",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.9,
+  "c5755401c76efafa": {
+    "fact_id": "9d76bb1c249c0476",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
     "temporal_validity": 0.3,
-    "overall": 0.72,
-    "reasoning": "Precise daily price data. Nasdaq URL. Single-day data point.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+    "overall": 0.33,
+    "reasoning": "汎用的決算ニュース。具体的数値なし。ソースなし。ニュースイベントで時間的価値低い。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
   },
-  "c8979bf189c34026": {
-    "fact_id": "a6b082d6ff5136f7",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.4,
+  "05f5c9904efe7b66": {
+    "fact_id": "auto-claim-1f6019c7-c547-5445-a1b8-e70dba1663c3",
+    "factual_correctness": 0.2,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.3,
+    "overall": 0.17,
+    "reasoning": "タイトルのみでFactual contentなし。ノイズデータ。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "1e87db4d742ab295": {
+    "fact_id": "auto-claim-54ed4c93-edd1-56c2-8b01-aad67c3ebd82",
+    "factual_correctness": 0.3,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.3,
+    "overall": 0.21,
+    "reasoning": "タイトルのみ。実質的主張なし。ノイズデータ。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "02dc1a24d0f53d58": {
+    "fact_id": "ccb0eb868d48c403ba17721d5bc56db5",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
     "temporal_validity": 0.8,
-    "overall": 0.68,
-    "reasoning": "Specific quantitative academic result. PDF source. Timeless research.",
-    "evaluated_at": "2026-03-23T13:56:48.384308+00:00"
+    "overall": 0.52,
+    "reasoning": "金融学で広く認知された事実。ソースなし。長期的に有効な知見。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "526a6b881839e3ec": {
+    "fact_id": "fact-526a6b881839e3ec",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.47,
+    "reasoning": "具体的配当データ。ソースなし。過去データとして参考価値あり。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "1ac64d7b6f9348ae": {
+    "fact_id": "f34cfff228102812",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.39,
+    "reasoning": "具体的金額あるが対象企業不明確。ソースなし。関税議論は継続中。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "780c74ab5cf4d79a": {
+    "fact_id": "37b890a80ab25662",
+    "factual_correctness": 0.5,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.2,
+    "overall": 0.26,
+    "reasoning": "コンテンツ途中切断（abo...）。日次トレーディングデータで時間的価値極低。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "f8e9f7b2c60a63ac": {
+    "fact_id": "96754b5e8294972a",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.4,
+    "overall": 0.4,
+    "reasoning": "具体的収益ガイダンス。ソースなし。既に実績値が出ている可能性。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "765c2f39240c3b73": {
+    "fact_id": "fd6438f81babf75214603fba2c1be44a",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.53,
+    "reasoning": "具体的な技術パラメータ。方法論記述として正確。ソースなし。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "e5bcc080649abf44": {
+    "fact_id": "50814b9d651d382219c10d5923d7d07b",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.5,
+    "reasoning": "具体的な定量的リサーチ結果。ソースなし。研究成果として中期的に有効。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "ebe367428888252e": {
+    "fact_id": "f3cc63b909df925c3e8583d6e8908fdc",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.5,
+    "reasoning": "KPMG名義の具体的GDP見通し。ソースなし。2026年見通しとして現在有効。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "6e7c822b653624e2": {
+    "fact_id": "fact-53dafed2097fe714",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.43,
+    "reasoning": "具体的コスト削減目標。ソースなし。経営目標として中期的参考。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "4a4907cda06bd1bb": {
+    "fact_id": "ts:topic-suggestion-2026-03-16T1800:rank3",
+    "factual_correctness": 0.3,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.4,
+    "overall": 0.24,
+    "reasoning": "トピック提案メタデータ。Factual contentではなくノイズ。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "bdfc4531bbe2aaae": {
+    "fact_id": "167e4b3ec0d516863c2326cc440eff08",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.57,
+    "reasoning": "GPIF公式データの高精度な引用。複数シナリオ値を含む。ソースなし。長期見通しで有効期間長い。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "40ffad500768b6ad": {
+    "fact_id": "33539c29a6fc2af5",
+    "factual_correctness": 0.5,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.2,
+    "overall": 0.26,
+    "reasoning": "対象企業不明。日次オプションデータで時間的価値極低。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "9a5f59d2a840d798": {
+    "fact_id": "fact_vz_risk_cybersecurity_fy2025",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.57,
+    "reasoning": "Salt Typhoon攻撃は広く報道された事実。具体的日付・攻撃者名あり。サイバーリスクとして継続的に有効。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
+  },
+  "dc8fa4bb64626425": {
+    "fact_id": "b6afb1da628149b281af0ec8f4e7e4df",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.4,
+    "overall": 0.44,
+    "reasoning": "具体的ブローカー推奨とTP。ソースなし。TP/CPは頻繁に変動。",
+    "evaluated_at": "2026-03-24T05:52:24.902217+00:00"
   }
 }

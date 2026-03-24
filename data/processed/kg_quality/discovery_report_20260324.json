@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-03-24T05:54:28.673607+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 10,
+    "indirect_paths": 0,
+    "stance_entities": 2,
+    "insights_existing": 10,
+    "multi_topic_entities": 10
+  },
+  "probe_notes": {
+    "probe_a": "Dominated by category theory cluster (Sheaf Theory, CQL, Ologs, Graph-PReFLexOR, DisCoPyro) all sharing 14 facts with Causal Emergence. Financial domain cross-domain pairs absent from top-10.",
+    "probe_b": "TIMEOUT - graph too dense for 4-hop multi-variable-length traversals. Indicates performance concern.",
+    "probe_c": "Only 2 entities with multi-stance: ISAT(40 stances), TLKM(34 stances). ALL stance summaries are NULL - critical data quality issue.",
+    "probe_d": "Rich analytical insights: 6 analytical_finding, 2 data_quality, 2 information_gap. Deep Indonesian telco analysis. High signal-to-noise.",
+    "probe_e": "CK Hutchison(91 topics/30 categories), Ooredoo(91/30), Nvidia(72/23), Indonesia(57/16). Some entities likely over-tagged from batch processing."
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "圏論フレームワーク→金融ARPU分析への適用仮説",
+      "description": "Causal Emergence（因果創発）フレームワークの「マクロレベル記述がミクロレベルより強い因果説明力を持つ」という概念は、ISATのARPU持続性分析に直接適用可能。Sheaf理論のlocal-to-global一貫性チェックで、ミクロ指標（data yield, prepaid/postpaid mix）からマクロARPUトレンドへの整合性を定式化できる。しかし、現在のグラフでは圏論クラスタと金融分析クラスタが完全に断絶しており、ブリッジFactが存在しない。",
+      "entities_involved": [
+        "Sheaf Theory",
+        "Causal Emergence",
+        "Indosat Ooredoo Hutchison",
+        "ARPU"
+      ],
+      "supporting_evidence": [
+        "Probe A: 14 shared facts in category theory cluster",
+        "Insight: ARPU持続性の要因分解が不足",
+        "Memory: 圏論-金融の孤立は正当だがTDA介在戦略あり"
+      ],
+      "evidence_count": 3
+    },
+    {
+      "type": "contradiction_tension",
+      "title": "TLKM コスト削減目標 vs 4年連続マージン低下の緊張",
+      "description": "Insight分析からTLKMのEBITDA Marginが4年連続低下（FY21 52.9%→FY24 50.0%, -360bps）である一方、新経営陣は6T IDRのコスト削減を目標としている。しかしRevenue成長がFY21-24 CAGR 1.6%とほぼ横ばいの中、コスト削減だけでマージン回復が可能かは疑問。さらにFY2025E/FY2026Eのコンセンサス予想がFinancialDataPointとして未投入のため、この仮説の定量検証が不可能。",
+      "entities_involved": [
+        "Telkom Indonesia",
+        "EBITDA Margin",
+        "Cost Savings"
+      ],
+      "supporting_evidence": [
+        "Insight: EBITDA Margin 4年連続低下 FY21 52.9%→FY24 50.0%",
+        "Fact: New management targets 6T IDR savings",
+        "Insight: Revenue CAGR 1.6% FY21-24",
+        "Information Gap: FY2025E/2026Eコンセンサス未投入"
+      ],
+      "evidence_count": 4
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "バリュエーション指標の非対称性がPeer比較を阻害",
+      "description": "ISAT IJはEV/EBITDA 4.8x, ROE 15.3%, ROIC 9.2-10.0%, EPS 178 IDR(FY26E)を保有する一方、TLKM IJのバリュエーション指標はFinancialDataPointとして一切存在しない。J.P. MorganがTLKMのROIC低下を懸念材料としているにもかかわらず、ROIC時系列データ未投入のため定量検証不能。3社寡占分析（ISAT/TLKM/XLSmart）の基盤が欠けている。",
+      "entities_involved": [
+        "Telkom Indonesia",
+        "Indosat Ooredoo Hutchison",
+        "XL Axiata",
+        "J.P. Morgan"
+      ],
+      "supporting_evidence": [
+        "Information Gap: バリュエーション指標ゼロ(TLKM)",
+        "Information Gap: XLSmart Revenue/EBITDA/ARPU時系列なし",
+        "Data Quality: EXCL IJ FDP 5件のみ vs TLKM 48件"
+      ],
+      "evidence_count": 3
+    },
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "AI投資ブーム→インドネシア通信セクターの構造変化仮説",
+      "description": "Insightから「インドネシアAIインフラ投資ブーム（$2.4B→$10.9B, CAGR 29%）が通信セクターに構造変化をもたらす」パターンが浮上。ISATはNVIDIA NCP唯一の地位でGPUaaS先行、TLKMはNeutraDC/ハイパースケールDCで対抗。Probe Eで Nvidia(72 topics) と Indonesia(57 topics) が multi-category entityとして上位に出現し、AI×インドネシアの交差点にFactが集積している。この構造変化が配当政策（ISAT payout 89%）やCapEx配分に波及する因果連鎖を追跡可能。",
+      "entities_involved": [
+        "Nvidia",
+        "Indonesia",
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "GPUaaS"
+      ],
+      "supporting_evidence": [
+        "Insight: AI市場 $2.4B→$10.9B CAGR 29%",
+        "Insight: ISATとTLKMの技術戦略分岐",
+        "Insight: GPUaaS事業の情報ギャップ大幅解消",
+        "Probe E: Nvidia 72 topics cross-category",
+        "Fact: FY2024 payout ratio 89%"
+      ],
+      "evidence_count": 5
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.5,
+    "hypothesis_novelty": 0.6,
+    "evidence_density": 0.7,
+    "actionability": 0.7,
+    "overall": 0.615
+  },
+  "improvement_suggestions": [
+    "Source Grounding 壊滅的（全20件が0.0）: STATES_FACT/MAKES_CLAIM リレーション経由のSource接続を最優先で補完すべき",
+    "Stance summary NULL問題: 82件のStanceノードのsummary/contentが空。パイプラインでの投入時にsummary必須化が必要",
+    "バリュエーション指標投入: TLKM/XLSmartのEV/EBITDA, PER, ROE, ROIC, EPSを早期にFinancialDataPointとして投入",
+    "Probe B タイムアウト: 4ホップ探索がタイムアウト。RELATES_TO インデックス追加またはクエリ簡略化が必要",
+    "圏論-金融ブリッジ: TDA（位相的データ分析）を介した間接接続Factを意図的に投入し、2クラスタ間の知識移転を促進",
+    "ノイズデータ除去: タイトルのみのClaim（auto-claim-*）を定期的にクリーンアップまたはフラグ付け"
+  ]
+}

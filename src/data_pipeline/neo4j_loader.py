@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 _DEFAULT_URI = "bolt://localhost:7688"
 _DEFAULT_USER = "neo4j"
-_DEFAULT_PASSWORD = "password"
+_DEFAULT_PASSWORD = "gomasuke"
 
 # ノードラベルとキープロパティのマッピング
 _NODE_KEY_MAP = {

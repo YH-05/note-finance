@@ -46,8 +46,9 @@
 
 ## アクションアイテム
 
-- [ ] research-neo4j に Full-Text Index 3本作成 + link_entities=True の実戦テスト (優先度: 高)
-- [ ] e5-small ベクトル類似度リンキング第4層の実戦テスト (優先度: 中)
+- [x] research-neo4j に Full-Text Index 3本 + Vector Index 1本作成 + link_entities=True 動作確認 (完了)
+- [x] e5-small ベクトル類似度リンキング第4層 動作確認 (完了 — 3 Entity全てRESOLVED)
+- [x] 日次バッチCLI `python -m data_pipeline` 実装 (完了 — collect/registry サブコマンド)
 - [x] neo4j_loader.py に creator-neo4j 投入関数追加 (完了 — CreatorGraphWriterアダプター)
 - [x] run_pipeline(target="creator") 実装 (完了 — dry-run テスト成功 276n/359r)
 - [x] pyproject.toml embedding optional dependency 追加 (完了)

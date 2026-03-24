@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-03-24T05:57:36.595819+00:00",
+  "node_counts": {
+    "Genre": 3,
+    "Concept": 3374,
+    "ConceptCategory": 14,
+    "Entity": 480,
+    "Source": 982,
+    "Fact": 538,
+    "Tip": 589,
+    "Story": 177,
+    "Domain": 424
+  },
+  "total_nodes": 6581,
+  "total_relationships": 10009,
+  "categories": {
+    "completeness": {
+      "score": 73.8,
+      "weight": 20
+    },
+    "consistency": {
+      "score": 100.0,
+      "weight": 15
+    },
+    "structural": {
+      "score": 90.0,
+      "weight": 15
+    },
+    "orphan": {
+      "score": 75.6,
+      "weight": 15
+    },
+    "content_balance": {
+      "score": 75.9,
+      "weight": 10
+    },
+    "source_quality": {
+      "score": 95.3,
+      "weight": 10
+    },
+    "taxonomy": {
+      "score": 66.6,
+      "weight": 15
+    }
+  },
+  "llm_judge": {
+    "content_quality_avg": 0.717,
+    "concept_classification_avg": 0.75,
+    "sample_size": 15
+  },
+  "overall_score": 81.7,
+  "rating": "B"
+}

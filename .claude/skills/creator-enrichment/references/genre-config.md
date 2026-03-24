@@ -176,6 +176,55 @@ Q3 で以下のいずれかが低カバレッジ TOP 5 に入った場合、そ�
 
 ---
 
+## Story 優先検索テンプレート（全ジャンル共通）
+
+Gap Analysis Q2 で Story 比率が 20% 未満と判定された場合、ジャンル固有クエリに加えて
+以下のテンプレートを使用する。**Story 比率が理想値（25%）を下回る限り、
+検索クエリの 50% をこれらのテンプレートに割り当てること。**
+
+### Tavily 英語クエリ（Story）
+
+| # | クエリテンプレート |
+|---|-------------------|
+| S1 | `{topic} my experience success story reddit {year}` |
+| S2 | `{topic} case study how I started from scratch` |
+| S3 | `{topic} before and after transformation journey {year}` |
+| S4 | `{topic} beginner first year results income report` |
+
+### Tavily 日本語クエリ（Story）
+
+| # | クエリテンプレート |
+|---|-------------------|
+| S1 | `{topic} 体験談 実体験 始めてみた {year}` |
+| S2 | `{topic} 成功事例 ケーススタディ 結果報告` |
+| S3 | `{topic} ビフォーアフター 変化 体験レポート` |
+| S4 | `{topic} 初心者 〇ヶ月目 収入報告 {year}` |
+
+### Reddit サブレディット（Story）
+
+- r/sidehustle（収入報告系投稿）
+- r/Entrepreneur（起業・事業開始体験）
+- r/personalfinance（資産形成体験）
+- r/BeautyGuruChatter（美容体験談）
+
+### Story 判定シグナル（Phase 3 での分類基準）
+
+以下のいずれかを含むコンテンツは Tip ではなく **Story** に分類すること:
+
+- 「〜してみた」「〜した結果」「〜ヶ月目の報告」
+- 具体的な金額・期間の before/after（「月収3万円→月収30万円」等）
+- 失敗談・反省点の記述
+- 一人称視点での時系列ストーリー
+- 「私の場合は」「実際にやってみると」などの体験マーカー
+
+### 使用基準
+
+Q2 で以下の条件に該当する場合、そのジャンルの S* クエリを優先的に実行する：
+
+- Story 比率 < 20%（現在全ジャンルで 11-14% のため、当面は常時適用）
+
+---
+
 ## プレースホルダー
 
 | プレースホルダー | 置換内容 | ソース |

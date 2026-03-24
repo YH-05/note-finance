@@ -366,8 +366,29 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
                 })
 
             # MENTIONS → Entity
+            # AIDEV-NOTE: about_entities[] の Entity が top-level entities[] に未登録の場合、
+            # 自動的に entities リストと entity_name_to_id に追加して MENTIONS 欠損を防ぐ
             for ent in item.get("about_entities", []):
-                ent_name = ent.get("name", "")
+                ent_name = ent.get("name", "").strip()
+                if not ent_name:
+                    continue
+                if ent_name not in entity_name_to_id:
+                    ent_type = ent.get("entity_type", "").strip().lower()
+                    if ent_type in VALID_ENTITY_TYPES:
+                        eid = generate_entity_id(ent_name, ent_type)
+                        entity_key = f"{ent_name}::{ent_type}"
+                        entity_name_to_id[ent_name] = eid
+                        entities.append({
+                            "entity_id": eid,
+                            "entity_key": entity_key,
+                            "name": ent_name,
+                            "entity_type": ent_type,
+                            "resolved": False,
+                        })
+                        logger.info(
+                            "Auto-registered entity from about_entities: %s (%s)",
+                            ent_name, ent_type,
+                        )
                 if ent_name in entity_name_to_id:
                     mentions_rels.append({
                         "from_id": cid,

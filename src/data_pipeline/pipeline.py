@@ -272,7 +272,7 @@ def _run_research_layers(
 
             uri = os.environ.get("NEO4J_RESEARCH_URI", "bolt://localhost:7688")
             user = os.environ.get("NEO4J_RESEARCH_USER", "neo4j")
-            password = os.environ.get("NEO4J_RESEARCH_PASSWORD", "password")
+            password = os.environ.get("NEO4J_RESEARCH_PASSWORD", "gomasuke")
             client = Neo4jClient(uri, user, password)
             try:
                 import json
@@ -378,7 +378,7 @@ def _run_creator_layers(
 
             uri = os.environ.get("NEO4J_CREATOR_URI", "bolt://localhost:7689")
             user = os.environ.get("NEO4J_CREATOR_USER", "neo4j")
-            password = os.environ.get("NEO4J_CREATOR_PASSWORD", "password")
+            password = os.environ.get("NEO4J_CREATOR_PASSWORD", "gomasuke")
             client = Neo4jClient(uri, user, password)
             try:
                 cycle_data_dict = resolve_all(client, cycle_data_dict, use_embedding=False)
