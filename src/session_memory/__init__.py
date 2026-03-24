@@ -5,9 +5,11 @@ SQLiteベースのローカルストレージ基盤。
 """
 
 from session_memory.db import SessionMemoryDB
+from session_memory.embedder import get_embedder
 from session_memory.types import ChunkRow
 
 __all__ = [
     "ChunkRow",
     "SessionMemoryDB",
+    "get_embedder",
 ]
