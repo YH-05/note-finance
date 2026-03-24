@@ -609,6 +609,22 @@ class Neo4jClient:
 # ---------------------------------------------------------------------------
 
 
+def _escape_lucene(text: str) -> str:
+    """Lucene 特殊文字をエスケープする.
+
+    Neo4j の fulltext index は Lucene を使用するため、
+    クエリ文字列に含まれる特殊文字をエスケープする必要がある。
+    """
+    special_chars = r'+-&|!(){}[]^"~*?:\/'
+    escaped = []
+    for ch in text:
+        if ch in special_chars:
+            escaped.append(f"\\{ch}")
+        else:
+            escaped.append(ch)
+    return "".join(escaped)
+
+
 def _return_clause(config: _NodeResolveConfig) -> str:
     """Build the RETURN clause based on node config."""
     parts = [f"n.{config.id_key} AS id"]
@@ -688,14 +704,16 @@ def _resolve_by_text(
         return _build_result(results[0], config, layer)
 
     # Stage 2: Full-text search on node name index + similarity filter
+    escaped_name = _escape_lucene(name)
     results = client.query(
-        f'CALL db.index.fulltext.queryNodes("{config.node_index}", $name) '
+        f'CALL db.index.fulltext.queryNodes("{config.node_index}", $ft_name) '
         f"YIELD node AS n, score WHERE score > $ft_threshold "
         f"WITH n, score, "
         f"     apoc.text.levenshteinSimilarity(n.name, $name) AS lev "
         f"WHERE lev > $sim_threshold "
         f"RETURN {ret}, lev AS similarity "
         f"ORDER BY lev DESC LIMIT $max_candidates",
+        ft_name=escaped_name,
         name=name,
         ft_threshold=ft_threshold,
         sim_threshold=sim_threshold,
@@ -708,7 +726,7 @@ def _resolve_by_text(
 
     # Stage 3: Alias fulltext search + ALIAS_OF traversal
     results = client.query(
-        f'CALL db.index.fulltext.queryNodes("{config.alias_index}", $name) '
+        f'CALL db.index.fulltext.queryNodes("{config.alias_index}", $ft_name) '
         f"YIELD node AS alias, score WHERE score > $ft_threshold "
         f"MATCH (alias)-[:ALIAS_OF]->(n:{config.label}) "
         f"WITH n, alias, score, "
@@ -716,6 +734,7 @@ def _resolve_by_text(
         f"WHERE lev > $sim_threshold "
         f"RETURN {ret}, alias.name AS matched_alias, lev AS similarity "
         f"ORDER BY lev DESC LIMIT $max_candidates",
+        ft_name=escaped_name,
         name=name,
         ft_threshold=ft_threshold,
         sim_threshold=sim_threshold,
