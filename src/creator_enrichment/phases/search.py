@@ -25,13 +25,15 @@ import json
 import logging
 import os
 from datetime import datetime
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import httpx
 
-from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.types import PhaseError, RawItem
 from creator_enrichment.utils import strip_json_codeblock
+
+if TYPE_CHECKING:
+    from creator_enrichment.llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 
@@ -280,7 +282,12 @@ class DirectSearcher:
                 if result == "saved":
                     saved += 1
             if saved:
-                logger.info("RawStore: saved %d/%d items (source=%s)", saved, len(items), source_id)
+                logger.info(
+                    "RawStore: saved %d/%d items (source=%s)",
+                    saved,
+                    len(items),
+                    source_id,
+                )
         except Exception:
             logger.warning("RawStore save failed (non-blocking)", exc_info=True)
 
@@ -355,9 +362,7 @@ class DirectSearcher:
     # ------------------------------------------------------------------
     # Step 2b: 検索実行（Tavily → SDK フォールバック）
     # ------------------------------------------------------------------
-    def _execute_searches(
-        self, search_queries: list[dict[str, str]]
-    ) -> list[RawItem]:
+    def _execute_searches(self, search_queries: list[dict[str, str]]) -> list[RawItem]:
         """検索を実行する。Tavily API → SDK WebSearch のフォールバック付き.
 
         Parameters
@@ -416,9 +421,7 @@ class DirectSearcher:
 
         return all_items
 
-    def _execute_via_sdk(
-        self, search_queries: list[dict[str, str]]
-    ) -> list[RawItem]:
+    def _execute_via_sdk(self, search_queries: list[dict[str, str]]) -> list[RawItem]:
         """claude_agent_sdk (max_turns=10) で WebSearch を実行する.
 
         SdkLLMClient（max_turns=1）ではツール呼び出しできないため、
@@ -442,8 +445,8 @@ class DirectSearcher:
             f"and return results as JSON.\n\n"
             f"Queries:\n{queries_text}\n\n"
             f"Return ONLY JSON: "
-            f'{{\"items\": [{{\"url\": \"...\", \"title\": \"...\", '
-            f'\"content\": \"...\", \"source\": \"web_search\"}}]}}'
+            f'{{"items": [{{"url": "...", "title": "...", '
+            f'"content": "...", "source": "web_search"}}]}}'
         )
 
         saved_env = os.environ.pop("CLAUDECODE", None)
@@ -460,10 +463,11 @@ class DirectSearcher:
             final_result: str | None = None
             try:
                 async for msg in claude_agent_sdk.query(
-                    prompt=prompt, options=options,
+                    prompt=prompt,
+                    options=options,
                 ):
                     if hasattr(msg, "result"):
-                        final_result = msg.result
+                        final_result = msg.result  # type: ignore[union-attr]
                     if hasattr(msg, "content"):
                         for block in msg.content:  # type: ignore[union-attr]
                             if hasattr(block, "text"):

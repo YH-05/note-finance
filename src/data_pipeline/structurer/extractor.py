@@ -11,9 +11,10 @@ from __future__ import annotations
 import json
 import logging
 import time
-from typing import Any, Protocol, runtime_checkable
+from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
 
-from data_pipeline.collectors.base import CollectedItem
+if TYPE_CHECKING:
+    from data_pipeline.collectors.base import CollectedItem
 
 logger = logging.getLogger(__name__)
 
@@ -127,11 +128,11 @@ class SdkLLMClient:
                     options=options,
                 ):
                     if hasattr(msg, "result"):
-                        final_result = msg.result
+                        final_result = msg.result  # type: ignore[union-attr]
                     if hasattr(msg, "content"):
-                        for block in msg.content:
+                        for block in msg.content:  # type: ignore[union-attr]
                             if hasattr(block, "text"):
-                                result_text += block.text
+                                result_text += block.text  # type: ignore[union-attr]
             except (RuntimeError, GeneratorExit):
                 pass
             return final_result or result_text
@@ -211,7 +212,9 @@ class LlmExtractor:
             except Exception as e:
                 logger.warning(
                     "LLM extraction failed (attempt %d/%d): %s",
-                    attempt + 1, _MAX_RETRIES + 1, e,
+                    attempt + 1,
+                    _MAX_RETRIES + 1,
+                    e,
                 )
                 if attempt < _MAX_RETRIES:
                     time.sleep(2 * (attempt + 1))
@@ -242,7 +245,9 @@ class LlmExtractor:
                 time.sleep(self.request_delay)
             logger.info(
                 "Extracting %d/%d: %s",
-                i + 1, len(items), item.title[:50],
+                i + 1,
+                len(items),
+                item.title[:50],
             )
             result = self.extract_one(item)
             logger.info(
@@ -271,7 +276,7 @@ def _parse_response(raw: str) -> dict[str, Any]:
     # JSON fences を除去
     if text.startswith("```"):
         lines = text.split("\n")
-        lines = [l for l in lines if not l.strip().startswith("```")]
+        lines = [line for line in lines if not line.strip().startswith("```")]
         text = "\n".join(lines)
 
     try:

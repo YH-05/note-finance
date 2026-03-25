@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 from data_pipeline.integrations.bridge import (
     save_news_scraper_results,
@@ -91,8 +94,16 @@ class TestSavePdfChunks:
 
     def test_正常系_チャンクを保存(self) -> None:
         chunks = [
-            {"content": "Executive summary text.", "chunk_index": 0, "section_title": "Summary"},
-            {"content": "Market analysis text.", "chunk_index": 1, "section_title": "Analysis"},
+            {
+                "content": "Executive summary text.",
+                "chunk_index": 0,
+                "section_title": "Summary",
+            },
+            {
+                "content": "Market analysis text.",
+                "chunk_index": 1,
+                "section_title": "Analysis",
+            },
         ]
         result = save_pdf_chunks(
             chunks,
@@ -214,7 +225,13 @@ class TestBridgeIntegration:
         )
         # Reddit
         save_reddit_posts(
-            [{"url": "https://reddit.com/1", "title": "Reddit", "selftext": "Reddit text"}],
+            [
+                {
+                    "url": "https://reddit.com/1",
+                    "title": "Reddit",
+                    "selftext": "Reddit text",
+                }
+            ],
         )
 
         assert set(store.list_sources()) == {"cnbc", "tavily", "reddit"}

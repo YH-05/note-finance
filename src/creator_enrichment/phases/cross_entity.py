@@ -16,10 +16,12 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.utils import strip_json_codeblock
+
+if TYPE_CHECKING:
+    from creator_enrichment.llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 

@@ -44,31 +44,34 @@ class MockLLM:
         return self.response
 
 
-_SAMPLE_RESPONSE = json.dumps({
-    "facts": [
-        {
-            "content": "S&P 500は2026年3月24日に5,800を突破し過去最高値を更新",
-            "fact_type": "market_event",
-            "confidence": 0.95,
-            "about_entities": [
-                {"name": "S&P 500", "entity_type": "index"},
-            ],
-        },
-    ],
-    "claims": [
-        {
-            "content": "FRBは2026年中に利下げを開始する可能性が高い",
-            "claim_type": "analyst_forecast",
-            "sentiment": "positive",
-            "about_entities": [
-                {"name": "FRB", "entity_type": "organization"},
-            ],
-        },
-    ],
-    "topics": [
-        {"name": "米国株式市場", "category": "equity"},
-    ],
-}, ensure_ascii=False)
+_SAMPLE_RESPONSE = json.dumps(
+    {
+        "facts": [
+            {
+                "content": "S&P 500は2026年3月24日に5,800を突破し過去最高値を更新",
+                "fact_type": "market_event",
+                "confidence": 0.95,
+                "about_entities": [
+                    {"name": "S&P 500", "entity_type": "index"},
+                ],
+            },
+        ],
+        "claims": [
+            {
+                "content": "FRBは2026年中に利下げを開始する可能性が高い",
+                "claim_type": "analyst_forecast",
+                "sentiment": "positive",
+                "about_entities": [
+                    {"name": "FRB", "entity_type": "organization"},
+                ],
+            },
+        ],
+        "topics": [
+            {"name": "米国株式市場", "category": "equity"},
+        ],
+    },
+    ensure_ascii=False,
+)
 
 
 class TestParseResponse:
@@ -77,7 +80,10 @@ class TestParseResponse:
     def test_正常系_有効なJSONをパース(self) -> None:
         result = _parse_response(_SAMPLE_RESPONSE)
         assert len(result["facts"]) == 1
-        assert result["facts"][0]["content"] == "S&P 500は2026年3月24日に5,800を突破し過去最高値を更新"
+        assert (
+            result["facts"][0]["content"]
+            == "S&P 500は2026年3月24日に5,800を突破し過去最高値を更新"
+        )
         assert result["facts"][0]["fact_type"] == "market_event"
         assert result["facts"][0]["about_entities"][0]["name"] == "S&P 500"
         assert len(result["claims"]) == 1
@@ -90,11 +96,13 @@ class TestParseResponse:
         assert len(result["facts"]) == 1
 
     def test_正常系_デフォルト値が補完される(self) -> None:
-        raw = json.dumps({
-            "facts": [{"content": "Test fact"}],
-            "claims": [{"content": "Test claim"}],
-            "topics": [],
-        })
+        raw = json.dumps(
+            {
+                "facts": [{"content": "Test fact"}],
+                "claims": [{"content": "Test claim"}],
+                "topics": [],
+            }
+        )
         result = _parse_response(raw)
         assert result["facts"][0]["confidence"] == 0.8
         assert result["facts"][0]["fact_type"] == "general"

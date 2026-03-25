@@ -21,10 +21,13 @@ import json
 import logging
 import time
 from datetime import datetime
+from typing import TYPE_CHECKING
 
-from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.types import CycleData, ExtractionResult, RawItem
 from creator_enrichment.utils import strip_json_codeblock
+
+if TYPE_CHECKING:
+    from creator_enrichment.llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 

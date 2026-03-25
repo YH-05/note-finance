@@ -8,12 +8,12 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from datetime import datetime, timezone
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from pydantic import BaseModel, Field
 
-from data_pipeline.registry.models import DataSource
-
+if TYPE_CHECKING:
+    from data_pipeline.registry.models import DataSource
 
 # ---------------------------------------------------------------------------
 # CollectedItem: 収集結果の統一フォーマット

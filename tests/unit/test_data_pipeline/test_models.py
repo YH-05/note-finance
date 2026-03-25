@@ -82,7 +82,9 @@ class TestConfigRef:
         assert ref.item_count is None
 
     def test_正常系_全フィールド指定(self) -> None:
-        ref = ConfigRef(file="yfinance_tickers.json", key="Stock Indices", item_count=150)
+        ref = ConfigRef(
+            file="yfinance_tickers.json", key="Stock Indices", item_count=150
+        )
         assert ref.file == "yfinance_tickers.json"
         assert ref.key == "Stock Indices"
         assert ref.item_count == 150
@@ -251,7 +253,9 @@ class TestSourceRegistry:
         assert len(rss_sources) == 2
         assert all(s.collection_method == "rss" for s in rss_sources)
 
-    def test_正常系_インスタンスでフィルタできる(self, registry: SourceRegistry) -> None:
+    def test_正常系_インスタンスでフィルタできる(
+        self, registry: SourceRegistry
+    ) -> None:
         research = registry.filter_by_instance("research")
         assert len(research) == 2
 

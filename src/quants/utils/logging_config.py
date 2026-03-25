@@ -16,11 +16,13 @@ from __future__ import annotations
 import logging
 import os
 import sys
-from collections.abc import Iterator
 from contextlib import contextmanager
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 
 import structlog
 from structlog import BoundLogger
@@ -31,7 +33,9 @@ type LogLevel = Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
 
 
 def add_timestamp(
-    _: Any, __: Any, event_dict: dict[str, Any],
+    _: Any,
+    __: Any,
+    event_dict: dict[str, Any],
 ) -> dict[str, Any]:
     """Add ISO timestamp to log entries."""
     event_dict["timestamp"] = datetime.now(UTC).isoformat()
@@ -39,7 +43,9 @@ def add_timestamp(
 
 
 def add_log_level_upper(
-    _: Any, __: Any, event_dict: dict[str, Any],
+    _: Any,
+    __: Any,
+    event_dict: dict[str, Any],
 ) -> dict[str, Any]:
     """Convert log level to uppercase for consistency."""
     if "level" in event_dict:

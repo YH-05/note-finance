@@ -1,0 +1,53 @@
+{
+  "gap_analysis": {
+    "weights": {
+      "category": 0.15,
+      "entity": 0.35,
+      "staleness": 0.30,
+      "financial": 0.20
+    },
+    "max_targets_per_cycle": 5,
+    "staleness_threshold_days": 90,
+    "min_facts_per_topic": 5
+  },
+  "search": {
+    "en_queries_per_target": 2,
+    "ja_queries_per_target": 2,
+    "reddit_subreddits": [
+      "investing",
+      "stocks",
+      "SecurityAnalysis",
+      "wallstreetbets"
+    ],
+    "sec_edgar": {
+      "filing_types": ["10-K", "10-Q", "8-K"]
+    },
+    "alphaxiv": {
+      "max_papers": 3,
+      "categories": ["Technology", "EquityResearch"]
+    },
+    "query_templates": {
+      "en": [
+        "{entity_name} {ticker} latest developments {year}",
+        "{entity_name} {sector} financial analysis {year}"
+      ],
+      "ja": [
+        "{entity_name} {ticker} 最新動向 {year}",
+        "{entity_name} {sector} 業績分析 {year}"
+      ]
+    }
+  },
+  "fallback": {
+    "browser_use_max_urls": 3
+  },
+  "rawstore": {
+    "enabled": true,
+    "exclude_sources": ["sec_edgar", "alphaxiv"]
+  },
+  "cycle_settings": {
+    "min_cycle_interval_seconds": 30,
+    "max_consecutive_empty_cycles": 3,
+    "empty_cycle_wait_seconds": 60,
+    "maintenance_buffer_minutes": 5
+  }
+}

@@ -20,11 +20,15 @@ from data_pipeline.registry.models import ConfigRef, DataSource
 
 def _mock_requests_and_feedparser(mock_feed):
     """requests.get + feedparser.parse を同時にモックするコンテキストマネージャ."""
-    mock_response = type("Response", (), {
-        "content": b"<rss></rss>",
-        "status_code": 200,
-        "raise_for_status": lambda self: None,
-    })()
+    mock_response = type(
+        "Response",
+        (),
+        {
+            "content": b"<rss></rss>",
+            "status_code": 200,
+            "raise_for_status": lambda self: None,
+        },
+    )()
     return (
         patch("data_pipeline.collectors.rss.requests.get", return_value=mock_response),
         patch("data_pipeline.collectors.rss.feedparser.parse", return_value=mock_feed),
@@ -122,14 +126,21 @@ class TestFetchFullText:
 
     def test_正常系_trafilaturaが呼ばれる(self) -> None:
         with (
-            patch("data_pipeline.collectors.rss.trafilatura.fetch_url", return_value="<html><body>Hello</body></html>"),
-            patch("data_pipeline.collectors.rss.trafilatura.extract", return_value="Hello"),
+            patch(
+                "data_pipeline.collectors.rss.trafilatura.fetch_url",
+                return_value="<html><body>Hello</body></html>",
+            ),
+            patch(
+                "data_pipeline.collectors.rss.trafilatura.extract", return_value="Hello"
+            ),
         ):
             result = _fetch_full_text("https://example.com/article")
             assert result == "Hello"
 
     def test_正常系_fetch_url失敗でNone(self) -> None:
-        with patch("data_pipeline.collectors.rss.trafilatura.fetch_url", return_value=None):
+        with patch(
+            "data_pipeline.collectors.rss.trafilatura.fetch_url", return_value=None
+        ):
             result = _fetch_full_text("https://example.com/article")
             assert result is None
 
@@ -262,20 +273,24 @@ class TestRssCollector:
             url="https://example.com/feed.xml",
         )
 
-        mock_feed = type("Feed", (), {
-            "bozo": False,
-            "entries": [
-                {
-                    "link": "https://example.com/article/1",
-                    "title": "Test Article",
-                    "summary": "This is a test article.",
-                    "published": "Mon, 24 Mar 2026 10:00:00 +0000",
-                    "author": "Test Author",
-                    "tags": [{"term": "finance"}],
-                    "id": "article-1",
-                },
-            ],
-        })()
+        mock_feed = type(
+            "Feed",
+            (),
+            {
+                "bozo": False,
+                "entries": [
+                    {
+                        "link": "https://example.com/article/1",
+                        "title": "Test Article",
+                        "summary": "This is a test article.",
+                        "published": "Mon, 24 Mar 2026 10:00:00 +0000",
+                        "author": "Test Author",
+                        "tags": [{"term": "finance"}],
+                        "id": "article-1",
+                    },
+                ],
+            },
+        )()
 
         collector = RssCollector(config_dir=tmp_path)
         mock_req, mock_fp = _mock_requests_and_feedparser(mock_feed)
@@ -293,7 +308,6 @@ class TestRssCollector:
         assert item.metadata["feed_title"] == "Test"
         assert "finance" in item.metadata["tags"]
 
-
     def test_正常系_fetch_if_emptyで空テキストの本文を取得(
         self,
         tmp_path: Path,
@@ -309,17 +323,21 @@ class TestRssCollector:
         )
 
         # summary が空のエントリ
-        mock_feed = type("Feed", (), {
-            "bozo": False,
-            "entries": [
-                {
-                    "link": "https://example.com/article/1",
-                    "title": "Article with no summary",
-                    "summary": "",
-                    "published": "Mon, 24 Mar 2026 10:00:00 +0000",
-                },
-            ],
-        })()
+        mock_feed = type(
+            "Feed",
+            (),
+            {
+                "bozo": False,
+                "entries": [
+                    {
+                        "link": "https://example.com/article/1",
+                        "title": "Article with no summary",
+                        "summary": "",
+                        "published": "Mon, 24 Mar 2026 10:00:00 +0000",
+                    },
+                ],
+            },
+        )()
 
         collector = RssCollector(
             config_dir=tmp_path,
@@ -358,17 +376,21 @@ class TestRssCollector:
             url="https://example.com/feed.xml",
         )
 
-        mock_feed = type("Feed", (), {
-            "bozo": False,
-            "entries": [
-                {
-                    "link": "https://example.com/article/1",
-                    "title": "Article with summary",
-                    "summary": "This is the summary text.",
-                    "published": "Mon, 24 Mar 2026 10:00:00 +0000",
-                },
-            ],
-        })()
+        mock_feed = type(
+            "Feed",
+            (),
+            {
+                "bozo": False,
+                "entries": [
+                    {
+                        "link": "https://example.com/article/1",
+                        "title": "Article with summary",
+                        "summary": "This is the summary text.",
+                        "published": "Mon, 24 Mar 2026 10:00:00 +0000",
+                    },
+                ],
+            },
+        )()
 
         collector = RssCollector(
             config_dir=tmp_path,
@@ -402,17 +424,21 @@ class TestRssCollector:
             url="https://example.com/feed.xml",
         )
 
-        mock_feed = type("Feed", (), {
-            "bozo": False,
-            "entries": [
-                {
-                    "link": "https://example.com/article/1",
-                    "title": "Article with summary",
-                    "summary": "RSS summary.",
-                    "published": "Mon, 24 Mar 2026 10:00:00 +0000",
-                },
-            ],
-        })()
+        mock_feed = type(
+            "Feed",
+            (),
+            {
+                "bozo": False,
+                "entries": [
+                    {
+                        "link": "https://example.com/article/1",
+                        "title": "Article with summary",
+                        "summary": "RSS summary.",
+                        "published": "Mon, 24 Mar 2026 10:00:00 +0000",
+                    },
+                ],
+            },
+        )()
 
         collector = RssCollector(
             config_dir=tmp_path,

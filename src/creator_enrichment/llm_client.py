@@ -113,7 +113,7 @@ class SdkLLMClient:
                     options=options,
                 ):
                     if hasattr(msg, "result"):
-                        final_result = msg.result
+                        final_result = msg.result  # type: ignore[union-attr]
                     if hasattr(msg, "content"):
                         for block in msg.content:  # type: ignore[union-attr]
                             if hasattr(block, "text"):

@@ -416,7 +416,9 @@ async def collect_financial_news(
         sr = save_news_scraper_results(articles_dict, source_id="news-scraper")
         logger.info(
             "RawStore: saved=%d, dup=%d, empty=%d",
-            sr.saved, sr.skipped_duplicate, sr.skipped_empty,
+            sr.saved,
+            sr.skipped_duplicate,
+            sr.skipped_empty,
         )
     except Exception as exc:
         logger.warning("RawStore save failed (non-blocking): %s", exc)

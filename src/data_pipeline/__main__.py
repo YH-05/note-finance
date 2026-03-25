@@ -42,6 +42,10 @@ from __future__ import annotations
 import argparse
 import logging
 import sys
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 
 def _cmd_collect(args: argparse.Namespace) -> int:
@@ -63,7 +67,7 @@ def _cmd_collect(args: argparse.Namespace) -> int:
         link_entities=args.link_entities,
     )
 
-    print(f"\n{'='*50}")
+    print(f"\n{'=' * 50}")
     print(f"Target: {result.target}")
     print(f"Sources: {result.sources_processed}")
     print(f"Collected: {result.items_collected}")
@@ -79,7 +83,7 @@ def _cmd_collect(args: argparse.Namespace) -> int:
         print(f"Neo4j: {result.neo4j_nodes} nodes, {result.neo4j_relations} relations")
     print(f"Errors: {len(result.errors)}")
     print(f"Success: {result.is_success}")
-    print(f"{'='*50}")
+    print(f"{'=' * 50}")
 
     return 0 if result.is_success else 1
 
@@ -97,7 +101,7 @@ def _cmd_ingest(args: argparse.Namespace) -> int:
         dry_run=args.dry_run,
     )
 
-    print(f"\n{'='*50}")
+    print(f"\n{'=' * 50}")
     print(f"Ingest: {args.source} → {args.target}")
     print(f"Items loaded: {result.items_collected}")
     print(f"Facts: {result.facts_total}")
@@ -111,7 +115,7 @@ def _cmd_ingest(args: argparse.Namespace) -> int:
         print(f"Neo4j: {result.neo4j_nodes} nodes, {result.neo4j_relations} relations")
     print(f"Errors: {len(result.errors)}")
     print(f"Success: {result.is_success}")
-    print(f"{'='*50}")
+    print(f"{'=' * 50}")
 
     return 0 if result.is_success else 1
 
@@ -188,12 +192,12 @@ def _note_com_scrape(args: argparse.Namespace, config_path: Path) -> int:
                 if i % 5 == 0:
                     print(f"  Progress: {i}/{len(urls)}")
 
-        print(f"\n{'='*50}")
+        print(f"\n{'=' * 50}")
         print(f"Scrape complete: note.com/{username}")
         print(f"  Saved: {saved}")
         print(f"  Skipped (paid): {skipped_paid}")
         print(f"  Skipped (duplicate): {skipped_dup}")
-        print(f"{'='*50}")
+        print(f"{'=' * 50}")
         return saved
 
     saved_count = asyncio.run(_scrape())
@@ -201,7 +205,11 @@ def _note_com_scrape(args: argparse.Namespace, config_path: Path) -> int:
     # RSSモニター追加の質問
     if saved_count > 0:
         try:
-            answer = input(f"\nRSSモニターに {username} を追加しますか？ [y/N]: ").strip().lower()
+            answer = (
+                input(f"\nRSSモニターに {username} を追加しますか？ [y/N]: ")
+                .strip()
+                .lower()
+            )
             if answer == "y":
                 from pathlib import Path
 
@@ -224,7 +232,7 @@ def _note_com_monitor(config_path: Path) -> int:
     monitor = NoteComRssMonitor(config_path=config_path)
     result = monitor.monitor()
 
-    print(f"\n{'='*50}")
+    print(f"\n{'=' * 50}")
     print("RSS Monitor complete")
     print(f"  Creators checked: {result.creators_checked}")
     print(f"  New articles found: {result.new_articles_found}")
@@ -232,7 +240,7 @@ def _note_com_monitor(config_path: Path) -> int:
     print(f"  Skipped (paid): {result.articles_skipped_paid}")
     print(f"  Skipped (duplicate): {result.articles_skipped_duplicate}")
     print(f"  Errors: {len(result.errors)}")
-    print(f"{'='*50}")
+    print(f"{'=' * 50}")
 
     return 0 if not result.errors else 1
 
@@ -244,7 +252,9 @@ def _note_com_add(args: argparse.Namespace, config_path: Path) -> int:
         username=args.username,
         genre=getattr(args, "genre", "career"),
     )
-    print(f"✓ {args.username} を追加しました（genre: {getattr(args, 'genre', 'career')}）")
+    print(
+        f"✓ {args.username} を追加しました（genre: {getattr(args, 'genre', 'career')}）"
+    )
     return 0
 
 
@@ -267,15 +277,17 @@ def _note_com_add_to_config(
         print(f"  {username} は既に登録済みです")
         return
 
-    config.setdefault("creators", []).append({
-        "username": username,
-        "display_name": username,
-        "genres": [genre],
-        "target_instance": "creator",
-        "rss_enabled": True,
-        "enabled": True,
-        "added_at": datetime.now(tz=timezone.utc).isoformat(),
-    })
+    config.setdefault("creators", []).append(
+        {
+            "username": username,
+            "display_name": username,
+            "genres": [genre],
+            "target_instance": "creator",
+            "rss_enabled": True,
+            "enabled": True,
+            "added_at": datetime.now(tz=timezone.utc).isoformat(),
+        }
+    )
 
     config_path.write_text(
         json.dumps(config, ensure_ascii=False, indent=2) + "\n",
@@ -315,8 +327,7 @@ def _note_com_remove(args: argparse.Namespace, config_path: Path) -> int:
 
     original_count = len(config.get("creators", []))
     config["creators"] = [
-        c for c in config.get("creators", [])
-        if c["username"] != args.username
+        c for c in config.get("creators", []) if c["username"] != args.username
     ]
 
     if len(config["creators"]) == original_count:
@@ -343,7 +354,9 @@ def _cmd_registry(args: argparse.Namespace) -> int:
             print("No issues found.")
             return 0
         for issue in issues:
-            print(f"[{issue.level.upper()}] {issue.source_id or 'global'}: {issue.message}")
+            print(
+                f"[{issue.level.upper()}] {issue.source_id or 'global'}: {issue.message}"
+            )
         errors = [i for i in issues if i.level == "error"]
         return 1 if errors else 0
 
@@ -361,7 +374,8 @@ def main() -> int:
         description="データ収集・保存・構造化パイプライン",
     )
     parser.add_argument(
-        "-v", "--verbose",
+        "-v",
+        "--verbose",
         action="store_true",
         help="詳細ログ出力",
     )
@@ -370,46 +384,59 @@ def main() -> int:
     # collect サブコマンド
     collect_parser = subparsers.add_parser("collect", help="データ収集・保存")
     collect_parser.add_argument(
-        "--target", default="research", choices=["research", "creator"],
+        "--target",
+        default="research",
+        choices=["research", "creator"],
         help="投入先 (default: research)",
     )
     collect_parser.add_argument(
-        "--method", action="append",
+        "--method",
+        action="append",
         help="収集方法 (rss, scraping)。複数指定可",
     )
     collect_parser.add_argument(
-        "--source", action="append",
+        "--source",
+        action="append",
         help="ソースID指定。複数指定可",
     )
     collect_parser.add_argument(
-        "--max-items", type=int, default=10,
+        "--max-items",
+        type=int,
+        default=10,
         help="1フィード/サイトあたりの最大取得数 (default: 10)",
     )
     collect_parser.add_argument(
-        "--ingest", action="store_true",
+        "--ingest",
+        action="store_true",
         help="Neo4j投入まで実行",
     )
     collect_parser.add_argument(
-        "--dry-run", action="store_true",
+        "--dry-run",
+        action="store_true",
         help="Neo4j投入をスキップ（カウントのみ）",
     )
     collect_parser.add_argument(
-        "--genre", default="career",
+        "--genre",
+        default="career",
         help="creator target のジャンル (default: career)",
     )
     collect_parser.add_argument(
-        "--link-entities", action="store_true",
+        "--link-entities",
+        action="store_true",
         help="Entity Linkerを実行",
     )
 
     # ingest サブコマンド
     ingest_parser = subparsers.add_parser("ingest", help="RawStore → Neo4j 投入")
     ingest_parser.add_argument(
-        "--source", required=True,
+        "--source",
+        required=True,
         help="RawStore の source_id (例: note-com-yukihata)",
     )
     ingest_parser.add_argument(
-        "--target", required=True, choices=["research", "creator"],
+        "--target",
+        required=True,
+        choices=["research", "creator"],
         help="投入先",
     )
     ingest_parser.add_argument(
@@ -417,33 +444,44 @@ def main() -> int:
         help="日付フィルタ (YYYY-MM-DD)",
     )
     ingest_parser.add_argument(
-        "--genre", default="career",
+        "--genre",
+        default="career",
         help="creator target のジャンル (default: career)",
     )
     ingest_parser.add_argument(
-        "--link-entities", action="store_true",
+        "--link-entities",
+        action="store_true",
         help="Entity Linkerを実行",
     )
     ingest_parser.add_argument(
-        "--dry-run", action="store_true",
+        "--dry-run",
+        action="store_true",
         help="Neo4j投入をスキップ",
     )
 
     # note-com サブコマンド
-    note_com_parser = subparsers.add_parser("note-com", help="note.com クリエイター操作")
+    note_com_parser = subparsers.add_parser(
+        "note-com", help="note.com クリエイター操作"
+    )
     note_com_sub = note_com_parser.add_subparsers(
-        dest="note_com_command", required=True,
+        dest="note_com_command",
+        required=True,
     )
 
     # note-com scrape
-    scrape_parser = note_com_sub.add_parser("scrape", help="クリエイターの記事を一括取得")
+    scrape_parser = note_com_sub.add_parser(
+        "scrape", help="クリエイターの記事を一括取得"
+    )
     scrape_parser.add_argument("username", help="note.com ユーザー名")
     scrape_parser.add_argument(
-        "--max-articles", type=int, default=50,
+        "--max-articles",
+        type=int,
+        default=50,
         help="最大記事数 (default: 50)",
     )
     scrape_parser.add_argument(
-        "--genre", default="career",
+        "--genre",
+        default="career",
         help="ジャンル (default: career)",
     )
 
@@ -454,7 +492,8 @@ def main() -> int:
     add_parser = note_com_sub.add_parser("add", help="クリエイターを追加")
     add_parser.add_argument("username", help="note.com ユーザー名")
     add_parser.add_argument(
-        "--genre", default="career",
+        "--genre",
+        default="career",
         help="ジャンル (default: career)",
     )
 
@@ -468,7 +507,8 @@ def main() -> int:
     # registry サブコマンド
     registry_parser = subparsers.add_parser("registry", help="ソースレジストリ情報")
     registry_parser.add_argument(
-        "--validate", action="store_true",
+        "--validate",
+        action="store_true",
         help="整合性チェック",
     )
 
