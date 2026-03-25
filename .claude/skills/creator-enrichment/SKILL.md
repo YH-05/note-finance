@@ -1,6 +1,6 @@
 ---
 name: creator-enrichment
-description: creator-neo4j (bolt://localhost:7689) を自動拡充するスキル。ギャップ分析→Web検索(Tavily+WebFetch+Reddit)→Fact/Tip/Story分類+Entity抽出→パイプライン投入を終了時刻まで繰り返す。
+description: creator-neo4j (bolt://localhost:7689) を自動拡充するスキル。ギャップ分析→Web検索(Tavily+WebSearch+browser-use CLI+Reddit)→Fact/Tip/Story分類+Entity抽出→パイプライン投入を終了時刻まで繰り返す。Tavily API リミット時は WebSearch + browser-use CLI 2.0 に自動フォールバック。
 allowed-tools: Read, Write, Bash, Grep, Glob
 ---
 
@@ -34,7 +34,7 @@ ToolSearch: "select:mcp__neo4j-creator__creator-read_neo4j_cypher,mcp__neo4j-cre
 ToolSearch: "select:mcp__tavily__tavily_search,mcp__tavily__tavily_extract"
 ToolSearch: "select:mcp__reddit__get_subreddit_hot_posts,mcp__reddit__get_subreddit_new_posts,mcp__reddit__get_post_content"
 ToolSearch: "select:mcp__time__get_current_time"
-ToolSearch: "select:WebFetch"
+ToolSearch: "select:WebFetch,WebSearch"
 ```
 
 ### 0-2. 接続チェック
@@ -65,7 +65,17 @@ Read data/config/creator-enrichment-config.json
 ## Cycles
 ```
 
-### 0-5. 現在時刻の取得
+### 0-5. browser-use CLI 可用性チェック
+
+```bash
+source ~/.browser-use-env/bin/activate && browser-use state 2>&1 | head -1
+```
+
+- 成功時: セッション状態フラグ `browser_use_available = true` をセット
+- 失敗時（venv 未存在 or コマンドエラー）: `browser_use_available = false`、セッションログに記録
+- browser-use は **フォールバック専用** — Tavily が利用可能な間は使用しない
+
+### 0-6. 現在時刻の取得
 
 `mcp__time__get_current_time` で現在時刻を取得し、`--until` と比較。
 既に終了時刻を過ぎている場合はエラー終了。
@@ -112,22 +122,81 @@ priority_score *= 0.7  // same genre damping
 特に Reddit（2-5）は英語圏の生の体験談・議論を収集する唯一のソースであり、
 Story 不足の改善に直結するため省略禁止。
 
-### 2-1. Tavily 英語クエリ（max 3件）【必須】
+### フォールバック戦略（3段階）
 
-`mcp__tavily__tavily_search` で英語クエリを実行。`{topic}` は Q3 の低カバレッジトピックから選択、`{year}` は現在年。
+各検索ステップは以下の優先順でフォールバックする:
 
-### 2-2. Tavily 日本語クエリ（max 3件）【必須】
+| 機能 | Tier 1（優先） | Tier 2（フォールバック） | Tier 3（最終手段） |
+|------|---------------|----------------------|-------------------|
+| Web検索 | `mcp__tavily__tavily_search` | `WebSearch` | — |
+| コンテンツ抽出 | `mcp__tavily__tavily_extract` | `WebFetch` | browser-use CLI `open` + `extract` |
+| JS レンダリングサイト | `mcp__tavily__tavily_extract` | browser-use CLI | — |
 
-同様に日本語クエリを実行。
+**フォールバック判定**: Tavily が `exceeds your plan's set usage limit` エラーを返した場合、
+そのサイクル以降は **Tier 2 以降のみ** を使用する（`tavily_available = false` をセット）。
 
-### 2-3. WebFetch（日本語サイト）【必須】
+#### browser-use CLI が特に有効なケース
 
-ジャンル設定の `webfetch_sites` から URL を取得し、`WebFetch` で本文を取得する。
-Tavily 検索結果の URL のうち、日本語サイト（note.com, ameblo.jp, hatenablog.com 等）を優先的に WebFetch する。
+- **note.com**: JS レンダリングのため WebFetch では本文取得不可 → browser-use CLI 必須
+- **ameblo.jp**: 動的ロードコンテンツ → browser-use CLI 推奨
+- **SPA サイト全般**: React/Next.js/Nuxt.js 系サイト
 
-### 2-4. Tavily Extract（高品質ソース）【必須】
+### 2-1. Web検索: 英語クエリ（max 3件）【必須】
 
-Tavily 検索結果のうち、信頼性の高いドメイン（公式サイト、統計サイト等）を `mcp__tavily__tavily_extract` で詳細取得。
+**Tier 1**: `mcp__tavily__tavily_search` で英語クエリを実行。
+**Tier 2**: `WebSearch` で同等のクエリを実行。
+
+`{topic}` は Q3 の低カバレッジトピックから選択、`{year}` は現在年。
+
+### 2-2. Web検索: 日本語クエリ（max 3件）【必須】
+
+**Tier 1**: `mcp__tavily__tavily_search` で日本語クエリを実行。
+**Tier 2**: `WebSearch` で同等のクエリを実行。
+
+### 2-3. コンテンツ抽出: 日本語サイト【必須】
+
+ジャンル設定の `webfetch_sites` および検索結果の URL から本文を取得する。
+
+**Tier 1**: `mcp__tavily__tavily_extract` で詳細取得。
+**Tier 2**: `WebFetch` で本文取得を試みる。
+**Tier 3**: WebFetch 失敗（JS レンダリングサイト）→ browser-use CLI でコンテンツ抽出。
+
+#### browser-use CLI によるコンテンツ抽出手順
+
+```bash
+# 1. ページを開く
+source ~/.browser-use-env/bin/activate && browser-use open "{url}"
+
+# 2. コンテンツを抽出（自然言語クエリ）
+source ~/.browser-use-env/bin/activate && browser-use extract "この記事の本文テキストを全て抽出してください"
+
+# 3. タイトル取得
+source ~/.browser-use-env/bin/activate && browser-use get title
+```
+
+**重要**: browser-use CLI は1ページずつ逐次処理のため、1サイクルあたり **最大3 URL** に制限する。
+取得対象は検索結果の上位から優先度順に選択:
+1. note.com の記事ページ（体験談・ノウハウ系）
+2. ameblo.jp のブログ記事
+3. その他 JS レンダリングサイト
+
+#### browser-use CLI セッション管理
+
+```bash
+# 名前付きセッションで管理（サイクル間でブラウザを再起動しない）
+source ~/.browser-use-env/bin/activate && browser-use --session enrichment open "{url}"
+
+# サイクル終了時にセッションを閉じる（Phase 5 で実行）
+source ~/.browser-use-env/bin/activate && browser-use close
+```
+
+### 2-4. コンテンツ抽出: 高品質ソース【必須】
+
+検索結果のうち、信頼性の高いドメイン（公式サイト、統計サイト等）を詳細取得。
+
+**Tier 1**: `mcp__tavily__tavily_extract` で詳細取得。
+**Tier 2**: `WebFetch` で取得。
+**Tier 3**: WebFetch 失敗時は browser-use CLI（2-3 と同じ手順）。
 
 ### 2-5. Reddit【必須・省略禁止】
 
@@ -135,6 +204,8 @@ Tavily 検索結果のうち、信頼性の高いドメイン（公式サイト�
 有望な投稿は `mcp__reddit__get_post_content` で詳細取得。
 
 Reddit は Story（体験談・事例）の主要ソースであり、毎サイクル最低1つの subreddit から投稿を取得すること。
+
+> Reddit MCP はフォールバック不要（Tavily リミットの影響を受けない）。
 
 ### 検索結果の集約
 
@@ -147,7 +218,7 @@ Reddit は Story（体験談・事例）の主要ソースであり、毎サイ�
       "source_url": "https://...",
       "title": "...",
       "content": "...",
-      "source_type": "tavily_search | webfetch | reddit",
+      "source_type": "tavily_search | tavily_extract | websearch | webfetch | browser_use | reddit",
       "language": "en | ja",
       "fetched_at": "ISO8601"
     }
@@ -281,12 +352,17 @@ PersuasionTechnique, EmotionalHook, CopyFramework, Objection, Transformation
 抽出結果を既存ノードと照合し、重複作成を防ぐ。
 
 ```bash
+# .env から NEO4J_CREATOR_PASSWORD を読み込んで実行
+export $(grep -E '^NEO4J_CREATOR_PASSWORD=' .env | xargs) && \
 uv run --extra embedding python scripts/entity_linker.py --input .tmp/creator-cycle-{cycle_id}.json
 ```
 
 出力: `.tmp/creator-cycle-{cycle_id}.resolved.json`
 
 3層マッチング: 完全一致 → Alias Full-Text + APOC → Embedding（`--no-embedding` でスキップ可）。
+
+> **注意**: `NEO4J_CREATOR_PASSWORD` が `.env` に設定されていない場合は Entity Linking をスキップし、
+> 未 resolved の JSON をそのまま Phase 4-1 に渡す。スキップ時はセッションログに記録すること。
 
 ### 4-1. graph-queue JSON 生成
 
@@ -444,12 +520,30 @@ SET r.rel_detail = row.rel_detail,
 - cross_entity: {candidates: N, added: N, skipped: N} (Phase 4.5 実行時のみ)
 ```
 
-### 5-2. 時刻チェック
+### 5-2. 時刻チェック（厳密ルール）
 
 `mcp__time__get_current_time` で現在時刻を取得。
 
-- 現在時刻 < `--until` → Phase 1 に戻る
-- 現在時刻 >= `--until` → 最終サマリーを出力して終了
+**停止判定の厳密ルール:**
+
+```
+MAINTENANCE_BUFFER = 5分（Phase 6 所要時間の上限）
+stop_time = --until - MAINTENANCE_BUFFER
+
+if 現在時刻 < stop_time:
+    → Phase 1 に戻る（サイクル継続）
+elif 現在時刻 >= stop_time AND 現在時刻 < --until:
+    → Phase 6（Post-Session Maintenance）に移行
+else:
+    → 最終サマリーを出力して即座に終了
+```
+
+**禁止事項:**
+- `stop_time` より前に「まとめ」「最終サマリー」「Phase 6」に入ってはならない
+- 「バックグラウンドエージェントの完了待ち」「コンテキスト節約」を理由に早期停止してはならない
+- Phase 6 の所要時間を5分超と見積もってはならない（embedding 更新は2-3分、修復クエリは1分で完了する）
+
+**例:** `--until 20:50` の場合、`stop_time = 20:45`。20:44 まではサイクルを継続し、20:45 に Phase 6 を開始する。
 
 ### 5-3. 空サイクル制御
 
@@ -537,9 +631,13 @@ RETURN e1.name AS name1, e2.name AS name2, round(score, 4) AS similarity
 | エラー | 対応 |
 |--------|------|
 | Neo4j 接続失敗 | Phase 0 で即座に終了。エラーメッセージを出力 |
-| Tavily API エラー | 該当クエリをスキップし、他の検索ソースで続行 |
-| WebFetch タイムアウト | 該当 URL をスキップ。セッションログに記録 |
-| Reddit API エラー | Reddit 検索をスキップし、Tavily 結果のみで続行 |
+| Tavily API リミット超過 | `tavily_available = false` をセットし、以降 WebSearch + browser-use CLI にフォールバック |
+| Tavily API その他エラー | 該当クエリをスキップし、他の検索ソースで続行 |
+| WebFetch タイムアウト | browser-use CLI にフォールバック（JS サイト）。CLI も失敗時はスキップ |
+| browser-use CLI venv 未存在 | `browser_use_available = false`。WebFetch のみで続行 |
+| browser-use CLI タイムアウト | 該当 URL をスキップ。セッションログに記録。30秒タイムアウト推奨 |
+| browser-use セッション異常 | `browser-use close --all` で全セッションリセット後、再試行 |
+| Reddit API エラー | Reddit 検索をスキップし、他の検索ソースで続行 |
 | emit_creator_queue.py 失敗 | セッションログにエラーを記録し、次サイクルへ |
 | /save-to-creator-graph 失敗 | セッションログにエラーを記録し、次サイクルへ。JSON は保持 |
 | Phase 4.5 共起クエリ失敗 | Phase 4.5 をスキップし、次サイクルへ。セッションログに記録 |
@@ -552,17 +650,23 @@ RETURN e1.name AS name1, e2.name AS name2, round(score, 4) AS similarity
 
 ### MUST
 
-- Phase 2 の全5ステップ（Tavily英語・Tavily日本語・WebFetch・Tavily Extract・Reddit）を毎サイクル実行すること。API エラー時のみスキップ可
+- Phase 2 の全5ステップ（Web検索英語・Web検索日本語・コンテンツ抽出日本語・コンテンツ抽出高品質・Reddit）を毎サイクル実行すること。API エラー時のみスキップ可
+- Tavily API リミット超過時は `tavily_available = false` をセットし、WebSearch + browser-use CLI に即座にフォールバックすること
+- note.com 等の JS レンダリングサイトで WebFetch が失敗した場合、`browser_use_available = true` なら browser-use CLI にフォールバックすること
+- browser-use CLI 使用時は1サイクルあたり最大3 URL に制限し、30秒タイムアウトを設定すること
 - Reddit（Step 2-5）は毎サイクル最低1つの subreddit から投稿を取得すること。Reddit は英語圏の生の体験談・議論の唯一のソースであり、Story 不足改善に直結する
 - Phase 3 で Story 優先判定ルール（entity-extraction-prompt-v2.md）を適用し、体験談系コンテンツを Tip ではなく Story に分類すること
 - Phase 4 で /save-to-creator-graph を使用し、graph-queue JSON 経由で投入すること。Cypher 直書き禁止
-- セッションログに各ステップの実行結果（取得件数・スキップ理由）を記録すること
+- セッションログに各ステップの実行結果（取得件数・スキップ理由・使用した Tier）を記録すること
 
 ### NEVER
 
 - 時間制約やコンテキスト節約を理由に Phase 2 のステップを省略してはならない
-- Reddit 検索を「Tavily で十分な結果が得られたから」という理由で省略してはならない
+- Reddit 検索を「WebSearch で十分な結果が得られたから」という理由で省略してはならない
+- browser-use CLI を Tavily が利用可能な間に使用してはならない（フォールバック専用）
 - `mcp__neo4j-creator__creator-write_neo4j_cypher` で直接ノード・リレーションを作成してはならない（スキーマ操作を除く）
+- `--until - 5分` より前にサイクルループを終了してはならない。「十分なデータが集まった」「コンテキストが大きくなった」は停止理由にならない
+- Phase 6（Post-Session Maintenance）を `--until - 5分` より前に実行してはならない。途中のembedding更新は不要（Phase 6 で一括実行する）
 
 ---
 

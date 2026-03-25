@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "cycle_settings": {
     "min_cycle_interval_seconds": 30,
     "max_consecutive_empty_cycles": 3,
@@ -12,18 +12,45 @@
         "side hustle {topic} tips {year}",
         "freelance {topic} income statistics {year}",
         "career change {topic} success story {year}",
-        "{topic} remote work tips"
+        "{topic} remote work tips",
+        "job interview {topic} tips techniques {year}",
+        "salary negotiation {topic} strategies {year}",
+        "resume {topic} writing tips career change",
+        "{topic} startup vs corporate career comparison",
+        "{topic} career advice 20s 30s mid-career {year}",
+        "{topic} job market trends hiring data {year}",
+        "{topic} career switch failure lesson learned"
       ],
       "tavily_queries_jp": [
         "{topic} 副業 成功事例 {year}",
         "{topic} フリーランス 収入 {year}",
-        "{topic} 転職 体験談 {year}"
+        "{topic} 転職 体験談 {year}",
+        "{topic} 面接 対策 コツ {year}",
+        "{topic} 年収交渉 内定後 テクニック",
+        "{topic} 職務経歴書 書き方 通過率",
+        "{topic} 大手 ベンチャー 比較 転職",
+        "{topic} 20代 30代 キャリア 悩み {year}",
+        "{topic} 転職 失敗談 後悔 {year}",
+        "{topic} 転職市場 求人倍率 動向 {year}",
+        "{topic} 自己PR 書き方 例文"
       ],
       "webfetch_sites": [
         {"domain": "note.com", "search_prefix": "site:note.com 副業 {topic}"},
-        {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 副業 {topic}"}
+        {"domain": "note.com", "search_prefix": "site:note.com 転職 体験談 {topic}"},
+        {"domain": "note.com", "search_prefix": "site:note.com 面接 {topic}"},
+        {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 副業 {topic}"},
+        {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 転職 {topic}"}
       ],
-      "subreddits": ["sidehustle", "careerguidance", "Entrepreneur", "freelance"],
+      "subreddits": [
+        "sidehustle",
+        "careerguidance",
+        "Entrepreneur",
+        "freelance",
+        "jobs",
+        "cscareerquestions",
+        "recruitinghell",
+        "careeradvice"
+      ],
       "entity_types_focus": ["occupation", "platform", "company", "technique"]
     },
     "beauty-romance": {

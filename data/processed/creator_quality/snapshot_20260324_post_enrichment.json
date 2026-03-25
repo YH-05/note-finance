@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-03-24T17:30:00+09:00",
+  "session": "post-enrichment (3 cycles: spiritual, beauty-romance, career)",
+  "node_counts": {
+    "Genre": 3,
+    "Concept": 3427,
+    "ConceptCategory": 14,
+    "Entity": 491,
+    "Source": 1006,
+    "Fact": 547,
+    "Tip": 598,
+    "Story": 189,
+    "Domain": 432
+  },
+  "total_nodes": 7707,
+  "total_relationships": 11817,
+  "categories": {
+    "completeness": {
+      "score": 82.7,
+      "weight": 20
+    },
+    "consistency": {
+      "score": 98.0,
+      "weight": 15
+    },
+    "structural": {
+      "score": 95.0,
+      "weight": 15
+    },
+    "orphan": {
+      "score": 80.0,
+      "weight": 15
+    },
+    "content_balance": {
+      "score": 72.0,
+      "weight": 10
+    },
+    "source_quality": {
+      "score": 87.0,
+      "weight": 10
+    },
+    "taxonomy": {
+      "score": 74.0,
+      "weight": 15
+    }
+  },
+  "llm_judge": {
+    "content_quality_avg": 0.585,
+    "concept_classification_avg": 0.67,
+    "sample_size": 15
+  },
+  "overall_score": 84.5,
+  "rating": "B"
+}

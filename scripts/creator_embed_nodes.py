@@ -32,7 +32,7 @@ BOLT_URI = "bolt://localhost:7689"
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "gomasuke"
 BATCH_SIZE = 50
-MODEL_NAME = "intfloat/multilingual-e5-small"
+MODEL_NAME = "intfloat/multilingual-e5-large"
 
 
 def main() -> None:
@@ -54,15 +54,22 @@ def main() -> None:
 
         logger.info("Loading %s...", MODEL_NAME)
         model = SentenceTransformer(MODEL_NAME, device="cpu")
-        logger.info("Model loaded (dim=384).")
+        dim = model.get_sentence_embedding_dimension()
+        logger.info("Model loaded (dim=%d).", dim)
     else:
         model = None
 
     driver = GraphDatabase.driver(BOLT_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
     try:
-        for label, key_prop in [("Entity", "entity_id"), ("Concept", "concept_id")]:
-            _embed_label(driver, model, label, key_prop, args)
+        for label, key_prop, text_expr in [
+            ("Entity", "entity_id", "n.name"),
+            ("Concept", "concept_id", "n.name"),
+            ("Fact", "fact_id", "coalesce(n.text, n.content, '')"),
+            ("Tip", "tip_id", "coalesce(n.text, n.content, '')"),
+            ("Story", "story_id", "coalesce(n.text, n.content, '')"),
+        ]:
+            _embed_label(driver, model, label, key_prop, args, text_expr=text_expr)
     finally:
         driver.close()
 
@@ -73,6 +80,8 @@ def _embed_label(
     label: str,
     key_prop: str,
     args: argparse.Namespace,
+    *,
+    text_expr: str = "n.name",
 ) -> None:
     where = "" if args.force else "WHERE n.embedding IS NULL"
     count_query = f"MATCH (n:{label}) {where} RETURN count(n) AS cnt"
@@ -87,7 +96,7 @@ def _embed_label(
 
     fetch_query = (
         f"MATCH (n:{label}) {where} "
-        f"RETURN n.{key_prop} AS id, n.name AS name "
+        f"RETURN n.{key_prop} AS id, {text_expr} AS text "
         f"LIMIT $batch"
     )
     write_query = (
@@ -104,12 +113,13 @@ def _embed_label(
         if not records:
             break
 
-        names = [r["name"] or "" for r in records]
-        embeddings = model.encode(names, normalize_embeddings=True, show_progress_bar=False)
+        texts = [r["text"] or "" for r in records]
+        embeddings = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
 
         rows = [
             {"id": r["id"], "embedding": emb.tolist()}
             for r, emb in zip(records, embeddings)
+            if r["text"]  # skip empty text
         ]
 
         with driver.session() as session:

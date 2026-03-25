@@ -19,27 +19,45 @@
 
 ### Tavily 英語クエリ
 
-| # | クエリテンプレート |
-|---|-------------------|
-| 1 | `side hustle {topic} tips {year}` |
-| 2 | `freelance {topic} income statistics {year}` |
-| 3 | `career change {topic} success story {year}` |
-| 4 | `{topic} remote work tips` |
+| # | クエリテンプレート | 対象領域 |
+|---|-------------------|---------|
+| 1 | `side hustle {topic} tips {year}` | 副業 |
+| 2 | `freelance {topic} income statistics {year}` | フリーランス |
+| 3 | `career change {topic} success story {year}` | 転職体験 |
+| 4 | `{topic} remote work tips` | リモートワーク |
+| 5 | `job interview {topic} tips techniques {year}` | 面接対策 |
+| 6 | `salary negotiation {topic} strategies {year}` | 年収交渉 |
+| 7 | `resume {topic} writing tips career change` | 書類対策 |
+| 8 | `{topic} startup vs corporate career comparison` | 大手vsベンチャー |
+| 9 | `{topic} career advice 20s 30s mid-career {year}` | 20-30代キャリア |
+| 10 | `{topic} job market trends hiring data {year}` | 転職市場データ |
+| 11 | `{topic} career switch failure lesson learned` | 転職失敗談 |
 
 ### Tavily 日本語クエリ
 
-| # | クエリテンプレート |
-|---|-------------------|
-| 1 | `{topic} 副業 成功事例 {year}` |
-| 2 | `{topic} フリーランス 収入 {year}` |
-| 3 | `{topic} 転職 体験談 {year}` |
+| # | クエリテンプレート | 対象領域 |
+|---|-------------------|---------|
+| 1 | `{topic} 副業 成功事例 {year}` | 副業 |
+| 2 | `{topic} フリーランス 収入 {year}` | フリーランス |
+| 3 | `{topic} 転職 体験談 {year}` | 転職体験 |
+| 4 | `{topic} 面接 対策 コツ {year}` | 面接対策 |
+| 5 | `{topic} 年収交渉 内定後 テクニック` | 年収交渉 |
+| 6 | `{topic} 職務経歴書 書き方 通過率` | 書類対策 |
+| 7 | `{topic} 大手 ベンチャー 比較 転職` | 大手vsベンチャー |
+| 8 | `{topic} 20代 30代 キャリア 悩み {year}` | 20-30代キャリア |
+| 9 | `{topic} 転職 失敗談 後悔 {year}` | 転職失敗談 |
+| 10 | `{topic} 転職市場 求人倍率 動向 {year}` | 市場データ |
+| 11 | `{topic} 自己PR 書き方 例文` | 書類対策 |
 
 ### WebFetch サイト
 
 | ドメイン | 検索プレフィックス |
 |---------|-------------------|
 | note.com | `site:note.com 副業 {topic}` |
+| note.com | `site:note.com 転職 体験談 {topic}` |
+| note.com | `site:note.com 面接 {topic}` |
 | hatenablog.com | `site:hatenablog.com 副業 {topic}` |
+| hatenablog.com | `site:hatenablog.com 転職 {topic}` |
 
 ### Reddit サブレディット
 
@@ -47,6 +65,10 @@
 - r/careerguidance
 - r/Entrepreneur
 - r/freelance
+- r/jobs
+- r/cscareerquestions
+- r/recruitinghell
+- r/careeradvice
 
 ### Entity タイプフォーカス
 

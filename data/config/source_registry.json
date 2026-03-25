@@ -427,6 +427,25 @@
             "tags": ["sector", "strategy", "research_report"],
             "neo4j_connected": false,
             "notes": "Neo4j投入パイプライン未構築（優先度: 低）。スクレイピング基盤の整備が先"
+        },
+        {
+            "source_id": "note-com",
+            "name": "note.com Creators",
+            "name_ja": "note.com クリエイター",
+            "collection_method": "note-com",
+            "authority_level": 2,
+            "target_instance": "creator",
+            "enabled": true,
+            "schedule": "daily",
+            "config_ref": {
+                "file": "note-com-creators.json",
+                "item_count": 0
+            },
+            "emit_command": null,
+            "tags": ["note_com", "creator", "blog", "japanese"],
+            "url": "https://note.com",
+            "neo4j_connected": true,
+            "notes": "Playwright で note.com クリエイターの無料記事を収集"
         }
     ]
 }

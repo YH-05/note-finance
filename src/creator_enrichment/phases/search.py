@@ -244,7 +244,45 @@ class DirectSearcher:
         # Step 2b: Tavily REST API で検索実行
         items = self._execute_searches(search_queries)
         logger.info("Search completed: %d items found", len(items))
+
+        # Step 2c: RawStore に検索結果を永続化（ベストエフォート）
+        self._save_to_rawstore(items, genre)
+
         return items
+
+    # ------------------------------------------------------------------
+    # Step 2c: RawStore 永続化
+    # ------------------------------------------------------------------
+    def _save_to_rawstore(self, items: list[RawItem], genre: str) -> None:
+        """検索結果を RawStore に保存する（ベストエフォート）.
+
+        Parameters
+        ----------
+        items : list[RawItem]
+            Phase 2 検索結果
+        genre : str
+            対象ジャンル（source_id の接尾辞に使用）
+        """
+        try:
+            from data_pipeline.storage.raw_store import RawStore
+
+            store = RawStore()
+            source_id = f"creator-{genre}"
+            saved = 0
+            for item in items:
+                result = store.save_text(
+                    source_id=source_id,
+                    url=item["url"],
+                    title=item["title"],
+                    raw_text=item["content"],
+                    collection_method=item["source"],
+                )
+                if result == "saved":
+                    saved += 1
+            if saved:
+                logger.info("RawStore: saved %d/%d items (source=%s)", saved, len(items), source_id)
+        except Exception:
+            logger.warning("RawStore save failed (non-blocking)", exc_info=True)
 
     # ------------------------------------------------------------------
     # Step 2a: LLM クエリ生成

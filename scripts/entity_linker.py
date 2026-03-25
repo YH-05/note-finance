@@ -11,7 +11,7 @@ Matching stages
 Stage 1: entity_key exact match (``Name::type``)
 Stage 2: Full-text search via ``research_entity_fulltext`` index
 Stage 3: Alias fallback via ``research_alias_fulltext`` index
-Stage 4 (optional): multilingual-e5-small embedding similarity
+Stage 4 (optional): multilingual-e5-large embedding similarity
 
 Usage
 -----
@@ -845,12 +845,12 @@ def resolve_concept_by_text(
 
 @functools.lru_cache(maxsize=1)
 def _load_embedding_model() -> Any:
-    """Load multilingual-e5-small model (lazy, cached via lru_cache)."""
+    """Load multilingual-e5-large model (lazy, cached via lru_cache)."""
     try:
         from sentence_transformers import SentenceTransformer
 
-        logger.info("Loading multilingual-e5-small...")
-        model = SentenceTransformer("intfloat/multilingual-e5-small", device="cpu")
+        logger.info("Loading multilingual-e5-large...")
+        model = SentenceTransformer("intfloat/multilingual-e5-large", device="cpu")
         logger.info("Model loaded.")
         return model
     except ImportError:

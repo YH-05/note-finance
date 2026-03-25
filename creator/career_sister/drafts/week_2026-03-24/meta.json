@@ -18,7 +18,7 @@
     {
       "date": "2026-03-25", "day_label": "火", "status": "draft",
       "slots": [
-        {"slot": "朝", "category": "有益", "type": "型3", "theme": "T4", "instagram": false},
+        {"slot": "朝", "category": "有益", "type": "型3", "theme": "T4", "instagram": false, "status": "published", "published_at": "2026-03-25T10:04:23+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWSc53gE4SN"},
         {"slot": "昼", "category": "有益", "type": "型1", "theme": "T8", "instagram": false},
         {"slot": "夜", "category": "有益", "type": "型2", "theme": "T6", "instagram": true, "carousel_slides": 7}
       ]

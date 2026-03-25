@@ -1,0 +1,9 @@
+{
+    "version": "1.0",
+    "creators": [],
+    "settings": {
+        "request_delay_seconds": 2,
+        "max_articles_per_scrape": 50,
+        "headless": true
+    }
+}

@@ -48,6 +48,14 @@
             "required_config": [],
             "optional_config": [],
             "default_schedule": "manual"
+        },
+        "note-com": {
+            "method_id": "note-com",
+            "name": "note.com Scraping",
+            "description": "Playwright で note.com クリエイターの記事を取得する",
+            "required_config": ["username"],
+            "optional_config": ["max_articles", "headless"],
+            "default_schedule": "daily"
         }
     }
 }

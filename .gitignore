@@ -119,3 +119,6 @@ data/config/neo4j-instances/research.yaml
 data/config/neo4j-instances/note.yaml
 .claude/worktrees/
 .playwright-cli/
+
+# Processed queue files (pipeline runtime output)
+.processed/

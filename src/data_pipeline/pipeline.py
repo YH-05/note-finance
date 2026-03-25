@@ -144,10 +144,22 @@ def run_pipeline(
             max_articles_per_site=max_items_per_feed,
             request_delay=1.0,
         )
-        collectors = {
+        collectors: dict[str, Any] = {
             "rss": rss_collector,
             "scraping": scraping_collector,
         }
+
+        # note-com コレクター（Playwright 必須のため遅延インポート）
+        try:
+            from data_pipeline.collectors.note_com import NoteComCollector
+
+            collectors["note-com"] = NoteComCollector(
+                config_dir=loader.config_dir,
+                max_articles=max_items_per_feed,
+                headless=True,
+            )
+        except ImportError:
+            logger.debug("NoteComCollector not available (playwright not installed)")
 
         all_items = []
         for source in sources:
@@ -450,3 +462,85 @@ def _ingest_neo4j(
         logger.info("Neo4j (%s): %d nodes, %d relations", target, counts["nodes"], counts["relations"])
     except Exception as e:
         result.errors.append(f"Layer 4b ({target}) failed: {e}")
+
+
+# ---------------------------------------------------------------------------
+# RawStore → Neo4j 投入（2ステップ分離の ingest 側）
+# ---------------------------------------------------------------------------
+
+
+def run_ingest_from_rawstore(
+    *,
+    source_id: str,
+    target: str = "research",
+    date: str | None = None,
+    genre: str = "career",
+    link_entities: bool = False,
+    dry_run: bool = False,
+) -> PipelineResult:
+    """RawStore に保存済みのデータを読み出し Layer 3-4 を実行する.
+
+    収集（collect）と投入（ingest）を分離した2ステップフローの後半。
+    ``run_pipeline()`` の Layer 0-2 をスキップし、RawStore から直接読み出す。
+
+    Parameters
+    ----------
+    source_id : str
+        RawStore 内の source_id（例: "note-com-yukihata"）。
+    target : str
+        投入先 ("research" or "creator")。
+    date : str | None
+        日付フィルタ (YYYY-MM-DD)。None の場合は全日付。
+    genre : str
+        creator target のジャンル (default: "career")。
+    link_entities : bool
+        True の場合、Entity Linker を実行する。
+    dry_run : bool
+        True の場合、Neo4j 投入をスキップ。
+
+    Returns
+    -------
+    PipelineResult
+        実行結果。
+    """
+    from data_pipeline.storage.raw_store import RawStore
+
+    result = PipelineResult(target=target)
+
+    # === RawStore からデータ読み出し ===
+    logger.info("=== Ingest: Loading from RawStore (source=%s, date=%s) ===", source_id, date)
+    try:
+        store = RawStore()
+        all_items = store.load_items(source_id, date)
+        result.items_collected = len(all_items)
+        result.items_saved = len(all_items)
+        logger.info("Loaded %d items from RawStore", len(all_items))
+
+        if not all_items:
+            result.errors.append(f"No items found in RawStore for source={source_id}, date={date}")
+            return result
+    except Exception as e:
+        result.errors.append(f"RawStore load failed: {e}")
+        return result
+
+    # === Layer 3-4: target で分岐 ===
+    if target == "creator":
+        _run_creator_layers(
+            all_items, result,
+            genre=genre,
+            link_entities=link_entities,
+            ingest_neo4j=True,
+            dry_run=dry_run,
+        )
+    else:
+        _run_research_layers(
+            all_items, result,
+            extract=True,
+            authority_level=3,
+            link_entities=link_entities,
+            ingest_neo4j=True,
+            dry_run=dry_run,
+        )
+
+    logger.info("=== Ingest Complete ===")
+    return result
