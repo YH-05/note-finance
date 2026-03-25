@@ -25,16 +25,19 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import feedparser
 
 from data_pipeline.collectors.note_com_browser import NoteArticle, NoteComBrowser
 from data_pipeline.storage.raw_store import RawStore
-import logging
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -148,7 +151,7 @@ class NoteComRssMonitor:
         """
         return asyncio.run(self._monitor_async())
 
-    async def _monitor_async(self) -> MonitorResult:
+    async def _monitor_async(self) -> MonitorResult:  # noqa: PLR0915
         """Async main logic for the RSS monitoring run.
 
         Returns
@@ -182,7 +185,9 @@ class NoteComRssMonitor:
                 )
             except Exception as exc:
                 msg = f"RSS fetch failed for {username}: {exc}"
-                logger.error("rss_fetch_failed username=%s error=%s", username, str(exc))
+                logger.error(
+                    "rss_fetch_failed username=%s error=%s", username, str(exc)
+                )
                 result.errors.append(msg)
                 continue
 
@@ -294,9 +299,7 @@ class NoteComRssMonitor:
             If the config file does not exist.
         """
         if not self._config_path.exists():
-            raise FileNotFoundError(
-                f"Config file not found: {self._config_path}"
-            )
+            raise FileNotFoundError(f"Config file not found: {self._config_path}")
 
         config = json.loads(
             self._config_path.read_text(encoding="utf-8"),
@@ -351,12 +354,14 @@ class NoteComRssMonitor:
 
         entries: list[RssEntry] = []
         for entry in feed.entries:
-            url = entry.get("link", "")
-            title = entry.get("title", "")
+            url = str(entry.get("link", ""))
+            title = str(entry.get("title", ""))
             if not url:
                 continue
 
-            published_at = self._parse_rss_date(entry.get("published"))
+            published_at = self._parse_rss_date(
+                str(entry.get("published", "")) or None,
+            )
 
             entries.append(
                 RssEntry(

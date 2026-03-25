@@ -20,16 +20,13 @@ Examples
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import json
+import logging
 import random
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import TYPE_CHECKING, Any
-
-import logging
-
-if TYPE_CHECKING:
-    pass
+from typing import TYPE_CHECKING, Any, ClassVar
 
 logger = logging.getLogger(__name__)
 
@@ -137,7 +134,7 @@ class NoteComBrowser:
         Active page used for scraping.
     """
 
-    _SELECTORS: dict[str, str] = {
+    _SELECTORS: ClassVar[dict[str, str]] = {
         "article_links": 'a[href*="/n/"]',
         "load_more": 'button:has-text("もっとみる")',
         "article_body": ".note-common-styles__textnote-body",
@@ -429,19 +426,15 @@ class NoteComBrowser:
                     if isinstance(stat, dict) and stat.get(
                         "interactionType",
                     ) == {"@type": "LikeAction"}:
-                        try:
+                        with contextlib.suppress(ValueError, TypeError):
                             like_count = int(
                                 stat.get("userInteractionCount", 0),
                             )
-                        except (ValueError, TypeError):
-                            pass
             elif isinstance(interaction_stats, dict):
-                try:
+                with contextlib.suppress(ValueError, TypeError):
                     like_count = int(
                         interaction_stats.get("userInteractionCount", 0),
                     )
-                except (ValueError, TypeError):
-                    pass
 
             article = NoteArticle(
                 url=url,

@@ -7,11 +7,11 @@ wealth-sitemap-config.json からサイトマップURLを解決し、
 
 from __future__ import annotations
 
+import contextlib
 import json
 import time
 from datetime import datetime, timezone
-from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 from xml.etree import ElementTree
 
 import requests
@@ -22,7 +22,11 @@ from data_pipeline.collectors.base import (
     CollectedItem,
     CollectionResult,
 )
-from data_pipeline.registry.models import DataSource
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    from data_pipeline.registry.models import DataSource
 
 _USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -83,7 +87,7 @@ def _fetch_sitemap_urls(
         return []
 
     try:
-        root = ElementTree.fromstring(resp.content)  # noqa: S314
+        root = ElementTree.fromstring(resp.content)
     except ElementTree.ParseError:
         return []
 
@@ -113,10 +117,14 @@ def _fetch_sitemap_urls(
         if any(p in url for p in exclude):
             continue
 
-        urls.append({
-            "url": url,
-            "lastmod": lastmod.text.strip() if lastmod is not None and lastmod.text else None,
-        })
+        urls.append(
+            {
+                "url": url,
+                "lastmod": lastmod.text.strip()
+                if lastmod is not None and lastmod.text
+                else "",
+            }
+        )
 
         if len(urls) >= max_urls:
             break
@@ -131,7 +139,7 @@ def _fetch_article_text(url: str, timeout: float = 10.0) -> str | None:
         if downloaded is None:
             return None
         return trafilatura.extract(downloaded)
-    except Exception:  # noqa: BLE001
+    except Exception:
         return None
 
 
@@ -184,7 +192,7 @@ class ScrapingCollector(BaseCollector):
             try:
                 items = self._scrape_site(source, site)
                 result.items.extend(items)
-            except Exception as e:  # noqa: BLE001
+            except Exception as e:
                 result.errors.append(
                     f"Failed to scrape '{site.get('domain', '?')}': {e}",
                 )
@@ -204,11 +212,13 @@ class ScrapingCollector(BaseCollector):
 
         # url があれば単一サイトとして扱う
         if source.url:
-            return [{
-                "domain": source.url.split("//")[-1].split("/")[0],
-                "sitemap_url": source.url.rstrip("/") + "/sitemap.xml",
-                "exclude_patterns": [],
-            }]
+            return [
+                {
+                    "domain": source.url.split("//")[-1].split("/")[0],
+                    "sitemap_url": source.url.rstrip("/") + "/sitemap.xml",
+                    "exclude_patterns": [],
+                }
+            ]
 
         return []
 
@@ -246,16 +256,16 @@ class ScrapingCollector(BaseCollector):
             # lastmod から published_at を推定
             published_at = None
             if entry.get("lastmod"):
-                try:
+                with contextlib.suppress(ValueError, TypeError):
                     published_at = datetime.fromisoformat(entry["lastmod"])
-                except (ValueError, TypeError):
-                    pass
 
             items.append(
                 CollectedItem(
                     source_id=source.source_id,
                     url=url,
-                    title=url.split("/")[-2] if url.endswith("/") else url.split("/")[-1],
+                    title=url.split("/")[-2]
+                    if url.endswith("/")
+                    else url.split("/")[-1],
                     raw_text=text,
                     published_at=published_at,
                     collection_method="scraping",

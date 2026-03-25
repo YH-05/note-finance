@@ -9,7 +9,8 @@ LLM抽出を使わない場合でも、メタデータ変換だけで最低限�
 
 from __future__ import annotations
 
-from data_pipeline.collectors.base import CollectedItem
+from typing import TYPE_CHECKING, Literal
+
 from data_pipeline.structurer.models import (
     AboutEntity,
     ClaimEntry,
@@ -18,6 +19,9 @@ from data_pipeline.structurer.models import (
     StructuredOutput,
     TopicEntry,
 )
+
+if TYPE_CHECKING:
+    from data_pipeline.collectors.base import CollectedItem
 
 # authority_level マッピング: source_registry の数値 → emit_graph_queue の文字列
 _AUTHORITY_MAP = {
@@ -29,11 +33,14 @@ _AUTHORITY_MAP = {
 }
 
 
-def _map_authority(level: int | None) -> str:
+_AuthorityLevel = Literal["official", "analyst", "media", "blog", "social", "academic"]
+
+
+def _map_authority(level: int | None) -> _AuthorityLevel:
     """数値 authority_level を文字列に変換する."""
     if level is None:
         return "media"
-    return _AUTHORITY_MAP.get(level, "media")
+    return _AUTHORITY_MAP.get(level, "media")  # type: ignore[return-value]
 
 
 def _infer_source_type(item: CollectedItem) -> str:

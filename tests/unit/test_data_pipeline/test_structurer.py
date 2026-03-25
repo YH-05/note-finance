@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timezone
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
 
@@ -23,6 +23,9 @@ from data_pipeline.structurer.models import (
     StructuredOutput,
     TopicEntry,
 )
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 
 def _make_item(
@@ -117,7 +120,9 @@ class TestBuildSourceEntry:
         [(5, "official"), (4, "analyst"), (3, "media"), (2, "blog"), (1, "social")],
     )
     def test_パラメトライズ_authority_levelマッピング(
-        self, level: int, expected: str,
+        self,
+        level: int,
+        expected: str,
     ) -> None:
         item = _make_item()
         entry = build_source_entry(item, authority_level=level)
@@ -297,6 +302,13 @@ class TestStructurerIntegration:
         assert "facts" in data
         assert "claims" in data
         assert "topics" in data
-        assert all(s["authority_level"] in ["official", "analyst", "media", "blog", "social", "academic"] for s in data["sources"])
+        assert all(
+            s["authority_level"]
+            in ["official", "analyst", "media", "blog", "social", "academic"]
+            for s in data["sources"]
+        )
         assert all(f["source_url"] for f in data["facts"])
-        assert all(f["source_url"] in {s["url"] for s in data["sources"]} for f in data["facts"])
+        assert all(
+            f["source_url"] in {s["url"] for s in data["sources"]}
+            for f in data["facts"]
+        )

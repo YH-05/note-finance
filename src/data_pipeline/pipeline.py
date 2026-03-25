@@ -24,8 +24,10 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass, field
-from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -54,7 +56,7 @@ class PipelineResult:
         return len(self.errors) == 0
 
 
-def run_pipeline(
+def run_pipeline(  # noqa: PLR0912, PLR0915
     *,
     target: str = "research",
     source_ids: list[str] | None = None,
@@ -108,7 +110,9 @@ def run_pipeline(
         registry = loader.load_source_registry()
 
         if source_ids:
-            sources = [s for s in registry.sources if s.source_id in source_ids and s.enabled]
+            sources = [
+                s for s in registry.sources if s.source_id in source_ids and s.enabled
+            ]
         else:
             methods = [method] if isinstance(method, str) else method
             sources = []
@@ -165,13 +169,19 @@ def run_pipeline(
         for source in sources:
             collector = collectors.get(source.collection_method)
             if collector is None:
-                logger.warning("No collector for method '%s', skipping %s", source.collection_method, source.source_id)
+                logger.warning(
+                    "No collector for method '%s', skipping %s",
+                    source.collection_method,
+                    source.source_id,
+                )
                 continue
             collection = collector.collect(source)
             all_items.extend(collection.items)
             logger.info(
                 "  %s: %d items, %d errors",
-                source.source_id, collection.success_count, collection.error_count,
+                source.source_id,
+                collection.success_count,
+                collection.error_count,
             )
             if collection.errors:
                 for e in collection.errors:
@@ -206,7 +216,13 @@ def run_pipeline(
             cr.items = items
             sr = store.save(cr)
             total_saved += sr.saved
-            logger.info("  %s: saved=%d, dup=%d, empty=%d", sid, sr.saved, sr.skipped_duplicate, sr.skipped_empty)
+            logger.info(
+                "  %s: saved=%d, dup=%d, empty=%d",
+                sid,
+                sr.saved,
+                sr.skipped_duplicate,
+                sr.skipped_empty,
+            )
 
         result.items_saved = total_saved
     except Exception as e:
@@ -215,9 +231,24 @@ def run_pipeline(
 
     # === Layer 3+4: target で分岐 ===
     if target == "creator":
-        _run_creator_layers(all_items, result, genre=genre, link_entities=link_entities, ingest_neo4j=ingest_neo4j, dry_run=dry_run)
+        _run_creator_layers(
+            all_items,
+            result,
+            genre=genre,
+            link_entities=link_entities,
+            ingest_neo4j=ingest_neo4j,
+            dry_run=dry_run,
+        )
     else:
-        _run_research_layers(all_items, result, extract=extract, authority_level=authority_level, link_entities=link_entities, ingest_neo4j=ingest_neo4j, dry_run=dry_run)
+        _run_research_layers(
+            all_items,
+            result,
+            extract=extract,
+            authority_level=authority_level,
+            link_entities=link_entities,
+            ingest_neo4j=ingest_neo4j,
+            dry_run=dry_run,
+        )
 
     logger.info("=== Pipeline Complete ===")
     return result
@@ -228,7 +259,7 @@ def run_pipeline(
 # ---------------------------------------------------------------------------
 
 
-def _run_research_layers(
+def _run_research_layers(  # noqa: PLR0915
     all_items: list,
     result: PipelineResult,
     *,
@@ -243,14 +274,16 @@ def _run_research_layers(
     logger.info("=== Layer 3: Structuring (research) ===")
     try:
         if extract:
-            from data_pipeline.structurer.extractor import LlmExtractor
             from data_pipeline.structurer.converter import build_from_extracted
+            from data_pipeline.structurer.extractor import LlmExtractor
 
             text_items = [i for i in all_items if i.raw_text.strip()]
             logger.info("Extracting from %d items (LLM)", len(text_items))
             extractor = LlmExtractor(request_delay=1.0)
             extractions = extractor.extract_many(text_items)
-            output = build_from_extracted(text_items, extractions, authority_level=authority_level)
+            output = build_from_extracted(
+                text_items, extractions, authority_level=authority_level
+            )
             result.items_extracted = len(text_items)
         else:
             from data_pipeline.structurer.converter import build_minimal_output
@@ -262,7 +295,10 @@ def _run_research_layers(
         result.claims_total = output.claim_count
         logger.info(
             "Structured: %d facts, %d claims, %d topics, %d entities",
-            output.fact_count, output.claim_count, len(output.topics), len(output.entity_names),
+            output.fact_count,
+            output.claim_count,
+            len(output.topics),
+            len(output.entity_names),
         )
 
         from data_pipeline.structurer.emitter import save_emit_input
@@ -290,7 +326,9 @@ def _run_research_layers(
                 import json
 
                 emit_data = json.loads(emit_path.read_text(encoding="utf-8"))
-                resolved = resolve_all(client, emit_data, use_embedding=False, use_v3=True)
+                resolved = resolve_all(
+                    client, emit_data, use_embedding=False, use_v3=True
+                )
                 emit_path.write_text(
                     json.dumps(resolved, ensure_ascii=False, indent=2),
                     encoding="utf-8",
@@ -311,14 +349,18 @@ def _run_research_layers(
             result.graph_queue_path = gq_path
             logger.info("Graph queue generated: %s", gq_path)
         else:
-            result.errors.append("emit_research_queue.py failed to generate graph-queue")
+            result.errors.append(
+                "emit_research_queue.py failed to generate graph-queue"
+            )
             return
     except Exception as e:
         result.errors.append(f"Layer 4a failed: {e}")
         return
 
     # Layer 4b: Neo4j 投入
-    _ingest_neo4j(gq_path, result, target="research", ingest_neo4j=ingest_neo4j, dry_run=dry_run)
+    _ingest_neo4j(
+        gq_path, result, target="research", ingest_neo4j=ingest_neo4j, dry_run=dry_run
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -326,7 +368,7 @@ def _run_research_layers(
 # ---------------------------------------------------------------------------
 
 
-def _run_creator_layers(
+def _run_creator_layers(  # noqa: PLR0915
     all_items: list,
     result: PipelineResult,
     *,
@@ -336,7 +378,6 @@ def _run_creator_layers(
     dry_run: bool,
 ) -> None:
     """creator-neo4j 向け Layer 3-4."""
-    import json
     from pathlib import Path
 
     text_items = [i for i in all_items if i.raw_text.strip()]
@@ -347,8 +388,8 @@ def _run_creator_layers(
     # Layer 3: creator 向け構造化
     logger.info("=== Layer 3: Structuring (creator) ===")
     try:
-        from creator_enrichment.phases.extract import ContentExtractor
         from creator_enrichment.llm_client import SdkLLMClient
+        from creator_enrichment.phases.extract import ContentExtractor
         from creator_enrichment.types import RawItem
 
         # CollectedItem → RawItem 変換
@@ -357,9 +398,7 @@ def _run_creator_layers(
                 url=item.url,
                 title=item.title,
                 content=item.raw_text,
-                source_url=item.url,
-                source_type="web",
-                language=item.language or "en",
+                source=item.collection_method or "web",
             )
             for item in text_items
         ]
@@ -374,7 +413,9 @@ def _run_creator_layers(
         result.stories_total = len(cycle_data.get("stories", []))
         logger.info(
             "Structured: %d facts, %d tips, %d stories",
-            result.facts_total, result.tips_total, result.stories_total,
+            result.facts_total,
+            result.tips_total,
+            result.stories_total,
         )
     except Exception as e:
         result.errors.append(f"Layer 3 (creator) failed: {e}")
@@ -393,7 +434,9 @@ def _run_creator_layers(
             password = os.environ.get("NEO4J_CREATOR_PASSWORD", "gomasuke")
             client = Neo4jClient(uri, user, password)
             try:
-                cycle_data_dict = resolve_all(client, cycle_data_dict, use_embedding=False)
+                cycle_data_dict = resolve_all(
+                    client, cycle_data_dict, use_embedding=False
+                )
                 logger.info("Entity linking completed")
             finally:
                 client.close()
@@ -422,7 +465,9 @@ def _run_creator_layers(
         return
 
     # Layer 4b: creator-neo4j 投入
-    _ingest_neo4j(gq_path, result, target="creator", ingest_neo4j=ingest_neo4j, dry_run=dry_run)
+    _ingest_neo4j(
+        gq_path, result, target="creator", ingest_neo4j=ingest_neo4j, dry_run=dry_run
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -454,12 +499,19 @@ def _ingest_neo4j(
     try:
         queue_data = load_graph_queue(gq_path)
         if target == "creator":
-            counts = ingest_to_creator_neo4j(queue_data, dry_run=dry_run or not ingest_neo4j)
+            counts = ingest_to_creator_neo4j(
+                queue_data, dry_run=dry_run or not ingest_neo4j
+            )
         else:
             counts = ingest_to_neo4j(queue_data, dry_run=dry_run or not ingest_neo4j)
         result.neo4j_nodes = counts["nodes"]
         result.neo4j_relations = counts["relations"]
-        logger.info("Neo4j (%s): %d nodes, %d relations", target, counts["nodes"], counts["relations"])
+        logger.info(
+            "Neo4j (%s): %d nodes, %d relations",
+            target,
+            counts["nodes"],
+            counts["relations"],
+        )
     except Exception as e:
         result.errors.append(f"Layer 4b ({target}) failed: {e}")
 
@@ -508,7 +560,9 @@ def run_ingest_from_rawstore(
     result = PipelineResult(target=target)
 
     # === RawStore からデータ読み出し ===
-    logger.info("=== Ingest: Loading from RawStore (source=%s, date=%s) ===", source_id, date)
+    logger.info(
+        "=== Ingest: Loading from RawStore (source=%s, date=%s) ===", source_id, date
+    )
     try:
         store = RawStore()
         all_items = store.load_items(source_id, date)
@@ -517,7 +571,9 @@ def run_ingest_from_rawstore(
         logger.info("Loaded %d items from RawStore", len(all_items))
 
         if not all_items:
-            result.errors.append(f"No items found in RawStore for source={source_id}, date={date}")
+            result.errors.append(
+                f"No items found in RawStore for source={source_id}, date={date}"
+            )
             return result
     except Exception as e:
         result.errors.append(f"RawStore load failed: {e}")
@@ -526,7 +582,8 @@ def run_ingest_from_rawstore(
     # === Layer 3-4: target で分岐 ===
     if target == "creator":
         _run_creator_layers(
-            all_items, result,
+            all_items,
+            result,
             genre=genre,
             link_entities=link_entities,
             ingest_neo4j=True,
@@ -534,7 +591,8 @@ def run_ingest_from_rawstore(
         )
     else:
         _run_research_layers(
-            all_items, result,
+            all_items,
+            result,
             extract=True,
             authority_level=3,
             link_entities=link_entities,

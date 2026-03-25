@@ -10,8 +10,10 @@ import json
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-from data_pipeline.structurer.models import StructuredOutput
+if TYPE_CHECKING:
+    from data_pipeline.structurer.models import StructuredOutput
 
 # AIDEV-NOTE: emit_research_queue.py のパスはプロジェクトルートからの相対パスで解決
 _EMIT_SCRIPT = "scripts/emit_research_queue.py"
@@ -90,19 +92,25 @@ def run_emit_graph_queue(
         return None
 
     cmd = [
-        "uv", "run", "python", str(script),
-        "--command", command,
-        "--input", str(input_path),
+        "uv",
+        "run",
+        "python",
+        str(script),
+        "--command",
+        command,
+        "--input",
+        str(input_path),
     ]
     if output_path:
         cmd.extend(["--output", str(output_path)])
 
-    result = subprocess.run(  # noqa: S603
+    result = subprocess.run(
         cmd,
         capture_output=True,
         text=True,
         cwd=str(project_root),
         timeout=120,
+        check=False,
     )
 
     if result.returncode != 0:

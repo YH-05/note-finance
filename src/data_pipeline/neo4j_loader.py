@@ -12,10 +12,12 @@ from __future__ import annotations
 import json
 import logging
 import os
-from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from neo4j import GraphDatabase
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -42,14 +44,38 @@ _REL_ENDPOINTS = {
     "source_fact": ("source_id", "Source", "fact_id", "Fact", "PROVIDES"),
     "source_claim": ("source_id", "Source", "claim_id", "Claim", "PROVIDES"),
     "extracted_from_fact": ("fact_id", "Fact", "source_id", "Source", "EXTRACTED_FROM"),
-    "extracted_from_claim": ("claim_id", "Claim", "source_id", "Source", "EXTRACTED_FROM"),
+    "extracted_from_claim": (
+        "claim_id",
+        "Claim",
+        "source_id",
+        "Source",
+        "EXTRACTED_FROM",
+    ),
     "fact_entity": ("fact_id", "Fact", "entity_id", "Entity", "RELATES_TO"),
     "claim_entity": ("claim_id", "Claim", "entity_id", "Entity", "ABOUT"),
     "tagged": ("source_id", "Source", "topic_id", "Topic", "TAGGED"),
     "contains_chunk": ("source_id", "Source", "chunk_id", "Chunk", "CONTAINS_CHUNK"),
-    "has_datapoint": ("entity_id", "Entity", "datapoint_id", "FinancialDataPoint", "HAS_DATAPOINT"),
-    "for_period": ("datapoint_id", "FinancialDataPoint", "period_id", "FiscalPeriod", "FOR_PERIOD"),
-    "datapoint_entity": ("datapoint_id", "FinancialDataPoint", "entity_id", "Entity", "ABOUT"),
+    "has_datapoint": (
+        "entity_id",
+        "Entity",
+        "datapoint_id",
+        "FinancialDataPoint",
+        "HAS_DATAPOINT",
+    ),
+    "for_period": (
+        "datapoint_id",
+        "FinancialDataPoint",
+        "period_id",
+        "FiscalPeriod",
+        "FOR_PERIOD",
+    ),
+    "datapoint_entity": (
+        "datapoint_id",
+        "FinancialDataPoint",
+        "entity_id",
+        "Entity",
+        "ABOUT",
+    ),
     "authored_by": ("source_id", "Source", "author_id", "Author", "AUTHORED_BY"),
 }
 
@@ -74,8 +100,10 @@ def _merge_node(tx, label: str, key_prop: str, props: dict[str, Any]) -> None:
 
 def _merge_relation(
     tx,
-    from_key: str, from_label: str,
-    to_key: str, to_label: str,
+    from_key: str,
+    from_label: str,
+    to_key: str,
+    to_label: str,
     rel_type: str,
     rel: dict[str, Any],
 ) -> None:
@@ -98,7 +126,7 @@ def load_graph_queue(queue_path: Path) -> dict[str, Any]:
         return json.load(f)
 
 
-def ingest_to_neo4j(
+def ingest_to_neo4j(  # noqa: PLR0912
     queue_data: dict[str, Any],
     *,
     dry_run: bool = False,
@@ -144,7 +172,9 @@ def ingest_to_neo4j(
         if label and not dry_run:
             driver = _get_driver()
             with driver.session() as session:
-                session.execute_write(_merge_node, label, key_prop, cnode.get("properties", cnode))
+                session.execute_write(
+                    _merge_node, label, key_prop, cnode.get("properties", cnode)
+                )
             driver.close()
         node_count += 1
 
@@ -162,9 +192,12 @@ def ingest_to_neo4j(
                 for rel in rels:
                     session.execute_write(
                         _merge_relation,
-                        from_key, from_label,
-                        to_key, to_label,
-                        rel_type, rel,
+                        from_key,
+                        from_label,
+                        to_key,
+                        to_label,
+                        rel_type,
+                        rel,
                     )
             driver.close()
         rel_count += len(rels)
@@ -181,10 +214,15 @@ def ingest_to_neo4j(
             with driver.session() as session:
                 session.execute_write(
                     _merge_relation,
-                    f"{from_label.lower()}_id", from_label,
-                    f"{to_label.lower()}_id", to_label,
+                    f"{from_label.lower()}_id",
+                    from_label,
+                    f"{to_label.lower()}_id",
+                    to_label,
                     rel_type,
-                    {f"{from_label.lower()}_id": from_id, f"{to_label.lower()}_id": to_id},
+                    {
+                        f"{from_label.lower()}_id": from_id,
+                        f"{to_label.lower()}_id": to_id,
+                    },
                 )
             driver.close()
         rel_count += 1
@@ -201,17 +239,34 @@ _CREATOR_DEFAULT_URI = "bolt://localhost:7689"
 
 # creator-2.0 のノードセクション名一覧（dry-run カウント用）
 _CREATOR_NODE_SECTIONS = [
-    "genres", "concept_categories", "concepts", "entities",
-    "sources", "domains", "facts", "tips", "stories", "aliases",
+    "genres",
+    "concept_categories",
+    "concepts",
+    "entities",
+    "sources",
+    "domains",
+    "facts",
+    "tips",
+    "stories",
+    "aliases",
 ]
 
 _CREATOR_REL_SECTIONS = [
-    "is_a", "serves_as",
-    "about_fact", "about_tip", "about_story",
-    "from_source_fact", "from_source_tip", "from_source_story",
+    "is_a",
+    "serves_as",
+    "about_fact",
+    "about_tip",
+    "about_story",
+    "from_source_fact",
+    "from_source_tip",
+    "from_source_story",
     "from_domain",
-    "mentions_fact", "mentions_tip", "mentions_story",
-    "in_genre_fact", "in_genre_tip", "in_genre_story",
+    "mentions_fact",
+    "mentions_tip",
+    "mentions_story",
+    "in_genre_fact",
+    "in_genre_tip",
+    "in_genre_story",
     "concept_relations",
 ]
 
@@ -227,13 +282,11 @@ def _get_creator_driver():
 def _count_creator_nodes_rels(queue_data: dict[str, Any]) -> dict[str, int]:
     """creator queue_data のノード/リレーション数をカウントする（dry-run用）."""
     node_count = sum(
-        len(queue_data.get(section, []))
-        for section in _CREATOR_NODE_SECTIONS
+        len(queue_data.get(section, [])) for section in _CREATOR_NODE_SECTIONS
     )
     relations = queue_data.get("relations", {})
     rel_count = sum(
-        len(relations.get(section, []))
-        for section in _CREATOR_REL_SECTIONS
+        len(relations.get(section, [])) for section in _CREATOR_REL_SECTIONS
     )
     return {"nodes": node_count, "relations": rel_count}
 
@@ -266,7 +319,8 @@ def ingest_to_creator_neo4j(
         counts = _count_creator_nodes_rels(queue_data)
         logger.info(
             "Creator dry-run: would ingest %d nodes, %d relations",
-            counts["nodes"], counts["relations"],
+            counts["nodes"],
+            counts["relations"],
         )
         return counts
 

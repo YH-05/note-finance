@@ -26,7 +26,9 @@ def _mock_bootstrap() -> tuple[MagicMock, MagicMock]:
 class TestMainNormalExit:
     """main() 正常終了のテスト."""
 
-    @patch("scripts.creator_enrichment_runner._bootstrap", return_value=_mock_bootstrap())
+    @patch(
+        "scripts.creator_enrichment_runner._bootstrap", return_value=_mock_bootstrap()
+    )
     @patch("creator_enrichment.orchestrator.CreatorEnrichmentOrchestrator")
     @patch("creator_enrichment.config.load_config")
     @patch("creator_enrichment.config.parse_args")
@@ -127,7 +129,9 @@ class TestMainBootstrapError:
 class TestMainFatalError:
     """main() FatalError のテスト."""
 
-    @patch("scripts.creator_enrichment_runner._bootstrap", return_value=_mock_bootstrap())
+    @patch(
+        "scripts.creator_enrichment_runner._bootstrap", return_value=_mock_bootstrap()
+    )
     @patch("creator_enrichment.orchestrator.CreatorEnrichmentOrchestrator")
     @patch("creator_enrichment.config.load_config")
     @patch("creator_enrichment.config.parse_args")
@@ -160,7 +164,9 @@ class TestMainFatalError:
 class TestMainKeyboardInterrupt:
     """main() KeyboardInterrupt のテスト."""
 
-    @patch("scripts.creator_enrichment_runner._bootstrap", return_value=_mock_bootstrap())
+    @patch(
+        "scripts.creator_enrichment_runner._bootstrap", return_value=_mock_bootstrap()
+    )
     @patch("creator_enrichment.orchestrator.CreatorEnrichmentOrchestrator")
     @patch("creator_enrichment.config.load_config")
     @patch("creator_enrichment.config.parse_args")
@@ -215,5 +221,7 @@ class TestNeo4jClientAdapter:
         adapter = _Neo4jClientAdapter(mock_client)
         result = adapter.execute_query("MATCH (n {id: $id}) RETURN n", {"id": "abc"})
 
-        mock_client.query.assert_called_once_with("MATCH (n {id: $id}) RETURN n", id="abc")
+        mock_client.query.assert_called_once_with(
+            "MATCH (n {id: $id}) RETURN n", id="abc"
+        )
         assert result == [{"name": "test"}]

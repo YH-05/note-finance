@@ -14,9 +14,8 @@ Usage（既存コード側）:
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from data_pipeline.collectors.base import CollectedItem
 from data_pipeline.storage.adapters import (
     convert_many,
     from_news_scraper_article,
@@ -27,6 +26,9 @@ from data_pipeline.storage.adapters import (
     from_web_research,
 )
 from data_pipeline.storage.raw_store import RawStore, SaveResult
+
+if TYPE_CHECKING:
+    from data_pipeline.collectors.base import CollectedItem
 
 # AIDEV-NOTE: モジュールレベルのストアインスタンス。
 # デフォルトで /Volumes/personal_folder/raw_texts に保存。
@@ -83,20 +85,24 @@ def save_news_scraper_results(
     if articles and isinstance(articles[0], dict):
         items = []
         for a in articles:
-            items.append({
-                "url": a.get("url", ""),
-                "title": a.get("title", ""),
-                "raw_text": a.get("content") or a.get("summary") or "",
-                "published_at": a.get("published"),
-                "author": a.get("author"),
-                "metadata": {
-                    "source": a.get("source"),
-                    "category": a.get("category"),
-                    "tags": a.get("tags", []),
-                },
-            })
+            items.append(
+                {
+                    "url": a.get("url", ""),
+                    "title": a.get("title", ""),
+                    "raw_text": a.get("content") or a.get("summary") or "",
+                    "published_at": a.get("published"),
+                    "author": a.get("author"),
+                    "metadata": {
+                        "source": a.get("source"),
+                        "category": a.get("category"),
+                        "tags": a.get("tags", []),
+                    },
+                }
+            )
         return store.save_many_texts(
-            items, source_id=source_id, collection_method="scraping",
+            items,
+            source_id=source_id,
+            collection_method="scraping",
         )
 
     # Article オブジェクトの場合はアダプター経由
@@ -129,20 +135,28 @@ def save_report_scraper_results(
     for r in reports:
         metadata = r.get("metadata", r)
         content = r.get("content", {})
-        items.append({
-            "url": metadata.get("url", ""),
-            "title": metadata.get("title", ""),
-            "raw_text": content.get("text", "") if isinstance(content, dict) else "",
-            "published_at": metadata.get("published"),
-            "author": metadata.get("author"),
-            "metadata": {
-                "source_key": metadata.get("source_key"),
-                "tags": list(metadata.get("tags", ())),
-                "extraction_method": content.get("method") if isinstance(content, dict) else None,
-            },
-        })
+        items.append(
+            {
+                "url": metadata.get("url", ""),
+                "title": metadata.get("title", ""),
+                "raw_text": content.get("text", "")
+                if isinstance(content, dict)
+                else "",
+                "published_at": metadata.get("published"),
+                "author": metadata.get("author"),
+                "metadata": {
+                    "source_key": metadata.get("source_key"),
+                    "tags": list(metadata.get("tags", ())),
+                    "extraction_method": content.get("method")
+                    if isinstance(content, dict)
+                    else None,
+                },
+            }
+        )
     return store.save_many_texts(
-        items, source_id=source_id, collection_method="scraping",
+        items,
+        source_id=source_id,
+        collection_method="scraping",
     )
 
 
@@ -173,8 +187,11 @@ def save_pdf_chunks(
         PDFのタイトル。
     """
     collected = convert_many(
-        chunks, from_pdf_chunk, source_id,
-        pdf_url=pdf_url, pdf_title=pdf_title,
+        chunks,
+        from_pdf_chunk,
+        source_id,
+        pdf_url=pdf_url,
+        pdf_title=pdf_title,
     )
     return _save_collected_items(collected, source_id)
 
@@ -295,7 +312,9 @@ def save_raw_texts(
     """
     store = _get_store()
     return store.save_many_texts(
-        items, source_id=source_id, collection_method=collection_method,
+        items,
+        source_id=source_id,
+        collection_method=collection_method,
     )
 
 
@@ -376,52 +395,65 @@ def save_from_emit_input(
         content = fact.get("content", "")
         src_url = fact.get("source_url", "")
         if content and src_url:
-            items.append({
-                "url": src_url,
-                "title": source_urls.get(src_url, ""),
-                "raw_text": content,
-            })
+            items.append(
+                {
+                    "url": src_url,
+                    "title": source_urls.get(src_url, ""),
+                    "raw_text": content,
+                }
+            )
 
     # claims[] から原文テキストを抽出
     for claim in data.get("claims", []):
         content = claim.get("content", "")
         src_url = claim.get("source_url", "")
         if content and src_url:
-            items.append({
-                "url": src_url,
-                "title": source_urls.get(src_url, ""),
-                "raw_text": content,
-            })
+            items.append(
+                {
+                    "url": src_url,
+                    "title": source_urls.get(src_url, ""),
+                    "raw_text": content,
+                }
+            )
 
     # reddit 固有: posts[] からテキスト抽出
     for post in data.get("posts", []):
         url = post.get("url") or post.get("permalink", "")
         text = post.get("selftext") or post.get("body", "")
         if url and text:
-            items.append({
-                "url": url,
-                "title": post.get("title", ""),
-                "raw_text": text,
-            })
+            items.append(
+                {
+                    "url": url,
+                    "title": post.get("title", ""),
+                    "raw_text": text,
+                }
+            )
 
     # articles[] から抽出（finance-news-workflow, wealth-scrape等）
     for article in data.get("articles", []):
         url = article.get("url") or article.get("link", "")
-        text = article.get("content") or article.get("summary") or article.get("text", "")
+        text = (
+            article.get("content") or article.get("summary") or article.get("text", "")
+        )
         if url and text:
-            items.append({
-                "url": url,
-                "title": article.get("title", ""),
-                "raw_text": text,
-                "published_at": article.get("published") or article.get("published_at"),
-                "author": article.get("author"),
-            })
+            items.append(
+                {
+                    "url": url,
+                    "title": article.get("title", ""),
+                    "raw_text": text,
+                    "published_at": article.get("published")
+                    or article.get("published_at"),
+                    "author": article.get("author"),
+                }
+            )
 
     if not items:
         return SaveResult(source_id=source_id)
 
     return store.save_many_texts(
-        items, source_id=source_id, collection_method=method,
+        items,
+        source_id=source_id,
+        collection_method=method,
     )
 
 

@@ -10,7 +10,6 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
-
 # ---------------------------------------------------------------------------
 # Source（情報源）
 # ---------------------------------------------------------------------------
@@ -26,7 +25,9 @@ class SourceEntry(BaseModel):
         "official", "analyst", "media", "blog", "social", "academic"
     ] = Field(description="信頼度レベル")
     publisher: str = Field(default="", description="パブリッシャー名")
-    data_source: str = Field(default="", description="データ由来タグ (tavily/gemini/rss等)")
+    data_source: str = Field(
+        default="", description="データ由来タグ (tavily/gemini/rss等)"
+    )
     published_at: str = Field(default="", description="公開日時 (ISO 8601)")
 
 

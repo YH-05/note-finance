@@ -701,7 +701,9 @@ class PdfPipeline:
             )
             logger.info(
                 "RawStore: saved=%d, dup=%d (pdf=%s)",
-                sr.saved, sr.skipped_duplicate, pdf_title,
+                sr.saved,
+                sr.skipped_duplicate,
+                pdf_title,
             )
         except Exception as exc:
             logger.warning("RawStore save failed (non-blocking): %s", exc)

@@ -17,12 +17,16 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import timezone
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from pydantic import BaseModel, Field
 
 from data_pipeline.collectors.base import CollectedItem, CollectionResult
+
+if TYPE_CHECKING:
+    from datetime import datetime
 
 _DEFAULT_EXTERNAL_DIR = Path("/Volumes/personal_folder/raw_texts")
 _FALLBACK_DIR_NAME = "raw_texts"
@@ -113,7 +117,7 @@ class RawStore:
                     save_result.skipped_duplicate += 1
                 elif outcome == "empty":
                     save_result.skipped_empty += 1
-            except Exception as e:  # noqa: BLE001
+            except Exception as e:
                 save_result.errors.append(f"Failed to save '{item.url}': {e}")
 
         return save_result
@@ -230,7 +234,9 @@ class RawStore:
                     source_id=source_id,
                     url=item_dict["url"],
                     title=item_dict.get("title", ""),
-                    raw_text=item_dict.get("raw_text", item_dict.get("text", item_dict.get("content", ""))),
+                    raw_text=item_dict.get(
+                        "raw_text", item_dict.get("text", item_dict.get("content", ""))
+                    ),
                     collection_method=collection_method,
                     published_at=item_dict.get("published_at"),
                     author=item_dict.get("author"),
@@ -243,7 +249,7 @@ class RawStore:
                     save_result.skipped_duplicate += 1
                 elif outcome == "empty":
                     save_result.skipped_empty += 1
-            except Exception as e:  # noqa: BLE001
+            except Exception as e:
                 save_result.errors.append(
                     f"Failed to save '{item_dict.get('url', '?')}': {e}",
                 )
@@ -272,9 +278,7 @@ class RawStore:
         if not source_dir.exists():
             return False
         return any(
-            (d / f"{h}.json").exists()
-            for d in source_dir.iterdir()
-            if d.is_dir()
+            (d / f"{h}.json").exists() for d in source_dir.iterdir() if d.is_dir()
         )
 
     def load_items(
@@ -317,18 +321,14 @@ class RawStore:
         """保存済みソースID一覧を返す."""
         if not self.base_dir.exists():
             return []
-        return sorted(
-            d.name for d in self.base_dir.iterdir() if d.is_dir()
-        )
+        return sorted(d.name for d in self.base_dir.iterdir() if d.is_dir())
 
     def list_dates(self, source_id: str) -> list[str]:
         """source_id の保存済み日付一覧を返す."""
         source_dir = self.base_dir / source_id
         if not source_dir.exists():
             return []
-        return sorted(
-            d.name for d in source_dir.iterdir() if d.is_dir()
-        )
+        return sorted(d.name for d in source_dir.iterdir() if d.is_dir())
 
     def count(self, source_id: str, date: str | None = None) -> int:
         """保存済みアイテム数を返す."""
@@ -343,8 +343,7 @@ class RawStore:
             return sum(1 for f in date_dir.glob("*.json"))
 
         return sum(
-            1 for d in source_dir.iterdir() if d.is_dir()
-            for _ in d.glob("*.json")
+            1 for d in source_dir.iterdir() if d.is_dir() for _ in d.glob("*.json")
         )
 
     def _item_path(self, item: CollectedItem) -> Path:
@@ -361,6 +360,6 @@ class RawStore:
             try:
                 data = json.loads(json_file.read_text(encoding="utf-8"))
                 items.append(CollectedItem(**data))
-            except Exception:  # noqa: BLE001
+            except Exception:
                 continue
         return items

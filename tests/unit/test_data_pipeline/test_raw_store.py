@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
 
 from data_pipeline.collectors.base import CollectedItem, CollectionResult
 from data_pipeline.storage.raw_store import RawStore, SaveResult, _url_hash
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 
 def _make_item(
@@ -157,7 +160,10 @@ class TestRawStoreExists:
 
         today = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
         assert store.exists("https://example.com/dated", "test", date=today) is True
-        assert store.exists("https://example.com/dated", "test", date="2020-01-01") is False
+        assert (
+            store.exists("https://example.com/dated", "test", date="2020-01-01")
+            is False
+        )
 
 
 class TestRawStoreLoad:

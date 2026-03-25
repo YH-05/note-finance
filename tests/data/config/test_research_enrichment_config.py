@@ -8,7 +8,13 @@ import pytest
 
 CONFIG_PATH = Path("data/config/research-enrichment-config.json")
 
-REQUIRED_TOP_LEVEL_KEYS = {"gap_analysis", "search", "fallback", "rawstore", "cycle_settings"}
+REQUIRED_TOP_LEVEL_KEYS = {
+    "gap_analysis",
+    "search",
+    "fallback",
+    "rawstore",
+    "cycle_settings",
+}
 VALID_AUTHORITY_LEVELS = {"official", "analyst", "media", "blog", "social", "academic"}
 
 
@@ -19,7 +25,9 @@ def config() -> dict[str, Any]:
 
 
 class TestResearchEnrichmentConfigSchema:
-    def test_正常系_必須トップレベルキーが存在する(self, config: dict[str, Any]) -> None:
+    def test_正常系_必須トップレベルキーが存在する(
+        self, config: dict[str, Any]
+    ) -> None:
         missing = REQUIRED_TOP_LEVEL_KEYS - set(config.keys())
         assert not missing, f"必須キーが不足: {missing}"
 
@@ -46,9 +54,7 @@ class TestResearchEnrichmentConfigSchema:
         val = config["gap_analysis"]["staleness_threshold_days"]
         assert isinstance(val, int) and val > 0, f"正の整数であること: {val}"
 
-    def test_正常系_min_facts_per_topicが正の整数(
-        self, config: dict[str, Any]
-    ) -> None:
+    def test_正常系_min_facts_per_topicが正の整数(self, config: dict[str, Any]) -> None:
         val = config["gap_analysis"]["min_facts_per_topic"]
         assert isinstance(val, int) and val > 0, f"正の整数であること: {val}"
 
@@ -67,9 +73,7 @@ class TestResearchEnrichmentConfigSchema:
         assert len(templates["en"]) > 0, "en テンプレートが空"
         assert len(templates["ja"]) > 0, "ja テンプレートが空"
 
-    def test_正常系_cycle_settingsの値が正の数値(
-        self, config: dict[str, Any]
-    ) -> None:
+    def test_正常系_cycle_settingsの値が正の数値(self, config: dict[str, Any]) -> None:
         cs = config["cycle_settings"]
         assert cs["min_cycle_interval_seconds"] > 0
         assert cs["max_consecutive_empty_cycles"] > 0

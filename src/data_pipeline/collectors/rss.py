@@ -14,8 +14,7 @@ import json
 import time
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
-from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import feedparser
 import requests
@@ -26,7 +25,11 @@ from data_pipeline.collectors.base import (
     CollectedItem,
     CollectionResult,
 )
-from data_pipeline.registry.models import DataSource
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    from data_pipeline.registry.models import DataSource
 
 _USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -56,7 +59,7 @@ def _parse_datetime(value: str | None) -> datetime | None:
     # フォールバックフォーマット
     for fmt in _FALLBACK_FORMATS:
         try:
-            return datetime.strptime(value, fmt)  # noqa: DTZ007
+            return datetime.strptime(value, fmt)
         except ValueError:
             continue
     return None
@@ -65,7 +68,7 @@ def _parse_datetime(value: str | None) -> datetime | None:
 def _extract_text(entry: dict[str, Any]) -> str:
     """feedparser エントリから本文テキストを抽出する."""
     # content フィールド（完全な本文）を優先
-    if "content" in entry and entry["content"]:
+    if entry.get("content"):
         contents = entry["content"]
         if isinstance(contents, list) and contents:
             return contents[0].get("value", "")
@@ -79,7 +82,17 @@ def _extract_text(entry: dict[str, Any]) -> str:
 
 
 # AIDEV-NOTE: 本文取得をスキップする拡張子・パターン
-_SKIP_EXTENSIONS = {".pdf", ".xlsx", ".xls", ".csv", ".zip", ".doc", ".docx", ".ppt", ".pptx"}
+_SKIP_EXTENSIONS = {
+    ".pdf",
+    ".xlsx",
+    ".xls",
+    ".csv",
+    ".zip",
+    ".doc",
+    ".docx",
+    ".ppt",
+    ".pptx",
+}
 
 
 def _should_skip_full_text(url: str) -> bool:
@@ -105,7 +118,7 @@ def _fetch_full_text(url: str) -> str | None:
         if downloaded is None:
             return None
         return trafilatura.extract(downloaded)
-    except Exception:  # noqa: BLE001
+    except Exception:
         return None
 
 
@@ -209,7 +222,7 @@ class RssCollector(BaseCollector):
             try:
                 items = self._fetch_feed(source, url, feed_title)
                 result.items.extend(items)
-            except Exception as e:  # noqa: BLE001
+            except Exception as e:
                 result.errors.append(f"Failed to fetch '{feed_title}' ({url}): {e}")
 
         # 本文取得（fetch_full_text or fetch_if_empty）
@@ -264,15 +277,17 @@ class RssCollector(BaseCollector):
 
         items: list[CollectedItem] = []
         for entry in parsed.entries[: self.max_items_per_feed]:
-            entry_url = entry.get("link", "")
+            entry_url = str(entry.get("link", ""))
             if not entry_url:
                 continue
 
             raw_text = _extract_text(entry)
-            title = entry.get("title", "")
-            published_str = entry.get("published") or entry.get("updated")
+            title = str(entry.get("title", ""))
+            published_raw = entry.get("published") or entry.get("updated")
+            published_str = str(published_raw) if published_raw else None
             published_at = _parse_datetime(published_str)
-            author = entry.get("author")
+            author_raw = entry.get("author")
+            author = str(author_raw) if author_raw else None
 
             # 言語推定: URL or ソース設定から
             language = self._detect_language(source, entry_url)
@@ -291,7 +306,7 @@ class RssCollector(BaseCollector):
                     "feed_url": url,
                     "feed_title": feed_title,
                     "entry_id": entry.get("id", entry_url),
-                    "tags": [t.get("term", "") for t in entry.get("tags", [])],
+                    "tags": [t.get("term", "") for t in (entry.get("tags") or [])],
                 },
             )
             items.append(item)
@@ -329,7 +344,14 @@ class RssCollector(BaseCollector):
         if "us_market" in source.tags:
             return "en"
         # URLベース
-        jp_domains = [".go.jp", ".co.jp", ".or.jp", ".ne.jp", "toyokeizai.net", "jpx.co.jp"]
+        jp_domains = [
+            ".go.jp",
+            ".co.jp",
+            ".or.jp",
+            ".ne.jp",
+            "toyokeizai.net",
+            "jpx.co.jp",
+        ]
         if any(d in url for d in jp_domains):
             return "ja"
         return None

@@ -43,7 +43,6 @@ def mock_driver() -> MagicMock:
     return driver
 
 
-
 def _make_co_occurrence_record(
     from_name: str,
     from_type: str,
@@ -370,7 +369,6 @@ class TestRunLLMPrompt:
         assert "USES" in prompt
         assert "COMPETES_WITH" in prompt
         assert "SKIP" in prompt
-
 
     def test_正常系_同一タイプ候補もプロンプトに含まれる(
         self,

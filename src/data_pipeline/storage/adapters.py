@@ -13,11 +13,14 @@ RawStore は常に CollectedItem を受け取る。
 
 from __future__ import annotations
 
+import contextlib
 from datetime import datetime, timezone
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from data_pipeline.collectors.base import CollectedItem
 
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 # ---------------------------------------------------------------------------
 # news パッケージ (src/news/)
@@ -46,7 +49,9 @@ def from_news_collected_article(
         collected_at=article.collected_at,
         collection_method="rss",
         metadata={
-            "source_type": article.source.source_type.value if hasattr(article.source.source_type, "value") else str(article.source.source_type),
+            "source_type": article.source.source_type.value
+            if hasattr(article.source.source_type, "value")
+            else str(article.source.source_type),
             "source_name": article.source.source_name,
             "category": article.source.category,
         },
@@ -72,9 +77,13 @@ def from_news_extracted_article(
         collected_at=collected.collected_at,
         collection_method="rss",
         metadata={
-            "source_type": collected.source.source_type.value if hasattr(collected.source.source_type, "value") else str(collected.source.source_type),
+            "source_type": collected.source.source_type.value
+            if hasattr(collected.source.source_type, "value")
+            else str(collected.source.source_type),
             "source_name": collected.source.source_name,
-            "extraction_status": article.extraction_status.value if hasattr(article.extraction_status, "value") else str(article.extraction_status),
+            "extraction_status": article.extraction_status.value
+            if hasattr(article.extraction_status, "value")
+            else str(article.extraction_status),
             "extraction_method": article.extraction_method,
         },
     )
@@ -134,10 +143,8 @@ def from_rss_mcp_item(
     raw_text = item.get("content") or item.get("summary") or ""
     published_at = None
     if item.get("published"):
-        try:
+        with contextlib.suppress(ValueError, TypeError):
             published_at = datetime.fromisoformat(item["published"])
-        except (ValueError, TypeError):
-            pass
 
     return CollectedItem(
         source_id=source_id,
@@ -224,7 +231,9 @@ def from_web_research(
         source_id=source_id,
         url=finding.get("url", finding.get("source_url", "")),
         title=finding.get("title", ""),
-        raw_text=finding.get("content", finding.get("text", finding.get("summary", ""))),
+        raw_text=finding.get(
+            "content", finding.get("text", finding.get("summary", ""))
+        ),
         collection_method="web_search",
         content_type="article",
         metadata={
@@ -269,7 +278,7 @@ def from_reddit_post(
 
 def convert_many(
     items: list[Any],
-    converter: callable,
+    converter: Callable[..., CollectedItem],
     source_id: str,
     **kwargs,
 ) -> list[CollectedItem]:
@@ -295,6 +304,6 @@ def convert_many(
     for item in items:
         try:
             results.append(converter(item, source_id, **kwargs))
-        except Exception:  # noqa: BLE001
+        except Exception:
             continue
     return results

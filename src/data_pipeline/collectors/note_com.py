@@ -8,7 +8,8 @@ from __future__ import annotations
 
 import asyncio
 import json
-from pathlib import Path
+import logging
+from typing import TYPE_CHECKING
 
 from data_pipeline.collectors.base import (
     BaseCollector,
@@ -16,8 +17,11 @@ from data_pipeline.collectors.base import (
     CollectionResult,
 )
 from data_pipeline.collectors.note_com_browser import NoteArticle, NoteComBrowser
-from data_pipeline.registry.models import DataSource
-import logging
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    from data_pipeline.registry.models import DataSource
 
 logger = logging.getLogger(__name__)
 
@@ -126,10 +130,8 @@ class NoteComCollector(BaseCollector):
                         username,
                         len(items),
                     )
-                except Exception as exc:  # noqa: BLE001
-                    error_msg = (
-                        f"Failed to collect from creator '{username}': {exc}"
-                    )
+                except Exception as exc:
+                    error_msg = f"Failed to collect from creator '{username}': {exc}"
                     result.errors.append(error_msg)
                     logger.error(
                         "creator_collection_failed username=%s error=%s",

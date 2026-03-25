@@ -10,9 +10,8 @@ DirectSearcher による LLM クエリ生成 + Tavily REST API 検索を検証�
 from __future__ import annotations
 
 import json
-from unittest.mock import MagicMock, patch
-
 import os
+from unittest.mock import MagicMock, patch
 
 import httpx
 import pytest
@@ -47,7 +46,9 @@ def key_pool() -> TavilyKeyPool:
 
 
 @pytest.fixture
-def searcher(mock_llm: MagicMock, genre_config: dict, key_pool: TavilyKeyPool) -> DirectSearcher:
+def searcher(
+    mock_llm: MagicMock, genre_config: dict, key_pool: TavilyKeyPool
+) -> DirectSearcher:
     """DirectSearcher インスタンス."""
     return DirectSearcher(
         llm_client=mock_llm,
@@ -59,8 +60,7 @@ def searcher(mock_llm: MagicMock, genre_config: dict, key_pool: TavilyKeyPool) -
 def _llm_queries_response(n: int = 3) -> str:
     """LLM が返すクエリ生成 JSON を作成する."""
     queries = [
-        {"query": f"test query {i}", "type": "gap", "language": "en"}
-        for i in range(n)
+        {"query": f"test query {i}", "type": "gap", "language": "en"} for i in range(n)
     ]
     return json.dumps(queries, ensure_ascii=False)
 
@@ -204,13 +204,15 @@ class TestTavilyExecution:
         mock_llm: MagicMock,
     ) -> None:
         """空のクエリ文字列はスキップされる."""
-        mock_llm.query.return_value = json.dumps([
-            {"query": "", "type": "gap", "language": "en"},
-            {"query": "valid query", "type": "gap", "language": "en"},
-        ])
+        mock_llm.query.return_value = json.dumps(
+            [
+                {"query": "", "type": "gap", "language": "en"},
+                {"query": "valid query", "type": "gap", "language": "en"},
+            ]
+        )
         mock_post.return_value = _tavily_api_response()
 
-        results = searcher.search(queries=["test"], genre="career")
+        searcher.search(queries=["test"], genre="career")
 
         assert mock_post.call_count == 1  # 空クエリはスキップ
 
@@ -222,9 +224,15 @@ class TestTavilyExecution:
         mock_llm: MagicMock,
     ) -> None:
         """'reddit' を含むクエリに include_domains が設定される."""
-        mock_llm.query.return_value = json.dumps([
-            {"query": "side hustle reddit experience", "type": "explore", "language": "en"},
-        ])
+        mock_llm.query.return_value = json.dumps(
+            [
+                {
+                    "query": "side hustle reddit experience",
+                    "type": "explore",
+                    "language": "en",
+                },
+            ]
+        )
         mock_post.return_value = _tavily_api_response()
 
         searcher.search(queries=["test"], genre="career")
@@ -304,7 +312,10 @@ class TestTavilyKeyPool:
         pool = TavilyKeyPool([])
         assert not pool.has_keys()
 
-    @patch.dict("os.environ", {"TAVILY_API_KEY_1": "k1", "TAVILY_API_KEY_2": "k2", "TAVILY_API_KEY_3": "k3"})
+    @patch.dict(
+        "os.environ",
+        {"TAVILY_API_KEY_1": "k1", "TAVILY_API_KEY_2": "k2", "TAVILY_API_KEY_3": "k3"},
+    )
     def test_正常系_from_envで連番キーを読む(self) -> None:
         pool = TavilyKeyPool.from_env()
         assert pool.has_keys()
@@ -317,7 +328,9 @@ class TestTavilyKeyPool:
             assert pool.get_key() == "single"
 
     def test_正常系_from_envで連番が途切れたら停止(self) -> None:
-        with patch.dict("os.environ", {"TAVILY_API_KEY_1": "a", "TAVILY_API_KEY_3": "c"}, clear=True):
+        with patch.dict(
+            "os.environ", {"TAVILY_API_KEY_1": "a", "TAVILY_API_KEY_3": "c"}, clear=True
+        ):
             pool = TavilyKeyPool.from_env()
             # _2 が無いので _1 だけ読まれる
             assert pool.get_key() == "a"
