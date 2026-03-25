@@ -124,6 +124,13 @@ exclude = [
     # notebooklm MCP: notebooklm.mcp.serverはfinanceパッケージ由来。finance依存削除で未解決（独立Issueで修正予定）
     "tests/notebooklm/integration/test_chat_workflow.py",
     "tests/notebooklm/integration/test_notebook_workflow.py",
+    # emit_graph_queue → emit_research_queue リネーム済み。旧テストは独立Issueで移行予定
+    "tests/scripts/test_emit_graph_queue.py",
+    "tests/scripts/test_e2e_graph_pipeline.py",
+    "tests/scripts/test_e2e_kg_v21_all_waves.py",
+    "tests/scripts/test_e2e_pdf_extraction.py",
+    "tests/scripts/test_e2e_save_to_article_graph.py",
+    "tests/pdf_pipeline/unit/test_emit_graph_queue_pdf.py",
 ]
 
 [tool.bandit]

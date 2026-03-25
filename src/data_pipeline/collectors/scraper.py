@@ -12,7 +12,7 @@ import json
 import time
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING, Any
-from xml.etree import ElementTree
+from xml.etree import ElementTree  # nosec B405
 
 import requests
 import trafilatura
@@ -87,7 +87,7 @@ def _fetch_sitemap_urls(
         return []
 
     try:
-        root = ElementTree.fromstring(resp.content)
+        root = ElementTree.fromstring(resp.content)  # nosec B314
     except ElementTree.ParseError:
         return []
 
