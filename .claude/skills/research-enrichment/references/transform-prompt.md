@@ -61,15 +61,7 @@ graph-queue 入力仕様に準拠した JSON に変換してください。
   - "academic"  — 学術論文、arXiv
 
 authority_level 判定基準（URLドメイン）:
-| ドメインパターン | authority_level |
-|-----------------|----------------|
-| cnbc.com, bloomberg.com, reuters.com, wsj.com, nikkei.com | media |
-| seekingalpha.com, morningstar.com | analyst |
-| reddit.com | social |
-| arxiv.org | academic |
-| 企業ドメイン (ir.*, investor.*, *-ir.jp) | official |
-| sec.gov, edgar | official |
-| 上記以外 | blog |
+→ `references/search-strategy.md` の「authority_level の自動判定」テーブルを参照すること。
 
 ### 2. facts[] の構築（検証可能な事実）
 
@@ -276,79 +268,9 @@ facts[].about_entities と claims[].about_entities で使用する entity_type �
 
 ---
 
-## SEC EDGAR 直接マッピング
+## SEC EDGAR / alphaxiv 直接マッピング
 
-SEC EDGAR データは `raw_items[]` を経由せず、LLM 変換をバイパスして直接マッピングする。
-Phase 2 で取得した SEC EDGAR の構造化データは、以下のルールで JSON に含める。
-
-### マッピングルール
-
-```json
-{
-  "sources": [
-    {
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000002488",
-      "title": "SEC EDGAR - AMD Filings",
-      "source_type": "sec_filing",
-      "authority_level": "official",
-      "publisher": "SEC EDGAR"
-    }
-  ],
-  "facts": [
-    {
-      "content": "AMD Q4 2025 revenue: $6.2B (10-K filing)",
-      "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000002488",
-      "confidence": 1.0,
-      "fact_type": "financial_metric",
-      "about_entities": [
-        {"name": "AMD", "entity_type": "company"}
-      ]
-    }
-  ]
-}
-```
-
-**固定値**:
-- `authority_level`: `"official"`（常に）
-- `confidence`: `1.0`（SEC filing は公式データ）
-- `fact_type`: `"financial_metric"`（財務データの場合）
-
----
-
-## alphaxiv 直接マッピング
-
-alphaxiv（学術論文）データも `raw_items[]` を経由せず、直接マッピングする。
-
-### マッピングルール
-
-```json
-{
-  "sources": [
-    {
-      "url": "https://arxiv.org/abs/2401.12345",
-      "title": "Deep Learning for Financial Time Series Prediction",
-      "source_type": "academic",
-      "authority_level": "academic",
-      "publisher": "arXiv"
-    }
-  ],
-  "facts": [
-    {
-      "content": "Transformer-based model achieved 0.89 AUC on S&P 500 direction prediction",
-      "source_url": "https://arxiv.org/abs/2401.12345",
-      "confidence": 0.85,
-      "fact_type": "research_finding",
-      "about_entities": [
-        {"name": "S&P 500", "entity_type": "index"}
-      ]
-    }
-  ]
-}
-```
-
-**固定値**:
-- `authority_level`: `"academic"`（常に）
-- `fact_type`: `"research_finding"`（学術論文の発見）
+SEC EDGAR・alphaxiv の直接マッピングルールは `references/search-strategy.md` の「SEC EDGAR / alphaxiv 直接マッピング（LLM バイパス）」セクションを参照すること。本ファイル（transform-prompt.md）は LLM 構造化の対象である `raw_items[]` のみを扱う。
 
 ---
 

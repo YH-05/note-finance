@@ -50,6 +50,13 @@ RETURN 1 AS ok
 
 失敗時はエラーメッセージを出力して終了。
 
+### 0-2.5. Source.created_at インデックス確認
+
+```cypher
+// mcp__neo4j-research__research-write_neo4j_cypher
+CREATE INDEX source_created_at IF NOT EXISTS FOR (s:Source) ON (s.created_at)
+```
+
 ### 0-3. 設定ファイル読み込み
 
 ```
@@ -93,13 +100,14 @@ source ~/.browser-use-env/bin/activate && browser-use state 2>&1 | head -1
 | クエリ | 目的 | 用途 |
 |--------|------|------|
 | Q1 | ConceptCategory 別 Fact 密度 | category_gap スコア算出 |
-| Q2 | ticker あり & Fact 0 件の Entity | entity_gap スコア算出 |
+| Q2 | ticker あり & Fact 0 件の Entity + バリアント（1-3 件） | entity_gap スコア算出 |
 | Q3 | 鮮度（as_of_date が古い Entity 昇順） | staleness スコア算出 |
 | Q4 | sec_cik あり & FDP 0 件の Entity | financial_gap スコア算出 |
 | Q5 | 直近 7 日間の Source URL 一覧 | 重複排除リスト構築 |
 
 全クエリは `mcp__neo4j-research__research-read_neo4j_cypher` で実行する。
 Q1-Q4 は相互に依存しないため並列実行可能。
+Q2 はメインクエリ（Fact 0 件）とバリアントクエリ（Fact 1-3 件）の**両方を必ず実行**すること。
 
 ### 4 軸スコア算出
 
@@ -194,13 +202,7 @@ unified_score = 0.15 * category_gap + 0.35 * entity_gap + 0.30 * staleness + 0.2
 
 ### SEC EDGAR 実行ルール
 
-ticker を持つ Entity に対し、以下の 3 ツールを**並列実行**する:
-
-| ツール | 引数 | 出力 |
-|--------|------|------|
-| `get_recent_filings` | `ticker={ticker}` | 直近 filing リスト |
-| `get_financials` | `ticker={ticker}` | 収益・利益・BS データ |
-| `get_key_metrics` | `ticker={ticker}` | PER, PBR, ROE 等の指標 |
+ticker を持つ Entity に対し、`search-strategy.md` の「SEC EDGAR」セクションに定義された 3 ツールを**並列実行**する。
 
 **重要**: SEC EDGAR データは `raw_items[]` に格納せず、**直接マッピング**する（Phase 3 で LLM バイパス）。
 
@@ -226,6 +228,7 @@ ticker を持つ Entity に対し、以下の 3 ツールを**並列実行**す�
 
 Entity の `ticker` がある場合はサブレディット内で ticker をキーワードに絞り込む。
 `get_post_content` での深掘りは重要な投稿 2-3 件に限定する。
+**複数サブレディットの検索は並列実行可能**（Entity 単位でグルーピングして並列化すること）。
 
 ### 検索結果の集約
 
@@ -412,17 +415,27 @@ uv run python scripts/emit_research_queue.py \
 
 ### Phase 4-3: 投入検証
 
-投入後、`mcp__neo4j-research__research-read_neo4j_cypher` で件数を確認:
+投入後、`mcp__neo4j-research__research-read_neo4j_cypher` で件数を確認する。
+resolved.json の sources/facts/claims 件数と投入後のノード件数を比較検証する:
 
 ```cypher
-MATCH (n)
-WHERE n.cycle_id = $cycle_id
-RETURN labels(n)[0] AS label, count(n) AS count
+// 直近投入分の件数確認（created_at で絞り込み）
+MATCH (s:Source)
+WHERE s.created_at >= datetime() - duration('PT5M')
+RETURN 'Source' AS label, count(s) AS count
+UNION ALL
+MATCH (f:Fact)
+WHERE f.created_at >= datetime() - duration('PT5M')
+RETURN 'Fact' AS label, count(f) AS count
+UNION ALL
+MATCH (c:Claim)
+WHERE c.created_at >= datetime() - duration('PT5M')
+RETURN 'Claim' AS label, count(c) AS count
 ```
 
 期待される最低限のノード:
-- Source: 検索結果の件数分
-- Fact / Claim: 各 source から抽出された件数分
+- Source: resolved.json の sources 件数分
+- Fact / Claim: resolved.json の facts + claims 件数分
 - Entity: about_entities で参照された Entity
 
 `--dry-run` 指定時は Phase 4 をスキップし、生成された JSON のサマリーのみ出力する。
@@ -551,7 +564,7 @@ RETURN count(*) AS tagged_created
 | alphaxiv エラー | alphaxiv をスキップし、他のソースで続行 |
 | Reddit API エラー | Reddit 検索をスキップし、他の検索ソースで続行 |
 | Wikipedia API エラー | description 補完をスキップ |
-| entity_linker.py 失敗 | Entity Linking をスキップし、未 resolved の JSON を Phase 4-1 に渡す |
+| entity_linker.py 失敗 | Entity Linking をスキップし未 resolved の JSON を Phase 4-1 に渡す。ただし未 resolved Entity が 50% 超の場合は投入をブロックしセッションログに警告を記録 |
 | emit_research_queue.py 失敗 | セッションログにエラーを記録し、次サイクルへ |
 | /save-to-research-graph 失敗 | セッションログにエラーを記録し、次サイクルへ。JSON は保持 |
 | --until 時刻パース失敗 | エラーメッセージを出力して終了 |
@@ -572,7 +585,7 @@ RETURN count(*) AS tagged_created
 - Phase 4 で `/save-to-research-graph` を使用し、graph-queue JSON 経由で投入すること。Cypher 直書き禁止
 - Phase 4 実行前に全 sources の `authority_level` バリデーションを実行すること
 - セッションログに各ステップの実行結果（取得件数・スキップ理由・使用した Tier）を記録すること
-- `--until - 5分` まではサイクルを継続すること
+- `--until - 5分` まではサイクルを継続すること（詳細: Phase 5-2 参照）
 
 ### NEVER
 

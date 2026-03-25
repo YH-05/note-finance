@@ -4650,6 +4650,17 @@ def _web_research_mapper_data() -> dict[str, Any]:
                 ],
             },
         ],
+        "claims": [
+            {
+                "content": "日銀は2026年後半に追加利上げに踏み切る可能性が高い",
+                "source_url": "https://www.reuters.com/markets/boj-policy-2026",
+                "claim_type": "analyst_forecast",
+                "sentiment": "positive",
+                "about_entities": [
+                    {"name": "日本銀行", "entity_type": "organization"},
+                ],
+            },
+        ],
         "topics": [
             {"name": "金融政策", "category": "monetary_policy"},
             {"name": "日本経済", "category": "macro"},
@@ -4806,3 +4817,29 @@ class TestMapWebResearch:
         assert len(result["facts"]) == 2
         assert len(result["relations"]["source_fact"]) == 2
         assert "nonexistent" in caplog.text
+
+    def test_正常系_claims含む入力でclaim_typeとsentimentがマッピングされる(
+        self,
+    ) -> None:
+        """claims[] を含む入力で claim_type と sentiment が正しくマッピングされること。"""
+        data = _web_research_mapper_data()
+        result = map_web_research(data)
+
+        # claims が結果に含まれること
+        assert "claims" in result
+        assert len(result["claims"]) >= 1
+
+        claim = result["claims"][0]
+        assert "content" in claim
+        assert "日銀" in claim["content"]
+
+    def test_正常系_claimsのabout_entitiesがエンティティに含まれる(
+        self,
+    ) -> None:
+        """claims[].about_entities の Entity が結果の entities に含まれること。"""
+        data = _web_research_mapper_data()
+        result = map_web_research(data)
+
+        entity_names = {e["name"] for e in result["entities"]}
+        # claims の about_entities (日本銀行) は facts にも含まれるため必ず存在
+        assert "日本銀行" in entity_names

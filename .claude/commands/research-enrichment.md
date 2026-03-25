@@ -3,7 +3,7 @@ description: research-neo4j の知識ギャップを自動拡充する（ギャ�
 allowed-tools: Read, Write, Bash, Grep, Glob
 ---
 
-/research-enrichment を実行します。
+research-neo4j の知識ギャップを自動拡充します。ギャップ分析 → 検索 → LLM 構造化 → パイプライン投入を `--until` 時刻まで繰り返します。
 
 パラメータ: $ARGUMENTS
 

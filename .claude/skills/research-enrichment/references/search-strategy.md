@@ -374,13 +374,13 @@ Phase 1 出力: ターゲット Entity リスト
 
 ---
 
-## 検証例: AMD (ticker=AMD, sec_cik=2488, sector=IT)
+## 検証例: AMD (ticker=AMD, sec_cik=2488, sector=Technology)
 
 | 条件 | 結果 | 実行ソース |
 |------|------|-----------|
 | 常時実行 | YES | Tavily EN×2, JA×2, Reddit |
 | ticker=AMD | YES | SEC EDGAR (get_recent_filings, get_financials, get_key_metrics) |
-| sector=IT (Technology) | YES | alphaxiv (embedding_similarity_search 優先) |
+| sector=Technology | YES | alphaxiv (embedding_similarity_search 優先) |
 | description 未登録 | 要確認 | Wikipedia get_summary（description が NULL/空なら実行） |
 
 **期待される合計ソース数**: 5-6（常時）+ 3（SEC EDGAR）+ 1-3（alphaxiv）= **9-12 ソース**
