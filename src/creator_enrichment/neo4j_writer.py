@@ -350,6 +350,18 @@ class CreatorGraphWriter:
             MATCH (b:{to_label} {{{to_key}: row.target_id}})
             MERGE (a)-[:{rel_type}]->(b)
             """
+        elif rel_type == "IN_GENRE":
+            # IN_GENRE は1コンテンツ1ジャンル制約: 既存を削除してから MERGE
+            query = f"""
+            UNWIND $rels AS row
+            MATCH (a:{from_label} {{{from_key}: row.from_id}})
+            MATCH (b:{to_label} {{{to_key}: row.to_id}})
+            OPTIONAL MATCH (a)-[old:{rel_type}]->()
+            WHERE old IS NOT NULL
+            DELETE old
+            WITH a, b
+            MERGE (a)-[:{rel_type}]->(b)
+            """
         else:
             query = f"""
             UNWIND $rels AS row

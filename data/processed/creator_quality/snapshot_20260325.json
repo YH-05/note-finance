@@ -1,0 +1,134 @@
+{
+  "timestamp": "2026-03-25T10:00:00+09:00",
+  "session": "daily quality check",
+  "node_counts": {
+    "Genre": 3,
+    "Concept": 3513,
+    "ConceptCategory": 14,
+    "Entity": 544,
+    "Source": 1206,
+    "Fact": 643,
+    "Tip": 642,
+    "Story": 266,
+    "Domain": 530
+  },
+  "total_nodes": 7361,
+  "total_relationships": 13401,
+  "categories": {
+    "completeness": {
+      "score": 83.0,
+      "weight": 20,
+      "details": {
+        "fact_weighted": 80.3,
+        "tip_weighted": 79.9,
+        "story_weighted": 81.2,
+        "source_weighted": 91.7,
+        "entity_weighted": 94.3,
+        "concept_weighted": 72.6
+      }
+    },
+    "consistency": {
+      "score": 99.0,
+      "weight": 15,
+      "details": {
+        "invalid_genre": 0,
+        "invalid_authority_level": 0,
+        "duplicate_entity_key": 0,
+        "entity_types": ["platform:300", "company:161", "person:53", "organization:30"]
+      }
+    },
+    "structural": {
+      "score": 97.0,
+      "weight": 15,
+      "details": {
+        "avg_rels_per_content": 5.01,
+        "median_rels": 5,
+        "min_rels": 1,
+        "max_rels": 17,
+        "rel_types": {
+          "ABOUT": 4563,
+          "IS_A": 3718,
+          "IN_GENRE": 1916,
+          "FROM_SOURCE": 1498,
+          "FROM_DOMAIN": 859,
+          "MENTIONS": 767,
+          "ENABLES": 30,
+          "SERVES_AS": 28,
+          "REQUIRES": 8,
+          "RELATES_TO": 8,
+          "COMPETES_WITH": 6
+        }
+      }
+    },
+    "orphan": {
+      "score": 82.0,
+      "weight": 15,
+      "details": {
+        "orphan_content": 0,
+        "orphan_entity": 166,
+        "orphan_concept_strict": 9,
+        "orphan_source": 158,
+        "entity_orphan_rate_pct": 30.5,
+        "source_orphan_rate_pct": 13.1
+      }
+    },
+    "content_balance": {
+      "score": 68.0,
+      "weight": 10,
+      "details": {
+        "genre_distribution": {
+          "career": {"fact": 369, "tip": 290, "story": 134, "total": 793},
+          "beauty-romance": {"fact": 242, "tip": 250, "story": 86, "total": 578},
+          "spiritual": {"fact": 229, "tip": 232, "story": 84, "total": 545}
+        },
+        "genre_ratio_max_min": 1.46,
+        "story_pct_avg": 15.8,
+        "zero_content_concepts": 1886,
+        "zero_content_concepts_pct": 53.7
+      }
+    },
+    "source_quality": {
+      "score": 93.0,
+      "weight": 10,
+      "details": {
+        "authority_level_fill": 100.0,
+        "source_type_fill": 100.0,
+        "url_fill": 100.0,
+        "unique_domains": 530,
+        "domain_diversity": 0.44,
+        "url_missing": 0
+      }
+    },
+    "taxonomy": {
+      "score": 72.0,
+      "weight": 15,
+      "details": {
+        "is_a_connected": 3503,
+        "is_a_rate_pct": 99.7,
+        "about_connected": 1627,
+        "about_rate_pct": 46.3,
+        "no_isa_count": 10,
+        "no_about_count": 1886,
+        "category_count": 14,
+        "top_categories": ["Skill:824", "MonetizationMethod:502", "AcquisitionChannel:387", "SuccessMetric:370"]
+      }
+    }
+  },
+  "llm_judge": {
+    "content_quality_avg": 0.685,
+    "content_quality_breakdown": {
+      "content_quality": 0.727,
+      "source_grounding": 0.667,
+      "classification_accuracy": 0.633
+    },
+    "concept_classification_avg": 0.74,
+    "concept_classification_breakdown": {
+      "category_fit": 0.77,
+      "content_alignment": 0.70
+    },
+    "sample_size": 15,
+    "concept_sample_size": 10
+  },
+  "overall_score": 85.2,
+  "rating": "B"
+}

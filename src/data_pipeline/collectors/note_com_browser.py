@@ -554,8 +554,10 @@ class NoteComBrowser:
     async def extract_body_text(self) -> str:
         """Extract article body text from the current page.
 
-        Collects all ``<p>`` elements within the article body container
-        and joins their text content with double newlines.
+        Tries multiple strategies in order:
+        1. ``<p>`` elements within the article body container (standard layout)
+        2. ``<figcaption>`` elements within the body container (image-caption layout)
+        3. Direct ``textContent`` of the body container (final fallback)
 
         Returns
         -------
@@ -573,14 +575,51 @@ class NoteComBrowser:
                 timeout=self._TIMEOUT_MS,
             )
 
+            # Strategy 1: <p> elements (standard layout)
             paragraphs = await self._page.eval_on_selector_all(
                 f"{body_selector} p",
                 "elements => elements.map(el => el.textContent || '')",
             )
-
-            # Filter out empty paragraphs and join
             text_parts = [p.strip() for p in paragraphs if p.strip()]
-            return "\n\n".join(text_parts)
+            if text_parts:
+                return "\n\n".join(text_parts)
+
+            # Strategy 2: <figcaption> elements (image-caption layout)
+            # Some creators use <figure><figcaption> with <br> separators
+            figcaption_text = await self._page.evaluate(
+                """(selector) => {
+                    const body = document.querySelector(selector);
+                    if (!body) return '';
+                    const captions = body.querySelectorAll('figcaption');
+                    const parts = [];
+                    for (const cap of captions) {
+                        const html = cap.innerHTML;
+                        // Replace <br><br> with paragraph separator, single <br> with newline
+                        const text = html
+                            .replace(/<br\\s*\\/?><br\\s*\\/?>/gi, '\\n\\n')
+                            .replace(/<br\\s*\\/?>/gi, '\\n')
+                            .replace(/<[^>]+>/g, '')
+                            .trim();
+                        if (text) parts.push(text);
+                    }
+                    return parts.join('\\n\\n');
+                }""",
+                body_selector,
+            )
+            if figcaption_text and figcaption_text.strip():
+                logger.debug("body_extracted_via_figcaption")
+                return figcaption_text.strip()
+
+            # Strategy 3: direct textContent fallback
+            fallback_text = await self._page.eval_on_selector(
+                body_selector,
+                "el => el.textContent || ''",
+            )
+            if fallback_text and fallback_text.strip():
+                logger.debug("body_extracted_via_textcontent_fallback")
+                return fallback_text.strip()
+
+            return ""
 
         except Exception:
             logger.debug("body_text_extraction_failed", exc_info=True)

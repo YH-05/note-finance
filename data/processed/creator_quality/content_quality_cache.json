@@ -1,152 +1,152 @@
 {
-  "255cab0bcb5a1e2e": {
-    "content_id": "fact-br-035",
+  "0ff6bd212adbcdb6": {
+    "content_id": "fact-sp-050",
     "content_type": "Fact",
-    "content_quality": 0.7,
-    "source_grounding": 0.5,
-    "classification_accuracy": 0.8,
-    "overall": 0.67,
-    "reasoning": "具体的なテンプレートだがSource URL不明瞭",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "content_quality": 0.9,
+    "source_grounding": 0.7,
+    "classification_accuracy": 0.6,
+    "overall": 0.75,
+    "reasoning": "Specific market data with breakdowns. Source URL exists but authority_level should be media not blog. Genre correct.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "c20e6574502c556c": {
-    "content_id": "tip-risk-002",
-    "content_type": "Tip",
+  "d4a58df1f97e3b68": {
+    "content_id": "fact-br-118",
+    "content_type": "Fact",
     "content_quality": 0.9,
     "source_grounding": 0.5,
     "classification_accuracy": 0.8,
     "overall": 0.75,
-    "reasoning": "非常に実用的なチェックリスト",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "reasoning": "Actionable data. Source URL generic (prtimes.jp root). Genre and concepts fit.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "9bcb43b1d4e2e046": {
-    "content_id": "tip-2f848047",
-    "content_type": "Tip",
+  "c2bf8c9776edc72b": {
+    "content_id": "fact-sp-040",
+    "content_type": "Fact",
+    "content_quality": 0.6,
+    "source_grounding": 0.6,
+    "classification_accuracy": 0.4,
+    "overall": 0.54,
+    "reasoning": "Time-bound content. Genre misclassified as beauty-romance, should be spiritual.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
+  },
+  "b387dd2d5bcb660f": {
+    "content_id": "fact-c2-startup90",
+    "content_type": "Fact",
     "content_quality": 0.8,
     "source_grounding": 0.8,
-    "classification_accuracy": 0.6,
-    "overall": 0.74,
-    "reasoning": "詳細で実用的だがconcepts空",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "classification_accuracy": 0.7,
+    "overall": 0.77,
+    "reasoning": "Informative multi-point data. Good source. Empty concepts array.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "3fe255cbb41fc09b": {
-    "content_id": "fact-br-112",
-    "content_type": "Fact",
-    "content_quality": 0.9,
-    "source_grounding": 0.6,
-    "classification_accuracy": 0.5,
-    "overall": 0.69,
-    "reasoning": "具体的数値だがgenre=careerは不適合の可能性",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
-  },
-  "e43a353c3b699c82": {
-    "content_id": "fact-threads-008",
+  "41bbc801ce38aadc": {
+    "content_id": "fact-sp-002",
     "content_type": "Fact",
     "content_quality": 0.8,
     "source_grounding": 0.7,
-    "classification_accuracy": 0.5,
-    "overall": 0.68,
-    "reasoning": "genre=spiritualだがSNSマーケデータ",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "classification_accuracy": 0.4,
+    "overall": 0.65,
+    "reasoning": "Market size data. Genre misclassified as beauty-romance, should be spiritual.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "6b0e2642e4185107": {
-    "content_id": "story-7da81fcf",
+  "1da7aa683386ec3e": {
+    "content_id": "story-br-001",
     "content_type": "Story",
     "content_quality": 0.7,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.8,
-    "overall": 0.73,
-    "reasoning": "spiritualに適切",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "source_grounding": 0.5,
+    "classification_accuracy": 0.4,
+    "overall": 0.55,
+    "reasoning": "Practical anecdote. Generic source URL. Genre misclassified as career, should be beauty-romance.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "818eb1cf21f7e792": {
-    "content_id": "story-a8106586",
-    "content_type": "Story",
-    "content_quality": 0.6,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.7,
-    "overall": 0.66,
-    "reasoning": "やや抽象的な主張型",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
-  },
-  "6df0071006709c95": {
-    "content_id": "fact-c1de370c",
-    "content_type": "Fact",
-    "content_quality": 0.9,
+  "3c82a1630f76f5b8": {
+    "content_id": "tip-820476cf",
+    "content_type": "Tip",
+    "content_quality": 0.7,
     "source_grounding": 0.8,
     "classification_accuracy": 0.8,
-    "overall": 0.84,
-    "reasoning": "詳細なトレンド分析",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "overall": 0.76,
+    "reasoning": "Useful strategy content. Good note.com source with title. Genre and concepts fit.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "63b138b9d50c3218": {
-    "content_id": "tip-sp-020",
+  "efdc9adb8b1c6faf": {
+    "content_id": "tip-3313398c",
+    "content_type": "Tip",
+    "content_quality": 0.6,
+    "source_grounding": 0.8,
+    "classification_accuracy": 0.7,
+    "overall": 0.69,
+    "reasoning": "Too long for a tip, reads as article summary. Good source. Only 1 concept linked.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
+  },
+  "58c40b91e79efa84": {
+    "content_id": "tip-comm-001",
     "content_type": "Tip",
     "content_quality": 0.8,
+    "source_grounding": 0.6,
+    "classification_accuracy": 0.7,
+    "overall": 0.71,
+    "reasoning": "Concise and actionable. Source exists but no title. Single concept.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
+  },
+  "4cef71045d0f7420": {
+    "content_id": "tip-kpi-002",
+    "content_type": "Tip",
+    "content_quality": 0.7,
+    "source_grounding": 0.6,
+    "classification_accuracy": 0.7,
+    "overall": 0.67,
+    "reasoning": "Useful KPI list. Same buffer.com source. Concepts relevant.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
+  },
+  "5b6f18b5633818f4": {
+    "content_id": "story-ced08987",
+    "content_type": "Story",
+    "content_quality": 0.9,
+    "source_grounding": 0.9,
+    "classification_accuracy": 0.8,
+    "overall": 0.87,
+    "reasoning": "Detailed engaging story with community feedback. Specific Reddit URL. Empty concepts.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
+  },
+  "ebbe0db338b57b58": {
+    "content_id": "fact-fl-012",
+    "content_type": "Fact",
+    "content_quality": 0.7,
+    "source_grounding": 0.5,
+    "classification_accuracy": 0.4,
+    "overall": 0.55,
+    "reasoning": "Useful engagement metric. Generic note.com URL. Genre misclassified as career, should be spiritual.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
+  },
+  "83096e9e8341e0e5": {
+    "content_id": "story-br-003",
+    "content_type": "Story",
+    "content_quality": 0.6,
     "source_grounding": 0.5,
     "classification_accuracy": 0.8,
-    "overall": 0.71,
-    "reasoning": "具体的価格帯あり",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "overall": 0.63,
+    "reasoning": "Short humorous anecdote. Generic prtimes.jp URL. Genre fits.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "b6bc31ca1d2f4172": {
-    "content_id": "tip-threads-014",
-    "content_type": "Tip",
-    "content_quality": 0.5,
-    "source_grounding": 0.6,
-    "classification_accuracy": 0.5,
-    "overall": 0.53,
-    "reasoning": "短く抽象的、genre不適合の可能性",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
-  },
-  "be1530df2c0d648f": {
-    "content_id": "tip-abfa143a",
-    "content_type": "Tip",
-    "content_quality": 0.9,
+  "7ca601f617b43521": {
+    "content_id": "fact-83ffbcf7",
+    "content_type": "Fact",
+    "content_quality": 0.6,
     "source_grounding": 0.8,
-    "classification_accuracy": 0.8,
-    "overall": 0.84,
-    "reasoning": "非常に具体的な戦略と数値",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "classification_accuracy": 0.7,
+    "overall": 0.69,
+    "reasoning": "Reads like meta-summary. Good specific URL. Genre fits.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   },
-  "4902b09df1a4cc33": {
-    "content_id": "tip-34654a12",
-    "content_type": "Tip",
+  "64e8a48ca4fd2bfb": {
+    "content_id": "fact-77d73dfb",
+    "content_type": "Fact",
     "content_quality": 0.7,
     "source_grounding": 0.8,
     "classification_accuracy": 0.6,
     "overall": 0.7,
-    "reasoning": "初心者向け概要",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
-  },
-  "5db284b89d02e7f8": {
-    "content_id": "fact-reg-011",
-    "content_type": "Fact",
-    "content_quality": 0.8,
-    "source_grounding": 0.9,
-    "classification_accuracy": 0.8,
-    "overall": 0.83,
-    "reasoning": "消費者庁URL、高信頼性",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
-  },
-  "35b1a228b9299012": {
-    "content_id": "tip-br-014",
-    "content_type": "Tip",
-    "content_quality": 0.6,
-    "source_grounding": 0.5,
-    "classification_accuracy": 0.5,
-    "overall": 0.54,
-    "reasoning": "短め、genre=spiritualだが美容",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
-  },
-  "e096ec06a833f31a": {
-    "content_id": "tip-b536623a",
-    "content_type": "Tip",
-    "content_quality": 0.9,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.9,
-    "overall": 0.84,
-    "reasoning": "非常に具体的な収益モデル",
-    "evaluated_at": "2026-03-24T05:57:25.981735+00:00"
+    "reasoning": "Specific commission data. Good source. Empty concepts.",
+    "evaluated_at": "2026-03-25T03:01:07.113409+00:00"
   }
 }

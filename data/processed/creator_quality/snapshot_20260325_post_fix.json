@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-03-25T10:30:00+09:00",
+  "session": "post quality-fix (genre remap + stub/orphan cleanup + typo fix)",
+  "fixes_applied": {
+    "in_genre_mismatches_deleted": 365,
+    "stub_concepts_deleted": 3,
+    "orphan_concepts_deleted": 4,
+    "orphan_entities_connected": 3,
+    "category_typo_fixed": 1
+  },
+  "node_counts": {
+    "Genre": 3,
+    "Concept": 3506,
+    "ConceptCategory": 14,
+    "Entity": 551,
+    "Source": 1224,
+    "Fact": 649,
+    "Tip": 646,
+    "Story": 269,
+    "Domain": 538
+  },
+  "total_nodes": 7400,
+  "total_relationships": 13072,
+  "genre_distribution_after_fix": {
+    "career": {"fact": 317, "tip": 261, "story": 123, "total": 701},
+    "beauty-romance": {"fact": 186, "tip": 211, "story": 74, "total": 471},
+    "spiritual": {"fact": 144, "tip": 173, "story": 72, "total": 389}
+  },
+  "categories": {
+    "completeness": {"score": 83.0, "weight": 20},
+    "consistency": {"score": 100.0, "weight": 15, "note": "genre mismatch 0, typo fixed"},
+    "structural": {"score": 97.0, "weight": 15},
+    "orphan": {"score": 83.0, "weight": 15, "note": "stubs+orphan concepts removed, 3 entities connected"},
+    "content_balance": {"score": 68.0, "weight": 10, "note": "Story still underrepresented ~17%"},
+    "source_quality": {"score": 93.0, "weight": 10},
+    "taxonomy": {"score": 73.0, "weight": 15, "note": "4 invalid concepts removed, typo fixed"}
+  },
+  "overall_score": 86.0,
+  "rating": "B"
+}

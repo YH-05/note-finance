@@ -1,9 +1,69 @@
 {
-    "version": "1.0",
-    "creators": [],
-    "settings": {
-        "request_delay_seconds": 2,
-        "max_articles_per_scrape": 50,
-        "headless": true
+  "version": "1.0",
+  "creators": [
+    {
+      "username": "fukuoka1116",
+      "display_name": "fukuoka1116",
+      "genres": ["career"],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-25T02:48:26.708359+00:00"
+    },
+    {
+      "username": "sota_career",
+      "display_name": "そうた＠転職で人生変えた人",
+      "genres": ["career"],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-25T13:00:00.000000+00:00",
+      "note": "転職体験談・年収交渉の実践的コンテンツ"
+    },
+    {
+      "username": "kei_10m_asset",
+      "display_name": "けい｜26歳独身で1000万→現32歳パパで6000万",
+      "genres": ["career"],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-25T13:00:00.000000+00:00",
+      "note": "転職×資産形成。入金力を高める戦略"
+    },
+    {
+      "username": "careercompass_c",
+      "display_name": "Career Compass 転職ナビ",
+      "genres": ["career"],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-25T13:00:00.000000+00:00",
+      "note": "業界別年収ランキング・転職市場データ記事"
+    },
+    {
+      "username": "dandism56",
+      "display_name": "高橋良平/キャリアアップ転職エージェント",
+      "genres": ["career"],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-25T13:00:00.000000+00:00",
+      "note": "現役転職エージェント。30代パラレルキャリアの実践"
+    },
+    {
+      "username": "miraicareer_blog",
+      "display_name": "みらいキャリアbyみらい人材サポート",
+      "genres": ["career"],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-25T13:00:00.000000+00:00",
+      "note": "転職市場データ・年収統計の定量分析記事"
     }
+  ],
+  "settings": {
+    "request_delay_seconds": 2,
+    "max_articles_per_scrape": 50,
+    "headless": true
+  }
 }

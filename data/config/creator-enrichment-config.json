@@ -19,7 +19,13 @@
         "{topic} startup vs corporate career comparison",
         "{topic} career advice 20s 30s mid-career {year}",
         "{topic} job market trends hiring data {year}",
-        "{topic} career switch failure lesson learned"
+        "{topic} career switch failure lesson learned",
+        "customer success {topic} salary career path {year}",
+        "SaaS {topic} job market growth hiring trends {year}",
+        "Japan {topic} job market hiring trends {year}",
+        "{topic} career transition salary increase data {year}",
+        "tech layoffs {topic} hiring rebound data {year}",
+        "{topic} consulting vs industry salary comparison {year}"
       ],
       "tavily_queries_jp": [
         "{topic} 副業 成功事例 {year}",
@@ -32,14 +38,39 @@
         "{topic} 20代 30代 キャリア 悩み {year}",
         "{topic} 転職 失敗談 後悔 {year}",
         "{topic} 転職市場 求人倍率 動向 {year}",
-        "{topic} 自己PR 書き方 例文"
+        "{topic} 自己PR 書き方 例文",
+        "{topic} 職種別 年収 中央値 {year}",
+        "{topic} 求人数 推移 業界別 {year}",
+        "doda 転職 求人倍率 職種別 {year}",
+        "厚生労働省 雇用動向調査 {year}",
+        "{topic} SaaS カスタマーサクセス 求人 年収 {year}",
+        "{topic} コンサル 転職 年収レンジ {year}",
+        "{topic} 未経験 転職 成功率 業界別 {year}",
+        "IT エンジニア 転職 年収 相場 {year}"
       ],
       "webfetch_sites": [
         {"domain": "note.com", "search_prefix": "site:note.com 副業 {topic}"},
         {"domain": "note.com", "search_prefix": "site:note.com 転職 体験談 {topic}"},
         {"domain": "note.com", "search_prefix": "site:note.com 面接 {topic}"},
+        {"domain": "note.com", "search_prefix": "site:note.com 年収アップ 転職 {topic}"},
         {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 副業 {topic}"},
-        {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 転職 {topic}"}
+        {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 転職 {topic}"},
+        {"domain": "doda.jp", "search_prefix": "site:doda.jp 転職 {topic} データ"},
+        {"domain": "doda.jp", "search_prefix": "site:doda.jp 求人倍率 職種別 {topic}"},
+        {"domain": "doda.jp", "search_prefix": "site:doda.jp 年収 平均 {topic}"},
+        {"domain": "tenshoku.mynavi.jp", "search_prefix": "site:tenshoku.mynavi.jp 年収 {topic}"},
+        {"domain": "tenshoku.mynavi.jp", "search_prefix": "site:tenshoku.mynavi.jp 転職 成功 {topic}"},
+        {"domain": "type.jp", "search_prefix": "site:type.jp 転職 {topic} ノウハウ"},
+        {"domain": "next.rikunabi.com", "search_prefix": "site:next.rikunabi.com 転職 {topic}"},
+        {"domain": "openwork.jp", "search_prefix": "site:openwork.jp 年収 {topic} 口コミ"},
+        {"domain": "careergarden.jp", "search_prefix": "site:careergarden.jp 年収 {topic} 仕事内容"},
+        {"domain": "geekly.co.jp", "search_prefix": "site:geekly.co.jp IT転職 {topic} 年収"},
+        {"domain": "levtech.jp", "search_prefix": "site:levtech.jp エンジニア 年収 {topic}"},
+        {"domain": "jac-recruitment.jp", "search_prefix": "site:jac-recruitment.jp {topic} 転職 動向"},
+        {"domain": "mhlw.go.jp", "search_prefix": "site:mhlw.go.jp 雇用 {topic} 統計"},
+        {"domain": "jil.go.jp", "search_prefix": "site:jil.go.jp 転職 {topic} 調査"},
+        {"domain": "wantedly.com", "search_prefix": "site:wantedly.com/journal {topic} 転職 キャリア"},
+        {"domain": "bizreach.biz", "search_prefix": "site:bizreach.biz {topic} ハイクラス 年収"}
       ],
       "subreddits": [
         "sidehustle",
@@ -49,7 +80,14 @@
         "jobs",
         "cscareerquestions",
         "recruitinghell",
-        "careeradvice"
+        "careeradvice",
+        "CustomerSuccess",
+        "SaaS",
+        "overemployed",
+        "japanlife",
+        "JapanFinance",
+        "ExperiencedDevs",
+        "ITCareerQuestions"
       ],
       "entity_types_focus": ["occupation", "platform", "company", "technique"]
     },
@@ -90,6 +128,55 @@
       ],
       "subreddits": ["tarot", "astrology", "psychic"],
       "entity_types_focus": ["platform", "service", "technique", "concept"]
+    },
+    "self-development": {
+      "name_ja": "自己啓発・生産性",
+      "tavily_queries_en": [
+        "Alex Hormozi {topic} business advice {year}",
+        "Iman Gadzhi {topic} success habits {year}",
+        "deep work {topic} focus productivity tips {year}",
+        "flow state {topic} peak performance science {year}",
+        "morning routine {topic} successful entrepreneurs {year}",
+        "{topic} atomic habits habit stacking techniques",
+        "{topic} negotiation persuasion psychology techniques",
+        "{topic} dopamine detox digital minimalism {year}",
+        "{topic} biohacking longevity anti-aging science {year}",
+        "{topic} stoicism mindset resilience practical tips",
+        "{topic} time management 80/20 pareto principle",
+        "{topic} millionaire habits wealth building mindset"
+      ],
+      "tavily_queries_jp": [
+        "{topic} 成功者 習慣 共通点 {year}",
+        "{topic} モーニングルーティン 朝活 効果 {year}",
+        "{topic} 集中力 高める Deep Work 方法",
+        "{topic} フロー状態 ゾーン 入り方",
+        "{topic} 習慣化 コツ 科学的 {year}",
+        "{topic} ドーパミン デトックス SNS断ち 効果",
+        "{topic} 交渉術 心理学 テクニック",
+        "{topic} 億万長者 マインドセット 考え方",
+        "{topic} 生産性 向上 ポモドーロ タイムブロッキング",
+        "{topic} ストイシズム 禁欲主義 実践",
+        "{topic} アンチエイジング バイオハッキング 科学",
+        "{topic} 自己啓発 海外 インフルエンサー {year}"
+      ],
+      "webfetch_sites": [
+        {"domain": "note.com", "search_prefix": "site:note.com 自己啓発 {topic} 習慣"},
+        {"domain": "note.com", "search_prefix": "site:note.com 生産性 {topic} 集中力"},
+        {"domain": "note.com", "search_prefix": "site:note.com モーニングルーティン {topic}"},
+        {"domain": "hatenablog.com", "search_prefix": "site:hatenablog.com 自己啓発 {topic}"},
+        {"domain": "medium.com", "search_prefix": "site:medium.com productivity {topic} habits"}
+      ],
+      "subreddits": [
+        "selfimprovement",
+        "getdisciplined",
+        "productivity",
+        "DecidingToBeBetter",
+        "Stoicism",
+        "Biohackers",
+        "getmotivated",
+        "Entrepreneur"
+      ],
+      "entity_types_focus": ["person", "concept", "technique", "platform"]
     }
   }
 }

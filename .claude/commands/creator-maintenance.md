@@ -22,8 +22,14 @@ uv run --extra embedding python scripts/creator_embed_nodes.py
 - Reddit Source title=null → URL からサブレディット名を抽出
 
 ### Step 4: 重複検出
-Vector Index を使用して Entity/Concept の重複候補を検出し報告。
-自動マージはしない（ユーザー確認が必要）。
+重複検出スクリプトを実行:
+```bash
+uv run python scripts/creator_detect_duplicates.py
+```
+- Entity 閾値 0.92、Concept 閾値 0.93（`--entity-threshold` / `--concept-threshold` で変更可）
+- 結果は `data/processed/creator_quality/duplicates_YYYYMMDD.json` に保存
+- 自動マージはしない（ユーザー確認が必要）
+- ユーザーがマージを指示した場合のみ実行
 
 ### Step 5: 改善レポート
 Before/After 比較を含む改善レポートを出力。

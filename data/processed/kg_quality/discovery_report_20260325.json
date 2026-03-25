@@ -1,0 +1,94 @@
+{
+  "timestamp": "2026-03-25T11:35:17.623099+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 10,
+    "indirect_paths": 5,
+    "stance_entities": 2,
+    "insights_existing": 10,
+    "multi_topic_entities": 10
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "インドネシア Macro-Energy-Telecom ネクサス",
+      "description": "Indosat→Indonesia→Coal の間接パスが示す構造: 石炭価格がインドネシア財政（輸出収入）に影響→規制環境・インフラ投資余力→通信セクターのCapex/5G展開に波及。commodity→macro/fiscal→telecom の3ドメイン横断仮説。石炭価格下落局面でインドネシア政府のデジタル投資優先度がどう変化するかが投資判断の鍵。",
+      "entities_involved": [
+        "Coal",
+        "Indonesia",
+        "Indosat Ooredoo Hutchison",
+        "Indonesia Government"
+      ],
+      "supporting_evidence": [
+        "Indosat→Indonesia→Coal の間接接続パス",
+        "Indonesia AI市場 .4B→.9B (CAGR 29%) のInsight",
+        "NVIDIA M + Microsoft .7B の外資大型投資流入Fact"
+      ],
+      "evidence_count": 5
+    },
+    {
+      "type": "contradiction_tension",
+      "title": "ISAT vs TLKM 戦略分岐の緊張関係",
+      "description": "Indosat(40 stances, TP 2300-3300 IDR)とTelkom(34 stances, TP 3650 IDR固定)で投資見解が分かれる。ISATはAI TechCo路線（GPUaaS先行者利益）、TLKMはインフラ資産分離・バリューアンロック路線（Infranexia）。同一AI市場(.9B)を巡る異なるアプローチだが、両社同時成功の蓋然性は低い。Stance対立の構造的差異: ISATは収益化スピードリスク、TLKMは実行リスク（子会社55→22社統合）。",
+      "entities_involved": [
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "NeutraDC",
+        "XLSmart"
+      ],
+      "supporting_evidence": [
+        "ISAT 40 stances (Buy/Overweight, TP 2300-3300)",
+        "TLKM 34 stances (Buy, TP 3650固定)",
+        "EBITDA Margin 4年連続低下 (52.9%→50.0%) のInsight",
+        "ARPU逆転 (4Q25: ISAT 44,000 vs TLKM 43,400) のInsight"
+      ],
+      "evidence_count": 8
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "ASEAN横断比較フレームワークの完全欠落",
+      "description": "グラフはインドネシア通信セクターに深いデータを持つが、Insightが明示的に指摘する通り「ASEAN地域横断の通信セクター比較フレームワークが完全欠落」。Indonesia(57 topics)がブリッジEntityだが、タイ・フィリピン・ベトナム等のARPU/GDP比、普及率、規制環境の比較Factが皆無。投資判断における「ASEAN最低水準ARPU/GDP 0.68%」の文脈を裏付けられない。",
+      "entities_involved": [
+        "Indonesia",
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia"
+      ],
+      "supporting_evidence": [
+        "information_gap Insight: ASEAN地域横断比較の欠落",
+        "Indonesia 57 topics (16 categories) だが隣国データなし",
+        "ARPU/GDP 0.68% の比較対象が不在"
+      ],
+      "evidence_count": 3
+    },
+    {
+      "type": "structural_observation",
+      "title": "圏論クラスタの人工的クロスドメイン支配",
+      "description": "Probe Aのトップ10クロスドメインペアが全て圏論クラスタ内（Category Theory, Sheaf Theory, CQL, Ologs, Graph-PReFLexOR, DisCoPyro ↔ Causal Emergence ↔ David Spivak）。14 shared factsが同一ソースから展開された結果、entity_typeの違い（technology/indicator/person）により「クロスドメイン」と判定されるが、実質は単一ドメイン。金融↔圏論のブリッジFactが欠如しており、TDAを介した間接接続戦略が未実装。",
+      "entities_involved": [
+        "Category Theory",
+        "Causal Emergence",
+        "David Spivak",
+        "Sheaf Theory"
+      ],
+      "supporting_evidence": [
+        "Probe A: 上位10ペア全てが圏論クラスタ内",
+        "14 shared facts が同一ソースバッチ由来",
+        "金融ドメインとの直接接続Factが0件"
+      ],
+      "evidence_count": 4
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.6,
+    "hypothesis_novelty": 0.5,
+    "evidence_density": 0.7,
+    "actionability": 0.6,
+    "overall": 0.6
+  },
+  "improvement_suggestions": [
+    "Source Grounding 強化: 全20サンプルでsource_url=null。STATES_FACT/MAKES_CLAIMリレーション経由のSourceリンクが欠落しており、根拠追跡不能",
+    "ノイズデータ除去: HN投稿HTML断片(fact_id: 15d8237d, 8743a69c)が混入。Claim投入時のコンテンツフィルタリング強化が必要",
+    "ASEAN比較データ投入: タイ(AIS/DTAC), フィリピン(Globe/PLDT), ベトナム(Viettel)のKPIをFactノードとして投入",
+    "圏論↔金融ブリッジ: TDA/Persistence Landscape の金融応用事例をFactとして投入し、孤立クラスタを接続",
+    "XLSmart競合データ補完: 3社寡占分析の基盤として売上/EBITDA/ARPU時系列が必須"
+  ]
+}
