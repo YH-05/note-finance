@@ -90,7 +90,8 @@ jobs:
         # CVE-2025-69872: diskcache vulnerability - no fix available yet (2026-02-14)
         # CVE-2026-28802: authlib OIDC vulnerability - updating to 1.6.7 (2026-03-06)
         # CVE-2026-28348, CVE-2026-28350: lxml-html-clean XSS vulnerabilities - updating to 0.4.4 (2026-03-06)
-        uv run pip-audit --skip-editable --ignore-vuln CVE-2026-0994 --ignore-vuln CVE-2026-1703 --ignore-vuln CVE-2025-69872 --ignore-vuln CVE-2026-28802 --ignore-vuln CVE-2026-28348 --ignore-vuln CVE-2026-28350
+        # CVE-2026-4539: pygments ReDoS vulnerability - no fix available yet (2026-03-25)
+        uv run pip-audit --skip-editable --ignore-vuln CVE-2026-0994 --ignore-vuln CVE-2026-1703 --ignore-vuln CVE-2025-69872 --ignore-vuln CVE-2026-28802 --ignore-vuln CVE-2026-28348 --ignore-vuln CVE-2026-28350 --ignore-vuln CVE-2026-4539
         uv run bandit -c pyproject.toml -r src/
 
   type-check:
