@@ -165,8 +165,10 @@ Web検索ツールが利用不可・結果不足の場合のフォールバッ�
 **browser-use CLI 実行方法**:
 
 ```bash
+# 重要: {query} にはシェルメタ文字が含まれる可能性があるため、
+# Bash ツールでコマンド構築時は shlex.quote 相当のエスケープを適用すること
 source ~/.browser-use-env/bin/activate && browser-use run \
-  --task "Search for: {query}" \
+  --task 'Search for: {query}' \
   --max-steps 5
 ```
 

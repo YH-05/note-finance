@@ -454,7 +454,7 @@ RETURN labels(n)[0] AS label, count(n) AS count
 **停止判定の厳密ルール:**
 
 ```
-MAINTENANCE_BUFFER = 5分（Phase 6 所要時間の上限）
+MAINTENANCE_BUFFER = Config の maintenance_buffer_minutes（デフォルト 5 分）
 stop_time = --until - MAINTENANCE_BUFFER
 
 if 現在時刻 < stop_time:

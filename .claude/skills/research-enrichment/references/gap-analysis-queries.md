@@ -4,8 +4,7 @@ research-neo4j の知識ギャップを 4 軸で定量評価する Cypher クエ
 SKILL.md Phase 1 から参照される。
 
 > **前提**: 全クエリは `mcp__neo4j-research__research-read_neo4j_cypher` で実行する。
-> クエリ実行前にスキーマ取得は不要（本ファイルは実データ検証済みのスナップショット）。
-> ただし、ラベル・プロパティが変更された場合は `research-get_neo4j_schema` で再確認すること。
+> Phase 1 実行前に `research-get_neo4j_schema` でスキーマを取得し、Q1-Q5 のラベル・プロパティが一致することを確認すること（同一会話内で直前に取得済みならスキップ可）。
 
 ---
 
@@ -50,11 +49,12 @@ ticker を持つ Entity のうち、ABOUT・RELATES_TO のいずれでも Fact �
 ```cypher
 MATCH (e:Entity)
 WHERE e.ticker IS NOT NULL AND e.ticker <> ''
-AND NOT exists { (f:Fact)-[:ABOUT]->(e) }
-AND NOT exists { (f:Fact)-[:RELATES_TO]->(e) }
+OPTIONAL MATCH (f:Fact)-[:ABOUT|RELATES_TO]->(e)
+WITH e, count(DISTINCT f) AS fact_count
+WHERE fact_count = 0
 OPTIONAL MATCH (e)-[:IN_SECTOR]->(sec:Sector)
 RETURN e.name AS name, e.ticker AS ticker, e.entity_key AS entity_key,
-       e.sec_cik AS sec_cik, sec.name AS sector
+       e.sec_cik AS sec_cik, sec.name AS sector, fact_count
 LIMIT 30
 ```
 
@@ -69,9 +69,8 @@ LIMIT 30
 ```cypher
 MATCH (e:Entity)
 WHERE e.ticker IS NOT NULL AND e.ticker <> ''
-OPTIONAL MATCH (f:Fact)-[:ABOUT]->(e)
-OPTIONAL MATCH (f2:Fact)-[:RELATES_TO]->(e)
-WITH e, count(DISTINCT f) + count(DISTINCT f2) AS fact_count
+OPTIONAL MATCH (f:Fact)-[:ABOUT|RELATES_TO]->(e)
+WITH e, count(DISTINCT f) AS fact_count
 WHERE fact_count BETWEEN 1 AND 3
 OPTIONAL MATCH (e)-[:IN_SECTOR]->(sec:Sector)
 RETURN e.name AS name, e.ticker AS ticker, e.entity_key AS entity_key,
@@ -89,7 +88,7 @@ ticker を持つ Entity について、最新の Fact.as_of_date を取得し、
 ```cypher
 MATCH (e:Entity)
 WHERE e.ticker IS NOT NULL AND e.ticker <> ''
-OPTIONAL MATCH (f:Fact)-[:ABOUT]->(e)
+OPTIONAL MATCH (f:Fact)-[:ABOUT|RELATES_TO]->(e)
 WITH e.name AS name, e.ticker AS ticker, e.entity_key AS entity_key,
      max(f.as_of_date) AS latest_fact, count(f) AS fact_count
 WHERE fact_count > 0
@@ -254,7 +253,7 @@ unified_score の上位 `max_targets_per_cycle` 件（Config デフォルト: 5�
     },
     "unified_score": 0.55,
     "damping_applied": false,
-    "target_sources": ["web_search", "sec_edgar", "reddit"]
+    "target_sources": ["web_search", "sec_edgar", "reddit", "alphaxiv"]
   }
 ]
 ```

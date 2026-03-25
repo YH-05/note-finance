@@ -100,7 +100,7 @@ authority_level 判定基準（URLドメイン）:
 **分類基準: Claim = 意見/予測/分析/推奨。主観的判断を含むかどうかが判断基準。**
 
 必須フィールド:
-- content (str, 必須): 意見・予測の記述
+- content (str, 【必須】): 意見・予測の記述
 - source_url (str): 抽出元 source の url と一致させること
 - claim_type (str): 以下から選択
   - "analyst_opinion"     — アナリストの定性的見解
