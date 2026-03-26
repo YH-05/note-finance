@@ -1,0 +1,4 @@
+prompt = """Activate the `save-to-creator-graph` skill by reading `.agents/skills/save-to-creator-graph/SKILL.md`.
+Follow the instructions in the skill to read creator-graph-queue JSON files from `.tmp/creator-graph-queue/` and ingest them into the creator-neo4j graph database.
+Arguments: $ARGUMENTS"""
+description = "creator-graph-queue JSON を読み込み、creator-neo4j にノードとリレーションを投入します。"

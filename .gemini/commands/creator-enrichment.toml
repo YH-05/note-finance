@@ -1,0 +1,4 @@
+prompt = """Activate the `creator-enrichment` skill by reading `.agents/skills/creator-enrichment/SKILL.md`.
+Follow the instructions in the skill to automatically enrich the creator-neo4j knowledge graph.
+Arguments: $ARGUMENTS"""
+description = "creator-neo4j を自動拡充する（ギャップ分析→検索→Entity抽出→投入を繰り返し）"

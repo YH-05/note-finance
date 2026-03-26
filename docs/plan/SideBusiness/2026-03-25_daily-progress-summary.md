@@ -59,6 +59,14 @@
 - 既存ドラフト6本をデータ駆動型に書き換え（型4→型5変換3本 + データ埋め込み3本）
 - creator-neo4jに転職市場データ10 Fact投入
 
+### 9. career_sister 投稿実行（3/25 火 夜スロット）
+
+- **Discussion**: `disc-2026-03-25-career-sister-publish`
+- テーマ: 退職を切り出すタイミング（有益/型2/T6）
+- Threads 投稿: https://www.threads.com/@career_sister/post/DWTmBXrE-5d
+- Instagram カルーセル（7枚）投稿: https://www.instagram.com/p/DWTmPYIE6A9/
+- 3/25（火）の全3スロット投稿完了（朝/昼/夜）
+
 ## マージ済みPR
 
 | PR | タイトル | Issues |

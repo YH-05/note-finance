@@ -16,17 +16,17 @@
       ]
     },
     {
-      "date": "2026-03-25", "day_label": "火", "status": "draft",
+      "date": "2026-03-25", "day_label": "火", "status": "published",
       "slots": [
         {"slot": "朝", "category": "有益", "type": "型3", "theme": "T4", "instagram": false, "status": "published", "published_at": "2026-03-25T10:04:23+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWSc53gE4SN"},
         {"slot": "昼", "category": "有益", "type": "型1", "theme": "T8", "instagram": false, "status": "published", "published_at": "2026-03-25T12:25:00+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWSs_r7E5kC"},
-        {"slot": "夜", "category": "有益", "type": "型2", "theme": "T6", "instagram": true, "carousel_slides": 7}
+        {"slot": "夜", "category": "有益", "type": "型2", "theme": "T6", "instagram": true, "carousel_slides": 7, "status": "published", "published_at": "2026-03-25T20:43:19+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWTmBXrE-5d", "instagram_permalink": "https://www.instagram.com/p/DWTmPYIE6A9/"}
       ]
     },
     {
       "date": "2026-03-26", "day_label": "水", "status": "draft",
       "slots": [
-        {"slot": "朝", "category": "エンゲージメント", "type": "型1-B", "theme": "T7", "instagram": false},
+        {"slot": "朝", "category": "エンゲージメント", "type": "型1-B", "theme": "T7", "instagram": false, "status": "published", "published_at": "2026-03-26T09:43:30+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWU_TrlAb5w"},
         {"slot": "昼", "category": "収益化", "type": "型3", "theme": "T5", "instagram": false},
         {"slot": "夜", "category": "有益", "type": "型5", "theme": "T9", "instagram": true, "carousel_slides": 7}
       ]

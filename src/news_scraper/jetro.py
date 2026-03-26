@@ -503,6 +503,7 @@ def _collect_rss_articles(
     entries: list[Any],
     config: ScraperConfig,
     delay: float,
+    max_articles: int = 0,
 ) -> list[Article]:
     """Phase 1: Collect articles from RSS entries.
 
@@ -514,6 +515,9 @@ def _collect_rss_articles(
         Scraper configuration.
     delay : float
         Delay between requests in seconds.
+    max_articles : int
+        Stop after collecting this many articles (0 = unlimited).
+        When ``include_content`` is True, this avoids unnecessary HTTP requests.
 
     Returns
     -------
@@ -526,6 +530,8 @@ def _collect_rss_articles(
 
     if not config.include_content:
         for entry in entries:
+            if max_articles > 0 and len(articles) >= max_articles:
+                break
             article = _entry_to_article(entry)
             if article is not None:
                 articles.append(article)
@@ -536,6 +542,13 @@ def _collect_rss_articles(
             follow_redirects=True,
         ) as client:
             for i, entry in enumerate(entries):
+                if max_articles > 0 and len(articles) >= max_articles:
+                    logger.debug(
+                        "Reached max_articles limit, stopping RSS fetch",
+                        max_articles=max_articles,
+                    )
+                    break
+
                 url = entry.get("link")
                 content: str | None = None
                 page_tags: list[str] = []
@@ -765,7 +778,7 @@ def collect_news(
 
     # Phase 1: RSS
     entries = _fetch_rss_entries()
-    articles = _collect_rss_articles(entries, config, delay)
+    articles = _collect_rss_articles(entries, config, delay, max_articles=max_per_source)
     logger.info("RSS phase complete", rss_articles=len(articles))
 
     # Phase 2: Category page crawling

@@ -198,6 +198,17 @@ Examples:
         ),
     )
     parser.add_argument(
+        "--archive-pages",
+        type=_positive_int,
+        default=None,
+        metavar="N",
+        help=(
+            "地域・分析レポート／調査レポート／ビジネス短信の"
+            "アーカイブページを N ページ分クロールする（1ページ≒30件）。"
+            "--regions の指定が必須。Playwright を使用。"
+        ),
+    )
+    parser.add_argument(
         "--cleanup-days",
         type=_positive_int,
         default=None,
@@ -453,13 +464,10 @@ def main() -> int:
     """
     args = _parse_args()
 
-    # Setup logging level
-    logging.basicConfig(level=getattr(logging, args.log_level, logging.INFO))
-    structlog.configure(
-        wrapper_class=structlog.make_filtering_bound_logger(
-            getattr(logging, args.log_level, logging.INFO)
-        ),
-    )
+    # Setup logging level (_logging.py の structlog 設定を壊さないよう
+    # ルートロガーのレベルのみ変更する)
+    level = getattr(logging, args.log_level, logging.INFO)
+    logging.getLogger().setLevel(level)
 
     logger.info(
         "JETRO news scraper starting",
@@ -503,6 +511,7 @@ def main() -> int:
             config=config,
             categories=args.categories,
             regions=resolved_regions,
+            archive_pages=args.archive_pages or 0,
         )
     except Exception as e:
         logger.error("JETRO news collection failed", error=str(e), exc_info=True)
