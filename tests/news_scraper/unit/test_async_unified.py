@@ -137,3 +137,129 @@ class TestAsyncCollectFinancialNews:
         import inspect
 
         assert inspect.iscoroutinefunction(collect_financial_news)
+
+
+class TestSourceRegistryNewSources:
+    """Tests for 6 new sources registered in SOURCE_REGISTRY."""
+
+    def test_正常系_SOURCE_REGISTRYに6ソースが追加されている(self) -> None:
+        """SOURCE_REGISTRY contains the 6 new sources."""
+        from news_scraper.unified import SOURCE_REGISTRY
+
+        new_sources = [
+            "techcrunch",
+            "ars_technica",
+            "the_verge",
+            "hacker_news",
+            "federal_reserve",
+            "zero_hedge",
+        ]
+        for source in new_sources:
+            assert source in SOURCE_REGISTRY, f"{source} not in SOURCE_REGISTRY"
+
+    async def test_正常系_techcrunchソースで収集できる(self) -> None:
+        """async collect_financial_news with techcrunch source."""
+        articles = [
+            _make_article(
+                title="TechCrunch Article",
+                url="https://techcrunch.com/1",
+                source="techcrunch",
+            ),
+        ]
+        with patch("news_scraper.techcrunch.collect_news", return_value=articles):
+            df = await collect_financial_news(sources=["techcrunch"])
+        assert len(df) == 1
+        assert df.articles[0].source == "techcrunch"
+
+    async def test_正常系_ars_technicaソースで収集できる(self) -> None:
+        """async collect_financial_news with ars_technica source."""
+        articles = [
+            _make_article(
+                title="Ars Technica Article",
+                url="https://arstechnica.com/1",
+                source="ars_technica",
+            ),
+        ]
+        with patch("news_scraper.ars_technica.collect_news", return_value=articles):
+            df = await collect_financial_news(sources=["ars_technica"])
+        assert len(df) == 1
+        assert df.articles[0].source == "ars_technica"
+
+    async def test_正常系_the_vergeソースで収集できる(self) -> None:
+        """async collect_financial_news with the_verge source."""
+        articles = [
+            _make_article(
+                title="The Verge Article",
+                url="https://theverge.com/1",
+                source="the_verge",
+            ),
+        ]
+        with patch("news_scraper.the_verge.collect_news", return_value=articles):
+            df = await collect_financial_news(sources=["the_verge"])
+        assert len(df) == 1
+        assert df.articles[0].source == "the_verge"
+
+    async def test_正常系_hacker_newsソースで収集できる(self) -> None:
+        """async collect_financial_news with hacker_news source."""
+        articles = [
+            _make_article(
+                title="HN Article",
+                url="https://news.ycombinator.com/1",
+                source="hacker_news",
+            ),
+        ]
+        with patch("news_scraper.hacker_news.collect_news", return_value=articles):
+            df = await collect_financial_news(sources=["hacker_news"])
+        assert len(df) == 1
+        assert df.articles[0].source == "hacker_news"
+
+    async def test_正常系_federal_reserveソースで収集できる(self) -> None:
+        """async collect_financial_news with federal_reserve source."""
+        articles = [
+            _make_article(
+                title="Fed Article",
+                url="https://federalreserve.gov/1",
+                source="federal_reserve",
+            ),
+        ]
+        with patch("news_scraper.federal_reserve.collect_news", return_value=articles):
+            df = await collect_financial_news(sources=["federal_reserve"])
+        assert len(df) == 1
+        assert df.articles[0].source == "federal_reserve"
+
+    async def test_正常系_zero_hedgeソースで収集できる(self) -> None:
+        """async collect_financial_news with zero_hedge source."""
+        articles = [
+            _make_article(
+                title="ZeroHedge Article",
+                url="https://zerohedge.com/1",
+                source="zero_hedge",
+            ),
+        ]
+        with patch("news_scraper.zero_hedge.collect_news", return_value=articles):
+            df = await collect_financial_news(sources=["zero_hedge"])
+        assert len(df) == 1
+        assert df.articles[0].source == "zero_hedge"
+
+
+class TestCollectCnbcDirectAwait:
+    """Tests that _collect_cnbc uses direct await (not asyncio.to_thread)."""
+
+    async def test_正常系_collect_cnbcが直接awaitである(self) -> None:
+        """_collect_cnbc delegates directly to cnbc.collect_news (not to_thread)."""
+        import inspect
+
+        from news_scraper.unified import _collect_cnbc
+
+        assert inspect.iscoroutinefunction(_collect_cnbc)
+
+    async def test_正常系_collect_cnbcがcnbc_collect_newsを呼ぶ(self) -> None:
+        """_collect_cnbc calls cnbc.collect_news directly with config."""
+        from news_scraper.unified import _collect_cnbc
+
+        config = ScraperConfig(max_articles_per_source=5)
+        articles = [_make_article(source="cnbc")]
+        with patch("news_scraper.cnbc.collect_news", return_value=articles) as mock:
+            result = await _collect_cnbc(config)
+        mock.assert_called_once_with(config=config)
+        assert result == articles

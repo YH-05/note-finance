@@ -15,6 +15,7 @@ from unittest.mock import MagicMock, patch
 
 import httpx
 import pytest
+from datetime import datetime, timezone
 
 from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.phases.search import DirectSearcher, TavilyKeyPool
@@ -160,7 +161,7 @@ class TestTavilyExecution:
         assert results[0]["url"] == "https://example.com/article-1"
         assert results[0]["title"] == "Test Article 1"
         assert results[0]["source"] == "tavily"
-        assert results[0]["published_at"] == "2026-03-25T00:00:00+00:00"
+        assert results[0].get("published_at") == "2026-03-25T00:00:00+00:00"
 
     @patch("creator_enrichment.phases.search.httpx.post")
     def test_正常系_URL重複が排除される(
@@ -366,4 +367,4 @@ class TestRawStorePersistence:
 
         mock_store.save_text.assert_called_once()
         kwargs = mock_store.save_text.call_args.kwargs
-        assert kwargs["published_at"] == "2026-03-25T00:00:00+00:00"
+        assert kwargs["published_at"] == datetime(2026, 3, 25, tzinfo=timezone.utc)

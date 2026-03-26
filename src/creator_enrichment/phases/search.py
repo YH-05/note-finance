@@ -168,6 +168,7 @@ def _extract_published_at(raw: dict[str, Any]) -> str:
 
     return ""
 
+
 # ---------------------------------------------------------------------------
 # クエリ生成プロンプト
 # ---------------------------------------------------------------------------
@@ -300,7 +301,7 @@ class DirectSearcher:
                     title=item["title"],
                     raw_text=item["content"],
                     collection_method=item["source"],
-                    published_at=item.get("published_at") or None,
+                    published_at=datetime.fromisoformat(_pub) if (_pub := item.get("published_at")) else None,
                 )
                 if result == "saved":
                     saved += 1

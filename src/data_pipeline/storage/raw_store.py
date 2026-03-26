@@ -31,7 +31,9 @@ if TYPE_CHECKING:
 
 # AIDEV-NOTE: RAW_STORE_DIR 環境変数で上書き可能。Mac Mini 等の別マシンでは
 # launchd plist の EnvironmentVariables に NAS マウントパスを設定すること。
-_DEFAULT_EXTERNAL_DIR = Path(os.environ.get("RAW_STORE_DIR", "/Volumes/personal_folder/raw_texts"))
+_DEFAULT_EXTERNAL_DIR = Path(
+    os.environ.get("RAW_STORE_DIR", "/Volumes/personal_folder/raw_texts")
+)
 _FALLBACK_DIR_NAME = "raw_texts"
 
 

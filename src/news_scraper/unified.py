@@ -1,8 +1,9 @@
 """Unified financial news collection for the news_scraper package.
 
 This module provides a single entry point for collecting financial news
-from multiple sources (CNBC, NASDAQ, Kabutan, Reuters JP, Minkabu)
-and returning a unified DataFrame.
+from multiple sources (CNBC, NASDAQ, Kabutan, Reuters JP, Minkabu,
+TechCrunch, Ars Technica, The Verge, Hacker News, Federal Reserve,
+ZeroHedge) and returning a unified DataFrame.
 
 Functions
 ---------
@@ -41,11 +42,10 @@ logger = get_logger(__name__, module="unified")
 
 
 async def _collect_cnbc(config: ScraperConfig) -> list[Article]:
-    # AIDEV-NOTE: cnbc.collect_news is synchronous (uses feedparser + ThreadPoolExecutor).
-    # Wrap with asyncio.to_thread to avoid blocking the event loop during asyncio.gather.
+    # AIDEV-NOTE: cnbc.collect_news is async (delegates to _rss_fetcher.fetch_rss_feeds).
     from news_scraper.cnbc import collect_news as _collect
 
-    return await asyncio.to_thread(_collect, config=config)
+    return await _collect(config=config)
 
 
 async def _collect_jetro(config: ScraperConfig) -> list[Article]:
@@ -101,6 +101,48 @@ async def _collect_minkabu(config: ScraperConfig) -> list[Article]:
     return await _collect(config=config)
 
 
+async def _collect_techcrunch(config: ScraperConfig) -> list[Article]:
+    """Collect articles from TechCrunch and return them."""
+    from news_scraper.techcrunch import collect_news as _collect
+
+    return await _collect(config=config)
+
+
+async def _collect_ars_technica(config: ScraperConfig) -> list[Article]:
+    """Collect articles from Ars Technica and return them."""
+    from news_scraper.ars_technica import collect_news as _collect
+
+    return await _collect(config=config)
+
+
+async def _collect_the_verge(config: ScraperConfig) -> list[Article]:
+    """Collect articles from The Verge and return them."""
+    from news_scraper.the_verge import collect_news as _collect
+
+    return await _collect(config=config)
+
+
+async def _collect_hacker_news(config: ScraperConfig) -> list[Article]:
+    """Collect articles from Hacker News and return them."""
+    from news_scraper.hacker_news import collect_news as _collect
+
+    return await _collect(config=config)
+
+
+async def _collect_federal_reserve(config: ScraperConfig) -> list[Article]:
+    """Collect press releases from the Federal Reserve and return them."""
+    from news_scraper.federal_reserve import collect_news as _collect
+
+    return await _collect(config=config)
+
+
+async def _collect_zero_hedge(config: ScraperConfig) -> list[Article]:
+    """Collect articles from ZeroHedge and return them."""
+    from news_scraper.zero_hedge import collect_news as _collect
+
+    return await _collect(config=config)
+
+
 def _make_registry_fn(
     func_name: str,
 ) -> Callable[[ScraperConfig], Coroutine[None, None, list[Article]]]:
@@ -150,6 +192,12 @@ SOURCE_REGISTRY: dict[
     "minkabu": _make_registry_fn("_collect_minkabu"),
     "nasdaq": _make_registry_fn("_collect_nasdaq"),
     "reuters_jp": _make_registry_fn("_collect_reuters_jp"),
+    "techcrunch": _make_registry_fn("_collect_techcrunch"),
+    "ars_technica": _make_registry_fn("_collect_ars_technica"),
+    "the_verge": _make_registry_fn("_collect_the_verge"),
+    "hacker_news": _make_registry_fn("_collect_hacker_news"),
+    "federal_reserve": _make_registry_fn("_collect_federal_reserve"),
+    "zero_hedge": _make_registry_fn("_collect_zero_hedge"),
 }
 
 
@@ -297,7 +345,9 @@ async def collect_financial_news(
     ----------
     sources : list[SourceName] | None, optional
         List of source names to collect from.
-        Valid values: "cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu".
+        Valid values: "cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu",
+        "techcrunch", "ars_technica", "the_verge", "hacker_news",
+        "federal_reserve", "zero_hedge".
         If None, collects from CNBC and NASDAQ (default).
     config : ScraperConfig | None, optional
         Scraper configuration. If None, uses default settings.

@@ -366,6 +366,12 @@ class TestSourceRegistry:
             "minkabu",
             "nasdaq",
             "reuters_jp",
+            "techcrunch",
+            "ars_technica",
+            "the_verge",
+            "hacker_news",
+            "federal_reserve",
+            "zero_hedge",
         }
         assert set(SOURCE_REGISTRY.keys()) == expected_sources
 
