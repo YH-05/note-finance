@@ -41,9 +41,14 @@ JETRO スクレイパーの日次蓄積運用に向けた設計と、macOS launc
 uv run python scripts/scrape_jetro.py --no-playwright --cleanup-days 30
 ```
 
-### 3. macOS launchd セットアップ
+### 3. macOS launchd セットアップ（2026-03-26 完了）
 
 `~/Library/LaunchAgents/` に plist を配置する方式を採用。
+
+**2026-03-26 実施内容**:
+- ユーザーリクエストにより スケジュールを **毎日 03:00 / 21:00 JST** に変更
+- `~/Library/LaunchAgents/com.note-finance.scrape-jetro.plist` を作成・登録
+- `launchctl list | grep scrape-jetro` で待機中（PID=`-`, exitCode=`0`）を確認
 
 登録コマンド:
 ```bash
@@ -51,7 +56,7 @@ launchctl load ~/Library/LaunchAgents/com.note-finance.scrape-jetro.plist
 launchctl start com.note-finance.scrape-jetro  # 即時テスト
 ```
 
-スケジュール: **毎朝 9:00**
+スケジュール: **毎日 03:00 / 21:00 JST**（`StartCalendarInterval` を `<array>` で2エントリ設定）
 ログ: `logs/scrape_jetro.log` / `logs/scrape_jetro_error.log`
 
 ### 4. launchd vs cron の整理
@@ -77,19 +82,21 @@ JETRO スクレイパーは launchd を採用（NAS マウント確認・macOS �
 ## 決定事項
 
 1. **日次蓄積は RSS-only モード**: `--no-playwright` + `--cleanup-days 30` を標準コマンドとする
-2. **定期実行は launchd**: スケジュール 毎朝 9:00、plist を `~/Library/LaunchAgents/` に配置
+2. **定期実行は launchd**: スケジュール **毎日 03:00 / 21:00 JST**、plist を `~/Library/LaunchAgents/` に配置
 3. **定期実行ドキュメント管理**: `scripts/SCHEDULED_JOBS.md` を新設し、全ジョブを一元管理
+4. **パスは `/Users/yuki/`**: ドキュメント記載の `yukihata` は誤り、実際のユーザー名は `yuki`
 
 ## アクションアイテム
 
-- [ ] `com.note-finance.scrape-jetro.plist` を `~/Library/LaunchAgents/` に実際に配置・登録 (優先度: 高)
-- [ ] launchd 登録後に `launchctl start` で動作確認 (優先度: 高)
+- [x] `com.note-finance.scrape-jetro.plist` を `~/Library/LaunchAgents/` に実際に配置・登録 (完了: 2026-03-26)
+- [x] launchd 登録後に `launchctl list` で待機状態を確認 (完了: 2026-03-26)
+- [ ] 21:00 または翌 03:00 の自動実行後にログ確認 `tail logs/scrape_jetro.log` (優先度: 高)
 - [ ] クロスラン重複排除ロジックの検討（URL キーによるフィルタリング） (優先度: 中)
 - [ ] archive_pages モードの実運用テスト（前回からの持ち越し） (優先度: 中)
 
 ## 次回の議論トピック
 
-- launchd 登録後の実動確認
+- 自動実行後のログ確認・動作検証
 - 日本株ニュース HTML スクレイパー計画への着手判断（複数回持ち越し）
 - クロスラン重複排除の実装方針
 

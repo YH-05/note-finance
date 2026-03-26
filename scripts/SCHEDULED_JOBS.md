@@ -9,7 +9,7 @@ macOS launchd による定期実行スクリプトの一覧と設定手順。
 | Label | スクリプト | スケジュール | ステータス |
 |---|---|---|---|
 | `com.finance.news-collector` | `collect-news.sh` | 毎朝 7:00 | テンプレート（未登録） |
-| `com.note-finance.scrape-jetro` | `scrape_jetro.py` | 毎朝 9:00 | 未登録 |
+| `com.note-finance.scrape-jetro` | `scrape_jetro.py` | 毎日 03:00 / 21:00 JST | 登録済み |
 
 > **登録状態の確認**: `launchctl list | grep com.note-finance`
 
@@ -29,7 +29,7 @@ macOS launchd による定期実行スクリプトの一覧と設定手順。
 
 - **スクリプト**: `scripts/scrape_jetro.py`
 - **plist テンプレート**: 下記参照
-- **スケジュール**: 毎日 9:00
+- **スケジュール**: 毎日 03:00 / 21:00 JST
 - **ログ**: `logs/scrape_jetro.log` / `logs/scrape_jetro_error.log`
 - **出力先**: NAS `/Volumes/personal_folder/scraped/jetro/` → ローカル `data/scraped/jetro/`（NAS未マウント時）
 

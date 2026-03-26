@@ -45,6 +45,7 @@ coverage.xml
 *.log
 !logs/news-workflow-*.log
 .mcp.json
+.codex/config.toml
 
 # Documentation
 .sphinx/
