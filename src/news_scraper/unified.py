@@ -41,11 +41,10 @@ logger = get_logger(__name__, module="unified")
 
 
 async def _collect_cnbc(config: ScraperConfig) -> list[Article]:
-    # AIDEV-NOTE: cnbc.collect_news is synchronous (uses feedparser + ThreadPoolExecutor).
-    # Wrap with asyncio.to_thread to avoid blocking the event loop during asyncio.gather.
+    # AIDEV-NOTE: cnbc.collect_news is async (delegates to _rss_fetcher.fetch_rss_feeds).
     from news_scraper.cnbc import collect_news as _collect
 
-    return await asyncio.to_thread(_collect, config=config)
+    return await _collect(config=config)
 
 
 async def _collect_jetro(config: ScraperConfig) -> list[Article]:
