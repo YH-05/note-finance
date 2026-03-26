@@ -56,7 +56,7 @@ from lxml import html as lxml_html
 
 from news_scraper._jetro_config import (
     ARTICLE_SELECTORS,
-    JETRO_RSS_BIZNEWS,
+    JETRO_RSS_FEEDS,
 )
 from news_scraper._logging import get_logger
 from news_scraper.types import Article, ScraperConfig, deduplicate_by_url, get_delay
@@ -166,7 +166,7 @@ def _parse_jetro_date(date_str: str | None) -> datetime:
 
 
 def _fetch_rss_entries(
-    feed_url: str = JETRO_RSS_BIZNEWS,
+    feed_url: str,
 ) -> list[Any]:
     """Fetch and parse RSS entries from a JETRO feed URL.
 
@@ -776,10 +776,13 @@ def collect_news(
         categories=categories,
     )
 
-    # Phase 1: RSS
-    entries = _fetch_rss_entries()
-    articles = _collect_rss_articles(entries, config, delay, max_articles=max_per_source)
-    logger.info("RSS phase complete", rss_articles=len(articles))
+    # Phase 1: RSS（ビジネス短信・地域・分析レポート・調査レポート）
+    all_entries: list[Any] = []
+    for feed_url in JETRO_RSS_FEEDS:
+        feed_entries = _fetch_rss_entries(feed_url)
+        all_entries.extend(feed_entries)
+    articles = _collect_rss_articles(all_entries, config, delay, max_articles=max_per_source)
+    logger.info("RSS phase complete", rss_articles=len(articles), feed_count=len(JETRO_RSS_FEEDS))
 
     # Phase 2: Category page crawling
     if categories:
@@ -803,7 +806,7 @@ def collect_news(
     logger.info(
         "JETRO news collection complete",
         total_articles=len(deduplicated),
-        rss_count=len(entries) if entries else 0,
+        rss_count=len(all_entries),
         category_crawl=categories is not None,
         archive_crawl=archive_pages > 0,
     )

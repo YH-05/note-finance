@@ -53,6 +53,19 @@ JETRO_BASE_URL: str = "https://www.jetro.go.jp"
 JETRO_RSS_BIZNEWS: str = "https://www.jetro.go.jp/rss/biznews.xml"
 """JETRO Business Brief (ビジネス短信) RSS 2.0 feed URL."""
 
+JETRO_RSS_AREAREPORTS: str = "https://www.jetro.go.jp/rss/areareports.xml"
+"""JETRO Area Analysis Reports (地域・分析レポート) RSS 2.0 feed URL."""
+
+JETRO_RSS_REPORTS: str = "https://www.jetro.go.jp/rss/reports.xml"
+"""JETRO Research Reports (調査レポート) RSS 2.0 feed URL."""
+
+JETRO_RSS_FEEDS: list[str] = [
+    JETRO_RSS_BIZNEWS,
+    JETRO_RSS_AREAREPORTS,
+    JETRO_RSS_REPORTS,
+]
+"""All JETRO RSS feed URLs to collect from."""
+
 # ---------------------------------------------------------------------------
 # Category URL mappings
 # ---------------------------------------------------------------------------

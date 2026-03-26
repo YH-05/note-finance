@@ -10,6 +10,8 @@
 
 research-neo4j ナレッジグラフを既存のワークフロー（記事執筆、トピック発見、投資リサーチ、週次レポート、creator-neo4j 連携、emit_graph_queue v3.0）に統合するための設計ドキュメント。
 
+出典品質とレポート利用可否の運用基準は [source-fact-provenance-policy.md](./source-fact-provenance-policy.md) を参照すること。特に、一次ソース不在時の `Source` / `Fact` の扱いは本ガイドではなく同ポリシーを正とする。
+
 ### 統合ワークフロー一覧
 
 | ID | ワークフロー | 統合ポイント | 主要クエリ |

@@ -13,6 +13,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from freezegun import freeze_time
 
+from news_scraper._jetro_config import JETRO_RSS_FEEDS
 from news_scraper._jetro_crawler import CrawledEntry
 from news_scraper.jetro import (
     _crawled_entry_to_article,
@@ -122,7 +123,7 @@ class TestFetchRssEntries:
         ]
         mock_parse.return_value = mock_feed
 
-        entries = _fetch_rss_entries()
+        entries = _fetch_rss_entries("https://www.jetro.go.jp/rss/biznews.xml")
         assert len(entries) == 2
         mock_parse.assert_called_once()
 
@@ -135,7 +136,7 @@ class TestFetchRssEntries:
         mock_feed.entries = [{"title": "Partial", "link": "https://example.com/p"}]
         mock_parse.return_value = mock_feed
 
-        entries = _fetch_rss_entries()
+        entries = _fetch_rss_entries("https://www.jetro.go.jp/rss/biznews.xml")
         assert len(entries) == 1
 
     @patch("news_scraper.jetro.feedparser.parse")
@@ -148,13 +149,13 @@ class TestFetchRssEntries:
         mock_feed.bozo_exception = ValueError("Parse error")
         mock_parse.return_value = mock_feed
 
-        entries = _fetch_rss_entries()
+        entries = _fetch_rss_entries("https://www.jetro.go.jp/rss/biznews.xml")
         assert entries == []
 
     @patch("news_scraper.jetro.feedparser.parse")
     def test_異常系_例外発生時に空リストを返す(self, mock_parse: MagicMock) -> None:
         mock_parse.side_effect = ConnectionError("Network error")
-        entries = _fetch_rss_entries()
+        entries = _fetch_rss_entries("https://www.jetro.go.jp/rss/biznews.xml")
         assert entries == []
 
     def test_正常系_フィクスチャファイルが存在する(self) -> None:
@@ -446,7 +447,7 @@ class TestCollectNews:
 
         assert len(articles) == 3
         assert all(a.source == "jetro" for a in articles)
-        mock_parse.assert_called_once()
+        assert mock_parse.call_count == len(JETRO_RSS_FEEDS)
 
     @patch("news_scraper.jetro.feedparser.parse")
     def test_正常系_max_per_sourceで記事数を制限(self, mock_parse: MagicMock) -> None:
