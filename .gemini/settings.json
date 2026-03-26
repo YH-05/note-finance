@@ -105,6 +105,13 @@
         "docling": {
             "command": "uvx",
             "args": ["--from=docling-mcp", "docling-mcp-server"]
+        },
+        "llamacloud": {
+            "command": "uvx",
+            "args": ["llamacloud-mcp@latest"],
+            "env": {
+                "LLAMA_CLOUD_API_KEY": "${LLAMA_CLOUD_API_KEY}"
+            }
         }
     }
 }
