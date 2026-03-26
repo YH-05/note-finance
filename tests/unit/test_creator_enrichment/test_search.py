@@ -15,6 +15,7 @@ from unittest.mock import MagicMock, patch
 
 import httpx
 import pytest
+from datetime import datetime, timezone
 
 from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.phases.search import DirectSearcher, TavilyKeyPool
@@ -366,4 +367,4 @@ class TestRawStorePersistence:
 
         mock_store.save_text.assert_called_once()
         kwargs = mock_store.save_text.call_args.kwargs
-        assert kwargs["published_at"] == "2026-03-25T00:00:00+00:00"
+        assert kwargs["published_at"] == datetime(2026, 3, 25, tzinfo=timezone.utc)
