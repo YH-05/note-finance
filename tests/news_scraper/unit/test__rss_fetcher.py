@@ -47,17 +47,21 @@ def _make_entry(data: dict) -> MagicMock:
 
 class TestParseRssDate:
     def test_正常系_Noneで現在時刻を返す(self) -> None:
-        before = datetime.now(timezone.utc)
-        result = _parse_rss_date(None)
-        after = datetime.now(timezone.utc)
-        assert before <= result <= after
+        fixed = datetime(2026, 3, 1, 12, 0, 0, tzinfo=timezone.utc)
+        with patch("news_scraper._rss_fetcher.datetime") as mock_dt:
+            mock_dt.now.return_value = fixed
+            mock_dt.fromisoformat = datetime.fromisoformat
+            result = _parse_rss_date(None)
+        assert result == fixed
         assert result.tzinfo is not None
 
     def test_正常系_空文字列で現在時刻を返す(self) -> None:
-        before = datetime.now(timezone.utc)
-        result = _parse_rss_date("")
-        after = datetime.now(timezone.utc)
-        assert before <= result <= after
+        fixed = datetime(2026, 3, 1, 12, 0, 0, tzinfo=timezone.utc)
+        with patch("news_scraper._rss_fetcher.datetime") as mock_dt:
+            mock_dt.now.return_value = fixed
+            mock_dt.fromisoformat = datetime.fromisoformat
+            result = _parse_rss_date("")
+        assert result == fixed
 
     def test_正常系_RFC2822文字列をパース(self) -> None:
         date_str = "Mon, 01 Mar 2026 12:00:00 GMT"
@@ -83,10 +87,12 @@ class TestParseRssDate:
         assert result.tzinfo is not None
 
     def test_異常系_不正な文字列で現在時刻を返す(self) -> None:
-        before = datetime.now(timezone.utc)
-        result = _parse_rss_date("not-a-date")
-        after = datetime.now(timezone.utc)
-        assert before <= result <= after
+        fixed = datetime(2026, 3, 1, 12, 0, 0, tzinfo=timezone.utc)
+        with patch("news_scraper._rss_fetcher.datetime") as mock_dt:
+            mock_dt.now.return_value = fixed
+            mock_dt.fromisoformat = datetime.fromisoformat
+            result = _parse_rss_date("not-a-date")
+        assert result == fixed
 
 
 # ---------------------------------------------------------------------------

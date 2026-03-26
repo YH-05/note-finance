@@ -30,6 +30,7 @@ dependencies = [
     "defusedxml>=0.7.1",
     "boto3>=1.42.73",
     "sqlite-vec>=0.1.7",
+    "requests>=2.33.0",
 ]
 
 [project.optional-dependencies]

@@ -20,7 +20,8 @@ from __future__ import annotations
 import asyncio
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
-from typing import Any
+from typing import Any, Literal
+from urllib.parse import urlparse
 
 import feedparser
 from lxml import html as lxml_html
@@ -139,9 +140,22 @@ def _html_to_text(html_str: str) -> str:
     return "\n".join(line.strip() for line in lines if line.strip())
 
 
+_ContentField = Literal["entry.summary", "entry.content[0].value"]
+
+_ALLOWED_URL_SCHEMES = frozenset({"http", "https"})
+
+
+def _is_safe_url(url: str) -> bool:
+    """Return True if *url* uses an allowed scheme (http or https)."""
+    try:
+        return urlparse(url).scheme in _ALLOWED_URL_SCHEMES
+    except Exception:
+        return False
+
+
 def _extract_content(
     entry: Any,
-    content_field: str,
+    content_field: _ContentField,
     *,
     content_is_html: bool,
 ) -> str | None:
@@ -151,7 +165,7 @@ def _extract_content(
     ----------
     entry : Any
         Feedparser entry dict-like object.
-    content_field : str
+    content_field : _ContentField
         One of ``"entry.summary"`` or ``"entry.content[0].value"``.
     content_is_html : bool
         When True, strip HTML tags from the extracted value.
@@ -175,7 +189,7 @@ def _extract_content(
     return _html_to_text(raw) or None if content_is_html else raw
 
 
-def _get_raw_field(entry: Any, content_field: str) -> str | None:
+def _get_raw_field(entry: Any, content_field: _ContentField) -> str | None:
     """Return the raw string for the given content_field selector, or None."""
     if content_field == "entry.summary":
         raw = entry.get("summary")
@@ -206,7 +220,7 @@ def _entry_to_article(
     *,
     category: str,
     source_name: str,
-    content_field: str,
+    content_field: _ContentField,
     content_is_html: bool,
 ) -> Article | None:
     """Convert a feedparser entry to an Article, returning None for invalid entries."""
@@ -214,6 +228,11 @@ def _entry_to_article(
     url = _get_entry_field(entry, "link")
     if not title or not url:
         logger.debug("Skipping entry: missing title or URL", source=source_name)
+        return None
+    if not _is_safe_url(url):
+        logger.warning(
+            "Skipping entry: unsafe URL scheme", source=source_name, url=url[:100]
+        )
         return None
     pub_date_str = _get_entry_field(entry, "published", "updated")
     return Article(
@@ -238,7 +257,7 @@ async def fetch_rss_feeds(
     feeds: dict[str, str],
     config: ScraperConfig,
     source_name: str,
-    content_field: str = "entry.summary",
+    content_field: _ContentField = "entry.summary",
     content_is_html: bool = False,
 ) -> list[Article]:
     """Fetch and parse multiple RSS feeds in parallel.
@@ -256,7 +275,7 @@ async def fetch_rss_feeds(
         Scraper configuration.
     source_name : str
         Source identifier stored in each :class:`Article`.
-    content_field : str, optional
+    content_field : _ContentField, optional
         RSS entry field used as article content — ``"entry.summary"``
         (default) or ``"entry.content[0].value"``.
     content_is_html : bool, optional
