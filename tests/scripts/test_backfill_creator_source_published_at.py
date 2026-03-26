@@ -17,7 +17,6 @@ from scripts.backfill_creator_source_published_at import (
     parse_args,
 )
 
-
 # ---------------------------------------------------------------------------
 # _iter_json_objects
 # ---------------------------------------------------------------------------
@@ -212,7 +211,10 @@ class TestExtractPublishedAt:
 
     def test_正常系_reddit_created_timestampを抽出できる(self) -> None:
         html = '<shreddit-post created-timestamp="2026-03-23T01:02:03.000Z"></shreddit-post>'
-        assert extract_published_at(html, domain="reddit.com") == "2026-03-23T01:02:03.000Z"
+        assert (
+            extract_published_at(html, domain="reddit.com")
+            == "2026-03-23T01:02:03.000Z"
+        )
 
     def test_正常系_値が無ければNone(self) -> None:
         html = "<html><head><title>No date</title></head></html>"
@@ -297,7 +299,9 @@ class TestDiscoverUpdates:
         return c
 
     def test_正常系_日付抽出成功はupdatesに入る(self) -> None:
-        html = '<script type="application/ld+json">{"datePublished":"2026-03-26"}</script>'
+        html = (
+            '<script type="application/ld+json">{"datePublished":"2026-03-26"}</script>'
+        )
         mock_resp = MagicMock()
         mock_resp.text = html
 

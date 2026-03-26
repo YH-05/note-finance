@@ -781,8 +781,14 @@ def collect_news(
     for feed_url in JETRO_RSS_FEEDS:
         feed_entries = _fetch_rss_entries(feed_url)
         all_entries.extend(feed_entries)
-    articles = _collect_rss_articles(all_entries, config, delay, max_articles=max_per_source)
-    logger.info("RSS phase complete", rss_articles=len(articles), feed_count=len(JETRO_RSS_FEEDS))
+    articles = _collect_rss_articles(
+        all_entries, config, delay, max_articles=max_per_source
+    )
+    logger.info(
+        "RSS phase complete",
+        rss_articles=len(articles),
+        feed_count=len(JETRO_RSS_FEEDS),
+    )
 
     # Phase 2: Category page crawling
     if categories:

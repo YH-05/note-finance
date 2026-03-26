@@ -36,6 +36,12 @@ class TestSourceName:
             "minkabu",
             "nasdaq",
             "reuters_jp",
+            "techcrunch",
+            "ars_technica",
+            "the_verge",
+            "hacker_news",
+            "federal_reserve",
+            "zero_hedge",
         }
         # Access the Literal args from the type alias
         source_args = set(SourceName.__value__.__args__)

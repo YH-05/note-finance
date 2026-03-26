@@ -29,7 +29,20 @@ from typing import Any, Literal
 from pydantic import BaseModel, Field
 
 # Valid source names for collect_financial_news()
-type SourceName = Literal["cnbc", "jetro", "kabutan", "minkabu", "nasdaq", "reuters_jp"]
+type SourceName = Literal[
+    "cnbc",
+    "jetro",
+    "kabutan",
+    "minkabu",
+    "nasdaq",
+    "reuters_jp",
+    "techcrunch",
+    "ars_technica",
+    "the_verge",
+    "hacker_news",
+    "federal_reserve",
+    "zero_hedge",
+]
 
 
 def deduplicate_by_url(articles: list[Article]) -> list[Article]:
