@@ -36,7 +36,8 @@
 
 | コマンド | 説明 |
 |----------|------|
-| `/finance-suggest-topics` | 金融記事のトピックを提案 |
+| `/topic-discovery` | KGデータ優先で記事トピックを提案（旧: `/finance-suggest-topics`） |
+| `/kg-summary` | トピックのKGアセットをCypherで即時照会（LLM不使用） |
 | `/generate-market-report` | 週次マーケットレポートを自動生成 |
 | `/ai-research-collect` | AI投資バリューチェーン収集 |
 | `/reddit-finance-topics` | Reddit金融コミュニティからトピック発見・記事化 |
@@ -52,6 +53,7 @@
 | `/finance-full` | `/article-full` |
 | `/publish-to-note` | `/article-publish` |
 | `/asset-management` | `/article-full --category asset_management` |
+| `/finance-suggest-topics` | `/topic-discovery` |
 
 ## 制約事項
 

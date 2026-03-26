@@ -180,29 +180,25 @@ _QUERY_GENERATION_PROMPT = """\
 低カバレッジ概念: {low_coverage_concepts}
 現在年: {year}
 
+## 重要な制約
+
+**必ず「{genre_name_ja}」ジャンルに関連するクエリのみ生成すること。**
+ジャンルと無関係なクエリ（例: career ジャンルなのに美容・占いに関するクエリ）は絶対に生成しないこと。
+
 ## タスク
 
 以下の2種類の検索クエリを合計 {max_queries} 本生成してください:
 
 ### 1. ギャップ補充クエリ（{gap_count}本）
-低カバレッジ概念を深掘りする具体的なクエリ。英語3本 + 日本語3本を目安に。
+低カバレッジ概念を「{genre_name_ja}」の文脈で深掘りする具体的なクエリ。英語3本 + 日本語3本を目安に。
 
 ### 2. 探索クエリ（{explore_count}本）
-隣接領域・新トレンド・意外な切り口を発見するクエリ。
-低カバレッジ概念から連想される未知のトピックを探る。
-Reddit の体験談や成功事例を含めること。
+「{genre_name_ja}」ジャンル内の隣接領域・新トレンド・意外な切り口を発見するクエリ。
+低カバレッジ概念から連想される未知のトピックを、**必ずこのジャンルの文脈で**探る。
 
 ## 出力形式
 
 JSON配列で返してください。各要素は {{"query": "検索クエリ文", "type": "gap|explore", "language": "en|ja"}} の形式。
-
-```json
-[
-  {{"query": "affiliate marketing side hustle tips 2026", "type": "gap", "language": "en"}},
-  {{"query": "副業 アフィリエイト 成功事例 2026", "type": "gap", "language": "ja"}},
-  {{"query": "unconventional side hustle ideas reddit 2026", "type": "explore", "language": "en"}}
-]
-```
 """
 
 

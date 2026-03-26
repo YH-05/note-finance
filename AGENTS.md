@@ -136,7 +136,6 @@ uv sync --all-extras
 | ------------ | ------------------------------------------------------------------ | --------------------------------------------- |
 | `rss`        | RSSフィード管理（パーサー・HTTP・差分検知・MCP Server）            | `rss-mcp`, `rss-cli`                          |
 | `news`       | ニュース処理パイプライン（収集→抽出→要約→グルーピング→GitHub投稿） | `python -m news.scripts.finance_news_workflow` |
-| `automation` | Agent SDK による自動収集                                           | `collect-finance-news`                        |
 | `news_scraper` | ニューススクレイピング                                           | -                                             |
 | `report_scraper` | レポートスクレイピング                                         | -                                             |
 | `pdf_pipeline` | PDF→ナレッジグラフ パイプライン                                  | -                                             |

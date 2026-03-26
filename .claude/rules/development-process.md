@@ -65,7 +65,6 @@ make issue TITLE="x" BODY="y"  # Issue作成
 
 | タスク | 参照先 |
 |--------|--------|
-| ニュース収集 | `/collect-finance-news` |
 | トピック提案 | `/finance-suggest-topics` |
 | 記事初期化 | `/new-finance-article` |
 | リサーチ実行 | `/finance-research` |

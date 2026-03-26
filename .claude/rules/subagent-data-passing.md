@@ -281,6 +281,3 @@ Task(
 
 ## 関連ファイル
 
-- コマンド: `.claude/commands/collect-finance-news.md`
-- テーマエージェント: `.claude/agents/finance-news-*.md`
-- 共通処理ガイド: `.claude/agents/finance_news_collector/common-processing-guide.md`

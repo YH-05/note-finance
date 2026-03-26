@@ -1,0 +1,77 @@
+{
+  "article_id": "2026-03-26_indonesia-telecom-sector",
+  "sources": [
+    {
+      "url": "https://www.thejakartapost.com/business/2026/02/11/indosat-ooredoo-hutchison-shows-healthy-fundamentals-in-2025-with-12-2-net-profit-growth.html",
+      "title": "Indosat Ooredoo Hutchison shows healthy fundamentals in 2025 with 12.2% net profit growth",
+      "source_name": "The Jakarta Post",
+      "published_at": "2026-02-11",
+      "tier": 1,
+      "type": "news"
+    },
+    {
+      "url": "https://www.telkom.co.id/minio/show/data/lampiran/1744946875121_original_TLKM%20FY24%20Info%20Memo.pdf",
+      "title": "Telkom Indonesia Full Year 2024 Results (Audited)",
+      "source_name": "Telkom Indonesia IR",
+      "published_at": "2025-04-01",
+      "tier": 1,
+      "type": "ir_document"
+    },
+    {
+      "url": "https://www.telkom.co.id/minio/show/data/lampiran/1761838522183_original_TLKM-9M25-Info-Memo.pdf",
+      "title": "Telkom Indonesia Nine Months 2025 Results (Unaudited)",
+      "source_name": "Telkom Indonesia IR",
+      "published_at": "2025-10-01",
+      "tier": 1,
+      "type": "ir_document"
+    },
+    {
+      "url": "https://jakartaglobe.id/tech/xlsmart-posts-25-billion-revenue-in-2025-after-xl-axiatasmartfren-merger",
+      "title": "XLSmart Posts $2.5 Billion Revenue in 2025 After XL Axiata-Smartfren Merger",
+      "source_name": "Jakarta Globe",
+      "published_at": "2026-02-01",
+      "tier": 2,
+      "type": "news"
+    },
+    {
+      "url": "https://www.investing.com/news/company-news/xlsmart-q4-2025-slides-revenue-surges-32-yoy-despite-subscriber-decline-93CH-4504385",
+      "title": "XLSMART Q4 2025 slides: revenue surges 32% YoY despite subscriber decline",
+      "source_name": "Investing.com",
+      "published_at": "2026-02-01",
+      "tier": 2,
+      "type": "news"
+    },
+    {
+      "url": "https://www.opensignal.com/reports/2025/06/indonesia/mobile-network-experience",
+      "title": "Indonesia, June 2025, Mobile Network Experience Report",
+      "source_name": "Opensignal",
+      "published_at": "2025-06-01",
+      "tier": 2,
+      "type": "research"
+    },
+    {
+      "url": "https://www.globenewswire.com/news-release/2026/02/09/3234513/28124/en/Indonesia-Data-Center-Industry-Report-2026-Market-Share-Analysis-Industry-Trends-Statistics-Growth-Forecasts-2025-2031.html",
+      "title": "Indonesia Data Center Industry Report 2026",
+      "source_name": "GlobeNewswire",
+      "published_at": "2026-02-09",
+      "tier": 2,
+      "type": "research"
+    },
+    {
+      "url": "https://www.opensignal.com/2025/10/08/starlink-in-indonesia-one-year-on/id",
+      "title": "Starlink in Indonesia — one year on",
+      "source_name": "Opensignal",
+      "published_at": "2025-10-08",
+      "tier": 2,
+      "type": "research"
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/blog/microsofts-commitment-to-supporting-cloud-infrastructure-demand-in-asia/",
+      "title": "Microsoft's commitment to supporting cloud infrastructure demand in Asia",
+      "source_name": "Microsoft Azure Blog",
+      "published_at": "2025-05-01",
+      "tier": 1,
+      "type": "official"
+    }
+  ]
+}

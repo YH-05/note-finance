@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from datetime import timezone
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -28,7 +29,9 @@ from data_pipeline.collectors.base import CollectedItem, CollectionResult
 if TYPE_CHECKING:
     from datetime import datetime
 
-_DEFAULT_EXTERNAL_DIR = Path("/Volumes/personal_folder/raw_texts")
+# AIDEV-NOTE: RAW_STORE_DIR 環境変数で上書き可能。Mac Mini 等の別マシンでは
+# launchd plist の EnvironmentVariables に NAS マウントパスを設定すること。
+_DEFAULT_EXTERNAL_DIR = Path(os.environ.get("RAW_STORE_DIR", "/Volumes/personal_folder/raw_texts"))
 _FALLBACK_DIR_NAME = "raw_texts"
 
 

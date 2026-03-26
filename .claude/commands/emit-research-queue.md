@@ -91,7 +91,6 @@ uv run python scripts/emit_research_queue.py \
 
 - **Neo4j 投入**: `/save-to-research-graph`（生成済み graph-queue JSON → Neo4j）
 - **ウェルスブログ収集**: `/scrape-finance-blog`（backfill 記事を収集）
-- **ニュース収集**: `/collect-finance-news`
 - **マーケットレポート**: `/generate-market-report`
 
 ## 関連リソース

@@ -1499,7 +1499,6 @@ project_number: 15
 
 ## 関連コマンド
 
-- **ニュース収集**: `/collect-finance-news`
 - **記事作成**: `/new-finance-article`
 - **リサーチ実行**: `/finance-research`
 

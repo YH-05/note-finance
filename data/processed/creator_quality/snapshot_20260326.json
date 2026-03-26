@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-03-26T07:25:04.721844+00:00",
+  "node_counts": {
+    "Genre": 4,
+    "Concept": 4177,
+    "ConceptCategory": 14,
+    "Entity": 734,
+    "Source": 1708,
+    "Fact": 944,
+    "Tip": 805,
+    "Story": 405,
+    "Domain": 797
+  },
+  "categories": {
+    "completeness": {
+      "score": 85.8,
+      "details": {
+        "fact_source_url": 34.9,
+        "tip_source_url": 26.2,
+        "story_source_url": 14.1,
+        "concept_genre": 33.6
+      }
+    },
+    "consistency": {
+      "score": 100.0,
+      "details": {
+        "invalid_genre": 0,
+        "duplicate_entity_key": 0,
+        "invalid_authority_level": 0
+      }
+    },
+    "structural": {
+      "score": 90.0,
+      "details": {
+        "avg_rels_per_content": 4.83,
+        "total_nodes": 9588,
+        "total_rels": 17703
+      }
+    },
+    "orphan": {
+      "score": 80.0,
+      "details": {
+        "orphan_content": 0,
+        "orphan_concept": 2,
+        "orphan_source": 228,
+        "orphan_entity_20plus": true
+      }
+    },
+    "content_balance": {
+      "score": 55.0,
+      "details": {
+        "genre_ratio": 4.19,
+        "zero_content_concepts_pct": 53.1,
+        "story_pct": 18.8
+      }
+    },
+    "source_quality": {
+      "score": 85.0,
+      "details": {
+        "authority_fill": 99.9,
+        "url_fill": 100.0,
+        "unique_domains": 797,
+        "blog_pct": 52.1
+      }
+    },
+    "taxonomy": {
+      "score": 60.0,
+      "details": {
+        "is_a_rate": 99.9,
+        "about_rate": 49.3,
+        "no_about_concepts": 2117
+      }
+    }
+  },
+  "llm_judge": {
+    "content_quality_avg": 0.663,
+    "source_grounding_avg": 0.6,
+    "classification_accuracy_avg": 0.567,
+    "overall_avg": 0.615,
+    "misclassified_count": 3,
+    "no_source_count": 2,
+    "concept_classification_avg": 0.6,
+    "sample_size": 15
+  },
+  "overall_score": 78.2,
+  "rating": "B"
+}

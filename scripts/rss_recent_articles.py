@@ -7,13 +7,29 @@ import asyncio
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from pathlib import Path
+
 from data_paths import get_path
 from rss import FeedFetcher, FeedReader
 
 
+def _get_rss_data_dir() -> Path:
+    """RSSデータディレクトリを返す（MCPサーバーと同じ優先順位）.
+
+    Priority: RSS_DATA_DIR env var > NAS(/Volumes/personal_folder) > DATA_ROOT fallback.
+    """
+    import os
+
+    env_dir = os.environ.get("RSS_DATA_DIR")
+    if env_dir:
+        return Path(env_dir).resolve()
+    nas_dir = Path("/Volumes/personal_folder/scraped/rss")
+    return nas_dir if nas_dir.parent.exists() else get_path("raw/rss")
+
+
 async def main() -> None:
     """メイン処理."""
-    data_dir = get_path("raw/rss")
+    data_dir = _get_rss_data_dir()
 
     print("=" * 80)
     print("RSS記事取得開始")

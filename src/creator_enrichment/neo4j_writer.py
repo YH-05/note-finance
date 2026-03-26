@@ -351,14 +351,19 @@ class CreatorGraphWriter:
             MERGE (a)-[:{rel_type}]->(b)
             """
         elif rel_type == "IN_GENRE":
-            # IN_GENRE は1コンテンツ1ジャンル制約: 既存を削除してから MERGE
+            # IN_GENRE は1コンテンツ1ジャンル制約。
+            # 既に同じジャンルに接続済みの場合は上書きしない（誤ジャンルによる上書きを防止）。
+            # 異なるジャンルが設定されている場合のみ削除して付け替える。
             query = f"""
             UNWIND $rels AS row
             MATCH (a:{from_label} {{{from_key}: row.from_id}})
             MATCH (b:{to_label} {{{to_key}: row.to_id}})
-            OPTIONAL MATCH (a)-[old:{rel_type}]->()
-            WHERE old IS NOT NULL
-            DELETE old
+            OPTIONAL MATCH (a)-[existing:{rel_type}]->(current_genre:{to_label})
+            WITH a, b, existing, current_genre
+            WHERE existing IS NULL OR current_genre.{to_key} <> row.to_id
+            FOREACH (_ IN CASE WHEN existing IS NOT NULL THEN [1] ELSE [] END |
+                DELETE existing
+            )
             WITH a, b
             MERGE (a)-[:{rel_type}]->(b)
             """

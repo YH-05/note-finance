@@ -88,7 +88,7 @@ _Q4_LOW_COVERAGE_CONCEPTS = """\
 MATCH (concept:Concept)-[:IS_A]->(cc:ConceptCategory)
 OPTIONAL MATCH (content)-[:ABOUT]->(concept)
 WHERE (content:Fact OR content:Tip OR content:Story)
-OPTIONAL MATCH (content)-[:IN_GENRE]->(g:Genre {genre_id: $genre_id})
+  AND (content)-[:IN_GENRE]->(:Genre {genre_id: $genre_id})
 WITH concept.name AS name, cc.name AS category,
      count(DISTINCT content) AS content_count
 RETURN name, category, content_count

@@ -1,0 +1,26 @@
+{
+  "article_id": "2026-03-26_indonesia-telecom-sector",
+  "category": "macro_economy",
+  "mode": "full",
+  "generated_at": "2026-03-26",
+  "overall_score": 73,
+  "critics": {
+    "fact": {"score": 72},
+    "compliance": {"score": 83, "status": "pass"},
+    "structure": {"score": 72},
+    "data_accuracy": {"score": 61},
+    "readability": {"score": 76}
+  },
+  "priority_fixes": [
+    {"priority": 1, "severity": "HIGH", "id": "DA003", "description": "IOH EBITDA「Q4単独IDR 26.6兆（マージン47.1%）」は年間EBITDAの値。Q4単独なら約IDR 6.65兆が妥当。表現を「FY2025 EBITDA IDR 26.6兆（マージン47.1%）」に修正"},
+    {"priority": 2, "severity": "HIGH", "id": "DA002", "description": "DC市場合計（USD 23.9億、2024）よりハイパースケール（USD 34.9億、2025）が大きい論理矛盾。ハイパースケール数値の出典・スコープを確認し整合させる"},
+    {"priority": 3, "severity": "HIGH", "id": "DA001", "description": "ハイパースケールCAGR 14.71%: 2025→2030の5年間では計算が合わない。2024→2030基準に起点年を修正"},
+    {"priority": 4, "severity": "HIGH", "id": "F001", "description": "XLSmart BTS: 209,820基(+28%) → 225,000基超(+36% YoY)に修正"},
+    {"priority": 5, "severity": "MEDIUM", "id": "CP002", "description": "予測・見通しに関する免責事項を冒頭または末尾に追加（最優先コンプライアンス）"},
+    {"priority": 6, "severity": "HIGH", "id": "ST001", "description": "セクション3（各社業績）とセクション4（成長ドライバー）でAI・インフラ戦略が重複。ドライバーセクションはセクター横断要因に限定"},
+    {"priority": 7, "severity": "HIGH", "id": "ST002", "description": "結論にカタリスト・ウォッチ指標を追記し、読者のネクストアクションを明確化"},
+    {"priority": 8, "severity": "MEDIUM", "id": "CP001", "description": "「成長ストーリーは健在」にヘッジ表現を追加"},
+    {"priority": 9, "severity": "MEDIUM", "id": "CP003", "description": "「3社中最も堅調な業績」見出し → 中立的表現に変更"},
+    {"priority": 10, "severity": "MEDIUM", "id": "DA006", "description": "Telkomsel 5G BTS数（約2,200基）を追記し3社の5G比較を完全化"}
+  ]
+}

@@ -65,9 +65,60 @@ research-neo4j（bolt://localhost:7688）から既存データをマイニング
 
 各候補に `kg_gap_score`（0-10）を付与し、Phase 3 のスコアリング補正に使用する。
 
-### Phase 1: トレンドリサーチ（`--no-search` 時はスキップ）
+#### Phase 0-C: KG充足性評価 + [HF0] ユーザー確認
+
+**KG充足性の判定**:
+
+| 状況 | 判定 | 次のアクション |
+|------|------|--------------|
+| kg_gap_score ≥ 5 の候補が `--count` 以上 | 充足 | KG候補を表示し、Web検索をユーザーに確認 |
+| kg_gap_score ≥ 5 の候補が `--count` 未満 | 部分的 | KG候補を表示し、不足領域を提示してユーザーに確認 |
+| KG候補が0件 | 不足 | Web検索を自動実行（Phase 1へ） |
+
+**[HF0] KG候補をユーザーに提示（充足・部分的の場合）**:
+
+以下の形式でKG由来候補を表示してから、Web検索の要否を確認する:
+
+```
+## KGデータから発掘したトピック候補
+
+### Knowledge Gap（未回答Question/Insightギャップ由来）
+1. {topic}（KG Score: {score}）— {rationale}
+
+### Underexplored Entity（カバレッジ薄エンティティ）
+2. {topic}（KG Score: {score}）— {rationale}
+
+### Trending Entity（ソース急増）
+3. {topic}（KG Score: {score}）— {rationale}
+
+### Controversy（センチメント拮抗）
+4. {topic}（KG Score: {score}）— {rationale}
+
+---
+
+KGデータのみで {n}件の候補を生成しました。
+Web検索でトレンド情報・最新ニュースを追加しますか？
+  y: Web検索を実行（8-12回、トレンド情報を追加）
+  n: KGデータのみでスコアリングを実行（高速）
+  p: 特定領域のみ検索（次の行に領域を入力）
+```
+
+**部分的の場合は不足領域も明示する**:
+
+```
+不足している情報領域:
+- macro_economy: KG候補0件 → 「日銀・FRB動向」の追加検索を推奨
+- asset_management: KG候補1件 → 追加検索しますか？
+```
+
+**`--no-search` 指定時**: [HF0] をスキップし、KG候補のみで Phase 2 へ進む。
+
+### Phase 1: トレンドリサーチ（ユーザー承認時 または KG不足時のみ実行）
+
+**実行条件**: [HF0] でユーザーが `y` または `p` を選択した場合、または KG候補が0件の場合のみ実行。
 
 Web検索を 8-12回実行し、現在のトレンド情報を収集する。
+`p`（特定領域）選択時はユーザー指定の領域に絞って検索クエリを配分する。
 ツール選択は `.claude/skills/web-search/SKILL.md` 参照（日本市場クエリは Gemini Search 推奨）。
 
 参照: `references/search-strategy.md`（検索クエリ配分・戦略）

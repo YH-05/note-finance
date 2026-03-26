@@ -72,5 +72,4 @@ Phase 4: 完了処理
 ## 関連コマンド
 
 - **graph-queue 生成**: `python3 scripts/emit_research_queue.py --command <cmd> --input <file>`
-- **ニュース収集**: `/collect-finance-news`（ソースデータ生成）
 - **レポート生成**: `/generate-market-report`（ソースデータ生成）

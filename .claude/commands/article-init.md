@@ -236,6 +236,46 @@ argument-hint: [トピック名] [--category <category>]
     - [HF6] 最終確認（公開前）
     ```
 
+### Phase 5: KGサマリー（自動・LLM不使用）
+
+完了報告の直後に、research-neo4j からトピック関連データを照会します。
+`/kg-summary` コマンドと同等の処理をインラインで実行します。
+
+**実行条件**: research-neo4j（bolt://localhost:7688）が起動している場合のみ。
+未起動時はこのステップを無言でスキップします（警告も表示しない）。
+
+**実行内容**: meta.yaml の `topic` フィールドからキーワードを抽出し、
+以下の5クエリを `mcp__neo4j-research__research-read_neo4j_cypher` で実行:
+
+- Q1: Entity別のFact/Claim/Source件数
+- Q2: 最新ソースの公開日（データ鮮度）
+- Q3: 未回答Questionの件数と内容
+- Q4: Claimのbullish/bearish/neutral分布
+- Q5: FinancialDataPoint件数（company/etf/index entityのみ）
+
+**表示形式**（クエリ結果をそのまま整形、LLM生成テキストなし）:
+
+```
+---
+## KGサマリー: {topic_keyword}
+
+| Entity | Fact | Claim | Source | 最新ソース |
+|--------|------|-------|--------|-----------|
+| {name} | {n}  | {n}   | {n}    | {date}    |
+
+Claim: bullish {n} / bearish {n} / neutral {n}
+未回答Question: {n}件
+
+判定: ✓ KGに十分なデータあり  または
+     ⚠ 追加推奨（最新ソースが30日超 / Fact+Claim < 5件 / Question残存）
+---
+```
+
+判定はLLMなしの単純閾値:
+- 最新ソース > 30日前 → ⚠ データが古い
+- Fact + Claim < 5件 → ⚠ KGカバレッジ薄
+- open Question > 0件 → ⚠ 未回答Question残存
+
 ## 後方互換性
 
 旧形式（`articles/{category}_{seq}_{theme}/`）のフォルダも検出可能です。

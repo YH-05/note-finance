@@ -61,7 +61,6 @@ memory = ["sentence-transformers>=3.0.0"]
 nlm = "notebooklm.cli.main:cli"
 rss-mcp = "rss.mcp.server:main"
 rss-cli = "rss.cli.main:cli"
-collect-finance-news = "automation.news_collector:main"
 finance-news = "news.scripts.finance_news_workflow:main"
 report-scraper = "report_scraper.cli.main:cli"
 pdf-pipeline = "pdf_pipeline.cli.main:cli"

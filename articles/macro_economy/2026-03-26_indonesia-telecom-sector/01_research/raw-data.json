@@ -1,0 +1,121 @@
+{
+  "article_id": "2026-03-26_indonesia-telecom-sector",
+  "session_id": "article-research-indonesia-telecom-sector-20260326",
+  "research_topic": "インドネシアのtelcomセクター",
+  "as_of_date": "2026-03-26",
+  "market_overview": {
+    "market_size_usd_2025": 13400000000,
+    "market_size_usd_2031_forecast": 18370000000,
+    "cagr_5yr": 0.053,
+    "players": [
+      {
+        "name": "Telkomsel (Telkom Indonesia子会社)",
+        "market_share_pct": 45,
+        "subscribers_M": 157.6,
+        "arpu_idr": 43400
+      },
+      {
+        "name": "Indosat Ooredoo Hutchison (IOH)",
+        "market_share_pct": 28,
+        "subscribers_M": 95,
+        "arpu_idr": 44000
+      },
+      {
+        "name": "XLSmart (XL Axiata + Smartfren)",
+        "market_share_pct": 27,
+        "subscribers_M": 73,
+        "arpu_idr": 38900
+      }
+    ]
+  },
+  "financials": {
+    "telkom_indonesia_fy2024": {
+      "revenue_idr_T": 150.0,
+      "revenue_growth_pct": 0.5,
+      "ebitda_idr_T": 75.0,
+      "ebitda_margin_pct": 50.0,
+      "net_profit_idr_T": 23.6,
+      "net_profit_growth_pct": -3.7,
+      "capex_idr_T": 24.5,
+      "capex_revenue_ratio_pct": 16.3,
+      "debt_equity_ratio_pct": 47.3,
+      "debt_ebitda_x": 1.0,
+      "telkomsel_subscribers_M": 159.4,
+      "telkomsel_arpu_idr": 44400,
+      "indihome_subscribers_M": 10.6,
+      "indihome_arpu_idr": 237600
+    },
+    "telkom_indonesia_9m2025": {
+      "revenue_idr_T": 109.6,
+      "revenue_growth_yoy_pct": -2.3,
+      "net_profit_idr_T": 15.78,
+      "infranexia_asset_transfer_total_idr_T": 79.0,
+      "infranexia_phase1_idr_T": 35.78,
+      "infranexia_expected_revenue_idr_T": 26.0,
+      "infranexia_expected_ebitda_idr_T": 9.5
+    },
+    "indosat_fy2025": {
+      "revenue_idr_T": 56.5,
+      "revenue_usd_B": 3.37,
+      "net_profit_idr_T": 5.5,
+      "net_profit_growth_yoy_pct": 12.2,
+      "ebitda_q4_idr_T": 26.6,
+      "ebitda_margin_q4_pct": 47.1,
+      "arpu_idr": 44000,
+      "arpu_growth_yoy_pct": 6.4,
+      "postpaid_growth_yoy_pct": 19.7,
+      "home_broadband_customers": 400000,
+      "total_bts": 278000,
+      "bts_5g": 6800,
+      "coverage_5g_cities": 24
+    },
+    "xlsmart_fy2025": {
+      "merger_completed": "2025-04-16",
+      "axiata_stake_pct": 34.8,
+      "sinar_mas_stake_pct": 34.8,
+      "revenue_idr_T": 42.5,
+      "revenue_usd_B": 2.5,
+      "revenue_growth_yoy_pct": 23,
+      "subscribers_M_initial": 94.5,
+      "subscribers_M_cleaned": 73,
+      "arpu_idr": 39500,
+      "synergies_y1_usd_M": 250,
+      "synergies_target_annual_usd_M_fy26": 300,
+      "net_debt_idr_T": 21.0,
+      "gross_debt_idr_T": 23.7,
+      "net_debt_ebitda_x": 3.38,
+      "fcf_idr_T": 6.6,
+      "bts_total": 209820,
+      "bts_growth_pct": 28,
+      "network_integration_pct_complete": 85,
+      "network_integration_target_date": "2026-06-01"
+    }
+  },
+  "5g_status": {
+    "national_coverage_pct_2025": 6.33,
+    "rpjmn_target_2025_pct": 4.4,
+    "target_2026_pct": 8.5,
+    "target_2030_pct": 32,
+    "spectrum_700mhz_auction": "2026",
+    "spectrum_2600mhz_auction": "2026",
+    "spectrum_3500mhz_available": "2028+"
+  },
+  "data_center": {
+    "market_size_usd_2024": 2390000000,
+    "market_size_usd_2030_forecast": 3790000000,
+    "cagr_to_2030": 0.08,
+    "hyperscale_market_2025_usd_B": 3.49,
+    "hyperscale_cagr": 0.1471,
+    "microsoft_investment_usd_B": 1.7,
+    "microsoft_cloud_region": "Indonesia Central (2025年5月開設)",
+    "indonesia_digital_economy_gmv_2030_usd_B": 360
+  },
+  "starlink": {
+    "launch_date": "2024-05",
+    "current_status": "capacity constraints, performance degraded",
+    "regulatory_issues": "NOC requirement, roaming restrictions",
+    "direct_to_cell_status": "experimental",
+    "assessment": "complementary rather than disruptive"
+  },
+  "raw_data": []
+}

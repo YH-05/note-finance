@@ -374,6 +374,39 @@ class TestLowCoverageConcepts:
 
         assert result["low_coverage_concepts"] == []
 
+    def test_正常系_Q4がgenre_idパラメータつきで呼ばれる(
+        self,
+        mock_neo4j_client: MagicMock,
+        q2_to_q6_map: dict[str, list[dict]],
+    ) -> None:
+        """Bug 1 回帰テスト: Q4 は選択ジャンルの genre_id パラメータを受け取る.
+
+        修正前は $genre_id が WHERE 句に含まれていなかったため、
+        Q4 がジャンル非依存の全体カバレッジを返していた（beauty-romance 選択時に
+        career 系 Concept が返る原因となった）。
+        """
+        captured_params: list[dict[str, Any] | None] = []
+
+        def capturing_side_effect(
+            query: str, params: dict[str, Any] | None = None
+        ) -> list[dict[str, Any]]:
+            if _Q4_KEY in query:
+                captured_params.append(params)
+            for key in _QUERY_KEYS:
+                if key in query and key in q2_to_q6_map:
+                    return q2_to_q6_map[key]
+            return []
+
+        mock_neo4j_client.execute_query.side_effect = capturing_side_effect
+
+        analyzer = GapAnalyzer(mock_neo4j_client)
+        analyzer.analyze(prev_genre=None, genre_filter="beauty-romance")
+
+        # Q4 が1回呼ばれ、正しい genre_id が渡されていること
+        assert len(captured_params) == 1
+        assert captured_params[0] is not None
+        assert captured_params[0].get("genre_id") == "beauty-romance"
+
 
 # ---------------------------------------------------------------------------
 # 既存サンプル抽出
