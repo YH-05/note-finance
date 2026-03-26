@@ -160,7 +160,7 @@ class TestTavilyExecution:
         assert results[0]["url"] == "https://example.com/article-1"
         assert results[0]["title"] == "Test Article 1"
         assert results[0]["source"] == "tavily"
-        assert results[0]["published_at"] == "2026-03-25T00:00:00+00:00"
+        assert results[0].get("published_at") == "2026-03-25T00:00:00+00:00"
 
     @patch("creator_enrichment.phases.search.httpx.post")
     def test_正常系_URL重複が排除される(
