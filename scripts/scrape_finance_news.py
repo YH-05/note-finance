@@ -141,7 +141,20 @@ Examples:
     parser.add_argument(
         "--sources",
         nargs="+",
-        choices=["cnbc", "nasdaq", "kabutan", "reuters_jp", "minkabu", "jetro"],
+        choices=[
+            "cnbc",
+            "nasdaq",
+            "kabutan",
+            "reuters_jp",
+            "minkabu",
+            "jetro",
+            "techcrunch",
+            "ars_technica",
+            "the_verge",
+            "hacker_news",
+            "federal_reserve",
+            "zero_hedge",
+        ],
         default=DEFAULT_SOURCES,
         help="News sources to collect from (default: cnbc)",
     )
