@@ -4,7 +4,9 @@
     {
       "username": "fukuoka1116",
       "display_name": "fukuoka1116",
-      "genres": ["career"],
+      "genres": [
+        "career"
+      ],
       "target_instance": "creator",
       "rss_enabled": true,
       "enabled": true,
@@ -13,7 +15,9 @@
     {
       "username": "sota_career",
       "display_name": "そうた＠転職で人生変えた人",
-      "genres": ["career"],
+      "genres": [
+        "career"
+      ],
       "target_instance": "creator",
       "rss_enabled": true,
       "enabled": true,
@@ -23,7 +27,9 @@
     {
       "username": "kei_10m_asset",
       "display_name": "けい｜26歳独身で1000万→現32歳パパで6000万",
-      "genres": ["career"],
+      "genres": [
+        "career"
+      ],
       "target_instance": "creator",
       "rss_enabled": true,
       "enabled": true,
@@ -33,7 +39,9 @@
     {
       "username": "careercompass_c",
       "display_name": "Career Compass 転職ナビ",
-      "genres": ["career"],
+      "genres": [
+        "career"
+      ],
       "target_instance": "creator",
       "rss_enabled": true,
       "enabled": true,
@@ -43,7 +51,9 @@
     {
       "username": "dandism56",
       "display_name": "高橋良平/キャリアアップ転職エージェント",
-      "genres": ["career"],
+      "genres": [
+        "career"
+      ],
       "target_instance": "creator",
       "rss_enabled": true,
       "enabled": true,
@@ -53,12 +63,36 @@
     {
       "username": "miraicareer_blog",
       "display_name": "みらいキャリアbyみらい人材サポート",
-      "genres": ["career"],
+      "genres": [
+        "career"
+      ],
       "target_instance": "creator",
       "rss_enabled": true,
       "enabled": true,
       "added_at": "2026-03-25T13:00:00.000000+00:00",
       "note": "転職市場データ・年収統計の定量分析記事"
+    },
+    {
+      "username": "glad_auklet4142",
+      "display_name": "glad_auklet4142",
+      "genres": [
+        "career"
+      ],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-26T10:43:43.264548+00:00"
+    },
+    {
+      "username": "hide_taxnote",
+      "display_name": "hide_taxnote",
+      "genres": [
+        "asset-management"
+      ],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-26T11:06:08.701798+00:00"
     }
   ],
   "settings": {

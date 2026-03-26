@@ -76,6 +76,7 @@ GENRE_NAMES: dict[str, str] = {
     "career": "転職・副業",
     "beauty-romance": "美容・恋愛",
     "spiritual": "占い・スピリチュアル",
+    "asset-management": "資産形成・投資",
 }
 
 

@@ -70,7 +70,7 @@ Phase 4: 結果レポート
 
 引数から以下を取得:
 - `username`: note.com ユーザー名（必須、モード1の場合）
-- `--max-articles`: 最大記事数（デフォルト: 50）
+- `--max-articles`: 最大記事数（デフォルト: 無制限）
 - `--target`: 投入先 `creator`（デフォルト）or `research`
 - `--scrape-only`: RawStore 保存のみ
 - `--genre`: ジャンル（デフォルト: `career`）

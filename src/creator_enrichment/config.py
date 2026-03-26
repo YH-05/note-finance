@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # 定数
 # ---------------------------------------------------------------------------
-GENRE_NAMES: list[str] = ["career", "beauty-romance", "spiritual"]
+GENRE_NAMES: list[str] = ["career", "beauty-romance", "spiritual", "asset-management"]
 """有効なジャンル名のリスト."""
 
 ANTHROPIC_MODEL: str = "claude-sonnet-4-6"

@@ -79,6 +79,7 @@ GENRE_NAMES: dict[str, str] = {
     "beauty-romance": "美容・恋愛",
     "spiritual": "占い・スピリチュアル",
     "self-development": "自己啓発・生産性",
+    "asset-management": "資産形成・投資",
 }
 
 CONCEPT_CATEGORY_LAYERS: dict[str, str] = {

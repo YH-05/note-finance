@@ -151,7 +151,8 @@ def _note_com_scrape(args: argparse.Namespace, config_path: Path) -> int:
     max_articles = args.max_articles
     source_id = f"note-com-{username}"
 
-    print(f"Scraping note.com/{username} (max: {max_articles} articles)...")
+    limit_str = str(max_articles) if max_articles is not None else "無制限"
+    print(f"Scraping note.com/{username} (max: {limit_str} articles)...")
 
     async def _scrape() -> int:
         store = RawStore()
@@ -476,8 +477,8 @@ def main() -> int:
     scrape_parser.add_argument(
         "--max-articles",
         type=int,
-        default=50,
-        help="最大記事数 (default: 50)",
+        default=None,
+        help="最大記事数 (default: 無制限)",
     )
     scrape_parser.add_argument(
         "--genre",
