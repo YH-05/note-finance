@@ -399,6 +399,11 @@ def _run_creator_layers(  # noqa: PLR0915
                 title=item.title,
                 content=item.raw_text,
                 source=item.collection_method or "web",
+                published_at=item.published_at.isoformat() if item.published_at else "",
+                collected_at=item.collected_at.isoformat(),
+                source_type=str(item.metadata.get("source_type") or ""),
+                authority_level=str(item.metadata.get("authority_level") or ""),
+                language=item.language or "",
             )
             for item in text_items
         ]

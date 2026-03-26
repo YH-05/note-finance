@@ -73,6 +73,7 @@ def _tavily_api_response(results: list[dict] | None = None) -> httpx.Response:
                 "url": "https://example.com/article-1",
                 "title": "Test Article 1",
                 "content": "Content of article 1",
+                "published_date": "2026-03-25T00:00:00+00:00",
             },
             {
                 "url": "https://example.com/article-2",
@@ -159,6 +160,7 @@ class TestTavilyExecution:
         assert results[0]["url"] == "https://example.com/article-1"
         assert results[0]["title"] == "Test Article 1"
         assert results[0]["source"] == "tavily"
+        assert results[0]["published_at"] == "2026-03-25T00:00:00+00:00"
 
     @patch("creator_enrichment.phases.search.httpx.post")
     def test_正常系_URL重複が排除される(
@@ -335,3 +337,33 @@ class TestTavilyKeyPool:
             # _2 が無いので _1 だけ読まれる
             assert pool.get_key() == "a"
             assert pool.get_key() == "a"
+
+
+class TestRawStorePersistence:
+    """RawStore 永続化時のメタデータ伝播テスト."""
+
+    @patch("data_pipeline.storage.raw_store.RawStore")
+    def test_正常系_published_atをRawStoreへ渡す(
+        self,
+        mock_raw_store_cls: MagicMock,
+        searcher: DirectSearcher,
+    ) -> None:
+        """RawItem.published_at が save_text に渡される."""
+        mock_store = mock_raw_store_cls.return_value
+        mock_store.save_text.return_value = "saved"
+
+        items = [
+            RawItem(
+                url="https://example.com/article-1",
+                title="Test Article 1",
+                content="Content of article 1",
+                source="tavily",
+                published_at="2026-03-25T00:00:00+00:00",
+            )
+        ]
+
+        searcher._save_to_rawstore(items, "career")
+
+        mock_store.save_text.assert_called_once()
+        kwargs = mock_store.save_text.call_args.kwargs
+        assert kwargs["published_at"] == "2026-03-25T00:00:00+00:00"

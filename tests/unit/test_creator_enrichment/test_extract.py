@@ -489,6 +489,41 @@ class TestExtractBatch:
         assert result["sources"][0]["url"] == "https://example.com/article-1"
         assert result["sources"][0]["title"] == "テスト記事"
 
+    def test_正常系_sourcesにpublished_at等メタデータが含まれる(
+        self,
+        mock_llm_client: MagicMock,
+    ) -> None:
+        """RawItem のメタデータが sources に引き継がれる."""
+        response_data = _make_extraction_response()
+        mock_llm_client.query.return_value = json.dumps(
+            response_data, ensure_ascii=False
+        )
+
+        extractor = ContentExtractor(llm_client=mock_llm_client)
+        items = [
+            RawItem(
+                url="https://example.com/article-1",
+                title="テスト記事",
+                content="テスト本文",
+                source="tavily_search",
+                published_at="2026-03-26T01:23:45+00:00",
+                collected_at="2026-03-26T02:34:56+00:00",
+                source_type="web",
+                authority_level="blog",
+                language="ja",
+            ),
+        ]
+
+        with patch("creator_enrichment.phases.extract.time.sleep"):
+            result = extractor.extract_batch(items=items, genre="career")
+
+        source = result["sources"][0]
+        assert source["published_at"] == "2026-03-26T01:23:45+00:00"
+        assert source["collected_at"] == "2026-03-26T02:34:56+00:00"
+        assert source["source_type"] == "web"
+        assert source["authority_level"] == "blog"
+        assert source["language"] == "ja"
+
     def test_正常系_factsにbodyとsource_urlが含まれる(
         self,
         mock_llm_client: MagicMock,

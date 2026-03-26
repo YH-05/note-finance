@@ -273,7 +273,18 @@ class ContentExtractor:
                 continue
 
             # sources の収集
-            sources.append({"url": item["url"], "title": item["title"]})
+            source_entry = {"url": item["url"], "title": item["title"]}
+            for key in (
+                "published_at",
+                "collected_at",
+                "source_type",
+                "authority_level",
+                "language",
+            ):
+                value = item.get(key, "")
+                if value:
+                    source_entry[key] = value
+            sources.append(source_entry)
 
             # content_type に基づく分類
             content_type = extracted.get("content_type", "Fact")

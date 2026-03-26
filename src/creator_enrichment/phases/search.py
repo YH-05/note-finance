@@ -139,8 +139,34 @@ You are a research assistant. Execute web searches for the given queries \
 and return all results as a JSON object.
 
 Return ONLY a JSON object with this structure (no markdown, no explanation):
-{"items": [{"url": "...", "title": "...", "content": "...", "source": "web_search"}]}
+{"items": [{"url": "...", "title": "...", "content": "...", "source": "web_search", "published_at": "ISO8601 if known, else ''"}]}
 """
+
+
+def _stringify_optional(value: Any) -> str:
+    """Optional な値を空文字または文字列に正規化する."""
+    if value is None:
+        return ""
+    if isinstance(value, datetime):
+        return value.isoformat()
+    return str(value).strip()
+
+
+def _extract_published_at(raw: dict[str, Any]) -> str:
+    """検索結果辞書から公開日時候補を抽出する."""
+    for key in ("published_at", "published_date", "published", "date"):
+        value = _stringify_optional(raw.get(key))
+        if value:
+            return value
+
+    metadata = raw.get("metadata")
+    if isinstance(metadata, dict):
+        for key in ("published_at", "published_date", "published", "date"):
+            value = _stringify_optional(metadata.get(key))
+            if value:
+                return value
+
+    return ""
 
 # ---------------------------------------------------------------------------
 # クエリ生成プロンプト
@@ -278,6 +304,7 @@ class DirectSearcher:
                     title=item["title"],
                     raw_text=item["content"],
                     collection_method=item["source"],
+                    published_at=item.get("published_at") or None,
                 )
                 if result == "saved":
                     saved += 1
@@ -446,7 +473,8 @@ class DirectSearcher:
             f"Queries:\n{queries_text}\n\n"
             f"Return ONLY JSON: "
             f'{{"items": [{{"url": "...", "title": "...", '
-            f'"content": "...", "source": "web_search"}}]}}'
+            f'"content": "...", "source": "web_search", '
+            f'"published_at": "ISO8601 if known, else \\"\\""}}]}}'
         )
 
         saved_env = os.environ.pop("CLAUDECODE", None)
@@ -508,6 +536,9 @@ class DirectSearcher:
                         title=str(item.get("title", "")),
                         content=str(item.get("content", "")),
                         source=str(item.get("source", "web_search")),
+                        published_at=_extract_published_at(item),
+                        source_type=_stringify_optional(item.get("source_type")),
+                        language=_stringify_optional(item.get("language")),
                     )
                 )
         return results
@@ -559,6 +590,9 @@ class DirectSearcher:
                     title=str(r.get("title", "")),
                     content=str(r.get("content", "")),
                     source="tavily",
+                    published_at=_extract_published_at(r),
+                    source_type=_stringify_optional(r.get("source_type")) or "web",
+                    language=_stringify_optional(r.get("language")),
                 )
                 for r in results
             ]

@@ -33,15 +33,30 @@ class TestRawItem:
         for field in ("url", "title", "content", "source"):
             assert hints[field] is str, f"{field} should be str"
 
+    def test_正常系_任意メタデータフィールドが定義されている(self) -> None:
+        hints = get_type_hints(RawItem)
+        for field in (
+            "published_at",
+            "collected_at",
+            "source_type",
+            "authority_level",
+            "language",
+        ):
+            assert field in hints
+            assert hints[field] is str
+            assert field in RawItem.__optional_keys__
+
     def test_正常系_インスタンス生成(self) -> None:
         item: RawItem = {
             "url": "https://example.com",
             "title": "Test Article",
             "content": "Some content",
             "source": "tavily_search",
+            "published_at": "2026-03-26T10:00:00+09:00",
         }
         assert item["url"] == "https://example.com"
         assert item["source"] == "tavily_search"
+        assert item["published_at"] == "2026-03-26T10:00:00+09:00"
 
 
 # ---------------------------------------------------------------------------

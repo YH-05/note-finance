@@ -4,7 +4,7 @@
 Python 3.12+ PEP 695 スタイルの型ヒントを使用。
 """
 
-from typing import Any, Literal, Protocol, TypedDict
+from typing import Any, Literal, NotRequired, Protocol, TypedDict
 
 
 # ---------------------------------------------------------------------------
@@ -21,6 +21,11 @@ class RawItem(TypedDict):
     title: str
     content: str
     source: str
+    published_at: NotRequired[str]
+    collected_at: NotRequired[str]
+    source_type: NotRequired[str]
+    authority_level: NotRequired[str]
+    language: NotRequired[str]
 
 
 # ---------------------------------------------------------------------------
