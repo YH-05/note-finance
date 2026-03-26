@@ -167,7 +167,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run python scripts/memory_session_end.py &"
+            "command": "uv run python scripts/memory_session_end.py"
           }
         ]
       }
