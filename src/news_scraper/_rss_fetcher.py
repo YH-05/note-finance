@@ -280,7 +280,19 @@ async def fetch_rss_feeds(
             "Fetching RSS feed", source=source_name, category=category, url=url
         )
         try:
-            feed = await asyncio.to_thread(feedparser.parse, url)
+            feed = await asyncio.wait_for(
+                asyncio.to_thread(feedparser.parse, url),
+                timeout=config.request_timeout,
+            )
+        except TimeoutError:
+            logger.error(
+                "RSS feed fetch timed out",
+                source=source_name,
+                category=category,
+                url=url,
+                timeout=config.request_timeout,
+            )
+            return []
         except Exception as exc:
             logger.error(
                 "Failed to fetch RSS feed",

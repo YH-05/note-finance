@@ -102,36 +102,42 @@ async def _collect_minkabu(config: ScraperConfig) -> list[Article]:
 
 
 async def _collect_techcrunch(config: ScraperConfig) -> list[Article]:
+    """Collect articles from TechCrunch and return them."""
     from news_scraper.techcrunch import collect_news as _collect
 
     return await _collect(config=config)
 
 
 async def _collect_ars_technica(config: ScraperConfig) -> list[Article]:
+    """Collect articles from Ars Technica and return them."""
     from news_scraper.ars_technica import collect_news as _collect
 
     return await _collect(config=config)
 
 
 async def _collect_the_verge(config: ScraperConfig) -> list[Article]:
+    """Collect articles from The Verge and return them."""
     from news_scraper.the_verge import collect_news as _collect
 
     return await _collect(config=config)
 
 
 async def _collect_hacker_news(config: ScraperConfig) -> list[Article]:
+    """Collect articles from Hacker News and return them."""
     from news_scraper.hacker_news import collect_news as _collect
 
     return await _collect(config=config)
 
 
 async def _collect_federal_reserve(config: ScraperConfig) -> list[Article]:
+    """Collect press releases from the Federal Reserve and return them."""
     from news_scraper.federal_reserve import collect_news as _collect
 
     return await _collect(config=config)
 
 
 async def _collect_zero_hedge(config: ScraperConfig) -> list[Article]:
+    """Collect articles from ZeroHedge and return them."""
     from news_scraper.zero_hedge import collect_news as _collect
 
     return await _collect(config=config)

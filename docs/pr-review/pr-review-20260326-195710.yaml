@@ -1,0 +1,184 @@
+metadata:
+  generated_at: "2026-03-26 19:57:10"
+  pr_number: 265
+  pr_title: "feat(news_scraper): スクレイピングパイプライン再構築 Wave 1-3（Issue #259〜#263）"
+  base_branch: "main"
+  head_branch: "feature/issues-259-263"
+  review_mode: "remote"
+
+pr_info:
+  files_changed: 21
+  additions: 1959
+  deletions: 468
+
+scores:
+  code_quality:
+    readability: 83
+    design: 82
+    performance: 82
+    quant: null  # クオンツファイル変更なし
+  security:
+    code: 82
+    infra: 56  # 脆弱依存関係 2件
+  test:
+    coverage: 81
+    quality: 82
+
+code_quality:
+  strengths:
+    - "_rss_fetcher.py で共通ロジックを抽出しDRY原則を実現。ThreadPoolExecutorからasyncio化も一貫"
+    - "公開API関数にはNumPy形式docstringが完備"
+    - "SOLID原則の薄いアダプタ設計（各ソースモジュール）"
+    - "SOURCE_REGISTRY + _make_registry_fn によるレジストリパターン"
+
+  issues:
+    high:
+      - severity: HIGH
+        category: performance
+        location: "src/news_scraper/_rss_fetcher.py:283"
+        description: "feedparser.parse() にタイムアウト未設定。asyncio.to_threadがハングすると全コレクションをブロック"
+        recommendation: "asyncio.wait_for(_fetch_one(...), timeout=config.request_timeout) でラップする"
+
+      - severity: HIGH
+        category: solid
+        location: "src/news_scraper/_rss_fetcher.py:385"
+        description: "fetch_rss_feeds がinclude_content=TrueパスでArticleExtractor呼び出しを担うSRP違反"
+        recommendation: "記事本文抽出を呼び出し元に委譲するかpost_processorコールバックで注入"
+
+    medium:
+      - severity: MEDIUM
+        category: docstring
+        location: "src/news_scraper/unified.py:104-137"
+        description: "_collect_techcrunch 等6関数にdocstringがない"
+
+      - severity: MEDIUM
+        category: docstring
+        location: "src/news_scraper/_rss_fetcher.py:129-135"
+        description: "_get_entry_field / _extract_tags / _extract_author / _entry_to_article が1行docstringのみ"
+
+      - severity: MEDIUM
+        category: design
+        location: "src/news_scraper/unified.py:103"
+        description: "OCP違反: 新ソース追加時に4箇所（_collect_*, SOURCE_REGISTRY, types.py, scrape_finance_news.py choices）を手動同期必要"
+
+      - severity: MEDIUM
+        category: performance
+        location: "src/news_scraper/_rss_fetcher.py:393"
+        description: "model_copy時にcontent_map+旧all_articles+新Articleリストの三重メモリ保持"
+
+    low:
+      - severity: LOW
+        category: naming
+        location: "tests/news_scraper/unit/test__rss_fetcher.py"
+        description: "_make_entry の型ヒントが dict（生型）。dict[str, Any] が適切"
+
+      - severity: LOW
+        category: type_safety
+        location: "src/news_scraper/_rss_fetcher.py:241"
+        description: "content_field が str 型。Literal[\"entry.summary\", \"entry.content[0].value\"] で制限すべき"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 2
+    medium: 5
+    low: 6
+
+  findings:
+    - id: "INF-001"
+      severity: "HIGH"
+      category: "A06 脆弱なコンポーネント"
+      location: "pyproject.toml"
+      description: "requests 2.32.5 に CVE-2026-25645 が存在。修正版 2.33.0 利用可能"
+      recommendation: "uv add \"requests>=2.33.0\""
+
+    - id: "INF-002"
+      severity: "HIGH"
+      category: "A06 脆弱なコンポーネント"
+      location: "pyproject.toml"
+      description: "pygments 2.19.2 に CVE-2026-4539 が存在。修正版未確認"
+      recommendation: "公式Advisoryを確認し、修正版リリース次第アップグレード"
+
+    - id: "SEC-001"
+      severity: "MEDIUM"
+      category: "A03 インジェクション"
+      location: "src/news_scraper/_rss_fetcher.py:130"
+      description: "lxml HTMLサニタイズでscript/style/noscriptのみ除去。iframe/form/object等が残留リスク"
+      recommendation: "lxml.html.clean.Cleaner の採用でより網羅的なサニタイズ"
+
+    - id: "SEC-002"
+      severity: "MEDIUM"
+      category: "A04 安全でない設計（SSRF）"
+      location: "src/news_scraper/_rss_fetcher.py:214"
+      description: "Article.url にURLスキーム検証なし。include_content=True時にSSRF経路"
+      recommendation: "_entry_to_article() で http/https スキームのみ許可するバリデーション追加"
+
+    - id: "SEC-003"
+      severity: "MEDIUM"
+      category: "A04 型制限不足"
+      location: "src/news_scraper/_rss_fetcher.py:241"
+      description: "content_field が str 型のまま。不正値は警告ログのみで処理続行"
+      recommendation: "Literal 型で有効値を制限"
+
+test:
+  coverage_assessment: "GOOD"
+  edge_cases_covered: true
+  missing_tests:
+    - description: "test_scrape_finance_news.py の ALL_SOURCES が旧6ソースのまま（新6ソースのCLIテスト欠落）"
+      priority: "HIGH"
+
+    - description: "_get_raw_field と _entry_to_article の直接テスト欠落。特にunknown content_fieldパス"
+      priority: "MEDIUM"
+
+    - description: "bozo=True かつ entries 存在ケースが未テスト"
+      priority: "MEDIUM"
+
+  test_quality:
+    isolation: "PASS"
+    reproducibility: "WARN"  # _parse_rss_date の datetime.now 非決定性
+    readability: "PASS"
+
+  critical_quality_issue:
+    - description: "TestSourceRegistryNewSources の6 async テストに @pytest.mark.asyncio が付いていない（false positive リスク）"
+      priority: "HIGH"
+      location: "tests/news_scraper/unit/test_async_unified.py:1789-1871"
+
+    - description: "_parse_rss_date テストで datetime.now() を使った時刻ブラケット検証（CI環境で競合状態リスク）"
+      priority: "HIGH"
+      location: "tests/news_scraper/unit/test__rss_fetcher.py"
+
+recommended_actions:
+  required:
+    - priority: 1
+      action: "@pytest.mark.asyncio を TestSourceRegistryNewSources クラスに追加（false positive 防止）"
+
+    - priority: 2
+      action: "test_scrape_finance_news.py の ALL_SOURCES に新6ソースを追加"
+
+    - priority: 3
+      action: "feedparser.parse に asyncio.wait_for でタイムアウトを設定（config.request_timeout 活用）"
+
+    - priority: 4
+      action: "requests>=2.33.0 に更新（CVE-2026-25645 解消）"
+
+  suggested:
+    - priority: 1
+      action: "unified.py の6 _collect_* 関数に最低限のdocstringを追加"
+
+    - priority: 2
+      action: "_parse_rss_date テストで datetime.now をモックに固定し再現性を確保"
+
+    - priority: 3
+      action: "content_field を Literal 型で制限（型安全性向上）"
+
+    - priority: 4
+      action: "URLスキーム検証を _entry_to_article() に追加（SSRF防止）"
+
+summary:
+  verdict: "REQUEST_CHANGES"
+  comment: |
+    全体的に設計品質は高く、_rss_fetcher.py の共通化・asyncio化は優れた実装です。
+    ただし、以下の2点はマージ前に修正が必要です：
+    1. TestSourceRegistryNewSources の @pytest.mark.asyncio 欠落（false positive リスク）
+    2. test_scrape_finance_news.py のALL_SOURCESが旧6ソースのまま（新ソースのCLIテスト欠落）
+    また requests の CVE 対応も推奨します。
