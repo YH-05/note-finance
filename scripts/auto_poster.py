@@ -39,9 +39,11 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from datetime import datetime
+from pathlib import Path
 from typing import TYPE_CHECKING, Any, ClassVar
 from zoneinfo import ZoneInfo
 
@@ -61,7 +63,7 @@ from data_paths import get_path
 from quants.utils.logging_config import get_logger, setup_logging
 
 if TYPE_CHECKING:
-    from pathlib import Path
+    pass
 
 # ---------------------------------------------------------------------------
 # 定数定義
@@ -124,6 +126,29 @@ RETRY_WAIT_MULTIPLIER: float = 5.0
 RETRY_WAIT_MAX: float = 80.0
 """指数バックオフの最大待機時間（秒）。"""
 
+# ---------------------------------------------------------------------------
+# マルチマシン対応定数（Wave 5）
+# ---------------------------------------------------------------------------
+
+NAS_LOCK_PATH: Path = Path(
+    "/Volumes/personal_folder/Projects/note-finance/.auto_poster_lock"
+)
+"""NAS マウント時のロックファイルパス。"""
+
+LOCAL_FALLBACK_LOCK: Path = Path("/tmp/note-finance-auto-poster.lock")
+"""NAS 未マウント時のフォールバックロックファイルパス。"""
+
+_NAS_MOUNT_POINT: Path = Path("/Volumes/personal_folder")
+"""NAS マウントポイント。"""
+
+_SYNC_NAS_SCRIPT: Path = Path(__file__).parent / "sync_nas.sh"
+"""sync_nas.sh スクリプトのパス。"""
+
+
+def _is_nas_mounted() -> bool:
+    """NAS がマウントされているかを判定する."""
+    return _NAS_MOUNT_POINT.is_mount()
+
 
 def _is_retryable_error(exc: BaseException) -> bool:
     """例外がリトライ対象かを判定する.
@@ -158,6 +183,111 @@ def _log_retry(retry_state: tenacity.RetryCallState) -> None:
         attempt=retry_state.attempt_number,
         exception=str(exc),
     )
+
+
+# ---------------------------------------------------------------------------
+# NasLockManager（Wave 5: マルチマシン対応）
+# ---------------------------------------------------------------------------
+
+
+class NasLockManager:
+    """マルチマシン排他制御のためのロックマネージャー.
+
+    NAS がマウントされている場合は NAS 上のロックファイルを使用し、
+    複数マシン間での同時投稿を防止する。
+    NAS 未マウント時はローカルの /tmp フォールバックを使用するが、
+    マルチマシン環境では NAS マウントが必須である旨を警告する。
+
+    Examples
+    --------
+    >>> manager = NasLockManager()
+    >>> lock = manager.get_lock()
+    >>> with lock:
+    ...     # 排他制御された処理
+    ...     pass
+    """
+
+    def __init__(self) -> None:
+        self._logger = get_logger(__name__)
+
+    def get_lock(self) -> filelock.FileLock:
+        """ロックオブジェクトを取得する.
+
+        NAS がマウントされている場合は NAS_LOCK_PATH を使用する。
+        NAS 未マウント時は LOCAL_FALLBACK_LOCK を使用し、WARNING を出力する。
+
+        Returns
+        -------
+        filelock.FileLock
+            ロックオブジェクト。
+        """
+        if _is_nas_mounted():
+            self._logger.debug("nas_lock_acquired", lock_path=str(NAS_LOCK_PATH))
+            return filelock.FileLock(str(NAS_LOCK_PATH))
+        else:
+            self._logger.warning(
+                "nas_not_mounted_fallback_lock",
+                fallback_lock=str(LOCAL_FALLBACK_LOCK),
+                message=(
+                    "NAS not mounted. Falling back to local lock. "
+                    "Multi-machine operation requires NAS mount (マルチマシン運用時は NAS マウント必須)."
+                ),
+            )
+            return filelock.FileLock(str(LOCAL_FALLBACK_LOCK))
+
+
+# ---------------------------------------------------------------------------
+# NasSyncer（Wave 5: drafts 同期）
+# ---------------------------------------------------------------------------
+
+
+class NasSyncer:
+    """NAS と drafts ディレクトリを同期するクラス.
+
+    scripts/sync_nas.sh を使用して、NAS との間で設定・データを同期する。
+    NAS 未マウント時は pull/push をスキップする。
+
+    Examples
+    --------
+    >>> syncer = NasSyncer()
+    >>> syncer.pull()   # 投稿前: NAS → ローカル
+    >>> syncer.push()   # 投稿後: ローカル → NAS
+    """
+
+    def __init__(self) -> None:
+        self._logger = get_logger(__name__)
+
+    def pull(self) -> None:
+        """NAS からローカルへ同期する（投稿前実行）.
+
+        NAS がマウントされていない場合はスキップする。
+        """
+        if not _is_nas_mounted():
+            self._logger.debug("nas_not_mounted_skip_pull")
+            return
+
+        self._logger.info("nas_sync_pull_start")
+        subprocess.run(
+            ["bash", str(_SYNC_NAS_SCRIPT), "--pull"],
+            check=True,
+        )
+        self._logger.info("nas_sync_pull_done")
+
+    def push(self) -> None:
+        """ローカルから NAS へ同期する（投稿後実行）.
+
+        NAS がマウントされていない場合はスキップする。
+        """
+        if not _is_nas_mounted():
+            self._logger.debug("nas_not_mounted_skip_push")
+            return
+
+        self._logger.info("nas_sync_push_start")
+        subprocess.run(
+            ["bash", str(_SYNC_NAS_SCRIPT), "--push"],
+            check=True,
+        )
+        self._logger.info("nas_sync_push_done")
 
 
 # ---------------------------------------------------------------------------
@@ -1186,10 +1316,20 @@ def main(argv: list[str] | None = None) -> int:
     # 対象アカウントを決定
     target_accounts = [config.account] if config.account else ACCOUNTS
 
+    # Wave 5: マルチマシン対応 — ロック取得 → pull → 投稿ループ → push
+    nas_lock_manager = NasLockManager()
+    nas_syncer = NasSyncer()
+    lock = nas_lock_manager.get_lock()
+
     summaries: dict[str, PostingSummary] = {}
-    for account in target_accounts:
-        logger.info("processing_account", account=account)
-        summaries[account] = _process_account(account, config, now, matcher)
+    with lock:
+        nas_syncer.pull()
+
+        for account in target_accounts:
+            logger.info("processing_account", account=account)
+            summaries[account] = _process_account(account, config, now, matcher)
+
+        nas_syncer.push()
 
     logger.info("auto_poster_finished")
     print_summary(summaries)
