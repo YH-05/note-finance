@@ -1089,6 +1089,58 @@ class StateUpdater:
                 posted_at=posted_at,
             )
 
+    def update_note_meta(
+        self,
+        date: str,
+        published_at: str,
+        permalink: str,
+    ) -> None:
+        """meta.json の指定日の days[].note に published_at と permalink を書き戻す.
+
+        note.com 投稿後に呼び出し、mitsuki の meta.json の ``days[].note``
+        フィールドを更新する。filelock で meta.json を排他制御する。
+
+        Parameters
+        ----------
+        date : str
+            対象日付（YYYY-MM-DD 形式）。
+        published_at : str
+            投稿日時（ISO 8601 形式）。
+        permalink : str
+            note.com 投稿の下書き URL。
+        """
+        lock = filelock.FileLock(str(self._lock_path))
+        with lock:
+            meta = json.loads(self._meta_path.read_text(encoding="utf-8"))
+
+            updated = False
+            for day in meta.get("days", []):
+                if day.get("date") == date:
+                    if "note" not in day:
+                        day["note"] = {}
+                    day["note"]["published_at"] = published_at
+                    day["note"]["permalink"] = permalink
+                    updated = True
+                    break
+
+            if not updated:
+                self._logger.warning(
+                    "note_meta_date_not_found",
+                    date=date,
+                )
+                return
+
+            self._meta_path.write_text(
+                json.dumps(meta, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            self._logger.info(
+                "note_meta_updated",
+                date=date,
+                published_at=published_at,
+                permalink=permalink,
+            )
+
     def append_post_history(
         self,
         date: str,
@@ -1466,6 +1518,67 @@ def _execute_post(
     return True
 
 
+def _execute_note_post(day_dir: Path) -> tuple[bool, str | None]:
+    """note.com 投稿を subprocess 経由で実行する.
+
+    ``publish_to_note.py --creator-mode`` を呼び出し、
+    note.com への下書き投稿を行う。
+    標準出力から draft_url を取得する。
+
+    Parameters
+    ----------
+    day_dir : Path
+        creator day ディレクトリのパス
+        （例: ``creator/mitsuki/drafts/week_2026-03-31/day_1_月``）。
+
+    Returns
+    -------
+    tuple[bool, str | None]
+        ``(success, draft_url)``。
+        成功時は ``(True, draft_url)``、失敗時は ``(False, None)``。
+    """
+    cmd = [
+        "uv",
+        "run",
+        "python",
+        "scripts/publish_to_note.py",
+        "--creator-mode",
+        str(day_dir),
+    ]
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            env={**__import__("os").environ, "NOTE_HEADLESS": "true"},
+        )
+    except Exception as exc:
+        logger.error(
+            "note_post_subprocess_error",
+            day_dir=str(day_dir),
+            error=str(exc),
+            exc_info=True,
+        )
+        return False, None
+
+    if result.returncode != 0:
+        logger.error(
+            "note_post_failed",
+            day_dir=str(day_dir),
+            returncode=result.returncode,
+            stderr=result.stderr,
+        )
+        return False, None
+
+    draft_url = result.stdout.strip() or None
+    logger.info(
+        "note_post_success",
+        day_dir=str(day_dir),
+        draft_url=draft_url,
+    )
+    return True, draft_url
+
+
 def _process_account(
     account: str,
     config: AutoPosterConfig,
@@ -1618,6 +1731,127 @@ def _run_post_slot(
         summary.posted += 1
     else:
         summary.failed += 1
+
+    # note.com 投稿（mitsuki + --include-note 時のみ）
+    if config.include_note and account == "mitsuki":
+        _run_note_post_for_mitsuki(
+            config=config,
+            creator_root=creator_root,
+            updater=updater,
+            meta=fresh_meta,
+            today_str=today_str,
+            day_label=day_label,
+            week_dir_name=week_dir_name,
+        )
+
+
+def _run_note_post_for_mitsuki(
+    config: AutoPosterConfig,
+    creator_root: Path,
+    updater: StateUpdater,
+    meta: dict[str, Any],
+    today_str: str,
+    day_label: str,
+    week_dir_name: str,
+) -> None:
+    """mitsuki アカウントの note.com 投稿を実行する.
+
+    ``days[].note.file`` が存在し、かつ ``days[].note.published_at`` が
+    未設定の場合に note.com へ投稿する。
+    投稿成功後に ``days[].note.published_at`` と ``days[].note.permalink`` を更新する。
+
+    Parameters
+    ----------
+    config : AutoPosterConfig
+        CLI 設定。
+    creator_root : Path
+        creator/mitsuki ディレクトリのパス。
+    updater : StateUpdater
+        StateUpdater インスタンス。
+    meta : dict[str, Any]
+        最新の meta.json 内容。
+    today_str : str
+        本日の日付文字列（YYYY-MM-DD）。
+    day_label : str
+        曜日ラベル（月/火/水/木/金/土/日）。
+    week_dir_name : str
+        週ディレクトリ名（例: week_2026-03-31）。
+    """
+    # 今日のエントリから note フィールドを取得
+    day_data: dict[str, Any] = {}
+    for day in meta.get("days", []):
+        if day.get("date") == today_str:
+            day_data = day
+            break
+
+    note_day = day_data.get("note", {})
+
+    # note_article.md が存在しない場合はスキップ
+    if not note_day.get("file"):
+        logger.debug(
+            "note_post_no_file",
+            date=today_str,
+            day_label=day_label,
+        )
+        return
+
+    # 既に投稿済みの場合はスキップ
+    if note_day.get("published_at") is not None:
+        logger.info(
+            "note_already_posted_skip",
+            date=today_str,
+            day_label=day_label,
+        )
+        return
+
+    # day ディレクトリを特定
+    day_dir_map_mitsuki: dict[str, str] = {
+        "月": "day_1_月",
+        "火": "day_2_火",
+        "水": "day_3_水",
+        "木": "day_4_木",
+        "金": "day_5_金",
+        "土": "day_6_土",
+        "日": "day_7_日",
+    }
+    day_dir_name = day_dir_map_mitsuki.get(day_label)
+    if day_dir_name is None:
+        logger.warning(
+            "note_post_unknown_day_label",
+            day_label=day_label,
+            date=today_str,
+        )
+        return
+
+    day_dir = creator_root / "drafts" / week_dir_name / day_dir_name
+
+    logger.info(
+        "note_post_started",
+        date=today_str,
+        day_label=day_label,
+        day_dir=str(day_dir),
+    )
+
+    note_success, draft_url = _execute_note_post(day_dir)
+
+    if note_success:
+        published_at = datetime.now(tz=JST).isoformat()
+        updater.update_note_meta(
+            date=today_str,
+            published_at=published_at,
+            permalink=draft_url or "",
+        )
+        logger.info(
+            "note_post_completed",
+            date=today_str,
+            draft_url=draft_url,
+        )
+    else:
+        logger.error(
+            "note_post_failed_skip",
+            date=today_str,
+            day_label=day_label,
+        )
 
 
 def _print_dry_run(
