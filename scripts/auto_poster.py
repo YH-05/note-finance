@@ -39,12 +39,14 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
+import re
 import subprocess
 import sys
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, ClassVar
+from typing import Any, ClassVar
 from zoneinfo import ZoneInfo
 
 import filelock
@@ -61,9 +63,6 @@ from creator.poster import (
 )
 from data_paths import get_path
 from quants.utils.logging_config import get_logger, setup_logging
-
-if TYPE_CHECKING:
-    pass
 
 # ---------------------------------------------------------------------------
 # 定数定義
@@ -135,8 +134,8 @@ NAS_LOCK_PATH: Path = Path(
 )
 """NAS マウント時のロックファイルパス。"""
 
-LOCAL_FALLBACK_LOCK: Path = Path("/tmp/note-finance-auto-poster.lock")
-"""NAS 未マウント時のフォールバックロックファイルパス。"""
+LOCAL_FALLBACK_LOCK: Path = Path(f"/tmp/note-finance-auto-poster-{os.getuid()}.lock")
+"""NAS 未マウント時のフォールバックロックファイルパス（ユーザー固有）。"""
 
 _NAS_MOUNT_POINT: Path = Path("/Volumes/personal_folder")
 """NAS マウントポイント。"""
@@ -270,6 +269,8 @@ class NasSyncer:
         subprocess.run(
             ["bash", str(_SYNC_NAS_SCRIPT), "--pull"],
             check=True,
+            capture_output=True,
+            timeout=120,
         )
         self._logger.info("nas_sync_pull_done")
 
@@ -286,6 +287,8 @@ class NasSyncer:
         subprocess.run(
             ["bash", str(_SYNC_NAS_SCRIPT), "--push"],
             check=True,
+            capture_output=True,
+            timeout=120,
         )
         self._logger.info("nas_sync_push_done")
 
@@ -522,7 +525,12 @@ class DraftReader:
             return None
 
         if week is not None:
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", week):
+                raise ValueError(f"week は YYYY-MM-DD 形式で指定してください: {week!r}")
             candidate = self._drafts_root / f"week_{week}"
+            # パストラバーサル防止: drafts_root 配下であることを確認
+            if not candidate.resolve().is_relative_to(self._drafts_root.resolve()):
+                raise ValueError(f"week が drafts_root 外を指しています: {week!r}")
             return candidate if candidate.exists() else None
 
         # week 未指定: week_YYYY-MM-DD ディレクトリの中で最新を返す
@@ -665,6 +673,39 @@ class AccountPoster:
         self.account = account
         self._logger = get_logger(__name__, account=account)
 
+    def _parse_front_matter(self, content: str) -> tuple[str | None, str]:
+        """YAML フロントマターを 1 回でパースし (topic_tag, body) を返す.
+
+        Parameters
+        ----------
+        content : str
+            threads_post.md の全文。
+
+        Returns
+        -------
+        tuple[str | None, str]
+            (topic_tag の値または None, フロントマターを除いた本文)。
+        """
+        if not content.startswith("---"):
+            return None, content
+
+        lines = content.splitlines()
+        topic_tag: str | None = None
+        end_idx = -1
+        for i, line in enumerate(lines[1:], 1):
+            if line.strip() == "---":
+                end_idx = i
+                break
+            if line.startswith("topic_tag:"):
+                value = line[len("topic_tag:") :].strip().strip("\"'")
+                topic_tag = value if value else None
+
+        if end_idx == -1:
+            return None, content
+
+        body = "\n".join(lines[end_idx + 1 :]).strip()
+        return topic_tag, body
+
     def _extract_topic_tag(self, content: str) -> str | None:
         """YAML フロントマターから topic_tag を抽出する.
 
@@ -678,24 +719,8 @@ class AccountPoster:
         str | None
             topic_tag の値、存在しない場合は None。
         """
-        if not content.startswith("---"):
-            return None
-
-        lines = content.splitlines()
-        in_front_matter = False
-        for i, line in enumerate(lines):
-            if i == 0 and line.strip() == "---":
-                in_front_matter = True
-                continue
-            if in_front_matter:
-                if line.strip() == "---":
-                    break
-                if line.startswith("topic_tag:"):
-                    value = line[len("topic_tag:") :].strip()
-                    # クォートを除去
-                    value = value.strip("\"'")
-                    return value if value else None
-        return None
+        topic_tag, _ = self._parse_front_matter(content)
+        return topic_tag
 
     def _extract_body(self, content: str) -> str:
         """YAML フロントマターを除いた本文を返す.
@@ -710,23 +735,8 @@ class AccountPoster:
         str
             フロントマターを除いた本文テキスト。
         """
-        if not content.startswith("---"):
-            return content
-
-        lines = content.splitlines()
-        front_matter_end = -1
-        for i, line in enumerate(lines):
-            if i == 0:
-                continue
-            if line.strip() == "---":
-                front_matter_end = i
-                break
-
-        if front_matter_end == -1:
-            return content
-
-        body_lines = lines[front_matter_end + 1 :]
-        return "\n".join(body_lines).strip()
+        _, body = self._parse_front_matter(content)
+        return body
 
     def post(self, content: str) -> PostResult:
         """Threads に投稿する（リトライ付き）.
@@ -746,8 +756,8 @@ class AccountPoster:
         PostResult
             投稿結果（media_id、permalink を含む）。
         """
-        topic_tag = self._extract_topic_tag(content)
-        body = self._extract_body(content)
+        # フロントマターを 1 回でパース（二重解析を回避）
+        topic_tag, body = self._parse_front_matter(content)
 
         # topic_tag を本文末尾に追記
         text = f"{body}\n\n{topic_tag}" if topic_tag else body
@@ -1336,8 +1346,11 @@ def main(argv: list[str] | None = None) -> int:
     int
         終了コード（0: 成功, 1: エラー）。
     """
-    # ログ初期化
-    setup_logging(level="INFO", format="console")
+    # ログ初期化（LOG_LEVEL / LOG_FORMAT 環境変数で制御可能）
+    setup_logging(
+        level=os.environ.get("LOG_LEVEL", "INFO"),
+        format=os.environ.get("LOG_FORMAT", "console"),
+    )
     log_path = get_path("..") / "logs" / "auto_poster.jsonl"
     _setup_file_logger(log_path)
 
@@ -1550,6 +1563,7 @@ def _execute_note_post(day_dir: Path) -> tuple[bool, str | None]:
             cmd,
             capture_output=True,
             text=True,
+            check=False,
             env={**__import__("os").environ, "NOTE_HEADLESS": "true"},
         )
     except Exception as exc:
@@ -1647,7 +1661,7 @@ def _run_post_slot(
     account: str,
     config: AutoPosterConfig,
     reader: DraftReader,
-    creator_root: "Path",
+    creator_root: Path,
     meta: dict[str, Any],
     today_str: str,
     slot_name: str,

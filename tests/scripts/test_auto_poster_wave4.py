@@ -388,9 +388,8 @@ class TestPrintSummary:
 
         # mitsuki のサマリー確認
         assert "mitsuki" in output
-        assert "posted: 2" in output
-        assert "skipped" in output
-        assert "1" in output
+        assert "posted: 2 slots" in output
+        assert "skipped (already posted): 1 slots" in output
 
         # career_sister のサマリー確認
         assert "career_sister" in output

@@ -19,10 +19,10 @@ from typing import TYPE_CHECKING, Any
 from unittest.mock import MagicMock, patch
 from zoneinfo import ZoneInfo
 
-import pytest
-
 if TYPE_CHECKING:
     from pathlib import Path
+
+    import pytest
 
 JST = ZoneInfo("Asia/Tokyo")
 
@@ -492,7 +492,9 @@ class TestStateUpdater:
 class TestProcessAccountMitsuki:
     """mitsuki アカウントの _process_account 統合テスト。"""
 
-    def test_正常系_dry_runでmitsukiが処理される(self, tmp_path: Path) -> None:
+    def test_正常系_dry_runでmitsukiが処理される(
+        self, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+    ) -> None:
         """mitsuki アカウントの --dry-run が正常に実行されることを確認。"""
         from scripts.auto_poster import (
             SLOT_TIME_MAP,
@@ -534,18 +536,9 @@ class TestProcessAccountMitsuki:
         now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
         matched = matcher.match(now)
 
-        # dry-run 出力が例外なく実行される
-        import io
-        import sys
-
-        captured = io.StringIO()
-        sys.stdout = captured
-        try:
-            _print_dry_run("mitsuki", loaded, reader, "2026-03-27", matched)
-        finally:
-            sys.stdout = sys.__stdout__
-
-        output = captured.getvalue()
+        # dry-run 出力が例外なく実行される（capsys で安全にキャプチャ）
+        _print_dry_run("mitsuki", loaded, reader, "2026-03-27", matched)
+        output = capsys.readouterr().out
         assert "mitsuki" in output
         assert "2026-03-27" in output
 

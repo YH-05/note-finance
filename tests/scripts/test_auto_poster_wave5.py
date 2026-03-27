@@ -33,7 +33,7 @@ class TestNasLockManager:
 
         manager = NasLockManager()
         # NAS マウントポイントが存在すると仮定してパッチ
-        with patch("pathlib.Path.is_mount", return_value=True):
+        with patch("scripts.auto_poster._is_nas_mounted", return_value=True):
             lock = manager.get_lock()
 
         import filelock
@@ -46,7 +46,7 @@ class TestNasLockManager:
         from scripts.auto_poster import NasLockManager
 
         manager = NasLockManager()
-        with patch("pathlib.Path.is_mount", return_value=False):
+        with patch("scripts.auto_poster._is_nas_mounted", return_value=False):
             lock = manager.get_lock()
 
         import filelock
@@ -64,7 +64,7 @@ class TestNasLockManager:
 
         manager = NasLockManager()
         with (
-            patch("pathlib.Path.is_mount", return_value=False),
+            patch("scripts.auto_poster._is_nas_mounted", return_value=False),
             caplog.at_level(logging.WARNING),
         ):
             manager.get_lock()
@@ -85,7 +85,7 @@ class TestNasLockManager:
 
         manager = NasLockManager()
         with (
-            patch("pathlib.Path.is_mount", return_value=False),
+            patch("scripts.auto_poster._is_nas_mounted", return_value=False),
             caplog.at_level(logging.WARNING),
         ):
             manager.get_lock()
@@ -132,7 +132,7 @@ class TestNasSyncer:
 
         syncer = NasSyncer()
         with (
-            patch("pathlib.Path.is_mount", return_value=True),
+            patch("scripts.auto_poster._is_nas_mounted", return_value=True),
             patch("subprocess.run") as mock_run,
         ):
             mock_run.return_value = MagicMock(returncode=0)
@@ -151,7 +151,7 @@ class TestNasSyncer:
 
         syncer = NasSyncer()
         with (
-            patch("pathlib.Path.is_mount", return_value=True),
+            patch("scripts.auto_poster._is_nas_mounted", return_value=True),
             patch("subprocess.run") as mock_run,
         ):
             mock_run.return_value = MagicMock(returncode=0)
@@ -168,7 +168,7 @@ class TestNasSyncer:
 
         syncer = NasSyncer()
         with (
-            patch("pathlib.Path.is_mount", return_value=False),
+            patch("scripts.auto_poster._is_nas_mounted", return_value=False),
             patch("subprocess.run") as mock_run,
         ):
             syncer.pull()
@@ -181,7 +181,7 @@ class TestNasSyncer:
 
         syncer = NasSyncer()
         with (
-            patch("pathlib.Path.is_mount", return_value=False),
+            patch("scripts.auto_poster._is_nas_mounted", return_value=False),
             patch("subprocess.run") as mock_run,
         ):
             syncer.push()
