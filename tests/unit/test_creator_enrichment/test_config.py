@@ -97,8 +97,8 @@ class TestOrchestratorConfig:
 class TestGenreNames:
     """GENRE_NAMES 定数のテスト."""
 
-    def test_正常系_3ジャンルが定義されている(self) -> None:
-        assert len(GENRE_NAMES) == 3
+    def test_正常系_4ジャンルが定義されている(self) -> None:
+        assert len(GENRE_NAMES) == 4
 
     def test_正常系_careerが含まれる(self) -> None:
         assert "career" in GENRE_NAMES
@@ -108,6 +108,9 @@ class TestGenreNames:
 
     def test_正常系_spiritualが含まれる(self) -> None:
         assert "spiritual" in GENRE_NAMES
+
+    def test_正常系_asset_managementが含まれる(self) -> None:
+        assert "asset-management" in GENRE_NAMES
 
     def test_正常系_リスト型である(self) -> None:
         assert isinstance(GENRE_NAMES, list)
