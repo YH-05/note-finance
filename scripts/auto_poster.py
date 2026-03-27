@@ -16,6 +16,14 @@ Wave 3: career_sister Instagram カルーセル投稿 + エラー分離
   - Threads・Instagram 投稿が独立した try/except で実装
   - StateUpdater.update_meta に instagram_permalink サポート追加
 
+Wave 4: リトライ戦略（tenacity）+ 結果サマリー出力
+  - _is_retryable_error(): HTTP 429/500/502/503/504・ConnectError・TimeoutError を判定
+  - AccountPoster.post(): tenacity による max 3回リトライ（5s→20s→80s）
+  - CareerSisterInstagramPoster.post(): 同上
+  - PostingSummary: 投稿成功/スキップ/失敗の集計 dataclass
+  - print_summary(): アカウント別サマリー出力
+  - main(): 末尾で print_summary() を呼ぶ
+
 使用例::
 
     uv run python scripts/auto_poster.py --dry-run --account mitsuki
@@ -38,6 +46,8 @@ from typing import TYPE_CHECKING, Any, ClassVar
 from zoneinfo import ZoneInfo
 
 import filelock
+import httpx
+import tenacity
 
 from creator.image_hosting import R2ImageHost
 from creator.poster import (
@@ -99,6 +109,58 @@ ACCOUNTS: list[str] = ["career_sister", "mitsuki"]
 """対応しているアカウント一覧。"""
 
 # ---------------------------------------------------------------------------
+# リトライ定数
+# ---------------------------------------------------------------------------
+
+RETRYABLE_STATUS_CODES: frozenset[int] = frozenset([429, 500, 502, 503, 504])
+"""リトライ対象の HTTP ステータスコード。"""
+
+RETRY_MAX_ATTEMPTS: int = 3
+"""最大リトライ回数（初回含む）。"""
+
+RETRY_WAIT_MULTIPLIER: float = 5.0
+"""指数バックオフの乗数（秒）。5s→20s→80s。"""
+
+RETRY_WAIT_MAX: float = 80.0
+"""指数バックオフの最大待機時間（秒）。"""
+
+
+def _is_retryable_error(exc: BaseException) -> bool:
+    """例外がリトライ対象かを判定する.
+
+    Parameters
+    ----------
+    exc : BaseException
+        判定する例外。
+
+    Returns
+    -------
+    bool
+        リトライ対象の場合は True、即座に失敗すべき場合は False。
+    """
+    if isinstance(exc, httpx.HTTPStatusError):
+        return exc.response.status_code in RETRYABLE_STATUS_CODES
+    return isinstance(exc, (httpx.ConnectError, httpx.TimeoutException))
+
+
+def _log_retry(retry_state: tenacity.RetryCallState) -> None:
+    """リトライ前のログ出力.
+
+    Parameters
+    ----------
+    retry_state : tenacity.RetryCallState
+        tenacity リトライ状態。
+    """
+    exc = retry_state.outcome.exception()  # type: ignore[union-attr]
+    _retry_logger = get_logger(__name__)
+    _retry_logger.warning(
+        "api_retry",
+        attempt=retry_state.attempt_number,
+        exception=str(exc),
+    )
+
+
+# ---------------------------------------------------------------------------
 # データクラス定義
 # ---------------------------------------------------------------------------
 
@@ -152,6 +214,25 @@ class SlotInfo:
     file: Path | None
     posted: bool
     meta: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class PostingSummary:
+    """投稿結果の集計 dataclass.
+
+    Parameters
+    ----------
+    posted : int
+        投稿成功スロット数。
+    skipped : int
+        投稿スキップスロット数（既投稿・ファイルなし等）。
+    failed : int
+        投稿失敗スロット数（リトライ上限到達等）。
+    """
+
+    posted: int = 0
+    skipped: int = 0
+    failed: int = 0
 
 
 # ---------------------------------------------------------------------------
@@ -518,10 +599,12 @@ class AccountPoster:
         return "\n".join(body_lines).strip()
 
     def post(self, content: str) -> PostResult:
-        """Threads に投稿する.
+        """Threads に投稿する（リトライ付き）.
 
         フロントマターから topic_tag を抽出し、本文末尾に追記して投稿する。
-        投稿前に get_account_info() でアカウント確認を行う。
+        HTTP 429/500/502/503/504 および ConnectError/TimeoutError 時は
+        tenacity により max 3回リトライ（5s→20s→80s）。
+        HTTP 400/401/403 は即座に失敗。
 
         Parameters
         ----------
@@ -546,9 +629,21 @@ class AccountPoster:
             has_topic_tag=topic_tag is not None,
         )
 
-        config = ThreadsConfig()
-        threads_poster = ThreadsPoster(config)
-        result = threads_poster.post_text(text)
+        @tenacity.retry(
+            retry=tenacity.retry_if_exception(_is_retryable_error),
+            stop=tenacity.stop_after_attempt(RETRY_MAX_ATTEMPTS),
+            wait=tenacity.wait_exponential(
+                multiplier=RETRY_WAIT_MULTIPLIER, max=RETRY_WAIT_MAX
+            ),
+            before_sleep=_log_retry,
+            reraise=True,
+        )
+        def _post_with_retry() -> PostResult:
+            config = ThreadsConfig()
+            threads_poster = ThreadsPoster(config)
+            return threads_poster.post_text(text)
+
+        result = _post_with_retry()
 
         self._logger.info(
             "threads_post_completed",
@@ -632,10 +727,12 @@ class CareerSisterInstagramPoster:
         return images
 
     def post(self, slot_dir: Path) -> PostResult | None:
-        """Instagram カルーセル投稿を実行する.
+        """Instagram カルーセル投稿を実行する（リトライ付き）.
 
         R2 未設定の場合は WARNING を出力して None を返す。
         carousel 画像が存在しない場合も None を返す。
+        HTTP 429/500/502/503/504 および ConnectError/TimeoutError 時は
+        tenacity により max 3回リトライ（5s→20s→80s）。
 
         Parameters
         ----------
@@ -678,9 +775,21 @@ class CareerSisterInstagramPoster:
             caption_length=len(caption),
         )
 
-        config = InstagramConfig()
-        ig_poster = InstagramPoster(config)
-        result = ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+        @tenacity.retry(
+            retry=tenacity.retry_if_exception(_is_retryable_error),
+            stop=tenacity.stop_after_attempt(RETRY_MAX_ATTEMPTS),
+            wait=tenacity.wait_exponential(
+                multiplier=RETRY_WAIT_MULTIPLIER, max=RETRY_WAIT_MAX
+            ),
+            before_sleep=_log_retry,
+            reraise=True,
+        )
+        def _post_carousel_with_retry() -> PostResult:
+            config = InstagramConfig()
+            ig_poster = InstagramPoster(config)
+            return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+
+        result = _post_carousel_with_retry()
 
         self._logger.info(
             "instagram_carousel_completed",
@@ -943,6 +1052,28 @@ def _setup_file_logger(log_path: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
+# サマリー出力
+# ---------------------------------------------------------------------------
+
+
+def print_summary(summaries: dict[str, PostingSummary]) -> None:
+    """投稿結果のサマリーを標準出力に表示する.
+
+    Parameters
+    ----------
+    summaries : dict[str, PostingSummary]
+        アカウント名 → PostingSummary のマッピング。
+    """
+    print("\n=== Auto Poster Summary ===")
+    for account, s in summaries.items():
+        print(f"{account}:")
+        print(f"  - posted: {s.posted} slots")
+        print(f"  - skipped (already posted): {s.skipped} slots")
+        print(f"  - failed: {s.failed} slots")
+    print()
+
+
+# ---------------------------------------------------------------------------
 # CLI パーサー
 # ---------------------------------------------------------------------------
 
@@ -1055,11 +1186,13 @@ def main(argv: list[str] | None = None) -> int:
     # 対象アカウントを決定
     target_accounts = [config.account] if config.account else ACCOUNTS
 
+    summaries: dict[str, PostingSummary] = {}
     for account in target_accounts:
         logger.info("processing_account", account=account)
-        _process_account(account, config, now, matcher)
+        summaries[account] = _process_account(account, config, now, matcher)
 
     logger.info("auto_poster_finished")
+    print_summary(summaries)
     return 0
 
 
@@ -1095,7 +1228,7 @@ def _execute_post(
     slot_file: Path,
     updater: StateUpdater,
     fresh_meta: dict[str, Any],
-) -> None:
+) -> bool:
     """Threads 投稿を実行し、状態を書き戻す.
 
     Parameters
@@ -1112,6 +1245,11 @@ def _execute_post(
         StateUpdater インスタンス。
     fresh_meta : dict[str, Any]
         最新の meta.json 内容。
+
+    Returns
+    -------
+    bool
+        Threads 投稿が成功した場合は True、失敗した場合は False。
     """
     slot_meta = _get_slot_meta(fresh_meta, today_str, slot_name)
     content = slot_file.read_text(encoding="utf-8")
@@ -1129,7 +1267,7 @@ def _execute_post(
             error=str(e),
             exc_info=True,
         )
-        return
+        return False
 
     logger.info(
         "threads_post_result",
@@ -1185,6 +1323,7 @@ def _execute_post(
         threads_permalink=result.permalink or "",
         instagram_permalink=instagram_permalink,
     )
+    return True
 
 
 def _process_account(
@@ -1192,7 +1331,7 @@ def _process_account(
     config: AutoPosterConfig,
     now: datetime,
     matcher: SlotMatcher,
-) -> None:
+) -> PostingSummary:
     """単一アカウントの投稿処理を実行する.
 
     Parameters
@@ -1205,7 +1344,13 @@ def _process_account(
         現在時刻（JST）。
     matcher : SlotMatcher
         スロットマッチャー。
+
+    Returns
+    -------
+    PostingSummary
+        このアカウントの投稿結果集計。
     """
+    summary = PostingSummary()
     creator_root = get_path("..") / "creator" / account
     drafts_root = creator_root / "drafts"
 
@@ -1213,7 +1358,7 @@ def _process_account(
     meta = reader.load(week=config.week)
     if meta is None:
         logger.warning("no_meta_found", account=account, week=config.week)
-        return
+        return summary
 
     today_str = now.strftime("%Y-%m-%d")
     matched = (
@@ -1224,11 +1369,11 @@ def _process_account(
 
     if config.dry_run:
         _print_dry_run(account, meta, reader, today_str, matched)
-        return
+        return summary
 
     if matched is None:
         logger.info("no_slot_matched", account=account, now=now.strftime("%H:%M"))
-        return
+        return summary
 
     slot_name = matched["slot"]
     logger.info(
@@ -1239,6 +1384,43 @@ def _process_account(
         today=today_str,
     )
 
+    _run_post_slot(
+        account, config, reader, creator_root, meta, today_str, slot_name, summary
+    )
+    return summary
+
+
+def _run_post_slot(
+    account: str,
+    config: AutoPosterConfig,
+    reader: DraftReader,
+    creator_root: "Path",
+    meta: dict[str, Any],
+    today_str: str,
+    slot_name: str,
+    summary: PostingSummary,
+) -> None:
+    """スロット投稿の実行と集計を行うヘルパー関数.
+
+    Parameters
+    ----------
+    account : str
+        対象アカウント名。
+    config : AutoPosterConfig
+        CLI 設定。
+    reader : DraftReader
+        DraftReader インスタンス。
+    creator_root : Path
+        creator/{account} ディレクトリのパス。
+    meta : dict[str, Any]
+        meta.json の内容。
+    today_str : str
+        本日の日付文字列（YYYY-MM-DD）。
+    slot_name : str
+        スロット名（朝/昼/夜）。
+    summary : PostingSummary
+        集計対象の PostingSummary（インプレース更新）。
+    """
     # 今日の day_label を取得
     day_label = next(
         (
@@ -1261,6 +1443,7 @@ def _process_account(
             slot=slot_name,
             day_label=day_label,
         )
+        summary.skipped += 1
         return
 
     week_dir = creator_root / "drafts" / week_dir_name
@@ -1275,6 +1458,7 @@ def _process_account(
     fresh_meta = reader.load(week=week_start)
     if fresh_meta is None:
         logger.error("meta_reload_failed", account=account, week_start=week_start)
+        summary.failed += 1
         return
 
     if updater.check_already_posted(fresh_meta, today_str, slot_name):
@@ -1284,9 +1468,16 @@ def _process_account(
             date=today_str,
             slot=slot_name,
         )
+        summary.skipped += 1
         return
 
-    _execute_post(account, slot_name, today_str, slot_file, updater, fresh_meta)
+    success = _execute_post(
+        account, slot_name, today_str, slot_file, updater, fresh_meta
+    )
+    if success:
+        summary.posted += 1
+    else:
+        summary.failed += 1
 
 
 def _print_dry_run(
