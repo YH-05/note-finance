@@ -1,0 +1,707 @@
+"""Unit tests for auto_poster.py Wave 2 components.
+
+Wave 2: AccountPoster / StateUpdater の実装テスト。
+- AccountPoster: mitsuki の Threads 投稿実行
+- StateUpdater: meta.json / posting_state.json の状態書き戻し
+"""
+
+from __future__ import annotations
+
+import json
+from datetime import datetime
+from typing import TYPE_CHECKING, Any
+from unittest.mock import MagicMock, patch
+from zoneinfo import ZoneInfo
+
+import pytest
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
+JST = ZoneInfo("Asia/Tokyo")
+
+
+# ---------------------------------------------------------------------------
+# AccountPoster
+# ---------------------------------------------------------------------------
+
+
+class TestAccountPoster:
+    """AccountPoster のテスト。"""
+
+    def test_正常系_mitsuki設定でインスタンスを生成できる(self) -> None:
+        """mitsuki アカウントで AccountPoster が生成できることを確認。"""
+        from scripts.auto_poster import AccountPoster
+
+        poster = AccountPoster(account="mitsuki")
+        assert poster.account == "mitsuki"
+
+    def test_正常系_career_sister設定でインスタンスを生成できる(self) -> None:
+        """career_sister アカウントで AccountPoster が生成できることを確認。"""
+        from scripts.auto_poster import AccountPoster
+
+        poster = AccountPoster(account="career_sister")
+        assert poster.account == "career_sister"
+
+    def test_正常系_フロントマターからtopic_tagを抽出できる(self) -> None:
+        """YAML フロントマターから topic_tag を抽出できることを確認。"""
+        from scripts.auto_poster import AccountPoster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "---\ntopic_tag: '#資産形成'\n---\n本文です。"
+        tag = poster._extract_topic_tag(content)
+        assert tag == "#資産形成"
+
+    def test_正常系_フロントマターがない場合はNoneを返す(self) -> None:
+        """フロントマターがない場合に topic_tag が None になることを確認。"""
+        from scripts.auto_poster import AccountPoster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "フロントマターなし本文です。"
+        tag = poster._extract_topic_tag(content)
+        assert tag is None
+
+    def test_正常系_topic_tagが未定義でもNoneを返す(self) -> None:
+        """フロントマターに topic_tag がない場合に None が返されることを確認。"""
+        from scripts.auto_poster import AccountPoster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "---\nslot: 朝\n---\n本文です。"
+        tag = poster._extract_topic_tag(content)
+        assert tag is None
+
+    def test_正常系_フロントマターを除いた本文を返す(self) -> None:
+        """YAML フロントマターを除いた本文テキストを取得できることを確認。"""
+        from scripts.auto_poster import AccountPoster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "---\ntopic_tag: '#資産形成'\n---\n本文です。\n続き。"
+        body = poster._extract_body(content)
+        assert "本文です。" in body
+        assert "---" not in body
+        assert "topic_tag" not in body
+
+    def test_正常系_フロントマターなし本文はそのまま返す(self) -> None:
+        """フロントマターがない場合に本文がそのまま返されることを確認。"""
+        from scripts.auto_poster import AccountPoster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "フロントマターなし本文です。"
+        body = poster._extract_body(content)
+        assert body == "フロントマターなし本文です。"
+
+    @patch("scripts.auto_poster.ThreadsPoster")
+    def test_正常系_threads投稿が実行される(self, mock_threads_class: Any) -> None:
+        """Threads 投稿が実行され PostResult が返されることを確認。"""
+        from creator.poster import PostResult
+        from scripts.auto_poster import AccountPoster
+
+        # ThreadsPoster のモック
+        mock_poster = MagicMock()
+        mock_poster.post_text.return_value = PostResult(
+            platform="threads",
+            media_id="12345",
+            permalink="https://www.threads.com/@mitsuki/post/ABC123",
+        )
+        mock_threads_class.return_value = mock_poster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "---\ntopic_tag: '#資産形成'\n---\nテスト投稿内容。"
+        result = poster.post(content)
+
+        assert result is not None
+        assert result.media_id == "12345"
+        assert result.permalink == "https://www.threads.com/@mitsuki/post/ABC123"
+
+    @patch("scripts.auto_poster.ThreadsPoster")
+    def test_正常系_topic_tag付きで投稿される(self, mock_threads_class: Any) -> None:
+        """topic_tag が含まれる場合に本文に追記されて投稿されることを確認。"""
+        from creator.poster import PostResult
+        from scripts.auto_poster import AccountPoster
+
+        mock_poster = MagicMock()
+        mock_poster.post_text.return_value = PostResult(
+            platform="threads",
+            media_id="99999",
+            permalink="https://www.threads.com/@mitsuki/post/XYZ",
+        )
+        mock_threads_class.return_value = mock_poster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "---\ntopic_tag: '#資産形成'\n---\nテスト投稿内容。"
+        poster.post(content)
+
+        # post_text が呼ばれ、topic_tag が本文に含まれることを確認
+        call_args = mock_poster.post_text.call_args
+        assert call_args is not None
+        posted_text = call_args[0][0]
+        assert "#資産形成" in posted_text
+
+    @patch("scripts.auto_poster.ThreadsPoster")
+    def test_正常系_topic_tagなしでも投稿できる(self, mock_threads_class: Any) -> None:
+        """topic_tag なしでも Threads 投稿が実行されることを確認。"""
+        from creator.poster import PostResult
+        from scripts.auto_poster import AccountPoster
+
+        mock_poster = MagicMock()
+        mock_poster.post_text.return_value = PostResult(
+            platform="threads",
+            media_id="88888",
+            permalink="https://www.threads.com/@mitsuki/post/DEF",
+        )
+        mock_threads_class.return_value = mock_poster
+
+        poster = AccountPoster(account="mitsuki")
+        content = "フロントマターなし投稿内容。"
+        result = poster.post(content)
+
+        assert result is not None
+        assert result.media_id == "88888"
+
+
+# ---------------------------------------------------------------------------
+# StateUpdater
+# ---------------------------------------------------------------------------
+
+
+class TestStateUpdater:
+    """StateUpdater のテスト。"""
+
+    def test_正常系_インスタンスを生成できる(self, tmp_path: Path) -> None:
+        """StateUpdater が生成できることを確認。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+        posting_state_path = tmp_path / "posting_state.json"
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+        )
+        assert updater is not None
+
+    def test_正常系_meta_jsonに投稿結果を書き戻せる(self, tmp_path: Path) -> None:
+        """meta.json に posted_at と permalink が書き戻されることを確認。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "week_end": "2026-03-30",
+            "status": "draft",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {"slot": "朝", "category": "有益", "type": "型1"},
+                        {"slot": "昼", "category": "有益", "type": "型2"},
+                    ],
+                }
+            ],
+        }
+        meta_path = week_dir / "meta.json"
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False))
+
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+        )
+
+        posted_at = "2026-03-27T07:32:00+09:00"
+        permalink = "https://www.threads.com/@mitsuki/post/ABC123"
+
+        updater.update_meta(
+            date="2026-03-27",
+            slot="朝",
+            posted_at=posted_at,
+            permalink=permalink,
+        )
+
+        # meta.json を再読み込みして確認
+        updated_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        day = updated_meta["days"][0]
+        morning_slot = day["slots"][0]
+        assert morning_slot["posted_at"] == posted_at
+        assert morning_slot["permalink"] == permalink
+
+    def test_正常系_posting_state_jsonにエントリを追記できる(
+        self, tmp_path: Path
+    ) -> None:
+        """posting_state.json の post_history にエントリが追記されることを確認。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "week_end": "2026-03-30",
+            "status": "draft",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "type": "型1",
+                            "theme": "T1",
+                        }
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+
+        posting_state = {
+            "post_history": [
+                {
+                    "post_id": "2026-03-26_001",
+                    "date": "2026-03-26",
+                    "slot": "朝",
+                    "posted_at": "2026-03-26T07:35:00+09:00",
+                    "threads_permalink": "https://www.threads.com/@mitsuki/post/OLD",
+                }
+            ]
+        }
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(json.dumps(posting_state, ensure_ascii=False))
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+        )
+
+        posted_at = "2026-03-27T07:32:00+09:00"
+        permalink = "https://www.threads.com/@mitsuki/post/NEW"
+
+        updater.update_meta(
+            date="2026-03-27",
+            slot="朝",
+            posted_at=posted_at,
+            permalink=permalink,
+        )
+        updater.append_post_history(
+            date="2026-03-27",
+            slot="朝",
+            slot_meta=meta["days"][0]["slots"][0],
+            posted_at=posted_at,
+            threads_permalink=permalink,
+        )
+
+        updated_state = json.loads(posting_state_path.read_text(encoding="utf-8"))
+        assert len(updated_state["post_history"]) == 2
+        new_entry = updated_state["post_history"][-1]
+        assert new_entry["date"] == "2026-03-27"
+        assert new_entry["slot"] == "朝"
+        assert new_entry["threads_permalink"] == permalink
+
+    def test_正常系_冪等性_投稿済みスロットは二重更新されない(
+        self, tmp_path: Path
+    ) -> None:
+        """既に posted_at が設定されているスロットは上書き更新されないことを確認。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        original_posted_at = "2026-03-27T07:32:00+09:00"
+        original_permalink = "https://www.threads.com/@mitsuki/post/ORIGINAL"
+
+        meta = {
+            "week_start": "2026-03-24",
+            "week_end": "2026-03-30",
+            "status": "draft",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "type": "型1",
+                            "posted_at": original_posted_at,
+                            "permalink": original_permalink,
+                        }
+                    ],
+                }
+            ],
+        }
+        meta_path = week_dir / "meta.json"
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False))
+        (tmp_path / "posting_state.json").write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=tmp_path / "posting_state.json",
+        )
+
+        # 2回目の update 試行
+        result = updater.check_already_posted(meta=meta, date="2026-03-27", slot="朝")
+        assert result is True
+
+    def test_正常系_未投稿スロットはcheck_already_postedがFalseを返す(
+        self, tmp_path: Path
+    ) -> None:
+        """posted_at が None のスロットは check_already_posted が False を返す。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "slots": [{"slot": "朝", "category": "有益"}],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+        (tmp_path / "posting_state.json").write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=tmp_path / "posting_state.json",
+        )
+        result = updater.check_already_posted(meta=meta, date="2026-03-27", slot="朝")
+        assert result is False
+
+    def test_正常系_filelock排他制御が機能する(self, tmp_path: Path) -> None:
+        """filelock による meta.json 排他制御が機能することを確認。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "slots": [{"slot": "朝", "category": "有益"}],
+                }
+            ],
+        }
+        meta_path = week_dir / "meta.json"
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False))
+        (tmp_path / "posting_state.json").write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=tmp_path / "posting_state.json",
+        )
+
+        updater.update_meta(
+            date="2026-03-27",
+            slot="朝",
+            posted_at="2026-03-27T07:32:00+09:00",
+            permalink="https://www.threads.com/@mitsuki/post/TEST",
+        )
+
+        # update_meta 完了後はロックが解放されている（ファイル自体は残る場合もある）
+        updated = json.loads(meta_path.read_text(encoding="utf-8"))
+        assert (
+            updated["days"][0]["slots"][0]["posted_at"] == "2026-03-27T07:32:00+09:00"
+        )
+
+    def test_正常系_post_history_entryにpost_idが生成される(
+        self, tmp_path: Path
+    ) -> None:
+        """post_history エントリに一意の post_id が生成されることを確認。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+        (week_dir / "meta.json").write_text(
+            json.dumps(
+                {
+                    "week_start": "2026-03-24",
+                    "days": [
+                        {
+                            "date": "2026-03-27",
+                            "day_label": "木",
+                            "slots": [
+                                {"slot": "朝", "category": "有益", "type": "型1"}
+                            ],
+                        }
+                    ],
+                },
+                ensure_ascii=False,
+            )
+        )
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+        )
+        updater.append_post_history(
+            date="2026-03-27",
+            slot="朝",
+            slot_meta={"slot": "朝", "category": "有益", "type": "型1", "theme": "T1"},
+            posted_at="2026-03-27T07:32:00+09:00",
+            threads_permalink="https://www.threads.com/@mitsuki/post/TEST",
+        )
+
+        state = json.loads(posting_state_path.read_text(encoding="utf-8"))
+        assert len(state["post_history"]) == 1
+        entry = state["post_history"][0]
+        assert "post_id" in entry
+        assert entry["date"] == "2026-03-27"
+        assert entry["slot"] == "朝"
+
+
+# ---------------------------------------------------------------------------
+# Integration: _process_account with mitsuki
+# ---------------------------------------------------------------------------
+
+
+class TestProcessAccountMitsuki:
+    """mitsuki アカウントの _process_account 統合テスト。"""
+
+    def test_正常系_dry_runでmitsukiが処理される(self, tmp_path: Path) -> None:
+        """mitsuki アカウントの --dry-run が正常に実行されることを確認。"""
+        from scripts.auto_poster import (
+            SLOT_TIME_MAP,
+            AutoPosterConfig,
+            DraftReader,
+            SlotMatcher,
+            _print_dry_run,
+        )
+
+        # mitsuki の drafts ディレクトリを作成
+        drafts_root = tmp_path / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "week_end": "2026-03-30",
+            "status": "draft",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {"slot": "朝", "category": "有益"},
+                        {"slot": "昼", "category": "有益"},
+                        {"slot": "夜", "category": "有益"},
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+
+        reader = DraftReader(drafts_root=drafts_root, account="mitsuki")
+        loaded = reader.load(week="2026-03-24")
+        assert loaded is not None
+
+        matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=15)
+        now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
+        matched = matcher.match(now)
+
+        # dry-run 出力が例外なく実行される
+        import io
+        import sys
+
+        captured = io.StringIO()
+        sys.stdout = captured
+        try:
+            _print_dry_run("mitsuki", loaded, reader, "2026-03-27", matched)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        output = captured.getvalue()
+        assert "mitsuki" in output
+        assert "2026-03-27" in output
+
+    @patch("scripts.auto_poster.AccountPoster")
+    @patch("scripts.auto_poster.StateUpdater")
+    def test_正常系_force_slotでmitsuki投稿が実行される(
+        self,
+        mock_state_updater_class: Any,
+        mock_account_poster_class: Any,
+        tmp_path: Path,
+    ) -> None:
+        """--force-slot S1 で mitsuki の朝スロットが投稿されることを確認。"""
+        from creator.poster import PostResult
+        from scripts.auto_poster import (
+            SLOT_TIME_MAP,
+            AutoPosterConfig,
+            DraftReader,
+            SlotMatcher,
+            _process_account,
+        )
+
+        # AccountPoster モック
+        mock_poster = MagicMock()
+        mock_poster.post.return_value = PostResult(
+            platform="threads",
+            media_id="12345",
+            permalink="https://www.threads.com/@mitsuki/post/NEW",
+        )
+        mock_account_poster_class.return_value = mock_poster
+
+        # StateUpdater モック
+        mock_updater = MagicMock()
+        mock_updater.check_already_posted.return_value = False
+        mock_state_updater_class.return_value = mock_updater
+
+        # mitsuki の drafts ディレクトリを作成
+        drafts_root = tmp_path / "creator" / "mitsuki" / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        day_dir = week_dir / "day_4_木"
+        slot_dir = day_dir / "slot_1_morning"
+        slot_dir.mkdir(parents=True)
+
+        (slot_dir / "threads_post.md").write_text(
+            "---\ntopic_tag: '#資産形成'\n---\nテスト投稿内容。"
+        )
+
+        meta = {
+            "week_start": "2026-03-24",
+            "week_end": "2026-03-30",
+            "status": "draft",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "type": "型1",
+                            "theme": "T1",
+                        },
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+
+        posting_state_path = tmp_path / "creator" / "mitsuki" / "posting_state.json"
+        posting_state_path.parent.mkdir(parents=True, exist_ok=True)
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        config = AutoPosterConfig(
+            account="mitsuki",
+            dry_run=False,
+            force_slot="S1",
+        )
+        now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
+        matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=15)
+
+        with patch("scripts.auto_poster.get_path") as mock_get_path:
+            mock_get_path.return_value = tmp_path
+
+            _process_account("mitsuki", config, now, matcher)
+
+        # AccountPoster.post が呼ばれたことを確認
+        assert mock_poster.post.called
+
+    @patch("scripts.auto_poster.AccountPoster")
+    @patch("scripts.auto_poster.StateUpdater")
+    def test_正常系_already_posted_スロットはスキップされる(
+        self,
+        mock_state_updater_class: Any,
+        mock_account_poster_class: Any,
+        tmp_path: Path,
+    ) -> None:
+        """既に投稿済みのスロットは already_posted でスキップされることを確認。"""
+        from scripts.auto_poster import (
+            SLOT_TIME_MAP,
+            AutoPosterConfig,
+            DraftReader,
+            SlotMatcher,
+            _process_account,
+        )
+
+        # StateUpdater モック: 既に投稿済みとして返す
+        mock_updater = MagicMock()
+        mock_updater.check_already_posted.return_value = True
+        mock_state_updater_class.return_value = mock_updater
+
+        # AccountPoster モック
+        mock_poster = MagicMock()
+        mock_account_poster_class.return_value = mock_poster
+
+        # mitsuki の drafts ディレクトリを作成
+        drafts_root = tmp_path / "creator" / "mitsuki" / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        day_dir = week_dir / "day_4_木"
+        slot_dir = day_dir / "slot_1_morning"
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "threads_post.md").write_text(
+            "---\ntopic_tag: '#資産形成'\n---\nテスト。"
+        )
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "posted_at": "2026-03-27T07:32:00+09:00",
+                        }
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+
+        posting_state_path = tmp_path / "creator" / "mitsuki" / "posting_state.json"
+        posting_state_path.parent.mkdir(parents=True, exist_ok=True)
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        config = AutoPosterConfig(
+            account="mitsuki",
+            dry_run=False,
+            force_slot="S1",
+        )
+        now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
+        matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=15)
+
+        with patch("scripts.auto_poster.get_path") as mock_get_path:
+            mock_get_path.return_value = tmp_path
+
+            _process_account("mitsuki", config, now, matcher)
+
+        # 投稿済みのため AccountPoster.post は呼ばれないことを確認
+        assert not mock_poster.post.called

@@ -7,10 +7,14 @@ Wave 1: 基本構造の実装
   - SlotInfo: --dry-run 時に出力するスロット情報
   - main(): Config 生成 → アカウントループ → DraftReader → SlotMatcher → --dry-run 出力
 
+Wave 2: mitsuki Threads 投稿 + StateUpdater
+  - AccountPoster: mitsuki の Threads 投稿実行（フロントマター解析・topic_tag 追記）
+  - StateUpdater: meta.json / posting_state.json 更新（filelock による排他制御）
+
 使用例::
 
     uv run python scripts/auto_poster.py --dry-run --account mitsuki
-    uv run python scripts/auto_poster.py --force-slot S1
+    uv run python scripts/auto_poster.py --account mitsuki --force-slot S1
     uv run python scripts/auto_poster.py --tolerance 30
     uv run python scripts/auto_poster.py --week 2026-03-31
 
@@ -28,11 +32,14 @@ from datetime import datetime
 from typing import TYPE_CHECKING, Any, ClassVar
 from zoneinfo import ZoneInfo
 
-if TYPE_CHECKING:
-    from pathlib import Path
+import filelock
 
+from creator.poster import PostResult, ThreadsConfig, ThreadsPoster
 from data_paths import get_path
 from quants.utils.logging_config import get_logger, setup_logging
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 # ---------------------------------------------------------------------------
 # 定数定義
@@ -411,6 +418,330 @@ class DraftReader:
 
 
 # ---------------------------------------------------------------------------
+# AccountPoster
+# ---------------------------------------------------------------------------
+
+
+class AccountPoster:
+    """アカウント別 Threads 投稿クライアント.
+
+    threads_post.md のフロントマターを解析し、topic_tag を本文末尾に追記して投稿する。
+
+    Parameters
+    ----------
+    account : str
+        アカウント名（"mitsuki" または "career_sister"）。
+
+    Examples
+    --------
+    >>> poster = AccountPoster(account="mitsuki")
+    >>> result = poster.post("---\\ntopic_tag: '#資産形成'\\n---\\n本文です。")
+    """
+
+    def __init__(self, account: str) -> None:
+        self.account = account
+        self._logger = get_logger(__name__, account=account)
+
+    def _extract_topic_tag(self, content: str) -> str | None:
+        """YAML フロントマターから topic_tag を抽出する.
+
+        Parameters
+        ----------
+        content : str
+            threads_post.md の全文。
+
+        Returns
+        -------
+        str | None
+            topic_tag の値、存在しない場合は None。
+        """
+        if not content.startswith("---"):
+            return None
+
+        lines = content.splitlines()
+        in_front_matter = False
+        for i, line in enumerate(lines):
+            if i == 0 and line.strip() == "---":
+                in_front_matter = True
+                continue
+            if in_front_matter:
+                if line.strip() == "---":
+                    break
+                if line.startswith("topic_tag:"):
+                    value = line[len("topic_tag:") :].strip()
+                    # クォートを除去
+                    value = value.strip("\"'")
+                    return value if value else None
+        return None
+
+    def _extract_body(self, content: str) -> str:
+        """YAML フロントマターを除いた本文を返す.
+
+        Parameters
+        ----------
+        content : str
+            threads_post.md の全文。
+
+        Returns
+        -------
+        str
+            フロントマターを除いた本文テキスト。
+        """
+        if not content.startswith("---"):
+            return content
+
+        lines = content.splitlines()
+        front_matter_end = -1
+        for i, line in enumerate(lines):
+            if i == 0:
+                continue
+            if line.strip() == "---":
+                front_matter_end = i
+                break
+
+        if front_matter_end == -1:
+            return content
+
+        body_lines = lines[front_matter_end + 1 :]
+        return "\n".join(body_lines).strip()
+
+    def post(self, content: str) -> PostResult:
+        """Threads に投稿する.
+
+        フロントマターから topic_tag を抽出し、本文末尾に追記して投稿する。
+        投稿前に get_account_info() でアカウント確認を行う。
+
+        Parameters
+        ----------
+        content : str
+            threads_post.md の全文（YAML フロントマターを含む場合もある）。
+
+        Returns
+        -------
+        PostResult
+            投稿結果（media_id、permalink を含む）。
+        """
+        topic_tag = self._extract_topic_tag(content)
+        body = self._extract_body(content)
+
+        # topic_tag を本文末尾に追記
+        text = f"{body}\n\n{topic_tag}" if topic_tag else body
+
+        self._logger.info(
+            "posting_to_threads",
+            account=self.account,
+            text_length=len(text),
+            has_topic_tag=topic_tag is not None,
+        )
+
+        config = ThreadsConfig()
+        threads_poster = ThreadsPoster(config)
+        result = threads_poster.post_text(text)
+
+        self._logger.info(
+            "threads_post_completed",
+            account=self.account,
+            media_id=result.media_id,
+            permalink=result.permalink,
+        )
+        return result
+
+
+# ---------------------------------------------------------------------------
+# StateUpdater
+# ---------------------------------------------------------------------------
+
+
+class StateUpdater:
+    """meta.json / posting_state.json の状態を更新する.
+
+    filelock による排他制御で meta.json を保護し、
+    投稿直前に再読み込みして二重投稿を防ぐ。
+
+    Parameters
+    ----------
+    week_dir : Path
+        週ディレクトリのパス（meta.json の親ディレクトリ）。
+    posting_state_path : Path
+        posting_state.json のパス。
+
+    Examples
+    --------
+    >>> updater = StateUpdater(week_dir=Path("week_2026-03-24"), posting_state_path=Path("posting_state.json"))
+    >>> updater.update_meta(date="2026-03-27", slot="朝", posted_at="...", permalink="...")
+    """
+
+    def __init__(self, week_dir: Path, posting_state_path: Path) -> None:
+        self._week_dir = week_dir
+        self._meta_path = week_dir / "meta.json"
+        self._lock_path = week_dir / "meta.json.lock"
+        self._posting_state_path = posting_state_path
+        self._logger = get_logger(__name__)
+
+    def check_already_posted(self, meta: dict[str, Any], date: str, slot: str) -> bool:
+        """指定スロットが既に投稿済みかを確認する.
+
+        Parameters
+        ----------
+        meta : dict[str, Any]
+            meta.json の内容（最新の再読み込み済みデータを渡すこと）。
+        date : str
+            対象日付（YYYY-MM-DD 形式）。
+        slot : str
+            スロット名（朝/昼/夜）。
+
+        Returns
+        -------
+        bool
+            既に投稿済みの場合は True、未投稿の場合は False。
+        """
+        for day in meta.get("days", []):
+            if day.get("date") == date:
+                for slot_meta in day.get("slots", []):
+                    if slot_meta.get("slot") == slot:
+                        return slot_meta.get("posted_at") is not None
+        return False
+
+    def update_meta(
+        self,
+        date: str,
+        slot: str,
+        posted_at: str,
+        permalink: str,
+    ) -> None:
+        """meta.json の指定スロットに posted_at と permalink を書き戻す.
+
+        filelock で meta.json を排他制御し、投稿直前に再読み込みして
+        二重投稿を防ぐ。
+
+        Parameters
+        ----------
+        date : str
+            対象日付（YYYY-MM-DD 形式）。
+        slot : str
+            スロット名（朝/昼/夜）。
+        posted_at : str
+            投稿日時（ISO 8601 形式）。
+        permalink : str
+            投稿の permalink URL。
+        """
+        lock = filelock.FileLock(str(self._lock_path))
+        with lock:
+            # 投稿直前に meta.json を再読み込み（二重投稿防止）
+            meta = json.loads(self._meta_path.read_text(encoding="utf-8"))
+
+            # 既に投稿済みなら更新しない
+            if self.check_already_posted(meta, date, slot):
+                self._logger.warning(
+                    "meta_already_posted_skip",
+                    date=date,
+                    slot=slot,
+                )
+                return
+
+            # 対象スロットに書き戻す
+            updated = False
+            for day in meta.get("days", []):
+                if day.get("date") == date:
+                    for slot_meta in day.get("slots", []):
+                        if slot_meta.get("slot") == slot:
+                            slot_meta["posted_at"] = posted_at
+                            slot_meta["permalink"] = permalink
+                            updated = True
+                            break
+                    if updated:
+                        break
+
+            if not updated:
+                self._logger.warning(
+                    "meta_slot_not_found",
+                    date=date,
+                    slot=slot,
+                )
+                return
+
+            self._meta_path.write_text(
+                json.dumps(meta, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            self._logger.info(
+                "meta_updated",
+                date=date,
+                slot=slot,
+                posted_at=posted_at,
+            )
+
+    def append_post_history(
+        self,
+        date: str,
+        slot: str,
+        slot_meta: dict[str, Any],
+        posted_at: str,
+        threads_permalink: str,
+        instagram_permalink: str | None = None,
+    ) -> None:
+        """posting_state.json の post_history にエントリを追記する.
+
+        Parameters
+        ----------
+        date : str
+            投稿日付（YYYY-MM-DD 形式）。
+        slot : str
+            スロット名（朝/昼/夜）。
+        slot_meta : dict[str, Any]
+            meta.json のスロット情報（category, type, theme 等）。
+        posted_at : str
+            投稿日時（ISO 8601 形式）。
+        threads_permalink : str
+            Threads 投稿の permalink URL。
+        instagram_permalink : str | None
+            Instagram 投稿の permalink URL（あれば）。
+        """
+        # posting_state.json の読み込み（存在しない場合は空の構造を作成）
+        if self._posting_state_path.exists():
+            state = json.loads(self._posting_state_path.read_text(encoding="utf-8"))
+        else:
+            state = {"post_history": []}
+            self._posting_state_path.parent.mkdir(parents=True, exist_ok=True)
+
+        # post_id を生成（YYYY-MM-DD + ゼロ埋め3桁連番）
+        existing_today = [
+            e for e in state.get("post_history", []) if e.get("date") == date
+        ]
+        post_id = f"{date}_{len(existing_today) + 1:03d}"
+
+        entry: dict[str, Any] = {
+            "post_id": post_id,
+            "date": date,
+            "slot": slot,
+            "category": slot_meta.get("category"),
+            "type": slot_meta.get("type"),
+            "theme": slot_meta.get("theme"),
+            "material_ids": slot_meta.get("material_ids", []),
+            "instagram": slot_meta.get("instagram", False),
+            "posted_at": posted_at,
+            "threads_permalink": threads_permalink,
+            "instagram_permalink": instagram_permalink,
+        }
+
+        if "post_history" not in state:
+            state["post_history"] = []
+        state["post_history"].append(entry)
+
+        self._posting_state_path.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        self._logger.info(
+            "post_history_appended",
+            post_id=post_id,
+            date=date,
+            slot=slot,
+            threads_permalink=threads_permalink,
+        )
+
+
+# ---------------------------------------------------------------------------
 # ログ設定
 # ---------------------------------------------------------------------------
 
@@ -553,6 +884,99 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
+def _get_slot_meta(meta: dict[str, Any], date: str, slot: str) -> dict[str, Any]:
+    """meta.json から指定日・スロットのメタ情報を返す.
+
+    Parameters
+    ----------
+    meta : dict[str, Any]
+        meta.json の内容。
+    date : str
+        対象日付（YYYY-MM-DD 形式）。
+    slot : str
+        スロット名（朝/昼/夜）。
+
+    Returns
+    -------
+    dict[str, Any]
+        スロットメタ情報。見つからない場合は空の dict。
+    """
+    for day in meta.get("days", []):
+        if day.get("date") == date:
+            for s in day.get("slots", []):
+                if s.get("slot") == slot:
+                    return s
+    return {}
+
+
+def _execute_post(
+    account: str,
+    slot_name: str,
+    today_str: str,
+    slot_file: Path,
+    updater: StateUpdater,
+    fresh_meta: dict[str, Any],
+) -> None:
+    """Threads 投稿を実行し、状態を書き戻す.
+
+    Parameters
+    ----------
+    account : str
+        対象アカウント名。
+    slot_name : str
+        スロット名（朝/昼/夜）。
+    today_str : str
+        本日の日付文字列（YYYY-MM-DD）。
+    slot_file : Path
+        投稿ファイルのパス。
+    updater : StateUpdater
+        StateUpdater インスタンス。
+    fresh_meta : dict[str, Any]
+        最新の meta.json 内容。
+    """
+    slot_meta = _get_slot_meta(fresh_meta, today_str, slot_name)
+    content = slot_file.read_text(encoding="utf-8")
+
+    account_poster = AccountPoster(account=account)
+    try:
+        result = account_poster.post(content)
+    except Exception as e:
+        logger.error(
+            "post_failed",
+            account=account,
+            date=today_str,
+            slot=slot_name,
+            error=str(e),
+            exc_info=True,
+        )
+        return
+
+    logger.info(
+        "post_result",
+        account=account,
+        date=today_str,
+        slot=slot_name,
+        media_id=result.media_id,
+        permalink=result.permalink,
+    )
+
+    posted_at = datetime.now(tz=JST).isoformat()
+
+    updater.update_meta(
+        date=today_str,
+        slot=slot_name,
+        posted_at=posted_at,
+        permalink=result.permalink or "",
+    )
+    updater.append_post_history(
+        date=today_str,
+        slot=slot_name,
+        slot_meta=slot_meta,
+        posted_at=posted_at,
+        threads_permalink=result.permalink or "",
+    )
+
+
 def _process_account(
     account: str,
     config: AutoPosterConfig,
@@ -581,16 +1005,13 @@ def _process_account(
         logger.warning("no_meta_found", account=account, week=config.week)
         return
 
-    # 本日の日付
     today_str = now.strftime("%Y-%m-%d")
+    matched = (
+        matcher.match_force(now, config.force_slot)
+        if config.force_slot
+        else matcher.match(now)
+    )
 
-    # 対象スロットを決定
-    if config.force_slot:
-        matched = matcher.match_force(now, config.force_slot)
-    else:
-        matched = matcher.match(now)
-
-    # --dry-run: 本日のスロット一覧を出力
     if config.dry_run:
         _print_dry_run(account, meta, reader, today_str, matched)
         return
@@ -599,13 +1020,59 @@ def _process_account(
         logger.info("no_slot_matched", account=account, now=now.strftime("%H:%M"))
         return
 
+    slot_name = matched["slot"]
     logger.info(
         "slot_to_post",
         account=account,
-        slot=matched["slot"],
+        slot=slot_name,
         time=matched["time"],
         today=today_str,
     )
+
+    # 今日の day_label を取得
+    day_label = next(
+        (
+            day.get("day_label", "")
+            for day in meta.get("days", [])
+            if day.get("date") == today_str
+        ),
+        "",
+    )
+
+    week_start = meta.get("week_start", "")
+    week_dir_name = f"week_{week_start}"
+
+    slot_file = reader.get_slot_file(week_dir_name, today_str, day_label, slot_name)
+    if slot_file is None:
+        logger.warning(
+            "slot_file_not_found",
+            account=account,
+            date=today_str,
+            slot=slot_name,
+            day_label=day_label,
+        )
+        return
+
+    week_dir = creator_root / "drafts" / week_dir_name
+    posting_state_path = creator_root / "posting_state.json"
+    updater = StateUpdater(week_dir=week_dir, posting_state_path=posting_state_path)
+
+    # 投稿直前に meta.json を再読み込みして二重投稿チェック
+    fresh_meta = reader.load(week=week_start)
+    if fresh_meta is None:
+        logger.error("meta_reload_failed", account=account, week_start=week_start)
+        return
+
+    if updater.check_already_posted(fresh_meta, today_str, slot_name):
+        logger.info(
+            "already_posted_skip",
+            account=account,
+            date=today_str,
+            slot=slot_name,
+        )
+        return
+
+    _execute_post(account, slot_name, today_str, slot_file, updater, fresh_meta)
 
 
 def _print_dry_run(
