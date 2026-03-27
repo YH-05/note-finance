@@ -888,3 +888,148 @@ class TestExecutePostWave3:
 
         # mitsuki では Instagram 投稿は呼ばれない
         mock_ig.post.assert_not_called()
+
+    @patch("scripts.auto_poster.CareerSisterInstagramPoster")
+    @patch("scripts.auto_poster.AccountPoster")
+    def test_正常系_Instagram失敗時も_execute_postはTrueを返す(
+        self,
+        mock_account_poster_class: Any,
+        mock_ig_poster_class: Any,
+        tmp_path: "Path",
+    ) -> None:
+        """Instagram 投稿が失敗しても Threads 成功時は _execute_post が True を返す。"""
+        from creator.poster import PostResult
+        from scripts.auto_poster import StateUpdater, _execute_post
+
+        mock_threads = MagicMock()
+        mock_threads.post.return_value = PostResult(
+            platform="threads",
+            media_id="t-ret",
+            permalink="https://www.threads.com/@career_sister/post/RET",
+        )
+        mock_account_poster_class.return_value = mock_threads
+
+        mock_ig = MagicMock()
+        mock_ig.post.side_effect = RuntimeError("Instagram unavailable")
+        mock_ig_poster_class.return_value = mock_ig
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [{"slot": "夜", "category": "エンゲージメント", "instagram": True}],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(json.dumps({"post_history": []}, ensure_ascii=False))
+
+        slot_dir = tmp_path / "slot_3_evening"
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "threads_post.md").write_text("夜の投稿。", encoding="utf-8")
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+
+        result = _execute_post(
+            account="career_sister",
+            slot_name="夜",
+            today_str="2026-03-27",
+            slot_file=slot_dir / "threads_post.md",
+            updater=updater,
+            fresh_meta=meta,
+        )
+
+        # Instagram 失敗でも Threads 成功なら True を返す
+        assert result is True
+        # instagram_permalink は meta.json に書き込まれない
+        updated = json.loads((week_dir / "meta.json").read_text(encoding="utf-8"))
+        evening_slot = updated["days"][0]["slots"][0]
+        assert "instagram_permalink" not in evening_slot
+
+    @patch("scripts.auto_poster.CareerSisterInstagramPoster")
+    @patch("scripts.auto_poster.AccountPoster")
+    def test_正常系_execute_post経由で最終スロット投稿後にday_statusがpublishedになる(
+        self,
+        mock_account_poster_class: Any,
+        mock_ig_poster_class: Any,
+        tmp_path: "Path",
+    ) -> None:
+        """_execute_post で最後のスロットを投稿すると day.status が 'published' になる。"""
+        from creator.poster import PostResult
+        from scripts.auto_poster import StateUpdater, _execute_post
+
+        mock_threads = MagicMock()
+        mock_threads.post.return_value = PostResult(
+            platform="threads",
+            media_id="t-last",
+            permalink="https://www.threads.com/@career_sister/post/LAST",
+        )
+        mock_account_poster_class.return_value = mock_threads
+        mock_ig_poster_class.return_value = MagicMock()
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+        # 朝・昼は投稿済み、夜だけ未投稿
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "status": "published",
+                            "published_at": "2026-03-27T07:32:00+09:00",
+                            "threads_permalink": "https://www.threads.com/@career_sister/post/A",
+                        },
+                        {
+                            "slot": "昼",
+                            "category": "エンゲージメント",
+                            "status": "published",
+                            "published_at": "2026-03-27T12:32:00+09:00",
+                            "threads_permalink": "https://www.threads.com/@career_sister/post/B",
+                        },
+                        {"slot": "夜", "category": "有益"},
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(json.dumps({"post_history": []}, ensure_ascii=False))
+
+        slot_dir = tmp_path / "slot_3_evening"
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "threads_post.md").write_text("夜の投稿。", encoding="utf-8")
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+
+        _execute_post(
+            account="career_sister",
+            slot_name="夜",
+            today_str="2026-03-27",
+            slot_file=slot_dir / "threads_post.md",
+            updater=updater,
+            fresh_meta=meta,
+        )
+
+        # 全スロット投稿済みになったため day.status が 'published' に更新される
+        updated = json.loads((week_dir / "meta.json").read_text(encoding="utf-8"))
+        assert updated["days"][0]["status"] == "published"

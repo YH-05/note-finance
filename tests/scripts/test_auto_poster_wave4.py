@@ -458,3 +458,74 @@ class TestMainSummaryOutput:
         main(["--dry-run"])
 
         mock_print_summary.assert_called_once()
+
+
+# ---------------------------------------------------------------------------
+# _run_post_slot のエッジケース
+# ---------------------------------------------------------------------------
+
+
+class TestRunPostSlotEdgeCases:
+    """_run_post_slot のエッジケーステスト。"""
+
+    def test_正常系_fresh_metaがNoneのときsummary_failedがインクリメントされる(
+        self, tmp_path: "Path"
+    ) -> None:
+        """reader.load() が None を返す場合、summary.failed が +1 され早期リターンする。"""
+        from unittest.mock import patch
+
+        from scripts.auto_poster import (
+            AutoPosterConfig,
+            DraftReader,
+            PostingSummary,
+            _run_post_slot,
+        )
+
+        creator_root = tmp_path / "creator" / "mitsuki"
+        creator_root.mkdir(parents=True)
+        drafts_root = creator_root / "drafts"
+        drafts_root.mkdir()
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [{"slot": "朝", "category": "有益"}],
+                }
+            ],
+        }
+        week_dir = drafts_root / "week_2026-03-24"
+        week_dir.mkdir()
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+
+        config = AutoPosterConfig(dry_run=False)
+        reader = DraftReader(drafts_root=drafts_root, account="mitsuki")
+
+        # slot_file は存在するものとし、load() だけ None を返す
+        slot_file = week_dir / "slot_1_morning" / "threads_post.md"
+        slot_file.parent.mkdir(parents=True)
+        slot_file.write_text("朝の投稿。", encoding="utf-8")
+
+        with (
+            patch.object(reader, "get_slot_file", return_value=slot_file),
+            patch.object(reader, "load", return_value=None),
+        ):
+            summary = PostingSummary()
+            _run_post_slot(
+                account="mitsuki",
+                config=config,
+                reader=reader,
+                creator_root=creator_root,
+                meta=meta,
+                today_str="2026-03-27",
+                slot_name="朝",
+                summary=summary,
+            )
+
+        # meta 再読み込みが失敗 → failed が +1
+        assert summary.failed == 1
+        assert summary.posted == 0
+        assert summary.skipped == 0
