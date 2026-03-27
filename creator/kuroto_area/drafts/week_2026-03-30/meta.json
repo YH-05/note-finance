@@ -1,0 +1,285 @@
+{
+  "week_start": "2026-03-30",
+  "week_end": "2026-04-05",
+  "status": "draft",
+  "note_mode": "free",
+  "note_count_before": 0,
+  "note_count_after": 2,
+  "total_threads_posts": 35,
+  "total_note_articles": 2,
+  "days": [
+    {
+      "day": "月",
+      "date": "2026-03-30",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:30", "category": "哲学", "type": "型1",
+          "theme_id": "PH1", "concept": "制御二分法", "author": "Epictetus",
+          "file": "day_1_月/s1_philosophy.md", "char_count": 201,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "FW", "type": "型2",
+          "theme_id": "FW1", "concept": "習慣スタッキング", "author": "James Clear",
+          "file": "day_1_月/s2_framework.md", "char_count": 218,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "18:00", "category": "海外メソッド", "type": "型3",
+          "theme_id": "MT1", "concept": "睡眠最適化", "author": "Andrew Huberman",
+          "file": "day_1_月/s3_overseas.md", "char_count": 221,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "20:00", "category": "内向型Story", "type": "型4",
+          "theme_id": "IN1", "concept": "社会的比較",
+          "file": "day_1_月/s4_introvert.md", "char_count": 214,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "21:30", "category": "書籍紹介", "type": "型5",
+          "book": "Atomic Habits", "author": "James Clear",
+          "file": "day_1_月/s5_book.md", "char_count": 188,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "day": "火",
+      "date": "2026-03-31",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:30", "category": "哲学", "type": "型1",
+          "theme_id": "PH2", "concept": "memento mori", "author": "Marcus Aurelius",
+          "file": "day_2_火/s1_philosophy.md", "char_count": 215,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "FW", "type": "型2",
+          "theme_id": "FW2", "concept": "2分間ルール", "author": "James Clear",
+          "file": "day_2_火/s2_framework.md", "char_count": 206,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "18:00", "category": "海外メソッド", "type": "型3",
+          "theme_id": "MT2", "concept": "Digital Minimalism", "author": "Cal Newport",
+          "file": "day_2_火/s3_overseas.md", "char_count": 230,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "20:00", "category": "内向型Story", "type": "型4",
+          "theme_id": "IN2", "concept": "完璧主義の罠",
+          "file": "day_2_火/s4_introvert.md", "char_count": 218,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "21:30", "category": "補強", "type": "型2-deep",
+          "base_concept": "習慣スタッキング", "theme_id": "FW1",
+          "file": "day_2_火/s5_reinforcement.md", "char_count": 226,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "day": "水",
+      "date": "2026-04-01",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:30", "category": "哲学", "type": "型1",
+          "theme_id": "PH3", "concept": "premeditatio malorum", "author": "Seneca",
+          "file": "day_3_水/s1_philosophy.md", "char_count": 228,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "FW", "type": "型2",
+          "theme_id": "FW3", "concept": "ポモドーロテクニック", "author": "Francesco Cirillo",
+          "file": "day_3_水/s2_framework.md", "char_count": 232,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "18:00", "category": "海外メソッド", "type": "型3",
+          "theme_id": "MT3", "concept": "Tiny Habits", "author": "BJ Fogg",
+          "file": "day_3_水/s3_overseas.md", "char_count": 218,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "20:00", "category": "内向型Story", "type": "型4",
+          "theme_id": "IN3", "concept": "モチベーション依存",
+          "file": "day_3_水/s4_introvert.md", "char_count": 209,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "21:30", "category": "書籍紹介", "type": "型5",
+          "book": "Deep Work", "author": "Cal Newport",
+          "file": "day_3_水/s5_book.md", "char_count": 215,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": {
+        "file": "day_3_水/note_article.md",
+        "category": "FW実践ガイド",
+        "theme": "習慣を意志力に頼らずに設計する方法",
+        "char_count": 2100,
+        "posted_at": null,
+        "permalink": null
+      }
+    },
+    {
+      "day": "木",
+      "date": "2026-04-02",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:30", "category": "哲学", "type": "型1",
+          "theme_id": "PH4", "concept": "amor fati", "author": "Marcus Aurelius",
+          "file": "day_4_木/s1_philosophy.md", "char_count": 226,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "FW", "type": "型2",
+          "theme_id": "FW4", "concept": "Deep Work", "author": "Cal Newport",
+          "file": "day_4_木/s2_framework.md", "char_count": 230,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "18:00", "category": "海外メソッド", "type": "型3",
+          "theme_id": "MT4", "concept": "Reverse Engineering", "author": "Ron Friedman",
+          "file": "day_4_木/s3_overseas.md", "char_count": 222,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "20:00", "category": "内向型Story", "type": "型4",
+          "theme_id": "IN4", "concept": "青春の後悔",
+          "file": "day_4_木/s4_introvert.md", "char_count": 224,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "21:30", "category": "補強", "type": "型1-deep",
+          "base_concept": "premeditatio malorum", "theme_id": "PH3",
+          "file": "day_4_木/s5_reinforcement.md", "char_count": 220,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "day": "金",
+      "date": "2026-04-03",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:30", "category": "哲学", "type": "型1",
+          "theme_id": "PH5", "concept": "virtue ethics", "author": "Epictetus",
+          "file": "day_5_金/s1_philosophy.md", "char_count": 220,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "FW", "type": "型2",
+          "theme_id": "FW5", "concept": "意思決定バイアス", "author": "Daniel Kahneman",
+          "file": "day_5_金/s2_framework.md", "char_count": 236,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "18:00", "category": "海外メソッド", "type": "型3",
+          "theme_id": "MT5", "concept": "セルフコンパッション", "author": "Kristin Neff",
+          "file": "day_5_金/s3_overseas.md", "char_count": 230,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "20:00", "category": "内向型Story", "type": "型4",
+          "theme_id": "IN5", "concept": "環境デザイン",
+          "file": "day_5_金/s4_introvert.md", "char_count": 218,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "21:30", "category": "書籍紹介", "type": "型5",
+          "book": "自省録", "author": "Marcus Aurelius",
+          "file": "day_5_金/s5_book.md", "char_count": 207,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "day": "土",
+      "date": "2026-04-04",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:30", "category": "哲学", "type": "型1",
+          "theme_id": "PH1", "concept": "制御二分法", "author": "Epictetus",
+          "file": "day_6_土/s1_philosophy.md", "char_count": 219,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "FW", "type": "型2",
+          "theme_id": "FW1", "concept": "習慣スタッキング", "author": "James Clear",
+          "file": "day_6_土/s2_framework.md", "char_count": 222,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "18:00", "category": "海外メソッド", "type": "型3",
+          "theme_id": "MT1", "concept": "睡眠最適化", "author": "Andrew Huberman",
+          "file": "day_6_土/s3_overseas.md", "char_count": 235,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "20:00", "category": "内向型Story", "type": "型4",
+          "theme_id": "IN1", "concept": "社会的比較",
+          "file": "day_6_土/s4_introvert.md", "char_count": 222,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "21:30", "category": "補強", "type": "型3-deep",
+          "base_concept": "睡眠最適化", "theme_id": "MT1",
+          "file": "day_6_土/s5_reinforcement.md", "char_count": 228,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": {
+        "file": "day_6_土/note_article.md",
+        "category": "哲学×行動科学",
+        "theme": "ストア派哲学が現代の行動科学と交差する場所",
+        "char_count": 2300,
+        "posted_at": null,
+        "permalink": null
+      }
+    },
+    {
+      "day": "日",
+      "date": "2026-04-05",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:30", "category": "哲学", "type": "型1",
+          "theme_id": "PH2", "concept": "memento mori", "author": "Marcus Aurelius",
+          "file": "day_7_日/s1_philosophy.md", "char_count": 224,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "FW", "type": "型2",
+          "theme_id": "FW2", "concept": "2分間ルール", "author": "James Clear",
+          "file": "day_7_日/s2_framework.md", "char_count": 226,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "18:00", "category": "海外メソッド", "type": "型3",
+          "theme_id": "MT2", "concept": "Digital Minimalism", "author": "Cal Newport",
+          "file": "day_7_日/s3_overseas.md", "char_count": 228,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "20:00", "category": "内向型Story", "type": "型4",
+          "theme_id": "IN2", "concept": "完璧主義の罠",
+          "file": "day_7_日/s4_introvert.md", "char_count": 220,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "21:30", "category": "note誘導", "type": "型2-CTA",
+          "cta_target": "note_article",
+          "file": "day_7_日/s5_note_cta.md", "char_count": 235,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": null
+    }
+  ]
+}

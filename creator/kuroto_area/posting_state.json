@@ -1,8 +1,8 @@
 {
   "posts_per_day": 5,
-  "note_per_week": 2,
+  "note_per_day": 1,
   "note_mode": "free",
-  "note_count": 0,
+  "note_count": 7,
   "note_paid_threshold": 10,
   "daily_slots": {
     "S1": {"time": "07:30"},
@@ -20,16 +20,16 @@
     {"day": "土", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "補強"},
     {"day": "日", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "note誘導"}
   ],
-  "total_posts": 0,
-  "total_note_articles": 0,
+  "total_posts": 35,
+  "total_note_articles": 2,
   "type_rotation": {
-    "哲学": 0,
-    "FW": 0,
-    "海外メソッド": 0,
-    "内向型Story": 0,
-    "書籍紹介": 0,
-    "補強": 0,
-    "note誘導": 0
+    "哲学": 7,
+    "FW": 7,
+    "海外メソッド": 7,
+    "内向型Story": 7,
+    "書籍紹介": 3,
+    "補強": 3,
+    "note誘導": 1
   },
   "themes": {
     "哲学": [
@@ -61,12 +61,12 @@
       {"id": "IN5", "concept": "環境デザイン", "keywords": ["意志力不要", "仕組み化"], "weight": 0.8}
     ]
   },
-  "recent_themes": [],
+  "recent_themes": ["PH1", "FW1", "MT1", "IN1", "PH2", "FW2", "MT2", "IN2", "PH3", "FW3", "MT3", "IN3", "PH4", "FW4", "MT4", "IN4", "PH5", "FW5", "MT5", "IN5"],
   "theme_use_counts": {
-    "PH1": 0, "PH2": 0, "PH3": 0, "PH4": 0, "PH5": 0,
-    "FW1": 0, "FW2": 0, "FW3": 0, "FW4": 0, "FW5": 0,
-    "MT1": 0, "MT2": 0, "MT3": 0, "MT4": 0, "MT5": 0,
-    "IN1": 0, "IN2": 0, "IN3": 0, "IN4": 0, "IN5": 0
+    "PH1": 2, "PH2": 2, "PH3": 1, "PH4": 1, "PH5": 1,
+    "FW1": 2, "FW2": 2, "FW3": 1, "FW4": 1, "FW5": 1,
+    "MT1": 2, "MT2": 2, "MT3": 1, "MT4": 1, "MT5": 1,
+    "IN1": 2, "IN2": 2, "IN3": 1, "IN4": 1, "IN5": 1
   },
   "used_material_ids": [],
   "post_history": []

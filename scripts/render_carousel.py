@@ -29,7 +29,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-TEMPLATE_PATH = Path(__file__).parent.parent / "templates" / "career_sister" / "carousel.html"
+TEMPLATE_PATH = Path(__file__).parent.parent / "creator" / "career_sister" / "templates" / "carousel.html"
 
 
 def _render_title_slide(slide: dict) -> str:

@@ -18,6 +18,24 @@
 
 **全投稿文は 500 文字以内**（Threads API 制限）。
 
+## 曜日計算（必須）
+
+ディレクトリ名・`day` フィールド・カレンダー表示の曜日は、**開始日から実際の曜日を計算**して使うこと。
+ハードコードしてはならない。
+
+```python
+from datetime import date, timedelta
+
+start = date.fromisoformat(start_date)  # 例: "2026-03-31"
+WEEKDAY_JA = ["月", "火", "水", "木", "金", "土", "日"]
+
+for day_offset in range(7):
+    d = start + timedelta(days=day_offset)
+    ja = WEEKDAY_JA[d.weekday()]   # 0=月, 6=日
+    dir_name = f"day_{day_offset + 1}_{ja}"   # "day_1_月"
+    day_label = ja                              # "月"
+```
+
 ## 処理フロー
 
 ### Step 0: 状態読み込み
@@ -202,21 +220,21 @@ LIMIT 30
 
 ```
 creator/mitsuki/drafts/week_YYYY-MM-DD/
-├── day_1_月/
+├── day_1_{曜日}/            ← 開始日の実際の曜日（例: day_1_月）
 │   ├── s1_tarot.md         # 07:00 タロット
 │   ├── s2_tips.md          # 12:00 Tips
 │   ├── s3_eng.md           # 15:00 ENG
 │   ├── s4_zodiac.md        # 19:00 星座
 │   ├── s5_note_cta.md      # 22:00 note誘導
 │   └── note_article.md     # noteフル記事（500-900字）
-├── day_2_火/
+├── day_2_{曜日}/            ← 翌日の曜日（例: day_2_火）
 │   ├── s1_zodiac.md
 │   ├── s2_tips.md
 │   ├── s3_eng.md
 │   ├── s4_tarot.md
 │   ├── s5_story.md
 │   └── note_article.md
-├── day_3_水/ ... day_7_日/  （同構造）
+├── day_3_{曜日}/ ... day_7_{曜日}/  （同構造）
 └── meta.json
 ```
 

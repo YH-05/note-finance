@@ -15,6 +15,26 @@ career_sister アカウントの **1週間分（Threads 21本 + Instagram 7本�
 | 昼 | 12:00 | ENG/有益 | - | 250-400字 |
 | 夜 | 20:00 | じっくり有益 | カルーセル化 | 350-500字 |
 
+## 曜日計算（必須）
+
+ディレクトリ名・`day_label`・カレンダー表示の曜日は、**開始日から実際の曜日を計算**して使うこと。
+ハードコードしてはならない。
+
+```python
+from datetime import date, timedelta
+
+start = date.fromisoformat(start_date)  # 例: "2026-03-24"
+WEEKDAY_JA = ["月", "火", "水", "木", "金", "土", "日"]
+WEEKDAY_EN = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+
+for day_offset in range(7):
+    d = start + timedelta(days=day_offset)
+    ja = WEEKDAY_JA[d.weekday()]   # 0=月, 6=日
+    en = WEEKDAY_EN[d.weekday()]
+    dir_name = f"day_{day_offset + 1}_{en}"   # "day_1_tue"
+    day_label = ja                              # "火"
+```
+
 ## 処理フロー
 
 ### Step 0: 状態読み込み + 1週間分のパラメータ一括決定
@@ -74,22 +94,22 @@ for day in range(days):
 ```
 📅 1週間の投稿計画（2026-03-24 〜 2026-03-30）
 
-Day 1 (月):
+Day 1 (火):  ← 開始日から実際の曜日を計算
   朝  有益/型2  T2 職務経歴書
   昼  有益/型4  T3 年収交渉
   夜  ENG/型1-A T7 メンタル        📷 IG
 
-Day 2 (火):
+Day 2 (水):
   朝  有益/型1  T4 キャリアチェンジ
   昼  有益/型2  T1 面接対策
   夜  有益/型4  T8 スキル翻訳       📷 IG
 
-Day 3 (水):
+Day 3 (木):
   朝  有益/型3  T6 退職タイミング
   昼  ENG/型1-B T7 メンタル
   夜  収益/型3  T5 エージェント     📷 IG
 
-Day 4 (木):
+Day 4 (金):
   朝  有益/型1  T2 職務経歴書
   ...
 ```
@@ -162,7 +182,7 @@ Instagram キャプション = Threads テキスト + ハッシュタグ（5-10�
 
 ```
 creator/career_sister/drafts/week_YYYY-MM-DD/
-├── day_1_mon/
+├── day_1_{曜日en}/          ← 開始日の実際の曜日（例: day_1_tue）
 │   ├── slot_1_morning/
 │   │   ├── threads_post.md
 │   │   └── material_source.json
@@ -175,13 +195,16 @@ creator/career_sister/drafts/week_YYYY-MM-DD/
 │       ├── slides.json
 │       ├── carousel/slide_*.png
 │       └── material_source.json
-├── day_2_tue/
+├── day_2_{曜日en}/          ← 翌日の曜日（例: day_2_wed）
 │   └── ...
 ├── ...
-├── day_7_sun/
+├── day_7_{曜日en}/
 │   └── ...
 └── meta.json
 ```
+
+**重要**: `{曜日en}` は開始日から計算した実際の曜日（mon/tue/wed/thu/fri/sat/sun）。
+「曜日計算」セクションの Python コードを使って決定すること。
 
 ### Step 5: 状態更新
 
@@ -237,7 +260,7 @@ state["current_cycle"] += total_new // 10
   "days": [
     {
       "date": "2026-03-24",
-      "day_label": "月",
+      "day_label": "火",
       "status": "draft",
       "slots": [
         {

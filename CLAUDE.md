@@ -8,8 +8,8 @@
 | ディレクトリ | 内容 |
 |-------------|------|
 | `agents/` | 60サブエージェント（記事執筆、批評、PRレビュー、週次レポートチーム、リサーチ等） |
-| `commands/` | 23スラッシュコマンド（`/finance-edit`, `/generate-market-report`, `/convert-pdf` 等） |
-| `skills/` | 44スキル（ニュース収集、レポート生成、TDD、PRレビュー、品質管理、PDF変換等） |
+| `commands/` | 25スラッシュコマンド（`/finance-edit`, `/generate-market-report`, `/convert-pdf` 等） |
+| `skills/` | 45スキル（ニュース収集、レポート生成、TDD、PRレビュー、品質管理、PDF変換等） |
 | `rules/` | コーディング規約、Git運用、テスト戦略、サブエージェントデータ受け渡し |
 
 ## Slash Commands
@@ -50,6 +50,8 @@
 |----------|------|
 | `/mitsuki-draft` | みつき（美月）の週次投稿ドラフト生成（タロット・星座・Tips・ENG 4本） |
 | `/mitsuki-publish` | みつきのドラフトをThreads/noteに投稿 |
+| `/kuroto-draft` | 玄人領域の週次投稿ドラフト生成（哲学・FW・海外メソッド・内向型・書籍 5本/日） |
+| `/kuroto-publish` | 玄人領域のドラフトをThreads/noteに投稿 |
 
 ### 非推奨コマンド
 
@@ -61,6 +63,17 @@
 | `/publish-to-note` | `/article-publish` |
 | `/asset-management` | `/article-full --category asset_management` |
 | `/finance-suggest-topics` | `/topic-discovery` |
+
+## 実行環境
+
+- Python スクリプトは必ず `uv run` 経由で実行すること（素の `python` / `python3` 直接実行は禁止）
+- Python ファイルの配置先は以下に限定する（それ以外への新規作成は禁止）:
+  - `src/` — パッケージソース
+  - `scripts/` — ユーティリティスクリプト
+  - `tests/` — テストコード
+  - `.claude/skills/*/` — スキル内スクリプト
+  - `.claude/hooks/` — hookスクリプト
+  - `.tmp/` に一時スクリプトを置いた場合、用途が完了したら速やかに削除すること
 
 ## 制約事項
 
