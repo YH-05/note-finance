@@ -567,19 +567,29 @@ class StateUpdater:
 
     Examples
     --------
-    >>> updater = StateUpdater(week_dir=Path("week_2026-03-24"), posting_state_path=Path("posting_state.json"))
+    >>> updater = StateUpdater(week_dir=Path("week_2026-03-24"), posting_state_path=Path("posting_state.json"), account="mitsuki")
     >>> updater.update_meta(date="2026-03-27", slot="朝", posted_at="...", permalink="...")
     """
 
-    def __init__(self, week_dir: Path, posting_state_path: Path) -> None:
+    def __init__(
+        self,
+        week_dir: Path,
+        posting_state_path: Path,
+        account: str = "mitsuki",
+    ) -> None:
         self._week_dir = week_dir
         self._meta_path = week_dir / "meta.json"
         self._lock_path = week_dir / "meta.json.lock"
         self._posting_state_path = posting_state_path
-        self._logger = get_logger(__name__)
+        self._account = account
+        self._logger = get_logger(__name__, account=account)
 
     def check_already_posted(self, meta: dict[str, Any], date: str, slot: str) -> bool:
         """指定スロットが既に投稿済みかを確認する.
+
+        アカウントによって投稿済みフラグの判定方法が異なる:
+        - mitsuki: ``posted_at`` フィールドが存在するかで判定
+        - career_sister: ``status == 'published'`` で判定
 
         Parameters
         ----------
@@ -599,6 +609,8 @@ class StateUpdater:
             if day.get("date") == date:
                 for slot_meta in day.get("slots", []):
                     if slot_meta.get("slot") == slot:
+                        if self._account == "career_sister":
+                            return slot_meta.get("status") == "published"
                         return slot_meta.get("posted_at") is not None
         return False
 
@@ -639,17 +651,34 @@ class StateUpdater:
                 )
                 return
 
-            # 対象スロットに書き戻す
+            # 対象スロットに書き戻す（アカウント別フィールド名）
             updated = False
             for day in meta.get("days", []):
                 if day.get("date") == date:
                     for slot_meta in day.get("slots", []):
                         if slot_meta.get("slot") == slot:
-                            slot_meta["posted_at"] = posted_at
-                            slot_meta["permalink"] = permalink
+                            if self._account == "career_sister":
+                                slot_meta["status"] = "published"
+                                slot_meta["published_at"] = posted_at
+                                slot_meta["threads_permalink"] = permalink
+                            else:
+                                slot_meta["posted_at"] = posted_at
+                                slot_meta["permalink"] = permalink
                             updated = True
                             break
                     if updated:
+                        # career_sister: 全スロット投稿済み時に day.status を更新
+                        if self._account == "career_sister":
+                            all_published = all(
+                                s.get("status") == "published"
+                                for s in day.get("slots", [])
+                            )
+                            if all_published:
+                                day["status"] = "published"
+                                self._logger.info(
+                                    "day_status_published",
+                                    date=date,
+                                )
                         break
 
             if not updated:
@@ -1055,7 +1084,11 @@ def _process_account(
 
     week_dir = creator_root / "drafts" / week_dir_name
     posting_state_path = creator_root / "posting_state.json"
-    updater = StateUpdater(week_dir=week_dir, posting_state_path=posting_state_path)
+    updater = StateUpdater(
+        week_dir=week_dir,
+        posting_state_path=posting_state_path,
+        account=account,
+    )
 
     # 投稿直前に meta.json を再読み込みして二重投稿チェック
     fresh_meta = reader.load(week=week_start)

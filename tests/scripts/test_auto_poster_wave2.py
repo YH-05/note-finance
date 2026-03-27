@@ -3,6 +3,12 @@
 Wave 2: AccountPoster / StateUpdater の実装テスト。
 - AccountPoster: mitsuki の Threads 投稿実行
 - StateUpdater: meta.json / posting_state.json の状態書き戻し
+
+Wave 2 (career_sister 拡張):
+- career_sister の DraftReader ファイル解決
+- StateUpdater の career_sister フォーマット対応（status/published_at/threads_permalink）
+- 全スロット投稿済み時の days[].status 更新
+- _process_account の career_sister 統合テスト
 """
 
 from __future__ import annotations
@@ -702,6 +708,587 @@ class TestProcessAccountMitsuki:
             mock_get_path.return_value = tmp_path
 
             _process_account("mitsuki", config, now, matcher)
+
+        # 投稿済みのため AccountPoster.post は呼ばれないことを確認
+        assert not mock_poster.post.called
+
+
+# ---------------------------------------------------------------------------
+# career_sister: DraftReader ファイル解決テスト
+# ---------------------------------------------------------------------------
+
+
+class TestDraftReaderCareerSister:
+    """career_sister アカウントの DraftReader テスト。"""
+
+    def test_正常系_career_sisterのday_dir_mapが英語表記になる(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister の曜日マッピングが英語表記であることを確認。"""
+        from scripts.auto_poster import DAY_DIR_MAP_CAREER_SISTER, DraftReader
+
+        reader = DraftReader(drafts_root=tmp_path, account="career_sister")
+        day_dir_map = reader._get_day_dir_map()
+
+        assert day_dir_map["月"] == "day_1_mon"
+        assert day_dir_map["火"] == "day_2_tue"
+        assert day_dir_map["水"] == "day_3_wed"
+        assert day_dir_map["木"] == "day_4_thu"
+        assert day_dir_map["金"] == "day_5_fri"
+        assert day_dir_map["土"] == "day_6_sat"
+        assert day_dir_map["日"] == "day_7_sun"
+        assert day_dir_map == DAY_DIR_MAP_CAREER_SISTER
+
+    def test_正常系_career_sisterのthreads_post_mdが正しく解決される(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister の day_{N}_{eng}/slot_{M}_{period}/ から threads_post.md が解決される。"""
+        from scripts.auto_poster import DraftReader
+
+        drafts_root = tmp_path / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        slot_dir = week_dir / "day_4_thu" / "slot_1_morning"
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "threads_post.md").write_text("テスト投稿")
+
+        reader = DraftReader(drafts_root=drafts_root, account="career_sister")
+        result = reader.get_slot_file("week_2026-03-24", "2026-03-27", "木", "朝")
+
+        assert result is not None
+        assert result.name == "threads_post.md"
+        assert "day_4_thu" in str(result)
+        assert "slot_1_morning" in str(result)
+
+    def test_正常系_夜スロットのディレクトリ名がslot_3_eveningになる(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister の 夜スロットが slot_3_evening ディレクトリに解決される。"""
+        from scripts.auto_poster import DraftReader
+
+        drafts_root = tmp_path / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        slot_dir = week_dir / "day_4_thu" / "slot_3_evening"
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "threads_post.md").write_text("夜投稿テスト")
+
+        reader = DraftReader(drafts_root=drafts_root, account="career_sister")
+        result = reader.get_slot_file("week_2026-03-24", "2026-03-27", "木", "夜")
+
+        assert result is not None
+        assert "slot_3_evening" in str(result)
+
+    def test_エッジケース_threads_post_mdが存在しない場合はNoneを返す(
+        self, tmp_path: Path
+    ) -> None:
+        """threads_post.md が存在しない場合に None が返されることを確認。"""
+        from scripts.auto_poster import DraftReader
+
+        drafts_root = tmp_path / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        reader = DraftReader(drafts_root=drafts_root, account="career_sister")
+        result = reader.get_slot_file("week_2026-03-24", "2026-03-27", "木", "朝")
+
+        assert result is None
+
+
+# ---------------------------------------------------------------------------
+# career_sister: StateUpdater 拡張テスト
+# ---------------------------------------------------------------------------
+
+
+class TestStateUpdaterCareerSister:
+    """career_sister フォーマットの StateUpdater テスト。"""
+
+    def _make_career_sister_meta(self) -> dict[str, Any]:
+        """career_sister テスト用 meta.json データを生成する。"""
+        return {
+            "week_start": "2026-03-24",
+            "week_end": "2026-03-30",
+            "status": "draft",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "type": "型3",
+                            "theme": "T3",
+                            "instagram": True,
+                        },
+                        {
+                            "slot": "昼",
+                            "category": "有益",
+                            "type": "型1",
+                            "theme": "T8",
+                            "instagram": False,
+                        },
+                        {
+                            "slot": "夜",
+                            "category": "エンゲージメント",
+                            "type": "型1-A",
+                            "theme": "T4",
+                            "instagram": False,
+                        },
+                    ],
+                }
+            ],
+        }
+
+    def test_正常系_career_sisterのcheck_already_posted_status_publishedでTrueを返す(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister フォーマット: status == 'published' で投稿済みと判定される。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "status": "published",
+                            "published_at": "2026-03-27T07:32:00+09:00",
+                            "threads_permalink": "https://www.threads.com/@career_sister/post/ABC",
+                        }
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+        result = updater.check_already_posted(meta=meta, date="2026-03-27", slot="朝")
+        assert result is True
+
+    def test_正常系_career_sisterのcheck_already_posted_status_draftでFalseを返す(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister フォーマット: status が 'draft' や未設定の場合は未投稿と判定される。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "slots": [{"slot": "朝", "category": "有益"}],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+        result = updater.check_already_posted(meta=meta, date="2026-03-27", slot="朝")
+        assert result is False
+
+    def test_正常系_career_sisterのupdate_metaがstatus_published_at_threads_permalinkを書き込む(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister の update_meta が status/published_at/threads_permalink を書き込む。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = self._make_career_sister_meta()
+        meta_path = week_dir / "meta.json"
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False))
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+
+        published_at = "2026-03-27T07:32:00+09:00"
+        permalink = "https://www.threads.com/@career_sister/post/DWQF-5xE0fO"
+
+        updater.update_meta(
+            date="2026-03-27",
+            slot="朝",
+            posted_at=published_at,
+            permalink=permalink,
+        )
+
+        updated_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        morning_slot = updated_meta["days"][0]["slots"][0]
+        assert morning_slot["status"] == "published"
+        assert morning_slot["published_at"] == published_at
+        assert morning_slot["threads_permalink"] == permalink
+        # mitsuki フィールドは書き込まれていないことを確認
+        assert "posted_at" not in morning_slot
+        assert "permalink" not in morning_slot
+
+    def test_正常系_career_sisterの全スロット投稿済み時にdays_statusがpublishedになる(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister: 全スロット投稿済みで days[].status が 'published' に更新される。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        # 朝と昼はすでに published、夜を投稿するシナリオ
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "status": "published",
+                            "published_at": "2026-03-27T07:32:00+09:00",
+                            "threads_permalink": "https://www.threads.com/@career_sister/post/A",
+                        },
+                        {
+                            "slot": "昼",
+                            "category": "有益",
+                            "status": "published",
+                            "published_at": "2026-03-27T12:32:00+09:00",
+                            "threads_permalink": "https://www.threads.com/@career_sister/post/B",
+                        },
+                        {"slot": "夜", "category": "エンゲージメント"},
+                    ],
+                }
+            ],
+        }
+        meta_path = week_dir / "meta.json"
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False))
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+
+        updater.update_meta(
+            date="2026-03-27",
+            slot="夜",
+            posted_at="2026-03-27T20:32:00+09:00",
+            permalink="https://www.threads.com/@career_sister/post/C",
+        )
+
+        updated_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        day = updated_meta["days"][0]
+        assert day["status"] == "published"
+        evening_slot = day["slots"][2]
+        assert evening_slot["status"] == "published"
+
+    def test_正常系_career_sisterの一部スロット未投稿時はdays_statusがdraftのまま(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister: 一部のスロットが未投稿の場合 days[].status は 'draft' のまま。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {"slot": "朝", "category": "有益"},  # 未投稿
+                        {"slot": "昼", "category": "有益"},
+                        {"slot": "夜", "category": "エンゲージメント"},
+                    ],
+                }
+            ],
+        }
+        meta_path = week_dir / "meta.json"
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False))
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+
+        # 昼スロットだけ投稿
+        updater.update_meta(
+            date="2026-03-27",
+            slot="昼",
+            posted_at="2026-03-27T12:32:00+09:00",
+            permalink="https://www.threads.com/@career_sister/post/D",
+        )
+
+        updated_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        day = updated_meta["days"][0]
+        # 全スロット投稿済みでないため draft のまま
+        assert day["status"] == "draft"
+
+    def test_正常系_career_sisterのappend_post_historyにcareer_sisterフォーマットのエントリが追記される(
+        self, tmp_path: Path
+    ) -> None:
+        """career_sister の post_history エントリが career_sister フォーマットで追記される。"""
+        from scripts.auto_poster import StateUpdater
+
+        week_dir = tmp_path / "week_2026-03-24"
+        week_dir.mkdir(parents=True)
+        (week_dir / "meta.json").write_text(
+            json.dumps(
+                {
+                    "week_start": "2026-03-24",
+                    "days": [
+                        {
+                            "date": "2026-03-27",
+                            "day_label": "木",
+                            "slots": [
+                                {"slot": "朝", "category": "有益", "type": "型3"}
+                            ],
+                        }
+                    ],
+                },
+                ensure_ascii=False,
+            )
+        )
+        posting_state_path = tmp_path / "posting_state.json"
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        updater = StateUpdater(
+            week_dir=week_dir,
+            posting_state_path=posting_state_path,
+            account="career_sister",
+        )
+
+        posted_at = "2026-03-27T07:32:00+09:00"
+        permalink = "https://www.threads.com/@career_sister/post/DWQF-5xE0fO"
+
+        updater.append_post_history(
+            date="2026-03-27",
+            slot="朝",
+            slot_meta={"slot": "朝", "category": "有益", "type": "型3", "theme": "T3"},
+            posted_at=posted_at,
+            threads_permalink=permalink,
+        )
+
+        state = json.loads(posting_state_path.read_text(encoding="utf-8"))
+        assert len(state["post_history"]) == 1
+        entry = state["post_history"][0]
+        assert entry["date"] == "2026-03-27"
+        assert entry["slot"] == "朝"
+        assert entry["threads_permalink"] == permalink
+        assert "post_id" in entry
+
+
+# ---------------------------------------------------------------------------
+# career_sister: _process_account 統合テスト
+# ---------------------------------------------------------------------------
+
+
+class TestProcessAccountCareerSister:
+    """career_sister アカウントの _process_account 統合テスト。"""
+
+    @patch("scripts.auto_poster.AccountPoster")
+    @patch("scripts.auto_poster.StateUpdater")
+    def test_正常系_force_slotでcareer_sister朝スロットが投稿される(
+        self,
+        mock_state_updater_class: Any,
+        mock_account_poster_class: Any,
+        tmp_path: Path,
+    ) -> None:
+        """--force-slot S1 で career_sister の朝スロットが投稿されることを確認。"""
+        from creator.poster import PostResult
+        from scripts.auto_poster import (
+            SLOT_TIME_MAP,
+            AutoPosterConfig,
+            SlotMatcher,
+            _process_account,
+        )
+
+        # AccountPoster モック
+        mock_poster = MagicMock()
+        mock_poster.post.return_value = PostResult(
+            platform="threads",
+            media_id="cs-12345",
+            permalink="https://www.threads.com/@career_sister/post/NEW",
+        )
+        mock_account_poster_class.return_value = mock_poster
+
+        # StateUpdater モック
+        mock_updater = MagicMock()
+        mock_updater.check_already_posted.return_value = False
+        mock_state_updater_class.return_value = mock_updater
+
+        # career_sister の drafts ディレクトリを作成
+        drafts_root = tmp_path / "creator" / "career_sister" / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        slot_dir = week_dir / "day_4_thu" / "slot_1_morning"
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "threads_post.md").write_text(
+            "---\ntopic_tag: '#キャリア'\n---\nキャリアシスターの投稿内容。"
+        )
+
+        meta = {
+            "week_start": "2026-03-24",
+            "week_end": "2026-03-30",
+            "status": "draft",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "status": "draft",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "type": "型3",
+                            "theme": "T3",
+                        },
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+
+        posting_state_path = (
+            tmp_path / "creator" / "career_sister" / "posting_state.json"
+        )
+        posting_state_path.parent.mkdir(parents=True, exist_ok=True)
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        config = AutoPosterConfig(
+            account="career_sister",
+            dry_run=False,
+            force_slot="S1",
+        )
+        now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
+        matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=15)
+
+        with patch("scripts.auto_poster.get_path") as mock_get_path:
+            mock_get_path.return_value = tmp_path
+
+            _process_account("career_sister", config, now, matcher)
+
+        # AccountPoster.post が呼ばれたことを確認
+        assert mock_poster.post.called
+
+    @patch("scripts.auto_poster.AccountPoster")
+    @patch("scripts.auto_poster.StateUpdater")
+    def test_正常系_career_sister_status_publishedスロットはスキップされる(
+        self,
+        mock_state_updater_class: Any,
+        mock_account_poster_class: Any,
+        tmp_path: Path,
+    ) -> None:
+        """status == 'published' の career_sister スロットはスキップされることを確認。"""
+        from scripts.auto_poster import (
+            SLOT_TIME_MAP,
+            AutoPosterConfig,
+            SlotMatcher,
+            _process_account,
+        )
+
+        # StateUpdater モック: 既に投稿済みとして返す
+        mock_updater = MagicMock()
+        mock_updater.check_already_posted.return_value = True
+        mock_state_updater_class.return_value = mock_updater
+
+        # AccountPoster モック
+        mock_poster = MagicMock()
+        mock_account_poster_class.return_value = mock_poster
+
+        # career_sister の drafts ディレクトリを作成
+        drafts_root = tmp_path / "creator" / "career_sister" / "drafts"
+        week_dir = drafts_root / "week_2026-03-24"
+        slot_dir = week_dir / "day_4_thu" / "slot_1_morning"
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "threads_post.md").write_text("投稿内容")
+
+        meta = {
+            "week_start": "2026-03-24",
+            "days": [
+                {
+                    "date": "2026-03-27",
+                    "day_label": "木",
+                    "slots": [
+                        {
+                            "slot": "朝",
+                            "category": "有益",
+                            "status": "published",
+                            "published_at": "2026-03-27T07:32:00+09:00",
+                        }
+                    ],
+                }
+            ],
+        }
+        (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
+
+        posting_state_path = (
+            tmp_path / "creator" / "career_sister" / "posting_state.json"
+        )
+        posting_state_path.parent.mkdir(parents=True, exist_ok=True)
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
+
+        config = AutoPosterConfig(
+            account="career_sister",
+            dry_run=False,
+            force_slot="S1",
+        )
+        now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
+        matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=15)
+
+        with patch("scripts.auto_poster.get_path") as mock_get_path:
+            mock_get_path.return_value = tmp_path
+
+            _process_account("career_sister", config, now, matcher)
 
         # 投稿済みのため AccountPoster.post は呼ばれないことを確認
         assert not mock_poster.post.called
