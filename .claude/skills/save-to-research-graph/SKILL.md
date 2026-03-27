@@ -1,6 +1,6 @@
 ---
 name: save-to-graph
-description: graph-queue JSON を読み込み、Neo4j にノードとリレーションを MERGE ベースで冪等投入するスキル。5フェーズ構成（キュー検出 → ノード投入 → リレーション投入 → 投入検証 → 完了処理）。v2 スキーマ（9 ノード・9+ リレーション）対応。
+description: graph-queue JSON を読み込み、Neo4j にノードとリレーションを MERGE ベースで冪等投入するスキル。5フェーズ構成（キュー検出 → ノード投入 → リレーション投入 → 投入検証 → 完了処理）。v2/v3 スキーマ（9 ノード・9+ リレーション）対応。
 allowed-tools: Read, Bash, Grep, Glob
 ---
 
@@ -9,7 +9,12 @@ allowed-tools: Read, Bash, Grep, Glob
 graph-queue JSON ファイルを読み込み、Neo4j にナレッジグラフデータを投入するスキル。
 MERGE ベースの Cypher クエリにより冪等性を保証する。
 
-v2 スキーマでは 9 種のノード（Topic, Entity, Source, Claim, Fact, Chunk, Author, FinancialDataPoint, FiscalPeriod）と 9+ 種のリレーションを投入する。`schema_version` フィールドにより v1（`"1.0"`）と v2（`"2.0"`）の両方を処理できる。
+v2/v3 スキーマでは 9 種のノード（Topic, Entity, Source, Claim, Fact, Chunk, Author, FinancialDataPoint, FiscalPeriod）と 9+ 種のリレーションを投入する。`schema_version` フィールドにより v1（`"1.0"`）、v2（`"2.0"`）、v3（`"3.0"`）を処理できる。
+
+v3.0 の主な変更点:
+- Chunk ノードが廃止され、EXTRACTED_FROM は Fact/Claim → **Source** を対象とする
+- TAGGED に **Fact → Topic** パターンが追加（`relations.tagged_fact` キーで分離）
+- Entity/Topic の MERGE キーは `entity_key` / `topic_key`（ビジネスキー）を使用
 
 ## アーキテクチャ
 
@@ -20,7 +25,7 @@ v2 スキーマでは 9 種のノード（Topic, Entity, Source, Claim, Fact, Ch
   |     +-- Neo4j 接続確認（cypher-shell）
   |     +-- .tmp/graph-queue/ 配下の未処理 JSON を検出
   |     +-- --source / --file によるフィルタリング
-  |     +-- JSON スキーマ検証（schema_version '1.0' | '2.0', 必須キー）
+  |     +-- JSON スキーマ検証（schema_version '1.0' | '2.0' | '3.0', 必須キー）
   |
   +-- Phase 2: ノード投入（MERGE）
   |     +-- Topic ノード MERGE
@@ -34,11 +39,12 @@ v2 スキーマでは 9 種のノード（Topic, Entity, Source, Claim, Fact, Ch
   |     +-- FiscalPeriod ノード MERGE      [v2 新規]
   |
   +-- Phase 3a: ファイル内リレーション投入（MERGE）
-  |     +-- TAGGED リレーション MERGE（Source -> Topic）[同一ファイル内]
+  |     +-- TAGGED リレーション MERGE（Source -> Topic）[同一ファイル内, relations.tagged]
+  |     +-- TAGGED リレーション MERGE（Fact -> Topic）[v3 新規, relations.tagged_fact]
   |     +-- MAKES_CLAIM リレーション MERGE（Source -> Claim）[source_id ベース]
   |     +-- ABOUT リレーション MERGE（Claim -> Entity）[同一ファイル内]
   |     +-- CONTAINS_CHUNK リレーション MERGE（Source -> Chunk）[v2 新規]
-  |     +-- EXTRACTED_FROM リレーション MERGE（Fact/Claim -> Chunk）[v2 新規]
+  |     +-- EXTRACTED_FROM リレーション MERGE（Fact/Claim -> Chunk [v2] / Source [v3]）
   |     +-- STATES_FACT リレーション MERGE（Source -> Fact）[v2 新規]
   |     +-- HAS_DATAPOINT リレーション MERGE（Source -> FinancialDataPoint）[v2 新規]
   |     +-- FOR_PERIOD リレーション MERGE（FinancialDataPoint -> FiscalPeriod）[v2 新規]
@@ -786,7 +792,8 @@ def calc_discrepancy_rate(expected: int, actual: int) -> float:
 
 ### 2026-03-12: v2 スキーマ対応（Issue #67）
 
-- `schema_version` '1.0' | '2.0' 両対応
+- `schema_version` '1.0' | '2.0' | '3.0' 対応
+- v3.0: Chunk 廃止（EXTRACTED_FROM → Source）、tagged_fact（Fact→Topic TAGGED）追加
 - `required_keys` に `facts`, `chunks`, `financial_datapoints`, `fiscal_periods` 追加（v2）
 - Phase 2 に 5 種の新ノード MERGE 追加: Fact, Chunk, Author, FinancialDataPoint, FiscalPeriod
 - Phase 3a に 6 種の新リレーション MERGE 追加: CONTAINS_CHUNK, EXTRACTED_FROM, STATES_FACT, RELATES_TO, HAS_DATAPOINT, FOR_PERIOD

@@ -30,8 +30,8 @@ _NODE_KEY_MAP = {
     "sources": ("Source", "source_id"),
     "facts": ("Fact", "fact_id"),
     "claims": ("Claim", "claim_id"),
-    "entities": ("Entity", "entity_id"),
-    "topics": ("Topic", "topic_id"),
+    "entities": ("Entity", "entity_key"),  # AIDEV-NOTE: entity_key (UNIQUE制約キー) で MERGE。entity_id は ON CREATE のみ設定
+    "topics": ("Topic", "topic_key"),      # AIDEV-NOTE: topic_key (UNIQUE制約キー) で MERGE。topic_id は ON CREATE のみ設定
     "chunks": ("Chunk", "chunk_id"),
     "financial_datapoints": ("FinancialDataPoint", "datapoint_id"),
     "fiscal_periods": ("FiscalPeriod", "period_id"),
@@ -39,10 +39,18 @@ _NODE_KEY_MAP = {
     "classification_nodes": None,  # 別処理
 }
 
+# AIDEV-NOTE: entity/topic は business key でMERGEするため id は ON CREATE のみ保存する
+_NODE_ID_ON_CREATE: dict[str, str] = {
+    "Entity": "entity_id",
+    "Topic": "topic_id",
+}
+
 # リレーションの from/to キー名
+# AIDEV-NOTE: entity/topic 参照は entity_key/topic_key で MATCH する（entity_id/topic_id はパイプライン間で異なる場合あり）
 _REL_ENDPOINTS = {
-    "source_fact": ("source_id", "Source", "fact_id", "Fact", "PROVIDES"),
-    "source_claim": ("source_id", "Source", "claim_id", "Claim", "PROVIDES"),
+    "source_fact": ("source_id", "Source", "fact_id", "Fact", "STATES_FACT"),
+    "source_claim": ("source_id", "Source", "claim_id", "Claim", "MAKES_CLAIM"),
+    # AIDEV-NOTE: extracted_from の宛先は chunks 有無で動的に切替（_resolve_rel_endpoints）
     "extracted_from_fact": ("fact_id", "Fact", "source_id", "Source", "EXTRACTED_FROM"),
     "extracted_from_claim": (
         "claim_id",
@@ -51,12 +59,13 @@ _REL_ENDPOINTS = {
         "Source",
         "EXTRACTED_FROM",
     ),
-    "fact_entity": ("fact_id", "Fact", "entity_id", "Entity", "RELATES_TO"),
-    "claim_entity": ("claim_id", "Claim", "entity_id", "Entity", "ABOUT"),
-    "tagged": ("source_id", "Source", "topic_id", "Topic", "TAGGED"),
+    "fact_entity": ("fact_id", "Fact", "entity_key", "Entity", "RELATES_TO"),
+    "claim_entity": ("claim_id", "Claim", "entity_key", "Entity", "ABOUT"),
+    "tagged": ("source_id", "Source", "topic_key", "Topic", "TAGGED"),
+    "tagged_fact": ("fact_id", "Fact", "topic_key", "Topic", "TAGGED"),
     "contains_chunk": ("source_id", "Source", "chunk_id", "Chunk", "CONTAINS_CHUNK"),
     "has_datapoint": (
-        "entity_id",
+        "entity_key",
         "Entity",
         "datapoint_id",
         "FinancialDataPoint",
@@ -72,12 +81,29 @@ _REL_ENDPOINTS = {
     "datapoint_entity": (
         "datapoint_id",
         "FinancialDataPoint",
-        "entity_id",
+        "entity_key",
         "Entity",
         "ABOUT",
     ),
     "authored_by": ("source_id", "Source", "author_id", "Author", "AUTHORED_BY"),
 }
+
+
+def _resolve_rel_endpoints(queue_data: dict[str, Any]) -> dict[str, tuple]:
+    """queue_data の chunks 有無で extracted_from の宛先を動的に決定する.
+
+    chunks が存在する場合、extracted_from_fact/claim は Chunk を宛先にする。
+    存在しない場合（web-research 等）は Source を宛先にする（デフォルト）。
+    """
+    endpoints = dict(_REL_ENDPOINTS)
+    if queue_data.get("chunks"):
+        endpoints["extracted_from_fact"] = (
+            "fact_id", "Fact", "chunk_id", "Chunk", "EXTRACTED_FROM",
+        )
+        endpoints["extracted_from_claim"] = (
+            "claim_id", "Claim", "chunk_id", "Chunk", "EXTRACTED_FROM",
+        )
+    return endpoints
 
 
 def _get_driver():
@@ -89,12 +115,29 @@ def _get_driver():
 
 
 def _merge_node(tx, label: str, key_prop: str, props: dict[str, Any]) -> None:
-    """MERGE ベースでノードを投入する."""
+    """MERGE ベースでノードを投入する.
+
+    entity_key / topic_key でMERGEする場合、元の entity_id / topic_id は
+    ON CREATE SET でのみ設定し、既存ノードの id を上書きしない。
+    """
     key_val = props.get(key_prop)
     if not key_val:
         return
-    set_clause = ", ".join(f"n.{k} = ${k}" for k in props if k != key_prop)
-    query = f"MERGE (n:{label} {{{key_prop}: ${key_prop}}}) SET {set_clause}"
+    # ON CREATE のみ保存すべき id フィールド（entity_id, topic_id）
+    on_create_field = _NODE_ID_ON_CREATE.get(label)
+    skip_keys = {key_prop, on_create_field}
+    set_props = {k: v for k, v in props.items() if k not in skip_keys}
+    set_clause = ", ".join(f"n.{k} = ${k}" for k in set_props) if set_props else "n.updated = true"
+    on_create_clause = (
+        f"ON CREATE SET n.{on_create_field} = ${on_create_field} "
+        if on_create_field and on_create_field in props
+        else ""
+    )
+    query = (
+        f"MERGE (n:{label} {{{key_prop}: ${key_prop}}}) "
+        f"{on_create_clause}"
+        f"SET {set_clause}"
+    )
     tx.run(query, **props)
 
 
@@ -106,18 +149,35 @@ def _merge_relation(
     to_label: str,
     rel_type: str,
     rel: dict[str, Any],
-) -> None:
-    """MERGE ベースでリレーションを投入する."""
-    from_val = rel.get(from_key)
-    to_val = rel.get(to_key)
+    id_to_key: dict[str, str] | None = None,
+) -> int:
+    """MERGE ベースでリレーションを投入する.
+
+    graph-queue v3.0 の from_id/to_id 形式と旧形式（ドメイン固有キー名）の両方に対応する。
+    id_to_key が指定された場合、entity_id / topic_id を entity_key / topic_key に解決する。
+
+    Returns
+    -------
+    int
+        新規作成されたリレーション数（0 or 1）。MATCH 失敗時も 0。
+    """
+    # v3.0: from_id/to_id 形式を優先、フォールバックでドメイン固有キー名
+    from_val = rel.get("from_id") or rel.get(from_key)
+    to_val = rel.get("to_id") or rel.get(to_key)
+    # entity_id / topic_id → entity_key / topic_key に解決
+    if id_to_key:
+        from_val = id_to_key.get(from_val, from_val) if from_val else from_val
+        to_val = id_to_key.get(to_val, to_val) if to_val else to_val
     if not from_val or not to_val:
-        return
+        return 0
     query = (
         f"MATCH (a:{from_label} {{{from_key}: $from_val}}) "
         f"MATCH (b:{to_label} {{{to_key}: $to_val}}) "
         f"MERGE (a)-[:{rel_type}]->(b)"
     )
-    tx.run(query, from_val=from_val, to_val=to_val)
+    result = tx.run(query, from_val=from_val, to_val=to_val)
+    summary = result.consume()
+    return summary.counters.relationships_created
 
 
 def load_graph_queue(queue_path: Path) -> dict[str, Any]:
@@ -126,11 +186,11 @@ def load_graph_queue(queue_path: Path) -> dict[str, Any]:
         return json.load(f)
 
 
-def ingest_to_neo4j(  # noqa: PLR0912
+def ingest_to_neo4j(  # noqa: PLR0912, PLR0915
     queue_data: dict[str, Any],
     *,
     dry_run: bool = False,
-) -> dict[str, int]:
+) -> dict[str, Any]:
     """graph-queue データを Neo4j に投入する.
 
     Parameters
@@ -142,93 +202,118 @@ def ingest_to_neo4j(  # noqa: PLR0912
 
     Returns
     -------
-    dict[str, int]
-        投入結果 {"nodes": N, "relations": N}。
+    dict[str, Any]
+        投入結果 {"nodes": int, "relations": int, "rel_verification": dict}。
     """
     node_count = 0
     rel_count = 0
+    # chunks 有無で extracted_from の宛先を動的に決定
+    rel_endpoints = _resolve_rel_endpoints(queue_data)
 
-    # ノード投入
-    for section, config in _NODE_KEY_MAP.items():
-        if config is None:
-            continue
-        label, key_prop = config
-        items = queue_data.get(section, [])
-        if not items:
-            continue
-        logger.info("Ingesting %d %s nodes", len(items), label)
-        if not dry_run:
-            driver = _get_driver()
-            with driver.session() as session:
-                for item in items:
-                    session.execute_write(_merge_node, label, key_prop, item)
-            driver.close()
-        node_count += len(items)
+    driver = None if dry_run else _get_driver()
+    try:
+        # ノード投入
+        for section, config in _NODE_KEY_MAP.items():
+            if config is None:
+                continue
+            label, key_prop = config
+            items = queue_data.get(section, [])
+            if not items:
+                continue
+            logger.info("Ingesting %d %s nodes", len(items), label)
+            if driver:
+                with driver.session() as session:
+                    for item in items:
+                        session.execute_write(_merge_node, label, key_prop, item)
+            node_count += len(items)
 
-    # classification_nodes 投入（動的ラベル）
-    for cnode in queue_data.get("classification_nodes", []):
-        label = cnode.get("label")
-        key_prop = cnode.get("key_property", f"{label.lower()}_id" if label else "id")
-        if label and not dry_run:
-            driver = _get_driver()
-            with driver.session() as session:
-                session.execute_write(
-                    _merge_node, label, key_prop, cnode.get("properties", cnode)
+        # classification_nodes 投入（動的ラベル）
+        for cnode in queue_data.get("classification_nodes", []):
+            label = cnode.get("label")
+            key_prop = cnode.get("key_property", f"{label.lower()}_id" if label else "id")
+            if label and driver:
+                with driver.session() as session:
+                    session.execute_write(
+                        _merge_node, label, key_prop, cnode.get("properties", cnode)
+                    )
+            node_count += 1
+
+        # entity_id/topic_id → entity_key/topic_key の解決マップを構築
+        # AIDEV-NOTE: graph-queue v3.0 では relations の to_id が entity_id (UUID) を指すが、
+        # Neo4j では entity_key でMERGEするため、投入前に解決する。
+        id_to_key: dict[str, str] = {}
+        for entity in queue_data.get("entities", []):
+            if entity.get("entity_id") and entity.get("entity_key"):
+                id_to_key[entity["entity_id"]] = entity["entity_key"]
+        for topic in queue_data.get("topics", []):
+            if topic.get("topic_id") and topic.get("topic_key"):
+                id_to_key[topic["topic_id"]] = topic["topic_key"]
+
+        # リレーション投入
+        rel_verification: dict[str, tuple[int, int]] = {}  # {section: (expected, created)}
+        relations = queue_data.get("relations", {})
+        for rel_section, endpoints in rel_endpoints.items():
+            rels = relations.get(rel_section, [])
+            if not rels:
+                continue
+            from_key, from_label, to_key, to_label, rel_type = endpoints
+            logger.info("Ingesting %d %s relations", len(rels), rel_section)
+            section_created = 0
+            if driver:
+                with driver.session() as session:
+                    for rel in rels:
+                        section_created += session.execute_write(
+                            _merge_relation,
+                            from_key,
+                            from_label,
+                            to_key,
+                            to_label,
+                            rel_type,
+                            rel,
+                            id_to_key,
+                        )
+            expected = len(rels)
+            rel_verification[rel_section] = (expected, section_created)
+            if driver and section_created < expected:
+                matched = expected - section_created
+                logger.warning(
+                    "Relation %s: attempted %d, created %d new, matched %d existing",
+                    rel_section, expected, section_created, matched,
                 )
-            driver.close()
-        node_count += 1
+            rel_count += expected
 
-    # リレーション投入
-    relations = queue_data.get("relations", {})
-    for rel_section, endpoints in _REL_ENDPOINTS.items():
-        rels = relations.get(rel_section, [])
-        if not rels:
-            continue
-        from_key, from_label, to_key, to_label, rel_type = endpoints
-        logger.info("Ingesting %d %s relations", len(rels), rel_section)
-        if not dry_run:
-            driver = _get_driver()
-            with driver.session() as session:
-                for rel in rels:
+        # classification_rels 投入
+        for crel in queue_data.get("classification_rels", []):
+            rel_type = crel.get("type", "CLASSIFIED_AS")
+            from_id = crel.get("from_id")
+            to_id = crel.get("to_id")
+            from_label = crel.get("from_label", "Entity")
+            to_label = crel.get("to_label", "Classification")
+            if from_id and to_id and driver:
+                with driver.session() as session:
                     session.execute_write(
                         _merge_relation,
-                        from_key,
+                        f"{from_label.lower()}_id",
                         from_label,
-                        to_key,
+                        f"{to_label.lower()}_id",
                         to_label,
                         rel_type,
-                        rel,
+                        {
+                            f"{from_label.lower()}_id": from_id,
+                            f"{to_label.lower()}_id": to_id,
+                        },
                     )
+            rel_count += 1
+    finally:
+        if driver:
             driver.close()
-        rel_count += len(rels)
-
-    # classification_rels 投入
-    for crel in queue_data.get("classification_rels", []):
-        rel_type = crel.get("type", "CLASSIFIED_AS")
-        from_id = crel.get("from_id")
-        to_id = crel.get("to_id")
-        from_label = crel.get("from_label", "Entity")
-        to_label = crel.get("to_label", "Classification")
-        if from_id and to_id and not dry_run:
-            driver = _get_driver()
-            with driver.session() as session:
-                session.execute_write(
-                    _merge_relation,
-                    f"{from_label.lower()}_id",
-                    from_label,
-                    f"{to_label.lower()}_id",
-                    to_label,
-                    rel_type,
-                    {
-                        f"{from_label.lower()}_id": from_id,
-                        f"{to_label.lower()}_id": to_id,
-                    },
-                )
-            driver.close()
-        rel_count += 1
 
     logger.info("Ingestion complete: %d nodes, %d relations", node_count, rel_count)
-    return {"nodes": node_count, "relations": rel_count}
+    return {
+        "nodes": node_count,
+        "relations": rel_count,
+        "rel_verification": rel_verification,
+    }
 
 
 # ---------------------------------------------------------------------------

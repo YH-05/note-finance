@@ -4050,7 +4050,9 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
     facts, entities, fact_rels, fact_tagged, entity_id_map = _build_wr_facts(
         data.get("facts", []), url_to_source_id, topics
     )
-    tagged_rels.extend(fact_tagged)
+    # AIDEV-NOTE: tagged を Source→Topic と Fact→Topic に分離。
+    # neo4j_loader の _REL_ENDPOINTS は tagged=Source→Topic, tagged_fact=Fact→Topic を別キーで処理する。
+    # 旧コードでは混在リストだったため Fact→Topic がサイレントに欠落していた。
 
     claims, claim_entities, claim_rels = _build_wr_claims(
         data.get("claims", []), url_to_source_id, entity_id_map, entities
@@ -4074,6 +4076,7 @@ def map_web_research(data: dict[str, Any]) -> dict[str, Any]:
             **claim_rels,
             **causal_rels,
             "tagged": tagged_rels,
+            "tagged_fact": fact_tagged,
         },
     )
 
