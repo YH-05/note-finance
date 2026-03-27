@@ -11,6 +11,11 @@ Wave 2: mitsuki Threads 投稿 + StateUpdater
   - AccountPoster: mitsuki の Threads 投稿実行（フロントマター解析・topic_tag 追記）
   - StateUpdater: meta.json / posting_state.json 更新（filelock による排他制御）
 
+Wave 3: career_sister Instagram カルーセル投稿 + エラー分離
+  - CareerSisterInstagramPoster: carousel/slide_*.png を R2 にアップロードし Instagram 投稿
+  - Threads・Instagram 投稿が独立した try/except で実装
+  - StateUpdater.update_meta に instagram_permalink サポート追加
+
 使用例::
 
     uv run python scripts/auto_poster.py --dry-run --account mitsuki
@@ -34,7 +39,14 @@ from zoneinfo import ZoneInfo
 
 import filelock
 
-from creator.poster import PostResult, ThreadsConfig, ThreadsPoster
+from creator.image_hosting import R2ImageHost
+from creator.poster import (
+    InstagramConfig,
+    InstagramPoster,
+    PostResult,
+    ThreadsConfig,
+    ThreadsPoster,
+)
 from data_paths import get_path
 from quants.utils.logging_config import get_logger, setup_logging
 
@@ -548,6 +560,137 @@ class AccountPoster:
 
 
 # ---------------------------------------------------------------------------
+# CareerSisterInstagramPoster
+# ---------------------------------------------------------------------------
+
+
+class CareerSisterInstagramPoster:
+    """career_sister 専用 Instagram カルーセル投稿クライアント.
+
+    carousel/slide_*.png を Cloudflare R2 にアップロードし、
+    InstagramPoster.post_carousel() でカルーセル投稿を行う。
+
+    キャプションは instagram_caption.md を優先し、存在しない場合は
+    threads_post.md をフォールバックとして使用する。
+
+    Examples
+    --------
+    >>> poster = CareerSisterInstagramPoster()
+    >>> result = poster.post(slot_dir)
+    """
+
+    def __init__(self) -> None:
+        self._logger = get_logger(__name__, account="career_sister")
+
+    def _get_caption(self, slot_dir: Path) -> str:
+        """Instagram キャプションを取得する.
+
+        instagram_caption.md が存在する場合はその内容を返す。
+        存在しない場合は threads_post.md をフォールバックとして返す。
+
+        Parameters
+        ----------
+        slot_dir : Path
+            スロットディレクトリのパス。
+
+        Returns
+        -------
+        str
+            キャプションテキスト。
+        """
+        caption_path = slot_dir / "instagram_caption.md"
+        if caption_path.exists():
+            self._logger.debug("instagram_caption_found", path=str(caption_path))
+            return caption_path.read_text(encoding="utf-8")
+
+        fallback_path = slot_dir / "threads_post.md"
+        self._logger.warning(
+            "instagram_caption_not_found_fallback",
+            slot_dir=str(slot_dir),
+            fallback=str(fallback_path),
+        )
+        return fallback_path.read_text(encoding="utf-8")
+
+    def _get_carousel_images(self, slot_dir: Path) -> list[Path]:
+        """carousel/slide_*.png をソートされたリストで返す.
+
+        Parameters
+        ----------
+        slot_dir : Path
+            スロットディレクトリのパス。
+
+        Returns
+        -------
+        list[Path]
+            ソートされた carousel 画像パスのリスト。carousel/ が存在しない場合は空リスト。
+        """
+        carousel_dir = slot_dir / "carousel"
+        if not carousel_dir.exists():
+            return []
+
+        images = sorted(carousel_dir.glob("slide_*.png"))
+        return images
+
+    def post(self, slot_dir: Path) -> PostResult | None:
+        """Instagram カルーセル投稿を実行する.
+
+        R2 未設定の場合は WARNING を出力して None を返す。
+        carousel 画像が存在しない場合も None を返す。
+
+        Parameters
+        ----------
+        slot_dir : Path
+            スロットディレクトリのパス。
+
+        Returns
+        -------
+        PostResult | None
+            投稿結果。スキップした場合は None。
+        """
+        host = R2ImageHost()
+        if not host.is_configured:
+            self._logger.warning(
+                "r2_not_configured_skipping_instagram",
+                slot_dir=str(slot_dir),
+            )
+            return None
+
+        image_paths = self._get_carousel_images(slot_dir)
+        if not image_paths:
+            self._logger.warning(
+                "no_carousel_images_found",
+                slot_dir=str(slot_dir),
+            )
+            return None
+
+        self._logger.info(
+            "uploading_carousel_images",
+            image_count=len(image_paths),
+            slot_dir=str(slot_dir),
+        )
+        image_urls = host.upload_batch(list(image_paths), prefix="auto_poster")
+
+        caption = self._get_caption(slot_dir)
+
+        self._logger.info(
+            "posting_instagram_carousel",
+            image_count=len(image_urls),
+            caption_length=len(caption),
+        )
+
+        config = InstagramConfig()
+        ig_poster = InstagramPoster(config)
+        result = ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+
+        self._logger.info(
+            "instagram_carousel_completed",
+            media_id=result.media_id,
+            permalink=result.permalink,
+        )
+        return result
+
+
+# ---------------------------------------------------------------------------
 # StateUpdater
 # ---------------------------------------------------------------------------
 
@@ -620,6 +763,7 @@ class StateUpdater:
         slot: str,
         posted_at: str,
         permalink: str,
+        instagram_permalink: str | None = None,
     ) -> None:
         """meta.json の指定スロットに posted_at と permalink を書き戻す.
 
@@ -635,7 +779,9 @@ class StateUpdater:
         posted_at : str
             投稿日時（ISO 8601 形式）。
         permalink : str
-            投稿の permalink URL。
+            Threads 投稿の permalink URL。
+        instagram_permalink : str | None
+            Instagram 投稿の permalink URL（あれば）。career_sister のみ使用。
         """
         lock = filelock.FileLock(str(self._lock_path))
         with lock:
@@ -661,6 +807,10 @@ class StateUpdater:
                                 slot_meta["status"] = "published"
                                 slot_meta["published_at"] = posted_at
                                 slot_meta["threads_permalink"] = permalink
+                                if instagram_permalink is not None:
+                                    slot_meta["instagram_permalink"] = (
+                                        instagram_permalink
+                                    )
                             else:
                                 slot_meta["posted_at"] = posted_at
                                 slot_meta["permalink"] = permalink
@@ -966,12 +1116,13 @@ def _execute_post(
     slot_meta = _get_slot_meta(fresh_meta, today_str, slot_name)
     content = slot_file.read_text(encoding="utf-8")
 
+    # --- Threads 投稿（独立した try/except）---
     account_poster = AccountPoster(account=account)
     try:
         result = account_poster.post(content)
     except Exception as e:
         logger.error(
-            "post_failed",
+            "threads_post_failed",
             account=account,
             date=today_str,
             slot=slot_name,
@@ -981,7 +1132,7 @@ def _execute_post(
         return
 
     logger.info(
-        "post_result",
+        "threads_post_result",
         account=account,
         date=today_str,
         slot=slot_name,
@@ -991,11 +1142,40 @@ def _execute_post(
 
     posted_at = datetime.now(tz=JST).isoformat()
 
+    # --- Instagram 投稿（career_sister のみ、独立した try/except）---
+    instagram_permalink: str | None = None
+    if account == "career_sister" and slot_meta.get("instagram") is True:
+        slot_dir = slot_file.parent
+        ig_poster = CareerSisterInstagramPoster()
+        try:
+            ig_result = ig_poster.post(slot_dir)
+            if ig_result is not None:
+                instagram_permalink = ig_result.permalink
+                logger.info(
+                    "instagram_post_result",
+                    account=account,
+                    date=today_str,
+                    slot=slot_name,
+                    media_id=ig_result.media_id,
+                    permalink=ig_result.permalink,
+                )
+        except Exception as e:
+            logger.error(
+                "instagram_post_failed",
+                account=account,
+                date=today_str,
+                slot=slot_name,
+                error=str(e),
+                exc_info=True,
+            )
+            # Instagram 失敗時も Threads 投稿済み状態は保持（処理継続）
+
     updater.update_meta(
         date=today_str,
         slot=slot_name,
         posted_at=posted_at,
         permalink=result.permalink or "",
+        instagram_permalink=instagram_permalink,
     )
     updater.append_post_history(
         date=today_str,
@@ -1003,6 +1183,7 @@ def _execute_post(
         slot_meta=slot_meta,
         posted_at=posted_at,
         threads_permalink=result.permalink or "",
+        instagram_permalink=instagram_permalink,
     )
 
 
