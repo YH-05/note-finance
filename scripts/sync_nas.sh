@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # NAS設定ファイル同期スクリプト
-# 対象: .env, .mcp.json, .claude/settings.json, data/config/
+# 対象: .env, .mcp.json, .claude/settings.json, data/config/,
+#       creator/*/drafts/, creator/*/posting_state.json
 #
 # 使用方法:
 #   bash scripts/sync_nas.sh --push   # ローカル → NAS
@@ -19,9 +20,13 @@ SYNC_FILES=(
     ".env"
     ".mcp.json"
     ".claude/settings.json"
+    "creator/mitsuki/posting_state.json"
+    "creator/career_sister/posting_state.json"
 )
 SYNC_DIRS=(
     "data/config"
+    "creator/mitsuki/drafts"
+    "creator/career_sister/drafts"
 )
 
 # --- 関数 ---
