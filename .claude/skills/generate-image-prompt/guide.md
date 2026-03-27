@@ -94,17 +94,6 @@ noteアカウント全体で「同じギャラリーの作品」としてのビ�
 例: Abstract expressionist painting in the energy of de Kooning, aggressive horizontal strokes of red and green colliding in the center of a dark blue-black canvas, thick impasto paint piled up at the collision point, palette knife drags creating texture, paint drips running downward from the impact zone, splatters of metallic gold marking the point of maximum tension, oil on canvas with cracking texture, landscape 1280x670, no text, no letters, no words
 ```
 
-### side_business
-
-- **カラー**: amber + violet + teal + gold
-- **動勢**: 複数の流れが一点に収束する。多方向からのエネルギーの合流
-- **参照**: Wassily Kandinsky (動的構成), Zaha Hadid (流線的な曲線)
-- **ムード**: energetic, convergent, multidirectional momentum
-
-```
-例: Abstract painting in the style of Wassily Kandinsky meets Zaha Hadid, three bold sweeping curves in amber, violet, and teal converging toward a single bright focal point at the center, thick impasto brushstrokes with visible palette knife texture, the three streams originate from different corners of the canvas and intertwine as they approach the center, splatters of metallic gold paint at the intersection, deep charcoal black background making the colors pop, oil on canvas texture with cracking and layered depth, landscape 1280x670, no text, no letters, no words
-```
-
 ### quant_analysis
 
 - **カラー**: cool blue + cyan + black + silver

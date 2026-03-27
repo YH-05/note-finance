@@ -15,7 +15,7 @@ Web検索ツールの選択は `.agents/skills/web-search/SKILL.md` に従う。
 
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
-| --category | - | 全カテゴリ | 特定カテゴリに限定（market_report, stock_analysis, macro_economy, asset_management, side_business, quant_analysis, investment_education） |
+| --category | - | 全カテゴリ | 特定カテゴリに限定（market_report, stock_analysis, macro_economy, asset_management, quant_analysis, investment_education） |
 | --count | - | 5 | 提案数 |
 | --no-search | - | false | Web検索を使用せずLLM知識のみでトピック生成（従来動作互換） |
 

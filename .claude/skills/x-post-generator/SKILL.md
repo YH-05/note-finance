@@ -63,7 +63,6 @@ reference_used: [{参照したサンプルのファイルパス}]
 | macro_economy | C | D | A |
 | stock_analysis | B | B | D |
 | market_report | C | D | — |
-| side_business | B | B | — |
 | quant_analysis | C | C | D |
 | investment_education | C | B | D |
 
@@ -150,7 +149,6 @@ reference_used: [{参照したサンプルのファイルパス}]
 | market_report | #米国株 #週間レポート #投資 |
 | quant_analysis | #クオンツ #投資戦略 #データ分析 |
 | investment_education | #投資教育 #投資入門 #投資初心者 |
-| side_business | #副業 #資産形成 |
 
 記事キーワードに応じた追加タグ（詳細は `guide.md` 参照）。
 

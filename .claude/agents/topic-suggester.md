@@ -62,11 +62,6 @@ topic-discovery スキルから検索結果が渡された場合は、そのデ�
 - ファクター分析
 - リスクモデル
 
-### side_business
-- 副業体験談・事例分析
-- 成功/失敗パターンのケーススタディ
-- 副業の始め方ガイド
-
 ### asset_management
 - NISA・iDeCo活用ガイド
 - インデックス投資の基礎知識
@@ -104,7 +99,6 @@ topic-discovery スキルから検索結果が渡された場合は、そのデ�
         "stock_analysis": 4,
         "macro_economy": 2,
         "asset_management": 1,
-        "side_business": 0,
         "quant_analysis": 0,
         "investment_education": 0
     },

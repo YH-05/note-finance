@@ -94,7 +94,6 @@ ARTICLES_DIR = Path(__file__).resolve().parent.parent / "articles"
 CATEGORY_MAP: dict[str, str] = {
     "economic_indicators": "macro_economy",
     "asset_management": "asset_management",
-    "experience_db": "side_business",
     "market_report": "market_report",
     "stock_analysis": "stock_analysis",
     "quant_analysis": "quant_analysis",
@@ -115,7 +114,6 @@ TYPE_MAP: dict[str, str] = {
     "macro_economy": "column",
     "stock_analysis": "data_analysis",
     "asset_management": "column",
-    "side_business": "experience",
     "market_report": "market_report",
     "quant_analysis": "data_analysis",
 }
@@ -217,32 +215,7 @@ MIGRATION_MAP: list[MigrationEntry] = [
         layout=LayoutType.FLAT,
         notes="Flat->structured, note_article.md->02_draft/first_draft.md",
     ),
-    # 9. exp-sidehustle-002
-    MigrationEntry(
-        old_path="exp-sidehustle-002-skill-freelance",
-        new_path="side_business/2026-03-09_video-editing-freelance",
-        new_category="side_business",
-        layout=LayoutType.SIDEHUSTLE,
-        folder_renames={
-            "01_sources": "01_research",
-            "03_edit": "02_draft",
-        },
-        notes="01_sources->01_research, 02_synthesis->01_research/synthesis.json, "
-        "03_edit->02_draft, add 03_published",
-    ),
-    # 10. exp-sidehustle-003
-    MigrationEntry(
-        old_path="exp-sidehustle-003-pending",
-        new_path="side_business/2026-03-09_sidehustle-003-pending",
-        new_category="side_business",
-        layout=LayoutType.SIDEHUSTLE,
-        folder_renames={
-            "01_sources": "01_research",
-            "03_edit": "02_draft",
-            "04_published": "03_published",
-        },
-        notes="Same sidehustle layout migration",
-    ),
+    # 9-10. side_business entries removed (2026-03-27 category refocus)
     # 11. market_report/2026-02-23
     MigrationEntry(
         old_path="market_report/2026-02-23",

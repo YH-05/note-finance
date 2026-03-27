@@ -8,7 +8,7 @@
 | ディレクトリ | 内容 |
 |-------------|------|
 | `agents/` | 60サブエージェント（記事執筆、批評、PRレビュー、週次レポートチーム、リサーチ等） |
-| `commands/` | 21スラッシュコマンド（`/finance-edit`, `/generate-market-report`, `/convert-pdf` 等） |
+| `commands/` | 23スラッシュコマンド（`/finance-edit`, `/generate-market-report`, `/convert-pdf` 等） |
 | `skills/` | 44スキル（ニュース収集、レポート生成、TDD、PRレビュー、品質管理、PDF変換等） |
 | `rules/` | コーディング規約、Git運用、テスト戦略、サブエージェントデータ受け渡し |
 
@@ -43,6 +43,13 @@
 | `/reddit-finance-topics` | Reddit金融コミュニティからトピック発見・記事化 |
 | `/convert-pdf` | 単一PDFをMarkdownに変換（Claude Code直接Read方式） |
 | `/pdf-to-knowledge` | PDF→Markdown→ナレッジグラフの一括ワークフロー |
+
+### クリエイター運用
+
+| コマンド | 説明 |
+|----------|------|
+| `/mitsuki-draft` | みつき（美月）の週次投稿ドラフト生成（タロット・星座・Tips・ENG 4本） |
+| `/mitsuki-publish` | みつきのドラフトをThreads/noteに投稿 |
 
 ### 非推奨コマンド
 

@@ -80,6 +80,7 @@ GENRE_NAMES: dict[str, str] = {
     "spiritual": "占い・スピリチュアル",
     "self-development": "自己啓発・生産性",
     "asset-management": "資産形成・投資",
+    "self-understanding": "自己理解・内省",
 }
 
 CONCEPT_CATEGORY_LAYERS: dict[str, str] = {

@@ -202,7 +202,6 @@ class TestInferType:
             ("macro_economy", "column"),
             ("stock_analysis", "data_analysis"),
             ("asset_management", "column"),
-            ("side_business", "experience"),
             ("market_report", "market_report"),
             ("quant_analysis", "data_analysis"),
         ],
@@ -702,15 +701,15 @@ class TestMigrateArticleIntegration:
 
         entry = MigrationEntry(
             old_path="side_article",
-            new_path="side_business/2026-01-01_side",
-            new_category="side_business",
+            new_path="asset_management/2026-01-01_side",
+            new_category="asset_management",
             layout=LayoutType.SIDEHUSTLE,
             folder_renames={"01_sources": "01_research", "03_edit": "02_draft"},
         )
         result = migrate_article(entry, dry_run=False)
 
         assert result is True
-        new_dir = tmp_path / "side_business" / "2026-01-01_side"
+        new_dir = tmp_path / "asset_management" / "2026-01-01_side"
         assert (new_dir / "01_research" / "reddit.json").exists()
         assert (new_dir / "01_research" / "synthesis.json").exists()
         assert (new_dir / "02_draft" / "draft.md").exists()

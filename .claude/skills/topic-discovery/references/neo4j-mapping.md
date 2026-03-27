@@ -50,7 +50,6 @@ KG v2 スキーマ（`data/config/knowledge-graph-schema.yaml`）に準拠する
 | stock_analysis | 個別株分析 |
 | macro_economy | マクロ経済 |
 | asset_management | 資産形成 |
-| side_business | 副業・収益化 |
 | quant_analysis | クオンツ分析 |
 | investment_education | 投資教育 |
 

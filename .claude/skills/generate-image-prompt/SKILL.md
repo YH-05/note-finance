@@ -110,7 +110,6 @@ Step 6: ファイル出力 ─── image_prompts.md
 | asset_management | warm green + earth tones | 下から上へ有機的に成長 | Monet (abstract), Frankenthaler |
 | stock_analysis | navy + teal + silver | 鋭い対角線が交差 | Kline, Soulages |
 | market_report | dark blue + red + green | 力強い水平衝突 | de Kooning, Hartung |
-| side_business | amber + violet + teal | 複数の流れが一点に収束 | Kandinsky, Zaha Hadid |
 | quant_analysis | cool blue + cyan + black | 精密な幾何学パターン | Mondrian, Vasarely |
 | investment_education | warm gold + cream + blue | 柔らかく外側へ展開 | Turner (abstract), Rothko |
 

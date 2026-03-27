@@ -1,0 +1,70 @@
+{
+  "posts_per_day": 5,
+  "note_per_day": 1,
+  "note_mode": "free",
+  "note_count": 7,
+  "note_paid_threshold": 10,
+  "daily_slots": {
+    "S1": {"time": "07:00"},
+    "S2": {"time": "12:00"},
+    "S3": {"time": "15:00"},
+    "S4": {"time": "19:00"},
+    "S5": {"time": "22:00"}
+  },
+  "seven_day_schedule": [
+    {"day": "月", "S1": "タロット", "S2": "Tips", "S3": "ENG", "S4": "星座",   "S5": "note誘導"},
+    {"day": "火", "S1": "星座",    "S2": "Tips", "S3": "ENG", "S4": "タロット", "S5": "Story"},
+    {"day": "水", "S1": "タロット", "S2": "Tips", "S3": "ENG", "S4": "星座",   "S5": "note誘導"},
+    {"day": "木", "S1": "タロット", "S2": "Tips", "S3": "ENG", "S4": "星座",   "S5": "Story"},
+    {"day": "金", "S1": "星座",    "S2": "Tips", "S3": "ENG", "S4": "タロット", "S5": "note誘導"},
+    {"day": "土", "S1": "タロット", "S2": "Tips", "S3": "ENG", "S4": "タロット", "S5": "Story"},
+    {"day": "日", "S1": "星座",    "S2": "Tips", "S3": "ENG", "S4": "タロット", "S5": "note誘導"}
+  ],
+  "total_posts": 35,
+  "total_note_articles": 7,
+  "type_rotation": {
+    "タロット": 8,
+    "星座": 6,
+    "Tips": 7,
+    "ENG": 7,
+    "note誘導": 4,
+    "Story": 3
+  },
+  "type_sequence": {
+    "タロット": ["型1-A", "型1-B"],
+    "星座": ["型2"],
+    "Tips": ["型3-A", "型3-B", "型3-C", "型3-D"],
+    "ENG": ["型4"],
+    "note誘導": ["型3-D"],
+    "Story": ["型4-B"]
+  },
+  "themes": {
+    "タロット": [
+      {"id": "TR1", "name": "大アルカナ週次", "keywords": ["大アルカナ", "人生の転機", "成長"], "weight": 1.0},
+      {"id": "TR2", "name": "Pick-a-Card", "keywords": ["選択", "直感", "メッセージ"], "weight": 0.8}
+    ],
+    "星座": [
+      {"id": "ZD1", "name": "火の星座", "keywords": ["牡羊座", "獅子座", "射手座", "情熱", "行動力"], "weight": 1.0},
+      {"id": "ZD2", "name": "地の星座", "keywords": ["牡牛座", "乙女座", "山羊座", "安定", "現実"],   "weight": 1.0},
+      {"id": "ZD3", "name": "風の星座", "keywords": ["双子座", "天秤座", "水瓶座", "知性", "社交"],   "weight": 1.0},
+      {"id": "ZD4", "name": "水の星座", "keywords": ["蟹座",  "蠍座",  "魚座",  "感情", "直感"],   "weight": 1.0}
+    ],
+    "Tips": [
+      {"id": "TI1", "name": "Eurich式自己認識",  "keywords": ["What問い", "自己認識", "内的自己認識"],    "weight": 1.2},
+      {"id": "TI2", "name": "認知パターン",       "keywords": ["認知バイアス", "思考パターン", "自動思考"], "weight": 1.0},
+      {"id": "TI3", "name": "愛着理論",           "keywords": ["愛着スタイル", "安全基地", "対人関係"],    "weight": 1.0},
+      {"id": "TI4", "name": "ジャーナリング",     "keywords": ["書く瞑想", "振り返り", "内省"],            "weight": 0.8},
+      {"id": "TI5", "name": "シャドウワーク",     "keywords": ["ユング", "影の自己", "反応のパターン"],    "weight": 1.0}
+    ]
+  },
+  "recent_themes": ["TI1", "TI2", "TI3", "TI4", "TI5", "TI1", "TI2"],
+  "theme_use_counts": {
+    "TR1": 0, "TR2": 0,
+    "ZD1": 0, "ZD2": 0, "ZD3": 0, "ZD4": 0,
+    "TI1": 2, "TI2": 2, "TI3": 1, "TI4": 1, "TI5": 1
+  },
+  "tarot_card_history": ["魔術師", "月", "隠者", "塔", "星", "力", "死神", "恋人"],
+  "zodiac_rotation": 6,
+  "used_material_ids": [],
+  "post_history": []
+}

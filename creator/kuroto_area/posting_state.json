@@ -1,0 +1,73 @@
+{
+  "posts_per_day": 5,
+  "note_per_week": 2,
+  "note_mode": "free",
+  "note_count": 0,
+  "note_paid_threshold": 10,
+  "daily_slots": {
+    "S1": {"time": "07:30"},
+    "S2": {"time": "12:00"},
+    "S3": {"time": "18:00"},
+    "S4": {"time": "20:00"},
+    "S5": {"time": "21:30"}
+  },
+  "seven_day_schedule": [
+    {"day": "月", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "書籍紹介"},
+    {"day": "火", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "補強"},
+    {"day": "水", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "書籍紹介"},
+    {"day": "木", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "補強"},
+    {"day": "金", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "書籍紹介"},
+    {"day": "土", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "補強"},
+    {"day": "日", "S1": "哲学", "S2": "FW", "S3": "海外メソッド", "S4": "内向型Story", "S5": "note誘導"}
+  ],
+  "total_posts": 0,
+  "total_note_articles": 0,
+  "type_rotation": {
+    "哲学": 0,
+    "FW": 0,
+    "海外メソッド": 0,
+    "内向型Story": 0,
+    "書籍紹介": 0,
+    "補強": 0,
+    "note誘導": 0
+  },
+  "themes": {
+    "哲学": [
+      {"id": "PH1", "concept": "制御二分法", "author": "Epictetus", "weight": 1.2},
+      {"id": "PH2", "concept": "memento mori", "author": "Marcus Aurelius", "weight": 1.0},
+      {"id": "PH3", "concept": "premeditatio malorum", "author": "Seneca", "weight": 1.0},
+      {"id": "PH4", "concept": "amor fati", "author": "Marcus Aurelius", "weight": 0.8},
+      {"id": "PH5", "concept": "virtue ethics", "author": "Epictetus", "weight": 0.8}
+    ],
+    "FW": [
+      {"id": "FW1", "concept": "習慣スタッキング", "author": "James Clear", "weight": 1.2},
+      {"id": "FW2", "concept": "2分間ルール", "author": "James Clear", "weight": 1.0},
+      {"id": "FW3", "concept": "ポモドーロテクニック", "author": "Francesco Cirillo", "weight": 1.0},
+      {"id": "FW4", "concept": "Deep Work", "author": "Cal Newport", "weight": 1.0},
+      {"id": "FW5", "concept": "意思決定バイアス", "author": "Daniel Kahneman", "weight": 0.8}
+    ],
+    "海外メソッド": [
+      {"id": "MT1", "concept": "睡眠最適化", "author": "Andrew Huberman", "weight": 1.0},
+      {"id": "MT2", "concept": "Digital Minimalism", "author": "Cal Newport", "weight": 1.0},
+      {"id": "MT3", "concept": "Tiny Habits", "author": "BJ Fogg", "weight": 1.0},
+      {"id": "MT4", "concept": "Reverse Engineering", "author": "Ron Friedman", "weight": 0.8},
+      {"id": "MT5", "concept": "セルフコンパッション", "author": "Kristin Neff", "weight": 0.8}
+    ],
+    "内向型Story": [
+      {"id": "IN1", "concept": "社会的比較", "keywords": ["常に他人より遅れてる"], "weight": 1.2},
+      {"id": "IN2", "concept": "完璧主義の罠", "keywords": ["先延ばし", "動けない"], "weight": 1.0},
+      {"id": "IN3", "concept": "モチベーション依存", "keywords": ["やる気待ち"], "weight": 1.0},
+      {"id": "IN4", "concept": "青春の後悔", "keywords": ["18歳の後悔"], "weight": 0.8},
+      {"id": "IN5", "concept": "環境デザイン", "keywords": ["意志力不要", "仕組み化"], "weight": 0.8}
+    ]
+  },
+  "recent_themes": [],
+  "theme_use_counts": {
+    "PH1": 0, "PH2": 0, "PH3": 0, "PH4": 0, "PH5": 0,
+    "FW1": 0, "FW2": 0, "FW3": 0, "FW4": 0, "FW5": 0,
+    "MT1": 0, "MT2": 0, "MT3": 0, "MT4": 0, "MT5": 0,
+    "IN1": 0, "IN2": 0, "IN3": 0, "IN4": 0, "IN5": 0
+  },
+  "used_material_ids": [],
+  "post_history": []
+}

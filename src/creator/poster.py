@@ -25,6 +25,11 @@ INSTAGRAM_BASE = "https://graph.instagram.com/v24.0"
 CONTAINER_POLL_INTERVAL = 5  # 秒
 CONTAINER_POLL_MAX = 30  # 最大待機回数
 
+THREADS_ACCOUNT_ENV = {
+    "career_sister": ("THREADS_ACCESS_TOKEN", "THREADS_USER_ID"),
+    "mitsuki": ("MITSUKI_THREADS_ACCESS_TOKEN", "MITSUKI_THREADS_USER_ID"),
+}
+
 
 # ---------------------------------------------------------------------------
 # データクラス
@@ -49,6 +54,17 @@ class ThreadsConfig:
     )
     user_id: str = field(default_factory=lambda: os.getenv("THREADS_USER_ID", ""))
 
+    @classmethod
+    def for_account(cls, account: str) -> "ThreadsConfig":
+        """アカウント名から設定を生成する."""
+        if account not in THREADS_ACCOUNT_ENV:
+            raise ValueError(f"Unknown account: {account}. Available: {list(THREADS_ACCOUNT_ENV)}")
+        token_key, uid_key = THREADS_ACCOUNT_ENV[account]
+        return cls(
+            access_token=os.getenv(token_key, ""),
+            user_id=os.getenv(uid_key, ""),
+        )
+
 
 @dataclass
 class InstagramConfig:
@@ -70,21 +86,36 @@ class ThreadsPoster:
         self.config = config or ThreadsConfig()
         self._client = httpx.Client(timeout=30)
 
-    def post_text(self, text: str) -> PostResult:
+    def get_account_info(self) -> dict:
+        """投稿先アカウント情報を取得する."""
+        resp = self._client.get(
+            f"{THREADS_BASE}/me",
+            params={"fields": "id,username", "access_token": self.config.access_token},
+        )
+        resp.raise_for_status()
+        return resp.json()
+
+    def post_text(self, text: str, topic_tag: str | None = None) -> PostResult:
         """テキスト投稿."""
-        container_id = self._create_container(media_type="TEXT", text=text)
+        container_id = self._create_container(
+            media_type="TEXT", text=text, topic_tag=topic_tag
+        )
         time.sleep(5)
         return self._publish(container_id)
 
-    def post_image(self, text: str, image_url: str) -> PostResult:
+    def post_image(
+        self, text: str, image_url: str, topic_tag: str | None = None
+    ) -> PostResult:
         """画像付き投稿."""
         container_id = self._create_container(
-            media_type="IMAGE", text=text, image_url=image_url
+            media_type="IMAGE", text=text, image_url=image_url, topic_tag=topic_tag
         )
         self._wait_for_container(container_id)
         return self._publish(container_id)
 
-    def post_carousel(self, text: str, image_urls: list[str]) -> PostResult:
+    def post_carousel(
+        self, text: str, image_urls: list[str], topic_tag: str | None = None
+    ) -> PostResult:
         """カルーセル投稿（複数画像）."""
         # Step 1: 子コンテナ作成
         child_ids = []
@@ -102,14 +133,17 @@ class ThreadsPoster:
             child_ids.append(resp.json()["id"])
 
         # Step 2: 親コンテナ作成
+        data: dict[str, str] = {
+            "media_type": "CAROUSEL",
+            "children": ",".join(child_ids),
+            "text": text,
+            "access_token": self.config.access_token,
+        }
+        if topic_tag:
+            data["topic_tag"] = topic_tag
         resp = self._client.post(
             f"{THREADS_BASE}/{self.config.user_id}/threads",
-            data={
-                "media_type": "CAROUSEL",
-                "children": ",".join(child_ids),
-                "text": text,
-                "access_token": self.config.access_token,
-            },
+            data=data,
         )
         resp.raise_for_status()
         carousel_id = resp.json()["id"]
@@ -123,6 +157,7 @@ class ThreadsPoster:
         media_type: str,
         text: str,
         image_url: str | None = None,
+        topic_tag: str | None = None,
     ) -> str:
         data: dict[str, str] = {
             "media_type": media_type,
@@ -131,6 +166,8 @@ class ThreadsPoster:
         }
         if image_url:
             data["image_url"] = image_url
+        if topic_tag:
+            data["topic_tag"] = topic_tag
 
         resp = self._client.post(
             f"{THREADS_BASE}/{self.config.user_id}/threads", data=data
@@ -340,16 +377,30 @@ if __name__ == "__main__":
     parser.add_argument("--text", required=True, help="投稿テキスト")
     parser.add_argument("--image-url", help="画像URL（Instagram必須）")
     parser.add_argument("--image-urls", nargs="+", help="カルーセル用複数画像URL")
+    parser.add_argument("--topic-tag", help="Threads トピックタグ（例: ASTROLOGY_METAPHYSICS）")
+    parser.add_argument("--account", default="career_sister",
+                        choices=list(THREADS_ACCOUNT_ENV), help="投稿アカウント名")
     args = parser.parse_args()
 
     if args.platform == "threads":
-        poster = ThreadsPoster()
+        poster = ThreadsPoster(ThreadsConfig.for_account(args.account))
+
+        # 投稿前アカウント確認
+        info = poster.get_account_info()
+        print(f"Posting as: @{info.get('username')} (id={info.get('id')})")
+
+        topic_tag = args.topic_tag or None
+        if topic_tag:
+            if len(topic_tag) > 50 or "." in topic_tag or "&" in topic_tag:
+                parser.error(f"topic_tag は1〜50文字・ピリオドとアンパサンド不可: {topic_tag!r}")
+            print(f"Topic tag: {topic_tag}")
+
         if args.image_urls:
-            result = poster.post_carousel(args.text, args.image_urls)
+            result = poster.post_carousel(args.text, args.image_urls, topic_tag=topic_tag)
         elif args.image_url:
-            result = poster.post_image(args.text, args.image_url)
+            result = poster.post_image(args.text, args.image_url, topic_tag=topic_tag)
         else:
-            result = poster.post_text(args.text)
+            result = poster.post_text(args.text, topic_tag=topic_tag)
     else:
         poster = InstagramPoster()
         if args.image_urls:

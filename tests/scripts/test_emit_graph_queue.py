@@ -2437,7 +2437,7 @@ class TestTopicDiscoveryCategories:
     """TOPIC_DISCOVERY_CATEGORIES 定数のテスト。"""
 
     def test_正常系_7カテゴリが定義されている(self) -> None:
-        assert len(TOPIC_DISCOVERY_CATEGORIES) == 7
+        assert len(TOPIC_DISCOVERY_CATEGORIES) == 6
 
     def test_正常系_全キーが期待通り(self) -> None:
         expected_keys = {
@@ -2445,7 +2445,6 @@ class TestTopicDiscoveryCategories:
             "stock_analysis",
             "macro_economy",
             "asset_management",
-            "side_business",
             "quant_analysis",
             "investment_education",
         }
@@ -2762,7 +2761,7 @@ class TestMapTopicDiscovery:
             {
                 "rank": 1,
                 "topic": "副業ガイド",
-                "category": "side_business",
+                "category": "asset_management",
                 "scores": {"total": 25},
                 "rationale": "理由",
             },

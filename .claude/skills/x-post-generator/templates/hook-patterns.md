@@ -174,7 +174,6 @@ X投稿の書き出しパターンと層別の使い分けガイド。
 | macro_economy | C | D | A |
 | stock_analysis | B | B | D |
 | market_report | C | D | — |
-| side_business | B | B | — |
 | quant_analysis | C | C | D |
 | investment_education | C | B | D |
 
