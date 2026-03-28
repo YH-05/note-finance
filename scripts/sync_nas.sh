@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # NAS設定ファイル同期スクリプト
-# 対象: .env, .mcp.json, .claude/settings.json, data/config/,
-#       creator/*/drafts/, creator/*/posting_state.json
+# 対象: .env, .mcp.json, .claude/settings.json, data/config/, creator/
 #
 # 使用方法:
 #   bash scripts/sync_nas.sh --push   # ローカル → NAS
@@ -13,20 +12,18 @@ set -euo pipefail
 NAS_MOUNT="/Volumes/personal_folder"
 NAS_SYNC_DIR="${NAS_MOUNT}/Projects/note-finance"
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-LOG_PREFIX="[config-sync]"
+LOG_PREFIX="[sync-nas]"
 
-# 同期対象ファイル・ディレクトリ
+# 同期対象ファイル
 SYNC_FILES=(
     ".env"
     ".mcp.json"
     ".claude/settings.json"
-    "creator/mitsuki/posting_state.json"
-    "creator/career_sister/posting_state.json"
 )
+# 同期対象ディレクトリ
 SYNC_DIRS=(
     "data/config"
-    "creator/mitsuki/drafts"
-    "creator/career_sister/drafts"
+    "creator"
 )
 
 # --- 関数 ---

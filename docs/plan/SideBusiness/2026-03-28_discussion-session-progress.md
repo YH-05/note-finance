@@ -69,6 +69,32 @@
 
 ---
 
+## 完了済み作業（本セッション）
+
+### クリエイタースキル整備 & プッシュ（disc-2026-03-28-creator-skills-push）
+
+**commit**: `fbf7d88` | 69ファイル変更
+
+| 変更内容 | 詳細 |
+|---------|------|
+| 新規スキル7本 | career-sister-insta, career-sister-threads, mitsuki-note, mitsuki-threads, kuroto-area-note, kuroto-area-threads, kuroto-writer |
+| 新規コマンド2本 | kuroto-draft, kuroto-publish |
+| 曜日計算ロジック追加 | career-sister-draft, mitsuki-draft（ハードコード禁止化） |
+| テンプレートパス修正 | templates/career_sister/ → creator/career_sister/templates/ |
+| CLAUDE.md更新 | コマンド数・kuroto系コマンド・実行環境セクション追加 |
+
+### sync-nas リネーム & creator/ 全体同期化（disc-2026-03-28-sync-nas-rename）
+
+| 決定事項 | 内容 |
+|---------|------|
+| `/config-sync` → `/sync-nas` | スキル・コマンド・LOG_PREFIX を両プロジェクト（note-finance, quants）で一括リネーム |
+| `creator/` 全体同期 | 個別指定（mitsuki/drafts, career_sister/drafts, posting_state.json）→ `creator/` 一括rsync に変更 |
+| SessionEnd hook 維持 | `--push`（ローカル→NAS）のまま。`/sync-nas` コマンドは `--pull`（NAS→ローカル） |
+| 旧ファイル | `trash/` に移動（config-sync.md, skills-config-sync/） |
+| NASクリーンアップ | `/Volumes/personal_folder/Projects/quants/quants-sync` は旧設定時の孤立ディレクトリ。手動削除待ち（act-2026-03-28-nas-quants-sync-cleanup） |
+
+---
+
 ## 次回の議論トピック
 
 - 株投資ラボ Threads投稿文生成ワークフロー（research-neo4j → x-post-generator）
