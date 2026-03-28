@@ -31,6 +31,7 @@ macOS launchd による定期実行スクリプトの一覧と設定手順。
 - **plist テンプレート**: 下記参照
 - **スケジュール**: 毎日 03:00 / 21:00 JST
 - **ログ**: `logs/scrape_jetro.log` / `logs/scrape_jetro_error.log`
+- **オプション**: `--no-playwright --include-content --cleanup-days 30`
 - **出力先**: NAS `/Volumes/personal_folder/scraped/jetro/` → ローカル `data/scraped/jetro/`（NAS未マウント時）
 
 ---
@@ -68,6 +69,7 @@ cat > ~/Library/LaunchAgents/com.note-finance.scrape-jetro.plist << 'EOF'
         <string>python</string>
         <string>/Users/yukihata/Desktop/note-finance/scripts/scrape_jetro.py</string>
         <string>--no-playwright</string>
+        <string>--include-content</string>
         <string>--cleanup-days</string>
         <string>30</string>
     </array>
