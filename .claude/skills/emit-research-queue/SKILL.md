@@ -137,7 +137,7 @@ mkdir -p .tmp/research-input
   "entities": [
     {
       "name": "Federal Reserve",
-      "entity_type": "institution"
+      "entity_type": "organization"
     }
   ],
   "facts": [
@@ -148,7 +148,7 @@ mkdir -p .tmp/research-input
       "about_entities": [
         {
           "name": "Federal Reserve",
-          "entity_type": "institution"
+          "entity_type": "organization"
         }
       ]
     },
@@ -159,7 +159,7 @@ mkdir -p .tmp/research-input
       "about_entities": [
         {
           "name": "Federal Reserve",
-          "entity_type": "institution"
+          "entity_type": "organization"
         }
       ]
     }

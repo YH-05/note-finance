@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-03-28T08:20:42.276846+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 10,
+    "probe_b": "timeout - query too heavy",
+    "stance_entities": 2,
+    "insights_existing": 10,
+    "multi_topic_entities": 10
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "カテゴリー理論ツール群 × 投資分析フレームワーク",
+      "description": "Probe A: Category Theory/Sheaf Theory/Functorial Data Migration (technology) ↔ Causal Emergence (indicator) ↔ David Spivak (person) が14共有Factで密結合。Sheaf理論によるアナリストレポートの局所→グローバル整合性集約が投資判断に応用可能。マクロ政策→セクター→個別株への因果伝播をfunctor/sheaf構造でモデル化できる可能性。",
+      "entities_involved": [
+        "Category Theory",
+        "Sheaf Theory",
+        "Causal Emergence",
+        "David Spivak",
+        "Graph-PReFLexOR",
+        "DisCoPyro"
+      ],
+      "supporting_evidence": [
+        "Wiring diagrams built on ologs enable quantitative measurement of analogy between concepts from different domains",
+        "Sheaf-theoretic causal emergence enables detection and measurement of emergent resilience in networked systems",
+        "For AI emergent discovery on graph databases, five key categorical concepts are applicable: Functors, Sheaves, Adjoint functors, Kan extensions, Natural transformations"
+      ],
+      "evidence_count": 14
+    },
+    {
+      "type": "strategic_bifurcation",
+      "title": "ISAT vs TLKM: ASEANテレコム評価軸の分岐",
+      "description": "Probe D analytical_findings: ISAT=AI TechCo路線(GPUaaS先行/NVIDIA NCP唯一)、TLKM=インフラ資産分離路線(Infranexia 100-150T IDR)。Probe C: ISAT 40 stances、TP 2300-3300 IDR (44%スプレッド)。information_gap: EV/EBITDA・ROIC時系列なし。仮説: テレコム企業はテック倍率かインフラREIT倍率かへ評価軸が二分されつつある。",
+      "entities_involved": [
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "NVIDIA",
+        "Infranexia"
+      ],
+      "supporting_evidence": [
+        "ISAT vs TLKM技術戦略が明確に分岐: ISAT=AI TechCo、TLKM=インフラ資産分離",
+        "インドネシアAI市場$2.4B→$10.9B (CAGR 29%)",
+        "ISAT GPUaaS情報ギャップ大幅解消: 6社以上の顧客判明",
+        "バリュエーション指標(EV/EBITDA, PER, ROE, ROIC)のFinancialDataPoint未投入"
+      ],
+      "evidence_count": 8
+    },
+    {
+      "type": "multi_domain_chain",
+      "title": "BigTech外資 → ASEANテレコムAIインフラ → マクロ/FX/規制リスクの連鎖",
+      "description": "Probe E: Amazon/Microsoft/Alphabet/Meta/NVIDIAが equity/technology/macro/regulation/fx/commodity 全12カテゴリにまたがるハイパーハブ。Probe D: NVIDIA $200M + Microsoft $1.7B → ISAT GPUaaS収益直結。3ドメイン仮説: BigTech(hyperscaler)→ASEAN AI投資→地域テレコムAI事業化の連鎖が、IDR為替・電力コスト(commodity)・インドネシア外資規制(regulation)に共鳴する構造変化を引き起こす。",
+      "entities_involved": [
+        "Amazon",
+        "Microsoft",
+        "NVIDIA",
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "Indonesia"
+      ],
+      "supporting_evidence": [
+        "Amazon/Microsoft/Alphabetが12カテゴリにまたがるマルチドメインハブ",
+        "NVIDIA $200M + Microsoft $1.7Bのインドネシアへの大型投資",
+        "ISATがNVIDIA NCP唯一ポジションを確保",
+        "AI市場CAGR 29%成長環境下でのテレコム役割転換"
+      ],
+      "evidence_count": 6
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.7,
+    "hypothesis_novelty": 0.6,
+    "evidence_density": 0.65,
+    "actionability": 0.72,
+    "overall": 0.666
+  },
+  "improvement_suggestions": [
+    "Probe B (間接接続パス) がタイムアウト → クエリ最適化が必要（LIMIT 3, entity_type絞り込みで再設計）",
+    "Source Grounding が全20件0.0 → Fact/Claim ↔ Chunk ↔ Source リレーションの補完が最優先課題",
+    "EV/EBITDA・ROIC・PER の FinancialDataPoint 投入でバリュエーション矛盾の定量的解決が可能",
+    "XLSmart (EXCL IJ) のデータ非対称性を解消 → 3社寡占分析の基盤整備",
+    "カテゴリー理論クラスターと実際の投資事例(ASEAN telco)をつなぐEntityリンクを追加すると発見ポテンシャルが向上"
+  ]
+}

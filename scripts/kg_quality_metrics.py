@@ -218,6 +218,8 @@ ALLOWED_ENTITY_TYPES: frozenset[str] = frozenset(
         "macro",
         "fintech",
         "theme",
+        "concept",
+        "regulation",
     }
 )
 """Entity.entity_type の許可リスト。knowledge-graph-schema.yaml v2.4 準拠。"""

@@ -1805,7 +1805,7 @@ def _build_entity_nodes(
 
 
 def _resolve_entity_rels(
-    about_entities: list[str],
+    about_entities: list[str] | list[dict[str, Any]],
     from_id: str,
     rel_type: str,
     entity_name_to_id: dict[str, str],
@@ -1814,8 +1814,8 @@ def _resolve_entity_rels(
 
     Parameters
     ----------
-    about_entities : list[str]
-        Entity names to resolve.
+    about_entities : list[str] | list[dict[str, Any]]
+        Entity names (str) or entity dicts with ``name`` key.
     from_id : str
         Source node ID for the relation.
     rel_type : str
@@ -1829,7 +1829,8 @@ def _resolve_entity_rels(
         Resolved relation dicts.
     """
     result: list[dict[str, str]] = []
-    for name in about_entities:
+    for item in about_entities:
+        name = item.get("name", "") if isinstance(item, dict) else item
         resolved_id = entity_name_to_id.get(name)
         if resolved_id:
             result.append({"from_id": from_id, "to_id": resolved_id, "type": rel_type})
@@ -1874,12 +1875,14 @@ def _build_fact_nodes(
     for fact in chunk.get("facts", []):
         content = fact.get("content", "")
         fact_id = generate_fact_id(content)
+        raw_ft = fact.get("fact_type", "")
+        validated_ft = raw_ft if raw_ft in FACT_TYPE_META else "empirical"
         facts.append(
             {
                 "fact_id": fact_id,
                 "content": content,
                 "source_id": source_id,
-                "fact_type": fact.get("fact_type", ""),
+                "fact_type": validated_ft,
                 "as_of_date": fact.get("as_of_date"),
             }
         )
@@ -1889,13 +1892,16 @@ def _build_fact_nodes(
         extracted_from_fact_rels.append(
             {"from_id": fact_id, "to_id": chunk_id, "type": "EXTRACTED_FROM"}
         )
+        about = fact.get("about_entities", [])
+        if not about:
+            # Fallback: link to all entities from the same chunk
+            about = [
+                e.get("name", "")
+                for e in chunk.get("entities", [])
+                if e.get("name")
+            ]
         fact_entity_rels.extend(
-            _resolve_entity_rels(
-                fact.get("about_entities", []),
-                fact_id,
-                "RELATES_TO",
-                entity_name_to_id,
-            )
+            _resolve_entity_rels(about, fact_id, "RELATES_TO", entity_name_to_id)
         )
 
     return facts, source_fact_rels, extracted_from_fact_rels, fact_entity_rels

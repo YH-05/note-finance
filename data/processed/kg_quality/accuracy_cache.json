@@ -1,182 +1,182 @@
 {
-  "b86db793bb26844b": {
-    "fact_id": "1b73dfec84c8a938e06cfd116deb1737",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.6,
-    "overall": 0.49,
-    "reasoning": "EY試算の具体的数値、ソースリンクなし、2026-27年予測で現在有効",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+  "9ce6d2c3bb68caea": {
+    "fact_id": "9ce6d2c3bb68caea890375c5940d8975",
+    "factual_correctness": 0.1,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.1,
+    "overall": 0.07,
+    "reasoning": "Generic noise text without specific data or source. Typical RSS headline filler.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   },
-  "c3f15f972db08c82": {
-    "fact_id": "ec8b14a50e8575c553b7e32c25cbb4ab",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.7,
-    "overall": 0.52,
-    "reasoning": "具体的倍率・GW数あり、ソースなし、2030年予測で有効",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "e325a091857aad88": {
-    "fact_id": "93ab1e0672c45b55",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.6,
-    "overall": 0.45,
-    "reasoning": "企業顧客リスト、検証困難、ソースなし",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "f883559dda15cbe7": {
-    "fact_id": "dc36780633539fe8e3feb73d3127170f",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.8,
-    "overall": 0.63,
-    "reasoning": "具体的日付・金額の歴史的事実、時間劣化なし",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "231e2d25c3f9092a": {
-    "fact_id": "4b5d6d2cc355774e69fec563b58db610",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.7,
-    "overall": 0.48,
-    "reasoning": "学術的記述、文脈なしでは検証困難",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "9008ff4ae7494cdb": {
-    "fact_id": "e432c5f33718e004",
+  "520e745ce64557ca": {
+    "fact_id": "db02ee699910b071c530113cd2d87d21",
     "factual_correctness": 0.5,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.4,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
     "overall": 0.35,
-    "reasoning": "ニュース断片、具体性欠如、陳腐化しやすい",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+    "reasoning": "Valid analyst opinion on Honda valuation. No source link reduces reliability.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   },
-  "15987024ed34539b": {
-    "fact_id": "19c1738ade5cb3d8b0ab7a8a614d5c7f",
+  "3784945082925580": {
+    "fact_id": "65d77d71d547b5976fb13600aa62ad84",
     "factual_correctness": 0.8,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.8,
-    "overall": 0.59,
-    "reasoning": "技術的手法の具体的記述、方法論は時間劣化しにくい",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "86b0e63fd03b9072": {
-    "fact_id": "1a9d863ac581769b",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.1,
-    "overall": 0.3,
-    "reasoning": "特定日の取引データ、即座に陳腐化",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "33a0995b20fcc6d1": {
-    "fact_id": "88d1f1714bc36845048ba03f89ad6d69",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.9,
-    "overall": 0.62,
-    "reasoning": "数学的定義、正確、時間に依存しない",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "8dc185849427f449": {
-    "fact_id": "37f4eb79bae5c06c53f4b6b8c6413b82",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.1,
+    "source_grounding": 0.0,
     "temporal_validity": 0.7,
-    "overall": 0.52,
-    "reasoning": "研究内容の具体的記述",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "bfd9f7218eeaf244": {
-    "fact_id": "b2118ecf3fff1372c51b79e8d8e74fc6",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.7,
-    "overall": 0.6,
-    "reasoning": "非常に具体的な財務データ",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "c6817e837cfc0099": {
-    "fact_id": "fact-c6817e837cfc0099",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.6,
     "overall": 0.53,
-    "reasoning": "具体的KPIデータ、四半期でやや古くなる",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+    "reasoning": "Specific Japanese tax deduction fact. Tax rules are stable but no source to verify current law.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   },
-  "3a871cd681a91ed9": {
-    "fact_id": "fb3274ce1abe1e4648d30e984a283b87",
-    "factual_correctness": 0.9,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.7,
-    "overall": 0.6,
-    "reasoning": "非常に具体的な決算データ",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+  "d050108e2c415b52": {
+    "fact_id": "d050108e2c415b52d0b0e2cc3ed86739",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.39,
+    "reasoning": "Valid macro observation. Reasonable claim about geopolitical risk affecting FX, no source.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   },
-  "fac6914794528e89": {
-    "fact_id": "c0bf91ba9e78fa43d28a4c933f4dfd02",
+  "53dafed2097fe714": {
+    "fact_id": "fact-53dafed2097fe714",
+    "factual_correctness": 0.75,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.48,
+    "reasoning": "Specific management target for Indosat. Plausible but no source linking to earnings doc.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "e2fd77820fe9264f": {
+    "fact_id": "2a1561ca99e69558138cd6f89cadd3c9",
     "factual_correctness": 0.8,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.9,
-    "overall": 0.62,
-    "reasoning": "数学的公式、正確、時間非依存",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "657022fa00c3e031": {
-    "fact_id": "15d8237dfa73b345",
-    "factual_correctness": 0.2,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.1,
-    "overall": 0.14,
-    "reasoning": "HN個人投稿のHTMLノイズ、金融無関係",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "d34d9bef339217c5": {
-    "fact_id": "b97b5e2d83a2b86f83f67a1840dd0033",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.1,
+    "source_grounding": 0.0,
     "temporal_validity": 0.7,
-    "overall": 0.56,
-    "reasoning": "具体的技術動向、団体名・年度あり",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+    "overall": 0.53,
+    "reasoning": "Specific academic finding about LLM text and market segments. High factual specificity but no source.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   },
-  "feff19d47fe1b374": {
-    "fact_id": "7b12348ea7a71668bfe9d785aa2b48ef",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.8,
+  "ca5dcb00a549be2e": {
+    "fact_id": "1c26b86a5409927b590791e389f763f2",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
     "overall": 0.55,
-    "reasoning": "研究知見、劣化しにくい",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+    "reasoning": "Comprehensive list of Japanese tax deduction categories. High factual correctness for tax fact.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   },
-  "436751b90030ffa5": {
-    "fact_id": "8743a69c6abf234d",
-    "factual_correctness": 0.0,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.0,
-    "overall": 0.03,
-    "reasoning": "URLとメタデータのみ、実質的内容なし、完全ノイズ",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+  "8c84a952f59b5a1c": {
+    "fact_id": "413c67d4c519a0de3cac8e68f35beb89",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.51,
+    "reasoning": "Very specific fund AUM data with exact date. High FC but temporal value limited as AUM changes.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   },
-  "a255923b24eb0c16": {
-    "fact_id": "cc79aff0e4a5aa2e00b14b868d046927",
+  "2af71b746f97d52e": {
+    "fact_id": "06f5b38b28ae0ef77821f24e1d33fc42",
     "factual_correctness": 0.8,
-    "source_grounding": 0.1,
-    "temporal_validity": 0.7,
-    "overall": 0.56,
-    "reasoning": "研究内容の具体的記述",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
-  },
-  "857f10e21f760976": {
-    "fact_id": "013901558da93936",
-    "factual_correctness": 0.5,
-    "source_grounding": 0.1,
+    "source_grounding": 0.0,
     "temporal_validity": 0.3,
-    "overall": 0.32,
-    "reasoning": "一般的ニュース、具体性欠如、陳腐化しやすい",
-    "evaluated_at": "2026-03-25T11:33:15.925819+00:00"
+    "overall": 0.41,
+    "reasoning": "Specific analyst recommendation with financials. High specificity but stock prices change rapidly.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "35d97463a6a49966": {
+    "fact_id": "35d97463a6a49966",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.3,
+    "overall": 0.41,
+    "reasoning": "Specific broker rating with DCF methodology. Ratings frequently updated, limited temporal value.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "fda7ac29990e9f15": {
+    "fact_id": "claim_vz_cyber_risk_fy2025",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.52,
+    "reasoning": "Well-documented cyber incident. Salt Typhoon attack on VZ was widely reported. Long-term security relevance.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "80e6e646406f7720": {
+    "fact_id": "80e6e646406f77204f497dfb41afa50c",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.3,
+    "overall": 0.33,
+    "reasoning": "News item about pending CEO succession. Events may have already occurred, temporal value very low.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "d2452179aa658fa1": {
+    "fact_id": "a0815e41c351e15b09a93eb7c9672a5c",
+    "factual_correctness": 0.1,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.1,
+    "overall": 0.07,
+    "reasoning": "HTML noise - Hacker News comment page scraping artifact. Non-financial, pure noise.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "553855908cbb8716": {
+    "fact_id": "5d2274fb8e8706c1e0ac09ad2cf8e3b2",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.39,
+    "reasoning": "Geopolitical analysis claim. Reasonable macro observation linking Iran conflict to luxury auto market.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "99d1f8211970f7e7": {
+    "fact_id": "asean-telco-singtel-regional-footprint",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.52,
+    "reasoning": "Very specific ownership stake data. High factual correctness if accurate, stakes change slowly.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "cda6c9f64ccb5382": {
+    "fact_id": "ecada006ade4940d6b4aa4ba6a39a058",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.5,
+    "overall": 0.49,
+    "reasoning": "Specific FY2025 financial metric. Very specific revenue breakdown; temporal value moderate for annual data.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "5d571ffaf639ef86": {
+    "fact_id": "5d571ffaf639ef86a3008015592e90a6",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.49,
+    "reasoning": "Valid tax/accounting claim about expense recognition criteria. Stable accounting principles.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "b07d38482cf02f9c": {
+    "fact_id": "360c24931893d86c99c3b9bfd3ae9ae8",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.6,
+    "overall": 0.52,
+    "reasoning": "Highly specific infrastructure fund data with timelines. Strong factual value if from official source.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "a7ecbd40580ab83f": {
+    "fact_id": "a7ecbd40580ab83fd945f40cda459fa8",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.49,
+    "reasoning": "Valid research caveat about LLM-generated IR text and attribution of fluency improvements.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  },
+  "8ca72f69b188b166": {
+    "fact_id": "8ca72f69b188b166c5f5ab3b00425c0b",
+    "factual_correctness": 0.75,
+    "source_grounding": 0.0,
+    "temporal_validity": 0.7,
+    "overall": 0.51,
+    "reasoning": "Valid Japanese tax/accounting principle. Expense recognition depends on purpose and business context.",
+    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
   }
 }

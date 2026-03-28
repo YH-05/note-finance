@@ -872,18 +872,20 @@ MATCH (ch:Chunk {chunk_id: $to_id})
 MERGE (s)-[:CONTAINS_CHUNK]->(ch)
 ```
 
-#### EXTRACTED_FROM（Fact/Claim -> Chunk）
+#### EXTRACTED_FROM（Fact/Claim -> Chunk or Source）
 
 ```cypher
--- Fact -> Chunk
+-- Fact -> Chunk（chunk ベースパス: PDF等マルチチャンクソース）
 MATCH (f:Fact {fact_id: $from_id})
 MATCH (ch:Chunk {chunk_id: $to_id})
 MERGE (f)-[:EXTRACTED_FROM]->(ch)
 
--- Claim -> Chunk
+-- Claim -> Chunk（chunk ベースパス）
 MATCH (c:Claim {claim_id: $from_id})
 MATCH (ch:Chunk {chunk_id: $to_id})
 MERGE (c)-[:EXTRACTED_FROM]->(ch)
+
+-- web-research パスでは to_id が source_id を指し、Source に直接リンクする
 ```
 
 #### STATES_FACT（Source -> Fact）

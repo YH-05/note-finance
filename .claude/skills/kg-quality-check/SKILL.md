@@ -67,8 +67,10 @@ MATCH (f)
 WHERE NOT 'Memory' IN labels(f)
 AND (f:Fact OR f:Claim)
 AND f.content IS NOT NULL
-OPTIONAL MATCH (f)<-[:STATES_FACT|MAKES_CLAIM]-(c:Chunk)
-OPTIONAL MATCH (c)<-[:CONTAINS_CHUNK]-(s:Source)
+OPTIONAL MATCH (f)-[:EXTRACTED_FROM]->(ch:Chunk)<-[:CONTAINS_CHUNK]-(s1:Source)
+OPTIONAL MATCH (f)-[:EXTRACTED_FROM]->(s2:Source)
+OPTIONAL MATCH (s3:Source)-[:MAKES_CLAIM]->(f)
+WITH f, coalesce(s1, s2, s3) AS s
 RETURN
     coalesce(f.fact_id, f.claim_id, elementId(f)) AS fact_id,
     f.content AS content,

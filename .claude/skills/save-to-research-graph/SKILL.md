@@ -12,7 +12,7 @@ MERGE ベースの Cypher クエリにより冪等性を保証する。
 v2/v3 スキーマでは 9 種のノード（Topic, Entity, Source, Claim, Fact, Chunk, Author, FinancialDataPoint, FiscalPeriod）と 9+ 種のリレーションを投入する。`schema_version` フィールドにより v1（`"1.0"`）、v2（`"2.0"`）、v3（`"3.0"`）を処理できる。
 
 v3.0 の主な変更点:
-- Chunk ノードが廃止され、EXTRACTED_FROM は Fact/Claim → **Source** を対象とする
+- web-research パスでは EXTRACTED_FROM が Fact/Claim → **Source** を直接対象とする（Chunk なし）
 - TAGGED に **Fact → Topic** パターンが追加（`relations.tagged_fact` キーで分離）
 - Entity/Topic の MERGE キーは `entity_key` / `topic_key`（ビジネスキー）を使用
 
@@ -366,17 +366,25 @@ MERGE (s)-[:CONTAINS_CHUNK {chunk_order: $chunk_order}]->(ch)
 ### ステップ 3a.5: EXTRACTED_FROM リレーション（Fact/Claim -> Chunk）[v2 新規]
 
 `relations.extracted_from_fact` および `relations.extracted_from_claim` 配列から生成。
+chunk ベースパスでは Chunk を指す（section_title による出典箇所の特定が可能）。
+web-research パスでは Source を直接指す（1 Source = 1 Chunk のため）。
 
 ```cypher
--- Fact -> Chunk
+-- Fact -> Chunk（chunk ベースパス）
 MATCH (f:Fact {fact_id: $from_id})
 MATCH (ch:Chunk {chunk_id: $to_id})
 MERGE (f)-[:EXTRACTED_FROM]->(ch)
 
--- Claim -> Chunk
+-- Claim -> Chunk（chunk ベースパス）
 MATCH (c:Claim {claim_id: $from_id})
 MATCH (ch:Chunk {chunk_id: $to_id})
 MERGE (c)-[:EXTRACTED_FROM]->(ch)
+
+-- Fact/Claim -> Source（web-research パス）
+-- to_id が source_id の場合は Source に直接リンク
+MATCH (f:Fact {fact_id: $from_id})
+MATCH (s:Source {source_id: $to_id})
+MERGE (f)-[:EXTRACTED_FROM]->(s)
 ```
 
 ### ステップ 3a.6: STATES_FACT リレーション（Source -> Fact）[v2 新規]
@@ -573,16 +581,16 @@ RETURN count(*) AS actual_count
 ```
 
 ```cypher
-// EXTRACTED_FROM (fact): Fact -> Chunk（今回投入した Fact のみ）
+// EXTRACTED_FROM (fact): Fact -> Chunk or Source（今回投入した Fact のみ）
 UNWIND $fact_ids AS fid
-MATCH (f:Fact {fact_id: fid})-[:EXTRACTED_FROM]->(ch:Chunk)
+MATCH (f:Fact {fact_id: fid})-[:EXTRACTED_FROM]->()
 RETURN count(*) AS actual_count
 ```
 
 ```cypher
-// EXTRACTED_FROM (claim): Claim -> Chunk（今回投入した Claim のみ）
+// EXTRACTED_FROM (claim): Claim -> Chunk or Source（今回投入した Claim のみ）
 UNWIND $claim_ids AS cid
-MATCH (c:Claim {claim_id: cid})-[:EXTRACTED_FROM]->(ch:Chunk)
+MATCH (c:Claim {claim_id: cid})-[:EXTRACTED_FROM]->()
 RETURN count(*) AS actual_count
 ```
 
@@ -793,7 +801,7 @@ def calc_discrepancy_rate(expected: int, actual: int) -> float:
 ### 2026-03-12: v2 スキーマ対応（Issue #67）
 
 - `schema_version` '1.0' | '2.0' | '3.0' 対応
-- v3.0: Chunk 廃止（EXTRACTED_FROM → Source）、tagged_fact（Fact→Topic TAGGED）追加
+- v3.0: web-research パスで EXTRACTED_FROM → Source 直接対応、tagged_fact（Fact→Topic TAGGED）追加
 - `required_keys` に `facts`, `chunks`, `financial_datapoints`, `fiscal_periods` 追加（v2）
 - Phase 2 に 5 種の新ノード MERGE 追加: Fact, Chunk, Author, FinancialDataPoint, FiscalPeriod
 - Phase 3a に 6 種の新リレーション MERGE 追加: CONTAINS_CHUNK, EXTRACTED_FROM, STATES_FACT, RELATES_TO, HAS_DATAPOINT, FOR_PERIOD
