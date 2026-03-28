@@ -1,0 +1,11 @@
+{
+  "slides": [
+    {"type": "title", "hook": "2026年の転職市場\n知っておくべき数字", "sub": "@career_sister"},
+    {"type": "content", "heading": "まだ売り手市場", "body": "有効求人倍率 1.3倍台\n求職者1人に対して\n1.3件の求人がある状態", "number": "01"},
+    {"type": "content", "heading": "伸びてる業界", "body": "IT/通信: 求人倍率3倍以上\nコンサル: 未経験枠+25%\n物流/EC: DX人材需要が急拡大", "number": "02"},
+    {"type": "content", "heading": "要注意な業界", "body": "金融の管理部門: 求人減少\nメーカー間接部門: 効率化で抑制\n\nここにいる人は早めに動くべき", "number": "03"},
+    {"type": "content", "heading": "転職成功のコツ", "body": "感覚じゃなくてデータで判断する\n\n「業界名 + 求人動向 2026」\nこれを検索するだけで景色が変わる", "number": "04"},
+    {"type": "points", "heading": "今すぐやること", "items": ["自分の業界の求人動向を調べる", "伸びてる業界をリストアップ", "自分のスキルの翻訳先を考える"]},
+    {"type": "cta", "message": "転職のリアルを\n毎日発信中", "account": "@career_sister"}
+  ]
+}

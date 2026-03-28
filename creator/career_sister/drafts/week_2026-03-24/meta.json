@@ -43,7 +43,7 @@
       "date": "2026-03-28", "day_label": "土", "status": "partial",
       "slots": [
         {"slot": "朝", "category": "有益", "type": "型2", "theme": "T2", "instagram": true, "carousel_slides": 7, "status": "published", "published_at": "2026-03-28T08:00:00+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWZ9DOKE8RU", "instagram_permalink": "https://www.instagram.com/p/DWZ9WJSk7JI/"},
-        {"slot": "昼", "category": "有益", "type": "型5", "theme": "T9", "instagram": false, "status": "draft"},
+        {"slot": "昼", "category": "有益", "type": "型5", "theme": "T9", "instagram": false, "status": "published", "published_at": "2026-03-28T11:57:57+09:00", "threads_permalink": "https://www.threads.com/@career_sister/post/DWaYSMOCQFJ"},
         {"slot": "夜", "category": "有益", "type": "型3", "theme": "T7", "instagram": false, "status": "draft"}
       ]
     },

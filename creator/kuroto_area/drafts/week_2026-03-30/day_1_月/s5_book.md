@@ -5,26 +5,22 @@ category: 書籍紹介
 type: 型5
 book: Atomic Habits
 author: James Clear
-amazon_url: https://amzn.to/3AtomicHabits
-char_count: 188
+char_count: 290
 topic_tag: 読書
-status: draft
-posted_at: null
-permalink: null
 ---
 
-『Atomic Habits』を一言で要約するなら。
+『Atomic Habits』を一言で表すなら。
 
-「1%の改善を毎日続ければ、
-1年後には37倍になる」
+「習慣は、目標ではなくシステムの問題だ」
 
-これは複利の数学です。
-James Clearはこれを習慣設計に適用しました。
+James Clear が示した数学:
+1%の改善を毎日続けると、1年後には37倍になる。
+1%の悪化を毎日続けると、0.03まで落ちる。
 
-大きな意志力も、劇的な変化も不要です。
-1%だけ改善する。それを仕組みにする。
+変化は「決意」ではなく「設計」から始まります。
 
-内向型にとって最も相性の良い変化の哲学だと
-考えています。急がなくていい。静かに設計すればいい。
+大きな目標を立てる前に、
+小さなシステムを1つ作る。
+それだけで、長期的な成果は変わります。
 
 参考文献はコメント欄に。

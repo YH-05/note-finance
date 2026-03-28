@@ -437,6 +437,36 @@ async def collect_financial_news(
     # Sort by published date (newest first)
     all_articles.sort(key=lambda a: a.published, reverse=True)
 
+    # Post-process: fetch content for articles that don't have it yet
+    # (e.g. kabutan, reuters_jp whose scrapers don't support include_content natively)
+    if config.include_content:
+        no_content = [a for a in all_articles if not a.content]
+        if no_content:
+            from rss.services import ArticleExtractor
+
+            extractor = ArticleExtractor(timeout=config.request_timeout)
+            logger.info(
+                "Fetching content for articles missing it",
+                count=len(no_content),
+            )
+            extracted = await extractor.extract_batch([a.url for a in no_content])
+            content_map: dict[str, str | None] = {
+                r.url: r.text if r.extraction_method.startswith("trafilatura") else None
+                for r in extracted
+            }
+            all_articles = [
+                a.model_copy(update={"content": content_map.get(a.url)})
+                if not a.content
+                else a
+                for a in all_articles
+            ]
+            fetched = sum(1 for a in all_articles if a.content)
+            logger.info(
+                "Content post-fetch complete",
+                fetched=fetched,
+                total=len(all_articles),
+            )
+
     elapsed = (datetime.now(timezone.utc) - started_at).total_seconds()
     logger.info(
         "Financial news collection complete",

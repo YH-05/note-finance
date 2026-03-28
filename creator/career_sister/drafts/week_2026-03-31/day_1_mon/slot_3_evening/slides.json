@@ -1,0 +1,11 @@
+{
+  "slides": [
+    {"type": "title", "hook": "SaaS業界の\nカスタマーサクセス職\n知ってる？", "sub": "@career_sister"},
+    {"type": "content", "heading": "求人数が急増中", "body": "ここ2年で前年比+40%以上の伸び\nしかも未経験OKが約4割", "number": "01"},
+    {"type": "content", "heading": "CSってどんな仕事？", "body": "契約してくれたお客さんが\n成功するのをサポートする仕事\n\n新規営業じゃなく\n既存顧客のフォローがメイン", "number": "02"},
+    {"type": "content", "heading": "こんな人が向いてる", "body": "・人の話を聞くのが得意\n・困りごとを先回りできる\n・チーム連携が得意", "number": "03"},
+    {"type": "content", "heading": "元同僚の実例", "body": "飲食店長 → SaaS企業のCS職\n年収80万アップ\n\n飲食で鍛えた傾聴スキルが\nそのまま武器になった", "number": "04"},
+    {"type": "points", "heading": "相性がいい経歴", "items": ["メーカー営業", "販売職・接客業", "カスタマーサポート経験者", "チームマネジメント経験者"]},
+    {"type": "cta", "message": "転職のリアルを\n毎日発信中", "account": "@career_sister"}
+  ]
+}

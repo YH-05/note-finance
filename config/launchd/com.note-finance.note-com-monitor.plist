@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+note-finance note.com クリエイター RSSモニター launchd エージェント
+================================================================
+
+note-com-creators.json に rss_enabled=true で登録されたクリエイターの
+新着記事を RSS で検知し、Playwright でスクレイプして RawStore に保存する。
+
+インストール手順:
+  $ cp config/launchd/com.note-finance.note-com-monitor.plist ~/Library/LaunchAgents/
+  $ launchctl load ~/Library/LaunchAgents/com.note-finance.note-com-monitor.plist
+
+アンインストール手順:
+  $ launchctl unload ~/Library/LaunchAgents/com.note-finance.note-com-monitor.plist
+  $ rm ~/Library/LaunchAgents/com.note-finance.note-com-monitor.plist
+
+手動実行:
+  $ uv run python -m data_pipeline note-com monitor
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.note-finance.note-com-monitor</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/yuki/.local/bin/uv</string>
+        <string>run</string>
+        <string>python</string>
+        <string>-m</string>
+        <string>data_pipeline</string>
+        <string>note-com</string>
+        <string>monitor</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/yuki/Desktop/note-finance</string>
+
+    <!-- 実行スケジュール: 1日2回（8:00, 20:00） -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>8</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>20</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/note-com-monitor.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/note-com-monitor-error.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/yuki/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

@@ -2,7 +2,7 @@
   "posts_per_day": 5,
   "note_per_day": 1,
   "note_mode": "free",
-  "note_count": 7,
+  "note_count": 9,
   "note_paid_threshold": 10,
   "daily_slots": {
     "S1": {"time": "07:00"},
@@ -20,15 +20,15 @@
     {"day": "土", "S1": "タロット", "S2": "Tips", "S3": "ENG", "S4": "タロット", "S5": "Story"},
     {"day": "日", "S1": "星座",    "S2": "Tips", "S3": "ENG", "S4": "タロット", "S5": "note誘導"}
   ],
-  "total_posts": 35,
-  "total_note_articles": 7,
+  "total_posts": 45,
+  "total_note_articles": 9,
   "type_rotation": {
-    "タロット": 8,
-    "星座": 6,
-    "Tips": 7,
-    "ENG": 7,
-    "note誘導": 4,
-    "Story": 3
+    "タロット": 11,
+    "星座": 7,
+    "Tips": 9,
+    "ENG": 9,
+    "note誘導": 5,
+    "Story": 4
   },
   "type_sequence": {
     "タロット": ["型1-A", "型1-B"],
@@ -57,14 +57,14 @@
       {"id": "TI5", "name": "シャドウワーク",     "keywords": ["ユング", "影の自己", "反応のパターン"],    "weight": 1.0}
     ]
   },
-  "recent_themes": ["TI1", "TI2", "TI3", "TI4", "TI5", "TI1", "TI2"],
+  "recent_themes": ["TI1", "TI2", "TI3", "TI4", "TI5", "TI1", "TI2", "TI3", "TI4"],
   "theme_use_counts": {
     "TR1": 0, "TR2": 0,
     "ZD1": 0, "ZD2": 0, "ZD3": 0, "ZD4": 0,
-    "TI1": 2, "TI2": 2, "TI3": 1, "TI4": 1, "TI5": 1
+    "TI1": 2, "TI2": 2, "TI3": 2, "TI4": 2, "TI5": 1
   },
-  "tarot_card_history": ["魔術師", "月", "隠者", "塔", "星", "力", "死神", "恋人"],
-  "zodiac_rotation": 6,
+  "tarot_card_history": ["魔術師", "月", "隠者", "塔", "星", "力", "死神", "恋人", "女教皇", "戦車", "運命の輪"],
+  "zodiac_rotation": 7,
   "used_material_ids": [],
   "post_history": []
 }

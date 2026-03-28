@@ -172,10 +172,7 @@ class NoteComCollector(BaseCollector):
         list[CollectedItem]
             収集された記事のリスト。
         """
-        # max_pages を max_articles から概算（1ページ約10記事想定）
-        max_pages = max(1, (self.max_articles + 9) // 10)
-
-        urls = await browser.list_article_urls(username, max_pages=max_pages)
+        urls = await browser.list_article_urls(username)
         urls = urls[: self.max_articles]
 
         logger.info(

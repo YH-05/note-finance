@@ -1,0 +1,11 @@
+{
+  "slides": [
+    {"type": "title", "hook": "「自分にはスキルがない」\nは翻訳不足なだけ", "sub": "@career_sister"},
+    {"type": "content", "heading": "ポータブルスキル①②", "body": "① 課題発見力\n何が問題かを見つける力\n\n② 傾聴力\n相手の話を正しく理解する力", "number": "01"},
+    {"type": "content", "heading": "ポータブルスキル③④", "body": "③ 交渉力\n落としどころを見つける力\n\n④ 論理的思考力\n筋道を立てて説明する力", "number": "02"},
+    {"type": "content", "heading": "ポータブルスキル⑤", "body": "⑤ 巻き込み力\n周りを動かす力\n\nこの5つのうちどれかは\n今の仕事で使ってるはず", "number": "03"},
+    {"type": "content", "heading": "実例: 営業→IT", "body": "「顧客の課題を聞き出す力」\n= 営業で毎日やってたこと\n\n業界が変わっても\n使える言葉に翻訳するだけ", "number": "04"},
+    {"type": "points", "heading": "今すぐやってみて", "items": ["日常業務を1つ選ぶ", "他の業界では何と呼ばれる？", "5つのスキルに当てはめてみる"]},
+    {"type": "cta", "message": "転職のリアルを\n毎日発信中", "account": "@career_sister"}
+  ]
+}

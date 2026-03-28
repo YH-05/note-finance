@@ -143,10 +143,8 @@ Examples:
         nargs="+",
         choices=[
             "cnbc",
-            "nasdaq",
             "kabutan",
             "reuters_jp",
-            "minkabu",
             "jetro",
             "techcrunch",
             "ars_technica",

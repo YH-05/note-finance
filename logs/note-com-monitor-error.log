@@ -1,0 +1,477 @@
+2026-03-28 14:25:04,323 INFO data_pipeline.collectors.note_com_rss: rss_monitor_starting creator_count=11
+2026-03-28 14:25:04,652 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=fukuoka1116 entry_count=24
+2026-03-28 14:25:04,985 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=fukuoka1116 new_count=6
+2026-03-28 14:25:05,264 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=sota_career entry_count=25
+2026-03-28 14:25:05,271 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=sota_career new_count=25
+2026-03-28 14:25:05,466 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=kei_10m_asset entry_count=22
+2026-03-28 14:25:05,471 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=kei_10m_asset new_count=22
+2026-03-28 14:25:05,632 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=careercompass_c entry_count=25
+2026-03-28 14:25:05,638 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=careercompass_c new_count=25
+2026-03-28 14:25:05,866 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=dandism56 entry_count=25
+2026-03-28 14:25:05,872 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=dandism56 new_count=25
+2026-03-28 14:25:06,098 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=miraicareer_blog entry_count=25
+2026-03-28 14:25:06,104 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=miraicareer_blog new_count=25
+2026-03-28 14:25:06,335 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=glad_auklet4142 entry_count=25
+2026-03-28 14:25:06,624 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=glad_auklet4142 new_count=8
+2026-03-28 14:25:06,830 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=hide_taxnote entry_count=25
+2026-03-28 14:25:07,108 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=hide_taxnote new_count=1
+2026-03-28 14:25:07,443 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=mindset_official entry_count=25
+2026-03-28 14:25:07,750 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=mindset_official new_count=7
+2026-03-28 14:25:07,974 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=ruinormalhakkar entry_count=25
+2026-03-28 14:25:08,277 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=ruinormalhakkar new_count=8
+2026-03-28 14:25:08,355 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=studyhacker entry_count=0
+2026-03-28 14:25:09,782 INFO data_pipeline.collectors.note_com_browser: note_com_browser_started
+2026-03-28 14:25:09,783 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n7acfbe98eadc
+2026-03-28 14:25:12,998 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n7acfbe98eadc title=仕事が遅い人が無意識で使っている言葉とは　仕事｜会社員｜仕事｜営業｜転職｜副業｜30代｜エッセイ｜キャリア body_length=2030 hashtag_count=10
+2026-03-28 14:25:13,099 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n7acfbe98eadc title=仕事が遅い人が無意識で使っている言葉とは　仕事｜会社員｜仕事｜営業｜転職｜副業｜30代｜エッセイ｜キャリア
+2026-03-28 14:25:13,099 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/nff95848302b2
+2026-03-28 14:25:16,152 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/nff95848302b2 title=意味のない仕事で消耗する人の共通点　仕事｜転職｜日常｜エッセイ｜悩み｜30代｜会社員｜副業｜キャリア body_length=1609 hashtag_count=15
+2026-03-28 14:25:16,217 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/nff95848302b2 title=意味のない仕事で消耗する人の共通点　仕事｜転職｜日常｜エッセイ｜悩み｜30代｜会社員｜副業｜キャリア
+2026-03-28 14:25:16,217 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/nc6f5d4895d9c
+2026-03-28 14:25:18,751 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/nc6f5d4895d9c title=【3分で読める】他人と比べてしまう癖が治らない方へ　仕事｜日常｜エッセイ｜転職｜30代｜会社員｜悩み body_length=1863 hashtag_count=13
+2026-03-28 14:25:18,825 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/nc6f5d4895d9c title=【3分で読める】他人と比べてしまう癖が治らない方へ　仕事｜日常｜エッセイ｜転職｜30代｜会社員｜悩み
+2026-03-28 14:25:18,825 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n4c49cd555612
+2026-03-28 14:25:21,801 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n4c49cd555612 title=過去の栄光にすがってしまう人の特徴　仕事｜会社員｜エッセイ｜日常｜転職｜副業｜30代｜悩み｜キャリア body_length=1735 hashtag_count=18
+2026-03-28 14:25:21,864 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n4c49cd555612 title=過去の栄光にすがってしまう人の特徴　仕事｜会社員｜エッセイ｜日常｜転職｜副業｜30代｜悩み｜キャリア
+2026-03-28 14:25:21,864 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n4c9b0945492d
+2026-03-28 14:25:24,707 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n4c9b0945492d title=【3分で読める】別に不安はないのに、仕事がつまらない方へ　エッセイ｜日常｜転職｜悩み｜経験｜会社員｜キャリア｜副業｜仕事のコツ body_length=1484 hashtag_count=15
+2026-03-28 14:25:24,777 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n4c9b0945492d title=【3分で読める】別に不安はないのに、仕事がつまらない方へ　エッセイ｜日常｜転職｜悩み｜経験｜会社員｜キャリア｜副業｜仕事のコツ
+2026-03-28 14:25:24,777 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/nd2b276398476
+2026-03-28 14:25:27,749 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/nd2b276398476 title=【3分で読める】そろそろ本気で転職を考え始めた方へ　仕事｜エッセイ｜悩み｜会社員｜日常｜キャリア｜仕事のコツ body_length=1182 hashtag_count=17
+2026-03-28 14:25:27,822 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/nd2b276398476 title=【3分で読める】そろそろ本気で転職を考え始めた方へ　仕事｜エッセイ｜悩み｜会社員｜日常｜キャリア｜仕事のコツ
+2026-03-28 14:25:27,822 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n87c6a5b82f6a
+2026-03-28 14:25:30,646 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n87c6a5b82f6a title=証券会社の営業から転職したまさに全部聞いた｜年収と後悔のリアル body_length=6588 hashtag_count=9
+2026-03-28 14:25:30,794 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n87c6a5b82f6a title=証券会社の営業から転職したまさに全部聞いた｜年収と後悔のリアル
+2026-03-28 14:25:30,795 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n7b18b7169d49
+2026-03-28 14:25:33,856 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n7b18b7169d49 title=証券会社の営業を辞めて転職した28歳りくに年収と生活の変化を全部聞いた body_length=7304 hashtag_count=9
+2026-03-28 14:25:33,936 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n7b18b7169d49 title=証券会社の営業を辞めて転職した28歳りくに年収と生活の変化を全部聞いた
+2026-03-28 14:25:33,936 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/ncc41d44fbbc4
+2026-03-28 14:25:36,983 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/ncc41d44fbbc4 title=証券会社の営業を辞めて転職したりくさんの話——ノルマと罪悪感の先にあったもの body_length=7260 hashtag_count=9
+2026-03-28 14:25:37,060 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/ncc41d44fbbc4 title=証券会社の営業を辞めて転職したりくさんの話——ノルマと罪悪感の先にあったもの
+2026-03-28 14:25:37,060 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n5779121bd13a
+2026-03-28 14:25:39,717 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n5779121bd13a title=営業からキャリアを広げたい20代へ｜年収320万→700万にした全手順 body_length=7276 hashtag_count=9
+2026-03-28 14:25:39,785 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n5779121bd13a title=営業からキャリアを広げたい20代へ｜年収320万→700万にした全手順
+2026-03-28 14:25:39,785 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/nc1b413959707
+2026-03-28 14:25:42,813 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/nc1b413959707 title=営業からキャリアチェンジは無理？年収320万→700万にした全手順 body_length=5399 hashtag_count=9
+2026-03-28 14:25:42,890 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/nc1b413959707 title=営業からキャリアチェンジは無理？年収320万→700万にした全手順
+2026-03-28 14:25:42,890 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n634a96548fe1
+2026-03-28 14:25:45,718 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n634a96548fe1 title=営業からキャリアを変えるには？転職2回で年収700万にした全手順 body_length=7153 hashtag_count=9
+2026-03-28 14:25:45,800 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n634a96548fe1 title=営業からキャリアを変えるには？転職2回で年収700万にした全手順
+2026-03-28 14:25:45,800 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n9a984d76ced8
+2026-03-28 14:26:18,005 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n9a984d76ced8 title= body_length=0 hashtag_count=0
+2026-03-28 14:26:18,005 WARNING data_pipeline.collectors.note_com_rss: article_empty_body url=https://note.com/sota_career/n/n9a984d76ced8
+2026-03-28 14:26:18,005 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n052ce4878788
+2026-03-28 14:26:21,155 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n052ce4878788 title=公務員から転職は「もったいない」？安定の罪悪感を数字で壊す全手順 body_length=6084 hashtag_count=8
+2026-03-28 14:26:21,253 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n052ce4878788 title=公務員から転職は「もったいない」？安定の罪悪感を数字で壊す全手順
+2026-03-28 14:26:21,253 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n1cf7141c740f
+2026-03-28 14:26:23,991 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n1cf7141c740f title=公務員の転職でおすすめの進め方と注意点｜50人に取材して分かった body_length=5862 hashtag_count=9
+2026-03-28 14:26:24,048 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n1cf7141c740f title=公務員の転職でおすすめの進め方と注意点｜50人に取材して分かった
+2026-03-28 14:26:24,048 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/ndec58fbc0236
+2026-03-28 14:26:26,941 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/ndec58fbc0236 title=公務員の転職おすすめエージェント選びで担当者ガチャに2回負けた俺の話 body_length=6551 hashtag_count=9
+2026-03-28 14:26:27,013 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/ndec58fbc0236 title=公務員の転職おすすめエージェント選びで担当者ガチャに2回負けた俺の話
+2026-03-28 14:26:27,013 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/ncc50be43e8f9
+2026-03-28 14:26:29,889 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/ncc50be43e8f9 title=公務員から転職するならおすすめの手順がある｜50人取材で見えた現実 body_length=7704 hashtag_count=9
+2026-03-28 14:26:30,027 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/ncc50be43e8f9 title=公務員から転職するならおすすめの手順がある｜50人取材で見えた現実
+2026-03-28 14:26:30,027 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n6249c0930be0
+2026-03-28 14:26:32,849 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n6249c0930be0 title=公務員から転職しておすすめの動き方｜50人に聞いてわかったこと body_length=6562 hashtag_count=9
+2026-03-28 14:26:32,938 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n6249c0930be0 title=公務員から転職しておすすめの動き方｜50人に聞いてわかったこと
+2026-03-28 14:26:32,938 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n4d4732897b0e
+2026-03-28 14:26:35,938 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n4d4732897b0e title=未経験からWebデザイナーに転職した24歳に聞いた22社応募のリアル body_length=7502 hashtag_count=7
+2026-03-28 14:26:36,031 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n4d4732897b0e title=未経験からWebデザイナーに転職した24歳に聞いた22社応募のリアル
+2026-03-28 14:26:36,031 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/nfa00e1e7b7c2
+2026-03-28 14:26:38,709 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/nfa00e1e7b7c2 title=人事転職で有利になる資格は？エージェント3社に聞いたリアルな評価 body_length=6698 hashtag_count=9
+2026-03-28 14:26:38,766 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/nfa00e1e7b7c2 title=人事転職で有利になる資格は？エージェント3社に聞いたリアルな評価
+2026-03-28 14:26:38,767 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/ne62d6ea591b0
+2026-03-28 14:26:41,902 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/ne62d6ea591b0 title=未経験からWebデザイナーに転職する全手順｜独学ルートと年齢別戦略 body_length=6970 hashtag_count=9
+2026-03-28 14:26:41,960 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/ne62d6ea591b0 title=未経験からWebデザイナーに転職する全手順｜独学ルートと年齢別戦略
+2026-03-28 14:26:41,960 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n6c4e28d4a838
+2026-03-28 14:26:44,800 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n6c4e28d4a838 title=未経験からWebデザイナーに転職する3つのルート｜取材で分かった現実 body_length=6291 hashtag_count=8
+2026-03-28 14:26:44,892 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n6c4e28d4a838 title=未経験からWebデザイナーに転職する3つのルート｜取材で分かった現実
+2026-03-28 14:26:44,892 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n72f8f95c96d0
+2026-03-28 14:26:47,485 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n72f8f95c96d0 title=SEから営業に転職して年収230万アップ｜29歳エンジニアの全記録 body_length=6587 hashtag_count=9
+2026-03-28 14:26:47,545 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n72f8f95c96d0 title=SEから営業に転職して年収230万アップ｜29歳エンジニアの全記録
+2026-03-28 14:26:47,545 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n8827bd538f40
+2026-03-28 14:26:50,339 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n8827bd538f40 title=SE4年目のなな（27歳）が営業転職して年収380万→520万になった話 body_length=7374 hashtag_count=9
+2026-03-28 14:26:50,398 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n8827bd538f40 title=SE4年目のなな（27歳）が営業転職して年収380万→520万になった話
+2026-03-28 14:26:50,398 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/nc92c0aeb3a97
+2026-03-28 14:26:52,958 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/nc92c0aeb3a97 title=SE→営業に転職して後悔しない？けんに聞いた年収と壁のリアル body_length=5688 hashtag_count=9
+2026-03-28 14:26:53,040 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/nc92c0aeb3a97 title=SE→営業に転職して後悔しない？けんに聞いた年収と壁のリアル
+2026-03-28 14:26:53,040 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n952bbd6ace9a
+2026-03-28 14:26:55,702 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n952bbd6ace9a title=未経験からWebデザイナーに転職した27歳にリアルな話を全部聞いた body_length=6017 hashtag_count=8
+2026-03-28 14:26:55,758 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n952bbd6ace9a title=未経験からWebデザイナーに転職した27歳にリアルな話を全部聞いた
+2026-03-28 14:26:55,758 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/nf3fc092d0a00
+2026-03-28 14:26:58,739 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/nf3fc092d0a00 title=販売から事務に転職した28歳にガチで聞いた｜年収と後悔のリアル body_length=7731 hashtag_count=9
+2026-03-28 14:26:58,852 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/nf3fc092d0a00 title=販売から事務に転職した28歳にガチで聞いた｜年収と後悔のリアル
+2026-03-28 14:26:58,852 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n398841d4136a
+2026-03-28 14:27:01,831 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n398841d4136a title=販売から事務に転職できる？スキルなし28歳のあきに全部聞いてきた body_length=7331 hashtag_count=9
+2026-03-28 14:27:01,887 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n398841d4136a title=販売から事務に転職できる？スキルなし28歳のあきに全部聞いてきた
+2026-03-28 14:27:01,888 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n2ef7454187c7
+2026-03-28 14:27:04,465 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n2ef7454187c7 title=販売から事務への転職はきつい？元アパレル店員に本音を全部聞いた body_length=6997 hashtag_count=9
+2026-03-28 14:27:04,514 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n2ef7454187c7 title=販売から事務への転職はきつい？元アパレル店員に本音を全部聞いた
+2026-03-28 14:27:04,522 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n49c93efecc73
+2026-03-28 14:27:07,291 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n49c93efecc73 title=販売から事務に転職して後悔しない？元アパレル販売員りかに取材してきた body_length=7137 hashtag_count=9
+2026-03-28 14:27:07,386 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n49c93efecc73 title=販売から事務に転職して後悔しない？元アパレル販売員りかに取材してきた
+2026-03-28 14:27:07,386 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/sota_career/n/n4397c8e9fbf7
+2026-03-28 14:27:10,067 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/sota_career/n/n4397c8e9fbf7 title=美容師から転職は「逃げ」じゃない｜50人取材で分かった具体的手順 body_length=6736 hashtag_count=9
+2026-03-28 14:27:10,126 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/sota_career/n/n4397c8e9fbf7 title=美容師から転職は「逃げ」じゃない｜50人取材で分かった具体的手順
+2026-03-28 14:27:10,127 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/nf6c5ced28c53
+2026-03-28 14:27:13,145 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/nf6c5ced28c53 title=銀行口座の断捨離をしたら楽になった話。目的別口座で子どものお金管理もスマートに。 body_length=2465 hashtag_count=10
+2026-03-28 14:27:13,296 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/nf6c5ced28c53 title=銀行口座の断捨離をしたら楽になった話。目的別口座で子どものお金管理もスマートに。
+2026-03-28 14:27:13,297 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/naeeca4347e98
+2026-03-28 14:27:15,942 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/naeeca4347e98 title=​1ヶ月半で250人の方にフォロー頂き感謝です！資産形成noteの今後について。 body_length=2202 hashtag_count=10
+2026-03-28 14:27:16,007 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/naeeca4347e98 title=​1ヶ月半で250人の方にフォロー頂き感謝です！資産形成noteの今後について。
+2026-03-28 14:27:16,007 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/ned5cb39d3281
+2026-03-28 14:27:18,928 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/ned5cb39d3281 title=家計を握るのは夫か妻かどちらにするのが良い？独身時代に築いた資産はどうする？ body_length=2885 hashtag_count=11
+2026-03-28 14:27:19,027 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/ned5cb39d3281 title=家計を握るのは夫か妻かどちらにするのが良い？独身時代に築いた資産はどうする？
+2026-03-28 14:27:19,027 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/nc180de1546dd
+2026-03-28 14:27:21,717 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/nc180de1546dd title=【同い年で上位何%？】あなたは自分の年収、支出、資産の偏差値を知っていますか？ body_length=2743 hashtag_count=14
+2026-03-28 14:27:21,826 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/nc180de1546dd title=【同い年で上位何%？】あなたは自分の年収、支出、資産の偏差値を知っていますか？
+2026-03-28 14:27:21,826 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/nb279cb11a08a
+2026-03-28 14:27:24,616 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/nb279cb11a08a title=【検証】平均年収、平均支出、平均利回りなら資産1000万に届くのはいつなのか？  body_length=3103 hashtag_count=13
+2026-03-28 14:27:24,688 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/nb279cb11a08a title=【検証】平均年収、平均支出、平均利回りなら資産1000万に届くのはいつなのか？ 
+2026-03-28 14:27:24,688 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/nac6acbc47b09
+2026-03-28 14:27:27,479 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/nac6acbc47b09 title=資産6000万の失敗談「株はガチホが正解」と自分を戒めるための記録 body_length=1594 hashtag_count=10
+2026-03-28 14:27:27,679 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/nac6acbc47b09 title=資産6000万の失敗談「株はガチホが正解」と自分を戒めるための記録
+2026-03-28 14:27:27,679 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n98d99c276bd6
+2026-03-28 14:27:30,519 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n98d99c276bd6 title=​【企画】あなたのNoteを紹介させてください。資産別「投資家アカウント名鑑」を作ります body_length=1998 hashtag_count=12
+2026-03-28 14:27:30,620 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n98d99c276bd6 title=​【企画】あなたのNoteを紹介させてください。資産別「投資家アカウント名鑑」を作ります
+2026-03-28 14:27:30,620 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n43ebc6b0dd81
+2026-03-28 14:27:33,651 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n43ebc6b0dd81 title=資産6000万から飛躍を！次の暴落で狙う「5大セクター」と、監視中の「増配株リスト」 body_length=1975 hashtag_count=10
+2026-03-28 14:27:33,715 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n43ebc6b0dd81 title=資産6000万から飛躍を！次の暴落で狙う「5大セクター」と、監視中の「増配株リスト」
+2026-03-28 14:27:33,716 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n99a851c16131
+2026-03-28 14:27:36,406 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n99a851c16131 title=20代のうちに年収を上げ、入金力を高めたい人は「転職を2回する前提」で動こう。 body_length=2590 hashtag_count=9
+2026-03-28 14:27:36,476 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n99a851c16131 title=20代のうちに年収を上げ、入金力を高めたい人は「転職を2回する前提」で動こう。
+2026-03-28 14:27:36,476 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n46a024b4bb72
+2026-03-28 14:27:39,240 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n46a024b4bb72 title=【検証】「平均年収×共働き夫婦」で1億円は作れるのか？試算してみた結果 body_length=2070 hashtag_count=9
+2026-03-28 14:27:39,306 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n46a024b4bb72 title=【検証】「平均年収×共働き夫婦」で1億円は作れるのか？試算してみた結果
+2026-03-28 14:27:39,306 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/na66ef194a673
+2026-03-28 14:27:42,112 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/na66ef194a673 title=​投資はギャンブルと言っていた妻をどうやって資産形成の最強パートナーに変えたか body_length=2613 hashtag_count=8
+2026-03-28 14:27:42,203 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/na66ef194a673 title=​投資はギャンブルと言っていた妻をどうやって資産形成の最強パートナーに変えたか
+2026-03-28 14:27:42,203 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n2d897a59df1b
+2026-03-28 14:27:44,749 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n2d897a59df1b title=もし新卒に戻って資産0から最短で1000万作るならどうする？「3つの戦略」 body_length=2521 hashtag_count=9
+2026-03-28 14:27:44,813 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n2d897a59df1b title=もし新卒に戻って資産0から最短で1000万作るならどうする？「3つの戦略」
+2026-03-28 14:27:44,814 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/nc5dbda4ec4ce
+2026-03-28 14:27:47,776 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/nc5dbda4ec4ce title=【年間配当100万円】32歳・資産6000万の2児パパが育てた「高配当株ポートフォリオ」全53銘柄公開 body_length=2845 hashtag_count=5
+2026-03-28 14:27:47,864 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/nc5dbda4ec4ce title=【年間配当100万円】32歳・資産6000万の2児パパが育てた「高配当株ポートフォリオ」全53銘柄公開
+2026-03-28 14:27:47,864 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n8dd333555151
+2026-03-28 14:27:50,528 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n8dd333555151 title=結婚しても「家計の主導権」を握りたければ、独身時代に「1000万円」を作っておけ。 body_length=1257 hashtag_count=9
+2026-03-28 14:27:50,589 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n8dd333555151 title=結婚しても「家計の主導権」を握りたければ、独身時代に「1000万円」を作っておけ。
+2026-03-28 14:27:50,589 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n45367793de4d
+2026-03-28 14:27:53,073 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n45367793de4d title=​【検証】貯金だけで20代のうちに1000万円貯まるか計算してみたら、完全に無理ゲーだった話。 body_length=2270 hashtag_count=10
+2026-03-28 14:27:53,149 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n45367793de4d title=​【検証】貯金だけで20代のうちに1000万円貯まるか計算してみたら、完全に無理ゲーだった話。
+2026-03-28 14:27:53,149 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n45041a843180
+2026-03-28 14:27:56,005 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n45041a843180 title=​【実体験】運用資産5000万を超えて「貯める」から「使う」へシフトした理由。準富裕層の新しいお金のルール body_length=2578 hashtag_count=7
+2026-03-28 14:27:56,065 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n45041a843180 title=​【実体験】運用資産5000万を超えて「貯める」から「使う」へシフトした理由。準富裕層の新しいお金のルール
+2026-03-28 14:27:56,065 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n24d2bcbcecde
+2026-03-28 14:27:58,587 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n24d2bcbcecde title=新卒で入社した大企業からの転職は「逃げ」か？ 安定を捨てて年収を上げる重要性 body_length=1348 hashtag_count=10
+2026-03-28 14:27:58,664 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n24d2bcbcecde title=新卒で入社した大企業からの転職は「逃げ」か？ 安定を捨てて年収を上げる重要性
+2026-03-28 14:27:58,664 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n29781d467bda
+2026-03-28 14:28:01,655 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n29781d467bda title=【楽天ポイント投資】ポイントの運用実績公開。投資初心者は現金ではなくポイントで！ body_length=1676 hashtag_count=8
+2026-03-28 14:28:01,711 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n29781d467bda title=【楽天ポイント投資】ポイントの運用実績公開。投資初心者は現金ではなくポイントで！
+2026-03-28 14:28:01,712 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n00c7b89659df
+2026-03-28 14:28:04,581 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n00c7b89659df title=【実体験】オルカン以外のレアな投信も運用中！現在のパフォーマンスを公開！ body_length=1759 hashtag_count=8
+2026-03-28 14:28:04,645 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n00c7b89659df title=【実体験】オルカン以外のレアな投信も運用中！現在のパフォーマンスを公開！
+2026-03-28 14:28:04,645 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n72d20453b84f
+2026-03-28 14:28:07,242 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n72d20453b84f title=【公開】資産6000万・年間配当100万円到達。インデックスと高配当株の二刀流 body_length=1415 hashtag_count=14
+2026-03-28 14:28:07,307 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n72d20453b84f title=【公開】資産6000万・年間配当100万円到達。インデックスと高配当株の二刀流
+2026-03-28 14:28:07,307 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/nf779c5e71018
+2026-03-28 14:28:10,208 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/nf779c5e71018 title=​【再現性あり】普通の会社員が26歳で資産1000万達成した「最初の壁」を突破するための全ロードマップ body_length=2297 hashtag_count=11
+2026-03-28 14:28:10,292 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/nf779c5e71018 title=​【再現性あり】普通の会社員が26歳で資産1000万達成した「最初の壁」を突破するための全ロードマップ
+2026-03-28 14:28:10,293 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/kei_10m_asset/n/n83bffce855c6
+2026-03-28 14:28:13,208 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/kei_10m_asset/n/n83bffce855c6 title=【自己紹介】26歳で資産1000万円到達→現32歳で資産6000万。年収アップ転職と資産運用を駆使した普通の会社員の生存戦略 body_length=1834 hashtag_count=12
+2026-03-28 14:28:13,275 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/kei_10m_asset/n/n83bffce855c6 title=【自己紹介】26歳で資産1000万円到達→現32歳で資産6000万。年収アップ転職と資産運用を駆使した普通の会社員の生存戦略
+2026-03-28 14:28:13,275 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nf2aa66426ef6
+2026-03-28 14:28:16,783 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/careercompass_c/n/nf2aa66426ef6 title=成功してる30代がみんなやってるキャリア術5選｜年収32万円アップの秘訣とは body_length=3995 hashtag_count=97
+2026-03-28 14:28:16,978 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/careercompass_c/n/nf2aa66426ef6 title=成功してる30代がみんなやってるキャリア術5選｜年収32万円アップの秘訣とは
+2026-03-28 14:28:16,978 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ne3011032b029
+2026-03-28 14:28:19,537 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ne3011032b029
+2026-03-28 14:28:19,538 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ne3011032b029
+2026-03-28 14:28:19,538 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nb5bf9d1f719f
+2026-03-28 14:28:22,427 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nb5bf9d1f719f
+2026-03-28 14:28:22,427 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nb5bf9d1f719f
+2026-03-28 14:28:22,427 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n4901d1b853d5
+2026-03-28 14:28:24,848 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n4901d1b853d5
+2026-03-28 14:28:24,848 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n4901d1b853d5
+2026-03-28 14:28:24,848 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n8163e6cbc5f9
+2026-03-28 14:28:27,512 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n8163e6cbc5f9
+2026-03-28 14:28:27,512 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n8163e6cbc5f9
+2026-03-28 14:28:27,512 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n00fd1c9faf2e
+2026-03-28 14:28:30,419 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n00fd1c9faf2e
+2026-03-28 14:28:30,419 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n00fd1c9faf2e
+2026-03-28 14:28:30,420 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n5a4a03fe5eab
+2026-03-28 14:28:32,974 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n5a4a03fe5eab
+2026-03-28 14:28:32,974 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n5a4a03fe5eab
+2026-03-28 14:28:32,974 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n3a2289da0aad
+2026-03-28 14:28:35,818 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n3a2289da0aad
+2026-03-28 14:28:35,818 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n3a2289da0aad
+2026-03-28 14:28:35,818 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nf7661b945931
+2026-03-28 14:28:38,391 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nf7661b945931
+2026-03-28 14:28:38,391 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nf7661b945931
+2026-03-28 14:28:38,391 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n637e022c6ec9
+2026-03-28 14:28:41,122 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n637e022c6ec9
+2026-03-28 14:28:41,122 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n637e022c6ec9
+2026-03-28 14:28:41,122 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nd844630b5ff9
+2026-03-28 14:28:43,753 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nd844630b5ff9
+2026-03-28 14:28:43,753 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nd844630b5ff9
+2026-03-28 14:28:43,753 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n7d62819ebf9d
+2026-03-28 14:28:48,231 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n7d62819ebf9d
+2026-03-28 14:28:48,231 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n7d62819ebf9d
+2026-03-28 14:28:48,231 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nf85c3d6190b5
+2026-03-28 14:28:51,063 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nf85c3d6190b5
+2026-03-28 14:28:51,063 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nf85c3d6190b5
+2026-03-28 14:28:51,063 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n5162cc133849
+2026-03-28 14:28:54,899 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n5162cc133849
+2026-03-28 14:28:54,899 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n5162cc133849
+2026-03-28 14:28:54,899 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nace16a0f8ab2
+2026-03-28 14:28:57,424 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nace16a0f8ab2
+2026-03-28 14:28:57,424 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nace16a0f8ab2
+2026-03-28 14:28:57,424 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nfd478e11c029
+2026-03-28 14:29:00,154 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nfd478e11c029
+2026-03-28 14:29:00,154 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nfd478e11c029
+2026-03-28 14:29:00,158 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nb63631ca6d8d
+2026-03-28 14:29:03,083 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nb63631ca6d8d
+2026-03-28 14:29:03,084 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nb63631ca6d8d
+2026-03-28 14:29:03,084 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nb2df6495bcbf
+2026-03-28 14:29:05,779 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nb2df6495bcbf
+2026-03-28 14:29:05,779 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nb2df6495bcbf
+2026-03-28 14:29:05,779 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n50a163c1f945
+2026-03-28 14:29:08,574 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n50a163c1f945
+2026-03-28 14:29:08,574 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n50a163c1f945
+2026-03-28 14:29:08,574 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n9ae317b2735d
+2026-03-28 14:29:11,312 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n9ae317b2735d
+2026-03-28 14:29:11,312 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n9ae317b2735d
+2026-03-28 14:29:11,312 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n78e4a1165f54
+2026-03-28 14:29:13,999 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n78e4a1165f54
+2026-03-28 14:29:13,999 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n78e4a1165f54
+2026-03-28 14:29:13,999 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nb8bb0bb5b85f
+2026-03-28 14:29:16,540 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nb8bb0bb5b85f
+2026-03-28 14:29:16,540 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nb8bb0bb5b85f
+2026-03-28 14:29:16,540 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n3928d1f6ad63
+2026-03-28 14:29:19,456 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n3928d1f6ad63
+2026-03-28 14:29:19,456 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n3928d1f6ad63
+2026-03-28 14:29:19,456 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n76572d398b9d
+2026-03-28 14:29:22,239 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n76572d398b9d
+2026-03-28 14:29:22,239 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n76572d398b9d
+2026-03-28 14:29:22,239 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ncaec0cd74503
+2026-03-28 14:29:24,736 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ncaec0cd74503
+2026-03-28 14:29:24,736 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ncaec0cd74503
+2026-03-28 14:29:24,736 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n14b9bfabc7f3
+2026-03-28 14:29:27,530 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n14b9bfabc7f3 title=転職で失敗する人ほど「情報集め」に走る。成功する人が先に整えるのは「心」です body_length=2996 hashtag_count=18
+2026-03-28 14:29:27,703 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n14b9bfabc7f3 title=転職で失敗する人ほど「情報集め」に走る。成功する人が先に整えるのは「心」です
+2026-03-28 14:29:27,703 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nbd2763dbaf72
+2026-03-28 14:29:31,038 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nbd2763dbaf72 title=「昭和式の正論」が、「令和の職場」で刺さらない理由と「今も昔も変えてはいけない価値観」について body_length=3004 hashtag_count=41
+2026-03-28 14:29:31,097 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nbd2763dbaf72 title=「昭和式の正論」が、「令和の職場」で刺さらない理由と「今も昔も変えてはいけない価値観」について
+2026-03-28 14:29:31,097 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n0c77b20c5271
+2026-03-28 14:29:34,247 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n0c77b20c5271 title=【450日連続投稿】note継続投稿により完全復活の確信が深まる「習慣のパワー」 body_length=3090 hashtag_count=45
+2026-03-28 14:29:34,322 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n0c77b20c5271 title=【450日連続投稿】note継続投稿により完全復活の確信が深まる「習慣のパワー」
+2026-03-28 14:29:34,322 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n0d63b299de0e
+2026-03-28 14:29:37,494 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n0d63b299de0e title=【コングラボード2冠！！】私のパラレルワーク「会社員×フリーランス」の記事が「働き方」「起業」部門で1位を達成しました！！ body_length=2560 hashtag_count=25
+2026-03-28 14:29:37,576 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n0d63b299de0e title=【コングラボード2冠！！】私のパラレルワーク「会社員×フリーランス」の記事が「働き方」「起業」部門で1位を達成しました！！
+2026-03-28 14:29:37,576 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n57f1226415c5
+2026-03-28 14:29:40,889 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n57f1226415c5 title=転職理由の裏側にある“本当の望み”に耳を傾けたら body_length=4652 hashtag_count=43
+2026-03-28 14:29:40,998 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n57f1226415c5 title=転職理由の裏側にある“本当の望み”に耳を傾けたら
+2026-03-28 14:29:40,998 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n97b6a5b7793d
+2026-03-28 14:29:44,270 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n97b6a5b7793d title=【7000フォロワー突破！】毎日投稿だからこそ、最近noteでこだわっている「復活」への糸口 body_length=3366 hashtag_count=43
+2026-03-28 14:29:44,347 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n97b6a5b7793d title=【7000フォロワー突破！】毎日投稿だからこそ、最近noteでこだわっている「復活」への糸口
+2026-03-28 14:29:44,347 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n460d0242f417
+2026-03-28 14:29:47,528 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n460d0242f417 title=【内定者インタビュー】内定承諾された方に、はじてん転職支援サービスの魅力について聞いてみました！ body_length=7160 hashtag_count=46
+2026-03-28 14:29:47,600 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n460d0242f417 title=【内定者インタビュー】内定承諾された方に、はじてん転職支援サービスの魅力について聞いてみました！
+2026-03-28 14:29:47,600 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nf59d6d905299
+2026-03-28 14:29:50,661 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nf59d6d905299 title=【チームワーク】成果が出るチームは「情報共有の粒度」が違う body_length=4162 hashtag_count=37
+2026-03-28 14:29:50,733 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nf59d6d905299 title=【チームワーク】成果が出るチームは「情報共有の粒度」が違う
+2026-03-28 14:29:50,734 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n071a0e8cd4ab
+2026-03-28 14:29:53,482 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n071a0e8cd4ab title=職場復帰がキツい時、心を折らない“小さな達成”の作り方 body_length=3591 hashtag_count=25
+2026-03-28 14:29:53,570 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n071a0e8cd4ab title=職場復帰がキツい時、心を折らない“小さな達成”の作り方
+2026-03-28 14:29:53,570 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/ncbc258083b70
+2026-03-28 14:29:56,828 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/ncbc258083b70 title=【複業】会社員×フリーランスで起こる“時間の分断”を統合する方法 body_length=2781 hashtag_count=58
+2026-03-28 14:29:56,907 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/ncbc258083b70 title=【複業】会社員×フリーランスで起こる“時間の分断”を統合する方法
+2026-03-28 14:29:56,907 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/na521401794ab
+2026-03-28 14:30:00,077 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/na521401794ab title=【週間1位コングラボード！】早期離職は「永遠の社会課題」その中で努力できることとは body_length=3313 hashtag_count=50
+2026-03-28 14:30:00,157 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/na521401794ab title=【週間1位コングラボード！】早期離職は「永遠の社会課題」その中で努力できることとは
+2026-03-28 14:30:00,157 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n256e11bfe1ab
+2026-03-28 14:30:03,005 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n256e11bfe1ab title=【幸せな働き方】「エンゲージメント」をテーマにした投稿が「個人の時代を生き抜くみんなの知恵袋」にマガジン登録していただきました！ body_length=3016 hashtag_count=49
+2026-03-28 14:30:03,083 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n256e11bfe1ab title=【幸せな働き方】「エンゲージメント」をテーマにした投稿が「個人の時代を生き抜くみんなの知恵袋」にマガジン登録していただきました！
+2026-03-28 14:30:03,083 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/ncb0e797f2e32
+2026-03-28 14:30:06,083 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/ncb0e797f2e32 title=【WBC2026】でベネズエラとの死闘を繰り広げた侍ジャパン！プロとしての「ミス」の怖さ body_length=3378 hashtag_count=40
+2026-03-28 14:30:06,140 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/ncb0e797f2e32 title=【WBC2026】でベネズエラとの死闘を繰り広げた侍ジャパン！プロとしての「ミス」の怖さ
+2026-03-28 14:30:06,140 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n2257ef48d414
+2026-03-28 14:30:09,158 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n2257ef48d414 title=【感謝！！】「時間管理術」のnote投稿で再び「社会人先生」に！タイムマネジメントの重要性 body_length=2853 hashtag_count=31
+2026-03-28 14:30:09,233 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n2257ef48d414 title=【感謝！！】「時間管理術」のnote投稿で再び「社会人先生」に！タイムマネジメントの重要性
+2026-03-28 14:30:09,233 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/neda524b6d211
+2026-03-28 14:30:12,459 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/neda524b6d211 title=【キャリアの棚卸し】「職務経歴書」は転職活動の時だけ書くものだと思っていませんか？ body_length=2984 hashtag_count=30
+2026-03-28 14:30:12,525 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/neda524b6d211 title=【キャリアの棚卸し】「職務経歴書」は転職活動の時だけ書くものだと思っていませんか？
+2026-03-28 14:30:12,525 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/na8057b11f033
+2026-03-28 14:30:15,957 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/na8057b11f033 title=【6500フォロワー突破！】「note連続投稿437日目」の心境と、インサイドセールスとして職場復帰して2週間での手応え body_length=4250 hashtag_count=48
+2026-03-28 14:30:16,031 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/na8057b11f033 title=【6500フォロワー突破！】「note連続投稿437日目」の心境と、インサイドセールスとして職場復帰して2週間での手応え
+2026-03-28 14:30:16,031 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nd81e88010c8a
+2026-03-28 14:30:19,261 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nd81e88010c8a title=早期離職を防ぐのはスキルより「関係性の初期構築」 body_length=3175 hashtag_count=34
+2026-03-28 14:30:19,365 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nd81e88010c8a title=早期離職を防ぐのはスキルより「関係性の初期構築」
+2026-03-28 14:30:19,365 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n287caba9c249
+2026-03-28 14:30:22,625 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n287caba9c249 title=「SaaSバブルの崩壊」に対する「SaaS転職」のキャリア戦略 body_length=4050 hashtag_count=38
+2026-03-28 14:30:22,700 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n287caba9c249 title=「SaaSバブルの崩壊」に対する「SaaS転職」のキャリア戦略
+2026-03-28 14:30:22,700 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n58633a55a12a
+2026-03-28 14:30:25,931 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n58633a55a12a title=【リライト版】パラレルキャリアのルーツは著書『25歳からのコングロマリットという働き方』です body_length=3407 hashtag_count=38
+2026-03-28 14:30:25,990 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n58633a55a12a title=【リライト版】パラレルキャリアのルーツは著書『25歳からのコングロマリットという働き方』です
+2026-03-28 14:30:25,990 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nfd5724b86730
+2026-03-28 14:30:28,958 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nfd5724b86730 title=優れたリーダーやビジネスパーソンの共通するスタイルは「共感」と「伴走」です body_length=3448 hashtag_count=32
+2026-03-28 14:30:29,034 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nfd5724b86730 title=優れたリーダーやビジネスパーソンの共通するスタイルは「共感」と「伴走」です
+2026-03-28 14:30:29,034 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n31e8a87bc2da
+2026-03-28 14:30:34,207 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n31e8a87bc2da title=「エンゲージメント改善」と「人材採用」をどう両立させるか？転職エージェントとしてできることとは body_length=3486 hashtag_count=44
+2026-03-28 14:30:34,282 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n31e8a87bc2da title=「エンゲージメント改善」と「人材採用」をどう両立させるか？転職エージェントとしてできることとは
+2026-03-28 14:30:34,282 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n96cf13e1232b
+2026-03-28 14:30:37,274 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n96cf13e1232b title=パラレルワークは「総収入アップ戦略」です body_length=4347 hashtag_count=33
+2026-03-28 14:30:37,443 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n96cf13e1232b title=パラレルワークは「総収入アップ戦略」です
+2026-03-28 14:30:37,443 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n57da7d875675
+2026-03-28 14:30:40,422 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n57da7d875675 title=【セルフマネジメント】人間は、脳内で「意思決定」を60000回以上しています body_length=3440 hashtag_count=49
+2026-03-28 14:30:40,481 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n57da7d875675 title=【セルフマネジメント】人間は、脳内で「意思決定」を60000回以上しています
+2026-03-28 14:30:40,481 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n4eafc96d3354
+2026-03-28 14:30:43,390 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n4eafc96d3354 title=【週間1位コングラボード復活！】月間20000ビュー突破の反響から感じた、物事を上達させる「量質転化」の本質に迫ってみました body_length=3230 hashtag_count=49
+2026-03-28 14:30:43,447 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n4eafc96d3354 title=【週間1位コングラボード復活！】月間20000ビュー突破の反響から感じた、物事を上達させる「量質転化」の本質に迫ってみました
+2026-03-28 14:30:43,447 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/ne493c4e25e31
+2026-03-28 14:30:46,685 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/ne493c4e25e31 title=6000フォロワー突破！SNS活動で「同業クリエイター」との交流の喜び body_length=1936 hashtag_count=28
+2026-03-28 14:30:46,760 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/ne493c4e25e31 title=6000フォロワー突破！SNS活動で「同業クリエイター」との交流の喜び
+2026-03-28 14:30:46,760 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nfe66dcf2a615
+2026-03-28 14:30:49,839 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nfe66dcf2a615 title=面接後10分の振り返りが、内定を引き寄せる body_length=1789 hashtag_count=20
+2026-03-28 14:30:50,040 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nfe66dcf2a615 title=面接後10分の振り返りが、内定を引き寄せる
+2026-03-28 14:30:50,040 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/naac8f7058753
+2026-03-28 14:30:53,173 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/naac8f7058753 title=5月の転職活動で失敗しない GWを活かす準備と求人の見方 body_length=1627 hashtag_count=22
+2026-03-28 14:30:53,243 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/naac8f7058753 title=5月の転職活動で失敗しない GWを活かす準備と求人の見方
+2026-03-28 14:30:53,243 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n6caa89311fe8
+2026-03-28 14:30:56,331 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n6caa89311fe8 title=「なんとなく違う」と感じた求人、その違和感の正体とは？ body_length=1657 hashtag_count=21
+2026-03-28 14:30:56,409 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n6caa89311fe8 title=「なんとなく違う」と感じた求人、その違和感の正体とは？
+2026-03-28 14:30:56,409 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n922d185d10a7
+2026-03-28 14:30:59,129 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n922d185d10a7 title=製造業は売り手市場？企業担当が語る転職のリアル body_length=1934 hashtag_count=20
+2026-03-28 14:30:59,205 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n922d185d10a7 title=製造業は売り手市場？企業担当が語る転職のリアル
+2026-03-28 14:30:59,205 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/ne1de2cbd73cc
+2026-03-28 14:31:02,304 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/ne1de2cbd73cc title=4月入社に間に合う？転職開始の目安と失敗しない準備の進め方 body_length=2118 hashtag_count=20
+2026-03-28 14:31:02,379 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/ne1de2cbd73cc title=4月入社に間に合う？転職開始の目安と失敗しない準備の進め方
+2026-03-28 14:31:02,379 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n8d7c1bc01dea
+2026-03-28 14:31:05,305 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n8d7c1bc01dea title=転職情報、誰の言うことを信じればいいんだ問題 body_length=4248 hashtag_count=19
+2026-03-28 14:31:05,384 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n8d7c1bc01dea title=転職情報、誰の言うことを信じればいいんだ問題
+2026-03-28 14:31:05,384 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n3f3a3ff302a8
+2026-03-28 14:31:08,164 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n3f3a3ff302a8 title=東海エリアの“働きやすい中小企業”の特徴を知る body_length=1954 hashtag_count=24
+2026-03-28 14:31:08,236 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n3f3a3ff302a8 title=東海エリアの“働きやすい中小企業”の特徴を知る
+2026-03-28 14:31:08,236 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n01a5d3a5c629
+2026-03-28 14:31:11,489 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n01a5d3a5c629 title=適性検査が不安な転職者へ 東海メーカーで見られるポイントと対策 body_length=2040 hashtag_count=22
+2026-03-28 14:31:11,596 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n01a5d3a5c629 title=適性検査が不安な転職者へ 東海メーカーで見られるポイントと対策
+2026-03-28 14:31:11,596 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n072ed711eb09
+2026-03-28 14:31:14,683 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n072ed711eb09 title=遠回りしてきたからこそ大切にしていること body_length=3679 hashtag_count=15
+2026-03-28 14:31:14,756 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n072ed711eb09 title=遠回りしてきたからこそ大切にしていること
+2026-03-28 14:31:14,756 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n4a03476e365a
+2026-03-28 14:31:17,574 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n4a03476e365a title=【CADオペレーター】モノづくりを支える設計サポートの専門職 body_length=1338 hashtag_count=22
+2026-03-28 14:31:17,629 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n4a03476e365a title=【CADオペレーター】モノづくりを支える設計サポートの専門職
+2026-03-28 14:31:17,629 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n3ee4baf0095c
+2026-03-28 14:31:20,547 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n3ee4baf0095c title=＜同年代に差を付けられないために＞20代後半～30代で身に着けたいスキル・考え方 body_length=2034 hashtag_count=22
+2026-03-28 14:31:20,606 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n3ee4baf0095c title=＜同年代に差を付けられないために＞20代後半～30代で身に着けたいスキル・考え方
+2026-03-28 14:31:20,606 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n8578c200fc59
+2026-03-28 14:31:23,413 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n8578c200fc59 title=愛知・名古屋のリアルな通勤事情と転職の考え方 body_length=1733 hashtag_count=20
+2026-03-28 14:31:23,485 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n8578c200fc59 title=愛知・名古屋のリアルな通勤事情と転職の考え方
+2026-03-28 14:31:23,485 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n3a21ddcd394b
+2026-03-28 14:31:26,792 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n3a21ddcd394b title=転職エージェントを"登録だけしておく"という選択はアリ？という疑問にお答えします body_length=1674 hashtag_count=23
+2026-03-28 14:31:26,870 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n3a21ddcd394b title=転職エージェントを"登録だけしておく"という選択はアリ？という疑問にお答えします
+2026-03-28 14:31:26,870 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nfe4011850f17
+2026-03-28 14:31:29,710 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nfe4011850f17 title=【製造技術】モノづくり現場を支える改善・開発のキーパーソン body_length=1096 hashtag_count=22
+2026-03-28 14:31:29,770 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nfe4011850f17 title=【製造技術】モノづくり現場を支える改善・開発のキーパーソン
+2026-03-28 14:31:29,770 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nbda979739682
+2026-03-28 14:31:33,140 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nbda979739682 title=転職は、神企業探しではない。情報多寡のSNS時代にエージェントが伝えたいこと body_length=2130 hashtag_count=22
+2026-03-28 14:31:33,216 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nbda979739682 title=転職は、神企業探しではない。情報多寡のSNS時代にエージェントが伝えたいこと
+2026-03-28 14:31:33,216 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nc7181aae4702
+2026-03-28 14:31:36,215 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nc7181aae4702 title=転職面接でよく聞かれる質問と答え方｜不安を自信に変える方法 body_length=1050 hashtag_count=18
+2026-03-28 14:31:36,279 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nc7181aae4702 title=転職面接でよく聞かれる質問と答え方｜不安を自信に変える方法
+2026-03-28 14:31:36,279 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/ndb696f87e85a
+2026-03-28 14:31:39,007 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/ndb696f87e85a title=エージェント面談、どう使っていますか？面接との違いと上手な活用法 body_length=2004 hashtag_count=24
+2026-03-28 14:31:39,080 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/ndb696f87e85a title=エージェント面談、どう使っていますか？面接との違いと上手な活用法
+2026-03-28 14:31:39,080 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n62e05c5fe898
+2026-03-28 14:31:41,828 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n62e05c5fe898 title=【制御設計】モノづくりを動かす頭脳ポジション body_length=1162 hashtag_count=23
+2026-03-28 14:31:41,888 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n62e05c5fe898 title=【制御設計】モノづくりを動かす頭脳ポジション
+2026-03-28 14:31:41,888 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n372115b3c75c
+2026-03-28 14:31:44,914 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n372115b3c75c title=伝え方で損しない。穏やかな人のための結論ファースト body_length=1736 hashtag_count=25
+2026-03-28 14:31:44,995 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n372115b3c75c title=伝え方で損しない。穏やかな人のための結論ファースト
+2026-03-28 14:31:44,995 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nf7e83932e0f3
+2026-03-28 14:31:47,820 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nf7e83932e0f3 title=転職で年収アップはいくらが相場？平均81万円アップの実態と成功のポイント body_length=1342 hashtag_count=19
+2026-03-28 14:31:47,883 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nf7e83932e0f3 title=転職で年収アップはいくらが相場？平均81万円アップの実態と成功のポイント
+2026-03-28 14:31:47,883 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n2d3da62378c6
+2026-03-28 14:31:50,577 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n2d3da62378c6 title=「最後の10分」命運を分ける逆質問の重要性とは？ body_length=2348 hashtag_count=22
+2026-03-28 14:31:50,630 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n2d3da62378c6 title=「最後の10分」命運を分ける逆質問の重要性とは？
+2026-03-28 14:31:50,630 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/na4ec185bbabf
+2026-03-28 14:31:53,284 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/na4ec185bbabf title=【サービスエンジニア】技術力で現場を支えるフィールドのプロフェッショナル body_length=1192 hashtag_count=21
+2026-03-28 14:31:53,361 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/na4ec185bbabf title=【サービスエンジニア】技術力で現場を支えるフィールドのプロフェッショナル
+2026-03-28 14:31:53,361 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nd1adf19f88d7
+2026-03-28 14:31:56,374 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nd1adf19f88d7 title=未経験から目指す半導体業界｜仕事内容・将来性・東海でのキャリア body_length=821 hashtag_count=19
+2026-03-28 14:31:56,457 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nd1adf19f88d7 title=未経験から目指す半導体業界｜仕事内容・将来性・東海でのキャリア
+2026-03-28 14:31:56,457 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nd89a437af13c
+2026-03-28 14:31:59,680 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nd89a437af13c title=転職で迷う人ほど見落としがちな「判断軸」 body_length=1292 hashtag_count=21
+2026-03-28 14:31:59,786 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nd89a437af13c title=転職で迷う人ほど見落としがちな「判断軸」
+2026-03-28 14:31:59,786 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nf24f2fc76147
+2026-03-28 14:32:02,727 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nf24f2fc76147 title=【研究開発】化学・食品・医薬品メーカーで専門性を高める技術職 body_length=1182 hashtag_count=21
+2026-03-28 14:32:02,830 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nf24f2fc76147 title=【研究開発】化学・食品・医薬品メーカーで専門性を高める技術職
+2026-03-28 14:32:02,830 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n44cada4edb66
+2026-03-28 14:32:06,592 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n44cada4edb66 title=【Claudeが使えなくなる日？】米国防総省のAI規制と生成AI会社の生存戦略。あなたのClaudeCodeが消滅する前に。国家と生成AIの覇権争い安全なAIはなぜリスク認定されたか？ #Claude #生成AI #Anthropic #ClaudeCode #ChatGPT #Gemini #OpenAI #Google #AI規制 #地政学 body_length=3680 hashtag_count=98
+2026-03-28 14:32:06,684 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n44cada4edb66 title=【Claudeが使えなくなる日？】米国防総省のAI規制と生成AI会社の生存戦略。あなたのClaudeCodeが消滅する前に。国家と生成AIの覇権争い安全なAIはなぜリスク認定されたか？ #Claude #生成AI #Anthropic #ClaudeCode #ChatGPT #Gemini #OpenAI #Google #AI規制 #地政学
+2026-03-28 14:32:06,684 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nae45f8ac06e5
+2026-03-28 14:32:12,483 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nae45f8ac06e5 title=【好き勝手に書いて、メンバーシップ1000名超え、フォロワー7000人】「お客様のため」という呪いを解く。売上と心を両立させる、250年前のマーケティング論。綺麗事を捨て、真に選ばれるセールスの哲学とは？ #メンバーシップ #毎日更新 #マーケティング #起業 #在宅副業 #文章術 #継続記録 #働き方 # body_length=23136 hashtag_count=100
+2026-03-28 14:32:12,644 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nae45f8ac06e5 title=【好き勝手に書いて、メンバーシップ1000名超え、フォロワー7000人】「お客様のため」という呪いを解く。売上と心を両立させる、250年前のマーケティング論。綺麗事を捨て、真に選ばれるセールスの哲学とは？ #メンバーシップ #毎日更新 #マーケティング #起業 #在宅副業 #文章術 #継続記録 #働き方 #
+2026-03-28 14:32:12,644 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n2d5adc37138c
+2026-03-28 14:32:16,989 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n2d5adc37138c title=【中国SMIC（半導体大手）がイラン軍に半導体技術を提供していた？】なぜ中国は米国からの制裁覚悟で、イランのミサイル頭脳を支援しているのか？裏で進む石油と技術の物々交換 #国際政治 #イラン情勢 #米国 #インフレ #中国 #イラン #サプライチェーン #米中関係 body_length=3220 hashtag_count=97
+2026-03-28 14:32:17,056 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n2d5adc37138c title=【中国SMIC（半導体大手）がイラン軍に半導体技術を提供していた？】なぜ中国は米国からの制裁覚悟で、イランのミサイル頭脳を支援しているのか？裏で進む石油と技術の物々交換 #国際政治 #イラン情勢 #米国 #インフレ #中国 #イラン #サプライチェーン #米中関係
+2026-03-28 14:32:17,056 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n068a0f995eb4
+2026-03-28 14:32:21,141 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n068a0f995eb4 title=【OpenAI「Sora」終了の真実】消えた1590億円と冷酷な生存戦略。Sora終了の裏にある「Claudeの猛追」と覇権の行方。エンタメAIは死んだのか？実利を奪い合う恐怖 #生成AI #AI活用 #Sora #ChatGPT #Claude  #Anthropic #SaaS #テクノロジー #経営 body_length=4652 hashtag_count=98
+2026-03-28 14:32:21,219 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n068a0f995eb4 title=【OpenAI「Sora」終了の真実】消えた1590億円と冷酷な生存戦略。Sora終了の裏にある「Claudeの猛追」と覇権の行方。エンタメAIは死んだのか？実利を奪い合う恐怖 #生成AI #AI活用 #Sora #ChatGPT #Claude  #Anthropic #SaaS #テクノロジー #経営
+2026-03-28 14:32:21,219 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nefc49e007f47
+2026-03-28 14:32:26,205 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nefc49e007f47 title=【有料記事に「500円」をつける手が震えるあなたへ】貿易商12年の私が教える、「売ることが怖い・苦手」の克服法。営業を"0か100"でやるから失敗する脳科学的な理由。ヒロアカが教える「常時5%理論」 #メンバーシップ #マーケティング #ライティング #発信 #在宅副業 #フリーランス #SNS #SNS発信 #自己紹介 body_length=21623 hashtag_count=100
+2026-03-28 14:32:26,275 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nefc49e007f47 title=【有料記事に「500円」をつける手が震えるあなたへ】貿易商12年の私が教える、「売ることが怖い・苦手」の克服法。営業を"0か100"でやるから失敗する脳科学的な理由。ヒロアカが教える「常時5%理論」 #メンバーシップ #マーケティング #ライティング #発信 #在宅副業 #フリーランス #SNS #SNS発信 #自己紹介
+2026-03-28 14:32:26,276 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n3e184c85e0ca
+2026-03-28 14:32:29,926 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n3e184c85e0ca title=【ドイツが日本のために、飛んできてくれた？】ドイツ軍が地球の裏側まで飛んでくる理由。日本との協力と18兆円の防衛費と8900キロの覚悟 #ドイツ #安全保障 #日独連携 #地政学 #中国 #ロシア #北朝鮮 body_length=3707 hashtag_count=100
+2026-03-28 14:32:29,999 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n3e184c85e0ca title=【ドイツが日本のために、飛んできてくれた？】ドイツ軍が地球の裏側まで飛んでくる理由。日本との協力と18兆円の防衛費と8900キロの覚悟 #ドイツ #安全保障 #日独連携 #地政学 #中国 #ロシア #北朝鮮
+2026-03-28 14:32:29,999 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/ne78957c63ad0
+2026-03-28 14:32:33,213 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/ne78957c63ad0 title=【イラン戦争前から、米国経済の危機？】マイナス9.2万人の衝撃。イラン戦争の「前」から壊れていた米国経済の真実数字が暴く。「最強」の幻想の終わりか？ #米国経済 #雇用統計 #インフレ #スタグフレーション #FRB #利下げ body_length=3639 hashtag_count=98
+2026-03-28 14:32:33,288 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/ne78957c63ad0 title=【イラン戦争前から、米国経済の危機？】マイナス9.2万人の衝撃。イラン戦争の「前」から壊れていた米国経済の真実数字が暴く。「最強」の幻想の終わりか？ #米国経済 #雇用統計 #インフレ #スタグフレーション #FRB #利下げ
+2026-03-28 14:32:33,288 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n245c57b08219
+2026-03-28 14:32:36,836 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n245c57b08219 title=【ホルムズ海峡に「裏口」が開いた？イランがタンカーを通している？】 ホルムズ海峡「選択的開放」の罠と、日本を救う5つの裏口イランの生存戦略。原油迂回ルートの現実 #ニュース #ビジネス #経済 #国際情勢 #時事問題 #中東情勢 #エネルギー body_length=4516 hashtag_count=99
+2026-03-28 14:32:36,902 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n245c57b08219 title=【ホルムズ海峡に「裏口」が開いた？イランがタンカーを通している？】 ホルムズ海峡「選択的開放」の罠と、日本を救う5つの裏口イランの生存戦略。原油迂回ルートの現実 #ニュース #ビジネス #経済 #国際情勢 #時事問題 #中東情勢 #エネルギー
+2026-03-28 14:32:36,902 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n8e5658fec2a2
+2026-03-28 14:32:40,161 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/hide_taxnote/n/n8e5658fec2a2
+2026-03-28 14:32:40,161 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/hide_taxnote/n/n8e5658fec2a2
+2026-03-28 14:32:40,161 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/mindset_official/n/n30d067a3ba63
+2026-03-28 14:32:44,095 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/mindset_official/n/n30d067a3ba63 title=コーチングアカデミーを通じて、自分が本音でやりたいことをやって生きていいと思えた body_length=7470 hashtag_count=4
+2026-03-28 14:32:44,226 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/mindset_official/n/n30d067a3ba63 title=コーチングアカデミーを通じて、自分が本音でやりたいことをやって生きていいと思えた
+2026-03-28 14:32:44,226 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/mindset_official/n/nd53cec9fcded
+2026-03-28 14:32:47,324 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/mindset_official/n/nd53cec9fcded title=現状の外に挑み続けた総勢60人が参加！Mindset Coaching Academy 7期卒業式@渋谷QWS body_length=2801 hashtag_count=5
+2026-03-28 14:32:47,410 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/mindset_official/n/nd53cec9fcded title=現状の外に挑み続けた総勢60人が参加！Mindset Coaching Academy 7期卒業式@渋谷QWS
+2026-03-28 14:32:47,410 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/mindset_official/n/n1ea9456e986d
+2026-03-28 14:32:50,372 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/mindset_official/n/n1ea9456e986d title=成長・対人支援機能のカオスを正確に区分整理してみた body_length=3427 hashtag_count=4
+2026-03-28 14:32:50,437 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/mindset_official/n/n1ea9456e986d title=成長・対人支援機能のカオスを正確に区分整理してみた
+2026-03-28 14:32:50,437 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/mindset_official/n/n09ebda7655b9
+2026-03-28 14:32:53,429 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/mindset_official/n/n09ebda7655b9 title=200名以上が参加した「コーチング×専門性での変革ストーリー」パネルディスカッション・イベントレポート body_length=5243 hashtag_count=3
+2026-03-28 14:32:53,491 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/mindset_official/n/n09ebda7655b9 title=200名以上が参加した「コーチング×専門性での変革ストーリー」パネルディスカッション・イベントレポート
+2026-03-28 14:32:53,492 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/mindset_official/n/n2d9c7417e170
+2026-03-28 14:32:56,274 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/mindset_official/n/n2d9c7417e170 title=200名以上が参加した「プロコーチとクライアントによるパネルディスカッション」レポート Vol.3 body_length=3711 hashtag_count=3
+2026-03-28 14:32:56,345 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/mindset_official/n/n2d9c7417e170 title=200名以上が参加した「プロコーチとクライアントによるパネルディスカッション」レポート Vol.3
+2026-03-28 14:32:56,345 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/mindset_official/n/nd1343880eab4
+2026-03-28 14:32:59,084 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/mindset_official/n/nd1343880eab4 title=200名以上が参加した「プロコーチとクライアントによるパネルディスカッション」レポート Vol.2 body_length=3220 hashtag_count=3
+2026-03-28 14:32:59,150 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/mindset_official/n/nd1343880eab4 title=200名以上が参加した「プロコーチとクライアントによるパネルディスカッション」レポート Vol.2
+2026-03-28 14:32:59,150 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/mindset_official/n/n06241fe0333b
+2026-03-28 14:33:02,298 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/mindset_official/n/n06241fe0333b title=200名以上が参加した「プロコーチとクライアントによるパネルディスカッションイベント」レポート Vol.1 body_length=3925 hashtag_count=3
+2026-03-28 14:33:02,374 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/mindset_official/n/n06241fe0333b title=200名以上が参加した「プロコーチとクライアントによるパネルディスカッションイベント」レポート Vol.1
+2026-03-28 14:33:02,374 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/nf3bda26fe576
+2026-03-28 14:33:05,359 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/nf3bda26fe576 title=素敵な絵師様の備忘録 body_length=253 hashtag_count=3
+2026-03-28 14:33:05,471 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/nf3bda26fe576 title=素敵な絵師様の備忘録
+2026-03-28 14:33:05,472 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/n36f543cf55ff
+2026-03-28 14:33:08,469 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/n36f543cf55ff title=このチヂミレシピ実際に作ったら、すごく美味しかったです！ https://y… body_length=125 hashtag_count=2
+2026-03-28 14:33:08,532 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/n36f543cf55ff title=このチヂミレシピ実際に作ったら、すごく美味しかったです！ https://y…
+2026-03-28 14:33:08,532 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/n2148c675ea9b
+2026-03-28 14:33:11,415 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/n2148c675ea9b title=言語学ラジオより、ビジュアルシンカーについて https://www.you… body_length=128 hashtag_count=2
+2026-03-28 14:33:11,483 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/n2148c675ea9b title=言語学ラジオより、ビジュアルシンカーについて https://www.you…
+2026-03-28 14:33:11,484 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/nf711e6d2feab
+2026-03-28 14:33:14,439 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/nf711e6d2feab title=⭐️演技の基礎〜読書のまとめ〜 body_length=1862 hashtag_count=3
+2026-03-28 14:33:14,506 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/nf711e6d2feab title=⭐️演技の基礎〜読書のまとめ〜
+2026-03-28 14:33:14,507 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/nb6e3fe3c94c0
+2026-03-28 14:33:17,337 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/nb6e3fe3c94c0 title=カフェ好きは唸る🐯☕️ 「ミルクの束縛　ミルクコーヒー」 ・味が美味しすぎる… body_length=122 hashtag_count=4
+2026-03-28 14:33:17,412 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/nb6e3fe3c94c0 title=カフェ好きは唸る🐯☕️ 「ミルクの束縛　ミルクコーヒー」 ・味が美味しすぎる…
+2026-03-28 14:33:17,412 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/n7ef7d7407843
+2026-03-28 14:33:20,429 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/n7ef7d7407843 title=ネットで人類の知恵の集合体が当たり前は今、 やりたいことの先にすごい人はもう… body_length=131 hashtag_count=3
+2026-03-28 14:33:20,500 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/n7ef7d7407843 title=ネットで人類の知恵の集合体が当たり前は今、 やりたいことの先にすごい人はもう…
+2026-03-28 14:33:20,500 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/n39df762efb26
+2026-03-28 14:33:23,176 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/n39df762efb26 title=個性が殺された若者たち 量産型なリクルート そうよね、 就活で聞かれるあなた… body_length=166 hashtag_count=4
+2026-03-28 14:33:23,252 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/n39df762efb26 title=個性が殺された若者たち 量産型なリクルート そうよね、 就活で聞かれるあなた…
+2026-03-28 14:33:23,252 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/n634e900abed7

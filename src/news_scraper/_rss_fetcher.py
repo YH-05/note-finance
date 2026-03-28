@@ -362,7 +362,10 @@ async def fetch_rss_feeds(
             "Fetching full article content", source=source_name, count=len(all_articles)
         )
         extracted = await extractor.extract_batch([a.url for a in all_articles])
-        content_map: dict[str, str | None] = {r.url: r.text for r in extracted}
+        content_map: dict[str, str | None] = {
+            r.url: r.text if r.extraction_method.startswith("trafilatura") else None
+            for r in extracted
+        }
         all_articles = [
             a.model_copy(update={"content": content_map.get(a.url)})
             for a in all_articles

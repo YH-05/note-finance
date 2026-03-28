@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import re
 import sys
 from pathlib import Path
 
@@ -104,6 +105,17 @@ def parse_note_article_md(note_file: Path) -> tuple[str, str]:
     return title, body
 
 
+def _strip_markdown_inline(text: str) -> str:
+    """Remove inline markdown markers (**bold**, *italic*) from text.
+
+    note.com's editor does not auto-convert markdown inline syntax,
+    so these markers would appear literally if left in place.
+    """
+    text = re.sub(r"\*\*([^*]*)\*\*", r"\1", text)
+    text = re.sub(r"\*([^*]+)\*", r"\1", text)
+    return text
+
+
 def _build_article_draft_from_text(title: str, body: str) -> ArticleDraft:
     """Convert plain title + body text into an ArticleDraft.
 
@@ -155,7 +167,16 @@ def _build_article_draft_from_text(title: str, body: str) -> ArticleDraft:
             blocks.append(
                 ContentBlock(
                     block_type="list_item",
-                    content=stripped[2:],
+                    content=_strip_markdown_inline(stripped[2:]),
+                )
+            )
+        elif re.match(r"^\d+\. ", stripped):
+            # 番号付きリスト: "1. text" → content="text"（番号はnote.comが自動付与）
+            content = re.sub(r"^\d+\. ", "", stripped)
+            blocks.append(
+                ContentBlock(
+                    block_type="numbered_list_item",
+                    content=_strip_markdown_inline(content),
                 )
             )
         elif stripped.startswith("> "):
@@ -167,8 +188,23 @@ def _build_article_draft_from_text(title: str, body: str) -> ArticleDraft:
             )
         elif stripped == "---":
             blocks.append(ContentBlock(block_type="separator", content=""))
-        else:
+        elif re.match(r"^#\S", stripped):
+            # ハッシュタグ行: 前に2行の空行を挿入してから段落として追加
+            blocks.append(ContentBlock(block_type="paragraph", content=""))
+            blocks.append(ContentBlock(block_type="paragraph", content=""))
             blocks.append(ContentBlock(block_type="paragraph", content=stripped))
+        else:
+            blocks.append(ContentBlock(block_type="paragraph", content=_strip_markdown_inline(stripped)))
+
+    # 目次ブロックを最初の見出しの直前に自動挿入する。
+    # intro 段落の後・最初の ## 見出しの前に配置する（エディタに文字が入力済みの状態で
+    # 挿入することで "+" ボタンが確実に現れる）。
+    first_heading_idx = next(
+        (i for i, b in enumerate(blocks) if b.block_type == "heading"),
+        None,
+    )
+    if first_heading_idx is not None:
+        blocks.insert(first_heading_idx, ContentBlock(block_type="toc", content=""))
 
     return ArticleDraft(title=title, body_blocks=blocks)
 

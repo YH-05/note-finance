@@ -40,9 +40,11 @@ import argparse
 import json
 import logging
 import os
+import random
 import re
 import subprocess
 import sys
+import time as time_mod
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -70,19 +72,67 @@ from utils_core.logging.config import get_logger, setup_logging
 
 JST = ZoneInfo("Asia/Tokyo")
 
-SLOT_TIME_MAP: dict[str, str] = {
+SLOT_TIME_MAP_CAREER_SISTER: dict[str, str] = {
     "朝": "07:30",
     "昼": "12:30",
     "夜": "20:30",
 }
-"""スロット名 → 投稿時刻のマッピング。"""
+"""career_sister のスロット名 → 投稿時刻マッピング。"""
 
-SLOT_INDEX_MAP: dict[str, str] = {
+SLOT_TIME_MAP_MITSUKI: dict[str, str] = {
+    "S1": "07:00",
+    "S2": "12:00",
+    "S3": "15:00",
+    "S4": "19:00",
+    "S5": "22:00",
+}
+"""mitsuki のスロット名 → 投稿時刻マッピング。"""
+
+SLOT_TIME_MAP_KUROTO_AREA: dict[str, str] = {
+    "S1": "07:30",
+    "S2": "12:00",
+    "S3": "18:00",
+    "S4": "20:00",
+    "S5": "21:30",
+}
+"""kuroto_area のスロット名 → 投稿時刻マッピング。"""
+
+SLOT_INDEX_MAP_CAREER_SISTER: dict[str, str] = {
     "S1": "朝",
     "S2": "昼",
     "S3": "夜",
 }
-"""--force-slot 引数 → スロット名のマッピング。"""
+"""career_sister の --force-slot 引数 → スロット名マッピング。"""
+
+SLOT_INDEX_MAP_MITSUKI: dict[str, str] = {
+    "S1": "S1",
+    "S2": "S2",
+    "S3": "S3",
+    "S4": "S4",
+    "S5": "S5",
+}
+"""mitsuki の --force-slot 引数 → スロット名マッピング。"""
+
+SLOT_INDEX_MAP_KUROTO_AREA: dict[str, str] = SLOT_INDEX_MAP_MITSUKI
+"""kuroto_area の --force-slot 引数 → スロット名マッピング。"""
+
+
+def _get_slot_time_map(account: str) -> dict[str, str]:
+    """アカウントに応じたスロット時刻マッピングを返す."""
+    if account == "mitsuki":
+        return SLOT_TIME_MAP_MITSUKI
+    if account == "kuroto_area":
+        return SLOT_TIME_MAP_KUROTO_AREA
+    return SLOT_TIME_MAP_CAREER_SISTER
+
+
+def _get_slot_index_map(account: str) -> dict[str, str]:
+    """アカウントに応じた --force-slot マッピングを返す."""
+    if account == "mitsuki":
+        return SLOT_INDEX_MAP_MITSUKI
+    if account == "kuroto_area":
+        return SLOT_INDEX_MAP_KUROTO_AREA
+    return SLOT_INDEX_MAP_CAREER_SISTER
 
 DAY_DIR_MAP_MITSUKI: dict[str, str] = {
     "月": "day_1_月",
@@ -106,7 +156,10 @@ DAY_DIR_MAP_CAREER_SISTER: dict[str, str] = {
 }
 """career_sister アカウントの曜日ラベル → ディレクトリ名マッピング。"""
 
-ACCOUNTS: list[str] = ["career_sister", "mitsuki"]
+DAY_DIR_MAP_KUROTO_AREA: dict[str, str] = DAY_DIR_MAP_MITSUKI
+"""kuroto_area アカウントの曜日ラベル → ディレクトリ名マッピング（mitsuki と同一）。"""
+
+ACCOUNTS: list[str] = ["career_sister", "mitsuki", "kuroto_area"]
 """対応しているアカウント一覧。"""
 
 # ---------------------------------------------------------------------------
@@ -147,6 +200,30 @@ _SYNC_NAS_SCRIPT: Path = Path(__file__).parent / "sync_nas.sh"
 def _is_nas_mounted() -> bool:
     """NAS がマウントされているかを判定する."""
     return _NAS_MOUNT_POINT.is_mount()
+
+
+def _compute_jitter_seconds(max_minutes: int) -> float:
+    """正規分布で投稿前ランダム遅延秒数を算出する.
+
+    半正規分布（|N(0, σ)|）を使い、0〜max_minutes の範囲に収める。
+    σ = max_minutes / 3 とすることで、99.7% が max_minutes 以内に収まる。
+
+    Parameters
+    ----------
+    max_minutes : int
+        最大遅延（分）。0 の場合は 0.0 を返す。
+
+    Returns
+    -------
+    float
+        遅延秒数（0 以上）。
+    """
+    if max_minutes <= 0:
+        return 0.0
+    sigma = max_minutes / 3.0
+    delay = abs(random.gauss(0, sigma))
+    delay = min(delay, float(max_minutes))
+    return delay * 60.0
 
 
 def _is_retryable_error(exc: BaseException) -> bool:
@@ -324,6 +401,7 @@ class AutoPosterConfig:
     force_slot: str | None = None
     tolerance: int = 15
     week: str | None = None
+    jitter: int = 0
 
 
 @dataclass
@@ -441,7 +519,9 @@ class SlotMatcher:
         )
         return None
 
-    def match_force(self, now: datetime, force_slot: str) -> dict[str, Any] | None:
+    def match_force(
+        self, now: datetime, force_slot: str, account: str = "career_sister"
+    ) -> dict[str, Any] | None:
         """force_slot 指定時は時刻マッチングを無視してスロットを返す.
 
         Parameters
@@ -449,14 +529,17 @@ class SlotMatcher:
         now : datetime
             現在時刻（参照のみ、マッチングには使用しない）。
         force_slot : str
-            強制スロット指定（S1=朝, S2=昼, S3=夜）。
+            強制スロット指定（S1-S5）。
+        account : str
+            アカウント名（スロット名解決に使用）。
 
         Returns
         -------
         dict[str, Any] | None
             指定スロット情報、存在しない場合は None。
         """
-        slot_name = SLOT_INDEX_MAP.get(force_slot)
+        slot_index_map = _get_slot_index_map(account)
+        slot_name = slot_index_map.get(force_slot)
         if slot_name is None:
             self._logger.warning("invalid_force_slot", force_slot=force_slot)
             return None
@@ -506,6 +589,8 @@ class DraftReader:
         """アカウントに応じた曜日 → ディレクトリ名マッピングを返す."""
         if self._account == "mitsuki":
             return DAY_DIR_MAP_MITSUKI
+        if self._account == "kuroto_area":
+            return DAY_DIR_MAP_KUROTO_AREA
         return DAY_DIR_MAP_CAREER_SISTER
 
     def _detect_week_dir(self, week: str | None) -> Path | None:
@@ -603,9 +688,17 @@ class DraftReader:
         return []
 
     def get_slot_file(
-        self, week_dir_name: str, date: str, day_label: str, slot_name: str
+        self,
+        week_dir_name: str,
+        date: str,
+        day_label: str,
+        slot_name: str,
+        meta: dict[str, Any] | None = None,
     ) -> Path | None:
         """スロットの投稿ファイルパスを返す.
+
+        mitsuki / kuroto_area は meta.json の ``file`` フィールドから解決する。
+        career_sister はディレクトリ構造ベース（slot_1_morning/threads_post.md）で解決する。
 
         Parameters
         ----------
@@ -616,19 +709,33 @@ class DraftReader:
         day_label : str
             曜日ラベル（月/火/水/木/金/土/日）。
         slot_name : str
-            スロット名（朝/昼/夜）。
+            スロット名（朝/昼/夜 or S1-S5）。
+        meta : dict[str, Any] | None
+            meta.json の内容。file フィールドによるパス解決に使用。
 
         Returns
         -------
         Path | None
-            threads_post.md へのパス、存在しない場合は None。
+            投稿ファイルへのパス、存在しない場合は None。
         """
+        # mitsuki / kuroto_area: meta.json の file フィールドから解決
+        if self._account in ("mitsuki", "kuroto_area") and meta:
+            for day in meta.get("days", []):
+                if day.get("date") == date:
+                    for s in day.get("slots", []):
+                        if s.get("slot") == slot_name:
+                            file_path = s.get("file")
+                            if file_path:
+                                candidate = self._drafts_root / week_dir_name / file_path
+                                return candidate if candidate.exists() else None
+            return None
+
+        # career_sister: ディレクトリ構造ベースで解決
         day_dir_map = self._get_day_dir_map()
         day_dir_name = day_dir_map.get(day_label)
         if day_dir_name is None:
             return None
 
-        # slot ディレクトリ名マッピング（career_sister / mitsuki 共通）
         slot_dir_map = {
             "朝": "slot_1_morning",
             "昼": "slot_2_noon",
@@ -759,14 +866,12 @@ class AccountPoster:
         # フロントマターを 1 回でパース（二重解析を回避）
         topic_tag, body = self._parse_front_matter(content)
 
-        # topic_tag を本文末尾に追記
-        text = f"{body}\n\n{topic_tag}" if topic_tag else body
-
         self._logger.info(
             "posting_to_threads",
             account=self.account,
-            text_length=len(text),
+            text_length=len(body),
             has_topic_tag=topic_tag is not None,
+            topic_tag=topic_tag,
         )
 
         @tenacity.retry(
@@ -781,7 +886,7 @@ class AccountPoster:
         def _post_with_retry() -> PostResult:
             config = ThreadsConfig()
             threads_poster = ThreadsPoster(config)
-            return threads_poster.post_text(text)
+            return threads_poster.post_text(body, topic_tag=topic_tag)
 
         result = _post_with_retry()
 
@@ -1283,6 +1388,7 @@ def _build_parser() -> argparse.ArgumentParser:
   %(prog)s --force-slot S1                 # 時刻無視で朝スロット
   %(prog)s --tolerance 30                  # ±30分の許容範囲
   %(prog)s --week 2026-03-31               # 特定週を指定
+  %(prog)s --jitter 10                     # 投稿前に正規分布で0〜10分遅延
 """,
     )
     parser.add_argument(
@@ -1325,6 +1431,13 @@ def _build_parser() -> argparse.ArgumentParser:
         metavar="YYYY-MM-DD",
         help="投稿対象週の週開始日（YYYY-MM-DD 形式）。未指定の場合は現在週を自動検出。",
     )
+    parser.add_argument(
+        "--jitter",
+        type=int,
+        default=10,
+        metavar="MINUTES",
+        help="投稿前のランダム遅延の最大値（分）。正規分布(σ=max/3)で0〜max分遅延する。0で無効。デフォルト: 10。",
+    )
     return parser
 
 
@@ -1364,6 +1477,7 @@ def main(argv: list[str] | None = None) -> int:
         force_slot=args.force_slot,
         tolerance=args.tolerance,
         week=args.week,
+        jitter=args.jitter,
     )
 
     logger.info(
@@ -1372,11 +1486,11 @@ def main(argv: list[str] | None = None) -> int:
         dry_run=config.dry_run,
         force_slot=config.force_slot,
         tolerance=config.tolerance,
+        jitter=config.jitter,
         week=config.week,
     )
 
     now = datetime.now(tz=JST)
-    matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=config.tolerance)
 
     # 対象アカウントを決定
     target_accounts = [config.account] if config.account else ACCOUNTS
@@ -1392,6 +1506,8 @@ def main(argv: list[str] | None = None) -> int:
 
         for account in target_accounts:
             logger.info("processing_account", account=account)
+            slot_time_map = _get_slot_time_map(account)
+            matcher = SlotMatcher(slot_time_map=slot_time_map, tolerance=config.tolerance)
             summaries[account] = _process_account(account, config, now, matcher)
 
         nas_syncer.push()
@@ -1629,7 +1745,7 @@ def _process_account(
 
     today_str = now.strftime("%Y-%m-%d")
     matched = (
-        matcher.match_force(now, config.force_slot)
+        matcher.match_force(now, config.force_slot, account=account)
         if config.force_slot
         else matcher.match(now)
     )
@@ -1701,7 +1817,7 @@ def _run_post_slot(
     week_start = meta.get("week_start", "")
     week_dir_name = f"week_{week_start}"
 
-    slot_file = reader.get_slot_file(week_dir_name, today_str, day_label, slot_name)
+    slot_file = reader.get_slot_file(week_dir_name, today_str, day_label, slot_name, meta=meta)
     if slot_file is None:
         logger.warning(
             "slot_file_not_found",
@@ -1737,6 +1853,19 @@ def _run_post_slot(
         )
         summary.skipped += 1
         return
+
+    # Jitter: 投稿前にランダム遅延（自然な投稿パターンを演出）
+    if config.jitter > 0 and not config.dry_run:
+        delay_sec = _compute_jitter_seconds(config.jitter)
+        if delay_sec > 0:
+            logger.info(
+                "jitter_sleep",
+                account=account,
+                slot=slot_name,
+                delay_seconds=round(delay_sec, 1),
+                delay_minutes=round(delay_sec / 60, 1),
+            )
+            time_mod.sleep(delay_sec)
 
     success = _execute_post(
         account, slot_name, today_str, slot_file, updater, fresh_meta

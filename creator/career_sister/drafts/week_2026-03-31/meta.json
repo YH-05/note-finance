@@ -1,0 +1,283 @@
+{
+  "week_start": "2026-03-31",
+  "week_end": "2026-04-06",
+  "status": "draft",
+  "total_threads": 21,
+  "total_instagram": 7,
+  "cycles_consumed": 2.1,
+  "days": [
+    {
+      "date": "2026-03-31",
+      "day_label": "月",
+      "status": "draft",
+      "slots": [
+        {
+          "slot": "朝",
+          "category": "有益",
+          "type": "型2",
+          "theme": "T2",
+          "threads_char_count": 270,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "昼",
+          "category": "エンゲージメント",
+          "type": "型1-A",
+          "theme": "T4",
+          "threads_char_count": 320,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "夜",
+          "category": "有益",
+          "type": "型5",
+          "theme": "T10",
+          "threads_char_count": 430,
+          "instagram": true,
+          "carousel_slides": 7,
+          "posted_at": null,
+          "threads_permalink": null,
+          "instagram_permalink": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "day_label": "火",
+      "status": "draft",
+      "slots": [
+        {
+          "slot": "朝",
+          "category": "有益",
+          "type": "型4",
+          "theme": "T3",
+          "threads_char_count": 280,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "昼",
+          "category": "有益",
+          "type": "型3",
+          "theme": "T1",
+          "threads_char_count": 420,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "夜",
+          "category": "有益",
+          "type": "型5",
+          "theme": "T9",
+          "threads_char_count": 460,
+          "instagram": true,
+          "carousel_slides": 7,
+          "posted_at": null,
+          "threads_permalink": null,
+          "instagram_permalink": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "day_label": "水",
+      "status": "draft",
+      "slots": [
+        {
+          "slot": "朝",
+          "category": "エンゲージメント",
+          "type": "型1-B",
+          "theme": "T7",
+          "threads_char_count": 290,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "昼",
+          "category": "収益化",
+          "type": "型3",
+          "theme": "T5",
+          "threads_char_count": 430,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "夜",
+          "category": "有益",
+          "type": "型1",
+          "theme": "T8",
+          "threads_char_count": 440,
+          "instagram": true,
+          "carousel_slides": 7,
+          "posted_at": null,
+          "threads_permalink": null,
+          "instagram_permalink": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "day_label": "木",
+      "status": "draft",
+      "slots": [
+        {
+          "slot": "朝",
+          "category": "有益",
+          "type": "型2",
+          "theme": "T6",
+          "threads_char_count": 280,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "昼",
+          "category": "有益",
+          "type": "型5",
+          "theme": "T10",
+          "threads_char_count": 460,
+          "instagram": true,
+          "carousel_slides": 7,
+          "posted_at": null,
+          "threads_permalink": null,
+          "instagram_permalink": null
+        },
+        {
+          "slot": "夜",
+          "category": "エンゲージメント",
+          "type": "型1-A",
+          "theme": "T4",
+          "threads_char_count": 400,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "day_label": "金",
+      "status": "draft",
+      "slots": [
+        {
+          "slot": "朝",
+          "category": "有益",
+          "type": "型4",
+          "theme": "T1",
+          "threads_char_count": 290,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "昼",
+          "category": "有益",
+          "type": "型3",
+          "theme": "T7",
+          "threads_char_count": 400,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "夜",
+          "category": "有益",
+          "type": "型5",
+          "theme": "T9",
+          "threads_char_count": 470,
+          "instagram": true,
+          "carousel_slides": 7,
+          "posted_at": null,
+          "threads_permalink": null,
+          "instagram_permalink": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "day_label": "土",
+      "status": "draft",
+      "slots": [
+        {
+          "slot": "朝",
+          "category": "有益",
+          "type": "型1",
+          "theme": "T2",
+          "threads_char_count": 450,
+          "instagram": true,
+          "carousel_slides": 7,
+          "posted_at": null,
+          "threads_permalink": null,
+          "instagram_permalink": null
+        },
+        {
+          "slot": "昼",
+          "category": "エンゲージメント",
+          "type": "型1-B",
+          "theme": "T8",
+          "threads_char_count": 350,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "夜",
+          "category": "収益化",
+          "type": "型3",
+          "theme": "T5",
+          "threads_char_count": 420,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-06",
+      "day_label": "日",
+      "status": "draft",
+      "slots": [
+        {
+          "slot": "朝",
+          "category": "有益",
+          "type": "型2",
+          "theme": "T3",
+          "threads_char_count": 300,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "昼",
+          "category": "有益",
+          "type": "型5",
+          "theme": "T10",
+          "threads_char_count": 440,
+          "instagram": false,
+          "posted_at": null,
+          "threads_permalink": null
+        },
+        {
+          "slot": "夜",
+          "category": "有益",
+          "type": "型4",
+          "theme": "T6",
+          "threads_char_count": 470,
+          "instagram": true,
+          "carousel_slides": 7,
+          "posted_at": null,
+          "threads_permalink": null,
+          "instagram_permalink": null
+        }
+      ]
+    }
+  ]
+}

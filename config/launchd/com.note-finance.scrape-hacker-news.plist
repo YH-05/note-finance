@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.note-finance.scrape-hacker-news</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/yuki/.local/bin/uv</string>
+        <string>run</string>
+        <string>python</string>
+        <string>/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py</string>
+        <string>--sources</string>
+        <string>hacker_news</string>
+        <string>--include-content</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/yuki/Desktop/note-finance</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/Users/yuki/.local/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>0</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>6</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/scrape-hacker-news.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/scrape-hacker-news-error.log</string>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

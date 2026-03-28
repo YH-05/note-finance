@@ -3,28 +3,25 @@ slot: S3
 time: "18:00"
 category: 海外メソッド
 type: 型3
-theme_id: MT2
-concept: Digital Minimalism
-author: Cal Newport
-char_count: 230
+theme_id: MT4
+concept: Reverse Engineering
+author: Ron Friedman
+char_count: 330
 topic_tag: 自己啓発
-status: draft
-posted_at: null
-permalink: null
 ---
 
-Cal Newportの提唱する「デジタルミニマリズム」。
+『Great at Work』の著者 Morten Hansen の研究。
+5,000人以上を対象に調査した結果が示すのは、
 
-大量のアプリやSNSをやめ、
-「自分の価値観に沿ったものだけ」を残す。
-選択的に使うというアプローチです。
+「成果を上げる人はより多く働くのではなく、
+より少ない領域でより深く働く」
 
-日本では「スマホ断食」と誤解されることが多いですが、
-完全な排除ではなく「設計」が本質です。
+Ron Friedman の Reverse Engineering は
+この原則をさらに実践的にしたもの。
 
-まず一週間、SNSを確認する時間帯を
-1日2回だけに限定してみてください。
+達成したい結果を先に決め、
+そこから逆算して行動を設計する。
 
-情報量ではなく、思考の深さで人は変わります。
-浅い情報消費から、深い思考の時間へ。
-その設計が、静かな強さの土台になります。
+今日の最重要タスクを1つ選んで、
+「完成形から逆算すると、今日何が必要か？」
+と問うだけで、優先度が明確になります。

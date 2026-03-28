@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+note-finance SNS 自動投稿 — kuroto_area (@kuroto_area)
+======================================================
+5スロット: S1(07:30) S2(12:00) S3(18:00) S4(20:00) S5(21:30)
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.note-finance.auto-poster-kuroto-area</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/yuki/.local/bin/uv</string>
+        <string>run</string>
+        <string>python</string>
+        <string>scripts/auto_poster.py</string>
+        <string>--account</string>
+        <string>kuroto_area</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/yuki/Desktop/note-finance</string>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <!-- S1: 07:30 -->
+        <dict>
+            <key>Hour</key><integer>7</integer>
+            <key>Minute</key><integer>30</integer>
+        </dict>
+        <!-- S2: 12:00 -->
+        <dict>
+            <key>Hour</key><integer>12</integer>
+            <key>Minute</key><integer>0</integer>
+        </dict>
+        <!-- S3: 18:00 -->
+        <dict>
+            <key>Hour</key><integer>18</integer>
+            <key>Minute</key><integer>0</integer>
+        </dict>
+        <!-- S4: 20:00 -->
+        <dict>
+            <key>Hour</key><integer>20</integer>
+            <key>Minute</key><integer>0</integer>
+        </dict>
+        <!-- S5: 21:30 -->
+        <dict>
+            <key>Hour</key><integer>21</integer>
+            <key>Minute</key><integer>30</integer>
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/auto-poster-kuroto-area.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/auto-poster-kuroto-area-error.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

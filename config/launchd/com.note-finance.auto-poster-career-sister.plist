@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+note-finance SNS 自動投稿 — career_sister (@career_sister)
+==========================================================
+3スロット: 朝(07:30) 昼(12:30) 夜(20:30)
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.note-finance.auto-poster-career-sister</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/yuki/.local/bin/uv</string>
+        <string>run</string>
+        <string>python</string>
+        <string>scripts/auto_poster.py</string>
+        <string>--account</string>
+        <string>career_sister</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/yuki/Desktop/note-finance</string>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <!-- 朝: 07:30 -->
+        <dict>
+            <key>Hour</key><integer>7</integer>
+            <key>Minute</key><integer>30</integer>
+        </dict>
+        <!-- 昼: 12:30 -->
+        <dict>
+            <key>Hour</key><integer>12</integer>
+            <key>Minute</key><integer>30</integer>
+        </dict>
+        <!-- 夜: 20:30 -->
+        <dict>
+            <key>Hour</key><integer>20</integer>
+            <key>Minute</key><integer>30</integer>
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/auto-poster-career-sister.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/yuki/Desktop/note-finance/logs/auto-poster-career-sister-error.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

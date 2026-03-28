@@ -1,0 +1,11 @@
+{
+  "slides": [
+    {"type": "title", "hook": "職務経歴書は\n「翻訳」で\n全部決まる", "sub": "@career_sister"},
+    {"type": "content", "heading": "Before（NG例）", "body": "メーカー営業4年\n法人顧客50社担当\n売上前年比120%\n\nエージェント:「誰でも書けるよ」", "number": "01"},
+    {"type": "content", "heading": "After（OK例）", "body": "BtoB法人営業として\n50社の顧客を担当\n顧客ヒアリングから課題を特定\n解約率を15%改善", "number": "02"},
+    {"type": "content", "heading": "コツ① 言い換え", "body": "「やったこと」→「できること」\n\n顧客50社担当\n→ マルチステークホルダー管理能力", "number": "03"},
+    {"type": "content", "heading": "コツ②③", "body": "② 数字は必ず入れる\n「改善」→「15%改善」\n\n③ 業界用語を汎用化\n「営業」→「課題解決・提案設計」", "number": "04"},
+    {"type": "points", "heading": "今すぐやること", "items": ["今の仕事の「やったこと」を1つ選ぶ", "「できること」に言い換える", "数字を入れて説得力を上げる"]},
+    {"type": "cta", "message": "転職のリアルを\n毎日発信中", "account": "@career_sister"}
+  ]
+}

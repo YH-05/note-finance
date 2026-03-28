@@ -1,0 +1,88 @@
+{
+  "week_start": "2026-03-28",
+  "week_end": "2026-03-29",
+  "status": "draft",
+  "note_mode": "free",
+  "note_count_before": 7,
+  "note_count_after": 9,
+  "total_threads_posts": 10,
+  "total_note_articles": 2,
+  "days": [
+    {
+      "day": "土",
+      "date": "2026-03-28",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:00", "category": "タロット", "type": "型1-A",
+          "tarot_card": "女教皇", "psychology": "直覚（Jung）",
+          "file": "day_1_土/s1_tarot.md", "char_count": 350,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "Tips", "type": "型3-D", "theme": "TI3",
+          "file": "day_1_土/s2_tips.md", "char_count": 380,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "15:00", "category": "ENG", "type": "型4",
+          "file": "day_1_土/s3_eng.md", "char_count": 220,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "19:00", "category": "タロット", "type": "型1-B",
+          "tarot_card": "戦車", "psychology": "意志力とセルフコントロール",
+          "file": "day_1_土/s4_tarot.md", "char_count": 330,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "22:00", "category": "Story", "type": "型4-B",
+          "file": "day_1_土/s5_story.md", "char_count": 310,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": {
+        "theme": "自己理解Tips実践ワーク（愛着理論）", "mode": "free",
+        "file": "day_1_土/note_article.md", "char_count": 750,
+        "published_at": null, "permalink": null
+      }
+    },
+    {
+      "day": "日",
+      "date": "2026-03-29",
+      "slots": [
+        {
+          "slot": "S1", "time": "07:00", "category": "星座", "type": "型2",
+          "zodiac_sign": "天秤座", "psychology": "均衡欲求・認知的不協和",
+          "file": "day_2_日/s1_zodiac.md", "char_count": 340,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S2", "time": "12:00", "category": "Tips", "type": "型3-A", "theme": "TI4",
+          "file": "day_2_日/s2_tips.md", "char_count": 360,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S3", "time": "15:00", "category": "ENG", "type": "型4",
+          "file": "day_2_日/s3_eng.md", "char_count": 200,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S4", "time": "19:00", "category": "タロット", "type": "型1-A",
+          "tarot_card": "運命の輪", "psychology": "ローカス・オブ・コントロール（Rotter）",
+          "file": "day_2_日/s4_tarot.md", "char_count": 370,
+          "posted_at": null, "permalink": null
+        },
+        {
+          "slot": "S5", "time": "22:00", "category": "note誘導", "type": "型3-D",
+          "file": "day_2_日/s5_note_cta.md", "char_count": 280,
+          "posted_at": null, "permalink": null
+        }
+      ],
+      "note": {
+        "theme": "占い入門・数秘術概要", "mode": "free",
+        "file": "day_2_日/note_article.md", "char_count": 800,
+        "published_at": null, "permalink": null
+      }
+    }
+  ]
+}

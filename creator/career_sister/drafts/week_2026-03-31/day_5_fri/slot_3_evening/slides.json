@@ -1,0 +1,11 @@
+{
+  "slides": [
+    {"type": "title", "hook": "IT業界の年収\nこの5年で\nどれくらい上がった？", "sub": "@career_sister"},
+    {"type": "content", "heading": "年収中央値+15%", "body": "エンジニアの年収中央値が\n2021年から約15%上昇\n\nSaaS・フィンテック領域は\n未経験でも450〜550万スタート", "number": "01"},
+    {"type": "content", "heading": "エンジニアだけじゃない", "body": "マーケティング\nカスタマーサクセス\nプロダクトマネージャー\n\n非エンジニア職も同水準で上昇中", "number": "02"},
+    {"type": "content", "heading": "上がってる3つの理由", "body": "① 慢性的な人材不足（倍率3倍超）\n② VCマネーで採用予算が潤沢\n③ リモート普及で地方人材も争奪", "number": "03"},
+    {"type": "content", "heading": "注意点", "body": "この波はいつまでも続かない\n景気変動でIT採用も絞られる\n\n「今」が一番条件がいいタイミング", "number": "04"},
+    {"type": "points", "heading": "向いてる人", "items": ["IT業界に興味がある", "成長環境で年収も上げたい", "リモートワークで働きたい"]},
+    {"type": "cta", "message": "転職のリアルを\n毎日発信中", "account": "@career_sister"}
+  ]
+}

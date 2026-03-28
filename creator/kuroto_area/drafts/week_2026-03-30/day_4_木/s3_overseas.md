@@ -3,26 +3,25 @@ slot: S3
 time: "18:00"
 category: 海外メソッド
 type: 型3
-theme_id: MT4
-concept: Reverse Engineering
-author: Ron Friedman
-char_count: 222
+theme_id: MT1
+concept: 睡眠最適化
+author: Andrew Huberman
+char_count: 310
 topic_tag: 自己啓発
-status: draft
-posted_at: null
-permalink: null
 ---
 
-Ron Friedmanが提唱する「Reverse Engineering」。
+Andrew Huberman スタンフォード大学神経科学者が
+推奨する朝のルーティン。
 
-尊敬する人物や成功した事例を分析し、
-そこから逆算して行動設計をする手法です。
+「起床直後90分以内に、太陽光を10分浴びる」
 
-日本でも「逆算思考」として知られていますが、
-Friedmanのアプローチはより具体的です。
-「あの人の成果の裏にある習慣・環境・決断」を
-徹底的に解体して自分の設計に取り込む。
+理由はシンプルです。
+コルチゾールの分泌タイミングが最適化され、
+夜のメラトニン分泌も改善される。
+集中力・気分・睡眠の質に連鎖的に影響します。
 
-まず一人、「こうなりたい」と思う人を選んでください。
-その人の一週間の行動を調べてみる。
-答えは、成果より先に習慣の中にあります。
+サプリも特別なトレーニングも必要ありません。
+ただ、朝に外に出るだけです。
+
+最も安価で効果的な自己投資の一つかもしれません。
+設計の問題です。

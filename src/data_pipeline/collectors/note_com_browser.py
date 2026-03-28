@@ -10,7 +10,7 @@ Examples
 >>> from data_pipeline.collectors.note_com_browser import NoteComBrowser
 >>>
 >>> async with NoteComBrowser(headless=True) as browser:
-...     urls = await browser.list_article_urls("username", max_pages=5)
+...     urls = await browser.list_article_urls("username")
 ...     for url in urls:
 ...         article = await browser.scrape_article(url)
 ...         if article:
@@ -242,20 +242,17 @@ class NoteComBrowser:
     async def list_article_urls(
         self,
         username: str,
-        *,
-        max_pages: int = 10,
     ) -> list[str]:
-        """List article URLs from a note.com user's profile page.
+        """List all article URLs from a note.com user's article page.
 
-        Navigates to ``https://note.com/{username}`` and clicks the
-        "load more" button up to ``max_pages`` times to discover articles.
+        Navigates to ``https://note.com/{username}/all`` (the "記事" tab)
+        and clicks the "load more" button repeatedly until no more
+        articles appear.
 
         Parameters
         ----------
         username : str
             note.com username (without ``@``).
-        max_pages : int
-            Maximum number of "load more" clicks.
 
         Returns
         -------
@@ -264,12 +261,14 @@ class NoteComBrowser:
         """
         assert self._page is not None
 
-        profile_url = f"https://note.com/{username}"
+        # AIDEV-NOTE: Use /all (記事タブ) instead of profile home page.
+        # The home page only shows a subset of articles, while /all
+        # contains the complete list with proper "load more" pagination.
+        profile_url = f"https://note.com/{username}/all"
         logger.info(
-            "listing_article_urls username=%s profile_url=%s max_pages=%d",
+            "listing_article_urls username=%s url=%s",
             username,
             profile_url,
-            max_pages,
         )
 
         try:
@@ -294,36 +293,104 @@ class NoteComBrowser:
             )
             return []
 
-        # Click "load more" button up to max_pages times
-        for page_idx in range(max_pages):
+        # Click "load more" button until no new articles appear.
+        # AIDEV-NOTE: note.com renders multiple "もっとみる" buttons in the DOM,
+        # but only one is visible at a time. We must use JavaScript to find
+        # and click the visible button, as Playwright's locator.first picks
+        # the first (hidden) one, which times out on visibility checks.
+        no_change_count = 0
+        page_idx = 0
+        while True:
+            # Count unique article URLs before click
+            before_count = await self._page.evaluate(
+                """() => {
+                    const links = document.querySelectorAll('a[href*="/n/"]');
+                    return new Set(Array.from(links).map(a => a.href)).size;
+                }"""
+            )
+
             try:
-                load_more_btn = self._page.locator(
-                    self._SELECTORS["load_more"],
+                # Find and click the visible "もっとみる" button via JS
+                clicked = await self._page.evaluate(
+                    """() => {
+                        const btns = document.querySelectorAll('button');
+                        const visible = Array.from(btns).find(b =>
+                            b.textContent?.trim() === 'もっとみる'
+                            && b.offsetParent !== null
+                        );
+                        if (visible) {
+                            visible.scrollIntoView({behavior: 'instant', block: 'center'});
+                            visible.click();
+                            return true;
+                        }
+                        return false;
+                    }"""
                 )
-                if await load_more_btn.count() == 0:
-                    logger.debug(
-                        "load_more_button_not_found pages_loaded=%d",
+
+                if not clicked:
+                    logger.info(
+                        "load_more_button_not_visible pages_loaded=%d articles=%d",
                         page_idx,
+                        before_count,
                     )
                     break
 
-                if not await load_more_btn.first.is_enabled():
-                    logger.debug(
-                        "load_more_button_disabled pages_loaded=%d",
-                        page_idx,
-                    )
-                    break
+                logger.info(
+                    "load_more_clicked page_index=%d before_count=%d",
+                    page_idx,
+                    before_count,
+                )
 
-                await load_more_btn.first.click()
-                logger.debug("load_more_clicked page_index=%d", page_idx)
+                # Wait for new articles to appear in the DOM
+                try:
+                    await self._page.wait_for_function(
+                        f"""() => {{
+                            const links = document.querySelectorAll('a[href*="/n/"]');
+                            return new Set(Array.from(links).map(a => a.href)).size > {before_count};
+                        }}""",
+                        timeout=10_000,
+                    )
+                except Exception:
+                    # Timeout — no new articles loaded
+                    logger.info(
+                        "load_more_no_new_articles page_index=%d count=%d",
+                        page_idx,
+                        before_count,
+                    )
+                    no_change_count += 1
+                    if no_change_count >= 2:
+                        logger.info(
+                            "load_more_stopped_no_change consecutive=%d",
+                            no_change_count,
+                        )
+                        break
+                    await self._delay()
+                    continue
+
+                no_change_count = 0
+                after_count = await self._page.evaluate(
+                    """() => {
+                        const links = document.querySelectorAll('a[href*="/n/"]');
+                        return new Set(Array.from(links).map(a => a.href)).size;
+                    }"""
+                )
+                logger.info(
+                    "load_more_articles_loaded page_index=%d before=%d after=%d",
+                    page_idx,
+                    before_count,
+                    after_count,
+                )
                 await self._delay()
+
             except Exception:
-                logger.debug(
+                logger.warning(
                     "load_more_click_failed page_index=%d",
                     page_idx,
                     exc_info=True,
                 )
                 break
+
+            page_idx += 1
 
         # Extract all article URLs
         link_elements = await self._page.query_selector_all(

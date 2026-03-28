@@ -35,7 +35,9 @@ type BlockType = Literal[
     "heading",
     "paragraph",
     "list_item",
+    "numbered_list_item",
     "blockquote",
+    "toc",
     "image",
     "separator",
 ]
@@ -48,9 +50,15 @@ heading
 paragraph
     Regular paragraph text.
 list_item
-    Bulleted or numbered list item.
+    Bulleted list item (``- ``).
+numbered_list_item
+    Numbered list item (``1. ``, ``2. ``, ...). The number prefix is stripped;
+    note.com handles auto-numbering via the 番号付きリスト block type.
 blockquote
     Quoted text block.
+toc
+    Table of contents block. Automatically inserted before the first heading.
+    note.com generates the TOC from heading blocks in the article.
 image
     Image block with optional path.
 separator

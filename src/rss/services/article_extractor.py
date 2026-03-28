@@ -343,7 +343,8 @@ class ArticleExtractor:
 
         if html_content:
             # Try to extract with trafilatura
-            result: dict[str, Any] | None = None
+            extracted_text: str | None = None
+            extracted_meta: dict[str, Any] = {}
             try:
                 raw_result = await loop.run_in_executor(
                     None,
@@ -354,33 +355,45 @@ class ArticleExtractor:
                         favor_precision=True,
                     ),
                 )
-                # bare_extraction returns dict[str, Any] or None
+                # bare_extraction may return a dict or a Document object
+                # depending on the trafilatura version
                 if isinstance(raw_result, dict):
-                    result = raw_result
+                    extracted_text = raw_result.get("text") or None
+                    extracted_meta = raw_result
+                elif raw_result is not None and hasattr(raw_result, "text"):
+                    extracted_text = getattr(raw_result, "text", None) or None
+                    extracted_meta = {
+                        "title": getattr(raw_result, "title", None),
+                        "author": getattr(raw_result, "author", None),
+                        "date": getattr(raw_result, "date", None),
+                        "hostname": getattr(raw_result, "hostname", None),
+                        "sitename": getattr(raw_result, "sitename", None),
+                        "language": getattr(raw_result, "language", None),
+                    }
             except Exception as e:
                 logger.warning(
                     "Trafilatura extraction failed",
                     url=url,
                     error=str(e),
                 )
-                result = None
+                extracted_text = None
 
-            if result and result.get("text"):
-                text_content = str(result.get("text", ""))
+            if extracted_text:
+                text_content = str(extracted_text)
                 logger.info(
                     "Trafilatura extraction successful",
                     url=url,
-                    title=result.get("title"),
+                    title=extracted_meta.get("title"),
                     text_length=len(text_content),
                 )
                 return ExtractedArticle(
                     url=url,
-                    title=result.get("title"),
+                    title=extracted_meta.get("title"),
                     text=text_content,
-                    author=result.get("author"),
-                    date=result.get("date"),
-                    source=result.get("hostname") or result.get("sitename"),
-                    language=result.get("language"),
+                    author=extracted_meta.get("author"),
+                    date=extracted_meta.get("date"),
+                    source=extracted_meta.get("hostname") or extracted_meta.get("sitename"),
+                    language=extracted_meta.get("language"),
                     status=ExtractionStatus.SUCCESS,
                     error=None,
                     extraction_method="trafilatura",

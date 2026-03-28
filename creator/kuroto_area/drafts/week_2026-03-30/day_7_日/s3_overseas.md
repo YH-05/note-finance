@@ -3,28 +3,23 @@ slot: S3
 time: "18:00"
 category: 海外メソッド
 type: 型3
-theme_id: MT2
-concept: Digital Minimalism
-author: Cal Newport
-char_count: 228
+theme_id: MT4
+concept: Reverse Engineering（週次振り返り）
+author: Ron Friedman
+char_count: 330
 topic_tag: 自己啓発
-status: draft
-posted_at: null
-permalink: null
 ---
 
-デジタルミニマリズムの実践で
-最も難しいのは「削除」ではありません。
+Reverse Engineering の実践で重要なのは、
+「最終目標」より「直近の障壁」を特定することです。
 
-「削除した後の空白をどう使うか」です。
+Ron Friedman が示したように、
+高い成果を出す人は「成功の条件」を調べるだけでなく、
+「よくある失敗のパターン」を先に調べます。
 
-Cal Newportが強調するのはこの点です。
-SNSをやめるだけでは、習慣の穴が空くだけ。
-その穴を「価値ある行動」で埋める設計が必要です。
+今週達成したかった目標を1つ選んでください。
+「なぜ達成できなかったか」を3つ書く。
+それぞれへの対策を来週に組み込む。
 
-たとえば「SNSを見る時間を、読書に変える」
-その代替行動を先に設計することで、
-デジタルミニマリズムは機能します。
-
-来週、一つだけ削除してみてください。
-そしてその時間に何をするかを先に決めておく。
+これが Reverse Engineering の週次実践です。
+過去から学んで、未来を設計する。

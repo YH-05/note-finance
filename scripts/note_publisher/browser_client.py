@@ -77,18 +77,23 @@ def _async_playwright() -> Any:
 # data-testid selectors where available).
 _SELECTORS: dict[str, str] = {
     "login_button": 'a[href="/login"]',
-    "user_menu": '[data-testid="user-menu"], .o-navbarUser',
+    "user_menu": "button.o-navbarPrimary__userIconButton, .o-navbarUser",
     "editor_title": 'textarea[placeholder*="タイトル"], .o-editorHeader__titleTextarea',
     "editor_body": 'div[contenteditable="true"]',
     "save_button": 'button:has-text("下書き保存"), [data-testid="save-draft"]',
     "image_upload": 'input[type="file"]',
     "new_draft_url": "https://note.com/notes/new",
-    # AIDEV-NOTE: Heading toolbar selectors for note.com editor.
-    # note.com uses a floating toolbar with heading format buttons.
-    "heading_h2": 'button:has-text("大見出し"), [data-testid="heading-2"]',
-    "heading_h3": 'button:has-text("小見出し"), [data-testid="heading-3"]',
-    "add_content_button": 'button[data-testid="add-content"], button.o-editorAdd',
-    "image_add_button": 'button:has-text("画像"), [data-testid="add-image"]',
+    # AIDEV-NOTE: Heading selectors for note.com editor.
+    # 大見出し/小見出し appear in the block-inserter dropdown opened by the "+" button.
+    "heading_h2": 'button:has-text("大見出し")',
+    "heading_h3": 'button:has-text("小見出し")',
+    # "+" button that opens the block-inserter menu (appears on empty lines).
+    "add_content_button": 'button[aria-label="メニューを開く"]',
+    "bullet_list": 'button:has-text("箇条書きリスト")',
+    "numbered_list": 'button:has-text("番号付きリスト")',
+    "toc_menu": 'button:has-text("目次")',
+    "blockquote_menu": 'button:has-text("引用")',
+    "image_add_button": 'button:has-text("画像")',
 }
 
 
@@ -134,6 +139,8 @@ class NoteBrowserClient:
         self._browser: Any | None = None
         self._context: Any | None = None
         self._page: Any | None = None
+        self._in_list: bool = False
+        self._in_numbered_list: bool = False
 
     # ------------------------------------------------------------------
     # Async context manager
@@ -379,6 +386,8 @@ class NoteBrowserClient:
             _SELECTORS["editor_body"],
             timeout=self._config.timeout_ms,
         )
+        self._in_list = False
+        self._in_numbered_list = False
 
         logger.info("new_draft_created")
 
@@ -420,6 +429,14 @@ class NoteBrowserClient:
             content_length=len(block.content),
         )
 
+        # リストから非リストへ遷移する際は空Enterでリストを抜ける
+        if self._in_list and block.block_type != "list_item":
+            await self._page.press(_SELECTORS["editor_body"], "Enter")
+            self._in_list = False
+        if self._in_numbered_list and block.block_type != "numbered_list_item":
+            await self._page.press(_SELECTORS["editor_body"], "Enter")
+            self._in_numbered_list = False
+
         match block.block_type:
             case "heading":
                 await self._insert_heading(block)
@@ -427,6 +444,10 @@ class NoteBrowserClient:
                 await self._insert_paragraph(block)
             case "list_item":
                 await self._insert_list_item(block)
+            case "numbered_list_item":
+                await self._insert_numbered_list_item(block)
+            case "toc":
+                await self._insert_toc()
             case "blockquote":
                 await self._insert_blockquote(block)
             case "image":
@@ -540,11 +561,11 @@ class NoteBrowserClient:
     # ------------------------------------------------------------------
 
     async def _insert_heading(self, block: ContentBlock) -> None:
-        """Insert a heading block.
+        """Insert a heading block via the block-inserter "+" menu.
 
-        Tries toolbar-based formatting first (click heading button after
-        typing text).  Falls back to markdown-style ``## text`` if the
-        toolbar button is not found.
+        Opens the "+" (メニューを開く) button that appears on an empty line,
+        clicks 大見出し (h2) or 小見出し (h3), then types the heading text.
+        Falls back to plain paragraph text if the menu cannot be opened.
 
         Parameters
         ----------
@@ -555,18 +576,40 @@ class NoteBrowserClient:
 
         body_selector = _SELECTORS["editor_body"]
         level = block.level or 2
+        selector_key = "heading_h3" if level >= 3 else "heading_h2"
 
-        # AIDEV-NOTE: note.com supports h2 (大見出し) and h3 (小見出し).
-        # h1 is treated as h2 because note.com reserves h1 for the title.
-        toolbar_applied = await self._try_toolbar_heading(block.content, level)
+        inserted = False
+        try:
+            # Wait for the "+" menu button (visible when cursor is on an empty line)
+            menu_btn = await self._page.wait_for_selector(
+                _SELECTORS["add_content_button"],
+                timeout=3000,
+            )
+            if menu_btn:
+                await menu_btn.click()
+                await asyncio.sleep(0.3)
+                heading_btn = await self._page.wait_for_selector(
+                    _SELECTORS[selector_key],
+                    timeout=2000,
+                )
+                if heading_btn:
+                    await heading_btn.click()
+                    await asyncio.sleep(0.3)
+                    await self._page.type(
+                        body_selector,
+                        block.content,
+                        delay=self._config.typing_delay_ms,
+                    )
+                    inserted = True
+        except Exception:
+            logger.debug("block_inserter_heading_failed", level=level)
 
-        if not toolbar_applied:
-            # Fallback: type markdown-style and let the editor auto-convert
-            await self._page.click(body_selector)
-            prefix = "#" * min(level, 3) + " "
+        if not inserted:
+            # Fallback: insert as plain text (avoid literal ### which note.com ignores)
+            logger.warning("heading_fallback_plain_text", level=level)
             await self._page.type(
                 body_selector,
-                prefix + block.content,
+                block.content,
                 delay=self._config.typing_delay_ms,
             )
 
@@ -655,8 +698,43 @@ class NoteBrowserClient:
         )
         await self._page.press(body_selector, "Enter")
 
+    async def _start_bullet_list(self) -> bool:
+        """Open the "+" block-inserter and click 箇条書きリスト.
+
+        Returns
+        -------
+        bool
+            ``True`` if the bullet-list block was successfully started.
+        """
+        assert self._page is not None
+
+        try:
+            menu_btn = await self._page.wait_for_selector(
+                _SELECTORS["add_content_button"],
+                timeout=3000,
+            )
+            if menu_btn:
+                await menu_btn.click()
+                await asyncio.sleep(0.3)
+                list_btn = await self._page.wait_for_selector(
+                    _SELECTORS["bullet_list"],
+                    timeout=2000,
+                )
+                if list_btn:
+                    await list_btn.click()
+                    await asyncio.sleep(0.3)
+                    return True
+        except Exception:
+            logger.debug("block_inserter_list_failed")
+
+        return False
+
     async def _insert_list_item(self, block: ContentBlock) -> None:
-        """Insert a list item block.
+        """Insert a list item block via the block-inserter or existing list.
+
+        For the first item, opens the "+" menu and selects 箇条書きリスト.
+        For subsequent consecutive items, types directly (already in list mode).
+        Falls back to plain paragraph text if the block inserter fails.
 
         Parameters
         ----------
@@ -666,15 +744,149 @@ class NoteBrowserClient:
         assert self._page is not None
 
         body_selector = _SELECTORS["editor_body"]
-        await self._page.type(
-            body_selector,
-            f"- {block.content}",
-            delay=self._config.typing_delay_ms,
-        )
+
+        if not self._in_list:
+            started = await self._start_bullet_list()
+            if started:
+                self._in_list = True
+            else:
+                logger.warning("list_fallback_plain_text")
+                await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
+                await self._page.press(body_selector, "Enter")
+                return
+
+        await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
         await self._page.press(body_selector, "Enter")
 
+    async def _start_numbered_list(self) -> bool:
+        """Open the "+" block-inserter and click 番号付きリスト.
+
+        Returns
+        -------
+        bool
+            ``True`` if the numbered-list block was successfully started.
+        """
+        assert self._page is not None
+
+        try:
+            menu_btn = await self._page.wait_for_selector(
+                _SELECTORS["add_content_button"],
+                timeout=3000,
+            )
+            if menu_btn:
+                await menu_btn.click()
+                await asyncio.sleep(0.3)
+                list_btn = await self._page.wait_for_selector(
+                    _SELECTORS["numbered_list"],
+                    timeout=2000,
+                )
+                if list_btn:
+                    await list_btn.click()
+                    await asyncio.sleep(0.3)
+                    return True
+        except Exception:
+            logger.debug("block_inserter_numbered_list_failed")
+
+        return False
+
+    async def _insert_numbered_list_item(self, block: ContentBlock) -> None:
+        """Insert a numbered list item via the block-inserter or existing list.
+
+        For the first item, opens the "+" menu and selects 番号付きリスト.
+        For subsequent consecutive items, types directly (already in list mode).
+        The number prefix must already be stripped from ``block.content``; note.com
+        auto-numbers the items.
+        Falls back to plain paragraph text if the block inserter fails.
+
+        Parameters
+        ----------
+        block : ContentBlock
+            A numbered_list_item block. ``content`` must NOT include the leading
+            ``N. `` number prefix.
+        """
+        assert self._page is not None
+
+        body_selector = _SELECTORS["editor_body"]
+
+        if not self._in_numbered_list:
+            started = await self._start_numbered_list()
+            if started:
+                self._in_numbered_list = True
+            else:
+                logger.warning("numbered_list_fallback_plain_text")
+                await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
+                await self._page.press(body_selector, "Enter")
+                return
+
+        await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
+        await self._page.press(body_selector, "Enter")
+
+    async def _insert_toc(self) -> None:
+        """Insert a table-of-contents block via the block-inserter "+" menu.
+
+        Opens the "+" (メニューを開く) button and selects 目次.
+        note.com automatically generates the TOC from heading blocks in the article.
+        Falls back silently if the menu cannot be opened.
+        """
+        assert self._page is not None
+
+        try:
+            menu_btn = await self._page.wait_for_selector(
+                _SELECTORS["add_content_button"],
+                timeout=3000,
+            )
+            if menu_btn:
+                await menu_btn.click()
+                await asyncio.sleep(0.3)
+                toc_btn = await self._page.wait_for_selector(
+                    _SELECTORS["toc_menu"],
+                    timeout=2000,
+                )
+                if toc_btn:
+                    await toc_btn.click()
+                    await asyncio.sleep(1.0)
+                    # note.com moves cursor to document start after TOC insertion.
+                    # Use JavaScript to set DOM selection to document end, then press
+                    # End to trigger ProseMirror's selection-sync so subsequent blocks
+                    # are inserted after the TOC (not before the intro paragraph).
+                    await self._page.evaluate("""
+                        () => {
+                            const editor = document.querySelector(
+                                'div[contenteditable="true"]'
+                            );
+                            if (!editor) return;
+                            editor.focus();
+                            const range = document.createRange();
+                            range.selectNodeContents(editor);
+                            range.collapse(false);
+                            const sel = window.getSelection();
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                        }
+                    """)
+                    await asyncio.sleep(0.4)
+                    # Fire End key so ProseMirror syncs internal cursor with DOM selection
+                    await self._page.keyboard.press("End")
+                    await asyncio.sleep(0.2)
+                    # Press Enter to escape the TOC block and create a new empty paragraph.
+                    # The "+" block-inserter button only appears on empty paragraph lines,
+                    # so this ensures the next heading block can find and use it.
+                    await self._page.press(
+                        _SELECTORS["editor_body"], "Enter"
+                    )
+                    await asyncio.sleep(0.3)
+                    return
+        except Exception:
+            logger.debug("block_inserter_toc_failed")
+
+        logger.warning("toc_insert_failed_skipped")
+
     async def _insert_blockquote(self, block: ContentBlock) -> None:
-        """Insert a blockquote block.
+        """Insert a blockquote block via the block-inserter "+" menu.
+
+        Opens the "+" (メニューを開く) button and selects 引用, then types
+        the blockquote text.  Falls back to plain paragraph text if the menu
+        cannot be opened.
 
         Parameters
         ----------
@@ -684,11 +896,40 @@ class NoteBrowserClient:
         assert self._page is not None
 
         body_selector = _SELECTORS["editor_body"]
-        await self._page.type(
-            body_selector,
-            f"> {block.content}",
-            delay=self._config.typing_delay_ms,
-        )
+
+        inserted = False
+        try:
+            menu_btn = await self._page.wait_for_selector(
+                _SELECTORS["add_content_button"],
+                timeout=3000,
+            )
+            if menu_btn:
+                await menu_btn.click()
+                await asyncio.sleep(0.3)
+                quote_btn = await self._page.wait_for_selector(
+                    _SELECTORS["blockquote_menu"],
+                    timeout=2000,
+                )
+                if quote_btn:
+                    await quote_btn.click()
+                    await asyncio.sleep(0.3)
+                    await self._page.type(
+                        body_selector,
+                        block.content,
+                        delay=self._config.typing_delay_ms,
+                    )
+                    inserted = True
+        except Exception:
+            logger.debug("block_inserter_blockquote_failed")
+
+        if not inserted:
+            logger.warning("blockquote_fallback_plain_text")
+            await self._page.type(
+                body_selector,
+                block.content,
+                delay=self._config.typing_delay_ms,
+            )
+
         await self._page.press(body_selector, "Enter")
 
     async def _insert_separator(self) -> None:

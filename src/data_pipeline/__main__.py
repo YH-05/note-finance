@@ -161,7 +161,7 @@ def _note_com_scrape(args: argparse.Namespace, config_path: Path) -> int:
         skipped_dup = 0
 
         async with NoteComBrowser(headless=True) as browser:
-            urls = await browser.list_article_urls(username, max_pages=10)
+            urls = await browser.list_article_urls(username)
             urls = urls[:max_articles]
             print(f"Found {len(urls)} article URLs")
 
