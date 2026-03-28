@@ -39,8 +39,8 @@ date_range:
   end: "2026-03-28"
 
 # === Tracking ===
-critic_score: null
-revision_count: 0
+critic_score: 84
+revision_count: 1
 note_url: null
 x_post_url: null
 research_sources: 20
@@ -49,8 +49,8 @@ research_sources: 20
 workflow:
   research: done
   draft: done
-  critique: pending
-  revision: pending
+  critique: done
+  revision: done
   publish: pending
 
 # === Human Feedback ===
