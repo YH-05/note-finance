@@ -30,8 +30,14 @@ _NODE_KEY_MAP = {
     "sources": ("Source", "source_id"),
     "facts": ("Fact", "fact_id"),
     "claims": ("Claim", "claim_id"),
-    "entities": ("Entity", "entity_key"),  # AIDEV-NOTE: entity_key (UNIQUE制約キー) で MERGE。entity_id は ON CREATE のみ設定
-    "topics": ("Topic", "topic_key"),      # AIDEV-NOTE: topic_key (UNIQUE制約キー) で MERGE。topic_id は ON CREATE のみ設定
+    "entities": (
+        "Entity",
+        "entity_key",
+    ),  # AIDEV-NOTE: entity_key (UNIQUE制約キー) で MERGE。entity_id は ON CREATE のみ設定
+    "topics": (
+        "Topic",
+        "topic_key",
+    ),  # AIDEV-NOTE: topic_key (UNIQUE制約キー) で MERGE。topic_id は ON CREATE のみ設定
     "chunks": ("Chunk", "chunk_id"),
     "financial_datapoints": ("FinancialDataPoint", "datapoint_id"),
     "fiscal_periods": ("FiscalPeriod", "period_id"),
@@ -98,10 +104,18 @@ def _resolve_rel_endpoints(queue_data: dict[str, Any]) -> dict[str, tuple]:
     endpoints = dict(_REL_ENDPOINTS)
     if queue_data.get("chunks"):
         endpoints["extracted_from_fact"] = (
-            "fact_id", "Fact", "chunk_id", "Chunk", "EXTRACTED_FROM",
+            "fact_id",
+            "Fact",
+            "chunk_id",
+            "Chunk",
+            "EXTRACTED_FROM",
         )
         endpoints["extracted_from_claim"] = (
-            "claim_id", "Claim", "chunk_id", "Chunk", "EXTRACTED_FROM",
+            "claim_id",
+            "Claim",
+            "chunk_id",
+            "Chunk",
+            "EXTRACTED_FROM",
         )
     return endpoints
 
@@ -127,7 +141,11 @@ def _merge_node(tx, label: str, key_prop: str, props: dict[str, Any]) -> None:
     on_create_field = _NODE_ID_ON_CREATE.get(label)
     skip_keys = {key_prop, on_create_field}
     set_props = {k: v for k, v in props.items() if k not in skip_keys}
-    set_clause = ", ".join(f"n.{k} = ${k}" for k in set_props) if set_props else "n.updated = true"
+    set_clause = (
+        ", ".join(f"n.{k} = ${k}" for k in set_props)
+        if set_props
+        else "n.updated = true"
+    )
     on_create_clause = (
         f"ON CREATE SET n.{on_create_field} = ${on_create_field} "
         if on_create_field and on_create_field in props
@@ -230,7 +248,9 @@ def ingest_to_neo4j(  # noqa: PLR0912, PLR0915
         # classification_nodes 投入（動的ラベル）
         for cnode in queue_data.get("classification_nodes", []):
             label = cnode.get("label")
-            key_prop = cnode.get("key_property", f"{label.lower()}_id" if label else "id")
+            key_prop = cnode.get(
+                "key_property", f"{label.lower()}_id" if label else "id"
+            )
             if label and driver:
                 with driver.session() as session:
                     session.execute_write(
@@ -250,7 +270,9 @@ def ingest_to_neo4j(  # noqa: PLR0912, PLR0915
                 id_to_key[topic["topic_id"]] = topic["topic_key"]
 
         # リレーション投入
-        rel_verification: dict[str, tuple[int, int]] = {}  # {section: (expected, created)}
+        rel_verification: dict[
+            str, tuple[int, int]
+        ] = {}  # {section: (expected, created)}
         relations = queue_data.get("relations", {})
         for rel_section, endpoints in rel_endpoints.items():
             rels = relations.get(rel_section, [])
@@ -278,7 +300,10 @@ def ingest_to_neo4j(  # noqa: PLR0912, PLR0915
                 matched = expected - section_created
                 logger.warning(
                     "Relation %s: attempted %d, created %d new, matched %d existing",
-                    rel_section, expected, section_created, matched,
+                    rel_section,
+                    expected,
+                    section_created,
+                    matched,
                 )
             rel_count += expected
 

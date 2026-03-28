@@ -301,7 +301,9 @@ class DirectSearcher:
                     title=item["title"],
                     raw_text=item["content"],
                     collection_method=item["source"],
-                    published_at=datetime.fromisoformat(_pub) if (_pub := item.get("published_at")) else None,
+                    published_at=datetime.fromisoformat(_pub)
+                    if (_pub := item.get("published_at"))
+                    else None,
                 )
                 if result == "saved":
                     saved += 1

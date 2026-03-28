@@ -93,6 +93,39 @@
       "rss_enabled": true,
       "enabled": true,
       "added_at": "2026-03-26T11:06:08.701798+00:00"
+    },
+    {
+      "username": "mindset_official",
+      "display_name": "mindset_official",
+      "genres": [
+        "career"
+      ],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-27T03:59:14.608065+00:00"
+    },
+    {
+      "username": "ruinormalhakkar",
+      "display_name": "ruinormalhakkar",
+      "genres": [
+        "career"
+      ],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-27T03:59:14.657721+00:00"
+    },
+    {
+      "username": "studyhacker",
+      "display_name": "studyhacker",
+      "genres": [
+        "career"
+      ],
+      "target_instance": "creator",
+      "rss_enabled": true,
+      "enabled": true,
+      "added_at": "2026-03-27T03:59:14.705331+00:00"
     }
   ],
   "settings": {
