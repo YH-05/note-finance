@@ -63,7 +63,7 @@ from creator.poster import (
     ThreadsConfig,
     ThreadsPoster,
 )
-from data_paths import get_path
+from data_paths import get_path, get_project_root
 from utils_core.logging.config import get_logger, setup_logging
 
 # ---------------------------------------------------------------------------
@@ -1467,7 +1467,7 @@ def main(argv: list[str] | None = None) -> int:
         level=os.environ.get("LOG_LEVEL", "INFO"),
         format=os.environ.get("LOG_FORMAT", "console"),
     )
-    log_path = get_path("..") / "logs" / "auto_poster.jsonl"
+    log_path = get_project_root() / "logs" / "auto_poster.jsonl"
     _setup_file_logger(log_path)
 
     parser = _build_parser()
@@ -1737,7 +1737,7 @@ def _process_account(
         このアカウントの投稿結果集計。
     """
     summary = PostingSummary()
-    creator_root = get_path("..") / "creator" / account
+    creator_root = get_project_root() / "creator" / account
     drafts_root = creator_root / "drafts"
 
     reader = DraftReader(drafts_root=drafts_root, account=account)
@@ -2041,9 +2041,10 @@ def _print_dry_run(
     print(f"  {'スロット':<6} {'時刻':<8} {'ファイル':<30} {'投稿状態'}")
     print("  ─────────────────────────────────")
 
+    slot_time_map = _get_slot_time_map(account)
     for slot_meta in slots:
         slot_name = slot_meta.get("slot", "")
-        time_str = SLOT_TIME_MAP.get(slot_name, "?:??")
+        time_str = slot_time_map.get(slot_name, "?:??")
         posted = slot_meta.get("status") == "published"
         file_path = reader.get_slot_file(week_dir_name, today_str, day_label, slot_name)
         file_str = str(file_path) if file_path else "（なし）"
