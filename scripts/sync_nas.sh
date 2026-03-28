@@ -13,6 +13,7 @@ NAS_MOUNT="/Volumes/personal_folder"
 NAS_SYNC_DIR="${NAS_MOUNT}/Projects/note-finance"
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_PREFIX="[sync-nas]"
+LOG_FILE="${PROJECT_DIR}/logs/sync-nas.log"
 
 # 同期対象ファイル
 SYNC_FILES=(
@@ -28,12 +29,12 @@ SYNC_DIRS=(
 
 # --- 関数 ---
 log() {
-    echo "${LOG_PREFIX} $*"
+    echo "${LOG_PREFIX} $*" | tee -a "${LOG_FILE}"
 }
 
 check_nas() {
     if [[ ! -d "${NAS_MOUNT}" ]]; then
-        log "ERROR: NASがマウントされていません: ${NAS_MOUNT}"
+        echo "$(date '+%Y-%m-%dT%H:%M:%S%z') ${LOG_PREFIX} ERROR: NASがマウントされていません: ${NAS_MOUNT}" | tee -a "${LOG_FILE}"
         return 1
     fi
     if [[ ! -d "${NAS_SYNC_DIR}" ]]; then
@@ -43,7 +44,7 @@ check_nas() {
 }
 
 push() {
-    log "=== PUSH: ローカル → NAS ==="
+    log "=== PUSH: ローカル → NAS === $(date '+%Y-%m-%dT%H:%M:%S%z')"
 
     # ファイル同期
     for f in "${SYNC_FILES[@]}"; do
@@ -72,6 +73,7 @@ push() {
     # タイムスタンプ記録
     date -u +"%Y-%m-%dT%H:%M:%SZ" > "${NAS_SYNC_DIR}/.last_push"
     log "完了: $(cat "${NAS_SYNC_DIR}/.last_push")"
+    echo "---" >> "${LOG_FILE}"
 }
 
 pull() {

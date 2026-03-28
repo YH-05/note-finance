@@ -168,6 +168,10 @@
           {
             "type": "command",
             "command": "uv run python scripts/memory_session_end.py"
+          },
+          {
+            "type": "command",
+            "command": "bash scripts/sync_nas.sh --push || true"
           }
         ]
       }
