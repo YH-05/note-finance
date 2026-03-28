@@ -478,7 +478,8 @@ class NoteBrowserClient:
         assert self._page is not None
 
         if not image_path.exists():
-            raise FileNotFoundError(f"Image not found: {image_path}")
+            logger.warning("image_not_found_skipping", path=str(image_path))
+            return
 
         logger.debug("uploading_image", path=str(image_path))
 

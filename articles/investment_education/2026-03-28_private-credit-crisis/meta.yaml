@@ -1,0 +1,24 @@
+article_id: "2026-03-28_private-credit-crisis"
+topic: "プライベートクレジット危機"
+category: "investment_education"
+type: "column"
+target_audience: "beginner"
+target_wordcount: 3500
+
+status: "review"
+created_at: "2026-03-28"
+updated_at: "2026-03-28"
+
+workflow:
+  research: "done"
+  draft: "done"
+  critique: "done"
+  revision: "done"
+  publish: "pending"
+
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+  # HF6: revised_draft.md を確認して「承認」と入力してください

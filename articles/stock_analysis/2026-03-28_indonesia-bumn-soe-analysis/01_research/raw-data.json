@@ -1,0 +1,46 @@
+{
+  "article_id": "2026-03-28_indonesia-bumn-soe-analysis",
+  "collected_at": "2026-03-28T00:00:00+09:00",
+  "research_summary": {
+    "total_sources": 20,
+    "total_claims": 20,
+    "coverage": {
+      "banking": {"entities": ["BBRI", "BMRI", "BBNI", "BBTN"], "claims": 5, "data_quality": "high"},
+      "telecom": {"entities": ["TLKM"], "claims": 2, "data_quality": "high"},
+      "infrastructure": {"entities": ["JSMR", "SMGR", "WIKA", "WSKT", "PTPP", "ADHI"], "claims": 4, "data_quality": "medium"},
+      "mining_energy": {"entities": ["PTBA", "ANTM", "TINS", "PGAS", "ELSA"], "claims": 4, "data_quality": "medium"},
+      "macro_context": {"entities": ["Danantara", "Government of Indonesia"], "claims": 3, "data_quality": "high"},
+      "market_overview": {"entities": ["IHSG", "IDXBUMN20"], "claims": 1, "data_quality": "low"}
+    },
+    "gaps_remaining": [
+      "BBTN: 個社財務データ未取得",
+      "PGAS: 個社財務データ未取得",
+      "ELSA: 売上IDR 6.9T (H1 2025)のみ",
+      "KAEF: 赤字縮小（Q1 2025: -IDR 126.44B）のみ",
+      "IDXBUMN20指数: 詳細パフォーマンスデータ未取得",
+      "各社のバリュエーション（PER/PBR）未取得"
+    ]
+  },
+  "sector_analysis": {
+    "banking": {
+      "thesis": "BUMN銀行は2025年に減益トレンド（BBRI -5.3%, BMRI -10.1%）だが、高配当（利回り9-12%）と政府の配当引き上げ方針が特徴。デジタルバンキングが成長ドライバー",
+      "risks": "高配当性向の持続可能性、Danantaraガバナンス、マイクロ融資の成長鈍化"
+    },
+    "telecom": {
+      "thesis": "Telkomは売上・利益ともに減少傾向だが、DC事業（35DC/38MW）とFMCが2026年以降の成長を牽引する見通し。2026年売上IDR 149.7T予想",
+      "risks": "競争激化、ARPU低下、設備投資負担"
+    },
+    "infrastructure": {
+      "thesis": "JASMRは安定成長（売上+5.8%, EBITDA67%）で高い収益性。建設セクターは5年$490B支出計画で追い風。WSKTは上場廃止リスク。SMGRはセメント過剰供給で苦戦",
+      "risks": "WSKT債務問題の波及、政府支出の実行遅延、セメント需要減退"
+    },
+    "mining_energy": {
+      "thesis": "鉱業4社は設備投資を倍増（IDR 23.47T）し川下加工に注力。PTBAは石炭生産+16%と好調。配当も手厚い（ANTM 100%, PTBA 75%, TINS 40%）",
+      "risks": "コモディティ価格変動、ESG規制、石炭需要の長期的減退"
+    },
+    "danantara_impact": {
+      "thesis": "Danantaraは$900B資産を管理するSWFとしてBUMN再編を主導。Temasekモデルを志向し、SOEの効率化と価値創出を推進。ただし大統領権限集中への懸念が市場に影を落とす",
+      "risks": "政治リスク、ガバナンス不透明性、配当引き上げ圧力による内部留保減少"
+    }
+  }
+}

@@ -1,0 +1,842 @@
+{
+    "article_id": "2026-03-28_indonesia-bumn-soe-analysis",
+    "generated_at": "2026-03-28T00:00:00+09:00",
+    "critics": {
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 52,
+            "status": "fail",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "critical",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "7. セクター別投資判断サマリー",
+                        "line": "回避セクター"
+                    },
+                    "issue": "「回避セクター」は特定銘柄群の売買を推奨する表現であり、金融商品取引法上の投資助言に該当する可能性がある。禁止表現「見送るべき」「売るべき」と同義。",
+                    "regulation": "金融商品取引法第2条第8項第11号（投資助言・代理業）",
+                    "suggestion": "「慎重な姿勢が求められるセクター」に変更"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "critical",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "まとめ",
+                        "line": "建設BUMNはICR 1x未満という極めて深刻な財務状況にあり、回避が賢明です。"
+                    },
+                    "issue": "「回避が賢明です」は特定セクターの売買について断定的に助言する表現であり、投資助言に該当する。禁止表現「見送るべき」の言い換えにすぎない。",
+                    "regulation": "金融商品取引法第2条第8項第11号（投資助言・代理業）",
+                    "suggestion": "「建設BUMNはICR 1x未満という極めて深刻な財務状況にあり、慎重な検討が必要です。」に変更"
+                },
+                {
+                    "issue_id": "CP003",
+                    "severity": "high",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "まとめ",
+                        "line": "割安な局面を拾うアプローチが有効でしょう。"
+                    },
+                    "issue": "具体的な投資手法（割安局面での買い）を推奨しており、投資助言的表現に該当する。「有効でしょう」というヘッジはあるが、具体的な行動を促す点で不十分。",
+                    "regulation": "金融商品取引法第2条第8項第11号（投資助言・代理業）",
+                    "suggestion": "「セクター選別と政治リスクへの感度を高く保ちながら、バリュエーション水準を注視する姿勢が求められます。」に変更"
+                },
+                {
+                    "issue_id": "CP004",
+                    "severity": "high",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "7. セクター別投資判断サマリー",
+                        "line": "注目セクター（選好順）"
+                    },
+                    "issue": "「選好順」としてセクターをランキングし、具体的な銘柄コード（BBRI, BBTN等）を列挙する構成は、「おすすめ銘柄」リストと実質的に同等であり、投資助言と解釈されうる。",
+                    "regulation": "金融商品取引法第2条第8項第11号（投資助言・代理業）",
+                    "suggestion": "「注目セクター（選好順）」を「分析対象セクターの特徴」に変更し、ランキング形式を廃止。各セクターの特徴を並列で記述する構成に変更"
+                },
+                {
+                    "issue_id": "CP005",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "冒頭免責事項",
+                        "line": "本記事は情報提供を目的としており、投資助言ではありません。投資判断は自己責任で行ってください。"
+                    },
+                    "issue": "冒頭免責事項に「特定の金融商品の売買を推奨するものではありません」の文言が欠落。compliance-standards.md の必須免責事項を満たしていない。",
+                    "regulation": "金融商品取引法・note.com利用規約",
+                    "suggestion": "「本記事は情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資判断はご自身の責任において行ってください。」に変更"
+                },
+                {
+                    "issue_id": "CP006",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "リスク開示",
+                        "line": "本記事の情報は2026年3月28日時点のものであり、将来の市場動向を保証するものではありません。"
+                    },
+                    "issue": "末尾のリスク開示に「投資には元本割れリスクがあります」の文言が欠落。compliance-standards.md の必須免責事項を満たしていない。",
+                    "regulation": "金融商品取引法・note.com利用規約",
+                    "suggestion": "リスク開示冒頭に「投資には元本割れのリスクがあります。」を追加"
+                },
+                {
+                    "issue_id": "CP007",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "記事全体",
+                        "line": "（予測に関する免責事項が存在しない）"
+                    },
+                    "issue": "記事内に複数の将来予測（2026年予想売上・純利益、2029年資産目標、追加利下げシグナル等）があるにもかかわらず、「本記事に含まれる見通しは、作成時点の情報に基づくものであり、将来の結果を保証するものではありません」という予測免責が記載されていない。",
+                    "regulation": "金融商品取引法・景品表示法",
+                    "suggestion": "リスク開示セクションに「本記事に含まれる見通しや予測は、作成時点の情報に基づくものであり、将来の結果を保証するものではありません。」を追加"
+                },
+                {
+                    "issue_id": "CP008",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "2. 銀行セクター",
+                        "line": "高配当と割安バリュエーションが投資妙味を生んでいます。"
+                    },
+                    "issue": "「投資妙味を生んでいます」は投資機会の存在を断定的に示す表現。ヘッジが不十分。",
+                    "regulation": "金融商品取引法（投資助言規制）",
+                    "suggestion": "「投資家の関心を集めている側面があります」に変更"
+                },
+                {
+                    "issue_id": "CP009",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "まとめ",
+                        "line": "銀行セクターと鉱業セクターは割安なバリュエーションと高配当で投資妙味がある一方"
+                    },
+                    "issue": "「投資妙味がある」の再出。特定セクターへの投資魅力を断定している。",
+                    "regulation": "金融商品取引法（投資助言規制）",
+                    "suggestion": "「バリュエーション面で注目されている一方」に変更"
+                },
+                {
+                    "issue_id": "CP010",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "7. セクター別投資判断サマリー",
+                        "line": "短中期で魅力的"
+                    },
+                    "issue": "投資タイムフレームを指定して「魅力的」と断定する表現は、投資判断を誘導する印象を与える。",
+                    "regulation": "金融商品取引法（投資助言規制）",
+                    "suggestion": "「短中期の視点では注目に値する」に変更"
+                },
+                {
+                    "issue_id": "CP011",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "タイトル",
+                        "line": "Danantara改革と17銘柄のセクター別投資判断"
+                    },
+                    "issue": "タイトルに「投資判断」を含むことで、記事全体が投資助言であるかのような印象を与える。",
+                    "regulation": "金融商品取引法（投資助言規制）・note.com利用規約",
+                    "suggestion": "「Danantara改革と17銘柄のセクター別分析」に変更"
+                },
+                {
+                    "issue_id": "CP012",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "2. 銀行セクター - 銀行セクターの投資判断",
+                        "line": "銀行セクターの投資判断"
+                    },
+                    "issue": "セクション見出しに「投資判断」を使用。情報提供記事にもかかわらず判断を下す立場を暗示。",
+                    "regulation": "金融商品取引法（投資助言規制）",
+                    "suggestion": "「銀行セクターの分析まとめ」に変更"
+                },
+                {
+                    "issue_id": "CP013",
+                    "severity": "low",
+                    "category": "expression",
+                    "location": {
+                        "section": "7. セクター別投資判断サマリー",
+                        "line": "様子見セクター"
+                    },
+                    "issue": "「様子見」は具体的な投資行動（売買を控える）を示唆する表現。",
+                    "regulation": "金融商品取引法（投資助言規制）",
+                    "suggestion": "「中立的評価のセクター」に変更"
+                },
+                {
+                    "issue_id": "CP014",
+                    "severity": "low",
+                    "category": "fairness",
+                    "location": {
+                        "section": "記事全体",
+                        "line": "（該当箇所複数）"
+                    },
+                    "issue": "銀行・鉱業セクターのポジティブ面と建設セクターのネガティブ面が対比的に強調されすぎている。各セクターのリスク・機会が均等に記述されているとは言い難い。ただし、銀行セクターでも配当持続性懸念に言及しており、完全な偏りではない。",
+                    "regulation": "情報の公正性（note.com利用規約）",
+                    "suggestion": "各セクターの「リスク要因」と「ポジティブ要因」を均等に記述するよう調整"
+                },
+                {
+                    "issue_id": "CP015",
+                    "severity": "low",
+                    "category": "source",
+                    "location": {
+                        "section": "2. 銀行セクター - BBNI",
+                        "line": "配当IDR 13.03兆（配当性向65%）と4行中最も健全な配当方針を維持"
+                    },
+                    "issue": "「4行中最も健全な配当方針」は主観的評価だが、根拠となる比較データ（他行の配当性向）のソースリンクが同一セクション内で分散しており、直接的な裏付けが薄い。",
+                    "regulation": "データソースの明示（記事品質基準）",
+                    "suggestion": "4行の配当性向比較を明示的に記載し、「健全な」の根拠を数値で示す"
+                }
+            ],
+            "required_disclaimers": {
+                "investment_risk": {
+                    "present": false,
+                    "location": "なし"
+                },
+                "not_advice": {
+                    "present": true,
+                    "location": "冒頭"
+                },
+                "past_performance": {
+                    "present": false,
+                    "required": true
+                },
+                "data_source": {
+                    "present": true,
+                    "location": "末尾"
+                }
+            },
+            "prohibited_expressions_found": [
+                {
+                    "expression": "回避セクター",
+                    "location": "7. セクター別投資判断サマリー",
+                    "suggestion": "慎重な姿勢が求められるセクター"
+                },
+                {
+                    "expression": "回避が賢明です",
+                    "location": "まとめ",
+                    "suggestion": "慎重な検討が必要です"
+                },
+                {
+                    "expression": "投資判断（タイトル・見出し）",
+                    "location": "タイトル / セクション7見出し / 銀行セクター見出し",
+                    "suggestion": "分析 / 分析まとめ"
+                }
+            ]
+        },
+        "structure": {
+            "critic_type": "structure",
+            "score": 75,
+            "issues": [
+                {
+                    "issue_id": "ST001",
+                    "severity": "high",
+                    "category": "sections",
+                    "location": {
+                        "section": "全体構成",
+                        "description": "stock_analysis カテゴリの必須セクション「テクニカル分析」が欠如"
+                    },
+                    "issue": "stock_analysis カテゴリの構成要件では「テクニカル分析」セクションが必須だが、本記事にはチャート分析・テクニカル指標（RSI、移動平均線、出来高分析等）に関するセクションが存在しない。17銘柄を網羅する記事でテクニカル視点が完全に欠落している。",
+                    "suggestion": "主要銘柄（BBRI, TLKM, PTBA等）のテクニカル分析セクションを追加する。全17銘柄は不要だが、注目セクター上位3-5銘柄について、株価チャートの推移、サポート/レジスタンス、出来高トレンドを記載すること。「## 8. 主要銘柄のテクニカル分析」としてセクション7の後に挿入する構成が適切。"
+                },
+                {
+                    "issue_id": "ST002",
+                    "severity": "high",
+                    "category": "readability",
+                    "location": {
+                        "section": "全セクション",
+                        "description": "記事全体の文レベル"
+                    },
+                    "issue": "平均文長が約85文字で、目安の40-60文字を大幅に超過している。特に財務データを含む文が長大化しており、1文に複数の数値データが詰め込まれている箇所が多い。",
+                    "suggestion": "1文1データを原則とし、文を分割する。事実の説明と数値の説明を分離し、1文あたり60文字以内を目標とする。"
+                },
+                {
+                    "issue_id": "ST003",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "セクション2（銀行セクター）vs セクション3（通信セクター）",
+                        "description": "セクション間の分量差"
+                    },
+                    "issue": "銀行セクターは約1,784文字（サブセクション5個）に対し、通信セクターは約877文字（サブセクション1個）と半分以下。銀行4行の個別分析に対し、通信はTLKM1銘柄のみ。セクター間のバランスが偏っている。",
+                    "suggestion": "通信セクターにTLKMの競合環境やセクター全体の展望を追記して分量を補強するか、銀行セクターのBBNI・BBTNの記述を簡潔にしてバランスを調整する。"
+                },
+                {
+                    "issue_id": "ST004",
+                    "severity": "medium",
+                    "category": "introduction",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "導入部のエグゼクティブサマリー機能"
+                    },
+                    "issue": "stock_analysis カテゴリでは「エグゼクティブサマリー」が必須だが、現在の「はじめに」は背景説明に留まっており、分析の結論が先出しされていない。読者は記事末尾まで読まないと全体像が掴めない。",
+                    "suggestion": "「はじめに」の末尾に2-3行のエグゼクティブサマリーを追加し、読者が全体像を早期に把握できるようにする。"
+                },
+                {
+                    "issue_id": "ST005",
+                    "severity": "medium",
+                    "category": "readability",
+                    "location": {
+                        "section": "全セクション",
+                        "description": "専門用語の説明不足"
+                    },
+                    "issue": "PER、PBR、EV/EBITDA、EBITDA、AAGR、DC の6つの専門用語が初出時に説明なく使用されている。インドネシア固有の用語（BUMN、IHSG等）は適切に説明されているが、一般的な金融用語の補足が不足。",
+                    "suggestion": "初出箇所で括弧書きの日本語説明を追加する。PER（株価収益率）、PBR（株価純資産倍率）、EV/EBITDA（企業価値/EBITDA倍率）、EBITDA（利払い・税引き・償却前利益）、DC（データセンター）、AAGR（年平均成長率）。"
+                },
+                {
+                    "issue_id": "ST006",
+                    "severity": "medium",
+                    "category": "flow",
+                    "location": {
+                        "section": "セクション6（マクロ環境）→ セクション7（投資判断サマリー）",
+                        "description": "マクロ環境の配置が論理フローを中断"
+                    },
+                    "issue": "マクロ環境セクション（セクション6）がセクター分析（セクション2-5）と投資判断サマリー（セクション7）の間に挟まれており、セクター分析→投資判断という自然な流れが中断される。マクロ環境はDanantara改革の直後に配置し、背景情報→セクター分析→判断の流れにする方が論理的。",
+                    "suggestion": "セクション構成を再配置する。推奨順序: 1.Danantara改革 → 2.マクロ環境 → 3.銀行 → 4.通信 → 5.インフラ・建設 → 6.鉱業・エネルギー → 7.投資判断サマリー → まとめ。"
+                },
+                {
+                    "issue_id": "ST007",
+                    "severity": "low",
+                    "category": "conclusion",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "アクション誘導の弱さ"
+                    },
+                    "issue": "まとめでは一般的な方針に留まっており、具体的な次のアクションへの誘導が弱い。読者が何をフォローすべきかが明確でない。",
+                    "suggestion": "まとめの末尾に具体的なウォッチポイントを追記する。例: Danantaraのガバナンス改善に関する規制発表、2026年Q2のBUMN銀行決算でのNIM動向、MSCIリバランス結果（2026年5月予定）など。"
+                },
+                {
+                    "issue_id": "ST008",
+                    "severity": "low",
+                    "category": "sections",
+                    "location": {
+                        "section": "セクション7（セクター別投資判断サマリー）",
+                        "description": "投資判断サマリーの分量不足"
+                    },
+                    "issue": "投資判断サマリーが約402文字と短く、7セクター・17銘柄の分析結果に対して要約が不十分。各判断の根拠が1行程度と簡潔すぎる。",
+                    "suggestion": "各セクターの判断根拠を2-3行に拡充し、バリュエーション水準の横比較やセクター間のリスク・リターン比較を表形式で追加する。"
+                },
+                {
+                    "issue_id": "ST009",
+                    "severity": "low",
+                    "category": "flow",
+                    "location": {
+                        "section": "セクション1（Danantara）→ セクション5（鉱業・エネルギー）",
+                        "description": "配当引き上げ圧力の伏線回収が不完全"
+                    },
+                    "issue": "セクション1で「配当引き上げ圧力」に言及し、セクション2の銀行セクターでも触れているが、セクション5の鉱業セクター（ANTM配当100%、PTBA配当75%）との明示的な関連付けがない。横断テーマの回収が不完全。",
+                    "suggestion": "鉱業セクターの配当記述にDanantaraの配当引き上げ方針への参照を加え、横断テーマの一貫性を強化する。"
+                }
+            ],
+            "section_analysis": [
+                {
+                    "section": "はじめに",
+                    "word_count": 715,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "1. Danantara改革",
+                    "word_count": 1072,
+                    "subsections": 3,
+                    "balance": "適切"
+                },
+                {
+                    "section": "2. 銀行セクター",
+                    "word_count": 1784,
+                    "subsections": 5,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "3. 通信セクター",
+                    "word_count": 877,
+                    "subsections": 1,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "4. インフラ・建設セクター",
+                    "word_count": 1421,
+                    "subsections": 3,
+                    "balance": "適切"
+                },
+                {
+                    "section": "5. 鉱業・エネルギーセクター",
+                    "word_count": 1054,
+                    "subsections": 2,
+                    "balance": "適切"
+                },
+                {
+                    "section": "6. マクロ環境",
+                    "word_count": 627,
+                    "subsections": 2,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "7. セクター別投資判断サマリー",
+                    "word_count": 402,
+                    "subsections": 0,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "まとめ",
+                    "word_count": 392,
+                    "subsections": 0,
+                    "balance": "適切"
+                }
+            ],
+            "readability_metrics": {
+                "avg_sentence_length": 85,
+                "avg_paragraph_length": 5.1,
+                "technical_terms_explained": 9,
+                "technical_terms_unexplained": 6
+            }
+        },
+        "data_accuracy": {
+            "critic_type": "data_accuracy",
+            "score": 85,
+            "issues": [
+                {
+                    "issue_id": "DA001",
+                    "severity": "high",
+                    "location": {
+                        "section": "4. インフラ・建設セクター - SMGR",
+                        "line": "2025年セメント販売63.9Mt（-1.5% YoY）"
+                    },
+                    "data_type": "change",
+                    "issue": "ソース記事タイトルでは「shrank 2% in 2025」と記載されているが、記事では-1.5%と記載。claims.jsonではC12が-1.5%としているが、元ソース（CemNet）のタイトルとの不一致がある。63.9Mtの数値自体は整合するが、変動率に矛盾がある可能性",
+                    "article_value": "-1.5%",
+                    "correct_value": "-2%（ソースタイトル準拠）または-1.5%（claim準拠・詳細記事内の数値の可能性）",
+                    "source": "sources.json (CemNet)",
+                    "deviation": "0.5%（絶対差）",
+                    "suggestion": "CemNet元記事を再確認し、-2%が全体、-1.5%がSMGR単体など区別が必要かを検証。「国内セメント販売は2%減少し、SMGRの販売量は63.9Mt」のように分離記述を推奨"
+                },
+                {
+                    "issue_id": "DA002",
+                    "severity": "high",
+                    "location": {
+                        "section": "2. 銀行セクター - BBNI",
+                        "line": "2025年5月累計純利益IDR 8.5兆（前年比-1%）...配当IDR 13.03兆（配当性向65%）"
+                    },
+                    "data_type": "earnings",
+                    "issue": "5ヶ月累計純利益IDR 8.5兆に対して配当IDR 13.03兆は配当性向153%となり、記事記載の65%と矛盾する。IDR 8.5兆は5ヶ月累計であり通期利益ではない。配当性向65%は通期利益（推定IDR 20.05兆）に対する比率と推定されるが、記事の文脈では「5月累計利益に対して配当性向65%」と誤読される構成になっている",
+                    "article_value": "配当性向65%（5月累計利益IDR 8.5兆との並記）",
+                    "correct_value": "配当性向65%は通期利益ベース（推定IDR 20.05兆）。5月累計利益とは別の期間基準",
+                    "source": "claims.json (C08)",
+                    "deviation": "期間不整合（5ヶ月 vs 通期）",
+                    "suggestion": "「2025年通期純利益は前年比-1%。通期利益に対する配当性向は65%でIDR 13.03兆を配当」と通期ベースであることを明示するか、5月累計と通期の両方を記載"
+                },
+                {
+                    "issue_id": "DA003",
+                    "severity": "medium",
+                    "location": {
+                        "section": "1. Danantara",
+                        "line": "約$900Bの資産を管理する世界第7位のSWF"
+                    },
+                    "data_type": "valuation",
+                    "issue": "$900Bの資産規模は世界最大級のSWF（ノルウェーGPFG: ~$1.7T、アブダビADIA: ~$993B）に匹敵し、「第7位」という順位との整合性に疑問。Danantaraが管理する「資産」はSOE持分の簿価ベースであり、純粋なSWFのAUMとは比較基準が異なる可能性がある。ソース（ANTARA）の原文確認が必要",
+                    "article_value": "世界第7位のSWF",
+                    "correct_value": "順位の検証が必要。$900Bは管理資産（SOE持分簿価）であり、SWF AUMランキングとは基準が異なる可能性",
+                    "source": "claims.json (C01)",
+                    "deviation": "順位の妥当性未検証",
+                    "suggestion": "「SOE資産約$900Bを管理する大型ファンド」とし、SWFランキング順位は元ソース確認後に記載。または「設立時点でASEAN最大級のSWF」等、より検証可能な表現に変更"
+                },
+                {
+                    "issue_id": "DA004",
+                    "severity": "medium",
+                    "location": {
+                        "section": "2. 銀行セクター - BBRI",
+                        "line": "PER 9.30x（セクター平均17.3xに対し割安）"
+                    },
+                    "data_type": "valuation",
+                    "issue": "BBRIのPER 9.30xはYahoo Financeをソースとしているが、「セクター平均17.3x」の出典が不明。claims.jsonにもsources.jsonにもこの数値の根拠がない。セクター平均の定義（インドネシア銀行セクターか、アジア銀行セクターか）も不明確",
+                    "article_value": "セクター平均PER 17.3x",
+                    "correct_value": "出典不明・検証不能",
+                    "source": "claims.json / sources.json に該当なし",
+                    "deviation": "N/A（ソース欠如）",
+                    "suggestion": "セクター平均PERの出典を明記するか、「同業他社と比較して割安」等の定性的表現に変更。具体的な数値を使う場合はソースURLを付与"
+                },
+                {
+                    "issue_id": "DA005",
+                    "severity": "medium",
+                    "location": {
+                        "section": "2. 銀行セクター - BMRI",
+                        "line": "アナリスト目標株価IDR 5,731"
+                    },
+                    "data_type": "price",
+                    "issue": "BMRIのアナリスト目標株価IDR 5,731の出典がclaims.jsonにもsources.jsonにも存在しない。検証不能な数値",
+                    "article_value": "IDR 5,731",
+                    "correct_value": "出典不明・検証不能",
+                    "source": "claims.json / sources.json に該当なし",
+                    "deviation": "N/A（ソース欠如）",
+                    "suggestion": "アナリスト目標株価の出典を明記（例: Bloomberg consensus, Yahoo Finance等）。出典が確認できない場合は削除"
+                },
+                {
+                    "issue_id": "DA006",
+                    "severity": "medium",
+                    "location": {
+                        "section": "3. 通信セクター - TLKM",
+                        "line": "22名中16名が「Buy」、目標株価IDR 3,887（現値+30.88%）"
+                    },
+                    "data_type": "valuation",
+                    "issue": "アナリスト数22名、Buy 16名、目標株価IDR 3,887、上昇余地+30.88%の全てがclaims.jsonに記載なし。現在株価の逆算: 3,887/1.3088 = IDR 2,970。この現在株価が記事執筆時点で正確かどうか検証不能",
+                    "article_value": "22名中16名Buy、目標IDR 3,887、+30.88%",
+                    "correct_value": "出典不明・検証不能",
+                    "source": "claims.json / sources.json に該当なし",
+                    "deviation": "N/A（ソース欠如）",
+                    "suggestion": "アナリストコンセンサスの出典と取得日を明記。株価は変動するため「2026年3月X日時点」と日付を付与"
+                },
+                {
+                    "issue_id": "DA007",
+                    "severity": "low",
+                    "location": {
+                        "section": "2. 銀行セクター - BBTN",
+                        "line": "純金利収入はIDR 18.43兆（+57%）"
+                    },
+                    "data_type": "earnings",
+                    "issue": "BBTNのNII +57% YoYは非常に大きな増加率。claims.jsonに該当データなし。Databoks記事をソースとしているが、claims.jsonでは純利益IDR 3.5T (+16%)のみ記載。57%という数値の妥当性は元ソース確認が必要",
+                    "article_value": "NII IDR 18.43兆（+57%）",
+                    "correct_value": "claims.jsonに該当なし。元ソース確認要",
+                    "source": "claims.json に該当なし",
+                    "deviation": "N/A（検証不能）",
+                    "suggestion": "Databoks元記事からNIIデータを再確認。+57%が正確であれば、その要因（金利上昇・貸出増加等）も記述に追加すると説得力が増す"
+                },
+                {
+                    "issue_id": "DA008",
+                    "severity": "low",
+                    "location": {
+                        "section": "6. マクロ環境",
+                        "line": "BI-Rate は4.75%で据え置き（2024年9月以降累計150bp利下げ）"
+                    },
+                    "data_type": "economic",
+                    "issue": "BI-Rateが4.75%で累計150bp利下げとあるが、利下げ前のBI-Rateは6.25%だったことになる。計算上整合する。claims.jsonに該当データなし。元ソース（IDN Financials）の確認が望ましい",
+                    "article_value": "BI-Rate 4.75%、累計150bp利下げ",
+                    "correct_value": "計算上整合（6.25% - 1.50% = 4.75%）。ソース確認推奨",
+                    "source": "sources.json (IDN Financials)",
+                    "deviation": "0%（計算上整合）",
+                    "suggestion": "利下げ開始時点のBI-Rate（6.25%）も記載すると読者の理解が深まる"
+                },
+                {
+                    "issue_id": "DA009",
+                    "severity": "low",
+                    "location": {
+                        "section": "5. 鉱業・エネルギーセクター - PGAS",
+                        "line": "Q1 2025純利益$62.02M（前年比-48.8%）...売上$966.56M（+1.81%）"
+                    },
+                    "data_type": "earnings",
+                    "issue": "PGASの決算データはUSD建てで記載。他のBUMN銘柄はIDR建てで統一されている中、PGASのみUSD建てで通貨単位が不統一。ただし元データがUSD建ての可能性あり",
+                    "article_value": "USD建て（$62.02M、$966.56M）",
+                    "correct_value": "元データがUSD建てであれば数値自体は正確だが、IDR換算値の併記が望ましい",
+                    "source": "sources.json (Kontan)",
+                    "deviation": "通貨単位の不統一",
+                    "suggestion": "「Q1純利益$62.02M（約IDR 1.05兆）」のようにIDR換算値を併記し、他銘柄との比較を容易にする"
+                }
+            ],
+            "verified_data": {
+                "total": 52,
+                "correct": 40,
+                "incorrect": 2,
+                "unverifiable": 10
+            },
+            "calculation_checks": [
+                {
+                    "calculation": "BUMN配当引き上げ率",
+                    "formula": "(IDR 140T - IDR 90T) / IDR 90T x 100",
+                    "result": "55.56%",
+                    "article_value": "+55%",
+                    "match": true
+                },
+                {
+                    "calculation": "BBRI減益率",
+                    "formula": "ソースタイトル「Down 5.26%」と照合",
+                    "result": "-5.26%",
+                    "article_value": "-5.26%",
+                    "match": true
+                },
+                {
+                    "calculation": "BMRI減益率",
+                    "formula": "ソースタイトル「down 10.14%」と照合",
+                    "result": "-10.14%",
+                    "article_value": "-10.14%",
+                    "match": true
+                },
+                {
+                    "calculation": "BMRI配当性向",
+                    "formula": "claims C07: 102.6%と照合",
+                    "result": "102.6%",
+                    "article_value": "102.6%",
+                    "match": true
+                },
+                {
+                    "calculation": "BBNI配当性向と期間整合性",
+                    "formula": "IDR 13.03T / IDR 8.5T (5M cumulative) x 100",
+                    "result": "153.3%（5ヶ月累計ベース）≠ 65%（通期ベース）",
+                    "article_value": "65%",
+                    "match": false
+                },
+                {
+                    "calculation": "BBTN増益率",
+                    "formula": "ソース「increased reaching Rp35 trillion」と照合",
+                    "result": "+16%（ソースと整合）",
+                    "article_value": "+16%",
+                    "match": true
+                },
+                {
+                    "calculation": "TLKM売上変動率（9M）",
+                    "formula": "claims C09: -2.31%と照合",
+                    "result": "-2.31%",
+                    "article_value": "-2.31%",
+                    "match": true
+                },
+                {
+                    "calculation": "TLKM純利益変動率（9M）",
+                    "formula": "claims C09: -10.69%と照合",
+                    "result": "-10.69%",
+                    "article_value": "-10.69%",
+                    "match": true
+                },
+                {
+                    "calculation": "JSMR売上成長率",
+                    "formula": "claims C11: +5.8%と照合",
+                    "result": "+5.8%",
+                    "article_value": "+5.8%",
+                    "match": true
+                },
+                {
+                    "calculation": "鉱業設備投資 前年比倍率",
+                    "formula": "IDR 23.47T / IDR 13T",
+                    "result": "1.81倍",
+                    "article_value": "約2倍",
+                    "match": true
+                },
+                {
+                    "calculation": "PTBA石炭生産成長率",
+                    "formula": "claims C16: +16%と照合",
+                    "result": "+16%",
+                    "article_value": "+16%",
+                    "match": true
+                },
+                {
+                    "calculation": "PGAS純利益減少率",
+                    "formula": "ソースタイトル: turun 48.80%と照合",
+                    "result": "-48.8%",
+                    "article_value": "-48.8%",
+                    "match": true
+                },
+                {
+                    "calculation": "BI-Rate利下げ幅の整合性",
+                    "formula": "6.25% (推定開始値) - 150bp = 4.75%",
+                    "result": "4.75%（整合）",
+                    "article_value": "4.75%（累計150bp利下げ）",
+                    "match": true
+                },
+                {
+                    "calculation": "TLKM目標株価上昇余地",
+                    "formula": "IDR 3,887 / 現在株価 - 1 = +30.88% → 現在株価 = IDR 2,970（逆算）",
+                    "result": "内部整合（3,887/2,970 = 1.3089）",
+                    "article_value": "+30.88%",
+                    "match": true
+                }
+            ]
+        },
+        "readability": {
+            "critic_type": "readability",
+            "score": 79,
+            "target_audience": "intermediate",
+            "issues": [
+                {
+                    "issue_id": "RD001",
+                    "severity": "high",
+                    "category": "density",
+                    "location": {
+                        "section": "2. 銀行セクター",
+                        "description": "BBRI, BMRI, BBNI, BBTN の4行を連続で列挙する箇所"
+                    },
+                    "issue": "銀行4行の分析が同一構造（業績数値→バリュエーション→配当）で連続しており、情報密度が非常に高い。中級投資家でも数値の羅列に疲れ、スクロール離脱を招きやすい。note.comのスマホ閲覧ではとくに顕著。",
+                    "suggestion": "4行の比較を要約する導入段落を冒頭に追加し、各行の分析は最も際立つ特徴1-2点に絞る。詳細な数値比較は表画像（/generate-table-image）にまとめ、本文のテキスト量を削減する。"
+                },
+                {
+                    "issue_id": "RD002",
+                    "severity": "high",
+                    "category": "terminology",
+                    "location": {
+                        "section": "記事全体",
+                        "description": "初出で説明なしの専門略語"
+                    },
+                    "issue": "以下の略語が説明なしで使用されている: YTD（Year to Date）、COGS（売上原価）、EPS（1株当たり利益）、bp（ベーシスポイント）、KUR（国民事業融資制度）、AAGR（年平均成長率）。中級投資家でもインドネシア固有の略語（KUR）や英語略語（COGS, YTD）は馴染みがない可能性が高い。",
+                    "suggestion": "初出箇所で括弧内に日本語訳を添える。例: 「EPS（1株当たり利益）105.13」「COGS（売上原価）が+11.98%」「KUR（Kredit Usaha Rakyat, 国民事業融資制度）」。YTDは「年初来」と日本語に置き換える。"
+                },
+                {
+                    "issue_id": "RD003",
+                    "severity": "medium",
+                    "category": "hook",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "冒頭の最初の3行"
+                    },
+                    "issue": "冒頭が「インドネシアの国有企業（BUMN）は同国経済の屋台骨を支える存在です」という一般的な説明文で始まっており、note.com読者の「最初の数行で読むか判断する」特性に対してインパクトが弱い。具体的な数値やストーリーが3行目以降に来ている。",
+                    "suggestion": "冒頭を衝撃的な事実や問いかけから始める。例: 「設立わずか数日で時価総額$120Bが消失 -- インドネシア政府の肝いりSWF「Danantara」が引き起こした市場の動揺は、17銘柄のBUMN（国有企業）に何をもたらすのか？」"
+                },
+                {
+                    "issue_id": "RD004",
+                    "severity": "medium",
+                    "category": "visual",
+                    "location": {
+                        "section": "7. セクター別投資判断サマリー",
+                        "description": "投資判断の一覧"
+                    },
+                    "issue": "セクター別投資判断が番号付きリストとテキストで表現されているが、この重要な結論部分こそ視覚的に整理すべき。注目/様子見/回避の3カテゴリが混在した番号リストは、スマホ画面で一覧性が低い。",
+                    "suggestion": "セクター別投資判断を表画像（/generate-table-image）に変換する。列: セクター、代表銘柄、判断、主な根拠、主要指標。色分けで直感的に判断を伝える。"
+                },
+                {
+                    "issue_id": "RD005",
+                    "severity": "medium",
+                    "category": "density",
+                    "location": {
+                        "section": "4. インフラ・建設セクター",
+                        "description": "建設BUMN -- 深刻な財務危機"
+                    },
+                    "issue": "WIKA, PTPP, ADHI, WSKTの4社の財務データが箇条書きで連続しており、どの数値が最も重要かが読者に伝わりにくい。ICR（利払い能力）が1x未満という核心データが箇条書きの後に埋もれている。",
+                    "suggestion": "ICR 1x未満の事実を冒頭に持ってきて「なぜ深刻か」を先に伝え、その後に各社の個別データを添える構成にする。核心を先、根拠を後の「逆ピラミッド構成」に変更する。"
+                },
+                {
+                    "issue_id": "RD006",
+                    "severity": "medium",
+                    "category": "visual",
+                    "location": {
+                        "section": "記事全体",
+                        "description": "チャート・図表の欠如"
+                    },
+                    "issue": "12,000字超の記事にチャートや図表が一切なく、テキストと箇条書きのみで構成されている。note.comの読者特性（スマホ中心、隙間時間の閲覧）を考慮すると、視覚的な休憩ポイントが不足している。",
+                    "suggestion": "以下の箇所にチャート画像（/generate-chart-image）を追加する: (1) 銀行4行のPER/配当利回り比較の棒グラフ、(2) 建設BUMNのICR比較グラフ、(3) セクター別の投資判断を示す概念図。300-500文字ごとに視覚的要素を配置する目安。"
+                },
+                {
+                    "issue_id": "RD007",
+                    "severity": "medium",
+                    "category": "specificity",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "読者への行動喚起"
+                    },
+                    "issue": "まとめの最終段落が「割安な局面を拾うアプローチが有効でしょう」という一般的な結論で終わっており、中級投資家が次に取るべき具体的なアクションが不明確。",
+                    "suggestion": "具体的な行動指針を追加する。例: 「まずは証券口座のインドネシア株取り扱い状況を確認し、BBRIとPTBAをウォッチリストに追加するところから始めてみてください。また、Danantaraのガバナンス改善動向は四半期ごとにフォローすることをお勧めします。」"
+                },
+                {
+                    "issue_id": "RD008",
+                    "severity": "low",
+                    "category": "terminology",
+                    "location": {
+                        "section": "記事全体",
+                        "description": "IDR表記の不統一"
+                    },
+                    "issue": "金額表記が「IDR 57.13兆」「$900B」「$622.7M」「IDR 446B」と、通貨単位（IDR/$）と桁表記（兆/B/M）が混在しており、読者が直感的に規模感を比較しにくい。",
+                    "suggestion": "ルピア建てはIDR+兆/億、ドル建ては$+B/Mで統一する。さらに、主要な金額には括弧内に円換算の概算値を添えると日本人読者の理解が深まる。例: 「IDR 57.13兆（約5,500億円）」"
+                },
+                {
+                    "issue_id": "RD009",
+                    "severity": "low",
+                    "category": "hook",
+                    "location": {
+                        "section": "各セクション見出し",
+                        "description": "セクション見出しのサブタイトル"
+                    },
+                    "issue": "見出しに「── ○○」形式のサブタイトルが付いており、読者の興味を引く工夫がされている点は良い。ただし「6. マクロ環境 -- パーフェクトストームのリスク」のように刺激的な表現がある一方、セクション内の内容は比較的冷静な分析であり、見出しと内容のトーンに若干の乖離がある。",
+                    "suggestion": "見出しのトーンと内容を揃える。「パーフェクトストーム」を使うなら、セクション内でもそのリスクの深刻度を明確に伝える。または見出しを「マクロ環境 -- 複合リスクの評価」のように調整する。"
+                },
+                {
+                    "issue_id": "RD010",
+                    "severity": "low",
+                    "category": "density",
+                    "location": {
+                        "section": "記事全体",
+                        "description": "文字数"
+                    },
+                    "issue": "記事全体で約12,000字あり、note.comの適正文字数（3,000-5,000字）を大幅に超えている。17銘柄をカバーする網羅性は高いが、スマホでの通読にはハードルが高い。",
+                    "suggestion": "前編（Danantara概要+銀行+通信）/後編（インフラ+鉱業+マクロ+サマリー）の2本に分割するか、目次を冒頭に追加してセクションジャンプ可能にする。note.comの目次機能を活用する。"
+                }
+            ],
+            "metrics": {
+                "avg_sentence_length": 38,
+                "avg_paragraph_length": 2,
+                "long_paragraphs": 2,
+                "total_characters": 12115,
+                "technical_terms": {
+                    "total": 23,
+                    "explained": 17,
+                    "unexplained": 6,
+                    "unexplained_list": ["YTD", "COGS", "EPS", "bp", "KUR", "AAGR"]
+                },
+                "visual_elements": {
+                    "tables": 0,
+                    "lists": 26,
+                    "charts": 0,
+                    "images": 0
+                },
+                "section_count": 27,
+                "source_links": 20
+            },
+            "category_scores": {
+                "hook": {
+                    "score": 82,
+                    "weight": 0.25,
+                    "notes": "冒頭に具体的なデータ（$900B、7.1%下落、$622.7M流出）があり衝撃的だが、最初の1文が一般的な説明文で始まっている。note.com読者の離脱を防ぐにはもう一工夫必要。"
+                },
+                "density": {
+                    "score": 72,
+                    "weight": 0.20,
+                    "notes": "銀行セクターや建設セクターで数値の羅列が続き、情報過多。12,000字はnote.com適正文字数の2倍以上。核心データを絞り込む必要あり。"
+                },
+                "visual": {
+                    "score": 78,
+                    "weight": 0.20,
+                    "notes": "マークダウン表が残っていない点はnote.com基準をクリア。箇条書きと見出しは適切に使われている。ただしチャートや表画像が一切なく、12,000字のテキスト主体は視覚的に単調。"
+                },
+                "terminology": {
+                    "score": 75,
+                    "weight": 0.20,
+                    "notes": "BUMN, SWF, ICR, PER等の主要用語は初出時に説明あり。しかしYTD, COGS, EPS, bp, KUR, AAGRが未説明。IDR金額の円換算もなく、日本人中級投資家にとって規模感が掴みにくい。"
+                },
+                "specificity": {
+                    "score": 90,
+                    "weight": 0.15,
+                    "notes": "ほぼ全てのデータにソースURLが埋め込まれており、具体的な数値、日付、出典が豊富。投資判断セクションも具体的な指標を提示。行動喚起の具体性のみ改善の余地あり。"
+                }
+            },
+            "audience_fit": {
+                "appropriate": true,
+                "suggested_adjustments": [
+                    "インドネシア固有の略語（KUR, OJK等）は日本の中級投資家に馴染みがないため、初出時の説明を徹底する",
+                    "IDR金額には円換算の概算を併記し、日本人投資家が規模感を直感的に把握できるようにする",
+                    "17銘柄の網羅的分析は中級者には情報量が多すぎるため、注目銘柄に重点を置き、その他は補足扱いにする",
+                    "「BUMN」というテーマ自体が日本の中級投資家にはニッチであるため、なぜ今注目すべきかの動機付けを冒頭で強化する"
+                ]
+            },
+            "engagement_tips": [
+                "冒頭で「$120B消失」のインパクトあるファクトから始め、読者の感情を掴む。事実の説明は後回しにする",
+                "銀行4行の比較は表画像1枚にまとめ、本文では各行の「最も際立つ1つの特徴」だけを語る",
+                "記事を前後編に分割するか、冒頭に「この記事で分かること」のサマリーボックスを配置する",
+                "まとめ部分に「初めてインドネシア株を検討する方への3ステップ」のような具体的行動指針を追加する",
+                "主要な金額にIDR→円の換算を入れることで、日本人読者の感情的な共感（規模感の実感）を生む",
+                "セクター別投資判断サマリーを信号機カラー（緑=注目/黄=様子見/赤=回避）の表画像にすると、記事のシェア性が高まる"
+            ]
+        }
+    },
+    "overall_score": null,
+    "priority_fixes": [
+        "CP001: 「回避セクター」を「慎重な姿勢が求められるセクター」に変更（critical）",
+        "CP002: 「回避が賢明です」を「慎重な検討が必要です」に変更（critical）",
+        "CP005: 冒頭免責事項に「特定の金融商品の売買を推奨するものではありません」を追加（high）",
+        "CP006: 末尾リスク開示に「元本割れリスク」を追加（high）",
+        "CP007: 予測に関する免責事項を追加（high）",
+        "CP003: 「割安な局面を拾うアプローチが有効でしょう」を中立表現に変更（high）",
+        "CP004: 「注目セクター（選好順）」のランキング形式を廃止（high）",
+        "DA001: SMGRセメント販売変動率 ソースタイトル(-2%)と記事(-1.5%)の不一致を解消（high）",
+        "DA002: BBNI配当性向65% 5ヶ月累計利益との並記が誤解を招く 通期ベースであることを明示（high）",
+        "DA003: Danantara「世界第7位のSWF」 $900B資産との整合性を元ソースで確認（medium）",
+        "DA004: BBRIセクター平均PER 17.3x 出典を追加または定性的表現に変更（medium）",
+        "DA009: PGAS決算データのUSD/IDR通貨単位不統一を解消（low）",
+        "RD001: 銀行4行の数値データを表画像に集約し、本文の情報密度を下げる（high）",
+        "RD002: YTD/COGS/EPS/bp/KUR/AAGRの6略語に初出時の日本語説明を追加（high）",
+        "RD003: 冒頭を衝撃的ファクト（$120B消失）から始める構成に変更（medium）",
+        "RD006: チャート画像を2-3枚追加し、視覚的な休憩ポイントを確保（medium）"
+    ]
+}

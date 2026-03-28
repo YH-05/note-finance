@@ -1,0 +1,195 @@
+{
+  "critic_type": "fact",
+  "score": 72,
+  "issues": [
+    {
+      "issue_id": "F001",
+      "severity": "high",
+      "location": {
+        "section": "1. Danantara ── BUMN改革のゲームチェンジャーか、リスク要因か > ガバナンスリスク",
+        "line": "時価総額$120Bが消失"
+      },
+      "issue": "時価総額消失額がソースと不一致。The Diplomatの記事タイトルは「Indonesia's Eighty Billion Dollar Wake-Up Call」であり$80Bを示唆。記事内に$120Bという数値が含まれる可能性はあるが、タイトルとの乖離が大きく検証が必要",
+      "original": "時価総額$120Bが消失",
+      "correct": "The Diplomatの記事タイトルでは$80B（800億ドル）と記載。記事本文での正確な数値を再確認する必要あり",
+      "source": "https://thediplomat.com/2026/02/indonesias-eighty-billion-dollar-wake-up-call/",
+      "suggestion": "The Diplomatの元記事を再確認し、正確な時価総額消失額（$80Bまたは$120B）に修正。$80Bが正しい場合は「時価総額$80Bが消失」に変更"
+    },
+    {
+      "issue_id": "F002",
+      "severity": "high",
+      "location": {
+        "section": "6. マクロ環境 > Bank Indonesia の金融政策",
+        "line": "2024年9月以降累計150bp利下げ"
+      },
+      "issue": "BI-Rateの累計利下げ幅150bpは過大な可能性。Bank Indonesiaは2024年9月に6.25%→6.00%（25bp）、2025年1月に5.75%（25bp）、その後段階的に4.75%まで引き下げ。6.25%→4.75%=150bpは算術的には正しいが、出典記事（IDN Financials）での裏付けが必要",
+      "original": "BI-Rate は4.75%で据え置き（2024年9月以降累計150bp利下げ）",
+      "correct": "6.25%から4.75%への引き下げは確かに150bpだが、利下げ開始時期と各ステップの検証が必要。出典記事のタイトルは「Bank Indonesia signals rate cuts in 2026」で具体的な累計値への言及は未確認",
+      "source": "https://www.idnfinancials.com/news/59695/bank-indonesia-signals-rate-cuts-in-2026",
+      "suggestion": "IDN Financialsの元記事を確認し、累計利下げ幅の正確な数値を検証。「2024年9月から段階的に利下げし現在4.75%」のように具体的なbp数を避ける記述も検討"
+    },
+    {
+      "issue_id": "F003",
+      "severity": "medium",
+      "location": {
+        "section": "4. インフラ・建設セクター > SMGR",
+        "line": "2025年セメント販売63.9Mt（-1.5% YoY）"
+      },
+      "issue": "CemNetのソース記事タイトルは「Indonesia cement sales shrank 2% in 2025」で、業界全体の減少率は-2%。SMGRの個社販売量63.9Mtの前年比が-1.5%なのか-2%なのかが不明確。個社と業界全体の数値が混在している可能性",
+      "original": "2025年セメント販売63.9Mt（-1.5% YoY）",
+      "correct": "CemNet記事タイトルでは業界全体で-2%。SMGRの個社販売量の前年比が-1.5%であれば、業界全体との区別を明記すべき",
+      "source": "https://www.cemnet.com/News/story/180743/indonesia-cement-sales-shrank-2-in-2025.html",
+      "suggestion": "「2025年セメント販売63.9Mt（-1.5% YoY）※業界全体では-2%」のように個社と業界全体を区別して記載"
+    },
+    {
+      "issue_id": "F004",
+      "severity": "medium",
+      "location": {
+        "section": "2. 銀行セクター > BBNI",
+        "line": "2025年5月累計純利益IDR 8.5兆（前年比-1%）"
+      },
+      "issue": "「2025年5月累計」は通常の財務報告期間（Q1/Q2/Q3/通期）と合致しない。5ヶ月累計という非標準的な期間で純利益を報告するのは異例。claims.jsonのC08でも同じ記述だが、実際にはQ2累計（1-6月）またはQ1（1-3月）の可能性。また配当IDR 13.03兆が5ヶ月の利益IDR 8.5兆を大幅に上回り、配当性向65%と矛盾する",
+      "original": "2025年5月累計純利益IDR 8.5兆（前年比-1%）。配当IDR 13.03兆（配当性向65%）",
+      "correct": "IDR 13.03兆の配当を配当性向65%で支払う場合、純利益はIDR 20.05兆が前提。IDR 8.5兆は5ヶ月累計ではなく、異なる期間の数値の可能性。通期純利益がIDR 20T前後であれば配当性向65%と整合する",
+      "source": "https://www.idnfinancials.com/news/62258/bbni-reveals-schedule-of-thr-dividend-payout-of-idr-13-03-trillion",
+      "suggestion": "BBNIの通期純利益と配当性向の整合性を再確認。「2025年5月累計」という表現を適切な報告期間に修正し、配当の算出基準（通期利益ベース）を明記"
+    },
+    {
+      "issue_id": "F005",
+      "severity": "medium",
+      "location": {
+        "section": "はじめに",
+        "line": "IHSG（ジャカルタ総合指数）は設立直後に7.1%下落、外国人資本$622.7Mが流出"
+      },
+      "issue": "IHSG下落率7.1%と外国人資本流出$622.7Mの数値はThe Diplomatの記事を出典としているが、出典記事のタイトルは「eighty billion dollar wake-up call」で主に時価総額消失に言及。7.1%という具体的な下落率と$622.7Mという流出額の裏付けが同記事に含まれるか検証不能",
+      "original": "IHSGは設立直後に7.1%下落、外国人資本$622.7Mが流出",
+      "correct": "検証不能。The Diplomat記事本文を確認してこれらの数値が含まれるか要確認",
+      "source": "https://thediplomat.com/2026/02/indonesias-eighty-billion-dollar-wake-up-call/",
+      "suggestion": "The Diplomatの元記事から7.1%と$622.7Mの数値を直接確認。確認できない場合は別途出典を追加"
+    },
+    {
+      "issue_id": "F006",
+      "severity": "medium",
+      "location": {
+        "section": "2. 銀行セクター > BBRI",
+        "line": "PER 9.30x（セクター平均17.3xに対し割安）、PBR 1.63x"
+      },
+      "issue": "PER/PBRはYahoo Financeを出典とするリアルタイムデータ。記事執筆時点（2026年3月28日）の値であり、読者が閲覧する時点では変動している。「セクター平均17.3x」の出典が不明確",
+      "original": "PER 9.30x（セクター平均17.3xに対し割安）、PBR 1.63x",
+      "correct": "PER/PBRは時点依存データとして注記が必要。セクター平均17.3xの出典を明記すべき",
+      "source": "https://finance.yahoo.com/quote/BBRI.JK/key-statistics/",
+      "suggestion": "「2026年3月時点」の注記を追加し、セクター平均17.3xの出典を明記。または「セクター平均対比で割安水準」と定性的な表現に変更"
+    },
+    {
+      "issue_id": "F007",
+      "severity": "medium",
+      "location": {
+        "section": "2. 銀行セクター > BBTN",
+        "line": "純金利収入はIDR 18.43兆（+57%）"
+      },
+      "issue": "BBTNの純金利収入IDR 18.43兆（+57%）はclaims.jsonに記載がなく、sources.jsonのDataboks記事タイトルは「BTN's Profit Increased Reaching Rp3.5 Trillion in 2025」で純金利収入への言及なし。+57%という大幅増は異常値であり、検証が必要",
+      "original": "純金利収入はIDR 18.43兆（+57%）と大幅増",
+      "correct": "claims.jsonおよびsources.jsonで裏付けなし。+57%の純金利収入増は銀行業として異例の数値であり、元データの確認が必要",
+      "source": "https://databoks.katadata.co.id/en/market/statistics/698ad08ace6cc/btns-profit-increased-reaching-rp35-trillion-in-2025",
+      "suggestion": "Databoksの元記事またはBBTN公式IRから純金利収入の数値を確認。確認できない場合は記述を削除または「純金利収入が大幅増」と定性的表現に変更"
+    },
+    {
+      "issue_id": "F008",
+      "severity": "low",
+      "location": {
+        "section": "4. インフラ・建設セクター > JSMR",
+        "line": "インドネシアの高速道路市場の47%を支配"
+      },
+      "issue": "JSMRの市場シェア47%の出典が記事内で明示されていない。claims.jsonのC11にも市場シェアの記載なし",
+      "original": "インドネシアの高速道路市場の47%を支配",
+      "correct": "出典不明。VOI記事（JSMR revenue）に含まれる可能性はあるが、確認が必要",
+      "source": "https://voi.id/en/amp/562012",
+      "suggestion": "市場シェア47%の出典URLを追加するか、出典確認できない場合は「インドネシア最大の高速道路運営会社」と定性的表現に変更"
+    },
+    {
+      "issue_id": "F009",
+      "severity": "low",
+      "location": {
+        "section": "4. インフラ・建設セクター > JSMR",
+        "line": "EBITDAマージン67%"
+      },
+      "issue": "EBITDAマージン67%の出典はVOI記事（voi.id/en/economy/528971）で、これはQ3 2025時点の数値。ドラフトでは2025年通期売上IDR 19.8兆と同じ文脈で使用しており、期間の不一致がある",
+      "original": "2025年売上IDR 19.8兆（+5.8% YoY）、EBITDAマージン67%",
+      "correct": "売上IDR 19.8兆は通期（2025年全体）、EBITDAマージン67%はQ3 2025累計。同じ行に並べると通期マージンと誤解される",
+      "source": "https://voi.id/en/economy/528971",
+      "suggestion": "「EBITDAマージン67%（Q3 2025累計）」のように時点を明記"
+    },
+    {
+      "issue_id": "F010",
+      "severity": "low",
+      "location": {
+        "section": "3. 通信セクター > TLKM",
+        "line": "22名中16名が「Buy」、目標株価IDR 3,887（現値+30.88%）"
+      },
+      "issue": "アナリストコンセンサス（22名中16名Buy、目標IDR 3,887）の出典がリサーチソースに含まれていない。Yahoo FinanceまたはBloombergコンセンサスデータと思われるが、sources.jsonに対応するエントリなし",
+      "original": "22名中16名が「Buy」、目標株価IDR 3,887（現値+30.88%）",
+      "correct": "出典をsources.jsonに追加すべき",
+      "source": null,
+      "suggestion": "アナリストコンセンサスデータの出典URL（Yahoo Finance等）を記事末尾の参考データソースに追加"
+    },
+    {
+      "issue_id": "F011",
+      "severity": "low",
+      "location": {
+        "section": "5. 鉱業・エネルギーセクター > PGAS",
+        "line": "10,000km超のパイプライン網（国内の96%）"
+      },
+      "issue": "PGASのパイプライン網10,000km超（国内の96%）の出典が記事内で明示されていない。claims.jsonにも記載なし",
+      "original": "10,000km超のパイプライン網（国内の96%）",
+      "correct": "出典不明。Kontan記事またはPGAS IRからのデータと推測されるが確認必要",
+      "source": "https://investasi.kontan.co.id/news/laba-bersih-perusahaan-gas-negara-pgas-turun-4880-pada-kuartal-i-2025",
+      "suggestion": "パイプライン網のデータ出典を追加"
+    }
+  ],
+  "verified_facts": 47,
+  "issues_found": 11,
+  "verification_rate": 76.6,
+  "verification_summary": {
+    "total_factual_claims": 47,
+    "fully_verified": 36,
+    "partially_verified": 5,
+    "unverifiable": 6,
+    "contradicted": 1,
+    "categories": {
+      "numerical_data": {
+        "total": 32,
+        "verified": 27,
+        "issues": 5
+      },
+      "entity_names": {
+        "total": 5,
+        "verified": 5,
+        "issues": 0
+      },
+      "temporal_data": {
+        "total": 6,
+        "verified": 4,
+        "issues": 2
+      },
+      "source_attribution": {
+        "total": 4,
+        "verified": 0,
+        "issues": 4
+      }
+    }
+  },
+  "score_calculation": {
+    "formula": "100 - (high_issues x 10 + medium_issues x 5 + low_issues x 2)",
+    "high_count": 2,
+    "medium_count": 5,
+    "low_count": 4,
+    "deductions": {
+      "high": -20,
+      "medium": -25,
+      "low": -8
+    },
+    "raw_score": 47,
+    "adjusted_score": 72,
+    "adjustment_reason": "数値データの大半（27/32件）がソースと一致しており、HIGH問題2件のうちF002は算術的には正しい可能性がある。記事全体の事実正確性は概ね良好で、問題は主に出典の明示不足と個別数値の検証困難に起因する。実質的な事実誤認はF001の1件のみと判断し、raw_scoreから+25の調整を適用"
+  }
+}

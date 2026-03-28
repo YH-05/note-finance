@@ -1,0 +1,703 @@
+{
+    "article_id": "2026-03-28_us-telecom-sector",
+    "generated_at": "2026-03-28T00:00:00+09:00",
+    "critics": {
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 93,
+            "status": "pass",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "medium",
+                    "category": "source",
+                    "location": {
+                        "section": "バリューチェーンマップ",
+                        "line": "利益面ではAT&Tが純利益$220億（前年比+25%）と大幅な収益改善を達成しています"
+                    },
+                    "issue": "SEC EDGARへのリンク（https://data.sec.gov）がトップページへの汎用リンクであり、具体的なファイリングを指していない。読者が該当データを検証できない。",
+                    "regulation": "金融商品取引法における情報の正確性・検証可能性の確保（第38条関連）、note.com利用規約における情報の信頼性担保",
+                    "suggestion": "AT&TのFY2025 10-K（Annual Report）の具体的なEDGAR URLに差し替えるか、IR公式ページのプレスリリースURLを使用してください。例: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=T&type=10-K"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "low",
+                    "category": "expression",
+                    "location": {
+                        "section": "AIインフラとLumenの賭け",
+                        "line": "その答えは、Lumen の今後の業績に映し出されることになるでしょう"
+                    },
+                    "issue": "「〜ことになるでしょう」は断定的に聞こえる可能性がある表現。コンプライアンス基準の注意表現「〜になるだろう」に該当する。文脈的にはヘッジされているが、より慎重な表現が望ましい。",
+                    "regulation": "金融商品取引法第38条（断定的判断の提供禁止）",
+                    "suggestion": "「映し出される可能性があります」または「映し出されると考えられます」に変更"
+                }
+            ],
+            "required_disclaimers": {
+                "investment_risk": {
+                    "present": true,
+                    "location": "末尾"
+                },
+                "not_advice": {
+                    "present": true,
+                    "location": "冒頭"
+                },
+                "past_performance": {
+                    "present": true,
+                    "required": true
+                },
+                "data_source": {
+                    "present": true,
+                    "location": "末尾"
+                }
+            },
+            "prohibited_expressions_found": []
+        },
+        "fact": {
+            "critic_type": "fact",
+            "score": 82,
+            "issues": [
+                {
+                    "issue_id": "F001",
+                    "severity": "high",
+                    "location": {
+                        "section": "無線キャリア: T-Mobile の独走",
+                        "line": "純利益**$220億**（前年比約+25%）という強い利益成長を見せ"
+                    },
+                    "issue": "AT&T FY2025純利益の前年比+25%は、提供されたSECデータにFY2024の純利益が含まれていないため直接検証できない。Web researchの+25%はQ1 2025単四半期のデータであり、通年FY2025に対して同じ比率が適用される根拠が不足している。",
+                    "original": "純利益**$220億**（前年比約+25%）",
+                    "correct": "純利益**$220億**（FY2024比の正確な増減率はSEC 10-K FY2024データで要確認。Q1 2025では+25%）",
+                    "source": "S19",
+                    "suggestion": "FY2024のAT&T 10-Kから正確な純利益を取得し、通年ベースの増減率を算出すること。Q1単独の+25%をFY全体に適用している可能性がある。「約」の修飾語はあるが、正確な数値に差し替えるべき。"
+                },
+                {
+                    "issue_id": "F002",
+                    "severity": "medium",
+                    "location": {
+                        "section": "ケーブル vs ファイバー: 構造変化の渦中",
+                        "line": "Cox Communications との$345億の合併（2026年2月FCC承認）"
+                    },
+                    "issue": "Charter-Cox合併のステータスが不完全。FCC承認は取得済みだが、州レベルの承認がまだ保留中（state approvals pending）。記事は「FCC承認」のみを記載しており、取引が完全に承認・完了したかのような印象を与える。",
+                    "original": "Cox Communications との$345億の合併（2026年2月FCC承認）",
+                    "correct": "Cox Communications との$345億の合併（2026年2月FCC承認、州認可は審査中）",
+                    "source": "S08",
+                    "suggestion": "「2026年2月FCC承認、州レベルの認可は審査中」と追記し、取引が最終完了していないことを明示すること。"
+                },
+                {
+                    "issue_id": "F003",
+                    "severity": "medium",
+                    "location": {
+                        "section": "無線キャリア: T-Mobile の独走",
+                        "line": "ファイバーと無線の融合率（コンバージェンスレート）は42%に達しており"
+                    },
+                    "issue": "AT&Tのコンバージェンスレート42%という数値は、提供されたリサーチソース（sources.json、sec_data.json、web_research.md）のいずれにも記載がない。出典が不明であり、検証不能。",
+                    "original": "ファイバーと無線の融合率（コンバージェンスレート）は42%に達しており",
+                    "correct": "検証不能 ── 出典の追加が必要",
+                    "source": "なし（出典不明）",
+                    "suggestion": "AT&Tの決算資料・投資家向けプレゼンテーションから42%の出典を特定し、ソースURLを埋め込むこと。出典が見つからない場合は数値を削除するか、記述を一般化すること。"
+                },
+                {
+                    "issue_id": "F004",
+                    "severity": "medium",
+                    "location": {
+                        "section": "セクター概観",
+                        "line": "北米の5G人口カバー率は2025年末時点で90%を超え"
+                    },
+                    "issue": "Web researchでは「90% covered by 5G low-band」と低帯域に限定した記述だが、記事では帯域の限定なく「5G人口カバー率は90%を超え」と記載。C-bandやmmWaveを含む全帯域での90%超ではないため、読者に過大な印象を与える可能性がある。",
+                    "original": "北米の5G人口カバー率は2025年末時点で90%を超え",
+                    "correct": "北米の5Gローバンド人口カバー率は2025年末時点で90%を超え（ミッドバンドは210-300M人カバー）",
+                    "source": "S05",
+                    "suggestion": "「5Gローバンドの人口カバー率」と帯域を明示するか、ミッドバンド・mmWaveのカバー率も併記して、読者が5Gの普及状況を正確に理解できるようにすること。"
+                },
+                {
+                    "issue_id": "F005",
+                    "severity": "low",
+                    "location": {
+                        "section": "タワーREIT: 高マージンとDISHリスク",
+                        "line": "Crown Castle はDISH関連で$35億超の係争中支払いを抱えており"
+                    },
+                    "issue": "Web researchでは「Crown Castle seeking $3.5B+ from DISH」と記載されており、これはCrown CastleがDISHに対して請求している金額。記事の「係争中支払いを抱えており」という表現は、Crown Castleが支払い義務を負っているかのように読める曖昧さがある。実際にはCrown CastleがDISHから回収しようとしている債権である。",
+                    "original": "Crown Castle はDISH関連で$35億超の係争中支払いを抱えており",
+                    "correct": "Crown Castle はDISH/EchoStar に対して$35億超の未回収リース料を請求しており",
+                    "source": "S16",
+                    "suggestion": "「係争中支払いを抱えており」を「DISH/EchoStar に対して$35億超のリース料の支払いを求めており」等、債権・債務の方向性が明確な表現に修正すること。"
+                },
+                {
+                    "issue_id": "F006",
+                    "severity": "low",
+                    "location": {
+                        "section": "タワーREIT: 高マージンとDISHリスク",
+                        "line": "American Tower は時価総額で最大、グローバル展開が特徴です"
+                    },
+                    "issue": "American Towerが「時価総額で最大」の範囲が曖昧。タワーREIT内での最大なのかテレコムセクター内での最大なのか不明。AMTの時価総額~$78.3Bはタワー3社中最大で正しい。またSEC dataのnotes（224,000+ towers）とweb_research（150,000+ towers）のタワー数に食い違いがある（ATC India売却の影響か）。",
+                    "original": "American Tower は時価総額で最大、グローバル展開が特徴です",
+                    "correct": "American Tower はタワーREIT 3社中、時価総額で最大（約$783億）であり、グローバル展開が特徴です",
+                    "source": "S19",
+                    "suggestion": "「タワーREIT 3社中」等のスコープを明示すること。"
+                },
+                {
+                    "issue_id": "F007",
+                    "severity": "medium",
+                    "location": {
+                        "section": "EchoStar: スペクトラム売却と再出発",
+                        "line": "SpaceX からは約$85億相当の株式を取得する見通しです"
+                    },
+                    "issue": "SpaceX株式の推定額$85億は、SpaceXの時価総額に依存する変動値。Web researchでは「SpaceX equity ~1.9-2% (~$8.5B)」と持分比率も記載されているが、記事では金額のみ。非上場企業の持分であり、流動性リスクも高い。",
+                    "original": "SpaceX からは約$85億相当の株式を取得する見通しです",
+                    "correct": "SpaceX の持分約1.9-2%（推定約$85億相当、SpaceX時価総額に依存）の株式を取得する見通しです",
+                    "source": "S15",
+                    "suggestion": "持分比率（1.9-2%）を併記し、金額がSpaceXの非公開時価総額の変動に依存することを読者に伝えること。"
+                },
+                {
+                    "issue_id": "F008",
+                    "severity": "medium",
+                    "location": {
+                        "section": "投資家への示唆 ── Bull/Bear ケースの整理",
+                        "line": "各社のファイバー投資（年間$300億超）"
+                    },
+                    "issue": "「年間$300億超のファイバー投資」の出典が提供されたソースに見当たらない。各社のCapExはSEC dataに記載されているが（T-Mobile $100億、Charter $117億、Comcast $118億等）、これらは全体的なCapExでありファイバー投資単体の金額ではない。$300億超の算出根拠が不明。",
+                    "original": "各社のファイバー投資（年間$300億超）",
+                    "correct": "検証不能 ── 出典の追加が必要",
+                    "source": "なし（出典不明）",
+                    "suggestion": "セクター全体のファイバー関連設備投資額の出典を追加するか、個別企業のCapEx総額を引用する形に修正すること。"
+                }
+            ],
+            "verified_facts": 47,
+            "issues_found": 8,
+            "verification_rate": 85.5,
+            "verification_details": {
+                "financial_numbers": {
+                    "total": 26,
+                    "verified_correct": 25,
+                    "issues": 1,
+                    "note": "SEC EDGARデータと照合。AT&T YoY純利益成長率のみFY2024基準データ不足で要確認。"
+                },
+                "market_share_data": {
+                    "total": 4,
+                    "verified_correct": 3,
+                    "issues": 1,
+                    "note": "5Gカバー率の帯域限定が不明確。"
+                },
+                "ma_deals": {
+                    "total": 9,
+                    "verified_correct": 8,
+                    "issues": 1,
+                    "note": "Charter-Cox合併の州認可ステータスが不完全。"
+                },
+                "sector_metrics": {
+                    "total": 6,
+                    "verified_correct": 4,
+                    "issues": 2,
+                    "note": "AT&Tコンバージェンスレート42%とファイバー投資$300億超の出典不明。"
+                },
+                "source_citations": {
+                    "total": 20,
+                    "verified_present": 20,
+                    "url_valid": "未検証（ライブ検証はスコープ外）",
+                    "issues": 0
+                }
+            }
+        },
+        "readability": {
+            "critic_type": "readability",
+            "score": 75,
+            "target_audience": "intermediate",
+            "issues": [
+                {
+                    "issue_id": "RD001",
+                    "severity": "high",
+                    "category": "visual",
+                    "location": {
+                        "section": "バリューチェーンマップ",
+                        "description": "5層構造の説明段落（**1. 無線キャリア**〜**5. 衛星/スペクトラム**）"
+                    },
+                    "issue": "5層のバリューチェーン説明が384文字の1段落に詰め込まれており、スマホ画面では10行以上の壁テキストになる。note.comのモバイル読者（70%以上）にとって離脱ポイントになりやすい。各層の情報が連続するため、視線の休息点がない。",
+                    "suggestion": "5層を番号付きリスト（各項目を独立した箇条書き）に分割する。各層に1-2行の説明を付け、視覚的に分離すること。見出し下の導入文「米国テレコムセクターは、以下の5つの層で構成されています」の後に箇条書きを配置する形式が最適。"
+                },
+                {
+                    "issue_id": "RD002",
+                    "severity": "high",
+                    "category": "density",
+                    "location": {
+                        "section": "セクター概観",
+                        "description": "3つのドライバーを説明する段落（成長を牽引する〜追い風となる規制環境が整いつつあります）"
+                    },
+                    "issue": "3つの成長ドライバーが515文字の1段落に凝縮されている。各ドライバーに市場データ、具体数値、政策名が含まれ、情報密度が極めて高い。intermediate読者の1文目安40-50文字に対し、ドライバー説明の文は80-120文字に達している箇所がある。",
+                    "suggestion": "3つのドライバーをそれぞれ独立した段落または箇条書きに分離する。「第一に」「第二に」「第三に」の構造を活かしつつ、各ドライバーの間に改行を入れることでスマホでの読みやすさが大幅に向上する。"
+                },
+                {
+                    "issue_id": "RD003",
+                    "severity": "medium",
+                    "category": "terminology",
+                    "location": {
+                        "section": "ケーブル vs ファイバー / M&Aマップ",
+                        "description": "MVNOの初出箇所（Comcast段落およびM&Aマップ段落）"
+                    },
+                    "issue": "MVNO（Mobile Virtual Network Operator：仮想移動体通信事業者）が説明なしで使用されている。intermediate読者は株式投資経験はあるが通信業界の専門用語に精通しているとは限らない。MVNOは記事の重要テーマ（コンバージェンス）を理解する鍵であり、未定義のままでは議論の核心が伝わらない。",
+                    "suggestion": "初出時に「MVNO（仮想移動体通信事業者：自社の通信設備を持たずに他社の回線を借りてサービスを提供する事業形態）」と補足する。日本の読者には「日本でいうIIJmioやmineoのような格安SIMの仕組み」と例示すると理解が深まる。"
+                },
+                {
+                    "issue_id": "RD004",
+                    "severity": "medium",
+                    "category": "terminology",
+                    "location": {
+                        "section": "冒頭・全体",
+                        "description": "M&Aの初出箇所（タイトルおよび冒頭第2段落）"
+                    },
+                    "issue": "M&A（Mergers and Acquisitions：合併・買収）が記事タイトルと冒頭から説明なしで使用されている。intermediate読者の大部分は理解可能と思われるが、note.comの読者層にはM&Aに馴染みの薄い層も含まれる。記事全体のキーワードであるため、冒頭で一度定義しておくことが望ましい。",
+                    "suggestion": "冒頭の初出時に「M&A（合併・買収）」と括弧書きで補足する。タイトルはそのままで問題ない。"
+                },
+                {
+                    "issue_id": "RD005",
+                    "severity": "medium",
+                    "category": "hook",
+                    "location": {
+                        "section": "冒頭",
+                        "description": "記事の最初の3行"
+                    },
+                    "issue": "冒頭は「2025年から2026年にかけて」という時間表現で始まっており、事実の列挙に入る。$1,100億超という印象的な数字が2段落目に登場するが、1段落目は総論的で具体的なインパクトに欠ける。note.comの読者は最初の数行で読み続けるか判断するため、冒頭でのフック力をさらに高めたい。",
+                    "suggestion": "冒頭を具体的な数字や問いかけで始める。例：「総額$1,100億（約16兆円）── いま米国テレコム業界で同時進行しているM&Aの総額です。」のように、読者の注意を即座に引く書き出しに変更する。または「あなたが持っているVerizonやAT&Tの株、いま何が起きているか把握していますか？」のような読者参加型のフックも有効。"
+                },
+                {
+                    "issue_id": "RD006",
+                    "severity": "medium",
+                    "category": "density",
+                    "location": {
+                        "section": "全体",
+                        "description": "記事全体の文字数（約7,100文字、参考データソース除く）"
+                    },
+                    "issue": "note.comの読者特性では3,000-5,000文字が適正範囲とされるが、本記事は参考データソースを除いても約7,100文字に達している。11銘柄を網羅するセクター分析という性質上ある程度の長さは必要だが、隙間時間に読むnote.com読者にとってはスクロール疲れを起こす可能性がある。",
+                    "suggestion": "前半（セクター概観〜バリューチェーンマップ）と後半（個別セクター分析〜投資家への示唆）で前後編に分割することを検討する。分割が難しい場合は、記事冒頭に目次（セクション一覧）を配置し、読者が関心のあるセクションに直接ジャンプできるようにする。"
+                },
+                {
+                    "issue_id": "RD007",
+                    "severity": "medium",
+                    "category": "visual",
+                    "location": {
+                        "section": "注目ポイント",
+                        "description": "Bull/Bearケースの後の注目ポイント段落"
+                    },
+                    "issue": "「注目ポイント」セクションは3つの注目事項を1つの段落にまとめており、Bull/Bearケースが箇条書きで読みやすいのに対し、視覚的な落差がある。3つのポイントが文中に埋もれてしまい、スキャナビリティ（流し読みのしやすさ）が低い。",
+                    "suggestion": "3つの注目ポイントを箇条書きリストに変換する。各ポイントに銘柄名を太字で強調し、時間軸（2026年後半〜2027年）を最後にまとめる形式にする。"
+                },
+                {
+                    "issue_id": "RD008",
+                    "severity": "low",
+                    "category": "terminology",
+                    "location": {
+                        "section": "タワーREIT",
+                        "description": "リカーリング収益モデルの説明箇所"
+                    },
+                    "issue": "「リカーリング収益モデル」はカタカナ語として使用されているが、intermediate読者全員が理解できるとは限らない。同セクションの文脈から推測は可能だが、明示的な補足があるとより親切。",
+                    "suggestion": "「リカーリング（継続課金型）収益モデル」と括弧書きで補足する。"
+                },
+                {
+                    "issue_id": "RD009",
+                    "severity": "low",
+                    "category": "visual",
+                    "location": {
+                        "section": "無線キャリア / ケーブル vs ファイバー",
+                        "description": "各企業の分析段落（T-Mobile、Verizon、AT&T、Charter、Comcast）"
+                    },
+                    "issue": "各企業分析は段落で分離されているが、企業間の比較が一目でわかる視覚的なサマリーがない。読者は各段落を読み進めないと全体像を把握できない。テーブル画像（table_financials.png）はあるが、セクション内では個別テキストの羅列になっている。",
+                    "suggestion": "各セクションの冒頭に、2-3行のキーテイクアウェイ（太字の要点サマリー）を配置する。例：「T-Mobileが成長率で独走、Verizonはファイバー買収で反撃、AT&Tは利益面で静かな復活」のような1行サマリーがあると、読者がセクションの要旨を即座に把握できる。"
+                },
+                {
+                    "issue_id": "RD010",
+                    "severity": "low",
+                    "category": "specificity",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "まとめセクション全体"
+                    },
+                    "issue": "まとめセクションは記事の要点を適切に総括しているが、読者の次のアクションを促す具体的な導線がない。note.comではフォロー・スキ・コメントがエンゲージメント指標となるため、読者参加を促す締めがあるとよい。",
+                    "suggestion": "まとめの最後に「このセクターで注目している銘柄はありますか？コメント欄で教えてください」のような読者参加型の一文を追加する。または「次回は個別銘柄の詳細分析を予定しています」のような次回予告でフォローを促す。"
+                }
+            ],
+            "metrics": {
+                "avg_sentence_length": 55,
+                "avg_paragraph_length": 357,
+                "long_paragraphs": 22,
+                "total_characters": 7105,
+                "total_sentences": 131,
+                "total_headings": 15,
+                "desu_masu_count": 102,
+                "dearu_da_count": 3,
+                "technical_terms": {
+                    "total": 22,
+                    "explained": 14,
+                    "unexplained": 8,
+                    "unexplained_list": ["MVNO", "FCC", "M&A", "DISH", "AWS-3", "ダークファイバー", "ハイブリッドMVNO", "ポストペイド純減"]
+                },
+                "visual_elements": {
+                    "tables_as_images": 2,
+                    "markdown_tables_remaining": 0,
+                    "charts": 0,
+                    "bullet_lists": 2,
+                    "bullet_items": 29,
+                    "bold_emphases": 59,
+                    "section_dividers": 13,
+                    "inline_source_urls": 19
+                }
+            },
+            "category_scores": {
+                "hook": {
+                    "score": 78,
+                    "weight": 0.25,
+                    "notes": "冒頭は具体的なM&A金額を提示しインパクトがあるが、最初の1文が時間表現から始まっており即座のフック力にやや欠ける。$1,100億という数字が2段落目に来るため、初見離脱リスクがある。"
+                },
+                "density": {
+                    "score": 68,
+                    "weight": 0.20,
+                    "notes": "全体7,100文字はnote.com推奨の3,000-5,000文字を大幅に超過。11銘柄のセクター分析として情報量は適切だが、3つのドライバー段落（515文字）やバリューチェーン段落（384文字）は密度が高すぎる。前後編分割または目次追加が有効。"
+                },
+                "visual": {
+                    "score": 70,
+                    "weight": 0.20,
+                    "notes": "テーブル画像2枚、Bull/Bearの箇条書き、セクション区切り線は効果的。一方、バリューチェーン5層の壁テキスト、3ドライバーの長段落、注目ポイントの非構造化が視覚的読みやすさを損なっている。"
+                },
+                "terminology": {
+                    "score": 74,
+                    "weight": 0.20,
+                    "notes": "CAGR、FWA、BEAD、PCF、FTTH、EPS、コンバージェンスは適切に定義されている。MVNOとM&Aが未定義で、intermediate読者の一部にとって障壁になり得る。FCC（連邦通信委員会）も初出で補足があると親切。"
+                },
+                "specificity": {
+                    "score": 90,
+                    "weight": 0.15,
+                    "notes": "具体的な数値データが豊富（$1,100億超、$200億、$345億、$426億、シェア35%/34%/27%、営業利益率等）。19箇所のソースURL埋め込みにより根拠の検証可能性が高い。Bull/Bearケースも具体的な数値とリスク要因で裏付けられている。"
+                }
+            },
+            "audience_fit": {
+                "appropriate": true,
+                "suggested_adjustments": [
+                    "MVNO・M&Aなど通信業界固有の用語は、投資経験はあるが通信セクター初見の読者向けに補足が必要",
+                    "ドル建て金額に日本円換算を併記すると、日本のnote.com読者にとって金額感が伝わりやすくなる（冒頭の$1,100億には約16兆円と換算を追加推奨）",
+                    "全体の文字数がnote.com適正範囲を超えているため、目次の配置または前後編分割でモバイル読者の離脱を防ぐ"
+                ]
+            },
+            "engagement_tips": [
+                "冒頭の書き出しを「$1,100億（約16兆円）」のようなインパクト数字から始めると、最初の3秒で読者の注意を掴める",
+                "まとめセクションに「注目銘柄はコメント欄で教えてください」のような読者参加型CTAを追加し、エンゲージメント率を向上させる",
+                "各セクションの冒頭にキーテイクアウェイ（1行サマリー太字）を配置すると、流し読み読者にも価値を提供でき、スキ率が上がる",
+                "記事冒頭に「この記事は約7分で読めます」のような読了時間表示を入れると、長文記事でも読者に安心感を与えられる",
+                "次回記事の予告（個別銘柄の深掘り分析など）をまとめに含めると、フォロー率の向上が期待できる"
+            ]
+        },
+        "structure": {
+            "critic_type": "structure",
+            "score": 78,
+            "category_scores": {
+                "introduction": {
+                    "score": 82,
+                    "weight": 0.20,
+                    "weighted_score": 16.4,
+                    "notes": "冒頭の$1,100億超M&Aラッシュという数字は具体的で効果的なフック。問題提起（構造変化の3要因）と記事の目的（11社横断分析）が明示されている。ただし免責事項が本文冒頭に配置されており、読者が最初に目にするのが法的注記になる点が惜しい。"
+                },
+                "flow": {
+                    "score": 80,
+                    "weight": 0.25,
+                    "weighted_score": 20.0,
+                    "notes": "マクロ（市場規模）→構造（バリューチェーン）→個別セグメント分析→M&A全体像→投資判断という流れは論理的で一貫している。セクション間の遷移は概ね自然だが、EchoStarセクションとM&Aマップセクションの間に内容の重複がある。セクション間のブリッジ文が不足している箇所がいくつかある。"
+                },
+                "sections": {
+                    "score": 73,
+                    "weight": 0.25,
+                    "weighted_score": 18.25,
+                    "notes": "stock_analysisカテゴリの構成要件に対し、テクニカル分析セクションが完全に欠落。セクション長のバランスに偏りがあり、投資家への示唆（811字）がEchoStar（373字）やまとめ（231字）の倍以上。"
+                },
+                "conclusion": {
+                    "score": 75,
+                    "weight": 0.15,
+                    "weighted_score": 11.25,
+                    "notes": "3つの潮流でまとめる構成は導入部の3つのドライバーと呼応しており良い。ただし結論が231字と極端に短く、読者への具体的なネクストアクションが不十分。投資家への示唆セクションとまとめの役割分担が曖昧。"
+                },
+                "readability": {
+                    "score": 76,
+                    "weight": 0.15,
+                    "weighted_score": 11.4,
+                    "notes": "平均文長65字は目安の40-60字を超過。専門用語の説明は部分的で、MVNO、REIT、EPS、FCC、Direct-to-Cellが未説明。画像テーブルの活用やBull/Bear箇条書きは読みやすさに貢献。"
+                }
+            },
+            "issues": [
+                {
+                    "issue_id": "ST001",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "全体",
+                        "description": "stock_analysisカテゴリの必須セクション欠落"
+                    },
+                    "issue": "stock_analysisカテゴリの構成要件では「テクニカル分析」セクションが必須とされているが、本記事にはテクニカル分析に相当するセクションが存在しない。セクター分析のため個別銘柄のテクニカルは省略可能だが、バリュエーション比較（PER、EV/EBITDA等）の定量的分析は欲しい。",
+                    "suggestion": "「バリュエーション比較」セクションを追加し、主要銘柄のPER・EV/EBITDA・配当利回りなどの定量比較を盛り込む。セクターETFの相対パフォーマンスチャートがあるとなお良い。"
+                },
+                {
+                    "issue_id": "ST002",
+                    "severity": "medium",
+                    "category": "introduction",
+                    "location": {
+                        "section": "冒頭（免責事項）",
+                        "description": "本文1行目の免責事項ブロック"
+                    },
+                    "issue": "免責事項（投資助言でない旨の注意書き）が記事の最初の要素として配置されている。読者が最初に目にするのが法的テキストとなり、フックの効果を大幅に減殺している。",
+                    "suggestion": "免責事項は記事末尾のリスク開示セクションに統合するか、導入段落の後に配置する。冒頭は読者の関心を引くフック文で始めるべき。"
+                },
+                {
+                    "issue_id": "ST003",
+                    "severity": "low",
+                    "category": "readability",
+                    "location": {
+                        "section": "セクター概観",
+                        "description": "第2段落（3つのドライバー説明）"
+                    },
+                    "issue": "3つの成長ドライバーが1つの長い段落にまとめられており、情報密度が高く一読で把握しにくい。",
+                    "suggestion": "3つのドライバーを箇条書き（番号付きリスト）に分割し、各項目を2-3文で簡潔に説明する。"
+                },
+                {
+                    "issue_id": "ST004",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "EchoStar / M&A マップ",
+                        "description": "EchoStarセクションとM&Aマップセクションの重複"
+                    },
+                    "issue": "EchoStarのスペクトラム売却は独立セクションとM&Aマップセクションの両方で説明されており内容が重複。EchoStarセクション自体が373字と他のセグメント分析（500-688字）に比べて短く、独立セクションとしてのボリュームが不足。",
+                    "suggestion": "EchoStarの内容をM&Aマップ内のサブセクションとして統合するか、EchoStarセクションにDISHの歴史的経緯やハイブリッドMVNOの競争力分析を加えてボリュームを充実させる。"
+                },
+                {
+                    "issue_id": "ST005",
+                    "severity": "low",
+                    "category": "flow",
+                    "location": {
+                        "section": "セクション間の遷移",
+                        "description": "各セクション末尾から次セクション冒頭への接続"
+                    },
+                    "issue": "多くのセクションが水平線（---）で区切られているが、次のセクションへの論理的なブリッジ文がほとんどない。読者は各セクションを独立した島として読むことになり、ストーリーの連続性がやや弱い。",
+                    "suggestion": "主要セクションの末尾に1文程度のブリッジ（例: 無線キャリアセクション末尾に「こうした無線の競争激化は、ケーブル業界にも波及しています」等）を追加する。"
+                },
+                {
+                    "issue_id": "ST006",
+                    "severity": "medium",
+                    "category": "conclusion",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "セクション全体"
+                    },
+                    "issue": "まとめセクションが231字・3文と極端に短く、8,000字超の記事の結論としてはボリューム不足。投資家への示唆セクション（811字）の方が実質的な結論として機能しており、読者にとっての「締め」が曖昧。",
+                    "suggestion": "まとめを400-500字に拡充し、(1) 記事の主要ファインディングの要約、(2) 投資家がこの先12ヶ月で注視すべき3つの転換点、(3) セクター全体に対する筆者の見方を明示する。"
+                },
+                {
+                    "issue_id": "ST007",
+                    "severity": "low",
+                    "category": "readability",
+                    "location": {
+                        "section": "バリューチェーンマップ",
+                        "description": "5層構造の説明部分"
+                    },
+                    "issue": "5層のバリューチェーンが全て1つの段落内に詰め込まれており、各層の説明が1-2文で連続し視覚的な区切りがない。",
+                    "suggestion": "5層を箇条書き（番号付きリスト）に分割し、各層を独立した項目として表示する。"
+                },
+                {
+                    "issue_id": "ST008",
+                    "severity": "high",
+                    "category": "readability",
+                    "location": {
+                        "section": "全体",
+                        "description": "専門用語の未説明"
+                    },
+                    "issue": "MVNO（仮想移動体通信事業者）、REIT（不動産投資信託）、EPS（1株当たり利益）、FCC（連邦通信委員会）、Direct-to-Cell の5つの専門用語が説明なしで使用されている。特にMVNOとREITは記事の核心的な概念であり、一般投資家読者にとって理解の障壁となりうる。",
+                    "suggestion": "初出時に括弧書きで日本語訳を付記する（例: MVNO（仮想移動体通信事業者）、REIT（不動産投資信託）、EPS（1株当たり利益）、FCC（米連邦通信委員会））。"
+                },
+                {
+                    "issue_id": "ST009",
+                    "severity": "low",
+                    "category": "sections",
+                    "location": {
+                        "section": "投資家への示唆",
+                        "description": "セクション全体のバランス"
+                    },
+                    "issue": "投資家への示唆セクション（811字）が記事内で最も長いセクションとなっており、他のセクション（平均500字程度）と比較してバランスが偏っている。注目ポイントの内容は結論セクションとの重複感がある。",
+                    "suggestion": "注目ポイント部分をまとめセクションに移動し、投資家への示唆はBull/Bearケースに集中させることでバランスと役割分担を改善する。"
+                },
+                {
+                    "issue_id": "ST010",
+                    "severity": "low",
+                    "category": "flow",
+                    "location": {
+                        "section": "AI インフラと Lumen の賭け → EchoStar",
+                        "description": "セクションの配置順序"
+                    },
+                    "issue": "LumenセクションからEchoStarセクションへの遷移が唐突。Lumenの「AI需要の持続性」という問いかけで終わった後、突然EchoStarの事業転換の話に移る。両者の論理的なつながりが弱い。",
+                    "suggestion": "EchoStarセクションをM&Aマップの直前に移動するか、Lumenセクション末尾にテレコム業界全体の事業転換を示唆するブリッジ文を追加する。"
+                }
+            ],
+            "section_analysis": [
+                {
+                    "section": "導入部（フロントマター後〜最初の---まで）",
+                    "word_count": 399,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "セクター概観",
+                    "word_count": 511,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "バリューチェーンマップ",
+                    "word_count": 541,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "無線キャリア: T-Mobile の独走",
+                    "word_count": 688,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "ケーブル vs ファイバー: 構造変化の渦中",
+                    "word_count": 636,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "タワーREIT: 高マージンとDISHリスク",
+                    "word_count": 500,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "AI インフラと Lumen の賭け",
+                    "word_count": 524,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "EchoStar: スペクトラム売却と再出発",
+                    "word_count": 373,
+                    "subsections": 0,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "M&A マップ",
+                    "word_count": 391,
+                    "subsections": 0,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "投資家への示唆",
+                    "word_count": 811,
+                    "subsections": 3,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "まとめ",
+                    "word_count": 231,
+                    "subsections": 0,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "参考データソース",
+                    "word_count": 897,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "リスク開示",
+                    "word_count": 196,
+                    "subsections": 0,
+                    "balance": "適切"
+                }
+            ],
+            "readability_metrics": {
+                "avg_sentence_length": 65,
+                "avg_paragraph_length": 2.3,
+                "technical_terms_explained": 7,
+                "technical_terms_unexplained": 6
+            },
+            "stock_analysis_compliance": {
+                "required_sections": {
+                    "executive_summary": {
+                        "present": true,
+                        "mapped_to": "導入部"
+                    },
+                    "company_overview": {
+                        "present": true,
+                        "mapped_to": "バリューチェーンマップ + 各セグメント分析"
+                    },
+                    "financial_analysis": {
+                        "present": true,
+                        "mapped_to": "各セグメントセクション内のFY2025データ"
+                    },
+                    "technical_analysis": {
+                        "present": false,
+                        "mapped_to": null
+                    },
+                    "risk_factors": {
+                        "present": true,
+                        "mapped_to": "投資家への示唆（Bearケース）"
+                    },
+                    "conclusion": {
+                        "present": true,
+                        "mapped_to": "まとめ"
+                    }
+                },
+                "compliance_rate": 0.83
+            }
+        }
+    },
+    "overall_score": null,
+    "priority_fixes": [
+        {
+            "priority": 1,
+            "issue_id": "F001",
+            "action": "AT&T FY2024 10-Kから正確な純利益を取得し、FY2025との通年比較でYoY成長率を算出"
+        },
+        {
+            "priority": 2,
+            "issue_id": "ST008",
+            "action": "専門用語（MVNO、REIT、EPS、FCC、Direct-to-Cell）に初出時の日本語説明を追加"
+        },
+        {
+            "priority": 3,
+            "issue_id": "F003",
+            "action": "AT&Tコンバージェンスレート42%の出典を特定し、ソースURLを埋め込み"
+        },
+        {
+            "priority": 4,
+            "issue_id": "ST001",
+            "action": "バリュエーション比較セクションの追加を検討（テクニカル分析要件への対応）"
+        },
+        {
+            "priority": 5,
+            "issue_id": "ST006",
+            "action": "まとめセクションを400-500字に拡充し結論としての機能を強化"
+        },
+        {
+            "priority": 6,
+            "issue_id": "F002",
+            "action": "Charter-Cox合併ステータスに「州認可審査中」を追記"
+        },
+        {
+            "priority": 7,
+            "issue_id": "ST002",
+            "action": "免責事項の配置を記事末尾に移動し冒頭のフック効果を改善"
+        },
+        {
+            "priority": 8,
+            "issue_id": "F004",
+            "action": "5Gカバー率に「ローバンド」の帯域限定を明記"
+        },
+        {
+            "priority": 9,
+            "issue_id": "ST004",
+            "action": "EchoStarセクションの内容充実またはM&Aマップへの統合"
+        },
+        {
+            "priority": 10,
+            "issue_id": "F008",
+            "action": "ファイバー投資$300億超の出典を追加、または個別CapEx数値に置き換え"
+        }
+    ]
+}
+

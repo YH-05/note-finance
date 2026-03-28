@@ -1,0 +1,145 @@
+{
+  "article_id": "2026-03-28_indonesia-bumn-soe-analysis",
+  "sources": [
+    {
+      "url": "https://voi.id/en/economy/560960",
+      "title": "BRI Profit Down 5.26% to Rp57.13 Trillion in 2025",
+      "authority_level": "media",
+      "published_at": "2026-02-15",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-bank-rakyat-indonesia-beats-q4-2025-expectations-93CH-4538529",
+      "title": "BBRI beats Q4 2025 expectations: EPS 105.13 vs forecast 98.34",
+      "authority_level": "analyst",
+      "published_at": "2026-01-15",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.idnfinancials.com/news/58204/net-profit-of-bmri-reaches-idr-37-75-trillion-down-10-14",
+      "title": "BMRI net profit IDR 37.75 trillion (Q3 2025), down 10.14%",
+      "authority_level": "media",
+      "published_at": "2025-10-29",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.idnfinancials.com/news/62258/bbni-reveals-schedule-of-thr-dividend-payout-of-idr-13-03-trillion",
+      "title": "BBNI THR dividend payout IDR 13.03 trillion",
+      "authority_level": "media",
+      "published_at": "2026-03-10",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.telkom.co.id/sites/news-resources/en_US/news/telkom-q1-2025-financial-report,-strengthening-digital-business,-telkom-records-consolidated-revenue-of-idr-36.6-trillion-in-early-2025-2983",
+      "title": "Telkom Q1 2025: Revenue IDR 36.6T, EBITDA margin 49.8%",
+      "authority_level": "official",
+      "published_at": "2025-05-15",
+      "source_type": "web"
+    },
+    {
+      "url": "https://www.ainvest.com/news/telkom-indonesia-q3-2025-earnings-strategic-positioning-digital-economy-2510/",
+      "title": "Telkom Q3 2025 Earnings: Revenue IDR 109.61T (9M), NP IDR 15.78T",
+      "authority_level": "analyst",
+      "published_at": "2025-10-28",
+      "source_type": "news"
+    },
+    {
+      "url": "https://en.antaranews.com/news/400794/indonesias-swf-danantara-targets-increasing-assets-via-value-creation",
+      "title": "Danantara targets increasing assets via value creation",
+      "authority_level": "media",
+      "published_at": "2025-09-15",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.idnfinancials.com/news/55887/danantara-accelerates-soe-restructuring-eyes-usd-5-billion-investment",
+      "title": "Danantara accelerates SOE restructuring, eyes USD 5B investment",
+      "authority_level": "media",
+      "published_at": "2025-06-20",
+      "source_type": "news"
+    },
+    {
+      "url": "https://fortune.com/asia/2025/07/31/indonesia-danantara-sovereign-wealth-fund-southeast-asia/",
+      "title": "Indonesia bets Danantara will unlock potential (Fortune)",
+      "authority_level": "media",
+      "published_at": "2025-07-31",
+      "source_type": "news"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Danantara",
+      "title": "Danantara - Wikipedia",
+      "authority_level": "media",
+      "published_at": "2025-02-24",
+      "source_type": "web"
+    },
+    {
+      "url": "https://voi.id/en/amp/562012",
+      "title": "Jasa Marga revenue IDR 19.8T in 2025, up 5.8%",
+      "authority_level": "media",
+      "published_at": "2026-02-20",
+      "source_type": "news"
+    },
+    {
+      "url": "https://voi.id/en/economy/528971",
+      "title": "Jasa Marga profit IDR 2.74T (Q3 2025), EBITDA margin 67%",
+      "authority_level": "media",
+      "published_at": "2025-10-25",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.cemnet.com/News/story/180743/indonesia-cement-sales-shrank-2-in-2025.html",
+      "title": "Indonesia cement sales shrank 2% in 2025",
+      "authority_level": "media",
+      "published_at": "2026-01-15",
+      "source_type": "news"
+    },
+    {
+      "url": "https://premium.bisnis.com/read/20250723/664/1895447/state-owned-miners-antm-inco-tins-ptba-supercharge-capex-for-big-downstream-push",
+      "title": "ANTM, INCO, TINS, PTBA supercharge capex for downstream push",
+      "authority_level": "media",
+      "published_at": "2025-07-23",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.idnfinancials.com/news/55253/ptba-antm-tins-to-pay-dividends-mind-id-set-to-gain-idr-5-trillion",
+      "title": "PTBA, ANTM, TINS dividends: MIND ID gains IDR 5T",
+      "authority_level": "media",
+      "published_at": "2025-05-20",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.idnfinancials.com/news/55549/wskt-shares-suspended-here-is-the-progress-on-bond-restructuring",
+      "title": "WSKT shares suspended: bond restructuring progress",
+      "authority_level": "media",
+      "published_at": "2025-07-10",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.globenewswire.com/news-release/2026/02/05/3232711/28124/en/Indonesia-Construction-Industry-Report-2026-Output-to-Expand-at-an-AAGR-of-5-8-Between-2026-2029-Supported-by-Investments-in-Housing-Mining-Transport-Infrastructure-and-Energy-Proj.html",
+      "title": "Indonesia Construction Industry: AAGR 5.8% (2026-2029)",
+      "authority_level": "analyst",
+      "published_at": "2026-02-05",
+      "source_type": "news"
+    },
+    {
+      "url": "https://www.voronoiapp.com/markets/Market-Cap-of-IDX-Companies-with-Significant-Government-Ownership-5492",
+      "title": "Market Cap of IDX Companies with Government Ownership",
+      "authority_level": "media",
+      "published_at": "2025-06-01",
+      "source_type": "web"
+    },
+    {
+      "url": "https://mstock.miraeasset.co.id/blog/dividen-bumn/",
+      "title": "BUMN配当予測: 政府目標IDR 140T (前年比+55%)",
+      "authority_level": "analyst",
+      "published_at": "2025-12-15",
+      "source_type": "news"
+    },
+    {
+      "url": "https://indonesiabusinesspost.com/1367/investment-and-risk/positive-financial-performance-of-state-owned-enterprises-bumn-drives-growth",
+      "title": "Positive BUMN financial performance drives growth",
+      "authority_level": "media",
+      "published_at": "2025-08-15",
+      "source_type": "news"
+    }
+  ]
+}

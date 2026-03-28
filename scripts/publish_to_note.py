@@ -358,6 +358,8 @@ async def run_publish(article_dir: Path, *, dry_run: bool, update_meta: bool) ->
     result = await publisher.publish(article_dir, update_meta=update_meta)
     if result.success:
         logger.info("publish_success", draft_url=result.draft_url)
+        if result.draft_url:
+            print(result.draft_url)
         return 0
 
     logger.error("publish_failed", error=result.error_message)

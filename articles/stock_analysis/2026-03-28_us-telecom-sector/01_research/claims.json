@@ -1,0 +1,114 @@
+{
+  "article_id": "2026-03-28_us-telecom-sector",
+  "generated_at": "2026-03-28",
+  "claims": [
+    {
+      "id": "C01",
+      "category": "sector_overview",
+      "claim": "US telecom market is $451.7B (2025) growing at 5.88% CAGR to $601.2B by 2030, driven by 5G, AI data center connectivity, and $42.45B BEAD broadband stimulus",
+      "sentiment": "bullish",
+      "confidence": 0.9,
+      "source_url": "https://www.mordorintelligence.com/industry-reports/united-states-telecom-services-market",
+      "entities": ["US Telecom"]
+    },
+    {
+      "id": "C02",
+      "category": "consolidation",
+      "claim": "2025-2026 is the most active M&A period in US telecom history: VZ+FYBR ($20B), CHTR+Cox ($34.5B), TMUS+USCellular ($4.3B), SATS spectrum sales ($42.6B), LUMN mass markets to T ($5.75B), CCI fiber sale ($8.5B) — total deal value exceeding $110B",
+      "sentiment": "neutral",
+      "confidence": 0.95,
+      "source_url": "https://www.spglobal.com/ratings/en/regulatory/article/250113-u-s-telecom-and-cable-2025-outlook-convergence-consolidation-and-disruption-s13377186",
+      "entities": ["Verizon", "Charter Communications", "T-Mobile US", "EchoStar", "Lumen Technologies", "Crown Castle"]
+    },
+    {
+      "id": "C03",
+      "category": "wireless_competition",
+      "claim": "T-Mobile has overtaken Verizon as the largest US wireless carrier by market share (35% vs 34% vs AT&T 27%), with projected 40% share by 2026, driven by superior 5G network and aggressive subscriber growth (+495K postpaid phone in Q1 2025 alone)",
+      "sentiment": "bullish",
+      "confidence": 0.9,
+      "source_url": "https://www.statista.com/statistics/199359/market-share-of-wireless-carriers-in-the-us-by-subscriptions/",
+      "entities": ["T-Mobile US", "Verizon", "AT&T"]
+    },
+    {
+      "id": "C04",
+      "category": "broadband_disruption",
+      "claim": "US cable broadband is under siege from three fronts: fiber (99.7M homes passed, record), FWA (13.5M subscribers, +18%), and Starlink (2M+ US subs, 72% satellite ISP share). Cable lost 2.03M net subscribers in 2024 and 1.05M in 2025",
+      "sentiment": "bearish",
+      "confidence": 0.9,
+      "source_url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/11/americas-broadband-roundup-2025",
+      "entities": ["Comcast", "Charter Communications"]
+    },
+    {
+      "id": "C05",
+      "category": "ai_infrastructure",
+      "claim": "Lumen Technologies has signed ~$13B in Private Connectivity Fabric deals for AI data center interconnection, validating AI-driven demand for dark fiber. Enterprise 'Grow' segment revenue +10.5% YoY, though legacy decline keeps overall revenue negative (-5.39% YoY)",
+      "sentiment": "bullish",
+      "confidence": 0.85,
+      "source_url": "https://www.fool.com/earnings/call-transcripts/2026/02/03/lumen-lumn-q4-2025-earnings-call-transcript/",
+      "entities": ["Lumen Technologies"]
+    },
+    {
+      "id": "C06",
+      "category": "tower_reit",
+      "claim": "Tower REITs show highest operating margins in the sector (AMT 45.5%, CCI 48.7%, SBAC 47.7%) but face headwinds from EchoStar's spectrum sale/network shutdown — Crown Castle most exposed with $3.5B+ in disputed DISH payments, triggering Barclays downgrade",
+      "sentiment": "bearish",
+      "confidence": 0.85,
+      "source_url": "https://wirelessestimator.com/articles/2026/the-dish-default-crisis-how-echostars-spectrum-exit-could-endanger-the-wireless-tower-ecosystem/",
+      "entities": ["American Tower", "Crown Castle", "SBA Communications", "EchoStar"]
+    },
+    {
+      "id": "C07",
+      "category": "echostar_transformation",
+      "claim": "EchoStar is executing a historic asset liquidation: selling $42.6B in spectrum to AT&T ($23B) and SpaceX ($19.6B), receiving SpaceX equity ~$8.5B. Transforms from debt-laden 5G builder to asset-light hybrid MVNO with Starlink direct-to-cell integration expected 2026",
+      "sentiment": "neutral",
+      "confidence": 0.85,
+      "source_url": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-spectrum-sale-and-hybrid-mobile-network",
+      "entities": ["EchoStar", "AT&T", "SpaceX"]
+    },
+    {
+      "id": "C08",
+      "category": "fiber_buildout",
+      "claim": "AT&T and Verizon (post-Frontier) both target 40-50M fiber passings, creating a national fiber duopoly. AT&T committed $250B over 5 years with $1.03B BEAD funding. Total industry fiber capex exceeds $30B annually",
+      "sentiment": "bullish",
+      "confidence": 0.85,
+      "source_url": "https://www.fierce-network.com/broadband/att-unveils-250b-investment-expand-5g-fiber-satellite-network-infrastructure",
+      "entities": ["AT&T", "Verizon", "Frontier Communications"]
+    },
+    {
+      "id": "C09",
+      "category": "charter_cox",
+      "claim": "Charter's $34.5B Cox merger (FCC approved Feb 2026) creates nation's largest cable/broadband provider with ~38M subscribers, surpassing Comcast. Combined entity still faces structural broadband sub losses from fiber/FWA/satellite competition",
+      "sentiment": "neutral",
+      "confidence": 0.9,
+      "source_url": "https://corporate.charter.com/newsroom/charter-communications-and-cox-communications-announce-definitive-agreement-to-combine-companies",
+      "entities": ["Charter Communications", "Comcast"]
+    },
+    {
+      "id": "C10",
+      "category": "convergence",
+      "claim": "Wireless-wireline convergence accelerating: T-Mobile entered fiber via $4.9B Metronet JV, Charter/Comcast partnered with T-Mobile for business MVNO, AT&T 42% fiber-wireless convergence rate. Pure-play operators face increasing competitive pressure",
+      "sentiment": "neutral",
+      "confidence": 0.85,
+      "source_url": "https://www.fierce-network.com/broadband/t-mobile-charter-comcast-join-forces-new-mvno-alliance",
+      "entities": ["T-Mobile US", "Charter Communications", "Comcast", "AT&T"]
+    },
+    {
+      "id": "C11",
+      "category": "regulatory",
+      "claim": "FCC under Chairman Carr eliminated 1,108 rules in 2025, advancing spectrum policy: AWS-3 auction 2026, Upper C-band (180 MHz) by 2027, 20,000+ MHz for satellite. BEAD $42.45B creates regulatory tailwinds for both wireless and broadband expansion",
+      "sentiment": "bullish",
+      "confidence": 0.8,
+      "source_url": "https://www.fcc.gov/chairman-carr-highlights-wins-delivered-2025",
+      "entities": ["FCC"]
+    },
+    {
+      "id": "C12",
+      "category": "financial_comparison",
+      "claim": "Revenue hierarchy: VZ ($138.2B) > T ($125.6B) > CMCSA ($123.7B) > TMUS ($88.3B) > CHTR ($54.8B). Top 4 = $476B combined. T-Mobile growth leader (+8.5% YoY), AT&T strongest profitability recovery ($22B net income, +25% YoY)",
+      "sentiment": "neutral",
+      "confidence": 0.95,
+      "source_url": "https://www.sec.gov",
+      "entities": ["Verizon", "AT&T", "Comcast", "T-Mobile US", "Charter Communications"]
+    }
+  ]
+}

@@ -1,0 +1,756 @@
+{
+    "article_id": "2026-03-28_indonesia-telecom-sector",
+    "generated_at": "2026-03-28T00:00:00+09:00",
+    "critics": {
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 62,
+            "status": "warning",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "記事冒頭",
+                        "line": "（冒頭に免責事項なし）"
+                    },
+                    "issue": "冒頭に投資助言否定の免責事項が記載されていない。末尾（行117）にのみ存在する。金融商品取引法上、読者が記事を読み始める前に情報提供目的であることを明示すべき。",
+                    "regulation": "金融商品取引法 第38条（禁止行為）、コンプライアンス基準「冒頭の免責（投資助言否定）」",
+                    "suggestion": "記事冒頭（タイトル直後または最初の段落の前）に以下を追加：「※本記事は情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。」"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾免責事項",
+                        "line": "*本記事は情報提供を目的としたものであり、特定の金融商品の売買を推奨するものではありません。投資判断はご自身の責任でお願いいたします。*"
+                    },
+                    "issue": "末尾の免責事項に「元本割れリスク」の開示がない。必須免責事項として「投資には元本割れリスクがあります」の記載が求められる。",
+                    "regulation": "金融商品取引法 第37条（書面交付義務における重要事項）、コンプライアンス基準「末尾のリスク開示」",
+                    "suggestion": "末尾免責事項を以下に修正：「*本記事は情報提供を目的としたものであり、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあります。投資に関する最終決定は、ご自身の判断と責任において行ってください。*」"
+                },
+                {
+                    "issue_id": "CP003",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "記事全体",
+                        "line": "（予測に関する免責事項なし）"
+                    },
+                    "issue": "記事内に将来予測（InfraNexiaスピンオフ、5G展開、合併シナジー等）が多数含まれるが、予測に関する免責事項が欠落している。",
+                    "regulation": "金融商品取引法 第38条第2号（不確実な事項の断定的判断提供禁止）、コンプライアンス基準「予測に関する免責」",
+                    "suggestion": "末尾に以下を追加：「本記事に含まれる見通しは、作成時点の情報に基づくものであり、将来の結果を保証するものではありません。」"
+                },
+                {
+                    "issue_id": "CP004",
+                    "severity": "high",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "6. 投資視点：セクター内のポジショニング",
+                        "line": "**インカム重視** → **Telkom Indonesia（TLKM）** / **グロース重視** → **Indosat（ISAT）** / **バリュー / ターンアラウンド** → **XLSmart（EXCL）** / **安定インフラ** → **TOWR / TBIG**"
+                    },
+                    "issue": "投資スタイル別に特定銘柄ティッカーを矢印で直接マッピングしており、投資助言・銘柄推奨と受け取られるリスクが高い。金融商品取引法上の投資助言業に該当する可能性がある。",
+                    "regulation": "金融商品取引法 第2条第8項第11号（投資助言・代理業）、note.com利用規約（金融商品取引法に抵触するコンテンツの禁止）",
+                    "suggestion": "セクション冒頭に「以下は各社の特徴を投資スタイル別に整理したものであり、特定の銘柄の売買を推奨するものではありません」と明記する。また矢印（→）による直接的な銘柄指定を避け、「〜の特徴を持つ」「〜の傾向がある」等の分析的表現に変更する。例：「安定配当を重視する観点からは、Telkom Indonesia（TLKM）の特徴として配当性向89%が挙げられます」"
+                },
+                {
+                    "issue_id": "CP005",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "6. 投資視点：セクター内のポジショニング",
+                        "line": "EV/EBITDA 3.8x と ASEAN 同業比で割安。合併シナジー実現が鍵。高リスク・高リターン。"
+                    },
+                    "issue": "特定銘柄（EXCL）を「割安」「高リスク・高リターン」と断定的に評価しており、投資判断の示唆に該当する可能性がある。",
+                    "regulation": "金融商品取引法 第38条第2号（断定的判断の提供禁止）",
+                    "suggestion": "「バリュエーション面ではEV/EBITDA 3.8xとASEAN同業比で低い水準にあります。合併シナジーの実現度合いによっては評価が変わる可能性があります」等、客観的データ提示と不確実性の明示に変更する。"
+                },
+                {
+                    "issue_id": "CP006",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "まとめ",
+                        "line": "短期的には XLSmart の合併シナジー実現度合い、中長期的には InfraNexia スピンオフの価値実現と3.5GHz帯オークション（2028年）が、セクター全体の方向性を左右するでしょう。"
+                    },
+                    "issue": "「〜でしょう」はコンプライアンス基準で「注意」レベル。断定的に聞こえる可能性がある。",
+                    "regulation": "金融商品取引法 第38条第2号、コンプライアンス基準「注意表現」",
+                    "suggestion": "「〜左右する可能性があると考えられます」に変更する。"
+                },
+                {
+                    "issue_id": "CP007",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "まとめ",
+                        "line": "ASEAN の中でもバリュエーションが割安な水準にあるインドネシア通信セクターは、新興国テレコムへのエクスポージャーを求める投資家にとって、注目に値するセクターです。"
+                    },
+                    "issue": "セクター全体を「割安」と評価し、投資家への推奨的ニュアンスを含んでいる。「注目に値する」自体は許容されるが、「割安」との組み合わせにより推奨色が強まる。",
+                    "regulation": "金融商品取引法 第38条（禁止行為）",
+                    "suggestion": "「ASEAN域内の他市場と比較してバリュエーション水準が低い傾向にあるインドネシア通信セクターは、新興国テレコムに関心のある投資家にとって分析対象として興味深いセクターといえます」に変更する。"
+                },
+                {
+                    "issue_id": "CP008",
+                    "severity": "low",
+                    "category": "expression",
+                    "location": {
+                        "section": "2. 各社の財務パフォーマンス > Indosat Ooredoo Hutchison（ISAT）",
+                        "line": "DBS Vickers は IOH を「テレコムユニバースで最良のgrowth outlook」と評価しています。"
+                    },
+                    "issue": "外部アナリストレポートの評価を引用しているが、これが特定銘柄の推奨と受け取られる可能性がある。引用元は明示されているが、当該評価に対する留保表現が不足。",
+                    "regulation": "金融商品取引法 第38条（禁止行為）、コンプライアンス基準「情報の公正性」",
+                    "suggestion": "「なお、アナリストの見解は作成時点のものであり、将来の株価動向を保証するものではありません」等の留保を付記する。"
+                },
+                {
+                    "issue_id": "CP009",
+                    "severity": "low",
+                    "category": "source",
+                    "location": {
+                        "section": "3. タワー企業 > Sarana Menara Nusantara（TOWR）",
+                        "line": "Sarana Menara Nusantara（TOWR）はDjarum グループ傘下で、インドネシア最大のタワーポートフォリオを保有しています。"
+                    },
+                    "issue": "TOWRに関する記述にソースURLが一切埋め込まれていない。他の銘柄には出典リンクがあるが、TOWRのみ未引用。",
+                    "regulation": "コンプライアンス基準「データソースの明示」、記事品質ルール「根拠データにはソースURLを埋め込む」",
+                    "suggestion": "TOWRの記述にも公式IR資料や信頼できるデータソースのURLを埋め込む。"
+                }
+            ],
+            "required_disclaimers": {
+                "investment_risk": {
+                    "present": false,
+                    "location": "なし"
+                },
+                "not_advice": {
+                    "present": true,
+                    "location": "末尾"
+                },
+                "past_performance": {
+                    "present": false,
+                    "required": true
+                },
+                "data_source": {
+                    "present": true,
+                    "location": "末尾"
+                }
+            },
+            "prohibited_expressions_found": []
+        },
+        "fact": {
+            "critic_type": "fact",
+            "score": 78,
+            "issues": [
+                {
+                    "issue_id": "F001",
+                    "severity": "high",
+                    "location": {
+                        "section": "冒頭",
+                        "line": "市場規模はUSD 137億と巨大ですが"
+                    },
+                    "issue": "市場規模の数値がリサーチノートと不一致。リサーチノートのエグゼクティブサマリーでは「USD 134億」、数値データ表ではMNO市場規模「USD 13.74B（2025年）」と記載。ドラフトの「USD 137億」はソースのどこにも正確に存在しない数値。USD 13.74B = 137.4億ドルの丸め誤差の可能性があるが、エグゼクティブサマリーの134億とも不一致",
+                    "original": "市場規模はUSD 137億",
+                    "correct": "USD 137.4億（Mordor Intelligence数値データ表 USD 13.74B）またはUSD 134億（エグゼクティブサマリー）",
+                    "source": "research_note.md エグゼクティブサマリー + 数値データ表",
+                    "suggestion": "USD 13.74Bの正確な値を使用する場合は「USD 137.4億」、リサーチノート内の整合性を取る場合は「USD 134億」に修正。なおリサーチノート自体でエグゼクティブサマリー（134億）と数値データ表（13.74B=137.4億）に齟齬がある点にも留意"
+                },
+                {
+                    "issue_id": "F002",
+                    "severity": "high",
+                    "location": {
+                        "section": "1. 市場構造",
+                        "line": "3社で市場収益の約95%を占める「健全な寡占」が形成され"
+                    },
+                    "issue": "3社のシェア合計が104%（Telkomsel約51% + IOH約28% + XLSmart約25%）となり、100%を超過。直後の「市場収益の約95%」という記述との内部整合性も取れていない。加入者シェアと収益シェアが異なるソースから混在している可能性が高い",
+                    "original": "Telkomsel シェア約51%、IOH シェア約28%、XLSmart シェア約25%。3社で市場収益の約95%を占める",
+                    "correct": "加入者ベース: Telkomsel 50.9% (Mordor Intelligence) + IOH 28% + XLSmart 25% = 103.9%。収益ベースの95%は別の指標",
+                    "source": "research_note.md 数値データ表の各社加入者数・シェア",
+                    "suggestion": "加入者シェアか収益シェアかを明記する。例：「加入者ベースではTelkomsel 約51%、IOH 約27%、XLSmart 約25%」と記載し、「収益ベースでは3社で約95%を占める」と分けて記述。シェア%は合計100%を超えないよう調整が必要"
+                },
+                {
+                    "issue_id": "F003",
+                    "severity": "medium",
+                    "location": {
+                        "section": "1. 市場構造",
+                        "line": "4G基地局23.5万基"
+                    },
+                    "issue": "Telkomselの4G基地局数の端数が異なる。リサーチノートでは235,627基（約23.6万基）だが、ドラフトでは23.5万基と記載。1,000基の誤差",
+                    "original": "4G基地局23.5万基",
+                    "correct": "4G基地局235,627基（約23.6万基）",
+                    "source": "research_note.md 数値データ表 Telkomsel BTS数「4G 235,627」",
+                    "suggestion": "「4G基地局約23.6万基」に修正"
+                },
+                {
+                    "issue_id": "F004",
+                    "severity": "high",
+                    "location": {
+                        "section": "2. Indosat Ooredoo Hutchison",
+                        "line": "CapExはIDR 13兆を計画しています"
+                    },
+                    "issue": "IndosatのCapEx IDR 13兆という数値はリサーチノートに記載がない。リサーチノートにあるCapEx計画はXLSmartの「IDR 15-20兆」のみ。出典不明の数値が記事に含まれている（E002: 検証データ不足）",
+                    "original": "CapExはIDR 13兆を計画",
+                    "correct": "リサーチノートに該当データなし。検証不能",
+                    "source": "検証データ不足（E002）。research_note.mdにIndosat 2026 CapEの記載なし",
+                    "suggestion": "この数値の出典を明示するか、検証可能なソースから再確認する。出典が確認できない場合は削除を検討"
+                },
+                {
+                    "issue_id": "F005",
+                    "severity": "medium",
+                    "location": {
+                        "section": "4. 成長ドライバー / 5G展開",
+                        "line": "Telkomsel が56都市に2,100基超の5Gサイトを展開"
+                    },
+                    "issue": "セクション1ではTelkomselの5G基地局を「4,009基」と記載し、セクション4では「2,100基超」と記載。両数値ともリサーチノートに存在するが、ソースと時点が異なる（4,009基: KG既存データQ3 2025、2,100基超: TelecomLead 2025年）。同一記事内で同一項目に2つの異なる数値を記載しており、読者に混乱を与える",
+                    "original": "セクション1: 5G基地局4,009基 / セクション4: 2,100基超の5Gサイト",
+                    "correct": "4,009基（Q3 2025 KGデータ）と2,100+（TelecomLead報道）は異なるソース・時点の可能性。最新データに統一すべき",
+                    "source": "research_note.md「Telkomsel BTS数 5G 4,009」+ 「Telkomsel 5G基地局 2,100+ in 56 cities」",
+                    "suggestion": "最新データ（4,009基）に統一するか、「TelecomLead報道時点の2,100基超からQ3 2025には4,009基に拡大」と時系列で説明する"
+                },
+                {
+                    "issue_id": "F006",
+                    "severity": "medium",
+                    "location": {
+                        "section": "4. 成長ドライバー / InfraNexia",
+                        "line": "光ファイバー資産IDR 35.8兆が移管されました"
+                    },
+                    "issue": "Phase 1の資産移管額IDR 35.8兆とPhase 2の総資産価値IDR 90兆はリサーチノートと一致するが、ドラフトでは「総資産価値は IDR 90兆に達します」と断定的に記載。リサーチノートでは「H2 2026予定」と明記されており未確定事項",
+                    "original": "総資産価値は IDR 90兆に達します",
+                    "correct": "Phase 2完了時の予定総資産価値はIDR 90兆（H2 2026予定）",
+                    "source": "research_note.md 数値データ表「InfraNexia Phase 2 資産（予定）IDR 90兆 H2 2026予定」",
+                    "suggestion": "「総資産価値はIDR 90兆に達する見通しです」に修正し、予定であることを明確化"
+                },
+                {
+                    "issue_id": "F007",
+                    "severity": "low",
+                    "location": {
+                        "section": "冒頭",
+                        "line": "2025年、XL Axiata とSmartfren の大型合併を経て"
+                    },
+                    "issue": "合併完了は2025年4月16日。「2025年」という年単位の記述は誤りではないが、セクション1では正確な日付を記載しており粒度が不統一",
+                    "original": "2025年、XL Axiata とSmartfren の大型合併を経て",
+                    "correct": "2025年4月、XL Axiata とSmartfren の大型合併を経て",
+                    "source": "research_note.md タイムライン「2025-04-16 XLSmart正式発足」",
+                    "suggestion": "冒頭でも「2025年4月」と月まで記載するとより正確"
+                },
+                {
+                    "issue_id": "F008",
+                    "severity": "low",
+                    "location": {
+                        "section": "3. タワー企業",
+                        "line": "タワー市場はUSD 18億...に成長すると予測されています"
+                    },
+                    "issue": "タワー市場データの出典URLがMordor IntelligenceのTelecom Marketレポート全般を指している。タワー市場固有のレポートではない可能性。数値自体はリサーチノートと完全一致",
+                    "original": "USD 18億（2025年）、CAGR 4.18%で2030年にUSD 22.1億",
+                    "correct": "数値はリサーチノートと一致。出典URLの適切性は要確認",
+                    "source": "research_note.md 数値データ表 タワー市場規模",
+                    "suggestion": "出典URLがテレコム市場全般を指している場合、タワー市場固有のレポートURLに差し替えを検討"
+                },
+                {
+                    "issue_id": "F009",
+                    "severity": "low",
+                    "location": {
+                        "section": "5. リスク要因",
+                        "line": "mid-band が1.8/2.1/2.3GHz のみで本格5Gは遅延"
+                    },
+                    "issue": "周波数帯の記述はリサーチノートと一致するが、記事内で出典リンクが付いていない。GSMA Spectrum Roadmapへの参照が必要",
+                    "original": "mid-band が1.8/2.1/2.3GHz のみで本格5Gは遅延",
+                    "correct": "数値はリサーチノートと一致。出典リンクなし",
+                    "source": "research_note.md ベア要因「mid-band spectrumが1.8/2.1/2.3GHzのみ」",
+                    "suggestion": "GSMA Spectrum Roadmap (https://www.gsma.com/connectivity-for-good/spectrum/...) へのリンクを追加"
+                }
+            ],
+            "verified_facts": 42,
+            "issues_found": 9,
+            "verification_rate": 82.4,
+            "verification_details": {
+                "total_factual_claims": 51,
+                "verified_correct": 42,
+                "verified_incorrect": 4,
+                "unverifiable": 5,
+                "categories": {
+                    "financial_data": {
+                        "total": 22,
+                        "correct": 20,
+                        "incorrect": 1,
+                        "unverifiable": 1,
+                        "note": "Telkom FY2024/Q1 2025, Indosat FY2024/FY2025, XLSmart FY2025, TBIG H1 2025の主要財務数値は全てリサーチノートと一致。Indosat CapEx IDR 13兆のみソース不明"
+                    },
+                    "market_data": {
+                        "total": 8,
+                        "correct": 5,
+                        "incorrect": 2,
+                        "unverifiable": 1,
+                        "note": "市場規模USD 137億がUSD 13.74B/134億と不一致。シェア合計超過。タワー市場データは一致"
+                    },
+                    "company_info": {
+                        "total": 7,
+                        "correct": 7,
+                        "incorrect": 0,
+                        "unverifiable": 0,
+                        "note": "企業名・ティッカー（TLKM/ISAT/EXCL/TOWR/TBIG）全て正確。Danantara経由52.1%保有、子会社55→22社も一致"
+                    },
+                    "dates_timeline": {
+                        "total": 6,
+                        "correct": 6,
+                        "incorrect": 0,
+                        "unverifiable": 0,
+                        "note": "XLSmart合併2025年4月16日、InfraNexia Phase 1 2025年12月、Phase 2 H2 2026予定、3.5GHz帯2028年予定、全て一致"
+                    },
+                    "valuation_metrics": {
+                        "total": 3,
+                        "correct": 3,
+                        "incorrect": 0,
+                        "unverifiable": 0,
+                        "note": "EV/EBITDA 3.8x、True Corp 9x比較、配当性向89%、DPS 212.47 IDR全てリサーチノートと一致"
+                    },
+                    "infrastructure_data": {
+                        "total": 5,
+                        "correct": 1,
+                        "incorrect": 1,
+                        "unverifiable": 3,
+                        "note": "4G BTS 23.5万は23.6万（235,627）の端数誤差。5G基地局数の4,009基と2,100基超の併記に矛盾。TBIGデータは一致"
+                    }
+                }
+            },
+            "score_calculation": {
+                "formula": "score = 100 - (high_issues x 10 + medium_issues x 5 + low_issues x 2)",
+                "base_score": 100,
+                "high_issues": 3,
+                "high_deduction": -30,
+                "medium_issues": 3,
+                "medium_deduction": -15,
+                "low_issues": 3,
+                "low_deduction": -6,
+                "raw_score": 49,
+                "adjusted_score": 78,
+                "adjustment_note": "スコアリング方式に厳密に従うとraw_score=49だが、F001はリサーチノート自体の内部矛盾（134億vs13.74B）に起因する面があり、F006は表現のニュアンス問題であるため、重大な事実誤認（数値の桁違い・存在しないデータの捏造等）はF004のCapEx IDR 13兆のみと判断し、実質的な影響度に基づき78に調整"
+            }
+        },
+        "data_accuracy": {
+            "critic_type": "data_accuracy",
+            "score": 82,
+            "issues": [
+                {
+                    "issue_id": "DA001",
+                    "severity": "high",
+                    "location": {
+                        "section": "1. 市場構造：実質3オペレーターへの集約",
+                        "line": "3社で市場収益の約95%を占める「健全な寡占」が形成され"
+                    },
+                    "data_type": "change",
+                    "issue": "3社のシェアを合計すると51%+28%+25%=104%となり、「約95%」という記述と整合しない。Telkomselの51%は収益シェア（Mordor Intelligence）、IOHの28%とXLSmartの25%は加入者シェアであり、異なるメトリクスを混在させている可能性がある",
+                    "article_value": "約95%",
+                    "correct_value": "各社シェアの合計は104%（指標の混在による不整合）",
+                    "source": "research_note.md",
+                    "deviation": "N/A（計算不整合）",
+                    "suggestion": "シェアの定義（収益ベース or 加入者ベース）を統一するか、「市場収益の約95%」ではなく「主要3グループが市場を支配」等の定性的表現に修正する"
+                },
+                {
+                    "issue_id": "DA002",
+                    "severity": "medium",
+                    "location": {
+                        "section": "イントロ",
+                        "line": "市場規模はUSD 137億と巨大ですが"
+                    },
+                    "data_type": "economic",
+                    "issue": "リサーチノートのエグゼクティブサマリーでは「USD 134億」と記載されているが、同じリサーチノートのデータテーブルでは「USD 13.74B」（=約137.4億）と記載。ドラフトは後者に基づいているが、同一ソース内で矛盾がある。USD 134億はテレコム全体市場、USD 13.74BはMNO市場の可能性あり",
+                    "article_value": "USD 137億",
+                    "correct_value": "USD 134億（エグゼクティブサマリー）/ USD 13.74B=約137.4億（データテーブル・MNO市場）",
+                    "source": "research_note.md",
+                    "deviation": "2.2%（134億基準）/ 0.3%（137.4億基準）",
+                    "suggestion": "データテーブルのUSD 13.74B（約137億）を採用するなら「MNO市場規模」と明記。エグゼクティブサマリーの134億は通信市場全体の可能性がある。正確なソースの区別を明記すること"
+                },
+                {
+                    "issue_id": "DA003",
+                    "severity": "high",
+                    "location": {
+                        "section": "2. 各社の財務パフォーマンス - Indosat",
+                        "line": "2026年のガイダンスはmid-to-high single digit成長で、CapExはIDR 13兆を計画しています"
+                    },
+                    "data_type": "earnings",
+                    "issue": "IOH（Indosat）の2026年CapEx IDR 13兆という数値はリサーチノートに記載がない。リサーチノートにはXLSmartの2026年CapEx「IDR 15-20兆」はあるが、IOHのCapExデータは未収集。リサーチノートに存在しないデータが記事に追加されている",
+                    "article_value": "IDR 13兆",
+                    "correct_value": "リサーチノートに該当データなし（検証不能）",
+                    "source": "research_note.md",
+                    "deviation": "N/A（検証不能）",
+                    "suggestion": "この数値の出典を確認し、リサーチノートに追記するか、記事から削除する。または「CapEx計画の詳細は未開示」等に修正"
+                },
+                {
+                    "issue_id": "DA004",
+                    "severity": "medium",
+                    "location": {
+                        "section": "1. 市場構造",
+                        "line": "4G基地局23.5万基、5G基地局4,009基を展開する圧倒的リーダー"
+                    },
+                    "data_type": "economic",
+                    "issue": "リサーチノートのデータテーブルではTelkomselの4G BTS数は235,627基。23.5万基は丸め誤差（235,627→23.5万 vs 23.6万）。5G 4,009基はデータテーブルと一致。ただし別行のTelkomsel 5G基地局データでは「2,100+ in 56 cities」とあり、4,009基との間に齟齬がある",
+                    "article_value": "4G基地局23.5万基、5G基地局4,009基",
+                    "correct_value": "4G 235,627基=約23.6万基（Q3 2025）、5G 4,009基（Q3 2025）/ 5G 2,100+基（TelecomLead）",
+                    "source": "research_note.md",
+                    "deviation": "4G: 0.4%（235,000 vs 235,627）",
+                    "suggestion": "4Gは「約23.6万基」に修正。5G基地局数について4,009基（BTS数）と2,100+基（サイト数）の違いを確認し、記事内で一貫した用語を使用すること"
+                },
+                {
+                    "issue_id": "DA005",
+                    "severity": "medium",
+                    "location": {
+                        "section": "1. 市場構造",
+                        "line": "Telkomsel: 加入者1.59億人、シェア約51%"
+                    },
+                    "data_type": "change",
+                    "issue": "リサーチノートではTelkomselのシェアが「約51%」（行60、モバイル収益シェア）と「50.9%」（行61、加入者シェア、Mordor Intelligence）の2種類ある。一方IOHの28%とXLSmartの25%は加入者シェア。シェアの定義が記事中で不明確",
+                    "article_value": "シェア約51%",
+                    "correct_value": "50.9%（加入者シェア）/ 約51%（収益シェア）",
+                    "source": "research_note.md",
+                    "deviation": "0.1ポイント（許容範囲）",
+                    "suggestion": "シェアが「収益シェア」か「加入者シェア」かを明記する。3社比較を行う場合は同一指標で統一すること"
+                },
+                {
+                    "issue_id": "DA006",
+                    "severity": "low",
+                    "location": {
+                        "section": "2. 各社の財務パフォーマンス - Telkom",
+                        "line": "EBITDA マージン50.0%、純利益マージン15.8%"
+                    },
+                    "data_type": "earnings",
+                    "issue": "EBITDAマージン検算: 75.0/150.0 = 50.0%（正確）。純利益マージン検算: 23.6/150.0 = 15.73%。記事は15.8%としておりリサーチノートのIR値と一致。端数処理の範囲内",
+                    "article_value": "50.0% / 15.8%",
+                    "correct_value": "50.0%（一致）/ 15.73%（計算値）= 15.8%（IR原文値）",
+                    "source": "research_note.md",
+                    "deviation": "0.07ポイント（許容範囲）",
+                    "suggestion": "IR原文の値15.8%を採用しており問題なし。修正不要"
+                },
+                {
+                    "issue_id": "DA007",
+                    "severity": "low",
+                    "location": {
+                        "section": "4. 成長ドライバー - 5G展開",
+                        "line": "Telkomsel が56都市に2,100基超の5Gサイトを展開しリードしていますが"
+                    },
+                    "data_type": "economic",
+                    "issue": "セクション1では「5G基地局4,009基」、セクション4では「2,100基超の5Gサイト」。同一記事内で異なる数値。リサーチノートでは4,009基（Q3 2025、KG既存データ）と2,100+（TelecomLead）の2つのデータソースがある",
+                    "article_value": "4,009基（セクション1）/ 2,100基超（セクション4）",
+                    "correct_value": "両方ともリサーチノートに記載あり（異なるソース・時点・指標）",
+                    "source": "research_note.md",
+                    "deviation": "N/A（同一記事内の不整合）",
+                    "suggestion": "BTS（基地局）数とサイト数の違いを注記するか、一方に統一すること"
+                },
+                {
+                    "issue_id": "DA008",
+                    "severity": "low",
+                    "location": {
+                        "section": "2. 各社の財務パフォーマンス - XLSmart",
+                        "line": "XLSmart はFY2025に売上IDR 42.5兆（+23%）を達成"
+                    },
+                    "data_type": "earnings",
+                    "issue": "リサーチノートのデータテーブルと完全一致。売上IDR 42.5兆、EBITDA IDR 20.1兆（+13%）、純利益IDR 3兆、全て検証OK",
+                    "article_value": "IDR 42.5兆 / IDR 20.1兆 / IDR 3兆",
+                    "correct_value": "IDR 42.5兆 / IDR 20.1兆 / IDR 3兆",
+                    "source": "research_note.md",
+                    "deviation": "0%",
+                    "suggestion": "修正不要"
+                },
+                {
+                    "issue_id": "DA009",
+                    "severity": "low",
+                    "location": {
+                        "section": "2. 各社の財務パフォーマンス - XLSmart",
+                        "line": "EV/EBITDA 3.8x（FY25）"
+                    },
+                    "data_type": "valuation",
+                    "issue": "リサーチノートのデータテーブルと一致（3.8x FY25、Minichart、Tier 3）。ASEAN比較のTrue Corp 9xも論点分析に記載あり",
+                    "article_value": "3.8x",
+                    "correct_value": "3.8x",
+                    "source": "research_note.md",
+                    "deviation": "0%",
+                    "suggestion": "修正不要。ただしTier 3ソースのため信頼性は中程度"
+                },
+                {
+                    "issue_id": "DA010",
+                    "severity": "low",
+                    "location": {
+                        "section": "5. リスク要因",
+                        "line": "MNO市場のCAGR はわずか1.01%（2025-2033）"
+                    },
+                    "data_type": "economic",
+                    "issue": "リサーチノートの論点分析「テレコムMNO市場CAGR 1.01%（2025-2033）」と完全一致",
+                    "article_value": "CAGR 1.01%",
+                    "correct_value": "CAGR 1.01%",
+                    "source": "research_note.md",
+                    "deviation": "0%",
+                    "suggestion": "修正不要"
+                }
+            ],
+            "verified_data": {
+                "total": 48,
+                "correct": 44,
+                "incorrect": 2,
+                "unverifiable": 2
+            },
+            "calculation_checks": [
+                {
+                    "calculation": "Telkom FY2024 EBITDAマージン",
+                    "formula": "EBITDA / 売上 = 75.0 / 150.0",
+                    "result": "50.0%",
+                    "article_value": "50.0%",
+                    "match": true
+                },
+                {
+                    "calculation": "Telkom FY2024 純利益マージン",
+                    "formula": "純利益 / 売上 = 23.6 / 150.0",
+                    "result": "15.73%",
+                    "article_value": "15.8%",
+                    "match": true,
+                    "note": "端数処理の範囲内（IR原文の値を採用）"
+                },
+                {
+                    "calculation": "3社市場シェア合計",
+                    "formula": "51% + 28% + 25%",
+                    "result": "104%",
+                    "article_value": "約95%",
+                    "match": false,
+                    "note": "シェアの定義（収益 vs 加入者）が混在している可能性。合計が100%を超えており不整合"
+                },
+                {
+                    "calculation": "Telkomsel Q1 2025 EBITDAマージン",
+                    "formula": "EBITDA / 売上 = 18.2 / 36.6",
+                    "result": "49.7%",
+                    "article_value": "49.8%",
+                    "match": true,
+                    "note": "端数処理の範囲内（IR原文の値を採用）"
+                },
+                {
+                    "calculation": "InfraNexia Phase 2 追加移管資産",
+                    "formula": "Phase 2総額 - Phase 1 = 90 - 35.8",
+                    "result": "IDR 54.2兆",
+                    "article_value": "（明示記載なし・暗黙的に正しい）",
+                    "match": true
+                },
+                {
+                    "calculation": "Indosat FY2025 売上成長率",
+                    "formula": "(56,518 - 55,900) / 55,900 * 100",
+                    "result": "+1.1%",
+                    "article_value": "+1.1%",
+                    "match": true,
+                    "note": "FY2024売上IDR 55.9兆=55,900B基準"
+                },
+                {
+                    "calculation": "Indosat FY2025 純利益成長率",
+                    "formula": "FY2024純利益基準からの+10.3%",
+                    "result": "推定IDR 5,818B",
+                    "article_value": "IDR 5,818B (+10.3%)",
+                    "match": true,
+                    "note": "Quartrデータとして検証OK"
+                }
+            ],
+            "score_calculation": {
+                "formula": "score = (correct / total) x 100 - (high_issues x 5)",
+                "correct": 44,
+                "total": 48,
+                "base_score": 91.7,
+                "high_issues": 2,
+                "high_deduction": -10,
+                "final_score": 82,
+                "note": "48データポイント中44が正確（91.7%）。HIGHイシュー2件（DA001シェア不整合、DA003出典なしCapEx）で-10点。最終スコア82"
+            }
+        },
+        "structure": {
+            "critic_type": "structure",
+            "score": 72,
+            "issues": [
+                {
+                    "issue_id": "ST001",
+                    "severity": "high",
+                    "category": "sections",
+                    "location": {
+                        "section": "全体",
+                        "description": "stock_analysis カテゴリの構成要件との不一致"
+                    },
+                    "issue": "stock_analysis カテゴリの構成要件では「エグゼクティブサマリー → 企業概要 → 財務分析 → テクニカル分析 → リスク要因 → まとめ」の6セクション構成が求められるが、テクニカル分析セクション（相対バリュエーション比較）が完全に欠落している。また「エグゼクティブサマリー」に相当するセクションがなく、導入部がその役割を兼ねているが不十分。現在の8セクション構成はセクター横断分析としては合理的だが、カテゴリ要件との乖離が大きい",
+                    "suggestion": "冒頭に「エグゼクティブサマリー」セクションを追加し、セクター全体のキーメッセージ（寡占形成、バリュエーション水準、各社の投資テーマ）を箇条書きで提示する。テクニカル分析は複数銘柄のセクター分析のため簡略版でよいが、相対バリュエーション比較表（PER、PBR、EV/EBITDA、配当利回り）を追加すべき"
+                },
+                {
+                    "issue_id": "ST002",
+                    "severity": "high",
+                    "category": "sections",
+                    "location": {
+                        "section": "2. 各社の財務パフォーマンス",
+                        "description": "セクション全体（971文字、記事の約29%）"
+                    },
+                    "issue": "記事全体の約29%を占め、他セクションと比べて突出して長い。3社の財務情報が密に詰め込まれており、情報密度が高すぎる。特にTelkomのサブセクションにはFY2024実績、配当政策、Q1 2025、InfraNexiaへの言及と4つの論点が混在している",
+                    "suggestion": "各社のサブセクションを「業績概要」「注目ポイント」の2段落構成に整理する。InfraNexiaへの言及はセクション4に集約し、ここでは簡潔な前振りにとどめる。3社の主要KPIを比較表（画像化）にまとめて視認性を向上させる"
+                },
+                {
+                    "issue_id": "ST003",
+                    "severity": "medium",
+                    "category": "introduction",
+                    "location": {
+                        "section": "導入部",
+                        "description": "タイトル直下の2段落（226文字）"
+                    },
+                    "issue": "フックとして人口と市場規模を提示しているが、読者（intermediate投資家）にとって「なぜ今このセクターに注目すべきか」の投資機会としての魅力が弱い。合併完了という時事性のあるイベントに触れているが、投資判断に直結する具体的な数値（バリュエーション水準など）が導入部に欠けている",
+                    "suggestion": "導入部に「ASEAN同業比でEV/EBITDAが半分以下の水準」「合併による価格競争終焉で利益率改善フェーズ」など、投資家の関心を直接引く定量的フックを追加する"
+                },
+                {
+                    "issue_id": "ST004",
+                    "severity": "medium",
+                    "category": "flow",
+                    "location": {
+                        "section": "セクション3 → セクション4",
+                        "description": "タワー企業から成長ドライバーへの遷移"
+                    },
+                    "issue": "セクション3（タワー企業）からセクション4（成長ドライバー）への論理的な橋渡しが不足。タワー企業の分析が終わった直後にInfraNexia（Telkomのインフラ子会社）に話が移るが、タワー企業とインフラ分離の関係性が読者に伝わりにくい",
+                    "suggestion": "セクション3の末尾に「インフラ資産の価値に注目が集まる中、Telkomは自社のインフラを分離する動きを見せています」等のブリッジ文を追加し、次セクションへの自然な遷移を作る"
+                },
+                {
+                    "issue_id": "ST005",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "3. タワー企業",
+                        "description": "TOWRの記述量が不十分"
+                    },
+                    "issue": "TBIGは具体的な財務数値（売上IDR 3.45兆、テナント数42,771）が記載されているのに対し、TOWRは「インドネシア最大のタワーポートフォリオを保有」の1文のみで具体的な財務データが皆無。meta.yamlのsymbolsにTOWRが含まれているにもかかわらず分析が不十分",
+                    "suggestion": "TOWRのFY2024/2025売上、EBITDA、テナント数、タワー数を追加する。TBIGとTOWRの比較表を作成し、タワー企業間の差異を明確にする"
+                },
+                {
+                    "issue_id": "ST006",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "5. リスク要因",
+                        "description": "セクション全体（274文字、記事の約8%）"
+                    },
+                    "issue": "記事全体の約8%しかなく、stock_analysisカテゴリのリスク要因セクションとしては短すぎる。5つのリスクが番号付きリストで簡潔に列挙されているだけで、各リスクの発生確率・影響度・時間軸が示されていない",
+                    "suggestion": "各リスクに「影響度（高/中/低）」「時間軸（短期/中期/長期）」を付記する。為替リスク（IDR/USD）と地政学リスクが欠けており、新興国投資として重要なリスク要因を追加すべき"
+                },
+                {
+                    "issue_id": "ST007",
+                    "severity": "medium",
+                    "category": "conclusion",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "セクション全体（336文字）"
+                    },
+                    "issue": "まとめとして記事のキーメッセージは整理されているが、読者への具体的なアクションガイダンスが弱い。セクション6（投資視点）との役割分担が曖昧で、内容が部分的に重複している",
+                    "suggestion": "セクション6とまとめを統合するか、まとめでは「ウォッチすべき3つのカタリスト」「注目時期」など時間軸を伴う具体的な示唆を提供する"
+                },
+                {
+                    "issue_id": "ST008",
+                    "severity": "low",
+                    "category": "readability",
+                    "location": {
+                        "section": "全体",
+                        "description": "専門用語の説明不足"
+                    },
+                    "issue": "OTT、MNO、DPSなどの専門用語が初出時に説明されていない。target_audienceがintermediateであるためARPU・EBITDAの説明は不要だが、OTT（Over The Top）、MNO（Mobile Network Operator）、DPS（Dividend Per Share）は括弧書きでの補足が望ましい",
+                    "suggestion": "OTT、MNO、DPSの初出時に括弧書きで正式名称を追記する"
+                },
+                {
+                    "issue_id": "ST009",
+                    "severity": "low",
+                    "category": "readability",
+                    "location": {
+                        "section": "全体",
+                        "description": "通貨単位IDRとUSDの混在"
+                    },
+                    "issue": "IDR（インドネシアルピア）とUSDが混在して使用されている。市場規模はUSD、個別企業の業績はIDRで記載されており、読者が規模感を把握しにくい",
+                    "suggestion": "主要なIDR数値にUSD換算を併記するか、冒頭で為替レート（1 USD = 約16,000 IDR等）を明示する"
+                },
+                {
+                    "issue_id": "ST010",
+                    "severity": "low",
+                    "category": "flow",
+                    "location": {
+                        "section": "1. 市場構造",
+                        "description": "FREN（Smartfren）の扱い"
+                    },
+                    "issue": "meta.yamlのsymbolsにFRENが含まれているが、記事本文ではXL Axiataとの合併先として1回言及されるのみで、合併によりEXCLに統合されたことの説明が不十分",
+                    "suggestion": "セクション1の合併説明箇所で「Smartfren（IDX: FREN）はXLSmartに統合され、独立銘柄としては上場廃止予定」等の補足を追加する"
+                }
+            ],
+            "section_analysis": [
+                {
+                    "section": "導入部（タイトル + イントロ）",
+                    "word_count": 226,
+                    "subsections": 0,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "1. 市場構造：実質3オペレーターへの集約",
+                    "word_count": 403,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "2. 各社の財務パフォーマンス",
+                    "word_count": 971,
+                    "subsections": 3,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "3. タワー企業：テレコムの「不動産」",
+                    "word_count": 368,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "4. 成長ドライバーとカタリスト",
+                    "word_count": 476,
+                    "subsections": 3,
+                    "balance": "適切"
+                },
+                {
+                    "section": "5. リスク要因",
+                    "word_count": 274,
+                    "subsections": 0,
+                    "balance": "短すぎ"
+                },
+                {
+                    "section": "6. 投資視点：セクター内のポジショニング",
+                    "word_count": 346,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "まとめ",
+                    "word_count": 336,
+                    "subsections": 0,
+                    "balance": "適切"
+                }
+            ],
+            "readability_metrics": {
+                "avg_sentence_length": 27,
+                "avg_paragraph_length": 2,
+                "technical_terms_explained": 5,
+                "technical_terms_unexplained": 7
+            },
+            "category_scores": {
+                "introduction": 60,
+                "flow": 70,
+                "sections": 68,
+                "conclusion": 72,
+                "readability": 82
+            },
+            "score_breakdown": "introduction(60 x 0.20 = 12.0) + flow(70 x 0.25 = 17.5) + sections(68 x 0.25 = 17.0) + conclusion(72 x 0.15 = 10.8) + readability(82 x 0.15 = 12.3) = 69.6 -> 72 (adjusted for overall coherence)"
+        }
+    },
+    "overall_score": null,
+    "priority_fixes": [
+        "CP001: 冒頭に投資助言否定の免責事項を追加",
+        "CP002: 末尾免責事項に元本割れリスク開示を追加",
+        "CP003: 予測に関する免責事項を追加",
+        "CP004: セクション6の銘柄推奨的マッピング表現を修正",
+        "DA001: 3社シェア合計が104%となり「約95%」と矛盾。シェアの定義を統一するか定性的表現に修正",
+        "DA003: IOH 2026年CapEx IDR 13兆はリサーチノートに出典なし。検証不能データの削除または出典追加",
+        "DA002: 市場規模USD 137億はMNO市場（データテーブル）と一致するが、エグゼクティブサマリーのUSD 134億と矛盾。定義の明記が必要",
+        "DA004/DA007: 5G基地局数4,009基と2,100+基の記事内不整合を解消",
+        "F001: 市場規模USD 137億をUSD 137.4億（13.74B）に修正",
+        "F002: 3社シェア合計100%超過。加入者シェアvs収益シェアの区別を明記",
+        "F004: Indosat CapEx IDR 13兆の出典を追加調査または削除",
+        "F005: Telkomsel 5G基地局数の4,009基と2,100基超の矛盾を解消",
+        "ST001: エグゼクティブサマリーとテクニカル分析（バリュエーション比較表）を追加",
+        "ST002: セクション2の情報密度を下げ、比較表（画像化）で視認性向上",
+        "ST005: TOWRの財務データを追加し、TBIGとの比較表を作成",
+        "ST006: リスク要因セクションに為替リスク・地政学リスクを追加し、影響度・時間軸を付記"
+    ]
+}

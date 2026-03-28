@@ -618,12 +618,15 @@ class DraftReader:
                 raise ValueError(f"week が drafts_root 外を指しています: {week!r}")
             return candidate if candidate.exists() else None
 
-        # week 未指定: week_YYYY-MM-DD ディレクトリの中で最新を返す
+        # week 未指定: week_start <= 今日 の条件を満たす最新週を返す
+        today_str = datetime.now(tz=JST).strftime("%Y-%m-%d")
         candidates = sorted(
             [
                 d
                 for d in self._drafts_root.iterdir()
-                if d.is_dir() and d.name.startswith("week_")
+                if d.is_dir()
+                and re.fullmatch(r"week_\d{4}-\d{2}-\d{2}", d.name)
+                and d.name[5:] <= today_str  # week_start <= today
             ],
             key=lambda d: d.name,
             reverse=True,

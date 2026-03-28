@@ -1,0 +1,185 @@
+{
+  "article_id": "2026-03-28_indonesia-bumn-soe-analysis",
+  "claims": [
+    {
+      "id": "C01",
+      "category": "macro_context",
+      "claim": "Danantara（2025年2月設立）はBUMN超持株会社として約$900Bの資産を管理し、2029年までに$982Bへ拡大を目指す。世界第7位のSWF規模",
+      "sentiment": "bullish",
+      "confidence": 0.9,
+      "source_url": "https://en.antaranews.com/news/400794/indonesias-swf-danantara-targets-increasing-assets-via-value-creation",
+      "entities": ["Danantara", "Government of Indonesia"]
+    },
+    {
+      "id": "C02",
+      "category": "macro_context",
+      "claim": "Danantaraは規制と運営の分離を推進し、SOEの意思決定を迅速化。ただしガバナンス懸念（大統領への権限集中・配当管理）で設立時にIHSGが下落",
+      "sentiment": "neutral",
+      "confidence": 0.85,
+      "source_url": "https://fortune.com/asia/2025/07/31/indonesia-danantara-sovereign-wealth-fund-southeast-asia/",
+      "entities": ["Danantara", "Indonesia Stock Exchange"]
+    },
+    {
+      "id": "C03",
+      "category": "macro_context",
+      "claim": "政府はBUMN配当収入をIDR 140T（前年比+55%）に引き上げ目標。財政ニーズ拡大が背景",
+      "sentiment": "bearish",
+      "confidence": 0.8,
+      "source_url": "https://mstock.miraeasset.co.id/blog/dividen-bumn/",
+      "entities": ["Danantara", "Government of Indonesia"]
+    },
+    {
+      "id": "C04",
+      "category": "banking",
+      "claim": "BBRI: 2025年通期純利益IDR 57.13T（前年比-5.26%）。Q4はEPS 105.13（予想98.34を上回る）。融資残高+12.3% YoY、マイクロ融資は+1.5%に留まる",
+      "sentiment": "neutral",
+      "confidence": 0.95,
+      "source_url": "https://voi.id/en/economy/560960",
+      "entities": ["BBRI (Bank Rakyat Indonesia)"]
+    },
+    {
+      "id": "C05",
+      "category": "banking",
+      "claim": "BBRI: 配当利回り9.70%、配当性向85%（2024年利益ベース）。BRImoユーザー4,440万人（+19.4% YoY）、取引額IDR 5,067T",
+      "sentiment": "bullish",
+      "confidence": 0.9,
+      "source_url": "https://simplywall.st/stocks/id/banks/idx-bbri/bank-rakyat-indonesia-persero-shares/dividend",
+      "entities": ["BBRI (Bank Rakyat Indonesia)"]
+    },
+    {
+      "id": "C06",
+      "category": "banking",
+      "claim": "BMRI: Q3 2025累計純利益IDR 37.75T（前年比-10.14%）。純金利収入は+4.9%でIDR 78.3T",
+      "sentiment": "bearish",
+      "confidence": 0.9,
+      "source_url": "https://www.idnfinancials.com/news/58204/net-profit-of-bmri-reaches-idr-37-75-trillion-down-10-14",
+      "entities": ["BMRI (Bank Mandiri)"]
+    },
+    {
+      "id": "C07",
+      "category": "banking",
+      "claim": "BMRI: 配当利回り12.05%、配当性向102.6%（持続可能性に懸念）。3年後は65%に正常化予測",
+      "sentiment": "neutral",
+      "confidence": 0.85,
+      "source_url": "https://simplywall.st/stocks/id/banks/idx-bmri/bank-mandiri-persero-shares/dividend",
+      "entities": ["BMRI (Bank Mandiri)"]
+    },
+    {
+      "id": "C08",
+      "category": "banking",
+      "claim": "BBNI: 2025年5月累計純利益IDR 8.5T（前年比-1%）。配当IDR 13.03T（配当性向65%）",
+      "sentiment": "neutral",
+      "confidence": 0.85,
+      "source_url": "https://www.idnfinancials.com/news/62258/bbni-reveals-schedule-of-thr-dividend-payout-of-idr-13-03-trillion",
+      "entities": ["BBNI (Bank Negara Indonesia)"]
+    },
+    {
+      "id": "C09",
+      "category": "telecom",
+      "claim": "TLKM: Q1 2025売上IDR 36.6T、EBITDAマージン49.8%、純利益率15.9%。9M売上IDR 109.61T（-2.31% YoY）、純利益IDR 15.78T（-10.69%）",
+      "sentiment": "bearish",
+      "confidence": 0.9,
+      "source_url": "https://www.telkom.co.id/sites/news-resources/en_US/news/telkom-q1-2025-financial-report,-strengthening-digital-business,-telkom-records-consolidated-revenue-of-idr-36.6-trillion-in-early-2025-2983",
+      "entities": ["Telkom Indonesia"]
+    },
+    {
+      "id": "C10",
+      "category": "telecom",
+      "claim": "TLKM: DC事業Q1売上IDR 446B、35DC/38MW稼働。2026年売上予想IDR 149.7T、純利益IDR 21.69T。DC拡張とFMCが成長ドライバー",
+      "sentiment": "bullish",
+      "confidence": 0.8,
+      "source_url": "https://www.ainvest.com/news/telkom-indonesia-q3-2025-earnings-strategic-positioning-digital-economy-2510/",
+      "entities": ["Telkom Indonesia"]
+    },
+    {
+      "id": "C11",
+      "category": "infrastructure",
+      "claim": "JSMR: 2025年売上IDR 19.8T（+5.8% YoY）。EBITDAマージン67%、利益IDR 3.7T。有料道路取引件数13億件（+0.35%）、日平均358万台",
+      "sentiment": "bullish",
+      "confidence": 0.9,
+      "source_url": "https://voi.id/en/amp/562012",
+      "entities": ["JSMR (Jasa Marga)"]
+    },
+    {
+      "id": "C12",
+      "category": "infrastructure",
+      "claim": "SMGR: 2025年セメント販売63.9Mt（-1.5% YoY）。国内需要は構造的供給過剰。アフリカ・米国向け輸出拡大で補完",
+      "sentiment": "bearish",
+      "confidence": 0.85,
+      "source_url": "https://www.cemnet.com/News/story/180743/indonesia-cement-sales-shrank-2-in-2025.html",
+      "entities": ["SMGR (Semen Indonesia)"]
+    },
+    {
+      "id": "C13",
+      "category": "infrastructure",
+      "claim": "WSKT: 2023年5月から売買停止中。債務IDR 84.31T、非保証社債4シリーズの再編を2025年12月完了目標。上場廃止リスクあり",
+      "sentiment": "bearish",
+      "confidence": 0.95,
+      "source_url": "https://www.idnfinancials.com/news/55549/wskt-shares-suspended-here-is-the-progress-on-bond-restructuring",
+      "entities": ["WSKT (Waskita Karya)"]
+    },
+    {
+      "id": "C14",
+      "category": "infrastructure",
+      "claim": "インドネシア建設業界: 2025年実質成長率4.1%、2026-2029年AAGR 5.8%。住宅・鉱業・交通インフラ・エネルギー投資が牽引。政府は5年間$490B支出計画",
+      "sentiment": "bullish",
+      "confidence": 0.85,
+      "source_url": "https://www.globenewswire.com/news-release/2026/02/05/3232711/28124/en/Indonesia-Construction-Industry-Report-2026-Output-to-Expand-at-an-AAGR-of-5-8-Between-2026-2029-Supported-by-Investments-in-Housing-Mining-Transport-Infrastructure-and-Energy-Proj.html",
+      "entities": ["Indonesia"]
+    },
+    {
+      "id": "C15",
+      "category": "mining_energy",
+      "claim": "鉱業4社（ANTM,INCO,TINS,PTBA）: 2025年設備投資IDR 23.47T（前年IDR 13Tの約2倍）。川下加工（ダウンストリーム）拡大が戦略",
+      "sentiment": "bullish",
+      "confidence": 0.9,
+      "source_url": "https://premium.bisnis.com/read/20250723/664/1895447/state-owned-miners-antm-inco-tins-ptba-supercharge-capex-for-big-downstream-push",
+      "entities": ["ANTM (Aneka Tambang)", "PTBA (Bukit Asam)", "TINS (Timah)"]
+    },
+    {
+      "id": "C16",
+      "category": "mining_energy",
+      "claim": "PTBA: H1 2025石炭生産21.73Mt（+16% YoY）、販売21.62Mt（+8%）。配当は純利益の75%=IDR 3.8T",
+      "sentiment": "bullish",
+      "confidence": 0.9,
+      "source_url": "https://www.idnfinancials.com/news/55253/ptba-antm-tins-to-pay-dividends-mind-id-set-to-gain-idr-5-trillion",
+      "entities": ["PTBA (Bukit Asam)"]
+    },
+    {
+      "id": "C17",
+      "category": "mining_energy",
+      "claim": "ANTM: 配当は純利益100%=IDR 3.6T。2026/3月時点の株価IDR 3,750、アナリスト目標IDR 4,545",
+      "sentiment": "neutral",
+      "confidence": 0.85,
+      "source_url": "https://www.idnfinancials.com/news/55253/ptba-antm-tins-to-pay-dividends-mind-id-set-to-gain-idr-5-trillion",
+      "entities": ["ANTM (Aneka Tambang)"]
+    },
+    {
+      "id": "C18",
+      "category": "mining_energy",
+      "claim": "TINS: 錫鉱石6,997t、錫メタル6,870t生産。配当は純利益40%=IDR 474.7B",
+      "sentiment": "neutral",
+      "confidence": 0.85,
+      "source_url": "https://www.idnfinancials.com/news/55253/ptba-antm-tins-to-pay-dividends-mind-id-set-to-gain-idr-5-trillion",
+      "entities": ["TINS (Timah)"]
+    },
+    {
+      "id": "C19",
+      "category": "market_overview",
+      "claim": "IHSG: 2025年は+20%超上昇。2026年1月に8,683水準→3月初旬に7,049に下落（-1.2%）。BUMN株はIDX全体の15.41%を占める",
+      "sentiment": "neutral",
+      "confidence": 0.8,
+      "source_url": "https://indonesiabusinesspost.com/1367/investment-and-risk/positive-financial-performance-of-state-owned-enterprises-bumn-drives-growth",
+      "entities": ["Indonesia Stock Exchange", "IHSG"]
+    },
+    {
+      "id": "C20",
+      "category": "infrastructure",
+      "claim": "WIKAとWSKTは高い債務負担に直面する一方、PTPPとADHIは変動金利の有利な構造から恩恵を受ける可能性",
+      "sentiment": "neutral",
+      "confidence": 0.75,
+      "source_url": "https://samuel.co.id/wp-content/uploads/2025/01/Construction_20250121.pdf",
+      "entities": ["WIKA (Wijaya Karya)", "WSKT (Waskita Karya)", "PTPP (PP Pembangunan Perumahan)", "ADHI (Adhi Karya)"]
+    }
+  ]
+}

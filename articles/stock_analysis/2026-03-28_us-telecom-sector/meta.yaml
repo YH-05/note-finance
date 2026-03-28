@@ -1,0 +1,61 @@
+# === Core (必須) ===
+article_id: "2026-03-28_us-telecom-sector"
+topic: "USのtelcomセクターと企業"
+category: stock_analysis
+type: data_analysis
+status: research_done
+
+# === Timestamps ===
+created_at: "2026-03-28"
+updated_at: "2026-03-28"
+
+# === Content ===
+tags:
+  - US Telecom
+  - 5G
+  - Wireless
+  - Tower REIT
+  - Fiber
+  - Broadband
+  - Satellite
+target_audience: intermediate
+target_wordcount: 4000
+
+# === Category-Specific ===
+symbols:
+  - T       # AT&T
+  - VZ      # Verizon
+  - TMUS    # T-Mobile US
+  - CMCSA   # Comcast
+  - CHTR    # Charter Communications
+  - LUMN    # Lumen Technologies
+  - AMT     # American Tower
+  - CCI     # Crown Castle
+  - SBAC    # SBA Communications
+  - FYBR    # Frontier Communications
+  - SATS    # EchoStar (旧DISH)
+date_range:
+  start: "2020-01-01"
+  end: "2026-03-28"
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 20
+
+# === Workflow ===
+workflow:
+  research: done
+  draft: done
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false

@@ -1,0 +1,166 @@
+{
+  "article_id": "2026-03-28_us-telecom-sector",
+  "generated_at": "2026-03-28",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "United States Telecom Services Market - Mordor Intelligence",
+      "url": "https://www.mordorintelligence.com/industry-reports/united-states-telecom-services-market",
+      "authority_level": "analyst",
+      "source_type": "research_report",
+      "published_at": "2025-12-01"
+    },
+    {
+      "id": "S02",
+      "title": "U.S. Telecom And Cable 2025 Outlook - S&P Global",
+      "url": "https://www.spglobal.com/ratings/en/regulatory/article/250113-u-s-telecom-and-cable-2025-outlook-convergence-consolidation-and-disruption-s13377186",
+      "authority_level": "analyst",
+      "source_type": "research_report",
+      "published_at": "2025-01-13"
+    },
+    {
+      "id": "S03",
+      "title": "Deloitte 2026 Telecommunications Industry Outlook",
+      "url": "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-telecom-outlooks/telecommunications-industry-outlook.html",
+      "authority_level": "analyst",
+      "source_type": "research_report",
+      "published_at": "2025-12-01"
+    },
+    {
+      "id": "S04",
+      "title": "Americas Broadband Roundup 2025 - S&P Global",
+      "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/11/americas-broadband-roundup-2025",
+      "authority_level": "analyst",
+      "source_type": "research_report",
+      "published_at": "2025-11-01"
+    },
+    {
+      "id": "S05",
+      "title": "Ericsson Mobility Report - North America 5G",
+      "url": "https://www.ericsson.com/en/reports-and-papers/mobility-report/closer-look/north-america",
+      "authority_level": "official",
+      "source_type": "industry_report",
+      "published_at": "2025-11-01"
+    },
+    {
+      "id": "S06",
+      "title": "FCC Chairman Carr Highlights Wins Delivered in 2025",
+      "url": "https://www.fcc.gov/chairman-carr-highlights-wins-delivered-2025",
+      "authority_level": "official",
+      "source_type": "government",
+      "published_at": "2025-12-31"
+    },
+    {
+      "id": "S07",
+      "title": "Charter Q4/FY2025 Results",
+      "url": "https://corporate.charter.com/newsroom/charter-announces-fourth-quarter-and-full-year-2025-results",
+      "authority_level": "official",
+      "source_type": "earnings",
+      "published_at": "2026-01-30"
+    },
+    {
+      "id": "S08",
+      "title": "Charter-Cox Merger Agreement",
+      "url": "https://corporate.charter.com/newsroom/charter-communications-and-cox-communications-announce-definitive-agreement-to-combine-companies",
+      "authority_level": "official",
+      "source_type": "press_release",
+      "published_at": "2025-06-01"
+    },
+    {
+      "id": "S09",
+      "title": "Lumen Q4 2025 Earnings Call Transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/02/03/lumen-lumn-q4-2025-earnings-call-transcript/",
+      "authority_level": "media",
+      "source_type": "earnings",
+      "published_at": "2026-02-03"
+    },
+    {
+      "id": "S10",
+      "title": "Lumen Accelerates AI Network Expansion",
+      "url": "https://ir.lumen.com/news/news-details/2025/Lumen-Accelerates-Multi-Billion-Dollar-Network-Expansion-to-Meet-Soaring-AI-Demand/default.aspx",
+      "authority_level": "official",
+      "source_type": "press_release",
+      "published_at": "2025-09-01"
+    },
+    {
+      "id": "S11",
+      "title": "Crown Castle Q4 2025 Results & 2026 Outlook",
+      "url": "https://www.globenewswire.com/news-release/2026/02/04/3232519/0/en/Crown-Castle-Reports-Fourth-Quarter-and-Full-Year-2025-Results-and-Provides-Outlook-for-Full-Year-2026.html",
+      "authority_level": "official",
+      "source_type": "earnings",
+      "published_at": "2026-02-04"
+    },
+    {
+      "id": "S12",
+      "title": "Crown Castle Fiber Segment Sale to EQT and Zayo",
+      "url": "https://investor.crowncastle.com/news-releases/news-release-details/crown-castle-announces-agreement-sell-fiber-segment-eqt-and-zayo",
+      "authority_level": "official",
+      "source_type": "press_release",
+      "published_at": "2025-10-01"
+    },
+    {
+      "id": "S13",
+      "title": "SBA Communications Q4 2025 Results & 2026 Outlook",
+      "url": "https://www.businesswire.com/news/home/20260226183750/en/SBA-Communications-Corporation-Reports-Fourth-Quarter-2025-Results",
+      "authority_level": "official",
+      "source_type": "earnings",
+      "published_at": "2026-02-26"
+    },
+    {
+      "id": "S14",
+      "title": "Frontier Q3 2025 Results",
+      "url": "https://investor.frontier.com/news/news-details/2025/Frontier-Reports-Third-Quarter-2025-Results/default.aspx",
+      "authority_level": "official",
+      "source_type": "earnings",
+      "published_at": "2025-10-28"
+    },
+    {
+      "id": "S15",
+      "title": "EchoStar Announces Spectrum Sale and Hybrid Mobile Network",
+      "url": "https://ir.echostar.com/news-releases/news-release-details/echostar-announces-spectrum-sale-and-hybrid-mobile-network",
+      "authority_level": "official",
+      "source_type": "press_release",
+      "published_at": "2025-09-01"
+    },
+    {
+      "id": "S16",
+      "title": "DISH Default Crisis and Wireless Tower Ecosystem",
+      "url": "https://wirelessestimator.com/articles/2026/the-dish-default-crisis-how-echostars-spectrum-exit-could-endanger-the-wireless-tower-ecosystem/",
+      "authority_level": "media",
+      "source_type": "news",
+      "published_at": "2026-01-15"
+    },
+    {
+      "id": "S17",
+      "title": "AT&T Unveils $250B Investment Plan",
+      "url": "https://www.fierce-network.com/broadband/att-unveils-250b-investment-expand-5g-fiber-satellite-network-infrastructure",
+      "authority_level": "media",
+      "source_type": "news",
+      "published_at": "2025-12-01"
+    },
+    {
+      "id": "S18",
+      "title": "T-Mobile/Charter/Comcast MVNO Alliance",
+      "url": "https://www.fierce-network.com/broadband/t-mobile-charter-comcast-join-forces-new-mvno-alliance",
+      "authority_level": "media",
+      "source_type": "news",
+      "published_at": "2026-01-15"
+    },
+    {
+      "id": "S19",
+      "title": "SEC EDGAR XBRL Financial Data (11 companies)",
+      "url": "https://data.sec.gov",
+      "authority_level": "official",
+      "source_type": "regulatory_filing",
+      "published_at": "2026-03-28"
+    },
+    {
+      "id": "S20",
+      "title": "Fiber 2025 Gains & 2026 Acceleration - Broadband Communities",
+      "url": "https://bbcmag.com/what-were-fibers-2025-gains-will-we-see-2026-acceleration/",
+      "authority_level": "media",
+      "source_type": "news",
+      "published_at": "2026-01-01"
+    }
+  ]
+}
