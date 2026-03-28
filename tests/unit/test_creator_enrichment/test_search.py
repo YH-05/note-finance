@@ -11,11 +11,11 @@ from __future__ import annotations
 
 import json
 import os
+from datetime import datetime, timezone
 from unittest.mock import MagicMock, patch
 
 import httpx
 import pytest
-from datetime import datetime, timezone
 
 from creator_enrichment.llm_client import LLMClient
 from creator_enrichment.phases.search import DirectSearcher, TavilyKeyPool
