@@ -62,7 +62,7 @@ from creator.poster import (
     ThreadsPoster,
 )
 from data_paths import get_path
-from quants.utils.logging_config import get_logger, setup_logging
+from utils_core.logging.config import get_logger, setup_logging
 
 # ---------------------------------------------------------------------------
 # 定数定義

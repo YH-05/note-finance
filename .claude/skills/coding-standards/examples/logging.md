@@ -5,7 +5,7 @@
 ## 基本セットアップ
 
 ```python
-from quants.utils.logging_config import get_logger
+from utils_core.logging.config import get_logger
 
 logger = get_logger(__name__)
 ```

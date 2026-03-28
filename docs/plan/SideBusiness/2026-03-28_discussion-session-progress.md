@@ -93,6 +93,42 @@
 | 旧ファイル | `trash/` に移動（config-sync.md, skills-config-sync/） |
 | NASクリーンアップ | `/Volumes/personal_folder/Projects/quants/quants-sync` は旧設定時の孤立ディレクトリ。手動削除待ち（act-2026-03-28-nas-quants-sync-cleanup） |
 
+### Docker + Neo4j 起動（disc-2026-03-28-docker-neo4j-startup）
+
+| コンテナ | ポート | ステータス |
+|---------|--------|-----------|
+| note-neo4j | 7687 | 起動済み |
+| research-neo4j | 7688 | 起動済み |
+| creator-neo4j | 7689 | 起動済み |
+| dev（finance-dev） | - | ビルド失敗（src/utils_core 欠落） |
+
+> dev サービスは src/utils_core が存在しないためビルド不可。Neo4j には影響なし。
+
+### quants パッケージ git依存移行（disc-2026-03-28-quants-git-migration）
+
+| 決定事項 | 内容 |
+|---------|------|
+| git依存追加 | `finance @ git+https://github.com/YH-05/quants.git` を uv add |
+| ローカル削除 | `src/quants` → `trash/quants` に移動 |
+| pyproject.toml 更新 | `hatch.build.targets.wheel` の packages から `src/quants` を削除 |
+| 注意点 | リポジトリのパッケージ名が `finance` のため import は `from finance.xxx` になる（要確認） |
+
+**ActionItem**: `act-2026-03-28-quants-import-align` — ✅ **完了**
+
+### quants import パス全修正（disc-2026-03-28-quants-import-migration）
+
+**決定事項**: `from utils_core.logging.config import get_logger` に全統一
+
+| 対象 | ファイル数 |
+|------|----------|
+| Pythonスクリプト (`scripts/`) | 14 |
+| ドキュメント/スキル/ルール | 9 |
+| **合計** | **23** |
+
+- quantsリポジトリ側でパッケージ名 `finance` → `quants` に変更・push済み
+- `uv add "quants @ git+https://github.com/YH-05/quants.git"` で再インストール完了
+- モジュール構成: トップレベル展開（`utils_core`, `analyze`, `market`等）のため `from quants.xxx` 不可
+
 ---
 
 ## 次回の議論トピック

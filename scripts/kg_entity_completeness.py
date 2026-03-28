@@ -37,7 +37,7 @@ import yaml
 from neo4j_utils import create_driver
 
 try:
-    from quants.utils.logging_config import get_logger
+    from utils_core.logging.config import get_logger
 
     logger = get_logger(__name__)
 except ImportError:

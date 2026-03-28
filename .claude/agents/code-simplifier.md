@@ -526,7 +526,7 @@ def process_order(order_id: str) -> Order:
     return order
 
 # ✅ 良い例: 適切なロギング
-from quants.utils.logging_config import get_logger
+from utils_core.logging.config import get_logger
 
 logger = get_logger(__name__)
 

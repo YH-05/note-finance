@@ -25,7 +25,7 @@ news_scraper を全6ソース（CNBC, NASDAQ, Kabutan, Reuters JP, Minkabu, JETR
 **変更**:
 - `pyproject.toml` line 19: `"finance"` → `"quants"` に変更
 - `pyproject.toml` line 160: `finance = { git = "..." }` → `quants = { git = "..." }` に変更
-- 上記3スクリプト: `from finance.utils.logging_config` → `from quants.utils.logging_config` に変更
+- 上記3スクリプト: `from finance.utils.logging_config` → `from utils_core.logging.config` に変更
 - `uv sync --all-extras` で再インストール → site-packages から `news_scraper/` ディレクトリが消えることを確認
 
 ### 1b. スクリプト側で sys.path を保険として設定

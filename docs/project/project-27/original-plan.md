@@ -107,7 +107,7 @@ SLOT_TIME_MAP = {"朝": "07:30", "昼": "12:30", "夜": "20:30"}
 ### ロギング
 
 ```python
-from quants.utils.logging_config import get_logger
+from utils_core.logging.config import get_logger
 logger = get_logger(__name__)
 ```
 
