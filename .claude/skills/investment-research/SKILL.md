@@ -101,8 +101,9 @@ Phase 0 で特定されたギャップに基づき、検索クエリの優先順
 #### ソース
 
 1. **Web検索**: 最新ニュース・分析記事を検索（ツール選択は web-search スキル参照）
-   - 日本語テーマ → Gemini Search 推奨
-   - 英語テーマ → Tavily MCP 推奨
+   - Tavily MCP (`mcp__tavily__tavily_search`) を優先使用
+   - Tavily 利用不可時は WebSearch ツールにフォールバック
+   - **Gemini CLI (`gemini`) によるWeb検索は使用禁止**
    - `.claude/resources/search-templates/` のテンプレートを活用
 2. **RSS MCP** (`mcp__rss__rss_search_items`): 登録済みフィードからテーマ関連記事を検索
    - ToolSearch でロード、利用不可時はスキップ
@@ -145,16 +146,24 @@ Phase 0 で特定されたギャップに基づき、検索クエリの優先順
 - 残存ギャップ: {n}件（次回リサーチで対応推奨）
 ```
 
-### Phase 5: KG永続化
+### Phase 5: KG永続化（フック自動実行）
 
 参照: `references/kg-gap-analysis.md`（Phase 5 セクション）
 参照: `.claude/rules/neo4j-write-rules.md`（直書き禁止ルール）
 
 Phase 1-3 で収集した検索結果を research-neo4j に永続化する。
 
-#### ステップ 5-1: 入力JSON構築
+> **自動投入**: ステップ 5-1 で `.tmp/research-input/*.json` に Write すると、
+> PostToolUse フック（`.claude/hooks/auto-kg-ingest.py`）が自動発火し、
+> ステップ 5-2（emit）→ 5-3（ingest）を自動実行する。
+> LLM は **ステップ 5-1（入力 JSON 構築・書き込み）のみ** 実行すればよい。
+> 投入結果は `.tmp/auto-kg-ingest.log` で確認できる。
+
+#### ステップ 5-1: 入力JSON構築（必須・LLM実行）
 
 検索結果から `emit_research_queue.py --command web-research` の入力JSONを構築する。
+**構築した JSON は必ず `.tmp/research-input/{session_id}.json` に Write すること。**
+この Write がフック発火のトリガーとなる。
 
 ```json
 {
@@ -174,17 +183,26 @@ Phase 1-3 で収集した検索結果を research-neo4j に永続化する。
 - 全ソースに `authority_level` が設定されているか
 - 全ファクトの `source_url` が `sources` 内の URL と一致するか
 
-#### ステップ 5-2: graph-queue JSON 生成
+#### ステップ 5-2: graph-queue JSON 生成（フック自動実行）
+
+> **フックが自動実行する。** 手動実行は不要。
 
 ```bash
+# フック内部で実行される:
 uv run python scripts/emit_research_queue.py \
   --command web-research \
   --input .tmp/research-input/{session_id}.json
 ```
 
-#### ステップ 5-3: Neo4j 投入
+#### ステップ 5-3: Neo4j 投入（フック自動実行）
 
-`/save-to-research-graph` スキルを呼び出して graph-queue JSON を Neo4j に投入する。
+> **フックが自動実行する。** 手動実行は不要。
+
+```bash
+# フック内部で実行される:
+uv run python scripts/ingest_graph_queue.py \
+  --file .tmp/graph-queue/web-research/gq-{timestamp}-{hash}.json
+```
 
 #### ステップ 5-4: 投入結果の記録
 

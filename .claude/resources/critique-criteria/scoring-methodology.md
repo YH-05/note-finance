@@ -44,17 +44,32 @@ score = 合計(カテゴリスコア x 重み)
 score = 合計(カテゴリスコア x 重み)
 カテゴリ: hook(25%), density(20%), visual(20%), terminology(20%), specificity(15%)
 
+### writer_rules
+score = 100 - (high x 15 + medium x 5 + low x 2)
+サブエリア: word_count, sections, frontmatter, confidence_expression, category_constraints, checklist
+
 ## 総合判定
 
 全批評の加重平均:
 
 | 批評タイプ | 総合スコアへの重み |
 |-----------|-----------------|
-| compliance | 30%（最重要: 法的リスク） |
-| fact | 25% |
-| data_accuracy | 20% |
-| structure | 15% |
-| readability | 10% |
+| compliance | 25%（最重要: 法的リスク） |
+| fact | 22% |
+| data_accuracy | 17% |
+| writer_rules | 15%（仕様準拠: 文字数・セクション・カテゴリ制約） |
+| structure | 12% |
+| readability | 9% |
+
+### quick モードの重み
+
+quick モードでは3エージェントのみ実行するため、重みを再正規化する:
+
+| 批評タイプ | quick 重み |
+|-----------|-----------|
+| compliance | 45% |
+| fact | 35% |
+| writer_rules | 20% |
 
 公開可否判定:
 - compliance が fail → 公開不可

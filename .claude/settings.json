@@ -212,6 +212,15 @@
             "command": "uv run python $CLAUDE_PROJECT_DIR/.claude/hooks/save-web-fetch.py"
           }
         ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python $CLAUDE_PROJECT_DIR/.claude/hooks/auto-kg-ingest.py"
+          }
+        ]
       }
     ]
   },

@@ -22,9 +22,11 @@ revised_draft.md を生成してください。
 1. **最優先**: compliance の critical/high 問題
 2. **高優先**: fact の high 問題
 3. **高優先**: data_accuracy の high 問題
-4. **中優先**: structure の high/medium 問題
-5. **中優先**: readability の high/medium 問題
-6. **低優先**: その他の low 問題
+4. **高優先**: writer_rules の high 問題（文字数不足、必須セクション欠落、フロントマター欠落）
+5. **中優先**: structure の high/medium 問題
+6. **中優先**: readability の high/medium 問題
+7. **中優先**: writer_rules の medium 問題（カテゴリ制約、チェックリスト、セクション順序）
+8. **低優先**: その他の low 問題
 
 ## 記事品質チェック（修正時の追加確認）
 
@@ -84,6 +86,33 @@ revised_draft.md を生成してください。
 - 初出時に説明を追加
 - 必要に応じて言い換え
 
+## writer_rules 問題の修正方針
+
+### 文字数不足/超過
+- 不足: 分析の深掘り、具体例追加、データの解釈を加える
+- 超過: 冗長な表現を削除、重複するポイントを統合
+
+### セクション欠落
+- カテゴリルールファイルのテンプレートに従ってセクションを追加
+- 内容は sources.json / claims.json から補完
+
+### フロントマター欠落
+- meta.yaml と記事内容から推定して追加
+
+### 参考データソースセクション
+- 欠落している場合、記事末尾に `## 参考データソース` を追加
+- 使用したソースを箇条書きで列挙し、分析期間を明記
+
+### 信頼度別表現の修正
+- claims.json の confidence に応じて表現パターンを修正
+  - high / >= 0.8 → 断定形（〜である）
+  - medium / 0.5-0.79 → 引用形（〜とされている）
+  - low / < 0.5 → 可能性形（〜の可能性がある）
+
+### カテゴリ制約の修正
+- カテゴリ別ルールファイルの制約に従って内容を追加/修正
+- 参照: `.claude/skills/finance-article-writer/references/{category}.md`
+
 ## 出力フォーマット
 
 revised_draft.md には以下を含める：
@@ -110,6 +139,7 @@ revision_date: {date}
 - data 修正: {count}
 - structure 修正: {count}
 - readability 修正: {count}
+- writer_rules 修正: {count}
 
 ### 主要な修正
 1. {修正内容1}

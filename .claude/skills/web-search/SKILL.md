@@ -204,13 +204,14 @@ Phase 3: ニュース検索
 
 ```
 マルチソース検索:
-├── WebSearch（メイン）
+├── Tavily MCP（メイン）
+├── WebSearch（フォールバック）
 ├── RSS MCP（登録済みフィード）
 ├── Reddit MCP（コミュニティ議論）
 └── SEC Edgar MCP（個別銘柄）
 ```
 
-**推奨**: 日本語テーマは Gemini Search をメインに、英語テーマは Tavily を使用
+**注意**: Gemini CLI（`gemini`）によるWeb検索は使用禁止。Tavily MCP → WebSearch の順でフォールバック
 
 ### パターン3: トピック発掘（`topic-discovery`）
 

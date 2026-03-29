@@ -98,6 +98,7 @@ Step 5: ステータス更新・最終確認
 ```
 Task 1: finance-critic-fact（事実正確性チェック）
 Task 2: finance-critic-compliance（コンプライアンスチェック）
+Task 3: finance-critic-writer-rules（ライター規約準拠: word_count, sections, frontmatter のみ）
 ```
 
 **full モード**:
@@ -107,6 +108,7 @@ Task 2: finance-critic-compliance（コンプライアンスチェック）
 Task 3: finance-critic-structure（構成チェック）
 Task 4: finance-critic-data（データ正確性チェック）
 Task 5: finance-critic-readability（読みやすさチェック）
+Task 6: finance-critic-writer-rules（ライター規約準拠: 全項目）
 ```
 
 #### side_business
@@ -146,7 +148,8 @@ Task 1: wr-report-validator（レポート検証）
        "compliance": { ... },
        "structure": { ... },
        "data_accuracy": { ... },
-       "readability": { ... }
+       "readability": { ... },
+       "writer_rules": { ... }
      },
      "overall_score": 82,
      "priority_fixes": [ ... ]
@@ -169,6 +172,14 @@ Task 1: wr-report-validator（レポート検証）
    ## 事実正確性: 85/100
    - 検証済み: 45件
    - 問題点: 3件
+
+   ## ライター規約準拠: 78/100
+   - 文字数: {actual}字 ({status}) — 範囲: {min}-{max}字
+   - 必須セクション: {found}/{total}
+   - フロントマター: {present}/{required}
+   - 信頼度別表現: {correct}/{total} (full時)
+   - カテゴリ制約: {passed}/{checked} (full時)
+   - チェックリスト: {passed}/{total} (full時)
 
    ...
 
@@ -283,6 +294,7 @@ Task 1: wr-report-validator（レポート検証）
 | 総合 | {overall}/100 |
 | コンプライアンス | {compliance}/100 |
 | 事実正確性 | {fact}/100 |
+| ライター規約 | {writer_rules}/100 |
 | 構成 | {structure}/100 (full時) |
 | データ正確性 | {data}/100 (full時) |
 | 読みやすさ | {readability}/100 (full時) |
@@ -348,4 +360,4 @@ Task 1: wr-report-validator（レポート検証）
 - **後続コマンド**: `/article-publish`
 - **統合コマンド**: `/article-full`
 - **旧コマンド**: `/finance-edit` Steps 2-3（このコマンドで置き換え）
-- **使用エージェント**: finance-critic-*, exp-critic-*, finance-reviser, experience-reviser, wr-report-validator
+- **使用エージェント**: finance-critic-* (fact, compliance, structure, data, readability, writer-rules), exp-critic-*, finance-reviser, experience-reviser, wr-report-validator
