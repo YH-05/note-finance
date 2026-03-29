@@ -27,16 +27,13 @@ Step 1: 前提確認
 └── workflow.research = "done" を確認
 
 Step 2: カテゴリ別ライター実行
-├── stock_analysis / macro_economy / quant_analysis / investment_education
-│   └── finance-article-writer エージェント
-├── asset_management
-│   └── asset-management-writer エージェント
+├── stock_analysis / macro_economy / quant_analysis / investment_education / asset_management / market_report
+│   └── Skill("finance-article-writer") を起動（引数: article_dir）
+│       スキルが共通ルール + カテゴリ別ルールを読み込み、Agent をスポーンして初稿を生成
 ├── side_business (type: case_study)
 │   └── case-study-writer エージェント + case-study-writer スキル参照
 ├── side_business (type: experience)
 │   └── experience-writer エージェント
-└── market_report
-    └── weekly-report-lead エージェント（→ wr-template-renderer）
 
 Step 3: 結果保存
 ├── 02_draft/first_draft.md
@@ -79,32 +76,23 @@ Step 4: [HF5] 初稿レビュー
 
 ### Step 2: カテゴリ別ライター実行
 
-#### stock_analysis / macro_economy / quant_analysis / investment_education
+#### stock_analysis / macro_economy / quant_analysis / investment_education / asset_management / market_report
 
 ```
-エージェント: finance-article-writer
+スキル: finance-article-writer
+  Skill("finance-article-writer") を起動（引数: article_dir）
+  スキルが共通ルール + カテゴリ別ルールを読み込み、
+  Agent(general-purpose) をスポーンして初稿を生成する。
+
 入力:
-  - 01_research/decisions.json
-  - 01_research/sources.json
-  - 01_research/claims.json
-  - meta.yaml
-出力: 02_draft/first_draft.md
-```
-
-#### asset_management
-
-```
-エージェント: asset-management-writer
-入力:
-  - 01_research/ 配下のセッションデータ
+  - 01_research/ 配下のリサーチデータ
   - meta.yaml
 出力:
-  - 02_draft/first_draft.md（note記事、2000-4000字）
-  - 02_draft/curated_sources.json（キュレーション済みソース）
+  - 02_draft/first_draft.md
+  - 02_draft/curated_sources.json（asset_management の場合のみ）
 
-X投稿生成（記事完成後に自動実行）:
+X投稿生成（asset_management の記事完成後）:
   /x-post @{article_dir}
-  → 02_draft/x_post.md（x-post-generator スキルで層別テンプレート・参照ライブラリ適用）
 ```
 
 #### side_business
@@ -115,16 +103,6 @@ X投稿生成（記事完成後に自動実行）:
   - 01_research/ 配下のソース・合成データ
   - meta.yaml
 出力: 02_draft/first_draft.md（6,000-8,000字）
-```
-
-#### market_report
-
-```
-エージェント: weekly-report-lead → wr-template-renderer
-入力:
-  - 01_research/ 配下の市場データ・ニュース
-  - meta.yaml
-出力: 02_draft/first_draft.md（5,000字以上）
 ```
 
 ### Step 3: 結果保存
@@ -212,4 +190,5 @@ X投稿生成（記事完成後に自動実行）:
 - **後続コマンド**: `/article-critique`
 - **統合コマンド**: `/article-full`
 - **旧コマンド**: `/finance-edit` Step 1（このコマンドで置き換え）
-- **使用エージェント**: finance-article-writer, asset-management-writer, experience-writer, weekly-report-lead
+- **使用スキル**: finance-article-writer（stock/macro/quant/edu/asset/report）
+- **使用エージェント**: experience-writer（side_business）

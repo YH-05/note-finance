@@ -22,6 +22,7 @@
 | `/article-research` | カテゴリに応じたリサーチを実行 |
 | `/article-draft` | リサーチ結果から初稿を作成 |
 | `/article-critique` | 初稿の批評と修正 |
+| `/article-revise` | フィードバックを反映して記事を更新 |
 | `/article-publish` | 記事をnote.comに下書き投稿 |
 | `/article-full` | 記事作成の全工程を一括実行 |
 | `/article-status` | 全記事のステータス一覧 |
