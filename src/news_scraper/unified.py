@@ -143,6 +143,13 @@ async def _collect_zero_hedge(config: ScraperConfig) -> list[Article]:
     return await _collect(config=config)
 
 
+async def _collect_developing_telecoms(config: ScraperConfig) -> list[Article]:
+    """Collect articles from Developing Telecoms and return them."""
+    from news_scraper.developing_telecoms import collect_news as _collect
+
+    return await _collect(config=config)
+
+
 def _make_registry_fn(
     func_name: str,
 ) -> Callable[[ScraperConfig], Coroutine[None, None, list[Article]]]:
@@ -198,6 +205,7 @@ SOURCE_REGISTRY: dict[
     "hacker_news": _make_registry_fn("_collect_hacker_news"),
     "federal_reserve": _make_registry_fn("_collect_federal_reserve"),
     "zero_hedge": _make_registry_fn("_collect_zero_hedge"),
+    "developing_telecoms": _make_registry_fn("_collect_developing_telecoms"),
 }
 
 

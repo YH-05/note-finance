@@ -31,6 +31,7 @@ from pydantic import BaseModel, Field
 # Valid source names for collect_financial_news()
 type SourceName = Literal[
     "cnbc",
+    "developing_telecoms",
     "jetro",
     "kabutan",
     "minkabu",
