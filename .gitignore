@@ -90,6 +90,7 @@ data/exports/news-workflow/workflow-result-*.json
 .note-session.json
 data/config/note-storage-state.json
 data/config/note-storage-state-mitsuki.json
+data/config/note-storage-state-kabu-lab.json
 
 # Google service account credentials (contains private keys)
 data/config/*service*.json
