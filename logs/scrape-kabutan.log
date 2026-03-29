@@ -123,3 +123,404 @@
 [[32m[1minfo     [0m] [1mIngestion complete: 18 nodes, 45 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
 [[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m18[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328090024-2010ec7f.json[0m [36mrelations[0m=[35m45[0m [36msource[0m=[35mkabutan[0m
 [[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/kabutan/2026-03-28/news_090006.json'][0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting kabutan news collection[0m [[0m[1m[34mnews_scraper.kabutan[0m][0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mkabutan[0m [36murl[0m=[35mhttps://kabutan.jp/news/marketnews/[0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://kabutan.jp/news/marketnews/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTML fetched (async)          [0m [[0m[1m[34mnews_scraper._html_utils[0m][0m [36mmodule[0m=[35mhtml_utils[0m [36mstatus_code[0m=[35m200[0m [36murl[0m=[35mhttps://kabutan.jp/news/marketnews/[0m
+[[32m[1minfo     [0m] [1mKabutan news collection complete[0m [[0m[1m[34mnews_scraper.kabutan[0m][0m [36mmodule[0m=[35mkabutan[0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mkabutan[0m [36msource_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFetching content for articles missing it[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mcount[0m=[35m15[0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280231'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1773[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280231'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280230'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m378[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280230'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280227'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4939[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280227'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280226'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1227[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280226'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280225'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2891[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280225'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280224'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2247[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280224'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280223'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m137[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280223'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280220'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2697[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280220'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280206'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m470[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280206'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280205'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m692[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280205'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280204'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m501[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280204'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280203'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m414[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280203'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280202'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m830[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280202'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280201'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1304[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280201'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280200'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2380[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280200'[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m15[0m [36mtotal[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mContent post-fetch complete   [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mfetched[0m=[35m15[0m [36mmodule[0m=[35munified[0m [36mtotal[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m16.19[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['kabutan'][0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=5, dup=10, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m15[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan[0m [36msource[0m=[35mkabutan[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-28/news_150000.json[0m [36mtotal_count[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m15[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-28/news_150000.json[0m [36msource[0m=[35mkabutan[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 45 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328150018-03a239fc.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 15 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 0.8759222088495713s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.7100817229759113s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 3.400733061193502s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 9.543317380789835s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 18.124505064287995s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mkabutan[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/kabutan/2026-03-28/news_150000.json'][0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting kabutan news collection[0m [[0m[1m[34mnews_scraper.kabutan[0m][0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mkabutan[0m [36murl[0m=[35mhttps://kabutan.jp/news/marketnews/[0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://kabutan.jp/news/marketnews/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTML fetched (async)          [0m [[0m[1m[34mnews_scraper._html_utils[0m][0m [36mmodule[0m=[35mhtml_utils[0m [36mstatus_code[0m=[35m200[0m [36murl[0m=[35mhttps://kabutan.jp/news/marketnews/[0m
+[[32m[1minfo     [0m] [1mKabutan news collection complete[0m [[0m[1m[34mnews_scraper.kabutan[0m][0m [36mmodule[0m=[35mkabutan[0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mkabutan[0m [36msource_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFetching content for articles missing it[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mcount[0m=[35m15[0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280231'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1773[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280231'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280230'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m378[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280230'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280227'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4939[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280227'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280226'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1227[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280226'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280225'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2891[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280225'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280224'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2247[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280224'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280223'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m137[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280223'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280220'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2697[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280220'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280206'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m470[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280206'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280205'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m692[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280205'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280204'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m501[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280204'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280203'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m414[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280203'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280202'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m830[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280202'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280201'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1304[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280201'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280200'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2380[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603280200'[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m15[0m [36mtotal[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mContent post-fetch complete   [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mfetched[0m=[35m15[0m [36mmodule[0m=[35munified[0m [36mtotal[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m16.15[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['kabutan'][0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=0, dup=15, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m15[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan[0m [36msource[0m=[35mkabutan[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-28/news_210005.json[0m [36mtotal_count[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m15[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-28/news_210005.json[0m [36msource[0m=[35mkabutan[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 45 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210022-80268539.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 15 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngestion complete: 18 nodes, 45 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m18[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210022-80268539.json[0m [36mrelations[0m=[35m45[0m [36msource[0m=[35mkabutan[0m
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/kabutan/2026-03-28/news_210005.json'][0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['kabutan'][0m
+[[32m[1minfo     [0m] [1mStarting kabutan news collection[0m [[0m[1m[34mnews_scraper.kabutan[0m][0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mkabutan[0m [36murl[0m=[35mhttps://kabutan.jp/news/marketnews/[0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://kabutan.jp/news/marketnews/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTML fetched (async)          [0m [[0m[1m[34mnews_scraper._html_utils[0m][0m [36mmodule[0m=[35mhtml_utils[0m [36mstatus_code[0m=[35m200[0m [36murl[0m=[35mhttps://kabutan.jp/news/marketnews/[0m
+[[32m[1minfo     [0m] [1mKabutan news collection complete[0m [[0m[1m[34mnews_scraper.kabutan[0m][0m [36mmodule[0m=[35mkabutan[0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mkabutan[0m [36msource_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFetching content for articles missing it[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mcount[0m=[35m15[0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290035'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m727[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290035'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290029'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1722[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290029'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290027'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1935[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290027'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290025'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1681[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290025'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290019'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1101[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290019'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290018'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1902[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290018'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290017'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1119[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290017'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290016'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m579[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290016'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290012'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m485[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290012'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290011'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1265[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290011'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290010'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1282[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290010'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290005'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1643[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290005'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290004'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1728[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290004'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290003'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1663[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290003'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290002'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1739[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://kabutan.jp/news/marketnews/?&b=n202603290002'[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m15[0m [36mtotal[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mContent post-fetch complete   [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mfetched[0m=[35m15[0m [36mmodule[0m=[35munified[0m [36mtotal[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m19.58[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['kabutan'][0m [36mtotal_articles[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=15, dup=0, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m15[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan[0m [36msource[0m=[35mkabutan[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-29[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-29/news_030006.json[0m [36mtotal_count[0m=[35m15[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m15[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/kabutan/2026-03-29/news_030006.json[0m [36msource[0m=[35mkabutan[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 45 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260329030027-92b1f59b.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 15 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 0.8183741458633862s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 2.296760558640429s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 4.511235093357376s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 8.666562147182773s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 16.952444322938916s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mkabutan[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/kabutan/2026-03-29/news_030006.json'][0m [36mtotal_articles[0m=[35m15[0m

@@ -166,3 +166,120 @@
 [[32m[1minfo     [0m] [1mCleanup complete              [0m [[0m[1m[34m__main__[0m][0m [36mdeleted_directories[0m=[35m0[0m [36mmax_age_days[0m=[35m30[0m [36mmodule[0m=[35mscrape_jetro[0m
 [[32m[1minfo     [0m] [1mCleanup finished              [0m [[0m[1m[34m__main__[0m][0m [36mdeleted_directories[0m=[35m0[0m [36mmodule[0m=[35mscrape_jetro[0m
 [[32m[1minfo     [0m] [1mJETRO scraper finished successfully[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_jetro[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/jetro/2026-03-28/news_120006.json[0m [36mtotal_articles[0m=[35m100[0m
+[[32m[1minfo     [0m] [1mJETRO news scraper starting   [0m [[0m[1m[34m__main__[0m][0m [36mcategories[0m=[35mNone[0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m100[0m [36mmodule[0m=[35mscrape_jetro[0m [36mno_playwright[0m=[35mTrue[0m [36mregions[0m=[35mNone[0m [36mrequest_delay[0m=[35m2.0[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_jetro[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/jetro[0m
+[[32m[1minfo     [0m] [1mStarting JETRO news collection[0m [[0m[1m[34m__main__[0m][0m [36mcategories[0m=[35mNone[0m [36mmodule[0m=[35mscrape_jetro[0m [36mregions[0m=[35mNone[0m
+[[32m[1minfo     [0m] [1mStarting JETRO news collection[0m [[0m[1m[34mnews_scraper.jetro[0m][0m [36mcategories[0m=[35mNone[0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m100[0m [36mmodule[0m=[35mjetro[0m
+[[32m[1minfo     [0m] [1mJETRO RSS feed fetched        [0m [[0m[1m[34mnews_scraper.jetro[0m][0m [36mentry_count[0m=[35m40[0m [36mmodule[0m=[35mjetro[0m
+[[32m[1minfo     [0m] [1mJETRO RSS feed fetched        [0m [[0m[1m[34mnews_scraper.jetro[0m][0m [36mentry_count[0m=[35m30[0m [36mmodule[0m=[35mjetro[0m
+[[32m[1minfo     [0m] [1mJETRO RSS feed fetched        [0m [[0m[1m[34mnews_scraper.jetro[0m][0m [36mentry_count[0m=[35m30[0m [36mmodule[0m=[35mjetro[0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/1d31728bf2a1729d.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/7084f7e72b17efc8.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/114fbcccbcc53640.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/ac45ee35320cde89.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/a6e56009d5b4f38e.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/1b582f31450bee1f.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/11f8a10da2b3c318.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/c8dee2003bba92a2.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/7fc323044cbda234.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/7a93641ad2d93797.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/14a8e6133cd756bb.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/cd8ea51ea5de0701.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/84786988b594c246.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/3365a88cc293f2d0.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/e0e365bdbc228e6d.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/39c526b0252bdfd7.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/57fea4b9cb25befb.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/e5b322a322461bce.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/52aee3a755412b58.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/8b88a0aacc487ae2.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/58b9705aac8ff307.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/efa4b15edb88c391.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/5219fe664b37de00.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/e5043f623c30ee96.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/8b3fbd6bd23e8fba.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/e054787ca2547b35.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/5749b978d5534ba3.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/3cfb5a2cf0a59052.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/81461514601a8dc3.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/ef7d971d8e14ecef.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/ea2dd0031070794c.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/572782fa9eb99185.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/330b930e897928f6.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/8416520afe7e1860.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/e03a43fee9bea113.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/5d870cc67901bc82.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/ea9acdc20e068c14.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/84a14fcbe008ed38.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/36ecc9d1096b480d.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biznews/2026/03/efca8adc906219b7.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/051a4d80697e603f.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/6e718897191494b0.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2025/1101.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2025/1001.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2025/1002.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2025/1201.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/1b26a8c17a1595ad.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/43b5b036596ad021.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/180157a6142fa429.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/ac822db52064c952.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2025/1103.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/bb25a23586d04ff7.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/87e6d29ff6d89fab.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/024321002cc3ff21.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/a1be5b28c6fb56c1.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/1b48934331ff4f8b.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/489e1ce13741a882.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/18d871e541b38b57.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/9a93f33bc063819b.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2026/0101.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2025/1203.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/special/2024/1002.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/14b85a614823f72f.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/6786278d9c886ab0.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/bb473e5f85935bf1.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/4fbba0301b10767f.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/7a34c5a9b85b635b.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/ef6d2b6ffae04d7b.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/272ebc0350dc9c0a.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/biz/areareports/2026/06c6ce6ea11347ab.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/c869ffc125cc67fa.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/9a2ab74bed15edf2.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/fe689d3db13f8ea7.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/90531f345f31ef8b.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/9503582ac1557a28.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/8ed8e7b4522cef41.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/ce1cb9e1ae3b94cc.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/fb38da232f5b1b04.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/35a7f36d5712f4be.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/8158f0d727eeb566.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2024/02/12531c23d0e3bbac.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/66b616b76e9f692c.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/bed0bac1099fd989.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/d0eb38c8e791b8a5.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/62a6bed20ef21d90.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/bb80fddf97fb4c2a.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/a6e737a88346c9df.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/52a0ba166641b269.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/e05a21cd9154e204.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/81484ca5531a14f2.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/84af167ad3087409.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/436c96750cf6ff5f.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/22b5368db922bd12.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/90337d0727dbac9c.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/02/004a0a9ef71af59c.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/c7e7b113630ea4ec.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/d6f2bb335c25c6a4.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/7f46d87dd5f4cf96.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/e458627bd33f0d7d.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.jetro.go.jp/world/reports/2026/01/23f5d9f6472b5c0d.html "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mRSS phase complete            [0m [[0m[1m[34mnews_scraper.jetro[0m][0m [36mfeed_count[0m=[35m3[0m [36mmodule[0m=[35mjetro[0m [36mrss_articles[0m=[35m100[0m
+[[32m[1minfo     [0m] [1mJETRO news collection complete[0m [[0m[1m[34mnews_scraper.jetro[0m][0m [36marchive_crawl[0m=[35mFalse[0m [36mcategory_crawl[0m=[35mFalse[0m [36mmodule[0m=[35mjetro[0m [36mrss_count[0m=[35m100[0m [36mtotal_articles[0m=[35m100[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m100[0m [36mmodule[0m=[35mscrape_jetro[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_jetro[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/jetro/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_jetro[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/jetro/2026-03-28/news_180005.json[0m [36mtotal_count[0m=[35m100[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_jetro[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/jetro/2026-03-28/news_180005.json[0m
+[[32m[1minfo     [0m] [1mRunning cleanup               [0m [[0m[1m[34m__main__[0m][0m [36mmax_age_days[0m=[35m30[0m [36mmodule[0m=[35mscrape_jetro[0m
+[[32m[1minfo     [0m] [1mCleanup complete              [0m [[0m[1m[34m__main__[0m][0m [36mdeleted_directories[0m=[35m0[0m [36mmax_age_days[0m=[35m30[0m [36mmodule[0m=[35mscrape_jetro[0m
+[[32m[1minfo     [0m] [1mCleanup finished              [0m [[0m[1m[34m__main__[0m][0m [36mdeleted_directories[0m=[35m0[0m [36mmodule[0m=[35mscrape_jetro[0m
+[[32m[1minfo     [0m] [1mJETRO scraper finished successfully[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_jetro[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/jetro/2026-03-28/news_180005.json[0m [36mtotal_articles[0m=[35m100[0m

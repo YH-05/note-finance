@@ -60,7 +60,6 @@ logger = get_logger(__name__, module="scrape_finance_news")
 # AIDEV-NOTE: 全NASパスは環境変数で上書き可能。Mac Mini等の別マシンから実行する場合は
 # launchd plist の EnvironmentVariables に適切なマウントパスを設定すること。
 NAS_SCRAPED_BASE = Path(os.environ.get("NAS_SCRAPED_BASE", "/Volumes/personal_folder/scraped"))
-NAS_GRAPH_QUEUE_BASE = Path(os.environ.get("GRAPH_QUEUE_DIR", "/Volumes/personal_folder/graph-queue"))
 DEFAULT_SOURCES = ["cnbc"]
 DEFAULT_CLEANUP_DAYS = 30
 
@@ -212,16 +211,17 @@ Examples:
         help="Number of JETRO archive pages to crawl per country (default: 0)",
     )
     parser.add_argument(
+        "--request-delay",
+        type=float,
+        default=1.0,
+        metavar="SECONDS",
+        help="Delay between requests in seconds (default: 1.0)",
+    )
+    parser.add_argument(
         "--use-playwright",
         action="store_true",
         default=False,
         help="Use Playwright for JavaScript-rendered pages",
-    )
-    parser.add_argument(
-        "--skip-neo4j",
-        action="store_true",
-        default=False,
-        help="Skip research-neo4j ingestion (default: ingest automatically)",
     )
     return parser.parse_args()
 
@@ -320,133 +320,6 @@ def _save_articles_json(
         total_count=len(articles_json),
     )
     return output_path
-
-
-def _neo4j_article(article: dict) -> dict:
-    """スクレイピング済み記事dict を finance-news-workflow 入力形式に変換する.
-
-    Parameters
-    ----------
-    article : dict
-        ``NewsDataFrame.to_json()`` が返すdict（Article モデルの直列化）。
-
-    Returns
-    -------
-    dict
-        ``map_finance_news`` が期待する article dict。
-    """
-    metadata = article.get("metadata") or {}
-    return {
-        "url": article.get("url", ""),
-        "title": article.get("title", ""),
-        "published": article.get("published", ""),
-        "feed_source": article.get("source", "") or metadata.get("feed_source", ""),
-        "summary": article.get("summary") or "",
-    }
-
-
-def _ingest_source_to_neo4j(
-    source_articles_json: list[dict],
-    source: str,
-    now: datetime,
-    *,
-    skip_ingest: bool = False,
-) -> None:
-    """スクレイピング済み記事を graph-queue 化し、必要に応じて Neo4j に投入する.
-
-    Phase 1: graph-queue ドキュメント生成（常に実行）
-    Phase 2: NAS へ queue ファイル保存（常に実行 → メインマシンから後で投入可能）
-    Phase 3: Neo4j 投入（skip_ingest=True の場合はスキップ）
-
-    Parameters
-    ----------
-    source_articles_json : list[dict]
-        当該ソースの記事dict リスト（NewsDataFrame.to_json() 形式）。
-    source : str
-        ソース名（"cnbc" 等）。
-    now : datetime
-        実行時刻（session_id 生成に使用）。
-    skip_ingest : bool
-        True の場合は Phase 3（Neo4j 投入）をスキップし queue ファイルのみ保存。
-    """
-    # AIDEV-NOTE: emit_research_queue は scripts/ 配下のスクリプトなので
-    #   lazy import で取り込む。neo4j が起動していない場合でもスクレイパーを
-    #   クラッシュさせないため、全体を try/except で包む。
-    try:
-        from emit_research_queue import (  # type: ignore[import]
-            _build_queue_doc,
-            _write_output,
-            DEFAULT_OUTPUT_BASE,
-            map_finance_news,
-        )
-        from data_pipeline.neo4j_loader import ingest_to_neo4j
-    except ImportError as exc:
-        logger.warning(
-            "Neo4j pipeline modules not available, skipping ingestion",
-            source=source,
-            error=str(exc),
-        )
-        return
-
-    mapped_articles = [_neo4j_article(a) for a in source_articles_json]
-    data = {
-        "articles": mapped_articles,
-        "session_id": f"scrape-{source}-{now.strftime('%Y%m%d%H%M%S')}",
-        "batch_label": source,
-    }
-
-    # Phase 1: graph-queue ドキュメント生成（失敗時は投入もスキップ）
-    try:
-        mapped = map_finance_news(data)
-        queue_doc = _build_queue_doc("finance-news-workflow", mapped)
-    except Exception as exc:
-        logger.warning(
-            "Graph-queue build failed, skipping neo4j ingestion",
-            source=source,
-            error=str(exc),
-            exc_info=True,
-        )
-        return
-
-    # Phase 2: queue ファイル保存（監査ログ目的。失敗しても neo4j 投入は継続）
-    # AIDEV-NOTE: NAS_GRAPH_QUEUE_BASE は NAS マウント優先。NAS 未マウント時は
-    # DEFAULT_OUTPUT_BASE（.tmp/graph-queue）にフォールバック。
-    queue_base = NAS_GRAPH_QUEUE_BASE if NAS_GRAPH_QUEUE_BASE.parent.exists() else DEFAULT_OUTPUT_BASE
-    queue_file: Path | None = None
-    try:
-        queue_file = _write_output(queue_doc, "finance-news-workflow", queue_base)
-    except Exception as exc:
-        logger.warning(
-            "Queue file write failed (non-blocking, neo4j ingestion continues)",
-            source=source,
-            error=str(exc),
-        )
-
-    # Phase 3: neo4j 投入（skip_ingest=True の場合はスキップ）
-    if skip_ingest:
-        logger.info(
-            "Neo4j ingestion skipped (--skip-neo4j). Queue file saved for later ingestion.",
-            source=source,
-            queue_file=str(queue_file) if queue_file else "not saved",
-        )
-        return
-
-    try:
-        result = ingest_to_neo4j(queue_doc)
-        logger.info(
-            "Neo4j ingestion complete",
-            source=source,
-            nodes=result.get("nodes", 0),
-            relations=result.get("relations", 0),
-            queue_file=str(queue_file) if queue_file else "not saved",
-        )
-    except Exception as exc:
-        logger.warning(
-            "Neo4j ingestion failed (non-blocking)",
-            source=source,
-            error=str(exc),
-            exc_info=True,
-        )
 
 
 def _cleanup_old_data(base_dir: Path, max_age_days: int) -> int:
@@ -574,6 +447,7 @@ def main() -> int:
     config = ScraperConfig(
         include_content=args.include_content,
         max_articles_per_source=args.max_articles,
+        request_delay=args.request_delay,
         use_playwright=args.use_playwright,
         source_options=source_options,
     )
@@ -635,11 +509,6 @@ def main() -> int:
                 exc_info=True,
             )
             return 1
-
-        # graph-queue 生成 + NAS 保存（常に実行）、Neo4j 投入は --skip-neo4j で制御
-        _ingest_source_to_neo4j(
-            source_articles_json, source, now, skip_ingest=args.skip_neo4j
-        )
 
         # Optional cleanup (per-source directory)
         if args.cleanup_days is not None:

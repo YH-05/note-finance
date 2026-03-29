@@ -241,14 +241,27 @@ class TestImageBlock:
     """画像ブロックのテスト。"""
 
     def test_正常系_画像ブロックを正しくパースできる(self, tmp_path: Path) -> None:
-        """``![alt](path)`` パターンが image ブロックとしてパースされることを確認。"""
+        """``![alt](path)`` パターンが image ブロックとしてパースされることを確認。
+
+        実運用では ``02_draft/revised_draft.md`` から ``images/chart.png``
+        を参照すると、article root (tmp_path) の ``images/`` にフォールバック
+        して解決される。
+        """
         md = """\
 # タイトル
 
 ![グラフ画像](images/chart.png)
 """
-        draft_path = tmp_path / "revised_draft.md"
+        # 実運用の構造を再現: article_root/02_draft/revised_draft.md
+        draft_dir = tmp_path / "02_draft"
+        draft_dir.mkdir()
+        draft_path = draft_dir / "revised_draft.md"
         draft_path.write_text(md, encoding="utf-8")
+
+        # 画像は article root の images/ に配置
+        images_dir = tmp_path / "images"
+        images_dir.mkdir()
+        (images_dir / "chart.png").write_bytes(b"fake png")
 
         result = parse_draft(draft_path)
 
@@ -267,7 +280,7 @@ class TestTableToImage:
     """テーブル→画像変換のテスト。"""
 
     def test_正常系_テーブルを画像ブロックに変換できる(self, tmp_path: Path) -> None:
-        """Markdown テーブルが ``tables/table_0.png`` の画像ブロックに変換されることを確認。"""
+        """Markdown テーブルが ``images/table_0.png`` の画像ブロックに変換されることを確認。"""
         md = """\
 # タイトル
 
@@ -280,19 +293,22 @@ class TestTableToImage:
 
 テーブルの後の段落。
 """
-        draft_path = tmp_path / "revised_draft.md"
+        # 実運用の構造を再現: article_root/02_draft/revised_draft.md
+        draft_dir = tmp_path / "02_draft"
+        draft_dir.mkdir()
+        draft_path = draft_dir / "revised_draft.md"
         draft_path.write_text(md, encoding="utf-8")
 
-        # tables ディレクトリと画像を作成
-        tables_dir = tmp_path / "tables"
-        tables_dir.mkdir()
-        (tables_dir / "table_0.png").write_bytes(b"fake png")
+        # 画像を article root の images/ に作成
+        images_dir = tmp_path / "images"
+        images_dir.mkdir()
+        (images_dir / "table_0.png").write_bytes(b"fake png")
 
         result = parse_draft(draft_path)
 
         images = [b for b in result.body_blocks if b.block_type == "image"]
         assert len(images) == 1
-        assert images[0].image_path == tables_dir / "table_0.png"
+        assert images[0].image_path == images_dir / "table_0.png"
 
         # テーブルの生テキストがブロックに残っていないことを確認
         all_content = " ".join(b.content for b in result.body_blocks)
@@ -314,21 +330,24 @@ class TestTableToImage:
 |---|---|
 | 3 | 4 |
 """
-        draft_path = tmp_path / "revised_draft.md"
+        # 実運用の構造を再現
+        draft_dir = tmp_path / "02_draft"
+        draft_dir.mkdir()
+        draft_path = draft_dir / "revised_draft.md"
         draft_path.write_text(md, encoding="utf-8")
 
-        # tables ディレクトリと画像を作成
-        tables_dir = tmp_path / "tables"
-        tables_dir.mkdir()
-        (tables_dir / "table_0.png").write_bytes(b"fake png 0")
-        (tables_dir / "table_1.png").write_bytes(b"fake png 1")
+        # 画像を article root の images/ に作成
+        images_dir = tmp_path / "images"
+        images_dir.mkdir()
+        (images_dir / "table_0.png").write_bytes(b"fake png 0")
+        (images_dir / "table_1.png").write_bytes(b"fake png 1")
 
         result = parse_draft(draft_path)
 
         images = [b for b in result.body_blocks if b.block_type == "image"]
         assert len(images) == 2
-        assert images[0].image_path == tables_dir / "table_0.png"
-        assert images[1].image_path == tables_dir / "table_1.png"
+        assert images[0].image_path == images_dir / "table_0.png"
+        assert images[1].image_path == images_dir / "table_1.png"
 
     def test_エッジケース_テーブルPNGが存在しない場合(
         self,
@@ -342,11 +361,11 @@ class TestTableToImage:
 |---|---|
 | 1 | 2 |
 """
-        draft_path = tmp_path / "revised_draft.md"
+        # 実運用の構造を再現
+        draft_dir = tmp_path / "02_draft"
+        draft_dir.mkdir()
+        draft_path = draft_dir / "revised_draft.md"
         draft_path.write_text(md, encoding="utf-8")
-
-        # tables ディレクトリを作成するがPNGは配置しない
-        (tmp_path / "tables").mkdir()
 
         with capture_logs() as cap_logs:
             result = parse_draft(draft_path)
@@ -392,8 +411,17 @@ class TestEdgeCases:
 
 ![画像2](images/fig2.png)
 """
-        draft_path = tmp_path / "revised_draft.md"
+        # 実運用の構造を再現
+        draft_dir = tmp_path / "02_draft"
+        draft_dir.mkdir()
+        draft_path = draft_dir / "revised_draft.md"
         draft_path.write_text(md, encoding="utf-8")
+
+        # 画像は article root の images/ に配置
+        images_dir = tmp_path / "images"
+        images_dir.mkdir()
+        (images_dir / "fig1.png").write_bytes(b"fake png")
+        (images_dir / "fig2.png").write_bytes(b"fake png")
 
         result = parse_draft(draft_path)
 
@@ -446,13 +474,16 @@ category: investment
 |---|---|
 | 1 | 2 |
 """
-        draft_path = tmp_path / "revised_draft.md"
+        # 実運用の構造を再現
+        draft_dir = tmp_path / "02_draft"
+        draft_dir.mkdir()
+        draft_path = draft_dir / "revised_draft.md"
         draft_path.write_text(md, encoding="utf-8")
 
-        tables_dir = tmp_path / "tables"
-        tables_dir.mkdir()
-        (tables_dir / "table_0.png").write_bytes(b"fake")
+        images_dir = tmp_path / "images"
+        images_dir.mkdir()
+        (images_dir / "table_0.png").write_bytes(b"fake")
 
         result = parse_draft(draft_path)
 
-        assert tables_dir / "table_0.png" in result.image_paths
+        assert images_dir / "table_0.png" in result.image_paths

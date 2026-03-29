@@ -171,3 +171,459 @@
 [[32m[1minfo     [0m] [1mIngestion complete: 53 nodes, 75 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
 [[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m53[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328090042-7e40290e.json[0m [36mrelations[0m=[35m75[0m [36msource[0m=[35mzero_hedge[0m
 [[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/zero_hedge/2026-03-28/news_090006.json'][0m [36mtotal_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['finance'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mfinance[0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/maersk-slaps-emergency-fuel-surcharge-war-upends-marine-supply-chains[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2159[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/maersk-slaps-emergency-fuel-surcharge-war-upends-marine-supply-chains[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/technology/apple-forces-british-iphone-users-prove-age-id-or-lose-unrestricted-internet-access[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5035[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/technology/apple-forces-british-iphone-users-prove-age-id-or-lose-unrestricted-internet-access[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/many-us-troops-wounded-iranian-strike-saudi-base-houthis-open-new-front-missile[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m7206[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/many-us-troops-wounded-iranian-strike-saudi-base-houthis-open-new-front-missile[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-union-hates-hungary-loves-ukraine[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8550[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-union-hates-hungary-loves-ukraine[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/senate-passes-dhs-funding-bill-end-40-day-shutdown-end-airport-chaos[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8431[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/senate-passes-dhs-funding-bill-end-40-day-shutdown-end-airport-chaos[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/escalation-all-fronts-mediators-say-iran-hasnt-requested-pause-us-energy-strikes[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m12108[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/escalation-all-fronts-mediators-say-iran-hasnt-requested-pause-us-energy-strikes[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/kid-just-3d-printed-manpad-97[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2236[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/kid-just-3d-printed-manpad-97[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-conservative-lawmakers-warn-no-go-zones-tied-mass-immigration-and[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5150[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-conservative-lawmakers-warn-no-go-zones-tied-mass-immigration-and[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/why-trump-doj-still-enforcing-biden-pistol-brace-rule[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4558[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/why-trump-doj-still-enforcing-biden-pistol-brace-rule[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/economics/black-women-face-mass-layoffs-rise-ai-and-end-dei[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5178[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/economics/black-women-face-mass-layoffs-rise-ai-and-end-dei[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/macquarie-two-more-months-war-could-send-oil-200[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2078[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/macquarie-two-more-months-war-could-send-oil-200[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/israeli-military-chief-warns-army-nearing-internal-collapse-netanyahu-pushes-service[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3190[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/israeli-military-chief-warns-army-nearing-internal-collapse-netanyahu-pushes-service[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/vance-claims-iran-could-make-nuclear-suicide-vest[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2627[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/vance-claims-iran-could-make-nuclear-suicide-vest[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/americans-are-becoming-more-and-more-interested-buying-chinese-evs[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2449[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/americans-are-becoming-more-and-more-interested-buying-chinese-evs[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/us-offers-3-million-bounty-information-finances-haitian-gangs[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3013[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/us-offers-3-million-bounty-information-finances-haitian-gangs[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/moore-problems-maryland-gov-wes-moore-booed-baltimore-stadium-deep-blue-territory[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2945[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/moore-problems-maryland-gov-wes-moore-booed-baltimore-stadium-deep-blue-territory[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/100-oil-solving-russias-budget-problem[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1975[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/100-oil-solving-russias-budget-problem[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/us-deploys-ukrainian-style-drone-boat-iran-war-ai-weapons-race-accelerates[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2207[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/us-deploys-ukrainian-style-drone-boat-iran-war-ai-weapons-race-accelerates[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/louisville-shells-out-800000-unconstitutional-demands-christian-photographer[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2304[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/louisville-shells-out-800000-unconstitutional-demands-christian-photographer[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/after-putins-guarded-iran-war-comments-medvedev-enters-chat[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2628[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/after-putins-guarded-iran-war-comments-medvedev-enters-chat[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/trump-put-his-signature-us-dollar-bills-breaking-tradition-1861[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2139[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/trump-put-his-signature-us-dollar-bills-breaking-tradition-1861[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/commodities/asia-begins-pricing-us-oil-against-brent-dubai-volatility-spikes[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2136[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/commodities/asia-begins-pricing-us-oil-against-brent-dubai-volatility-spikes[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/disturbing-five-nights-epsteins-online-game-spreads-rapidly-through-classrooms[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1927[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/disturbing-five-nights-epsteins-online-game-spreads-rapidly-through-classrooms[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/too-many-things-are-out-whack[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4293[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/too-many-things-are-out-whack[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/cpac-shocker-dallas-crowd-cheers-trump-impeachment-hearings[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4455[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/cpac-shocker-dallas-crowd-cheers-trump-impeachment-hearings[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m25[0m [36mtotal[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m [36mtotal[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mzero_hedge[0m [36msource_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m35.72[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['zero_hedge'][0m [36mtotal_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=6, dup=19, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m25[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-28/news_150001.json[0m [36mtotal_count[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-28/news_150001.json[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 75 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328150038-6e3a5a88.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 25 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.0972859947362772s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 2.3375738515091626s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 4.440925448519463s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 7.219710399468625s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 16.585954267781826s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mzero_hedge[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/zero_hedge/2026-03-28/news_150001.json'][0m [36mtotal_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['finance'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mfinance[0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/oreilly-exposes-san-francisco-violent-third-world-drug-dystopia-infested-illegals[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5525[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/oreilly-exposes-san-francisco-violent-third-world-drug-dystopia-infested-illegals[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/alarming-west-texas-oil-theft-emerges-national-security-threat[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2954[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/alarming-west-texas-oil-theft-emerges-national-security-threat[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/us-only-certain-having-destroyed-third-irans-missiles[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3327[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/us-only-certain-having-destroyed-third-irans-missiles[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/nationwide-no-kings-rallies-erupt-nationwide[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3024[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/nationwide-no-kings-rallies-erupt-nationwide[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/why-trump-doj-still-enforcing-biden-pistol-brace-rule[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4558[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/why-trump-doj-still-enforcing-biden-pistol-brace-rule[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/crypto/fannie-mae-set-accept-crypto-collateral-home-loans-first-time[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2327[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/crypto/fannie-mae-set-accept-crypto-collateral-home-loans-first-time[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/personal-finance/how-convert-your-401k-reliable-monthly-paycheck[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m7892[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/personal-finance/how-convert-your-401k-reliable-monthly-paycheck[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/hormuz-bypasses-maxed-out-saudi-east-west-pipeline-hits-record-7-mmbd-uae-fujairah-crude[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8987[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/hormuz-bypasses-maxed-out-saudi-east-west-pipeline-hits-record-7-mmbd-uae-fujairah-crude[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/audits-spotlight-unusual-trends-medicaid-spending-autism-care[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8880[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/audits-spotlight-unusual-trends-medicaid-spending-autism-care[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/french-police-foil-terror-plot-suspect-caught-trying-ignite-bomb-outside-bofa[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3466[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/french-police-foil-terror-plot-suspect-caught-trying-ignite-bomb-outside-bofa[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/russia-warns-situation-bushehr-nuclear-plant-deteriorating-after-3rd-airstrike-ten[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2572[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/russia-warns-situation-bushehr-nuclear-plant-deteriorating-after-3rd-airstrike-ten[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/maersk-slaps-emergency-fuel-surcharge-war-upends-marine-supply-chains[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2159[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/maersk-slaps-emergency-fuel-surcharge-war-upends-marine-supply-chains[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/technology/apple-forces-british-iphone-users-prove-age-id-or-lose-unrestricted-internet-access[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5035[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/technology/apple-forces-british-iphone-users-prove-age-id-or-lose-unrestricted-internet-access[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/many-us-troops-wounded-iranian-strike-saudi-base-houthis-open-new-front-missile[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m13732[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/many-us-troops-wounded-iranian-strike-saudi-base-houthis-open-new-front-missile[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-union-hates-hungary-loves-ukraine[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8550[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-union-hates-hungary-loves-ukraine[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/senate-passes-dhs-funding-bill-end-40-day-shutdown-end-airport-chaos[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8431[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/senate-passes-dhs-funding-bill-end-40-day-shutdown-end-airport-chaos[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/escalation-all-fronts-mediators-say-iran-hasnt-requested-pause-us-energy-strikes[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m12108[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/escalation-all-fronts-mediators-say-iran-hasnt-requested-pause-us-energy-strikes[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/kid-just-3d-printed-manpad-97[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2236[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/kid-just-3d-printed-manpad-97[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-conservative-lawmakers-warn-no-go-zones-tied-mass-immigration-and[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5150[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-conservative-lawmakers-warn-no-go-zones-tied-mass-immigration-and[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/economics/black-women-face-mass-layoffs-rise-ai-and-end-dei[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5178[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/economics/black-women-face-mass-layoffs-rise-ai-and-end-dei[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/macquarie-two-more-months-war-could-send-oil-200[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2078[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/macquarie-two-more-months-war-could-send-oil-200[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/israeli-military-chief-warns-army-nearing-internal-collapse-netanyahu-pushes-service[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3190[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/israeli-military-chief-warns-army-nearing-internal-collapse-netanyahu-pushes-service[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/vance-claims-iran-could-make-nuclear-suicide-vest[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2627[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/vance-claims-iran-could-make-nuclear-suicide-vest[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/americans-are-becoming-more-and-more-interested-buying-chinese-evs[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2449[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/americans-are-becoming-more-and-more-interested-buying-chinese-evs[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/us-offers-3-million-bounty-information-finances-haitian-gangs[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3013[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/us-offers-3-million-bounty-information-finances-haitian-gangs[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m25[0m [36mtotal[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m [36mtotal[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mzero_hedge[0m [36msource_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m35.69[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['zero_hedge'][0m [36mtotal_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=10, dup=15, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m25[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-28/news_210005.json[0m [36mtotal_count[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-28/news_210005.json[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 75 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210043-2aea23e3.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 25 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 25 Claim nodes      [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngestion complete: 53 nodes, 75 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m53[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210043-2aea23e3.json[0m [36mrelations[0m=[35m75[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/zero_hedge/2026-03-28/news_210005.json'][0m [36mtotal_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['zero_hedge'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['finance'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mfinance[0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/trump-signals-move-take-us-arms-ukraine-divert-them-middle-east[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2267[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/trump-signals-move-take-us-arms-ukraine-divert-them-middle-east[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/many-us-troops-wounded-iranian-strike-saudi-base-houthis-open-new-front-missile[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m13732[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/many-us-troops-wounded-iranian-strike-saudi-base-houthis-open-new-front-missile[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/israeli-forces-raise-flag-over-syrian-town-latest-raid-provocative-act[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2419[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/israeli-forces-raise-flag-over-syrian-town-latest-raid-provocative-act[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/6-things-know-iran-conflict-hits-1-month-mark[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m10424[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/6-things-know-iran-conflict-hits-1-month-mark[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/us-monitoring-surge-chinas-detention-panama-flagged-vessels[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3122[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/us-monitoring-surge-chinas-detention-panama-flagged-vessels[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/weird-obsession-flying-first-class-among-americas-anti-capitalists[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2162[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/weird-obsession-flying-first-class-among-americas-anti-capitalists[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/watch-vance-says-clock-ticking-ilhan-omar[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4695[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/watch-vance-says-clock-ticking-ilhan-omar[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/secret-service-agent-assigned-jill-biden-shoots-himself-leg-philadelphia-airport[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1604[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/secret-service-agent-assigned-jill-biden-shoots-himself-leg-philadelphia-airport[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/middle-schoolers-lets-go-brandon-sweatshirt-case-goes-supreme-court[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2033[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/middle-schoolers-lets-go-brandon-sweatshirt-case-goes-supreme-court[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/ai/debbie-dupes-dallas-porn-legends-clone-themselves-ai-keep-raking-it-long-after-retiring[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2006[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/ai/debbie-dupes-dallas-porn-legends-clone-themselves-ai-keep-raking-it-long-after-retiring[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/oreilly-exposes-san-francisco-violent-third-world-drug-dystopia-infested-illegals[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5525[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/oreilly-exposes-san-francisco-violent-third-world-drug-dystopia-infested-illegals[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/alarming-west-texas-oil-theft-emerges-national-security-threat[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2954[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/alarming-west-texas-oil-theft-emerges-national-security-threat[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/us-only-certain-having-destroyed-third-irans-missiles[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3327[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/military/us-only-certain-having-destroyed-third-irans-missiles[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/nationwide-no-kings-rallies-erupt-nationwide[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3024[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/nationwide-no-kings-rallies-erupt-nationwide[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/why-trump-doj-still-enforcing-biden-pistol-brace-rule[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4558[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/why-trump-doj-still-enforcing-biden-pistol-brace-rule[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/crypto/fannie-mae-set-accept-crypto-collateral-home-loans-first-time[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2327[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/crypto/fannie-mae-set-accept-crypto-collateral-home-loans-first-time[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/personal-finance/how-convert-your-401k-reliable-monthly-paycheck[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m7892[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/personal-finance/how-convert-your-401k-reliable-monthly-paycheck[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/hormuz-bypasses-maxed-out-saudi-east-west-pipeline-hits-record-7-mmbd-uae-fujairah-crude[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8987[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/energy/hormuz-bypasses-maxed-out-saudi-east-west-pipeline-hits-record-7-mmbd-uae-fujairah-crude[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/audits-spotlight-unusual-trends-medicaid-spending-autism-care[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8880[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/audits-spotlight-unusual-trends-medicaid-spending-autism-care[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/french-police-foil-terror-plot-suspect-caught-trying-ignite-bomb-outside-bofa[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3466[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/french-police-foil-terror-plot-suspect-caught-trying-ignite-bomb-outside-bofa[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/russia-warns-situation-bushehr-nuclear-plant-deteriorating-after-3rd-airstrike-ten[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2572[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/russia-warns-situation-bushehr-nuclear-plant-deteriorating-after-3rd-airstrike-ten[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/maersk-slaps-emergency-fuel-surcharge-war-upends-marine-supply-chains[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2159[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/markets/maersk-slaps-emergency-fuel-surcharge-war-upends-marine-supply-chains[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/technology/apple-forces-british-iphone-users-prove-age-id-or-lose-unrestricted-internet-access[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5035[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/technology/apple-forces-british-iphone-users-prove-age-id-or-lose-unrestricted-internet-access[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-union-hates-hungary-loves-ukraine[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8550[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/geopolitical/european-union-hates-hungary-loves-ukraine[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/senate-passes-dhs-funding-bill-end-40-day-shutdown-end-airport-chaos[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8431[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.zerohedge.com/political/senate-passes-dhs-funding-bill-end-40-day-shutdown-end-airport-chaos[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m25[0m [36mtotal[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mzero_hedge[0m [36mtotal[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mzero_hedge[0m [36msource_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m35.71[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['zero_hedge'][0m [36mtotal_articles[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=25, dup=0, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m25[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-29[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-29/news_030006.json[0m [36mtotal_count[0m=[35m25[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m25[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/zero_hedge/2026-03-29/news_030006.json[0m [36msource[0m=[35mzero_hedge[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 75 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260329030045-2ecd7291.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 25 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.0779709906054258s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.9126725026981723s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 4.623773135193147s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 7.348113355883665s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 16.145420234615443s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mzero_hedge[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/zero_hedge/2026-03-29/news_030006.json'][0m [36mtotal_articles[0m=[35m25[0m

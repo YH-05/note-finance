@@ -94,6 +94,7 @@ _SELECTORS: dict[str, str] = {
     "toc_menu": 'button:has-text("目次")',
     "blockquote_menu": 'button:has-text("引用")',
     "image_add_button": 'button:has-text("画像")',
+    "separator_menu": 'button:has-text("区切り線")',
 }
 
 
@@ -461,19 +462,14 @@ class NoteBrowserClient:
     async def upload_image(self, image_path: Path) -> None:
         """Upload an image file via the editor's file input.
 
-        First tries to find an existing file input element.  If not
-        found, clicks the "add content" / "image" button to trigger the
-        file input, then retries.
+        Ensures the cursor is on an empty line (where the "+" button
+        appears), then opens the block-inserter menu to trigger the
+        file input.
 
         Parameters
         ----------
         image_path : Path
             Path to the image file to upload.
-
-        Raises
-        ------
-        FileNotFoundError
-            If the image file does not exist.
         """
         assert self._page is not None
 
@@ -483,11 +479,16 @@ class NoteBrowserClient:
 
         logger.debug("uploading_image", path=str(image_path))
 
+        # AIDEV-NOTE: The "+" block-inserter button only appears on empty
+        # paragraph lines.  Wait for the editor to settle after the
+        # previous block insertion, then ensure we are on an empty line.
+        await asyncio.sleep(0.5)
+
         file_input = await self._page.query_selector(
             _SELECTORS["image_upload"],
         )
 
-        # If no file input is visible, try clicking the add-image button
+        # If no file input is in the DOM, trigger via the block-inserter menu
         if file_input is None:
             file_input = await self._trigger_image_upload()
 
@@ -496,12 +497,16 @@ class NoteBrowserClient:
             return
 
         await file_input.set_input_files(str(image_path))
-        await self._random_delay()
+        # Wait for the image to be processed by the editor
+        await asyncio.sleep(2)
 
         logger.info("image_uploaded", path=str(image_path))
 
     async def _trigger_image_upload(self) -> Any:
-        """Click the add-image button to make the file input available.
+        """Click the "+" menu then "画像" to make the file input available.
+
+        Opens the block-inserter menu first, waits for it to render,
+        then clicks the image button to trigger the hidden file input.
 
         Returns
         -------
@@ -510,26 +515,47 @@ class NoteBrowserClient:
         """
         assert self._page is not None
 
-        # Try the add content button first, then the image button
-        for selector_key in ("add_content_button", "image_add_button"):
-            try:
-                btn = await self._page.wait_for_selector(
-                    _SELECTORS[selector_key],
-                    timeout=2000,
-                )
-                if btn:
-                    await btn.click()
-                    await self._random_delay()
-            except Exception:
-                logger.debug("button_not_found", selector=selector_key)
-
-        # Now look for the file input again
+        # Step 1: Open the "+" block-inserter menu
         try:
-            return await self._page.wait_for_selector(
-                _SELECTORS["image_upload"],
-                timeout=3000,
+            menu_btn = await self._page.wait_for_selector(
+                _SELECTORS["add_content_button"],
+                timeout=5000,
             )
+            if menu_btn:
+                await menu_btn.click()
+                await asyncio.sleep(1.0)
+                logger.debug("image_trigger_menu_opened")
         except Exception:
+            logger.warning("image_trigger_add_button_not_found")
+            return None
+
+        # Step 2: Click the "画像" button inside the menu
+        try:
+            img_btn = await self._page.wait_for_selector(
+                _SELECTORS["image_add_button"],
+                timeout=5000,
+            )
+            if img_btn:
+                await img_btn.click()
+                await asyncio.sleep(1.0)
+                logger.debug("image_trigger_image_button_clicked")
+        except Exception:
+            logger.warning("image_trigger_image_button_not_found")
+            return None
+
+        # Step 3: Wait for the file input to appear in DOM.
+        # note.com creates file inputs as hidden elements, so we must
+        # use state="attached" instead of default "visible".
+        try:
+            file_input = await self._page.wait_for_selector(
+                _SELECTORS["image_upload"],
+                state="attached",
+                timeout=5000,
+            )
+            logger.debug("image_trigger_file_input_found")
+            return file_input
+        except Exception:
+            logger.warning("image_trigger_file_input_not_found")
             return None
 
     async def save_draft(self) -> str:
@@ -934,16 +960,43 @@ class NoteBrowserClient:
         await self._page.press(body_selector, "Enter")
 
     async def _insert_separator(self) -> None:
-        """Insert a horizontal separator (``---``)."""
+        """Insert a horizontal separator via the block-inserter "+" menu.
+
+        Opens the "+" (メニューを開く) button and selects 区切り線.
+        Falls back to typing ``---`` if the menu cannot be opened.
+        """
         assert self._page is not None
 
         body_selector = _SELECTORS["editor_body"]
-        await self._page.type(
-            body_selector,
-            "---",
-            delay=self._config.typing_delay_ms,
-        )
-        await self._page.press(body_selector, "Enter")
+
+        inserted = False
+        try:
+            menu_btn = await self._page.wait_for_selector(
+                _SELECTORS["add_content_button"],
+                timeout=3000,
+            )
+            if menu_btn:
+                await menu_btn.click()
+                await asyncio.sleep(0.5)
+                sep_btn = await self._page.wait_for_selector(
+                    _SELECTORS["separator_menu"],
+                    timeout=3000,
+                )
+                if sep_btn:
+                    await sep_btn.click()
+                    await asyncio.sleep(0.5)
+                    inserted = True
+        except Exception:
+            logger.debug("block_inserter_separator_failed")
+
+        if not inserted:
+            logger.warning("separator_fallback_typing")
+            await self._page.type(
+                body_selector,
+                "---",
+                delay=self._config.typing_delay_ms,
+            )
+            await self._page.press(body_selector, "Enter")
 
     # ------------------------------------------------------------------
     # Utilities

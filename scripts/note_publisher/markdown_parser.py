@@ -40,6 +40,20 @@ logger = structlog.get_logger(__name__)
 # AIDEV-NOTE: Image pattern matches ![alt text](path) syntax
 _IMAGE_PATTERN = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)$")
 
+# AIDEV-NOTE: Numbered list pattern matches "1. text", "2. text", etc.
+_NUMBERED_LIST_PATTERN = re.compile(r"^\d+\.\s+(.*)")
+
+# AIDEV-NOTE: Inline bold markdown pattern **text**
+_BOLD_PATTERN = re.compile(r"\*\*(.+?)\*\*")
+
+# AIDEV-NOTE: Inline italic markdown pattern *text* (single asterisk)
+_ITALIC_PATTERN = re.compile(r"\*(.+?)\*")
+
+# AIDEV-NOTE: Bold-only line pattern — entire line is **text** with no other content.
+# These are used as sub-headings in markdown but note.com cannot render bold in
+# paragraphs, so they are converted to blockquotes for visual distinction.
+_BOLD_ONLY_PATTERN = re.compile(r"^\*\*(.+)\*\*$")
+
 
 def parse_draft(draft_path: Path) -> ArticleDraft:
     """Parse a revised_draft.md file into an ArticleDraft.
@@ -211,9 +225,19 @@ def _handle_table(
     blocks: list[ContentBlock],
     image_paths: list[Path],
 ) -> tuple[int, int]:
-    """Process a Markdown table and convert it to an image block."""
+    """Process a Markdown table and convert it to an image block.
+
+    The generated image is saved to ``article_root/images/table_N.png``.
+    ``article_root`` is one level up from ``base_dir`` (which is ``02_draft/``).
+    """
     table_lines_end = _consume_table(lines, i)
-    image_path = base_dir / "tables" / f"table_{table_count}.png"
+
+    # article root = base_dir (02_draft/) の親ディレクトリ
+    article_root = base_dir.parent
+    images_dir = article_root / "images"
+    images_dir.mkdir(parents=True, exist_ok=True)
+
+    image_path = images_dir / f"table_{table_count}.png"
 
     if not image_path.exists():
         logger.warning("Table image not found", expected_path=str(image_path))
@@ -244,7 +268,7 @@ def _parse_line(
 
     image_match = _IMAGE_PATTERN.match(stripped)
     if image_match:
-        img_path = base_dir / image_match.group(2)
+        img_path = _resolve_image_path(base_dir, image_match.group(2))
         image_paths.append(img_path)
         return ContentBlock(
             block_type="image",
@@ -253,12 +277,93 @@ def _parse_line(
         ), 1
 
     if stripped.startswith("- "):
-        return ContentBlock(block_type="list_item", content=stripped[2:]), 1
+        return ContentBlock(
+            block_type="list_item",
+            content=_strip_inline_markdown(stripped[2:]),
+        ), 1
+
+    numbered_match = _NUMBERED_LIST_PATTERN.match(stripped)
+    if numbered_match:
+        return ContentBlock(
+            block_type="numbered_list_item",
+            content=_strip_inline_markdown(numbered_match.group(1)),
+        ), 1
 
     if stripped.startswith("> "):
-        return ContentBlock(block_type="blockquote", content=stripped[2:]), 1
+        return ContentBlock(
+            block_type="blockquote",
+            content=_strip_inline_markdown(stripped[2:]),
+        ), 1
 
-    return ContentBlock(block_type="paragraph", content=stripped), 1
+    return ContentBlock(
+        block_type="paragraph",
+        content=_strip_inline_markdown(stripped),
+    ), 1
+
+
+def _resolve_image_path(base_dir: Path, relative_path: str) -> Path:
+    """Resolve an image path, trying base_dir first then article root.
+
+    The revised_draft.md lives in ``02_draft/`` but image references like
+    ``images/table_competition.png`` are relative to the article root
+    (one level up).
+
+    Parameters
+    ----------
+    base_dir : Path
+        Directory containing the draft file (``02_draft/``).
+    relative_path : str
+        Relative image path from the markdown ``![](path)`` syntax.
+
+    Returns
+    -------
+    Path
+        Resolved image path. Prefers the path that actually exists on disk.
+    """
+    # Try base_dir first (02_draft/images/...)
+    candidate = base_dir / relative_path
+    if candidate.exists():
+        return candidate
+
+    # Try article root (article_dir/images/...) — one level up from 02_draft/
+    article_root_candidate = base_dir.parent / relative_path
+    if article_root_candidate.exists():
+        logger.debug(
+            "image_resolved_via_article_root",
+            original=relative_path,
+            resolved=str(article_root_candidate),
+        )
+        return article_root_candidate
+
+    # Neither exists; return article root path as the more likely convention
+    logger.warning(
+        "image_not_found_at_either_path",
+        base_dir_path=str(candidate),
+        article_root_path=str(article_root_candidate),
+    )
+    return article_root_candidate
+
+
+def _strip_inline_markdown(text: str) -> str:
+    """Strip inline Markdown formatting that note.com cannot render.
+
+    Removes ``**bold**`` and ``*italic*`` markers. note.com's editor
+    does not interpret inline Markdown, so these would appear as
+    literal asterisks.
+
+    Parameters
+    ----------
+    text : str
+        Text potentially containing inline Markdown.
+
+    Returns
+    -------
+    str
+        Text with inline formatting markers removed.
+    """
+    # Strip bold first (**text**), then italic (*text*)
+    result = _BOLD_PATTERN.sub(r"\1", text)
+    return _ITALIC_PATTERN.sub(r"\1", result)
 
 
 def _is_table_line(line: str) -> bool:

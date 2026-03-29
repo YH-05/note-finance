@@ -146,3 +146,429 @@
 [[32m[1minfo     [0m] [1mIngestion complete: 43 nodes, 60 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
 [[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m43[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328090031-94f293be.json[0m [36mrelations[0m=[35m60[0m [36msource[0m=[35mfederal_reserve[0m
 [[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/federal_reserve/2026-03-28/news_090006.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['press_releases'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mpress_releases[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m932[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260325a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1283[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260325a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260320a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m695[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260320a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3251[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2129[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m413[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260313a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m687[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260313a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260312a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m660[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260312a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311b.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m450[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311b.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m466[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260310a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1489[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260310a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260309a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m422[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260309a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260305a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1045[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260305a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260305a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m800[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260305a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260303a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m696[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260303a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260224a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m644[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260224a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260224a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m513[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260224a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260223a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1730[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260223a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260219a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m465[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260219a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260219a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1945[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260219a.htm[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m20[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mfederal_reserve[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m24.94[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['federal_reserve'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=0, dup=20, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-28/news_150001.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-28/news_150001.json[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328150026-87d77cd2.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.1223595908205422s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.6565311825462277s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 3.992015469474217s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 8.022289718214513s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 18.678519484154474s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mfederal_reserve[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/federal_reserve/2026-03-28/news_150001.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['press_releases'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mpress_releases[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m932[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260325a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1283[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260325a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260320a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m695[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260320a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3251[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2129[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m413[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260313a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m687[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260313a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260312a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m660[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260312a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311b.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m450[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311b.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m466[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260310a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1489[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260310a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260309a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m422[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260309a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260305a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1045[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260305a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260305a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m800[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260305a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260303a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m696[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260303a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260224a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m644[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260224a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260224a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m513[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260224a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260223a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1730[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260223a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260219a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m465[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260219a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260219a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1945[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260219a.htm[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m20[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mfederal_reserve[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m24.88[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['federal_reserve'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=0, dup=20, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-28/news_210005.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-28/news_210005.json[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210031-a655ee4a.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Claim nodes      [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngestion complete: 43 nodes, 60 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m43[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210031-a655ee4a.json[0m [36mrelations[0m=[35m60[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/federal_reserve/2026-03-28/news_210005.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['federal_reserve'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['press_releases'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mpress_releases[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m932[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260325a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1283[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260325a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260320a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m695[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260320a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3251[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2129[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m413[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260313a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m687[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260313a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260312a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m660[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260312a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311b.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m450[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311b.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m466[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260311a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260310a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1489[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260310a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260309a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m422[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260309a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260305a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1045[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260305a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260305a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m800[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260305a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260303a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m696[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260303a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260224a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m644[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/monetary20260224a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260224a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m513[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/enforcement20260224a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260223a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1730[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/bcreg20260223a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260219a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m465[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/orders20260219a.htm[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260219a.htm[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1945[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.federalreserve.gov/newsevents/pressreleases/other20260219a.htm[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m20[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mfederal_reserve[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mfederal_reserve[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m24.51[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['federal_reserve'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=20, dup=0, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-29[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-29/news_030006.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/federal_reserve/2026-03-29/news_030006.json[0m [36msource[0m=[35mfederal_reserve[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260329030034-a336852a.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 0.8454242868638846s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.7869034530875627s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 3.880351337594397s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 8.261477521810303s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 16.247508524259516s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mfederal_reserve[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/federal_reserve/2026-03-29/news_030006.json'][0m [36mtotal_articles[0m=[35m20[0m

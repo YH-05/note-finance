@@ -308,25 +308,46 @@ def ingest_to_neo4j(  # noqa: PLR0912, PLR0915
             rel_count += expected
 
         # classification_rels 投入
+        # AIDEV-NOTE: classification_nodes の key_property/key_value マップを使って
+        # to_label/to_key を正確に解決する。from_id は source_id として扱う。
+        cn_keymap: dict[str, tuple[str, str]] = {}  # key_value → (label, key_property)
+        for cnode in queue_data.get("classification_nodes", []):
+            cn_label = cnode.get("label", "")
+            cn_key_prop = cnode.get(
+                "key_property", f"{cn_label.lower()}_id" if cn_label else "id"
+            )
+            cn_key_val = cnode.get("key_value", "")
+            if cn_key_val and cn_label:
+                cn_keymap[cn_key_val] = (cn_label, cn_key_prop)
+        source_id_set = {s.get("source_id") for s in queue_data.get("sources", [])}
+
         for crel in queue_data.get("classification_rels", []):
             rel_type = crel.get("type", "CLASSIFIED_AS")
             from_id = crel.get("from_id")
             to_id = crel.get("to_id")
-            from_label = crel.get("from_label", "Entity")
-            to_label = crel.get("to_label", "Classification")
+            # from_label/key: source_id ならば Source として扱う
+            if from_id in source_id_set:
+                from_label = "Source"
+                from_key = "source_id"
+            else:
+                from_label = crel.get("from_label", "Entity")
+                from_key = f"{from_label.lower()}_id"
+            # to_label/key: classification_nodes のマップで解決
+            if to_id in cn_keymap:
+                to_label, to_key = cn_keymap[to_id]
+            else:
+                to_label = crel.get("to_label", "Classification")
+                to_key = f"{to_label.lower()}_id"
             if from_id and to_id and driver:
                 with driver.session() as session:
                     session.execute_write(
                         _merge_relation,
-                        f"{from_label.lower()}_id",
+                        from_key,
                         from_label,
-                        f"{to_label.lower()}_id",
+                        to_key,
                         to_label,
                         rel_type,
-                        {
-                            f"{from_label.lower()}_id": from_id,
-                            f"{to_label.lower()}_id": to_id,
-                        },
+                        {from_key: from_id, to_key: to_id},
                     )
             rel_count += 1
     finally:

@@ -582,3 +582,106 @@
 2026-03-28 20:01:36,571 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/hide_taxnote/n/n8e5658fec2a2
 2026-03-28 20:01:36,666 INFO data_pipeline.collectors.note_com_rss: config_updated updated_count=11 timestamp=2026-03-28T11:01:36.666060+00:00
 2026-03-28 20:01:36,666 INFO data_pipeline.collectors.note_com_rss: rss_monitor_completed creators_checked=11 new_articles_found=28 articles_saved=3 articles_skipped_paid=25 articles_skipped_duplicate=0 error_count=0
+2026-03-29 08:00:06,136 INFO data_pipeline.collectors.note_com_rss: rss_monitor_starting creator_count=11
+2026-03-29 08:00:06,469 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=fukuoka1116 entry_count=24
+2026-03-29 08:00:07,196 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=sota_career entry_count=25
+2026-03-29 08:00:07,820 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=kei_10m_asset entry_count=22
+2026-03-29 08:00:08,310 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=careercompass_c entry_count=25
+2026-03-29 08:00:08,506 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=careercompass_c new_count=24
+2026-03-29 08:00:08,767 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=dandism56 entry_count=25
+2026-03-29 08:00:09,133 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=dandism56 new_count=1
+2026-03-29 08:00:09,367 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=miraicareer_blog entry_count=25
+2026-03-29 08:00:10,162 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=glad_auklet4142 entry_count=25
+2026-03-29 08:00:10,572 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=glad_auklet4142 new_count=2
+2026-03-29 08:00:10,757 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=hide_taxnote entry_count=25
+2026-03-29 08:00:11,295 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=hide_taxnote new_count=1
+2026-03-29 08:00:11,633 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=mindset_official entry_count=25
+2026-03-29 08:00:12,488 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=ruinormalhakkar entry_count=25
+2026-03-29 08:00:13,362 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=studyhacker entry_count=0
+2026-03-29 08:00:14,744 INFO data_pipeline.collectors.note_com_browser: note_com_browser_started
+2026-03-29 08:00:14,745 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nd1b182fe46a8
+2026-03-29 08:00:17,825 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nd1b182fe46a8
+2026-03-29 08:00:17,825 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nd1b182fe46a8
+2026-03-29 08:00:17,825 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/naf7399362d7e
+2026-03-29 08:00:20,750 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/naf7399362d7e
+2026-03-29 08:00:20,750 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/naf7399362d7e
+2026-03-29 08:00:20,750 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n127380e09ca7
+2026-03-29 08:00:23,297 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n127380e09ca7
+2026-03-29 08:00:23,297 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n127380e09ca7
+2026-03-29 08:00:23,297 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n72bdd1694c18
+2026-03-29 08:00:25,837 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n72bdd1694c18
+2026-03-29 08:00:25,837 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n72bdd1694c18
+2026-03-29 08:00:25,837 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n1901f280d017
+2026-03-29 08:00:28,410 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n1901f280d017
+2026-03-29 08:00:28,410 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n1901f280d017
+2026-03-29 08:00:28,410 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ne3011032b029
+2026-03-29 08:00:31,112 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ne3011032b029
+2026-03-29 08:00:31,113 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ne3011032b029
+2026-03-29 08:00:31,113 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nb5bf9d1f719f
+2026-03-29 08:00:33,872 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nb5bf9d1f719f
+2026-03-29 08:00:33,872 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nb5bf9d1f719f
+2026-03-29 08:00:33,872 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n4901d1b853d5
+2026-03-29 08:00:36,790 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n4901d1b853d5
+2026-03-29 08:00:36,790 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n4901d1b853d5
+2026-03-29 08:00:36,790 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n8163e6cbc5f9
+2026-03-29 08:00:39,736 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n8163e6cbc5f9
+2026-03-29 08:00:39,736 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n8163e6cbc5f9
+2026-03-29 08:00:39,737 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n00fd1c9faf2e
+2026-03-29 08:00:42,230 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n00fd1c9faf2e
+2026-03-29 08:00:42,230 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n00fd1c9faf2e
+2026-03-29 08:00:42,230 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n5a4a03fe5eab
+2026-03-29 08:00:44,888 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n5a4a03fe5eab
+2026-03-29 08:00:44,888 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n5a4a03fe5eab
+2026-03-29 08:00:44,888 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n3a2289da0aad
+2026-03-29 08:00:47,488 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n3a2289da0aad
+2026-03-29 08:00:47,488 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n3a2289da0aad
+2026-03-29 08:00:47,488 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nf7661b945931
+2026-03-29 08:00:50,301 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nf7661b945931
+2026-03-29 08:00:50,302 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nf7661b945931
+2026-03-29 08:00:50,302 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n637e022c6ec9
+2026-03-29 08:00:52,882 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n637e022c6ec9
+2026-03-29 08:00:52,882 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n637e022c6ec9
+2026-03-29 08:00:52,882 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nd844630b5ff9
+2026-03-29 08:00:55,472 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nd844630b5ff9
+2026-03-29 08:00:55,473 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nd844630b5ff9
+2026-03-29 08:00:55,473 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n7d62819ebf9d
+2026-03-29 08:00:58,256 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n7d62819ebf9d
+2026-03-29 08:00:58,256 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n7d62819ebf9d
+2026-03-29 08:00:58,256 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nf85c3d6190b5
+2026-03-29 08:01:01,022 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nf85c3d6190b5
+2026-03-29 08:01:01,022 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nf85c3d6190b5
+2026-03-29 08:01:01,022 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n5162cc133849
+2026-03-29 08:01:03,566 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n5162cc133849
+2026-03-29 08:01:03,566 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n5162cc133849
+2026-03-29 08:01:03,566 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nace16a0f8ab2
+2026-03-29 08:01:06,027 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nace16a0f8ab2
+2026-03-29 08:01:06,027 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nace16a0f8ab2
+2026-03-29 08:01:06,028 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nfd478e11c029
+2026-03-29 08:01:08,787 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nfd478e11c029
+2026-03-29 08:01:08,787 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nfd478e11c029
+2026-03-29 08:01:08,787 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nb63631ca6d8d
+2026-03-29 08:01:11,488 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nb63631ca6d8d
+2026-03-29 08:01:11,489 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nb63631ca6d8d
+2026-03-29 08:01:11,489 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nb2df6495bcbf
+2026-03-29 08:01:14,198 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nb2df6495bcbf
+2026-03-29 08:01:14,198 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nb2df6495bcbf
+2026-03-29 08:01:14,198 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n50a163c1f945
+2026-03-29 08:01:17,093 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n50a163c1f945
+2026-03-29 08:01:17,093 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n50a163c1f945
+2026-03-29 08:01:17,093 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n9ae317b2735d
+2026-03-29 08:01:19,933 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n9ae317b2735d
+2026-03-29 08:01:19,933 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n9ae317b2735d
+2026-03-29 08:01:19,933 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n584d9908411b
+2026-03-29 08:01:22,692 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n584d9908411b title=自己分析ができないと、面接で詰みます。『自分の説明ができない』人のための棚卸し術 body_length=2917 hashtag_count=24
+2026-03-29 08:01:22,777 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n584d9908411b title=自己分析ができないと、面接で詰みます。『自分の説明ができない』人のための棚卸し術
+2026-03-29 08:01:22,777 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n0618ac86d529
+2026-03-29 08:01:25,766 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n0618ac86d529 title=【2026年8月、あなたのSNS投稿が凍結リスクに？】EU「AI透明性義務」の波紋。日本のSNSも無傷じゃない。X、Instagram、Facebook、ThreadsにYouTube。知らないでは済まされない。巨大プラットフォームの過剰防衛 #生成AI #アカウント凍結 #AI活用 #SNS #SNS活用 #ChatGPT #Gemini #Claude body_length=4932 hashtag_count=98
+2026-03-29 08:01:25,824 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n0618ac86d529 title=【2026年8月、あなたのSNS投稿が凍結リスクに？】EU「AI透明性義務」の波紋。日本のSNSも無傷じゃない。X、Instagram、Facebook、ThreadsにYouTube。知らないでは済まされない。巨大プラットフォームの過剰防衛 #生成AI #アカウント凍結 #AI活用 #SNS #SNS活用 #ChatGPT #Gemini #Claude
+2026-03-29 08:01:25,824 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n74d908302d7a
+2026-03-29 08:01:28,929 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n74d908302d7a title=【インドの肥料危機と農業崩壊】戦争があなたのカレーの値段を変える？天然ガスは「燃やす」のではなく「食べる」ものである14億人の胃袋が人質になる日 #イラン情勢 #中東 #インド #農業 #LNG #地政学 #物価高 body_length=4351 hashtag_count=100
+2026-03-29 08:01:29,001 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n74d908302d7a title=【インドの肥料危機と農業崩壊】戦争があなたのカレーの値段を変える？天然ガスは「燃やす」のではなく「食べる」ものである14億人の胃袋が人質になる日 #イラン情勢 #中東 #インド #農業 #LNG #地政学 #物価高
+2026-03-29 08:01:29,001 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n8e5658fec2a2
+2026-03-29 08:01:32,368 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/hide_taxnote/n/n8e5658fec2a2
+2026-03-29 08:01:32,368 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/hide_taxnote/n/n8e5658fec2a2
+2026-03-29 08:01:32,455 INFO data_pipeline.collectors.note_com_rss: config_updated updated_count=11 timestamp=2026-03-28T23:01:32.455098+00:00
+2026-03-29 08:01:32,455 INFO data_pipeline.collectors.note_com_rss: rss_monitor_completed creators_checked=11 new_articles_found=28 articles_saved=3 articles_skipped_paid=25 articles_skipped_duplicate=0 error_count=0

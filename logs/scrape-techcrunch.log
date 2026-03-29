@@ -146,3 +146,429 @@
 [[32m[1minfo     [0m] [1mIngestion complete: 43 nodes, 60 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
 [[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m43[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328090027-dd44c3d9.json[0m [36mrelations[0m=[35m60[0m [36msource[0m=[35mtechcrunch[0m
 [[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/techcrunch/2026-03-28/news_090006.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['technology'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mtechnology[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4565[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6905[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/lets-take-a-look-at-the-retro-tech-making-a-comeback/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5440[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/lets-take-a-look-at-the-retro-tech-making-a-comeback/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/from-moon-hotels-to-cattle-herding-8-startups-investors-chased-at-yc-demo-day/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6473[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/from-moon-hotels-to-cattle-herding-8-startups-investors-chased-at-yc-demo-day/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/whoop-has-lebron-now-it-wants-your-mom/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8379[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/whoop-has-lebron-now-it-wants-your-mom/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1234[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m902[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/memory-chip-giant-sk-hynix-could-help-end-rammageddon-with-blockbuster-us-ipo/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5390[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/memory-chip-giant-sk-hynix-could-help-end-rammageddon-with-blockbuster-us-ipo/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4031[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/european-commission-confirms-cyberattack-after-hackers-claim-data-breach/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1221[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/european-commission-confirms-cyberattack-after-hackers-claim-data-breach/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/aetherflux-reportedly-raising-series-b-at-2-billion-valuation/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1479[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/aetherflux-reportedly-raising-series-b-at-2-billion-valuation/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/rivian-gets-another-1b-from-volkswagen/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1346[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/rivian-gets-another-1b-from-volkswagen/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/iranian-hackers-claim-breach-of-fbi-director-kash-patels-personal-email-account/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3380[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/iranian-hackers-claim-breach-of-fbi-director-kash-patels-personal-email-account/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/apple-says-no-one-using-lockdown-mode-has-been-hacked-with-spyware/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4321[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/apple-says-no-one-using-lockdown-mode-has-been-hacked-with-spyware/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m768[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/david-sacks-is-done-as-ai-czar-heres-what-hes-doing-instead/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5141[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/david-sacks-is-done-as-ai-czar-heres-what-hes-doing-instead/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/anthropic-wins-injunction-against-trump-administration-over-defense-department-saga/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2829[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/anthropic-wins-injunction-against-trump-administration-over-defense-department-saga/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/you-can-now-transfer-your-chats-and-personal-information-from-other-chatbots-directly-into-gemini/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2422[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/you-can-now-transfer-your-chats-and-personal-information-from-other-chatbots-directly-into-gemini/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/wikipedia-cracks-down-on-the-use-of-ai-in-article-writing/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1279[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/wikipedia-cracks-down-on-the-use-of-ai-in-article-writing/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/mastodon-is-making-its-decentralized-social-network-easier-to-use-with-its-latest-revamp/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4154[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/mastodon-is-making-its-decentralized-social-network-easier-to-use-with-its-latest-revamp/[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m20[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mtechcrunch[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m20.97[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['techcrunch'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=4, dup=16, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-28/news_150001.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-28/news_150001.json[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328150023-d34b4208.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.1390801732538751s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 2.2645575928738833s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 4.721309259007004s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 7.929378552010997s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 14.419285783649705s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mtechcrunch[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/techcrunch/2026-03-28/news_150001.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['technology'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mtechnology[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/stanford-study-outlines-dangers-of-asking-ai-chatbots-for-personal-advice/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4697[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/stanford-study-outlines-dangers-of-asking-ai-chatbots-for-personal-advice/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/elon-musks-last-co-founder-reportedly-leaves-xai/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1037[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/elon-musks-last-co-founder-reportedly-leaves-xai/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/best-ipad-apps-for-unleashing-and-exploring-your-creativity/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m9055[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/best-ipad-apps-for-unleashing-and-exploring-your-creativity/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4565[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6905[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/lets-take-a-look-at-the-retro-tech-making-a-comeback/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5440[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/lets-take-a-look-at-the-retro-tech-making-a-comeback/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/from-moon-hotels-to-cattle-herding-8-startups-investors-chased-at-yc-demo-day/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6473[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/from-moon-hotels-to-cattle-herding-8-startups-investors-chased-at-yc-demo-day/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/whoop-has-lebron-now-it-wants-your-mom/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8379[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/whoop-has-lebron-now-it-wants-your-mom/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1234[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m902[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/memory-chip-giant-sk-hynix-could-help-end-rammageddon-with-blockbuster-us-ipo/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5390[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/memory-chip-giant-sk-hynix-could-help-end-rammageddon-with-blockbuster-us-ipo/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4031[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/european-commission-confirms-cyberattack-after-hackers-claim-data-breach/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1221[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/european-commission-confirms-cyberattack-after-hackers-claim-data-breach/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/aetherflux-reportedly-raising-series-b-at-2-billion-valuation/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1479[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/aetherflux-reportedly-raising-series-b-at-2-billion-valuation/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/rivian-gets-another-1b-from-volkswagen/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1346[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/rivian-gets-another-1b-from-volkswagen/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/iranian-hackers-claim-breach-of-fbi-director-kash-patels-personal-email-account/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3380[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/iranian-hackers-claim-breach-of-fbi-director-kash-patels-personal-email-account/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/apple-says-no-one-using-lockdown-mode-has-been-hacked-with-spyware/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4321[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/apple-says-no-one-using-lockdown-mode-has-been-hacked-with-spyware/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m768[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/david-sacks-is-done-as-ai-czar-heres-what-hes-doing-instead/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5141[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/david-sacks-is-done-as-ai-czar-heres-what-hes-doing-instead/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/anthropic-wins-injunction-against-trump-administration-over-defense-department-saga/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2829[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/26/anthropic-wins-injunction-against-trump-administration-over-defense-department-saga/[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m20[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mtechcrunch[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m20.91[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['techcrunch'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=3, dup=17, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-28/news_210005.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-28/news_210005.json[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210027-b509d608.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Claim nodes      [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngestion complete: 43 nodes, 60 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m43[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210027-b509d608.json[0m [36mrelations[0m=[35m60[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/techcrunch/2026-03-28/news_210005.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['techcrunch'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['technology'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mtechnology[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/bluesky-leans-into-ai-with-attie-an-app-for-building-custom-feeds/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6590[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/bluesky-leans-into-ai-with-attie-an-app-for-building-custom-feeds/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/mark-zuckerberg-texted-elon-musk-to-offer-help-with-doge/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1154[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/mark-zuckerberg-texted-elon-musk-to-offer-help-with-doge/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/stanford-study-outlines-dangers-of-asking-ai-chatbots-for-personal-advice/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4692[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/stanford-study-outlines-dangers-of-asking-ai-chatbots-for-personal-advice/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/elon-musks-last-co-founder-reportedly-leaves-xai/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1037[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/elon-musks-last-co-founder-reportedly-leaves-xai/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/best-ipad-apps-for-unleashing-and-exploring-your-creativity/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m9055[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/best-ipad-apps-for-unleashing-and-exploring-your-creativity/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4565[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6905[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/lets-take-a-look-at-the-retro-tech-making-a-comeback/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5440[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/lets-take-a-look-at-the-retro-tech-making-a-comeback/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/from-moon-hotels-to-cattle-herding-8-startups-investors-chased-at-yc-demo-day/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6473[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/28/from-moon-hotels-to-cattle-herding-8-startups-investors-chased-at-yc-demo-day/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/whoop-has-lebron-now-it-wants-your-mom/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8379[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/whoop-has-lebron-now-it-wants-your-mom/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1234[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m902[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/memory-chip-giant-sk-hynix-could-help-end-rammageddon-with-blockbuster-us-ipo/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5390[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/memory-chip-giant-sk-hynix-could-help-end-rammageddon-with-blockbuster-us-ipo/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4031[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/european-commission-confirms-cyberattack-after-hackers-claim-data-breach/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1221[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/european-commission-confirms-cyberattack-after-hackers-claim-data-breach/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/aetherflux-reportedly-raising-series-b-at-2-billion-valuation/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1479[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/aetherflux-reportedly-raising-series-b-at-2-billion-valuation/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/rivian-gets-another-1b-from-volkswagen/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1346[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/rivian-gets-another-1b-from-volkswagen/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/iranian-hackers-claim-breach-of-fbi-director-kash-patels-personal-email-account/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3380[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/iranian-hackers-claim-breach-of-fbi-director-kash-patels-personal-email-account/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/apple-says-no-one-using-lockdown-mode-has-been-hacked-with-spyware/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4321[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/2026/03/27/apple-says-no-one-using-lockdown-mode-has-been-hacked-with-spyware/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m768[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m0[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m20[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mtechcrunch[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mtechcrunch[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m20.99[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['techcrunch'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=20, dup=0, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-29[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-29/news_030006.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/techcrunch/2026-03-29/news_030006.json[0m [36msource[0m=[35mtechcrunch[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 3 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260329030030-ea7449a3.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.084511506525706s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.9909153430488522s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 3.245145535147686s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 7.193016603133246s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 17.644910621824522s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mtechcrunch[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/techcrunch/2026-03-29/news_030006.json'][0m [36mtotal_articles[0m=[35m20[0m

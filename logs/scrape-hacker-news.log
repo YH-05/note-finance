@@ -207,3 +207,550 @@
 [[32m[1minfo     [0m] [1mIngestion complete: 60 nodes, 60 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
 [[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m60[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328090050-215dbd31.json[0m [36mrelations[0m=[35m60[0m [36msource[0m=[35mhacker_news[0m
 [[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/hacker_news/2026-03-28/news_090005.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['technology'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mtechnology[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/EnriqueLop/legalize-es[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2276[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/EnriqueLop/legalize-es[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.youtube.com/watch?v=lXxmIw9axWw "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m93[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://grid.iamkate.com/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5962[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://grid.iamkate.com/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://paulkrugman.substack.com/p/treason-in-the-futures-markets[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5875[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://paulkrugman.substack.com/p/treason-in-the-futures-markets[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/J-x-Z/cocoa-way[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2375[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/J-x-Z/cocoa-way[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8718[0m [36mtitle[0m=[35m'CERN Uses Tiny AI Models Burned into Silicon for Real-Time LHC Data Filtering'[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://arstechnica.com/gadgets/2026/03/amds-ryzen-9-9950x3d2-dual-edition-crams-208mb-of-cache-into-a-single-chip/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1332[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://arstechnica.com/gadgets/2026/03/amds-ryzen-9-9950x3d2-dual-edition-crams-208mb-of-cache-into-a-single-chip/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c86e3eglv2go[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6084[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c86e3eglv2go[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://jai.scs.stanford.edu/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3058[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://jai.scs.stanford.edu/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://twitchroulette.net/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m210[0m [36mtitle[0m=[35m'Twitch Roulette'[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://arstechnica.com/tech-policy/2026/03/doj-confirms-fbi-director-kash-patels-personal-email-was-hacked/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1643[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://arstechnica.com/tech-policy/2026/03/doj-confirms-fbi-director-kash-patels-personal-email-was-hacked/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://news.ycombinator.com/item?id=47548243'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m41890[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://news.ycombinator.com/item?id=47548243'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c77m4zx6zvmo[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2913[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c77m4zx6zvmo[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/davidmonterocrespo24/velxio[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m15253[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/davidmonterocrespo24/velxio[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://coloradonewsline.com/briefs/surveillance-pricing-wage-setting/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3127[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://coloradonewsline.com/briefs/surveillance-pricing-wage-setting/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://annas-archive.gd/isbn-visualization?[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://annas-archive.gd/isbn-visualization? "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m0[0m [36murl[0m=[35mhttps://annas-archive.gd/isbn-visualization?[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://lr0.org/blog/p/macos/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4625[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://lr0.org/blog/p/macos/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.cnn.com/2026/03/27/politics/iran-linked-hackers-fbi-director-patel[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mRedirecting https://www.cnn.com/2026/03/27/politics/iran-linked-hackers-fbi-director-patel -> https://edition.cnn.com/2026/03/27/politics/iran-linked-hackers-fbi-director-patel[0m [[0m[1m[34murllib3.poolmanager[0m][0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3376[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.cnn.com/2026/03/27/politics/iran-linked-hackers-fbi-director-patel[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://lara-aigmueller.at/thoughts/leaving-the-ai-party/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2409[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://lara-aigmueller.at/thoughts/leaving-the-ai-party/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.theguardian.com/news/2026/mar/26/ai-got-the-blame-for-the-iran-school-bombing-the-truth-is-far-more-worrying[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m28190[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.theguardian.com/news/2026/mar/26/ai-got-the-blame-for-the-iran-school-bombing-the-truth-is-far-more-worrying[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m2[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m18[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mhacker_news[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFetching content for articles missing it[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mcount[0m=[35m4[0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m4[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.youtube.com/watch?v=lXxmIw9axWw "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m93[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8718[0m [36mtitle[0m=[35m'CERN Uses Tiny AI Models Burned into Silicon for Real-Time LHC Data Filtering'[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://twitchroulette.net/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m210[0m [36mtitle[0m=[35m'Twitch Roulette'[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://annas-archive.gd/isbn-visualization?[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://annas-archive.gd/isbn-visualization? "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m0[0m [36murl[0m=[35mhttps://annas-archive.gd/isbn-visualization?[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m2[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m2[0m [36mtotal[0m=[35m4[0m
+[[32m[1minfo     [0m] [1mContent post-fetch complete   [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mfetched[0m=[35m16[0m [36mmodule[0m=[35munified[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m41.9[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['hacker_news'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=6, dup=14, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-28/news_150000.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-28/news_150000.json[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 18 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328150044-8b8cfcaf.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.1063789694854527s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 2.235682293420045s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 3.9371732408223235s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 8.02669926800368s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 17.585808021488976s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mhacker_news[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/hacker_news/2026-03-28/news_150000.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['technology'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mtechnology[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://sytse.com/cancer/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m977[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://sytse.com/cancer/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://astrid.tech/2026/03/28/0/linux-is-an-interpreter/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m17139[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://astrid.tech/2026/03/28/0/linux-is-an-interpreter/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://thereallo.dev/blog/decompiling-the-white-house-app[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mRedirecting https://thereallo.dev/blog/decompiling-the-white-house-app -> https://blog.thereallo.dev/blog/decompiling-the-white-house-app[0m [[0m[1m[34murllib3.poolmanager[0m][0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m12236[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://thereallo.dev/blog/decompiling-the-white-house-app[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.theregister.com/2026/03/27/sycophantic_ai_risks/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4391[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.theregister.com/2026/03/27/sycophantic_ai_risks/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5913[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/EnriqueLop/legalize-es[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mRedirecting https://github.com/EnriqueLop/legalize-es -> https://github.com/legalize-dev/legalize-es[0m [[0m[1m[34murllib3.poolmanager[0m][0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2278[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/EnriqueLop/legalize-es[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.youtube.com/watch?v=lXxmIw9axWw "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m93[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://grid.iamkate.com/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5955[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://grid.iamkate.com/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://paulkrugman.substack.com/p/treason-in-the-futures-markets[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5875[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://paulkrugman.substack.com/p/treason-in-the-futures-markets[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/J-x-Z/cocoa-way[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2375[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/J-x-Z/cocoa-way[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8660[0m [36mtitle[0m=[35m'CERN Uses Tiny AI Models Burned into Silicon for Real-Time LHC Data Filtering'[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://arstechnica.com/gadgets/2026/03/amds-ryzen-9-9950x3d2-dual-edition-crams-208mb-of-cache-into-a-single-chip/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1332[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://arstechnica.com/gadgets/2026/03/amds-ryzen-9-9950x3d2-dual-edition-crams-208mb-of-cache-into-a-single-chip/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c86e3eglv2go[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6100[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c86e3eglv2go[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://jai.scs.stanford.edu/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3058[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://jai.scs.stanford.edu/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://twitchroulette.net/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m210[0m [36mtitle[0m=[35m'Twitch Roulette'[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://arstechnica.com/tech-policy/2026/03/doj-confirms-fbi-director-kash-patels-personal-email-was-hacked/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1643[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://arstechnica.com/tech-policy/2026/03/doj-confirms-fbi-director-kash-patels-personal-email-was-hacked/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://news.ycombinator.com/item?id=47548243'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m42788[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35m'https://news.ycombinator.com/item?id=47548243'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c77m4zx6zvmo[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2913[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c77m4zx6zvmo[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/davidmonterocrespo24/velxio[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m15253[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/davidmonterocrespo24/velxio[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://coloradonewsline.com/briefs/surveillance-pricing-wage-setting/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3127[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://coloradonewsline.com/briefs/surveillance-pricing-wage-setting/[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m1[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m19[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mhacker_news[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFetching content for articles missing it[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mcount[0m=[35m3[0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m3[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.youtube.com/watch?v=lXxmIw9axWw "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m93[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8660[0m [36mtitle[0m=[35m'CERN Uses Tiny AI Models Burned into Silicon for Real-Time LHC Data Filtering'[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://twitchroulette.net/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m210[0m [36mtitle[0m=[35m'Twitch Roulette'[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m1[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m2[0m [36mtotal[0m=[35m3[0m
+[[32m[1minfo     [0m] [1mContent post-fetch complete   [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mfetched[0m=[35m17[0m [36mmodule[0m=[35munified[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m72.78[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['hacker_news'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=5, dup=15, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-28[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-28/news_210005.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-28/news_210005.json[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 18 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210119-2c55fe50.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Claim nodes      [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mIngestion complete: 58 nodes, 60 relations[0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[32m[1minfo     [0m] [1mNeo4j ingestion complete      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mnodes[0m=[35m58[0m [36mqueue_file[0m=[35m/Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260328210119-2c55fe50.json[0m [36mrelations[0m=[35m60[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/hacker_news/2026-03-28/news_210005.json'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinance news scraper starting [0m [[0m[1m[34m__main__[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles[0m=[35m50[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting news collection      [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting financial news collection (async)[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36minclude_content[0m=[35mTrue[0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['hacker_news'][0m
+[[32m[1minfo     [0m] [1mStarting RSS feed collection  [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mfeeds[0m=[35m['technology'][0m [36mmax_articles_per_source[0m=[35m50[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mRSS feed fetched              [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcategory[0m=[35mtechnology[0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mFetching full article content [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mnot a 200 response: 403 for URL https://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ[0m [[0m[1m[34mtrafilatura.downloads[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ "HTTP/1.1 403 Forbidden"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback fetch HTTP error     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mstatus_code[0m=[35m403[0m [36murl[0m=[35mhttps://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.theguardian.com/society/2026/mar/28/the-great-care-home-cash-grab-how-private-equity-turned-vulnerable-elderly-people-into-human-atms[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m28305[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.theguardian.com/society/2026/mar/28/the-great-care-home-cash-grab-how-private-equity-turned-vulnerable-elderly-people-into-human-atms[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m27384[0m [36mtitle[0m=[35m'CSS is DOOMed - Rendering DOOM in 3D with CSS | Hello my name is Niels Leenheer'[0m [36murl[0m=[35mhttps://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://lzon.ca/posts/other/thoughts-ai-era/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8588[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://lzon.ca/posts/other/thoughts-ai-era/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://twitter.com/BoWang87/status/2037648937453232504[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mRedirecting https://twitter.com/BoWang87/status/2037648937453232504 -> https://x.com/BoWang87/status/2037648937453232504[0m [[0m[1m[34murllib3.poolmanager[0m][0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m160[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://twitter.com/BoWang87/status/2037648937453232504[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://sytse.com/cancer/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1075[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://sytse.com/cancer/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://astrid.tech/2026/03/28/0/linux-is-an-interpreter/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m17298[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://astrid.tech/2026/03/28/0/linux-is-an-interpreter/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://thereallo.dev/blog/decompiling-the-white-house-app[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mRedirecting https://thereallo.dev/blog/decompiling-the-white-house-app -> https://blog.thereallo.dev/blog/decompiling-the-white-house-app[0m [[0m[1m[34murllib3.poolmanager[0m][0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m12236[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://thereallo.dev/blog/decompiling-the-white-house-app[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.theregister.com/2026/03/27/sycophantic_ai_risks/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m4391[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.theregister.com/2026/03/27/sycophantic_ai_risks/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5913[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/EnriqueLop/legalize-es[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mRedirecting https://github.com/EnriqueLop/legalize-es -> https://github.com/legalize-dev/legalize-es[0m [[0m[1m[34murllib3.poolmanager[0m][0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2242[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/EnriqueLop/legalize-es[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.youtube.com/watch?v=lXxmIw9axWw "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m93[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://grid.iamkate.com/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5955[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://grid.iamkate.com/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://paulkrugman.substack.com/p/treason-in-the-futures-markets[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m5875[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://paulkrugman.substack.com/p/treason-in-the-futures-markets[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://github.com/J-x-Z/cocoa-way[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m2375[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://github.com/J-x-Z/cocoa-way[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8660[0m [36mtitle[0m=[35m'CERN Uses Tiny AI Models Burned into Silicon for Real-Time LHC Data Filtering'[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://arstechnica.com/gadgets/2026/03/amds-ryzen-9-9950x3d2-dual-edition-crams-208mb-of-cache-into-a-single-chip/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m1332[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://arstechnica.com/gadgets/2026/03/amds-ryzen-9-9950x3d2-dual-edition-crams-208mb-of-cache-into-a-single-chip/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c86e3eglv2go[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m6100[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://www.bbc.com/news/articles/c86e3eglv2go[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://jai.scs.stanford.edu/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[32m[1minfo     [0m] [1mTrafilatura extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m3058[0m [36mtitle[0m=[35mNone[0m [36murl[0m=[35mhttps://jai.scs.stanford.edu/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://twitchroulette.net/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m210[0m [36mtitle[0m=[35m'Twitch Roulette'[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m2[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m18[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRSS collection complete       [0m [[0m[1m[34mnews_scraper._rss_fetcher[0m][0m [36mmodule[0m=[35mrss_fetcher[0m [36msource[0m=[35mhacker_news[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSource collection complete    [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m [36msource[0m=[35mhacker_news[0m [36msource_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFetching content for articles missing it[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mcount[0m=[35m5[0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mStarting batch extraction     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mrate_limit[0m=[35m1.0[0m [36murl_count[0m=[35m5[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mnot a 200 response: 403 for URL https://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ[0m [[0m[1m[34mtrafilatura.downloads[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ "HTTP/1.1 403 Forbidden"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback fetch HTTP error     [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mstatus_code[0m=[35m403[0m [36murl[0m=[35mhttps://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m27384[0m [36mtitle[0m=[35m'CSS is DOOMed - Rendering DOOM in 3D with CSS | Hello my name is Niels Leenheer'[0m [36murl[0m=[35mhttps://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://www.youtube.com/watch?v=lXxmIw9axWw "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[33m[1mwarning  [0m] [1mFallback extraction: insufficient content[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m93[0m [36murl[0m=[35m'https://www.youtube.com/watch?v=lXxmIw9axWw'[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m8660[0m [36mtitle[0m=[35m'CERN Uses Tiny AI Models Burned into Silicon for Real-Time LHC Data Filtering'[0m [36murl[0m=[35mhttps://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering[0m
+[[32m[1minfo     [0m] [1mStarting article extraction   [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m [36muser_agent[0m=[35m'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ap...'[0m
+[[31m[1merror    [0m] [1mparsed tree length: 1, wrong data type or not valid HTML[0m [[0m[1m[34mtrafilatura.utils[0m][0m
+[[31m[1merror    [0m] [1mempty HTML tree: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[33m[1mwarning  [0m] [1mdiscarding data: None         [0m [[0m[1m[34mtrafilatura.core[0m][0m
+[[32m[1minfo     [0m] [1mHTTP Request: GET https://twitchroulette.net/ "HTTP/1.1 200 OK"[0m [[0m[1m[34mhttpx[0m][0m
+[[32m[1minfo     [0m] [1mFallback extraction successful[0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mmodule[0m=[35marticle_extractor[0m [36mtext_length[0m=[35m210[0m [36mtitle[0m=[35m'Twitch Roulette'[0m [36murl[0m=[35mhttps://twitchroulette.net/[0m
+[[32m[1minfo     [0m] [1mBatch extraction completed    [0m [[0m[1m[34mrss.services.article_extractor[0m][0m [36mfailed[0m=[35m2[0m [36mmodule[0m=[35marticle_extractor[0m [36msuccess[0m=[35m3[0m [36mtotal[0m=[35m5[0m
+[[32m[1minfo     [0m] [1mContent post-fetch complete   [0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mfetched[0m=[35m15[0m [36mmodule[0m=[35munified[0m [36mtotal[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mFinancial news collection complete[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36melapsed_seconds[0m=[35m55.35[0m [36mmodule[0m=[35munified[0m [36msources[0m=[35m['hacker_news'][0m [36mtotal_articles[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mRawStore: saved=19, dup=1, empty=0[0m [[0m[1m[34mnews_scraper.unified[0m][0m [36mmodule[0m=[35munified[0m
+[[32m[1minfo     [0m] [1mCollection complete           [0m [[0m[1m[34m__main__[0m][0m [36marticle_count[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m
+[[32m[1minfo     [0m] [1mNAS is mounted, using NAS output[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mOutput directory ready        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-29[0m
+[[32m[1minfo     [0m] [1mArticles saved to JSON        [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36mpath[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-29/news_030006.json[0m [36mtotal_count[0m=[35m20[0m
+[[32m[1minfo     [0m] [1mSave complete                 [0m [[0m[1m[34m__main__[0m][0m [36mcount[0m=[35m20[0m [36mmodule[0m=[35mscrape_finance_news[0m [36moutput_file[0m=[35m/Volumes/personal_folder/scraped/hacker_news/2026-03-29/news_030006.json[0m [36msource[0m=[35mhacker_news[0m
+[[32m[1minfo     [0m] [1mClassification layer applied: 22 nodes, 60 rels[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mQueue file written: /Volumes/personal_folder/graph-queue/finance-news-workflow/gq-20260329030104-e24798a8.json[0m [[0m[1m[34memit_research_queue[0m][0m
+[[32m[1minfo     [0m] [1mIngesting 20 Source nodes     [0m [[0m[1m[34mdata_pipeline.neo4j_loader[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.164734430806006s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 1.941025601401476s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 4.477712827854546s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 8.383402283591199s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 13.19509834318516s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mTransaction failed and will be retried in 29.1769792824297s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))[0m [[0m[1m[34mneo4j.session[0m][0m
+[[33m[1mwarning  [0m] [1mNeo4j ingestion failed (non-blocking)[0m [[0m[1m[34m__main__[0m][0m [36merror[0m=[35m"Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):\nFailed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)"[0m [36mmodule[0m=[35mscrape_finance_news[0m [36msource[0m=[35mhacker_news[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/scrape_finance_news.py", line 434, in _ingest_source_to_neo4j
+    result = ingest_to_neo4j(queue_doc)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+[[32m[1minfo     [0m] [1mScraper finished successfully [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mscrape_finance_news[0m [36msaved_files[0m=[35m['/Volumes/personal_folder/scraped/hacker_news/2026-03-29/news_030006.json'][0m [36mtotal_articles[0m=[35m20[0m
