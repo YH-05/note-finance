@@ -221,3 +221,11 @@
 [sync-nas]   ✓ .env
 [sync-nas]   ✓ .mcp.json
 [sync-nas]   ✓ .claude/settings.json
+[sync-nas] === PUSH: ローカル → NAS === 2026-03-29T19:24:59+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas] === PUSH: ローカル → NAS === 2026-03-29T19:25:00+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
