@@ -549,12 +549,11 @@ class TestProcessAccountMitsuki:
         mock_account_poster_class: Any,
         tmp_path: Path,
     ) -> None:
-        """--force-slot S1 で mitsuki の朝スロットが投稿されることを確認。"""
+        """--force-slot S1 で mitsuki の S1 スロットが投稿されることを確認。"""
         from creator.poster import PostResult
         from scripts.auto_poster import (
-            SLOT_TIME_MAP,
+            SLOT_TIME_MAP_MITSUKI,
             AutoPosterConfig,
-            DraftReader,
             SlotMatcher,
             _process_account,
         )
@@ -577,13 +576,14 @@ class TestProcessAccountMitsuki:
         drafts_root = tmp_path / "creator" / "mitsuki" / "drafts"
         week_dir = drafts_root / "week_2026-03-24"
         day_dir = week_dir / "day_4_木"
-        slot_dir = day_dir / "slot_1_morning"
+        slot_dir = day_dir / "slot_1_S1"
         slot_dir.mkdir(parents=True)
 
         (slot_dir / "threads_post.md").write_text(
             "---\ntopic_tag: '#資産形成'\n---\nテスト投稿内容。"
         )
 
+        # mitsuki の meta.json: slot は "S1"-"S5" 形式、file フィールドで投稿ファイルを指定
         meta = {
             "week_start": "2026-03-24",
             "week_end": "2026-03-30",
@@ -595,10 +595,11 @@ class TestProcessAccountMitsuki:
                     "status": "draft",
                     "slots": [
                         {
-                            "slot": "朝",
+                            "slot": "S1",
                             "category": "有益",
                             "type": "型1",
                             "theme": "T1",
+                            "file": "day_4_木/slot_1_S1/threads_post.md",
                         },
                     ],
                 }
@@ -618,10 +619,11 @@ class TestProcessAccountMitsuki:
             force_slot="S1",
         )
         now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
-        matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=15)
+        # mitsuki は SLOT_TIME_MAP_MITSUKI（S1-S5）を使用する
+        matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP_MITSUKI, tolerance=15)
 
-        with patch("scripts.auto_poster.get_path") as mock_get_path:
-            mock_get_path.return_value = tmp_path
+        with patch("scripts.auto_poster.get_project_root") as mock_get_project_root:
+            mock_get_project_root.return_value = tmp_path
 
             _process_account("mitsuki", config, now, matcher)
 
@@ -1202,8 +1204,8 @@ class TestProcessAccountCareerSister:
         now = datetime(2026, 3, 27, 7, 30, 0, tzinfo=JST)
         matcher = SlotMatcher(slot_time_map=SLOT_TIME_MAP, tolerance=15)
 
-        with patch("scripts.auto_poster.get_path") as mock_get_path:
-            mock_get_path.return_value = tmp_path
+        with patch("scripts.auto_poster.get_project_root") as mock_get_project_root:
+            mock_get_project_root.return_value = tmp_path
 
             _process_account("career_sister", config, now, matcher)
 
