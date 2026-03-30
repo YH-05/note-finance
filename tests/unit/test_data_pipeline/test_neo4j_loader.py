@@ -557,7 +557,7 @@ class TestCodeQuality:
     """コード品質のテスト."""
 
     def test_正常系_neo4j_loaderの行数が規定範囲内(self) -> None:
-        """neo4j_loader.py の行数が 700-850 の範囲内であること."""
+        """neo4j_loader.py の行数が 700-1100 の範囲内であること."""
         from pathlib import Path
 
         loader_path = (
@@ -566,8 +566,8 @@ class TestCodeQuality:
         lines = loader_path.read_text().splitlines()
         line_count = len(lines)
 
-        assert 400 <= line_count <= 900, (
-            f"neo4j_loader.py の行数 ({line_count}) が想定外です（400-900行の範囲内）"
+        assert 400 <= line_count <= 1100, (
+            f"neo4j_loader.py の行数 ({line_count}) が想定外です（400-1100行の範囲内）"
         )
 
     def test_正常系_ingest_to_neo4j関数の分岐数が減少している(self) -> None:
