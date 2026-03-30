@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 import pytest
-from emit_graph_queue import (
+from emit_research_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
@@ -47,6 +47,7 @@ from emit_graph_queue import (
     generate_source_id,
     generate_topic_id,
     main,
+    map_academic_fetch,
     map_ai_research,
     map_asset_management,
     map_finance_full,
@@ -4842,3 +4843,128 @@ class TestMapWebResearch:
         entity_names = {e["name"] for e in result["entities"]}
         # claims の about_entities (日本銀行) は facts にも含まれるため必ず存在
         assert "日本銀行" in entity_names
+
+
+# ---------------------------------------------------------------------------
+# map_academic_fetch
+# ---------------------------------------------------------------------------
+
+
+def _academic_fetch_batch() -> dict[str, Any]:
+    """academic-fetch 形式のバッチデータを生成。"""
+    return {
+        "papers": [
+            {
+                "arxiv_id": "2401.00001",
+                "title": "Attention Is All You Need",
+                "authors": ["Ashish Vaswani", "Noam Shazeer"],
+                "abstract": "We propose a new architecture based solely on attention mechanisms.",
+                "url": "https://arxiv.org/abs/2401.00001",
+                "published": "2024-01-01T00:00:00+00:00",
+            }
+        ],
+        "existing_source_ids": [],
+        "session_id": "academic-20260307",
+    }
+
+
+class TestMapAcademicFetch:
+    """map_academic_fetch 関数のテスト。"""
+
+    def test_正常系_sourcesが生成される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {
+            "sources": [
+                {
+                    "source_id": "src-academic-001",
+                    "url": "https://arxiv.org/abs/2401.00001",
+                    "title": "Attention Is All You Need",
+                    "source_type": "pdf",
+                    "language": "en",
+                }
+            ],
+            "authors": [],
+            "relations": {},
+        }
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert len(result["sources"]) == 1
+        assert "arxiv.org" in result["sources"][0]["url"]
+
+    def test_正常系_authorsが生成される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {
+            "sources": [],
+            "authors": [
+                {
+                    "author_id": "author-001",
+                    "name": "Ashish Vaswani",
+                }
+            ],
+            "relations": {"authored_by": []},
+        }
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert len(result["authors"]) == 1
+        assert result["authors"][0]["name"] == "Ashish Vaswani"
+
+    def test_正常系_session_idが設定される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {"sources": [], "authors": [], "relations": {}}
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert result["session_id"] == "academic-20260307"
+
+    def test_正常系_batch_labelがacademic_fetchに設定される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {"sources": [], "authors": [], "relations": {}}
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert result["batch_label"] == "academic-fetch"
+
+    def test_正常系_relationsが引き継がれる(self) -> None:
+        from unittest.mock import patch
+
+        authored_by_rel = {
+            "from_id": "src-001",
+            "to_id": "author-001",
+            "type": "AUTHORED_BY",
+        }
+        mock_mapped = {
+            "sources": [],
+            "authors": [],
+            "relations": {"authored_by": [authored_by_rel]},
+        }
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert "authored_by" in result["relations"]
+        assert len(result["relations"]["authored_by"]) == 1
+
+    def test_エッジケース_papersが空の場合は空結果(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {"sources": [], "authors": [], "relations": {}}
+        batch = {
+            "papers": [],
+            "existing_source_ids": [],
+            "session_id": "academic-empty",
+        }
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert result["sources"] == []
+        assert result["authors"] == []
