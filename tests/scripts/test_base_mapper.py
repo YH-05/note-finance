@@ -9,7 +9,6 @@ build_chunk_nodes / postprocess / get_extra_labels を検証する。
 
 from __future__ import annotations
 
-from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any
 from unittest.mock import patch
 
@@ -18,6 +17,7 @@ import yaml
 from mappers.base import BaseMapper, ChunkProcessingContext
 
 if TYPE_CHECKING:
+    from collections.abc import Iterator
     from pathlib import Path
 
 
