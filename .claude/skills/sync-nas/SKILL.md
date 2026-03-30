@@ -1,7 +1,7 @@
 ---
 name: sync-nas
 description: NAS（/Volumes/personal_folder）とローカルの間でファイルを同期するスキル。
-  .env, .mcp.json, .claude/settings.json, data/config/, creator/ を対象。
+  .env, .mcp.json, .claude/settings.json, data/config/ を対象。
   /sync-nas コマンドで呼び出す。
 allowed-tools: Bash
 ---
@@ -18,7 +18,6 @@ NASとローカルの間でファイルを同期します。
 | `.mcp.json` | MCP設定 |
 | `.claude/settings.json` | Claude Code プロジェクト設定 |
 | `data/config/` | 全設定ファイル |
-| `creator/` | 全クリエイターアカウントの下書き・状態ファイル |
 
 ## 実行手順
 
