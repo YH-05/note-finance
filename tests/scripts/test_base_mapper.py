@@ -9,6 +9,7 @@ build_chunk_nodes / postprocess / get_extra_labels を検証する。
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any
 from unittest.mock import patch
 
@@ -38,7 +39,7 @@ class _ConcreteMapper(BaseMapper):
 
 
 @pytest.fixture(autouse=True)
-def _reset_yaml_cache() -> None:
+def _reset_yaml_cache() -> Iterator[None]:
     """各テスト前後に YAML キャッシュをクリアする。"""
     BaseMapper._yaml_cache = None
     yield
