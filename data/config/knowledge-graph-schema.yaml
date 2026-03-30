@@ -7,13 +7,6 @@
 #   - Schema changes should be made here first, then applied to Neo4j
 #
 # Changelog:
-#   v3.0 (2026-03-30): YAML SSoT 整備 — multilabel_types / consolidation_rules / enum_validations / source_type_normalization
-#     - Added: multilabel_types section — 14 canonical Entity multi-label definitions
-#     - Added: consolidation_rules section — ENTITY_TYPE_CONSOLIDATION (42→14 mapping) as YAML SSoT
-#     - Added: enum_validations section — entity_type (14 kinds) & source_type (5 kinds) frozenset definitions
-#     - Added: source_type_normalization section — SOURCE_TYPE_NORMALIZATION (27→5 mapping) as YAML SSoT
-#     - Added: v3.0 classification nodes (EntityType / Domain / SourceType) to namespaces
-#     - Resolves: dual hardcoding in scripts/emit_research_queue.py (lines 126 & 330)
 #   v2.4 (2026-03-19): Schema alignment with DB reality — expanded entity_type enum & relationship types
 #     - Expanded: Entity.entity_type += technology, central_bank, broker, etf, bond, currency_pair,
 #       exchange, government, region, subsidiary, product, macro, fintech, theme
@@ -44,6 +37,9 @@
 #       - Fact = strictly verified past objective info only
 #       - Recommendation/ValuationAssumption → unified under Claim
 #       - Insight node for AI-generated knowledge circulation
+#   v3.0 (2026-03-30): Migration helpers — consolidation_rules / source_type_normalization
+#     - Added: consolidation_rules.entity_type.mapping — 30種→14種 canonical type mapping (SSoT for migrate_entity_multilabel.py)
+#     - Added: source_type_normalization.mapping — 27種→5種 canonical source_type mapping (SSoT for migrate_source_type.py)
 #   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
 version: "3.0"
@@ -969,213 +965,98 @@ namespaces:
       - Archived
     naming: PascalCase
 
-  classification_v3:
-    description: "v3.0 classification layer nodes (EntityType / Domain / SourceType)"
-    labels:
-      - EntityType
-      - Domain
-      - SourceType
-    naming: PascalCase
+# ============================================================
+# v3.0 Migration Helpers
+# ============================================================
 
-# ============================================================
-# v3.0 Multi-Label Type Definitions (Entity マルチラベル)
-# ============================================================
-# Entity ノードに付与できるマルチラベル（14種）の正式定義。
-# SSoT: このセクションが唯一の正。emit_research_queue.py / save-to-research-graph は
-# このリストを参照して EntityType ノードを生成する。
-multilabel_types:
-  entity_labels:
-    description: "Entity ノードに付与できる 14 種のマルチラベル定義"
-    labels:
-      Company:
-        name_ja: "企業"
-        description: "上場企業・未上場企業"
-      Technology:
-        name_ja: "テクノロジー"
-        description: "技術・プラットフォーム"
-      Organization:
-        name_ja: "機関"
-        description: "非市場組織（中央銀行・政府機関・取引所等）"
-      Person:
-        name_ja: "人物"
-        description: "個人（アナリスト・経営者等）"
-      MarketIndex:
-        name_ja: "株価指数"
-        description: "株式・債券・コモディティ指数"
-      Indicator:
-        name_ja: "経済指標"
-        description: "GDP・CPI・PMI等のマクロ指標"
-      Instrument:
-        name_ja: "金融商品"
-        description: "ETF・債券・デリバティブ・通貨ペア等"
-      Commodity:
-        name_ja: "コモディティ"
-        description: "原油・金・農産物等"
-      Country:
-        name_ja: "国・地域"
-        description: "主権国家・地理的地域"
-      Sector:
-        name_ja: "セクター"
-        description: "産業セクター・市場"
-      Concept:
-        name_ja: "概念"
-        description: "投資テーマ・コンテンツテーマ・経済概念"
-      Regulation:
-        name_ja: "規制・政策"
-        description: "規制・法令・政策"
-      Broker:
-        name_ja: "ブローカー"
-        description: "証券会社・ブローカー"
-      Product:
-        name_ja: "プロダクト"
-        description: "製品・サービス・データセット"
-
-# ============================================================
-# v3.0 Consolidation Rules (ENTITY_TYPE_CONSOLIDATION SSoT)
-# ============================================================
-# 42種の生 entity_type を 14 種の正規型にマッピングするテーブル。
-# SSoT: このセクションが唯一の正。
-# 参照元: scripts/emit_research_queue.py の ENTITY_TYPE_CONSOLIDATION (line 245)
+# Entity type consolidation: raw entity_type (30種) → canonical (14種)
+# Used by: scripts/migrate_entity_multilabel.py
 consolidation_rules:
   entity_type:
-    description: "42種の生 entity_type → 14種の正規型へのマッピング"
-    canonical_count: 14
-    raw_count: 42
     mapping:
-      # company -> company
+      # company cluster
       company: company
       fintech: company
       subsidiary: company
-      fintech_holding: company
       digital_bank: company
       it_services: company
-      # technology -> technology
+      # technology cluster
       technology: technology
       system: technology
-      # organization -> organization
+      # organization cluster
       organization: organization
       central_bank: organization
+      exchange: organization
       government: organization
       government_agency: organization
-      institution: organization
-      exchange: organization
-      # person -> person
+      sovereign_wealth_fund: organization
+      # person
       person: person
-      # index -> index
+      # index
       index: index
-      # indicator -> indicator
+      # indicator
       indicator: indicator
-      metric: indicator
-      # instrument -> instrument
+      # instrument cluster
       instrument: instrument
       etf: instrument
+      bond: instrument
       currency: instrument
       currency_pair: instrument
-      fund: instrument
-      bond: instrument
-      asset: instrument
-      # commodity -> commodity
+      # commodity
       commodity: commodity
-      # country -> country
+      # country cluster
       country: country
       region: country
-      # sector -> sector
+      # sector
       sector: sector
-      market: sector
-      # concept -> concept
+      # concept cluster
       concept: concept
-      model: concept
-      method: concept
+      macro: concept
       theme: concept
-      article_proposal: concept
-      event: concept
-      # regulation -> regulation
-      regulation: regulation
-      # broker -> broker
+      demographic: concept
+      # broker
       broker: broker
-      # product -> product
+      # product
       product: product
-      dataset: product
-      data_center: product
-      # domain -> concept (legacy wealth-scrape type)
-      domain: concept
+      # regulation (新規 — 既存データなし、将来用)
+      regulation: regulation
 
-# ============================================================
-# v3.0 Enum Validations (frozenset 定義)
-# ============================================================
-# entity_type / source_type の有効値セット定義。
-# SSoT: このセクションが唯一の正。バリデーションコードはこのリストを参照する。
-enum_validations:
-  entity_type:
-    description: "14種の正規 entity_type 値（consolidation_rules の正規型と一致）"
-    count: 14
-    values:
-      - company
-      - technology
-      - organization
-      - person
-      - index
-      - indicator
-      - instrument
-      - commodity
-      - country
-      - sector
-      - concept
-      - regulation
-      - broker
-      - product
-
-  source_type:
-    description: "5種の正規 source_type 値（Source ノードの source_type プロパティ有効値）"
-    count: 5
-    values:
-      - web
-      - news
-      - pdf
-      - original
-      - blog
-
-# ============================================================
-# v3.0 Source Type Normalization (SOURCE_TYPE_NORMALIZATION SSoT)
-# ============================================================
-# 生の source_type 文字列を正規 source_type に変換するマッピング。
-# SSoT: このセクションが唯一の正。
-# 参照元:
-#   - scripts/emit_research_queue.py の _SOURCE_TYPE_NORMALIZATION (line 126)
-#   - scripts/emit_research_queue.py の SOURCE_TYPE_NORMALIZATION (line 330)
-# 正規値: [web, news, pdf, original, blog] （enum_validations.source_type と一致）
+# Source type normalization: raw source_type (27種以上) → canonical (5種)
+# Used by: scripts/migrate_source_type.py
 source_type_normalization:
-  description: "27種の生 source_type → 5種の正規型へのマッピング"
-  canonical_count: 5
-  canonical_values: [web, news, pdf, original, blog]
-  raw_count: 27
   mapping:
-    # _SOURCE_TYPE_NORMALIZATION (emit_research_queue.py line 126) 由来
-    tower_company_analysis: web
-    company_analysis: web
-    digital_services_analysis: web
-    regulatory_analysis: web
-    political_analysis: web
-    macro_data: web
-    spectrum_data: web
+    # web cluster
+    web: web
     web-research: web
-    annual_report: pdf
-    regulatory_filing: pdf
-    research: pdf
-    official: pdf
-    original: original
-    # SOURCE_TYPE_NORMALIZATION (emit_research_queue.py line 330) 由来
-    academic_paper: pdf
-    academic-paper: pdf
-    research_paper: pdf
-    # 追加: 実運用で観測された生 source_type
-    web_page: web
-    website: web
+    web_research: web
+    analysis: web
+    data: web
+    social: web
+    media: web
+    # news cluster
+    news: news
+    rss: news
     news_article: news
-    breaking_news: news
+    article: news
+    transcript: news
     press_release: news
-    earnings_release: news
-    blog_post: blog
-    opinion_piece: blog
-    social_media: web
-    annual-report: pdf
+    # pdf cluster
+    pdf: pdf
+    report: pdf
+    company_filing: pdf
+    sec_filing: pdf
+    annual_report: pdf
+    financial_statement: pdf
+    academic_paper: pdf
+    paper: pdf
+    academic: pdf
+    regulatory_filing: pdf
+    regulatory_document: pdf
+    presentation: pdf
+    white_paper: pdf
+    research_report: pdf
+    legal_guide: pdf
+    # blog cluster
+    blog: blog
+    # original cluster (no external source)
+    original: original

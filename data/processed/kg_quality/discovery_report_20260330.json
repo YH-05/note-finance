@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-03-30T12:05:43.094653+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 10,
+    "indirect_paths": 5,
+    "stance_entities": 0,
+    "insights_existing": 10,
+    "multi_topic_entities": 10
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "圏論フレームワーク → 通信AI戦略の因果創発的評価",
+      "description": "Category Theory / Sheaf Theory（純数学）と Causal Emergence（情報理論）が、ISATのGPUaaS戦略に関するFactと14件の共有Factで橋渡しされている。因果創発の枠組み（マクロ記述がミクロ記述より因果的説明力が高い）は、通信キャリアのARPU/CapExモデルよりもAIインフラ化後のビジネス価値評価に直接適用可能。ISATのNVIDIA NCPパートナーシップが生み出す『接続性→AI計算提供者』への構造変化は、まさに causal emergence index（macro EI > micro EI）が正の値を示す局面と一致する可能性がある。",
+      "entities_involved": [
+        "ISAT",
+        "Causal Emergence",
+        "Sheaf Theory",
+        "Category Theory",
+        "NVIDIA"
+      ],
+      "supporting_evidence": [
+        "14 cross-domain Facts linking math frameworks to causal emergence indicators",
+        "analytical_finding: ISAT AI TechCo路線（GPUaaS先行者利益、AI-RAN）への全面投資",
+        "analytical_finding: AIインフラ投資ブーム（$2.4B→$10.9B, CAGR 29%）が通信セクター構造変化をもたらす"
+      ],
+      "evidence_count": 14
+    },
+    {
+      "type": "contradiction_tension",
+      "title": "ISAT ARPU持続性の要因分解が未解決",
+      "description": "KGには相矛盾する2つのInsightが同居している: (1) ARPU上昇トレンドが継続（IDR 38,400→44,000）という analytical_findingと、(2) 上昇の主因が『料金適正化』か『ミックス改善』かが未分解という information_gap。投資判断においてARPU持続性の根拠が明確でない場合、バリュエーション前提が大きく変わる。この矛盾は収益予測のリスク要因として明示的にClaimノードとして記録すべき。",
+      "entities_involved": [
+        "ISAT",
+        "ARPU",
+        "Telkomsel"
+      ],
+      "supporting_evidence": [
+        "analytical_finding: ARPU持続性の要因分解が大幅解消（スターターパックIDR 35,000統一+28日サイクル）",
+        "analytical_finding: ARPU持続性の要因分解が不足（プリペイド/ポストペイド別ARPU推移、競合Telkomsel比較時系列が未整理）"
+      ],
+      "evidence_count": 2
+    },
+    {
+      "type": "knowledge_gap_discovery",
+      "title": "ASEANクロスカントリー通信KPI比較フレームワークの欠落",
+      "description": "Amazon/Microsoft/S&P500は12の Topic カテゴリにまたがる400件以上のFactと関連しているが、ASEANの通信キャリア（ISAT以外）は国別比較データが存在しない。information_gap Insightが明示的に指摘: インドネシアのARPU/GDP比0.68%が『ASEAN最低水準』という文脈を裏付けるクロスカントリーデータ（各国の普及率・ARPU・市場規模）が完全に欠落している。グローバル企業と東南アジアローカル通信キャリアの間の知識密度の非対称性は顕著であり、ASEAN投資テーマの強化には各国KPIのFactノード投入が必要。",
+      "entities_involved": [
+        "Amazon",
+        "Microsoft",
+        "S&P 500",
+        "ISAT",
+        "XLSmart"
+      ],
+      "supporting_evidence": [
+        "Probe E: Amazon/MicrosoftがTopicカテゴリ12種にまたがる400件超のトピック接続",
+        "information_gap: ASEAN地域横断の通信セクター比較フレームワークが完全欠落",
+        "data_quality: XLSmart（EXCL IJ）はFinancialDataPoint 5件のみで競合比較不可"
+      ],
+      "evidence_count": 5
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.75,
+    "hypothesis_novelty": 0.65,
+    "evidence_density": 0.6,
+    "actionability": 0.7,
+    "overall": 0.677
+  },
+  "improvement_suggestions": [
+    "ASEAN各国通信KPI（普及率・ARPU・市場規模）をFactノードとして投入し、クロスカントリー比較を強化",
+    "ISAT ARPU持続性の根拠（プリペイド/ポストペイド別推移）をFinancialDataPointとして格納",
+    "Source Groundingの低いFactへのURLバックフィル優先度を上げる（Nvidia FY2026、Gold中央銀行買いデータ等）",
+    "CONTRADICTS/SUPPORTS リレーションをARPU分析Claim間に追加し矛盾検出力を向上"
+  ]
+}

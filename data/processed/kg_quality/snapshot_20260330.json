@@ -1,0 +1,343 @@
+{
+  "timestamp": "2026-03-30T12:05:55.528151+00:00",
+  "overall_score": 73.3,
+  "rating": "B",
+  "categories": [
+    {
+      "name": "structural",
+      "score": 80.0,
+      "metrics": [
+        {
+          "value": 0.002473,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 68.95,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.9832,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.0168,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "completeness",
+      "score": 100.0,
+      "metrics": [
+        {
+          "value": 0.9982,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "consistency",
+      "score": 83.3,
+      "metrics": [
+        {
+          "value": 1.0,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.9235,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "accuracy",
+      "score": 50.0,
+      "metrics": [
+        {
+          "value": 0.5,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        },
+        {
+          "value": 0.5,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        },
+        {
+          "value": 0.5,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "timeliness",
+      "score": 66.7,
+      "metrics": [
+        {
+          "value": 125.2,
+          "unit": "days",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 114.0,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 3661,
+          "unit": "days",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "finance_specific",
+      "score": 66.7,
+      "metrics": [
+        {
+          "value": 8.1818,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 1.54,
+          "unit": "count",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 2.6021,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "discoverability",
+      "score": 66.7,
+      "metrics": [
+        {
+          "value": 4.26,
+          "unit": "hops",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.0363,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 0.965,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    }
+  ],
+  "check_rules": [
+    {
+      "rule_name": "subject_reference",
+      "pass_rate": 0.984,
+      "violations": [
+        "This is a comparison of Wednesday's Federal Open Market Committee statement with",
+        "These are some of the stocks posting the largest moves midday.",
+        "This week's meeting offers little suspense and probably not much action, even as",
+        "These are the stocks posting the largest moves in extended trading.",
+        "These are the stocks posting the largest moves before the bell.",
+        "These are some of the stocks posting the largest moves in extended trading.",
+        "These are the stocks posting the largest moves in midday trading.",
+        "These are the stocks posting the largest moves in early trading."
+      ]
+    },
+    {
+      "rule_name": "entity_length",
+      "pass_rate": 0.9338,
+      "violations": [
+        "TOPIX連動型上場投資信託",
+        "日経高配当株50 ETF",
+        "Fidelity MSCI Real Estate Index ETF",
+        "First Trust Global Tactical Commodity Strategy Fund",
+        "Ministry of Internal Affairs and Communications",
+        "Ministry of Health Labour and Welfare",
+        "eMAXIS Slim 米国株式(S&P500)",
+        "三菱UFJアセットマネジメント",
+        "eMAXIS Slim 全世界株式(オール・カントリー)",
+        "JPXプライム150指数",
+        "Shiller CAPE比率",
+        "London School of Geometry and Number Theory",
+        "Engineering and Physical Sciences Research Council",
+        "全国銀行学術研究振興財団",
+        "ベージュブック (Beige Book)",
+        "ビットコイン (Bitcoin)",
+        "採掘難易度 (Mining Difficulty)",
+        "連邦準備制度理事会 (FRB)",
+        "連邦公開市場委員会 (FOMC)",
+        "プルーフ・オブ・ワーク (PoW)",
+        "ベージュブック・コーパス",
+        "タカハトスコア (ScoreDH)",
+        "Loughran-McDonald金融極性辞書",
+        "LLMセンチメントスコア (ScoreLLM)",
+        "平均絶対偏差 (MAD)",
+        "利益予測 (Earnings Prediction)",
+        "アウトオブサンプル評価 (Out-of-Sample Evaluation)",
+        "二値分類 (Binary Classification)",
+        "reasoning出力 (推論テキスト)",
+        "東京大学大学院 工学系研究科",
+        "GMOあおぞらネット銀行",
+        "意味的整合度 (Managerial Semantic Alignment)",
+        "トランザクションレンディング",
+        "信用スコアリングモデル",
+        "単語埋め込み (Word Embedding)",
+        "株式持ち合いネットワーク",
+        "コーポレートガバナンス・コード",
+        "線形価格インパクトモデル",
+        "Kyleのラムダ (Kyle's lambda)",
+        "取引コスト (Transaction Cost)",
+        "線形propagatorモデル",
+        "Propagator関数 G(t)",
+        "長期記憶性 (Long Memory)",
+        "平方根則 (Square-Root Law)",
+        "モデルの誤特定 (Model Misspecification)",
+        "理化学研究所 AIPセンター",
+        "物流成長指標 (FGI)",
+        "物流サプライズ指標 (FSI)",
+        "野村アセットマネジメント株式会社",
+        "株式推薦 (Stock Recommendation)",
+        "CARA効用関数 (Constant Absolute Risk Aversion)",
+        "みずほ第一フィナンシャルテクノロジー",
+        "Fama-French 3ファクター",
+        "事前学習済み言語モデル",
+        "ニッセイアセットマネジメント",
+        "LLM投資戦略自動生成",
+        "株式会社日本取引所グループ (Japan Exchange Group)",
+        "TDnet (適時開示情報伝達システム)",
+        "特別損失 (Extraordinary Loss)",
+        "みずほ第一フィナンシャルテクノロジー株式会社",
+        "インデックス複製 (Index Replication)",
+        "罰則付きGMM (Penalized Generalized Method of Moments)",
+        "フェリ アンジェラ詩織",
+        "株式会社三菱UFJトラスト投資工学研究所 (MTEC)",
+        "独立成分分析によるリスク抽出 (ICA-based Risk Extraction)",
+        "事業等のリスク (Business Risk Disclosure)",
+        "コーポレートガバナンス・コード",
+        "スプリチャル 仁マイケル",
+        "豊田通商メタルズジャパン",
+        "Contrastive Learning for Financial Time-Series and Text",
+        "Support Vector回帰",
+        "Kernel Ridge回帰",
+        "スピリチュアル市場（日本）",
+        "スピリチュアルサービス市場（グローバル）",
+        "東証グロース市場250",
+        "note.com有料記事",
+        "東京海上ホールディングス",
+        "バークシャー・ハザウェイ",
+        "配偶者控除と扶養控除の比較",
+        "eMAXIS Slim 全世界株式（オルカン）",
+        "eMAXIS Slim 米国株式（S&P500）",
+        "iFreeNEXT FANG+インデックス",
+        "eMAXIS Slim 国内株式（TOPIX）",
+        "三菱UFJ 純金ファンド",
+        "野村世界業種別投資シリーズ（世界半導体株投資）",
+        "オアシス・マネジメント",
+        "セルフメディケーション税制",
+        "ファーストリテイリング",
+        "DINKS（年収1000万円）",
+        "20年後資産シミュレーション",
+        "米国連邦公開市場委員会",
+        "NISAつみたて投資枠使い切り設定",
+        "税制控除の組み合わせ効果",
+        "スパッタリングターゲット",
+        "管理職昇進後の年収低下事例",
+        "平社員の50代以降年収推移",
+        "しずおかフィナンシャルグループ",
+        "ちいかわ「ボンボンドロップ」シール",
+        "サンスター文具株式会社",
+        "年収500万円の一人暮らし",
+        "時間管理・ストレス軽減",
+        "DINKS層の資産形成戦略",
+        "投資ポートフォリオ構成",
+        "楽天ブラックフライデー",
+        "個人事業主・副業従事者",
+        "ライフステージ別キャリア戦略",
+        "ウェルビーイングベースのキャリア設計",
+        "ホテル・旅館・民泊事業者",
+        "ボンボンドロップシール"
+      ]
+    },
+    {
+      "rule_name": "schema_compliance",
+      "pass_rate": 1.0,
+      "violations": []
+    },
+    {
+      "rule_name": "relationship_compliance",
+      "pass_rate": 0.6552,
+      "violations": [
+        "FROM_DOMAIN",
+        "INGESTED_VIA",
+        "RATED_AS",
+        "IS_SOURCE_TYPE",
+        "IN_LANGUAGE",
+        "IS_TYPE",
+        "HAS_IDENTIFIER",
+        "IN_INDUSTRY",
+        "IS_ENTITY_TYPE",
+        "IS_INSTRUMENT_CLASS",
+        "IS_CATEGORY",
+        "IS_FACT_TYPE",
+        "IS_CLAIM_TYPE",
+        "IS_DATAPOINT_TYPE",
+        "IN_UNIT",
+        "AFFILIATED_WITH",
+        "IS_AUTHOR_TYPE",
+        "COAUTHORED_WITH",
+        "IN_PARENT_SECTOR",
+        "PARENT_CLASS"
+      ]
+    }
+  ],
+  "entropy": {
+    "entity_type_entropy": 0.8536,
+    "topic_category_entropy": 0.7228,
+    "relationship_type_entropy": 0.1704,
+    "semantic_diversity": 0.5823
+  }
+}

@@ -1,182 +1,182 @@
 {
-  "9ce6d2c3bb68caea": {
-    "fact_id": "9ce6d2c3bb68caea890375c5940d8975",
-    "factual_correctness": 0.1,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.1,
-    "overall": 0.07,
-    "reasoning": "Generic noise text without specific data or source. Typical RSS headline filler.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "520e745ce64557ca": {
-    "fact_id": "db02ee699910b071c530113cd2d87d21",
-    "factual_correctness": 0.5,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.5,
-    "overall": 0.35,
-    "reasoning": "Valid analyst opinion on Honda valuation. No source link reduces reliability.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "3784945082925580": {
-    "fact_id": "65d77d71d547b5976fb13600aa62ad84",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.53,
-    "reasoning": "Specific Japanese tax deduction fact. Tax rules are stable but no source to verify current law.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "d050108e2c415b52": {
-    "fact_id": "d050108e2c415b52d0b0e2cc3ed86739",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.5,
-    "overall": 0.39,
-    "reasoning": "Valid macro observation. Reasonable claim about geopolitical risk affecting FX, no source.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "53dafed2097fe714": {
-    "fact_id": "fact-53dafed2097fe714",
-    "factual_correctness": 0.75,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.48,
-    "reasoning": "Specific management target for Indosat. Plausible but no source linking to earnings doc.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "e2fd77820fe9264f": {
-    "fact_id": "2a1561ca99e69558138cd6f89cadd3c9",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.53,
-    "reasoning": "Specific academic finding about LLM text and market segments. High factual specificity but no source.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "ca5dcb00a549be2e": {
-    "fact_id": "1c26b86a5409927b590791e389f763f2",
+  "c807f92e1c552c0a": {
+    "fact_id": "asean-submarine-cables-2025",
     "factual_correctness": 0.85,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.55,
-    "reasoning": "Comprehensive list of Japanese tax deduction categories. High factual correctness for tax fact.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+    "source_grounding": 0.3,
+    "temporal_validity": 0.75,
+    "overall": 0.655,
+    "reasoning": "Specific technical facts with concrete numbers and dates. No URL source linked (source_url=null), only source title available. Recent/future-oriented data from 2025.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "8c84a952f59b5a1c": {
-    "fact_id": "413c67d4c519a0de3cac8e68f35beb89",
+  "cc264219811a6463": {
+    "fact_id": "6417db253d9bfa5a523069ec9b9d094a",
     "factual_correctness": 0.9,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.5,
-    "overall": 0.51,
-    "reasoning": "Very specific fund AUM data with exact date. High FC but temporal value limited as AUM changes.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+    "source_grounding": 0.7,
+    "temporal_validity": 0.7,
+    "overall": 0.78,
+    "reasoning": "Concrete financial metrics. Source title references Nomura Indonesia equity strategy report, but URL is an internal identifier not a public URL. 2026 forward estimate.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "2af71b746f97d52e": {
-    "fact_id": "06f5b38b28ae0ef77821f24e1d33fc42",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.3,
-    "overall": 0.41,
-    "reasoning": "Specific analyst recommendation with financials. High specificity but stock prices change rapidly.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "35d97463a6a49966": {
-    "fact_id": "35d97463a6a49966",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.3,
-    "overall": 0.41,
-    "reasoning": "Specific broker rating with DCF methodology. Ratings frequently updated, limited temporal value.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "fda7ac29990e9f15": {
-    "fact_id": "claim_vz_cyber_risk_fy2025",
+  "51daf022d08c70e0": {
+    "fact_id": "4886ef66bc6d3b54c39651472d4b7be1",
     "factual_correctness": 0.85,
     "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.52,
-    "reasoning": "Well-documented cyber incident. Salt Typhoon attack on VZ was widely reported. Long-term security relevance.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+    "temporal_validity": 0.75,
+    "overall": 0.565,
+    "reasoning": "Specific financial data and product roadmap. Zero source grounding - no source_title, no source_url, no fetched_at.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "80e6e646406f7720": {
-    "fact_id": "80e6e646406f77204f497dfb41afa50c",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.3,
-    "overall": 0.33,
-    "reasoning": "News item about pending CEO succession. Events may have already occurred, temporal value very low.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "d2452179aa658fa1": {
-    "fact_id": "a0815e41c351e15b09a93eb7c9672a5c",
-    "factual_correctness": 0.1,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.1,
-    "overall": 0.07,
-    "reasoning": "HTML noise - Hacker News comment page scraping artifact. Non-financial, pure noise.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "553855908cbb8716": {
-    "fact_id": "5d2274fb8e8706c1e0ac09ad2cf8e3b2",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.5,
-    "overall": 0.39,
-    "reasoning": "Geopolitical analysis claim. Reasonable macro observation linking Iran conflict to luxury auto market.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
-  },
-  "99d1f8211970f7e7": {
-    "fact_id": "asean-telco-singtel-regional-footprint",
+  "e7c28577c9c3d53f": {
+    "fact_id": "d662b9b237ae107114f90fb1e410fad8",
     "factual_correctness": 0.85,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.6,
-    "overall": 0.52,
-    "reasoning": "Very specific ownership stake data. High factual correctness if accurate, stakes change slowly.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+    "source_grounding": 0.7,
+    "temporal_validity": 0.7,
+    "overall": 0.76,
+    "reasoning": "Concrete macro data with multiple specific figures. Has Morningstar URL. Time-sensitive - market conditions as of early 2026.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "cda6c9f64ccb5382": {
-    "fact_id": "ecada006ade4940d6b4aa4ba6a39a058",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.0,
+  "63bba1e27f9a4409": {
+    "fact_id": "63bba1e27f9a440929fac9011ab774e2",
+    "factual_correctness": 0.65,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.65,
+    "overall": 0.725,
+    "reasoning": "Forward-looking claim about future Fed policy. CNBC URL present with good source grounding. Temporal validity limited as policy situation evolves.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "e03edd85ddde8abf": {
+    "fact_id": "e03edd85ddde8abf805c37b1996e9bf9",
+    "factual_correctness": 0.05,
+    "source_grounding": 0.7,
     "temporal_validity": 0.5,
-    "overall": 0.49,
-    "reasoning": "Specific FY2025 financial metric. Very specific revenue breakdown; temporal value moderate for annual data.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+    "overall": 0.38,
+    "reasoning": "RSS/HN metadata noise - HTML markup with URLs and engagement counts. Not a meaningful factual claim. Source URL present but content is essentially noise data.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "5d571ffaf639ef86": {
-    "fact_id": "5d571ffaf639ef86a3008015592e90a6",
+  "faf5428b1b1f82e4": {
+    "fact_id": "faf5428b1b1f82e47112f4a1342084c1",
     "factual_correctness": 0.7,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.49,
-    "reasoning": "Valid tax/accounting claim about expense recognition criteria. Stable accounting principles.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+    "source_grounding": 0.8,
+    "temporal_validity": 0.75,
+    "overall": 0.745,
+    "reasoning": "Accurate Japanese tax guidance. note.com URL provides good grounding. General tax principle with lasting validity.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "b07d38482cf02f9c": {
-    "fact_id": "360c24931893d86c99c3b9bfd3ae9ae8",
+  "a6237cd52c5d1eb7": {
+    "fact_id": "a6237cd52c5d1eb7",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.7,
+    "overall": 0.84,
+    "reasoning": "Factual news event. CNBC URL with full grounding. Jan 2026 event with ongoing regulatory implications.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "da2eb3720f89de1e": {
+    "fact_id": "114e8dfd824ad5cadc06ba5c37b9b4d2",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.8,
+    "overall": 0.79,
+    "reasoning": "Specific ML result from academic paper. AI-gakkai URL for source grounding. Methodological finding with lasting academic value.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "3f05862522b23c97": {
+    "fact_id": "6f7eedf2a265991435b96e068ccf3f35",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.75,
+    "overall": 0.745,
+    "reasoning": "Specific legal/regulatory fact. note.com URL present. Japanese corporate law discussion with ongoing relevance.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "1c50cd75057b829a": {
+    "fact_id": "1c50cd75057b829a",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.5,
+    "overall": 0.71,
+    "reasoning": "Specific ETF flow data with dollar amount. Nasdaq URL present. Highly time-sensitive daily data.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "13040199b78075ac": {
+    "fact_id": "ae330c2e33104f4628c56aca3a6f0c9e",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.8,
+    "overall": 0.77,
+    "reasoning": "Specific academic finding from municipal bond study. sigfin.org URL. Methodological result with lasting validity.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "cc681bb1b7a3d3d7": {
+    "fact_id": "cc681bb1b7a3d3d7de7b6a13e4a2f0ca",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.8,
+    "overall": 0.75,
+    "reasoning": "Vague corporate statement. CNBC URL with good grounding. Content lacks specificity - no numbers or concrete claims.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "7af32c485e2c52cd": {
+    "fact_id": "5356c0ce52404e38d40ff06828dd84a3",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.6,
+    "temporal_validity": 0.8,
+    "overall": 0.74,
+    "reasoning": "Academic finding about lead-lag hypothesis. PDF hash as source URL (internal reference). Solid methodological result.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "3a08506bc16fc7bd": {
+    "fact_id": "c28a120ec527f3343c4d05080a24e40b",
     "factual_correctness": 0.85,
     "source_grounding": 0.0,
+    "temporal_validity": 0.75,
+    "overall": 0.565,
+    "reasoning": "Specific data (863 tons, $5000-6000 target). Zero source grounding - no source linked at all. Data is credible but unverifiable.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "2d45d6ea59677048": {
+    "fact_id": "2d45d6ea59677048845419ccbcdcc1c4",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.7,
+    "overall": 0.8,
+    "reasoning": "Specific PMI data point. CNBC URL with good grounding. Mar 2026 data, time-sensitive.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "8dcc69440f694a56": {
+    "fact_id": "29a3b53c3f3237e48e8e4502ca61e52a",
+    "factual_correctness": 0.95,
+    "source_grounding": 0.8,
     "temporal_validity": 0.6,
-    "overall": 0.52,
-    "reasoning": "Highly specific infrastructure fund data with timelines. Strong factual value if from official source.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+    "overall": 0.8,
+    "reasoning": "Precise market price data with specific date. note.com URL present. Historical price is accurate but time-specific.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "a7ecbd40580ab83f": {
-    "fact_id": "a7ecbd40580ab83fd945f40cda459fa8",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.49,
-    "reasoning": "Valid research caveat about LLM-generated IR text and attribution of fluency improvements.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  "f3a80c9429d251aa": {
+    "fact_id": "f3a80c9429d251aa7e4ce62f007c1aab",
+    "factual_correctness": 0.65,
+    "source_grounding": 0.8,
+    "temporal_validity": 0.65,
+    "overall": 0.695,
+    "reasoning": "Market analysis claim. note.com URL present. Analyst interpretation with temporal limitation.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   },
-  "8ca72f69b188b166": {
-    "fact_id": "8ca72f69b188b166c5f5ab3b00425c0b",
-    "factual_correctness": 0.75,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.7,
-    "overall": 0.51,
-    "reasoning": "Valid Japanese tax/accounting principle. Expense recognition depends on purpose and business context.",
-    "evaluated_at": "2026-03-28T08:18:15.178950+00:00"
+  "9c1f355c4bc24cc5": {
+    "fact_id": "e7320c410f2ab0bb",
+    "factual_correctness": 0.85,
+    "source_grounding": 0.9,
+    "temporal_validity": 0.75,
+    "overall": 0.835,
+    "reasoning": "Specific corporate announcement. Verge URL with good source grounding. Jan 2026 event.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  },
+  "555af5dd96710138": {
+    "fact_id": "555af5dd9671013864ffb29975ca503c",
+    "factual_correctness": 0.5,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.8,
+    "overall": 0.65,
+    "reasoning": "Life advice claim, completely off-domain for finance KG. note.com URL present but content is irrelevant to finance research.",
+    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
   }
 }
