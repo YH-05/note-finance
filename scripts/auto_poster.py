@@ -97,6 +97,9 @@ SLOT_TIME_MAP_KUROTO_AREA: dict[str, str] = {
 }
 """kuroto_area のスロット名 → 投稿時刻マッピング。"""
 
+# AIDEV-NOTE: Backward-compat alias for tests written before account-specific maps were introduced.
+SLOT_TIME_MAP: dict[str, str] = SLOT_TIME_MAP_CAREER_SISTER
+
 SLOT_INDEX_MAP_CAREER_SISTER: dict[str, str] = {
     "S1": "朝",
     "S2": "昼",

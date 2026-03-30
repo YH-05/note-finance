@@ -58,7 +58,9 @@ class ThreadsConfig:
     def for_account(cls, account: str) -> "ThreadsConfig":
         """アカウント名から設定を生成する."""
         if account not in THREADS_ACCOUNT_ENV:
-            raise ValueError(f"Unknown account: {account}. Available: {list(THREADS_ACCOUNT_ENV)}")
+            raise ValueError(
+                f"Unknown account: {account}. Available: {list(THREADS_ACCOUNT_ENV)}"
+            )
         token_key, uid_key = THREADS_ACCOUNT_ENV[account]
         return cls(
             access_token=os.getenv(token_key, ""),
@@ -377,9 +379,15 @@ if __name__ == "__main__":
     parser.add_argument("--text", required=True, help="投稿テキスト")
     parser.add_argument("--image-url", help="画像URL（Instagram必須）")
     parser.add_argument("--image-urls", nargs="+", help="カルーセル用複数画像URL")
-    parser.add_argument("--topic-tag", help="Threads トピックタグ（例: ASTROLOGY_METAPHYSICS）")
-    parser.add_argument("--account", default="career_sister",
-                        choices=list(THREADS_ACCOUNT_ENV), help="投稿アカウント名")
+    parser.add_argument(
+        "--topic-tag", help="Threads トピックタグ（例: ASTROLOGY_METAPHYSICS）"
+    )
+    parser.add_argument(
+        "--account",
+        default="career_sister",
+        choices=list(THREADS_ACCOUNT_ENV),
+        help="投稿アカウント名",
+    )
     args = parser.parse_args()
 
     if args.platform == "threads":
@@ -392,11 +400,15 @@ if __name__ == "__main__":
         topic_tag = args.topic_tag or None
         if topic_tag:
             if len(topic_tag) > 50 or "." in topic_tag or "&" in topic_tag:
-                parser.error(f"topic_tag は1〜50文字・ピリオドとアンパサンド不可: {topic_tag!r}")
+                parser.error(
+                    f"topic_tag は1〜50文字・ピリオドとアンパサンド不可: {topic_tag!r}"
+                )
             print(f"Topic tag: {topic_tag}")
 
         if args.image_urls:
-            result = poster.post_carousel(args.text, args.image_urls, topic_tag=topic_tag)
+            result = poster.post_carousel(
+                args.text, args.image_urls, topic_tag=topic_tag
+            )
         elif args.image_url:
             result = poster.post_image(args.text, args.image_url, topic_tag=topic_tag)
         else:

@@ -392,7 +392,8 @@ class ArticleExtractor:
                     text=text_content,
                     author=extracted_meta.get("author"),
                     date=extracted_meta.get("date"),
-                    source=extracted_meta.get("hostname") or extracted_meta.get("sitename"),
+                    source=extracted_meta.get("hostname")
+                    or extracted_meta.get("sitename"),
                     language=extracted_meta.get("language"),
                     status=ExtractionStatus.SUCCESS,
                     error=None,

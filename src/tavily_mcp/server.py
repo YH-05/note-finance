@@ -162,7 +162,9 @@ def _post_with_rotation(
     """
     pool = _get_pool()
     if not pool.has_keys():
-        return {"error": "No Tavily API keys configured. Set TAVILY_API_KEY_1 or TAVILY_API_KEY."}
+        return {
+            "error": "No Tavily API keys configured. Set TAVILY_API_KEY_1 or TAVILY_API_KEY."
+        }
 
     last_error: str = "unknown"
 

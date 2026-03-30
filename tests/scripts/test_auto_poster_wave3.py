@@ -922,13 +922,21 @@ class TestExecutePostWave3:
                     "date": "2026-03-27",
                     "day_label": "木",
                     "status": "draft",
-                    "slots": [{"slot": "夜", "category": "エンゲージメント", "instagram": True}],
+                    "slots": [
+                        {
+                            "slot": "夜",
+                            "category": "エンゲージメント",
+                            "instagram": True,
+                        }
+                    ],
                 }
             ],
         }
         (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
         posting_state_path = tmp_path / "posting_state.json"
-        posting_state_path.write_text(json.dumps({"post_history": []}, ensure_ascii=False))
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
 
         slot_dir = tmp_path / "slot_3_evening"
         slot_dir.mkdir(parents=True)
@@ -1009,7 +1017,9 @@ class TestExecutePostWave3:
         }
         (week_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False))
         posting_state_path = tmp_path / "posting_state.json"
-        posting_state_path.write_text(json.dumps({"post_history": []}, ensure_ascii=False))
+        posting_state_path.write_text(
+            json.dumps({"post_history": []}, ensure_ascii=False)
+        )
 
         slot_dir = tmp_path / "slot_3_evening"
         slot_dir.mkdir(parents=True)

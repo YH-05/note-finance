@@ -137,11 +137,10 @@ class TestAccountPoster:
         content = "---\ntopic_tag: '#資産形成'\n---\nテスト投稿内容。"
         poster.post(content)
 
-        # post_text が呼ばれ、topic_tag が本文に含まれることを確認
+        # post_text が呼ばれ、topic_tag が引数として渡されることを確認
         call_args = mock_poster.post_text.call_args
         assert call_args is not None
-        posted_text = call_args[0][0]
-        assert "#資産形成" in posted_text
+        assert call_args.kwargs.get("topic_tag") == "#資産形成"
 
     @patch("scripts.auto_poster.ThreadsPoster")
     def test_正常系_topic_tagなしでも投稿できる(self, mock_threads_class: Any) -> None:
