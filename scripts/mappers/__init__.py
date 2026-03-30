@@ -5,6 +5,10 @@ BaseMapper 抽象クラスと COMMAND_MAPPERS ディスパッチテーブルを�
 COMMAND_MAPPERS は emit_research_queue.py の11マッパー関数への
 ディスパッチテーブルであり、外部コンシューマーに対してエクスポートされる。
 
+上位4マッパー（web-research / finance-news-workflow / wealth-scrape /
+pdf-extraction）は ``BaseMapper`` サブクラスとして実装され、
+それぞれのプラグインファイルで定義されている。
+
 Usage
 -----
 ::
@@ -21,28 +25,42 @@ from collections.abc import Callable
 from typing import Any
 
 from mappers.base import BaseMapper, ChunkProcessingContext
+from mappers.finance_news import FinanceNewsMapper
+from mappers.pdf_extraction import PdfExtractionMapper
+from mappers.wealth_scrape import WealthScrapeMapper
+from mappers.web_research import WebResearchMapper
 
 __all__ = [
     "COMMAND_MAPPERS",
     "BaseMapper",
     "ChunkProcessingContext",
+    "FinanceNewsMapper",
+    "PdfExtractionMapper",
+    "WealthScrapeMapper",
+    "WebResearchMapper",
 ]
 
 # ---------------------------------------------------------------------------
 # COMMAND_MAPPERS ディスパッチテーブル
 # ---------------------------------------------------------------------------
-# emit_research_queue.py の11マッパー関数をここでインポートして再エクスポートする。
-# 将来的に各マッパーが BaseMapper サブクラスに移行した際も、
-# このディスパッチテーブルは維持される。
+# 上位4マッパーは BaseMapper サブクラスの map() メソッドを使用する。
+# 残り7マッパーは emit_research_queue.py の関数を引き続き使用する。
 # ---------------------------------------------------------------------------
 
 type _MapperFn = Callable[[dict[str, Any]], dict[str, Any]]
 
+# 上位4マッパーのインスタンス（シングルトン）
+_finance_news_mapper = FinanceNewsMapper()
+_wealth_scrape_mapper = WealthScrapeMapper()
+_web_research_mapper = WebResearchMapper()
+_pdf_extraction_mapper = PdfExtractionMapper()
+
 
 def _build_command_mappers() -> dict[str, _MapperFn]:
-    """emit_research_queue.py から COMMAND_MAPPERS をインポートして返す。
+    """COMMAND_MAPPERS ディスパッチテーブルを構築して返す。
 
-    循環インポートを避けるため遅延インポートを使用する。
+    上位4マッパーは BaseMapper サブクラスの map() メソッドを使用し、
+    残り7マッパーは emit_research_queue.py の関数を遅延インポートして使用する。
 
     Returns
     -------
@@ -51,7 +69,13 @@ def _build_command_mappers() -> dict[str, _MapperFn]:
     """
     from emit_research_queue import COMMAND_MAPPERS as _raw  # type: ignore[import]
 
-    return dict(_raw)
+    # emit_research_queue.py のテーブルをベースに、上位4マッパーを上書きする
+    table = dict(_raw)
+    table["finance-news-workflow"] = _finance_news_mapper.map
+    table["wealth-scrape"] = _wealth_scrape_mapper.map
+    table["web-research"] = _web_research_mapper.map
+    table["pdf-extraction"] = _pdf_extraction_mapper.map
+    return table
 
 
 # ディスパッチテーブルの公開エクスポート
@@ -59,17 +83,18 @@ def _build_command_mappers() -> dict[str, _MapperFn]:
 COMMAND_MAPPERS: dict[str, _MapperFn] = _build_command_mappers()
 """11コマンドのマッパー関数ディスパッチテーブル。
 
-Keys
-----
-- ``finance-news-workflow``
+上位4コマンドは BaseMapper サブクラスの map() メソッドを使用:
+- ``finance-news-workflow`` → FinanceNewsMapper
+- ``wealth-scrape`` → WealthScrapeMapper
+- ``web-research`` → WebResearchMapper
+- ``pdf-extraction`` → PdfExtractionMapper
+
+残り7コマンドは emit_research_queue.py の関数を使用:
 - ``ai-research-collect``
 - ``generate-market-report``
 - ``asset-management``
 - ``reddit-finance-topics``
 - ``finance-full``
-- ``pdf-extraction``
-- ``wealth-scrape``
 - ``topic-discovery``
-- ``web-research``
 - ``academic-fetch``
 """
