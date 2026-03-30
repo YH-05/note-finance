@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 import pytest
-from emit_graph_queue import (
+from emit_research_queue import (
     SCHEMA_VERSION,
     generate_chunk_id,
     generate_claim_id,

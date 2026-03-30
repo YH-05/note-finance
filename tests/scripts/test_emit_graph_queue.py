@@ -2303,9 +2303,11 @@ class TestRunWealthScrapeDirectory:
         config_path = _create_wealth_theme_config(tmp_path)
         output_dir = tmp_path / "output"
 
-        import emit_graph_queue
+        import emit_research_queue
 
-        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+        monkeypatch.setattr(
+            emit_research_queue, "WEALTH_THEME_CONFIG_PATH", config_path
+        )
 
         exit_code = run(
             command="wealth-scrape",
@@ -2326,9 +2328,11 @@ class TestRunWealthScrapeDirectory:
         config_path = _create_wealth_theme_config(tmp_path)
         output_dir = tmp_path / "output"
 
-        import emit_graph_queue
+        import emit_research_queue
 
-        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+        monkeypatch.setattr(
+            emit_research_queue, "WEALTH_THEME_CONFIG_PATH", config_path
+        )
 
         run(
             command="wealth-scrape",
@@ -4690,8 +4694,8 @@ class TestMapWebResearch:
             assert "authority_level" in src
             assert "source_id" in src
 
-    def test_正常系_全4リレーション種のキーと件数(self) -> None:
-        """source_fact, fact_entity, tagged, extracted_from_fact の4種が正しい件数で存在すること。"""
+    def test_正常系_全リレーション種のキーと件数(self) -> None:
+        """source_fact, fact_entity, tagged, tagged_fact, extracted_from_fact が正しい件数で存在すること。"""
         data = _web_research_mapper_data()
         result = map_web_research(data)
         rels = result["relations"]
@@ -4699,13 +4703,16 @@ class TestMapWebResearch:
         assert "source_fact" in rels
         assert "fact_entity" in rels
         assert "tagged" in rels
+        assert "tagged_fact" in rels
         assert "extracted_from_fact" in rels
 
         assert len(rels["source_fact"]) == 2
         # fact1: 日本銀行+日本(2件), fact2: 日本銀行(1件) = 3件
         assert len(rels["fact_entity"]) == 3
-        # (2 sources + 2 facts) × 2 topics = 8
-        assert len(rels["tagged"]) == 8
+        # tagged = Source→Topic のみ: 2 sources × 2 topics = 4
+        assert len(rels["tagged"]) == 4
+        # tagged_fact = Fact→Topic のみ: 2 facts × 2 topics = 4
+        assert len(rels["tagged_fact"]) == 4
         assert len(rels["extracted_from_fact"]) == 2
 
     def test_正常系_fact_entityリレーションはRELATES_TO型(self) -> None:
@@ -4754,32 +4761,39 @@ class TestMapWebResearch:
         assert actual_pairs == expected_pairs
 
     def test_エッジケース_空のfacts配列(self) -> None:
-        """facts=[] のとき正常に空結果が返ること。"""
+        """facts=[] のとき facts/fact系リレーションが空になること。claims由来のエンティティは残る。"""
         data = _web_research_mapper_data()
         data["facts"] = []
         result = map_web_research(data)
 
         assert result["facts"] == []
-        assert result["entities"] == []
         assert result["relations"]["source_fact"] == []
         assert result["relations"]["fact_entity"] == []
         assert result["relations"]["extracted_from_fact"] == []
+        assert result["relations"]["tagged_fact"] == []
+        # claims由来のエンティティ（日本銀行）は残る
+        entity_names = {e["name"] for e in result["entities"]}
+        assert "日本銀行" in entity_names
         # topics and tagged rels should still be present
         assert len(result["topics"]) == 2
-        # 2 sources × 2 topics = 4 (no facts → no fact-topic tagged)
+        # 2 sources × 2 topics = 4 (no facts → tagged_fact=0)
         assert len(result["relations"]["tagged"]) == 4
 
-    def test_エッジケース_about_entities未指定でエンティティとリレーションが空(
+    def test_エッジケース_about_entities未指定でfact_entityリレーションが空(
         self,
     ) -> None:
-        """about_entities が存在しないファクトでエンティティとfact_entityリレーションが空になること。"""
+        """ファクトの about_entities が存在しない場合、fact_entity リレーションが空になること。
+        claims の about_entities 由来のエンティティは引き続き生成される。
+        """
         data = _web_research_mapper_data()
         for fact in data["facts"]:
             del fact["about_entities"]
         result = map_web_research(data)
 
-        assert result["entities"] == []
         assert result["relations"]["fact_entity"] == []
+        # claims由来のエンティティ（日本銀行）は残る
+        entity_names = {e["name"] for e in result["entities"]}
+        assert "日本銀行" in entity_names
         # facts and source_fact rels should still exist
         assert len(result["facts"]) == 2
         assert len(result["relations"]["source_fact"]) == 2

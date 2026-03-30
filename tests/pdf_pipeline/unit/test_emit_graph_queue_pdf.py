@@ -22,7 +22,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
 
-from emit_graph_queue import (
+from emit_research_queue import (
     SCHEMA_VERSION,
     _infer_period_type,
     generate_chunk_id,
