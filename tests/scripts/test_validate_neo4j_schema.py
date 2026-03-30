@@ -22,6 +22,7 @@ from validate_neo4j_schema import (
     check_pascal_case_violations,
     classify_db_labels,
     load_namespaces,
+    load_v30_sections,
 )
 
 # ---------------------------------------------------------------------------
@@ -186,11 +187,143 @@ class TestLoadNamespaces:
         assert "kg_v2" in result
         assert "memory" in result
 
+    def test_正常系_v30新規セクションありでもKeyError発生しない(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """v3.0 の新規セクションが含まれる YAML でも load_namespaces が正常終了する。"""
+        schema_v30 = {
+            "version": "3.0",
+            "namespaces": sample_namespaces,
+            "multilabel_types": {"entity_labels": {"labels": {"Company": {}}}},
+            "consolidation_rules": {"entity_type": {"mapping": {"company": "company"}}},
+            "enum_validations": {"entity_type": {"values": ["company"]}},
+            "source_type_normalization": {"mapping": {"web page": "web"}},
+        }
+        schema_file = tmp_path / "schema_v30.yaml"
+        schema_file.write_text(yaml.dump(schema_v30), encoding="utf-8")
+        result = load_namespaces(schema_file)
+        assert "kg_v2" in result
+        assert "memory" in result
+
     def test_異常系_namespacesなしでValueError(self, tmp_path: Path) -> None:
         schema_file = tmp_path / "schema.yaml"
         schema_file.write_text(yaml.dump({"nodes": {}}), encoding="utf-8")
         with pytest.raises(ValueError, match="namespaces section not found"):
             load_namespaces(schema_file)
+
+
+# ---------------------------------------------------------------------------
+# load_v30_sections
+# ---------------------------------------------------------------------------
+
+
+class TestLoadV30Sections:
+    def _make_v30_schema(
+        self,
+        tmp_path: Path,
+        sample_namespaces: dict,
+        *,
+        include_multilabel_types: bool = True,
+        include_consolidation_rules: bool = True,
+        include_enum_validations: bool = True,
+        include_source_type_normalization: bool = True,
+    ) -> Path:
+        schema: dict = {"version": "3.0", "namespaces": sample_namespaces}
+        if include_multilabel_types:
+            schema["multilabel_types"] = {
+                "entity_labels": {"labels": {"Company": {"name_ja": "企業"}}}
+            }
+        if include_consolidation_rules:
+            schema["consolidation_rules"] = {
+                "entity_type": {"mapping": {"company": "company", "fintech": "company"}}
+            }
+        if include_enum_validations:
+            schema["enum_validations"] = {
+                "entity_type": {"values": ["company", "technology"]},
+                "source_type": {"values": ["web", "news", "pdf", "original", "blog"]},
+            }
+        if include_source_type_normalization:
+            schema["source_type_normalization"] = {
+                "mapping": {"web page": "web", "news article": "news"}
+            }
+        schema_file = tmp_path / "schema_v30.yaml"
+        schema_file.write_text(yaml.dump(schema), encoding="utf-8")
+        return schema_file
+
+    def test_正常系_全v30セクションが読み込まれる(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        assert result["multilabel_types"] is not None
+        assert result["consolidation_rules"] is not None
+        assert result["enum_validations"] is not None
+        assert result["source_type_normalization"] is not None
+
+    def test_正常系_multilabel_typesの内容が読み込まれる(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        assert "entity_labels" in result["multilabel_types"]
+
+    def test_正常系_consolidation_rulesの内容が読み込まれる(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        mapping = result["consolidation_rules"]["entity_type"]["mapping"]
+        assert mapping["company"] == "company"
+        assert mapping["fintech"] == "company"
+
+    def test_正常系_旧バージョンYAMLでv30セクションはNone(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """v3.0 未対応の YAML（新規セクションなし）でも KeyError が発生しない。"""
+        schema_file = self._make_v30_schema(
+            tmp_path,
+            sample_namespaces,
+            include_multilabel_types=False,
+            include_consolidation_rules=False,
+            include_enum_validations=False,
+            include_source_type_normalization=False,
+        )
+        result = load_v30_sections(schema_file)
+        assert result["multilabel_types"] is None
+        assert result["consolidation_rules"] is None
+        assert result["enum_validations"] is None
+        assert result["source_type_normalization"] is None
+
+    def test_正常系_一部セクションのみ存在する場合もKeyError発生しない(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """一部の v3.0 セクションのみ存在する YAML でも安全に読み込める。"""
+        schema_file = self._make_v30_schema(
+            tmp_path,
+            sample_namespaces,
+            include_multilabel_types=True,
+            include_consolidation_rules=False,
+            include_enum_validations=True,
+            include_source_type_normalization=False,
+        )
+        result = load_v30_sections(schema_file)
+        assert result["multilabel_types"] is not None
+        assert result["consolidation_rules"] is None
+        assert result["enum_validations"] is not None
+        assert result["source_type_normalization"] is None
+
+    def test_正常系_返却辞書のキーが常に4つ存在する(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """セクションの有無に関わらず、返却辞書は常に 4 つのキーを持つ。"""
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        assert set(result.keys()) == {
+            "multilabel_types",
+            "consolidation_rules",
+            "enum_validations",
+            "source_type_normalization",
+        }
 
 
 # ---------------------------------------------------------------------------

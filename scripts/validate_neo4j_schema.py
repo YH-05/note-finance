@@ -32,7 +32,7 @@ from urllib.parse import urlparse
 import yaml
 
 try:
-    from neo4j import GraphDatabase, Driver
+    from neo4j import Driver, GraphDatabase
 except ImportError:
     print("neo4j driver not installed. Run: uv add neo4j")
     sys.exit(1)
@@ -56,6 +56,11 @@ ALLOWED_URI_SCHEMES = {"bolt", "bolt+s", "bolt+ssc", "neo4j", "neo4j+s", "neo4j+
 
 def load_namespaces(schema_path: Path) -> dict[str, Any]:
     """knowledge-graph-schema.yaml から namespaces セクションを読み込む。
+
+    v3.0 以降は ``multilabel_types`` / ``enum_validations`` /
+    ``consolidation_rules`` / ``source_type_normalization`` の新規セクションが
+    追加されるが、このメソッドは ``namespaces`` のみを返す。
+    新規セクションの照合が必要な場合は :func:`load_v30_sections` を参照。
 
     Parameters
     ----------
@@ -81,6 +86,47 @@ def load_namespaces(schema_path: Path) -> dict[str, Any]:
         raise ValueError(msg)
 
     return namespaces
+
+
+def load_v30_sections(schema_path: Path) -> dict[str, Any]:
+    """knowledge-graph-schema.yaml から v3.0 の新規セクションを安全に読み込む。
+
+    YAML v3.0 では以下の新規セクションが追加される:
+
+    - ``multilabel_types``: Entity ノードに付与できる 14 種のマルチラベル定義
+    - ``consolidation_rules``: 42 種の生 entity_type → 14 種正規型へのマッピング
+    - ``enum_validations``: entity_type / source_type の有効値一覧
+    - ``source_type_normalization``: 多様な source_type 表記 → 5 種正規値のマッピング
+
+    v3.0 未対応の YAML（旧バージョン）には各セクションが存在しない場合があるため、
+    すべて ``.get()`` で安全にアクセスし ``KeyError`` を発生させない。
+
+    Parameters
+    ----------
+    schema_path : Path
+        YAML スキーマファイルのパス。
+
+    Returns
+    -------
+    dict[str, Any]
+        v3.0 新規セクションを含む辞書。存在しないキーの値は ``None``。
+        キー: ``multilabel_types``, ``consolidation_rules``,
+        ``enum_validations``, ``source_type_normalization``
+
+    Notes
+    -----
+    # TODO(Phase 7): multilabel_types セクションの DB 照合を追加
+    # TODO(Phase 7): enum_validations セクションの enum 値と DB プロパティ値の照合を追加
+    """
+    with schema_path.open(encoding="utf-8") as f:
+        schema = yaml.safe_load(f)
+
+    return {
+        "multilabel_types": schema.get("multilabel_types"),
+        "consolidation_rules": schema.get("consolidation_rules"),
+        "enum_validations": schema.get("enum_validations"),
+        "source_type_normalization": schema.get("source_type_normalization"),
+    }
 
 
 def build_allowed_labels(namespaces: dict[str, Any]) -> dict[str, str]:
