@@ -1413,6 +1413,7 @@ def _build_wr_facts(
     list[dict[str, Any]],
     dict[str, list[dict[str, str]]],
     list[dict[str, str]],
+    dict[str, str],
 ]:
     """Build Fact/Entity nodes and all fact-related relations."""
     facts: list[dict[str, Any]] = []
@@ -1484,7 +1485,7 @@ def _build_wr_facts(
         "fact_entity": fact_entity_rels,
         "extracted_from_fact": extracted_from_fact_rels,
     }
-    return facts, entities, fact_rels, tagged_rels, entity_id_map  # type: ignore[return-value]
+    return facts, entities, fact_rels, tagged_rels, entity_id_map
 
 
 def _build_wr_claims(

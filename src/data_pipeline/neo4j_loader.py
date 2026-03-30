@@ -12,13 +12,28 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import yaml
-from neo4j import GraphDatabase
+from neo4j import Driver, GraphDatabase
 
 logger = logging.getLogger(__name__)
+
+# SEC-005: Cypher ラベル/プロパティ名インジェクション対策
+# ラベルおよびキープロパティ名は英数字とアンダースコアのみ許可する
+_SAFE_IDENTIFIER_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_]*$")
+
+
+def _is_safe_identifier(name: str) -> bool:
+    """Cypher ラベル/プロパティ名として安全な識別子かどうかを検証する.
+
+    Returns True if name consists only of ASCII letters, digits, and underscores,
+    and starts with a letter (preventing Cypher injection via classification_nodes).
+    """
+    return bool(_SAFE_IDENTIFIER_RE.match(name))
+
 
 _DEFAULT_URI = "bolt://localhost:7688"
 _DEFAULT_USER = "neo4j"
@@ -119,7 +134,7 @@ def _resolve_rel_endpoints(queue_data: dict[str, Any]) -> dict[str, tuple]:
     return endpoints
 
 
-def _get_driver():
+def _get_driver() -> Driver:
     """Neo4j ドライバーを取得する."""
     uri = os.environ.get("NEO4J_RESEARCH_URI", _DEFAULT_URI)
     user = os.environ.get("NEO4J_RESEARCH_USER", _DEFAULT_USER)
@@ -311,17 +326,155 @@ def _build_id_to_key(queue_data: dict[str, Any]) -> dict[str, str]:
     return id_to_key
 
 
+def _batch_merge_nodes_tx(
+    tx,
+    label: str,
+    key_prop: str,
+    items: list[dict[str, Any]],
+    on_create_field: str | None = None,
+) -> None:
+    """UNWIND バッチでノードをMERGEする (N+1クエリ → 1クエリ).
+
+    Parameters
+    ----------
+    tx : neo4j.Transaction
+        Neo4j トランザクション。
+    label : str
+        ノードのプライマリラベル。
+    key_prop : str
+        MERGE に使用するキープロパティ名。
+    items : list[dict]
+        投入するノードプロパティ一覧。
+    on_create_field : str | None
+        ON CREATE のみ設定するフィールド名（entity_id / topic_id 等）。
+    """
+    rows = []
+    for item in items:
+        key_val = item.get(key_prop)
+        if not key_val:
+            continue
+        skip = {"extra_labels", key_prop}
+        if on_create_field:
+            skip.add(on_create_field)
+        props = {k: v for k, v in item.items() if k not in skip}
+        row: dict[str, Any] = {key_prop: key_val, "props": props}
+        if on_create_field and on_create_field in item:
+            row["on_create_val"] = item[on_create_field]
+        rows.append(row)
+
+    if not rows:
+        return
+
+    if on_create_field:
+        query = (
+            f"UNWIND $rows AS row "
+            f"MERGE (n:{label} {{{key_prop}: row.{key_prop}}}) "
+            f"ON CREATE SET n.{on_create_field} = row.on_create_val "
+            f"SET n += row.props"
+        )
+    else:
+        query = (
+            f"UNWIND $rows AS row "
+            f"MERGE (n:{label} {{{key_prop}: row.{key_prop}}}) "
+            f"SET n += row.props"
+        )
+    tx.run(query, rows=rows)
+
+
+def _batch_set_extra_labels(
+    session,
+    label: str,
+    key_prop: str,
+    items_with_extra: list[tuple[str, list[str]]],
+) -> None:
+    """UNWIND バッチで extra_labels を設定する (N+1クエリ → unique_label数クエリ).
+
+    Parameters
+    ----------
+    session : neo4j.Session
+        Neo4j セッション。
+    label : str
+        ノードのプライマリラベル。
+    key_prop : str
+        ノードの UNIQUE キープロパティ名。
+    items_with_extra : list[tuple[str, list[str]]]
+        (key_val, extra_labels) のペア一覧。
+    """
+    label_to_keys: dict[str, list[str]] = {}
+    for key_val, extra_labels in items_with_extra:
+        for extra_label in extra_labels:
+            label_to_keys.setdefault(extra_label, []).append(key_val)
+
+    for extra_label, keys in label_to_keys.items():
+        query = (
+            f"UNWIND $keys AS key "
+            f"MATCH (n:{label} {{{key_prop}: key}}) "
+            f"SET n:{extra_label}"
+        )
+        session.run(query, keys=keys)
+
+
+def _batch_merge_rels_tx(
+    tx,
+    from_key: str,
+    from_label: str,
+    to_key: str,
+    to_label: str,
+    rel_type: str,
+    rels: list[dict[str, Any]],
+    id_to_key: dict[str, str] | None = None,
+) -> int:
+    """UNWIND バッチでリレーションをMERGEする (N+1クエリ → 1クエリ).
+
+    Parameters
+    ----------
+    tx : neo4j.Transaction
+        Neo4j トランザクション。
+    from_key, from_label, to_key, to_label, rel_type : str
+        エンドポイント情報。
+    rels : list[dict]
+        リレーションデータ一覧。
+    id_to_key : dict | None
+        entity_id / topic_id → entity_key / topic_key の解決マップ。
+
+    Returns
+    -------
+    int
+        新規作成されたリレーション数。
+    """
+    rows = []
+    for rel in rels:
+        from_val = rel.get("from_id") or rel.get(from_key)
+        to_val = rel.get("to_id") or rel.get(to_key)
+        if id_to_key:
+            from_val = id_to_key.get(from_val, from_val) if from_val else from_val
+            to_val = id_to_key.get(to_val, to_val) if to_val else to_val
+        if from_val and to_val:
+            rows.append({"from_val": from_val, "to_val": to_val})
+
+    if not rows:
+        return 0
+
+    query = (
+        f"UNWIND $rows AS row "
+        f"MATCH (a:{from_label} {{{from_key}: row.from_val}}) "
+        f"MATCH (b:{to_label} {{{to_key}: row.to_val}}) "
+        f"MERGE (a)-[:{rel_type}]->(b)"
+    )
+    result = tx.run(query, rows=rows)
+    summary = result.consume()
+    return summary.counters.relationships_created
+
+
 def _ingest_nodes(
     queue_data: dict[str, Any],
     driver,
-    *,
-    apoc_available: bool = False,
 ) -> dict[str, int]:
     """ノードを投入するサブ関数.
 
     _NODE_KEY_MAP に定義された全セクションのノードを投入する。
     classification_nodes は動的ラベルとして別処理する。
-    extra_labels が指定された Entity には _ingest_multilabel を適用する。
+    extra_labels が指定された Entity には _batch_set_extra_labels を適用する。
 
     Parameters
     ----------
@@ -329,8 +482,6 @@ def _ingest_nodes(
         graph-queue JSON のパース済みデータ。
     driver : neo4j.Driver | None
         Neo4j ドライバー。None の場合は dry_run（カウントのみ）。
-    apoc_available : bool
-        APOC が利用可能かどうか（マルチラベル投入に影響）。
 
     Returns
     -------
@@ -339,7 +490,7 @@ def _ingest_nodes(
     """
     node_count = 0
 
-    # 通常ノード投入
+    # 通常ノード投入（UNWIND バッチ: N+1 → 1クエリ/section）
     for section, config in _NODE_KEY_MAP.items():
         if config is None:
             continue
@@ -348,28 +499,34 @@ def _ingest_nodes(
         if not items:
             continue
         logger.info("Ingesting %d %s nodes", len(items), label)
+        on_create_field = _NODE_ID_ON_CREATE.get(label)
         if driver:
             with driver.session() as session:
-                for item in items:
-                    session.execute_write(_merge_node, label, key_prop, item)
-                    # マルチラベル投入
-                    extra_labels = item.get("extra_labels")
-                    if extra_labels and item.get(key_prop):
-                        _ingest_multilabel(
-                            session,
-                            label,
-                            key_prop,
-                            item[key_prop],
-                            extra_labels,
-                            apoc_available=apoc_available,
-                        )
+                session.execute_write(
+                    _batch_merge_nodes_tx, label, key_prop, items, on_create_field
+                )
+                items_with_extra = [
+                    (item[key_prop], item["extra_labels"])
+                    for item in items
+                    if item.get("extra_labels") and item.get(key_prop)
+                ]
+                if items_with_extra:
+                    _batch_set_extra_labels(session, label, key_prop, items_with_extra)
         node_count += len(items)
 
     # classification_nodes 投入（動的ラベル）
+    # SEC-005: label と key_property をホワイトリスト検証してから使用する
     for cnode in queue_data.get("classification_nodes", []):
         label = cnode.get("label")
         key_prop = cnode.get("key_property", f"{label.lower()}_id" if label else "id")
-        if label and driver:
+        if not label or not _is_safe_identifier(label) or not _is_safe_identifier(key_prop):
+            logger.warning(
+                "Skipping classification_node with unsafe label/key_property: %r/%r",
+                label,
+                key_prop,
+            )
+            continue
+        if driver:
             with driver.session() as session:
                 session.execute_write(
                     _merge_node, label, key_prop, cnode.get("properties", cnode)
@@ -400,7 +557,8 @@ def _ingest_classification_rels(
             "key_property", f"{cn_label.lower()}_id" if cn_label else "id"
         )
         cn_key_val = cnode.get("key_value", "")
-        if cn_key_val and cn_label:
+        # SEC-005: 安全な識別子のみ使用する
+        if cn_key_val and cn_label and _is_safe_identifier(cn_label) and _is_safe_identifier(cn_key_prop):
             cn_keymap[cn_key_val] = (cn_label, cn_key_prop)
 
     source_id_set = {s.get("source_id") for s in queue_data.get("sources", [])}
@@ -477,17 +635,17 @@ def _ingest_rels(
         section_created = 0
         if driver:
             with driver.session() as session:
-                for rel in rels:
-                    section_created += session.execute_write(
-                        _merge_relation,
-                        from_key,
-                        from_label,
-                        to_key,
-                        to_label,
-                        rel_type,
-                        rel,
-                        id_to_key,
-                    )
+                # UNWIND バッチ: N+1 → 1クエリ/section
+                section_created = session.execute_write(
+                    _batch_merge_rels_tx,
+                    from_key,
+                    from_label,
+                    to_key,
+                    to_label,
+                    rel_type,
+                    rels,
+                    id_to_key,
+                )
         expected = len(rels)
         rel_verification[rel_section] = (expected, section_created)
         if driver and section_created < expected:
@@ -663,20 +821,14 @@ def ingest_to_neo4j(
         投入結果 {"nodes": int, "relations": int, "rel_verification": dict}。
     """
     driver = None if dry_run else _get_driver()
-    apoc_available = False
 
     try:
-        # APOC 利用可否チェック（スキーマチェックの一部として実行）
-        if driver and not skip_schema_check:
-            apoc_available = _check_apoc_available(driver)
-            logger.debug("APOC available: %s", apoc_available)
-
         # YAML 制約/インデックス自動適用
         if apply_constraints and not skip_schema_check:
             _apply_constraints_if_requested(driver, schema_path, dry_run)
 
         # ノード投入
-        node_result = _ingest_nodes(queue_data, driver, apoc_available=apoc_available)
+        node_result = _ingest_nodes(queue_data, driver)
         node_count = node_result["node_count"]
 
         # entity_id/topic_id → entity_key/topic_key 解決マップの構築
@@ -739,7 +891,7 @@ _CREATOR_REL_SECTIONS = [
 ]
 
 
-def _get_creator_driver():
+def _get_creator_driver() -> Driver:
     """creator-neo4j ドライバーを取得する."""
     uri = os.environ.get("NEO4J_CREATOR_URI", _CREATOR_DEFAULT_URI)
     user = os.environ.get("NEO4J_CREATOR_USER", _DEFAULT_USER)
