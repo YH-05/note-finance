@@ -977,6 +977,7 @@ consolidation_rules:
       # company cluster
       company: company
       fintech: company
+      fintech_holding: company
       subsidiary: company
       digital_bank: company
       it_services: company
@@ -989,6 +990,7 @@ consolidation_rules:
       exchange: organization
       government: organization
       government_agency: organization
+      institution: organization
       sovereign_wealth_fund: organization
       # person
       person: person
@@ -996,12 +998,15 @@ consolidation_rules:
       index: index
       # indicator
       indicator: indicator
+      metric: indicator
       # instrument cluster
       instrument: instrument
       etf: instrument
       bond: instrument
       currency: instrument
       currency_pair: instrument
+      fund: instrument
+      asset: instrument
       # commodity
       commodity: commodity
       # country cluster
@@ -1009,15 +1014,23 @@ consolidation_rules:
       region: country
       # sector
       sector: sector
+      market: sector
       # concept cluster
       concept: concept
       macro: concept
       theme: concept
       demographic: concept
+      model: concept
+      method: concept
+      article_proposal: concept
+      event: concept
+      domain: concept
       # broker
       broker: broker
       # product
       product: product
+      dataset: product
+      data_center: product
       # regulation (新規 — 既存データなし、将来用)
       regulation: regulation
 

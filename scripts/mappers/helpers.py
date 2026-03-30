@@ -422,8 +422,8 @@ def _infer_period_type(label: str) -> str:
     return "annual"
 
 
-def _normalise_year(raw: str) -> int:
-    """Normalise a 2-digit or 4-digit year string to a 4-digit integer."""
+def _normalize_year(raw: str) -> int:
+    """Normalize a 2-digit or 4-digit year string to a 4-digit integer."""
     year = int(raw)
     if year < 100:
         year += 2000
@@ -434,13 +434,13 @@ def _period_sort_key(label: str) -> tuple[int, int]:
     """Compute a sortable key from a fiscal period label."""
     m = _FY_RE.match(label)
     if m:
-        return (_normalise_year(m.group(1)), 0)
+        return (_normalize_year(m.group(1)), 0)
     m = _Q_RE.match(label)
     if m:
-        return (_normalise_year(m.group(2)), int(m.group(1)))
+        return (_normalize_year(m.group(2)), int(m.group(1)))
     m = _H_RE.match(label)
     if m:
-        return (_normalise_year(m.group(2)), int(m.group(1)))
+        return (_normalize_year(m.group(2)), int(m.group(1)))
     logger.warning("Unrecognised period label for sorting: %s", label)
     return (9999, 0)
 

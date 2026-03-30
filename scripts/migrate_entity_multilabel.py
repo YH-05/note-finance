@@ -264,15 +264,9 @@ def apply_multilabel_batch(
             stats.skipped += 1
             continue
 
-        # AIDEV-NOTE: SET e:Label 構文でマルチラベルを付与（APOC 不在環境でも動作）
-        # APOC apoc.merge.node は APOC プラグインが必要なため、標準 Cypher でフォールバック
-        cypher = (
-            "MATCH (e:Entity {entity_key: $entity_key}) "
-            "SET e:$($label) "  # Cypher 5+ SET e:$(label) dynamic label syntax
-            "SET e.sub_type = $sub_type"
-        )
-        # Neo4j 5.x では SET e:$(label) の動的構文は未サポート
-        # ラベルを含む Cypher を文字列フォーマットで構築（ラベルは可変だがユーザー入力ではないため安全）
+        # AIDEV-NOTE: ラベルは CANONICAL_TO_LABEL の固定値のみ使用するため安全。
+        # SET e:$(label) の動的構文は Neo4j 5.x 未サポートのため、
+        # 許可リストから取得した label を文字列フォーマットで埋め込む。
         cypher = (
             f"MATCH (e:Entity {{entity_key: $entity_key}}) "
             f"SET e:`{label}` "
@@ -440,15 +434,12 @@ def main() -> None:
     raw_to_label = build_raw_to_label_map(consolidation_rules)
     logger.info("Loaded %d raw entity_type mappings", len(raw_to_label))
 
-    # dry-run は接続して件数確認
-    if args.dry_run:
-        neo4j_password = os.environ.get("NEO4J_PASSWORD", "neo4j")
-    else:
-        neo4j_password = os.environ.get("NEO4J_PASSWORD")
-        if not neo4j_password:
-            parser.error(
-                "Neo4j password is required. Set NEO4J_PASSWORD environment variable."
-            )
+    # dry-run でも DB 接続を行うためパスワードは必須
+    neo4j_password = os.environ.get("NEO4J_PASSWORD")
+    if not neo4j_password:
+        parser.error(
+            "Neo4j password is required. Set NEO4J_PASSWORD environment variable."
+        )
 
     logger.info("Connecting to Neo4j: %s (user: %s)", args.neo4j_uri, args.neo4j_user)
     driver = GraphDatabase.driver(

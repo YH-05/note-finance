@@ -23,7 +23,7 @@ from scripts.migrate_source_type import (
 # Helpers
 # ---------------------------------------------------------------------------
 
-SCHEMA_YAML_PATH = Path("data/config/knowledge-graph-schema.yaml")
+SCHEMA_YAML_PATH = Path(__file__).parents[2] / "data/config/knowledge-graph-schema.yaml"
 
 
 # ---------------------------------------------------------------------------

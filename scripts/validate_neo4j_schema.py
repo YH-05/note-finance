@@ -202,7 +202,7 @@ def check_cross_contamination(
     list[dict[str, Any]]
         クロスコンタミネーションの一覧。
     """
-    kg_v2_labels = [l for l, ns in allowed.items() if ns == "kg_v2"]
+    kg_v2_labels = [label for label, ns in allowed.items() if ns == "kg_v2"]
     query = """
     MATCH (n:Memory)
     WHERE any(l IN labels(n) WHERE l IN $kg_labels)

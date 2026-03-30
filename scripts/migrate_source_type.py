@@ -617,15 +617,12 @@ def main() -> None:
 
     logger.info("Loaded %d raw source_type mappings", len(normalization_map))
 
-    # パスワード処理
-    if args.dry_run:
-        neo4j_password = os.environ.get("NEO4J_PASSWORD", "neo4j")
-    else:
-        neo4j_password = os.environ.get("NEO4J_PASSWORD")
-        if not neo4j_password:
-            parser.error(
-                "Neo4j password is required. Set NEO4J_PASSWORD environment variable."
-            )
+    # パスワード処理（dry-run でも DB 接続を行うため必須）
+    neo4j_password = os.environ.get("NEO4J_PASSWORD")
+    if not neo4j_password:
+        parser.error(
+            "Neo4j password is required. Set NEO4J_PASSWORD environment variable."
+        )
 
     logger.info("Connecting to Neo4j: %s (user: %s)", args.neo4j_uri, args.neo4j_user)
     driver = GraphDatabase.driver(

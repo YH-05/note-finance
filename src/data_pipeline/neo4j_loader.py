@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 _DEFAULT_URI = "bolt://localhost:7688"
 _DEFAULT_USER = "neo4j"
-_DEFAULT_PASSWORD = "gomasuke"  # nosec B105 - ローカル開発用デフォルト
+_DEFAULT_PASSWORD = "gomasuke"  # nosec B105 - ローカル開発用デフォルト（本番環境では NEO4J_RESEARCH_PASSWORD/NEO4J_CREATOR_PASSWORD を必ず設定すること）
 
 # ノードラベルとキープロパティのマッピング
 _NODE_KEY_MAP = {
