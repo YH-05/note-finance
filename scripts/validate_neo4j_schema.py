@@ -115,8 +115,10 @@ def load_v30_sections(schema_path: Path) -> dict[str, Any]:
 
     Notes
     -----
-    # TODO(Phase 7): multilabel_types セクションの DB 照合を追加
-    # TODO(Phase 7): enum_validations セクションの enum 値と DB プロパティ値の照合を追加
+    v3.0 対応: multilabel_types / enum_validations の DB 照合は
+    :func:`check_multilabel_entity` / :func:`check_enum_source_type` /
+    :func:`check_entity_type_convergence` / :func:`check_constraints_and_indices`
+    を参照。
     """
     with schema_path.open(encoding="utf-8") as f:
         schema = yaml.safe_load(f)
@@ -210,6 +212,188 @@ def check_cross_contamination(
     return [dict(r) for r in result]
 
 
+def check_multilabel_entity(session: Any) -> dict[str, Any]:
+    """シングルラベル Entity ノードを検出する（WARNING 対象）。
+
+    v3.0 では全 Entity に対してマルチラベル（e.g. Entity + Company）が付与される。
+    シングルラベル（``Entity`` のみ）のノードが残っている場合は Migration が
+    未完了であることを示す。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+
+    Returns
+    -------
+    dict[str, Any]
+        - ``single_label_count`` (int): シングルラベル Entity の件数。
+        - ``pass`` (bool): 件数が 0 の場合 True。
+        - ``warning`` (bool): 件数 > 0 の場合 True（WARNING レベル）。
+    """
+    result = session.run(
+        "MATCH (e:Entity) WHERE size(labels(e)) = 1 RETURN count(e) AS cnt"
+    )
+    record = result.single()
+    count = record["cnt"] if record else 0
+    return {
+        "single_label_count": count,
+        "pass": count == 0,
+        "warning": count > 0,
+    }
+
+
+def check_enum_source_type(
+    session: Any,
+    allowed_values: list[str],
+) -> dict[str, Any]:
+    """Source.source_type の不正値を検出する（ERROR 対象）。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    allowed_values : list[str]
+        YAML の ``enum_validations.source_type.values`` から取得した有効値リスト。
+
+    Returns
+    -------
+    dict[str, Any]
+        - ``db_values`` (list[str]): DB 上の全 source_type 値。
+        - ``invalid_values`` (list[str]): 許可されていない値。
+        - ``pass`` (bool): 不正値が 0 件の場合 True。
+    """
+    result = session.run(
+        "MATCH (s:Source) "
+        "WHERE s.source_type IS NOT NULL "
+        "RETURN DISTINCT s.source_type AS source_type "
+        "ORDER BY source_type"
+    )
+    db_values = [r["source_type"] for r in result]
+    allowed_set = set(allowed_values)
+    invalid_values = [v for v in db_values if v not in allowed_set]
+    return {
+        "db_values": db_values,
+        "invalid_values": invalid_values,
+        "pass": len(invalid_values) == 0,
+    }
+
+
+def check_entity_type_convergence(
+    session: Any,
+    allowed_values: list[str],
+) -> dict[str, Any]:
+    """Entity.entity_type が 14 種の正規型に収束しているか確認する。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    allowed_values : list[str]
+        YAML の ``enum_validations.entity_type.values`` から取得した有効値リスト（14種）。
+
+    Returns
+    -------
+    dict[str, Any]
+        - ``db_values`` (list[str]): DB 上の全 entity_type 値。
+        - ``invalid_values`` (list[str]): 14種以外の値（未マイグレーション等）。
+        - ``type_count`` (int): DB 上のユニーク entity_type 数。
+        - ``pass`` (bool): 不正値が 0 件かつ type_count <= len(allowed_values) の場合 True。
+    """
+    max_allowed = len(allowed_values)
+    result = session.run(
+        "MATCH (e:Entity) "
+        "WHERE e.entity_type IS NOT NULL "
+        "RETURN DISTINCT e.entity_type AS entity_type "
+        "ORDER BY entity_type"
+    )
+    db_values = [r["entity_type"] for r in result]
+    allowed_set = set(allowed_values)
+    invalid_values = [v for v in db_values if v not in allowed_set]
+    return {
+        "db_values": db_values,
+        "invalid_values": invalid_values,
+        "type_count": len(db_values),
+        "max_allowed": max_allowed,
+        "pass": len(invalid_values) == 0 and len(db_values) <= max_allowed,
+    }
+
+
+def check_constraints_and_indices(
+    session: Any,
+    schema_constraints: list[dict[str, str]],
+    schema_indices: list[dict[str, str]],
+) -> dict[str, Any]:
+    """YAML 定義の constraints/indices と DB の実際の制約・インデックスを照合する。
+
+    Parameters
+    ----------
+    session
+        Neo4j セッション。
+    schema_constraints : list[dict[str, str]]
+        YAML の ``constraints`` セクション（``label``, ``property``, ``type`` キー）。
+    schema_indices : list[dict[str, str]]
+        YAML の ``indices`` セクション（``label``, ``property`` キー）。
+
+    Returns
+    -------
+    dict[str, Any]
+        - ``missing_constraints`` (list): YAML にあるが DB にない制約。
+        - ``missing_indices`` (list): YAML にあるが DB にないインデックス。
+        - ``pass`` (bool): 欠落が 0 件の場合 True。
+    """
+    # DB の制約を取得（UNIQUE のみ対象）
+    try:
+        constraint_result = session.run("SHOW CONSTRAINTS YIELD labelsOrTypes, properties, type")
+        db_constraints: set[tuple[str, str]] = set()
+        for r in constraint_result:
+            labels = r["labelsOrTypes"]
+            props = r["properties"]
+            ctype = r["type"]
+            if labels and props and ctype in ("UNIQUENESS", "NODE_UNIQUENESS", "UNIQUE"):
+                label = labels[0] if isinstance(labels, list) else labels
+                prop = props[0] if isinstance(props, list) else props
+                db_constraints.add((label, prop))
+    except Exception:
+        # SHOW CONSTRAINTS が利用できない場合はスキップ
+        db_constraints = set()
+
+    # DB のインデックスを取得（BTREE / RANGE など通常インデックス）
+    try:
+        index_result = session.run(
+            "SHOW INDEXES YIELD labelsOrTypes, properties, type "
+            "WHERE type IN ['BTREE', 'RANGE', 'LOOKUP', 'TEXT'] OR type IS NOT NULL"
+        )
+        db_indices: set[tuple[str, str]] = set()
+        for r in index_result:
+            labels = r["labelsOrTypes"]
+            props = r["properties"]
+            if labels and props:
+                label = labels[0] if isinstance(labels, list) else labels
+                prop = props[0] if isinstance(props, list) else props
+                db_indices.add((label, prop))
+    except Exception:
+        db_indices = set()
+
+    # YAML 定義との照合
+    missing_constraints = [
+        c for c in schema_constraints
+        if (c["label"], c["property"]) not in db_constraints
+    ]
+    missing_indices = [
+        i for i in schema_indices
+        if (i["label"], i["property"]) not in db_indices
+    ]
+
+    return {
+        "missing_constraints": missing_constraints,
+        "missing_indices": missing_indices,
+        "db_constraint_count": len(db_constraints),
+        "db_index_count": len(db_indices),
+        "pass": len(missing_constraints) == 0 and len(missing_indices) == 0,
+    }
+
+
 def classify_db_labels(
     db_labels: list[str],
     allowed: dict[str, str],
@@ -250,10 +434,53 @@ def build_report(
     contamination: list[dict[str, Any]],
     classified: dict[str, list[str]],
     now: datetime | None = None,
+    multilabel_check: dict[str, Any] | None = None,
+    source_type_check: dict[str, Any] | None = None,
+    entity_type_check: dict[str, Any] | None = None,
+    constraints_check: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """検証結果からレポート辞書を構築する。"""
+    """検証結果からレポート辞書を構築する。
+
+    Parameters
+    ----------
+    schema_path : str
+        YAML スキーマファイルのパス文字列。
+    db_labels : list[str]
+        DB 上の全ラベル。
+    allowed : dict[str, str]
+        許可ラベルマッピング。
+    unknown_labels : list[dict[str, str]]
+        不明ラベルのリスト。
+    pascal_violations : list[dict[str, str]]
+        PascalCase 違反ラベルのリスト。
+    contamination : list[dict[str, Any]]
+        クロスコンタミネーションのリスト。
+    classified : dict[str, list[str]]
+        名前空間ごとに分類したラベル辞書。
+    now : datetime | None
+        検証日時（テスト用）。
+    multilabel_check : dict[str, Any] | None
+        :func:`check_multilabel_entity` の結果（v3.0）。
+    source_type_check : dict[str, Any] | None
+        :func:`check_enum_source_type` の結果（v3.0）。
+    entity_type_check : dict[str, Any] | None
+        :func:`check_entity_type_convergence` の結果（v3.0）。
+    constraints_check : dict[str, Any] | None
+        :func:`check_constraints_and_indices` の結果（v3.0）。
+    """
     if now is None:
         now = datetime.now(timezone.utc)
+
+    # v3.0 チェックが提供されている場合は overall_pass に反映
+    # multilabel は WARNING のみ（overall_pass には影響しない）
+    # source_type の不正値は ERROR → overall_pass を False にする
+    # entity_type の収束は ERROR → overall_pass を False にする
+    # constraints/indices の欠落は WARNING のみ（overall_pass には影響しない）
+    v30_errors_pass = all([
+        source_type_check is None or source_type_check.get("pass", True),
+        entity_type_check is None or entity_type_check.get("pass", True),
+    ])
+
     return {
         "validation_date": now.isoformat(),
         "schema_path": schema_path,
@@ -276,11 +503,16 @@ def build_report(
                 "pass": len(contamination) == 0,
                 "details": contamination,
             },
+            "multilabel_entity": multilabel_check,
+            "source_type_enum": source_type_check,
+            "entity_type_convergence": entity_type_check,
+            "constraints_and_indices": constraints_check,
         },
         "overall_pass": (
             len(unknown_labels) == 0
             and len(pascal_violations) == 0
             and len(contamination) == 0
+            and v30_errors_pass
         ),
     }
 
@@ -321,6 +553,65 @@ def format_report(report: dict[str, Any]) -> str:
             lines.append(f"  - {c['name']}: {c['labels']}")
     else:
         lines.append("Cross-contamination: 0 (PASS)")
+
+    # --- v3.0 チェック ---
+    multilabel = report["checks"].get("multilabel_entity")
+    if multilabel is not None:
+        count = multilabel.get("single_label_count", 0)
+        if count > 0:
+            lines.append(
+                f"\nWARNING: Single-label Entity nodes: {count} "
+                "(v3.0 migration may be incomplete)"
+            )
+        else:
+            lines.append("\nMulti-label Entity check: 0 single-label nodes (PASS)")
+
+    source_type = report["checks"].get("source_type_enum")
+    if source_type is not None:
+        invalid = source_type.get("invalid_values", [])
+        if invalid:
+            lines.append(f"\nERROR: Invalid source_type values ({len(invalid)}):")
+            for v in invalid:
+                lines.append(f"  - {v!r}")
+        else:
+            lines.append(f"\nSource.source_type enum: all valid (PASS)")
+
+    entity_type = report["checks"].get("entity_type_convergence")
+    if entity_type is not None:
+        invalid = entity_type.get("invalid_values", [])
+        type_count = entity_type.get("type_count", 0)
+        max_allowed = entity_type.get("max_allowed", 14)
+        if invalid:
+            lines.append(
+                f"\nERROR: Entity.entity_type out-of-range values ({len(invalid)}):"
+            )
+            for v in invalid:
+                lines.append(f"  - {v!r}")
+        else:
+            lines.append(
+                f"\nEntity.entity_type convergence: {type_count}/{max_allowed} types (PASS)"
+            )
+
+    constraints = report["checks"].get("constraints_and_indices")
+    if constraints is not None:
+        missing_c = constraints.get("missing_constraints", [])
+        missing_i = constraints.get("missing_indices", [])
+        if missing_c:
+            lines.append(f"\nWARNING: Missing constraints ({len(missing_c)}):")
+            for c in missing_c:
+                lines.append(f"  - {c['label']}.{c['property']} ({c.get('type', 'UNIQUE')})")
+        else:
+            lines.append(
+                f"\nConstraints: {constraints.get('db_constraint_count', 0)} in DB (PASS)"
+            )
+        if missing_i:
+            lines.append(f"\nWARNING: Missing indices ({len(missing_i)}):")
+            for i in missing_i:
+                lines.append(f"  - {i['label']}.{i['property']}")
+        else:
+            lines.append(
+                f"\nIndices: {constraints.get('db_index_count', 0)} in DB (PASS)"
+            )
 
     lines.append(f"\nOverall: {'PASS' if report['overall_pass'] else 'FAIL'}")
     return "\n".join(lines)
@@ -409,6 +700,9 @@ def main() -> None:
     allowed = build_allowed_labels(namespaces)
     logger.info("Allowed labels loaded: %d", len(allowed))
 
+    # Load v3.0 sections for additional validation
+    v30 = load_v30_sections(Path(args.schema))
+
     parsed_uri = urlparse(args.neo4j_uri)
     logger.info("Connecting to Neo4j: %s:%s", parsed_uri.hostname, parsed_uri.port)
     driver: Driver = GraphDatabase.driver(
@@ -433,6 +727,76 @@ def main() -> None:
             pascal_violations = check_pascal_case_violations(db_labels)
             contamination = check_cross_contamination(session, allowed)
 
+            # --- v3.0 checks ---
+            logger.info("Running v3.0 multilabel Entity check...")
+            multilabel_check = check_multilabel_entity(session)
+            if multilabel_check["warning"]:
+                logger.warning(
+                    "Single-label Entity nodes detected: %d "
+                    "(v3.0 migration may be incomplete)",
+                    multilabel_check["single_label_count"],
+                )
+
+            source_type_check: dict[str, Any] | None = None
+            entity_type_check: dict[str, Any] | None = None
+            if v30.get("enum_validations"):
+                enum_vals = v30["enum_validations"]
+
+                source_type_vals = (
+                    enum_vals.get("source_type", {}).get("values", [])
+                    if isinstance(enum_vals, dict)
+                    else []
+                )
+                if source_type_vals:
+                    logger.info("Running v3.0 source_type enum check...")
+                    source_type_check = check_enum_source_type(session, source_type_vals)
+                    if not source_type_check["pass"]:
+                        logger.error(
+                            "Invalid source_type values detected: %s",
+                            source_type_check["invalid_values"],
+                        )
+
+                entity_type_vals = (
+                    enum_vals.get("entity_type", {}).get("values", [])
+                    if isinstance(enum_vals, dict)
+                    else []
+                )
+                if entity_type_vals:
+                    logger.info("Running v3.0 entity_type convergence check...")
+                    entity_type_check = check_entity_type_convergence(
+                        session, entity_type_vals
+                    )
+                    if not entity_type_check["pass"]:
+                        logger.error(
+                            "Entity.entity_type convergence failed: "
+                            "%d/%d types, invalid: %s",
+                            entity_type_check["type_count"],
+                            entity_type_check["max_allowed"],
+                            entity_type_check["invalid_values"],
+                        )
+
+            constraints_check: dict[str, Any] | None = None
+            schema_yaml = Path(args.schema)
+            try:
+                import yaml as _yaml
+                with schema_yaml.open(encoding="utf-8") as _f:
+                    _schema_raw = _yaml.safe_load(_f)
+                schema_constraints = _schema_raw.get("constraints", []) or []
+                schema_indices = _schema_raw.get("indices", []) or []
+                if schema_constraints or schema_indices:
+                    logger.info("Running v3.0 constraints/indices check...")
+                    constraints_check = check_constraints_and_indices(
+                        session, schema_constraints, schema_indices
+                    )
+                    if not constraints_check["pass"]:
+                        logger.warning(
+                            "Missing constraints: %d, missing indices: %d",
+                            len(constraints_check["missing_constraints"]),
+                            len(constraints_check["missing_indices"]),
+                        )
+            except Exception as e:
+                logger.warning("Could not load constraints/indices from YAML: %s", e)
+
         report = build_report(
             schema_path=args.schema,
             db_labels=db_labels,
@@ -441,6 +805,10 @@ def main() -> None:
             pascal_violations=pascal_violations,
             contamination=contamination,
             classified=classified,
+            multilabel_check=multilabel_check,
+            source_type_check=source_type_check,
+            entity_type_check=entity_type_check,
+            constraints_check=constraints_check,
         )
 
         print(format_report(report))
