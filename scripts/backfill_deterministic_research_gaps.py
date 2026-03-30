@@ -21,7 +21,7 @@ from dataclasses import dataclass
 from datetime import date, datetime
 from typing import Any
 
-from emit_research_queue import _extract_url_domain, _make_domain_node
+from mappers.classification import _extract_url_domain, _make_domain_node
 from neo4j_utils import create_driver
 
 logger = logging.getLogger(__name__)
