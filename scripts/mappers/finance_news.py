@@ -75,7 +75,7 @@ class FinanceNewsMapper(BaseMapper):
             標準化されたマッパー結果。
         """
         # 遅延インポートで循環依存を回避
-        from emit_research_queue import (  # type: ignore[import]
+        from mappers.helpers import (
             _make_source,
             generate_claim_id,
             generate_source_id,

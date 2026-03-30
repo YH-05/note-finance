@@ -115,8 +115,7 @@ class WebResearchMapper(BaseMapper):
         ValueError
             ``authority_level`` の値が無効な場合。
         """
-        # 遅延インポートで循環依存を回避
-        from emit_research_queue import (  # type: ignore[import]
+        from mappers.helpers import (
             _build_wr_causal_rels,
             _build_wr_claims,
             _build_wr_facts,

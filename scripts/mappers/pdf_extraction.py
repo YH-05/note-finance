@@ -99,12 +99,9 @@ class PdfExtractionMapper(BaseMapper):
             ``stances``, ``questions``, および全 21 リレーションタイプを含む
             標準化された結果。
         """
-        # 遅延インポートで循環依存を回避
-        # AIDEV-NOTE: ChunkProcessingContext は emit_research_queue と mappers.base の両方で定義されているが、
-        # _process_chunk は emit_research_queue.ChunkProcessingContext を期待するため、ここで直接インポートする。
-        from emit_research_queue import (  # type: ignore[import]
-            ChunkProcessingContext,
+        from mappers.helpers import (
             _NODE_KEYS,
+            ChunkProcessingContext,
             _build_authored_by_rels,
             _build_next_period_chain,
             _build_supersedes_chain,

@@ -43,7 +43,10 @@ except ImportError:
 # ---------------------------------------------------------------------------
 
 _SCHEMA_YAML_PATH: Path = (
-    Path(__file__).parent.parent.parent / "data" / "config" / "knowledge-graph-schema.yaml"
+    Path(__file__).parent.parent.parent
+    / "data"
+    / "config"
+    / "knowledge-graph-schema.yaml"
 )
 """Path to the knowledge-graph-schema.yaml v3.0 SSoT file."""
 
@@ -167,8 +170,8 @@ class BaseMapper(ABC):
             生 source_type → 正規 source_type マッピング。
         """
         schema = cls.load_yaml_ssot()
-        mapping: dict[str, str] = (
-            schema.get("source_type_normalization", {}).get("mapping", {})
+        mapping: dict[str, str] = schema.get("source_type_normalization", {}).get(
+            "mapping", {}
         )
         return mapping
 
@@ -183,9 +186,7 @@ class BaseMapper(ABC):
         """
         schema = cls.load_yaml_ssot()
         values: list[str] = (
-            schema.get("enum_validations", {})
-            .get("entity_type", {})
-            .get("values", [])
+            schema.get("enum_validations", {}).get("entity_type", {}).get("values", [])
         )
         return frozenset(values)
 
@@ -200,9 +201,7 @@ class BaseMapper(ABC):
         """
         schema = cls.load_yaml_ssot()
         values: list[str] = (
-            schema.get("enum_validations", {})
-            .get("source_type", {})
-            .get("values", [])
+            schema.get("enum_validations", {}).get("source_type", {}).get("values", [])
         )
         return frozenset(values)
 
@@ -411,7 +410,11 @@ class BaseMapper(ABC):
 
         for entity in chunk.get("entities", []):
             name = entity.get("name", "")
-            entity_type = entity.get("entity_type", "").lower() if entity.get("entity_type") else ""
+            entity_type = (
+                entity.get("entity_type", "").lower()
+                if entity.get("entity_type")
+                else ""
+            )
             entity_key = f"{name}::{entity_type}"
             if entity_key not in seen_entity_keys:
                 seen_entity_keys.add(entity_key)
@@ -670,21 +673,33 @@ class BaseMapper(ABC):
             if raw_st:
                 canonical_st = source_type_normalization.get(raw_st, raw_st)
                 add_node(make_source_type_node_fn(canonical_st))
-                add_rel(make_classification_rel_fn("IS_SOURCE_TYPE", source_id, canonical_st))
+                add_rel(
+                    make_classification_rel_fn(
+                        "IS_SOURCE_TYPE", source_id, canonical_st
+                    )
+                )
 
             domain_name = extract_url_domain_fn(source.get("url", ""))
             if domain_name:
-                add_node(make_domain_node_fn(domain_name, base_url=f"https://{domain_name}"))
-                add_rel(make_classification_rel_fn("FROM_DOMAIN", source_id, domain_name))
+                add_node(
+                    make_domain_node_fn(domain_name, base_url=f"https://{domain_name}")
+                )
+                add_rel(
+                    make_classification_rel_fn("FROM_DOMAIN", source_id, domain_name)
+                )
 
             raw_auth = source.get("authority_level", "")
             if raw_auth:
                 canonical_tl = trust_level_normalization.get(raw_auth, raw_auth)
                 if canonical_tl in trust_level_meta:
                     add_node(make_trust_level_node_fn(canonical_tl))
-                    add_rel(make_classification_rel_fn("RATED_AS", source_id, canonical_tl))
+                    add_rel(
+                        make_classification_rel_fn("RATED_AS", source_id, canonical_tl)
+                    )
                 else:
-                    logger.debug("Unknown authority_level, skipping TrustLevel: %s", raw_auth)
+                    logger.debug(
+                        "Unknown authority_level, skipping TrustLevel: %s", raw_auth
+                    )
 
             language = source.get("language", "")
             if language:
@@ -777,7 +792,11 @@ class BaseMapper(ABC):
 
             unit = dp.get("unit", "")
             if unit:
-                add_node(make_unit_of_measure_node_fn(unit, name=unit, dimension="monetary_value"))
+                add_node(
+                    make_unit_of_measure_node_fn(
+                        unit, name=unit, dimension="monetary_value"
+                    )
+                )
                 add_rel(make_classification_rel_fn("IN_UNIT", dp_id, unit))
 
             dp_currency = dp.get("currency")
@@ -793,7 +812,9 @@ class BaseMapper(ABC):
             if is_estimate is not None:
                 dp_type_name = datapoint_type_map.get(bool(is_estimate), "actual")
                 add_node(make_datapoint_type_node_fn(dp_type_name))
-                add_rel(make_classification_rel_fn("IS_DATAPOINT_TYPE", dp_id, dp_type_name))
+                add_rel(
+                    make_classification_rel_fn("IS_DATAPOINT_TYPE", dp_id, dp_type_name)
+                )
 
     @classmethod
     def _postprocess_authors(
@@ -826,7 +847,9 @@ class BaseMapper(ABC):
                 )
                 if entity_match:
                     add_rel(
-                        make_classification_rel_fn("AFFILIATED_WITH", author_id, entity_match)
+                        make_classification_rel_fn(
+                            "AFFILIATED_WITH", author_id, entity_match
+                        )
                     )
 
     @classmethod
@@ -851,9 +874,13 @@ class BaseMapper(ABC):
                 concept_name = concept_category_map.get(raw_cat)
                 if concept_name:
                     add_node(make_concept_category_node_fn(concept_name))
-                    add_rel(make_classification_rel_fn("IS_CATEGORY", ref_id, concept_name))
+                    add_rel(
+                        make_classification_rel_fn("IS_CATEGORY", ref_id, concept_name)
+                    )
                 else:
-                    logger.debug("No ConceptCategory mapping for topic.category=%r", raw_cat)
+                    logger.debug(
+                        "No ConceptCategory mapping for topic.category=%r", raw_cat
+                    )
 
     @classmethod
     def _postprocess_stances(
@@ -872,7 +899,9 @@ class BaseMapper(ABC):
             currency = stance.get("target_price_currency")
             if currency:
                 add_node(
-                    make_unit_of_measure_node_fn(currency, name=currency, dimension="currency")
+                    make_unit_of_measure_node_fn(
+                        currency, name=currency, dimension="currency"
+                    )
                 )
                 add_rel(make_classification_rel_fn("IN_UNIT", stance_id, currency))
 
@@ -954,35 +983,68 @@ class BaseMapper(ABC):
             classification_rels.append(rel)
 
         cls._postprocess_sources(
-            mapped, command, source_type_normalization, trust_level_normalization,
-            trust_level_meta, _add_node, _add_rel,
-            make_source_type_node_fn, make_domain_node_fn, make_trust_level_node_fn,
-            make_language_node_fn, make_pipeline_node_fn, make_classification_rel_fn,
+            mapped,
+            command,
+            source_type_normalization,
+            trust_level_normalization,
+            trust_level_meta,
+            _add_node,
+            _add_rel,
+            make_source_type_node_fn,
+            make_domain_node_fn,
+            make_trust_level_node_fn,
+            make_language_node_fn,
+            make_pipeline_node_fn,
+            make_classification_rel_fn,
             extract_url_domain_fn,
         )
         cls._postprocess_entities(
-            mapped, entity_type_consolidation, _add_node, _add_rel,
-            make_entity_type_node_fn, make_identifier_node_fn, make_classification_rel_fn,
+            mapped,
+            entity_type_consolidation,
+            _add_node,
+            _add_rel,
+            make_entity_type_node_fn,
+            make_identifier_node_fn,
+            make_classification_rel_fn,
         )
         cls._postprocess_facts_claims(
-            mapped, _add_node, _add_rel,
-            make_fact_type_node_fn, make_claim_type_node_fn, make_classification_rel_fn,
+            mapped,
+            _add_node,
+            _add_rel,
+            make_fact_type_node_fn,
+            make_claim_type_node_fn,
+            make_classification_rel_fn,
         )
         cls._postprocess_datapoints(
-            mapped, datapoint_type_map, _add_node, _add_rel,
-            make_unit_of_measure_node_fn, make_datapoint_type_node_fn, make_classification_rel_fn,
+            mapped,
+            datapoint_type_map,
+            _add_node,
+            _add_rel,
+            make_unit_of_measure_node_fn,
+            make_datapoint_type_node_fn,
+            make_classification_rel_fn,
         )
         cls._postprocess_authors(
-            mapped, _add_node, _add_rel,
-            make_author_type_node_fn, make_classification_rel_fn,
+            mapped,
+            _add_node,
+            _add_rel,
+            make_author_type_node_fn,
+            make_classification_rel_fn,
         )
         cls._postprocess_topics(
-            mapped, concept_category_map, _add_node, _add_rel,
-            make_concept_category_node_fn, make_classification_rel_fn,
+            mapped,
+            concept_category_map,
+            _add_node,
+            _add_rel,
+            make_concept_category_node_fn,
+            make_classification_rel_fn,
         )
         cls._postprocess_stances(
-            mapped, _add_node, _add_rel,
-            make_unit_of_measure_node_fn, make_classification_rel_fn,
+            mapped,
+            _add_node,
+            _add_rel,
+            make_unit_of_measure_node_fn,
+            make_classification_rel_fn,
         )
 
         if v3_strip_flat_props and strip_flat_props_fn is not None:

@@ -107,7 +107,7 @@ class WealthScrapeMapper(BaseMapper):
             ``sources``, ``topics``, ``entities``, ``relations.tagged`` を含む結果。
         """
         # 遅延インポートで循環依存を回避
-        from emit_research_queue import (  # type: ignore[import]
+        from mappers.helpers import (
             _empty_rels,
             _map_wealth_theme_common,
             _process_wealth_article,
@@ -187,7 +187,7 @@ class WealthScrapeMapper(BaseMapper):
             ``relations.tagged``, ``relations.source_claim`` を含む結果。
         """
         # 遅延インポートで循環依存を回避
-        from emit_research_queue import (  # type: ignore[import]
+        from mappers.helpers import (
             _empty_rels,
             _map_wealth_theme_common,
             _process_wealth_article,

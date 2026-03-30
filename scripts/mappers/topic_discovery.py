@@ -87,7 +87,7 @@ class TopicDiscoveryMapper(BaseMapper):
             ``relations``, ``session_id``, ``batch_label`` を含む
             標準化されたマッパー結果。
         """
-        from emit_research_queue import (  # type: ignore[import]
+        from mappers.helpers import (
             TOPIC_DISCOVERY_CATEGORIES,
             _build_td_claim,
             _build_td_entities,

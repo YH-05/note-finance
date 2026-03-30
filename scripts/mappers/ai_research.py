@@ -73,7 +73,7 @@ class AiResearchMapper(BaseMapper):
             ``entities``, ``sources``, ``session_id``, ``batch_label`` を含む
             標準化されたマッパー結果。
         """
-        from emit_research_queue import (  # type: ignore[import]
+        from mappers.helpers import (
             _make_source,
             generate_entity_id,
         )
