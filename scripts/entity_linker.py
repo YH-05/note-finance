@@ -5,6 +5,16 @@ Resolves extracted entity/concept names to existing nodes in Neo4j
 using a multi-stage matching strategy aligned with research-neo4j v3.0
 ontology (EntityType consolidation, Identifier pattern, Alias fallback).
 
+パイプライン位置
+-----------------
+
+ステップ2: entity_key 事前解決（neo4j_loader.py の前処理）
+
+  emit_research_queue.py → entity_linker.py → neo4j_loader.py
+
+本スクリプトは neo4j_loader.py がグラフに書き込む前に entity_type の
+正規化と entity_key 解決を行う中間処理を担う。
+
 Matching stages
 ---------------
 
@@ -100,6 +110,14 @@ _DEFAULT_LINKER_CONFIG_PATH = (
     / "entity-linker-config.yaml"
 )
 
+# Path to the knowledge-graph-schema.yaml v3.0 SSoT file
+_KG_SCHEMA_YAML_PATH: Path = (
+    Path(__file__).resolve().parent.parent
+    / "data"
+    / "config"
+    / "knowledge-graph-schema.yaml"
+)
+
 SIMILARITY_THRESHOLD_APOC = 0.8
 SIMILARITY_THRESHOLD_EMBEDDING = 0.8
 
@@ -107,70 +125,57 @@ SIMILARITY_THRESHOLD_EMBEDDING = 0.8
 _ENV_VAR_PATTERN = re.compile(r"^\$\{([^}]+)\}$")
 
 
+def _load_consolidation_rules(
+    schema_path: Path | None = None,
+) -> dict[str, str]:
+    """Load entity_type consolidation mapping from knowledge-graph-schema.yaml.
+
+    Parameters
+    ----------
+    schema_path
+        Path to the YAML SSoT file.  Defaults to ``_KG_SCHEMA_YAML_PATH``.
+
+    Returns
+    -------
+    dict[str, str]
+        Mapping of 42 raw entity_type values to 14 canonical types,
+        sourced from ``consolidation_rules.entity_type.mapping`` in the YAML.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the YAML file does not exist.
+    yaml.YAMLError
+        If the YAML file cannot be parsed.
+    """
+    path = schema_path if schema_path is not None else _KG_SCHEMA_YAML_PATH
+    if not path.exists():
+        raise FileNotFoundError(
+            f"knowledge-graph-schema.yaml not found at: {path}"
+        )
+    with path.open(encoding="utf-8") as f:
+        schema: dict[str, Any] = yaml.safe_load(f)
+    mapping: dict[str, str] = (
+        schema.get("consolidation_rules", {})
+        .get("entity_type", {})
+        .get("mapping", {})
+    )
+    logger.debug(
+        "_load_consolidation_rules: loaded %d mappings from %s",
+        len(mapping),
+        path,
+    )
+    return mapping
+
+
 # ---------------------------------------------------------------------------
 # v3.0 EntityType Consolidation (42 -> 14 canonical types)
 # ---------------------------------------------------------------------------
 
 # Maps legacy / fine-grained entity_type values to the 14 canonical types
-# defined in ontology.yaml (research-3.0).  Types already canonical map to
-# themselves.
-ENTITY_TYPE_CONSOLIDATION: dict[str, str] = {
-    # company (6 sources)
-    "company": "company",
-    "fintech": "company",
-    "subsidiary": "company",
-    "fintech_holding": "company",
-    "digital_bank": "company",
-    "it_services": "company",
-    # technology (2 sources)
-    "technology": "technology",
-    "system": "technology",
-    # organization (6 sources)
-    "organization": "organization",
-    "central_bank": "organization",
-    "government": "organization",
-    "government_agency": "organization",
-    "institution": "organization",
-    "exchange": "organization",
-    # person (1)
-    "person": "person",
-    # index (1)
-    "index": "index",
-    # indicator (2 sources)
-    "indicator": "indicator",
-    "metric": "indicator",
-    # instrument (7 sources)
-    "instrument": "instrument",
-    "etf": "instrument",
-    "currency": "instrument",
-    "currency_pair": "instrument",
-    "fund": "instrument",
-    "bond": "instrument",
-    "asset": "instrument",
-    # commodity (1)
-    "commodity": "commodity",
-    # country (2 sources)
-    "country": "country",
-    "region": "country",
-    # sector (2 sources)
-    "sector": "sector",
-    "market": "sector",
-    # concept (6 sources)
-    "concept": "concept",
-    "model": "concept",
-    "method": "concept",
-    "theme": "concept",
-    "article_proposal": "concept",
-    "event": "concept",
-    # regulation (1)
-    "regulation": "regulation",
-    # broker (1)
-    "broker": "broker",
-    # product (3 sources)
-    "product": "product",
-    "dataset": "product",
-    "data_center": "product",
-}
+# defined in knowledge-graph-schema.yaml (consolidation_rules.entity_type.mapping).
+# SSoT: data/config/knowledge-graph-schema.yaml の consolidation_rules セクション。
+ENTITY_TYPE_CONSOLIDATION: dict[str, str] = _load_consolidation_rules()
 
 # The 14 canonical types (for validation)
 VALID_ENTITY_TYPES: frozenset[str] = frozenset({
