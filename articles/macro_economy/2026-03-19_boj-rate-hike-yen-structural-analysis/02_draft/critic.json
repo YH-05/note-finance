@@ -1,0 +1,218 @@
+{
+  "article_id": "2026-03-19_boj-rate-hike-yen-structural-analysis",
+  "category": "macro_economy",
+  "mode": "full",
+  "generated_at": "2026-03-30",
+  "critics": {
+    "fact": {
+      "score": 73,
+      "issues": [
+        {
+          "severity": "high",
+          "location": "日銀の利上げパス / 次の利上げはいつ? -- 3つのシナリオ",
+          "issue": "「田中審議委員」という人物は日本銀行審議委員に存在しない。1月・3月会合で1.0%への利上げを提案したのは田村直樹審議委員。誤記の可能性が高い。",
+          "suggestion": "「田中審議委員」を「田村審議委員（田村直樹氏）」に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "住宅ローン・家計への影響 / みずほリサーチ&テクノロジーズの試算",
+          "issue": "「家計全体でネット+0.8兆円のプラス」が算術的に不整合。+0.8兆円-0.5兆円=+0.3兆円が正しい。原典（みずほリサーチPDF）での確認が必要。",
+          "suggestion": "原資料を確認しネット試算値を正確な数値に修正する。記事内のカッコ書き計算式も整合させること。"
+        },
+        {
+          "severity": "medium",
+          "location": "賃金と物価の好循環 / 春闘2026",
+          "issue": "連合春闘データのリンク先URL（朝日新聞）のパターンが通常のフォーマットと異なり、URLの正確性・有効性が疑わしい。",
+          "suggestion": "連合公式サイト（https://www.jtuc-rengo.or.jp/）の該当発表ページに変更する。"
+        },
+        {
+          "severity": "medium",
+          "location": "日銀の利上げパス / 次の利上げはいつ? -- 3つのシナリオ",
+          "issue": "ゴールドマン・サックスの利上げ予測（7月1.0%、最終1.5%）について出典URLが記載されていない。",
+          "suggestion": "ゴールドマン・サックスのリポートまたは同内容を報道した記事URLをリンクとして追記する。"
+        },
+        {
+          "severity": "low",
+          "location": "リード文（冒頭）",
+          "issue": "「約30年ぶり」の根拠となる具体的な年月の補足があると信頼性が増す。",
+          "suggestion": "「約30年ぶり」の後に「（1995年以来）」等の年次を括弧書きで追記することを検討する。"
+        }
+      ],
+      "verified_claims_count": 35
+    },
+    "compliance": {
+      "score": 80,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "末尾免責事項",
+          "issue": "snippets/disclaimer.md の統合免責事項と比較して、元本割れリスクの明示・過去実績の非保証・NISA税制改正の可能性の3要素が欠落している。",
+          "suggestion": "末尾の免責事項を snippets/disclaimer.md の全文に完全差し替えすること。"
+        },
+        {
+          "severity": "medium",
+          "location": "個人投資家への示唆 / 2. 住宅ローンの点検",
+          "issue": "「確認しておくことをお勧めします」がヘッジなしの直接推奨表現。",
+          "suggestion": "「確認しておくとよいでしょう」等、行動を直接促さない表現に変更する。"
+        },
+        {
+          "severity": "medium",
+          "location": "個人投資家への示唆 / 3. 日本株投資のセクター選別",
+          "issue": "見出しの「セクター選別」が投資先の選択を示唆する構造になっている。",
+          "suggestion": "見出しを「3. 日本株投資: 金利上昇が各セクターに与える影響の整理」等に変更する。"
+        },
+        {
+          "severity": "medium",
+          "location": "複数箇所（ブルームバーグ・GS・桜井氏・MUFG）",
+          "issue": "ブルームバーグ調査・GS見通し・桜井元審議委員見通し・MUFG為替見通しの5箇所で出典URLリンクが付与されていない。",
+          "suggestion": "各見通しに一次ソースまたは報道記事へのリンクを付与する。"
+        }
+      ],
+      "disclaimer_check": {
+        "exists": true,
+        "position": "末尾",
+        "missing_elements": ["元本割れリスクの明示", "過去実績は将来を保証しない旨", "NISA税制優遇制度の改正可能性"]
+      }
+    },
+    "structure": {
+      "score": 75,
+      "issues": [
+        {
+          "severity": "high",
+          "location": "記事冒頭（導入直後）",
+          "issue": "macro_economy必須構成の「概要 (200-300字)」セクションが独立していない。",
+          "suggestion": "導入の直後に「## この記事のポイント」または「## 概要」セクション（200-300字）を追加する。"
+        },
+        {
+          "severity": "high",
+          "location": "記事末尾（まとめの後）",
+          "issue": "「参考データソース」セクションが完全に欠落している。",
+          "suggestion": "「## 参考データソース」セクションを免責事項の直前に追加し、各ソースURLを列挙する。"
+        },
+        {
+          "severity": "medium",
+          "location": "## 円安の構造的要因 > ### 為替の今後の見通し",
+          "issue": "「今後の見通し」が小見出しに埋没しており、独立セクションとして機能していない。",
+          "suggestion": "独立した ## セクションへの昇格を検討する。"
+        },
+        {
+          "severity": "low",
+          "location": "## 賃金と物価の好循環: 日銀が利上げを続けられる根拠",
+          "issue": "見出しが政策支持的ニュアンスを持つ。政治的中立性の観点から修正が望ましい。",
+          "suggestion": "「## 賃金と物価の動向: 好循環は定着しつつあるか」のように事実記述型に変更する。"
+        }
+      ],
+      "mandatory_sections": {
+        "概要": "missing",
+        "背景経緯": "present",
+        "分析": "present",
+        "今後の見通し": "present",
+        "投資家への示唆": "present",
+        "まとめ": "present",
+        "参考データソース": "missing"
+      }
+    },
+    "data_accuracy": {
+      "score": 93,
+      "issues": [
+        {
+          "severity": "high",
+          "data_point": "みずほ試算 家計全体ネット効果",
+          "issue": "「預金利子増+0.8兆円 - 住宅ローン利払い増-0.5兆円 = ネット+0.8兆円」が算術的不整合。正しくは+0.3兆円（ただし原典の集計範囲を確認要）。",
+          "suggestion": "原資料を確認し正確な数値に修正する。"
+        }
+      ],
+      "verified_data": {
+        "total": 47,
+        "correct": 46,
+        "incorrect": 1
+      }
+    },
+    "readability": {
+      "score": 79,
+      "issues": [
+        {
+          "severity": "high",
+          "location": "日銀の利上げパス / 次の利上げはいつ?",
+          "issue": "田中（田村）・田方委員を説明する段落が200字超で長すぎる。スマホで6〜7行になりモバイル読者が離脱しやすい。",
+          "suggestion": "田村審議委員と田方審議委員をそれぞれ別段落に分割する。"
+        },
+        {
+          "severity": "high",
+          "location": "住宅ローン・家計への影響 / みずほ試算",
+          "issue": "みずほ世代別試算（29歳以下・30代・60代以上）が長い連続テキストで読みづらい。",
+          "suggestion": "年齢別データを箇条書き形式に変換する。"
+        },
+        {
+          "severity": "medium",
+          "location": "円安の構造的要因 / 要因1",
+          "issue": "「FF金利」の略語に括弧説明がない。他の専門用語は説明済みで不統一。",
+          "suggestion": "「米国の政策金利（FF金利）は3.50〜3.75%」に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "円安の構造的要因 / 要因4",
+          "issue": "「25〜30ベーシスポイント」が説明なしで登場。",
+          "suggestion": "「25〜30ベーシスポイント（0.25〜0.30%ポイント）上昇」と括弧で補足する。"
+        },
+        {
+          "severity": "medium",
+          "location": "円安の構造的要因 / 要因5",
+          "issue": "見出し「JGB市場の構造変化」のJGBが未説明。",
+          "suggestion": "「要因5: 日本国債（JGB）市場の構造変化」に変更する。"
+        }
+      ]
+    },
+    "writer_rules": {
+      "score": 72,
+      "issues": [
+        {
+          "severity": "high",
+          "rule_id": "WR-WC",
+          "issue": "本文約5,400字がmacro_economy上限5,000字を超過している。",
+          "suggestion": "各セクションを精査し重複・冗長な記述を削減して5,000字以内に収める。"
+        },
+        {
+          "severity": "high",
+          "rule_id": "WR-SC",
+          "issue": "「参考データソース」セクションが欠落している。",
+          "suggestion": "「## 参考データソース」を末尾に追加し、使用した全ソースのURLを列挙する。"
+        },
+        {
+          "severity": "medium",
+          "rule_id": "WR-FM",
+          "issue": "meta.yamlに macro_economy 追加必須項目の `indicators`、`regions` フィールドが未設定。",
+          "suggestion": "meta.yamlに indicators/regions を追加する。"
+        },
+        {
+          "severity": "medium",
+          "rule_id": "WR-SC",
+          "issue": "「概要」セクション（200-300字）が独立していない。",
+          "suggestion": "導入直後に「## この記事のポイント」等として200-300字の概要ブロックを追加する。"
+        }
+      ],
+      "checks": {
+        "word_count": {"actual": 5400, "range": "3000-5000", "status": "over"},
+        "required_sections": {"found": 5, "total": 7, "missing": ["概要", "参考データソース"]},
+        "frontmatter": {"missing": ["indicators", "regions"]},
+        "scenario_analysis": "present",
+        "political_neutrality": "pass",
+        "currency_unit": "pass"
+      }
+    }
+  },
+  "overall_score": 79,
+  "priority_fixes": [
+    {"priority": 1, "severity": "high", "item": "「田中審議委員」→「田村審議委員（田村直樹氏）」に修正"},
+    {"priority": 2, "severity": "high", "item": "免責事項を snippets/disclaimer.md の全文に置き換え"},
+    {"priority": 3, "severity": "high", "item": "「参考データソース」セクションを追加"},
+    {"priority": 4, "severity": "high", "item": "みずほ試算のネット効果表記を修正（+0.8-0.5=+0.3兆円、原典確認後）"},
+    {"priority": 5, "severity": "high", "item": "文字数を5,000字以内に削減"},
+    {"priority": 6, "severity": "medium", "item": "「概要」セクション（200-300字）を導入直後に追加"},
+    {"priority": 7, "severity": "medium", "item": "みずほ世代別試算を箇条書きに変換"},
+    {"priority": 8, "severity": "medium", "item": "FF金利・ベーシスポイント・JGBの括弧説明追加"},
+    {"priority": 9, "severity": "medium", "item": "「お勧めします」→「とよいでしょう」に緩和"},
+    {"priority": 10, "severity": "medium", "item": "セクション見出し「セクター選別」→分析的表現に変更"}
+  ]
+}

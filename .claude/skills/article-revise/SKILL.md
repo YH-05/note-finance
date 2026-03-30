@@ -116,8 +116,7 @@ changes:
 ### コンプライアンス（常に遵守）
 
 修正後も以下を満たすこと:
-- 冒頭の免責事項（not-advice スニペット）が残っている
-- 末尾のリスク開示（investment-risk スニペット）が残っている
+- 末尾に免責事項（`snippets/disclaimer.md`）が残っている
 - 禁止表現（「買うべき」「絶対に」等）が含まれていない
 
 詳細: `finance-article-writer` スキルの `references/common-rules.md`

@@ -125,3 +125,9 @@ data/config/neo4j-instances/note.yaml
 
 # Processed queue files (pipeline runtime output)
 .processed/
+
+# OCR training data (large binary, not for version control)
+*.traineddata
+
+# Temp/unknown files
+無題のファイル.base

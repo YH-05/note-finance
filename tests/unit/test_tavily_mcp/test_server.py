@@ -202,9 +202,7 @@ class TestPostWithRotation:
 
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
-    def test_異常系_HTTP500でエラー(
-        self, mock_post: patch, mock_pool: patch
-    ) -> None:
+    def test_異常系_HTTP500でエラー(self, mock_post: patch, mock_pool: patch) -> None:
         pool = TavilyKeyPool(["key1"])
         mock_pool.return_value = pool
         mock_post.return_value = httpx.Response(

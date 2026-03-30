@@ -453,6 +453,8 @@ def save_metadata(
     pdf_path: str,
     pages: str,
     chunks: str,
+    converter: str = "claude",
+    prescan_json: str | None = None,
 ) -> str:
     """Save processing metadata as ``metadata.json``.
 
@@ -468,6 +470,12 @@ def save_metadata(
         Number of pages (as string from CLI args).
     chunks : str
         Number of chunks (as string from CLI args).
+    converter : str
+        Conversion method: ``"claude"``, ``"auto"``, or ``"llamaparse"``.
+        Defaults to ``"claude"`` for backwards compatibility.
+    prescan_json : str | None
+        JSON string of prescan summary (for auto method).
+        Pass the path to ``prescan.json`` or a raw JSON string.
 
     Returns
     -------
@@ -478,31 +486,55 @@ def save_metadata(
     --------
     >>> save_metadata("/output", "abc...", "report.pdf", "30", "5")  # doctest: +SKIP
     'ok'
+    >>> save_metadata("/out", "abc...", "r.pdf", "20", "4", "auto", '{"table_ratio": 0.5}')  # doctest: +SKIP
+    'ok'
     """
     logger.debug(
         "save_metadata called",
         output_dir=output_dir,
         sha256=sha256[:16] + "...",
         pdf_path=pdf_path,
+        converter=converter,
     )
 
     out_path = Path(output_dir)
     out_path.mkdir(parents=True, exist_ok=True)
 
+    # Parse prescan data if provided
+    prescan_data = None
+    if prescan_json:
+        prescan_path = Path(prescan_json)
+        if prescan_path.exists():
+            prescan_data = json.loads(prescan_path.read_text(encoding="utf-8"))
+        else:
+            try:
+                prescan_data = json.loads(prescan_json)
+            except json.JSONDecodeError:
+                logger.warning("Could not parse prescan_json", raw=prescan_json)
+
     metadata = {
+        # Common fields
         "sha256": sha256,
         "pdf_path": pdf_path,
         "pages": int(pages),
         "chunks": int(chunks),
-        "converter": "method_b",
+        "converter": converter,
         "processed_at": datetime.now(tz=timezone.utc).isoformat(),
+        # Method-specific fields (null for non-llamaparse methods)
+        "pdf_name": None,
+        "tier": None,
+        "job_id": None,
+        "credits_per_page": None,
+        "estimated_credits": None,
+        # Prescan info (populated by auto method)
+        "prescan": prescan_data,
     }
 
     meta_file = out_path / "metadata.json"
     with meta_file.open("w", encoding="utf-8") as fh:
         json.dump(metadata, fh, ensure_ascii=False, indent=2)
 
-    logger.info("Metadata saved", output_file=str(meta_file))
+    logger.info("Metadata saved", output_file=str(meta_file), converter=converter)
     return "ok"
 
 

@@ -120,7 +120,7 @@ class TestHeadingBlock:
     """見出しブロックのテスト。"""
 
     def test_正常系_見出しブロックを正しくパースできる(self, tmp_path: Path) -> None:
-        """h1, h2, h3 がそれぞれ正しい level の heading ブロックになることを確認。"""
+        """h2, h3 が body_blocks に含まれ、h1 はタイトルに移動して本文から除去されることを確認。"""
         md = """\
 # 大見出し
 
@@ -133,17 +133,17 @@ class TestHeadingBlock:
 
         result = parse_draft(draft_path)
 
+        # h1 はタイトルとして抽出され、本文からは除去される
+        assert result.title == "大見出し"
+
         headings = [b for b in result.body_blocks if b.block_type == "heading"]
-        assert len(headings) == 3
+        assert len(headings) == 2
 
-        assert headings[0].content == "大見出し"
-        assert headings[0].level == 1
+        assert headings[0].content == "中見出し"
+        assert headings[0].level == 2
 
-        assert headings[1].content == "中見出し"
-        assert headings[1].level == 2
-
-        assert headings[2].content == "小見出し"
-        assert headings[2].level == 3
+        assert headings[1].content == "小見出し"
+        assert headings[1].level == 3
 
 
 class TestParagraphBlock:
@@ -487,3 +487,195 @@ category: investment
         result = parse_draft(draft_path)
 
         assert images_dir / "table_0.png" in result.image_paths
+
+
+# =============================================================================
+# インラインURL削除
+# =============================================================================
+
+
+class TestInlineLinkStripping:
+    """インラインリンク [text](url) の除去テスト。"""
+
+    def test_正常系_段落内のインラインリンクがテキストのみになる(
+        self, tmp_path: Path
+    ) -> None:
+        md = """\
+# タイトル
+
+純資産総額が[10兆円に到達](https://example.com/source)しました。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        paragraphs = [b for b in result.body_blocks if b.block_type == "paragraph"]
+        assert len(paragraphs) == 1
+        assert paragraphs[0].content == "純資産総額が10兆円に到達しました。"
+
+    def test_正常系_出典リンクがテキストのみになる(self, tmp_path: Path) -> None:
+        md = """\
+# タイトル
+
+重要なデータです（出典：[金融庁](https://www.fsa.go.jp/)）。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        paragraphs = [b for b in result.body_blocks if b.block_type == "paragraph"]
+        assert paragraphs[0].content == "重要なデータです（出典：金融庁）。"
+
+    def test_正常系_見出し内のリンクも除去される(self, tmp_path: Path) -> None:
+        md = """\
+# タイトル
+
+## [公式レポート](https://example.com)の要約
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        headings = [b for b in result.body_blocks if b.block_type == "heading"]
+        assert headings[0].content == "公式レポートの要約"
+
+    def test_正常系_リスト項目内のリンクも除去される(self, tmp_path: Path) -> None:
+        md = """\
+# タイトル
+
+- [三菱UFJ銀行](https://www.bk.mufg.jp/)の報告
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        items = [b for b in result.body_blocks if b.block_type == "list_item"]
+        assert items[0].content == "三菱UFJ銀行の報告"
+
+
+# =============================================================================
+# ディスクレーマー末尾移動
+# =============================================================================
+
+
+class TestDisclaimerRelocation:
+    """免責事項ブロックの末尾移動テスト。"""
+
+    def test_正常系_太字ディスクレーマーが末尾に移動する(self, tmp_path: Path) -> None:
+        md = """\
+# タイトル
+
+**免責事項**: 本記事は情報提供を目的としており、投資勧誘ではありません。
+
+## 第1章
+
+本文テキスト。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        # 末尾が separator → disclaimer の順
+        assert result.body_blocks[-2].block_type == "separator"
+        assert result.body_blocks[-1].block_type == "paragraph"
+        assert "免責事項" in result.body_blocks[-1].content
+
+        # disclaimer が本文の途中にないことを確認
+        non_tail = result.body_blocks[:-2]
+        assert all("免責事項" not in b.content for b in non_tail)
+
+    def test_正常系_引用ブロックのディスクレーマーが段落に変換される(
+        self, tmp_path: Path
+    ) -> None:
+        md = """\
+# タイトル
+
+## 本文
+
+テキスト。
+
+> **免責事項**: 投資判断は自己責任で行ってください。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        # blockquote ではなく paragraph に変換される
+        assert result.body_blocks[-1].block_type == "paragraph"
+        assert result.body_blocks[-2].block_type == "separator"
+
+    def test_エッジケース_ディスクレーマーがない場合は変更なし(
+        self, tmp_path: Path
+    ) -> None:
+        md = """\
+# タイトル
+
+## セクション
+
+本文のみ。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        # separator が追加されていないことを確認
+        assert result.body_blocks[-1].block_type == "paragraph"
+        assert result.body_blocks[-1].content == "本文のみ。"
+
+
+# =============================================================================
+# タイトル本文除去
+# =============================================================================
+
+
+class TestTitleRemovalFromBody:
+    """h1 見出しが本文から除去されるテスト。"""
+
+    def test_正常系_h1がbody_blocksに含まれない(self, tmp_path: Path) -> None:
+        md = """\
+# 記事タイトル
+
+## セクション1
+
+本文。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        assert result.title == "記事タイトル"
+
+        h1_blocks = [
+            b for b in result.body_blocks if b.block_type == "heading" and b.level == 1
+        ]
+        assert len(h1_blocks) == 0
+
+    def test_正常系_frontmatterタイトル時もh1は除去される(self, tmp_path: Path) -> None:
+        md = """\
+---
+title: FMタイトル
+---
+
+# Markdownタイトル
+
+本文。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        assert result.title == "FMタイトル"
+
+        h1_blocks = [
+            b for b in result.body_blocks if b.block_type == "heading" and b.level == 1
+        ]
+        assert len(h1_blocks) == 0

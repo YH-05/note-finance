@@ -59,8 +59,7 @@ revised_draft.md を生成してください。
 
 ### 免責事項の確認・追加
 
-- 冒頭に `snippets/not-advice.md` が含まれているか確認。不足していれば追加
-- 末尾に `snippets/investment-risk.md` が含まれているか確認。不足していれば追加
+- 末尾に `snippets/disclaimer.md` の免責事項が含まれているか確認。不足していれば区切り線の下に装飾なし段落で追加（1箇所のみ）
 
 ### 投資助言的表現の修正
 
@@ -130,7 +129,7 @@ revision_type: compliance_only
 
 - [ ] compliance の critical 問題がすべて解決
 - [ ] compliance の high 問題がすべて解決
-- [ ] 必須免責事項（not-advice, investment-risk）がすべて含まれている
+- [ ] 末尾に免責事項（`snippets/disclaimer.md`）が含まれている
 - [ ] structure/readability/data_accuracy は変更していない
 - [ ] 元の文章の良い部分が保持されている
 - [ ] 修正履歴が正確に記録されている

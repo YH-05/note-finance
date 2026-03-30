@@ -51,8 +51,7 @@ revised_draft.md を生成してください。
 詳細な禁止表現・代替表現の一覧: `.claude/resources/critique-criteria/compliance-standards.md`
 
 ### 免責事項の追加
-- 冒頭に not-advice スニペット
-- 末尾に investment-risk スニペット
+- 末尾に `snippets/disclaimer.md`（区切り線の下に装飾なし段落で1箇所のみ）
 - 予測には適切なヘッジ表現
 
 ## fact/data_accuracy 問題の修正方針

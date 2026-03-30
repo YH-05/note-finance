@@ -1,61 +1,53 @@
-# === Core (必須) ===
-article_id: "2026-03-28_us-telecom-sector"
-topic: "USのtelcomセクターと企業"
+article_id: 2026-03-28_us-telecom-sector
+topic: USのtelcomセクターと企業
 category: stock_analysis
 type: data_analysis
-status: research_done
-
-# === Timestamps ===
-created_at: "2026-03-28"
-updated_at: "2026-03-28"
-
-# === Content ===
+status: published
+created_at: '2026-03-28'
+updated_at: '2026-03-30T11:05:58.240864+00:00'
 tags:
-  - US Telecom
-  - 5G
-  - Wireless
-  - Tower REIT
-  - Fiber
-  - Broadband
-  - Satellite
+- US Telecom
+- 5G
+- Wireless
+- Tower REIT
+- Fiber
+- Broadband
+- Satellite
 target_audience: intermediate
 target_wordcount: 4000
-
-# === Category-Specific ===
 symbols:
-  - T       # AT&T
-  - VZ      # Verizon
-  - TMUS    # T-Mobile US
-  - CMCSA   # Comcast
-  - CHTR    # Charter Communications
-  - LUMN    # Lumen Technologies
-  - AMT     # American Tower
-  - CCI     # Crown Castle
-  - SBAC    # SBA Communications
-  - FYBR    # Frontier Communications
-  - SATS    # EchoStar (旧DISH)
+- T
+- VZ
+- TMUS
+- CMCSA
+- CHTR
+- LUMN
+- AMT
+- CCI
+- SBAC
+- FYBR
+- SATS
 date_range:
-  start: "2020-01-01"
-  end: "2026-03-28"
-
-# === Tracking ===
+  start: '2020-01-01'
+  end: '2026-03-28'
 critic_score: 84
 revision_count: 1
 note_url: null
 x_post_url: null
 research_sources: 20
-
-# === Workflow ===
 workflow:
   research: done
   draft: done
   critique: done
   revision: done
   publish: pending
-
-# === Human Feedback ===
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: false
+published_at: '2026-03-30T11:05:58.240864+00:00'
+draft_url: https://editor.note.com/notes/nbe1a268cec6b/edit/
