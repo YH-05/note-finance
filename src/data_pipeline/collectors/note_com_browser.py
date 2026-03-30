@@ -239,7 +239,7 @@ class NoteComBrowser:
     # Public API
     # ------------------------------------------------------------------
 
-    async def list_article_urls(
+    async def list_article_urls(  # noqa: PLR0915
         self,
         username: str,
     ) -> list[str]:
