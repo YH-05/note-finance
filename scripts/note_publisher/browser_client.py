@@ -164,25 +164,46 @@ class NoteBrowserClient:
         pw = await _async_playwright().start()
         self._playwright = pw
 
-        # AIDEV-NOTE: Use channel="chrome" to launch the user's installed
-        # Chrome browser instead of Playwright's bundled Chromium.  This
-        # prevents Google OAuth from blocking login with "This browser or
-        # app may not be secure".  Falls back to bundled Chromium if
+        # AIDEV-NOTE: Always use channel="chrome" (the user's installed Chrome)
+        # instead of Playwright's bundled Chromium.  note.com's editor
+        # (editor.note.com) renders properly only in real Chrome; headless
+        # Chromium gets stuck on the loading spinner indefinitely.
+        # Also prevents Google OAuth from blocking login with "This browser
+        # or app may not be secure".  Falls back to bundled Chromium if
         # Chrome is not installed.
-        launch_kwargs: dict[str, Any] = {"headless": self._config.headless}
-        if not self._config.headless:
-            launch_kwargs["channel"] = "chrome"
+        # AIDEV-NOTE: note.com's editor (editor.note.com) makes cross-origin
+        # requests to note.com/api/v1/text_notes.  Chrome's headless mode
+        # (both old and --headless=new) does NOT send SameSite=Lax cookies for
+        # these same-site cross-origin requests, causing 403 Forbidden.
+        # Non-headless Chrome sends cookies correctly.
+        # Therefore: always launch in non-headless (headless=False), using
+        # channel="chrome" to use the user's installed Chrome for best
+        # compatibility.  NOTE_HEADLESS=false is now the effective default.
+        launch_kwargs: dict[str, Any] = {
+            "headless": False,
+            "channel": "chrome",
+        }
 
         try:
             browser = await pw.chromium.launch(**launch_kwargs)
         except Exception:
             logger.warning("chrome_channel_launch_failed_falling_back_to_chromium")
             browser = await pw.chromium.launch(
-                headless=self._config.headless,
+                headless=False,
             )
 
         self._browser = browser
-        context = await browser.new_context()
+        # AIDEV-NOTE: Load the stored session state directly into the browser
+        # context at creation time rather than injecting cookies afterward via
+        # add_cookies().  This ensures sameSite/httpOnly semantics are
+        # honoured correctly by the browser (including cross-subdomain POST
+        # requests like editor.note.com → note.com/api), whereas add_cookies()
+        # can result in cookies being omitted from cross-subdomain requests.
+        state_path = self._config.storage_state_path
+        context_kwargs: dict[str, Any] = {}
+        if state_path.exists():
+            context_kwargs["storage_state"] = str(state_path)
+        context = await browser.new_context(**context_kwargs)
         self._context = context
         self._page = await context.new_page()
 
@@ -254,22 +275,26 @@ class NoteBrowserClient:
 
         logger.debug("restoring_session", path=str(state_path))
 
-        try:
-            state = json.loads(state_path.read_text(encoding="utf-8"))
-            await self._context.add_cookies(state.get("cookies", []))  # type: ignore[union-attr]
-        except Exception:
-            logger.warning("session_restore_failed", exc_info=True)
-            return False
-
-        # Navigate to note.com and check login status
+        # AIDEV-NOTE: Cookies are already loaded via storage_state in __aenter__.
+        # We only need to navigate to note.com to validate the session and
+        # allow the server to refresh any short-lived tokens.
         assert self._page is not None  # for type checker
-        await self._page.goto(
-            "https://note.com",
-            timeout=self._config.timeout_ms,
-        )
+        try:
+            await self._page.goto(
+                "https://note.com",
+                timeout=self._config.timeout_ms,
+            )
+        except Exception:
+            logger.warning("session_restore_navigate_failed", exc_info=True)
+            return False
 
         if await self._is_logged_in():
             logger.info("session_restored")
+            # AIDEV-NOTE: Save the session immediately after restoring so that
+            # any cookies note.com refreshed during the goto() call are
+            # persisted to disk.  Without this, cookie drift accumulates and
+            # the stored state becomes stale after a few runs.
+            await self._save_session()
             return True
 
         logger.info("session_stale")
@@ -383,9 +408,14 @@ class NoteBrowserClient:
         logger.debug("creating_new_draft", url=url)
 
         await self._page.goto(url, timeout=self._config.timeout_ms)
+        # AIDEV-NOTE: The note.com React editor (contenteditable div) can take
+        # longer than the default network timeout to render on first load.
+        # Use at least 60 s here regardless of NOTE_TIMEOUT_MS so that slow
+        # page initialisation does not cause a spurious "session expired" error.
+        editor_timeout = max(self._config.timeout_ms, 60_000)
         await self._page.wait_for_selector(
             _SELECTORS["editor_body"],
-            timeout=self._config.timeout_ms,
+            timeout=editor_timeout,
         )
         self._in_list = False
         self._in_numbered_list = False

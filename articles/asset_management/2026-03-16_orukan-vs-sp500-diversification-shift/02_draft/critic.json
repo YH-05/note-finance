@@ -1,164 +1,502 @@
 {
-    "critic_type": "structure",
-    "score": 80,
-    "status": "warning",
-    "category_scores": {
-        "introduction": {
-            "score": 82,
-            "weight": 0.20,
-            "weighted_score": 16.4,
-            "notes": "免責表示が本文冒頭に置かれており、フック文（2026年2月27日〜）の直前で読者の没入を阻害する。フック自体は具体的日付+数値+「歴史が塗り替えられた」という強い動詞で構成されており質は高い。問題提起（米国一強の思い込みの再考）と読む価値（これから投資を始める方への意味）も適切に提示されている。"
-        },
-        "flow": {
-            "score": 78,
-            "weight": 0.25,
-            "weighted_score": 19.5,
-            "notes": "成長ストーリー→メカニズム分析→逆風背景→リスク警告→GPIF実践例→投資家への提言→まとめという流れは概ね論理的。第2セクション末尾「2025年、形勢は逆転します」と第3セクション冒頭「2026年2月にはオルカンへの月間流入が3,193億円」が時系列で連続する点は改善されたが、第3セクション内の「2024年はAI関連銘柄の爆発力でS&P500がオルカンを上回りました」という内容が第2セクションの同一記述と重複している。"
-        },
-        "sections": {
-            "score": 76,
-            "weight": 0.25,
-            "weighted_score": 19.0,
-            "notes": "first_draftの7セクションから8セクションに再構成され、GPIFセクションが独立したことで第5セクション（ほったらかし）の情報過多が解消された。見出しレベルがh2（##）に統一されたことも改善。ただし第4セクション（米国一強への3つの逆風）が約780字と全セクション中最長で他の2倍程度になっており、バランスの偏りが生じている。また8セクションが全てh2フラット構造で、前半分析パートと後半実践パートの大区分がなく、記事全体の構造が視覚的に掴みにくい。"
-        },
-        "conclusion": {
-            "score": 83,
-            "weight": 0.15,
-            "weighted_score": 12.45,
-            "notes": "「正解がないからこそ分散する」という核心メッセージが明確。GPIFの25年196兆円という具体的な実績データで説得力あり。マラソン比喩で記事を印象的に締めている。ただし実践セクション（第7セクション）で提示した3つのポイントを結論で振り返らず、新たな比喩で締めているため、実践→結論の橋渡しがやや弱い。"
-        },
-        "readability": {
-            "score": 84,
-            "weight": 0.15,
-            "weighted_score": 12.6,
-            "notes": "revised_draftで専門用語への括弧書き補足が大幅に追加された（純資産総額、MSCI ACWI指数、CAPE比率、ポートフォリオ、名目期待リターンなど）。first_draftと比較して読みやすさが顕著に改善されている。免責表示が冒頭と末尾の二重掲載になっており、冒頭のものは記事テンポを損なっている。"
-        }
-    },
-    "issues": [
+  "article_id": "2026-03-16_orukan-vs-sp500-diversification-shift",
+  "generated_at": "2026-03-30",
+  "mode": "full",
+  "critics": {
+    "compliance": {
+      "critic_type": "compliance",
+      "score": 81,
+      "status": "pass",
+      "issues": [
         {
-            "issue_id": "ST001",
-            "severity": "medium",
-            "category": "intro",
-            "location": {
-                "section": "導入部",
-                "description": "免責表示（1行目〜3行目）"
-            },
-            "issue": "免責表示がタイトル直下・フック文の直前に配置されており、「2026年2月27日〜」という強力なフックの前に読者が法的文言を読む構造になっている。note.comの初心者読者は冒頭の免責文で心理的に引いてしまい、記事への没入が阻害される。",
-            "suggestion": "冒頭の免責表示を削除し、末尾の免責表示（記事最終行）に一本化する。または冒頭の免責は「※投資は自己責任でお願いします」の一行のみに簡略化し、詳細は末尾に記載する。"
+          "issue_id": "CP001",
+          "severity": "medium",
+          "category": "expression",
+          "location": {
+            "section": "冒頭",
+            "text": "日本の個人投資家が「米国一強」という思い込みを見つめ直し始めた兆候だと考えます"
+          },
+          "issue": "「兆候だと考えます」がオルカン優位方向への誘導として機能しうる表現。",
+          "regulation": "金融商品取引法第38条（禁止行為）断定的判断の提供の禁止",
+          "suggestion": "「一つの見方として捉えることもできます」など中立的な表現に変更する。"
         },
         {
-            "issue_id": "ST002",
-            "severity": "medium",
-            "category": "flow",
-            "location": {
-                "section": "「人気」と「実力」で読み解く逆転のメカニズム / 「米国一強」に忍び寄る3つの逆風",
-                "description": "第3・第4セクション間でのAI相場リターン情報の重複"
-            },
-            "issue": "第3セクション「次に「実力」。2024年はAI関連銘柄の爆発力でS&P500がオルカンを上回りました」と、第4セクション冒頭「2024年はAI関連銘柄の爆発力でS&P500がオルカンを上回りました」がほぼ同一の記述。読者に既視感を与え、展開のテンポが落ちる。",
-            "suggestion": "第3セクションでは「2025年に形勢が逆転した」という結果のみに触れ、理由の詳述は第4セクションに委ねる構造にする。例：「しかし2025年、形勢は逆転します。その背景にある3つの変化を見てみましょう」で第4セクションへ橋渡しする。"
+          "issue_id": "CP002",
+          "severity": "medium",
+          "category": "expression",
+          "location": {
+            "section": "初心者が押さえておきたい3つのポイント > 1",
+            "text": "この「40%の保険」が、2025年のような局面で効いてくる"
+          },
+          "issue": "「効いてくる」が将来の分散効果を保証するかのような表現。",
+          "regulation": "金融商品取引法第37条（広告等の規制）リスク表示義務",
+          "suggestion": "「2025年のような局面では効果が出やすいと考えられます」のように条件を明示した表現に変更する。"
         },
         {
-            "issue_id": "ST003",
-            "severity": "medium",
-            "category": "balance",
-            "location": {
-                "section": "「米国一強」に忍び寄る3つの逆風",
-                "description": "セクション全体（約780字）"
-            },
-            "issue": "第4セクションが約780字と全8セクション中最長で、他セクションの平均（約420字）の約1.9倍。3つの逆風（関税ショック/割高水準/銘柄集中）それぞれに複数のデータが詰め込まれており、情報密度が高い。beginner向け記事としてセクション単体の消化に負担がかかる。",
-            "suggestion": "「3. 少数銘柄への集中リスク」の段落（Magnificent 7の-5.1%と残り493銘柄プラスの具体例）はインパクトが大きいが、読み返しデータとして最後に置くと密度が緩和される。または「関税ショック+割高水準」を1項目にまとめて「2つの逆風」構成に整理する。"
-        },
-        {
-            "issue_id": "ST004",
-            "severity": "low",
-            "category": "sections",
-            "location": {
-                "section": "全セクション",
-                "description": "見出し階層構造（h2フラット構成）"
-            },
-            "issue": "8セクション全てがh2（##）でフラットに並んでいる。記事の前半（成長→メカニズム→逆風）は分析パート、後半（リスク→GPIF→実践）は読者への提言パートという構造があるが、見出し階層に反映されていない。長い記事でセクション間の位置づけが掴みにくく、特に途中から読み始めた読者が迷いやすい。",
-            "suggestion": "分析パートを「## なぜ逆転が起きたのか」、提言パートを「## 私たちはどう向き合うか」のようなh2大見出しで2分割し、各セクションをh3（###）に下げる。note.comの目次表示でも構造が明確になる。"
-        },
-        {
-            "issue_id": "ST005",
-            "severity": "low",
-            "category": "conclusion",
-            "location": {
-                "section": "まとめ：「正解」がないからこそ、分散する",
-                "description": "実践セクションとの接続"
-            },
-            "issue": "実践セクション（第7セクション）で提示した3つのポイント（集中しすぎない/出来すぎリターンを信じない/定期点検）が結論で参照されていない。マラソン比喩は印象的だが、前のセクションから独立した締めくくりになっており、記事全体の論理が一本化されていない。",
-            "suggestion": "結論の冒頭で「集中しすぎず、期待しすぎず、放置しすぎない」のように3ポイントを一行で要約してからマラソン比喩に接続する。読者が「あの3点のことか」と追体験できるため記憶定着が向上する。"
-        },
-        {
-            "issue_id": "ST006",
-            "severity": "low",
-            "category": "readability",
-            "location": {
-                "section": "導入部",
-                "description": "免責表示の二重掲載"
-            },
-            "issue": "冒頭（3行目）と末尾（最終行）に免責表示が二重掲載されている。内容は類似しているが表現が異なり（冒頭は「特定の金融商品の売買を推奨するものではありません」、末尾は「過去のリターンは将来の成果を保証するものではありません」が追加）、冗長な印象を与える。",
-            "suggestion": "末尾に両方の内容を統合した一つの免責文を置き、冒頭の免責文は削除する。"
-        }
-    ],
-    "section_analysis": [
-        {
-            "section": "導入部（リード）",
-            "word_count": 270,
-            "subsections": 0,
-            "balance": "短すぎ"
-        },
-        {
-            "section": "オルカンの「100億円→10兆円」という驚異の成長",
-            "word_count": 330,
-            "subsections": 0,
-            "balance": "短すぎ"
-        },
-        {
-            "section": "「人気」と「実力」で読み解く逆転のメカニズム",
-            "word_count": 490,
-            "subsections": 0,
-            "balance": "適切"
-        },
-        {
+          "issue_id": "CP003",
+          "severity": "medium",
+          "category": "fairness",
+          "location": {
             "section": "「米国一強」に忍び寄る3つの逆風",
-            "word_count": 780,
-            "subsections": 3,
-            "balance": "長すぎ"
+            "text": "セクション全体（3つのリスクを詳述、肯定的側面への言及なし）"
+          },
+          "issue": "S&P500のリスク面のみを3セクション詳述し肯定的側面に言及がない。一方向的な構成は景品表示法上の不当表示リスクがある。",
+          "regulation": "景品表示法第5条（不当表示の禁止）",
+          "suggestion": "セクション冒頭か末尾に「S&P500には依然として世界最大級の流動性と過去15年の実績がある」など肯定的側面への1文を追加する。"
         },
         {
-            "section": "出来すぎリターンの落とし穴",
-            "word_count": 400,
-            "subsections": 0,
-            "balance": "適切"
-        },
-        {
-            "section": "GPIFに学ぶ「地味だけど確実」な方法",
-            "word_count": 330,
-            "subsections": 0,
-            "balance": "短すぎ"
-        },
-        {
-            "section": "初心者が押さえておきたい3つのポイント",
-            "word_count": 730,
-            "subsections": 3,
-            "balance": "適切"
-        },
-        {
-            "section": "まとめ：「正解」がないからこそ、分散する",
-            "word_count": 440,
-            "subsections": 0,
-            "balance": "適切"
+          "issue_id": "CP004",
+          "severity": "low",
+          "category": "disclaimer",
+          "location": {
+            "section": "冒頭免責",
+            "text": "冒頭の免責事項"
+          },
+          "issue": "冒頭免責に「過去の実績は将来の成果を保証するものではない」の予測免責が不在。末尾にのみ記載されている。",
+          "regulation": "金融商品取引法第37条第1項第5号",
+          "suggestion": "冒頭免責に「過去の実績は将来の成果を保証するものではありません」を追加する。"
         }
-    ],
-    "readability_metrics": {
-        "avg_sentence_length": 38,
-        "avg_paragraph_length": 3,
-        "technical_terms_explained": 12,
-        "technical_terms_unexplained": 3
+      ],
+      "summary": "禁止表現は検出されず。4件の問題のうち3件はmedium（不確実性の明示、公平性）。公開可能水準だが修正推奨。"
     },
-    "summary": "revised_draftはfirst_draftから大きく改善されており、全体的な構成品質はBグレード（80点）。主な改善点は(1)GPIFセクションの独立分割によるセクション過密の解消、(2)見出しのh2統一、(3)専門用語への括弧書き補足の大幅追加（未説明19語→3語に削減）。残存する課題は(1)冒頭免責表示によるフックへの割り込み、(2)第3・第4セクション間でのAI相場記述の重複、(3)第4セクション（3つの逆風）の情報過多（780字）、(4)8セクションのフラット階層による構造の不明瞭さ。これらの改善で85点以上（Aグレード）に到達可能。",
-    "_structure_critic_source": "revised_draft.md",
-    "_evaluated_at": "2026-03-30"
+    "fact": {
+      "critic_type": "fact",
+      "score": 51,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "FA001",
+          "severity": "high",
+          "category": "data",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 1",
+            "text": "2025年のS&P500のリターンは+17.3%"
+          },
+          "issue": "リサーチノート（research_notes.md）ではS&P500 2025年リターンを+17.9%と記載。許容誤差±0.1%を超える0.4%の乖離。",
+          "suggestion": "リサーチノートの+17.9%に修正するか、使用ソースを明示して値を再確認する。"
+        },
+        {
+          "issue_id": "FA002",
+          "severity": "high",
+          "category": "data",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 2",
+            "text": "CAPE比率は、2026年3月時点で38〜39の水準で推移しています（一時39.8に到達）"
+          },
+          "issue": "multpl.com実測値（2026年3月27日時点）は36.65。記事の「38〜39」より約2〜2.4ポイント低い。39.8は2026年2月時点の値であり、2月値と3月現在値を混在させた記述になっている。",
+          "suggestion": "「2026年2月に一時39.8に到達し、3月時点では37前後で推移」のように時点を明示するか、2月時点として記述する。"
+        },
+        {
+          "issue_id": "FA003",
+          "severity": "high",
+          "category": "data",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 3",
+            "text": "上位10銘柄が指数全体の約41%を占め"
+          },
+          "issue": "slickcharts.com実測値（2026年3月下旬時点）は36.24%。記事の「約41%」は約4.8ポイントの誇大表現。また「Magnificent 7が約33%」との整合性にも問題がある（上位10銘柄41%-Mag7 33%=残り7銘柄8%が不自然）。",
+          "suggestion": "「上位10銘柄が指数全体の約36%を占め」に修正し、計測時点を明示する。"
+        },
+        {
+          "issue_id": "FA004",
+          "severity": "medium",
+          "category": "data",
+          "location": {
+            "section": "初心者が押さえておきたい3つのポイント > 2",
+            "text": "欧州は20.7、新興国は18.9"
+          },
+          "issue": "JPモルガン「Guide to the Markets」参照だが日次更新PDFのため独立確認不可。計測時点の明示が必要。",
+          "suggestion": "「2026年3月時点で欧州は約20.7、新興国は約18.9（JPMorgan Guide to the Markets 2026年3月時点）」のように計測時点を明示する。"
+        },
+        {
+          "issue_id": "FA005",
+          "severity": "medium",
+          "category": "data",
+          "location": {
+            "section": "GPIFに学ぶ「地味だけど確実」な方法",
+            "text": "GPIFの名目期待リターン（最も楽観的な経済シナリオでさえ、外国株式を年8.1%に設定）"
+          },
+          "issue": "リサーチノートには「中央値は年5.4%」の記述があるが、別セクションでは6.3%とも記載。最楽観ケースの8.1%の前に中央値の表現を使いたいなら正確な値が必要。",
+          "suggestion": "GPIFの第5回運用基本方針（2024年）の資料を直接確認し、中央値・楽観値を正確に記述する。"
+        },
+        {
+          "issue_id": "FA006",
+          "severity": "medium",
+          "category": "source",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 1",
+            "text": "新興国株は+30.6%と5年ぶりに先進国を上回り"
+          },
+          "issue": "出典URLが確認不能。リサーチノートにも新興国株+30.6%の記載なし。",
+          "suggestion": "MSCI Emerging Marketsなど一次ソースで値を再確認し、ソースURLをリンクとして明示する。"
+        },
+        {
+          "issue_id": "FA007",
+          "severity": "low",
+          "category": "data",
+          "location": {
+            "section": "GPIFに学ぶ",
+            "text": "2001年からの約25年間"
+          },
+          "issue": "2001年〜2026年は実際24年9ヶ月。「約25年」は誤差範囲内だが正確性の観点では要注意。",
+          "suggestion": "「2001年からの24年余りで」または「約25年間」のままでよい（誤差許容範囲内）。"
+        },
+        {
+          "issue_id": "FA008",
+          "severity": "low",
+          "category": "source",
+          "location": {
+            "section": "GPIFに学ぶ",
+            "text": "2023年度だけで年62回ものリバランス"
+          },
+          "issue": "リバランス年62回の出典リンクが記事中に未記載。",
+          "suggestion": "GPIFの「管理・運用状況」資料へのリンクを追加する。"
+        }
+      ],
+      "verified_facts": [
+        "オルカン純資産10兆2,846億円（逆転日: 2026年2月27日）",
+        "S&P500純資産10兆2,652億円",
+        "オルカンへの月間流入3,193億円、S&P500は1,635億円（約2倍差）",
+        "CAPE長期平均17.35",
+        "ITバブル時CAPE最高値44.19",
+        "Magnificent 7比率約33%",
+        "GPIF累積収益196兆円超",
+        "GPIF年率4.71%",
+        "GPIF運用資産293兆円",
+        "GPIF4資産均等ポートフォリオ（各25%）",
+        "オルカン保有者567万人超（2025年12月末）",
+        "オルカン設定は2018年10月"
+      ],
+      "summary": "20件のデータポイントのうち14件は正確。3件のhigh誤り（S&P500リターン、CAPE比率、上位10銘柄比率）は公開前修正必須。"
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 80,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "medium",
+          "category": "flow",
+          "location": {
+            "section": "冒頭（免責表示の位置）"
+          },
+          "issue": "冒頭の免責表示がフック文（「2026年2月27日〜」）の直前にあり、読者の没入を阻害する。",
+          "suggestion": "免責事項を末尾のみに移動し、冒頭はフック文から始める。"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "medium",
+          "category": "flow",
+          "location": {
+            "section": "第2・第3セクション間",
+            "text": "2024年はAI関連銘柄の爆発力でS&P500がオルカンを上回りました"
+          },
+          "issue": "第2セクション末尾と第3セクション内でAI相場に関する記述が重複している。",
+          "suggestion": "第2セクションではAI相場への言及を最小化し、第3セクションの逆風文脈でまとめて記述する。"
+        },
+        {
+          "issue_id": "ST003",
+          "severity": "medium",
+          "category": "sections",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風"
+          },
+          "issue": "第3セクション（3つの逆風）が約780字と全セクション中最長で他の2倍程度になっており、バランスの偏りが生じている。",
+          "suggestion": "各逆風の説明を200〜250字に統一し、詳細データはチャート画像で補完する。"
+        },
+        {
+          "issue_id": "ST004",
+          "severity": "low",
+          "category": "flow",
+          "location": { "section": "全体構造" },
+          "issue": "8セクションが全てh2フラット構造で、分析パートと実践提言パートの大区分がなく、記事全体の構造が視覚的に掴みにくい。",
+          "suggestion": "「〜分析パート〜」「〜実践パート〜」のような区切りを示す見出しか区切り線を追加する。"
+        },
+        {
+          "issue_id": "ST005",
+          "severity": "low",
+          "category": "conclusion",
+          "location": { "section": "まとめ：「正解」がないからこそ、分散する" },
+          "issue": "結論が実践セクションの3ポイントを振り返らずにマラソン比喩で締めており、実践→結論の橋渡しが弱い。",
+          "suggestion": "「ポイントを改めて整理すると〜」の一文で実践セクションの3ポイントを結論冒頭でリキャップしてからマラソン比喩に繋ぐ。"
+        }
+      ],
+      "summary": "first_draftからのGPIFセクション分割と見出し統一は良好。主な課題は冒頭免責の位置と逆風セクションのバランス。"
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 65,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "DA001",
+          "severity": "high",
+          "category": "figure",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 2",
+            "text": "CAPE比率は、2026年3月時点で38〜39の水準"
+          },
+          "issue": "multpl.com実測値（2026年3月27日時点）は36.65。記事の「38〜39」より約2〜2.4ポイント低い。2月値（39.8）と3月現在値の混在。",
+          "suggestion": "「2026年2月に一時39.8に到達し、3月時点では37前後で推移」のように時点を明示する。"
+        },
+        {
+          "issue_id": "DA002",
+          "severity": "high",
+          "category": "figure",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 1",
+            "text": "2025年のS&P500のリターンは+17.3%"
+          },
+          "issue": "リサーチノートではS&P500 2025年リターンを+17.9%と記載。0.4%の乖離（許容誤差±0.1%超）。",
+          "suggestion": "+17.9%に修正するか、使用ソースを明示して再確認する。"
+        },
+        {
+          "issue_id": "DA003",
+          "severity": "high",
+          "category": "figure",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 3",
+            "text": "上位10銘柄が指数全体の約41%を占め"
+          },
+          "issue": "slickcharts.com実測値（2026年3月下旬）は36.24%。約4.8ポイントの誇大表現。Magnificent 7 33%との内部整合性も問題。",
+          "suggestion": "「上位10銘柄が指数全体の約36%を占め」に修正し計測時点を明示する。"
+        },
+        {
+          "issue_id": "DA004",
+          "severity": "medium",
+          "category": "figure",
+          "location": {
+            "section": "初心者が押さえておきたい3つのポイント > 2",
+            "text": "外国株式の中央値は年5.4%"
+          },
+          "issue": "リサーチノートの記載は6.3%（または外国債券の数値との混同の可能性）。0.9%の乖離。",
+          "suggestion": "GPIFの第5回運用基本方針資料を直接確認し、正確な数値に修正する。"
+        },
+        {
+          "issue_id": "DA005",
+          "severity": "low",
+          "category": "source",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 2",
+            "text": "欧州は20.7、新興国は18.9"
+          },
+          "issue": "JPモルガンのPDFは日次更新のため記事公開後に数値が変わることが確実。計測時点の明示が必要。",
+          "suggestion": "「2026年3月時点で欧州は約20.7、新興国は約18.9（JPMorgan Guide to the Markets 2026年3月時点）」と計測時点を明示する。"
+        },
+        {
+          "issue_id": "DA006",
+          "severity": "low",
+          "category": "source",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 1",
+            "text": "新興国株は+30.6%と5年ぶりに先進国を上回り"
+          },
+          "issue": "出典URLがアクセス不能で独立検証不可。リサーチノートにも記載なし。",
+          "suggestion": "MSCI Emerging Marketsなど一次ソースで再確認し、リンクを明示する。"
+        }
+      ],
+      "summary": "3件のhigh誤り（CAPE比率、S&P500リターン、上位10銘柄比率）は全て公開前修正必須。GPIFの主要数値（196兆円・4.71%・293兆円）は正確。"
+    },
+    "readability": {
+      "critic_type": "readability",
+      "score": 81,
+      "target_audience": "beginner",
+      "issues": [
+        {
+          "issue_id": "RD001",
+          "severity": "medium",
+          "category": "visual",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風",
+            "description": "逆風2の数値密集段落"
+          },
+          "issue": "CAPE比率・欧州・新興国の数値が1段落に密集し、スマホ表示で読み疲れを招く。",
+          "suggestion": "CAPE比率の国際比較（米国38-39・欧州20.7・新興国18.9）を棒グラフ画像（/generate-chart-image）で可視化し、テキストの数値羅列を簡略化する。"
+        },
+        {
+          "issue_id": "RD002",
+          "severity": "medium",
+          "category": "terminology",
+          "location": {
+            "section": "「米国一強」に忍び寄る3つの逆風 > 3",
+            "description": "「Magnificent 7」の説明なし"
+          },
+          "issue": "「Magnificent 7」に説明が付いていない。初心者は指す企業群を知らない可能性が高い。",
+          "suggestion": "初出箇所に「Magnificent 7（Apple・Microsoft・NVIDIA・Meta・Amazon・Alphabet・Teslaの米国大型テック7社）」と括弧補足を追加する。"
+        },
+        {
+          "issue_id": "RD003",
+          "severity": "low",
+          "category": "visual",
+          "location": {
+            "section": "記事全体（後半）",
+            "description": "画像1枚（table_orukan_growth.png）のみ"
+          },
+          "issue": "記事後半（逆風・GPIF・まとめ）が2500文字以上テキストのみで視覚的変化が乏しい。",
+          "suggestion": "CAPE比率の国際比較またはGPIFの4資産配分をチャート画像（/generate-chart-image）で1枚追加する。"
+        },
+        {
+          "issue_id": "RD004",
+          "severity": "low",
+          "category": "hook",
+          "location": {
+            "section": "冒頭",
+            "description": "免責事項ブロック（タイトル直下）"
+          },
+          "issue": "冒頭の免責事項がフック文（「2026年2月27日〜」）より先に目に入り、テンション低下を招く。",
+          "suggestion": "免責事項は末尾のみに残し、冒頭はフック文から始める。"
+        },
+        {
+          "issue_id": "RD005",
+          "severity": "low",
+          "category": "density",
+          "location": {
+            "section": "出来すぎリターンの落とし穴・GPIFに学ぶ",
+            "description": "2セクション連続でGPIFを論拠として使用"
+          },
+          "issue": "GPIFの情報が2セクションに分散しており「同じ話が続く」と感じる可能性。",
+          "suggestion": "「出来すぎリターン」セクションはGPIFの期待リターン数値のみに絞り、詳細は「GPIFに学ぶ」セクションに集約する。"
+        }
+      ],
+      "summary": "フック文、具体的数値、ソースURL埋め込みは高品質。主な改善点は後半の視覚的変化（チャート追加）とMagnificent 7の説明追加。"
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 0,
+      "status": "fail",
+      "checks": {
+        "word_count": {
+          "actual": 4819,
+          "min": 2000,
+          "max": 4000,
+          "status": "fail"
+        },
+        "required_sections": {
+          "found": 1,
+          "total": 6,
+          "missing": ["はじめに", "基礎知識", "実践ガイド", "注意点・リスク", "参考データソース"],
+          "status": "fail"
+        },
+        "frontmatter": {
+          "present": 0,
+          "required": 6,
+          "missing": ["title", "article_id", "category", "status", "theme", "target_audience"],
+          "status": "fail"
+        }
+      },
+      "issues": [
+        {
+          "issue_id": "WR001",
+          "severity": "high",
+          "category": "frontmatter",
+          "location": { "section": "frontmatter" },
+          "issue": "revised_draft.mdにYAMLフロントマターブロックが存在しない。必須項目（title/article_id/category/status/theme/target_audience）が全て欠落。",
+          "suggestion": "記事冒頭にフロントマターブロックを追加する:\n---\ntitle: \"オルカンがS&P500を逆転した日：「米国一極集中」の終わりと国際分散の再評価\"\narticle_id: 2026-03-16_orukan-vs-sp500-diversification-shift\ncategory: asset_management\ntheme: diversification\ntarget_audience: beginner\nstatus: revised\n---"
+        },
+        {
+          "issue_id": "WR002",
+          "severity": "high",
+          "category": "section",
+          "location": { "section": "overall" },
+          "issue": "必須セクション「はじめに」「基礎知識」「実践ガイド」「注意点・リスク」「参考データソース」が欠落（実質的な内容は存在するが見出し名が不一致）。",
+          "suggestion": "実質的なコンテンツは存在しているため、見出し名をテンプレートに合わせてリネームすることで対応できる。「オルカンの成長」→「基礎知識」、「3つのポイント」→「実践ガイド」など。"
+        },
+        {
+          "issue_id": "WR003",
+          "severity": "high",
+          "category": "word_count",
+          "location": { "section": "overall" },
+          "issue": "本文文字数が4,819字。asset_managementカテゴリの上限4,000字を819字超過（約20%超過）。",
+          "suggestion": "「米国一強に忍び寄る3つの逆風」セクション（最長780字）の詳細数値をチャート画像に置き換え、テキストを圧縮して4,000字以内に収める。"
+        },
+        {
+          "issue_id": "WR004",
+          "severity": "medium",
+          "category": "category_constraints",
+          "location": {
+            "section": "冒頭免責",
+            "text": "*※本記事は情報提供を目的としたものであり〜*"
+          },
+          "issue": "冒頭免責事項がイタリック形式（*...*）で記載されているが、asset_managementカテゴリのテンプレートはブロック引用形式（> **本記事について**:）を規定している。",
+          "suggestion": "冒頭免責を `> **本記事について**:` 形式に変更する。"
+        },
+        {
+          "issue_id": "WR005",
+          "severity": "medium",
+          "category": "category_constraints",
+          "location": { "section": "02_draft/" },
+          "issue": "curated_sources.jsonが02_draft/ディレクトリに存在しない。asset_managementカテゴリの固有制約としてソースキュレーション結果の保存が必須。",
+          "suggestion": "記事内で参照したソース（Reuters・三菱UFJアセット・みんかぶ等）をcurated_sources.json形式でまとめ、02_draft/に保存する。"
+        }
+      ],
+      "summary": "フロントマット欠落・必須セクション名不一致・文字数超過の3点がhigh。ただし実質的なコンテンツ（情報・ソース）は高品質。見出しリネームとフロントマター追加で大幅改善可能。"
+    }
+  },
+  "overall_score": 60,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "high",
+      "category": "data_accuracy/fact",
+      "issue": "S&P500 2025年リターン +17.3% → +17.9% に修正（リサーチノートとの乖離）",
+      "critics": ["fact", "data_accuracy"]
+    },
+    {
+      "priority": 2,
+      "severity": "high",
+      "category": "data_accuracy/fact",
+      "issue": "CAPE比率「2026年3月時点で38〜39」→ 実測36.65。「2月に一時39.8、3月は37前後で推移」のように時点を明示する。",
+      "critics": ["fact", "data_accuracy"]
+    },
+    {
+      "priority": 3,
+      "severity": "high",
+      "category": "data_accuracy/fact",
+      "issue": "S&P500上位10銘柄「約41%」→ 実測36.24%に修正。Magnificent 7（33%）との整合性も確認。",
+      "critics": ["fact", "data_accuracy"]
+    },
+    {
+      "priority": 4,
+      "severity": "high",
+      "category": "writer_rules",
+      "issue": "フロントマターブロックを追加する（title/article_id/category/status/theme/target_audience）。",
+      "critics": ["writer_rules"]
+    },
+    {
+      "priority": 5,
+      "severity": "high",
+      "category": "writer_rules",
+      "issue": "必須セクション見出し名をテンプレートに合わせてリネーム（実質コンテンツは存在）。",
+      "critics": ["writer_rules"]
+    },
+    {
+      "priority": 6,
+      "severity": "medium",
+      "category": "data_accuracy",
+      "issue": "GPIF外国株式中央値「5.4%」→ リサーチノートの6.3%に修正（または一次ソース確認）。",
+      "critics": ["data_accuracy"]
+    },
+    {
+      "priority": 7,
+      "severity": "medium",
+      "category": "compliance",
+      "issue": "「S&P500の3つの逆風」セクションにS&P500の肯定的側面への言及を1文追加（公平性確保）。",
+      "critics": ["compliance"]
+    },
+    {
+      "priority": 8,
+      "severity": "medium",
+      "category": "readability",
+      "issue": "「Magnificent 7」に初出時の括弧補足（7社名）を追加する。",
+      "critics": ["readability"]
+    },
+    {
+      "priority": 9,
+      "severity": "medium",
+      "category": "writer_rules",
+      "issue": "文字数超過（4,819字 → 4,000字以内）。逆風セクションの詳細数値をチャート画像化して圧縮する。",
+      "critics": ["writer_rules"]
+    }
+  ]
 }

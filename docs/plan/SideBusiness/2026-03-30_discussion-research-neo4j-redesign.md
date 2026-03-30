@@ -133,4 +133,29 @@ source_type 27種・entity_type 30種 → パイプライン整備（Phase 1-5�
 - Neo4j ノード: `disc-2026-03-30-research-neo4j-redesign` (note-neo4j)
 - Decision: `dec-2026-03-30-yaml-ssot` 他6件
 - ActionItem: `act-2026-03-30-001` ~ `act-2026-03-30-007`
-- プランファイル: `docs/plan/2026-03-30_research-neo4j-schema-pipeline-redesign.md`
+- プロジェクト計画書: `docs/project/project-28/project.md`
+- 元プランファイル（移動済み）: `docs/project/project-28/original-plan.md`
+
+### plan-project 完了（2026-03-30）
+
+- **GitHub Project**: [#105 research-neo4j スキーマ定義とパイプライン再設計](https://github.com/users/YH-05/projects/105)
+- **登録 Issue**: #278〜#293（16件）
+
+| Wave | Issue | タイトル |
+|------|-------|---------|
+| Wave 1 | [#278](https://github.com/YH-05/note-finance/issues/278) | knowledge-graph-schema.yaml を v3.0 に更新 |
+| Wave 1 | [#279](https://github.com/YH-05/note-finance/issues/279) | validate_neo4j_schema.py を v3.0 YAML 対応に最小更新 |
+| Wave 2 | [#280](https://github.com/YH-05/note-finance/issues/280) | migrate_entity_multilabel.py 作成と本番実行 |
+| Wave 3 | [#281](https://github.com/YH-05/note-finance/issues/281) | BaseMapper 本体の抽出 |
+| Wave 3 | [#282](https://github.com/YH-05/note-finance/issues/282) | 上位4マッパーのプラグイン化 |
+| Wave 3 | [#283](https://github.com/YH-05/note-finance/issues/283) | 残り7マッパーのプラグイン化 |
+| Wave 3 | [#284](https://github.com/YH-05/note-finance/issues/284) | emit_research_queue.py CLI 縮小 |
+| Wave 3 | [#285](https://github.com/YH-05/note-finance/issues/285) | テスト復旧 |
+| Wave 3 | [#286](https://github.com/YH-05/note-finance/issues/286) | test_base_mapper.py 新規作成 |
+| Wave 3 | [#287](https://github.com/YH-05/note-finance/issues/287) | entity_linker.py YAML参照化 |
+| Wave 4 | [#288](https://github.com/YH-05/note-finance/issues/288) | neo4j_loader.py 強化 |
+| Wave 5 | [#289](https://github.com/YH-05/note-finance/issues/289) | save-to-research-graph Python CLI化 |
+| Wave 5 | [#290](https://github.com/YH-05/note-finance/issues/290) | neo4j-write-rules.md 更新 |
+| Wave 6 | [#291](https://github.com/YH-05/note-finance/issues/291) | migrate_source_type.py |
+| Wave 7 | [#292](https://github.com/YH-05/note-finance/issues/292) | validate_neo4j_schema.py 拡張 |
+| Wave 7 | [#293](https://github.com/YH-05/note-finance/issues/293) | 最終品質検証 |
