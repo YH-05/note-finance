@@ -293,4 +293,4 @@ ORDER BY occurrence DESC
 | 改善提案テンプレート | `.claude/skills/skill-expert/improvement-template.md` |
 | skill-analytics クエリ集 | `.claude/skills/skill-analytics/queries.md` |
 | skill-creator (Step 6: Amend) | `.claude/agents/skill-creator.md` |
-| SkillRun スキーマ | `data/config/knowledge-graph-schema.yaml` |
+| SkillRun スキーマ | `data/lifecycle-state/research/ontology.yaml` |

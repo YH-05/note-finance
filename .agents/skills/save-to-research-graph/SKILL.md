@@ -304,7 +304,7 @@ MERGE (c)-[:ABOUT]->(e)
 | 詳細ガイド | `.agents/skills/save-to-graph/guide.md` |
 | スラッシュコマンド | `.claude/commands/save-to-graph.md` |
 | graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
-| ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
+| ナレッジグラフスキーマ | `data/lifecycle-state/research/ontology.yaml` |
 | graph-queue 出力先 | `.tmp/graph-queue/{command_name}/` |
 
 ## 対応コマンドソース

@@ -1,7 +1,7 @@
 # Neo4j データモデルマッピング（research-neo4j）
 
 topic-discovery の提案結果を research-neo4j に保存するためのデータモデル定義。
-KG v2 スキーマ（`data/config/knowledge-graph-schema.yaml`）に準拠する。
+KG v2 スキーマ（`data/lifecycle-state/research/ontology.yaml`）に準拠する。
 
 ## 接続情報
 

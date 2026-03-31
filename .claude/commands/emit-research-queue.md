@@ -100,4 +100,4 @@ uv run python scripts/emit_research_queue.py \
 | 生成スクリプト | `scripts/emit_research_queue.py` |
 | graph-queue 出力先 | `.tmp/graph-queue/{command}/` |
 | save-to-research-graph スキル | `.claude/skills/save-to-research-graph/SKILL.md` |
-| KG スキーマ定義 | `data/config/knowledge-graph-schema.yaml` |
+| KG スキーマ定義 | `data/lifecycle-state/research/ontology.yaml` |

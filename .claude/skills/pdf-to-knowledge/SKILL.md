@@ -535,7 +535,7 @@ Phase 4（Neo4j 投入）はスキップされました。
 | KnowledgeExtractor | `src/pdf_pipeline/core/knowledge_extractor.py` |
 | MarkdownChunker | `src/pdf_pipeline/core/chunker.py` |
 | graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
-| ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
+| ナレッジグラフスキーマ | `data/lifecycle-state/research/ontology.yaml` |
 | StateManager | `src/pdf_pipeline/services/state_manager.py` |
 | data_paths | `src/data_paths/` |
 | skill_run_tracer | `scripts/skill_run_tracer.py` |
