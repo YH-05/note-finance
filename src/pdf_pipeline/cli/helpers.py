@@ -50,6 +50,7 @@ import fitz  # type: ignore[import-untyped]
 
 from data_paths import get_path
 from pdf_pipeline._logging import get_logger
+from pdf_pipeline.types import get_processed_dir
 from pdf_pipeline.core.chunker import MarkdownChunker
 from pdf_pipeline.core.knowledge_extractor import KnowledgeExtractor
 from pdf_pipeline.core.pdf_scanner import compute_sha256_standalone
@@ -223,7 +224,7 @@ def compute_output_dir(pdf_path: str, sha256: str) -> str:
     stem = pdf.stem
     hash8 = sha256[:8]
 
-    processed_dir = get_path("processed")
+    processed_dir = get_processed_dir()
 
     # Attempt to mirror subpath if PDF is under raw/pdfs/
     mirror_subpath = _compute_mirror_subpath(pdf)
@@ -433,8 +434,21 @@ def extract_knowledge(
     out_path = Path(output_dir)
     out_path.mkdir(parents=True, exist_ok=True)
     extraction_file = out_path / "extraction.json"
+
+    extraction_dict = doc_result.model_dump()
+
+    # Enrich with pdf_path from metadata.json (for Neo4j Source.file_path)
+    metadata_file = out_path / "metadata.json"
+    if metadata_file.exists():
+        try:
+            meta = json.loads(metadata_file.read_text(encoding="utf-8"))
+            if pdf_path_val := meta.get("pdf_path"):
+                extraction_dict["pdf_path"] = pdf_path_val
+        except (json.JSONDecodeError, OSError):
+            logger.warning("Could not read metadata.json for pdf_path", path=str(metadata_file))
+
     extraction_file.write_text(
-        doc_result.model_dump_json(indent=2),
+        json.dumps(extraction_dict, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 

@@ -34,6 +34,7 @@ Examples
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field
 from pathlib import (
     Path,  # noqa: TC003 — Pydantic needs Path at runtime for field validation
@@ -43,6 +44,20 @@ from typing import TYPE_CHECKING, Literal
 from pydantic import BaseModel, Field
 
 from data_paths import get_path
+
+
+def get_processed_dir() -> Path:
+    """Return the PDF conversion output directory.
+
+    Checks ``CONVERT_PDF_DIR`` env var first, falls back to
+    ``DATA_ROOT/processed``.
+    """
+    env = os.environ.get("CONVERT_PDF_DIR")
+    if env:
+        p = Path(env)
+        if p.exists():
+            return p.resolve()
+    return get_path("processed")
 
 # ---------------------------------------------------------------------------
 # Type aliases
@@ -168,7 +183,7 @@ class PipelineConfig(BaseModel):
         description="Input directories containing PDF files",
     )
     output_dir: Path = Field(
-        default_factory=lambda: get_path("processed"),
+        default_factory=get_processed_dir,
         description="Directory for processed output",
     )
     batch_size: int = Field(

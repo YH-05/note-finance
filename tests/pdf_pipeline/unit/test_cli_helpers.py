@@ -228,8 +228,8 @@ class TestComputeOutputDir:
         pdf_path = str(tmp_path / "raw" / "pdfs" / "subdir" / "report.pdf")
         sha256 = "abcdef0123456789" * 4
 
-        with patch("pdf_pipeline.cli.helpers.get_path") as mock_get_path:
-            mock_get_path.return_value = tmp_path / "processed"
+        with patch("pdf_pipeline.cli.helpers.get_processed_dir") as mock_get_dir:
+            mock_get_dir.return_value = tmp_path / "processed"
             result = compute_output_dir(pdf_path, sha256)
 
         # Mirror subpath should include "subdir"
@@ -241,8 +241,8 @@ class TestComputeOutputDir:
         pdf_path = str(tmp_path / "other" / "location" / "report.pdf")
         sha256 = "deadbeef" + "0" * 56
 
-        with patch("pdf_pipeline.cli.helpers.get_path") as mock_get_path:
-            mock_get_path.return_value = tmp_path / "processed"
+        with patch("pdf_pipeline.cli.helpers.get_processed_dir") as mock_get_dir:
+            mock_get_dir.return_value = tmp_path / "processed"
             result = compute_output_dir(pdf_path, sha256)
 
         # Should fallback to processed/{stem}_{hash8} without mirror subpath
@@ -258,8 +258,8 @@ class TestComputeOutputDir:
         pdf_path = str(tmp_path / "raw" / "pdfs" / "annual_report.pdf")
         sha256 = "1a2b3c4d" + "e" * 56
 
-        with patch("pdf_pipeline.cli.helpers.get_path") as mock_get_path:
-            mock_get_path.return_value = tmp_path / "processed"
+        with patch("pdf_pipeline.cli.helpers.get_processed_dir") as mock_get_dir:
+            mock_get_dir.return_value = tmp_path / "processed"
             result = compute_output_dir(pdf_path, sha256)
 
         # Format: {stem}_{first 8 chars of sha256}
@@ -676,7 +676,7 @@ class TestComputeOutputDirPathTraversal:
         )
         sha256 = "abcdef01" * 8
 
-        with patch("pdf_pipeline.cli.helpers.get_path") as mock_get_path:
-            mock_get_path.return_value = tmp_path / "processed"
+        with patch("pdf_pipeline.cli.helpers.get_processed_dir") as mock_get_dir:
+            mock_get_dir.return_value = tmp_path / "processed"
             with pytest.raises(ValueError, match="Path traversal"):
                 compute_output_dir(pdf_path, sha256)

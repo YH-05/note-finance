@@ -79,7 +79,7 @@ PDF ファイルからナレッジグラフ投入までを一括実行するワ�
 各フェーズの成果物は以下のパスに保存される:
 
 ```
-{DATA_ROOT}/processed/{mirror_subpath}/{stem}_{hash8}/
+{PROCESSED_DIR}/{mirror_subpath}/{stem}_{hash8}/
 ├── report.md           # Phase 1: Markdown 変換結果
 ├── chunks.json         # Phase 1: セクション分割チャンク
 ├── metadata.json       # Phase 1: 処理メタデータ
@@ -176,7 +176,7 @@ convert-pdf スキルのロジックをそのまま実行する。詳細は `.cl
 SHA256=$(uv run python -m pdf_pipeline.cli.helpers compute_hash "{pdf_path}")
 
 # Step 3: 冪等性チェック（--force 時はスキップ）
-uv run python -m pdf_pipeline.cli.helpers check_idempotency "{SHA256}" "{DATA_ROOT}/processed/state.json"
+uv run python -m pdf_pipeline.cli.helpers check_idempotency "{SHA256}" "{PROCESSED_DIR}/state.json"
 
 # Step 4: 出力ディレクトリ計算
 OUTPUT_DIR=$(uv run python -m pdf_pipeline.cli.helpers compute_output_dir "{pdf_path}" "{SHA256}")
@@ -196,7 +196,7 @@ CHUNK_COUNT=$(uv run python -m pdf_pipeline.cli.helpers chunk_and_save "{OUTPUT_
 uv run python -m pdf_pipeline.cli.helpers save_metadata "{OUTPUT_DIR}" "{SHA256}" "{pdf_path}" "{PAGE_COUNT}" "{CHUNK_COUNT}"
 
 # Step 10: 完了記録
-uv run python -m pdf_pipeline.cli.helpers record_completed "{SHA256}" "{DATA_ROOT}/processed/state.json" "{pdf_filename}"
+uv run python -m pdf_pipeline.cli.helpers record_completed "{SHA256}" "{PROCESSED_DIR}/state.json" "{pdf_filename}"
 ```
 
 ### 変数保持（後続フェーズへの引き渡し）

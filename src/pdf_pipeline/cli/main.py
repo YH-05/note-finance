@@ -37,6 +37,7 @@ from rich.table import Table
 
 from data_paths import get_path
 from pdf_pipeline._logging import get_logger
+from pdf_pipeline.types import get_processed_dir
 from pdf_pipeline.config.loader import load_config
 from pdf_pipeline.core.pdf_scanner import PdfScanner
 
@@ -51,7 +52,7 @@ logger = get_logger(__name__, module="cli")
 # Constants
 # ---------------------------------------------------------------------------
 
-DEFAULT_OUTPUT_DIR = get_path("processed")
+DEFAULT_OUTPUT_DIR = get_processed_dir()
 """Default output directory for processed PDFs."""
 
 _SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
