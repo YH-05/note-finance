@@ -79,7 +79,8 @@ uv run python scripts/emit_research_queue.py \
 ```bash
 uv run python scripts/entity_linker.py \
   --input {graph_queue_file} \
-  --instance research
+  --instance research \
+  --ner-fallback
 ```
 
 出力先: `.tmp/graph-queue/{command}/linked-{timestamp}.json`
