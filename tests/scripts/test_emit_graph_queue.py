@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 import pytest
-from emit_graph_queue import (
+from emit_research_queue import (
     COMMANDS,
     THEME_TO_CATEGORY,
     TOPIC_DISCOVERY_CATEGORIES,
@@ -47,6 +47,7 @@ from emit_graph_queue import (
     generate_source_id,
     generate_topic_id,
     main,
+    map_academic_fetch,
     map_ai_research,
     map_asset_management,
     map_finance_full,
@@ -2302,9 +2303,11 @@ class TestRunWealthScrapeDirectory:
         config_path = _create_wealth_theme_config(tmp_path)
         output_dir = tmp_path / "output"
 
-        import emit_graph_queue
+        import emit_research_queue
 
-        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+        monkeypatch.setattr(
+            emit_research_queue, "WEALTH_THEME_CONFIG_PATH", config_path
+        )
 
         exit_code = run(
             command="wealth-scrape",
@@ -2325,9 +2328,11 @@ class TestRunWealthScrapeDirectory:
         config_path = _create_wealth_theme_config(tmp_path)
         output_dir = tmp_path / "output"
 
-        import emit_graph_queue
+        import emit_research_queue
 
-        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+        monkeypatch.setattr(
+            emit_research_queue, "WEALTH_THEME_CONFIG_PATH", config_path
+        )
 
         run(
             command="wealth-scrape",
@@ -4689,8 +4694,8 @@ class TestMapWebResearch:
             assert "authority_level" in src
             assert "source_id" in src
 
-    def test_正常系_全4リレーション種のキーと件数(self) -> None:
-        """source_fact, fact_entity, tagged, extracted_from_fact の4種が正しい件数で存在すること。"""
+    def test_正常系_全リレーション種のキーと件数(self) -> None:
+        """source_fact, fact_entity, tagged, tagged_fact, extracted_from_fact が正しい件数で存在すること。"""
         data = _web_research_mapper_data()
         result = map_web_research(data)
         rels = result["relations"]
@@ -4698,13 +4703,16 @@ class TestMapWebResearch:
         assert "source_fact" in rels
         assert "fact_entity" in rels
         assert "tagged" in rels
+        assert "tagged_fact" in rels
         assert "extracted_from_fact" in rels
 
         assert len(rels["source_fact"]) == 2
         # fact1: 日本銀行+日本(2件), fact2: 日本銀行(1件) = 3件
         assert len(rels["fact_entity"]) == 3
-        # (2 sources + 2 facts) × 2 topics = 8
-        assert len(rels["tagged"]) == 8
+        # tagged = Source→Topic のみ: 2 sources × 2 topics = 4
+        assert len(rels["tagged"]) == 4
+        # tagged_fact = Fact→Topic のみ: 2 facts × 2 topics = 4
+        assert len(rels["tagged_fact"]) == 4
         assert len(rels["extracted_from_fact"]) == 2
 
     def test_正常系_fact_entityリレーションはRELATES_TO型(self) -> None:
@@ -4753,32 +4761,39 @@ class TestMapWebResearch:
         assert actual_pairs == expected_pairs
 
     def test_エッジケース_空のfacts配列(self) -> None:
-        """facts=[] のとき正常に空結果が返ること。"""
+        """facts=[] のとき facts/fact系リレーションが空になること。claims由来のエンティティは残る。"""
         data = _web_research_mapper_data()
         data["facts"] = []
         result = map_web_research(data)
 
         assert result["facts"] == []
-        assert result["entities"] == []
         assert result["relations"]["source_fact"] == []
         assert result["relations"]["fact_entity"] == []
         assert result["relations"]["extracted_from_fact"] == []
+        assert result["relations"]["tagged_fact"] == []
+        # claims由来のエンティティ（日本銀行）は残る
+        entity_names = {e["name"] for e in result["entities"]}
+        assert "日本銀行" in entity_names
         # topics and tagged rels should still be present
         assert len(result["topics"]) == 2
-        # 2 sources × 2 topics = 4 (no facts → no fact-topic tagged)
+        # 2 sources × 2 topics = 4 (no facts → tagged_fact=0)
         assert len(result["relations"]["tagged"]) == 4
 
-    def test_エッジケース_about_entities未指定でエンティティとリレーションが空(
+    def test_エッジケース_about_entities未指定でfact_entityリレーションが空(
         self,
     ) -> None:
-        """about_entities が存在しないファクトでエンティティとfact_entityリレーションが空になること。"""
+        """ファクトの about_entities が存在しない場合、fact_entity リレーションが空になること。
+        claims の about_entities 由来のエンティティは引き続き生成される。
+        """
         data = _web_research_mapper_data()
         for fact in data["facts"]:
             del fact["about_entities"]
         result = map_web_research(data)
 
-        assert result["entities"] == []
         assert result["relations"]["fact_entity"] == []
+        # claims由来のエンティティ（日本銀行）は残る
+        entity_names = {e["name"] for e in result["entities"]}
+        assert "日本銀行" in entity_names
         # facts and source_fact rels should still exist
         assert len(result["facts"]) == 2
         assert len(result["relations"]["source_fact"]) == 2
@@ -4842,3 +4857,128 @@ class TestMapWebResearch:
         entity_names = {e["name"] for e in result["entities"]}
         # claims の about_entities (日本銀行) は facts にも含まれるため必ず存在
         assert "日本銀行" in entity_names
+
+
+# ---------------------------------------------------------------------------
+# map_academic_fetch
+# ---------------------------------------------------------------------------
+
+
+def _academic_fetch_batch() -> dict[str, Any]:
+    """academic-fetch 形式のバッチデータを生成。"""
+    return {
+        "papers": [
+            {
+                "arxiv_id": "2401.00001",
+                "title": "Attention Is All You Need",
+                "authors": ["Ashish Vaswani", "Noam Shazeer"],
+                "abstract": "We propose a new architecture based solely on attention mechanisms.",
+                "url": "https://arxiv.org/abs/2401.00001",
+                "published": "2024-01-01T00:00:00+00:00",
+            }
+        ],
+        "existing_source_ids": [],
+        "session_id": "academic-20260307",
+    }
+
+
+class TestMapAcademicFetch:
+    """map_academic_fetch 関数のテスト。"""
+
+    def test_正常系_sourcesが生成される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {
+            "sources": [
+                {
+                    "source_id": "src-academic-001",
+                    "url": "https://arxiv.org/abs/2401.00001",
+                    "title": "Attention Is All You Need",
+                    "source_type": "pdf",
+                    "language": "en",
+                }
+            ],
+            "authors": [],
+            "relations": {},
+        }
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert len(result["sources"]) == 1
+        assert "arxiv.org" in result["sources"][0]["url"]
+
+    def test_正常系_authorsが生成される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {
+            "sources": [],
+            "authors": [
+                {
+                    "author_id": "author-001",
+                    "name": "Ashish Vaswani",
+                }
+            ],
+            "relations": {"authored_by": []},
+        }
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert len(result["authors"]) == 1
+        assert result["authors"][0]["name"] == "Ashish Vaswani"
+
+    def test_正常系_session_idが設定される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {"sources": [], "authors": [], "relations": {}}
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert result["session_id"] == "academic-20260307"
+
+    def test_正常系_batch_labelがacademic_fetchに設定される(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {"sources": [], "authors": [], "relations": {}}
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert result["batch_label"] == "academic-fetch"
+
+    def test_正常系_relationsが引き継がれる(self) -> None:
+        from unittest.mock import patch
+
+        authored_by_rel = {
+            "from_id": "src-001",
+            "to_id": "author-001",
+            "type": "AUTHORED_BY",
+        }
+        mock_mapped = {
+            "sources": [],
+            "authors": [],
+            "relations": {"authored_by": [authored_by_rel]},
+        }
+        batch = _academic_fetch_batch()
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert "authored_by" in result["relations"]
+        assert len(result["relations"]["authored_by"]) == 1
+
+    def test_エッジケース_papersが空の場合は空結果(self) -> None:
+        from unittest.mock import patch
+
+        mock_mapped = {"sources": [], "authors": [], "relations": {}}
+        batch = {
+            "papers": [],
+            "existing_source_ids": [],
+            "session_id": "academic-empty",
+        }
+        with patch("academic.mapper.map_academic_papers", return_value=mock_mapped):
+            result = map_academic_fetch(batch)
+
+        assert result["sources"] == []
+        assert result["authors"] == []

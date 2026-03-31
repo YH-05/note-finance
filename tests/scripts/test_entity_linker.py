@@ -993,3 +993,70 @@ class TestMakeV3EntityConfig:
         assert config.alias_index == "custom_alias_ft"
         assert config.id_key == "entity_id"
         assert config.key_key == "entity_key"
+
+
+# ---------------------------------------------------------------------------
+# _load_consolidation_rules tests (YAML SSoT 読み込み)
+# ---------------------------------------------------------------------------
+
+
+class TestLoadConsolidationRules:
+    """_load_consolidation_rules 関数のテスト。"""
+
+    def test_正常系_YAMLからconsolidation_rulesを読み込む(self, tmp_path: Path) -> None:
+        """YAML の consolidation_rules.entity_type.mapping が読み込まれること。"""
+        from entity_linker import _load_consolidation_rules
+
+        schema_yaml = tmp_path / "knowledge-graph-schema.yaml"
+        schema_yaml.write_text(
+            "consolidation_rules:\n"
+            "  entity_type:\n"
+            "    mapping:\n"
+            "      company: company\n"
+            "      fintech: company\n"
+            "      person: person\n",
+            encoding="utf-8",
+        )
+
+        result = _load_consolidation_rules(schema_path=schema_yaml)
+
+        assert result == {
+            "company": "company",
+            "fintech": "company",
+            "person": "person",
+        }
+
+    def test_正常系_ENTITY_TYPE_CONSOLIDATIONがYAMLから読み込まれる(self) -> None:
+        """ENTITY_TYPE_CONSOLIDATION がハードコードではなく YAML から読み込まれること。"""
+        from entity_linker import ENTITY_TYPE_CONSOLIDATION
+
+        # YAML にある全 42 マッピングが含まれていることを確認
+        assert len(ENTITY_TYPE_CONSOLIDATION) >= 40
+        assert ENTITY_TYPE_CONSOLIDATION.get("fintech") == "company"
+        assert ENTITY_TYPE_CONSOLIDATION.get("etf") == "instrument"
+        assert ENTITY_TYPE_CONSOLIDATION.get("region") == "country"
+
+    def test_異常系_存在しないYAMLでFileNotFoundError(self, tmp_path: Path) -> None:
+        """存在しない YAML ファイルパスで FileNotFoundError が発生すること。"""
+        from entity_linker import _load_consolidation_rules
+
+        nonexistent = tmp_path / "nonexistent.yaml"
+
+        with pytest.raises(FileNotFoundError, match=r"knowledge-graph-schema\.yaml"):
+            _load_consolidation_rules(schema_path=nonexistent)
+
+    def test_正常系_consolidation_rulesキーなしで空dictを返す(
+        self, tmp_path: Path
+    ) -> None:
+        """consolidation_rules キーが存在しない YAML では空dict が返ること。"""
+        from entity_linker import _load_consolidation_rules
+
+        schema_yaml = tmp_path / "knowledge-graph-schema.yaml"
+        schema_yaml.write_text(
+            "version: 3.0\n",
+            encoding="utf-8",
+        )
+
+        result = _load_consolidation_rules(schema_path=schema_yaml)
+
+        assert result == {}

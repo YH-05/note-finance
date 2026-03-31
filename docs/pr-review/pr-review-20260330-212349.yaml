@@ -1,0 +1,209 @@
+---
+# PRレビューレポート
+# 生成日時: 2026-03-30 21:23:49
+# 生成スキル: review-pr
+
+metadata:
+  generated_at: "2026-03-30 21:23:49"
+  pr_number: 294
+  pr_title: "[Wave1-7] knowledge-graph-schema.yaml v3.0更新 / BaseMapper抽出 / マッパープラグイン化 / neo4j_loader強化 / マイグレーションスクリプト"
+  base_branch: "main"
+  head_branch: "feature/prj105"
+  review_mode: "remote"
+  round: 1
+
+pr_info:
+  files_changed: 46
+  additions: 12179
+  deletions: 5767
+
+scores:
+  code_quality:
+    readability: 72
+    design: 78
+    performance: 73
+    quant: null  # クオンツファイル変更なし
+  security:
+    code: 62
+    infra: 71
+  test:
+    coverage: 52
+    quality: 82
+
+code_quality:
+  strengths:
+    - "BaseMapperによる共通ロジック抽出（Strategyパターン）が明確で拡張性が高い"
+    - "YAML SSoTによるスキーマ駆動バリデーションの設計"
+    - "COMMAND_MAPPERSディスパッチテーブルによるコマンド→マッパーの分離"
+    - "ChunkProcessingContext dataclassによる横断状態の型安全な管理"
+    - "TDD準拠のテスト命名規則（test_正常系/異常系/エッジケース）の徹底"
+    - "AIDEV-NOTE アンカーコメントの適切な使用"
+
+  issues:
+    critical: []
+    high:
+      - file: "scripts/mappers/helpers.py"
+        line: 37
+        category: "dry"
+        description: "_SOURCE_TYPE_NORMALIZATION(helpers)とSOURCE_TYPE_NORMALIZATION(classification)が重複定義。内容不一致あり（original:reportがhelpers版にのみ存在）"
+        recommendation: "classificationのYAML SSoT読み込みに統一、helpers版の静的辞書を廃止"
+      - file: "scripts/mappers/base.py"
+        line: 350
+        category: "solid"
+        description: "_CANONICAL_TO_LABELがget_extra_labels呼び出しのたびに再生成。YAML SSoT原則と矛盾するハードコードマップ"
+        recommendation: "ClassVar[dict]として一度だけ定義するか、YAMLのmultilabel_typesから自動生成"
+      - file: "scripts/entity_linker.py"
+        line: 128
+        category: "dry"
+        description: "_load_consolidation_rules()がBaseMapper._get_consolidation_rules()とほぼ同一ロジック"
+        recommendation: "BaseMapper.load_yaml_ssot()を再利用して重複を排除"
+      - file: "scripts/mappers/helpers.py"
+        line: 1487
+        category: "solid"
+        description: "_build_wr_factsの型アノテーションが4要素tupleだが実装は5要素返却。呼び出し元でtype:ignoreで回避"
+        recommendation: "型アノテーションを実際の5要素tupleに修正"
+    medium:
+      - file: "src/data_pipeline/neo4j_loader.py"
+        line: 122
+        category: "type_hints"
+        description: "_get_driver()/_get_creator_driver()に戻り値型なし、neo4j Driver/Session/Txパラメータも無型"
+        recommendation: "from neo4j import Driver, Session, ManagedTransaction を追加して型注釈"
+      - file: "src/data_pipeline/neo4j_loader.py"
+        line: 122
+        category: "dry"
+        description: "_get_driver()と_get_creator_driver()が接続ロジックを重複保持"
+        recommendation: "_make_driver(uri_env, user_env, password_env)ヘルパーに抽出"
+      - file: "scripts/mappers/base.py"
+        line: 648
+        category: "solid"
+        description: "postprocess()が20個超の引数。ClassificationNodeFactoriesのような集約型に変更推奨"
+        recommendation: "Protocol/dataclassに束ねて引数を削減"
+    low:
+      - file: "scripts/validate_neo4j_schema.py"
+        line: 520
+        category: "docstrings"
+        description: "format_report/save_reportにNumPy形式docstringがない"
+      - file: "src/data_pipeline/neo4j_loader.py"
+        line: 25
+        category: "security_hint"
+        description: "デフォルトパスワードgomasuke（本番環境では環境変数必須と注記済み）"
+
+security:
+  vulnerability_count:
+    critical: 0
+    high: 2
+    medium: 3
+    low: 4
+
+  findings:
+    - id: "SEC-001"
+      severity: "HIGH"
+      category: "A02"
+      location: "src/data_pipeline/neo4j_loader.py:25"
+      description: "パスワード'gomasuke'がソースコードにハードコード（nosec B105で抑制）。環境変数未設定時にフォールバック使用"
+      recommendation: "環境変数未設定時はエラー終了する設計に変更"
+      status: "PARTIAL_FIX - 本番環境設定必須注記を追加済み"
+      cwe_id: "CWE-798"
+
+    - id: "SEC-002"
+      severity: "HIGH"
+      category: "A07"
+      location: "scripts/migrate_entity_multilabel.py:445, scripts/migrate_source_type.py:622"
+      description: "dry-run時のNEO4J_PASSWORDデフォルト'neo4j'（デフォルト認証情報）"
+      recommendation: "dry-runでもパスワード必須化"
+      status: "FIXED - Round 1修正済み"
+      cwe_id: "CWE-1392"
+
+    - id: "SEC-003"
+      severity: "MEDIUM"
+      category: "A03"
+      location: "src/data_pipeline/neo4j_loader.py:248"
+      description: "APOC呼び出し時のall_labels!rフォーマット（ホワイトリスト検証なし）"
+      recommendation: "extra_labelsをCANONICAL_TO_LABELで検証"
+      status: "OPEN"
+      cwe_id: "CWE-943"
+
+    - id: "SEC-004"
+      severity: "MEDIUM"
+      category: "A03"
+      location: "scripts/migrate_entity_multilabel.py:277"
+      description: "動的ラベル名のf-string埋め込み（定数由来で現状安全だがホワイトリスト検証なし）"
+      recommendation: "ALLOWED_LABELSで事前検証を追加"
+      status: "OPEN"
+      cwe_id: "CWE-943"
+
+    - id: "SEC-005"
+      severity: "MEDIUM"
+      category: "A04"
+      location: "src/data_pipeline/neo4j_loader.py:370-378"
+      description: "classification_nodesのlabel/key_propertyを外部JSONから無検証でCypherに挿入"
+      recommendation: "許可リストで検証するバリデーション関数を追加"
+      status: "OPEN"
+      cwe_id: "CWE-943"
+
+    - id: "SEC-006"
+      severity: "LOW"
+      category: "A06"
+      location: "pyproject.toml:183"
+      description: "pygments 2.19.2 に CVE-2026-4539 (ReDoS)。修正版未リリース"
+      status: "MONITORING"
+      cwe_id: "CWE-1333"
+
+test:
+  coverage_assessment: "FAIR"
+  edge_cases_covered: true  # テスト済みファイルは充実
+  missing_tests:
+    - target: "scripts/mappers/helpers.py (2028行)"
+      priority: "HIGH"
+      description: "専用テストファイルが存在しない。_build_wr_*/_process_chunk/_infer_period_type等50関数以上が無テスト"
+      suggested_file: "tests/scripts/test_helpers.py"
+    - target: "scripts/mappers/classification.py (815行)"
+      priority: "HIGH"
+      description: "apply_classification_layer/各_make_*_node関数等の専用テストがない"
+      suggested_file: "tests/scripts/test_classification.py"
+
+  test_quality:
+    isolation: "WARN"
+    reproducibility: "PASS"
+    readability: "PASS"
+    issues_fixed:
+      - "test_migrate_entity_multilabel.py:24 - SCHEMA_YAML_PATH相対パス→絶対パスに修正済み"
+      - "test_migrate_source_type.py:26 - 同上"
+
+recommended_actions:
+  required:
+    - priority: 1
+      action: "test_helpers.py と test_classification.py の新規作成（helpers.py・classification.pyの専用テスト）"
+      related_issues: []
+    - priority: 2
+      action: "classification_nodes の label/key_property をホワイトリスト検証（SEC-005）"
+      related_issues: []
+    - priority: 3
+      action: "_build_wr_facts の型アノテーションを5要素tupleに修正"
+      related_issues: []
+
+  suggested:
+    - priority: 1
+      action: "neo4j_loader.py の _get_driver/_get_creator_driver に戻り値型注釈を追加"
+    - priority: 2
+      action: "_ingest_nodes/_ingest_rels の N+1クエリをUNWINDバッチに変換（パフォーマンス改善）"
+    - priority: 3
+      action: "apply_multilabel_batch のN+1クエリをUNWINDバッチに変換"
+
+summary:
+  verdict: "REQUEST_CHANGES"
+  comment: |
+    大規模なリファクタリング（emit_research_queue.py 4805→364行）は概ね成功しており、
+    BaseMapper/COMMAND_MAPPERSのプラグインアーキテクチャは設計として優れています。
+    主な課題はテストカバレッジ（helpers.py, classification.pyが完全無テスト）と
+    セキュリティ（パスワードハードコード、外部入力の未検証）です。
+    Round 1で7件の修正を実施済み。残存HIGH指摘は次PRで対応推奨。
+
+round1_fixes_applied:
+  - "SEC-002/003: migrate_*.py dry-run時パスワードデフォルト'neo4j'を削除"
+  - "可読性: _normalise_year → _normalize_year（スペル統一）"
+  - "可読性: validate_neo4j_schema.py ループ変数 l → label"
+  - "可読性: migrate_entity_multilabel.py デッドコード削除"
+  - "テスト品質: SCHEMA_YAML_PATH 相対パス→絶対パスに変換"
+  - "バグ修正: knowledge-graph-schema.yaml consolidation_rulesに12エントリ追加（fintech_holding/institution/fund/metric/model/market/dataset等）"
+  - "neo4j_loader.py デフォルトパスワードに本番環境設定必須注記追加"

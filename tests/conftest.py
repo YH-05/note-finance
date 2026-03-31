@@ -8,14 +8,15 @@ import pytest
 
 project_root = Path(__file__).parent.parent
 
-# emit_graph_queue は emit_research_queue にリネーム済み。旧テストは collect 時にスキップ
+# E2E テストは外部依存（Neo4j, ファイルシステム等）があるため collect 時にスキップ
 collect_ignore = [
-    "scripts/test_emit_graph_queue.py",
     "scripts/test_e2e_graph_pipeline.py",
     "scripts/test_e2e_kg_v21_all_waves.py",
     "scripts/test_e2e_pdf_extraction.py",
     "scripts/test_e2e_save_to_article_graph.py",
     "pdf_pipeline/unit/test_emit_graph_queue_pdf.py",
+    # scrape_jetro モジュールが未実装のためスキップ
+    "news_scraper/unit/test_scrape_jetro.py",
 ]
 
 

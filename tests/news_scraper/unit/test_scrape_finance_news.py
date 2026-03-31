@@ -144,8 +144,9 @@ class TestCleanupOldData:
 
     def test_正常系_新しいディレクトリは削除しない(self, tmp_path: Path) -> None:
         """_cleanup_old_data keeps directories newer than max_age_days."""
-        # Create a recent directory
-        recent_dir = tmp_path / "2026-02-28"
+        # Create a recent directory (today)
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        recent_dir = tmp_path / today_str
         recent_dir.mkdir()
 
         deleted = _cleanup_old_data(tmp_path, max_age_days=30)
@@ -202,10 +203,9 @@ class TestParseArgs:
 
     ALL_SOURCES: ClassVar[list[str]] = [
         "cnbc",
-        "nasdaq",
+        "developing_telecoms",
         "kabutan",
         "reuters_jp",
-        "minkabu",
         "jetro",
         "techcrunch",
         "ars_technica",
@@ -216,7 +216,7 @@ class TestParseArgs:
     ]
 
     def test_正常系_全12ソースがchoicesとして受け付けられる(self) -> None:
-        """--sources should accept all 12 sources."""
+        """--sources should accept all defined sources."""
         for source in self.ALL_SOURCES:
             with patch("sys.argv", ["scrape_finance_news.py", "--sources", source]):
                 args = _parse_args()
@@ -339,13 +339,12 @@ class TestMainAsyncCall:
             assert result == 0
 
     def test_正常系_全12ソースがargparse_choicesとして定義されている(self) -> None:
-        """All 12 sources should be defined in --sources choices."""
+        """All defined sources should be in --sources choices."""
         expected_sources = [
             "cnbc",
-            "nasdaq",
+            "developing_telecoms",
             "kabutan",
             "reuters_jp",
-            "minkabu",
             "jetro",
             "techcrunch",
             "ars_technica",

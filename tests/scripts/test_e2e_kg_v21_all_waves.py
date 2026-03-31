@@ -24,7 +24,7 @@ from typing import TYPE_CHECKING, Any
 if TYPE_CHECKING:
     from pathlib import Path
 
-from emit_graph_queue import (
+from emit_research_queue import (
     SCHEMA_VERSION,
     generate_stance_id,
     run,

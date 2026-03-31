@@ -37,9 +37,12 @@
 #       - Fact = strictly verified past objective info only
 #       - Recommendation/ValuationAssumption → unified under Claim
 #       - Insight node for AI-generated knowledge circulation
+#   v3.0 (2026-03-30): Migration helpers — consolidation_rules / source_type_normalization
+#     - Added: consolidation_rules.entity_type.mapping — 30種→14種 canonical type mapping (SSoT for migrate_entity_multilabel.py)
+#     - Added: source_type_normalization.mapping — 27種→5種 canonical source_type mapping (SSoT for migrate_source_type.py)
 #   v1.0 (2026-03-11): Initial schema with 6 nodes, 9 relationships
 
-version: "2.4"
+version: "3.0"
 
 # ============================================================
 # Node Definitions
@@ -961,3 +964,112 @@ namespaces:
     labels:
       - Archived
     naming: PascalCase
+
+# ============================================================
+# v3.0 Migration Helpers
+# ============================================================
+
+# Entity type consolidation: raw entity_type (30種) → canonical (14種)
+# Used by: scripts/migrate_entity_multilabel.py
+consolidation_rules:
+  entity_type:
+    mapping:
+      # company cluster
+      company: company
+      fintech: company
+      fintech_holding: company
+      subsidiary: company
+      digital_bank: company
+      it_services: company
+      # technology cluster
+      technology: technology
+      system: technology
+      # organization cluster
+      organization: organization
+      central_bank: organization
+      exchange: organization
+      government: organization
+      government_agency: organization
+      institution: organization
+      sovereign_wealth_fund: organization
+      # person
+      person: person
+      # index
+      index: index
+      # indicator
+      indicator: indicator
+      metric: indicator
+      # instrument cluster
+      instrument: instrument
+      etf: instrument
+      bond: instrument
+      currency: instrument
+      currency_pair: instrument
+      fund: instrument
+      asset: instrument
+      # commodity
+      commodity: commodity
+      # country cluster
+      country: country
+      region: country
+      # sector
+      sector: sector
+      market: sector
+      # concept cluster
+      concept: concept
+      macro: concept
+      theme: concept
+      demographic: concept
+      model: concept
+      method: concept
+      article_proposal: concept
+      event: concept
+      domain: concept
+      # broker
+      broker: broker
+      # product
+      product: product
+      dataset: product
+      data_center: product
+      # regulation (新規 — 既存データなし、将来用)
+      regulation: regulation
+
+# Source type normalization: raw source_type (27種以上) → canonical (5種)
+# Used by: scripts/migrate_source_type.py
+source_type_normalization:
+  mapping:
+    # web cluster
+    web: web
+    web-research: web
+    web_research: web
+    analysis: web
+    data: web
+    social: web
+    media: web
+    # news cluster
+    news: news
+    rss: news
+    news_article: news
+    article: news
+    transcript: news
+    press_release: news
+    # pdf cluster
+    pdf: pdf
+    report: pdf
+    company_filing: pdf
+    sec_filing: pdf
+    annual_report: pdf
+    financial_statement: pdf
+    academic_paper: pdf
+    paper: pdf
+    academic: pdf
+    regulatory_filing: pdf
+    regulatory_document: pdf
+    presentation: pdf
+    white_paper: pdf
+    research_report: pdf
+    legal_guide: pdf
+    # blog cluster
+    blog: blog
+    # original cluster (no external source)
+    original: original

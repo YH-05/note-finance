@@ -361,6 +361,7 @@ class TestSourceRegistry:
         """SOURCE_REGISTRY contains all expected sources."""
         expected_sources = {
             "cnbc",
+            "developing_telecoms",
             "jetro",
             "kabutan",
             "minkabu",

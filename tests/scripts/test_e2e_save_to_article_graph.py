@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
     import pytest
-from emit_graph_queue import (
+from emit_research_queue import (
     _scan_wealth_directory,
     generate_source_id,
     generate_topic_id,
@@ -803,9 +803,11 @@ class TestWealthScrapeGraphQueue:
         config_path = _create_wealth_theme_config(tmp_path)
         output_dir = tmp_path / "graph-queue"
 
-        import emit_graph_queue
+        import emit_research_queue
 
-        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+        monkeypatch.setattr(
+            emit_research_queue, "WEALTH_THEME_CONFIG_PATH", config_path
+        )
 
         exit_code = run(
             command="wealth-scrape",
@@ -895,9 +897,11 @@ class TestWealthScrapeGraphQueue:
         config_path = _create_wealth_theme_config(tmp_path)
         output_dir = tmp_path / "graph-queue"
 
-        import emit_graph_queue
+        import emit_research_queue
 
-        monkeypatch.setattr(emit_graph_queue, "WEALTH_THEME_CONFIG_PATH", config_path)
+        monkeypatch.setattr(
+            emit_research_queue, "WEALTH_THEME_CONFIG_PATH", config_path
+        )
 
         run(
             command="wealth-scrape",
@@ -1237,7 +1241,7 @@ class TestAllCommandsPipeline:
     @freeze_time(FROZEN_TIME)
     def test_正常系_8コマンド全てが登録されている(self) -> None:
         """COMMANDS リストに全8コマンドが含まれることを確認。"""
-        from emit_graph_queue import COMMANDS
+        from emit_research_queue import COMMANDS
 
         expected = {
             "finance-news-workflow",

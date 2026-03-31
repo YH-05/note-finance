@@ -552,7 +552,7 @@ class TestSaveMetadata:
 
         meta_file = output_dir / "metadata.json"
         data = json.loads(meta_file.read_text(encoding="utf-8"))
-        assert data["converter"] == "method_b"
+        assert data["converter"] == "claude"
 
 
 # ---------------------------------------------------------------------------

@@ -24,32 +24,50 @@ research-neo4j へのアドホック Cypher 直書きを禁止し、全データ
 
 ## 必須パイプライン
 
-全データ投入は以下の2段パイプラインで行うこと:
+全データ投入は以下の3段パイプラインで行うこと:
 
 ```
-emit_research_queue.py → /save-to-research-graph
+emit_research_queue.py → entity_linker.py → neo4j_loader.py
 ```
+
+`/save-to-research-graph` はこの3ステップを順次実行するオーケストレーター。直接呼び出す場合は `/save-to-research-graph <graph-queue.json>` を使用する。
 
 ### ステップ1: graph-queue JSON 生成
 
 ```bash
-uv run python scripts/emit_research_queue.py --command web-research --input <input.json>
+uv run python scripts/emit_research_queue.py --command <cmd> --input <input.json>
 ```
 
 入力 JSON から graph-queue 形式の中間 JSON を生成する。
 
-### ステップ2: グラフ投入
+### ステップ2: エンティティリンキング
+
+```bash
+uv run python scripts/entity_linker.py --instance research --input <queue.json>
+```
+
+graph-queue JSON 内のエンティティを既存グラフノードと照合・リンクし、linked JSON を生成する。
+
+### ステップ3: グラフ投入
+
+```bash
+uv run python src/data_pipeline/neo4j_loader.py --instance research --input <linked.json>
+```
+
+linked JSON を読み込み、KG v2 スキーマに準拠したノード・リレーションを一括投入する。
+
+### /save-to-research-graph（オーケストレーター）
+
+ステップ1〜3を順次実行するラッパー。アドホック調査データ（Web検索・論文・レポート等）の標準投入経路として使用する。
 
 ```
 /save-to-research-graph <graph-queue.json>
 ```
 
-graph-queue JSON を読み込み、KG v2 スキーマに準拠したノード・リレーションを一括投入する。
-
 ### web-research コマンド
 
-アドホック調査データ（Web検索・論文・レポート等）の標準投入経路。
-`emit_research_queue.py --command web-research` で graph-queue JSON を生成し、`/save-to-research-graph` で投入する。
+アドホック調査データの標準投入経路。
+`emit_research_queue.py --command web-research` で graph-queue JSON を生成し、`/save-to-research-graph` でステップ2〜3を実行する。
 
 ## 違反実績（証跡）
 
@@ -83,5 +101,7 @@ graph-queue JSON を読み込み、KG v2 スキーマに準拠したノード・
 
 | ファイル | 説明 |
 |---------|------|
-| `scripts/emit_research_queue.py` | graph-queue JSON 生成スクリプト |
+| `scripts/emit_research_queue.py` | graph-queue JSON 生成スクリプト（ステップ1） |
+| `scripts/entity_linker.py` | エンティティリンキングスクリプト（ステップ2） |
+| `src/data_pipeline/neo4j_loader.py` | グラフ投入スクリプト（ステップ3） |
 | `.claude/rules/neo4j-namespace-convention.md` | Neo4j 名前空間・命名規約 |

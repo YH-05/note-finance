@@ -31,6 +31,7 @@ class TestSourceName:
         """SourceName includes all expected source names."""
         expected: set[str] = {
             "cnbc",
+            "developing_telecoms",
             "jetro",
             "kabutan",
             "minkabu",

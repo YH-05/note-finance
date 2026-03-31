@@ -5,6 +5,7 @@ from __future__ import annotations
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import ClassVar
 from unittest.mock import MagicMock
 
 import pytest
@@ -18,10 +19,15 @@ from validate_neo4j_schema import (
     _validate_uri_scheme,
     build_allowed_labels,
     build_report,
+    check_constraints_and_indices,
     check_cross_contamination,
+    check_entity_type_convergence,
+    check_enum_source_type,
+    check_multilabel_entity,
     check_pascal_case_violations,
     classify_db_labels,
     load_namespaces,
+    load_v30_sections,
 )
 
 # ---------------------------------------------------------------------------
@@ -186,11 +192,143 @@ class TestLoadNamespaces:
         assert "kg_v2" in result
         assert "memory" in result
 
+    def test_正常系_v30新規セクションありでもKeyError発生しない(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """v3.0 の新規セクションが含まれる YAML でも load_namespaces が正常終了する。"""
+        schema_v30 = {
+            "version": "3.0",
+            "namespaces": sample_namespaces,
+            "multilabel_types": {"entity_labels": {"labels": {"Company": {}}}},
+            "consolidation_rules": {"entity_type": {"mapping": {"company": "company"}}},
+            "enum_validations": {"entity_type": {"values": ["company"]}},
+            "source_type_normalization": {"mapping": {"web page": "web"}},
+        }
+        schema_file = tmp_path / "schema_v30.yaml"
+        schema_file.write_text(yaml.dump(schema_v30), encoding="utf-8")
+        result = load_namespaces(schema_file)
+        assert "kg_v2" in result
+        assert "memory" in result
+
     def test_異常系_namespacesなしでValueError(self, tmp_path: Path) -> None:
         schema_file = tmp_path / "schema.yaml"
         schema_file.write_text(yaml.dump({"nodes": {}}), encoding="utf-8")
         with pytest.raises(ValueError, match="namespaces section not found"):
             load_namespaces(schema_file)
+
+
+# ---------------------------------------------------------------------------
+# load_v30_sections
+# ---------------------------------------------------------------------------
+
+
+class TestLoadV30Sections:
+    def _make_v30_schema(
+        self,
+        tmp_path: Path,
+        sample_namespaces: dict,
+        *,
+        include_multilabel_types: bool = True,
+        include_consolidation_rules: bool = True,
+        include_enum_validations: bool = True,
+        include_source_type_normalization: bool = True,
+    ) -> Path:
+        schema: dict = {"version": "3.0", "namespaces": sample_namespaces}
+        if include_multilabel_types:
+            schema["multilabel_types"] = {
+                "entity_labels": {"labels": {"Company": {"name_ja": "企業"}}}
+            }
+        if include_consolidation_rules:
+            schema["consolidation_rules"] = {
+                "entity_type": {"mapping": {"company": "company", "fintech": "company"}}
+            }
+        if include_enum_validations:
+            schema["enum_validations"] = {
+                "entity_type": {"values": ["company", "technology"]},
+                "source_type": {"values": ["web", "news", "pdf", "original", "blog"]},
+            }
+        if include_source_type_normalization:
+            schema["source_type_normalization"] = {
+                "mapping": {"web page": "web", "news article": "news"}
+            }
+        schema_file = tmp_path / "schema_v30.yaml"
+        schema_file.write_text(yaml.dump(schema), encoding="utf-8")
+        return schema_file
+
+    def test_正常系_全v30セクションが読み込まれる(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        assert result["multilabel_types"] is not None
+        assert result["consolidation_rules"] is not None
+        assert result["enum_validations"] is not None
+        assert result["source_type_normalization"] is not None
+
+    def test_正常系_multilabel_typesの内容が読み込まれる(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        assert "entity_labels" in result["multilabel_types"]
+
+    def test_正常系_consolidation_rulesの内容が読み込まれる(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        mapping = result["consolidation_rules"]["entity_type"]["mapping"]
+        assert mapping["company"] == "company"
+        assert mapping["fintech"] == "company"
+
+    def test_正常系_旧バージョンYAMLでv30セクションはNone(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """v3.0 未対応の YAML（新規セクションなし）でも KeyError が発生しない。"""
+        schema_file = self._make_v30_schema(
+            tmp_path,
+            sample_namespaces,
+            include_multilabel_types=False,
+            include_consolidation_rules=False,
+            include_enum_validations=False,
+            include_source_type_normalization=False,
+        )
+        result = load_v30_sections(schema_file)
+        assert result["multilabel_types"] is None
+        assert result["consolidation_rules"] is None
+        assert result["enum_validations"] is None
+        assert result["source_type_normalization"] is None
+
+    def test_正常系_一部セクションのみ存在する場合もKeyError発生しない(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """一部の v3.0 セクションのみ存在する YAML でも安全に読み込める。"""
+        schema_file = self._make_v30_schema(
+            tmp_path,
+            sample_namespaces,
+            include_multilabel_types=True,
+            include_consolidation_rules=False,
+            include_enum_validations=True,
+            include_source_type_normalization=False,
+        )
+        result = load_v30_sections(schema_file)
+        assert result["multilabel_types"] is not None
+        assert result["consolidation_rules"] is None
+        assert result["enum_validations"] is not None
+        assert result["source_type_normalization"] is None
+
+    def test_正常系_返却辞書のキーが常に4つ存在する(
+        self, tmp_path: Path, sample_namespaces: dict
+    ) -> None:
+        """セクションの有無に関わらず、返却辞書は常に 4 つのキーを持つ。"""
+        schema_file = self._make_v30_schema(tmp_path, sample_namespaces)
+        result = load_v30_sections(schema_file)
+        assert set(result.keys()) == {
+            "multilabel_types",
+            "consolidation_rules",
+            "enum_validations",
+            "source_type_normalization",
+        }
 
 
 # ---------------------------------------------------------------------------
@@ -298,3 +436,439 @@ class TestValidateOutputPath:
     def test_異常系_プロジェクト外パス(self) -> None:
         with pytest.raises(ValueError, match="Output path must be under"):
             _validate_output_path("/tmp/evil/output.json")
+
+
+# ---------------------------------------------------------------------------
+# check_multilabel_entity (v3.0)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckMultilabelEntity:
+    def _make_session(self, count: int) -> MagicMock:
+        """count 件のシングルラベル Entity を返すモックセッションを生成。"""
+        mock_record = MagicMock()
+        mock_record.__getitem__ = lambda self, key: count
+        mock_session = MagicMock()
+        mock_session.run.return_value.single.return_value = mock_record
+        return mock_session
+
+    def test_正常系_シングルラベルなしでpass(self) -> None:
+        mock_session = self._make_session(0)
+        result = check_multilabel_entity(mock_session)
+        assert result["single_label_count"] == 0
+        assert result["pass"] is True
+        assert result["warning"] is False
+
+    def test_異常系_シングルラベルありでwarning(self) -> None:
+        mock_session = self._make_session(42)
+        result = check_multilabel_entity(mock_session)
+        assert result["single_label_count"] == 42
+        assert result["pass"] is False
+        assert result["warning"] is True
+
+    def test_エッジケース_single_returnがNoneでも正常動作(self) -> None:
+        mock_session = MagicMock()
+        mock_session.run.return_value.single.return_value = None
+        result = check_multilabel_entity(mock_session)
+        assert result["single_label_count"] == 0
+        assert result["pass"] is True
+        assert result["warning"] is False
+
+
+# ---------------------------------------------------------------------------
+# check_enum_source_type (v3.0)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckEnumSourceType:
+    ALLOWED: ClassVar[list[str]] = ["web", "news", "pdf", "original", "blog"]
+
+    def _make_session(self, db_values: list[str]) -> MagicMock:
+        mock_session = MagicMock()
+        mock_records = []
+        for v in db_values:
+            r = MagicMock()
+            r.__getitem__ = lambda self, key, _v=v: _v
+            mock_records.append(r)
+        mock_session.run.return_value = mock_records
+        return mock_session
+
+    def test_正常系_有効値のみでpass(self) -> None:
+        mock_session = self._make_session(["web", "news", "pdf"])
+        result = check_enum_source_type(mock_session, self.ALLOWED)
+        assert result["pass"] is True
+        assert result["invalid_values"] == []
+        assert result["db_values"] == ["web", "news", "pdf"]
+
+    def test_異常系_不正値ありでpass_false(self) -> None:
+        mock_session = self._make_session(["web", "web_page", "invalid_type"])
+        result = check_enum_source_type(mock_session, self.ALLOWED)
+        assert result["pass"] is False
+        assert "web_page" in result["invalid_values"]
+        assert "invalid_type" in result["invalid_values"]
+
+    def test_エッジケース_DB値空でpass(self) -> None:
+        mock_session = self._make_session([])
+        result = check_enum_source_type(mock_session, self.ALLOWED)
+        assert result["pass"] is True
+        assert result["db_values"] == []
+        assert result["invalid_values"] == []
+
+    def test_エッジケース_全5種の正規値でpass(self) -> None:
+        mock_session = self._make_session(["web", "news", "pdf", "original", "blog"])
+        result = check_enum_source_type(mock_session, self.ALLOWED)
+        assert result["pass"] is True
+        assert len(result["invalid_values"]) == 0
+
+
+# ---------------------------------------------------------------------------
+# check_entity_type_convergence (v3.0)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckEntityTypeConvergence:
+    ALLOWED: ClassVar[list[str]] = [
+        "company",
+        "technology",
+        "organization",
+        "person",
+        "index",
+        "indicator",
+        "instrument",
+        "commodity",
+        "country",
+        "sector",
+        "concept",
+        "regulation",
+        "broker",
+        "product",
+    ]
+
+    def _make_session(self, db_values: list[str]) -> MagicMock:
+        mock_session = MagicMock()
+        mock_records = []
+        for v in db_values:
+            r = MagicMock()
+            r.__getitem__ = lambda self, key, _v=v: _v
+            mock_records.append(r)
+        mock_session.run.return_value = mock_records
+        return mock_session
+
+    def test_正常系_14種以内でpass(self) -> None:
+        mock_session = self._make_session(["company", "technology", "organization"])
+        result = check_entity_type_convergence(mock_session, self.ALLOWED)
+        assert result["pass"] is True
+        assert result["invalid_values"] == []
+        assert result["type_count"] == 3
+        assert result["max_allowed"] == 14
+
+    def test_異常系_未マイグレーション値ありでpass_false(self) -> None:
+        mock_session = self._make_session(["company", "central_bank", "fintech"])
+        result = check_entity_type_convergence(mock_session, self.ALLOWED)
+        assert result["pass"] is False
+        assert "central_bank" in result["invalid_values"]
+        assert "fintech" in result["invalid_values"]
+
+    def test_正常系_全14種揃っていてもpass(self) -> None:
+        mock_session = self._make_session(self.ALLOWED)
+        result = check_entity_type_convergence(mock_session, self.ALLOWED)
+        assert result["pass"] is True
+        assert result["type_count"] == 14
+
+    def test_エッジケース_DB値空でpass(self) -> None:
+        mock_session = self._make_session([])
+        result = check_entity_type_convergence(mock_session, self.ALLOWED)
+        assert result["pass"] is True
+        assert result["type_count"] == 0
+
+
+# ---------------------------------------------------------------------------
+# check_constraints_and_indices (v3.0)
+# ---------------------------------------------------------------------------
+
+
+class TestCheckConstraintsAndIndices:
+    SCHEMA_CONSTRAINTS: ClassVar[list[dict[str, str]]] = [
+        {"label": "Source", "property": "source_id", "type": "UNIQUE"},
+        {"label": "Entity", "property": "entity_id", "type": "UNIQUE"},
+    ]
+    SCHEMA_INDICES: ClassVar[list[dict[str, str]]] = [
+        {"label": "Entity", "property": "entity_type"},
+        {"label": "Source", "property": "source_type"},
+    ]
+
+    def _make_session(
+        self,
+        constraint_rows: list[dict],
+        index_rows: list[dict],
+    ) -> MagicMock:
+        """SHOW CONSTRAINTS / SHOW INDEXES の結果を返すモックセッション。"""
+
+        def run_side_effect(query: str, **kwargs: object) -> list[MagicMock]:
+            rows = []
+            if "SHOW CONSTRAINTS" in query:
+                for row in constraint_rows:
+                    r = MagicMock()
+                    r.__getitem__ = lambda self, key, _row=row: _row.get(key)
+                    rows.append(r)
+            elif "SHOW INDEXES" in query:
+                for row in index_rows:
+                    r = MagicMock()
+                    r.__getitem__ = lambda self, key, _row=row: _row.get(key)
+                    rows.append(r)
+            return rows
+
+        mock_session = MagicMock()
+        mock_session.run.side_effect = run_side_effect
+        return mock_session
+
+    def test_正常系_全制約インデックスが存在でpass(self) -> None:
+        constraint_rows = [
+            {
+                "labelsOrTypes": ["Source"],
+                "properties": ["source_id"],
+                "type": "UNIQUENESS",
+            },
+            {
+                "labelsOrTypes": ["Entity"],
+                "properties": ["entity_id"],
+                "type": "UNIQUENESS",
+            },
+        ]
+        index_rows = [
+            {
+                "labelsOrTypes": ["Entity"],
+                "properties": ["entity_type"],
+                "type": "BTREE",
+            },
+            {
+                "labelsOrTypes": ["Source"],
+                "properties": ["source_type"],
+                "type": "BTREE",
+            },
+        ]
+        mock_session = self._make_session(constraint_rows, index_rows)
+        result = check_constraints_and_indices(
+            mock_session, self.SCHEMA_CONSTRAINTS, self.SCHEMA_INDICES
+        )
+        assert result["pass"] is True
+        assert result["missing_constraints"] == []
+        assert result["missing_indices"] == []
+
+    def test_異常系_制約欠落でpass_false(self) -> None:
+        constraint_rows = [
+            # Source の constraint のみ
+            {
+                "labelsOrTypes": ["Source"],
+                "properties": ["source_id"],
+                "type": "UNIQUENESS",
+            },
+        ]
+        index_rows = [
+            {
+                "labelsOrTypes": ["Entity"],
+                "properties": ["entity_type"],
+                "type": "BTREE",
+            },
+            {
+                "labelsOrTypes": ["Source"],
+                "properties": ["source_type"],
+                "type": "BTREE",
+            },
+        ]
+        mock_session = self._make_session(constraint_rows, index_rows)
+        result = check_constraints_and_indices(
+            mock_session, self.SCHEMA_CONSTRAINTS, self.SCHEMA_INDICES
+        )
+        assert result["pass"] is False
+        assert any(c["label"] == "Entity" for c in result["missing_constraints"])
+
+    def test_異常系_インデックス欠落でpass_false(self) -> None:
+        constraint_rows = [
+            {
+                "labelsOrTypes": ["Source"],
+                "properties": ["source_id"],
+                "type": "UNIQUENESS",
+            },
+            {
+                "labelsOrTypes": ["Entity"],
+                "properties": ["entity_id"],
+                "type": "UNIQUENESS",
+            },
+        ]
+        index_rows = [
+            # entity_type インデックスのみ（source_type 欠落）
+            {
+                "labelsOrTypes": ["Entity"],
+                "properties": ["entity_type"],
+                "type": "BTREE",
+            },
+        ]
+        mock_session = self._make_session(constraint_rows, index_rows)
+        result = check_constraints_and_indices(
+            mock_session, self.SCHEMA_CONSTRAINTS, self.SCHEMA_INDICES
+        )
+        assert result["pass"] is False
+        assert any(i["label"] == "Source" for i in result["missing_indices"])
+
+    def test_エッジケース_空のschema定義でpass(self) -> None:
+        mock_session = self._make_session([], [])
+        result = check_constraints_and_indices(mock_session, [], [])
+        assert result["pass"] is True
+        assert result["missing_constraints"] == []
+        assert result["missing_indices"] == []
+
+    def test_エッジケース_SHOW_CONSTRAINTSが例外でも安全に動作(self) -> None:
+        """SHOW CONSTRAINTS が例外を投げても処理が中断しない。"""
+        mock_session = MagicMock()
+        mock_session.run.side_effect = Exception("Unsupported operation")
+        result = check_constraints_and_indices(
+            mock_session, self.SCHEMA_CONSTRAINTS, self.SCHEMA_INDICES
+        )
+        # 例外時は全制約・インデックスが欠落扱い
+        assert result["missing_constraints"] == self.SCHEMA_CONSTRAINTS
+        assert result["missing_indices"] == self.SCHEMA_INDICES
+
+
+# ---------------------------------------------------------------------------
+# build_report v3.0 拡張
+# ---------------------------------------------------------------------------
+
+
+class TestBuildReportV30:
+    def test_正常系_v30チェック全passでoverall_pass_true(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Source"],
+            allowed=sample_allowed,
+            unknown_labels=[],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Source"]},
+            multilabel_check={"single_label_count": 0, "pass": True, "warning": False},
+            source_type_check={
+                "db_values": ["web"],
+                "invalid_values": [],
+                "pass": True,
+            },
+            entity_type_check={
+                "db_values": ["company"],
+                "invalid_values": [],
+                "type_count": 1,
+                "max_allowed": 14,
+                "pass": True,
+            },
+            constraints_check={
+                "missing_constraints": [],
+                "missing_indices": [],
+                "db_constraint_count": 5,
+                "db_index_count": 10,
+                "pass": True,
+            },
+        )
+        assert report["overall_pass"] is True
+
+    def test_異常系_source_type不正値でoverall_pass_false(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Source"],
+            allowed=sample_allowed,
+            unknown_labels=[],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Source"]},
+            source_type_check={
+                "db_values": ["web", "invalid"],
+                "invalid_values": ["invalid"],
+                "pass": False,
+            },
+        )
+        assert report["overall_pass"] is False
+
+    def test_異常系_entity_type収束失敗でoverall_pass_false(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Entity"],
+            allowed=sample_allowed,
+            unknown_labels=[],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Entity"]},
+            entity_type_check={
+                "db_values": ["company", "central_bank"],
+                "invalid_values": ["central_bank"],
+                "type_count": 2,
+                "max_allowed": 14,
+                "pass": False,
+            },
+        )
+        assert report["overall_pass"] is False
+
+    def test_正常系_multilabel_warningはoverall_passに影響しない(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        """シングルラベル Entity は WARNING のみで overall_pass を False にしない。"""
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Entity"],
+            allowed=sample_allowed,
+            unknown_labels=[],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Entity"]},
+            multilabel_check={
+                "single_label_count": 100,
+                "pass": False,
+                "warning": True,
+            },
+        )
+        assert report["overall_pass"] is True
+
+    def test_正常系_constraints_warningはoverall_passに影響しない(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        """制約・インデックスの欠落は WARNING のみで overall_pass を False にしない。"""
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Source"],
+            allowed=sample_allowed,
+            unknown_labels=[],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Source"]},
+            constraints_check={
+                "missing_constraints": [
+                    {"label": "Source", "property": "source_id", "type": "UNIQUE"}
+                ],
+                "missing_indices": [],
+                "db_constraint_count": 0,
+                "db_index_count": 10,
+                "pass": False,
+            },
+        )
+        assert report["overall_pass"] is True
+
+    def test_正常系_v30チェックNoneでも従来動作と同一(
+        self, sample_allowed: dict[str, str]
+    ) -> None:
+        """v3.0 チェックが None の場合は従来の build_report と同一結果。"""
+        report = build_report(
+            schema_path="test.yaml",
+            db_labels=["Source"],
+            allowed=sample_allowed,
+            unknown_labels=[],
+            pascal_violations=[],
+            contamination=[],
+            classified={"kg_v2": ["Source"]},
+        )
+        assert report["overall_pass"] is True
+        assert report["checks"]["multilabel_entity"] is None
+        assert report["checks"]["source_type_enum"] is None
+        assert report["checks"]["entity_type_convergence"] is None
+        assert report["checks"]["constraints_and_indices"] is None

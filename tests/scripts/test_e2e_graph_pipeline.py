@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 import pytest
-from emit_graph_queue import (
+from emit_research_queue import (
     generate_claim_id,
     generate_entity_id,
     generate_source_id,
