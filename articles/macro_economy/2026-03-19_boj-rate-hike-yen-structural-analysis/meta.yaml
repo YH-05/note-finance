@@ -1,40 +1,50 @@
-title: "日銀利上げと円安の構造分析"
+title: 日銀利上げと円安の構造分析——160円突破・4月利上げの現実味・原油ショックの複合危機
 slug: boj-rate-hike-yen-structural-analysis
 category: macro_economy
-created_at: "2026-03-19"
-target_wordcount: 6000
-status: initialized
-
+created_at: '2026-03-19'
+updated_at: '2026-03-30T11:13:24.334014+00:00'
+target_wordcount: 4500
+status: published
 tags:
-  - 日銀
-  - 金融政策
-  - 円安
-  - 利上げ
-  - マクロ経済
-
+- 日銀
+- 金融政策
+- 円安
+- 利上げ
+- マクロ経済
+indicators:
+- CPI
+- BOJ Policy Rate
+- JPY/USD
+- Spring Wage Growth
+regions:
+- Japan
+- US
 research_context:
   entities:
-    - Bank of Japan
-    - Kazuo Ueda
-    - Federal Reserve
-    - USD/JPY
+  - Bank of Japan
+  - Kazuo Ueda
+  - Federal Reserve
+  - USD/JPY
   topics:
-    - BOJ Policy
-    - US Monetary Policy
-    - FX Markets
-    - Inflation
+  - BOJ Policy
+  - US Monetary Policy
+  - FX Markets
+  - Inflation
   neo4j_facts: 67
-
 workflow:
   init: done
-  research: pending
-  draft: pending
-  critique: pending
-  revision: pending
-  publish: pending
-
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   HF1_topic_approval: pending
   HF3_claims_review: pending
   HF5_draft_review: pending
   HF6_final_approval: pending
+published_at: '2026-03-30T11:13:24.334014+00:00'
+draft_url: https://editor.note.com/notes/nae5a93e90241/edit/

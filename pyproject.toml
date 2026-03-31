@@ -33,6 +33,7 @@ dependencies = [
     "requests>=2.33.0",
     "cryptography==46.0.6",
     "quants",
+    "liteparse>=1.2.1",
 ]
 
 [project.optional-dependencies]

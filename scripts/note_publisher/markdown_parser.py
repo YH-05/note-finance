@@ -49,6 +49,10 @@ _BOLD_PATTERN = re.compile(r"\*\*(.+?)\*\*")
 # AIDEV-NOTE: Inline italic markdown pattern *text* (single asterisk)
 _ITALIC_PATTERN = re.compile(r"\*(.+?)\*")
 
+# AIDEV-NOTE: Inline link pattern [text](url) — note.com does not render
+# markdown links, so these are stripped to plain text during conversion.
+_INLINE_LINK_PATTERN = re.compile(r"\[([^\]]*)\]\([^)]+\)")
+
 # AIDEV-NOTE: Bold-only line pattern — entire line is **text** with no other content.
 # These are used as sub-headings in markdown but note.com cannot render bold in
 # paragraphs, so they are converted to blockquotes for visual distinction.
@@ -81,6 +85,8 @@ def parse_draft(draft_path: Path) -> ArticleDraft:
     body_text = _remove_revision_history(body_text)
     body_blocks, image_paths = _parse_body(body_text, draft_path.parent)
     title = _resolve_title(frontmatter, body_blocks)
+    body_blocks = _remove_title_from_body(body_blocks)
+    body_blocks = _relocate_disclaimer(body_blocks)
 
     logger.info(
         "Draft parsed successfully",
@@ -361,8 +367,9 @@ def _strip_inline_markdown(text: str) -> str:
     str
         Text with inline formatting markers removed.
     """
-    # Strip bold first (**text**), then italic (*text*)
-    result = _BOLD_PATTERN.sub(r"\1", text)
+    # Strip inline links first, then bold (**text**), then italic (*text*)
+    result = _INLINE_LINK_PATTERN.sub(r"\1", text)
+    result = _BOLD_PATTERN.sub(r"\1", result)
     return _ITALIC_PATTERN.sub(r"\1", result)
 
 
@@ -421,11 +428,11 @@ def _parse_heading(line: str) -> ContentBlock | None:
         the heading level exceeds 3.
     """
     if line.startswith("### "):
-        return ContentBlock(block_type="heading", content=line[4:].strip(), level=3)
+        return ContentBlock(block_type="heading", content=_strip_inline_markdown(line[4:].strip()), level=3)
     if line.startswith("## "):
-        return ContentBlock(block_type="heading", content=line[3:].strip(), level=2)
+        return ContentBlock(block_type="heading", content=_strip_inline_markdown(line[3:].strip()), level=2)
     if line.startswith("# "):
-        return ContentBlock(block_type="heading", content=line[2:].strip(), level=1)
+        return ContentBlock(block_type="heading", content=_strip_inline_markdown(line[2:].strip()), level=1)
     return None
 
 
@@ -458,3 +465,70 @@ def _resolve_title(
             return block.content
 
     return ""
+
+
+def _remove_title_from_body(
+    body_blocks: list[ContentBlock],
+) -> list[ContentBlock]:
+    """Remove h1 heading blocks from the body.
+
+    The article title is set separately in note.com's title field,
+    so h1 headings in the body would create a duplicate.
+
+    Parameters
+    ----------
+    body_blocks : list[ContentBlock]
+        Parsed body blocks.
+
+    Returns
+    -------
+    list[ContentBlock]
+        Body blocks with h1 headings removed.
+    """
+    return [
+        block for block in body_blocks
+        if not (block.block_type == "heading" and block.level == 1)
+    ]
+
+
+def _relocate_disclaimer(
+    body_blocks: list[ContentBlock],
+) -> list[ContentBlock]:
+    """Move disclaimer blocks to the end of the article.
+
+    Detects blocks containing ``免責事項`` and relocates them to the
+    end, preceded by a separator. Disclaimer text is converted to
+    plain paragraphs (no blockquote or other decoration).
+
+    Parameters
+    ----------
+    body_blocks : list[ContentBlock]
+        Parsed body blocks.
+
+    Returns
+    -------
+    list[ContentBlock]
+        Body blocks with disclaimer moved to end.
+    """
+    disclaimer_blocks: list[ContentBlock] = []
+    remaining_blocks: list[ContentBlock] = []
+
+    for block in body_blocks:
+        if "免責事項" in block.content:
+            disclaimer_blocks.append(
+                ContentBlock(block_type="paragraph", content=block.content)
+            )
+        else:
+            remaining_blocks.append(block)
+
+    if not disclaimer_blocks:
+        return body_blocks
+
+    logger.debug(
+        "disclaimer_relocated",
+        count=len(disclaimer_blocks),
+    )
+
+    remaining_blocks.append(ContentBlock(block_type="separator", content=""))
+    remaining_blocks.extend(disclaimer_blocks)
+    return remaining_blocks

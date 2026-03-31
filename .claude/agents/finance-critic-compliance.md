@@ -52,21 +52,10 @@ critic.json の compliance セクションを生成してください。
         }
     ],
     "required_disclaimers": {
-        "investment_risk": {
+        "disclaimer": {
             "present": true | false,
-            "location": "冒頭 | 末尾 | なし"
-        },
-        "not_advice": {
-            "present": true | false,
-            "location": "冒頭 | 末尾 | なし"
-        },
-        "past_performance": {
-            "present": true | false,
-            "required": true | false
-        },
-        "data_source": {
-            "present": true | false,
-            "location": "末尾 | なし"
+            "location": "末尾 | なし",
+            "note": "snippets/disclaimer.md の統合免責事項が末尾に1箇所存在するか"
         }
     },
     "prohibited_expressions_found": [

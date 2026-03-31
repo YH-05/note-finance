@@ -390,9 +390,7 @@ edit {article_dir}/02_draft/revised_draft.md
 
 ### スニペット
 
-- **免責事項**: `snippets/not-advice.md`（冒頭に挿入）
-- **リスク開示**: `snippets/investment-risk.md`（末尾に挿入）
-- **NISA免責**: `snippets/nisa-disclaimer.md`（NISAテーマ時に追加）
+- **免責事項**: `snippets/disclaimer.md`（末尾に1箇所挿入）
 
 ## 注意事項
 

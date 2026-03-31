@@ -1,37 +1,89 @@
 ---
 name: convert-pdf
-description: PDF を Claude Code の Read ツールで直接読み込み、Markdown に変換するスキル。Method B（メインプロセス直接 Read 方式）の中核。10 ステップの処理フローで report.md + chunks.json + metadata.json を生成する。30 ページ分割対応。
+description: PDF を Markdown に変換するスキル。auto モード（デフォルト）はプリスキャンで最適方式を自動選択。LiteParse テキスト抽出 → Haiku ディスクレーマー判定 → 必要ページのみ Claude Vision Read → Claude Markdown 構造化の多段パイプライン。claude / llamaparse の明示指定も可。出力は report.md + chunks.json + metadata.json（統一スキーマ）。
 allowed-tools: Read, Write, Bash, Glob
 ---
 
 # convert-pdf スキル
 
-PDF ファイルを Claude Code の Read ツールで直接読み込み、構造化 Markdown に変換するスキル。Gemini CLI に依存せず、Claude Code 単体で PDF から `report.md` + `chunks.json` + `metadata.json` を生成する。
+PDF を構造化 Markdown に変換するスキル。`--method` で変換方式を選択できる。
+
+| 方式 | エンジン | 特徴 |
+|------|---------|------|
+| `auto`（デフォルト） | LiteParse + Claude Vision（必要ページのみ） | 高速・低コスト・表は Vision で正確に取得 |
+| `claude` | Claude Code Read ツール（30p 分割） | 全ページ Vision。外部依存なし |
+| `llamaparse` | LlamaParse REST API | セルサイドレポート向け。最高精度・有料 |
+
+どの方式でも出力ファイル（`report.md` / `chunks.json` / `metadata.json`）とメタデータスキーマは統一される。
 
 金融レポート・決算資料・リサーチペーパーなど、表・グラフ・複数カラムを含む PDF を高品質に Markdown 化する。
 
 ## アーキテクチャ
 
+### auto 方式（デフォルト）
+
 ```
 /convert-pdf (このスキル = オーケストレーター)
   |
-  +-- Step 1:  PDF パス検証（スキル直接）
+  +-- Step 1:  PDF パス検証
+  +-- Step 2:  SHA-256 ハッシュ計算（CLI ヘルパー）
+  +-- Step 3:  冪等性チェック（CLI ヘルパー）
+  +-- Step 4:  出力ディレクトリ計算（CLI ヘルパー）
+  +-- Step A:  PyMuPDF プリスキャン（prescan_pdf.py）
+  |     +-- 画像の位置・サイズ・ページを取得
+  |     +-- テキスト表を find_tables() で検出
+  +-- Step B:  LiteParse テキスト抽出（liteparse_convert.py）
+  |     +-- 全ページのテキストを page_texts.json に出力
+  +-- Step B': Haiku ディスクレーマー判定（classify_disclaimers.py）
+  |     +-- page_texts.json を入力 → disclaimer_pages を出力
+  |     +-- ※ 必ず Haiku で実行（モデル固定）
+  +-- Step C:  ギャップ検出
+  |     +-- プリスキャン結果から大画像ありページを特定
+  |     +-- disclaimer_pages を除外
+  |     +-- → vision_pages（Vision Read 対象）を決定
+  +-- Step D:  対象ページ Claude Vision Read（Read ツール）
+  |     +-- vision_pages の各ページを個別に Read
+  |     +-- 表が含まれていれば Markdown テーブルとして抽出
+  |     +-- 表でない図（チャート・ロゴ等）はスキップ
+  +-- Step E:  マージ + Claude Markdown 構造化
+  |     +-- LiteParse テキスト（disclaimer 除外）+ Vision 抽出テーブル
+  |     +-- Claude が ATX 見出し・テーブル構文等に構造化
+  +-- Step F:  report.md / chunks.json / metadata.json / 完了記録
+```
+
+### claude / llamaparse 方式
+
+```
+/convert-pdf --method claude|llamaparse
+  |
+  +-- Step 1:  PDF パス検証
   +-- Step 2:  SHA-256 ハッシュ計算（CLI ヘルパー）
   +-- Step 3:  冪等性チェック（CLI ヘルパー）
   +-- Step 4:  出力ディレクトリ計算（CLI ヘルパー）
   +-- Step 5:  ページ数取得（CLI ヘルパー）
-  +-- Step 6:  PDF 読込 + Markdown 変換（Read ツール + 30p 分割）
-  +-- Step 7:  report.md 出力（Write ツール）
+  +-- Step 6:  PDF 読込 + Markdown 変換
+  |     +-- claude: Read ツール（30p 分割）
+  |     +-- llamaparse: scripts/llamaparse_convert.py
+  +-- Step 7:  report.md 出力
   +-- Step 8:  chunks.json 生成（CLI ヘルパー）
-  +-- Step 9:  metadata.json 生成（CLI ヘルパー）
+  +-- Step 9:  metadata.json 生成
   +-- Step 10: 完了記録（CLI ヘルパー）
 ```
 
 ## 使用方法
 
 ```bash
-# 単一 PDF を変換
+# auto 方式（デフォルト）— プリスキャンで最適化
 /convert-pdf /path/to/report.pdf
+
+# Claude Vision 全ページ Read
+/convert-pdf --method claude /path/to/report.pdf
+
+# LlamaParse（最高精度・有料）
+/convert-pdf --method llamaparse /path/to/report.pdf
+
+# LlamaParse + tier 指定
+/convert-pdf --method llamaparse --tier cost_effective /path/to/report.pdf
 
 # 複数 PDF を連続変換
 /convert-pdf /path/to/report1.pdf /path/to/report2.pdf
@@ -45,13 +97,20 @@ PDF ファイルを Claude Code の Read ツールで直接読み込み、構造
 | パラメータ | デフォルト | 説明 |
 |-----------|-----------|------|
 | pdf_path | (必須) | 変換対象の PDF ファイルパス（複数指定可） |
+| --method | `auto` | 変換方式: `auto` / `claude` / `llamaparse` |
 | --force | false | 冪等性チェックをスキップし強制再変換する |
+| --tier | `agentic` | llamaparse 方式のみ。パースティア |
+| --no-ocr | false | auto 方式の LiteParse で OCR を無効化 |
+| --dpi | 150 | auto 方式の LiteParse OCR 解像度 |
 
 ## 前提条件
 
-1. **uv**: パッケージマネージャ。`uv run` で CLI ヘルパーを実行
-2. **PyMuPDF (fitz)**: ページ数取得に使用。`pdf_pipeline` の依存関係に含まれている
-3. **pdf_pipeline パッケージ**: `src/pdf_pipeline/` が利用可能であること
+| 方式 | 必要なもの |
+|------|-----------|
+| 全方式共通 | `uv`, PyMuPDF (fitz), `pdf_pipeline` パッケージ |
+| auto | Node.js 18+, `liteparse` pip パッケージ, `ANTHROPIC_API_KEY`（Haiku 判定用） |
+| claude | なし（追加依存なし） |
+| llamaparse | `LLAMA_CLOUD_API_KEY` |
 
 ## 出力パス形式
 
@@ -178,6 +237,143 @@ uv run python -m pdf_pipeline.cli.helpers compute_output_dir "{pdf_path}" "{SHA2
 
 ---
 
+## Step A-F: Auto Method（`--method auto`）
+
+**`--method auto`（デフォルト）の場合、Step 5-10 の代わりに以下を実行する。**
+
+### Step A+B: prescan + LiteParse（convert_auto.py prepare）
+
+prescan（PyMuPDF 構造スキャン）と LiteParse（テキスト抽出）を実行する。API 呼び出しなし。
+
+```bash
+uv run python -m pdf_pipeline.cli.convert_auto prepare "{pdf_path}" "{OUTPUT_DIR}" [--no-ocr] [--dpi N]
+```
+
+#### 出力
+
+JSON を stdout に出力:
+
+| フィールド | 型 | 説明 |
+|-----------|-----|------|
+| `page_count` | int | 総ページ数 |
+| `prescan_path` | str | prescan.json のパス |
+| `page_texts_path` | str | page_texts.json のパス |
+
+#### 変数保持
+
+出力 JSON を `PREP` としてパースし保持する。`PAGE_COUNT = PREP.page_count`。
+
+### Step B': Haiku ディスクレーマー判定（スキルが Agent で実行）
+
+**実行方式**: Agent ツール（`model="haiku"`）
+
+`page_texts.json` を Read で読み込み、`classify_disclaimers.py` の `SYSTEM_PROMPT` をシステムプロンプトに、`format_prompt()` でフォーマットしたテキストをユーザーメッセージとして Haiku サブエージェントに送る。
+
+```
+Agent(
+    model="haiku",
+    system_prompt=SYSTEM_PROMPT,  # classify_disclaimers.py から
+    prompt=format_prompt(page_texts),
+)
+```
+
+Haiku は JSON 配列（例: `[5, 6, 7]`）を返す。これを `DISCLAIMER_PAGES` として保持する。
+
+### Step C: build_plan（convert_auto.py build_plan）
+
+disclaimer_pages を渡して vision_pages / content_pages / content_text を計算する。
+
+```bash
+uv run python -m pdf_pipeline.cli.convert_auto build_plan "{OUTPUT_DIR}" '{DISCLAIMER_PAGES_JSON}'
+```
+
+#### 出力
+
+JSON を stdout に出力:
+
+| フィールド | 型 | 説明 |
+|-----------|-----|------|
+| `vision_pages` | list[int] | Vision Read が必要なページ番号 |
+| `content_pages` | list[int] | コンテンツページ番号 |
+| `content_text_path` | str | disclaimer 除外済みテキストのパス |
+| `disclaimer_pages` | list[int] | ディスクレーマーページ番号 |
+
+#### 変数保持
+
+出力 JSON を `PLAN` としてパースし保持する。
+
+#### 中間ファイル
+
+| ファイル | 内容 |
+|---------|------|
+| `{OUTPUT_DIR}/prescan.json` | PyMuPDF prescan 結果 |
+| `{OUTPUT_DIR}/page_texts.json` | LiteParse ページ別テキスト |
+| `{OUTPUT_DIR}/content_text.txt` | disclaimer 除外済みテキスト |
+| `{OUTPUT_DIR}/plan.json` | 実行プラン |
+
+### Step D: Vision Read（vision_pages が空でない場合のみ）
+
+**実行方式**: Read ツール
+
+`PLAN.vision_pages` の各ページを Read ツールで個別に読み込む。
+
+```
+for page in PLAN.vision_pages:
+    Read("{pdf_path}", pages="{page}")
+```
+
+各ページの内容を確認し:
+- **表が含まれている場合**: Markdown テーブル構文に変換して保持
+- **チャート・ロゴ等の図の場合**: テキスト記述（「[Figure: 図の簡潔な説明]」）のみ保持
+- **テキストのみの場合**: LiteParse テキストで十分なのでスキップ
+
+Vision 抽出結果を `VISION_TABLES` として保持する（ページ番号 → Markdown テーブルの dict）。
+
+### Step E: マージ + Markdown 構造化
+
+**実行方式**: スキル直接（Claude による構造化）
+
+1. `content_text.txt`（LiteParse テキスト、disclaimer 除外済み）を Read で読み込む
+2. `VISION_TABLES` がある場合、該当ページ位置にテーブルをマージ
+3. 以下の変換ルールに従って Markdown を構造化:
+   - ATX 見出し（`# H1` `## H2` `### H3`）で階層構造を保持
+   - テーブルは Markdown テーブル構文（`|` 区切り + `---` ヘッダー行）
+   - 数値は正確に保持（四捨五入・丸め禁止）
+   - ページ番号・ヘッダー・フッター・透かしを除去
+   - 前置き文・コードフェンス・コメント・要約・翻訳は禁止
+
+構造化した Markdown を `MARKDOWN` として保持する。
+
+### Step F: 出力ファイル生成
+
+#### F.1: report.md 出力
+
+```
+Write("{OUTPUT_DIR}/report.md", MARKDOWN)
+```
+
+#### F.2: chunks.json 生成
+
+```bash
+uv run python -m pdf_pipeline.cli.helpers chunk_and_save "{OUTPUT_DIR}/report.md" "{SHA256}" "{OUTPUT_DIR}"
+```
+
+`CHUNK_COUNT` を保持する。
+
+#### F.3: metadata.json 生成
+
+```bash
+uv run python -m pdf_pipeline.cli.helpers save_metadata "{OUTPUT_DIR}" "{SHA256}" "{pdf_path}" "{PAGE_COUNT}" "{CHUNK_COUNT}" "auto" "{OUTPUT_DIR}/prescan.json"
+```
+
+#### F.4: 完了記録
+
+```bash
+uv run python -m pdf_pipeline.cli.helpers record_completed "{SHA256}" "{DATA_ROOT}/processed/state.json" "{pdf_filename}"
+```
+
+---
+
 ## Step 5: ページ数取得
 
 **実行方式**: CLI ヘルパー
@@ -204,9 +400,32 @@ uv run python -m pdf_pipeline.cli.helpers get_page_count "{pdf_path}"
 
 ## Step 6: PDF 読込 + Markdown 変換
 
-**実行方式**: Read ツール（30 ページ分割対応）
+**実行方式**: `--method` パラメータにより分岐する。
 
-このステップがスキルの中核。Claude Code の Read ツールで PDF を直接読み込み、Markdown に変換する。
+### llamaparse 方式（`--method llamaparse`）
+
+30 ページ超の PDF を変換する場合、必ずユーザーの承認を得てから実行する:
+
+```
+この PDF は {PAGE_COUNT} ページあります。
+Agentic tier で変換すると約 {PAGE_COUNT * 10} クレジット（${PAGE_COUNT * 0.0125:.2f}）を消費します。
+変換を実行しますか？ (y/n)
+```
+
+承認後、llamaparse_convert.py スクリプトを呼び出す:
+
+```bash
+uv run python scripts/llamaparse_convert.py \
+    --tier "{TIER}" \
+    -o "{OUTPUT_DIR}" \
+    "{pdf_path}"
+```
+
+スクリプトが `report.md` / `chunks.json` / `metadata.json` を生成するため、Step 7-9 は実質的にスキップ（Step 10 の完了記録のみ実行）。
+
+### claude 方式（`--method claude`、デフォルト）
+
+Claude Code の Read ツールで PDF を直接読み込み、Markdown に変換する。
 
 ### ページ分割戦略
 
@@ -378,7 +597,9 @@ uv run python -m pdf_pipeline.cli.helpers save_metadata "{OUTPUT_DIR}" "{SHA256}
 
 `"ok"` を stdout に出力。
 
-### metadata.json の形式
+### metadata.json の形式（統一スキーマ）
+
+全方式共通。方式固有フィールドは該当しない場合 `null`。
 
 ```json
 {
@@ -386,8 +607,31 @@ uv run python -m pdf_pipeline.cli.helpers save_metadata "{OUTPUT_DIR}" "{SHA256}
   "pdf_path": "/path/to/report.pdf",
   "pages": 30,
   "chunks": 5,
-  "converter": "method_b",
-  "processed_at": "2026-03-15T12:00:00+00:00"
+  "converter": "claude",
+  "processed_at": "2026-03-15T12:00:00+00:00",
+  "pdf_name": null,
+  "tier": null,
+  "job_id": null,
+  "credits_per_page": null,
+  "estimated_credits": null
+}
+```
+
+`llamaparse` 方式の場合、方式固有フィールドに値が入る:
+
+```json
+{
+  "sha256": "a1b2c3d4...",
+  "pdf_path": "/path/to/report.pdf",
+  "pages": 15,
+  "chunks": 4,
+  "converter": "llamaparse",
+  "processed_at": "2026-03-18T04:00:00+00:00",
+  "pdf_name": "report.pdf",
+  "tier": "agentic",
+  "job_id": "8208cd81-...",
+  "credits_per_page": 10,
+  "estimated_credits": 150
 }
 ```
 
@@ -491,24 +735,33 @@ Step 6（PDF 読込 + Markdown 変換）のみ、分割チャンク単位で最�
 | リソース | パス |
 |---------|------|
 | CLI ヘルパー | `src/pdf_pipeline/cli/helpers.py` |
+| Auto 準備スクリプト | `src/pdf_pipeline/cli/convert_auto.py` |
+| PyMuPDF プリスキャン | `src/pdf_pipeline/cli/prescan_pdf.py` |
+| Haiku disclaimer 分類 | `src/pdf_pipeline/cli/classify_disclaimers.py` |
+| LiteParse テキスト抽出 | `scripts/liteparse_convert.py` |
+| LlamaParse 変換 | `scripts/llamaparse_convert.py` |
 | MarkdownChunker | `src/pdf_pipeline/core/chunker.py` |
 | StateManager | `src/pdf_pipeline/services/state_manager.py` |
 | PdfScanner（SHA-256） | `src/pdf_pipeline/core/pdf_scanner.py` |
 | パイプライン設定 | `src/pdf_pipeline/types.py` |
 | data_paths | `src/data_paths/` |
-| 旧スキル（pdf-to-markdown） | `pdf-to-markdown`（廃止、このスキルに置き換え済み） |
 
 ## 設計上の決定
 
-### Method A vs Method B
+### 変換方式の選択
 
-| 項目 | Method A（旧: pdf-to-markdown） | Method B（本スキル: convert-pdf） |
-|------|-------------------------------|----------------------------------|
-| LLM | Gemini CLI (subprocess) | Claude Code (Read ツール) |
-| フォールバック | Gemini -> Claude CLI subprocess | なし（Claude Code 単体） |
-| 安定性 | subprocess 失敗が多発 | メインプロセス内で完結 |
-| 精度 | Gemini Vision（高） | Claude Vision（高） |
-| 大量処理 | 失敗率が上昇 | 30p 分割で安定 |
+| 項目 | `--method auto`（デフォルト） | `--method claude` | `--method llamaparse` |
+|------|------------------------------|-------------------|----------------------|
+| エンジン | LiteParse + Claude Vision（対象ページのみ） | Claude Code Read（全ページ） | LlamaParse REST API |
+| 外部依存 | Node.js 18+, liteparse, ANTHROPIC_API_KEY | なし | LLAMA_CLOUD_API_KEY |
+| 追加コスト | Haiku disclaimer 判定 + Vision（必要ページのみ） | なし | 10 credits/page（Agentic） |
+| 表の精度 | 非常に高い（Vision で対象ページのみ精読） | 良好 | 非常に高い |
+| 速度 | 高速（大部分は LiteParse ローカル処理） | 中速（30p 分割） | API 依存 |
+| 推奨用途 | 汎用（特にセルサイドレポート・決算資料） | Node.js 非対応環境 | 最高精度が必要な場合 |
+
+### 旧 Method A（廃止済み）
+
+Method A（Gemini CLI subprocess 方式）は廃止。`pdf-to-markdown` スキルも廃止。
 
 ### 30p 分割の根拠
 
@@ -517,6 +770,16 @@ Step 6（PDF 読込 + Markdown 変換）のみ、分割チャンク単位で最�
 - 実測では 20-30p が品質と速度のバランスが最適
 
 ## 変更履歴
+
+### 2026-03-30: auto メソッド追加・llamaparse 統合
+
+- auto メソッド（デフォルト）を追加: prescan → LiteParse → Haiku disclaimer → Vision → Markdown
+- llamaparse を `--method llamaparse` として統合（独立スキル廃止）
+- LiteParse（ローカル Node.js ベース）を第3変換方式として追加
+- Haiku による disclaimer 分類を code-level で固定
+- metadata.json を統一スキーマ化（converter/prescan フィールド追加）
+- save_metadata に converter/prescan_json パラメータ追加
+- convert_auto.py 準備スクリプト新規作成
 
 ### 2026-03-15: 初版作成（Issue #99）
 

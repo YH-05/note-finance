@@ -308,7 +308,7 @@ echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 | 対象読者 | 投資初心者（beginner） |
 | note記事文字数 | 2000-4000字 |
 | X投稿文字数 | 280字以内 |
-| 必須スニペット | `snippets/not-advice.md`（冒頭）、`snippets/investment-risk.md`（末尾） |
+| 必須スニペット | `snippets/disclaimer.md`（末尾に1箇所） |
 
 ## 関連リソース
 
@@ -322,9 +322,7 @@ echo "graph-queue files generated. Run /save-to-research-graph to ingest."
 | コンプライアンス批評 | `.claude/agents/finance-critic-compliance.md` |
 | 軽量リバイザー | `.claude/agents/asset-management-reviser.md` |
 | 記事テンプレート | `template/asset_management/` |
-| 免責事項スニペット | `snippets/not-advice.md` |
-| リスク開示スニペット | `snippets/investment-risk.md` |
-| NISA免責スニペット | `snippets/nisa-disclaimer.md` |
+| 免責事項スニペット | `snippets/disclaimer.md` |
 | 詳細ガイド | `.claude/skills/asset-management-workflow/guide.md` |
 | graph-queue 出力スクリプト | `scripts/emit_research_queue.py` |
 | graph-queue 取込コマンド | `/save-to-research-graph` |

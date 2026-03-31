@@ -180,10 +180,9 @@ asset-management-writer がソースに関連度スコア（0-100）を付与し
 
 | 位置 | スニペット | ファイル |
 |------|-----------|---------|
-| 冒頭（タイトル直後） | 免責事項 | `snippets/not-advice.md` |
-| 末尾（参考情報の後） | リスク開示 | `snippets/investment-risk.md` |
+| 末尾（参考情報の後） | 免責事項 | `snippets/disclaimer.md` |
 
-NISAテーマの場合は追加で `snippets/nisa-disclaimer.md` を含める。
+カテゴリ・テーマ問わず同一の免責文を使用する。
 
 ### 専門用語の平易化ルール
 
@@ -350,9 +349,7 @@ score = 100 - (critical x 30 + high x 15 + medium x 5 + low x 2)
 
 ### コンプライアンスの検証
 
-- [ ] 冒頭に免責事項（`snippets/not-advice.md`）が含まれている
-- [ ] 末尾にリスク開示（`snippets/investment-risk.md`）が含まれている
-- [ ] NISAテーマの場合、NISA制度変更注記（`snippets/nisa-disclaimer.md`）が含まれている
+- [ ] 末尾に免責事項（`snippets/disclaimer.md`）が含まれている
 - [ ] 禁止表現が含まれていない
 - [ ] 特定銘柄の売買推奨と受け取られる表現がない
 - [ ] リターンを保証する表現がない

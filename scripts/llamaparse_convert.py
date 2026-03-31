@@ -24,6 +24,7 @@ import argparse
 import hashlib
 import json
 import os
+import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -281,17 +282,43 @@ def convert_pdf(
     report_path.write_text(markdown, encoding="utf-8")
     logger.info("report.md saved: %s", report_path)
 
+    # --- Generate chunks.json via pdf_pipeline CLI helper ---
+    chunk_count = 0
+    try:
+        result = subprocess.run(
+            [
+                "uv", "run", "python", "-m", "pdf_pipeline.cli.helpers",
+                "chunk_and_save", str(report_path), sha256, str(output_dir),
+            ],
+            capture_output=True,
+            text=True,
+            cwd=Path.cwd(),
+        )
+        if result.returncode == 0:
+            chunk_count = int(result.stdout.strip())
+            logger.info("chunks.json saved: %d chunks", chunk_count)
+        else:
+            logger.warning("chunk_and_save failed: %s", result.stderr)
+    except Exception as e:
+        logger.warning("chunks.json generation skipped: %s", e)
+
+    # --- Build unified metadata (common fields + llamaparse-specific fields) ---
     metadata = {
+        # common fields (aligned with convert-pdf)
         "sha256": sha256,
         "pdf_path": str(pdf_path.resolve()),
-        "pdf_name": pdf_path.name,
         "pages": page_count,
+        "chunks": chunk_count,
         "converter": "llamaparse",
+        "processed_at": datetime.now(tz=timezone.utc).isoformat(),
+        # llamaparse-specific fields (null in claude method)
+        "pdf_name": pdf_path.name,
         "tier": tier,
+        "job_id": job_id,
         "credits_per_page": credits_per_page,
         "estimated_credits": estimated_credits,
-        "job_id": job_id,
-        "processed_at": datetime.now(tz=timezone.utc).isoformat(),
+        # Prescan info (populated by auto method, null for direct llamaparse)
+        "prescan": None,
     }
     metadata_path = output_dir / "metadata.json"
     metadata_path.write_text(
@@ -307,6 +334,7 @@ def convert_pdf(
         "report_md": str(report_path),
         "metadata_json": str(metadata_path),
         "pages": page_count,
+        "chunks": chunk_count,
         "estimated_credits": estimated_credits,
         "markdown_length": len(markdown),
     }
