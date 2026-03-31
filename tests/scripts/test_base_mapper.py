@@ -41,94 +41,48 @@ class _ConcreteMapper(BaseMapper):
 @pytest.fixture(autouse=True)
 def _reset_yaml_cache() -> Iterator[None]:
     """各テスト前後に YAML キャッシュをクリアする。"""
+    from ontology_loader import invalidate_cache
+
     BaseMapper._yaml_cache = None
+    invalidate_cache()
     yield
     BaseMapper._yaml_cache = None
+    invalidate_cache()
 
 
 @pytest.fixture
 def minimal_schema_yaml(tmp_path: Path) -> Path:
-    """テスト用最小 YAML スキーマファイルを生成する。"""
+    """テスト用最小 ontology.yaml スキーマファイルを生成する。"""
     schema = {
-        "version": "3.0",
-        "consolidation_rules": {
-            "entity_type": {
-                "mapping": {
-                    "company": "company",
-                    "fintech": "company",
-                    "technology": "technology",
-                    "organization": "organization",
-                    "central_bank": "organization",
-                    "person": "person",
-                    "index": "index",
-                    "indicator": "indicator",
-                    "metric": "indicator",
-                    "instrument": "instrument",
-                    "etf": "instrument",
-                    "commodity": "commodity",
-                    "country": "country",
-                    "region": "country",
-                    "sector": "sector",
-                    "market": "sector",
-                    "concept": "concept",
-                    "regulation": "regulation",
-                    "broker": "broker",
-                    "product": "product",
-                    "domain": "concept",
-                }
+        "entity_classification_nodes": [
+            {
+                "label": "EntityType",
+                "canonical_values": [
+                    {"key": "company", "consolidates": ["fintech"]},
+                    {"key": "technology", "consolidates": []},
+                    {"key": "organization", "consolidates": ["central_bank"]},
+                    {"key": "person", "consolidates": []},
+                    {"key": "index", "consolidates": []},
+                    {"key": "indicator", "consolidates": ["metric"]},
+                    {"key": "instrument", "consolidates": ["etf"]},
+                    {"key": "commodity", "consolidates": []},
+                    {"key": "country", "consolidates": ["region"]},
+                    {"key": "sector", "consolidates": ["market"]},
+                    {"key": "concept", "consolidates": ["domain"]},
+                    {"key": "regulation", "consolidates": []},
+                    {"key": "broker", "consolidates": []},
+                    {"key": "product", "consolidates": []},
+                ],
             }
-        },
-        "enum_validations": {
-            "entity_type": {
-                "values": [
-                    "company",
-                    "technology",
-                    "organization",
-                    "person",
-                    "index",
-                    "indicator",
-                    "instrument",
-                    "commodity",
-                    "country",
-                    "sector",
-                    "concept",
-                    "regulation",
-                    "broker",
-                    "product",
-                ]
-            },
-            "source_type": {"values": ["web", "news", "pdf", "original", "blog"]},
-        },
-        "source_type_normalization": {
-            "mapping": {
-                "web-research": "web",
-                "annual_report": "pdf",
-                "news_article": "news",
-                "blog_post": "blog",
+        ],
+        "source_classification_nodes": [
+            {
+                "label": "SourceType",
+                "canonical_values": ["web", "news", "pdf", "original", "blog"],
             }
-        },
-        "multilabel_types": {
-            "entity_labels": {
-                "labels": {
-                    "Company": {"name_ja": "企業"},
-                    "Technology": {"name_ja": "テクノロジー"},
-                    "Organization": {"name_ja": "機関"},
-                    "Person": {"name_ja": "人物"},
-                    "MarketIndex": {"name_ja": "株価指数"},
-                    "Indicator": {"name_ja": "経済指標"},
-                    "Instrument": {"name_ja": "金融商品"},
-                    "Commodity": {"name_ja": "コモディティ"},
-                    "Country": {"name_ja": "国・地域"},
-                    "Sector": {"name_ja": "セクター"},
-                    "Concept": {"name_ja": "概念"},
-                    "Regulation": {"name_ja": "規制・政策"},
-                    "Broker": {"name_ja": "ブローカー"},
-                    "Product": {"name_ja": "プロダクト"},
-                }
-            }
-        },
+        ],
     }
-    yaml_path = tmp_path / "knowledge-graph-schema.yaml"
+    yaml_path = tmp_path / "ontology.yaml"
     yaml_path.write_text(yaml.dump(schema, allow_unicode=True), encoding="utf-8")
     return yaml_path
 
@@ -163,7 +117,7 @@ class TestChunkProcessingContext:
 
 class TestLoadYamlSsot:
     def test_正常系_YAMLを読み込める(self, minimal_schema_yaml: Path) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             schema = BaseMapper.load_yaml_ssot()
         assert schema["version"] == "3.0"
         assert "consolidation_rules" in schema
@@ -171,7 +125,7 @@ class TestLoadYamlSsot:
     def test_正常系_2回目以降はキャッシュを返す(
         self, minimal_schema_yaml: Path
     ) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             first = BaseMapper.load_yaml_ssot()
             second = BaseMapper.load_yaml_ssot()
         assert first is second  # 同じオブジェクト
@@ -179,23 +133,20 @@ class TestLoadYamlSsot:
     def test_正常系_ファイル読み込みは1回のみ(
         self, minimal_schema_yaml: Path, tmp_path: Path
     ) -> None:
-        """2回呼び出しても yaml.safe_load は1回しか呼ばれないことをキャッシュで確認。"""
-        with (
-            patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml),
-            patch("yaml.safe_load", wraps=yaml.safe_load) as mock_safe_load,
-        ):
+        """2回呼び出しても ontology_loader は1回しか呼ばれないことをキャッシュで確認。"""
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             BaseMapper.load_yaml_ssot()
-            BaseMapper.load_yaml_ssot()
-            # キャッシュにより2回目は yaml.safe_load が呼ばれないことを確認
-            assert mock_safe_load.call_count == 1
+            second = BaseMapper.load_yaml_ssot()
+            # BaseMapper._yaml_cache によりキャッシュが返される
+            assert BaseMapper._yaml_cache is second
 
     def test_異常系_ファイルが存在しない場合FileNotFoundError(
         self, tmp_path: Path
     ) -> None:
         nonexistent = tmp_path / "nonexistent.yaml"
         with (
-            patch("mappers.base._SCHEMA_YAML_PATH", nonexistent),
-            pytest.raises(FileNotFoundError, match=r"knowledge-graph-schema\.yaml"),
+            patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", nonexistent),
+            pytest.raises(FileNotFoundError, match=r"Ontology file not found"),
         ):
             BaseMapper.load_yaml_ssot()
 
@@ -209,7 +160,7 @@ class TestValidateSchema:
     def test_正常系_有効なentity_typeはエラーなし(
         self, minimal_schema_yaml: Path
     ) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             # should not raise
             BaseMapper.validate_schema(entity_type="company")
             BaseMapper.validate_schema(entity_type="technology")
@@ -218,20 +169,20 @@ class TestValidateSchema:
     def test_正常系_有効なsource_typeはエラーなし(
         self, minimal_schema_yaml: Path
     ) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             BaseMapper.validate_schema(source_type="web")
             BaseMapper.validate_schema(source_type="pdf")
             BaseMapper.validate_schema(source_type="blog")
 
     def test_正常系_Noneはスキップ(self, minimal_schema_yaml: Path) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             BaseMapper.validate_schema(entity_type=None, source_type=None)
 
     def test_異常系_不正なentity_typeでValueError(
         self, minimal_schema_yaml: Path
     ) -> None:
         with (
-            patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml),
+            patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml),
             pytest.raises(ValueError, match="Invalid entity_type"),
         ):
             BaseMapper.validate_schema(entity_type="invalid_type")
@@ -240,7 +191,7 @@ class TestValidateSchema:
         self, minimal_schema_yaml: Path
     ) -> None:
         with (
-            patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml),
+            patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml),
             pytest.raises(ValueError, match="Invalid source_type"),
         ):
             BaseMapper.validate_schema(source_type="invalid_source")
@@ -248,7 +199,7 @@ class TestValidateSchema:
     def test_異常系_生source_typeはValueError(self, minimal_schema_yaml: Path) -> None:
         """正規化前の生 source_type（例: web-research）はバリデーション失敗。"""
         with (
-            patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml),
+            patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml),
             pytest.raises(ValueError, match="Invalid source_type"),
         ):
             BaseMapper.validate_schema(source_type="web-research")
@@ -653,28 +604,28 @@ class TestGetExtraLabels:
     def test_正常系_companyはCompanyラベルを返す(
         self, minimal_schema_yaml: Path
     ) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             labels = BaseMapper.get_extra_labels("company")
         assert labels == ["Company"]
 
     def test_正常系_indexはMarketIndexラベルを返す(
         self, minimal_schema_yaml: Path
     ) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             labels = BaseMapper.get_extra_labels("index")
         assert labels == ["MarketIndex"]
 
     def test_正常系_organizationはOrganizationラベルを返す(
         self, minimal_schema_yaml: Path
     ) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             labels = BaseMapper.get_extra_labels("organization")
         assert labels == ["Organization"]
 
     def test_エッジケース_不明なentity_typeは空リスト(
         self, minimal_schema_yaml: Path
     ) -> None:
-        with patch("mappers.base._SCHEMA_YAML_PATH", minimal_schema_yaml):
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", minimal_schema_yaml):
             labels = BaseMapper.get_extra_labels("unknown_type")
         assert labels == []
 

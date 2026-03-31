@@ -13,11 +13,20 @@ import json
 import logging
 import os
 import re
+import sys
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import yaml
 from neo4j import Driver, GraphDatabase
+
+# Ensure scripts/ is on the import path for ontology_loader
+_SCRIPTS_DIR = str(Path(__file__).resolve().parent.parent.parent / "scripts")
+if _SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, _SCRIPTS_DIR)
+
+from ontology_loader import load_constraints as _ol_load_constraints  # noqa: E402
+from ontology_loader import load_indices as _ol_load_indices  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
@@ -519,7 +528,11 @@ def _ingest_nodes(
     for cnode in queue_data.get("classification_nodes", []):
         label = cnode.get("label")
         key_prop = cnode.get("key_property", f"{label.lower()}_id" if label else "id")
-        if not label or not _is_safe_identifier(label) or not _is_safe_identifier(key_prop):
+        if (
+            not label
+            or not _is_safe_identifier(label)
+            or not _is_safe_identifier(key_prop)
+        ):
             logger.warning(
                 "Skipping classification_node with unsafe label/key_property: %r/%r",
                 label,
@@ -558,7 +571,12 @@ def _ingest_classification_rels(
         )
         cn_key_val = cnode.get("key_value", "")
         # SEC-005: 安全な識別子のみ使用する
-        if cn_key_val and cn_label and _is_safe_identifier(cn_label) and _is_safe_identifier(cn_key_prop):
+        if (
+            cn_key_val
+            and cn_label
+            and _is_safe_identifier(cn_label)
+            and _is_safe_identifier(cn_key_prop)
+        ):
             cn_keymap[cn_key_val] = (cn_label, cn_key_prop)
 
     source_id_set = {s.get("source_id") for s in queue_data.get("sources", [])}
@@ -673,21 +691,21 @@ def load_graph_queue(queue_path: Path) -> dict[str, Any]:
 
 def apply_constraints_from_yaml(
     driver,
-    schema_path: Path,
+    schema_path: Path | None = None,
     *,
     dry_run: bool = False,
 ) -> dict[str, int]:
-    """YAML スキーマから Neo4j の制約/インデックスを適用する.
+    """ontology_loader 経由で Neo4j の制約/インデックスを適用する.
 
-    `data/config/knowledge-graph-schema.yaml` の `constraints` / `indices` セクションを
-    読んで Cypher を生成・実行する。
+    ontology_loader の ``load_constraints()`` / ``load_indices()`` から定義を取得し
+    Cypher を生成・実行する。
 
     Parameters
     ----------
     driver : neo4j.Driver
         Neo4j ドライバー。
-    schema_path : Path
-        knowledge-graph-schema.yaml へのパス。
+    schema_path : Path | None
+        後方互換のため残すが使用しない。ontology_loader のデフォルトを使用。
     dry_run : bool
         True の場合は Cypher を生成するがドライバーは呼ばない。
 
@@ -695,20 +713,9 @@ def apply_constraints_from_yaml(
     -------
     dict[str, int]
         {"constraints_applied": N, "indices_applied": N}
-
-    Raises
-    ------
-    FileNotFoundError
-        schema_path が存在しない場合。
     """
-    if not schema_path.exists():
-        raise FileNotFoundError(f"Schema file not found: {schema_path}")
-
-    with schema_path.open(encoding="utf-8") as f:
-        schema = yaml.safe_load(f)
-
-    constraints = schema.get("constraints") or []
-    indices = schema.get("indices") or []
+    constraints = _ol_load_constraints()
+    indices = _ol_load_indices()
 
     if dry_run:
         constraints_applied = len(constraints)
@@ -773,13 +780,6 @@ def _apply_constraints_if_requested(
     dry_run: bool,
 ) -> None:
     """apply_constraints フラグが True の場合に制約/インデックスを適用する."""
-    if schema_path is None:
-        default_path = Path("data/config/knowledge-graph-schema.yaml")
-        if not default_path.exists():
-            logger.warning("Default schema path not found: %s", default_path)
-            return
-        schema_path = default_path
-
     try:
         result = apply_constraints_from_yaml(driver, schema_path, dry_run=dry_run)
         logger.info(
@@ -787,8 +787,8 @@ def _apply_constraints_if_requested(
             result["constraints_applied"],
             result["indices_applied"],
         )
-    except FileNotFoundError:
-        logger.warning("Schema file not found, skipping constraint application")
+    except Exception:
+        logger.warning("Failed to apply constraints, skipping", exc_info=True)
 
 
 def ingest_to_neo4j(

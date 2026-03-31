@@ -39,16 +39,37 @@ except ImportError:
     logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# YAML SSoT path
+# Ontology loader (replaces direct knowledge-graph-schema.yaml reads)
 # ---------------------------------------------------------------------------
 
-_SCHEMA_YAML_PATH: Path = (
-    Path(__file__).parent.parent.parent
-    / "data"
-    / "config"
-    / "knowledge-graph-schema.yaml"
-)
-"""Path to the knowledge-graph-schema.yaml v3.0 SSoT file."""
+import sys as _sys
+
+# Ensure scripts/ is on the import path for ontology_loader
+_scripts_dir = str(Path(__file__).parent.parent)
+if _scripts_dir not in _sys.path:
+    _sys.path.insert(0, _scripts_dir)
+
+from ontology_loader import load_consolidation_mapping as _ol_load_consolidation_mapping  # noqa: E402, I001
+from ontology_loader import load_multilabel_types as _ol_load_multilabel_types  # noqa: E402
+from ontology_loader import load_source_type_normalization as _ol_load_source_type_normalization  # noqa: E402
+
+# Internal mapping for backward-compatible multilabel_types structure
+_CANONICAL_TO_LABEL_INTERNAL: dict[str, str] = {
+    "company": "Company",
+    "technology": "Technology",
+    "organization": "Organization",
+    "person": "Person",
+    "index": "MarketIndex",
+    "indicator": "Indicator",
+    "instrument": "Instrument",
+    "commodity": "Commodity",
+    "country": "Country",
+    "sector": "Sector",
+    "concept": "Concept",
+    "regulation": "Regulation",
+    "broker": "Broker",
+    "product": "Product",
+}
 
 
 # ---------------------------------------------------------------------------
@@ -105,105 +126,107 @@ class BaseMapper(ABC):
     _yaml_cache: ClassVar[dict[str, Any] | None] = None
 
     # ------------------------------------------------------------------
-    # YAML SSoT
+    # Ontology SSoT (via ontology_loader)
     # ------------------------------------------------------------------
 
     @classmethod
     def load_yaml_ssot(cls) -> dict[str, Any]:
-        """``knowledge-graph-schema.yaml`` v3.0 を読み込み、キャッシュして返す。
+        """ontology_loader 経由でスキーマデータをキャッシュして返す。
 
-        2回目以降の呼び出しはキャッシュを返し、ファイルIOを行わない。
+        後方互換のため ``load_yaml_ssot`` の名前を維持するが、内部では
+        ``ontology_loader`` の各関数から取得したデータを旧形式互換の dict に
+        組み立てて返す。
 
         Returns
         -------
         dict[str, Any]
-            YAML ファイルをパースしたdict。
-
-        Raises
-        ------
-        FileNotFoundError
-            スキーマYAMLファイルが存在しない場合。
-        yaml.YAMLError
-            YAMLのパースに失敗した場合。
+            旧 knowledge-graph-schema.yaml 互換の dict。
         """
         if cls._yaml_cache is not None:
             logger.debug("load_yaml_ssot: returning cached schema")
             return cls._yaml_cache
 
-        schema_path = _SCHEMA_YAML_PATH
-        if not schema_path.exists():
-            raise FileNotFoundError(
-                f"knowledge-graph-schema.yaml not found at: {schema_path}"
-            )
+        consolidation = _ol_load_consolidation_mapping()
+        multilabel_types = _ol_load_multilabel_types()
+        source_norm = _ol_load_source_type_normalization()
 
-        with schema_path.open(encoding="utf-8") as f:
-            data = yaml.safe_load(f)
+        # Build backward-compatible structure
+        data: dict[str, Any] = {
+            "version": "3.0",
+            "consolidation_rules": {
+                "entity_type": {
+                    "mapping": consolidation,
+                }
+            },
+            "enum_validations": {
+                "entity_type": {
+                    "values": multilabel_types,
+                },
+                "source_type": {
+                    "values": list({v for v in source_norm.values()}),
+                },
+            },
+            "source_type_normalization": {
+                "mapping": source_norm,
+            },
+            "multilabel_types": {
+                "entity_labels": {
+                    "labels": {
+                        _CANONICAL_TO_LABEL_INTERNAL.get(k, k.title()): {"name_ja": ""}
+                        for k in multilabel_types
+                    }
+                }
+            },
+        }
 
         cls._yaml_cache = data
-        logger.info("load_yaml_ssot: loaded schema version=%s", data.get("version"))
+        logger.info("load_yaml_ssot: loaded schema via ontology_loader")
         return data
 
     @classmethod
     def _get_consolidation_rules(cls) -> dict[str, str]:
-        """YAML SSoT から entity_type consolidation_rules を取得する。
+        """ontology_loader から entity_type consolidation_rules を取得する。
 
         Returns
         -------
         dict[str, str]
-            42種の生 entity_type → 14種の正規型マッピング。
+            生 entity_type → 正規型マッピング。
         """
-        schema = cls.load_yaml_ssot()
-        mapping: dict[str, str] = (
-            schema.get("consolidation_rules", {})
-            .get("entity_type", {})
-            .get("mapping", {})
-        )
-        return mapping
+        return _ol_load_consolidation_mapping()
 
     @classmethod
     def _get_source_type_normalization(cls) -> dict[str, str]:
-        """YAML SSoT から source_type_normalization マッピングを取得する。
+        """ontology_loader から source_type_normalization マッピングを取得する。
 
         Returns
         -------
         dict[str, str]
             生 source_type → 正規 source_type マッピング。
         """
-        schema = cls.load_yaml_ssot()
-        mapping: dict[str, str] = schema.get("source_type_normalization", {}).get(
-            "mapping", {}
-        )
-        return mapping
+        return _ol_load_source_type_normalization()
 
     @classmethod
     def _get_entity_type_enum(cls) -> frozenset[str]:
-        """YAML SSoT から有効な entity_type の frozenset を取得する。
+        """ontology_loader から有効な entity_type の frozenset を取得する。
 
         Returns
         -------
         frozenset[str]
             14種の正規 entity_type 値。
         """
-        schema = cls.load_yaml_ssot()
-        values: list[str] = (
-            schema.get("enum_validations", {}).get("entity_type", {}).get("values", [])
-        )
-        return frozenset(values)
+        return frozenset(_ol_load_multilabel_types())
 
     @classmethod
     def _get_source_type_enum(cls) -> frozenset[str]:
-        """YAML SSoT から有効な source_type の frozenset を取得する。
+        """ontology_loader から有効な source_type の frozenset を取得する。
 
         Returns
         -------
         frozenset[str]
             5種の正規 source_type 値。
         """
-        schema = cls.load_yaml_ssot()
-        values: list[str] = (
-            schema.get("enum_validations", {}).get("source_type", {}).get("values", [])
-        )
-        return frozenset(values)
+        norm = _ol_load_source_type_normalization()
+        return frozenset(norm.values())
 
     # ------------------------------------------------------------------
     # Schema validation
@@ -322,9 +345,9 @@ class BaseMapper(ABC):
 
     @classmethod
     def get_extra_labels(cls, canonical_entity_type: str) -> list[str]:
-        """consolidation_rules の正規型から multilabel_types の extra_labels を返す。
+        """正規 entity_type から multilabel_types の extra_labels を返す。
 
-        YAML ``multilabel_types.entity_labels`` のキー（PascalCase）を
+        ontology_loader 経由で取得した multilabel_types と内部マッピングを
         参照し、``canonical_entity_type`` に対応するラベルリストを返す。
 
         Parameters
@@ -338,34 +361,9 @@ class BaseMapper(ABC):
             付与すべき追加ラベルリスト（例: ``["Company"]``）。
             マッピングが見つからない場合は空リスト。
         """
-        schema = cls.load_yaml_ssot()
-        label_defs: dict[str, Any] = (
-            schema.get("multilabel_types", {})
-            .get("entity_labels", {})
-            .get("labels", {})
-        )
-
-        # canonical_entity_type (lowercase) -> PascalCase label
-        # 例: "company" -> "Company", "index" -> "MarketIndex"
-        _CANONICAL_TO_LABEL: dict[str, str] = {
-            "company": "Company",
-            "technology": "Technology",
-            "organization": "Organization",
-            "person": "Person",
-            "index": "MarketIndex",
-            "indicator": "Indicator",
-            "instrument": "Instrument",
-            "commodity": "Commodity",
-            "country": "Country",
-            "sector": "Sector",
-            "concept": "Concept",
-            "regulation": "Regulation",
-            "broker": "Broker",
-            "product": "Product",
-        }
-
-        label = _CANONICAL_TO_LABEL.get(canonical_entity_type)
-        if label and label in label_defs:
+        valid_types = frozenset(_ol_load_multilabel_types())
+        label = _CANONICAL_TO_LABEL_INTERNAL.get(canonical_entity_type)
+        if label and canonical_entity_type in valid_types:
             return [label]
         return []
 
