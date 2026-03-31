@@ -14,8 +14,6 @@ date modified: 2026-03-31 17:03
 
 ## **_1. Macroeconomic Conditions and US Market_**
 
-  
-
 ### **Summary**
 
 The week of March 24-30, 2026 marked a turbulent period for US equity markets as escalating conflict in the Middle East dominated investor sentiment and drove significant volatility across asset classes. The S&P 500 fell 3.24% during the week, closing at 6,343.72 on March 30, its lowest level since August [(1)](bbg://screens/NSN%20TCQ9ISKK3NYA). The benchmark index posted its fifth consecutive weekly decline, the longest such streak since 2022 [(2)](bbg://screens/NSN%20TCKOSNKJH6V7). The selloff accelerated on Friday, March 27, when the VIX closed above 30 for the first time since April, reaching 31.01 [(3)](bbg://screens/NSN%20TCKQH4KIUPSE). The Nasdaq 100 entered correction territory on March 27, falling more than 10% from its October peak [(4)](bbg://screens/NSN%20TC7HNNKJH6V7).
@@ -91,14 +89,6 @@ According to Ed Tom, strategist at Cboe Global Markets, a large part of the move
 |10-Year|4.368|4.352|-1.6|
 |30-Year|4.932|4.915|-1.7|
 
-  
-  
-**BQL**
-
-for(['GT10 Govt', 'GT2 Govt', 'GT30 Govt']) get(yield(dates=2026-03-24), yield(dates=2026-03-30)) with(fill=PREV)
-
-  
-  
 
 ### **Yield Curve Analysis**
 
@@ -112,14 +102,6 @@ The steepening pattern suggests that markets were pricing in a more dovish Fed p
 
 The DXY Index strengthened during the week, rising from 99.434 on March 24 to 100.509 on March 30, representing a gain of 1.08%. This appreciation reflected safe-haven demand for the US dollar amid escalating geopolitical tensions in the Middle East. The dollar's strength came despite declining Treasury yields by week's end, suggesting that geopolitical risk premium and flight-to-quality flows were the dominant drivers rather than interest rate differentials.
 
-  
-  
-**BQL**
-
-for('DXY Curncy') get(px_last(dates=2026-03-24), px_last(dates=2026-03-30)) with(fill=PREV)
-
-  
-  
 
 ### **Impact on Equity Markets**
 
@@ -132,8 +114,6 @@ The dollar's 1.08% appreciation created headwinds for multinational companies an
   
 
 ## **_3. Magnificent 7 and SOX Index_**
-
-  
 
 ### **Comments on AI Investment Chains**
 
@@ -161,9 +141,6 @@ Meta Platforms announced it is paying for the construction of seven new natural 
 | SOX Index        | -9.28%          | 7,872.71           | 7,142.33           |
 | Meta (META)      | -9.54%          | 592.92             | 536.38             |
 
-  
-  
-  
 
 The Magnificent Seven cohort suffered its worst one-week selloff in almost a year, with an equal-weight basket dropping 4.9% [(1)](bbg://screens/NSN%20TCPH75KK3NY8). Bloomberg's gauge for the Magnificent Seven had its worst day since October on March 26 [(2)](bbg://screens/NSN%20TCIUGNKJH6VB). The group rebounded in Monday's premarket trading on March 30, but the gains proved short-lived [(3)](bbg://screens/NSN%20TCPH75KK3NY8).
 
@@ -185,12 +162,7 @@ The Magnificent Seven cohort suffered its worst one-week selloff in almost a yea
 
 ## **_4. Sector_**
 
-  
-
-
 ### **Performance Table of All Sector Indices**
-
-  
 
 |Sector|Period Return %|Price (USD) @ 3/24|Price (USD) @ 3/30|
 |---|---|---|---|
@@ -205,14 +177,6 @@ The Magnificent Seven cohort suffered its worst one-week selloff in almost a yea
 |Communication Services (S5TELS)|-5.08%|424.07|402.51|
 |Information Technology (S5INFT)|-5.59%|5,241.67|4,948.49|
 
-  
-  
-**BQL**
-
-for(['S5COND Index', 'S5CONS Index', 'S5ENRS Index', 'S5FINL Index', 'S5HLTH Index', 'S5INDU Index', 'S5INFT Index', 'S5MART Index', 'S5RLST Index', 'S5TELS Index', 'S5UTIL Index', 'SPXL1 Index']) get(px_last(dates=2026-03-24), px_last(dates=2026-03-30)) with(fill=PREV)
-
-  
-  
 
 ### **Sector Rotation Analysis (Growth vs Value, Defensive vs Cyclical)**
 
@@ -223,8 +187,6 @@ Defensive sectors demonstrated resilience, with Utilities gaining 1.81% and Cons
 Growth and cyclical sectors bore the brunt of the selloff. Information Technology plunged 5.59%, led by semiconductor and software stocks. Communication Services fell 5.08%, dragged down by Meta Platforms' 9.54% weekly decline [(3)](bbg://screens/NSN%20TCF5K1KIUPSA). Industrials dropped 4.46%, pressured by data-center power and cooling equipment manufacturers [(4)](bbg://screens/NSN%20TCQ8FWKK3NYA). Consumer Discretionary declined 3.69%, reflecting concerns about consumer spending in an environment of rising gasoline prices.
 
 The Financials sector fell 1.88% despite the positively sloped yield curve, as near-record selling occurred [(5)](bbg://screens/NSN%20TCGYM2KIJHDT). BofA clients were record net buyers of tech stocks even as they were sellers of most other sectors, with tech seeing the biggest weekly inflows in the bank's data back to 2008 [(6)](bbg://screens/NSN%20TCGYM2KIJHDT). However, overall clients were big sellers, ditching ETFs along with single stocks at near-record levels [(7)](bbg://screens/NSN%20TCGYM2KIJHDT).
-
-  
 
 ### **Top Performing Sector: Energy**
 
@@ -282,21 +244,6 @@ The upcoming week's earnings will be closely watched for commentary on how compa
 
   
   
-**BQL**
-
-for('VIX Index') get(px_last(dates=range(2026-03-24, 2026-03-30)))
-
-  
-  
-  
-**BQL**
-
-for(['RIY Index', 'RTY Index', 'SGX Index', 'SPW Index', 'SPX Index', 'SVX Index']) get(total_return(calc_interval=range(2026-01-01, 2026-03-30)))
-
-  
-  
-  
-
 Sources
 
   
