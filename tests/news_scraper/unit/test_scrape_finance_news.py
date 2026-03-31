@@ -144,8 +144,9 @@ class TestCleanupOldData:
 
     def test_正常系_新しいディレクトリは削除しない(self, tmp_path: Path) -> None:
         """_cleanup_old_data keeps directories newer than max_age_days."""
-        # Create a recent directory
-        recent_dir = tmp_path / "2026-02-28"
+        # Create a recent directory (today)
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        recent_dir = tmp_path / today_str
         recent_dir.mkdir()
 
         deleted = _cleanup_old_data(tmp_path, max_age_days=30)
