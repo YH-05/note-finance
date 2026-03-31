@@ -9,7 +9,7 @@ argument-hint: [トピック名] [--theme <theme>] [--days <days>] [--no-search]
 
 # /asset-management - 資産形成コンテンツ生成
 
-投資初心者向けの資産形成コンテンツ（note記事 2000-4000字 + X投稿 280字以内）を自動生成するコマンドです。
+投資初心者向けの資産形成コンテンツ（note記事 8000-10000字 + X投稿 280字以内）を自動生成するコマンドです。
 
 ## 入力パラメータ
 
@@ -58,7 +58,7 @@ Phase 1: ソース収集（2-3分）
 Phase 2: 記事生成（2-4分）
 ├── asset-management-writer エージェント
 │   ├── ソースキュレーション（関連度スコアリング）
-│   ├── note記事の初稿（2000-4000字）
+│   ├── note記事の初稿（8000-10000字）
 │   └── curated_sources.json 出力
 ├── x-post-generator スキル（/x-post）
 │   ├── meta.yaml の target_audience に基づく層別生成
@@ -163,7 +163,7 @@ Phase 4: 結果報告（<30秒）
    ```
 
    ## 出力先
-   - 02_draft/first_draft.md（note記事、2000-4000字）
+   - 02_draft/first_draft.md（note記事、8000-10000字）
    - 02_draft/curated_sources.json（キュレーション済みソース）
 
    ※ X投稿（02_draft/x_post.md）は `/x-post @{article_dir}` スキルで別途生成

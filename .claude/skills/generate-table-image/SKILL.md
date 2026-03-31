@@ -117,4 +117,4 @@ JSON/引数 → テンプレートデータ構築 → Jinja2 HTML レンダリ�
 |---------|------|
 | 生成スクリプト | `scripts/generate_table_image.py` |
 | HTML テンプレート | `scripts/templates/table.html` |
-| asset-management ワークフロー | `.claude/skills/asset-management-workflow/SKILL.md` |
+| asset-management ルール | `.claude/skills/finance-article-writer/references/asset-management.md` |

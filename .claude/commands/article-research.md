@@ -37,7 +37,7 @@ Step 2: カテゴリ別リサーチ実行（ギャップ優先検索）
 ├── macro_economy     → investment-research スキル
 ├── quant_analysis    → investment-research スキル
 ├── investment_education → investment-research スキル
-├── asset_management   → asset-management-workflow Phase 1
+├── asset_management   → investment-research スキル（JP RSSプリセット + Web検索）
 ├── side_business (type: case_study)  → Web検索 + Reddit + RSS（事例収集+パターン抽出）
 ├── side_business (type: experience)  → experience-db-workflow Phase 1-2
 └── market_report     → generate-market-report Phase 2-3
@@ -146,7 +146,7 @@ Step 0 で特定されたギャップ情報を各スキルに渡し、**ギャ�
 
 #### asset_management
 
-既存の `asset-management-workflow` スキルの Phase 1 に処理を委譲します。
+`investment-research` スキルを使用し、JP RSSプリセット（`data/config/rss-presets-jp.json`）とWeb検索でソースを収集します。テーマ別キーワードは `data/config/asset-management-themes.json` を参照します。
 
 ```
 実行内容:
@@ -367,4 +367,4 @@ Neo4j起動後に手動で投入可能です:
 - **前提コマンド**: `/article-init`
 - **後続コマンド**: `/article-draft`
 - **統合コマンド**: `/article-full`
-- **使用スキル**: investment-research, asset-management-workflow, experience-db-workflow, emit-research-queue, save-to-research-graph
+- **使用スキル**: investment-research, experience-db-workflow, emit-research-queue, save-to-research-graph

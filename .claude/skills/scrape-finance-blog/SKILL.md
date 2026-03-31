@@ -211,7 +211,7 @@ note記事・Xポスト生成のワークフローを継続できる:
 | テーマ設定 | `data/config/asset-management-themes.json` |
 | スクレイピング設定 | `src/rss/config/wealth_scraping_config.py` |
 | robots.txtチェッカー | `src/rss/utils/robots_checker.py` |
-| 後続スキル | `.claude/skills/asset-management-workflow/SKILL.md` |
+| 後続スキル | `.claude/skills/finance-article-writer/references/asset-management.md` |
 
 ## 前提条件
 

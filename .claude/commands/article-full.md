@@ -34,7 +34,7 @@ Phase 2: リサーチ実行
 ├── /article-research
 │   ├── カテゴリ別リサーチ
 │   │   ├── stock/macro/quant → investment-research
-│   │   ├── asset_management → asset-management-workflow
+│   │   ├── asset_management → investment-research
 │   │   ├── side_business → experience-db-workflow
 │   │   └── market_report → generate-market-report
 │   └── 01_research/ に成果物保存

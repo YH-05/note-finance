@@ -109,11 +109,6 @@ stock_analysis, macro_economy, investment_education, quant_analysis, market_repo
 2. 批評・修正: `/article-critique @{article_dir}`
 ```
 
-asset_management の場合は追加で X 投稿の案内:
-```
-- X投稿生成: `/x-post @{article_dir}`
-```
-
 ## ファイル構成
 
 | ファイル | 内容 |
