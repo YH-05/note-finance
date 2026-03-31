@@ -6,7 +6,7 @@ MCP ツール関数の Tavily API 呼び出しを検証する。
 
 from __future__ import annotations
 
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import httpx
 import pytest
@@ -115,7 +115,7 @@ class TestPostWithRotation:
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
     def test_正常系_成功レスポンスを返す(
-        self, mock_post: patch, mock_pool: patch
+        self, mock_post: MagicMock, mock_pool: MagicMock
     ) -> None:
         pool = TavilyKeyPool(["key1"])
         mock_pool.return_value = pool
@@ -130,7 +130,7 @@ class TestPostWithRotation:
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
     def test_正常系_432で次のキーにローテーション(
-        self, mock_post: patch, mock_pool: patch
+        self, mock_post: MagicMock, mock_pool: MagicMock
     ) -> None:
         pool = TavilyKeyPool(["key1", "key2"])
         mock_pool.return_value = pool
@@ -149,7 +149,7 @@ class TestPostWithRotation:
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
     def test_正常系_429でもローテーション(
-        self, mock_post: patch, mock_pool: patch
+        self, mock_post: MagicMock, mock_pool: MagicMock
     ) -> None:
         pool = TavilyKeyPool(["key1", "key2"])
         mock_pool.return_value = pool
@@ -165,7 +165,7 @@ class TestPostWithRotation:
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
     def test_異常系_全キー枯渇でエラー(
-        self, mock_post: patch, mock_pool: patch
+        self, mock_post: MagicMock, mock_pool: MagicMock
     ) -> None:
         pool = TavilyKeyPool(["key1"])
         mock_pool.return_value = pool
@@ -179,7 +179,7 @@ class TestPostWithRotation:
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
     def test_異常系_タイムアウトでエラー(
-        self, mock_post: patch, mock_pool: patch
+        self, mock_post: MagicMock, mock_pool: MagicMock
     ) -> None:
         pool = TavilyKeyPool(["key1"])
         mock_pool.return_value = pool
@@ -191,7 +191,7 @@ class TestPostWithRotation:
         assert "Timeout" in result["error"]
 
     @patch("tavily_mcp.server._get_pool")
-    def test_異常系_キーなしでエラー(self, mock_pool: patch) -> None:
+    def test_異常系_キーなしでエラー(self, mock_pool: MagicMock) -> None:
         pool = TavilyKeyPool([])
         mock_pool.return_value = pool
 
@@ -202,7 +202,7 @@ class TestPostWithRotation:
 
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
-    def test_異常系_HTTP500でエラー(self, mock_post: patch, mock_pool: patch) -> None:
+    def test_異常系_HTTP500でエラー(self, mock_post: MagicMock, mock_pool: MagicMock) -> None:
         pool = TavilyKeyPool(["key1"])
         mock_pool.return_value = pool
         mock_post.return_value = httpx.Response(
@@ -224,7 +224,7 @@ class TestTavilySearchTool:
     """tavily_search ツールのテスト."""
 
     @patch("tavily_mcp.server._post_with_rotation")
-    def test_正常系_デフォルトパラメータで検索(self, mock_post: patch) -> None:
+    def test_正常系_デフォルトパラメータで検索(self, mock_post: MagicMock) -> None:
         mock_post.return_value = {"results": []}
 
         tavily_search(query="test query")
@@ -238,7 +238,7 @@ class TestTavilySearchTool:
         assert payload["search_depth"] == "basic"
 
     @patch("tavily_mcp.server._post_with_rotation")
-    def test_正常系_include_domainsが渡される(self, mock_post: patch) -> None:
+    def test_正常系_include_domainsが渡される(self, mock_post: MagicMock) -> None:
         mock_post.return_value = {"results": []}
 
         tavily_search(query="test", include_domains=["reddit.com"])
@@ -247,7 +247,7 @@ class TestTavilySearchTool:
         assert payload["include_domains"] == ["reddit.com"]
 
     @patch("tavily_mcp.server._post_with_rotation")
-    def test_正常系_newsトピックでdaysが含まれる(self, mock_post: patch) -> None:
+    def test_正常系_newsトピックでdaysが含まれる(self, mock_post: MagicMock) -> None:
         mock_post.return_value = {"results": []}
 
         tavily_search(query="test", topic="news", days=7)
@@ -256,7 +256,7 @@ class TestTavilySearchTool:
         assert payload["days"] == 7
 
     @patch("tavily_mcp.server._post_with_rotation")
-    def test_正常系_max_resultsが20に制限される(self, mock_post: patch) -> None:
+    def test_正常系_max_resultsが20に制限される(self, mock_post: MagicMock) -> None:
         mock_post.return_value = {"results": []}
 
         tavily_search(query="test", max_results=50)
@@ -270,7 +270,7 @@ class TestTavilyResearchTool:
 
     @patch("tavily_mcp.server._post_with_rotation")
     def test_正常系_advancedとinclude_answerが設定される(
-        self, mock_post: patch
+        self, mock_post: MagicMock
     ) -> None:
         mock_post.return_value = {"results": [], "answer": "..."}
 
@@ -288,7 +288,7 @@ class TestTavilyExtractTool:
     """tavily_extract ツールのテスト."""
 
     @patch("tavily_mcp.server._post_with_rotation")
-    def test_正常系_URLリストが渡される(self, mock_post: patch) -> None:
+    def test_正常系_URLリストが渡される(self, mock_post: MagicMock) -> None:
         mock_post.return_value = {"results": []}
 
         tavily_extract(urls=["https://example.com/a", "https://example.com/b"])
@@ -302,7 +302,7 @@ class TestTavilyCrawlTool:
     """tavily_crawl ツールのテスト."""
 
     @patch("tavily_mcp.server._post_with_rotation")
-    def test_正常系_デフォルトパラメータでクロール(self, mock_post: patch) -> None:
+    def test_正常系_デフォルトパラメータでクロール(self, mock_post: MagicMock) -> None:
         mock_post.return_value = {"results": []}
 
         tavily_crawl(url="https://example.com")
@@ -317,7 +317,7 @@ class TestTavilyMapTool:
     """tavily_map ツールのテスト."""
 
     @patch("tavily_mcp.server._post_with_rotation")
-    def test_正常系_URLが渡される(self, mock_post: patch) -> None:
+    def test_正常系_URLが渡される(self, mock_post: MagicMock) -> None:
         mock_post.return_value = {"urls": []}
 
         tavily_map(url="https://example.com")

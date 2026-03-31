@@ -134,6 +134,8 @@ exclude = [
     "tests/scripts/test_e2e_pdf_extraction.py",
     "tests/scripts/test_e2e_save_to_article_graph.py",
     "tests/pdf_pipeline/unit/test_emit_graph_queue_pdf.py",
+    # scrape_jetro.py スクリプト本体が削除済み。テストが孤立（独立Issueで修正予定）
+    "tests/news_scraper/unit/test_scrape_jetro.py",
 ]
 
 [tool.bandit]
