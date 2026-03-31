@@ -55,7 +55,6 @@ from pdf_pipeline.core.chunker import MarkdownChunker
 from pdf_pipeline.core.knowledge_extractor import KnowledgeExtractor
 from pdf_pipeline.core.pdf_scanner import compute_sha256_standalone
 from pdf_pipeline.services.claude_provider import ClaudeCodeProvider
-from pdf_pipeline.services.gemini_provider import GeminiCLIProvider
 from pdf_pipeline.services.provider_chain import ProviderChain
 from pdf_pipeline.services.state_manager import StateManager
 
@@ -325,15 +324,15 @@ def chunk_and_save(report_md: str, sha256: str, output_dir: str) -> str:
 
 
 def _build_default_provider_chain() -> ProviderChain:
-    """Build the default provider chain with Gemini → Claude fallback.
+    """Build the default provider chain using ``ClaudeCodeProvider``.
 
     Returns
     -------
     ProviderChain
-        A chain with ``GeminiCLIProvider`` (primary) and
-        ``ClaudeCodeProvider`` (fallback).
+        A chain with a single ``ClaudeCodeProvider``.
     """
-    return ProviderChain([GeminiCLIProvider(), ClaudeCodeProvider()])
+    provider = ClaudeCodeProvider()
+    return ProviderChain([provider])
 
 
 def _format_extraction_stats(
