@@ -4,7 +4,7 @@ category: stock_analysis
 type: data_analysis
 status: published
 created_at: '2026-03-28'
-updated_at: '2026-03-30T11:05:58.240864+00:00'
+updated_at: '2026-03-31T00:21:50.722385+00:00'
 tags:
 - US Telecom
 - 5G
@@ -40,7 +40,7 @@ workflow:
   draft: done
   critique: done
   revision: done
-  publish: pending
+  publish: done
   publishing:
     published: done
     final_review: done
@@ -49,5 +49,5 @@ human_feedback:
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: false
-published_at: '2026-03-30T11:05:58.240864+00:00'
-draft_url: https://editor.note.com/notes/nbe1a268cec6b/edit/
+published_at: '2026-03-31T00:21:50.722385+00:00'
+draft_url: https://editor.note.com/notes/nd8676bd58a0b/edit/

@@ -1,0 +1,218 @@
+{
+    "critic_type": "writer_rules",
+    "score": 52,
+    "category": "asset_management",
+    "target_audience": "beginner",
+    "mode": "quick",
+    "issues": [
+        {
+            "issue_id": "WR-WC001",
+            "severity": "high",
+            "sub_area": "word_count",
+            "location": {
+                "section": "overall",
+                "line": null
+            },
+            "issue": "本文文字数が4,927字（フロントマター・参考データソース・ディスクレーマー・修正履歴を除く）で、asset_management カテゴリの上限4,000字を927字（約23%）超過している。",
+            "rule_reference": "writer-rules-evaluation.md#1-文字数チェック-wr-wc / asset-management.md#文字数",
+            "suggestion": "「GPIFに学ぶ「地味だけど確実」な方法」セクションと「「人気」と「実力」で読み解く逆転のメカニズム」セクションをそれぞれ200-300字程度に圧縮し、合計で4,000字以内に収める。"
+        },
+        {
+            "issue_id": "WR-SC001",
+            "severity": "medium",
+            "sub_area": "sections",
+            "location": {
+                "section": "overall",
+                "line": "## 注意点・リスク：過去の好パフォーマンスを過信しない"
+            },
+            "issue": "asset_management カテゴリの規定セクション順序は「はじめに → 基礎知識 → 実践ガイド → 注意点・リスク → まとめ → 参考データソース」だが、記事では「注意点・リスク」が「実践ガイド」の前に配置されており順序が逆転している。",
+            "rule_reference": "writer-rules-evaluation.md#2-必須セクションチェック-wr-sc / asset-management.md#セクション構成テンプレート",
+            "suggestion": "「注意点・リスク」セクションを「実践ガイド」の後に移動し、規定順序に合わせる。「GPIFに学ぶ〜」セクションは「実践ガイド」内か「注意点・リスク」の直前に統合することを検討する。"
+        },
+        {
+            "issue_id": "WR-SC002",
+            "severity": "low",
+            "sub_area": "sections",
+            "location": {
+                "section": "はじめに",
+                "line": "本記事では、2026年2月に起きたオルカンとS&P500の逆転現象を出発点に"
+            },
+            "issue": "「はじめに」セクションの文字数が105字（空白除く）で、規定の200-300字を大幅に下回っている。記事で学べること・対象読者の明示が簡略すぎる。",
+            "rule_reference": "writer-rules-evaluation.md#2-必須セクションチェック-wr-sc（asset_management: はじめに 200-300字）",
+            "suggestion": "「はじめに」を200字以上に拡充し、この記事を読むことで得られる具体的な学びと対象読者（例: NISAを始めたばかりでオルカンかS&P500か迷っている方）を明示する。"
+        },
+        {
+            "issue_id": "WR-SC003",
+            "severity": "low",
+            "sub_area": "sections",
+            "location": {
+                "section": "基礎知識：オルカンとS&P500の関係を理解する",
+                "line": "オルカン（eMAXIS Slim 全世界株式（オール・カントリー））が設定されたのは2018年10月。"
+            },
+            "issue": "「基礎知識」セクション（「基礎知識：オルカンとS&P500の関係を理解する」のみ）の文字数が449字（空白除く）で、規定の500-800字に達していない。「人気と実力」セクションとの分割が影響している。",
+            "rule_reference": "writer-rules-evaluation.md#2-必須セクションチェック-wr-sc（asset_management: 基礎知識 500-800字）",
+            "suggestion": "「人気と実力で読み解く逆転のメカニズム」の内容を「基礎知識」セクションに統合し、1セクションで500-800字の規定を満たす構成に変更する。"
+        },
+        {
+            "issue_id": "WR-SC004",
+            "severity": "medium",
+            "sub_area": "sections",
+            "location": {
+                "section": "実践ガイド：投資初心者が押さえるべき3つのポイント",
+                "line": "「結局、オルカンとS&P500、どっちを買えばいいの？」"
+            },
+            "issue": "「実践ガイド」セクションの文字数が736字（空白除く）で、規定の800-1200字に達していない。ステップバイステップの解説としてFAQやサブポイントの掘り下げが不足している。",
+            "rule_reference": "writer-rules-evaluation.md#2-必須セクションチェック-wr-sc（asset_management: 実践ガイド 800-1200字）",
+            "suggestion": "各ステップ（一国集中しない・リターンを過信しない・定期点検）に具体的な操作手順や数値例を追記し、全体で800字以上に拡充する。"
+        },
+        {
+            "issue_id": "WR-SC005",
+            "severity": "medium",
+            "sub_area": "sections",
+            "location": {
+                "section": "修正履歴",
+                "line": "## 修正履歴"
+            },
+            "issue": "「## 修正履歴」セクションが公開版（revised_draft.md）に残存している。修正履歴は内部管理用の情報であり、note.com 投稿時には不要で、読者体験を損なう。",
+            "rule_reference": "asset-management.md#出力ファイル（公開記事の品質管理）",
+            "suggestion": "「## 修正履歴」セクション（169-218行）を revised_draft.md から削除する。修正履歴は別ファイル（例: critic.md や変更ログ）で管理する。"
+        },
+        {
+            "issue_id": "WR-CC001",
+            "severity": "medium",
+            "sub_area": "category_constraints",
+            "location": {
+                "section": "冒頭（タイトル直後）",
+                "line": "> **本記事について**: 本記事は情報提供を目的としたものであり、特定の金融商品の売買を推奨するものではありません。"
+            },
+            "issue": "免責事項が記事冒頭（ブロック引用形式）に配置されている。common-rules.md §3 は「記事本文の一番最後に1箇所だけ」と規定しており、冒頭配置は明確な違反。asset-management.md カテゴリ固有制約チェックの「末尾免責事項」も同規定を参照している。",
+            "rule_reference": "common-rules.md#3-免責事項 / writer-rules-evaluation.md#5-カテゴリ固有制約チェック-wr-cc（asset_management: 末尾免責事項）",
+            "suggestion": "冒頭のブロック引用免責（3-13行）を削除し、末尾の参考データソースセクションの後に装飾なし段落として1箇所だけ配置する。snippets/disclaimer.md の全文を使用すること。"
+        },
+        {
+            "issue_id": "WR-CC002",
+            "severity": "low",
+            "sub_area": "category_constraints",
+            "location": {
+                "section": "記事末尾",
+                "line": "*※本記事で紹介したデータは2026年3月時点のものです。投資信託は価格変動により元本割れのリスクがあり…"
+            },
+            "issue": "末尾免責がイタリック形式（*...*）で記述されており、common-rules.md §3 の「装飾なし（引用ブロック > や太字 ** を使わない）」規定に違反している。また免責文が snippets/disclaimer.md の全文より短縮されている可能性がある。",
+            "rule_reference": "common-rules.md#3-免責事項",
+            "suggestion": "イタリック装飾を除去し、snippets/disclaimer.md の免責全文をプレーンテキストで配置する。"
+        },
+        {
+            "issue_id": "WR-CC003",
+            "severity": "medium",
+            "sub_area": "category_constraints",
+            "location": {
+                "section": "02_draft/",
+                "line": null
+            },
+            "issue": "asset_management カテゴリの必須出力ファイルである curated_sources.json が 02_draft/ ディレクトリに存在しない。ソースキュレーション（関連度スコア50以上のソース選定）の実施記録が欠如している。",
+            "rule_reference": "asset-management.md#カテゴリ固有ルール（ソースキュレーション）/ writer-rules-evaluation.md#5-カテゴリ固有制約チェック-wr-cc",
+            "suggestion": "リサーチで使用したソースに関連度スコア（テーマ適合度・信頼性・鮮度・初心者理解度・独自性）を付与し、curated_sources.json として 02_draft/ に保存する。"
+        },
+        {
+            "issue_id": "WR-CL001",
+            "severity": "low",
+            "sub_area": "checklist",
+            "location": {
+                "section": "実践ガイド：投資初心者が押さえるべき3つのポイント",
+                "line": "年に1回、以下の3つだけ確認してみてください。"
+            },
+            "issue": "asset_management カテゴリのチェックリスト項目「具体的な数値例（月3万円の積立など）がある」が未達。「生活費6ヶ月分」や「株式60%」の言及はあるが、積立金額の具体的な数値例（月〇万円の積立シミュレーションなど）が記事全体に存在しない。",
+            "rule_reference": "asset-management.md#チェックリスト / writer-rules-evaluation.md#6-カテゴリ別チェックリスト-wr-cl（asset_management: 具体的な数値例）",
+            "suggestion": "「実践ガイド」のポイント1または定期点検の箇所に「例えば毎月3万円をオルカンに積み立てた場合、年率5%で10年後には約465万円になる計算です」のような具体的シミュレーション数値を追加する。"
+        }
+    ],
+    "word_count_check": {
+        "actual": 4927,
+        "min": 2000,
+        "max": 4000,
+        "status": "over"
+    },
+    "section_check": {
+        "required_sections": ["はじめに", "基礎知識", "実践ガイド", "注意点・リスク", "まとめ", "参考データソース"],
+        "found_sections": ["はじめに", "基礎知識：オルカンとS&P500の関係を理解する", "注意点・リスク：過去の好パフォーマンスを過信しない", "実践ガイド：投資初心者が押さえるべき3つのポイント", "まとめ：「正解」がないからこそ、分散する", "参考データソース"],
+        "missing_sections": [],
+        "order_correct": false,
+        "order_issue": "注意点・リスク（位置3298）が実践ガイド（位置4338）より前に配置されており、規定順序「実践ガイド→注意点・リスク」と逆転している",
+        "extra_sections": ["「人気」と「実力」で読み解く逆転のメカニズム", "「米国一強」に忍び寄る3つの逆風", "GPIFに学ぶ「地味だけど確実」な方法", "修正履歴"],
+        "data_source_section": {
+            "present": true,
+            "has_sources": true,
+            "source_count": 13,
+            "has_period_note": true,
+            "period_note": "分析期間: 2026年2月末〜2026年3月末"
+        },
+        "section_word_counts": {
+            "はじめに": {"actual": 105, "min": 200, "max": 300, "status": "under"},
+            "基礎知識": {"actual": 449, "min": 500, "max": 800, "status": "under"},
+            "実践ガイド": {"actual": 736, "min": 800, "max": 1200, "status": "under"},
+            "注意点・リスク": {"actual": 549, "min": 300, "max": 500, "status": "over"},
+            "まとめ": {"actual": 349, "min": 200, "max": 400, "status": "ok"}
+        }
+    },
+    "frontmatter_check": {
+        "required_fields": ["title", "article_id", "category", "status", "theme", "target_audience"],
+        "present_fields": ["title", "article_id", "category", "status", "theme", "target_audience", "revision_date"],
+        "missing_fields": [],
+        "extra_fields": ["revision_date"],
+        "notes": "revision_date はカテゴリ別必須項目ではないが推奨項目として存在。全必須項目が揃っている。"
+    },
+    "category_constraints_check": {
+        "constraints_checked": 3,
+        "passed": 0,
+        "failed": 3,
+        "details": [
+            {
+                "constraint": "末尾免責事項（装飾なし、末尾1箇所）",
+                "status": "fail",
+                "description": "冒頭にブロック引用形式の免責が存在（配置違反）。末尾免責はイタリック形式（装飾違反）。common-rules §3 への二重違反。"
+            },
+            {
+                "constraint": "curated_sources.json の存在",
+                "status": "fail",
+                "description": "02_draft/curated_sources.json が存在しない。ソースキュレーション実施の記録なし。"
+            },
+            {
+                "constraint": "具体的数値例（月3万円の積立など）",
+                "status": "fail",
+                "description": "積立金額や運用シミュレーションの具体的数値が記事内に存在しない。「生活費6ヶ月分」「株式60%」のみでは不十分。"
+            }
+        ]
+    },
+    "checklist_results": {
+        "total": 5,
+        "passed": 3,
+        "failed": 2,
+        "items": [
+            {
+                "item": "「はじめに」で学べること・対象読者が明示されている",
+                "status": "fail",
+                "detail": "105字（規定200-300字）。記事の価値提示が不十分で対象読者の具体的記述が薄い。"
+            },
+            {
+                "item": "全ての専門用語が初出時に平易化されている",
+                "status": "pass",
+                "detail": "CAPE比率（割高の指標）、MSCI ACWI（全世界の株式の値動きを表す指標）、GPIF（年金積立金管理運用独立行政法人）、リバランス（配分の再調整）、ポートフォリオ（資産の組み合わせ）の平易化確認。なお「eMAXIS Slim」は商品名のため平易化不要と判断。"
+            },
+            {
+                "item": "具体的な数値例（月3万円の積立など）がある",
+                "status": "fail",
+                "detail": "積立金額の具体例なし。「生活費6ヶ月分」「株式60%・債券40%」の配分例はあるが、積立シミュレーション数値が不在。"
+            },
+            {
+                "item": "ステップバイステップの実践ガイドがある",
+                "status": "pass",
+                "detail": "3ステップ構成（1. 一国集中しない / 2. 過去リターンを過信しない / 3. 年1回定期点検）が明確に提示されている。"
+            },
+            {
+                "item": "「注意点・リスク」セクションがある",
+                "status": "pass",
+                "detail": "セクション自体は存在。ただし549字で上限500字を超過、かつセクション順序が規定と逆転している（WR-SC001）。"
+            }
+        ]
+    }
+}

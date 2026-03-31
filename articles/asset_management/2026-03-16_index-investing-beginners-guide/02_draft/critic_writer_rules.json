@@ -1,0 +1,158 @@
+{
+  "critic_type": "writer_rules",
+  "score": 91,
+  "category": "asset_management",
+  "target_audience": "beginner",
+  "mode": "quick",
+  "issues": [
+    {
+      "issue_id": "WR-SC001",
+      "severity": "medium",
+      "sub_area": "sections",
+      "location": {
+        "section": "インデックス投資とは何か / 新NISAでインデックス投資を始める理由",
+        "line": "## インデックス投資とは何か"
+      },
+      "issue": "asset_managementテンプレートが要求する「基礎知識」セクションの見出し名が存在しない。内容的には「インデックス投資とは何か」と「新NISAでインデックス投資を始める理由」の2セクションに分割されており、テンプレートの単一「基礎知識」セクションと見出し名・構成ともに一致しない。",
+      "rule_reference": "asset-management.md#セクション構成テンプレート / writer-rules-evaluation.md#asset_management",
+      "suggestion": "「## 基礎知識」を設け、インデックスの説明と新NISA制度の説明をその下にサブセクション（###）として収める。または現行の2セクション構成を維持する場合は、最初のH2見出しを「## インデックス投資の基礎知識」等、テンプレート名称に近い表現に変更する。"
+    },
+    {
+      "issue_id": "WR-SC002",
+      "severity": "low",
+      "sub_area": "sections",
+      "location": {
+        "section": "参考データソース",
+        "line": "## 参考データソース"
+      },
+      "issue": "参考データソースセクション内にデータの分析期間注記がない。common-rules.md §7では「※ データは2026年3月時点のものです。」等の期間注記を要求している。免責事項内の「作成時点」という言及は参考データソースセクションの期間注記の代替にはならない。",
+      "rule_reference": "common-rules.md#7-データソースの明示 / writer-rules-evaluation.md#7-参考データソースセクション",
+      "suggestion": "参考データソースセクションの末尾に「※ データは2026年3月時点のものです。」等の一文を追加する。"
+    },
+    {
+      "issue_id": "WR-CL001",
+      "severity": "low",
+      "sub_area": "checklist",
+      "location": {
+        "section": "実践ガイド：5ステップで始める／ステップ3：インデックスファンドを選ぶ",
+        "line": "純資産総額は30億円以上が目安です（小規模だと繰上償還リスクがある）。"
+      },
+      "issue": "「繰上償還」が括弧内で使用されているが、用語自体の定義説明がない。asset_managementカテゴリでは専門用語初出時の平易化が必須ルールであり、beginner向け記事では特に厳格に適用される。「繰上償還とは〜」等の補足説明が必要。",
+      "rule_reference": "asset-management.md#専門用語の平易化（必須） / common-rules.md#6-ターゲット読者別の文体調整",
+      "suggestion": "「純資産総額は30億円以上が目安です（小規模なファンドは繰上償還——運用期間の途中でファンドが強制終了されること——のリスクがある）。」のように括弧内で定義を補足する。"
+    }
+  ],
+  "word_count_check": {
+    "actual": 2760,
+    "min": 2000,
+    "max": 4000,
+    "status": "ok",
+    "note": "フロントマター・参考データソースセクション・免責事項・URL・マークダウン記号・スペースを除外して計測"
+  },
+  "section_check": {
+    "required_sections": [
+      "はじめに",
+      "基礎知識",
+      "実践ガイド",
+      "注意点・リスク",
+      "まとめ",
+      "参考データソース"
+    ],
+    "found_sections": [
+      "はじめに",
+      "インデックス投資とは何か（基礎知識相当）",
+      "新NISAでインデックス投資を始める理由（基礎知識相当）",
+      "実践ガイド：5ステップで始める",
+      "注意点・リスク",
+      "まとめ：今日できる最初の1歩",
+      "参考データソース"
+    ],
+    "missing_sections": [],
+    "order_correct": true,
+    "note": "「基礎知識」という見出し名は存在しないが、内容的には2セクションに分割して代替されている。見出し名の不一致をmediumとして記録。",
+    "data_source_section": {
+      "present": true,
+      "has_sources": true,
+      "source_count": 14,
+      "has_period_note": false
+    }
+  },
+  "frontmatter_check": {
+    "required_fields": [
+      "title",
+      "article_id",
+      "category",
+      "status",
+      "theme",
+      "target_audience"
+    ],
+    "present_fields": [
+      "title",
+      "article_id",
+      "category",
+      "status",
+      "theme",
+      "target_audience"
+    ],
+    "missing_fields": []
+  },
+  "category_constraints_check": {
+    "constraints_checked": 3,
+    "passed": 3,
+    "failed": 0,
+    "details": [
+      {
+        "constraint": "末尾免責事項",
+        "status": "pass",
+        "description": "参考データソースセクションの後、区切り線（---）の下にプレーンテキストで配置されている。装飾なし。"
+      },
+      {
+        "constraint": "curated_sources.json の存在",
+        "status": "pass",
+        "description": "02_draft/curated_sources.json が存在する。"
+      },
+      {
+        "constraint": "具体的数値例",
+        "status": "pass",
+        "description": "「毎月3万円積立・30年間で元本1,080万円」「年平均4.0%のリターン実績」等、複数の具体的数値例が存在する。"
+      }
+    ]
+  },
+  "checklist_results": {
+    "total": 6,
+    "passed": 5,
+    "failed": 1,
+    "items": [
+      {
+        "item": "「はじめに」で学べること・対象読者が明示されている",
+        "status": "pass",
+        "detail": "行16に「インデックス投資（市場全体の値動きに連動する投資信託を積み立てる方法）」の説明、行18に「対象は『これから投資を始めたい初心者』」と明示されている。"
+      },
+      {
+        "item": "全ての専門用語が初出時に平易化されている",
+        "status": "fail",
+        "detail": "インデックス投資（行16・括弧書き）、インデックスファンド（行26・定義文）、信託報酬（行32・括弧書き）、NISAおよびNISA口座（行47・括弧書き）、ドルコスト平均法（行91・括弧書き）は適切に平易化されている。一方「繰上償還」（行77）は括弧内で「繰上償還リスク」として使われているが定義説明がない。"
+      },
+      {
+        "item": "具体的な数値例（月3万円の積立など）がある",
+        "status": "pass",
+        "detail": "「毎月3万円積立・30年で元本1,080万円」（行89）、「月5万円を20年間積み立てた場合のシミュレーション事例」（行93）、「生活費3〜6ヶ月分の預貯金」（行111）等、複数の具体的数値例が含まれている。"
+      },
+      {
+        "item": "ステップバイステップの実践ガイドがある",
+        "status": "pass",
+        "detail": "「実践ガイド：5ステップで始める」として5段階のステップが明確に構成されている（行65-97）。"
+      },
+      {
+        "item": "「注意点・リスク」セクションがある",
+        "status": "pass",
+        "detail": "「## 注意点・リスク」セクション（行101-112）が存在し、暴落時リスクと余裕資金の原則・為替リスクを説明している。"
+      },
+      {
+        "item": "curated_sources.json が出力されている",
+        "status": "pass",
+        "detail": "02_draft/curated_sources.json が存在することを確認。"
+      }
+    ]
+  }
+}

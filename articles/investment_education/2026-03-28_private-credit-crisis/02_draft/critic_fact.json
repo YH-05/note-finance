@@ -1,0 +1,48 @@
+{
+    "critic_type": "fact",
+    "score": 88,
+    "issues": [
+        {
+            "issue_id": "F001",
+            "severity": "medium",
+            "location": {
+                "section": "なぜここまで成長したのか",
+                "line": "[過去10年で市場規模は約2兆ドル（300兆円）に膨張]"
+            },
+            "issue": "リサーチノートの市場規模は「$1.8〜2兆（約270〜300兆円）」と幅を持たせているが、記事では上限値の「300兆円」のみを使用しており、下限の270兆円が省略されている。読者に市場規模が確定的に300兆円であるという印象を与える可能性がある。",
+            "original": "過去10年で市場規模は約2兆ドル（300兆円）に膨張",
+            "correct": "過去10年で市場規模は約2兆ドル（270〜300兆円）に膨張",
+            "source": "research_note.md §1 市場規模の急拡大",
+            "suggestion": "「約2兆ドル（270〜300兆円）に膨張」と幅を持った表記に修正するか、推計値の幅を注記として付加すること。"
+        },
+        {
+            "issue_id": "F002",
+            "severity": "medium",
+            "location": {
+                "section": "高利回りは「リスクの対価」",
+                "line": "年率7〜12%という高い利回りは、2種類のリスクに対する「対価」として生まれています。"
+            },
+            "issue": "「年率7〜12%」という具体的な利回りレンジはリサーチノートに記載がない。リサーチノートでは「通常の債券より2〜5%高い利回り」という相対値のみ示されており、7〜12%という絶対値レンジの出典が検証できない。",
+            "original": "年率7〜12%という高い利回り",
+            "correct": "（出典が確認できる数値に置き換えるか、「通常の債券より2〜5%高い利回り」という表現を使用する）",
+            "source": "research_note.md §1 なぜ人気だったか（「通常の債券より2〜5%高い利回り」のみ記載、7〜12%の絶対値レンジの根拠なし）",
+            "suggestion": "利回りレンジ「7〜12%」の根拠となるソースを明示するか、リサーチノートに記載の相対値（「通常の債券より2〜5%高い利回り」）に置き換えること。"
+        },
+        {
+            "issue_id": "F003",
+            "severity": "low",
+            "location": {
+                "section": "危機のメカニズム──「流動性幻想」の崩壊",
+                "line": "アポロのジム・ゼルター社長は後に[「流動性リスクを投資家に十分説明できていなかった」]と認めています。"
+            },
+            "issue": "引用URLがBlue Owl（Ostrover）を主語とするBloomberg記事（2026-03-26）を指している。当該記事はZelterとOstoverの両者のコメントを含む同一記事であるため技術的には正確だが、URLスラッグが「blue-owl-s-ostrover-says-no-increase-in-defaults-despite-unease」であり、読者がソースを確認する際にアポロの発言として辿りにくい。",
+            "original": "[「流動性リスクを投資家に十分説明できていなかった」](https://www.bloomberg.com/news/articles/2026-03-26/blue-owl-s-ostrover-says-no-increase-in-defaults-despite-unease)",
+            "correct": "URLは技術的に正しいが、リンクテキストを記事正式タイトル「Apollo, Blue Owl Lament Private Credit's Liquidity Confusion」に変更するか、アポロ専用の別記事URLへ差し替えることが望ましい。",
+            "source": "research_note.md §8 主要ソース一覧（同URLを「Apollo, Blue Owl Lament Private Credit's Liquidity Confusion」として記載）",
+            "suggestion": "リンクテキストをBloomberg記事の正式タイトル「Apollo, Blue Owl Lament Private Credit's Liquidity Confusion」に変更するか、ゼルター発言単独のソースURLに差し替えること。"
+        }
+    ],
+    "verified_facts": 37,
+    "issues_found": 3,
+    "verification_rate": 92.5
+}

@@ -1,368 +1,303 @@
 {
   "article_id": "2026-03-16_index-investing-beginners-guide",
-  "generated_at": "2026-03-30",
+  "category": "asset_management",
   "mode": "full",
+  "generated_at": "2026-03-31",
   "critics": {
+    "fact": {
+      "score": 78,
+      "status": "pass",
+      "verified_count": 28,
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "実践ガイド：ステップ3 / TOPIXの定義",
+          "issue": "TOPIXを「東証プライム全銘柄」と説明しているが不正確。TOPIXは東証プライム・スタンダード・グロース全市場を対象とした指数。",
+          "suggestion": "「TOPIX（東証全体をカバーする国内株指数）」に修正する。"
+        },
+        {
+          "severity": "HIGH",
+          "location": "実践ガイド：ステップ3 / eMAXIS Slim S&P500の信託報酬出典",
+          "issue": "信託報酬0.08140%の出典としてkabutan.jpのURLを記載しているが、research_findings.jsonのkabutan由来の数値は0.09372%。0.08140%はtsumitatenisa.jpの数値と一致する。ソース間で不整合。",
+          "suggestion": "出典URLをtsumitatenisa.jpまたは三菱UFJアセットマネジメント公式ページに差し替える。"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "実践ガイド：ステップ3 / 10兆円突破の記述",
+          "issue": "「両ファンドともに2026年初頭に10兆円を突破」は不正確。S&P500は2026年1月7日、オルカンは2026年2月9日に突破。「初頭」はオルカンに不正確で、直前の1月時点の9兆円台数値と時系列矛盾も生じる。",
+          "suggestion": "「eMAXIS Slim S&P500は2026年1月に、オルカンは同年2月に純資産10兆円を突破しています」と個別に明記する。"
+        },
+        {
+          "severity": "LOW",
+          "location": "注意点・リスク / 暴落時の説明",
+          "issue": "暴落時に口数が増えることの出典としてreliability_rank=Dのacn-fudosan.co.jpを使用。同内容は三菱UFJモルガン・スタンレー証券や京葉銀行でカバー可能。",
+          "suggestion": "ACN不動産の参照リンクを削除し、三菱UFJモルガン・スタンレー証券か京葉銀行の参照に統合する。"
+        }
+      ],
+      "summary": "NISAの基本制度・こどもNISA・金融庁の4.0%リターン実績など主要データは正確。主な問題はTOPIX定義の不正確さ（HIGH）、S&P500信託報酬の出典不整合（HIGH）、10兆円突破時期の表現（MEDIUM）の3件。"
+    },
     "compliance": {
-      "critic_type": "compliance",
-      "score": 93,
+      "score": 88,
       "status": "pass",
       "issues": [
         {
-          "issue_id": "CP001",
-          "severity": "medium",
-          "category": "expression",
-          "location": {
-            "section": "新NISA制度を活用しよう",
-            "text": "投資初心者の方は、まずつみたて投資枠から始めるのが取り組みやすい方法です。"
-          },
-          "issue": "「〜から始めるのが取り組みやすい方法です」という表現は特定の投資行動を示唆する誘導的ニュアンスを含む。投資助言には直接該当しないが、特定の行動を推奨する印象を与えうる。",
-          "regulation": "金融商品取引法第2条第8項第11号（投資助言・代理業）、同法第38条（禁止行為）",
-          "suggestion": "「投資初心者の方は、まずつみたて投資枠から検討される方が多いです。対象商品は金融庁が厳選しています。」のように推奨ではなく選択肢の提示として表現する"
+          "severity": "MEDIUM",
+          "location": "実践ガイド：ステップ5",
+          "issue": "「長期で継続することがリターンを引き出す鍵」→ 投資継続を事実上推奨する投資助言的ニュアンス。",
+          "suggestion": "「長期で継続する方針が一般的に有効とされています」等、伝聞形に修正する。"
         },
         {
-          "issue_id": "CP002",
-          "severity": "low",
-          "category": "expression",
-          "location": {
-            "section": "2026年度改正のポイント",
-            "text": "2027年1月開始予定"
-          },
-          "issue": "「2027年1月開始予定」は将来の確定事項として記述されているが、国会審議未完の将来事項であり確定事項と誤認されるリスクがある。",
-          "regulation": "金融商品取引法第37条（広告等の規制）",
-          "suggestion": "「2027年1月開始予定（令和8年度税制改正大綱に基づく。国会審議等により変更となる場合があります）」のように不確実性を明示する"
+          "severity": "MEDIUM",
+          "location": "注意点セクション見出し「暴落時に慌てて売るのは避けるべき」",
+          "issue": "見出しが売却回避・積立継続を誘導する投資助言的表現。",
+          "suggestion": "「暴落時に起こりがちな行動パターン」等の中立的な見出しに変更する。"
+        },
+        {
+          "severity": "LOW",
+          "location": "注意点・余裕資金セクション",
+          "issue": "「長期的な成長が期待される市場を選ぶことが前提」→ 将来成長を既定事実として示唆。",
+          "suggestion": "「歴史的に長期的な成長が見られてきた市場を対象とすることが一般的です」等に修正する。"
         }
       ],
-      "summary": "前回（score:88）指摘の主要6件はすべて修正済み。新規指摘2件はいずれもmedium/lowで軽微。公開可能な水準。"
-    },
-    "fact": {
-      "critic_type": "fact",
-      "score": 80,
-      "status": "warning",
-      "issues": [
-        {
-          "issue_id": "FA001",
-          "severity": "high",
-          "category": "claim",
-          "location": {
-            "section": "2026年度改正のポイント",
-            "text": "「非課税枠の年内復活（売却枠の即時再利用）」は、今回の改正では見送りとなりました"
-          },
-          "issue": "research_findings.jsonおよびcurated_sources.json（金融庁PDF）の記載と「非課税枠の年内復活が可能に」という内容が正反対。公開前に一次ソース（金融庁PDF）の直接確認が必須。",
-          "suggestion": "金融庁および日本総研PDFを直接確認し、正確な表現に修正すること。"
-        },
-        {
-          "issue_id": "FA002",
-          "severity": "high",
-          "category": "source",
-          "location": {
-            "section": "コスト（信託報酬）の重要性",
-            "text": "受益者還元型で0.07568%"
-          },
-          "issue": "eMAXIS Slim S&P500の受益者還元型信託報酬0.07568%はリサーチデータベースに未収録。出典PDFの直接確認が必要。",
-          "suggestion": "三菱UFJアセットマネジメントの公式PDFで数値を確認すること。"
-        },
-        {
-          "issue_id": "FA003",
-          "severity": "medium",
-          "category": "source",
-          "location": {
-            "section": "はじめに",
-            "text": "NISA口座数は2,825万口座（2025年12月末時点）"
-          },
-          "issue": "出典URL（toushin.or.jp/files/statistics/3/20262.pdf）はファイル名から投資信託協会2026年2月末統計であり、NISA口座数ではなく投資信託残高統計の可能性がある。",
-          "suggestion": "PDFを確認し、NISA口座数が掲載されていない場合は金融庁または日本証券業協会の正式統計に差し替えること。"
-        },
-        {
-          "issue_id": "FA004",
-          "severity": "low",
-          "category": "date",
-          "location": {
-            "section": "コスト（信託報酬）の重要性",
-            "text": "楽天・プラス・オールカントリー 0.05610%"
-          },
-          "issue": "この数値は2026年2月中旬時点のデータであり、記事の「2026年3月時点」との時点ずれがある。",
-          "suggestion": "計測時点を明示するか、最新値に更新すること。"
-        }
-      ],
-      "verified_facts": [
-        "新NISAの投資枠数値（120万/240万/360万/1,800万円）",
-        "こどもNISA（年間60万円/600万円）",
-        "金融庁シミュレーション数値（37,189円/18,917円/363万円/472万円）",
-        "信託報酬要件（国内0.5%/海外0.75%以下）",
-        "全世界株式47カ国・米国株6割",
-        "TOPIXの約2,000銘柄・日経平均225銘柄",
-        "eMAXIS Slim オルカン 0.05775%",
-        "eMAXIS Slim S&P500 0.0814%",
-        "信託報酬差による20年後のリターン差28.7%（金融庁データ）",
-        "NISA口座は1人1口座"
-      ],
-      "summary": "32件の事実を検証し、81.8%が一次ソース確認済み。FA001（非課税枠の年内復活）の矛盾が最重要課題。"
+      "disclaimer_check": {
+        "present": true,
+        "position": "末尾（148行目）",
+        "format_correct": true,
+        "note": "引用ブロック・太字なし、1箇所のみ配置。合格。"
+      },
+      "summary": "critical・highゼロ、禁止表現ゼロでpassを維持。投資助言的ニュアンスのMEDIUM2件は言い換えで対応可能。免責事項は形式・位置ともに正しい。"
     },
     "structure": {
-      "critic_type": "structure",
-      "score": 82,
-      "status": "warning",
-      "issues": [
-        {
-          "issue_id": "ST001",
-          "severity": "medium",
-          "category": "flow",
-          "location": { "section": "新NISA制度を活用しよう" },
-          "issue": "新NISAセクションが5ステップの連続性を中断している。ステップ2でNISA言及直後に制度詳細セクションが挟まれる。",
-          "suggestion": "新NISAセクションを5ステップの後（ステップ5の後）に移動し、ステップの流れを完結させてから詳細に展開する。"
-        },
-        {
-          "issue_id": "ST002",
-          "severity": "medium",
-          "category": "flow",
-          "location": { "section": "代表的なインデックスと人気ファンドの特徴" },
-          "issue": "ステップ3（ファンド選びのポイント）と代表的インデックス紹介セクションが内容的に重複し、読者が同じ話題を2回読む構成になっている。",
-          "suggestion": "ステップ3では判断基準（コスト・指数・純資産）のみに絞り、代表的インデックスの詳細は後のセクションへ集約する。"
-        },
-        {
-          "issue_id": "ST003",
-          "severity": "medium",
-          "category": "sections",
-          "location": { "section": "コスト説明とファンド紹介の順序" },
-          "issue": "コスト説明がファンド紹介の後に来る逆順。ファンド選択の判断基準（コスト）を先に理解させてから具体ファンドを提示すべき。",
-          "suggestion": "「コスト（信託報酬）の重要性」セクションを「代表的なインデックスと人気ファンドの特徴」の前に移動する。"
-        },
-        {
-          "issue_id": "ST004",
-          "severity": "low",
-          "category": "intro",
-          "location": { "section": "はじめに" },
-          "issue": "導入部の統計データ段落が1文160字超で詰め込みすぎ。",
-          "suggestion": "1文を2〜3文に分割し、情報を消化しやすくする。"
-        },
-        {
-          "issue_id": "ST005",
-          "severity": "low",
-          "category": "conclusion",
-          "location": { "section": "まとめ" },
-          "issue": "締め文に感情的共感・後押しが不足。",
-          "suggestion": "「まずは証券会社のサイトで口座開設の申し込みをしてみましょう」の前に、読者への励ましの一文を追加する。"
-        }
-      ],
-      "summary": "全体の論理展開は概ね良好。新NISAセクションの位置とコスト→ファンド紹介の順序が主な改善点。"
-    },
-    "data_accuracy": {
-      "critic_type": "data_accuracy",
-      "score": 89,
-      "status": "warning",
-      "issues": [
-        {
-          "issue_id": "DA001",
-          "severity": "high",
-          "category": "figure",
-          "location": {
-            "section": "2026年度改正のポイント",
-            "text": "「非課税枠の年内復活（売却枠の即時再利用）」は、今回の改正では見送りとなりました"
-          },
-          "issue": "curated_sources.json（金融庁改正PDF）は「非課税枠の年内復活が可能に」と記録しており、記事の「見送り」と正反対。公開前に一次ソースを直接確認すること。",
-          "suggestion": "金融庁PDF・日本総研PDFを直接確認し正確な表現に修正する。"
-        },
-        {
-          "issue_id": "DA002",
-          "severity": "medium",
-          "category": "source",
-          "location": {
-            "section": "はじめに",
-            "text": "NISA口座数は2,825万口座"
-          },
-          "issue": "出典URLが投資信託残高統計の可能性がある。",
-          "suggestion": "PDFを確認し、NISA口座数統計でない場合は正しい出典に差し替える。"
-        },
-        {
-          "issue_id": "DA003",
-          "severity": "low",
-          "category": "figure",
-          "location": {
-            "section": "コスト（信託報酬）の重要性",
-            "text": "受益者還元型で0.07568%"
-          },
-          "issue": "curated_sourcesに未収録。出典PDFでの確認が必要。",
-          "suggestion": "三菱UFJアセットマネジメントの公式PDFで数値を確認すること。"
-        }
-      ],
-      "summary": "前回のDA001〜DA003は全て修正済み。新規発見の主要課題は非課税枠の年内復活に関する記述矛盾（high）。計算式は全て正確。"
-    },
-    "readability": {
-      "critic_type": "readability",
-      "score": 84,
-      "target_audience": "beginner",
-      "issues": [
-        {
-          "issue_id": "RD001",
-          "severity": "high",
-          "category": "visual",
-          "location": {
-            "section": "冒頭",
-            "description": "免責事項ブロック（記事先頭）"
-          },
-          "issue": "冒頭の免責事項がファーストビューを占有し、スマホ読者の離脱リスクを高めている。",
-          "suggestion": "免責事項を末尾のみに移動し、冒頭は本文フックから始める。または免責事項を折りたたみ形式にする。"
-        },
-        {
-          "issue_id": "RD002",
-          "severity": "medium",
-          "category": "density",
-          "location": {
-            "section": "はじめに",
-            "description": "統計文（1文約200文字超）"
-          },
-          "issue": "はじめにセクションの統計文が1文約200文字超でbeginner推奨文長（30〜40文字）を大幅超過。",
-          "suggestion": "1文を3〜4文に分割し、ポイントを段階的に提示する。"
-        },
-        {
-          "issue_id": "RD003",
-          "severity": "medium",
-          "category": "visual",
-          "location": {
-            "section": "新NISAの基本構造",
-            "description": "箇条書きのみの構成"
-          },
-          "issue": "新NISAの基本構造が箇条書きのみで表形式による視覚的整理がない。",
-          "suggestion": "新NISA枠（つみたて/成長/年間合計/生涯）を表画像（/generate-table-image）で整理する。"
-        },
-        {
-          "issue_id": "RD004",
-          "severity": "medium",
-          "category": "density",
-          "location": {
-            "section": "2026年度改正のポイント",
-            "description": "括弧の多重ネスト"
-          },
-          "issue": "「こどもNISA新設」の括弧内で多重ネストによる情報過密。",
-          "suggestion": "括弧の入れ子を解消し、重要情報を箇条書きに分解する。"
-        },
-        {
-          "issue_id": "RD005",
-          "severity": "low",
-          "category": "terminology",
-          "location": {
-            "section": "コスト（信託報酬）の重要性",
-            "description": "受益者還元型"
-          },
-          "issue": "「受益者還元型」の説明が欠如している。",
-          "suggestion": "初出時に「受益者還元型（純資産総額が一定以上になると信託報酬が自動的に引き下がる仕組み）」と補足する。"
-        }
-      ],
-      "summary": "専門用語の平易化は概ね良好。主な改善点は冒頭免責事項の位置と長文の分割。"
-    },
-    "writer_rules": {
-      "critic_type": "writer_rules",
-      "score": 63,
-      "status": "fail",
-      "checks": {
-        "word_count": {
-          "actual": 4882,
-          "min": 2000,
-          "max": 4000,
-          "status": "fail"
-        },
-        "required_sections": {
-          "found": 5,
-          "total": 6,
-          "missing": ["参考データソース（「参考情報」という名称で存在、名称不一致）"],
-          "status": "warning"
-        },
-        "frontmatter": {
-          "present": 4,
-          "required": 6,
-          "missing": ["theme", "target_audience"],
-          "status": "fail"
-        }
+      "score": 79,
+      "sections": {
+        "introduction": {"score": 72, "comment": "フックは有効だが約180字と要件（200-300字）に届かず、記事を読む価値の具体的提示が薄い。"},
+        "flow": {"score": 80, "comment": "大枠は自然だが「新NISAを始める理由」セクションが構造的に浮いており、セクション間のブリッジ文が欠如している。"},
+        "sections": {"score": 78, "comment": "基礎知識相当セクションが約380字と要件（500-800字）を大幅に下回る。NISA説明セクションがテンプレート5構成に収まらない。"},
+        "conclusion": {"score": 85, "comment": "5点の箇条書き要約は的確、「今日できる最初の1歩」というCTAも適切。"},
+        "readability": {"score": 82, "comment": "専門用語への説明は良好。ステップ4・注意点の段落に複数概念が詰め込まれ読みにくい部分がある。"}
       },
       "issues": [
         {
-          "issue_id": "WR001",
-          "severity": "high",
-          "category": "word_count",
-          "location": { "section": "overall" },
-          "issue": "本文文字数が約4,882字。asset_managementカテゴリの上限4,000字を882字超過（約22%超過）。",
-          "suggestion": "「代表的なインデックスと人気ファンドの特徴」（約400字）または「コスト」セクションのファンド名・数値詳細を圧縮して4,000字以内に収める。"
+          "severity": "MEDIUM",
+          "location": "はじめに",
+          "issue": "約180字と要件（200-300字）を下回り、読者が得られる価値の提示が不足。",
+          "suggestion": "「この記事を読み終えると、口座開設から積立設定まで必要な知識が揃います」等の価値提示文を追加（20-50字）。"
         },
         {
-          "issue_id": "WR002",
-          "severity": "high",
-          "category": "frontmatter",
-          "location": { "section": "frontmatter" },
-          "issue": "必須フロントマター項目「theme」と「target_audience」が欠落。",
-          "suggestion": "フロントマターに `theme: \"index_fund\"` および `target_audience: beginner` を追加する。"
+          "severity": "MEDIUM",
+          "location": "インデックス投資とは何か（基礎知識）",
+          "issue": "約380字でテンプレート要件（500-800字）に対して大幅不足。主要指数の特徴説明が箇条書きのみで薄い。",
+          "suggestion": "S&P500・全世界株式の特徴をそれぞれ1-2文で説明するか、分散投資のリスク低減効果について具体例を追記。"
         },
         {
-          "issue_id": "WR003",
-          "severity": "medium",
-          "category": "section",
-          "location": { "section": "参考情報" },
-          "issue": "参考データソースセクションの見出しが `## 参考情報` であり、規定の `## 参考データソース` と不一致。",
-          "suggestion": "見出しを `## 参考データソース` に変更する。"
+          "severity": "MEDIUM",
+          "location": "新NISAでインデックス投資を始める理由（構造）",
+          "issue": "テンプレート5構成に対して追加セクションとなっており位置づけが不明瞭。",
+          "suggestion": "「インデックス投資とは何か」セクション内にNISA説明を統合し、基礎知識セクションを600-800字に拡充する。"
         },
         {
-          "issue_id": "WR004",
-          "severity": "medium",
-          "category": "section",
-          "location": { "section": "各セクション名" },
-          "issue": "必須セクション名（基礎知識・実践ガイド・注意点・リスク）がテンプレートと異なる名称で存在し、セクション順序もテンプレートから逸脱している。",
-          "suggestion": "セクション名をテンプレートに合わせるか、revised_draft内での実質的なカバレッジが確認されていれば許容する。"
+          "severity": "MEDIUM",
+          "location": "実践ガイド：ステップ4",
+          "issue": "積立設定・元本計算・ドルコスト平均法・リターン実績・シミュレーション事例の5概念が1段落に混在。",
+          "suggestion": "ドルコスト平均法の説明と金融庁のリターン実績データを別の小段落に分離する。"
         },
         {
-          "issue_id": "WR005",
-          "severity": "low",
-          "category": "checklist",
-          "location": { "section": "はじめに" },
-          "issue": "「はじめに」セクションで対象読者が明示されていない。",
-          "suggestion": "「本記事は投資経験ゼロの方・資産形成をこれから始めたい方を対象にしています。」という1文を追加する。"
+          "severity": "LOW",
+          "location": "セクション間遷移",
+          "issue": "各セクション末尾にブリッジ文がなく遷移が唐突。",
+          "suggestion": "各セクション末尾に1文の遷移文を追加する。"
+        },
+        {
+          "severity": "LOW",
+          "location": "注意点・リスク（余裕資金段落）",
+          "issue": "最終文が元本割れ・ドルコスト平均法の限界・為替リスクの3リスクを1文に詰め込み（約130字）読みにくい。",
+          "suggestion": "為替リスクを独立した文として分離する。"
         }
       ],
-      "summary": "最大の問題は文字数超過（+22%）とフロントマター不足。記事の内容品質は高いが、publish前に文字数削減とフロントマター修正が必須。"
+      "summary": "5ステップ構成は機能的で専門用語への説明も良好。主な改善点は基礎知識セクション字数不足・NISA説明の構造統合・セクション間ブリッジ文の追加。"
+    },
+    "data_accuracy": {
+      "score": 91,
+      "data_points_checked": 15,
+      "issues": [
+        {
+          "severity": "MEDIUM",
+          "location": "ステップ3：「両ファンドともに2026年初頭に純資産10兆円を突破」",
+          "current_value": "2026年初頭",
+          "correct_value": "S&P500は2026年1月7日、オルカンは2026年2月9日",
+          "issue": "「初頭」はS&P500（1月）には合致するがオルカン（2月）には不正確。",
+          "suggestion": "「S&P500は2026年1月に、オルカンは同年2月に純資産10兆円を突破」と個別に明示する。"
+        },
+        {
+          "severity": "LOW",
+          "location": "ステップ3：eMAXIS Slim S&P500信託報酬0.08140%",
+          "current_value": "0.08140%",
+          "correct_value": "0.08140%（curated_sources.jsonと一致）",
+          "issue": "値自体は正しいが、research_findings.json内の株探ソースには旧値0.09372%が記録されており混同リスクがある。",
+          "suggestion": "修正不要。出典URLのみ整合させること。"
+        }
+      ],
+      "summary": "15データポイント中14件が正確に確認。NISAの制度数値・ファンドの信託報酬・純資産総額・分散投資実績・計算式すべてソースと一致。主な修正点は10兆円突破の時期表現のみ。"
+    },
+    "readability": {
+      "score": 82,
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "注意点・リスク「余裕資金」段落",
+          "issue": "1文が約180字・段落が約240字と過密。元本割れ・ドルコスト平均法の限界・為替リスクを1文に詰め込み読者負荷が高い。",
+          "suggestion": "3リスクをそれぞれ1文（または箇条書き）に分割する。"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "ステップ4第2段落",
+          "issue": "180字・3トピック混在で段落が過密。",
+          "suggestion": "ドルコスト平均法の説明と金融庁のリターン実績を別段落に分離する。"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "注意点：「為替リスク」の位置・説明",
+          "issue": "為替リスクの説明が段落末尾にサラッと触れるだけで、初心者が理解できるか不明。",
+          "suggestion": "「海外株式ファンドは円高になると円換算の価値が下がる為替リスクがあります」と独立した文に。"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "ステップ3：「繰上償還リスク」",
+          "issue": "「繰上償還リスク」が括弧書きなしで説明されており、初心者には意味が伝わりにくい。",
+          "suggestion": "「繰上償還（ファンドが途中で強制終了されること）リスク」と補足する。"
+        },
+        {
+          "severity": "LOW",
+          "location": "はじめに：冒頭3文目",
+          "issue": "「インデックス投資の仕組みから口座開設の手順、ファンドの選び方、暴落時の心構えまで」と目次的羅列でフックが薄れる。",
+          "suggestion": "「初心者が最初につまずくポイントを順番に解説します」等の体験的表現に置き換える。"
+        },
+        {
+          "severity": "LOW",
+          "location": "ファンド比較箇条書き",
+          "issue": "信託報酬・純資産・突破日が1行に詰め込まれており視認性が低い。",
+          "suggestion": "各ファンドのデータを2行に分けて記載する。"
+        }
+      ],
+      "strengths": [
+        "冒頭2文の問題提起と解決示唆は明確でbeginner向けとして適切",
+        "ステップ形式と口語的語りかけが初心者の理解を助けている",
+        "主要専門用語（インデックスファンド・信託報酬・ドルコスト平均法）は初出時に適切に説明",
+        "「今日できる最初の1歩」という締め方が行動喚起として効果的"
+      ],
+      "summary": "フックと専門用語説明は良好。主な問題は注意点段落の過密（HIGH）とステップ4の複数概念混在（MEDIUM）。段落分割で大幅に改善可能。"
+    },
+    "writer_rules": {
+      "score": 91,
+      "word_count": {
+        "actual": 2760,
+        "min": 2000,
+        "max": 4000,
+        "status": "pass"
+      },
+      "sections_check": {
+        "found": 5,
+        "total": 6,
+        "missing": ["基礎知識（見出し名が「インデックス投資とは何か」と「新NISA〜」に分割されており統合が必要）"]
+      },
+      "frontmatter_check": {
+        "present": 6,
+        "required": 6,
+        "missing": []
+      },
+      "prohibited_expressions": {
+        "found": [],
+        "count": 0
+      },
+      "category_checklist": {
+        "passed": 5,
+        "total": 6,
+        "failed": ["繰上償還の初出説明なし"]
+      },
+      "issues": [
+        {
+          "severity": "MEDIUM",
+          "location": "セクション構成",
+          "issue": "「インデックス投資とは何か」をテンプレートの「基礎知識」セクションに対応させる見出し整理が必要。",
+          "suggestion": "「## インデックス投資の基礎知識」に統一するか、サブセクション構成で整理する。"
+        },
+        {
+          "severity": "LOW",
+          "location": "参考データソース",
+          "issue": "データの参照時点（期間注記）がない。",
+          "suggestion": "参考データソースセクション末尾に「※ データは2026年3月時点のものです。」を追加。"
+        },
+        {
+          "severity": "LOW",
+          "location": "ステップ3：「繰上償還リスク」",
+          "issue": "「繰上償還リスク」が括弧書きなしで使用されており初心者向け説明が不足。",
+          "suggestion": "「繰上償還（ファンドが途中で強制終了されること）リスク」に修正する。"
+        }
+      ],
+      "summary": "禁止表現ゼロ、フロントマター完備、文字数適正でほぼ合格。軽微な改善点は見出し整理・期間注記・繰上償還説明の3件。"
     }
   },
-  "overall_score": 82,
+  "overall_score": 84,
   "priority_fixes": [
     {
       "priority": 1,
-      "severity": "high",
-      "category": "fact/data",
-      "issue": "「非課税枠の年内復活は見送り」という記述がリサーチデータと矛盾。一次ソース（金融庁PDF）を直接確認して修正する。",
-      "critics": ["fact", "data_accuracy"]
+      "severity": "HIGH",
+      "category": "fact",
+      "fix": "TOPIXの定義を「東証プライム全銘柄」→「東証全体をカバーする国内株指数」に修正"
     },
     {
       "priority": 2,
-      "severity": "high",
-      "category": "writer_rules",
-      "issue": "文字数超過（4,882字 → 4,000字以内）。代表的インデックスセクションまたはコストの詳細を圧縮する。",
-      "critics": ["writer_rules"]
+      "severity": "HIGH",
+      "category": "fact",
+      "fix": "eMAXIS Slim S&P500の信託報酬（0.08140%）の出典URLをtsumitatenisa.jpに変更"
     },
     {
       "priority": 3,
-      "severity": "high",
-      "category": "writer_rules",
-      "issue": "フロントマターに theme・target_audience を追加する。",
-      "critics": ["writer_rules"]
+      "severity": "MEDIUM",
+      "category": "fact + data_accuracy",
+      "fix": "10兆円突破の記述を「S&P500は2026年1月に、オルカンは2026年2月に突破」と個別明記"
     },
     {
       "priority": 4,
-      "severity": "medium",
+      "severity": "MEDIUM",
       "category": "compliance",
-      "issue": "「つみたて投資枠から始めるのが取り組みやすい方法」を推奨でなく選択肢の提示に変更。",
-      "critics": ["compliance"]
+      "fix": "見出し「暴落時に慌てて売るのは避けるべき」→「暴落時に起こりがちな行動パターン」等に変更"
     },
     {
       "priority": 5,
-      "severity": "medium",
+      "severity": "MEDIUM",
       "category": "structure",
-      "issue": "新NISAセクションを5ステップの後に移動し、流れの整合性を改善する。",
-      "critics": ["structure"]
+      "fix": "基礎知識セクション（約380字）を500字以上に拡充し、S&P500・オルカンの特徴を追記"
     },
     {
       "priority": 6,
-      "severity": "medium",
+      "severity": "MEDIUM",
+      "category": "readability",
+      "fix": "ステップ4の段落を分割（ドルコスト平均法の説明と金融庁リターン実績データを別段落に）"
+    },
+    {
+      "priority": 7,
+      "severity": "HIGH",
+      "category": "readability",
+      "fix": "注意点・余裕資金段落の長文を3文に分割（元本割れ・ドルコスト平均法の限界・為替リスクを個別の文に）"
+    },
+    {
+      "priority": 8,
+      "severity": "LOW",
+      "category": "fact",
+      "fix": "ACN不動産（Dランクソース）の参照リンクを削除し、三菱UFJモルガン・スタンレー証券の参照に統合"
+    },
+    {
+      "priority": 9,
+      "severity": "LOW",
       "category": "writer_rules",
-      "issue": "「## 参考情報」を「## 参考データソース」に変更。",
-      "critics": ["writer_rules"]
+      "fix": "参考データソース末尾に「※ データは2026年3月時点のものです。」を追加"
+    },
+    {
+      "priority": 10,
+      "severity": "LOW",
+      "category": "readability + writer_rules",
+      "fix": "「繰上償還リスク」→「繰上償還（ファンドが途中で強制終了されること）リスク」に修正"
     }
   ]
 }
