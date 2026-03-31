@@ -66,6 +66,7 @@ import argparse
 import functools
 import json
 import logging
+import math
 import os
 import re
 import sys
@@ -78,6 +79,11 @@ from urllib.parse import urlparse, urlunparse
 import yaml
 from neo4j import GraphDatabase
 from neo4j.exceptions import ClientError
+
+try:
+    import anthropic  # type: ignore[import-untyped]
+except ImportError:
+    anthropic = None  # type: ignore[assignment]
 
 # ---------------------------------------------------------------------------
 # Logger
@@ -1236,6 +1242,150 @@ def _compute_stats(items: list[dict[str, Any]]) -> dict[str, int]:
 
 
 # ---------------------------------------------------------------------------
+# NER Fallback: Fill about_entities for empty Fact/Claim
+# ---------------------------------------------------------------------------
+
+_NER_SYSTEM_PROMPT = (
+    "Extract named entities (companies, organizations, people, assets, markets, "
+    "products, economic indicators, countries) from each text. "
+    'Return JSON: {"0": ["entity1", "entity2"], "1": [...], ...}'
+)
+
+_NER_TIMEOUT_SECONDS = 30
+
+
+def _collect_empty_about_entity_items(data: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return Fact/Claim dicts where ``about_entities`` is an empty list.
+
+    Items where ``about_entities`` key is absent are excluded.
+    Items where ``about_entities`` is non-empty are excluded.
+    """
+    targets: list[dict[str, Any]] = []
+    for source in data.get("sources", []):
+        for chunk in source.get("chunks", []):
+            for item in chunk.get("facts", []) + chunk.get("claims", []):
+                if "about_entities" in item and item["about_entities"] == []:
+                    targets.append(item)
+    return targets
+
+
+def _ner_call_batch(
+    client: Any,
+    batch: list[dict[str, Any]],
+    batch_idx: int,
+    n_batches: int,
+) -> dict[str, list[str]] | None:
+    """Call Anthropic NER API for a single batch.
+
+    Returns parsed JSON dict on success, None on any error (silent skip).
+    """
+    contents = [item.get("content", "") for item in batch]
+    text_block = "\n".join(f"{i}: {c}" for i, c in enumerate(contents))
+    user_message = f"Texts:\n{text_block}"
+    try:
+        response = client.messages.create(
+            model="claude-haiku-4-5",
+            max_tokens=512,
+            timeout=_NER_TIMEOUT_SECONDS,
+            system=_NER_SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_message}],
+        )
+        return json.loads(response.content[0].text)  # type: ignore[no-any-return]
+    except Exception as exc:
+        logger.warning(
+            "_ner_fill_about_entities: batch %d/%d failed, skipping — %s",
+            batch_idx + 1,
+            n_batches,
+            exc,
+        )
+        return None
+
+
+def _apply_ner_results(
+    batch: list[dict[str, Any]],
+    ner_result: dict[str, list[str]],
+    data: dict[str, Any],
+    existing_names: set[str],
+) -> None:
+    """Write NER results back into batch items and update ``data["entities"]``."""
+    for i, item in enumerate(batch):
+        entity_names: list[str] = ner_result.get(str(i), [])
+        if not entity_names:
+            continue
+        item["about_entities"] = entity_names
+        for name in entity_names:
+            if name not in existing_names:
+                existing_names.add(name)
+                data.setdefault("entities", []).append({"name": name})
+
+
+def _ner_fill_about_entities(
+    data: dict[str, Any],
+    batch_size: int = 20,
+) -> dict[str, Any]:
+    """Fill ``about_entities`` for empty Fact/Claim items using Haiku NER.
+
+    Scans ``sources[].chunks[].facts[]`` and ``claims[]`` for items where
+    ``about_entities`` is an empty list, calls Anthropic claude-haiku-4-5 in
+    batches to extract named entities, and writes the results back.
+
+    Extracted entity names are also appended to ``data["entities"]``
+    (deduplicating by name).
+
+    Parameters
+    ----------
+    data
+        Graph-queue JSON dict (mutated in-place for ``about_entities``).
+    batch_size
+        Maximum number of items per Anthropic API call.
+
+    Returns
+    -------
+    dict
+        The same ``data`` dict, with ``about_entities`` and ``entities``
+        updated.
+
+    Notes
+    -----
+    * API errors are silently skipped so the pipeline is never blocked.
+    * Items where ``about_entities`` key is absent are left untouched.
+    * Items where ``about_entities`` is non-empty are skipped.
+    """
+    if anthropic is None:
+        logger.warning("anthropic package not installed, skipping --ner-fallback")
+        return data
+
+    targets = _collect_empty_about_entity_items(data)
+    if not targets:
+        logger.debug("_ner_fill_about_entities: no empty about_entities found, skipping")
+        return data
+
+    logger.info(
+        "_ner_fill_about_entities: %d items to process (batch_size=%d)",
+        len(targets),
+        batch_size,
+    )
+
+    existing_names: set[str] = {e["name"] for e in data.get("entities", []) if "name" in e}
+    client = anthropic.Anthropic()
+    n_batches = math.ceil(len(targets) / batch_size)
+
+    for batch_idx in range(n_batches):
+        batch = targets[batch_idx * batch_size : (batch_idx + 1) * batch_size]
+        ner_result = _ner_call_batch(client, batch, batch_idx, n_batches)
+        if ner_result is not None:
+            _apply_ner_results(batch, ner_result, data, existing_names)
+            logger.debug(
+                "_ner_fill_about_entities: batch %d/%d done",
+                batch_idx + 1,
+                n_batches,
+            )
+
+    logger.info("_ner_fill_about_entities: completed for %d items", len(targets))
+    return data
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -1287,6 +1437,13 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Path to entity-linker-config.yaml (default: auto-detect)",
     )
+    parser.add_argument(
+        "--ner-fallback",
+        action="store_true",
+        help="Run Haiku NER on Fact/Claim items where about_entities is empty "
+        "and set the extracted entities before the normal resolve flow. "
+        "Requires the 'anthropic' package. API errors are silently skipped.",
+    )
     return parser
 
 
@@ -1326,6 +1483,11 @@ def main() -> None:
     logger.info(
         "Connecting to %s (instance: %s)", _mask_uri(config["bolt_uri"]), args.instance
     )
+
+    # --ner-fallback: fill about_entities for empty Fact/Claim before linking
+    if args.ner_fallback:
+        logger.info("--ner-fallback enabled: running NER pre-fill on empty about_entities")
+        data = _ner_fill_about_entities(data)
 
     client = Neo4jClient(
         uri=config["bolt_uri"],
