@@ -813,7 +813,7 @@ def ingest_to_neo4j(
     skip_schema_check : bool
         True の場合、スキーマチェック全体をスキップする。
     schema_path : Path | None
-        knowledge-graph-schema.yaml へのパス。None の場合はデフォルトパスを使用。
+        ontology.yaml へのパス (ontology_loader 経由)。None の場合はデフォルトパスを使用。
 
     Returns
     -------
