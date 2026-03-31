@@ -18,34 +18,27 @@ from scripts.migrate_entity_multilabel import (
 )
 
 # ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-SCHEMA_YAML_PATH = Path(__file__).parents[2] / "data/config/knowledge-graph-schema.yaml"
-
-
-# ---------------------------------------------------------------------------
 # load_consolidation_rules
 # ---------------------------------------------------------------------------
 
 
 class TestLoadConsolidationRules:
-    """load_consolidation_rules のテスト。"""
+    """load_consolidation_rules のテスト（ontology_loader 経由）。"""
 
-    def test_正常系_YAMLからマッピングを読み込む(self) -> None:
-        """consolidation_rules.entity_type.mapping が dict として返されることを確認。"""
-        rules = load_consolidation_rules(SCHEMA_YAML_PATH)
+    def test_正常系_ontology_loaderからマッピングを読み込む(self) -> None:
+        """ontology_loader 経由で dict が返されることを確認。"""
+        rules = load_consolidation_rules()
         assert isinstance(rules, dict)
         assert len(rules) > 0
 
     def test_正常系_companyマッピングが正しい(self) -> None:
         """company -> company のマッピングが存在することを確認。"""
-        rules = load_consolidation_rules(SCHEMA_YAML_PATH)
+        rules = load_consolidation_rules()
         assert rules.get("company") == "company"
 
     def test_正常系_fintechがcompanyにマップされる(self) -> None:
         """fintech -> company のマッピングが存在することを確認。"""
-        rules = load_consolidation_rules(SCHEMA_YAML_PATH)
+        rules = load_consolidation_rules()
         assert rules.get("fintech") == "company"
 
     def test_正常系_14種の正規型が全てマッピング先に存在する(self) -> None:
@@ -66,14 +59,14 @@ class TestLoadConsolidationRules:
             "broker",
             "product",
         }
-        rules = load_consolidation_rules(SCHEMA_YAML_PATH)
+        rules = load_consolidation_rules()
         actual_canonical = set(rules.values())
         assert expected_canonical.issubset(actual_canonical)
 
     def test_異常系_存在しないパスでFileNotFoundError(self) -> None:
         """存在しないファイルで FileNotFoundError を送出することを確認。"""
         with pytest.raises(FileNotFoundError):
-            load_consolidation_rules(Path("nonexistent/path.yaml"))
+            load_consolidation_rules(schema_path=Path("nonexistent/path.yaml"))
 
 
 # ---------------------------------------------------------------------------
@@ -121,8 +114,8 @@ class TestBuildRawToLabelMap:
         assert result["index"] == "MarketIndex"
 
     def test_正常系_全14種の正規型がマップに含まれる(self) -> None:
-        """YAMLの consolidation_rules から構築したマップに全 raw type が含まれることを確認。"""
-        rules = load_consolidation_rules(SCHEMA_YAML_PATH)
+        """ontology_loader の consolidation_rules から構築したマップに全 raw type が含まれることを確認。"""
+        rules = load_consolidation_rules()
         result = build_raw_to_label_map(rules)
         assert "company" in result
         assert "fintech" in result

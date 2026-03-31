@@ -253,4 +253,4 @@ MCPツールは ToolSearch でロードを試みる。利用不可の場合:
 | emit-research-queue | `.claude/skills/emit-research-queue/SKILL.md` |
 | save-to-research-graph | `.claude/skills/save-to-research-graph/SKILL.md` |
 | Neo4j直書き禁止ルール | `.claude/rules/neo4j-write-rules.md` |
-| KGスキーマ定義 | `data/config/knowledge-graph-schema.yaml` |
+| KGスキーマ定義 | `data/lifecycle-state/research/ontology.yaml` |

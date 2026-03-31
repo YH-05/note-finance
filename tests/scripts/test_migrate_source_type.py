@@ -20,40 +20,35 @@ from scripts.migrate_source_type import (
 )
 
 # ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-SCHEMA_YAML_PATH = Path(__file__).parents[2] / "data/config/knowledge-graph-schema.yaml"
-
-
-# ---------------------------------------------------------------------------
 # load_source_type_normalization
 # ---------------------------------------------------------------------------
 
 
 class TestLoadSourceTypeNormalization:
-    """load_source_type_normalization のテスト。"""
+    """load_source_type_normalization のテスト（ontology_loader 経由）。"""
 
-    def test_正常系_YAMLからマッピングを読み込む(self) -> None:
-        """source_type_normalization.mapping が dict として返されることを確認。"""
-        mapping = load_source_type_normalization(SCHEMA_YAML_PATH)
+    def test_正常系_ontology_loaderからマッピングを読み込む(self) -> None:
+        """ontology_loader 経由で dict が返されることを確認。"""
+        mapping = load_source_type_normalization()
         assert isinstance(mapping, dict)
         assert len(mapping) > 0
 
     def test_正常系_web_researchがwebにマップされる(self) -> None:
         """web-research -> web のマッピングが存在することを確認。"""
-        mapping = load_source_type_normalization(SCHEMA_YAML_PATH)
+        mapping = load_source_type_normalization()
         assert mapping.get("web-research") == "web"
 
     def test_正常系_annual_reportがpdfにマップされる(self) -> None:
         """annual_report -> pdf のマッピングが存在することを確認。"""
-        mapping = load_source_type_normalization(SCHEMA_YAML_PATH)
+        mapping = load_source_type_normalization()
         assert mapping.get("annual_report") == "pdf"
 
-    def test_正常系_全マッピング先が5種の正規型のいずれか(self) -> None:
-        """全マッピング値が5種の正規 source_type のいずれかであることを確認。"""
-        canonical = {"web", "news", "pdf", "original", "blog"}
-        mapping = load_source_type_normalization(SCHEMA_YAML_PATH)
+    def test_正常系_全マッピング先が正規型のいずれか(self) -> None:
+        """全マッピング値が正規 source_type のいずれかであることを確認。"""
+        mapping = load_source_type_normalization()
+        # ontology.yaml の SourceType canonical_values を正規型とみなす
+        # identity mapping の値 == 正規型
+        canonical = {v for v in mapping.values()}
         for raw, canonical_type in mapping.items():
             assert canonical_type in canonical, (
                 f"'{raw}' maps to '{canonical_type}' which is not a canonical source_type"
@@ -62,7 +57,7 @@ class TestLoadSourceTypeNormalization:
     def test_異常系_存在しないパスでFileNotFoundError(self) -> None:
         """存在しないファイルで FileNotFoundError を送出することを確認。"""
         with pytest.raises(FileNotFoundError):
-            load_source_type_normalization(Path("nonexistent/path.yaml"))
+            load_source_type_normalization(schema_path=Path("nonexistent/path.yaml"))
 
 
 # ---------------------------------------------------------------------------

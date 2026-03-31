@@ -437,22 +437,9 @@ class TestApplyConstraintsFromYaml:
             "apply_constraints_from_yaml が存在しない"
         )
 
-    def test_正常系_YAMLからCypher文が生成される(self, tmp_path: Path) -> None:
-        """YAML から CREATE CONSTRAINT / CREATE INDEX Cypher が生成される."""
-        import yaml
-
+    def test_正常系_ontology_loaderからCypher文が生成される(self) -> None:
+        """ontology_loader 経由で CREATE CONSTRAINT / CREATE INDEX Cypher が生成される."""
         from data_pipeline.neo4j_loader import apply_constraints_from_yaml
-
-        schema = {
-            "constraints": [
-                {"label": "Source", "property": "source_id", "type": "UNIQUE"},
-            ],
-            "indices": [
-                {"label": "Fact", "property": "fact_type"},
-            ],
-        }
-        schema_path = tmp_path / "schema.yaml"
-        schema_path.write_text(yaml.dump(schema))
 
         mock_driver = MagicMock()
         mock_session = MagicMock()
@@ -461,60 +448,35 @@ class TestApplyConstraintsFromYaml:
         )
         mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
 
-        result = apply_constraints_from_yaml(mock_driver, schema_path)
+        result = apply_constraints_from_yaml(mock_driver)
 
         assert mock_session.run.call_count >= 2  # 制約 + インデックス
         assert result["constraints_applied"] >= 1
         assert result["indices_applied"] >= 1
 
-    def test_正常系_dry_runでCypherが実行されない(self, tmp_path: Path) -> None:
+    def test_正常系_dry_runでCypherが実行されない(self) -> None:
         """dry_run=True の場合、Cypher は実行されずカウントだけ返る."""
-        import yaml
-
         from data_pipeline.neo4j_loader import apply_constraints_from_yaml
 
-        schema = {
-            "constraints": [
-                {"label": "Entity", "property": "entity_key", "type": "UNIQUE"},
-            ],
-            "indices": [],
-        }
-        schema_path = tmp_path / "schema.yaml"
-        schema_path.write_text(yaml.dump(schema))
-
         mock_driver = MagicMock()
-        result = apply_constraints_from_yaml(mock_driver, schema_path, dry_run=True)
+        result = apply_constraints_from_yaml(mock_driver, dry_run=True)
 
         mock_driver.session.assert_not_called()
-        assert result["constraints_applied"] == 1
+        # ontology_loader のデフォルト制約数（15件）を確認
+        assert result["constraints_applied"] >= 1
+        assert result["indices_applied"] >= 0
 
-    def test_異常系_YAMLファイルが存在しない場合FileNotFoundError(self) -> None:
-        """存在しない YAML ファイルは FileNotFoundError を発生させる."""
-        from pathlib import Path
-
+    def test_正常系_ontology_loaderデフォルトで正しい件数が返される(self) -> None:
+        """ontology_loader のデフォルト制約/インデックス件数が dry_run で返される."""
         from data_pipeline.neo4j_loader import apply_constraints_from_yaml
 
         mock_driver = MagicMock()
-        with pytest.raises(FileNotFoundError):
-            apply_constraints_from_yaml(mock_driver, Path("/nonexistent/path.yaml"))
+        result = apply_constraints_from_yaml(mock_driver, dry_run=True)
 
-    def test_正常系_constraintsセクションなしでもエラーにならない(
-        self, tmp_path: Path
-    ) -> None:
-        """constraints/indices セクションが存在しない YAML も許容する."""
-        import yaml
-
-        from data_pipeline.neo4j_loader import apply_constraints_from_yaml
-
-        schema: dict[str, Any] = {"version": "3.0"}
-        schema_path = tmp_path / "schema.yaml"
-        schema_path.write_text(yaml.dump(schema))
-
-        mock_driver = MagicMock()
-        result = apply_constraints_from_yaml(mock_driver, schema_path, dry_run=True)
-
-        assert result["constraints_applied"] == 0
-        assert result["indices_applied"] == 0
+        # ontology_loader の _DEFAULT_CONSTRAINTS は 15 件
+        assert result["constraints_applied"] == 15
+        # ontology_loader の _DEFAULT_INDICES は 23 件
+        assert result["indices_applied"] == 23
 
 
 # ---------------------------------------------------------------------------

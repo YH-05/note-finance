@@ -1053,4 +1053,4 @@ uv run pytest tests/scripts/ -v
 | graph-queue 生成 | `scripts/emit_research_queue.py` | JSON 生成スクリプト |
 | graph-queue テスト | `tests/scripts/test_emit_research_queue.py` | 生成スクリプトのテスト |
 | E2E テスト | `tests/scripts/test_e2e_graph_pipeline.py` | E2E 検証・冪等性テスト |
-| KG スキーマ定義 | `data/config/knowledge-graph-schema.yaml` | ノード・リレーション・制約の定義 |
+| KG スキーマ定義 | `data/lifecycle-state/research/ontology.yaml` | ノード・リレーション・制約の定義 |

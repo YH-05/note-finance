@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Neo4j スキーマ検証スクリプト。
 
-knowledge-graph-schema.yaml の namespaces セクションと Neo4j DB 上の
+ontology_loader 経由で ontology.yaml の namespaces 定義と Neo4j DB 上の
 実際のラベルを照合し、逸脱を検出・レポートする。
 
 Usage
@@ -30,6 +30,24 @@ from typing import Any
 from urllib.parse import urlparse
 
 import yaml
+from ontology_loader import (
+    load_consolidation_mapping as _ol_load_consolidation_mapping,
+)
+from ontology_loader import (
+    load_constraints as _ol_load_constraints,
+)
+from ontology_loader import (
+    load_indices as _ol_load_indices,
+)
+from ontology_loader import (
+    load_multilabel_types as _ol_load_multilabel_types,
+)
+from ontology_loader import (
+    load_namespaces as _ol_load_namespaces,
+)
+from ontology_loader import (
+    load_source_type_normalization as _ol_load_source_type_normalization,
+)
 
 try:
     from neo4j import Driver, GraphDatabase
@@ -54,80 +72,49 @@ ALLOWED_URI_SCHEMES = {"bolt", "bolt+s", "bolt+ssc", "neo4j", "neo4j+s", "neo4j+
 # ---------------------------------------------------------------------------
 
 
-def load_namespaces(schema_path: Path) -> dict[str, Any]:
-    """knowledge-graph-schema.yaml から namespaces セクションを読み込む。
-
-    v3.0 以降は ``multilabel_types`` / ``enum_validations`` /
-    ``consolidation_rules`` / ``source_type_normalization`` の新規セクションが
-    追加されるが、このメソッドは ``namespaces`` のみを返す。
-    新規セクションの照合が必要な場合は :func:`load_v30_sections` を参照。
+def load_namespaces(schema_path: Path | None = None) -> dict[str, Any]:
+    """ontology_loader 経由で namespaces 定義を読み込む。
 
     Parameters
     ----------
-    schema_path : Path
-        YAML スキーマファイルのパス。
+    schema_path : Path | None
+        後方互換のため残すが使用しない。ontology_loader のデフォルトを使用。
 
     Returns
     -------
     dict[str, Any]
         名前空間定義。
-
-    Raises
-    ------
-    ValueError
-        namespaces セクションが存在しない場合。
     """
-    with open(schema_path, encoding="utf-8") as f:
-        schema = yaml.safe_load(f)
-
-    namespaces = schema.get("namespaces")
-    if namespaces is None:
-        msg = f"namespaces section not found in schema: {schema_path}"
-        raise ValueError(msg)
-
-    return namespaces
+    return _ol_load_namespaces()
 
 
-def load_v30_sections(schema_path: Path) -> dict[str, Any]:
-    """knowledge-graph-schema.yaml から v3.0 の新規セクションを安全に読み込む。
+def load_v30_sections(schema_path: Path | None = None) -> dict[str, Any]:
+    """ontology_loader 経由で v3.0 セクション相当のデータを構築する。
 
-    YAML v3.0 では以下の新規セクションが追加される:
-
-    - ``multilabel_types``: Entity ノードに付与できる 14 種のマルチラベル定義
-    - ``consolidation_rules``: 42 種の生 entity_type → 14 種正規型へのマッピング
-    - ``enum_validations``: entity_type / source_type の有効値一覧
-    - ``source_type_normalization``: 多様な source_type 表記 → 5 種正規値のマッピング
-
-    v3.0 未対応の YAML（旧バージョン）には各セクションが存在しない場合があるため、
-    すべて ``.get()`` で安全にアクセスし ``KeyError`` を発生させない。
+    ontology_loader の各関数から取得したデータを旧形式互換の dict に組み立てて返す。
 
     Parameters
     ----------
-    schema_path : Path
-        YAML スキーマファイルのパス。
+    schema_path : Path | None
+        後方互換のため残すが使用しない。ontology_loader のデフォルトを使用。
 
     Returns
     -------
     dict[str, Any]
-        v3.0 新規セクションを含む辞書。存在しないキーの値は ``None``。
-        キー: ``multilabel_types``, ``consolidation_rules``,
-        ``enum_validations``, ``source_type_normalization``
-
-    Notes
-    -----
-    v3.0 対応: multilabel_types / enum_validations の DB 照合は
-    :func:`check_multilabel_entity` / :func:`check_enum_source_type` /
-    :func:`check_entity_type_convergence` / :func:`check_constraints_and_indices`
-    を参照。
+        v3.0 新規セクション互換の辞書。
     """
-    with schema_path.open(encoding="utf-8") as f:
-        schema = yaml.safe_load(f)
+    multilabel_types = _ol_load_multilabel_types()
+    source_norm = _ol_load_source_type_normalization()
+    consolidation = _ol_load_consolidation_mapping()
 
     return {
-        "multilabel_types": schema.get("multilabel_types"),
-        "consolidation_rules": schema.get("consolidation_rules"),
-        "enum_validations": schema.get("enum_validations"),
-        "source_type_normalization": schema.get("source_type_normalization"),
+        "multilabel_types": {"entity_labels": {"labels": multilabel_types}},
+        "consolidation_rules": {"entity_type": {"mapping": consolidation}},
+        "enum_validations": {
+            "entity_type": {"values": multilabel_types},
+            "source_type": {"values": list({v for v in source_norm.values()})},
+        },
+        "source_type_normalization": {"mapping": source_norm},
     }
 
 
@@ -344,13 +331,19 @@ def check_constraints_and_indices(
     """
     # DB の制約を取得（UNIQUE のみ対象）
     try:
-        constraint_result = session.run("SHOW CONSTRAINTS YIELD labelsOrTypes, properties, type")
+        constraint_result = session.run(
+            "SHOW CONSTRAINTS YIELD labelsOrTypes, properties, type"
+        )
         db_constraints: set[tuple[str, str]] = set()
         for r in constraint_result:
             labels = r["labelsOrTypes"]
             props = r["properties"]
             ctype = r["type"]
-            if labels and props and ctype in ("UNIQUENESS", "NODE_UNIQUENESS", "UNIQUE"):
+            if (
+                labels
+                and props
+                and ctype in ("UNIQUENESS", "NODE_UNIQUENESS", "UNIQUE")
+            ):
                 label = labels[0] if isinstance(labels, list) else labels
                 prop = props[0] if isinstance(props, list) else props
                 db_constraints.add((label, prop))
@@ -377,12 +370,12 @@ def check_constraints_and_indices(
 
     # YAML 定義との照合
     missing_constraints = [
-        c for c in schema_constraints
+        c
+        for c in schema_constraints
         if (c["label"], c["property"]) not in db_constraints
     ]
     missing_indices = [
-        i for i in schema_indices
-        if (i["label"], i["property"]) not in db_indices
+        i for i in schema_indices if (i["label"], i["property"]) not in db_indices
     ]
 
     return {
@@ -476,10 +469,12 @@ def build_report(
     # source_type の不正値は ERROR → overall_pass を False にする
     # entity_type の収束は ERROR → overall_pass を False にする
     # constraints/indices の欠落は WARNING のみ（overall_pass には影響しない）
-    v30_errors_pass = all([
-        source_type_check is None or source_type_check.get("pass", True),
-        entity_type_check is None or entity_type_check.get("pass", True),
-    ])
+    v30_errors_pass = all(
+        [
+            source_type_check is None or source_type_check.get("pass", True),
+            entity_type_check is None or entity_type_check.get("pass", True),
+        ]
+    )
 
     return {
         "validation_date": now.isoformat(),
@@ -574,7 +569,7 @@ def format_report(report: dict[str, Any]) -> str:
             for v in invalid:
                 lines.append(f"  - {v!r}")
         else:
-            lines.append(f"\nSource.source_type enum: all valid (PASS)")
+            lines.append("\nSource.source_type enum: all valid (PASS)")
 
     entity_type = report["checks"].get("entity_type_convergence")
     if entity_type is not None:
@@ -599,7 +594,9 @@ def format_report(report: dict[str, Any]) -> str:
         if missing_c:
             lines.append(f"\nWARNING: Missing constraints ({len(missing_c)}):")
             for c in missing_c:
-                lines.append(f"  - {c['label']}.{c['property']} ({c.get('type', 'UNIQUE')})")
+                lines.append(
+                    f"  - {c['label']}.{c['property']} ({c.get('type', 'UNIQUE')})"
+                )
         else:
             lines.append(
                 f"\nConstraints: {constraints.get('db_constraint_count', 0)} in DB (PASS)"
@@ -654,12 +651,12 @@ def _validate_output_path(output: str) -> Path:
 def main() -> None:
     """スキーマ検証のエントリーポイント。"""
     parser = argparse.ArgumentParser(
-        description="Validate Neo4j schema against knowledge-graph-schema.yaml",
+        description="Validate Neo4j schema against ontology.yaml (via ontology_loader)",
     )
     parser.add_argument(
         "--schema",
-        default="data/config/knowledge-graph-schema.yaml",
-        help="Path to knowledge-graph-schema.yaml",
+        default=None,
+        help="Path to ontology.yaml (default: auto-detect via ontology_loader)",
     )
     parser.add_argument("--output", help="Output JSON report path")
     parser.add_argument(
@@ -690,10 +687,10 @@ def main() -> None:
     except ValueError as e:
         parser.error(str(e))
 
-    logger.info("Loading schema: %s", args.schema)
+    logger.info("Loading schema via ontology_loader")
     try:
-        namespaces = load_namespaces(Path(args.schema))
-    except ValueError as e:
+        namespaces = load_namespaces()
+    except (ValueError, FileNotFoundError) as e:
         logger.error("%s", e)
         sys.exit(1)
 
@@ -701,7 +698,7 @@ def main() -> None:
     logger.info("Allowed labels loaded: %d", len(allowed))
 
     # Load v3.0 sections for additional validation
-    v30 = load_v30_sections(Path(args.schema))
+    v30 = load_v30_sections()
 
     parsed_uri = urlparse(args.neo4j_uri)
     logger.info("Connecting to Neo4j: %s:%s", parsed_uri.hostname, parsed_uri.port)
@@ -749,7 +746,9 @@ def main() -> None:
                 )
                 if source_type_vals:
                     logger.info("Running v3.0 source_type enum check...")
-                    source_type_check = check_enum_source_type(session, source_type_vals)
+                    source_type_check = check_enum_source_type(
+                        session, source_type_vals
+                    )
                     if not source_type_check["pass"]:
                         logger.error(
                             "Invalid source_type values detected: %s",
@@ -776,13 +775,9 @@ def main() -> None:
                         )
 
             constraints_check: dict[str, Any] | None = None
-            schema_yaml = Path(args.schema)
             try:
-                import yaml as _yaml
-                with schema_yaml.open(encoding="utf-8") as _f:
-                    _schema_raw = _yaml.safe_load(_f)
-                schema_constraints = _schema_raw.get("constraints", []) or []
-                schema_indices = _schema_raw.get("indices", []) or []
+                schema_constraints = _ol_load_constraints()
+                schema_indices = _ol_load_indices()
                 if schema_constraints or schema_indices:
                     logger.info("Running v3.0 constraints/indices check...")
                     constraints_check = check_constraints_and_indices(
@@ -795,10 +790,10 @@ def main() -> None:
                             len(constraints_check["missing_indices"]),
                         )
             except Exception as e:
-                logger.warning("Could not load constraints/indices from YAML: %s", e)
+                logger.warning("Could not load constraints/indices: %s", e)
 
         report = build_report(
-            schema_path=args.schema,
+            schema_path=args.schema or "ontology.yaml (via ontology_loader)",
             db_labels=db_labels,
             allowed=allowed,
             unknown_labels=unknown_labels,

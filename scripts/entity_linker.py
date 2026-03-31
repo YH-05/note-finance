@@ -110,14 +110,6 @@ _DEFAULT_LINKER_CONFIG_PATH = (
     / "entity-linker-config.yaml"
 )
 
-# Path to the knowledge-graph-schema.yaml v3.0 SSoT file
-_KG_SCHEMA_YAML_PATH: Path = (
-    Path(__file__).resolve().parent.parent
-    / "data"
-    / "config"
-    / "knowledge-graph-schema.yaml"
-)
-
 SIMILARITY_THRESHOLD_APOC = 0.8
 SIMILARITY_THRESHOLD_EMBEDDING = 0.8
 
@@ -125,75 +117,36 @@ SIMILARITY_THRESHOLD_EMBEDDING = 0.8
 _ENV_VAR_PATTERN = re.compile(r"^\$\{([^}]+)\}$")
 
 
-def _load_consolidation_rules(
-    schema_path: Path | None = None,
-) -> dict[str, str]:
-    """Load entity_type consolidation mapping from knowledge-graph-schema.yaml.
-
-    Parameters
-    ----------
-    schema_path
-        Path to the YAML SSoT file.  Defaults to ``_KG_SCHEMA_YAML_PATH``.
-
-    Returns
-    -------
-    dict[str, str]
-        Mapping of 42 raw entity_type values to 14 canonical types,
-        sourced from ``consolidation_rules.entity_type.mapping`` in the YAML.
-
-    Raises
-    ------
-    FileNotFoundError
-        If the YAML file does not exist.
-    yaml.YAMLError
-        If the YAML file cannot be parsed.
-    """
-    path = schema_path if schema_path is not None else _KG_SCHEMA_YAML_PATH
-    if not path.exists():
-        raise FileNotFoundError(
-            f"knowledge-graph-schema.yaml not found at: {path}"
-        )
-    with path.open(encoding="utf-8") as f:
-        schema: dict[str, Any] = yaml.safe_load(f)
-    mapping: dict[str, str] = (
-        schema.get("consolidation_rules", {})
-        .get("entity_type", {})
-        .get("mapping", {})
-    )
-    logger.debug(
-        "_load_consolidation_rules: loaded %d mappings from %s",
-        len(mapping),
-        path,
-    )
-    return mapping
-
-
 # ---------------------------------------------------------------------------
 # v3.0 EntityType Consolidation (42 -> 14 canonical types)
 # ---------------------------------------------------------------------------
 
 # Maps legacy / fine-grained entity_type values to the 14 canonical types
-# defined in knowledge-graph-schema.yaml (consolidation_rules.entity_type.mapping).
-# SSoT: data/config/knowledge-graph-schema.yaml の consolidation_rules セクション。
-ENTITY_TYPE_CONSOLIDATION: dict[str, str] = _load_consolidation_rules()
+# defined in ontology.yaml (via ontology_loader).
+# SSoT: data/lifecycle-state/research/ontology.yaml
+from ontology_loader import load_consolidation_mapping  # noqa: E402
+
+ENTITY_TYPE_CONSOLIDATION: dict[str, str] = load_consolidation_mapping()
 
 # The 14 canonical types (for validation)
-VALID_ENTITY_TYPES: frozenset[str] = frozenset({
-    "company",
-    "technology",
-    "organization",
-    "person",
-    "index",
-    "indicator",
-    "instrument",
-    "commodity",
-    "country",
-    "sector",
-    "concept",
-    "regulation",
-    "broker",
-    "product",
-})
+VALID_ENTITY_TYPES: frozenset[str] = frozenset(
+    {
+        "company",
+        "technology",
+        "organization",
+        "person",
+        "index",
+        "indicator",
+        "instrument",
+        "commodity",
+        "country",
+        "sector",
+        "concept",
+        "regulation",
+        "broker",
+        "product",
+    }
+)
 
 # Per-entity-type normalization rule descriptions (informational for logging)
 NORMALIZATION_RULES: dict[str, str] = {
@@ -217,6 +170,7 @@ NORMALIZATION_RULES: dict[str, str] = {
 # ---------------------------------------------------------------------------
 # v3.0 Search Config
 # ---------------------------------------------------------------------------
+
 
 @dataclass(frozen=True)
 class LinkerSearchConfig:
@@ -262,7 +216,8 @@ def load_linker_config(
     path = config_path or _DEFAULT_LINKER_CONFIG_PATH
     if not path.exists():
         logger.debug(
-            "Linker config not found at %s, using defaults", path,
+            "Linker config not found at %s, using defaults",
+            path,
         )
         return LinkerSearchConfig()
 
@@ -273,7 +228,8 @@ def load_linker_config(
     return LinkerSearchConfig(
         fulltext_index=search.get("fulltext_index", "research_entity_fulltext"),
         alias_fulltext_index=search.get(
-            "alias_fulltext_index", "research_alias_fulltext",
+            "alias_fulltext_index",
+            "research_alias_fulltext",
         ),
         similarity_threshold=search.get("similarity_threshold", 0.85),
         max_candidates=search.get("max_candidates", 10),
@@ -391,12 +347,15 @@ def consolidate_entity_type(raw_type: str) -> str:
     canonical = ENTITY_TYPE_CONSOLIDATION.get(key)
     if canonical is None:
         logger.warning(
-            "Unknown entity_type '%s', passing through as-is", raw_type,
+            "Unknown entity_type '%s', passing through as-is",
+            raw_type,
         )
         return key
     if canonical != key:
         logger.debug(
-            "Consolidated entity_type: %s -> %s", raw_type, canonical,
+            "Consolidated entity_type: %s -> %s",
+            raw_type,
+            canonical,
         )
     return canonical
 
@@ -675,21 +634,13 @@ def _resolve_by_text(
         configured thresholds instead of defaults.
     """
     ret = _return_clause(config)
-    ft_threshold = (
-        search_config.fulltext_score_threshold
-        if search_config
-        else 0.3
-    )
+    ft_threshold = search_config.fulltext_score_threshold if search_config else 0.3
     sim_threshold = (
         search_config.similarity_threshold
         if search_config
         else SIMILARITY_THRESHOLD_APOC
     )
-    max_candidates = (
-        search_config.max_candidates
-        if search_config
-        else 10
-    )
+    max_candidates = search_config.max_candidates if search_config else 10
 
     # Stage 1a (Entity only): entity_key exact match
     if entity_key is not None and config.key_key is not None:
@@ -727,7 +678,10 @@ def _resolve_by_text(
     )
     if results:
         return _build_result(
-            results[0], config, "fulltext", similarity=results[0]["similarity"],
+            results[0],
+            config,
+            "fulltext",
+            similarity=results[0]["similarity"],
         )
 
     # Stage 3: Alias fulltext search + ALIAS_OF traversal
@@ -792,9 +746,7 @@ def resolve_entity_by_text(
         normalized = normalize_name(name)
         entity_key = build_entity_key(normalized, canonical_type)
         config = (
-            _make_v3_entity_config(search_config)
-            if search_config
-            else _ENTITY_CONFIG
+            _make_v3_entity_config(search_config) if search_config else _ENTITY_CONFIG
         )
         result = _resolve_by_text(
             client,
@@ -840,7 +792,10 @@ def resolve_concept_by_text(
         Resolved concept info, or None if no match found.
     """
     return _resolve_by_text(
-        client, name, _CONCEPT_CONFIG, search_config=search_config,
+        client,
+        name,
+        _CONCEPT_CONFIG,
+        search_config=search_config,
     )
 
 
@@ -1035,11 +990,7 @@ def _batch_exact_entities(
         }
 
     # Step 2: name exact match for unresolved
-    unresolved = [
-        (e, _make_key(e))
-        for e in entities
-        if _make_key(e) not in matches
-    ]
+    unresolved = [(e, _make_key(e)) for e in entities if _make_key(e) not in matches]
     if unresolved:
         if use_v3:
             names = list({normalize_name(e["name"]) for e, _ in unresolved})
@@ -1150,23 +1101,29 @@ def resolve_all(
         search_config=search_config,
     )
     resolved_concepts = _resolve_items(
-        client, concepts, concept_exact, "concept", model,
+        client,
+        concepts,
+        concept_exact,
+        "concept",
+        model,
         search_config=search_config,
     )
 
     # Preserve all input fields (sources, facts, tips, stories, genre, etc.)
     # and overlay resolved entities/concepts
     result = {k: v for k, v in data.items() if k not in ("entities", "concepts")}
-    result.update({
-        "entities": resolved_entities,
-        "concepts": resolved_concepts,
-        "serves_as": data.get("serves_as", []),
-        "concept_relations": data.get("concept_relations", []),
-        "stats": {
-            "entities": _compute_stats(resolved_entities),
-            "concepts": _compute_stats(resolved_concepts),
-        },
-    })
+    result.update(
+        {
+            "entities": resolved_entities,
+            "concepts": resolved_concepts,
+            "serves_as": data.get("serves_as", []),
+            "concept_relations": data.get("concept_relations", []),
+            "stats": {
+                "entities": _compute_stats(resolved_entities),
+                "concepts": _compute_stats(resolved_concepts),
+            },
+        }
+    )
     return result
 
 
@@ -1229,7 +1186,9 @@ def _resolve_items(
                 )
             else:
                 match = resolve_concept_by_text(
-                    client, name, search_config=search_config,
+                    client,
+                    name,
+                    search_config=search_config,
                 )
 
         # Fallback: embedding
@@ -1253,7 +1212,11 @@ def _resolve_items(
         layer = item.get("match_layer", "new")
         label = "Entity" if item_type == "entity" else "Concept"
         logger.info(
-            "%s: %s -> %s (%s)", label, name, item.get("matched_name", "NEW"), layer,
+            "%s: %s -> %s (%s)",
+            label,
+            name,
+            item.get("matched_name", "NEW"),
+            layer,
         )
 
     return resolved

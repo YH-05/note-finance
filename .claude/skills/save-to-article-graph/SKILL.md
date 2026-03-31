@@ -301,7 +301,7 @@ NEO4J_URI=bolt://localhost:7688 /save-to-graph --source {command}
 | graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
 | topic-discovery スキル | `.claude/skills/topic-discovery/SKILL.md` |
 | scrape-finance-blog スキル | `.claude/skills/scrape-finance-blog/SKILL.md` |
-| ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
+| ナレッジグラフスキーマ | `data/lifecycle-state/research/ontology.yaml` |
 | graph-queue 出力先 | `.tmp/graph-queue/{command}/` |
 
 ---

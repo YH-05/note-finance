@@ -283,7 +283,7 @@ KG マイニング結果を以下の形式でユーザーに提示する（Phase
 
 | リソース | パス |
 |---------|------|
-| KGスキーマ定義 | `data/config/knowledge-graph-schema.yaml` |
+| KGスキーマ定義 | `data/lifecycle-state/research/ontology.yaml` |
 | スコアリングルーブリック | `references/scoring-rubric.md` |
 | Neo4j保存マッピング | `references/neo4j-mapping.md` |
 | article-research KGギャップ | `.claude/skills/investment-research/references/kg-gap-analysis.md` |

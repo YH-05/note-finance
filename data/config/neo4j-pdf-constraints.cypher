@@ -2,7 +2,7 @@
 // Knowledge Graph Schema v2 — 10 UNIQUE constraints + 13 indices
 // All queries use IF NOT EXISTS for idempotency
 //
-// Reference: data/config/knowledge-graph-schema.yaml (constraints / indices sections)
+// Reference: data/lifecycle-state/research/ontology.yaml (via ontology_loader)
 
 // ============================================================
 // UNIQUE Constraints (10)

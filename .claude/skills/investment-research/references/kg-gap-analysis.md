@@ -282,4 +282,4 @@ SET q.status = 'answered'
 | save-to-research-graph スキル | `.claude/skills/save-to-research-graph/SKILL.md` |
 | Neo4j直書き禁止ルール | `.claude/rules/neo4j-write-rules.md` |
 | ソース信頼度定義 | `.claude/skills/investment-research/references/source-reliability.md` |
-| KGスキーマ定義 | `data/config/knowledge-graph-schema.yaml` |
+| KGスキーマ定義 | `data/lifecycle-state/research/ontology.yaml` |
