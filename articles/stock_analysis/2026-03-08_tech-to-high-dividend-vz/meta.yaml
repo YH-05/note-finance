@@ -3,7 +3,7 @@ category: stock_analysis
 type: data_analysis
 status: draft
 created_at: '2026-03-08T00:00:00Z'
-updated_at: '2026-03-08T00:00:00Z'
+updated_at: '2026-04-02T00:00:00Z'
 tags: []
 target_audience: intermediate
 target_wordcount: 4000
@@ -12,7 +12,7 @@ symbols:
 - QQQ
 date_range:
   start: '2024-01-01'
-  end: '2025-03-08'
+  end: '2026-04-01'
 fred_series: []
 theme: ''
 experience:
@@ -23,16 +23,16 @@ experience:
     income_range: ''
     duration: ''
     outcome: ''
-critic_score: null
-revision_count: 0
+critic_score: 80
+revision_count: 1
 note_url: null
 x_post_url: null
-research_sources: 0
+research_sources: 13
 workflow:
-  research: pending
-  draft: pending
-  critique: pending
-  revision: pending
+  research: done
+  draft: done
+  critique: done
+  revision: done
   publish: pending
 neo4j:
   pattern_node_id: null

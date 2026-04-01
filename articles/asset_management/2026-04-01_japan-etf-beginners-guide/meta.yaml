@@ -1,0 +1,33 @@
+article_id: "2026-04-01_japan-etf-beginners-guide"
+topic: "初心者におすすめの日本の証券会社で購入できるETF"
+category: "asset_management"
+type: "column"
+target_audience: "beginner"
+target_wordcount: 4000
+
+status: "research_done"
+created_at: "2026-04-01"
+updated_at: "2026-04-01"
+
+tags: []
+theme: "asset_management"
+
+# === Tracking ===
+critic_score: 78
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 12
+
+workflow:
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: pending
+
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false

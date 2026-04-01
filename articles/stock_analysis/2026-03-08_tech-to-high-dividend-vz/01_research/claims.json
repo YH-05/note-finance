@@ -1,28 +1,60 @@
 {
     "key_findings": [
         {
-            "category": "Financials",
-            "claim": "Verizon's 2025 Free Cash Flow (FCF) reached $20.1 billion, the highest in the industry.",
-            "evidence": "2025 10-K report and industry comparison reports.",
-            "impact": "High dividend sustainability and debt reduction capacity."
+            "category": "Performance",
+            "claim": "VZは2026年YTDで+24%を達成（vs QQQ -7.5%、S&P500 +0.5%）。イラン戦争によるリスクオフ・ディフェンシブ需要が主因。",
+            "evidence": "Yahoo Finance 株価データ、Argus Market Summary（2026-03-04）",
+            "impact": "「退屈な高配当」が2026年の市場でグロース株を圧倒している事実を証明。",
+            "sentiment": "bullish"
         },
         {
-            "category": "Dividends",
-            "claim": "Dividend yield reached ~7% in late 2025 with 19-21 consecutive years of growth.",
-            "evidence": "Official dividend history and market price data.",
-            "impact": "Attractive to income investors seeking safety from tech volatility."
+            "category": "Financials",
+            "claim": "Verizon FY2025 FCF $20.1B（業界最高水準）、調整後EPS $4.71。2026ガイダンスはEPS $4.90-4.95（+4-5%）、FCF +7%。",
+            "evidence": "Q4 2025 決算発表（2026-01-30）",
+            "impact": "安定的なキャッシュ創出力が配当・自社株買い・成長投資の三立を可能にしている。",
+            "sentiment": "bullish"
+        },
+        {
+            "category": "Shareholder Return",
+            "claim": "$25B 自社株買い承認（2026年1月）。3〜4年で実行予定。数年ぶりの大規模株主還元方針転換。",
+            "evidence": "Verizon公式発表（2026-01-30）",
+            "impact": "配当＋自社株買いの「ダブルエンジン」で株主還元を強化。EPS押し上げ効果も期待。",
+            "sentiment": "bullish"
+        },
+        {
+            "category": "Subscriber Growth",
+            "claim": "Q4 2025純新規加入者数1.1M（2019年以来最高）、FWA加入者5.7M（2025年末）。",
+            "evidence": "Q4 2025決算発表",
+            "impact": "「万年チャーン問題」からの脱却を示す。Frontier買収とバンドル戦略の効果が出始めている。",
+            "sentiment": "bullish"
         },
         {
             "category": "Growth Strategy",
-            "claim": "Frontier Communications acquisition ($20B) accelerates fiber broadband expansion.",
-            "evidence": "Strategic announcement and Q3 2025 performance showing 20% fiber growth.",
-            "impact": "Shifts narrative from legacy telecom to broadband/5G infrastructure leader."
+            "claim": "Frontier Communications買収完了（$20B）。ファイバーネットワークを最終的に35-40Mパッシングに拡張予定（現在Fios~11M）。バンドル契約でチャーン率50%改善見込み。",
+            "evidence": "公式発表・Yahoo Finance分析記事",
+            "impact": "「携帯電話会社」から「ブロードバンド＋ワイヤレス統合プラットフォーム」へのビジネスモデル転換を加速。",
+            "sentiment": "bullish"
+        },
+        {
+            "category": "Dividends",
+            "claim": "配当利回り約5.58%（四半期$0.69、権利落ち日2026/4/10）。2025年初Dogs of the Dow首位（利回り6.8%）。19-21年連続増配の実績。",
+            "evidence": "Yahoo Finance 配当データ",
+            "impact": "インカム投資家の需要を継続的に喚起。Dividend Aristocrat入りが長期的目標。",
+            "sentiment": "bullish"
         },
         {
             "category": "Risks",
-            "claim": "Business segment revenue declined by ~2.8% due to legacy wireline weakness.",
-            "evidence": "Q3 2025 segment results.",
-            "impact": "Need for continued cost transformation and portfolio rationalization."
+            "claim": "Business部門売上 -0.3% YoY（レガシー回線の構造的衰退）、Consumer部門長Sampath氏退任（後任未定）、総負債推定$150B超（Frontier買収後）。",
+            "evidence": "Q4 2025決算資料、Yahoo Finance報道（2026-03）",
+            "impact": "執行体制の一時的な空白と、重い有利子負債がFCF圧迫・格付け悪化リスクを高める。",
+            "sentiment": "bearish"
+        },
+        {
+            "category": "Risks",
+            "claim": "アナリスト60名のコンセンサスはHold（60%）、12ヶ月平均目標$45.50。現在株価$49〜50はすでにフェアバリュー圏または小幅割高の可能性。悲観シナリオは2029年$32〜$36。",
+            "evidence": "Tickergate（60アナリスト集計）、Forbes VZ 5-Year Forecast（2026-03）",
+            "impact": "「キャッシュマシン」としての長期保有は有効だが、24%上昇後の追加購入には慎重な評価が必要。",
+            "sentiment": "bearish"
         }
     ]
 }

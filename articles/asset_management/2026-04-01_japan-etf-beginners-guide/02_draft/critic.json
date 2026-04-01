@@ -1,0 +1,323 @@
+{
+  "article_id": "2026-04-01_japan-etf-beginners-guide",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-01",
+  "overall_score": 78,
+  "score_breakdown": {
+    "compliance": 93,
+    "fact": 78,
+    "structure": 76,
+    "data_accuracy": 68,
+    "readability": 78,
+    "writer_rules": 76
+  },
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "high",
+      "issue_ids": ["F001", "DA001"],
+      "description": "1489の株価「40,000円前後」を「3,000〜3,500円程度（2024年1月1:30分割後）」に修正"
+    },
+    {
+      "priority": 2,
+      "severity": "high",
+      "issue_ids": ["DA002"],
+      "description": "NISA数値（120万/240万/1,800万円）に金融庁公式ページへのソースURLリンクを追加"
+    },
+    {
+      "priority": 3,
+      "severity": "high",
+      "issue_ids": ["DA003"],
+      "description": "国内税率「20.315%」に国税庁等のリンクを追加"
+    },
+    {
+      "priority": 4,
+      "severity": "high",
+      "issue_ids": ["ST002", "WR-SC001"],
+      "description": "「データで見る現状」h2セクション（1000-1500字）を証券会社比較の前に追加。東証ETF市場の客観的データ+チャート画像"
+    },
+    {
+      "priority": 5,
+      "severity": "high",
+      "issue_ids": ["ST001", "WR-SC002"],
+      "description": "ケーススタディを独立h2セクション「ケーススタディ：月3万円から始めるETF積立の実例」として切り出す"
+    },
+    {
+      "priority": 6,
+      "severity": "high",
+      "issue_ids": ["RD001"],
+      "description": "後半3銘柄（2559/2558/1489）の説明を比較・対比スタイルに変えて単調さを解消"
+    },
+    {
+      "priority": 7,
+      "severity": "medium",
+      "issue_ids": ["F002", "DA004"],
+      "description": "1489の配当利回り「約3%」を「約3〜4%程度（変動あり）」に修正"
+    },
+    {
+      "priority": 8,
+      "severity": "medium",
+      "issue_ids": ["F003", "DA005"],
+      "description": "SBI証券口座数の時点「2025年12月末」を「2025年11月」に修正"
+    },
+    {
+      "priority": 9,
+      "severity": "medium",
+      "issue_ids": ["RD002"],
+      "description": "MSCI ACWIの英語正式名称展開を機能的説明に簡略化"
+    },
+    {
+      "priority": 10,
+      "severity": "medium",
+      "issue_ids": ["RD003"],
+      "description": "「スプレッド」「値がさ株」「価格加重平均」に括弧書きで短い説明を追加"
+    }
+  ],
+  "critics": {
+    "fact": {
+      "critic_type": "fact",
+      "score": 78,
+      "verified_facts_count": 30,
+      "issues": [
+        {
+          "issue_id": "F001",
+          "severity": "high",
+          "location": "各銘柄の詳細解説 / 1489銘柄",
+          "description": "1489の株価「40,000円前後（2025〜2026年時点）」は誤り。2024年1月19日に1:30の株式分割が実施されており、分割後の株価は3,100〜3,400円程度。",
+          "fix": "「2025〜2026年時点の株価は1口あたり3,000〜3,500円程度（2024年1月の1:30分割後）」に修正。"
+        },
+        {
+          "issue_id": "F002",
+          "severity": "medium",
+          "location": "各銘柄の詳細解説 / 1489銘柄",
+          "description": "1489の配当利回り「約3%程度」は実態より低め。2025〜2026年時点の実績は約3.5〜4%程度。",
+          "fix": "「約3〜4%程度（変動あり）」に修正。"
+        },
+        {
+          "issue_id": "F003",
+          "severity": "medium",
+          "location": "ETFが買える証券会社を比較しよう / SBI証券",
+          "description": "SBI証券の口座数参照時点「2025年12月末時点」は不正確。正しくは2025年11月時点。",
+          "fix": "「2025年11月時点」に修正。"
+        },
+        {
+          "issue_id": "F004",
+          "severity": "low",
+          "location": "各銘柄の詳細解説 / 1308銘柄",
+          "description": "1308の純資産約11.6兆円の参照時点が記事中で不明確。",
+          "fix": "「（2025年11月時点）」等の注記を追加。"
+        }
+      ]
+    },
+    "compliance": {
+      "critic_type": "compliance",
+      "status": "pass",
+      "score": 93,
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "medium",
+          "location": "末尾免責事項",
+          "description": "snippets/disclaimer.md が未存在のためプロジェクト標準テンプレートとの完全一致検証が不可能。",
+          "fix": ".claude/resources/snippets/disclaimer.md を整備し照合する。（記事本文の修正不要）"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "low",
+          "location": "ETFが買える証券会社を比較しよう",
+          "description": "「まず1社だけ開くなら」という文脈でSBI/楽天証券を筆頭に挙げる表現が暗示的推奨に近い印象。",
+          "fix": "「多くの投資家に利用されています」の後に「どの証券会社が最適かは個人の状況によります」等のヘッジを追加。"
+        }
+      ],
+      "disclaimer_check": {
+        "present": true,
+        "position": "bottom",
+        "decorated": false,
+        "elements_complete": true
+      },
+      "prohibited_expressions_found": []
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 76,
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "high",
+          "location": "NISAでETFを活用しよう",
+          "description": "ケーススタディが独立h2セクションとして存在せず、NISAセクション内のh3に埋め込まれている。",
+          "fix": "「ケーススタディ：月3万円から始めるETF積立の実例」として独立h2セクションに切り出す（800-1200字）。"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "high",
+          "location": "全体構成",
+          "description": "「データで見る現状」セクション（h2）が欠落。東証ETF市場の客観的データを示すセクションがない。",
+          "fix": "「データで見る東証ETF市場の現状」を証券会社比較の前に追加（1000-1500字）。"
+        },
+        {
+          "issue_id": "ST003",
+          "severity": "medium",
+          "location": "実践ガイド相当の3セクション",
+          "description": "実践ガイド相当の内容が証券会社比較・ETF7銘柄・買い方ステップの3セクションに分散。",
+          "fix": "見出し構造を整理するか、各セクションに導入文を追加して連続性を示す。"
+        },
+        {
+          "issue_id": "ST004",
+          "severity": "medium",
+          "location": "はじめに",
+          "description": "「はじめに」が約700字で目安600字を超過。",
+          "fix": "冒頭の共感文を1段落削減し600字以内に収める。"
+        },
+        {
+          "issue_id": "ST005",
+          "severity": "medium",
+          "location": "まとめ",
+          "description": "「まとめ」が約800字で目安600字を超過。",
+          "fix": "ETFの説明の繰り返しを削減し、アクション3ステップを中心に簡潔にまとめる。"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 68,
+      "table_images": {"found": 3, "expected": 3},
+      "markdown_tables_remaining": 0,
+      "issues": [
+        {
+          "issue_id": "DA001",
+          "severity": "high",
+          "location": "各銘柄の詳細解説 / 1489",
+          "description": "1489株価40,000円は2024年1月の1:30分割後と乖離。実態は3,100〜3,400円程度。",
+          "fix": "株価を3,000〜3,500円程度に修正し分割注記を追加。"
+        },
+        {
+          "issue_id": "DA002",
+          "severity": "high",
+          "location": "NISAでETFを活用しよう",
+          "description": "NISA年間上限（120万/240万/360万円）・生涯上限（1,800万円）にソースURLリンクなし。",
+          "fix": "金融庁公式サイトへのリンクを数値に埋め込む。"
+        },
+        {
+          "issue_id": "DA003",
+          "severity": "high",
+          "location": "ETF投資の注意点とリスク",
+          "description": "国内税率「20.315%」にソースURLリンクなし。",
+          "fix": "国税庁または証券会社の税率解説ページへのリンクを追加。"
+        },
+        {
+          "issue_id": "DA004",
+          "severity": "medium",
+          "location": "各銘柄の詳細解説 / 1489",
+          "description": "配当利回り「約3%」は実態3.5〜4%より低め。",
+          "fix": "「約3〜4%程度（変動あり）」に修正。"
+        },
+        {
+          "issue_id": "DA005",
+          "severity": "medium",
+          "location": "SBI証券口座数",
+          "description": "「2025年12月末時点」が不正確（正: 2025年11月時点）。",
+          "fix": "「2025年11月時点」に修正。"
+        },
+        {
+          "issue_id": "DA006",
+          "severity": "medium",
+          "location": "1475/1306/1308の純資産",
+          "description": "純資産総額に本文中の時点明示なし。",
+          "fix": "「（2025年〇月時点）」の注記を純資産数値に追加。"
+        }
+      ]
+    },
+    "readability": {
+      "critic_type": "readability",
+      "score": 78,
+      "issues": [
+        {
+          "issue_id": "RD001",
+          "severity": "high",
+          "location": "各銘柄の詳細解説",
+          "description": "7銘柄の解説が全て同一パターンで単調。後半で離脱リスク高。",
+          "fix": "5〜7銘柄目（2559/2558/1489）を比較・対比形式に変える。"
+        },
+        {
+          "issue_id": "RD002",
+          "severity": "high",
+          "location": "各銘柄の詳細解説 / 2559",
+          "description": "MSCI ACWIの英語正式名称を全文展開しており情報量過多。",
+          "fix": "「MSCI ACWI（全世界の株式市場に連動する指数）」のような機能的説明に簡略化。"
+        },
+        {
+          "issue_id": "RD003",
+          "severity": "medium",
+          "location": "各所",
+          "description": "「スプレッド」「値がさ株」「価格加重平均」が説明なし初出。",
+          "fix": "括弧書きで短い説明を追加（例: 「スプレッド（売値と買値の差）」）。"
+        },
+        {
+          "issue_id": "RD004",
+          "severity": "low",
+          "location": "ETFとは何かセクション（1,721字）",
+          "description": "1,500字超のテキスト連続セクションに図表なし。",
+          "fix": "ETF vs 投資信託の比較表（PNG画像）を追加。"
+        }
+      ],
+      "strengths": [
+        "冒頭の共感型フックと5項目の学習成果リストが明確",
+        "専門用語の多くで初出時の説明あり",
+        "段落間の空行による可読性確保",
+        "具体的な数値例（月3万円のモデルケース等）"
+      ]
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 76,
+      "word_count": {
+        "estimated": 11063,
+        "status": "over",
+        "range": "8000-10000"
+      },
+      "frontmatter": {"all_fields_present": true, "missing": []},
+      "sections": {
+        "found": 8,
+        "total_required": 9,
+        "missing": ["データで見る現状"]
+      },
+      "chart_images": {"count": 3, "meets_requirement": true},
+      "source_count": 11,
+      "curated_sources_exists": true,
+      "issues": [
+        {
+          "issue_id": "WR-SC001",
+          "severity": "high",
+          "description": "必須セクション「データで見る現状」が欠落。",
+          "fix": "「データで見る現状」セクションを追加（1000-1500字）。"
+        },
+        {
+          "issue_id": "WR-SC002",
+          "severity": "medium",
+          "description": "ケーススタディがh2独立セクションでなくNISA活用セクション内h3に埋め込み。",
+          "fix": "独立h2セクション「ケーススタディ：月3万円から始めるETF積立の実例」として切り出す。"
+        },
+        {
+          "issue_id": "WR-WC001",
+          "severity": "low",
+          "description": "本文文字数11,063字で上限10,000字を約10%超過。",
+          "fix": "「データで見る現状」追加と同時に既存セクション（はじめに・まとめ）を圧縮。"
+        },
+        {
+          "issue_id": "WR-CL001",
+          "severity": "low",
+          "description": "「はじめに」でETFが定義なし初出。",
+          "fix": "「ETF（上場投資信託）って何だろう？」に修正。"
+        },
+        {
+          "issue_id": "WR-SC003",
+          "severity": "low",
+          "description": "「ETFとは何か？」セクション（1,721字）に図表なし。1,500字超ルール抵触。",
+          "fix": "ETF vs 投資信託比較表（PNG画像）を追加。"
+        }
+      ]
+    }
+  }
+}

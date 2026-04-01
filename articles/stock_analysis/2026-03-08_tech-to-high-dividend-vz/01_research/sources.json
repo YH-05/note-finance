@@ -5,28 +5,104 @@
             "type": "official",
             "title": "Verizon Communications Inc. 2025 Annual Report (Form 10-K)",
             "url": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000007-index.html",
-            "summary": "2025年度の通期決算報告。売上138.2Bドル、調整後EPS 4.71ドル、営業CF 37.1Bドル。消費者部門の堅調さとビジネス部門の苦戦を記録。"
+            "summary": "2025年度の通期決算報告。売上138.2Bドル、調整後EPS 4.71ドル、営業CF 37.1Bドル。消費者部門の堅調さとビジネス部門の苦戦を記録。",
+            "date": "2026-01"
         },
         {
             "id": "DAIWA-UPGRADE-2026",
             "type": "analyst",
             "title": "Daiwa Capital Upgrades Verizon to 'Buy'",
             "url": "https://www.gurufocus.com/news/8633368/vz-daiwa-capital-upgrades-verizon-to-buy-with-raised-price-target-vz-stock-news",
-            "summary": "2026年2月に大和キャピタルが投資判断を『買い』に引き上げ、目標株価を58ドルに設定。"
+            "summary": "2026年2月に大和キャピタルが投資判断を『買い』に引き上げ、目標株価を58ドルに設定。",
+            "date": "2026-02"
         },
         {
             "id": "FRONTIER-ACQ-2025",
             "type": "news",
             "title": "Verizon's $20 billion acquisition resets dividend outlook",
             "url": "https://www.aol.com/finance/verizons-20-billion-acquisition-resets-003245503.html",
-            "summary": "Frontier Communicationsの買収によるファイバー網拡大と配当の安全性について解説。"
+            "summary": "Frontier Communicationsの買収によるファイバー網拡大と配当の安全性について解説。",
+            "date": "2025"
         },
         {
             "id": "SECTOR-ROTATION-2025",
             "type": "market_analysis",
             "title": "The 2025 Stock Market Rotation: What it Means for Investors",
             "url": "https://www.finsyn.com/the-2025-stock-market-rotation-what-it-means-for-investors/",
-            "summary": "2024-2025年のハイテクからバリュー・高配当株への資金シフトの背景を分析。"
+            "summary": "2024-2025年のハイテクからバリュー・高配当株への資金シフトの背景を分析。",
+            "date": "2025"
+        },
+        {
+            "id": "VZ-Q4-2025-EARNINGS",
+            "type": "official",
+            "title": "Verizon Communications Inc VZ Q4 2025 Earnings Call Highlights",
+            "url": "https://finance.yahoo.com/news/verizon-communications-inc-vz-q4-190127980.html",
+            "summary": "Q4 2025調整後EPS$1.09、FY2025 FCF $20.1B。2026ガイダンス: EPS $4.90-4.95、FCF +7%、売上+2-3%。",
+            "date": "2026-01-30"
+        },
+        {
+            "id": "VZ-SUBSCRIBER-Q4",
+            "type": "official",
+            "title": "Verizon Added 1.1 Million Net Subscribers in Q4-2025",
+            "url": "https://finance.yahoo.com/news/verizon-vz-added-1-1-090903182.html",
+            "summary": "Q4 2025純新規加入者数1.1M（2019年以来最高）、$5B コスト削減プログラム発表。",
+            "date": "2026-01-30"
+        },
+        {
+            "id": "VZ-BUYBACK-25B",
+            "type": "official",
+            "title": "Verizon Announces $25 Billion Share Buyback",
+            "url": "https://finance.yahoo.com/news/verizon-announces-25-billion-share-193558804.html",
+            "summary": "取締役会が$25Bの自社株買いを承認。3年程度で実行予定。発表後株価5%超上昇。",
+            "date": "2026-01-30"
+        },
+        {
+            "id": "VZ-FRONTIER-COMPLETE",
+            "type": "analyst",
+            "title": "Verizon Expands Fiber Reach With Frontier Deal",
+            "url": "https://finance.yahoo.com/news/verizon-expands-fiber-reach-frontier-061127114.html",
+            "summary": "Frontier買収完了（$20B）。最終的にファイバーを35-40Mパッシングに拡張予定。コンバージェンス戦略でチャーン50%改善見込み。",
+            "date": "2025"
+        },
+        {
+            "id": "TELECOM-IRAN-WAR",
+            "type": "market_analysis",
+            "title": "5 Sector ETFs Held Steady Amid Iran Conflicts",
+            "url": "https://finance.yahoo.com/news/5-sector-etfs-held-steady-131900903.html",
+            "summary": "イラン戦争下でXTL（テレコムETF）が直近1ヶ月+16.5%上昇。防衛的セクターへの資金シフトを確認。",
+            "date": "2026-03"
+        },
+        {
+            "id": "ARGUS-MARKET-2026",
+            "type": "analyst",
+            "title": "Argus Market Summary: Defensive Rotation 2026",
+            "url": "https://finance.yahoo.com/research?report_type=Market%20Summary",
+            "summary": "2026年市場はIT・通信・消費裁量からディフェンシブ・金利感応・シクリカルへの転換が継続。S&P500 YTD+0.5%。",
+            "date": "2026-03-04"
+        },
+        {
+            "id": "VZ-ANALYST-CONSENSUS",
+            "type": "analyst",
+            "title": "VZ Stock Forecast: Hold consensus, avg target $45.50 (60 analysts)",
+            "url": "https://tickergate.com/stocks/vz/stock-forecast",
+            "summary": "60名のアナリスト平均目標株価$45.50（Hold consensus）。強気$49、弱気$41。買い推奨35%、ホールド60%。",
+            "date": "2026-02"
+        },
+        {
+            "id": "VZ-BEARISH-5Y",
+            "type": "media",
+            "title": "Where Will Verizon Stock Be In 5 Years? March 2026 Edition",
+            "url": "https://www.forbes.com/sites/investor-hub/article/where-will-verizon-vz-stock-be-in-5-years/",
+            "summary": "悲観シナリオ：2029年$32-36（現在$49から-20%）。Business部門-0.3%、重債務、T-Mobile競合がリスク。",
+            "date": "2026-03"
+        },
+        {
+            "id": "VZ-CONSUMER-CHIEF",
+            "type": "news",
+            "title": "Verizon Consumer Chief Exit Tests Schulman Turnaround",
+            "url": "https://finance.yahoo.com/news/verizon-consumer-chief-exit-tests-211315738.html",
+            "summary": "コンシューマー部門長 Sampath氏退任。Schulman CEO体制下でFrontier統合・コスト削減・自社株買いを同時推進中。",
+            "date": "2026-03"
         }
     ]
 }

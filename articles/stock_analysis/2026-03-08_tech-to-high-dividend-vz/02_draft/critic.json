@@ -1,28 +1,95 @@
 {
-    "article_id": "",
-    "critics": {
-        "fact": {
-            "score": 0,
-            "issues": []
-        },
-        "structure": {
-            "score": 0,
-            "issues": []
-        },
-        "compliance": {
-            "score": 0,
-            "issues": [],
-            "required_disclaimers": []
-        },
-        "data_accuracy": {
-            "score": 0,
-            "issues": []
-        },
-        "readability": {
-            "score": 0,
-            "issues": []
-        }
+  "article_id": "2026-03-08_tech-to-high-dividend-vz",
+  "category": "stock_analysis",
+  "mode": "full",
+  "generated_at": "2026-04-01",
+  "critics": {
+    "fact": {
+      "score": 83,
+      "status": "warn",
+      "issues": [
+        {"severity": "medium", "location": "VZの財務分析 — 配当", "issue": "AT&T FCF推定値$16〜17Bの裏付けソースが不足", "suggestion": "「推定」と明記するかAT&T決算ページへのリンクを追加"},
+        {"severity": "medium", "location": "$25B自社株買い", "issue": "実行期間「3〜4年」(記事) vs「3年程度」(公式) で軽微な齟齬", "suggestion": "「3年程度」に統一する"},
+        {"severity": "low", "location": "配当セクション", "issue": "Dogs of the Dow 6.8%（2025年初）と現在5.58%の乖離に株価上昇の説明が欠如", "suggestion": "株価上昇により利回りが低下した旨を補足"},
+        {"severity": "low", "location": "VZ vs 競合", "issue": "「Holdコンセンサスで共通」と記述だが大和キャピタルのBuy（目標$58）が言及漏れ", "suggestion": "「一部アナリストはより強気の見方をしている」と付記"}
+      ],
+      "verified_facts_count": 31,
+      "summary": "主要数値31件はすべて出典と一致。AT&T FCF推定ソース補強と自社株買い期間表記統一が必要。"
     },
-    "overall_score": 0,
-    "priority_fixes": []
+    "compliance": {
+      "score": 98,
+      "status": "pass",
+      "issues": [
+        {"severity": "low", "location": "まとめ", "issue": "「存在感は維持されるだろう」が注意表現に該当", "suggestion": "「維持される可能性がある」に変更"}
+      ],
+      "disclaimer_check": {"present": true, "position": "末尾", "decoration": "なし"},
+      "summary": "禁止表現ゼロ。免責事項OK。low1件のみでpass。"
+    },
+    "structure": {
+      "score": 74,
+      "status": "warn",
+      "section_scores": {"introduction": 82, "flow": 69, "sections": 65, "conclusion": 78, "readability": 80},
+      "issues": [
+        {"severity": "high", "location": "セクション構成全体", "issue": "「企業概要」セクションが欠落", "suggestion": "エグゼクティブサマリー直後に企業概要を追加"},
+        {"severity": "high", "location": "セクション構成全体", "issue": "「テクニカル分析」セクションが欠落", "suggestion": "財務分析とリスク要因の間に追加"},
+        {"severity": "medium", "location": "論理展開全体", "issue": "H2セクション間の遷移文が不足（---のみで接続）", "suggestion": "各H2末尾に橋渡し文を1〜2文追加"},
+        {"severity": "medium", "location": "まとめ", "issue": "読者への具体的な示唆がなく抽象的", "suggestion": "「どのような投資家にとって意味があるか」を1段落追加"},
+        {"severity": "low", "location": "全文", "issue": "平均文長69字（目安40-60字超過）", "suggestion": "長い文を分割する"}
+      ],
+      "summary": "骨格は良好。企業概要・テクニカル分析の欠落と遷移文不足が課題。"
+    },
+    "data_accuracy": {
+      "score": 86,
+      "status": "warn",
+      "issues": [
+        {"severity": "high", "location": "VZの財務分析 — 配当", "issue": "年間配当支払い総額「$8〜9B」が実態の約$11.6Bより過小", "suggestion": "「$11〜12B程度」に修正"},
+        {"severity": "medium", "location": "VZ vs 競合 — AT&T比較", "issue": "AT&T配当利回り「約5%以上」が実際の約6〜7%より過小", "suggestion": "「約6〜7%程度」に修正"},
+        {"severity": "medium", "location": "Frontier買収", "issue": "拡張倍率「約3倍」は実際の3.2〜3.6倍をやや過小", "suggestion": "「約3倍以上（3,500〜4,000万パッシング）」に修正"},
+        {"severity": "low", "location": "参考データソース", "issue": "AT&T FCF推定値の出典リンクが未掲載", "suggestion": "AT&T決算ページリンクまたは「公開決算資料より推計」と注記"}
+      ],
+      "summary": "配当支払い総額の過小計上が最重要。FCFカバレッジの結論は正しいが具体数値修正が必要。"
+    },
+    "readability": {
+      "score": 71,
+      "status": "warn",
+      "issues": [
+        {"severity": "high", "location": "記事冒頭", "issue": "最初の見出しが「エグゼクティブサマリー」で読者への語りかけが欠落", "suggestion": "冒頭にフック文2〜3行を見出し前に配置する"},
+        {"severity": "high", "location": "まとめ — 段落", "issue": "段落が159〜167文字と長大でスマホで読みづらい", "suggestion": "80〜120文字程度に分割する"},
+        {"severity": "medium", "location": "全文", "issue": "長段落17件がスマホ読みの障壁", "suggestion": "段落を分割・空行で区切る"},
+        {"severity": "low", "location": "Business部門セクション", "issue": "「PSTN回線」が初出説明なし", "suggestion": "「PSTN（公衆交換電話網）」と補足"}
+      ],
+      "mobile_optimization": {"paragraph_length": "too_long", "sentence_length": "too_long", "heading_intervals": "ok", "blank_lines": "ok"},
+      "summary": "数値とソースの充実度は高い。冒頭フック改善と長段落分割がスコア向上の鍵。"
+    },
+    "writer_rules": {
+      "score": 72,
+      "status": "warn",
+      "word_count": {"actual": 5420, "target_min": 8000, "target_max": 10000, "status": "under"},
+      "sections": {
+        "found": ["エグゼクティブサマリー", "セクターローテーションの背景", "VZの財務分析", "Frontier買収と成長戦略", "VZ vs 競合", "リスク要因", "まとめ", "参考データソース", "免責事項"],
+        "missing": ["企業概要", "テクニカル分析", "バリュエーションサブセクション"]
+      },
+      "frontmatter": {"present": ["title", "article_id", "category", "symbol", "analysis_date", "status"], "missing": []},
+      "issues": [
+        {"severity": "high", "location": "overall", "issue": "本文約5,420字で目標下限8,000字を約2,600字下回る", "suggestion": "企業概要・テクニカル分析・バリュエーション比較を追加"},
+        {"severity": "medium", "location": "リスク要因 — アナリストコンセンサス", "issue": "「アップサイドが限定的」という示唆が暗黙の価格評価に近い", "suggestion": "コンセンサス数値の引用にとどめ解釈コメントを削除"},
+        {"severity": "medium", "location": "参考データソース", "issue": "データ時点の注記が欠落", "suggestion": "「※ データは2026年4月時点のものです」を末尾に追加"},
+        {"severity": "low", "location": "VZの財務分析 — 配当", "issue": "年間配当総額・AT&T FCF・連続増配年数にソースURLリンクが未付与", "suggestion": "Yahoo Finance IR等へのリンクを追加"}
+      ],
+      "summary": "フロントマター・表画像化・主要数値URLリンクは概ね良好。文字数不足と必須セクション欠落が最大課題。"
+    }
+  },
+  "overall_score": 80,
+  "priority_fixes": [
+    {"priority": 1, "severity": "high", "item": "文字数8,000字以上に増量（現在5,420字）: 企業概要・テクニカル分析・バリュエーション比較を追加"},
+    {"priority": 2, "severity": "high", "item": "年間配当支払い総額を$8〜9B→$11〜12B程度に修正"},
+    {"priority": 3, "severity": "high", "item": "企業概要セクション（VZ事業概要・市場ポジション）を追加"},
+    {"priority": 4, "severity": "high", "item": "テクニカル分析セクション（移動平均・支持線抵抗線・chart画像）を追加"},
+    {"priority": 5, "severity": "medium", "item": "冒頭にフック文を追加（エグゼクティブサマリー見出し前）"},
+    {"priority": 6, "severity": "medium", "item": "まとめの「されるだろう」→「される可能性がある」に修正"},
+    {"priority": 7, "severity": "medium", "item": "AT&T配当利回り「約5%以上」→「約6〜7%程度」に修正"},
+    {"priority": 8, "severity": "medium", "item": "参考データソースにデータ時点注記（2026年4月時点）を追加"},
+    {"priority": 9, "severity": "medium", "item": "H2セクション間に遷移文を追加"},
+    {"priority": 10, "severity": "low", "item": "自社株買い期間「3〜4年」→「3年程度」に統一"}
+  ]
 }

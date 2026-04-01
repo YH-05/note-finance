@@ -1,0 +1,213 @@
+{
+  "session_id": "article-research-japan-etf-beginners-guide-20260401-1000",
+  "curated_at": "2026-04-01",
+  "total_sources": 12,
+  "used_sources": 11,
+  "excluded_sources": 1,
+  "sources": [
+    {
+      "url": "https://www.matsui.co.jp/stock/study/article/etf/",
+      "title": "ETF(上場投資信託)とは？投資信託との違いやメリットと注意点",
+      "authority_level": "official",
+      "rank": "A",
+      "published_at": "2025-01-01",
+      "score": 88,
+      "score_breakdown": {
+        "theme_fit": 30,
+        "reliability": 25,
+        "freshness": 16,
+        "beginner_friendly": 12,
+        "uniqueness": 5
+      },
+      "use_in_article": true,
+      "reason": "松井証券公式サイト。ETF基礎知識・NISA対応情報が豊富。信頼性最高位（A）。初心者向け解説も充実。"
+    },
+    {
+      "url": "https://www.bk.mufg.jp/column/shisan_unyo/b0174.html",
+      "title": "ETFと投資信託の違いは？どっちを選ぶ？メリットなど徹底解説！",
+      "authority_level": "official",
+      "rank": "A",
+      "published_at": "2025-01-28",
+      "score": 87,
+      "score_breakdown": {
+        "theme_fit": 28,
+        "reliability": 25,
+        "freshness": 16,
+        "beginner_friendly": 13,
+        "uniqueness": 5
+      },
+      "use_in_article": true,
+      "reason": "三菱UFJ銀行公式コラム。ETF vs 投資信託の比較が詳細。大手金融機関（A）の信頼性。初心者向けに丁寧な解説。"
+    },
+    {
+      "url": "https://www.nomura-am.co.jp/special/index_fund/",
+      "title": "「投資信託」「ETF」NISAで始めるならあなたはどっち派？",
+      "authority_level": "official",
+      "rank": "A",
+      "published_at": "2025-05-01",
+      "score": 86,
+      "score_breakdown": {
+        "theme_fit": 28,
+        "reliability": 25,
+        "freshness": 17,
+        "beginner_friendly": 12,
+        "uniqueness": 4
+      },
+      "use_in_article": true,
+      "reason": "野村アセットマネジメント公式。NISAとの組み合わせ解説が充実。運用会社の視点から客観的に比較。"
+    },
+    {
+      "url": "https://kabutan.jp/hikaku/",
+      "title": "証券会社おすすめランキング【2026年版】ネット証券10社のNISA比較",
+      "authority_level": "media",
+      "rank": "C",
+      "published_at": "2026-03-04",
+      "score": 82,
+      "score_breakdown": {
+        "theme_fit": 28,
+        "reliability": 18,
+        "freshness": 20,
+        "beginner_friendly": 12,
+        "uniqueness": 4
+      },
+      "use_in_article": true,
+      "reason": "株探（kabutan）による2026年最新版証券会社比較。鮮度が高く（2026年3月）、口座数・手数料データが充実。"
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/5002",
+      "title": "ETFにおすすめの証券会社はどこ？選び方を比較【2026年】",
+      "authority_level": "media",
+      "rank": "C",
+      "published_at": "2026-01-01",
+      "score": 80,
+      "score_breakdown": {
+        "theme_fit": 28,
+        "reliability": 17,
+        "freshness": 20,
+        "beginner_friendly": 10,
+        "uniqueness": 5
+      },
+      "use_in_article": true,
+      "reason": "soico.jpによる2026年版証券会社比較。ETF特化の視点でNISA対応・手数料・取扱銘柄数を比較。"
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/4948",
+      "title": "ETFのおすすめはどこ？初心者向け銘柄15選と選び方【2026年】",
+      "authority_level": "media",
+      "rank": "C",
+      "published_at": "2026-01-01",
+      "score": 80,
+      "score_breakdown": {
+        "theme_fit": 30,
+        "reliability": 17,
+        "freshness": 20,
+        "beginner_friendly": 8,
+        "uniqueness": 5
+      },
+      "use_in_article": true,
+      "reason": "高配当ETF（1489）の配当利回りデータを含む。初心者向けETF選定の参考に適している。"
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/4987",
+      "title": "TOPIX ETFのおすすめはどれ？選び方と購入方法を解説【2026年】",
+      "authority_level": "media",
+      "rank": "C",
+      "published_at": "2026-01-01",
+      "score": 80,
+      "score_breakdown": {
+        "theme_fit": 30,
+        "reliability": 17,
+        "freshness": 20,
+        "beginner_friendly": 8,
+        "uniqueness": 5
+      },
+      "use_in_article": true,
+      "reason": "1306・1308・1475のTOPIX ETF信託報酬・純資産データが具体的。銘柄比較の根拠データとして使用。"
+    },
+    {
+      "url": "https://www.ig.com/jp/trading-strategies/top-japanese-etfs-to-watch-250716",
+      "title": "注目の日本のETF5選",
+      "authority_level": "analyst",
+      "rank": "B",
+      "published_at": "2025-10-01",
+      "score": 74,
+      "score_breakdown": {
+        "theme_fit": 26,
+        "reliability": 20,
+        "freshness": 17,
+        "beginner_friendly": 7,
+        "uniqueness": 4
+      },
+      "use_in_article": true,
+      "reason": "IG証券アナリストによる日本ETF選定。1321の信託報酬・分配金データを取得。専門家視点の情報として引用。"
+    },
+    {
+      "url": "https://itcareer40.jp/2559-etf-allcountry-guide",
+      "title": "2559オルカンETFは投信と何が違う？分配金・コスト解説【2026】",
+      "authority_level": "blog",
+      "rank": "D",
+      "published_at": "2025-12-04",
+      "score": 68,
+      "score_breakdown": {
+        "theme_fit": 26,
+        "reliability": 12,
+        "freshness": 18,
+        "beginner_friendly": 8,
+        "uniqueness": 4
+      },
+      "use_in_article": true,
+      "reason": "2559（MAXISオルカンETF）の詳細解説。個人ブログだが情報の具体性が高く、2559特有の特徴を理解するのに有用。"
+    },
+    {
+      "url": "https://finance.yahoo.co.jp/brokers-hikaku/article/sbi-matsui-securities.html",
+      "title": "松井証券とSBI証券を徹底比較！手数料や取扱商品数",
+      "authority_level": "media",
+      "rank": "C",
+      "published_at": "2025-06-26",
+      "score": 67,
+      "score_breakdown": {
+        "theme_fit": 22,
+        "reliability": 18,
+        "freshness": 16,
+        "beginner_friendly": 8,
+        "uniqueness": 3
+      },
+      "use_in_article": true,
+      "reason": "Yahoo!ファイナンスによるSBI証券と松井証券の比較。証券会社選択の補完情報として参照。"
+    },
+    {
+      "url": "https://blog.ncbank.co.jp/posts/toushishintaku-etf/",
+      "title": "投資信託とETFの違いは？メリット・デメリットと初心者はどっちを選ぶべきか",
+      "authority_level": "official",
+      "rank": "A",
+      "published_at": "2025-01-01",
+      "score": 75,
+      "score_breakdown": {
+        "theme_fit": 26,
+        "reliability": 22,
+        "freshness": 16,
+        "beginner_friendly": 8,
+        "uniqueness": 3
+      },
+      "use_in_article": true,
+      "reason": "長崎銀行公式ブログ。ETF vs 投資信託の比較解説。金融機関（A）の信頼性。比較の補完情報として参照。"
+    },
+    {
+      "url": "https://www.click-sec.com/corp/guide/kabu/etf/brand.html",
+      "title": "ETF/ETN/REIT 取扱銘柄一覧 - GMOクリック証券",
+      "authority_level": "official",
+      "rank": "A",
+      "published_at": "2025-01-01",
+      "score": 45,
+      "score_breakdown": {
+        "theme_fit": 15,
+        "reliability": 18,
+        "freshness": 8,
+        "beginner_friendly": 3,
+        "uniqueness": 1
+      },
+      "use_in_article": false,
+      "reason": "【除外】GMOクリック証券の銘柄一覧ページ。本記事が取り上げる証券会社（SBI・楽天・松井等）に含まれないため、記事の焦点から外れる。初心者向け解説の観点でもスコアが低い。"
+    }
+  ]
+}
