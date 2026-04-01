@@ -1,0 +1,387 @@
+2026-03-30 03:00:10,623 [INFO] __main__ - RawStore: saved=23, dup=0, empty=0 (command=finance-news-workflow)
+2026-03-30 03:00:10,623 [INFO] __main__ - Mapping data for command: finance-news-workflow
+2026-03-30 03:00:10,628 [INFO] __main__ - Classification layer applied: 15 nodes, 102 rels
+2026-03-30 03:00:10,635 [INFO] __main__ - Queue file written: .tmp/graph-queue/finance-news-workflow/gq-20260329180010-fc7935a4.json
+2026-03-30 03:00:11,324 [INFO] __main__ - Processing: gq-20260329180010-fc7935a4.json
+2026-03-30 03:00:11,325 [INFO] data_pipeline.neo4j_loader - Ingesting 34 Source nodes
+2026-03-30 03:00:11,327 [WARNING] neo4j.session - Transaction failed and will be retried in 1.1959184378409393s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-30 03:00:12,675 [WARNING] neo4j.session - Transaction failed and will be retried in 2.0760001433936375s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-30 03:00:14,889 [WARNING] neo4j.session - Transaction failed and will be retried in 4.5024360868894036s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-30 03:00:19,413 [WARNING] neo4j.session - Transaction failed and will be retried in 6.5557508603471275s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-30 03:00:26,109 [WARNING] neo4j.session - Transaction failed and will be retried in 17.171186160380174s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-30 03:00:43,433 [ERROR] __main__ - Failed to ingest gq-20260329180010-fc7935a4.json: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/ingest_graph_queue.py", line 248, in process_single_file
+    result = ingest_to_neo4j(queue_data, dry_run=dry_run)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+2026-03-31 03:00:22,573 [INFO] __main__ - RawStore: saved=88, dup=0, empty=0 (command=finance-news-workflow)
+2026-03-31 03:00:22,574 [INFO] __main__ - Mapping data for command: finance-news-workflow
+2026-03-31 03:00:22,590 [INFO] __main__ - Classification layer applied: 35 nodes, 540 rels
+2026-03-31 03:00:22,605 [INFO] __main__ - Queue file written: .tmp/graph-queue/finance-news-workflow/gq-20260330180022-7cbbc432.json
+2026-03-31 03:00:23,312 [INFO] __main__ - Processing: gq-20260330180022-7cbbc432.json
+2026-03-31 03:00:23,314 [INFO] data_pipeline.neo4j_loader - Ingesting 180 Source nodes
+2026-03-31 03:00:23,315 [WARNING] neo4j.session - Transaction failed and will be retried in 1.0275931713837791s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-31 03:00:24,495 [WARNING] neo4j.session - Transaction failed and will be retried in 1.9266896090055319s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-31 03:00:26,550 [WARNING] neo4j.session - Transaction failed and will be retried in 4.441174324181701s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-31 03:00:31,123 [WARNING] neo4j.session - Transaction failed and will be retried in 7.144009850480352s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-31 03:00:38,388 [WARNING] neo4j.session - Transaction failed and will be retried in 13.975342840240371s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-31 03:00:52,456 [WARNING] neo4j.session - Transaction failed and will be retried in 28.585509430286375s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-03-31 03:01:21,181 [ERROR] __main__ - Failed to ingest gq-20260330180022-7cbbc432.json: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/ingest_graph_queue.py", line 248, in process_single_file
+    result = ingest_to_neo4j(queue_data, dry_run=dry_run)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+2026-04-01 03:00:27,748 [INFO] __main__ - RawStore: saved=132, dup=0, empty=0 (command=finance-news-workflow)
+2026-04-01 03:00:27,749 [INFO] __main__ - Mapping data for command: finance-news-workflow
+2026-04-01 03:00:27,774 [INFO] __main__ - Classification layer applied: 41 nodes, 867 rels
+2026-04-01 03:00:27,793 [INFO] __main__ - Queue file written: .tmp/graph-queue/finance-news-workflow/gq-20260331180027-34e34b27.json
+2026-04-01 03:00:28,444 [INFO] __main__ - Processing: gq-20260331180027-34e34b27.json
+2026-04-01 03:00:28,447 [INFO] data_pipeline.neo4j_loader - Ingesting 289 Source nodes
+2026-04-01 03:00:28,448 [WARNING] neo4j.session - Transaction failed and will be retried in 1.1835745089093102s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-04-01 03:00:29,784 [WARNING] neo4j.session - Transaction failed and will be retried in 2.36416825045725s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-04-01 03:00:32,295 [WARNING] neo4j.session - Transaction failed and will be retried in 3.707050078398785s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-04-01 03:00:36,155 [WARNING] neo4j.session - Transaction failed and will be retried in 6.991148054639029s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-04-01 03:00:43,272 [WARNING] neo4j.session - Transaction failed and will be retried in 15.163083767299792s (Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused))
+2026-04-01 03:00:58,515 [ERROR] __main__ - Failed to ingest gq-20260331180027-34e34b27.json: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/ingest_graph_queue.py", line 248, in process_single_file
+    result = ingest_to_neo4j(queue_data, dry_run=dry_run)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 245, in ingest_to_neo4j
+    session.execute_write(_merge_node, label, key_prop, item)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)

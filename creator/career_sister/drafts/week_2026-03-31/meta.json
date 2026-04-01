@@ -9,7 +9,7 @@
     {
       "date": "2026-03-31",
       "day_label": "月",
-      "status": "draft",
+      "status": "published",
       "slots": [
         {
           "slot": "朝",
@@ -19,7 +19,9 @@
           "threads_char_count": 270,
           "instagram": false,
           "posted_at": null,
-          "threads_permalink": null
+          "threads_permalink": "https://www.threads.com/@career_sister/post/DWhoL2tEwpx",
+          "status": "published",
+          "published_at": "2026-03-31T07:31:38.176280+09:00"
         },
         {
           "slot": "昼",
@@ -29,7 +31,9 @@
           "threads_char_count": 320,
           "instagram": false,
           "posted_at": null,
-          "threads_permalink": null
+          "threads_permalink": "https://www.threads.com/@career_sister/post/DWiKwJvExb5",
+          "status": "published",
+          "published_at": "2026-03-31T12:33:41.046549+09:00"
         },
         {
           "slot": "夜",
@@ -40,8 +44,10 @@
           "instagram": true,
           "carousel_slides": 7,
           "posted_at": null,
-          "threads_permalink": null,
-          "instagram_permalink": null
+          "threads_permalink": "https://www.threads.com/@career_sister/post/DWjBbbQEgvw",
+          "instagram_permalink": "https://www.instagram.com/p/DWjBmjbEu50/",
+          "status": "published",
+          "published_at": "2026-03-31T20:31:27.496370+09:00"
         }
       ]
     },
@@ -58,7 +64,9 @@
           "threads_char_count": 280,
           "instagram": false,
           "posted_at": null,
-          "threads_permalink": null
+          "threads_permalink": "https://www.threads.com/@career_sister/post/DWkNcaoE-WP",
+          "status": "published",
+          "published_at": "2026-04-01T07:35:42.849744+09:00"
         },
         {
           "slot": "昼",
