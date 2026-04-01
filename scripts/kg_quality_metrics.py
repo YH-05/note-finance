@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """KG 品質ダッシュボード — 基盤モジュール。
 
-knowledge-graph-schema.yaml と Neo4j DB を照合し、7カテゴリの品質指標を
+ontology.yaml (via ontology_loader) と Neo4j DB を照合し、7カテゴリの品質指標を
 計測するための DataClasses・インフラ関数・CLI を提供する。
 
 Usage
@@ -222,7 +222,7 @@ ALLOWED_ENTITY_TYPES: frozenset[str] = frozenset(
         "regulation",
     }
 )
-"""Entity.entity_type の許可リスト。knowledge-graph-schema.yaml v2.4 準拠。"""
+"""Entity.entity_type の許可リスト。ontology.yaml v3.0 準拠。"""
 
 ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
     {
@@ -275,7 +275,7 @@ ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
         "FOR_METRIC",
     }
 )
-"""リレーションタイプの許可リスト。knowledge-graph-schema.yaml v2.4 準拠。"""
+"""リレーションタイプの許可リスト。ontology.yaml v3.0 準拠。"""
 
 # 代名詞パターン（英語・日本語）
 _ENGLISH_PRONOUNS: frozenset[str] = frozenset(
@@ -315,36 +315,184 @@ _JAPANESE_PRONOUNS: tuple[str, ...] = (
 
 
 # ---------------------------------------------------------------------------
+# Default nodes/relationships definitions for measure_completeness
+# (ontology.yaml doesn't contain required property metadata)
+# ---------------------------------------------------------------------------
+
+_DEFAULT_NODES_DEF: dict[str, Any] = {
+    "Source": {
+        "description": "Information source",
+        "properties": {
+            "source_id": {"type": "string", "unique": True, "required": True},
+            "title": {"type": "string", "required": True},
+            "source_type": {"type": "string", "required": True},
+            "authority_level": {"type": "string", "required": True},
+            "fetched_at": {"type": "datetime", "required": True},
+        },
+    },
+    "Author": {
+        "description": "Source author",
+        "properties": {
+            "author_id": {"type": "string", "unique": True, "required": True},
+            "name": {"type": "string", "required": True},
+            "author_type": {"type": "string", "required": True},
+        },
+    },
+    "Chunk": {
+        "description": "Document chunk",
+        "properties": {
+            "chunk_id": {"type": "string", "unique": True, "required": True},
+            "chunk_index": {"type": "integer", "required": True},
+            "content": {"type": "string", "required": True},
+            "created_at": {"type": "datetime", "required": True},
+        },
+    },
+    "Fact": {
+        "description": "Verified factual information",
+        "properties": {
+            "fact_id": {"type": "string", "unique": True, "required": True},
+            "content": {"type": "string", "required": True},
+            "created_at": {"type": "datetime", "required": True},
+        },
+    },
+    "Claim": {
+        "description": "Subjective claim or prediction",
+        "properties": {
+            "claim_id": {"type": "string", "unique": True, "required": True},
+            "content": {"type": "string", "required": True},
+            "created_at": {"type": "datetime", "required": True},
+        },
+    },
+    "Entity": {
+        "description": "Named entity",
+        "properties": {
+            "entity_key": {"type": "string", "unique": True, "required": True},
+            "name": {"type": "string", "required": True},
+            "entity_type": {"type": "string", "required": True},
+        },
+    },
+    "FinancialDataPoint": {
+        "description": "Quantitative financial data",
+        "properties": {
+            "datapoint_id": {"type": "string", "unique": True, "required": True},
+            "metric_name": {"type": "string", "required": True},
+            "value": {"type": "float", "required": True},
+            "unit": {"type": "string", "required": True},
+            "is_estimate": {"type": "boolean", "required": True},
+            "created_at": {"type": "datetime", "required": True},
+        },
+    },
+    "FiscalPeriod": {
+        "description": "Fiscal reporting period",
+        "properties": {
+            "period_id": {"type": "string", "unique": True, "required": True},
+            "period_type": {"type": "string", "required": True},
+            "period_label": {"type": "string", "required": True},
+        },
+    },
+    "Topic": {
+        "description": "Subject topic",
+        "properties": {
+            "topic_key": {"type": "string", "unique": True, "required": True},
+            "name": {"type": "string", "required": True},
+        },
+    },
+    "Stance": {
+        "description": "Source stance on entity",
+        "properties": {
+            "stance_id": {"type": "string", "unique": True, "required": True},
+            "as_of_date": {"type": "date", "required": True},
+            "created_at": {"type": "datetime", "required": True},
+        },
+    },
+    "Insight": {
+        "description": "AI-generated insight",
+        "properties": {
+            "insight_id": {"type": "string", "unique": True, "required": True},
+            "insight_type": {"type": "string", "required": True},
+            "content": {"type": "string", "required": True},
+            "generated_at": {"type": "datetime", "required": True},
+        },
+    },
+    "Question": {
+        "description": "Knowledge gap question",
+        "properties": {
+            "question_id": {"type": "string", "unique": True, "required": True},
+            "content": {"type": "string", "required": True},
+            "question_type": {"type": "string", "required": True},
+            "generated_at": {"type": "datetime", "required": True},
+        },
+    },
+}
+
+_DEFAULT_RELATIONSHIPS_DEF: dict[str, Any] = {
+    "CONTAINS_CHUNK": {"from": "Source", "to": "Chunk"},
+    "EXTRACTED_FROM": {"from": "Fact", "to": "Source"},
+    "STATES_FACT": {"from": "Source", "to": "Fact"},
+    "MAKES_CLAIM": {"from": "Source", "to": "Claim"},
+    "RELATES_TO": {"from": "Fact", "to": "Entity"},
+    "ABOUT": {"from": "Claim", "to": "Entity"},
+    "TAGGED": {"from": "Source", "to": "Topic"},
+    "HAS_DATAPOINT": {"from": "Entity", "to": "FinancialDataPoint"},
+    "FOR_PERIOD": {"from": "FinancialDataPoint", "to": "FiscalPeriod"},
+    "AUTHORED_BY": {"from": "Source", "to": "Author"},
+    "SUPPORTED_BY": {"from": "Claim", "to": "Fact"},
+}
+
+
+# ---------------------------------------------------------------------------
 # インフラ関数
 # ---------------------------------------------------------------------------
 
 
-def load_schema(schema_path: Path) -> dict[str, Any]:
-    """knowledge-graph-schema.yaml を読み込む。
+def load_schema(schema_path: Path | None = None) -> dict[str, Any]:
+    """ontology_loader 経由でスキーマを読み込み、旧互換 dict を返す。
+
+    ontology_loader が提供しない ``nodes`` セクション（required properties）は
+    デフォルト定義をアダプター内に保持する。
 
     Parameters
     ----------
-    schema_path : Path
-        YAML スキーマファイルのパス。
+    schema_path : Path | None
+        後方互換のため残すが使用しない。ontology_loader のデフォルトを使用。
+        旧 knowledge-graph-schema.yaml への直接パスが渡された場合も
+        ontology_loader 経由で読み込む。
 
     Returns
     -------
     dict[str, Any]
         スキーマ定義の辞書。
-
-    Raises
-    ------
-    FileNotFoundError
-        スキーマファイルが存在しない場合。
     """
-    if not schema_path.exists():
-        msg = f"Schema file not found: {schema_path}"
-        raise FileNotFoundError(msg)
+    from ontology_loader import (
+        load_consolidation_mapping,
+        load_constraints,
+        load_indices,
+        load_multilabel_types,
+        load_namespaces,
+        load_source_type_normalization,
+    )
 
-    with schema_path.open(encoding="utf-8") as f:
-        schema: dict[str, Any] = yaml.safe_load(f)
-
-    logger.info("Schema loaded: %s (version %s)", schema_path, schema.get("version"))
+    schema: dict[str, Any] = {
+        "version": "3.0",
+        "nodes": _DEFAULT_NODES_DEF,
+        "constraints": load_constraints(),
+        "indices": load_indices(),
+        "namespaces": load_namespaces(),
+        "consolidation_rules": {
+            "entity_type": {"mapping": load_consolidation_mapping()},
+        },
+        "enum_validations": {
+            "entity_type": {"values": load_multilabel_types()},
+            "source_type": {
+                "values": list({v for v in load_source_type_normalization().values()})
+            },
+        },
+        "source_type_normalization": {
+            "mapping": load_source_type_normalization(),
+        },
+        "relationships": _DEFAULT_RELATIONSHIPS_DEF,
+    }
+    logger.info("Schema loaded via ontology_loader (version %s)", schema.get("version"))
     return schema
 
 
@@ -2456,7 +2604,7 @@ def main() -> None:
 
     if args.dry_run:
         logger.info("Dry-run mode: skipping DB connection")
-        schema = load_schema(Path("data/config/knowledge-graph-schema.yaml"))
+        schema = load_schema()
         logger.info(
             "Schema version: %s, nodes: %d, relationships: %d",
             schema.get("version"),
@@ -2472,7 +2620,7 @@ def main() -> None:
     )
 
     try:
-        schema = load_schema(Path("data/config/knowledge-graph-schema.yaml"))
+        schema = load_schema()
         with driver.session() as session:
             snapshot, check_rules, entropy = _run_measurements(
                 session,

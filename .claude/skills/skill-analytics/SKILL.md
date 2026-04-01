@@ -166,7 +166,7 @@ cypher-shell -u "$NEO4J_USER" -p "$NEO4J_PASSWORD" -a "$NEO4J_URI" \
 | SkillRun トレーサー | `scripts/skill_run_tracer.py` |
 | スキーママイグレーション | `scripts/migrate_skill_run_schema.py` |
 | Neo4j 制約・インデックス | `docker/research-neo4j/init/01-constraints-indexes.cypher` |
-| KG スキーマ定義 | `data/config/knowledge-graph-schema.yaml` |
+| KG スキーマ定義 | `data/lifecycle-state/research/ontology.yaml` |
 
 ## 完了条件
 

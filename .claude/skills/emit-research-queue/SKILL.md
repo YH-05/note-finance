@@ -211,5 +211,5 @@ uv run python scripts/emit_research_queue.py \
 | graph-queue 生成スクリプト | `scripts/emit_research_queue.py` |
 | Neo4j 投入スキル | `.claude/skills/save-to-research-graph/SKILL.md` |
 | Neo4j 直書き禁止ルール | `.claude/rules/neo4j-write-rules.md` |
-| ナレッジグラフスキーマ | `data/config/knowledge-graph-schema.yaml` |
+| ナレッジグラフスキーマ | `data/lifecycle-state/research/ontology.yaml` |
 | graph-queue 出力先 | `.tmp/graph-queue/web-research/` |

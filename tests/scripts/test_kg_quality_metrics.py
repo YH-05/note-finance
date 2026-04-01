@@ -58,40 +58,25 @@ from kg_quality_metrics import (
 
 @pytest.fixture()
 def sample_schema_file(tmp_path: Path) -> Path:
-    """テスト用スキーマ YAML を生成する。"""
+    """テスト用 ontology.yaml を生成し、ontology_loader のパスをパッチする。"""
     schema = {
-        "version": "2.3",
-        "nodes": {
-            "Source": {
-                "description": "test source",
-                "properties": {
-                    "source_id": {"type": "string", "unique": True},
-                },
-            },
-            "Entity": {
-                "description": "test entity",
-                "properties": {
-                    "entity_key": {"type": "string", "unique": True},
-                    "entity_type": {
-                        "type": "string",
-                        "enum": ["company", "index"],
-                    },
-                },
-            },
-        },
-        "relationships": {
-            "MENTIONS": {
-                "from": "Source",
-                "to": "Entity",
-            },
-        },
-        "namespaces": {
-            "kg_v2": {
-                "labels": ["Source", "Entity"],
-            },
-        },
+        "entity_classification_nodes": [
+            {
+                "label": "EntityType",
+                "canonical_values": [
+                    {"key": "company", "consolidates": []},
+                    {"key": "index", "consolidates": []},
+                ],
+            }
+        ],
+        "source_classification_nodes": [
+            {
+                "label": "SourceType",
+                "canonical_values": ["web", "news", "pdf", "original", "blog"],
+            }
+        ],
     }
-    schema_file = tmp_path / "knowledge-graph-schema.yaml"
+    schema_file = tmp_path / "ontology.yaml"
     schema_file.write_text(yaml.dump(schema, allow_unicode=True), encoding="utf-8")
     return schema_file
 
@@ -342,14 +327,25 @@ class TestCreateDriver:
 
 
 class TestLoadSchema:
-    def test_正常系_スキーマYAMLを読み込む(self, sample_schema_file: Path) -> None:
-        schema = load_schema(sample_schema_file)
+    def test_正常系_スキーマを読み込む(self, sample_schema_file: Path) -> None:
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", sample_schema_file):
+            from ontology_loader import invalidate_cache
+
+            invalidate_cache()
+            schema = load_schema()
         assert "nodes" in schema
         assert "Source" in schema["nodes"]
 
-    def test_異常系_存在しないファイルでエラー(self, tmp_path: Path) -> None:
-        with pytest.raises(FileNotFoundError):
-            load_schema(tmp_path / "nonexistent.yaml")
+    def test_正常系_nodesセクションがデフォルト定義を含む(
+        self, sample_schema_file: Path
+    ) -> None:
+        with patch("ontology_loader._DEFAULT_ONTOLOGY_PATH", sample_schema_file):
+            from ontology_loader import invalidate_cache
+
+            invalidate_cache()
+            schema = load_schema()
+        assert "Entity" in schema["nodes"]
+        assert "Fact" in schema["nodes"]
 
 
 # ---------------------------------------------------------------------------

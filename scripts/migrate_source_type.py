@@ -4,8 +4,7 @@
 既存 Source ノードの ``source_type`` を 27 種から 5 種に正規化し、
 NULL の ``command_source`` を ``source_type`` から推定して補完する。
 
-マッピングテーブルは ``data/config/knowledge-graph-schema.yaml`` の
-``source_type_normalization`` セクションを SSOT として読み込む。
+マッピングテーブルは ``ontology_loader`` 経由で ``ontology.yaml`` から読み込む。
 
 Usage
 -----
@@ -36,11 +35,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-try:
-    from yaml import safe_load
-except ImportError:
-    print("pyyaml not installed. Run: uv add pyyaml")
-    sys.exit(1)
+from ontology_loader import (
+    load_source_type_normalization as _ol_load_source_type_normalization,
+)
 
 try:
     from neo4j import GraphDatabase
@@ -69,10 +66,7 @@ except ImportError:
 _DEFAULT_NEO4J_URI = "bolt://localhost:7688"
 _DEFAULT_NEO4J_USER = "neo4j"
 
-# YAML スキーマファイルのデフォルトパス（プロジェクトルートからの相対パス）
-_DEFAULT_SCHEMA_PATH = Path("data/config/knowledge-graph-schema.yaml")
-
-# 5 種の正規 source_type 値（SSOT: knowledge-graph-schema.yaml の enum_validations.source_type）
+# 5 種の正規 source_type 値（SSOT: ontology.yaml via ontology_loader）
 CANONICAL_SOURCE_TYPES: frozenset[str] = frozenset(
     ["web", "news", "pdf", "original", "blog"]
 )
@@ -139,13 +133,14 @@ class MigrationStats:
 # ---------------------------------------------------------------------------
 
 
-def load_source_type_normalization(schema_path: Path) -> dict[str, str]:
-    """YAML スキーマファイルから source_type_normalization マッピングを読み込む。
+def load_source_type_normalization(schema_path: Path | None = None) -> dict[str, str]:
+    """ontology_loader 経由で source_type_normalization マッピングを読み込む。
 
     Parameters
     ----------
-    schema_path : Path
-        knowledge-graph-schema.yaml のパス。
+    schema_path : Path | None
+        ontology.yaml のパス。None の場合はデフォルトパスを使用。
+        後方互換のためパラメータを残すが、ontology_loader にパスを委譲する。
 
     Returns
     -------
@@ -155,18 +150,11 @@ def load_source_type_normalization(schema_path: Path) -> dict[str, str]:
     Raises
     ------
     FileNotFoundError
-        スキーマファイルが存在しない場合。
-    KeyError
-        YAML 構造に ``source_type_normalization.mapping`` が存在しない場合。
+        ontology.yaml が存在しない場合。
+    ValueError
+        SourceType の canonical_values が見つからない場合。
     """
-    if not schema_path.exists():
-        raise FileNotFoundError(f"Schema file not found: {schema_path}")
-
-    with schema_path.open(encoding="utf-8") as f:
-        schema = safe_load(f)
-
-    mapping: dict[str, str] = schema["source_type_normalization"]["mapping"]
-    return mapping
+    return _ol_load_source_type_normalization(ontology_path=schema_path)
 
 
 def build_normalization_ops(
@@ -587,8 +575,8 @@ def main() -> None:
     parser.add_argument(
         "--schema-path",
         type=Path,
-        default=_DEFAULT_SCHEMA_PATH,
-        help=f"knowledge-graph-schema.yaml のパス (デフォルト: {_DEFAULT_SCHEMA_PATH})",
+        default=None,
+        help="ontology.yaml のパス (デフォルト: 自動検出)",
     )
     parser.add_argument(
         "--dry-run",
@@ -607,11 +595,11 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    # スキーマ読み込み
-    logger.info("Loading source_type_normalization from: %s", args.schema_path)
+    # スキーマ読み込み (ontology_loader 経由)
+    logger.info("Loading source_type_normalization via ontology_loader")
     try:
-        normalization_map = load_source_type_normalization(args.schema_path)
-    except (FileNotFoundError, KeyError) as e:
+        normalization_map = load_source_type_normalization(schema_path=args.schema_path)
+    except (FileNotFoundError, KeyError, ValueError) as e:
         logger.error("Failed to load schema: %s", e)
         sys.exit(1)
 

@@ -115,13 +115,14 @@ PDF を構造化 Markdown に変換するスキル。`--method` で変換方式�
 ## 出力パス形式
 
 ```
-{DATA_ROOT}/processed/{mirror_subpath}/{stem}_{hash8}/
+{PROCESSED_DIR}/{mirror_subpath}/{stem}_{hash8}/
 ├── report.md       # Markdown 変換結果
 ├── chunks.json     # セクション分割チャンク
 └── metadata.json   # 処理メタデータ
 ```
 
-- `DATA_ROOT`: `data_paths.get_path("processed")` で取得
+- `PROCESSED_DIR`: `CONVERT_PDF_DIR` 環境変数（設定時）、未設定なら `DATA_ROOT/processed`
+  - 取得: `pdf_pipeline.types.get_processed_dir()` または `uv run python -c "from pdf_pipeline.types import get_processed_dir; print(get_processed_dir())"`
 - `mirror_subpath`: PDF が `raw/pdfs/` 配下にある場合、そのサブディレクトリ構造をミラー
 - `hash8`: SHA-256 の先頭 8 文字
 
@@ -202,7 +203,7 @@ uv run python -m pdf_pipeline.cli.helpers compute_hash "{pdf_path}"
 同じ PDF が既に処理済みかを確認する。`--force` 指定時はこのステップをスキップする。
 
 ```bash
-uv run python -m pdf_pipeline.cli.helpers check_idempotency "{SHA256}" "{DATA_ROOT}/processed/state.json"
+uv run python -m pdf_pipeline.cli.helpers check_idempotency "{SHA256}" "{PROCESSED_DIR}/state.json"
 ```
 
 ### 出力
@@ -369,7 +370,7 @@ uv run python -m pdf_pipeline.cli.helpers save_metadata "{OUTPUT_DIR}" "{SHA256}
 #### F.4: 完了記録
 
 ```bash
-uv run python -m pdf_pipeline.cli.helpers record_completed "{SHA256}" "{DATA_ROOT}/processed/state.json" "{pdf_filename}"
+uv run python -m pdf_pipeline.cli.helpers record_completed "{SHA256}" "{PROCESSED_DIR}/state.json" "{pdf_filename}"
 ```
 
 ---
@@ -642,7 +643,7 @@ uv run python -m pdf_pipeline.cli.helpers save_metadata "{OUTPUT_DIR}" "{SHA256}
 **実行方式**: CLI ヘルパー
 
 ```bash
-uv run python -m pdf_pipeline.cli.helpers record_completed "{SHA256}" "{DATA_ROOT}/processed/state.json" "{pdf_filename}"
+uv run python -m pdf_pipeline.cli.helpers record_completed "{SHA256}" "{PROCESSED_DIR}/state.json" "{pdf_filename}"
 ```
 
 `{pdf_filename}` は PDF ファイルのベース名（例: `report.pdf`）。

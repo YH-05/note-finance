@@ -13,6 +13,8 @@ Usage
 
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import sys
 from pathlib import Path
@@ -59,8 +61,9 @@ def prescan(pdf_path: str) -> dict:
         page_width = page.rect.width
         page_area = page.rect.width * page.rect.height
 
-        # Detect text-based tables
-        tables = page.find_tables()
+        # Detect text-based tables (suppress PyMuPDF pymupdf_layout promo)
+        with contextlib.redirect_stdout(io.StringIO()):
+            tables = page.find_tables()
         table_count = len(tables.tables) if tables.tables else 0
         if table_count > 0:
             pages_with_tables += 1

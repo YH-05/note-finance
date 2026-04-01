@@ -4,8 +4,7 @@
 既存の Entity ノードに Company/Organization 等のマルチラベルを追加し、
 ``sub_type`` プロパティを設定する。また不要な ``isin`` プロパティを削除する。
 
-マッピングテーブルは ``data/config/knowledge-graph-schema.yaml`` の
-``consolidation_rules.entity_type.mapping`` セクションを SSOT として読み込む。
+マッピングテーブルは ``ontology_loader`` 経由で ``ontology.yaml`` から読み込む。
 
 Usage
 -----
@@ -37,11 +36,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-try:
-    from yaml import safe_load
-except ImportError:
-    print("pyyaml not installed. Run: uv add pyyaml")
-    sys.exit(1)
+from ontology_loader import load_consolidation_mapping as _ol_load_consolidation_mapping
+from ontology_loader import load_multilabel_types as _ol_load_multilabel_types
 
 try:
     from neo4j import GraphDatabase
@@ -56,7 +52,9 @@ try:
 except ImportError:
     import logging
 
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+    logging.basicConfig(
+        level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
+    )
     logger = logging.getLogger(__name__)
 
 
@@ -68,11 +66,8 @@ except ImportError:
 _DEFAULT_NEO4J_URI = "bolt://localhost:7688"
 _DEFAULT_NEO4J_USER = "neo4j"
 
-# YAML スキーマファイルのデフォルトパス（プロジェクトルートからの相対パス）
-_DEFAULT_SCHEMA_PATH = Path("data/config/knowledge-graph-schema.yaml")
-
 # 正規 entity_type → PascalCase マルチラベルへのマッピング
-# SSOT: data/config/knowledge-graph-schema.yaml の multilabel_types.entity_labels
+# SSOT: ontology.yaml (via ontology_loader)
 # index だけ "MarketIndex" という特殊マッピング（YAML の multilabel_types 定義に準拠）
 CANONICAL_TO_LABEL: dict[str, str] = {
     "company": "Company",
@@ -125,13 +120,14 @@ class MigrationOp:
 # ---------------------------------------------------------------------------
 
 
-def load_consolidation_rules(schema_path: Path) -> dict[str, str]:
-    """YAML スキーマファイルから consolidation_rules を読み込む。
+def load_consolidation_rules(schema_path: Path | None = None) -> dict[str, str]:
+    """ontology_loader 経由で consolidation_rules を読み込む。
 
     Parameters
     ----------
-    schema_path : Path
-        knowledge-graph-schema.yaml のパス。
+    schema_path : Path | None
+        ontology.yaml のパス。None の場合はデフォルトパスを使用。
+        後方互換のためパラメータを残すが、ontology_loader にパスを委譲する。
 
     Returns
     -------
@@ -141,20 +137,11 @@ def load_consolidation_rules(schema_path: Path) -> dict[str, str]:
     Raises
     ------
     FileNotFoundError
-        スキーマファイルが存在しない場合。
-    KeyError
-        YAML 構造に ``consolidation_rules.entity_type.mapping`` が存在しない場合。
+        ontology.yaml が存在しない場合。
+    ValueError
+        EntityType の canonical_values が見つからない場合。
     """
-    if not schema_path.exists():
-        raise FileNotFoundError(f"Schema file not found: {schema_path}")
-
-    with schema_path.open(encoding="utf-8") as f:
-        schema = safe_load(f)
-
-    mapping: dict[str, str] = (
-        schema["consolidation_rules"]["entity_type"]["mapping"]
-    )
-    return mapping
+    return _ol_load_consolidation_mapping(ontology_path=schema_path)
 
 
 def build_raw_to_label_map(consolidation_rules: dict[str, str]) -> dict[str, str]:
@@ -212,11 +199,13 @@ def build_migration_ops(
                 entity_type,
             )
             continue
-        ops.append({
-            "entity_key": entity_key,
-            "label": label,
-            "sub_type": entity_type,  # 統合前の生 entity_type を保存
-        })
+        ops.append(
+            {
+                "entity_key": entity_key,
+                "label": label,
+                "sub_type": entity_type,  # 統合前の生 entity_type を保存
+            }
+        )
     return ops
 
 
@@ -339,9 +328,7 @@ def fetch_unmigrated_entities(session: Any) -> list[dict[str, Any]]:
         未移行ノードのリスト。各要素に ``entity_key`` と ``entity_type`` を含む。
     """
     # 全14種のマルチラベルを OR 条件で除外
-    label_checks = " OR ".join(
-        [f"e:{label}" for label in _ALL_MULTILABELS]
-    )
+    label_checks = " OR ".join([f"e:{label}" for label in _ALL_MULTILABELS])
     cypher = (
         "MATCH (e:Entity) "
         f"WHERE NOT ({label_checks}) "
@@ -366,9 +353,7 @@ def run_dry_run_summary(
     skipped_count = len(unmigrated) - len(ops)
 
     # isin 対象件数
-    isin_cypher = (
-        "MATCH (e:Entity) WHERE e.isin IS NOT NULL RETURN count(e) AS cnt"
-    )
+    isin_cypher = "MATCH (e:Entity) WHERE e.isin IS NOT NULL RETURN count(e) AS cnt"
     isin_result = session.run(isin_cypher)
     isin_record = isin_result.single()
     isin_count = isin_record["cnt"] if isin_record else 0
@@ -413,8 +398,8 @@ def main() -> None:
     parser.add_argument(
         "--schema-path",
         type=Path,
-        default=_DEFAULT_SCHEMA_PATH,
-        help=f"knowledge-graph-schema.yaml のパス (デフォルト: {_DEFAULT_SCHEMA_PATH})",
+        default=None,
+        help="ontology.yaml のパス (デフォルト: 自動検出)",
     )
     parser.add_argument(
         "--dry-run",
@@ -423,11 +408,11 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    # スキーマ読み込み
-    logger.info("Loading consolidation rules from: %s", args.schema_path)
+    # スキーマ読み込み (ontology_loader 経由)
+    logger.info("Loading consolidation rules via ontology_loader")
     try:
-        consolidation_rules = load_consolidation_rules(args.schema_path)
-    except (FileNotFoundError, KeyError) as e:
+        consolidation_rules = load_consolidation_rules(schema_path=args.schema_path)
+    except (FileNotFoundError, KeyError, ValueError) as e:
         logger.error("Failed to load schema: %s", e)
         sys.exit(1)
 

@@ -996,67 +996,28 @@ class TestMakeV3EntityConfig:
 
 
 # ---------------------------------------------------------------------------
-# _load_consolidation_rules tests (YAML SSoT 読み込み)
+# ENTITY_TYPE_CONSOLIDATION tests (ontology_loader 経由)
 # ---------------------------------------------------------------------------
 
 
-class TestLoadConsolidationRules:
-    """_load_consolidation_rules 関数のテスト。"""
+class TestEntityTypeConsolidationLoading:
+    """ENTITY_TYPE_CONSOLIDATION の読み込み元検証 (ontology_loader 経由)。"""
 
-    def test_正常系_YAMLからconsolidation_rulesを読み込む(self, tmp_path: Path) -> None:
-        """YAML の consolidation_rules.entity_type.mapping が読み込まれること。"""
-        from entity_linker import _load_consolidation_rules
-
-        schema_yaml = tmp_path / "knowledge-graph-schema.yaml"
-        schema_yaml.write_text(
-            "consolidation_rules:\n"
-            "  entity_type:\n"
-            "    mapping:\n"
-            "      company: company\n"
-            "      fintech: company\n"
-            "      person: person\n",
-            encoding="utf-8",
-        )
-
-        result = _load_consolidation_rules(schema_path=schema_yaml)
-
-        assert result == {
-            "company": "company",
-            "fintech": "company",
-            "person": "person",
-        }
-
-    def test_正常系_ENTITY_TYPE_CONSOLIDATIONがYAMLから読み込まれる(self) -> None:
-        """ENTITY_TYPE_CONSOLIDATION がハードコードではなく YAML から読み込まれること。"""
+    def test_正常系_ENTITY_TYPE_CONSOLIDATIONがontology_loaderから読み込まれる(
+        self,
+    ) -> None:
+        """ENTITY_TYPE_CONSOLIDATION がハードコードではなく ontology_loader から読み込まれること。"""
         from entity_linker import ENTITY_TYPE_CONSOLIDATION
 
-        # YAML にある全 42 マッピングが含まれていることを確認
-        assert len(ENTITY_TYPE_CONSOLIDATION) >= 40
+        # ontology.yaml から読み込まれた全マッピングが含まれていることを確認
+        assert len(ENTITY_TYPE_CONSOLIDATION) >= 14
         assert ENTITY_TYPE_CONSOLIDATION.get("fintech") == "company"
-        assert ENTITY_TYPE_CONSOLIDATION.get("etf") == "instrument"
-        assert ENTITY_TYPE_CONSOLIDATION.get("region") == "country"
+        assert ENTITY_TYPE_CONSOLIDATION.get("company") == "company"
 
-    def test_異常系_存在しないYAMLでFileNotFoundError(self, tmp_path: Path) -> None:
-        """存在しない YAML ファイルパスで FileNotFoundError が発生すること。"""
-        from entity_linker import _load_consolidation_rules
+    def test_正常系_ontology_loaderの戻り値と一致する(self) -> None:
+        """ENTITY_TYPE_CONSOLIDATION が ontology_loader.load_consolidation_mapping() と一致すること。"""
+        from entity_linker import ENTITY_TYPE_CONSOLIDATION
+        from ontology_loader import load_consolidation_mapping
 
-        nonexistent = tmp_path / "nonexistent.yaml"
-
-        with pytest.raises(FileNotFoundError, match=r"knowledge-graph-schema\.yaml"):
-            _load_consolidation_rules(schema_path=nonexistent)
-
-    def test_正常系_consolidation_rulesキーなしで空dictを返す(
-        self, tmp_path: Path
-    ) -> None:
-        """consolidation_rules キーが存在しない YAML では空dict が返ること。"""
-        from entity_linker import _load_consolidation_rules
-
-        schema_yaml = tmp_path / "knowledge-graph-schema.yaml"
-        schema_yaml.write_text(
-            "version: 3.0\n",
-            encoding="utf-8",
-        )
-
-        result = _load_consolidation_rules(schema_path=schema_yaml)
-
-        assert result == {}
+        expected = load_consolidation_mapping()
+        assert expected == ENTITY_TYPE_CONSOLIDATION
