@@ -1,0 +1,8 @@
+version,date,key_changes,added_nodes,added_relationships,breaking_change,notes
+v1.0,2026-03-11,初期スキーマ,"Source,Chunk,Claim,Entity,Organization,FiscalPeriod","EXTRACTED_FROM,ABOUT,CONTAINS_CHUNK",FALSE,6ノード・9リレーション。PoC段階。
+v2.0,2026-03-12,Claim中心設計に移行・財務データ追加,"FinancialDataPoint,Insight","HAS_DATAPOINT,FOR_METRIC,FOR_PERIOD",FALSE,財務定量データ層を追加。Insightノード追加。
+v2.1,2026-03-17,Stance/因果/時系列/質問機能追加,"Stance,Question","HOLDS_STANCE,ON_ENTITY,BASED_ON,CAUSES,TREND,NEXT_PERIOD,AUTHORED_BY,COAUTHORED_WITH",FALSE,アナリスト評価層を追加。Source-scoped TREND設計（change_pct正常化）。
+v2.2,2026-03-17,Entity/Topic複合キー + Source運用プロパティ,,,"UNIQUE制約追加（entity_key/topic_key）",FALSE,"entity_key={name}::{entity_type}でMERGE冪等性確保。Source.command_source/domain追加。blog source_type追加。Topic.category拡張。"
+v2.3,2026-03-18,authority_level + article-neo4j統合,,,RANGE索引追加,FALSE,"Source.authority_level（primary/secondary/tertiary）追加。article-neo4jのデータをresearch-neo4jに統合。note記事データを一元管理。"
+v2.4,2026-03-xx,運用改善・データ品質修正,,,FALSE,source_type正規化。TREND source_hashスコーピング実装。
+v3.0,計画中（Project #105）,"FIBO準拠マルチラベル・YAML SSoT統一・BaseMapper+11プラグイン","entity_type 30種→14種統合（マルチラベル）",,"YAML SSoT統一・emit_research_queue.py分割",TRUE,"知識グラフスキーマのYAML定義を単一SSOT（knowledge-graph-schema.yaml）に統一。entity_typeをマルチラベルで表現。Issue #278-#293。"

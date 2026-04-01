@@ -1,0 +1,10 @@
+layer_id,layer_name,node_labels,key_relationships,purpose
+Layer1,ソース・来歴層,"Source,Author,AuthorType,Domain,SourceType,Language,TrustLevel,Pipeline","AUTHORED_BY,FROM_DOMAIN,CONTAINS_CHUNK,IS_SOURCE_TYPE,IN_LANGUAGE,RATED_AS,INGESTED_VIA",全データの起点。情報のprovenance（来歴）を管理。authority_levelとsource_typeで信頼性を階層化。
+Layer2,レキシカル層,Chunk,"CONTAINS_CHUNK,EXTRACTED_FROM",元文書のテキスト断片。Fact/ClaimがどのChunkから抽出されたかを記録し、根拠へのトレースバックを保証。
+Layer3,ナレッジ抽出層,"Fact,Claim,ClaimType,FactType,Insight","MAKES_CLAIM,STATES_FACT,SUPPORTED_BY,CONTRADICTS,IS_FACT_TYPE,IS_CLAIM_TYPE,DERIVED_FROM",AIが抽出した事実（Fact）と主張（Claim）を分離管理。ClaimはFact裏付け必須。
+Layer4,エンティティ・マスターデータ層,"Entity,Company,Organization,Person,Instrument,MarketIndex,Commodity,Indicator,Technology,Product,Concept,Country,Sector,Industry,Broker,EntityType","IS_TYPE,SUBSIDIARY_OF,COMPETES_WITH,PARTNERS_WITH,CUSTOMER_OF,INVESTED_IN,LED_BY,GOVERNS,OPERATES_IN,IN_SECTOR,IN_INDUSTRY,HAS_IDENTIFIER",企業・人・機関・商品等のマスターデータ。entity_keyで一意化。Entityをスーパーノードとして特化型が継承。
+Layer5,財務定量データ層,"FinancialDataPoint,FiscalPeriod,Metric,DataPointType,UnitOfMeasure","HAS_DATAPOINT,FOR_METRIC,FOR_PERIOD,IN_UNIT,IS_DATAPOINT_TYPE,MEASURES,TREND,NEXT_PERIOD",XBRL/SEC EDGAR由来の定量財務データ。source_hashでSource単位スコーピング。TRENDで時系列変化を表現。
+Layer6,セマンティック連携層,"Topic","RELATES_TO,SHARES_TOPIC,CO_MENTIONED_WITH,INFLUENCES,CAUSES,TAGGED,BELONGS_TO",エンティティ間の多様な関係を表現。TAGGEDが全ノード横断の索引として機能（427,326件）。SHARES_TOPICで間接関連を発見。
+Layer7,アナリスト評価層,"Stance","HOLDS_STANCE,ON_ENTITY,BASED_ON,AFFILIATED_WITH,COAUTHORED_WITH",アナリスト個人のレーティング・目標株価を時点付きで管理。Authorが複数のStanceを保有可能。
+Layer8,分類・参照データ層,"EntityType,ClaimType,FactType,SourceType,InstrumentClass,AuthorType,TrustLevel,ConceptCategory,UnitOfMeasure,Language","IS_TYPE,IS_CLAIM_TYPE,IS_FACT_TYPE,IS_SOURCE_TYPE,IS_INSTRUMENT_CLASS,IS_AUTHOR_TYPE,IS_CATEGORY,PARENT_CLASS",全分類マスターデータ。FIBOオントロジー準拠（InstrumentClass）。全て参照のみ（書き込みはパイプライン経由）。
+Layer9,運用・メタデータ層,"SkillRun,QualitySnapshot,Memory,Pipeline,Question,Insight","INGESTED_VIA,ASKS_ABOUT",KG運用管理用ノード。品質スコア履歴・スキル実行トレース・設計判断記録を管理。

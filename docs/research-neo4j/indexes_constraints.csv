@@ -1,0 +1,44 @@
+name,type,label,properties,state,description
+constraint_5b6a4d30,RANGE_UNIQUENESS,Author,author_id,ONLINE,著者ID一意制約
+chunk_id,RANGE_UNIQUENESS,Chunk,chunk_id,ONLINE,チャンクID一意制約
+claim_id,RANGE_UNIQUENESS,Claim,claim_id,ONLINE,Claim ID一意制約
+entity_id,RANGE_UNIQUENESS,Entity,entity_id,ONLINE,エンティティID一意制約
+unique_entity_key,RANGE_UNIQUENESS,Entity,entity_key,ONLINE,エンティティ複合キー一意制約（name::entity_type）
+entity_ticker,RANGE_UNIQUENESS,Entity,ticker,ONLINE,ティッカー一意制約
+fact_id,RANGE_UNIQUENESS,Fact,fact_id,ONLINE,Fact ID一意制約
+datapoint_id,RANGE_UNIQUENESS,FinancialDataPoint,datapoint_id,ONLINE,財務データポイントID一意制約
+period_id,RANGE_UNIQUENESS,FiscalPeriod,period_id,ONLINE,会計期間ID一意制約
+insight_id,RANGE_UNIQUENESS,Insight,insight_id,ONLINE,Insight ID一意制約
+metric_canonical,RANGE_UNIQUENESS,Metric,canonical_name,ONLINE,指標正規化名一意制約
+metric_id,RANGE_UNIQUENESS,Metric,metric_id,ONLINE,指標ID一意制約
+source_id,RANGE_UNIQUENESS,Source,source_id,ONLINE,Source ID一意制約
+constraint_ccb5a8eb,RANGE_UNIQUENESS,Stance,stance_id,ONLINE,Stance ID一意制約
+topic_id,RANGE_UNIQUENESS,Topic,topic_id,ONLINE,Topic ID一意制約
+topic_key,RANGE_UNIQUENESS,Topic,topic_key,ONLINE,トピック複合キー一意制約（name::category）
+claim_type_idx,RANGE,Claim,claim_type,ONLINE,Claim種別検索インデックス
+claim_sentiment,RANGE,Claim,sentiment,ONLINE,Claimセンチメント検索インデックス
+claim_source_url,RANGE,Claim,source_url,ONLINE,ClaimソースURL検索インデックス
+entity_embedding_idx,VECTOR,Entity,embedding,ONLINE,エンティティベクトルインデックス（類似検索用）
+entity_type_idx,RANGE,Entity,entity_type,ONLINE,エンティティ種別検索インデックス
+research_entity_fulltext,FULLTEXT,Entity,name,ONLINE,エンティティ名全文検索インデックス
+research_entity_fulltext_v2,FULLTEXT,Entity,"name,entity_key",ONLINE,エンティティ名・複合キー全文検索インデックス
+fact_date_idx,RANGE,Fact,as_of_date,ONLINE,Fact基準日検索インデックス
+research_fact_fulltext,FULLTEXT,Fact,content,ONLINE,Fact内容全文検索インデックス
+fact_type_idx,RANGE,Fact,fact_type,ONLINE,事実種別検索インデックス
+fact_source_url,RANGE,Fact,source_url,ONLINE,FactソースURL検索インデックス
+datapoint_estimate,RANGE,FinancialDataPoint,is_estimate,ONLINE,予測値フラグ検索インデックス
+datapoint_metric,RANGE,FinancialDataPoint,metric_name,ONLINE,指標名検索インデックス
+period_label_idx,RANGE,FiscalPeriod,period_label,ONLINE,期間ラベル検索インデックス
+insight_type,RANGE,Insight,insight_type,ONLINE,Insight種別検索インデックス
+metric_category,RANGE,Metric,category,ONLINE,指標カテゴリ検索インデックス
+rel_relates_to_hops,RANGE,RELATES_TO,hops,ONLINE,RELATES_TOリレーションのhops検索（パスクエリ用）
+rel_relates_to_weight,RANGE,RELATES_TO,path_weight,ONLINE,RELATES_TOリレーションのpath_weight検索（スコアリング用）
+source_authority_level,RANGE,Source,authority_level,ONLINE,ソース権威レベル検索インデックス
+idx_source_command_source,RANGE,Source,command_source,ONLINE,ソース投入コマンド検索インデックス
+source_domain,RANGE,Source,domain,ONLINE,ソースドメイン検索インデックス
+source_published,RANGE,Source,published_at,ONLINE,ソース発行日時検索インデックス
+source_type_idx,RANGE,Source,source_type,ONLINE,ソース種別検索インデックス
+research_source_fulltext,FULLTEXT,Source,title,ONLINE,ソースタイトル全文検索インデックス
+topic_category,RANGE,Topic,category,ONLINE,トピックカテゴリ検索インデックス
+research_topic_fulltext,FULLTEXT,Topic,name,ONLINE,トピック名全文検索インデックス
+research_alias_fulltext,FULLTEXT,Alias,"name,value",ONLINE,エイリアス全文検索インデックス
