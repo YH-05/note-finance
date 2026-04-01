@@ -1,3 +1,8 @@
+---
+title: ir_meeting_prep_20260401
+date created: 2026-04-01 14:04
+date modified: 2026-04-01 15:04
+---
 # TLKM IJ — IR Meeting Prep Memo
 **作成日**: 2026-04-01  
 **次回IRミーティング**: 来週（2026年4月第2週予定）  
@@ -7,15 +12,17 @@
 
 ## 1. Executive Summary
 
-Telkom Indonesia（TLKM IJ）はインドネシア最大の通信持株会社。政府（Danantara）が52.1%を保有する国有企業。FY2024は売上横ばい・利益微減の「停滞期」だが、足元では**3つの大型コーポレートアクション**が進行中であり、その進捗確認がIRミーティングの主眼となる。
+Telkom Indonesia（ #TLKM_IJ ）はインドネシア最大の通信持株会社。政府（Danantara）が52.1%を保有する国有企業。FY2024は売上横ばい・利益微減の「停滞期」だが、足元では**3つの大型コーポレートアクション**が進行中であり、その進捗確認がIRミーティングの主眼となる。
 
-| 項目 | FY2024 | 9M2025 |
-|------|--------|--------|
-| 売上高 | IDR 150.0T (+0.5%) | IDR 109.6T (-2.3%) |
-| EBITDA | IDR 75.0T (-3.3%, 50.0%) | IDR 54.4T (-4.0%, 49.6%) |
-| 純利益 | IDR 23.6T (-3.7%) | IDR 11.0T |
-| Telkomsel ARPU | IDR 43,400 | IDR 43,400 (3Q25) |
-| 加入者数 | 159.4M | 157.6M |
+| 項目             | FY2024                   | 9M2025                   |
+| -------------- | ------------------------ | ------------------------ |
+| 売上高            | IDR 150.0T (+0.5%)       | IDR 109.6T (-2.3%)       |
+| EBITDA         | IDR 75.0T (-3.3%, 50.0%) | IDR 54.4T (-4.0%, 49.6%) |
+| 純利益            | IDR 23.6T (-3.7%)        | IDR 11.0T                |
+| Telkomsel ARPU | IDR 43,400               | IDR 43,400 (3Q25)        |
+| 加入者数           | 159.4M                   | 157.6M                   |
+
+![[TLKM Shareholder composition and ownership summary.png]]
 
 > **⚠️ CRITICAL（要最優先確認）**: 2026年3月10日、**2024年・2023年通期財務諸表が信頼不可（Restatement予定）** と発表。PP&E会計誤謬に加え、**SEC・DOJが収益認識・ICFRを調査中**。IRミーティングでの最優先確認事項。
 
@@ -50,7 +57,7 @@ Telkom Indonesia (TLKM IJ) ← Danantara 52.1%
 - Mitratel-Tower Bersama統合協議が再浮上（合算評価額推定$5.5B）
 - HAPS（成層圏通信）プロジェクト（Mitratel + AALTO）
 
-#### TIF / Infranexia（光ファイバー卸）
+#### TIF / #Infranexia （ #光ファイバー 卸 ）
 - 卸売光ファイバー資産全体の推定価値: IDR 135-150T（約$10B）
 - **Phase 1完了**（2025年Q4）: 簿価IDR 35.8T相当の資産移転
 - **Phase 2**: H2 2026目標（残余ファイバー資産）
