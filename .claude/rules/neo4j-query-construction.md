@@ -41,11 +41,52 @@ LIMIT は固定値ではなく、**スキーマ取得時のノード数に応じ
 - **探索・発見**: LIMIT 20~50 で概要把握 → 必要に応じて絞り込み
 - **品質チェック**: LIMIT 50~100 でサンプリング
 
+## 必須: リレーション方向を必ず明示する
+
+**無方向パターン `-[:REL]-` は禁止。必ず方向を指定すること。**
+
+無方向クエリはリレーションを両方向でスキャンするため、接続先ノード種別が多いリレーション（ABOUT等）では全体スキャンに近いコストが発生しタイムアウトする。
+
+```cypher
+-- ❌ 禁止（無方向）
+MATCH (e:Entity)-[:ABOUT]-(f:Fact)
+
+-- ✅ 推奨（有方向）
+MATCH (f:Fact)-[:ABOUT]->(e:Entity)
+```
+
+### research-neo4j の主要リレーション正方向
+
+| リレーション | from → to |
+|------------|-----------|
+| ABOUT | Fact/Claim/FinancialDataPoint/Source → Entity系 |
+| MAKES_CLAIM | Source → Claim |
+| STATES_FACT | Entity/Organization → Fact |
+| EXTRACTED_FROM | Fact/Claim → Source/Chunk |
+| CONTAINS_CHUNK | Source → Chunk |
+| HAS_DATAPOINT | Entity → FinancialDataPoint |
+| TAGGED | [全ノード] → Topic |
+
+### スタートノードの選び方
+
+特定エンティティのFact/Claim取得は「小さい側（Entity）」ではなく「大きい側（Fact/Claim）」から始めて Entity でフィルタリングする方が高速。
+
+```cypher
+-- ✅ Fact側からスタート
+MATCH (f:Fact)-[:ABOUT]->(e:Entity)
+WHERE e.name = 'Telkom Indonesia' AND e.ticker = 'TLKM IJ'
+LIMIT 30
+```
+
+> **事例**: 2026-04-01、無方向 `-[:ABOUT]-` + entity_key IN句 × 3値でタイムアウト発生。
+> 詳細: `docs/research-neo4j/query_incident_20260401.md`
+
 ## 禁止事項
 
 - スキーマ取得なしで「たぶんこのラベルがあるはず」とクエリを書くこと
 - 過去の会話やメモリの情報だけでリレーションパスを推測すること
 - 全インスタンスに同じ固定 LIMIT を適用すること
+- **リレーションを無方向で指定すること**（タイムアウトの主因）
 
 ## 例外
 
