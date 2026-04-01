@@ -1,0 +1,483 @@
+[2026-03-31 22:26:23] === Phase 4 開始: 30件の graph-queue ===
+[2026-03-31 22:26:23] --- [1/30] gq-20260331132240-e3e9176f.json
+[2026-03-31 22:26:23]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 26218.59it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:26:30]   entity_linker 完了
+[2026-03-31 22:26:30]   neo4j_loader 開始
+nodes=89 relations=217
+[2026-03-31 22:26:32]   neo4j_loader 完了
+[2026-03-31 22:26:32] --- [2/30] gq-20260331131632-84d8b124.json
+[2026-03-31 22:26:32]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 24468.08it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:26:39]   entity_linker 完了
+[2026-03-31 22:26:39]   neo4j_loader 開始
+nodes=30 relations=29
+[2026-03-31 22:26:39]   neo4j_loader 完了
+[2026-03-31 22:26:39] --- [3/30] gq-20260331130919-6d969914.json
+[2026-03-31 22:26:39]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 29681.69it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:26:46]   entity_linker 完了
+[2026-03-31 22:26:46]   neo4j_loader 開始
+nodes=16 relations=15
+[2026-03-31 22:26:47]   neo4j_loader 完了
+[2026-03-31 22:26:47] --- [4/30] gq-20260331130621-56c78906.json
+[2026-03-31 22:26:47]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 28428.32it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:26:54]   entity_linker 完了
+[2026-03-31 22:26:54]   neo4j_loader 開始
+nodes=17 relations=16
+[2026-03-31 22:26:54]   neo4j_loader 完了
+[2026-03-31 22:26:54] --- [5/30] gq-20260331130343-5fc6f0d2.json
+[2026-03-31 22:26:54]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 26021.82it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:01]   entity_linker 完了
+[2026-03-31 22:27:01]   neo4j_loader 開始
+nodes=13 relations=12
+[2026-03-31 22:27:01]   neo4j_loader 完了
+[2026-03-31 22:27:01] --- [6/30] gq-20260331130141-18b9b6f1.json
+[2026-03-31 22:27:01]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 28948.70it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:08]   entity_linker 完了
+[2026-03-31 22:27:08]   neo4j_loader 開始
+nodes=14 relations=13
+[2026-03-31 22:27:09]   neo4j_loader 完了
+[2026-03-31 22:27:09] --- [7/30] gq-20260331125931-a0073d61.json
+[2026-03-31 22:27:09]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 24326.53it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:16]   entity_linker 完了
+[2026-03-31 22:27:16]   neo4j_loader 開始
+nodes=11 relations=10
+[2026-03-31 22:27:16]   neo4j_loader 完了
+[2026-03-31 22:27:16] --- [8/30] gq-20260331125930-53ee4c74.json
+[2026-03-31 22:27:16]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 23520.25it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:23]   entity_linker 完了
+[2026-03-31 22:27:23]   neo4j_loader 開始
+nodes=12 relations=11
+[2026-03-31 22:27:24]   neo4j_loader 完了
+[2026-03-31 22:27:24] --- [9/30] gq-20260331125717-bd1ae5bc.json
+[2026-03-31 22:27:24]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 24302.01it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:31]   entity_linker 完了
+[2026-03-31 22:27:31]   neo4j_loader 開始
+nodes=19 relations=18
+[2026-03-31 22:27:31]   neo4j_loader 完了
+[2026-03-31 22:27:31] --- [10/30] gq-20260331125309-df6acaab.json
+[2026-03-31 22:27:31]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 27752.40it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:38]   entity_linker 完了
+[2026-03-31 22:27:38]   neo4j_loader 開始
+nodes=24 relations=23
+[2026-03-31 22:27:39]   neo4j_loader 完了
+[2026-03-31 22:27:39] --- [11/30] gq-20260331124756-21df7e32.json
+[2026-03-31 22:27:39]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 23172.95it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:46]   entity_linker 完了
+[2026-03-31 22:27:46]   neo4j_loader 開始
+nodes=18 relations=17
+[2026-03-31 22:27:46]   neo4j_loader 完了
+[2026-03-31 22:27:46] --- [12/30] gq-20260331124421-4d8e0dcf.json
+[2026-03-31 22:27:46]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25801.56it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:27:53]   entity_linker 完了
+[2026-03-31 22:27:53]   neo4j_loader 開始
+nodes=13 relations=12
+[2026-03-31 22:27:53]   neo4j_loader 完了
+[2026-03-31 22:27:53] --- [13/30] gq-20260331124225-404ad6ce.json
+[2026-03-31 22:27:53]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 23646.75it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:00]   entity_linker 完了
+[2026-03-31 22:28:00]   neo4j_loader 開始
+nodes=12 relations=11
+[2026-03-31 22:28:01]   neo4j_loader 完了
+[2026-03-31 22:28:01] --- [14/30] gq-20260331124224-90308c16.json
+[2026-03-31 22:28:01]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25528.84it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:08]   entity_linker 完了
+[2026-03-31 22:28:08]   neo4j_loader 開始
+nodes=16 relations=15
+[2026-03-31 22:28:08]   neo4j_loader 完了
+[2026-03-31 22:28:08] --- [15/30] gq-20260331123940-de92d78b.json
+[2026-03-31 22:28:08]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 24740.12it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:18]   entity_linker 完了
+[2026-03-31 22:28:18]   neo4j_loader 開始
+nodes=49 relations=105
+[2026-03-31 22:28:18]   neo4j_loader 完了
+[2026-03-31 22:28:19] --- [16/30] gq-20260331123638-aebc3da0.json
+[2026-03-31 22:28:19]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25285.98it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:25]   entity_linker 完了
+[2026-03-31 22:28:25]   neo4j_loader 開始
+nodes=43 relations=42
+[2026-03-31 22:28:26]   neo4j_loader 完了
+[2026-03-31 22:28:26] --- [17/30] gq-20260331122943-13fdf8c4.json
+[2026-03-31 22:28:26]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 39886.49it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:33]   entity_linker 完了
+[2026-03-31 22:28:33]   neo4j_loader 開始
+nodes=15 relations=14
+[2026-03-31 22:28:33]   neo4j_loader 完了
+[2026-03-31 22:28:33] --- [18/30] gq-20260331122611-353d91d1.json
+[2026-03-31 22:28:33]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25189.66it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:40]   entity_linker 完了
+[2026-03-31 22:28:40]   neo4j_loader 開始
+nodes=25 relations=24
+[2026-03-31 22:28:41]   neo4j_loader 完了
+[2026-03-31 22:28:41] --- [19/30] gq-20260331122108-cb00bcdd.json
+[2026-03-31 22:28:41]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 26694.87it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:48]   entity_linker 完了
+[2026-03-31 22:28:48]   neo4j_loader 開始
+nodes=28 relations=27
+[2026-03-31 22:28:48]   neo4j_loader 完了
+[2026-03-31 22:28:48] --- [20/30] gq-20260331121553-f829525b.json
+[2026-03-31 22:28:48]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25832.45it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:28:55]   entity_linker 完了
+[2026-03-31 22:28:55]   neo4j_loader 開始
+nodes=22 relations=21
+[2026-03-31 22:28:56]   neo4j_loader 完了
+[2026-03-31 22:28:56] --- [21/30] gq-20260331121236-fe8a52ed.json
+[2026-03-31 22:28:56]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 26915.69it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:03]   entity_linker 完了
+[2026-03-31 22:29:03]   neo4j_loader 開始
+nodes=12 relations=11
+[2026-03-31 22:29:03]   neo4j_loader 完了
+[2026-03-31 22:29:03] --- [22/30] gq-20260331121031-1819214e.json
+[2026-03-31 22:29:03]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 27217.21it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:10]   entity_linker 完了
+[2026-03-31 22:29:10]   neo4j_loader 開始
+nodes=23 relations=22
+[2026-03-31 22:29:11]   neo4j_loader 完了
+[2026-03-31 22:29:11] --- [23/30] gq-20260331120315-52313ec3.json
+[2026-03-31 22:29:11]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25293.00it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:18]   entity_linker 完了
+[2026-03-31 22:29:18]   neo4j_loader 開始
+nodes=20 relations=19
+[2026-03-31 22:29:19]   neo4j_loader 完了
+[2026-03-31 22:29:19] --- [24/30] gq-20260331120314-bdd1ab3e.json
+[2026-03-31 22:29:19]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25776.01it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:26]   entity_linker 完了
+[2026-03-31 22:29:26]   neo4j_loader 開始
+nodes=27 relations=27
+[2026-03-31 22:29:26]   neo4j_loader 完了
+[2026-03-31 22:29:26] --- [25/30] gq-20260331115629-5f558b42.json
+[2026-03-31 22:29:26]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25154.12it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:33]   entity_linker 完了
+[2026-03-31 22:29:33]   neo4j_loader 開始
+nodes=23 relations=22
+[2026-03-31 22:29:34]   neo4j_loader 完了
+[2026-03-31 22:29:34] --- [26/30] gq-20260331115238-d333f18d.json
+[2026-03-31 22:29:34]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 29429.75it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:41]   entity_linker 完了
+[2026-03-31 22:29:41]   neo4j_loader 開始
+nodes=22 relations=21
+[2026-03-31 22:29:41]   neo4j_loader 完了
+[2026-03-31 22:29:41] --- [27/30] gq-20260331114855-263fc84f.json
+[2026-03-31 22:29:41]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25829.19it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:48]   entity_linker 完了
+[2026-03-31 22:29:48]   neo4j_loader 開始
+nodes=44 relations=43
+[2026-03-31 22:29:49]   neo4j_loader 完了
+[2026-03-31 22:29:49] --- [28/30] gq-20260331114128-2adfc079.json
+[2026-03-31 22:29:49]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 23959.75it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:29:56]   entity_linker 完了
+[2026-03-31 22:29:56]   neo4j_loader 開始
+nodes=27 relations=26
+[2026-03-31 22:29:56]   neo4j_loader 完了
+[2026-03-31 22:29:56] --- [29/30] gq-20260331113640-8d27285e.json
+[2026-03-31 22:29:56]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 26828.51it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:30:03]   entity_linker 完了
+[2026-03-31 22:30:03]   neo4j_loader 開始
+nodes=19 relations=18
+[2026-03-31 22:30:03]   neo4j_loader 完了
+[2026-03-31 22:30:03] --- [30/30] gq-20260331113309-fadfa175.json
+[2026-03-31 22:30:03]   entity_linker 開始
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[[33m[1mwarning  [0m] [1mWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.[0m [[0m[1m[34mhuggingface_hub.utils._http[0m][0m
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 25320.34it/s]
+[1mXLMRobertaModel LOAD REPORT[0m from: intfloat/multilingual-e5-large
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+[2026-03-31 22:30:10]   entity_linker 完了
+[2026-03-31 22:30:10]   neo4j_loader 開始
+nodes=12 relations=11
+[2026-03-31 22:30:11]   neo4j_loader 完了
+[2026-03-31 22:30:11] === 完了: 成功=30 失敗=0 / 全30件 ===
+[2026-03-31 22:30:11] ログ: logs/isat-phase4-20260331-222623.log
