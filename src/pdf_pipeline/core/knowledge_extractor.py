@@ -36,6 +36,40 @@ if TYPE_CHECKING:
 
 logger = get_logger(__name__, module="knowledge_extractor")
 
+
+def _parse_json_robust(raw: str) -> dict:
+    """Parse JSON with fallback for trailing data.
+
+    LLM outputs sometimes contain extra text after the JSON object.
+    On ``json.JSONDecodeError`` with "Extra data", find the first
+    complete top-level ``{...}`` object by brace-depth counting.
+    """
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError as first_err:
+        if "Extra data" not in str(first_err):
+            raise
+        # Find end of first complete JSON object
+        depth = 0
+        end_pos = 0
+        for i, ch in enumerate(raw):
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    end_pos = i + 1
+                    break
+        if end_pos > 0:
+            logger.debug(
+                "Trimmed trailing data from JSON output",
+                original_length=len(raw),
+                trimmed_length=end_pos,
+            )
+            return json.loads(raw[:end_pos])
+        raise
+
+
 # ---------------------------------------------------------------------------
 # Extraction prompt
 # ---------------------------------------------------------------------------
@@ -301,9 +335,8 @@ class KnowledgeExtractor:
             )
 
         try:
-            prompt = _EXTRACTION_PROMPT + content
-            raw_json = self.provider_chain.extract_knowledge(prompt)
-            parsed = json.loads(raw_json)
+            raw_json = self.provider_chain.extract_knowledge(content)
+            parsed = _parse_json_robust(raw_json)
 
             # Ensure chunk_index and section_title are set
             parsed["chunk_index"] = chunk_index

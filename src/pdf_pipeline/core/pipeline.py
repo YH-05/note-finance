@@ -524,16 +524,14 @@ class PdfPipeline:
 
         ``issuer`` is resolved through a two-step LLM pipeline:
 
-        1. **PDF Vision** (primary): calls
-           :meth:`~pdf_pipeline.services.gemini_provider.GeminiCLIProvider.extract_issuer`
-           on the underlying LLM provider if it supports the method.  Gemini reads
-           the PDF cover page directly and returns the publishing organisation name.
-        2. **Report body text** (fallback): if the Vision call returns ``None``
-           (Gemini replied ``"unknown"`` or failed), the first chunk's content is
-           sent to
-           :meth:`~pdf_pipeline.services.gemini_provider.GeminiCLIProvider.extract_issuer_from_text`.
-           This covers PDFs where the cover page is ambiguous but the header/body
-           clearly identifies the issuer.
+        1. **PDF Vision** (primary): calls ``extract_issuer`` on the
+           underlying LLM provider. Reads the PDF cover page directly
+           and returns the publishing organisation name.
+        2. **Report body text** (fallback): if the primary call returns
+           ``None``, the first chunk's content is sent to
+           ``extract_issuer_from_text``. This covers PDFs where the
+           cover page is ambiguous but the header/body clearly identifies
+           the issuer.
 
         No filename-based heuristics are used.
 

@@ -141,7 +141,7 @@ class TableProvider(Protocol):
 class LLMProvider(Protocol):
     """Runtime-checkable Protocol for LLM provider implementations.
 
-    All concrete providers (GeminiCLIProvider, ClaudeCodeProvider, etc.)
+    All concrete providers (ClaudeCodeProvider, etc.)
     must implement each of these four methods to satisfy this Protocol.
 
     The ``@runtime_checkable`` decorator allows ``isinstance()`` checks
