@@ -10,7 +10,7 @@ date modified: 2026-04-01 15:04
 
 ---
 
-## 1. Executive Summary
+# 1. Executive Summary
 
 Telkom Indonesia（ #TLKM_IJ ）はインドネシア最大の通信持株会社。政府（Danantara）が52.1%を保有する国有企業。FY2024は売上横ばい・利益微減の「停滞期」だが、足元では**3つの大型コーポレートアクション**が進行中であり、その進捗確認がIRミーティングの主眼となる。
 
@@ -21,6 +21,11 @@ Telkom Indonesia（ #TLKM_IJ ）はインドネシア最大の通信持株会社
 | 純利益            | IDR 23.6T (-3.7%)        | IDR 11.0T                |
 | Telkomsel ARPU | IDR 43,400               | IDR 43,400 (3Q25)        |
 | 加入者数           | 159.4M                   | 157.6M                   |
+
+## CEO 
+- Dian Siswarini #Dian_Siswarini
+
+
 
 ![[TLKM Shareholder composition and ownership summary.png]]
 

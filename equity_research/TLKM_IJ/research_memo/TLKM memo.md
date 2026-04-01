@@ -54,7 +54,16 @@ date modified: 2026-04-01 15:04
 - 光ファイバー資産を #Infranexia という子会社に分離。これにより、他社へのネットワーク共有を通じた収益化と、事業の透明性向上が期待される
 - 
 
-## 
+## Easing Mobile Competition (2026)
+- 通信市場がTLKM IJ, ISAT IJ, EXCL IJの3社体制に集約されたことで、業界全体での価格競争が落ち着き、適正な価格設定が可能になっている。
+## 新体制による顧客維持への注力
+- 新CEO Dian Siswarini #Dian_Siswarini により、料金体系をシンプルにし、既存顧客をつなぎとめる戦略にシフトしている
+
+## Macro Economic Conditionの好転
+- 2026年以降、インドネシア国内の家計支出が上向くことが見込まれており、定額制プランの普及などを後押し。
+
+## Cost Management
+- 業務効率化を推し進めることで、OPMが29%の高い水準で安定するとの予測。
 
 # Risk
 ## Investability warnings
