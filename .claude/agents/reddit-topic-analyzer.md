@@ -158,7 +158,7 @@ if not content or len(content.strip()) < 100:
 ### ステップ 6: Web検索で補足調査（relevance_score >= 0.7 のみ）
 
 参照: `.claude/skills/web-search/SKILL.md`（ツール選択基準）
-日本語クエリは Gemini Search、英語クエリは Tavily MCP が推奨。
+英語クエリは Tavily MCP、日本語クエリも Tavily MCP または WebSearch が推奨。
 
 **前提条件**: ステップ 5 で算出した `relevance_score` が 0.7 未満の場合は、このステップおよびステップ 7 をスキップして次のトピックの処理へ進む:
 
@@ -172,9 +172,9 @@ relevance_score >= 0.7 のトピックに対して、投稿タイトルを日本
 
 ```
 検索クエリ例:
-  - "{投稿タイトルの日本語訳} 2026"      → Gemini Search（日本語）
-  - "{企業名 or 銘柄名} 最新動向"         → Gemini Search（日本語）
-  - "{議論テーマ} 日本 投資家"            → Gemini Search（日本語）
+  - "{投稿タイトルの日本語訳} 2026"      → Tavily MCP または WebSearch
+  - "{企業名 or 銘柄名} 最新動向"         → Tavily MCP または WebSearch
+  - "{議論テーマ} 日本 投資家"            → Tavily MCP または WebSearch
 ```
 
 関連情報が見つからない場合はスキップして継続。

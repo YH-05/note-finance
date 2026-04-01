@@ -113,7 +113,7 @@ medium_confidence_patterns:
 参照: `.claude/skills/web-search/SKILL.md`（ツール選択基準）
 
 最新バージョン情報、breaking changes、deprecation の確認。
-検索ツール（Tavily MCP / Gemini Search 等）は web-search スキルの基準に従って選択:
+検索ツール（Tavily MCP / WebSearch 等）は web-search スキルの基準に従って選択:
 
 ```yaml
 検索クエリ例:

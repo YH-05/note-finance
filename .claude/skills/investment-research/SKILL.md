@@ -113,6 +113,21 @@ Phase 0 で特定されたギャップに基づき、検索クエリの優先順
 4. **SEC Edgar MCP** (`mcp__sec-edgar-mcp__*`): 個別銘柄テーマ時にSEC filingを参照
    - ToolSearch でロード、利用不可時はスキップ
 
+### Phase 1.5: 検索生データの保存（必須）
+
+**各検索ツール呼び出しの直後に、レスポンス全体を生データファイルに追記保存すること。**
+
+保存先: `.tmp/raw-search/{session_id}.jsonl`（JSON Lines形式、1検索 = 1行）
+
+```json
+{"query": "{検索クエリ}", "tool": "tavily_search", "timestamp": "{ISO8601}", "response": {レスポンスオブジェクト全体}}
+```
+
+- `session_id` は Phase 1 開始時に `{theme_slug}_{YYYYMMDD-HHMM}` で決定し、セッション全体で統一
+- Tavily・RSS・Reddit・SEC Edgar すべての検索結果を対象とする
+- KG照会（Neo4j）はスキップ対象
+- ファイルが存在しない場合は新規作成、存在する場合は追記（append）
+
 ### Phase 2: ファクト整理
 
 参照: `references/source-reliability.md`（ソース信頼度）

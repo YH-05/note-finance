@@ -243,7 +243,7 @@ MCPSearch: query="tavily", max_results=3
 成功 → Tavily MCP を使用
 
 ↓ 見つからない場合
-Gemini Search にフォールバック → それも失敗 → 警告表示して続行
+WebSearch にフォールバック → それも失敗 → 警告表示して続行
 ```
 
 #### GitHub CLI 確認
@@ -330,7 +330,7 @@ uv run python scripts/market_report_data.py --output "${OUTPUT_DIR}/data"
 参照: `.claude/skills/web-search/SKILL.md`（選択フローチャート・フォールバック戦略）
 
 1. **RSS MCP**: `mcp__rss__rss_search_items`（33フィード、最速）
-2. **Web検索**: Tavily MCP / Gemini Search（web-search スキルの基準に従って選択）
+2. **Web検索**: Tavily MCP / WebSearch（web-search スキルの基準に従って選択）
 3. **Fetch**: `mcp__fetch__fetch`（特定URL取得）
 
 ### 3.2 カテゴリ別ニュース検索

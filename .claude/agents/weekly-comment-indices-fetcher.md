@@ -110,7 +110,7 @@ Phase 4: 出力
 本エージェントは英語金融ニュースが対象のため、以下の優先順位で検索:
 1. **RSS MCP** (`mcp__rss__rss_search_items`) - 登録済みフィード検索（最速）
 2. **Tavily MCP** (`mcp__tavily__tavily_search`) - 構造化されたWeb検索結果
-3. **Gemini Search** - フォールバック（`gemini --prompt "WebSearch: ..."` via Bash）
+3. **WebSearch** - フォールバック（ビルトイン検索）
 
 ## 実行例
 
@@ -142,7 +142,7 @@ VTV: +1.2%
 
 ```python
 # RSS検索失敗時 → Tavily MCP にフォールバック
-# Tavily検索失敗時 → Gemini Search にフォールバック
+# Tavily検索失敗時 → WebSearch（ビルトイン）にフォールバック
 # 全検索失敗時
 if not search_results:
     return {

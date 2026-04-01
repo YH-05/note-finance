@@ -194,11 +194,9 @@ gemini --prompt "WebSearch: Federal Reserve rate decision March 2026"
 Phase 3: ニュース検索
 ├── 1st: RSS MCP（登録済み33フィード、最速）
 ├── 2nd: Tavily MCP（Web全体検索、構造化結果）
-├── 3rd: Gemini Search（バックアップ）
+├── 3rd: WebSearch（ビルトイン、フォールバック）
 └── 4th: mcp__fetch__fetch（特定URL取得）
 ```
-
-**推奨改善**: Phase 3 の日本語ニュース部分を Gemini Search に切り替え
 
 ### パターン2: 投資リサーチ（`investment-research`）
 

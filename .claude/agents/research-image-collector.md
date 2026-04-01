@@ -104,7 +104,7 @@ meta.yaml からキーワードを抽出し、画像検索クエリを生成：
 
 参照: `.claude/skills/web-search/SKILL.md`（ツール選択基準）
 
-Web検索（Tavily MCP / Gemini Search 等）と WebFetch を使用：
+Web検索（Tavily MCP / WebSearch）と WebFetch を使用：
 
 ```
 # Unsplash 検索
