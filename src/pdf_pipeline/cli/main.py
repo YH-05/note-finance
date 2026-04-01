@@ -104,7 +104,6 @@ def _build_pipeline_for_dir(
     from pdf_pipeline.core.table_detector import TableDetector
     from pdf_pipeline.core.table_reconstructor import TableReconstructor
     from pdf_pipeline.services.claude_provider import ClaudeCodeProvider
-    from pdf_pipeline.services.gemini_provider import GeminiCLIProvider
     from pdf_pipeline.services.provider_chain import ProviderChain
     from pdf_pipeline.services.state_manager import StateManager
 
@@ -124,8 +123,7 @@ def _build_pipeline_for_dir(
 
     state_manager = StateManager(output_dir / "state.json")
 
-    # Build provider chain with fallback: Gemini → Claude
-    provider_chain = ProviderChain([GeminiCLIProvider(), ClaudeCodeProvider()])
+    provider_chain = ProviderChain([ClaudeCodeProvider()])
 
     return PdfPipeline(
         config=config,

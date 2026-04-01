@@ -11,9 +11,8 @@ ProviderChain
 
 Examples
 --------
->>> from pdf_pipeline.services.gemini_provider import GeminiCLIProvider
 >>> from pdf_pipeline.services.claude_provider import ClaudeCodeProvider
->>> chain = ProviderChain([GeminiCLIProvider(), ClaudeCodeProvider()])
+>>> chain = ProviderChain([ClaudeCodeProvider()])
 >>> isinstance(chain.is_available(), bool)
 True
 """

@@ -50,7 +50,7 @@ class MarkdownConverter:
     ----------
     provider : MarkdownProvider
         An LLM provider that implements the ``MarkdownProvider`` Protocol,
-        e.g. ``ProviderChain``, ``GeminiCLIProvider``, or a mock.
+        e.g. ``ProviderChain``, ``ClaudeCodeProvider``, or a mock.
         The full ``LLMProvider`` Protocol also satisfies this type.
 
     Examples

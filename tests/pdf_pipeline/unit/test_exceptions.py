@@ -93,8 +93,8 @@ class TestLLMProviderError:
         assert err.provider is None
 
     def test_正常系_プロバイダ名を設定できる(self) -> None:
-        err = LLMProviderError("API quota exceeded", provider="GeminiCLIProvider")
-        assert err.provider == "GeminiCLIProvider"
+        err = LLMProviderError("API quota exceeded", provider="ClaudeCodeProvider")
+        assert err.provider == "ClaudeCodeProvider"
 
     def test_正常系_PdfPipelineErrorとしてcatchできる(self) -> None:
         with pytest.raises(PdfPipelineError):

@@ -143,10 +143,10 @@ class LLMProviderError(PdfPipelineError):
     Examples
     --------
     >>> try:
-    ...     raise LLMProviderError("Gemini CLI failed", provider="GeminiCLIProvider")
+    ...     raise LLMProviderError("SDK query failed", provider="ClaudeCodeProvider")
     ... except LLMProviderError as e:
     ...     print(f"Provider: {e.provider}, Error: {e}")
-    Provider: GeminiCLIProvider, Error: Gemini CLI failed
+    Provider: ClaudeCodeProvider, Error: SDK query failed
     """
 
     def __init__(self, message: str, *, provider: str | None = None) -> None:
