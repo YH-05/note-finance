@@ -56,7 +56,7 @@ logger = get_logger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-DEFAULT_NEO4J_URI = "bolt://localhost:7688"
+DEFAULT_NEO4J_URI = "bolt://localhost:7687"
 DEFAULT_NEO4J_USER = "neo4j"
 MAX_SUMMARY_LENGTH = 500
 

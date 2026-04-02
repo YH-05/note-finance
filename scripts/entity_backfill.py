@@ -33,6 +33,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import sys
 from dataclasses import dataclass, field
 from typing import Any
@@ -53,7 +54,7 @@ logger = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-NEO4J_URI = "bolt://localhost:7689"
+NEO4J_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "gomasuke"
 

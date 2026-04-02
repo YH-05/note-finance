@@ -63,7 +63,7 @@ except ImportError:
 # ---------------------------------------------------------------------------
 
 # デフォルト接続情報（環境変数でオーバーライド可能）
-_DEFAULT_NEO4J_URI = "bolt://localhost:7688"
+_DEFAULT_NEO4J_URI = "bolt://localhost:7687"
 _DEFAULT_NEO4J_USER = "neo4j"
 
 # 正規 entity_type → PascalCase マルチラベルへのマッピング

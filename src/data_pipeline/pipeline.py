@@ -318,7 +318,7 @@ def _run_research_layers(  # noqa: PLR0915
 
             from scripts.entity_linker import Neo4jClient, resolve_all
 
-            uri = os.environ.get("NEO4J_RESEARCH_URI", "bolt://localhost:7688")
+            uri = os.environ.get("NEO4J_RESEARCH_URI", os.environ.get("NEO4J_URI", "bolt://localhost:7687"))
             user = os.environ.get("NEO4J_RESEARCH_USER", "neo4j")
             password = os.environ.get("NEO4J_RESEARCH_PASSWORD", "gomasuke")
             client = Neo4jClient(uri, user, password)
@@ -434,7 +434,7 @@ def _run_creator_layers(  # noqa: PLR0915
 
             from scripts.entity_linker import Neo4jClient, resolve_all
 
-            uri = os.environ.get("NEO4J_CREATOR_URI", "bolt://localhost:7689")
+            uri = os.environ.get("NEO4J_CREATOR_URI", os.environ.get("NEO4J_URI", "bolt://localhost:7687"))
             user = os.environ.get("NEO4J_CREATOR_USER", "neo4j")
             password = os.environ.get("NEO4J_CREATOR_PASSWORD", "gomasuke")
             client = Neo4jClient(uri, user, password)

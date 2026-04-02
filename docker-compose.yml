@@ -40,80 +40,34 @@ services:
 
     working_dir: /app
 
-  neo4j-note:
-    image: neo4j:5-community
-    container_name: note-neo4j
+  # Neo4j Enterprise - 全プロジェクト共有インスタンス
+  # データベース: note, research, creator, quants
+  neo4j:
+    image: neo4j:5.26-enterprise
+    container_name: neo4j-enterprise
     ports:
-      - "7474:7474"  # Browser UI
-      - "7687:7687"  # Bolt protocol
+      - "7474:7474"   # Browser UI
+      - "7687:7687"   # Bolt protocol
     volumes:
-      - note_neo4j-data:/data
-      - note_neo4j-logs:/logs
+      - /Volumes/NeoData/enterprise/data:/data
+      - /Volumes/NeoData/enterprise/logs:/logs
+      - /Volumes/NeoData/enterprise/plugins:/plugins
+      - /Volumes/NeoData/enterprise/import:/var/lib/neo4j/import
     environment:
       - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-gomasuke}
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+      # 複数データベース有効化
+      - NEO4J_initial_dbms_default__database=neo4j
+      - NEO4J_dbms_max__databases=10
+      # プラグイン
       - NEO4J_PLUGINS=["apoc"]
       - NEO4J_apoc_export_file_enabled=true
       - NEO4J_apoc_import_file_enabled=true
       - NEO4J_apoc_import_file_use__neo4j__config=true
-      - NEO4J_server_memory_heap_initial__size=256m
-      - NEO4J_server_memory_heap_max__size=512m
-      - NEO4J_server_memory_pagecache_size=256m
-    restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
-      interval: 15s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
-
-  neo4j-research:
-    image: neo4j:5-community
-    container_name: research-neo4j
-    ports:
-      - "7475:7474"  # Browser UI (+1 で既存と分離)
-      - "7688:7687"  # Bolt protocol (+1 で既存と分離)
-    volumes:
-      - /Volumes/NeoData/neo4j-research/data:/data
-      - /Volumes/NeoData/neo4j-research/logs:/logs
-      - /Volumes/NeoData/neo4j-research/plugins:/plugins
-      - /Volumes/NeoData/neo4j-research/import:/var/lib/neo4j/import
-    environment:
-      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-gomasuke}
-      - NEO4J_PLUGINS=["apoc"]
-      - NEO4J_apoc_export_file_enabled=true
-      - NEO4J_apoc_import_file_enabled=true
-      - NEO4J_apoc_import_file_use__neo4j__config=true
-      - NEO4J_server_memory_heap_initial__size=256m
-      - NEO4J_server_memory_heap_max__size=512m
-      - NEO4J_server_memory_pagecache_size=256m
-    restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
-      interval: 15s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
-
-  neo4j-creator:
-    image: neo4j:5-community
-    container_name: creator-neo4j
-    ports:
-      - "7476:7474"  # Browser UI (+2 で既存と分離)
-      - "7689:7687"  # Bolt protocol (+2 で既存と分離)
-    volumes:
-      - /Volumes/NeoData/neo4j-creator/data:/data
-      - /Volumes/NeoData/neo4j-creator/logs:/logs
-      - /Volumes/NeoData/neo4j-creator/plugins:/plugins
-      - /Volumes/NeoData/neo4j-creator/import:/var/lib/neo4j/import
-    environment:
-      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-gomasuke}
-      - NEO4J_PLUGINS=["apoc"]
-      - NEO4J_apoc_export_file_enabled=true
-      - NEO4J_apoc_import_file_enabled=true
-      - NEO4J_apoc_import_file_use__neo4j__config=true
-      - NEO4J_server_memory_heap_initial__size=256m
-      - NEO4J_server_memory_heap_max__size=512m
-      - NEO4J_server_memory_pagecache_size=256m
+      # メモリ設定（4DB統合: Community 3台分 + quants）
+      - NEO4J_server_memory_heap_initial__size=512m
+      - NEO4J_server_memory_heap_max__size=2g
+      - NEO4J_server_memory_pagecache_size=1g
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
@@ -125,5 +79,3 @@ services:
 volumes:
   claude-config:  # Claude Code 設定の永続化
   venv:           # Python 仮想環境の隔離
-  note_neo4j-data:  # note-neo4j データ永続化
-  note_neo4j-logs:  # note-neo4j ログ永続化

@@ -544,7 +544,7 @@ class Neo4jClient:
 
     def __init__(
         self,
-        uri: str = "bolt://localhost:7689",
+        uri: str = os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
         user: str = "neo4j",
         password: str = "",
     ) -> None:

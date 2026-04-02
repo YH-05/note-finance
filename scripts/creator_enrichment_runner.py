@@ -12,6 +12,7 @@ Usage
 from __future__ import annotations
 
 import logging
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -47,7 +48,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Neo4j 接続定数
 # ---------------------------------------------------------------------------
-_CREATOR_NEO4J_URI = "bolt://localhost:7689"
+_CREATOR_NEO4J_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 _CREATOR_NEO4J_USER = "neo4j"
 _CREATOR_NEO4J_PASSWORD = "gomasuke"
 

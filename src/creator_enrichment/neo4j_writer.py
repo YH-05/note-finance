@@ -18,6 +18,7 @@ Usage
 from __future__ import annotations
 
 import logging
+import os
 from typing import Any, ClassVar
 
 from .types import IngestResult
@@ -29,7 +30,7 @@ class CreatorGraphWriter:
     """creator-neo4j への UNWIND バッチ MERGE を実行するライター.
 
     10 ノード種を依存関係順で MERGE した後、11 リレーション種を MERGE する。
-    ドライバはダックタイプで ``driver.session()`` がコンテキストマネージャを返し、
+    ドライバはダックタイプで ``driver.session(database=...)`` がコンテキストマネージャを返し、
     セッションに ``run(query, **params)`` メソッドがあればよい。
 
     Parameters
@@ -41,6 +42,8 @@ class CreatorGraphWriter:
     ----------
     _driver : Any
         保持するドライバインスタンス
+    _database : str
+        接続先データベース名（Enterprise multi-database対応）
     """
 
     # ------------------------------------------------------------------
@@ -116,8 +119,9 @@ class CreatorGraphWriter:
         for _, key, _ in _NODE_ORDER  # type: ignore[misc]
     )
 
-    def __init__(self, driver: Any) -> None:
+    def __init__(self, driver: Any, *, database: str | None = None) -> None:
         self._driver = driver
+        self._database = database or os.environ.get("NEO4J_CREATOR_DB", "creator")
         logger.info("CreatorGraphWriter initialized")
 
     # ------------------------------------------------------------------
@@ -157,7 +161,7 @@ class CreatorGraphWriter:
             logger.info("Empty queue_doc, skipping ingest")
             return IngestResult(nodes_created=0, relations_created=0)
 
-        with self._driver.session() as session:
+        with self._driver.session(database=self._database) as session:
             # Phase 1: ノード MERGE（依存関係順）
             logger.info(
                 "Starting node MERGE phase: cycle_id=%s",
@@ -244,7 +248,7 @@ class CreatorGraphWriter:
         """
         logger.info("Validating ingest: cycle_id=%s", cycle_id)
 
-        with self._driver.session() as session:
+        with self._driver.session(database=self._database) as session:
             records = session.run(query, cycle_id=cycle_id)
             result: dict[str, int] = {}
             for record in records:

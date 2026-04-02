@@ -27,7 +27,7 @@ from authority_classifier import classify_authority
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
-RESEARCH_URI = "bolt://localhost:7688"
+RESEARCH_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "gomasuke")
 AUTH = ("neo4j", NEO4J_PASSWORD)
 

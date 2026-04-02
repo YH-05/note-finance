@@ -44,9 +44,13 @@ def _is_safe_identifier(name: str) -> bool:
     return bool(_SAFE_IDENTIFIER_RE.match(name))
 
 
-_DEFAULT_URI = "bolt://localhost:7688"
+_DEFAULT_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 _DEFAULT_USER = "neo4j"
 _DEFAULT_PASSWORD = "gomasuke"  # nosec B105 - ローカル開発用デフォルト（本番環境では NEO4J_RESEARCH_PASSWORD/NEO4J_CREATOR_PASSWORD を必ず設定すること）
+
+# Enterprise multi-database: database名で分離
+_RESEARCH_DB = os.environ.get("NEO4J_RESEARCH_DB", "research")
+_CREATOR_DB = os.environ.get("NEO4J_CREATOR_DB", "creator")
 
 # ノードラベルとキープロパティのマッピング
 _NODE_KEY_MAP = {
@@ -144,7 +148,7 @@ def _resolve_rel_endpoints(queue_data: dict[str, Any]) -> dict[str, tuple]:
 
 
 def _get_driver() -> Driver:
-    """Neo4j ドライバーを取得する."""
+    """research database 用ドライバーを取得する."""
     uri = os.environ.get("NEO4J_RESEARCH_URI", _DEFAULT_URI)
     user = os.environ.get("NEO4J_RESEARCH_USER", _DEFAULT_USER)
     password = os.environ.get("NEO4J_RESEARCH_PASSWORD", _DEFAULT_PASSWORD)
@@ -160,7 +164,7 @@ def _check_apoc_available(driver) -> bool:
         APOC apoc.merge.node が利用可能なら True。
     """
     try:
-        with driver.session() as session:
+        with driver.session(database=_RESEARCH_DB) as session:
             result = session.run(
                 "CALL apoc.help('merge.node') YIELD name RETURN name LIMIT 1"
             )
@@ -510,7 +514,7 @@ def _ingest_nodes(
         logger.info("Ingesting %d %s nodes", len(items), label)
         on_create_field = _NODE_ID_ON_CREATE.get(label)
         if driver:
-            with driver.session() as session:
+            with driver.session(database=_RESEARCH_DB) as session:
                 session.execute_write(
                     _batch_merge_nodes_tx, label, key_prop, items, on_create_field
                 )
@@ -540,7 +544,7 @@ def _ingest_nodes(
             )
             continue
         if driver:
-            with driver.session() as session:
+            with driver.session(database=_RESEARCH_DB) as session:
                 session.execute_write(
                     _merge_node, label, key_prop, cnode.get("properties", cnode)
                 )
@@ -600,7 +604,7 @@ def _ingest_classification_rels(
             to_label = crel.get("to_label", "Classification")
             to_key = f"{to_label.lower()}_id"
         if from_id and to_id and driver:
-            with driver.session() as session:
+            with driver.session(database=_RESEARCH_DB) as session:
                 session.execute_write(
                     _merge_relation,
                     from_key,
@@ -652,7 +656,7 @@ def _ingest_rels(
         logger.info("Ingesting %d %s relations", len(rels), rel_section)
         section_created = 0
         if driver:
-            with driver.session() as session:
+            with driver.session(database=_RESEARCH_DB) as session:
                 # UNWIND バッチ: N+1 → 1クエリ/section
                 section_created = session.execute_write(
                     _batch_merge_rels_tx,
@@ -732,7 +736,7 @@ def apply_constraints_from_yaml(
 
     constraints_applied = 0
     indices_applied = 0
-    with driver.session() as session:
+    with driver.session(database=_RESEARCH_DB) as session:
         for constraint in constraints:
             label = constraint["label"]
             prop = constraint["property"]
@@ -855,7 +859,7 @@ def ingest_to_neo4j(
 # creator-neo4j 投入
 # ---------------------------------------------------------------------------
 
-_CREATOR_DEFAULT_URI = "bolt://localhost:7689"
+_CREATOR_DEFAULT_URI = _DEFAULT_URI  # Enterprise: 同一ポート、database名で分離
 
 # creator-2.0 のノードセクション名一覧（dry-run カウント用）
 _CREATOR_NODE_SECTIONS = [
@@ -892,7 +896,7 @@ _CREATOR_REL_SECTIONS = [
 
 
 def _get_creator_driver() -> Driver:
-    """creator-neo4j ドライバーを取得する."""
+    """creator database 用ドライバーを取得する."""
     uri = os.environ.get("NEO4J_CREATOR_URI", _CREATOR_DEFAULT_URI)
     user = os.environ.get("NEO4J_CREATOR_USER", _DEFAULT_USER)
     password = os.environ.get("NEO4J_CREATOR_PASSWORD", _DEFAULT_PASSWORD)

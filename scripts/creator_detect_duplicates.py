@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,7 +34,7 @@ from neo4j import GraphDatabase
 
 logger = logging.getLogger(__name__)
 
-BOLT_URI = "bolt://localhost:7689"
+BOLT_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "gomasuke"
 DEFAULT_ENTITY_THRESHOLD = 0.92

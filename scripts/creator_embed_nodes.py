@@ -22,13 +22,14 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 
 from neo4j import GraphDatabase
 
 logger = logging.getLogger(__name__)
 
-BOLT_URI = "bolt://localhost:7689"
+BOLT_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "gomasuke"
 BATCH_SIZE = 50

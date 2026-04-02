@@ -169,8 +169,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--neo4j-uri",
-        default="bolt://localhost:7688",
-        help="Neo4j 接続 URI (デフォルト: bolt://localhost:7688)",
+        default="bolt://localhost:7687",
+        help="Neo4j 接続 URI (デフォルト: bolt://localhost:7687)",
     )
     parser.add_argument(
         "--neo4j-password",

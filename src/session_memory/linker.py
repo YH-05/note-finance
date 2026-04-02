@@ -19,6 +19,7 @@ Layer 4: e5-small embedding cosine 類似度 (> 0.8)
 
 from __future__ import annotations
 
+import os
 import re
 import unicodedata
 from dataclasses import dataclass, field
@@ -194,6 +195,7 @@ class NoteLinker:
         driver: Any,
         config: LinkerConfig | None = None,
         embedder: Any | None = None,
+        database: str | None = None,
     ) -> None:
         """NoteLinker を初期化する.
 
@@ -205,9 +207,12 @@ class NoteLinker:
             リンカー設定（None の場合はデフォルト値を使用）
         embedder : Any | None
             SentenceTransformer モデル（None の場合 Layer 4 スキップ）
+        database : str | None
+            接続先データベース名（Enterprise multi-database対応）
         """
         self._driver = driver
         self._config = config or LinkerConfig()
+        self._database = database or os.environ.get("NEO4J_NOTE_DB", "note")
         self._embedder = embedder
         logger.debug(
             "NoteLinker initialized",
@@ -674,7 +679,7 @@ class NoteLinker:
         def _run(tx: Any) -> list[dict[str, Any]]:
             return [dict(r) for r in tx.run(cypher, **params)]
 
-        with self._driver.session() as session:
+        with self._driver.session(database=self._database) as session:
             return session.execute_read(_run)
 
 

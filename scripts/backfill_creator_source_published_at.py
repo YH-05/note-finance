@@ -80,7 +80,7 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--neo4j-uri",
-        default="bolt://localhost:7689",
+        default="bolt://localhost:7687",
         help="creator-neo4j URI",
     )
     parser.add_argument(

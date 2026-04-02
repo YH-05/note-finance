@@ -30,7 +30,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("metric-master")
 
-URI = "bolt://localhost:7688"
+URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 USER = "neo4j"
 
 MASTER_PATH = Path("data/config/metric_master.json")

@@ -1,6 +1,10 @@
 """Neo4j 共有ユーティリティ。
 
 複数スクリプトで使用する Neo4j 接続ヘルパーを集約する。
+
+Enterprise multi-database 対応:
+  全インスタンスが bolt://localhost:7687 に統合され、
+  database パラメータで note/research/creator/quants を分離する。
 """
 
 from __future__ import annotations
@@ -25,9 +29,34 @@ except ImportError:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     logger = logging.getLogger(__name__)
 
+# Enterprise 共通デフォルト
+DEFAULT_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
+
+# インスタンス名 → database名 のマッピング
+INSTANCE_DB_MAP: dict[str, str] = {
+    "note": os.environ.get("NEO4J_NOTE_DB", "note"),
+    "research": os.environ.get("NEO4J_RESEARCH_DB", "research"),
+    "creator": os.environ.get("NEO4J_CREATOR_DB", "creator"),
+    "quants": os.environ.get("NEO4J_QUANTS_DB", "quants"),
+}
+
+
+def resolve_database(instance: str | None = None) -> str | None:
+    """インスタンス名から database 名を解決する。
+
+    Parameters
+    ----------
+    instance : str | None
+        インスタンス名（note/research/creator/quants）。
+        None の場合は None を返す（デフォルトDB使用）。
+    """
+    if instance is None:
+        return None
+    return INSTANCE_DB_MAP.get(instance, instance)
+
 
 def create_driver(
-    uri: str = "bolt://localhost:7688",
+    uri: str = DEFAULT_URI,
     user: str = "neo4j",
     password: str | None = None,
 ) -> Any:
@@ -36,7 +65,7 @@ def create_driver(
     Parameters
     ----------
     uri : str
-        Neo4j 接続 URI。デフォルトは ``bolt://localhost:7688``。
+        Neo4j 接続 URI。デフォルトは ``bolt://localhost:7687``。
     user : str
         Neo4j ユーザー名。
     password : str | None
