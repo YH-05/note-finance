@@ -13,7 +13,6 @@ from typing import Any
 from unittest.mock import patch
 
 import pytest
-
 from mappers.helpers import (
     _SOURCE_TYPE_NORMALIZATION,
     _build_wr_facts,
@@ -30,7 +29,6 @@ from mappers.helpers import (
     generate_topic_id,
 )
 
-
 # ---------------------------------------------------------------------------
 # generate_source_id / generate_fact_id / generate_entity_id / generate_topic_id
 # ---------------------------------------------------------------------------
@@ -42,7 +40,9 @@ class TestGenerateSourceId:
         assert generate_source_id(url) == generate_source_id(url)
 
     def test_正常系_異なるURLで異なるIDが生成される(self) -> None:
-        assert generate_source_id("https://a.com") != generate_source_id("https://b.com")
+        assert generate_source_id("https://a.com") != generate_source_id(
+            "https://b.com"
+        )
 
     def test_正常系_返り値は文字列(self) -> None:
         result = generate_source_id("https://example.com")
@@ -66,13 +66,19 @@ class TestGenerateFactId:
 
 class TestGenerateEntityId:
     def test_正常系_同じ名前とタイプで同じIDが生成される(self) -> None:
-        assert generate_entity_id("Apple", "company") == generate_entity_id("Apple", "company")
+        assert generate_entity_id("Apple", "company") == generate_entity_id(
+            "Apple", "company"
+        )
 
     def test_正常系_名前が異なれば異なるIDが生成される(self) -> None:
-        assert generate_entity_id("Apple", "company") != generate_entity_id("Google", "company")
+        assert generate_entity_id("Apple", "company") != generate_entity_id(
+            "Google", "company"
+        )
 
     def test_正常系_タイプが異なれば異なるIDが生成される(self) -> None:
-        assert generate_entity_id("USD", "currency") != generate_entity_id("USD", "instrument")
+        assert generate_entity_id("USD", "currency") != generate_entity_id(
+            "USD", "instrument"
+        )
 
     def test_正常系_返り値は文字列(self) -> None:
         result = generate_entity_id("TestEntity", "company")
@@ -82,10 +88,14 @@ class TestGenerateEntityId:
 
 class TestGenerateTopicId:
     def test_正常系_同じ名前とカテゴリで同じIDが生成される(self) -> None:
-        assert generate_topic_id("AI", "technology") == generate_topic_id("AI", "technology")
+        assert generate_topic_id("AI", "technology") == generate_topic_id(
+            "AI", "technology"
+        )
 
     def test_正常系_名前が異なれば異なるIDが生成される(self) -> None:
-        assert generate_topic_id("AI", "technology") != generate_topic_id("ML", "technology")
+        assert generate_topic_id("AI", "technology") != generate_topic_id(
+            "ML", "technology"
+        )
 
     def test_正常系_カテゴリが異なれば異なるIDが生成される(self) -> None:
         assert generate_topic_id("AI", "technology") != generate_topic_id("AI", "macro")
@@ -191,11 +201,18 @@ class TestNormalizeSourceType:
 
     def test_正常系_マッピング全エントリが期待する値に変換される(self) -> None:
         canonical_values = {
-            "analysis", "data", "web", "company_filing", "report", "academic"
+            "analysis",
+            "data",
+            "web",
+            "company_filing",
+            "report",
+            "academic",
         }
-        for raw, canonical in _SOURCE_TYPE_NORMALIZATION.items():
+        for raw, _canonical in _SOURCE_TYPE_NORMALIZATION.items():
             result = _normalize_source_type(raw)
-            assert result in canonical_values, f"{raw!r} -> {result!r} は canonical_values に含まれない"
+            assert result in canonical_values, (
+                f"{raw!r} -> {result!r} は canonical_values に含まれない"
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -272,14 +289,20 @@ class TestMakeSource:
             source = _make_source(url, source_type="annual_report")
         assert source["source_type"] == "company_filing"
 
-    def test_正常系_authority_levelが指定されていない場合はclassify_authorityで設定される(self) -> None:
+    def test_正常系_authority_levelが指定されていない場合はclassify_authorityで設定される(
+        self,
+    ) -> None:
         url = "https://sec.gov/filing"
-        with patch("mappers.helpers.classify_authority", return_value="official") as mock_cls:
+        with patch(
+            "mappers.helpers.classify_authority", return_value="official"
+        ) as mock_cls:
             source = _make_source(url)
         mock_cls.assert_called_once()
         assert source["authority_level"] == "official"
 
-    def test_正常系_authority_levelを明示指定した場合はclassify_authorityが呼ばれない(self) -> None:
+    def test_正常系_authority_levelを明示指定した場合はclassify_authorityが呼ばれない(
+        self,
+    ) -> None:
         url = "https://example.com"
         with patch("mappers.helpers.classify_authority") as mock_cls:
             source = _make_source(url, authority_level="analyst")
@@ -433,7 +456,7 @@ class TestBuildWrFacts:
         result = _build_wr_facts([], {}, [])
         assert isinstance(result, tuple)
         assert len(result) == 5
-        facts, entities, fact_rels, tagged_rels, entity_id_map = result
+        facts, entities, _fact_rels, _tagged_rels, _entity_id_map = result
         assert facts == []
         assert entities == []
 
@@ -459,9 +482,7 @@ class TestBuildWrFacts:
             {
                 "content": "Apple revenue hit record",
                 "source_url": url,
-                "about_entities": [
-                    {"name": "Apple", "entity_type": "company"}
-                ],
+                "about_entities": [{"name": "Apple", "entity_type": "company"}],
             }
         ]
         _, entities, fact_rels, _, _ = _build_wr_facts(raw_facts, url_map, [])
@@ -500,7 +521,9 @@ class TestBuildWrFacts:
     def test_正常系_STATES_FACTリレーションが生成される(self) -> None:
         url = "https://example.com"
         url_map = {url: generate_source_id(url)}
-        raw_facts = [{"content": "Fact content", "source_url": url, "about_entities": []}]
+        raw_facts = [
+            {"content": "Fact content", "source_url": url, "about_entities": []}
+        ]
         _, _, fact_rels, _, _ = _build_wr_facts(raw_facts, url_map, [])
         assert len(fact_rels["source_fact"]) == 1
         assert fact_rels["source_fact"][0]["type"] == "STATES_FACT"

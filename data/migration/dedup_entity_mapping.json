@@ -1,0 +1,748 @@
+{
+  "generated_at": "20260402",
+  "database": "research",
+  "dry_run": false,
+  "total_merged_groups": 37,
+  "total_deleted_nodes": 42,
+  "note": "同ラベル同名重複エンティティの名寄せマッピング（Issue #303 Wave2）。survivor_id を統合先ノードとして残し、deleted_ids のノードを削除した。",
+  "mappings": [
+    {
+      "labels": [
+        "Entity",
+        "Company"
+      ],
+      "name": "Sarana Menara Nusantara",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4791",
+      "survivor_rel_count": 91,
+      "survivor_props": {
+        "country": "Indonesia",
+        "ticker": "TOWR",
+        "entity_type": "company",
+        "entity_key": "sarana_menara_nusantara",
+        "aliases": [
+          "TOWR",
+          "SMN",
+          "PT Sarana Menara Nusantara Tbk"
+        ],
+        "updated_at": "2026-03-19T06:24:51.941000000+00:00",
+        "sub_type": "company",
+        "name": "Sarana Menara Nusantara",
+        "created_at": "2026-03-19T06:24:51.941000000+00:00",
+        "description": "Indonesia third-largest independent telecom tower company. Parent of Protelindo (tower operations) and iForte (fiber). Listed on IDX as TOWR. 35,825 towers and ~170,000km fiber as of 2Q25.",
+        "industry": "Telecom Infrastructure",
+        "entity_id": "d7c2b857-97f2-4bb3-9929-c64f90223873"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12752"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Country"
+      ],
+      "name": "China",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1160",
+      "survivor_rel_count": 96,
+      "survivor_props": {
+        "entity_type": "country",
+        "entity_key": "China::organization",
+        "enriched_at": "2026-03-09T08:46:57.643000000+00:00",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "country",
+        "name": "China",
+        "entity_id": "entity-china"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5297"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Country"
+      ],
+      "name": "Japan",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1169",
+      "survivor_rel_count": 29,
+      "survivor_props": {
+        "entity_type": "country",
+        "entity_key": "Japan::organization",
+        "enriched_at": "2026-03-09T08:46:57.643000000+00:00",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "country",
+        "name": "Japan",
+        "entity_id": "entity-japan"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5068"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Country"
+      ],
+      "name": "Singapore",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1166",
+      "survivor_rel_count": 100,
+      "survivor_props": {
+        "entity_type": "country",
+        "entity_key": "Singapore::organization",
+        "enriched_at": "2026-03-09T08:47:13.614000000+00:00",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "country",
+        "name": "Singapore",
+        "entity_id": "entity-singapore"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5295"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Country"
+      ],
+      "name": "ホルムズ海峡",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11898",
+      "survivor_rel_count": 3,
+      "survivor_props": {
+        "entity_type": "country",
+        "entity_key": "ホルムズ海峡::country",
+        "sub_type": "country",
+        "name": "ホルムズ海峡",
+        "entity_id": "184f8c3c-8ad9-55b2-a12a-2c6eb2076637"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:11776"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Indicator"
+      ],
+      "name": "インフレ",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12188",
+      "survivor_rel_count": 2,
+      "survivor_props": {
+        "entity_type": "indicator",
+        "entity_key": "インフレ::metric",
+        "sub_type": "indicator",
+        "name": "インフレ",
+        "entity_id": "c494ef66-84e1-5a72-8531-a9a4cae990f1"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12274"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Indicator"
+      ],
+      "name": "米CPI",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11894",
+      "survivor_rel_count": 4,
+      "survivor_props": {
+        "entity_type": "indicator",
+        "entity_key": "米CPI::metric",
+        "sub_type": "indicator",
+        "name": "米CPI",
+        "entity_id": "f837d3b5-9306-560c-8e3e-ffccf1556fa4"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12283"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Indicator"
+      ],
+      "name": "米雇用統計",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12023",
+      "survivor_rel_count": 3,
+      "survivor_props": {
+        "entity_type": "indicator",
+        "entity_key": "米雇用統計::metric",
+        "sub_type": "indicator",
+        "name": "米雇用統計",
+        "entity_id": "ad9f2543-bd21-55ed-a875-53e28c20f2a1"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:11902"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Bank of Japan",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5056",
+      "survivor_rel_count": 22,
+      "survivor_props": {
+        "entity_type": "organization",
+        "entity_key": "Bank of Japan::central_bank",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "central_bank",
+        "name": "Bank of Japan",
+        "entity_id": "daa0e9b7-6726-5831-8541-962a416833cb"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:8194"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Bank of Thailand",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5299",
+      "survivor_rel_count": 14,
+      "survivor_props": {
+        "entity_type": "organization",
+        "entity_key": "Bank of Thailand::central_bank",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "central_bank",
+        "name": "Bank of Thailand",
+        "entity_id": "1cabf2c0-ca45-5f7f-9219-4c3e22553257"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:4128"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Danantara",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2053",
+      "survivor_rel_count": 90,
+      "survivor_props": {
+        "country": "Indonesia",
+        "entity_type": "organization",
+        "entity_key": "Danantara::organization",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "organization",
+        "name": "Danantara",
+        "description": "Indonesia sovereign wealth fund launched Feb 2025. Manages ~$900B-1T in SOE assets (844+ subsidiaries). Severe governance concerns raised by Moody/Fitch/MSCI. CEO is Investment Minister Rosan Roeslani (conflict of interest). 24/31 board members are PEPs per ICW.",
+        "entity_id": "8153a554-e669-58cd-b5b0-aeccfd90b5dd"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12838"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Federal Reserve",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1151",
+      "survivor_rel_count": 45,
+      "survivor_props": {
+        "entity_type": "organization",
+        "entity_key": "Federal Reserve::organization",
+        "enriched_at": "2026-03-09T08:46:57.643000000+00:00",
+        "updated_at": "2026-03-25T07:26:31.163000000+00:00",
+        "sub_type": "central_bank",
+        "name": "Federal Reserve",
+        "entity_id": "entity-fed"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5048"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "大阪公立大学",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6282",
+      "survivor_rel_count": 6,
+      "survivor_props": {
+        "entity_type": "organization",
+        "entity_key": "osaka_metropolitan_university",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "organization",
+        "name": "大阪公立大学",
+        "description": "高野海斗と中川慧が所属する大学。",
+        "entity_id": "91aee147-bdea-544d-8400-f53fd727c48e"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:6904"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "税務調査",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11884",
+      "survivor_rel_count": 5,
+      "survivor_props": {
+        "entity_type": "organization",
+        "entity_key": "税務調査::organization",
+        "sub_type": "organization",
+        "name": "税務調査",
+        "entity_id": "64f43e50-1a4f-54a9-8ce4-8a534774dc35"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:11907"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "金融庁",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5496",
+      "survivor_rel_count": 4,
+      "survivor_props": {
+        "entity_type": "organization",
+        "entity_key": "金融庁::government_agency",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "government_agency",
+        "name": "金融庁",
+        "entity_id": "2846aa0e-ffe0-5816-8ee7-9f4a8b001fe7"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:11741"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Sector"
+      ],
+      "name": "日本株市場",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11983",
+      "survivor_rel_count": 3,
+      "survivor_props": {
+        "entity_type": "sector",
+        "entity_key": "日本株市場::market",
+        "sub_type": "sector",
+        "name": "日本株市場",
+        "entity_id": "6ee13ae4-3ac6-55f6-b23f-88eb864d92a4"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12265"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Sector"
+      ],
+      "name": "株式市場",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12148",
+      "survivor_rel_count": 2,
+      "survivor_props": {
+        "entity_type": "sector",
+        "entity_key": "株式市場::market",
+        "sub_type": "sector",
+        "name": "株式市場",
+        "entity_id": "f76fa487-57dc-5a54-b110-6a8209dbb410"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12268"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Entity",
+        "Technology"
+      ],
+      "name": "Topological Data Analysis",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5969",
+      "survivor_rel_count": 20,
+      "survivor_props": {
+        "entity_type": "technology",
+        "entity_key": "Topological Data Analysis::method",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "technology",
+        "name": "Topological Data Analysis",
+        "entity_id": "0ba795af-bf91-50a1-ae19-8faf01ba8038"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5741",
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:6045"
+      ],
+      "deleted_count": 2
+    },
+    {
+      "labels": [
+        "Entity",
+        "Technology"
+      ],
+      "name": "Vietoris-Rips Complex",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5984",
+      "survivor_rel_count": 6,
+      "survivor_props": {
+        "entity_type": "technology",
+        "entity_key": "Vietoris-Rips Complex::method",
+        "updated_at": "2026-03-23T13:54:32.576000000+00:00",
+        "sub_type": "technology",
+        "name": "Vietoris-Rips Complex",
+        "entity_id": "09d633fd-b3d1-5217-b7b5-e6e5c5509384"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:6043"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "5G Deployment",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2046",
+      "survivor_rel_count": 304,
+      "survivor_props": {
+        "topic_key": "5G Deployment::technology",
+        "ingested_at": "2026-03-28T11:41:20.763000000+00:00",
+        "name": "5G Deployment",
+        "topic_id": "0c276c47-93de-506f-ae09-a165dd35b767",
+        "category": "technology"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12999"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "AI Cloud",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1225",
+      "survivor_rel_count": 117,
+      "survivor_props": {
+        "topic_key": "AI Cloud::ai",
+        "name": "AI Cloud",
+        "topic_id": "5f4c7e6b-1a52-5b0a-8fce-cb0480ea82a8",
+        "category": "ai"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5210"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "ASEAN Fintech",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4506",
+      "survivor_rel_count": 120,
+      "survivor_props": {
+        "topic_key": "asean_fintech",
+        "name": "ASEAN Fintech",
+        "created_at": "2026-03-19T06:14:01.108000000+00:00",
+        "description": "Mobile money, digital banking, and fintech services by ASEAN telecom operators and tech companies",
+        "topic_id": "topic:asean_fintech",
+        "category": "sector_analysis"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:3340"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "ASEAN Telecom Regulation",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3411",
+      "survivor_rel_count": 151,
+      "survivor_props": {
+        "topic_key": "ASEAN Telecom Regulation::regulatory",
+        "name": "ASEAN Telecom Regulation",
+        "topic_id": "asean-telecom-regulation",
+        "category": "regulatory"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:13183",
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12995"
+      ],
+      "deleted_count": 2
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Conformal Prediction",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6476",
+      "survivor_rel_count": 19,
+      "survivor_props": {
+        "topic_key": "Conformal Prediction::finance",
+        "name": "Conformal Prediction",
+        "topic_id": "eb5f8e57-5a95-59f1-868d-3293c814151d",
+        "category": "finance"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:8971"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "ESG",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1229",
+      "survivor_rel_count": 116,
+      "survivor_props": {
+        "topic_key": "ESG::stock",
+        "name": "ESG",
+        "topic_id": "ca1ba89c-dace-5009-842b-7db2a1cc561f",
+        "category": "stock"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5269"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Earnings",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1231",
+      "survivor_rel_count": 167,
+      "survivor_props": {
+        "topic_key": "Earnings::earnings",
+        "name": "Earnings",
+        "topic_id": "03e8f07f-d17b-5b79-bc4f-d8b085bbe0df",
+        "category": "earnings"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:4655",
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:4969"
+      ],
+      "deleted_count": 2
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Indonesia Political Risk",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4013",
+      "survivor_rel_count": 114,
+      "survivor_props": {
+        "name": "Indonesia Political Risk",
+        "description": "Prabowo政権下の政治リスク。Sri Mulyani更迭、Danantaraガバナンス問題、MSCI危機、CPI低下、民主主義後退懸念、BRICS加盟、米国貿易協定。"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:13144"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Infrastructure Assets",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2045",
+      "survivor_rel_count": 178,
+      "survivor_props": {
+        "topic_key": "Infrastructure Assets::assets",
+        "name": "Infrastructure Assets",
+        "topic_id": "73fa0945-c1de-5641-8771-cb49eea4d460",
+        "category": "assets"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:4970"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Iran War Market Impact",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14673",
+      "survivor_rel_count": 22,
+      "survivor_props": {
+        "topic_key": "Iran War Market Impact::macro",
+        "name": "Iran War Market Impact",
+        "topic_id": "0a00807d-84c0-511b-b827-a5f1e202de8e",
+        "category": "macro"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:8106"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Portfolio Optimization",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6017",
+      "survivor_rel_count": 39,
+      "survivor_props": {
+        "topic_key": "Portfolio Optimization::quantitative_finance",
+        "name": "Portfolio Optimization",
+        "created_at": "2026-03-21T06:54:24.512000000+00:00",
+        "topic_id": "ad7a8b90-bd11-5ed8-9bef-1c64395d029a",
+        "category": "quantitative_finance"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:6653"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Spectrum Allocation",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4498",
+      "survivor_rel_count": 284,
+      "survivor_props": {
+        "topic_key": "Spectrum Allocation::regulatory",
+        "ingested_at": "2026-03-28T11:41:20.763000000+00:00",
+        "name": "Spectrum Allocation",
+        "created_at": "2026-03-19T06:13:39.590000000+00:00",
+        "description": "Radio frequency spectrum allocation and auction policies for mobile telecommunications across ASEAN",
+        "topic_id": "spectrum-allocation",
+        "category": "regulatory"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12996"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Telecom M&A",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1227",
+      "survivor_rel_count": 135,
+      "survivor_props": {
+        "topic_key": "Telecom M&A::sector",
+        "name": "Telecom M&A",
+        "topic_id": "beb3aea2-ebb2-588e-809e-96363d5f4f21",
+        "category": "sector"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12794",
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:5240"
+      ],
+      "deleted_count": 2
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "US Telecom",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3283",
+      "survivor_rel_count": 119,
+      "survivor_props": {
+        "name": "US Telecom"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:3785",
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:12791"
+      ],
+      "deleted_count": 2
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "Uncertainty Quantification",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6478",
+      "survivor_rel_count": 19,
+      "survivor_props": {
+        "topic_key": "Uncertainty Quantification::finance",
+        "name": "Uncertainty Quantification",
+        "topic_id": "f3809141-257d-5419-a5eb-18ef902702d2",
+        "category": "finance"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:8973"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "Topic"
+      ],
+      "name": "インデックス投資",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5479",
+      "survivor_rel_count": 43,
+      "survivor_props": {
+        "topic_key": "インデックス投資::investment_strategy",
+        "name": "インデックス投資",
+        "topic_id": "3712aa8f-baa2-50f9-ae25-8c9daad926d4",
+        "category": "investment_strategy"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:14644"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "UnitOfMeasure"
+      ],
+      "name": "IDR",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7998",
+      "survivor_rel_count": 66,
+      "survivor_props": {
+        "name": "IDR",
+        "unit_id": "idr",
+        "dimension": "monetary_value"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:8031"
+      ],
+      "deleted_count": 1
+    },
+    {
+      "labels": [
+        "UnitOfMeasure"
+      ],
+      "name": "USD",
+      "survivor_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8009",
+      "survivor_rel_count": 157,
+      "survivor_props": {
+        "name": "USD",
+        "unit_id": "usd",
+        "dimension": "monetary_value"
+      },
+      "deleted_ids": [
+        "4:aff6b542-275f-4e50-ab61-4db17c90a072:8032"
+      ],
+      "deleted_count": 1
+    }
+  ]
+}
