@@ -617,28 +617,46 @@ def _build_entity_nodes(
     entity_name_to_id: dict[str, str],
     entity_name_to_ticker: dict[str, str],
 ) -> list[dict[str, Any]]:
-    """Build Entity nodes from a chunk, deduplicated by name+type."""
+    """Build Entity nodes from a chunk, deduplicated by name.
+
+    v4.0: entity_key 廃止。name を重複排除キーとして使用し、
+    neo4j_label フィールドを entity_type から決定してノードに付与する。
+    """
+    from ontology_loader import ENTITY_TYPE_TO_LABEL, load_consolidation_mapping  # noqa: PLC0415
+
+    consolidation_map = load_consolidation_mapping()
     entities: list[dict[str, Any]] = []
 
     for entity in chunk.get("entities", []):
         name = entity.get("name", "")
         entity_type = _normalize_entity_type(entity.get("entity_type", ""))
-        entity_key = f"{name}::{entity_type}"
-        if entity_key not in seen_entity_keys:
-            seen_entity_keys.add(entity_key)
-            eid = generate_entity_id(name, entity_type)
-            entities.append(
-                {
-                    "entity_id": eid,
-                    "name": name,
-                    "entity_type": entity_type,
-                    "ticker": entity.get("ticker"),
-                    "entity_key": f"{name}::{entity_type}",
-                }
-            )
-            entity_name_to_id[name] = eid
-            if entity.get("ticker"):
-                entity_name_to_ticker[name] = entity["ticker"]
+
+        # v4.0: name で重複排除（entity_key 廃止）
+        if name in entity_name_to_id:
+            # 後方互換: seen_entity_keys にも追加
+            seen_entity_keys.add(name)
+            continue
+
+        # entity_type → canonical → Neo4j ラベル
+        canonical_type = consolidation_map.get(entity_type, entity_type)
+        neo4j_label = ENTITY_TYPE_TO_LABEL.get(canonical_type, "Concept")
+
+        eid = generate_entity_id(name, entity_type)
+        entities.append(
+            {
+                "entity_id": eid,
+                "name": name,
+                "entity_type": entity_type,
+                "neo4j_label": neo4j_label,
+                "ticker": entity.get("ticker"),
+                # v4.0: entity_key フィールドは生成しない
+            }
+        )
+        entity_name_to_id[name] = eid
+        # 後方互換: seen_entity_keys にも追加
+        seen_entity_keys.add(name)
+        if entity.get("ticker"):
+            entity_name_to_ticker[name] = entity["ticker"]
 
     return entities
 
@@ -1415,13 +1433,24 @@ def _build_wr_facts(
     list[dict[str, str]],
     dict[str, str],
 ]:
-    """Build Fact/Entity nodes and all fact-related relations."""
+    """Build Fact/Entity nodes and all fact-related relations.
+
+    v4.0: entity_key 廃止。name ベースの重複排除と neo4j_label フィールドを使用。
+    ABOUT/MENTIONS リレーションは出力しない（RELATES_TO に統一済み）。
+    """
+    from ontology_loader import ENTITY_TYPE_TO_LABEL, load_consolidation_mapping  # noqa: PLC0415
+
+    consolidation_map = load_consolidation_mapping()
+
     facts: list[dict[str, Any]] = []
     entities: list[dict[str, Any]] = []
     source_fact_rels: list[dict[str, str]] = []
     fact_entity_rels: list[dict[str, str]] = []
     extracted_from_fact_rels: list[dict[str, str]] = []
     tagged_rels: list[dict[str, str]] = []
+    # v4.0: name ベースのIDマップ（entity_key 廃止）
+    entity_name_to_id: dict[str, str] = {}
+    # 後方互換: ekey ベースのIDマップも維持（causal_links 等が参照する可能性）
     entity_id_map: dict[str, str] = {}
 
     for raw_fact in raw_facts:
@@ -1456,16 +1485,26 @@ def _build_wr_facts(
             ekey = f"{ename}::{etype}"
             eid = generate_entity_id(ename, etype)
 
-            if ekey not in entity_id_map:
-                entity_id_map[ekey] = eid
+            # v4.0: name ベース重複排除
+            if ename not in entity_name_to_id:
+                entity_name_to_id[ename] = eid
+                entity_id_map[ekey] = eid  # 後方互換
+                # entity_type → canonical → Neo4j ラベル
+                canonical_type = consolidation_map.get(etype, etype)
+                neo4j_label = ENTITY_TYPE_TO_LABEL.get(canonical_type, "Concept")
                 entities.append(
                     {
                         "entity_id": eid,
                         "name": ename,
                         "entity_type": etype,
-                        "entity_key": ekey,
+                        "neo4j_label": neo4j_label,
+                        # v4.0: entity_key フィールドは生成しない
                     }
                 )
+            else:
+                # already seen: resolve to existing id
+                eid = entity_name_to_id[ename]
+                entity_id_map[ekey] = eid  # 後方互換（ekey が異なる場合も更新）
 
             fact_entity_rels.append(
                 {"from_id": fid, "to_id": eid, "type": "RELATES_TO"}
@@ -1498,11 +1537,24 @@ def _build_wr_claims(
     list[dict[str, Any]],
     dict[str, list[dict[str, str]]],
 ]:
-    """Build Claim/Entity nodes and claim-related relations for web-research."""
+    """Build Claim/Entity nodes and claim-related relations for web-research.
+
+    v4.0: entity_key 廃止。name ベースの重複排除と neo4j_label フィールドを使用。
+    ABOUT リレーションは RELATES_TO に統一（Wave5 移行に対応）。
+    """
+    from ontology_loader import ENTITY_TYPE_TO_LABEL, load_consolidation_mapping  # noqa: PLC0415
+
+    consolidation_map = load_consolidation_mapping()
+
     claims: list[dict[str, Any]] = []
     new_entities: list[dict[str, Any]] = []
     source_claim_rels: list[dict[str, str]] = []
     claim_entity_rels: list[dict[str, str]] = []
+
+    # v4.0: name ベースのIDマップを existing_entities から構築
+    entity_name_to_id: dict[str, str] = {
+        e["name"]: e["entity_id"] for e in existing_entities if e.get("name")
+    }
 
     for raw_claim in raw_claims:
         content = raw_claim.get("content", "")
@@ -1541,18 +1593,29 @@ def _build_wr_claims(
             ekey = f"{ename}::{etype}"
             eid = generate_entity_id(ename, etype)
 
-            if ekey not in entity_id_map:
-                entity_id_map[ekey] = eid
+            # v4.0: name ベース重複排除
+            if ename not in entity_name_to_id:
+                entity_name_to_id[ename] = eid
+                entity_id_map[ekey] = eid  # 後方互換
+                # entity_type → canonical → Neo4j ラベル
+                canonical_type = consolidation_map.get(etype, etype)
+                neo4j_label = ENTITY_TYPE_TO_LABEL.get(canonical_type, "Concept")
                 new_entity = {
                     "entity_id": eid,
                     "name": ename,
                     "entity_type": etype,
-                    "entity_key": ekey,
+                    "neo4j_label": neo4j_label,
+                    # v4.0: entity_key フィールドは生成しない
                 }
                 new_entities.append(new_entity)
                 existing_entities.append(new_entity)
+            else:
+                # already seen: resolve to existing id
+                eid = entity_name_to_id[ename]
+                entity_id_map[ekey] = eid  # 後方互換
 
-            claim_entity_rels.append({"from_id": cid, "to_id": eid, "type": "ABOUT"})
+            # v4.0: ABOUT → RELATES_TO に統一（Wave5 移行対応）
+            claim_entity_rels.append({"from_id": cid, "to_id": eid, "type": "RELATES_TO"})
 
     claim_rels = {
         "source_claim": source_claim_rels,

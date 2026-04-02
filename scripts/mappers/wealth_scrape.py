@@ -113,6 +113,7 @@ class WealthScrapeMapper(BaseMapper):
             _process_wealth_article,
             generate_entity_id,
         )
+        from ontology_loader import ENTITY_TYPE_TO_LABEL  # noqa: PLC0415
 
         themes = input_data.get("themes", {})
         sources: list[dict[str, Any]] = []
@@ -120,6 +121,9 @@ class WealthScrapeMapper(BaseMapper):
         entities: list[dict[str, Any]] = []
         tagged_rels: list[dict[str, str]] = []
         seen_domains: set[str] = set()
+
+        # v4.0: "domain" → "concept" consolidation → "Concept" label
+        domain_neo4j_label = ENTITY_TYPE_TO_LABEL.get("concept", "Concept")
 
         for theme_key, theme_data in themes.items():
             topic_id, keywords_lower, articles = _map_wealth_theme_common(
@@ -147,7 +151,8 @@ class WealthScrapeMapper(BaseMapper):
                             "entity_id": generate_entity_id(domain, "domain"),
                             "name": domain,
                             "entity_type": "domain",
-                            "entity_key": f"{domain}::domain",
+                            "neo4j_label": domain_neo4j_label,
+                            # v4.0: entity_key フィールドは生成しない
                         }
                     )
 
