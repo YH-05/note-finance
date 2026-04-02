@@ -37,9 +37,9 @@ from rich.table import Table
 
 from data_paths import get_path
 from pdf_pipeline._logging import get_logger
-from pdf_pipeline.types import get_processed_dir
 from pdf_pipeline.config.loader import load_config
 from pdf_pipeline.core.pdf_scanner import PdfScanner
+from pdf_pipeline.types import get_processed_dir
 
 if TYPE_CHECKING:
     from pdf_pipeline.core.pipeline import PdfPipeline

@@ -248,20 +248,91 @@ def load_multilabel_types(
     return keys
 
 
-def load_constraints() -> list[dict[str, str]]:
-    """Neo4j UNIQUE 制約定義を返す.
+def load_entity_labels(
+    ontology_path: Path | None = None,
+) -> list[str]:
+    """個別エンティティラベル一覧を返す（13ラベル）.
 
-    ontology.yaml には制約情報が存在しないため、旧
-    ``knowledge-graph-schema.yaml`` の ``constraints`` セクションの値を
-    アダプター内のデフォルト定義として提供する。
+    ontology.yaml の ``entity_nodes`` セクションから ``label`` を抽出し、
+    個別エンティティラベルのリストを返す。
+
+    Parameters
+    ----------
+    ontology_path : Path | None
+        ontology.yaml のパス。None の場合はデフォルトパスを使用。
+
+    Returns
+    -------
+    list[str]
+        個別エンティティラベルのリスト。
+        例: ``["Company", "Technology", "Organization", ...]``
+
+    Raises
+    ------
+    FileNotFoundError
+        ontology.yaml が存在しない場合。
+    """
+    path = ontology_path or _DEFAULT_ONTOLOGY_PATH
+    data = _load_yaml(path)
+    entity_nodes: list[dict[str, Any]] = data.get("entity_nodes", [])
+    if not entity_nodes:
+        # フォールバック: デフォルトラベル一覧を返す
+        logger.warning("entity_nodes not found in ontology.yaml, using defaults")
+        return list(_DEFAULT_ENTITY_LABELS)
+
+    labels = [node["label"] for node in entity_nodes]
+    logger.info("Loaded entity labels", count=len(labels))
+    return labels
+
+
+def load_constraints(
+    ontology_path: Path | None = None,
+) -> list[dict[str, str]]:
+    """Neo4j 制約定義を返す.
+
+    ``entity_nodes`` セクションから NODE KEY 制約を生成し、
+    その他のノードの UNIQUE 制約と結合して返す。
+    旧 ``Entity`` ラベルの UNIQUE 制約は除外する（新スキーマでは廃止）。
+
+    Parameters
+    ----------
+    ontology_path : Path | None
+        ontology.yaml のパス。None の場合はデフォルトパスを使用。
 
     Returns
     -------
     list[dict[str, str]]
         ``[{"label": "Source", "property": "source_id", "type": "UNIQUE"}, ...]``
+        エンティティラベルは ``{"label": "Company", "property": "name", "type": "NODE_KEY"}``
     """
-    logger.debug("Returning default constraints", count=len(_DEFAULT_CONSTRAINTS))
-    return list(_DEFAULT_CONSTRAINTS)
+    path = ontology_path or _DEFAULT_ONTOLOGY_PATH
+    data = _load_yaml(path)
+
+    constraints: list[dict[str, str]] = []
+
+    # entity_nodes から NODE KEY 制約を生成
+    entity_nodes: list[dict[str, Any]] = data.get("entity_nodes", [])
+    if entity_nodes:
+        for node in entity_nodes:
+            label = node.get("label", "")
+            key_prop = node.get("key_property", "name")
+            constraint_type = node.get("constraint_type", "NODE_KEY")
+            if label:
+                constraints.append(
+                    {"label": label, "property": key_prop, "type": constraint_type}
+                )
+    else:
+        # フォールバック: デフォルトのエンティティ制約
+        for label in _DEFAULT_ENTITY_LABELS:
+            constraints.append({"label": label, "property": "name", "type": "NODE_KEY"})
+
+    # その他のノードの UNIQUE 制約（Entity ラベルは除外）
+    for c in _DEFAULT_CONSTRAINTS:
+        if c["label"] != "Entity":
+            constraints.append(c)
+
+    logger.debug("Returning constraints", count=len(constraints))
+    return constraints
 
 
 def load_indices() -> list[dict[str, str]]:
@@ -385,7 +456,48 @@ _LEGACY_SOURCE_TYPE_NORMALIZATION: dict[str, str] = {
 
 
 # ---------------------------------------------------------------------------
-# Default constraints (from knowledge-graph-schema.yaml v3.0)
+# Default entity labels (13 individual labels, replaces the Entity label)
+# AIDEV-NOTE: Wave6 (Issue #310) — Entity ラベル廃止、13個別ラベルに分解
+# ---------------------------------------------------------------------------
+
+_DEFAULT_ENTITY_LABELS: list[str] = [
+    "Company",
+    "Technology",
+    "Organization",
+    "Person",
+    "MarketIndex",
+    "Indicator",
+    "Instrument",
+    "Commodity",
+    "Country",
+    "Concept",
+    "Regulation",
+    "Broker",
+    "Product",
+]
+
+# Entity type → individual label mapping (14 canonical types → 13 labels)
+# "sector" → Topic (handled separately), all others → individual labels
+ENTITY_TYPE_TO_LABEL: dict[str, str] = {
+    "company": "Company",
+    "technology": "Technology",
+    "organization": "Organization",
+    "person": "Person",
+    "index": "MarketIndex",
+    "indicator": "Indicator",
+    "instrument": "Instrument",
+    "commodity": "Commodity",
+    "country": "Country",
+    "sector": "Concept",  # sector entities become Concept nodes in new schema
+    "concept": "Concept",
+    "regulation": "Regulation",
+    "broker": "Broker",
+    "product": "Product",
+}
+
+# ---------------------------------------------------------------------------
+# Default constraints (v4.0: Entity ラベル廃止、個別ラベルの NODE KEY 制約に移行)
+# AIDEV-NOTE: Entity.entity_id / Entity.entity_key UNIQUE 制約は削除済み
 # ---------------------------------------------------------------------------
 
 _DEFAULT_CONSTRAINTS: list[dict[str, str]] = [
@@ -394,8 +506,6 @@ _DEFAULT_CONSTRAINTS: list[dict[str, str]] = [
     {"label": "Chunk", "property": "chunk_id", "type": "UNIQUE"},
     {"label": "Fact", "property": "fact_id", "type": "UNIQUE"},
     {"label": "Claim", "property": "claim_id", "type": "UNIQUE"},
-    {"label": "Entity", "property": "entity_id", "type": "UNIQUE"},
-    {"label": "Entity", "property": "entity_key", "type": "UNIQUE"},
     {"label": "FinancialDataPoint", "property": "datapoint_id", "type": "UNIQUE"},
     {"label": "FiscalPeriod", "property": "period_id", "type": "UNIQUE"},
     {"label": "Topic", "property": "topic_id", "type": "UNIQUE"},

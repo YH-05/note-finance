@@ -327,7 +327,9 @@ async def _run_neo4j_pipeline(  # noqa: PLR0911
 
         from session_memory.linker import LinkerConfig, NoteLinker
 
-        neo4j_uri = os.environ.get("NOTE_NEO4J_URI", os.environ.get("NEO4J_URI", "bolt://localhost:7687"))
+        neo4j_uri = os.environ.get(
+            "NOTE_NEO4J_URI", os.environ.get("NEO4J_URI", "bolt://localhost:7687")
+        )
         neo4j_user = os.environ.get("NOTE_NEO4J_USER", "neo4j")
         neo4j_password = os.environ.get("NOTE_NEO4J_PASSWORD", "password")
         driver = GraphDatabase.driver(

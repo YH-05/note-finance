@@ -50,13 +50,13 @@ import fitz  # type: ignore[import-untyped]
 
 from data_paths import get_path
 from pdf_pipeline._logging import get_logger
-from pdf_pipeline.types import get_processed_dir
 from pdf_pipeline.core.chunker import MarkdownChunker
 from pdf_pipeline.core.knowledge_extractor import KnowledgeExtractor
 from pdf_pipeline.core.pdf_scanner import compute_sha256_standalone
 from pdf_pipeline.services.claude_provider import ClaudeCodeProvider
 from pdf_pipeline.services.provider_chain import ProviderChain
 from pdf_pipeline.services.state_manager import StateManager
+from pdf_pipeline.types import get_processed_dir
 
 logger = get_logger(__name__, module="cli.helpers")
 
@@ -445,7 +445,9 @@ def extract_knowledge(
             if pdf_path_val := meta.get("pdf_path"):
                 extraction_dict["pdf_path"] = pdf_path_val
         except (json.JSONDecodeError, OSError):
-            logger.warning("Could not read metadata.json for pdf_path", path=str(metadata_file))
+            logger.warning(
+                "Could not read metadata.json for pdf_path", path=str(metadata_file)
+            )
 
     extraction_file.write_text(
         json.dumps(extraction_dict, indent=2, ensure_ascii=False),

@@ -5,11 +5,11 @@
 # 全プロパティ→リレーション変換適用済み。
 # =============================================================================
 
-schema_version: "research-3.0"
+schema_version: "research-4.0"
 instance_name: "research"
 domain: "金融リサーチ・銘柄調査のナレッジグラフ"
 created_at: "2026-03-23T15:09:06+09:00"
-updated_at: "2026-03-23T18:00:00+09:00"
+updated_at: "2026-04-02T00:00:00+09:00"
 status: "confirmed"
 
 # =============================================================================
@@ -25,10 +25,89 @@ common_nodes:
     description: データの出典元（ニュース記事、論文、レポート等）
     properties: [source_id, url, title, collected_at, published_at]
 
-  - label: Entity
-    key_property: entity_key
-    description: 固有名詞（企業、人物、指数等）。entity_key は "Name::type" 形式
-    properties: [entity_key, entity_id, name, enriched_at, updated_at]
+# ---------------------------------------------------------------------------
+# Entity Nodes（13）— 個別エンティティラベル（Entity ラベル廃止・NODE KEY採用）
+# ---------------------------------------------------------------------------
+# entity_key ("Name::type") 廃止 → ラベルごとに name を NODE KEY 制約で一意識別
+# AIDEV-NOTE: Wave6 (Issue #310) で Entity ラベルを13個別ラベルに分解
+entity_nodes:
+  - label: Company
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 企業（上場・非上場）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Technology
+    key_property: name
+    constraint_type: NODE_KEY
+    description: テクノロジー・システム
+    properties: [name, enriched_at, updated_at]
+
+  - label: Organization
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 機関（中央銀行・政府機関・取引所・国際機関等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Person
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 人物（経営者・アナリスト・政策担当者等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: MarketIndex
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 株価指数（S&P500・日経平均等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Indicator
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 経済指標（CPI・GDP・失業率等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Instrument
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 金融商品（ETF・通貨・ファンド・債券等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Commodity
+    key_property: name
+    constraint_type: NODE_KEY
+    description: コモディティ（原油・金・農産物等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Country
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 国・地域（属性ノード兼分析対象）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Concept
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 概念・モデル・手法・テーマ・イベント等
+    properties: [name, enriched_at, updated_at]
+
+  - label: Regulation
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 規制・政策・法令
+    properties: [name, enriched_at, updated_at]
+
+  - label: Broker
+    key_property: name
+    constraint_type: NODE_KEY
+    description: ブローカー・証券会社
+    properties: [name, enriched_at, updated_at]
+
+  - label: Product
+    key_property: name
+    constraint_type: NODE_KEY
+    description: プロダクト・データセット・データセンター等
+    properties: [name, enriched_at, updated_at]
 
 # ---------------------------------------------------------------------------
 # Content Types（5）— ナレッジの種類
