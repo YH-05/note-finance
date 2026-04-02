@@ -429,3 +429,4 @@
 [sync-nas]   ✓ data/config/
 [sync-nas] 完了: 2026-04-01T14:58:40Z
 ---
+2026-04-02T09:56:11+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
