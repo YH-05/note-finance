@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-04-03T00:00:00+00:00",
+  "node_counts": {
+    "Genre": 6,
+    "Concept": 4843,
+    "ConceptCategory": 19,
+    "Entity": 955,
+    "Source": 1868,
+    "Fact": 1018,
+    "Tip": 901,
+    "Story": 501,
+    "Domain": 834
+  },
+  "categories": {
+    "completeness": {
+      "score": 92.3,
+      "details": {
+        "fact_genre_fill": 95.7,
+        "fact_source_url_fill": 90.4,
+        "fact_category_fill": 67.7,
+        "tip_genre_fill": 92.7,
+        "tip_source_url_fill": 87.1,
+        "tip_category_fill": 76.6,
+        "story_genre_fill": 80.8,
+        "story_source_url_fill": 76.4,
+        "concept_genre_fill": 29.0,
+        "source_title_fill": 90.1,
+        "source_authority_fill": 99.9,
+        "source_domain_fill": 82.4
+      }
+    },
+    "consistency": {
+      "score": 97.0,
+      "details": {
+        "invalid_genre": 0,
+        "invalid_authority_level": 0,
+        "duplicate_entity_key": 0,
+        "entity_type_concept_count": 4
+      }
+    },
+    "structural": {
+      "score": 88.0,
+      "details": {
+        "avg_rels_per_content": 4.61,
+        "min_rels": 0,
+        "max_rels": 17,
+        "median_rels": 4.0,
+        "total_nodes": 10945,
+        "total_rels": 19348
+      }
+    },
+    "orphan": {
+      "score": 90.8,
+      "details": {
+        "orphan_content": 3,
+        "orphan_content_rate": 0.12,
+        "orphan_entity": 335,
+        "orphan_entity_rate": 35.1,
+        "orphan_concept": 85,
+        "orphan_concept_rate": 1.8,
+        "orphan_source": 235,
+        "orphan_source_rate": 12.6
+      }
+    },
+    "content_balance": {
+      "score": 50.0,
+      "details": {
+        "genre_career_pct": 56.0,
+        "genre_spiritual_pct": 16.5,
+        "genre_beauty_romance_pct": 15.9,
+        "genre_self_development_pct": 10.3,
+        "genre_asset_management_pct": 0.8,
+        "genre_self_understanding_pct": 0.6,
+        "genre_max_min_ratio": 90.2,
+        "fact_pct": 42.0,
+        "tip_pct": 37.3,
+        "story_pct": 20.7,
+        "zero_content_concepts": 2728,
+        "zero_content_concepts_pct": 56.3
+      }
+    },
+    "source_quality": {
+      "score": 95.0,
+      "details": {
+        "authority_fill": 99.9,
+        "source_type_fill": 100.0,
+        "url_fill": 100.0,
+        "unique_domains": 834,
+        "domain_diversity_ratio": 0.447,
+        "blog_count": 1002,
+        "media_count": 451,
+        "social_count": 259,
+        "official_count": 154,
+        "no_title_sources": 185
+      }
+    },
+    "taxonomy": {
+      "score": 62.0,
+      "details": {
+        "is_a_rate": 98.2,
+        "no_isa_concepts": 86,
+        "about_rate": 43.7,
+        "no_about_concepts": 2728,
+        "top_category_skill": 1242,
+        "bottom_category_barrier": 1,
+        "category_balance_skewed": true,
+        "misclassified_samples": ["自己認識→Objection", "Strategy→Skill", "OEM化粧品→Skill"]
+      }
+    }
+  },
+  "llm_judge": {
+    "content_quality_avg": 0.823,
+    "source_grounding_avg": 0.713,
+    "classification_accuracy_avg": 0.737,
+    "overall_avg": 0.757,
+    "concept_classification_avg": 0.685,
+    "sample_size": 15,
+    "notable_high": ["tip-9e4836ef (0.93)", "fact-cc5083ee (0.90)", "story-33ca0811 (0.87)"],
+    "notable_low": ["story-1139e35e (0.64)", "fact-auto-011 (0.64)"]
+  },
+  "overall_score": 83.6,
+  "rating": "B"
+}
