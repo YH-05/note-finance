@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """孤立ノード処理スクリプト。
 
-孤立 Entity（Person型、Fact/Claim から参照されていない）と
-孤立 Fact（RELATES_TO / ABOUT / MENTIONS → Entity が欠落）を検出し、
+孤立 Person（Fact/Claim から参照されていない）と
+孤立 Fact（RELATES_TO → 個別エンティティラベルノード が欠落）を検出し、
 ``Archived`` ラベルを付与してアーカイブする。
 
 対象ノードの定義
 ----------------
-- **孤立 Entity**: ``Entity:Person`` かつ ``RELATES_TO|ABOUT|MENTIONS``
+- **孤立 Person**: ``Person`` かつ ``RELATES_TO``
   リレーションが一切ない（``IS_TYPE`` のみ保持）
 - **孤立 Fact**: ``Fact`` かつ
-  ``NOT EXISTS { (f)-[:RELATES_TO|ABOUT|MENTIONS]->(:Entity) }``
+  ``NOT EXISTS { (f)-[:RELATES_TO]->(e:Company|...|Product) }``
+
+Wave7 (Issue #312) 更新: :Entity → 個別ラベル union、RELATES_TO に統一
 
 Issue #306 - Wave 2: 孤立ノード処理（Entity 64 件・Fact 577 件）
 
@@ -72,29 +74,30 @@ _DEFAULT_PASSWORD = os.environ.get("NEO4J_PASSWORD", "gomasuke")
 _DEFAULT_DATABASE = "research"
 _DEFAULT_OUTPUT_DIR = Path("data/migration")
 
-# 孤立 Entity:Person 検出クエリ
-# RELATES_TO / ABOUT / MENTIONS リレーションを一切持たない Person Entity を対象とする
-# (IS_TYPE リレーションのみ保持するケースを含む)
+# AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、ABOUT/MENTIONS → RELATES_TO に更新
+
+# 孤立 Person 検出クエリ
+# RELATES_TO リレーションを一切持たない Person ノードを対象とする
 # 既に Archived ラベルが付いているノードは除外（冪等）
 _ISOLATED_ENTITY_QUERY = """
-MATCH (e:Entity:Person)
+MATCH (e:Person)
 WHERE NOT 'Archived' IN labels(e)
-  AND NOT ()-[:RELATES_TO|ABOUT|MENTIONS]->(e)
-  AND NOT (e)-[:RELATES_TO|ABOUT|MENTIONS]->()
+  AND NOT ()-[:RELATES_TO]->(e)
+  AND NOT (e)-[:RELATES_TO]->()
 RETURN elementId(e) AS element_id,
        e.name AS name,
-       e.entity_key AS entity_key,
-       e.entity_type AS entity_type
+       e.name AS entity_key,
+       'person' AS entity_type
 ORDER BY e.name
 """
 
 # 孤立 Fact 検出クエリ
-# Entity への RELATES_TO / ABOUT / MENTIONS リレーションが欠落した Fact を対象とする
+# 個別エンティティラベルへの RELATES_TO リレーションが欠落した Fact を対象とする
 # 既に Archived ラベルが付いているノードは除外（冪等）
 _ISOLATED_FACT_QUERY = """
 MATCH (f:Fact)
 WHERE NOT 'Archived' IN labels(f)
-  AND NOT EXISTS { (f)-[:RELATES_TO|ABOUT|MENTIONS]->(:Entity) }
+  AND NOT EXISTS { (f)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product) }
 OPTIONAL MATCH (f)-[:EXTRACTED_FROM]->(s:Source)
 RETURN elementId(f) AS element_id,
        f.fact_id AS fact_id,
@@ -104,9 +107,9 @@ RETURN elementId(f) AS element_id,
 ORDER BY s.source_type, elementId(f)
 """
 
-# Archived ラベル付与クエリ（Entity）
+# Archived ラベル付与クエリ（個別エンティティラベルノード）
 _ARCHIVE_ENTITY_QUERY = """
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE elementId(e) IN $element_ids
 SET e:Archived
 RETURN COUNT(e) AS archived_count
@@ -122,17 +125,17 @@ RETURN COUNT(f) AS archived_count
 
 # 検証クエリ: 処理後の孤立ノード残存数
 _VERIFY_ENTITY_QUERY = """
-MATCH (e:Entity:Person)
+MATCH (e:Person)
 WHERE NOT 'Archived' IN labels(e)
-  AND NOT ()-[:RELATES_TO|ABOUT|MENTIONS]->(e)
-  AND NOT (e)-[:RELATES_TO|ABOUT|MENTIONS]->()
+  AND NOT ()-[:RELATES_TO]->(e)
+  AND NOT (e)-[:RELATES_TO]->()
 RETURN COUNT(e) AS remaining_count
 """
 
 _VERIFY_FACT_QUERY = """
 MATCH (f:Fact)
 WHERE NOT 'Archived' IN labels(f)
-  AND NOT EXISTS { (f)-[:RELATES_TO|ABOUT|MENTIONS]->(:Entity) }
+  AND NOT EXISTS { (f)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product) }
 RETURN COUNT(f) AS remaining_count
 """
 
@@ -455,8 +458,8 @@ def format_process_report(
         "issue": "#306",
         "description": "Wave2 孤立ノード処理: Archived ラベル付与",
         "policy": {
-            "isolated_entity": "Entity:Person かつ RELATES_TO/ABOUT/MENTIONS リレーション欠落 → Archived ラベル付与",
-            "isolated_fact": "Fact かつ RELATES_TO/ABOUT/MENTIONS → Entity リレーション欠落 → Archived ラベル付与",
+            "isolated_entity": "Person かつ RELATES_TO リレーション欠落 → Archived ラベル付与",
+            "isolated_fact": "Fact かつ RELATES_TO → 個別エンティティラベル リレーション欠落 → Archived ラベル付与",
         },
         "summary": {
             "entity_detected": len(isolated_entities),

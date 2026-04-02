@@ -218,8 +218,12 @@ def check_multilabel_entity(session: Any) -> dict[str, Any]:
         - ``pass`` (bool): 件数が 0 の場合 True。
         - ``warning`` (bool): 件数 > 0 の場合 True（WARNING レベル）。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — Entity ラベルは廃止済み。
+    # 個別ラベル(Company等)のみを持つノード（サブラベルがないもの）を検出する。
+    # Node KEY制約により name で一意識別される。
     result = session.run(
-        "MATCH (e:Entity) WHERE size(labels(e)) = 1 RETURN count(e) AS cnt"
+        "MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product) "
+        "WHERE size(labels(e)) = 1 RETURN count(e) AS cnt"
     )
     record = result.single()
     count = record["cnt"] if record else 0
@@ -287,9 +291,10 @@ def check_entity_type_convergence(
         - ``type_count`` (int): DB 上のユニーク entity_type 数。
         - ``pass`` (bool): 不正値が 0 件かつ type_count <= len(allowed_values) の場合 True。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     max_allowed = len(allowed_values)
     result = session.run(
-        "MATCH (e:Entity) "
+        "MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product) "
         "WHERE e.entity_type IS NOT NULL "
         "RETURN DISTINCT e.entity_type AS entity_type "
         "ORDER BY entity_type"
