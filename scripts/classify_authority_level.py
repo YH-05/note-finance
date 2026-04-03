@@ -20,9 +20,8 @@ import logging
 import os
 from collections import defaultdict
 
-from neo4j import GraphDatabase
-
 from authority_classifier import classify_authority
+from neo4j import GraphDatabase
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -73,7 +72,9 @@ def main() -> None:
             samples: dict[str, list[str]] = defaultdict(list)
             for src, (_, level) in zip(sources, updates):
                 if len(samples[level]) < 3:
-                    samples[level].append(f"  {src['url'] or '(no url)'} [{src['source_type']}]")
+                    samples[level].append(
+                        f"  {src['url'] or '(no url)'} [{src['source_type']}]"
+                    )
             for level, sample_list in sorted(samples.items()):
                 logger.info("--- %s ---", level)
                 for s in sample_list:

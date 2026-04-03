@@ -73,17 +73,19 @@ def detect_entity_duplicates(
     records = session.run(query, threshold=threshold, limit=limit)
     results = []
     for r in records:
-        results.append({
-            "id1": r["id1"],
-            "name1": r["name1"],
-            "id2": r["id2"],
-            "name2": r["name2"],
-            "type": r["type"],
-            "similarity": r["similarity"],
-            "rels1": r["rels1"],
-            "rels2": r["rels2"],
-            "keep_suggestion": r["id1"] if r["rels1"] >= r["rels2"] else r["id2"],
-        })
+        results.append(
+            {
+                "id1": r["id1"],
+                "name1": r["name1"],
+                "id2": r["id2"],
+                "name2": r["name2"],
+                "type": r["type"],
+                "similarity": r["similarity"],
+                "rels1": r["rels1"],
+                "rels2": r["rels2"],
+                "keep_suggestion": r["id1"] if r["rels1"] >= r["rels2"] else r["id2"],
+            }
+        )
     return results
 
 
@@ -118,17 +120,19 @@ def detect_concept_duplicates(
     records = session.run(query, threshold=threshold, limit=limit)
     results = []
     for r in records:
-        results.append({
-            "id1": r["id1"],
-            "name1": r["name1"],
-            "id2": r["id2"],
-            "name2": r["name2"],
-            "category": r["category"],
-            "similarity": r["similarity"],
-            "about1": r["about1"],
-            "about2": r["about2"],
-            "keep_suggestion": r["id1"] if r["about1"] >= r["about2"] else r["id2"],
-        })
+        results.append(
+            {
+                "id1": r["id1"],
+                "name1": r["name1"],
+                "id2": r["id2"],
+                "name2": r["name2"],
+                "category": r["category"],
+                "similarity": r["similarity"],
+                "about1": r["about1"],
+                "about2": r["about2"],
+                "keep_suggestion": r["id1"] if r["about1"] >= r["about2"] else r["id2"],
+            }
+        )
     return results
 
 
@@ -177,7 +181,8 @@ def main() -> None:
                 args.entity_threshold,
             )
             entity_dups = detect_entity_duplicates(
-                session, args.entity_threshold,
+                session,
+                args.entity_threshold,
             )
             logger.info("Found %d Entity duplicate candidates", len(entity_dups))
 
@@ -186,7 +191,8 @@ def main() -> None:
                 args.concept_threshold,
             )
             concept_dups = detect_concept_duplicates(
-                session, args.concept_threshold,
+                session,
+                args.concept_threshold,
             )
             logger.info("Found %d Concept duplicate candidates", len(concept_dups))
     finally:
@@ -211,20 +217,22 @@ def main() -> None:
     logger.info("Report saved to %s", output_path)
 
     # Print summary to stdout
-    print(f"\n=== Duplicate Detection Report ===")
+    print("\n=== Duplicate Detection Report ===")
     print(f"Entity candidates:  {len(entity_dups)}")
     print(f"Concept candidates: {len(concept_dups)}")
     print(f"Output: {output_path}")
 
     if entity_dups:
-        print(f"\nTop Entity duplicates:")
+        print("\nTop Entity duplicates:")
         for d in entity_dups[:5]:
             print(f"  {d['similarity']:.4f}  {d['name1']} / {d['name2']} ({d['type']})")
 
     if concept_dups:
-        print(f"\nTop Concept duplicates:")
+        print("\nTop Concept duplicates:")
         for d in concept_dups[:5]:
-            print(f"  {d['similarity']:.4f}  {d['name1']} / {d['name2']} ({d['category']})")
+            print(
+                f"  {d['similarity']:.4f}  {d['name1']} / {d['name2']} ({d['category']})"
+            )
 
     sys.exit(0)
 

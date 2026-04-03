@@ -420,12 +420,22 @@ def batch_create_nodes(
         Number of nodes created/merged.
     """
     code_nodes = [
-        {"path": p, "type": t, "name": Path(p.rstrip("/")).name or p, "status": "active"}
+        {
+            "path": p,
+            "type": t,
+            "name": Path(p.rstrip("/")).name or p,
+            "status": "active",
+        }
         for p, (lbl, t) in nodes.items()
         if lbl == "CodeEntity"
     ]
     doc_nodes = [
-        {"path": p, "type": t, "name": Path(p.rstrip("/")).name or p, "status": "active"}
+        {
+            "path": p,
+            "type": t,
+            "name": Path(p.rstrip("/")).name or p,
+            "status": "active",
+        }
         for p, (lbl, t) in nodes.items()
         if lbl == "Document"
     ]
@@ -563,9 +573,7 @@ def main() -> None:
         discussions = [
             dict(r["d"]) for r in session.run("MATCH (d:Discussion) RETURN d")
         ]
-        decisions = [
-            dict(r["d"]) for r in session.run("MATCH (d:Decision) RETURN d")
-        ]
+        decisions = [dict(r["d"]) for r in session.run("MATCH (d:Decision) RETURN d")]
         action_items = [
             dict(r["a"]) for r in session.run("MATCH (a:ActionItem) RETURN a")
         ]
@@ -617,9 +625,7 @@ def main() -> None:
         for p in paths:
             label, type_val = classify_path(p)
             all_nodes[p] = (label, type_val)
-            rels.append(
-                ("Discussion", "discussion_id", disc_id, "MENTIONS", label, p)
-            )
+            rels.append(("Discussion", "discussion_id", disc_id, "MENTIONS", label, p))
 
     for dec in decisions:
         dec_id = dec.get("decision_id", "")
@@ -693,9 +699,7 @@ def main() -> None:
     logger.info("Document: %d nodes", len(doc_nodes))
     for p, t in sorted(doc_nodes.items()):
         logger.info("  [%-10s] %s", t, p)
-    logger.info(
-        "Relationships: %d  |  CONTAINS: %d", len(rels), len(contains)
-    )
+    logger.info("Relationships: %d  |  CONTAINS: %d", len(rels), len(contains))
 
     if args.dry_run:
         summary = {

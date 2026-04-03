@@ -173,7 +173,9 @@ def main(args: list[str] | None = None) -> int:
         if next_period_rels:
             print("\n  NEXT_PERIOD chains:")
             for rel in next_period_rels:
-                print(f"    {rel['from_id']} → {rel['to_id']} (gap={rel.get('gap_months', '?')}m)")
+                print(
+                    f"    {rel['from_id']} → {rel['to_id']} (gap={rel.get('gap_months', '?')}m)"
+                )
 
         if trend_rels:
             print(f"\n  TREND edges (showing first 20 of {len(trend_rels)}):")

@@ -18,7 +18,6 @@ from datetime import datetime
 from typing import Any
 
 import requests
-
 from neo4j_utils import create_driver
 
 logger = logging.getLogger(__name__)
@@ -246,7 +245,9 @@ def _normalize_date(value: str) -> str | None:
     # Replace space between date and time: 2026-03-26 10:00 -> 2026-03-26T10:00
     normalized = re.sub(r"(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2})", r"\1T\2", normalized)
     # Remove space before timezone offset: T09:44:30 +0900 -> T09:44:30+0900
-    normalized = re.sub(r"(\d{2}:\d{2}(?::\d{2})?)\s+([+-]\d{2}:?\d{2})", r"\1\2", normalized)
+    normalized = re.sub(
+        r"(\d{2}:\d{2}(?::\d{2})?)\s+([+-]\d{2}:?\d{2})", r"\1\2", normalized
+    )
     # Validate with Python datetime (Python 3.11+ fromisoformat handles ±HHmm)
     try:
         datetime.fromisoformat(normalized)
@@ -257,7 +258,7 @@ def _normalize_date(value: str) -> str | None:
     try:
         parsed = email.utils.parsedate_to_datetime(value)
         return parsed.isoformat()
-    except Exception:  # noqa: BLE001
+    except Exception:
         pass
     return None
 
@@ -294,6 +295,7 @@ def _build_session(timeout: int) -> requests.Session:
 
 def _wrap_request_with_timeout(request_func: Any, timeout: int) -> Any:
     """Bind a default timeout to a session request method."""
+
     def _request(method: str, url: str, **kwargs: Any) -> requests.Response:
         kwargs.setdefault("timeout", timeout)
         return request_func(method, url, **kwargs)
@@ -339,13 +341,15 @@ def _discover_updates(
                 )
             else:
                 skipped.append({"url": url, "reason": "published_at not found"})
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             failures.append({"url": url, "reason": str(exc)})
 
     return updates, skipped, failures
 
 
-def _write_updates(driver: Any, updates: list[dict[str, str]], *, batch_size: int) -> int:
+def _write_updates(
+    driver: Any, updates: list[dict[str, str]], *, batch_size: int
+) -> int:
     """Write ``published_at`` updates to Neo4j."""
     if not updates:
         return 0

@@ -28,8 +28,6 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from pydantic import BaseModel, Field
-
-from data_paths import get_path
 from session_utils import (
     ArticleData,
     configure_logging,
@@ -42,6 +40,7 @@ from session_utils import (
     get_logger as _get_logger,
 )
 
+from data_paths import get_path
 from rss.config.wealth_scraping_config import WEALTH_URL_TO_SOURCE_KEY
 
 # ---------------------------------------------------------------------------
@@ -728,7 +727,11 @@ def run(
 
     # Build session with pre-generated ID
     session = build_session(
-        session_id, theme_results, total_fetched, total_filtered, total_matched,
+        session_id,
+        theme_results,
+        total_fetched,
+        total_filtered,
+        total_matched,
     )
 
     # Write output
@@ -779,7 +782,11 @@ def main(args: list[str] | None = None) -> int:
         themes_filter = [t.strip() for t in parsed.themes.split(",")]
 
     # Determine output path (use session_id-based default)
-    output_path = Path(parsed.output) if parsed.output else TMP_DIR / f"{generate_session_id()}.json"
+    output_path = (
+        Path(parsed.output)
+        if parsed.output
+        else TMP_DIR / f"{generate_session_id()}.json"
+    )
 
     # Run processing
     return run(

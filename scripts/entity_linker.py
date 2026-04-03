@@ -1400,7 +1400,9 @@ def _ner_fill_about_entities(
 
     targets = _collect_empty_about_entity_items(data)
     if not targets:
-        logger.debug("_ner_fill_about_entities: no empty about_entities found, skipping")
+        logger.debug(
+            "_ner_fill_about_entities: no empty about_entities found, skipping"
+        )
         return data
 
     logger.info(
@@ -1409,7 +1411,9 @@ def _ner_fill_about_entities(
         batch_size,
     )
 
-    existing_names: set[str] = {e["name"] for e in data.get("entities", []) if "name" in e}
+    existing_names: set[str] = {
+        e["name"] for e in data.get("entities", []) if "name" in e
+    }
     client = anthropic.Anthropic()
     n_batches = math.ceil(len(targets) / batch_size)
 
@@ -1529,7 +1533,9 @@ def main() -> None:
 
     # --ner-fallback: fill about_entities for empty Fact/Claim before linking
     if args.ner_fallback:
-        logger.info("--ner-fallback enabled: running NER pre-fill on empty about_entities")
+        logger.info(
+            "--ner-fallback enabled: running NER pre-fill on empty about_entities"
+        )
         data = _ner_fill_about_entities(data)
 
     client = Neo4jClient(

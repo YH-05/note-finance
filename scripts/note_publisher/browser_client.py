@@ -808,11 +808,15 @@ class NoteBrowserClient:
                 self._in_list = True
             else:
                 logger.warning("list_fallback_plain_text")
-                await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
+                await self._page.type(
+                    body_selector, block.content, delay=self._config.typing_delay_ms
+                )
                 await self._page.press(body_selector, "Enter")
                 return
 
-        await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
+        await self._page.type(
+            body_selector, block.content, delay=self._config.typing_delay_ms
+        )
         await self._page.press(body_selector, "Enter")
 
     async def _start_numbered_list(self) -> bool:
@@ -871,11 +875,15 @@ class NoteBrowserClient:
                 self._in_numbered_list = True
             else:
                 logger.warning("numbered_list_fallback_plain_text")
-                await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
+                await self._page.type(
+                    body_selector, block.content, delay=self._config.typing_delay_ms
+                )
                 await self._page.press(body_selector, "Enter")
                 return
 
-        await self._page.type(body_selector, block.content, delay=self._config.typing_delay_ms)
+        await self._page.type(
+            body_selector, block.content, delay=self._config.typing_delay_ms
+        )
         await self._page.press(body_selector, "Enter")
 
     async def _insert_toc(self) -> None:
@@ -928,9 +936,7 @@ class NoteBrowserClient:
                     # Press Enter to escape the TOC block and create a new empty paragraph.
                     # The "+" block-inserter button only appears on empty paragraph lines,
                     # so this ensures the next heading block can find and use it.
-                    await self._page.press(
-                        _SELECTORS["editor_body"], "Enter"
-                    )
+                    await self._page.press(_SELECTORS["editor_body"], "Enter")
                     await asyncio.sleep(0.3)
                     return
         except Exception:

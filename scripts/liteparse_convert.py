@@ -70,7 +70,12 @@ def extract_text(
         output_dir = pdf_path.parent
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    logger.info("Extracting text with LiteParse: %s (ocr=%s, dpi=%d)", pdf_path.name, ocr_enabled, dpi)
+    logger.info(
+        "Extracting text with LiteParse: %s (ocr=%s, dpi=%d)",
+        pdf_path.name,
+        ocr_enabled,
+        dpi,
+    )
 
     parser = LiteParse()
     result = parser.parse(str(pdf_path), ocr_enabled=ocr_enabled, dpi=dpi)
@@ -90,7 +95,9 @@ def extract_text(
         json.dumps(page_texts, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    logger.info("page_texts.json saved: %s (%d pages)", page_texts_path, len(page_texts))
+    logger.info(
+        "page_texts.json saved: %s (%d pages)", page_texts_path, len(page_texts)
+    )
 
     total_chars = sum(len(t) for t in page_texts.values())
 
@@ -120,7 +127,8 @@ def main() -> None:
         help="変換対象の PDF ファイルパス",
     )
     parser.add_argument(
-        "-o", "--output-dir",
+        "-o",
+        "--output-dir",
         type=Path,
         default=None,
         help="出力ディレクトリ（省略時は PDF と同階層）",

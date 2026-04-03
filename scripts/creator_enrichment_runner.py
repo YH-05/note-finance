@@ -115,14 +115,14 @@ def main() -> None:
     """CLI entrypoint for creator-enrichment orchestrator."""
     _setup_logging()
 
+    import json as _json
+
     from creator_enrichment.config import load_config, parse_args
+    from creator_enrichment.llm_client import SdkLLMClient
     from creator_enrichment.orchestrator import (
         CreatorEnrichmentOrchestrator,
         FatalError,
     )
-    import json as _json
-
-    from creator_enrichment.llm_client import SdkLLMClient
     from creator_enrichment.phases.cross_entity import CrossEntityEnricher
     from creator_enrichment.phases.extract import ContentExtractor
     from creator_enrichment.phases.gap_analysis import GapAnalyzer
@@ -158,8 +158,15 @@ def main() -> None:
         logger.info("No Tavily keys, using SDK WebSearch fallback")
 
     # --- genre_config 読み込み ---
-    config_path = Path(__file__).resolve().parent.parent / "data" / "config" / "creator-enrichment-config.json"
-    genre_config = _json.loads(config_path.read_text(encoding="utf-8")).get("genres", {})
+    config_path = (
+        Path(__file__).resolve().parent.parent
+        / "data"
+        / "config"
+        / "creator-enrichment-config.json"
+    )
+    genre_config = _json.loads(config_path.read_text(encoding="utf-8")).get(
+        "genres", {}
+    )
 
     # --- 各フェーズの実クラスをワイヤリング ---
     gap_adapter = _Neo4jClientAdapter(neo4j_client)

@@ -78,9 +78,7 @@ def get_logger():
 logger = get_logger()
 
 
-def export_nodes(
-    source_driver, label: str, batch_size: int
-) -> list[dict]:
+def export_nodes(source_driver, label: str, batch_size: int) -> list[dict]:
     """ソースDBから指定ラベルのノードをエクスポート."""
     nodes = []
     with source_driver.session() as session:
@@ -103,9 +101,7 @@ def export_nodes(
     return nodes
 
 
-def export_relationships(
-    source_driver, rel_type: str
-) -> list[dict]:
+def export_relationships(source_driver, rel_type: str) -> list[dict]:
     """ソースDBから指定タイプのリレーションシップをエクスポート."""
     rels = []
     with source_driver.session() as session:
@@ -123,7 +119,9 @@ def export_relationships(
                     "start_labels": record["a_labels"],
                     "start_props": dict(record["a_props"]),
                     "rel_type": record["rel_type"],
-                    "rel_props": dict(record["rel_props"]) if record["rel_props"] else {},
+                    "rel_props": dict(record["rel_props"])
+                    if record["rel_props"]
+                    else {},
                     "end_labels": record["b_labels"],
                     "end_props": dict(record["b_props"]),
                 }
@@ -188,10 +186,7 @@ def import_nodes(
                 else:
                     clean_props[k] = v
 
-            query = (
-                f"MERGE (n:{label} {{{unique_key}: $key_value}}) "
-                "SET n += $props"
-            )
+            query = f"MERGE (n:{label} {{{unique_key}: $key_value}}) SET n += $props"
             try:
                 session.run(
                     query,
@@ -206,7 +201,9 @@ def import_nodes(
 
     if skipped:
         logger.warning(f"  {label}: {skipped} ノードを制約エラーでスキップ")
-    logger.info(f"  {label}: {imported} ノードをインポート{'（dry-run）' if dry_run else ''}")
+    logger.info(
+        f"  {label}: {imported} ノードをインポート{'（dry-run）' if dry_run else ''}"
+    )
     return imported
 
 
@@ -314,7 +311,9 @@ def verify_migration(source_driver, target_driver) -> dict:
 def main():
     """メイン処理."""
     parser = argparse.ArgumentParser(description="Research Neo4j へのデータ移行")
-    parser.add_argument("--dry-run", action="store_true", help="実際の書き込みを行わない")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="実際の書き込みを行わない"
+    )
     parser.add_argument("--batch-size", type=int, default=500, help="バッチサイズ")
     parser.add_argument(
         "--source-password",
@@ -482,7 +481,7 @@ def main():
             logger.warning("\n移行完了: 一部データに不一致があります")
 
     # サマリー
-    logger.info(f"\n=== サマリー ===")
+    logger.info("\n=== サマリー ===")
     logger.info(f"  ノード: {total_nodes}")
     logger.info(f"  リレーション: {total_rels}")
 

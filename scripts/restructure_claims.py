@@ -148,7 +148,9 @@ class ClassificationResult:
 # ---------------------------------------------------------------------------
 
 
-def fetch_claims(driver: Any, *, limit: int = 0, resume: bool = False) -> list[ClaimRecord]:
+def fetch_claims(
+    driver: Any, *, limit: int = 0, resume: bool = False
+) -> list[ClaimRecord]:
     """Fetch Claim nodes with Source context from Neo4j.
 
     Parameters
@@ -498,8 +500,13 @@ def main(args: list[str] | None = None) -> int:
             batch = claims[i : i + parsed.batch_size]
             batch_num = i // parsed.batch_size + 1
 
-            logger.info("Processing batch %d/%d (%d claims)", batch_num, batch_count, len(batch))
-            print(f"  Batch {batch_num}/{batch_count}: classifying {len(batch)} claims...", end="")
+            logger.info(
+                "Processing batch %d/%d (%d claims)", batch_num, batch_count, len(batch)
+            )
+            print(
+                f"  Batch {batch_num}/{batch_count}: classifying {len(batch)} claims...",
+                end="",
+            )
 
             try:
                 results = classify_batch(client, batch)
@@ -525,8 +532,10 @@ def main(args: list[str] | None = None) -> int:
                     time.sleep(1)
 
             except json.JSONDecodeError as exc:
-                logger.error("Failed to parse API response for batch %d: %s", batch_num, exc)
-                print(f" FAILED (JSON parse error)")
+                logger.error(
+                    "Failed to parse API response for batch %d: %s", batch_num, exc
+                )
+                print(" FAILED (JSON parse error)")
                 continue
             except anthropic.APIError as exc:
                 logger.error("API error for batch %d: %s", batch_num, exc)

@@ -60,17 +60,19 @@ VALID_TIP_CATEGORIES = frozenset({"strategy", "tool", "process", "mindset"})
 VALID_STORY_OUTCOMES = frozenset({"success", "failure", "mixed", "ongoing"})
 VALID_CONFIDENCE_LEVELS = frozenset({"high", "medium", "low"})
 VALID_DIFFICULTY_LEVELS = frozenset({"beginner", "intermediate", "advanced"})
-VALID_ENTITY_TYPES = frozenset({
-    "person",
-    "company",
-    "platform",
-    "service",
-    "occupation",
-    "technique",
-    "metric",
-    "product",
-    "concept",
-})
+VALID_ENTITY_TYPES = frozenset(
+    {
+        "person",
+        "company",
+        "platform",
+        "service",
+        "occupation",
+        "technique",
+        "metric",
+        "product",
+        "concept",
+    }
+)
 
 GENRE_NAMES: dict[str, str] = {
     "career": "転職・副業",
@@ -199,18 +201,22 @@ def _build_entities(
             if entity_key not in entity_key_to_id:
                 eid = generate_entity_id(name, entity_type)
                 entity_key_to_id[entity_key] = eid
-                entities.append({
-                    "entity_id": eid,
-                    "name": name,
-                    "entity_type": entity_type,
-                    "entity_key": entity_key,
-                })
+                entities.append(
+                    {
+                        "entity_id": eid,
+                        "name": name,
+                        "entity_type": entity_type,
+                        "entity_key": entity_key,
+                    }
+                )
 
-            mentions_rels.append({
-                "from_id": content_id,
-                "to_id": entity_key_to_id[entity_key],
-                "content_type": content_type,
-            })
+            mentions_rels.append(
+                {
+                    "from_id": content_id,
+                    "to_id": entity_key_to_id[entity_key],
+                    "content_type": content_type,
+                }
+            )
 
     # Process entity relations
     relates_to_rels: list[dict[str, Any]] = []
@@ -226,11 +232,13 @@ def _build_entities(
             logger.warning("RELATES_TO to_entity not found: %s", to_key)
             continue
 
-        relates_to_rels.append({
-            "from_id": entity_key_to_id[from_key],
-            "to_id": entity_key_to_id[to_key],
-            "rel_detail": rel_detail,
-        })
+        relates_to_rels.append(
+            {
+                "from_id": entity_key_to_id[from_key],
+                "to_id": entity_key_to_id[to_key],
+                "rel_detail": rel_detail,
+            }
+        )
 
     return entities, entity_key_to_id, mentions_rels, relates_to_rels
 
@@ -268,20 +276,22 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
             continue
         sid = generate_source_id(url)
         source_url_to_id[url] = sid
-        sources.append({
-            "source_id": sid,
-            "url": url,
-            "title": src.get("title", ""),
-            "source_type": _validate_enum(
-                src.get("source_type", "web"), VALID_SOURCE_TYPES, "source_type"
-            ),
-            "authority_level": _validate_enum(
-                src.get("authority_level", "blog"),
-                VALID_AUTHORITY_LEVELS,
-                "authority_level",
-            ),
-            "collected_at": src.get("collected_at", ""),
-        })
+        sources.append(
+            {
+                "source_id": sid,
+                "url": url,
+                "title": src.get("title", ""),
+                "source_type": _validate_enum(
+                    src.get("source_type", "web"), VALID_SOURCE_TYPES, "source_type"
+                ),
+                "authority_level": _validate_enum(
+                    src.get("authority_level", "blog"),
+                    VALID_AUTHORITY_LEVELS,
+                    "authority_level",
+                ),
+                "collected_at": src.get("collected_at", ""),
+            }
+        )
 
     # --- Topics ---
     topic_name_to_id: dict[str, str] = {}
@@ -293,11 +303,13 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
             return topic_name_to_id[name]
         tid = generate_creator_topic_id(name, genre_id)
         topic_name_to_id[name] = tid
-        topics.append({
-            "topic_id": tid,
-            "name": name,
-            "genre_id": genre_id,
-        })
+        topics.append(
+            {
+                "topic_id": tid,
+                "name": name,
+                "genre_id": genre_id,
+            }
+        )
         return tid
 
     # --- Content items (Fact, Tip, Story) + entity tracking ---
@@ -313,18 +325,22 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
         if not text:
             continue
         fid = generate_creator_fact_id(text)
-        facts.append({
-            "fact_id": fid,
-            "text": text,
-            "category": _validate_enum(
-                f.get("category", "research"), VALID_FACT_CATEGORIES, "fact.category"
-            ),
-            "confidence": _validate_enum(
-                f.get("confidence", "medium"),
-                VALID_CONFIDENCE_LEVELS,
-                "fact.confidence",
-            ),
-        })
+        facts.append(
+            {
+                "fact_id": fid,
+                "text": text,
+                "category": _validate_enum(
+                    f.get("category", "research"),
+                    VALID_FACT_CATEGORIES,
+                    "fact.category",
+                ),
+                "confidence": _validate_enum(
+                    f.get("confidence", "medium"),
+                    VALID_CONFIDENCE_LEVELS,
+                    "fact.confidence",
+                ),
+            }
+        )
 
         # ABOUT relations (fact -> topic)
         for topic_name in f.get("about_topics", []):
@@ -334,19 +350,23 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
         # FROM_SOURCE relation
         source_url = f.get("source_url", "")
         if source_url in source_url_to_id:
-            from_source_fact_rels.append({
-                "from_id": fid,
-                "to_id": source_url_to_id[source_url],
-            })
+            from_source_fact_rels.append(
+                {
+                    "from_id": fid,
+                    "to_id": source_url_to_id[source_url],
+                }
+            )
         elif source_url:
             logger.warning("Fact source_url not in sources: %s", source_url)
 
         # Entity tracking
-        entity_content_items.append({
-            "content_id": fid,
-            "content_type": "fact",
-            "about_entities": f.get("about_entities", []),
-        })
+        entity_content_items.append(
+            {
+                "content_id": fid,
+                "content_type": "fact",
+                "about_entities": f.get("about_entities", []),
+            }
+        )
 
     # Process Tips
     tips: list[dict[str, Any]] = []
@@ -358,18 +378,20 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
         if not text:
             continue
         tid = generate_creator_tip_id(text)
-        tips.append({
-            "tip_id": tid,
-            "text": text,
-            "category": _validate_enum(
-                t.get("category", "strategy"), VALID_TIP_CATEGORIES, "tip.category"
-            ),
-            "difficulty": _validate_enum(
-                t.get("difficulty", "beginner"),
-                VALID_DIFFICULTY_LEVELS,
-                "tip.difficulty",
-            ),
-        })
+        tips.append(
+            {
+                "tip_id": tid,
+                "text": text,
+                "category": _validate_enum(
+                    t.get("category", "strategy"), VALID_TIP_CATEGORIES, "tip.category"
+                ),
+                "difficulty": _validate_enum(
+                    t.get("difficulty", "beginner"),
+                    VALID_DIFFICULTY_LEVELS,
+                    "tip.difficulty",
+                ),
+            }
+        )
 
         for topic_name in t.get("about_topics", []):
             topic_id = _ensure_topic(topic_name)
@@ -377,18 +399,22 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
 
         source_url = t.get("source_url", "")
         if source_url in source_url_to_id:
-            from_source_tip_rels.append({
-                "from_id": tid,
-                "to_id": source_url_to_id[source_url],
-            })
+            from_source_tip_rels.append(
+                {
+                    "from_id": tid,
+                    "to_id": source_url_to_id[source_url],
+                }
+            )
         elif source_url:
             logger.warning("Tip source_url not in sources: %s", source_url)
 
-        entity_content_items.append({
-            "content_id": tid,
-            "content_type": "tip",
-            "about_entities": t.get("about_entities", []),
-        })
+        entity_content_items.append(
+            {
+                "content_id": tid,
+                "content_type": "tip",
+                "about_entities": t.get("about_entities", []),
+            }
+        )
 
     # Process Stories
     stories: list[dict[str, Any]] = []
@@ -400,14 +426,16 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
         if not text:
             continue
         sid = generate_creator_story_id(text)
-        stories.append({
-            "story_id": sid,
-            "text": text,
-            "outcome": _validate_enum(
-                s.get("outcome", "mixed"), VALID_STORY_OUTCOMES, "story.outcome"
-            ),
-            "timeline": s.get("timeline", ""),
-        })
+        stories.append(
+            {
+                "story_id": sid,
+                "text": text,
+                "outcome": _validate_enum(
+                    s.get("outcome", "mixed"), VALID_STORY_OUTCOMES, "story.outcome"
+                ),
+                "timeline": s.get("timeline", ""),
+            }
+        )
 
         for topic_name in s.get("about_topics", []):
             topic_id = _ensure_topic(topic_name)
@@ -415,18 +443,22 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
 
         source_url = s.get("source_url", "")
         if source_url in source_url_to_id:
-            from_source_story_rels.append({
-                "from_id": sid,
-                "to_id": source_url_to_id[source_url],
-            })
+            from_source_story_rels.append(
+                {
+                    "from_id": sid,
+                    "to_id": source_url_to_id[source_url],
+                }
+            )
         elif source_url:
             logger.warning("Story source_url not in sources: %s", source_url)
 
-        entity_content_items.append({
-            "content_id": sid,
-            "content_type": "story",
-            "about_entities": s.get("about_entities", []),
-        })
+        entity_content_items.append(
+            {
+                "content_id": sid,
+                "content_type": "story",
+                "about_entities": s.get("about_entities", []),
+            }
+        )
 
     # --- Entities + Relations ---
     entity_relations_input = data.get("entity_relations", [])
@@ -444,9 +476,7 @@ def map_creator_enrichment(data: dict[str, Any]) -> dict[str, Any]:
         return [{"from_id": r["from_id"], "to_id": r["to_id"]} for r in rels]
 
     # --- IN_GENRE relations ---
-    in_genre_rels = [
-        {"from_id": t["topic_id"], "to_id": genre_id} for t in topics
-    ]
+    in_genre_rels = [{"from_id": t["topic_id"], "to_id": genre_id} for t in topics]
 
     # --- Build queue document ---
     queue_id = generate_creator_queue_id()

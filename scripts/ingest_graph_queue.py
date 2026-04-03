@@ -143,7 +143,10 @@ def _verify_ingestion(
             logger.error(
                 "VERIFICATION ERROR [%s] %s: expected=%d, created=%d (%.0f%% missing) — "
                 "file will NOT be moved to processed",
-                queue_file.name, section, expected, created,
+                queue_file.name,
+                section,
+                expected,
+                created,
                 discrepancy_rate * 100,
             )
             has_error = True
@@ -350,7 +353,9 @@ def main() -> int:
     if args.file:
         # --file モード: 単一ファイル投入
         summary = process_single_file(
-            args.file, dry_run=args.dry_run, keep=args.keep,
+            args.file,
+            dry_run=args.dry_run,
+            keep=args.keep,
         )
     else:
         # ディレクトリモード: 未処理ファイル一括投入

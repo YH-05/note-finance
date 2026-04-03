@@ -372,7 +372,13 @@ def fetch_and_save(
 
     logger.info("Found %d pages", len(pages))
 
-    stats = {"total": len(pages), "saved": 0, "skipped_duplicate": 0, "skipped_empty": 0, "errors": 0}
+    stats = {
+        "total": len(pages),
+        "saved": 0,
+        "skipped_duplicate": 0,
+        "skipped_empty": 0,
+        "errors": 0,
+    }
 
     for i, page in enumerate(pages, 1):
         meta = extract_page_meta(page)
@@ -508,7 +514,9 @@ def main() -> int:
             args.target = TAG_DEFAULT_TARGET[args.tag]
             logger.info("--target を自動設定: %s（タグ: %s）", args.target, args.tag)
         else:
-            logger.error("--ingest 時は --target creator または --target research を指定してください")
+            logger.error(
+                "--ingest 時は --target creator または --target research を指定してください"
+            )
             return 1
 
     # source_id を決定
@@ -517,7 +525,7 @@ def main() -> int:
         source_id = f"notion-db-{args.tag}" if args.tag else _DEFAULT_SOURCE_ID
 
     print(f"\n{'=' * 60}")
-    print(f"Notion Database → RawStore")
+    print("Notion Database → RawStore")
     print(f"  Database : {DATABASE_ID}")
     print(f"  Tag      : {args.tag or '（全件）'}")
     if args.since:
@@ -541,7 +549,7 @@ def main() -> int:
     )
 
     print(f"\n{'=' * 60}")
-    print(f"RawStore 保存結果")
+    print("RawStore 保存結果")
     print(f"  取得     : {stats['total']} 件")
     print(f"  保存     : {stats['saved']} 件")
     print(f"  重複スキップ: {stats['skipped_duplicate']} 件")
@@ -560,11 +568,18 @@ def main() -> int:
     if args.ingest:
         print(f"\ndata_pipeline ingest を実行 ({source_id} → {args.target})...")
         cmd = [
-            "uv", "run", "python", "-m", "data_pipeline",
+            "uv",
+            "run",
+            "python",
+            "-m",
+            "data_pipeline",
             "ingest",
-            "--source", source_id,
-            "--target", args.target,
-            "--genre", args.genre,
+            "--source",
+            source_id,
+            "--target",
+            args.target,
+            "--genre",
+            args.genre,
         ]
         print(f"  $ {' '.join(cmd)}\n")
         result = subprocess.run(cmd, check=False)
@@ -572,9 +587,13 @@ def main() -> int:
             logger.error("ingest が失敗しました (exit code %d)", result.returncode)
             return result.returncode
     else:
-        print(f"\n次のステップ（Neo4j投入）:")
-        print(f"  uv run python -m data_pipeline ingest --source {source_id} --target creator --genre career")
-        print(f"  uv run python -m data_pipeline ingest --source {source_id} --target research")
+        print("\n次のステップ（Neo4j投入）:")
+        print(
+            f"  uv run python -m data_pipeline ingest --source {source_id} --target creator --genre career"
+        )
+        print(
+            f"  uv run python -m data_pipeline ingest --source {source_id} --target research"
+        )
 
     return 0
 

@@ -59,7 +59,9 @@ logger = get_logger(__name__, module="scrape_finance_news")
 # Default paths
 # AIDEV-NOTE: 全NASパスは環境変数で上書き可能。Mac Mini等の別マシンから実行する場合は
 # launchd plist の EnvironmentVariables に適切なマウントパスを設定すること。
-NAS_SCRAPED_BASE = Path(os.environ.get("NAS_SCRAPED_BASE", "/Volumes/personal_folder/scraped"))
+NAS_SCRAPED_BASE = Path(
+    os.environ.get("NAS_SCRAPED_BASE", "/Volumes/personal_folder/scraped")
+)
 DEFAULT_SOURCES = ["cnbc"]
 DEFAULT_CLEANUP_DAYS = 30
 
@@ -79,7 +81,9 @@ def _resolve_source_output_dir(source: str) -> Path:
     """
     nas_dir = NAS_SCRAPED_BASE / source
     if NAS_SCRAPED_BASE.exists():
-        logger.info("NAS is mounted, using NAS output", source=source, path=str(nas_dir))
+        logger.info(
+            "NAS is mounted, using NAS output", source=source, path=str(nas_dir)
+        )
         return nas_dir
 
     local_dir = get_path(f"scraped/{source}")
@@ -422,9 +426,7 @@ def main() -> int:
             try:
                 raw_regions = json.loads(args.jetro_regions)
             except json.JSONDecodeError:
-                logger.error(
-                    "Invalid JSON for --jetro-regions", raw=args.jetro_regions
-                )
+                logger.error("Invalid JSON for --jetro-regions", raw=args.jetro_regions)
                 return 1
             if not isinstance(raw_regions, dict) or not all(
                 isinstance(k, str)
@@ -441,7 +443,6 @@ def main() -> int:
         if args.jetro_archive_pages > 0:
             jetro_opts["archive_pages"] = args.jetro_archive_pages
         source_options["jetro"] = jetro_opts
-
 
     # Setup scraper config
     config = ScraperConfig(
@@ -512,7 +513,9 @@ def main() -> int:
 
         # Optional cleanup (per-source directory)
         if args.cleanup_days is not None:
-            logger.info("Running cleanup", source=source, max_age_days=args.cleanup_days)
+            logger.info(
+                "Running cleanup", source=source, max_age_days=args.cleanup_days
+            )
             deleted = _cleanup_old_data(source_output_dir, args.cleanup_days)
             logger.info("Cleanup finished", source=source, deleted_directories=deleted)
 

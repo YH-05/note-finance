@@ -38,7 +38,6 @@ import sys
 from pathlib import Path
 
 import structlog
-
 from note_publisher.browser_client import NoteBrowserClient
 from note_publisher.config import load_config
 from note_publisher.draft_publisher import DraftPublisher
@@ -194,7 +193,11 @@ def _build_article_draft_from_text(title: str, body: str) -> ArticleDraft:
             blocks.append(ContentBlock(block_type="paragraph", content=""))
             blocks.append(ContentBlock(block_type="paragraph", content=stripped))
         else:
-            blocks.append(ContentBlock(block_type="paragraph", content=_strip_markdown_inline(stripped)))
+            blocks.append(
+                ContentBlock(
+                    block_type="paragraph", content=_strip_markdown_inline(stripped)
+                )
+            )
 
     # 目次ブロックを最初の見出しの直前に自動挿入する。
     # intro 段落の後・最初の ## 見出しの前に配置する（エディタに文字が入力済みの状態で

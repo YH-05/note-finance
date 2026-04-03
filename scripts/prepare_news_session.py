@@ -447,7 +447,9 @@ def fetch_rss_items_by_theme(
                         }
                     )
             except Exception as e:
-                logger.warning("failed_to_fetch_feed_items", feed_id=feed_id, error=str(e))
+                logger.warning(
+                    "failed_to_fetch_feed_items", feed_id=feed_id, error=str(e)
+                )
 
         items_by_theme[theme_key] = theme_items
         logger.debug("fetched_theme_items", theme=theme_key, count=len(theme_items))

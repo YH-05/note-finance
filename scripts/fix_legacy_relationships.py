@@ -95,7 +95,9 @@ def find_legacy_relationships(session: Any) -> list[LegacyRelInfo]:
         result = session.run(query)
         count: int = result.single()["cnt"]
         if count > 0:
-            results.append(LegacyRelInfo(old_type=old_type, new_type=new_type, count=count))
+            results.append(
+                LegacyRelInfo(old_type=old_type, new_type=new_type, count=count)
+            )
             logger.info("Found %d %s relationships (→ %s)", count, old_type, new_type)
 
     total = sum(r.count for r in results)

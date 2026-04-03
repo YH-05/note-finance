@@ -64,14 +64,26 @@ VALID_TIP_CATEGORIES = frozenset({"strategy", "tool", "process", "mindset"})
 VALID_STORY_OUTCOMES = frozenset({"success", "failure", "mixed", "ongoing"})
 VALID_CONFIDENCE_LEVELS = frozenset({"high", "medium", "low"})
 VALID_DIFFICULTY_LEVELS = frozenset({"beginner", "intermediate", "advanced"})
-VALID_CONCEPT_CATEGORIES = frozenset({
-    # What layer
-    "MonetizationMethod", "AcquisitionChannel", "Skill", "Audience",
-    "RevenueModel", "SuccessMetric", "ContentFormat", "Regulation", "Milestone",
-    # How layer
-    "PersuasionTechnique", "EmotionalHook", "CopyFramework",
-    "Objection", "Transformation",
-})
+VALID_CONCEPT_CATEGORIES = frozenset(
+    {
+        # What layer
+        "MonetizationMethod",
+        "AcquisitionChannel",
+        "Skill",
+        "Audience",
+        "RevenueModel",
+        "SuccessMetric",
+        "ContentFormat",
+        "Regulation",
+        "Milestone",
+        # How layer
+        "PersuasionTechnique",
+        "EmotionalHook",
+        "CopyFramework",
+        "Objection",
+        "Transformation",
+    }
+)
 VALID_CONCEPT_RELATION_TYPES = frozenset({"ENABLES", "REQUIRES", "COMPETES_WITH"})
 
 GENRE_NAMES: dict[str, str] = {
@@ -84,22 +96,36 @@ GENRE_NAMES: dict[str, str] = {
 }
 
 CONCEPT_CATEGORY_LAYERS: dict[str, str] = {
-    "MonetizationMethod": "what", "AcquisitionChannel": "what",
-    "Skill": "what", "Audience": "what", "RevenueModel": "what",
-    "SuccessMetric": "what", "ContentFormat": "what",
-    "Regulation": "what", "Milestone": "what",
-    "PersuasionTechnique": "how", "EmotionalHook": "how",
-    "CopyFramework": "how", "Objection": "how", "Transformation": "how",
+    "MonetizationMethod": "what",
+    "AcquisitionChannel": "what",
+    "Skill": "what",
+    "Audience": "what",
+    "RevenueModel": "what",
+    "SuccessMetric": "what",
+    "ContentFormat": "what",
+    "Regulation": "what",
+    "Milestone": "what",
+    "PersuasionTechnique": "how",
+    "EmotionalHook": "how",
+    "CopyFramework": "how",
+    "Objection": "how",
+    "Transformation": "how",
 }
 
 CONCEPT_CATEGORY_NAMES_JA: dict[str, str] = {
-    "MonetizationMethod": "収益化手段", "AcquisitionChannel": "集客チャネル",
-    "Skill": "スキル・技能", "Audience": "ターゲット層",
-    "RevenueModel": "収益モデル", "SuccessMetric": "成果指標",
-    "ContentFormat": "コンテンツ形式", "Regulation": "法規制",
+    "MonetizationMethod": "収益化手段",
+    "AcquisitionChannel": "集客チャネル",
+    "Skill": "スキル・技能",
+    "Audience": "ターゲット層",
+    "RevenueModel": "収益モデル",
+    "SuccessMetric": "成果指標",
+    "ContentFormat": "コンテンツ形式",
+    "Regulation": "法規制",
     "Milestone": "時間軸目安",
-    "PersuasionTechnique": "説得技法", "EmotionalHook": "感情トリガー",
-    "CopyFramework": "文章構成パターン", "Objection": "読者の反論・障壁",
+    "PersuasionTechnique": "説得技法",
+    "EmotionalHook": "感情トリガー",
+    "CopyFramework": "文章構成パターン",
+    "Objection": "読者の反論・障壁",
     "Transformation": "変化パターン",
 }
 
@@ -195,24 +221,27 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
 
         domain_name = extract_domain(url)
 
-        sources.append({
-            "source_id": sid,
-            "url": url,
-            "title": src.get("title", ""),
-            "source_type": _validate_enum(
-                src.get("source_type", "web"), VALID_SOURCE_TYPES, "source_type"
-            ),
-            "authority_level": _validate_enum(
-                src.get("authority_level", "blog"),
-                VALID_AUTHORITY_LEVELS, "authority_level",
-            ),
-            "language": _validate_enum(
-                src.get("language", "en"), VALID_LANGUAGES, "language"
-            ),
-            "domain": domain_name,
-            "collected_at": src.get("collected_at", ""),
-            "published_at": src.get("published_at", ""),
-        })
+        sources.append(
+            {
+                "source_id": sid,
+                "url": url,
+                "title": src.get("title", ""),
+                "source_type": _validate_enum(
+                    src.get("source_type", "web"), VALID_SOURCE_TYPES, "source_type"
+                ),
+                "authority_level": _validate_enum(
+                    src.get("authority_level", "blog"),
+                    VALID_AUTHORITY_LEVELS,
+                    "authority_level",
+                ),
+                "language": _validate_enum(
+                    src.get("language", "en"), VALID_LANGUAGES, "language"
+                ),
+                "domain": domain_name,
+                "collected_at": src.get("collected_at", ""),
+                "published_at": src.get("published_at", ""),
+            }
+        )
 
         if domain_name not in domain_set:
             domain_set[domain_name] = {"name": domain_name}
@@ -240,13 +269,15 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
         resolved_id = ent.get("entity_id", eid)
         resolved_key = ent.get("entity_key", entity_key)
 
-        entities.append({
-            "entity_id": resolved_id,
-            "entity_key": resolved_key,
-            "name": name,
-            "entity_type": entity_type,
-            "resolved": ent.get("resolved", False),
-        })
+        entities.append(
+            {
+                "entity_id": resolved_id,
+                "entity_key": resolved_key,
+                "name": name,
+                "entity_type": entity_type,
+                "resolved": ent.get("resolved", False),
+            }
+        )
 
     # --- Concepts ---
     concepts: list[dict[str, Any]] = []
@@ -271,13 +302,15 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
         # Use resolved ID if available
         resolved_id = con.get("concept_id", cid)
 
-        concepts.append({
-            "concept_id": resolved_id,
-            "name": name,
-            "category": category,
-            "new_category": con.get("new_category", False),
-            "resolved": con.get("resolved", False),
-        })
+        concepts.append(
+            {
+                "concept_id": resolved_id,
+                "name": name,
+                "category": category,
+                "new_category": con.get("new_category", False),
+                "resolved": con.get("resolved", False),
+            }
+        )
 
         # Track used categories
         if category:
@@ -286,18 +319,25 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
     # Build ConceptCategory nodes for used categories
     for cat in used_categories:
         if cat in VALID_CONCEPT_CATEGORIES:
-            concept_categories.append({
-                "name": cat,
-                "name_ja": CONCEPT_CATEGORY_NAMES_JA.get(cat, cat),
-                "layer": CONCEPT_CATEGORY_LAYERS.get(cat, "what"),
-            })
+            concept_categories.append(
+                {
+                    "name": cat,
+                    "name_ja": CONCEPT_CATEGORY_NAMES_JA.get(cat, cat),
+                    "layer": CONCEPT_CATEGORY_LAYERS.get(cat, "what"),
+                }
+            )
 
     # --- Content (Fact/Tip/Story) ---
     def _process_content(
         items: list[dict[str, Any]],
         content_type: str,
-    ) -> tuple[list[dict[str, Any]], list[dict[str, str]], list[dict[str, str]],
-               list[dict[str, str]], list[dict[str, str]]]:
+    ) -> tuple[
+        list[dict[str, Any]],
+        list[dict[str, str]],
+        list[dict[str, str]],
+        list[dict[str, str]],
+        list[dict[str, str]],
+    ]:
         """Process content items and return nodes + relations."""
         nodes = []
         about_rels = []
@@ -317,11 +357,13 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
                     "text": text,
                     "category": _validate_enum(
                         item.get("category", "research"),
-                        VALID_FACT_CATEGORIES, "fact.category"
+                        VALID_FACT_CATEGORIES,
+                        "fact.category",
                     ),
                     "confidence": _validate_enum(
                         item.get("confidence", "medium"),
-                        VALID_CONFIDENCE_LEVELS, "fact.confidence"
+                        VALID_CONFIDENCE_LEVELS,
+                        "fact.confidence",
                     ),
                 }
             elif content_type == "tip":
@@ -331,11 +373,13 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
                     "text": text,
                     "category": _validate_enum(
                         item.get("category", "strategy"),
-                        VALID_TIP_CATEGORIES, "tip.category"
+                        VALID_TIP_CATEGORIES,
+                        "tip.category",
                     ),
                     "difficulty": _validate_enum(
                         item.get("difficulty", "beginner"),
-                        VALID_DIFFICULTY_LEVELS, "tip.difficulty"
+                        VALID_DIFFICULTY_LEVELS,
+                        "tip.difficulty",
                     ),
                 }
             else:  # story
@@ -345,7 +389,8 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
                     "text": text,
                     "outcome": _validate_enum(
                         item.get("outcome", "mixed"),
-                        VALID_STORY_OUTCOMES, "story.outcome"
+                        VALID_STORY_OUTCOMES,
+                        "story.outcome",
                     ),
                     "timeline": item.get("timeline", ""),
                 }
@@ -355,18 +400,22 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
             # ABOUT → Concept
             for concept_name in item.get("about_concepts", []):
                 if concept_name in concept_name_to_id:
-                    about_rels.append({
-                        "from_id": cid,
-                        "to_id": concept_name_to_id[concept_name],
-                    })
+                    about_rels.append(
+                        {
+                            "from_id": cid,
+                            "to_id": concept_name_to_id[concept_name],
+                        }
+                    )
 
             # FROM_SOURCE
             source_url = item.get("source_url", "")
             if source_url in source_url_to_id:
-                from_source_rels.append({
-                    "from_id": cid,
-                    "to_id": source_url_to_id[source_url],
-                })
+                from_source_rels.append(
+                    {
+                        "from_id": cid,
+                        "to_id": source_url_to_id[source_url],
+                    }
+                )
 
             # MENTIONS → Entity
             # AIDEV-NOTE: about_entities[] の Entity が top-level entities[] に未登録の場合、
@@ -381,28 +430,35 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
                         eid = generate_entity_id(ent_name, ent_type)
                         entity_key = f"{ent_name}::{ent_type}"
                         entity_name_to_id[ent_name] = eid
-                        entities.append({
-                            "entity_id": eid,
-                            "entity_key": entity_key,
-                            "name": ent_name,
-                            "entity_type": ent_type,
-                            "resolved": False,
-                        })
+                        entities.append(
+                            {
+                                "entity_id": eid,
+                                "entity_key": entity_key,
+                                "name": ent_name,
+                                "entity_type": ent_type,
+                                "resolved": False,
+                            }
+                        )
                         logger.info(
                             "Auto-registered entity from about_entities: %s (%s)",
-                            ent_name, ent_type,
+                            ent_name,
+                            ent_type,
                         )
                 if ent_name in entity_name_to_id:
-                    mentions_rels.append({
-                        "from_id": cid,
-                        "to_id": entity_name_to_id[ent_name],
-                    })
+                    mentions_rels.append(
+                        {
+                            "from_id": cid,
+                            "to_id": entity_name_to_id[ent_name],
+                        }
+                    )
 
             # IN_GENRE
-            in_genre_rels.append({
-                "from_id": cid,
-                "to_id": genre_id,
-            })
+            in_genre_rels.append(
+                {
+                    "from_id": cid,
+                    "to_id": genre_id,
+                }
+            )
 
         return nodes, about_rels, from_source_rels, mentions_rels, in_genre_rels
 
@@ -422,20 +478,24 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
         ent_name = sa.get("entity_name", "")
         con_name = sa.get("concept_name", "")
         if ent_name in entity_name_to_id and con_name in concept_name_to_id:
-            serves_as_rels.append({
-                "from_id": entity_name_to_id[ent_name],
-                "to_id": concept_name_to_id[con_name],
-                "context": sa.get("context", ""),
-            })
+            serves_as_rels.append(
+                {
+                    "from_id": entity_name_to_id[ent_name],
+                    "to_id": concept_name_to_id[con_name],
+                    "context": sa.get("context", ""),
+                }
+            )
 
     # --- IS_A (Concept → ConceptCategory) ---
     is_a_rels: list[dict[str, str]] = []
     for con in concepts:
         if con.get("category"):
-            is_a_rels.append({
-                "from_id": con["concept_id"],
-                "to_id": con["category"],
-            })
+            is_a_rels.append(
+                {
+                    "from_id": con["concept_id"],
+                    "to_id": con["category"],
+                }
+            )
 
     # --- Concept Relations (ENABLES/REQUIRES/COMPETES_WITH) ---
     concept_rels: list[dict[str, Any]] = []
@@ -454,19 +514,23 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
             logger.warning("Invalid concept relation type: %s", rel_type)
             continue
 
-        concept_rels.append({
-            "from_id": concept_name_to_id[from_name],
-            "to_id": concept_name_to_id[to_name],
-            "rel_type": rel_type,
-        })
+        concept_rels.append(
+            {
+                "from_id": concept_name_to_id[from_name],
+                "to_id": concept_name_to_id[to_name],
+                "rel_type": rel_type,
+            }
+        )
 
     # --- FROM_DOMAIN (Source → Domain) ---
     from_domain_rels: list[dict[str, str]] = []
     for src in sources:
-        from_domain_rels.append({
-            "from_id": src["source_id"],
-            "to_id": src["domain"],
-        })
+        from_domain_rels.append(
+            {
+                "from_id": src["source_id"],
+                "to_id": src["domain"],
+            }
+        )
 
     # --- Build queue document ---
     queue_id = generate_queue_id()
@@ -513,9 +577,18 @@ def map_creator_enrichment_v2(data: dict[str, Any]) -> dict[str, Any]:
         "Mapped: %d sources, %d domains, %d concepts (%d categories), "
         "%d entities, %d facts, %d tips, %d stories, "
         "%d about, %d mentions, %d serves_as, %d concept_rels",
-        len(sources), len(domains), len(concepts), len(concept_categories),
-        len(entities), len(facts), len(tips), len(stories),
-        total_about, total_mentions, len(serves_as_rels), len(concept_rels),
+        len(sources),
+        len(domains),
+        len(concepts),
+        len(concept_categories),
+        len(entities),
+        len(facts),
+        len(tips),
+        len(stories),
+        total_about,
+        total_mentions,
+        len(serves_as_rels),
+        len(concept_rels),
     )
     if total_content == 0:
         logger.warning("No content items found in input")
@@ -533,11 +606,15 @@ def main() -> None:
         description="Emit creator-graph-queue v2 JSON from enrichment data."
     )
     parser.add_argument(
-        "--input", required=True, type=Path,
+        "--input",
+        required=True,
+        type=Path,
         help="Input JSON file (creator-enrichment v2 format)",
     )
     parser.add_argument(
-        "--output-dir", type=Path, default=DEFAULT_OUTPUT_BASE,
+        "--output-dir",
+        type=Path,
+        default=DEFAULT_OUTPUT_BASE,
         help=f"Output directory (default: {DEFAULT_OUTPUT_BASE})",
     )
     args = parser.parse_args()
@@ -565,17 +642,26 @@ def main() -> None:
                 content = item.get("content", "")
                 source_url = item.get("source_url", "")
                 if content and source_url:
-                    items.append({
-                        "url": source_url,
-                        "title": item.get("title", content[:60]),
-                        "raw_text": content,
-                        "metadata": {"content_type": content_key, "genre": item.get("genre", "")},
-                    })
+                    items.append(
+                        {
+                            "url": source_url,
+                            "title": item.get("title", content[:60]),
+                            "raw_text": content,
+                            "metadata": {
+                                "content_type": content_key,
+                                "genre": item.get("genre", ""),
+                            },
+                        }
+                    )
         if items:
-            sr = save_raw_texts(items, source_id="creator-enrichment", collection_method="scraping")
+            sr = save_raw_texts(
+                items, source_id="creator-enrichment", collection_method="scraping"
+            )
             logger.info(
                 "RawStore: saved=%d, dup=%d, empty=%d",
-                sr.saved, sr.skipped_duplicate, sr.skipped_empty,
+                sr.saved,
+                sr.skipped_duplicate,
+                sr.skipped_empty,
             )
     except Exception as exc:
         logger.warning("RawStore save failed (non-blocking): %s", exc)

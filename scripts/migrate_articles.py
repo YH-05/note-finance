@@ -279,11 +279,7 @@ def _phase_status(phase_data: Any) -> str:
     if isinstance(phase_data, str):
         return phase_data
     if isinstance(phase_data, dict):
-        values = [
-            str(v)
-            for v in phase_data.values()
-            if isinstance(v, str)
-        ]
+        values = [str(v) for v in phase_data.values() if isinstance(v, str)]
         if not values:
             return "pending"
         if all(v == "done" for v in values):
@@ -312,11 +308,7 @@ def _best_status(
     str
         One of "done", "in_progress", or "pending".
     """
-    statuses = [
-        _phase_status(workflow[k])
-        for k in keys
-        if k in workflow
-    ]
+    statuses = [_phase_status(workflow[k]) for k in keys if k in workflow]
     if not statuses:
         return "pending"
     if all(s == "done" for s in statuses):
@@ -489,9 +481,7 @@ def convert_meta(
         # Legacy
         "legacy": {
             "old_path": old_path,
-            "old_article_id": old.get("article_id")
-            or old.get("pattern_id")
-            or None,
+            "old_article_id": old.get("article_id") or old.get("pattern_id") or None,
             "migrated_at": now_iso,
         },
     }

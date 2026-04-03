@@ -85,7 +85,9 @@ def read_all_relationships(session) -> list[dict]:
     return [dict(r) for r in result]
 
 
-def get_node_merge_key(labels: list[str], props: dict) -> tuple[str, str, object] | None:
+def get_node_merge_key(
+    labels: list[str], props: dict
+) -> tuple[str, str, object] | None:
     """Determine the label and unique key for MERGE.
 
     Returns (label, key_name, key_value) or None if unknown label.
@@ -199,35 +201,40 @@ def merge_relationship(
 
 def verify_migration(article_session, research_session) -> bool:
     """Verify migration by comparing counts."""
-    art_nodes = article_session.run(
-        "MATCH (n) RETURN count(n) AS cnt"
-    ).single()["cnt"]
-    art_rels = article_session.run(
-        "MATCH ()-[r]->() RETURN count(r) AS cnt"
-    ).single()["cnt"]
+    art_nodes = article_session.run("MATCH (n) RETURN count(n) AS cnt").single()["cnt"]
+    art_rels = article_session.run("MATCH ()-[r]->() RETURN count(r) AS cnt").single()[
+        "cnt"
+    ]
 
-    res_nodes = research_session.run(
-        "MATCH (n) RETURN count(n) AS cnt"
-    ).single()["cnt"]
-    res_rels = research_session.run(
-        "MATCH ()-[r]->() RETURN count(r) AS cnt"
-    ).single()["cnt"]
+    res_nodes = research_session.run("MATCH (n) RETURN count(n) AS cnt").single()["cnt"]
+    res_rels = research_session.run("MATCH ()-[r]->() RETURN count(r) AS cnt").single()[
+        "cnt"
+    ]
 
     logger.info(
         "Verification — article: %d nodes, %d rels | research: %d nodes, %d rels",
-        art_nodes, art_rels, res_nodes, res_rels,
+        art_nodes,
+        art_rels,
+        res_nodes,
+        res_rels,
     )
     return True
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Migrate article-neo4j → research-neo4j")
-    parser.add_argument("--dry-run", action="store_true", help="Show what would be done")
+    parser = argparse.ArgumentParser(
+        description="Migrate article-neo4j → research-neo4j"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Show what would be done"
+    )
     args = parser.parse_args()
 
     logger.info(
         "Starting migration: %s → %s (dry_run=%s)",
-        ARTICLE_URI, RESEARCH_URI, args.dry_run,
+        ARTICLE_URI,
+        RESEARCH_URI,
+        args.dry_run,
     )
 
     article_driver = GraphDatabase.driver(ARTICLE_URI, auth=AUTH)
@@ -241,14 +248,20 @@ def main() -> None:
         # Get initial research counts
         with research_driver.session() as rs:
             initial_nodes = rs.run("MATCH (n) RETURN count(n) AS cnt").single()["cnt"]
-            initial_rels = rs.run("MATCH ()-[r]->() RETURN count(r) AS cnt").single()["cnt"]
-            logger.info("Research DB initial: %d nodes, %d rels", initial_nodes, initial_rels)
+            initial_rels = rs.run("MATCH ()-[r]->() RETURN count(r) AS cnt").single()[
+                "cnt"
+            ]
+            logger.info(
+                "Research DB initial: %d nodes, %d rels", initial_nodes, initial_rels
+            )
 
         # Phase 1: Read all data from article-neo4j
         with article_driver.session() as asess:
             nodes = read_all_nodes(asess)
             rels = read_all_relationships(asess)
-            logger.info("Read from article-neo4j: %d nodes, %d rels", len(nodes), len(rels))
+            logger.info(
+                "Read from article-neo4j: %d nodes, %d rels", len(nodes), len(rels)
+            )
 
         # Phase 2: Create missing constraints in research-neo4j
         with research_driver.session() as rs:
@@ -271,11 +284,13 @@ def main() -> None:
                 label, key_name, key_value = merge_info
 
                 if args.dry_run:
-                    logger.debug("DRY RUN: Would merge %s(%s=%s)", label, key_name, key_value)
+                    logger.debug(
+                        "DRY RUN: Would merge %s(%s=%s)", label, key_name, key_value
+                    )
                 else:
                     rs.execute_write(
-                        lambda tx, l=label, kn=key_name, kv=key_value, p=props: merge_node(
-                            tx, l, kn, kv, p
+                        lambda tx, l=label, kn=key_name, kv=key_value, p=props: (
+                            merge_node(tx, l, kn, kv, p)
                         )
                     )
                 stats[label] += 1
@@ -313,15 +328,15 @@ def main() -> None:
                     )
                 else:
                     rs.execute_write(
-                        lambda tx, rt=rel["rel_type"], rp=rel["rel_props"],
-                        sl=start_label, skn=start_key_name, skv=start_key_value,
-                        el=end_label, ekn=end_key_name, ekv=end_key_value: merge_relationship(
-                            tx, rt, rp, sl, skn, skv, el, ekn, ekv
+                        lambda tx, rt=rel["rel_type"], rp=rel["rel_props"], sl=start_label, skn=start_key_name, skv=start_key_value, el=end_label, ekn=end_key_name, ekv=end_key_value: (
+                            merge_relationship(tx, rt, rp, sl, skn, skv, el, ekn, ekv)
                         )
                     )
                 rel_stats[rel["rel_type"]] += 1
 
-            logger.info("Rels processed: %s (skipped: %d)", dict(rel_stats), len(rel_skipped))
+            logger.info(
+                "Rels processed: %s (skipped: %d)", dict(rel_stats), len(rel_skipped)
+            )
             if rel_skipped:
                 for s in rel_skipped[:10]:
                     logger.warning("Skipped rel: %s", s)
@@ -333,16 +348,23 @@ def main() -> None:
 
             with research_driver.session() as rs:
                 final_nodes = rs.run("MATCH (n) RETURN count(n) AS cnt").single()["cnt"]
-                final_rels = rs.run("MATCH ()-[r]->() RETURN count(r) AS cnt").single()["cnt"]
+                final_rels = rs.run("MATCH ()-[r]->() RETURN count(r) AS cnt").single()[
+                    "cnt"
+                ]
                 logger.info(
                     "Migration complete: %d→%d nodes (+%d), %d→%d rels (+%d)",
-                    initial_nodes, final_nodes, final_nodes - initial_nodes,
-                    initial_rels, final_rels, final_rels - initial_rels,
+                    initial_nodes,
+                    final_nodes,
+                    final_nodes - initial_nodes,
+                    initial_rels,
+                    final_rels,
+                    final_rels - initial_rels,
                 )
         else:
             logger.info(
                 "DRY RUN complete: would process %d nodes, %d rels",
-                sum(stats.values()), sum(rel_stats.values()),
+                sum(stats.values()),
+                sum(rel_stats.values()),
             )
 
     except Exception:

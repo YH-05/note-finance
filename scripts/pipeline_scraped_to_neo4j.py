@@ -60,6 +60,7 @@ NAS_SCRAPED_BASE = os.environ.get(
 # Stage runners
 # ---------------------------------------------------------------------------
 
+
 def _run_stage2_dedup(
     scraped_base: str,
     sources: list[str],
@@ -85,10 +86,14 @@ def _run_stage2_dedup(
         dedup 出力 .tmp ファイルパス。新規記事なし or dry-run の場合は None。
     """
     cmd = [
-        "uv", "run", "python",
+        "uv",
+        "run",
+        "python",
         str(SCRIPT_DIR / "dedup_scraped.py"),
-        "--scraped-base", scraped_base,
-        "--log-level", log_level,
+        "--scraped-base",
+        scraped_base,
+        "--log-level",
+        log_level,
     ]
     if sources:
         cmd += ["--sources"] + sources
@@ -96,7 +101,9 @@ def _run_stage2_dedup(
         cmd.append("--dry-run")
 
     logger.info("Stage 2: dedup_scraped starting", dry_run=dry_run)
-    result = subprocess.run(cmd, capture_output=False, text=True, stdout=subprocess.PIPE)
+    result = subprocess.run(
+        cmd, capture_output=False, text=True, stdout=subprocess.PIPE
+    )
 
     if result.returncode != 0:
         logger.error("Stage 2 failed", returncode=result.returncode)
@@ -131,14 +138,20 @@ def _run_stage3_emit(dedup_output: Path) -> Path | None:
         graph-queue JSON ファイルパス。失敗時は None。
     """
     cmd = [
-        "uv", "run", "python",
+        "uv",
+        "run",
+        "python",
         str(SCRIPT_DIR / "emit_research_queue.py"),
-        "--command", "finance-news-workflow",
-        "--input", str(dedup_output),
+        "--command",
+        "finance-news-workflow",
+        "--input",
+        str(dedup_output),
     ]
 
     logger.info("Stage 3: emit_research_queue starting", input=str(dedup_output))
-    result = subprocess.run(cmd, capture_output=False, text=True, stdout=subprocess.PIPE)
+    result = subprocess.run(
+        cmd, capture_output=False, text=True, stdout=subprocess.PIPE
+    )
 
     if result.returncode != 0:
         logger.error("Stage 3 failed", returncode=result.returncode)
@@ -167,10 +180,14 @@ def _run_stage4_ingest(queue_file: Path, log_level: str) -> None:
         ログレベル文字列。
     """
     cmd = [
-        "uv", "run", "python",
+        "uv",
+        "run",
+        "python",
         str(SCRIPT_DIR / "ingest_graph_queue.py"),
-        "--file", str(queue_file),
-        "--log-level", log_level,
+        "--file",
+        str(queue_file),
+        "--log-level",
+        log_level,
     ]
 
     logger.info("Stage 4: ingest_graph_queue starting", input=str(queue_file))
@@ -186,6 +203,7 @@ def _run_stage4_ingest(queue_file: Path, log_level: str) -> None:
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
+
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
