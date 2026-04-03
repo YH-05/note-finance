@@ -86,7 +86,7 @@ dec-schema-003 に基づく:
 
 1. **Claim content**: 主な分類根拠
 2. **Source title**: 文脈の補助情報
-3. **Entity names**: 関連企業/指標（ABOUTリレーション経由）
+3. **Entity names**: 関連企業/指標（RELATES_TOリレーション経由）
 
 ### 分類の優先順位
 
@@ -106,7 +106,10 @@ dec-schema-003 に基づく:
 // 未分類 Claim の取得（--resume 時）
 MATCH (s:Source)-[:MAKES_CLAIM]->(c:Claim)
 WHERE c.classified_at IS NULL
-OPTIONAL MATCH (c)-[:ABOUT]->(e:Entity)
+OPTIONAL MATCH (c)-[:RELATES_TO]->(e)
+WHERE (e:Company OR e:Technology OR e:Organization OR e:Person
+    OR e:MarketIndex OR e:Indicator OR e:Instrument OR e:Commodity
+    OR e:Country OR e:Concept OR e:Regulation OR e:Broker OR e:Product)
 WITH s, c, collect(DISTINCT e.name) AS entity_names
 RETURN c.claim_id AS claim_id,
        c.content AS content,

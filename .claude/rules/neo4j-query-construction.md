@@ -45,36 +45,37 @@ LIMIT は固定値ではなく、**スキーマ取得時のノード数に応じ
 
 **無方向パターン `-[:REL]-` は禁止。必ず方向を指定すること。**
 
-無方向クエリはリレーションを両方向でスキャンするため、接続先ノード種別が多いリレーション（ABOUT等）では全体スキャンに近いコストが発生しタイムアウトする。
+無方向クエリはリレーションを両方向でスキャンするため、接続先ノード種別が多いリレーション（RELATES_TO等）では全体スキャンに近いコストが発生しタイムアウトする。
 
 ```cypher
 -- ❌ 禁止（無方向）
-MATCH (e:Entity)-[:ABOUT]-(f:Fact)
+MATCH (e:Company)-[:RELATES_TO]-(f:Fact)
 
 -- ✅ 推奨（有方向）
-MATCH (f:Fact)-[:ABOUT]->(e:Entity)
+MATCH (f:Fact)-[:RELATES_TO]->(e:Company)
 ```
 
 ### research-neo4j の主要リレーション正方向
 
 | リレーション | from → to |
 |------------|-----------|
-| ABOUT | Fact/Claim/FinancialDataPoint/Source → Entity系 |
+| RELATES_TO | Fact/Claim/FinancialDataPoint/Source → Entity系（Company/Organization/Person 等） |
 | MAKES_CLAIM | Source → Claim |
-| STATES_FACT | Entity/Organization → Fact |
+| STATES_FACT | Source → Fact |
 | EXTRACTED_FROM | Fact/Claim → Source/Chunk |
 | CONTAINS_CHUNK | Source → Chunk |
-| HAS_DATAPOINT | Entity → FinancialDataPoint |
+| HAS_DATAPOINT | Source → FinancialDataPoint |
 | TAGGED | [全ノード] → Topic |
+| ABOUT | Fact/Claim → Topic（コンテンツのトピック分類） |
 
 ### スタートノードの選び方
 
-特定エンティティのFact/Claim取得は「小さい側（Entity）」ではなく「大きい側（Fact/Claim）」から始めて Entity でフィルタリングする方が高速。
+特定エンティティのFact/Claim取得は「小さい側（個別ラベルノード）」ではなく「大きい側（Fact/Claim）」から始めて フィルタリングする方が高速。
 
 ```cypher
--- ✅ Fact側からスタート
-MATCH (f:Fact)-[:ABOUT]->(e:Entity)
-WHERE e.name = 'Telkom Indonesia' AND e.ticker = 'TLKM IJ'
+-- ✅ Fact側からスタート（Entity ラベル廃止・個別ラベル使用）
+MATCH (f:Fact)-[:RELATES_TO]->(e:Company)
+WHERE e.name = 'Telkom Indonesia'
 LIMIT 30
 ```
 

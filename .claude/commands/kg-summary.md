@@ -35,14 +35,16 @@ research-neo4j に蓄積されたトピック関連データを即時照会し�
 **Q1: Entity・Fact・Claim・Source件数**
 
 ```cypher
-MATCH (e:Entity)
-WHERE e.name CONTAINS $keyword
-   OR any(a IN coalesce(e.aliases, []) WHERE a CONTAINS $keyword)
-OPTIONAL MATCH (f:Fact)-[:RELATES_TO|ABOUT]->(e)
-OPTIONAL MATCH (c:Claim)-[:ABOUT]->(e)
-OPTIONAL MATCH (s:Source)-[:MENTIONS|ABOUT]->(e)
+MATCH (e)
+WHERE (e:Company OR e:Technology OR e:Organization OR e:Person
+    OR e:MarketIndex OR e:Indicator OR e:Instrument OR e:Commodity
+    OR e:Country OR e:Concept OR e:Regulation OR e:Broker OR e:Product)
+  AND e.name CONTAINS $keyword
+OPTIONAL MATCH (f:Fact)-[:RELATES_TO]->(e)
+OPTIONAL MATCH (c:Claim)-[:RELATES_TO]->(e)
+OPTIONAL MATCH (s:Source)-[:RELATES_TO]->(e)
 RETURN e.name AS entity,
-       e.entity_type AS type,
+       [l IN labels(e) WHERE l <> 'Memory'][0] AS type,
        count(DISTINCT f) AS facts,
        count(DISTINCT c) AS claims,
        count(DISTINCT s) AS sources
@@ -53,8 +55,11 @@ LIMIT 10
 **Q2: ソース鮮度**
 
 ```cypher
-MATCH (s:Source)-[:MENTIONS|ABOUT]->(e:Entity)
-WHERE e.name CONTAINS $keyword
+MATCH (s:Source)-[:RELATES_TO]->(e)
+WHERE (e:Company OR e:Technology OR e:Organization OR e:Person
+    OR e:MarketIndex OR e:Indicator OR e:Instrument OR e:Commodity
+    OR e:Country OR e:Concept OR e:Regulation OR e:Broker OR e:Product)
+  AND e.name CONTAINS $keyword
 RETURN max(s.published_at) AS latest_source,
        count(DISTINCT s) AS total_sources
 ```
@@ -62,8 +67,8 @@ RETURN max(s.published_at) AS latest_source,
 **Q3: 未回答Question**
 
 ```cypher
-MATCH (q:Question)-[:ASKS_ABOUT]->(e:Entity)
-WHERE e.name CONTAINS $keyword
+MATCH (q:Question)-[:ASKS_ABOUT]->(t:Topic)
+WHERE t.name CONTAINS $keyword
   AND q.status IN ['open', 'investigating']
 RETURN count(q) AS open_questions,
        collect(q.content)[0..3] AS sample_questions
@@ -72,19 +77,22 @@ RETURN count(q) AS open_questions,
 **Q4: Claimセンチメント分布**
 
 ```cypher
-MATCH (c:Claim)-[:ABOUT]->(e:Entity)
-WHERE e.name CONTAINS $keyword
+MATCH (c:Claim)-[:RELATES_TO]->(e)
+WHERE (e:Company OR e:Technology OR e:Organization OR e:Person
+    OR e:MarketIndex OR e:Indicator OR e:Instrument OR e:Commodity
+    OR e:Country OR e:Concept OR e:Regulation OR e:Broker OR e:Product)
+  AND e.name CONTAINS $keyword
 RETURN c.sentiment AS sentiment,
        count(c) AS count
 ORDER BY count DESC
 ```
 
-**Q5: FinancialDataPoint（company/etf/index entityのみ）**
+**Q5: FinancialDataPoint（Company/Instrument/MarketIndex のみ）**
 
 ```cypher
-MATCH (e:Entity)
-WHERE e.name CONTAINS $keyword
-  AND e.entity_type IN ['company', 'etf', 'index']
+MATCH (e)
+WHERE (e:Company OR e:Instrument OR e:MarketIndex)
+  AND e.name CONTAINS $keyword
 OPTIONAL MATCH (fdp:FinancialDataPoint)-[:RELATES_TO]->(e)
 RETURN e.name AS entity,
        count(DISTINCT fdp) AS fdp_count,
