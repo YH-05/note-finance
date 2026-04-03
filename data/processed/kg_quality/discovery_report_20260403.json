@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-04-03T03:47:13.882944+00:00",
+  "probes_summary": {
+    "cross_domain_pairs": 10,
+    "indirect_paths": 0,
+    "stance_entities": 2,
+    "insights_existing": 10,
+    "multi_topic_entities": 10
+  },
+  "discoveries": [
+    {
+      "type": "cross_domain_hypothesis",
+      "title": "メタ洞察: グラフ自身が自己改善の処方箋を内包",
+      "description": "圏論クラスタのFactに「Functorial Cross-Domain Bridges」設計原則があり、これはKG自体に欠けている金融↔数学ブリッジの処方箋を記述している。KGが自己改善の処方箋を内包するメタ構造。",
+      "entities_involved": [
+        "Category Theory",
+        "Functorial Data Migration",
+        "CQL",
+        "Sheaf Theory"
+      ],
+      "supporting_evidence": [
+        "Three design principles for emergent-discovery-capable graph databases",
+        "Algebraic data integration uses adjoint triple of functors"
+      ],
+      "evidence_count": 14
+    },
+    {
+      "type": "contradiction_analysis",
+      "title": "ISAT TP分散構造: Bull/Bear分岐の定量化可能性",
+      "description": "ISATの40件StanceでTPがIDR 2,300-3,300 (43%幅)。AI TechCo路線 vs 接続提供者の戦略分岐。Bull: GPUaaS先行者利益(NVIDIA NCP唯一)。Bear: EBITDA Margin 4年連続低下(52.9%→50.0%)。AI収益化タイムラインのKGモデル化が可能。",
+      "entities_involved": [
+        "Indosat Ooredoo Hutchison",
+        "Telkom Indonesia",
+        "NVIDIA"
+      ],
+      "supporting_evidence": [
+        "ISAT 40 stances with TP range IDR 2300-3300",
+        "EBITDA Margin FY21 52.9% to FY24 50.0%",
+        "GPUaaS: H100 SXM + GB200 NVL72",
+        "Revenue FY21-24 CAGR 1.6%"
+      ],
+      "evidence_count": 8
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "Topic過剰タギングがクロスドメイン発見を阻害",
+      "description": "Amazon/Microsoft等が370-402 topicに紐づく。週次レポートの間接言及が原因で mentioned/primary subject の区別なし。真のクロスドメイン接続がノイズに埋もれている。",
+      "entities_involved": [
+        "Amazon",
+        "Microsoft",
+        "NVIDIA",
+        "S&P 500"
+      ],
+      "supporting_evidence": [
+        "Amazon: 402 topics, 13 categories",
+        "Microsoft: 402 topics, 13 categories"
+      ],
+      "evidence_count": 10
+    },
+    {
+      "type": "knowledge_gap",
+      "title": "ASEAN Telecom比較データの完全欠落",
+      "description": "True Corp+DTAC統合(2023年3月)はIOH統合の直接比較対象だが、AIS/True CorpのEntity・FinancialDataPointが皆無。統合シナジーのベンチマーキング不可能。",
+      "entities_involved": [
+        "Indosat Ooredoo Hutchison",
+        "Telkomsel"
+      ],
+      "supporting_evidence": [
+        "information_gap Insight: Thailand telecom data completely missing"
+      ],
+      "evidence_count": 1
+    }
+  ],
+  "scores": {
+    "cross_domain_bridging": 0.6,
+    "hypothesis_novelty": 0.7,
+    "evidence_density": 0.6,
+    "actionability": 0.7,
+    "overall": 0.645
+  },
+  "improvement_suggestions": [
+    "Topic TAG にrelevance_level (primary/mentioned/indirect) を追加し、過剰タギング問題を解消",
+    "ASEAN Telecom (AIS, True Corp) のFinancialDataPointを優先的に投入し、IOH統合比較を可能に",
+    "Source.fetched_at の欠落が多い (20件中大半がnull) — パイプラインでfetched_at必須化を検討",
+    "HTMLノイズ (Probe A fact c9e161..., c01261...) のクレンジングバッチを実行",
+    "Entity-Entity直接リレーションがほぼゼロ — Fact経由の間接接続のみに依存しており構造的に脆弱"
+  ]
+}

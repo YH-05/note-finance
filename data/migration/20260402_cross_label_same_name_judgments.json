@@ -6,23 +6,40 @@
     "total_entries": 66,
     "note": "実際の判定エントリは 66 名称 (うち 3ノード以上の複合ケースを含む)。Issueの55組はEntity以外のラベル重複を除いた旧カウント。",
     "summary": {
-      "A_merge": 46,
-      "B_keep": 25,
-      "C_review": 10
+      "A_merge": 54,
+      "B_keep": 27,
+      "C_review": 0
     },
     "classification_rules": {
       "A_merge": "同一エンティティ（誤登録。一方を削除し、リレーションを統合先に付け替え）",
       "B_keep": "意図的な別エンティティ（ロール・機能・スコープが異なり、両方維持が正当）",
       "C_review": "人手判断が必要（自動判定できない・コンテキスト依存）"
-    }
+    },
+    "c_resolved_at": "2026-04-03"
   },
   "judgments": [
     {
       "name": "AI",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12083", "labels": ["Entity", "Sector"], "entity_key": "AI::sector", "relCount": 8},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12232", "labels": ["Entity", "Technology"], "entity_key": null, "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12083",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "AI::sector",
+          "relCount": 8
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12232",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": null,
+          "relCount": 2
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12083",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12232",
@@ -32,8 +49,24 @@
       "name": "AI Infrastructure",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5421", "labels": ["Entity", "Technology"], "entity_key": "AI Infrastructure::technology", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12796", "labels": ["Topic"], "entity_key": null, "topic_key": "AI Infrastructure::technology", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5421",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "AI Infrastructure::technology",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12796",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "AI Infrastructure::technology",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5421",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12796",
@@ -43,8 +76,24 @@
       "name": "AI・半導体",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12284", "labels": ["Entity", "Sector"], "entity_key": "AI・半導体::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1216", "labels": ["Topic"], "entity_key": null, "topic_key": "AI・半導体::ai", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12284",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "AI・半導体::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1216",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "AI・半導体::ai",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1216",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12284",
@@ -54,8 +103,24 @@
       "name": "ASEAN Digital Economy",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5296", "labels": ["Entity", "Sector"], "entity_key": "ASEAN Digital Economy::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5282", "labels": ["Topic"], "entity_key": null, "topic_key": "ASEAN Digital Economy::sector", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5296",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "ASEAN Digital Economy::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5282",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "ASEAN Digital Economy::sector",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5282",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5296",
@@ -65,8 +130,22 @@
       "name": "Anthea Monod",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5710", "labels": ["Author"], "relCount": 3},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5736", "labels": ["Entity", "Person"], "entity_key": "Anthea Monod::person", "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5710",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 3
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5736",
+          "labels": [
+            "Entity",
+            "Person"
+          ],
+          "entity_key": "Anthea Monod::person",
+          "relCount": 2
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5710",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5736",
@@ -76,8 +155,22 @@
       "name": "Arne Wolf",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5709", "labels": ["Author"], "relCount": 3},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5735", "labels": ["Entity", "Person"], "entity_key": "Arne Wolf::person", "relCount": 4}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5709",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 3
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5735",
+          "labels": [
+            "Entity",
+            "Person"
+          ],
+          "entity_key": "Arne Wolf::person",
+          "relCount": 4
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5709",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5735",
@@ -87,8 +180,22 @@
       "name": "Bloomberg Intelligence",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3483", "labels": ["Author"], "relCount": 3},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1203", "labels": ["Entity", "Organization"], "entity_key": "Bloomberg Intelligence::organization", "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3483",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 3
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1203",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": "Bloomberg Intelligence::organization",
+          "relCount": 2
+        }
       ],
       "reason": "Author (リサーチ著者ロール) と Entity/Organization (会社実体) は意図的な別ロール。フィードバックルール: 同一組織の company/broker/author 等マルチロールは正当な区別。"
     },
@@ -96,8 +203,22 @@
       "name": "BofA Securities",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2138", "labels": ["Author"], "relCount": 20},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1194", "labels": ["Entity", "Organization"], "entity_key": "BofA Securities::organization", "relCount": 3}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2138",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 20
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1194",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": "BofA Securities::organization",
+          "relCount": 3
+        }
       ],
       "reason": "Author (レポート著者ロール) と Entity/Organization (組織実体) は意図的な別ロール。両方維持。"
     },
@@ -105,8 +226,22 @@
       "name": "CLSA",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3482", "labels": ["Author"], "relCount": 6},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2061", "labels": ["Entity", "Broker"], "entity_key": "CLSA::broker", "relCount": 36}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3482",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 6
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2061",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "CLSA::broker",
+          "relCount": 36
+        }
       ],
       "reason": "Author (著者ロール) と Entity/Broker (ブローカー実体) は意図的なマルチロール。両方維持。"
     },
@@ -114,8 +249,24 @@
       "name": "Category Theory",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5599", "labels": ["Entity", "Technology"], "entity_key": "Category Theory::technology", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6745", "labels": ["Topic"], "entity_key": null, "topic_key": "Category Theory::finance", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5599",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "Category Theory::technology",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6745",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Category Theory::finance",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6745",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5599",
@@ -125,8 +276,24 @@
       "name": "China",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1160", "labels": ["Entity", "Country"], "entity_key": "China::organization", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1201", "labels": ["Topic"], "entity_key": null, "topic_key": "China::theme", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1160",
+          "labels": [
+            "Entity",
+            "Country"
+          ],
+          "entity_key": "China::organization",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1201",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "China::theme",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1160",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1201",
@@ -136,8 +303,22 @@
       "name": "Citi",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2139", "labels": ["Author"], "relCount": 18},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2055", "labels": ["Entity", "Broker"], "entity_key": "Citi::broker", "relCount": 37}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2139",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 18
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2055",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "Citi::broker",
+          "relCount": 37
+        }
       ],
       "reason": "Author と Entity/Broker の意図的マルチロール。両方維持。"
     },
@@ -145,8 +326,24 @@
       "name": "Conformal Prediction",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6481", "labels": ["Entity", "Technology"], "entity_key": "Conformal Prediction::technology", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6476", "labels": ["Topic"], "entity_key": null, "topic_key": "Conformal Prediction::finance", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6481",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "Conformal Prediction::technology",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6476",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Conformal Prediction::finance",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6476",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6481",
@@ -156,8 +353,24 @@
       "name": "Credit Scoring",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6485", "labels": ["Entity", "Concept"], "entity_key": "Credit Scoring::macro", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6477", "labels": ["Topic"], "entity_key": null, "topic_key": "Credit Scoring::finance", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6485",
+          "labels": [
+            "Entity",
+            "Concept"
+          ],
+          "entity_key": "Credit Scoring::macro",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6477",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Credit Scoring::finance",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6477",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6485",
@@ -165,19 +378,56 @@
     },
     {
       "name": "DINKS世帯",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11762", "labels": ["Entity", "Person"], "entity_key": null, "relCount": 8},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11804", "labels": ["Entity", "Organization"], "entity_key": null, "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11762",
+          "labels": [
+            "Entity",
+            "Person"
+          ],
+          "entity_key": null,
+          "relCount": 8
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11804",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": null,
+          "relCount": 2
+        }
       ],
-      "reason": "DINKS世帯 は人物カテゴリ（Person）か組織カテゴリ（Organization）か判断が難しい。コンテキスト確認が必要。"
+      "reason": "DINKS世帯 は人物カテゴリ（Person）か組織カテゴリ（Organization）か判断が難しい。コンテキスト確認が必要。",
+      "resolved_keep_label": "Person",
+      "resolved_delete_labels": [
+        "Organization"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "DINKS層の資産形成戦略",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12198", "labels": ["Entity", "Indicator"], "entity_key": "DINKS層の資産形成戦略::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12318", "labels": ["Topic"], "entity_key": null, "topic_key": "DINKS層の資産形成戦略::general", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12198",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "DINKS層の資産形成戦略::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12318",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "DINKS層の資産形成戦略::general",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12318",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12198",
@@ -187,8 +437,22 @@
       "name": "Data Center Infrastructure",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5402", "labels": ["Entity", "Technology"], "entity_key": "Data Center Infrastructure::technology", "relCount": 2},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7981", "labels": ["Industry"], "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5402",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "Data Center Infrastructure::technology",
+          "relCount": 2
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7981",
+          "labels": [
+            "Industry"
+          ],
+          "relCount": 2
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5402",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7981",
@@ -198,8 +462,20 @@
       "name": "Energy",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3424", "labels": ["Sector"], "relCount": 3},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7975", "labels": ["Industry"], "relCount": 1}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3424",
+          "labels": [
+            "Sector"
+          ],
+          "relCount": 3
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7975",
+          "labels": [
+            "Industry"
+          ],
+          "relCount": 1
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3424",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7975",
@@ -209,9 +485,31 @@
       "name": "Goldman Sachs",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3481", "labels": ["Author"], "relCount": 13},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2058", "labels": ["Entity", "Broker"], "entity_key": "Goldman Sachs::broker", "relCount": 35},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1135", "labels": ["Entity", "Company"], "entity_key": "Goldman Sachs::company", "relCount": 63}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3481",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 13
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2058",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "Goldman Sachs::broker",
+          "relCount": 35
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1135",
+          "labels": [
+            "Entity",
+            "Company"
+          ],
+          "entity_key": "Goldman Sachs::company",
+          "relCount": 63
+        }
       ],
       "reason": "3ノードすべて意図的なマルチロール: Author (著者ロール)、Entity/Broker (ブローカー業務ロール)、Entity/Company (上場企業ロール)。フィードバックルール適用。全維持。"
     },
@@ -219,17 +517,45 @@
       "name": "HSBC",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2140", "labels": ["Author"], "relCount": 16},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2059", "labels": ["Entity", "Broker"], "entity_key": "HSBC::broker", "relCount": 36}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2140",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 16
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2059",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "HSBC::broker",
+          "relCount": 36
+        }
       ],
       "reason": "Author と Entity/Broker の意図的マルチロール。両方維持。"
     },
     {
       "name": "IDR",
-      "verdict": "C",
+      "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4696", "labels": ["Entity", "Concept"], "entity_key": "IDR::macro", "relCount": 21},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7998", "labels": ["UnitOfMeasure"], "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4696",
+          "labels": [
+            "Entity",
+            "Concept"
+          ],
+          "entity_key": "IDR::macro",
+          "relCount": 21
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7998",
+          "labels": [
+            "UnitOfMeasure"
+          ],
+          "relCount": null
+        }
       ],
       "reason": "IDR はインドネシアルピア (通貨単位=UnitOfMeasure) でもあるが、Entity/Concept として多くの RELATES_TO/ABOUT リレーションを持つ。両者が同一用途か別コンテキストかはソース確認が必要。"
     },
@@ -237,8 +563,24 @@
       "name": "Indonesian Telecom",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1205", "labels": ["Entity", "Sector"], "entity_key": "Indonesian Telecom::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1223", "labels": ["Topic"], "entity_key": null, "topic_key": "Indonesian Telecom::sector", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1205",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "Indonesian Telecom::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1223",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Indonesian Telecom::sector",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1205",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1223",
@@ -248,8 +590,22 @@
       "name": "J.P. Morgan",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2142", "labels": ["Author"], "relCount": 18},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2054", "labels": ["Entity", "Broker"], "entity_key": "J.P. Morgan::broker", "relCount": 35}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2142",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 18
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2054",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "J.P. Morgan::broker",
+          "relCount": 35
+        }
       ],
       "reason": "Author と Entity/Broker の意図的マルチロール。両方維持。"
     },
@@ -257,8 +613,22 @@
       "name": "Maybank IBG",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2146", "labels": ["Author"], "relCount": 12},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2063", "labels": ["Entity", "Broker"], "entity_key": "Maybank IBG::broker", "relCount": 35}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2146",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 12
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2063",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "Maybank IBG::broker",
+          "relCount": 35
+        }
       ],
       "reason": "Author と Entity/Broker の意図的マルチロール。両方維持。"
     },
@@ -266,8 +636,22 @@
       "name": "Morgan Stanley",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2147", "labels": ["Author"], "relCount": 8},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1137", "labels": ["Entity", "Company"], "entity_key": "Morgan Stanley::company", "relCount": 43}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2147",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 8
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1137",
+          "labels": [
+            "Entity",
+            "Company"
+          ],
+          "entity_key": "Morgan Stanley::company",
+          "relCount": 43
+        }
       ],
       "reason": "Author (著者ロール) と Entity/Company (上場企業ロール) は意図的マルチロール。両方維持。"
     },
@@ -275,8 +659,24 @@
       "name": "Multi-Factor Investing",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6572", "labels": ["Entity", "Concept"], "entity_key": "Multi-Factor Investing::macro", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6568", "labels": ["Topic"], "entity_key": null, "topic_key": "Multi-Factor Investing::finance", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6572",
+          "labels": [
+            "Entity",
+            "Concept"
+          ],
+          "entity_key": "Multi-Factor Investing::macro",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6568",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Multi-Factor Investing::finance",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6568",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6572",
@@ -284,19 +684,54 @@
     },
     {
       "name": "Netflix",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3447", "labels": ["Entity", "Company"], "entity_key": "Netflix::company", "relCount": 8},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11892", "labels": ["Entity", "Product"], "entity_key": "Netflix::product", "relCount": 10}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3447",
+          "labels": [
+            "Entity",
+            "Company"
+          ],
+          "entity_key": "Netflix::company",
+          "relCount": 8
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11892",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "Netflix::product",
+          "relCount": 10
+        }
       ],
-      "reason": "Netflix は上場企業 (Company) かつ動画配信サービス (Product) の両面がある。コンテキストにより意図的マルチロールの可能性あり。ただし同一 name で Company/Product 並存は珍しいため人手確認推奨。"
+      "reason": "Netflix は上場企業 (Company) かつ動画配信サービス (Product) の両面がある。コンテキストにより意図的マルチロールの可能性あり。ただし同一 name で Company/Product 並存は珍しいため人手確認推奨。",
+      "resolved_keep_label": "Company",
+      "resolved_delete_labels": [
+        "Product"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "Nomura",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2150", "labels": ["Author"], "relCount": 24},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2060", "labels": ["Entity", "Broker"], "entity_key": "Nomura::broker", "relCount": 37}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2150",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 24
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2060",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "Nomura::broker",
+          "relCount": 37
+        }
       ],
       "reason": "Author と Entity/Broker の意図的マルチロール。両方維持。"
     },
@@ -304,8 +739,24 @@
       "name": "Pairs Trading",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6201", "labels": ["Entity", "Technology"], "entity_key": "Pairs Trading::technology", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6187", "labels": ["Topic"], "entity_key": null, "topic_key": "Pairs Trading::finance", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6201",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "Pairs Trading::technology",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6187",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Pairs Trading::finance",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6187",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6201",
@@ -315,8 +766,24 @@
       "name": "Persistent Homology",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5743", "labels": ["Entity", "Technology"], "entity_key": "Persistent Homology::technology", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6018", "labels": ["Topic"], "entity_key": null, "topic_key": "Persistent Homology::methodology", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5743",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "Persistent Homology::technology",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6018",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Persistent Homology::methodology",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6018",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5743",
@@ -324,19 +791,56 @@
     },
     {
       "name": "Preferred Networks",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6639", "labels": ["Entity", "Organization"], "entity_key": null, "relCount": 6},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7229", "labels": ["Entity", "Company"], "entity_key": null, "relCount": 6}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6639",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": null,
+          "relCount": 6
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7229",
+          "labels": [
+            "Entity",
+            "Company"
+          ],
+          "entity_key": null,
+          "relCount": 6
+        }
       ],
-      "reason": "Organization と Company は意図的マルチロールとも誤重複とも解釈可能。entity_key が両方 null でリレーション数が同一。ソース確認が必要。"
+      "reason": "Organization と Company は意図的マルチロールとも誤重複とも解釈可能。entity_key が両方 null でリレーション数が同一。ソース確認が必要。",
+      "resolved_keep_label": "Company",
+      "resolved_delete_labels": [
+        "Organization"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "Random Forest",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7039", "labels": ["Entity", "Technology"], "entity_key": null, "relCount": 3},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7290", "labels": ["Entity", "Instrument"], "entity_key": null, "relCount": 7}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7039",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": null,
+          "relCount": 3
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7290",
+          "labels": [
+            "Entity",
+            "Instrument"
+          ],
+          "entity_key": null,
+          "relCount": 7
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7039",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7290",
@@ -346,8 +850,24 @@
       "name": "S&P 500",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1149", "labels": ["Entity", "MarketIndex"], "entity_key": "S&P 500::index", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3782", "labels": ["Topic"], "entity_key": null, "topic_key": "S&P 500::theme", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1149",
+          "labels": [
+            "Entity",
+            "MarketIndex"
+          ],
+          "entity_key": "S&P 500::index",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3782",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "S&P 500::theme",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1149",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3782",
@@ -357,8 +877,24 @@
       "name": "Semiconductor",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1163", "labels": ["Entity", "Concept"], "entity_key": "Semiconductor::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3783", "labels": ["Topic"], "entity_key": null, "topic_key": "Semiconductor::sector", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1163",
+          "labels": [
+            "Entity",
+            "Concept"
+          ],
+          "entity_key": "Semiconductor::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3783",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Semiconductor::sector",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1163",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3783",
@@ -368,8 +904,24 @@
       "name": "Shiller CAPE比率",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5501", "labels": ["Entity", "Indicator"], "entity_key": "Shiller CAPE比率::indicator", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5489", "labels": ["Topic"], "entity_key": null, "topic_key": "Shiller CAPE比率::valuation", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5501",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "Shiller CAPE比率::indicator",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5489",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Shiller CAPE比率::valuation",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5501",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5489",
@@ -379,8 +931,20 @@
       "name": "Social Media",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3789", "labels": ["Topic"], "relCount": 118},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7967", "labels": ["Industry"], "relCount": 1}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3789",
+          "labels": [
+            "Topic"
+          ],
+          "relCount": 118
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7967",
+          "labels": [
+            "Industry"
+          ],
+          "relCount": 1
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3789",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7967",
@@ -390,8 +954,20 @@
       "name": "Telecom Infrastructure",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3298", "labels": ["Topic"], "relCount": 180},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7985", "labels": ["Industry"], "relCount": 6}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3298",
+          "labels": [
+            "Topic"
+          ],
+          "relCount": 180
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7985",
+          "labels": [
+            "Industry"
+          ],
+          "relCount": 6
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3298",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7985",
@@ -401,8 +977,24 @@
       "name": "Topological Data Analysis",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5969", "labels": ["Entity", "Technology"], "entity_key": "Topological Data Analysis::method", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6016", "labels": ["Topic"], "entity_key": null, "topic_key": "Topological Data Analysis::methodology", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5969",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "Topological Data Analysis::method",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6016",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Topological Data Analysis::methodology",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6016",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5969",
@@ -412,8 +1004,24 @@
       "name": "Total Shareholder Return",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4678", "labels": ["Entity", "Concept"], "entity_key": "Total Shareholder Return::macro", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4661", "labels": ["Topic"], "entity_key": null, "topic_key": "Total Shareholder Return::investment_framework", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4678",
+          "labels": [
+            "Entity",
+            "Concept"
+          ],
+          "entity_key": "Total Shareholder Return::macro",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4661",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "Total Shareholder Return::investment_framework",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4661",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4678",
@@ -423,8 +1031,24 @@
       "name": "Tower Sharing",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4091", "labels": ["Entity", "Technology"], "entity_key": "Tower Sharing::technology", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4736", "labels": ["Topic"], "entity_key": null, "topic_key": "tower_sharing", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4091",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": "Tower Sharing::technology",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4736",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "tower_sharing",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4736",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4091",
@@ -434,8 +1058,22 @@
       "name": "UBS",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2295", "labels": ["Author"], "relCount": 20},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2056", "labels": ["Entity", "Broker"], "entity_key": "UBS::broker", "relCount": 35}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2295",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 20
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2056",
+          "labels": [
+            "Entity",
+            "Broker"
+          ],
+          "entity_key": "UBS::broker",
+          "relCount": 35
+        }
       ],
       "reason": "Author と Entity/Broker の意図的マルチロール。両方維持。"
     },
@@ -443,8 +1081,24 @@
       "name": "US Telecom",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12799", "labels": ["Entity", "Sector"], "entity_key": "US Telecom::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3283", "labels": ["Topic"], "entity_key": null, "topic_key": "US Telecom::sector", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12799",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "US Telecom::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3283",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "US Telecom::sector",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:3283",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12799",
@@ -454,8 +1108,22 @@
       "name": "Vahid Nateghi",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5708", "labels": ["Author"], "relCount": 5},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5974", "labels": ["Entity", "Person"], "entity_key": "Vahid Nateghi::person", "relCount": 1}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5708",
+          "labels": [
+            "Author"
+          ],
+          "relCount": 5
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5974",
+          "labels": [
+            "Entity",
+            "Person"
+          ],
+          "entity_key": "Vahid Nateghi::person",
+          "relCount": 1
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5708",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5974",
@@ -465,9 +1133,27 @@
       "name": "academic",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2369", "labels": ["SourceType"], "relCount": 12},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6040", "labels": ["TrustLevel"], "relCount": 51},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8036", "labels": ["AuthorType"], "relCount": 84}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2369",
+          "labels": [
+            "SourceType"
+          ],
+          "relCount": 12
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6040",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 51
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8036",
+          "labels": [
+            "AuthorType"
+          ],
+          "relCount": 84
+        }
       ],
       "reason": "3ノードはそれぞれ異なるスキーマ軸の値ノード。SourceType='academic' (ソース種別)、TrustLevel='academic' (信頼レベル)、AuthorType='academic' (著者種別) は別の分類軸で意図的に分離されている。全維持。"
     },
@@ -475,8 +1161,20 @@
       "name": "blog",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4521", "labels": ["SourceType"], "relCount": 435},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6239", "labels": ["TrustLevel"], "relCount": 525}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:4521",
+          "labels": [
+            "SourceType"
+          ],
+          "relCount": 435
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6239",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 525
+        }
       ],
       "reason": "SourceType='blog' (ソース種別) と TrustLevel='blog' (信頼レベル) は異なるスキーマ軸の値ノード。意図的分離。両方維持。"
     },
@@ -484,8 +1182,20 @@
       "name": "central_bank",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7423", "labels": ["EntityType"], "relCount": 10},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6251", "labels": ["TrustLevel"], "relCount": 1}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7423",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 10
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6251",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 1
+        }
       ],
       "reason": "EntityType='central_bank' (実体種別) と TrustLevel='central_bank' (信頼度レベル) は異なる分類軸。意図的分離。両方維持。"
     },
@@ -493,8 +1203,20 @@
       "name": "commodity",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7424", "labels": ["EntityType"], "relCount": 25},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8043", "labels": ["InstrumentClass"], "relCount": 16}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7424",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 25
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8043",
+          "labels": [
+            "InstrumentClass"
+          ],
+          "relCount": 16
+        }
       ],
       "reason": "EntityType='commodity' (実体種別分類) と InstrumentClass='commodity' (金融商品クラス) は異なるスキーマ軸。意図的分離。両方維持。"
     },
@@ -502,8 +1224,20 @@
       "name": "company",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7425", "labels": ["EntityType"], "relCount": 259},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6286", "labels": ["TrustLevel"], "relCount": 59}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7425",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 259
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6286",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 59
+        }
       ],
       "reason": "EntityType='company' (実体種別) と TrustLevel='company' (信頼レベル) は異なる分類軸。意図的分離。両方維持。"
     },
@@ -511,8 +1245,20 @@
       "name": "currency",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7428", "labels": ["EntityType"], "relCount": 5},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8042", "labels": ["InstrumentClass"], "relCount": 6}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7428",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 5
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8042",
+          "labels": [
+            "InstrumentClass"
+          ],
+          "relCount": 6
+        }
       ],
       "reason": "EntityType='currency' と InstrumentClass='currency' は異なる分類軸。意図的分離。両方維持。"
     },
@@ -520,8 +1266,20 @@
       "name": "etf",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7433", "labels": ["EntityType"], "relCount": 6},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8046", "labels": ["InstrumentClass"], "relCount": 7}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7433",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 6
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8046",
+          "labels": [
+            "InstrumentClass"
+          ],
+          "relCount": 7
+        }
       ],
       "reason": "EntityType='etf' と InstrumentClass='etf' は異なる分類軸。意図的分離。両方維持。"
     },
@@ -529,8 +1287,20 @@
       "name": "event",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7434", "labels": ["EntityType"], "relCount": 1},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7482", "labels": ["FactType"], "relCount": 198}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7434",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 1
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7482",
+          "labels": [
+            "FactType"
+          ],
+          "relCount": 198
+        }
       ],
       "reason": "EntityType='event' (実体種別) と FactType='event' (Fact種別) は異なるスキーマ軸。意図的分離。両方維持。"
     },
@@ -538,17 +1308,41 @@
       "name": "fund",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7438", "labels": ["EntityType"], "relCount": 2},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8040", "labels": ["InstrumentClass"], "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7438",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 2
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8040",
+          "labels": [
+            "InstrumentClass"
+          ],
+          "relCount": 2
+        }
       ],
       "reason": "EntityType='fund' と InstrumentClass='fund' は異なる分類軸。意図的分離。両方維持。"
     },
     {
       "name": "getrichslowly.org",
-      "verdict": "C",
+      "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7553", "labels": ["Domain"], "relCount": 230},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1222", "labels": ["Topic"], "relCount": 284}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7553",
+          "labels": [
+            "Domain"
+          ],
+          "relCount": 230
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1222",
+          "labels": [
+            "Topic"
+          ],
+          "relCount": 284
+        }
       ],
       "reason": "Domain (ドメイン実体) と Topic (コンテンツトピック) の両面がある。Domain はソース識別子として、Topic はコンテンツテーマとして別用途の可能性あり。リレーション内容確認が必要。"
     },
@@ -556,8 +1350,20 @@
       "name": "institution",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7443", "labels": ["EntityType"], "relCount": 1},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7242", "labels": ["TrustLevel"], "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7443",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 1
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7242",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 2
+        }
       ],
       "reason": "EntityType='institution' と TrustLevel='institution' は異なる分類軸。意図的分離。両方維持。"
     },
@@ -565,8 +1371,20 @@
       "name": "media",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5418", "labels": ["SourceType"], "relCount": 1},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7409", "labels": ["TrustLevel"], "relCount": 1816}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5418",
+          "labels": [
+            "SourceType"
+          ],
+          "relCount": 1
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7409",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 1816
+        }
       ],
       "reason": "SourceType='media' と TrustLevel='media' は異なる分類軸。意図的分離。両方維持。"
     },
@@ -574,8 +1392,20 @@
       "name": "person",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8037", "labels": ["AuthorType"], "relCount": 15},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7452", "labels": ["EntityType"], "relCount": 115}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8037",
+          "labels": [
+            "AuthorType"
+          ],
+          "relCount": 15
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7452",
+          "labels": [
+            "EntityType"
+          ],
+          "relCount": 115
+        }
       ],
       "reason": "AuthorType='person' と EntityType='person' は異なる分類軸。意図的分離。両方維持。"
     },
@@ -583,8 +1413,20 @@
       "name": "research_firm",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8035", "labels": ["AuthorType"], "relCount": 1},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7414", "labels": ["TrustLevel"], "relCount": 1}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8035",
+          "labels": [
+            "AuthorType"
+          ],
+          "relCount": 1
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7414",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 1
+        }
       ],
       "reason": "AuthorType='research_firm' と TrustLevel='research_firm' は異なる分類軸。意図的分離。両方維持。"
     },
@@ -592,8 +1434,20 @@
       "name": "sell_side",
       "verdict": "B",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8034", "labels": ["AuthorType"], "relCount": 15},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7416", "labels": ["TrustLevel"], "relCount": 1}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8034",
+          "labels": [
+            "AuthorType"
+          ],
+          "relCount": 15
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7416",
+          "labels": [
+            "TrustLevel"
+          ],
+          "relCount": 1
+        }
       ],
       "reason": "AuthorType='sell_side' と TrustLevel='sell_side' は異なる分類軸。意図的分離。両方維持。"
     },
@@ -601,8 +1455,24 @@
       "name": "こどもNISA",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5495", "labels": ["Entity", "Organization"], "entity_key": "こどもNISA::regulation", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5481", "labels": ["Topic"], "entity_key": null, "topic_key": "こどもNISA::regulation", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5495",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": "こどもNISA::regulation",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5481",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "こどもNISA::regulation",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5481",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5495",
@@ -612,8 +1482,24 @@
       "name": "エネルギーセクター",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12209", "labels": ["Entity", "Sector"], "entity_key": "エネルギーセクター::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12619", "labels": ["Topic"], "entity_key": null, "topic_key": "エネルギーセクター::sector", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12209",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "エネルギーセクター::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12619",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "エネルギーセクター::sector",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12209",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12619",
@@ -623,8 +1509,24 @@
       "name": "セルフメディケーション税制",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11859", "labels": ["Entity", "Indicator"], "entity_key": "セルフメディケーション税制::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12406", "labels": ["Topic"], "entity_key": null, "topic_key": "セルフメディケーション税制::regulation", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11859",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "セルフメディケーション税制::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12406",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "セルフメディケーション税制::regulation",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12406",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11859",
@@ -634,8 +1536,24 @@
       "name": "ライフプランニング",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12250", "labels": ["Entity", "Product"], "entity_key": "ライフプランニング::product", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12354", "labels": ["Topic"], "entity_key": null, "topic_key": "ライフプランニング::general", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12250",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "ライフプランニング::product",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12354",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "ライフプランニング::general",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12354",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12250",
@@ -643,20 +1561,66 @@
     },
     {
       "name": "医療費控除",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11858", "labels": ["Entity", "Indicator"], "entity_key": "医療費控除::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11910", "labels": ["Entity", "Product"], "entity_key": "医療費控除::product", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12405", "labels": ["Topic"], "entity_key": null, "topic_key": "医療費控除::regulation", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11858",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "医療費控除::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11910",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "医療費控除::product",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12405",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "医療費控除::regulation",
+          "relCount": null
+        }
       ],
-      "reason": "3ノードが存在。税控除制度は Indicator/Product/Topic いずれの側面も持ち得るが、3重登録は明らかに過剰。Topic::regulation が最も適切と思われるが、Indicator と Product どちらを削除するかは影響リレーションの確認が必要。"
+      "reason": "3ノードが存在。税控除制度は Indicator/Product/Topic いずれの側面も持ち得るが、3重登録は明らかに過剰。Topic::regulation が最も適切と思われるが、Indicator と Product どちらを削除するかは影響リレーションの確認が必要。",
+      "resolved_keep_label": "Topic",
+      "resolved_delete_labels": [
+        "Indicator",
+        "Product"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "半導体セクター",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12203", "labels": ["Entity", "Sector"], "entity_key": "半導体セクター::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12301", "labels": ["Topic"], "entity_key": null, "topic_key": "半導体セクター::sector", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12203",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "半導体セクター::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12301",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "半導体セクター::sector",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12203",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12301",
@@ -666,8 +1630,24 @@
       "name": "家事関連費",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11831", "labels": ["Entity", "Indicator"], "entity_key": "家事関連費::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12428", "labels": ["Topic"], "entity_key": null, "topic_key": "家事関連費::regulation", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11831",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "家事関連費::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12428",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "家事関連費::regulation",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12428",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11831",
@@ -677,8 +1657,24 @@
       "name": "家事関連費の按分",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12000", "labels": ["Entity", "Indicator"], "entity_key": "家事関連費の按分::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12558", "labels": ["Topic"], "entity_key": null, "topic_key": "家事関連費の按分::general", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12000",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "家事関連費の按分::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12558",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "家事関連費の按分::general",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12558",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12000",
@@ -688,8 +1684,24 @@
       "name": "家族の節税戦略",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12164", "labels": ["Entity", "Indicator"], "entity_key": "家族の節税戦略::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12360", "labels": ["Topic"], "entity_key": null, "topic_key": "家族の節税戦略::general", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12164",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "家族の節税戦略::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12360",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "家族の節税戦略::general",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12360",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12164",
@@ -697,20 +1709,66 @@
     },
     {
       "name": "日本株式市場",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12137", "labels": ["Entity", "MarketIndex"], "entity_key": "日本株式市場::index", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12234", "labels": ["Entity", "Organization"], "entity_key": "日本株式市場::organization", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12297", "labels": ["Topic"], "entity_key": null, "topic_key": "日本株式市場::equity", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12137",
+          "labels": [
+            "Entity",
+            "MarketIndex"
+          ],
+          "entity_key": "日本株式市場::index",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12234",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": "日本株式市場::organization",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12297",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "日本株式市場::equity",
+          "relCount": null
+        }
       ],
-      "reason": "3ノード存在。MarketIndex (市場指数としての側面)、Organization (市場機関としての側面)、Topic (コンテンツトピック) が混在。MarketIndex と Organization の統合可否および Topic との関係は人手確認が必要。"
+      "reason": "3ノード存在。MarketIndex (市場指数としての側面)、Organization (市場機関としての側面)、Topic (コンテンツトピック) が混在。MarketIndex と Organization の統合可否および Topic との関係は人手確認が必要。",
+      "resolved_keep_label": "Topic",
+      "resolved_delete_labels": [
+        "MarketIndex",
+        "Organization"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "海運セクター",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12235", "labels": ["Entity", "Sector"], "entity_key": "海運セクター::sector", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12547", "labels": ["Topic"], "entity_key": null, "topic_key": "海運セクター::sector", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12235",
+          "labels": [
+            "Entity",
+            "Sector"
+          ],
+          "entity_key": "海運セクター::sector",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12547",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "海運セクター::sector",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12235",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12547",
@@ -720,8 +1778,24 @@
       "name": "消費者行動",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12221", "labels": ["Entity", "Indicator"], "entity_key": "消費者行動::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12492", "labels": ["Topic"], "entity_key": null, "topic_key": "消費者行動::general", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12221",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "消費者行動::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12492",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "消費者行動::general",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12492",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12221",
@@ -729,21 +1803,76 @@
     },
     {
       "name": "確定申告",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11746", "labels": ["Entity", "Indicator"], "entity_key": "確定申告::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11759", "labels": ["Entity", "Organization"], "entity_key": "確定申告::regulatory", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12191", "labels": ["Entity", "Product"], "entity_key": "確定申告::product", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12407", "labels": ["Topic"], "entity_key": null, "topic_key": "確定申告::regulation", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11746",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "確定申告::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11759",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": "確定申告::regulatory",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12191",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "確定申告::product",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12407",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "確定申告::regulation",
+          "relCount": null
+        }
       ],
-      "reason": "4ノード存在。確定申告は税務手続き (regulation/regulatory) が本質だが、Indicator/Organization/Product の3種の誤分類ノードが混在。Topic::regulation を維持し他3つを統合する方向だが、リレーション数の確認が必要。"
+      "reason": "4ノード存在。確定申告は税務手続き (regulation/regulatory) が本質だが、Indicator/Organization/Product の3種の誤分類ノードが混在。Topic::regulation を維持し他3つを統合する方向だが、リレーション数の確認が必要。",
+      "resolved_keep_label": "Topic",
+      "resolved_delete_labels": [
+        "Indicator",
+        "Organization",
+        "Product"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "空き家特例",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11838", "labels": ["Entity", "Product"], "entity_key": "空き家特例::product", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12381", "labels": ["Topic"], "entity_key": null, "topic_key": "空き家特例::regulation", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11838",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "空き家特例::product",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12381",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "空き家特例::regulation",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12381",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11838",
@@ -753,8 +1882,24 @@
       "name": "米国雇用統計",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11944", "labels": ["Entity", "Indicator"], "entity_key": "米国雇用統計::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12478", "labels": ["Topic"], "entity_key": null, "topic_key": "米国雇用統計::macro", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11944",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "米国雇用統計::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12478",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "米国雇用統計::macro",
+          "relCount": null
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11944",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12478",
@@ -762,20 +1907,66 @@
     },
     {
       "name": "資産形成",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11750", "labels": ["Entity", "Indicator"], "entity_key": "資産形成::metric", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12124", "labels": ["Entity", "Product"], "entity_key": "資産形成::product", "relCount": null},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12616", "labels": ["Topic"], "entity_key": null, "topic_key": "資産形成::general", "relCount": null}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11750",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": "資産形成::metric",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12124",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "資産形成::product",
+          "relCount": null
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12616",
+          "labels": [
+            "Topic"
+          ],
+          "entity_key": null,
+          "topic_key": "資産形成::general",
+          "relCount": null
+        }
       ],
-      "reason": "3ノード存在。資産形成は広義のトピック概念だが Indicator と Product の2つの誤分類ノードが残存。リレーション数確認後に統合対象を決定する必要あり。"
+      "reason": "3ノード存在。資産形成は広義のトピック概念だが Indicator と Product の2つの誤分類ノードが残存。リレーション数確認後に統合対象を決定する必要あり。",
+      "resolved_keep_label": "Topic",
+      "resolved_delete_labels": [
+        "Indicator",
+        "Product"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "ふるさと納税",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11912", "labels": ["Entity", "Product"], "entity_key": "ふるさと納税::product", "relCount": 7},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11997", "labels": ["Entity", "Organization"], "entity_key": null, "relCount": 6}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11912",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "ふるさと納税::product",
+          "relCount": 7
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11997",
+          "labels": [
+            "Entity",
+            "Organization"
+          ],
+          "entity_key": null,
+          "relCount": 6
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11912",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11997",
@@ -785,8 +1976,24 @@
       "name": "オルカン",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11764", "labels": ["Entity", "Product"], "entity_key": null, "relCount": 6},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11786", "labels": ["Entity", "MarketIndex"], "entity_key": null, "relCount": 3}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11764",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": null,
+          "relCount": 6
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11786",
+          "labels": [
+            "Entity",
+            "MarketIndex"
+          ],
+          "entity_key": null,
+          "relCount": 3
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11764",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11786",
@@ -796,8 +2003,24 @@
       "name": "コーポレートガバナンス・コード",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6638", "labels": ["Entity", "Indicator"], "entity_key": null, "relCount": 3},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7067", "labels": ["Entity", "Technology"], "entity_key": null, "relCount": 3}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6638",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": null,
+          "relCount": 3
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7067",
+          "labels": [
+            "Entity",
+            "Technology"
+          ],
+          "entity_key": null,
+          "relCount": 3
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6638",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7067",
@@ -807,8 +2030,24 @@
       "name": "住宅ローン控除",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11911", "labels": ["Entity", "Product"], "entity_key": "住宅ローン控除::product", "relCount": 2},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11980", "labels": ["Entity", "Indicator"], "entity_key": null, "relCount": 2}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11911",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": "住宅ローン控除::product",
+          "relCount": 2
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11980",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": null,
+          "relCount": 2
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11911",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11980",
@@ -818,8 +2057,24 @@
       "name": "VIX",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6920", "labels": ["Entity", "MarketIndex"], "entity_key": null, "relCount": 14},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12138", "labels": ["Entity", "Indicator"], "entity_key": null, "relCount": 3}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6920",
+          "labels": [
+            "Entity",
+            "MarketIndex"
+          ],
+          "entity_key": null,
+          "relCount": 14
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12138",
+          "labels": [
+            "Entity",
+            "Indicator"
+          ],
+          "entity_key": null,
+          "relCount": 3
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6920",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12138",
@@ -827,19 +2082,54 @@
     },
     {
       "name": "note",
-      "verdict": "C",
+      "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11765", "labels": ["Entity", "Company"], "entity_key": null, "relCount": 16},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11853", "labels": ["Entity", "Product"], "entity_key": null, "relCount": 5}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11765",
+          "labels": [
+            "Entity",
+            "Company"
+          ],
+          "entity_key": null,
+          "relCount": 16
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:11853",
+          "labels": [
+            "Entity",
+            "Product"
+          ],
+          "entity_key": null,
+          "relCount": 5
+        }
       ],
-      "reason": "note は運営会社 (Company) とプラットフォーム/サービス (Product) の両面がある。コンテキストにより意図的マルチロールの可能性あり。リレーション内容確認が必要。"
+      "reason": "note は運営会社 (Company) とプラットフォーム/サービス (Product) の両面がある。コンテキストにより意図的マルチロールの可能性あり。リレーション内容確認が必要。",
+      "resolved_keep_label": "Company",
+      "resolved_delete_labels": [
+        "Product"
+      ],
+      "resolution": "human_review_2026-04-03"
     },
     {
       "name": "Artificial Intelligence",
       "verdict": "A",
       "nodes": [
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1164", "labels": ["Entity", "Concept"], "entity_key": "Artificial Intelligence::sector", "relCount": 37},
-        {"nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7957", "labels": ["Industry"], "relCount": 6}
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1164",
+          "labels": [
+            "Entity",
+            "Concept"
+          ],
+          "entity_key": "Artificial Intelligence::sector",
+          "relCount": 37
+        },
+        {
+          "nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7957",
+          "labels": [
+            "Industry"
+          ],
+          "relCount": 6
+        }
       ],
       "keep_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:1164",
       "delete_nodeId": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7957",

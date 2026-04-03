@@ -1129,8 +1129,13 @@ def measure_finance_specific(session: Any) -> CategoryResult:
     """
     ee_result = session.run(ee_query)
     ee_record = ee_result.single()
-    ee_rel_count: int = ee_record["ee_rel_count"]
-    entity_count: int = ee_record["entity_count"]
+    if ee_record is not None:
+        ee_rel_count: int = ee_record["ee_rel_count"]
+        entity_count: int = ee_record["entity_count"]
+    else:
+        logger.warning("Entity-Entity relationship query returned no results")
+        ee_rel_count = 0
+        entity_count = 0
     ee_density = ee_rel_count / entity_count if entity_count > 0 else 0.0
 
     metrics = [
