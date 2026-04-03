@@ -51,7 +51,9 @@ if _scripts_dir not in _sys.path:
 
 from ontology_loader import load_consolidation_mapping as _ol_load_consolidation_mapping  # noqa: E402, I001
 from ontology_loader import load_multilabel_types as _ol_load_multilabel_types  # noqa: E402
-from ontology_loader import load_source_type_normalization as _ol_load_source_type_normalization  # noqa: E402
+from ontology_loader import (
+    load_source_type_normalization as _ol_load_source_type_normalization,
+)
 
 # Internal mapping for backward-compatible multilabel_types structure
 _CANONICAL_TO_LABEL_INTERNAL: dict[str, str] = {

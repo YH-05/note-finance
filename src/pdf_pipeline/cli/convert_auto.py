@@ -277,7 +277,9 @@ def main() -> None:
     try:
         if command == "prepare":
             if len(sys.argv) < 4:
-                print("Error: prepare requires <pdf_path> <output_dir>", file=sys.stderr)
+                print(
+                    "Error: prepare requires <pdf_path> <output_dir>", file=sys.stderr
+                )
                 sys.exit(1)
             pdf_path = sys.argv[2]
             output_dir = sys.argv[3]

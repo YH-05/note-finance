@@ -190,7 +190,7 @@ class ClaudeCodeProvider:
         """
         prompt = (
             "Extract all tables from the following text as a JSON array. "
-            "Each table: {\"headers\": [...], \"rows\": [...], \"caption\": ...}. "
+            'Each table: {"headers": [...], "rows": [...], "caption": ...}. '
             f"Text:\n{text}"
         )
         return self._query_sdk(prompt=prompt, operation="extract_table_json")

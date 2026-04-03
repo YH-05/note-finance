@@ -316,7 +316,7 @@ class TestCreateDriver:
         create_driver()
 
         mock_gdb.driver.assert_called_once_with(
-            "bolt://localhost:7688",
+            "bolt://localhost:7687",
             auth=("neo4j", "env_pass"),
         )
 

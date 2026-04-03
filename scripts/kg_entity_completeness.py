@@ -52,7 +52,9 @@ except ImportError:
 # ---------------------------------------------------------------------------
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-_DEFAULT_SCHEMA_PATH = _PROJECT_ROOT / "data" / "config" / "entity-completeness-schema.yaml"
+_DEFAULT_SCHEMA_PATH = (
+    _PROJECT_ROOT / "data" / "config" / "entity-completeness-schema.yaml"
+)
 _DEFAULT_REPORT_DIR = _PROJECT_ROOT / "data" / "processed" / "kg_quality"
 
 
@@ -272,7 +274,9 @@ def parse_common_checks(schema: dict[str, Any]) -> list[CheckItem]:
     return items
 
 
-def parse_sector_checks(schema: dict[str, Any]) -> dict[str, tuple[str, list[CheckItem]]]:
+def parse_sector_checks(
+    schema: dict[str, Any],
+) -> dict[str, tuple[str, list[CheckItem]]]:
     """sectors セクションからセクター別チェック項目を抽出する。
 
     Parameters
@@ -306,9 +310,7 @@ def parse_sector_checks(schema: dict[str, Any]) -> dict[str, tuple[str, list[Che
             )
 
         sector_map[sector_key] = (match_pattern, items)
-        logger.debug(
-            "Parsed sector '%s': %d KPIs", sector_key, len(items)
-        )
+        logger.debug("Parsed sector '%s': %d KPIs", sector_key, len(items))
 
     return sector_map
 
@@ -337,7 +339,9 @@ def get_scoring_weights(schema: dict[str, Any]) -> dict[str, int]:
 # ---------------------------------------------------------------------------
 
 
-def fetch_company_entities(driver: Any, entity_name: str | None = None) -> list[dict[str, Any]]:
+def fetch_company_entities(
+    driver: Any, entity_name: str | None = None
+) -> list[dict[str, Any]]:
     """company Entity を取得する。
 
     Parameters
@@ -582,8 +586,10 @@ def evaluate_datapoint_check(
         評価結果。
     """
     matched = [
-        dp for dp in datapoints
-        if dp.get("metric_name") and re.search(item.pattern, dp["metric_name"], re.IGNORECASE)
+        dp
+        for dp in datapoints
+        if dp.get("metric_name")
+        and re.search(item.pattern, dp["metric_name"], re.IGNORECASE)
     ]
     matched_count = len(matched)
 
@@ -634,9 +640,7 @@ def evaluate_claim_check(item: CheckItem, claims: list[str]) -> CheckResult:
     )
 
 
-def evaluate_relationship_check(
-    item: CheckItem, fact_count: int
-) -> CheckResult:
+def evaluate_relationship_check(item: CheckItem, fact_count: int) -> CheckResult:
     """Relationship チェック項目を評価する。
 
     Parameters
@@ -844,7 +848,9 @@ def generate_report(
     return "\n".join(lines)
 
 
-def print_summary(reports: list[EntityReport], priority_filter: str | None = None) -> None:
+def print_summary(
+    reports: list[EntityReport], priority_filter: str | None = None
+) -> None:
     """コンソールにサマリーを出力する。
 
     Parameters
@@ -882,7 +888,9 @@ def print_summary(reports: list[EntityReport], priority_filter: str | None = Non
             if not cr.is_satisfied:
                 if priority_filter and cr.item.priority != priority_filter:
                     continue
-                gaps.append(f"  - [{cr.item.priority}] {cr.item.phase}: {cr.item.label}")
+                gaps.append(
+                    f"  - [{cr.item.priority}] {cr.item.phase}: {cr.item.label}"
+                )
 
         score_bar = _score_bar(report.completeness_score)
         print(
@@ -1037,9 +1045,7 @@ def main() -> None:
         if args.report:
             report_path = Path(args.report)
             report_path.parent.mkdir(parents=True, exist_ok=True)
-            md_report = generate_report(
-                reports, weights, priority_filter=args.priority
-            )
+            md_report = generate_report(reports, weights, priority_filter=args.priority)
             report_path.write_text(md_report, encoding="utf-8")
             logger.info("Report saved: %s", report_path)
             print(f"Report saved: {report_path}")

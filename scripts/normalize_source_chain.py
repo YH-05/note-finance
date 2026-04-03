@@ -183,13 +183,9 @@ def _build_graph_queue(
 
         # EXTRACTED_FROM: Fact/Claim → Chunk
         if node_type == "Fact":
-            extracted_from_fact_rels.append(
-                {"from_id": fc_id, "to_id": chunk_id}
-            )
+            extracted_from_fact_rels.append({"from_id": fc_id, "to_id": chunk_id})
         else:
-            extracted_from_claim_rels.append(
-                {"from_id": fc_id, "to_id": chunk_id}
-            )
+            extracted_from_claim_rels.append({"from_id": fc_id, "to_id": chunk_id})
         stats["extracted_from_rewired"] += 1
 
         # STATES_FACT / MAKES_CLAIM: Source → Fact/Claim (where missing)
@@ -321,10 +317,12 @@ def main() -> None:
             json.dump(queue_doc, f, ensure_ascii=False, indent=2)
 
         logger.info("Graph-queue written: %s", output_path)
-        print(f"\nNext steps:")
+        print("\nNext steps:")
         print(f"  1. /save-to-research-graph {output_path}")
-        print(f"  2. Verify: MATCH (f)-[:EXTRACTED_FROM]->(ch:Chunk) RETURN count(f)")
-        print(f"  3. Cleanup: uv run python scripts/normalize_source_chain.py --cleanup-report")
+        print("  2. Verify: MATCH (f)-[:EXTRACTED_FROM]->(ch:Chunk) RETURN count(f)")
+        print(
+            "  3. Cleanup: uv run python scripts/normalize_source_chain.py --cleanup-report"
+        )
     finally:
         driver.close()
 

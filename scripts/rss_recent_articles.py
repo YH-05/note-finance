@@ -7,8 +7,6 @@ import asyncio
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from pathlib import Path
-
 from data_paths import get_path
 from rss import FeedFetcher, FeedReader
 

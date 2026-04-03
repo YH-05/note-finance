@@ -54,6 +54,7 @@ from zoneinfo import ZoneInfo
 import filelock
 import httpx
 import tenacity
+from utils_core.logging.config import get_logger, setup_logging
 
 from creator.image_hosting import R2ImageHost
 from creator.poster import (
@@ -64,7 +65,6 @@ from creator.poster import (
     ThreadsPoster,
 )
 from data_paths import get_path, get_project_root
-from utils_core.logging.config import get_logger, setup_logging
 
 # ---------------------------------------------------------------------------
 # 定数定義
@@ -136,6 +136,7 @@ def _get_slot_index_map(account: str) -> dict[str, str]:
     if account == "kuroto_area":
         return SLOT_INDEX_MAP_KUROTO_AREA
     return SLOT_INDEX_MAP_CAREER_SISTER
+
 
 DAY_DIR_MAP_MITSUKI: dict[str, str] = {
     "月": "day_1_月",
@@ -732,7 +733,9 @@ class DraftReader:
                         if s.get("slot") == slot_name:
                             file_path = s.get("file")
                             if file_path:
-                                candidate = self._drafts_root / week_dir_name / file_path
+                                candidate = (
+                                    self._drafts_root / week_dir_name / file_path
+                                )
                                 return candidate if candidate.exists() else None
             return None
 
@@ -1513,7 +1516,9 @@ def main(argv: list[str] | None = None) -> int:
         for account in target_accounts:
             logger.info("processing_account", account=account)
             slot_time_map = _get_slot_time_map(account)
-            matcher = SlotMatcher(slot_time_map=slot_time_map, tolerance=config.tolerance)
+            matcher = SlotMatcher(
+                slot_time_map=slot_time_map, tolerance=config.tolerance
+            )
             summaries[account] = _process_account(account, config, now, matcher)
 
         nas_syncer.push()
@@ -1823,7 +1828,9 @@ def _run_post_slot(
     week_start = meta.get("week_start", "")
     week_dir_name = f"week_{week_start}"
 
-    slot_file = reader.get_slot_file(week_dir_name, today_str, day_label, slot_name, meta=meta)
+    slot_file = reader.get_slot_file(
+        week_dir_name, today_str, day_label, slot_name, meta=meta
+    )
     if slot_file is None:
         logger.warning(
             "slot_file_not_found",

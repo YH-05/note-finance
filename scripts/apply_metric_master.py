@@ -92,8 +92,7 @@ def main() -> None:
             "FOR (m:Metric) REQUIRE m.canonical_name IS UNIQUE"
         )
         s.run(
-            "CREATE INDEX metric_category IF NOT EXISTS "
-            "FOR (m:Metric) ON (m.category)"
+            "CREATE INDEX metric_category IF NOT EXISTS FOR (m:Metric) ON (m.category)"
         )
     logger.info("  制約・インデックス作成完了")
 
@@ -151,7 +150,9 @@ def main() -> None:
 
     logger.info(f"  マッチ: {matched} データポイント ({len(matched_pairs)} 指標名)")
     if unmatched:
-        logger.info(f"  未マッチ: {sum(c for _, c in unmatched)} データポイント ({len(unmatched)} 指標名)")
+        logger.info(
+            f"  未マッチ: {sum(c for _, c in unmatched)} データポイント ({len(unmatched)} 指標名)"
+        )
         for name, cnt in unmatched:
             logger.info(f"    - '{name}' ({cnt}件)")
 
@@ -177,7 +178,9 @@ def main() -> None:
                 mid=metric_id,
             )
             rel_count += result.single()["cnt"]
-    logger.info(f"  {rel_count} MEASURES リレーション作成{'（dry-run）' if args.dry_run else ''}")
+    logger.info(
+        f"  {rel_count} MEASURES リレーション作成{'（dry-run）' if args.dry_run else ''}"
+    )
 
     # Phase 5: 検証
     if not args.dry_run:
@@ -190,9 +193,7 @@ def main() -> None:
                 "MATCH (dp:FinancialDataPoint)-[:MEASURES]->(:Metric) "
                 "RETURN count(DISTINCT dp) AS c"
             ).single()["c"]
-            metric_count = s.run(
-                "MATCH (m:Metric) RETURN count(m) AS c"
-            ).single()["c"]
+            metric_count = s.run("MATCH (m:Metric) RETURN count(m) AS c").single()["c"]
             used_metrics = s.run(
                 "MATCH (:FinancialDataPoint)-[:MEASURES]->(m:Metric) "
                 "RETURN count(DISTINCT m) AS c"

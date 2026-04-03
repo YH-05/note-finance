@@ -321,7 +321,9 @@ def main(args: list[str] | None = None) -> int:
 
         data = _build_backfill_data(claims)
 
-        print(f"\n=== Backfill Stance from Claims {'(DRY RUN)' if parsed.dry_run else ''} ===")
+        print(
+            f"\n=== Backfill Stance from Claims {'(DRY RUN)' if parsed.dry_run else ''} ==="
+        )
         print(f"  Authors:      {len(data['authors'])}")
         print(f"  Stances:      {len(data['stances'])}")
         print(f"  HOLDS_STANCE: {len(data['holds_stance'])}")

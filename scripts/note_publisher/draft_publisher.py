@@ -263,7 +263,12 @@ class DraftPublisher:
         try:
             if use_yaml:
                 meta_path.write_text(
-                    yaml.dump(meta, allow_unicode=True, default_flow_style=False, sort_keys=False),
+                    yaml.dump(
+                        meta,
+                        allow_unicode=True,
+                        default_flow_style=False,
+                        sort_keys=False,
+                    ),
                     encoding="utf-8",
                 )
             else:

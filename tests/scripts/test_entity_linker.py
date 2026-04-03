@@ -266,7 +266,7 @@ class TestNeo4jClient:
         client = Neo4jClient()
         mock_gdb.driver.assert_called_once()
         call_args = mock_gdb.driver.call_args
-        assert call_args[0][0] == "bolt://localhost:7689"
+        assert call_args[0][0] == "bolt://localhost:7687"
         client.close()
 
     @patch("entity_linker.GraphDatabase")

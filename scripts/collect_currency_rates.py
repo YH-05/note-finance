@@ -38,7 +38,6 @@ from pathlib import Path
 from typing import Any
 
 from _script_utils import resolve_output_dir
-
 from analyze.reporting.currency_agent import (
     CurrencyAnalyzer4Agent,
     CurrencyResult,

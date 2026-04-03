@@ -102,15 +102,19 @@ def _normalize_date_value(value: Any) -> str | None:
                 normalized = None
         if normalized is None:
             try:
-                normalized = datetime.fromisoformat(
-                    text.replace("Z", "+00:00")
-                ).date().isoformat()
+                normalized = (
+                    datetime.fromisoformat(text.replace("Z", "+00:00"))
+                    .date()
+                    .isoformat()
+                )
             except ValueError:
                 normalized = None
     return normalized
 
 
-def _fetch_domain_candidates(driver: Any, limit: int | None = None) -> list[dict[str, Any]]:
+def _fetch_domain_candidates(
+    driver: Any, limit: int | None = None
+) -> list[dict[str, Any]]:
     """Fetch Sources missing domain metadata or FROM_DOMAIN relationships."""
     query = """
     MATCH (s:Source)
@@ -131,7 +135,9 @@ def _fetch_domain_candidates(driver: Any, limit: int | None = None) -> list[dict
         return [dict(record) for record in result]
 
 
-def _build_domain_rows(candidates: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+def _build_domain_rows(
+    candidates: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int]:
     """Build deterministic domain backfill rows."""
     rows: list[dict[str, Any]] = []
     skipped = 0
@@ -181,7 +187,9 @@ def _write_domain_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
     return len(rows)
 
 
-def _fetch_fact_candidates(driver: Any, limit: int | None = None) -> list[dict[str, Any]]:
+def _fetch_fact_candidates(
+    driver: Any, limit: int | None = None
+) -> list[dict[str, Any]]:
     """Fetch Facts linked to extracted Sources."""
     query = """
     MATCH (f:Fact)-[:EXTRACTED_FROM]->(s:Source)
@@ -205,7 +213,9 @@ def _fetch_fact_candidates(driver: Any, limit: int | None = None) -> list[dict[s
         return [dict(record) for record in result]
 
 
-def _build_fact_rows(candidates: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+def _build_fact_rows(
+    candidates: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int]:
     """Build deterministic fact backfill rows."""
     rows: list[dict[str, Any]] = []
     skipped = 0
@@ -268,7 +278,9 @@ def _write_fact_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
     return len(rows)
 
 
-def _fetch_claim_candidates(driver: Any, limit: int | None = None) -> list[dict[str, Any]]:
+def _fetch_claim_candidates(
+    driver: Any, limit: int | None = None
+) -> list[dict[str, Any]]:
     """Fetch Claim->Entity pairs derivable from supported Facts."""
     query = """
     MATCH (c:Claim)-[:SUPPORTED_BY]->(:Fact)-[:RELATES_TO]->(e:Entity)
@@ -284,7 +296,9 @@ def _fetch_claim_candidates(driver: Any, limit: int | None = None) -> list[dict[
         return [dict(record) for record in result]
 
 
-def _build_claim_rows(candidates: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+def _build_claim_rows(
+    candidates: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int]:
     """Build Claim->Entity ABOUT rows."""
     seen: set[tuple[str, str]] = set()
     rows: list[dict[str, Any]] = []
@@ -318,7 +332,9 @@ def _write_claim_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
     return len(rows)
 
 
-def _fetch_insight_candidates(driver: Any, limit: int | None = None) -> list[dict[str, Any]]:
+def _fetch_insight_candidates(
+    driver: Any, limit: int | None = None
+) -> list[dict[str, Any]]:
     """Fetch Insights and their derivation context."""
     query = """
     MATCH (i:Insight)
@@ -355,7 +371,9 @@ def _allowed_insight_entity_id(entry: dict[str, Any]) -> str | None:
     return None
 
 
-def _build_insight_rows(candidates: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+def _build_insight_rows(
+    candidates: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int]:
     """Build Insight->Entity ABOUT rows when one entity is derivable."""
     rows: list[dict[str, Any]] = []
     skipped = 0
@@ -437,7 +455,9 @@ def _print_stage_result(result: StageResult, *, dry_run: bool) -> None:
     action_label = "planned" if dry_run else "updated"
     print(f"\n[{result.stage}]")
     print(f"  candidates:         {result.candidates}")
-    print(f"  {action_label}:            {result.to_write if dry_run else result.updated}")
+    print(
+        f"  {action_label}:            {result.to_write if dry_run else result.updated}"
+    )
     print(f"  skipped_ambiguous:  {result.skipped_ambiguous}")
     if result.sample:
         print("  sample:")
@@ -481,8 +501,12 @@ def main(args: list[str] | None = None) -> int:
         print("\n--- Summary ---")
         print(f"  stages_run:         {len(results)}")
         print(f"  candidates:         {sum(result.candidates for result in results)}")
-        print(f"  planned_or_updated: {sum(result.to_write if parsed.dry_run else result.updated for result in results)}")
-        print(f"  skipped_ambiguous:  {sum(result.skipped_ambiguous for result in results)}")
+        print(
+            f"  planned_or_updated: {sum(result.to_write if parsed.dry_run else result.updated for result in results)}"
+        )
+        print(
+            f"  skipped_ambiguous:  {sum(result.skipped_ambiguous for result in results)}"
+        )
         return 0
     finally:
         driver.close()

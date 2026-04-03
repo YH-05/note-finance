@@ -38,7 +38,6 @@ from pathlib import Path
 from typing import Any
 
 from _script_utils import resolve_output_dir
-
 from analyze.reporting.upcoming_events_agent import (
     UpcomingEvents4Agent,
     UpcomingEventsResult,

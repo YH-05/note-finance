@@ -59,9 +59,11 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "gomasuke"
 
 # 短すぎる名前や一般的な英単語と衝突する Entity 名を除外
-EXCLUDE_ENTITY_NAMES: frozenset[str] = frozenset({
-    "with",  # 婚活アプリだが英単語 "with" と衝突
-})
+EXCLUDE_ENTITY_NAMES: frozenset[str] = frozenset(
+    {
+        "with",  # 婚活アプリだが英単語 "with" と衝突
+    }
+)
 
 # 最小Entity名長（文字数）
 MIN_ENTITY_NAME_LENGTH = 3
@@ -178,7 +180,9 @@ def load_entities(client: CreatorNeo4jClient) -> list[EntityNode]:
                 entity_type=r["entity_type"],
             )
         )
-    logger.info("Loaded %d entities (excluded %d)", len(entities), len(results) - len(entities))
+    logger.info(
+        "Loaded %d entities (excluded %d)", len(entities), len(results) - len(entities)
+    )
     return entities
 
 
@@ -186,7 +190,11 @@ def load_content_without_mentions(client: CreatorNeo4jClient) -> list[ContentNod
     """MENTIONS リレーションがないコンテンツを取得."""
     content_nodes = []
 
-    for label, id_field in [("Fact", "fact_id"), ("Tip", "tip_id"), ("Story", "story_id")]:
+    for label, id_field in [
+        ("Fact", "fact_id"),
+        ("Tip", "tip_id"),
+        ("Story", "story_id"),
+    ]:
         results = client.query(
             f"MATCH (c:{label}) "
             f"WHERE NOT (c)<-[:MENTIONS]-() "
@@ -247,13 +255,18 @@ def create_mentions_batch(
 
         # 統計更新
         entity_name = e.name
-        stats.entities_matched[entity_name] = stats.entities_matched.get(entity_name, 0) + 1
+        stats.entities_matched[entity_name] = (
+            stats.entities_matched.get(entity_name, 0) + 1
+        )
         matched_content_ids.add(c.node_id)
 
         if dry_run:
             logger.debug(
                 "[DRY-RUN] MENTIONS: %s[%s] <- %s (%s)",
-                c.label, c.node_id[:8], e.name, e.entity_type,
+                c.label,
+                c.node_id[:8],
+                e.name,
+                e.entity_type,
             )
             continue
 
@@ -315,8 +328,7 @@ def main() -> None:
     try:
         # 全体統計
         total_result = client.query(
-            "MATCH (c) WHERE c:Fact OR c:Tip OR c:Story "
-            "RETURN count(c) AS total"
+            "MATCH (c) WHERE c:Fact OR c:Tip OR c:Story RETURN count(c) AS total"
         )
         total_content = total_result[0]["total"] if total_result else 0
 
@@ -351,17 +363,16 @@ def main() -> None:
         print(f"Target (no MENTIONS):       {stats.target_content}")
         print(f"Matched by substring:       {stats.matched_content}")
         print(f"MENTIONS created:           {stats.total_mentions_created}")
-        print(f"Mode:                       {'DRY-RUN' if args.dry_run else 'EXECUTED'}")
+        print(
+            f"Mode:                       {'DRY-RUN' if args.dry_run else 'EXECUTED'}"
+        )
         print()
         print("Entity match distribution:")
-        for name, count in sorted(
-            stats.entities_matched.items(), key=lambda x: -x[1]
-        ):
+        for name, count in sorted(stats.entities_matched.items(), key=lambda x: -x[1]):
             print(f"  {name:30s}  {count:4d}")
         print()
 
         # MENTIONS/コンテンツ比率
-        new_mentions = has_mentions_result[0]["cnt"] if has_mentions_result else 0
         if not args.dry_run:
             after_result = client.query(
                 "MATCH ()-[m:MENTIONS]->() RETURN count(m) AS total"

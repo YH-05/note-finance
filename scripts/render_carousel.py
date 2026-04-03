@@ -20,16 +20,21 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import sys
 from html import escape
 from pathlib import Path
 
-import logging
-
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-TEMPLATE_PATH = Path(__file__).parent.parent / "creator" / "career_sister" / "templates" / "carousel.html"
+TEMPLATE_PATH = (
+    Path(__file__).parent.parent
+    / "creator"
+    / "career_sister"
+    / "templates"
+    / "carousel.html"
+)
 
 
 def _render_title_slide(slide: dict) -> str:
@@ -91,8 +96,7 @@ def _render_points_slide(slide: dict) -> str:
     closing = escape(slide.get("closing", ""))
     number = f"{_current_body_index:02d}"
     items_html = "\n".join(
-        f'            <div class="point-item">✔ {escape(item)}</div>'
-        for item in items
+        f'            <div class="point-item">✔ {escape(item)}</div>' for item in items
     )
     page = f"{_current_body_index}/{_total_body_slides}"
     closing_html = ""
@@ -118,7 +122,7 @@ def _render_points_slide(slide: dict) -> str:
 
 
 def _render_cta_slide(slide: dict) -> str:
-    return f"""
+    return """
     <div class="slide slide-cta">
         <div class="cta-heading">この投稿が<br>役に立ったら</div>
         <div class="cta-emphasis">♡ いいね &amp; 保存</div>
@@ -210,7 +214,9 @@ def main() -> None:
         logger.error("No slides found in input JSON")
         sys.exit(1)
 
-    output_dir = Path(args.output_dir) if args.output_dir else input_path.parent / "carousel"
+    output_dir = (
+        Path(args.output_dir) if args.output_dir else input_path.parent / "carousel"
+    )
 
     import asyncio
 
@@ -218,7 +224,10 @@ def main() -> None:
     logger.info("Rendering complete: %d slides in %s", len(paths), output_dir)
 
     # 結果JSONを出力
-    result = {"slides": [str(p) for p in paths], "html": str(output_dir / "slides.html")}
+    result = {
+        "slides": [str(p) for p in paths],
+        "html": str(output_dir / "slides.html"),
+    }
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

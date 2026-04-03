@@ -614,14 +614,9 @@ def fetch_all_sectors(session: Any) -> list[dict[str, Any]]:
     list[dict[str, Any]]
         各要素に ``sector_id``, ``name`` を含むリスト。
     """
-    cypher = (
-        "MATCH (s:Sector) "
-        "RETURN s.sector_id AS sector_id, s.name AS name"
-    )
+    cypher = "MATCH (s:Sector) RETURN s.sector_id AS sector_id, s.name AS name"
     result = session.run(cypher)
-    records = [
-        {"sector_id": r["sector_id"], "name": r["name"]} for r in result
-    ]
+    records = [{"sector_id": r["sector_id"], "name": r["name"]} for r in result]
     logger.info("Found %d Sector nodes", len(records))
     return records
 
@@ -748,9 +743,7 @@ def apply_sector_normalization(
                     canonical,
                 )
             else:
-                logger.warning(
-                    "Sector not found: sector_id=%s (skipping)", sector_id
-                )
+                logger.warning("Sector not found: sector_id=%s (skipping)", sector_id)
         except Exception:
             failed += 1
             logger.exception(
@@ -780,10 +773,7 @@ def count_industry_relationships(session: Any) -> int:
     int
         IN_INDUSTRY リレーションの件数。
     """
-    cypher = (
-        "MATCH (e:Entity)-[:IN_INDUSTRY]->(i:Industry) "
-        "RETURN count(*) AS cnt"
-    )
+    cypher = "MATCH (e:Entity)-[:IN_INDUSTRY]->(i:Industry) RETURN count(*) AS cnt"
     result = session.run(cypher)
     record = result.single()
     cnt: int = record["cnt"] if record else 0
@@ -973,9 +963,7 @@ def run_dry_run_summary(session: Any) -> None:
     # Phase 3: Sector
     sectors = fetch_all_sectors(session)
     sector_ops = build_sector_normalization_ops(sectors)
-    needs_rename = [
-        op for op in sector_ops if op["raw_name"] != op["canonical_name"]
-    ]
+    needs_rename = [op for op in sector_ops if op["raw_name"] != op["canonical_name"]]
 
     # Phase 4: Industry
     industry_node_count = count_industry_nodes(session)
@@ -985,12 +973,12 @@ def run_dry_run_summary(session: Any) -> None:
     ticker_identifiers = fetch_ticker_identifiers(session)
 
     print("\n=== dry-run サマリー ===")
-    print(f"\n[Phase 1] Ticker ノード作成:")
+    print("\n[Phase 1] Ticker ノード作成:")
     print(f"  ticker プロパティ保持 Entity: {len(ticker_entities):,} 件")
     print(f"  作成予定 Ticker ノード       : {ticker_nodes:,} 件（MERGE冪等）")
     print(f"  作成予定 HAS_TICKER          : {ticker_rels:,} 件（MERGE冪等）")
 
-    print(f"\n[Phase 2] Country ノード作成:")
+    print("\n[Phase 2] Country ノード作成:")
     print(f"  country プロパティ保持 Entity: {len(country_entities):,} 件")
     print(f"  作成予定 Country ノード      : {country_nodes:,} 件（MERGE冪等）")
     print(f"  作成予定 IN_COUNTRY          : {country_rels:,} 件（MERGE冪等）")
@@ -1001,7 +989,7 @@ def run_dry_run_summary(session: Any) -> None:
         for e in unknown_countries[:5]:
             print(f"    entity_key={e['entity_key']} country={e['country']}")
 
-    print(f"\n[Phase 3] Sector 正規化:")
+    print("\n[Phase 3] Sector 正規化:")
     print(f"  既存 Sector ノード数         : {len(sectors):,} 件")
     print(f"  GICS正規化対象               : {len(sector_ops):,} 件")
     print(f"  名称変更が必要               : {len(needs_rename):,} 件")
@@ -1011,13 +999,15 @@ def run_dry_run_summary(session: Any) -> None:
                 f"    sector_id={op['sector_id']} '{op['raw_name']}' → '{op['canonical_name']}'"
             )
 
-    print(f"\n[Phase 4] Industry 確認:")
+    print("\n[Phase 4] Industry 確認:")
     print(f"  Industry ノード数            : {industry_node_count:,} 件")
     print(f"  IN_INDUSTRY リレーション数   : {industry_rel_count:,} 件")
 
-    print(f"\n[Phase 5] Identifier → Ticker 統合:")
+    print("\n[Phase 5] Identifier → Ticker 統合:")
     print(f"  ticker種別 Identifier        : {len(ticker_identifiers):,} 件")
-    print(f"  統合予定                     : {len(ticker_identifiers):,} 件（MERGE冪等）")
+    print(
+        f"  統合予定                     : {len(ticker_identifiers):,} 件（MERGE冪等）"
+    )
 
     print("\n  ※ --dry-run のため DB への書き込みは行いません")
 

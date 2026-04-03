@@ -251,7 +251,7 @@ class TestExtractPublishedAt:
 class TestParseArgs:
     def test_正常系_デフォルト値が設定される(self) -> None:
         args = parse_args([])
-        assert args.neo4j_uri == "bolt://localhost:7689"
+        assert args.neo4j_uri == "bolt://localhost:7687"
         assert args.neo4j_user == "neo4j"
         assert args.limit is None
         assert args.batch_size == 100

@@ -118,7 +118,7 @@ class TestParseArgs:
         assert args.dry_run is False
         assert args.method == "all"
         assert args.limit is None
-        assert args.neo4j_uri == "bolt://localhost:7688"
+        assert args.neo4j_uri == "bolt://localhost:7687"
 
     def test_正常系_dry_runフラグ(self) -> None:
         args = parse_args(["--dry-run"])
@@ -184,7 +184,7 @@ class TestCreateDriver:
         driver = create_driver()
 
         mock_gdb.driver.assert_called_once_with(
-            "bolt://localhost:7688",
+            "bolt://localhost:7687",
             auth=("neo4j", "envpass"),
         )
         mock_driver.verify_connectivity.assert_called_once()

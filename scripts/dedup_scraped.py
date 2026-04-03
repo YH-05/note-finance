@@ -87,6 +87,7 @@ SOURCES: list[str] = [
 # Registry
 # ---------------------------------------------------------------------------
 
+
 def _load_registry(registry_path: Path) -> set[str]:
     """Load already-ingested URLs from JSONL registry.
 
@@ -158,6 +159,7 @@ def _append_to_registry(
 # ---------------------------------------------------------------------------
 # File operations
 # ---------------------------------------------------------------------------
+
 
 def _find_unprocessed_files(source_dir: Path) -> list[Path]:
     """Find unprocessed scraped JSON files for a source.
@@ -294,6 +296,7 @@ def _move_to_processed(
 # Output
 # ---------------------------------------------------------------------------
 
+
 def _to_finance_news_format(article: dict[str, Any]) -> dict[str, Any]:
     """Convert scraped article dict to finance-news-workflow article format.
 
@@ -364,6 +367,7 @@ def _write_output(articles: list[dict[str, Any]], dry_run: bool) -> Path | None:
 # ---------------------------------------------------------------------------
 # Core
 # ---------------------------------------------------------------------------
+
 
 def run_dedup(
     scraped_base: Path,
@@ -443,6 +447,7 @@ def run_dedup(
 # CLI
 # ---------------------------------------------------------------------------
 
+
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Dedup scraped RSS JSONs and stage for Neo4j ingestion",
@@ -486,6 +491,7 @@ def main() -> int:
     args = _parse_args()
 
     import logging
+
     logging.getLogger().setLevel(getattr(logging, args.log_level, logging.INFO))
 
     logger.info(

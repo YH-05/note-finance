@@ -36,9 +36,8 @@ import os
 import sys
 import uuid
 from datetime import datetime, timezone
-from typing import Any
-
 from pathlib import Path
+from typing import Any
 
 try:
     from neo4j import GraphDatabase
@@ -98,7 +97,9 @@ def get_session_id() -> str:
     return os.environ.get("CLAUDE_SESSION_ID", str(uuid.uuid4()))
 
 
-def truncate_summary(text: str | None, max_length: int = MAX_SUMMARY_LENGTH) -> str | None:
+def truncate_summary(
+    text: str | None, max_length: int = MAX_SUMMARY_LENGTH
+) -> str | None:
     """テキストを max_length 以下に切り詰める。
 
     Parameters
@@ -697,6 +698,7 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
         help="skill_run_id to update",
     )
+
     def _score_type(value: str) -> float:
         v = float(value)
         if not 0.0 <= v <= 1.0:

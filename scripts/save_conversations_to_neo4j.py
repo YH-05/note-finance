@@ -48,10 +48,19 @@ TOPIC_RULES: list[tuple[str, list[str]]] = [
     ("MCP設定", ["mcp", "mcpサーバー"]),
     ("Reddit調査", ["reddit", "subreddit"]),
     ("Obsidian統合", ["obsidian", "vault"]),
-    ("記事執筆", ["記事", "finance-edit", "finance-full", "初稿", "批評", "修正", "note記事"]),
+    (
+        "記事執筆",
+        ["記事", "finance-edit", "finance-full", "初稿", "批評", "修正", "note記事"],
+    ),
     ("PDFパイプライン", ["pdf", "レポート", "マークダウン変換", "docling"]),
-    ("プロジェクト方針", ["project-discuss", "方向性", "収益化", "副業", "ニッチ", "戦略"]),
-    ("スキル/エージェント開発", ["スキル", "skill", "エージェント", "agent", "コマンド"]),
+    (
+        "プロジェクト方針",
+        ["project-discuss", "方向性", "収益化", "副業", "ニッチ", "戦略"],
+    ),
+    (
+        "スキル/エージェント開発",
+        ["スキル", "skill", "エージェント", "agent", "コマンド"],
+    ),
     ("インフラ/Docker", ["docker", "compose", "container"]),
     ("Git/PR操作", ["git", "pr", "push", "merge", "ブランチ"]),
     ("体験談DB", ["体験談", "匿名化", "合成パターン", "婚活", "experience"]),
@@ -76,6 +85,7 @@ def classify_topics(text: str) -> list[str]:
 # ---------------------------------------------------------------------------
 # JSONL Parser
 # ---------------------------------------------------------------------------
+
 
 @dataclass
 class ConversationSession:
@@ -290,9 +300,7 @@ def save_to_neo4j(
             # Create session nodes and links
             for s in sessions:
                 # Build summary from user messages
-                summary = " | ".join(
-                    msg[:100] for msg in s.user_messages[:3]
-                )
+                summary = " | ".join(msg[:100] for msg in s.user_messages[:3])
                 if len(summary) > 500:
                     summary = summary[:500] + "..."
 
@@ -339,6 +347,7 @@ def save_to_neo4j(
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(
@@ -401,7 +410,9 @@ def main() -> None:
         name = s.slug or s.session_id[:8]
         cont = " (continuation)" if s.is_continuation else ""
         print(f"[{date}] {name}{cont}")
-        print(f"  Messages: {s.user_message_count}u/{s.assistant_message_count}a, Size: {s.file_size_kb}KB")
+        print(
+            f"  Messages: {s.user_message_count}u/{s.assistant_message_count}a, Size: {s.file_size_kb}KB"
+        )
         print(f"  Topics: {', '.join(s.topics)}")
         if s.topic:
             print(f"  First msg: {s.topic[:80]}")
@@ -426,7 +437,9 @@ def main() -> None:
         password=args.neo4j_password,
         project_name=args.project_name,
     )
-    print(f"\nDone! Sessions: {stats['sessions']}, Topics: {stats['topics']}, Links: {stats['links']}")
+    print(
+        f"\nDone! Sessions: {stats['sessions']}, Topics: {stats['topics']}, Links: {stats['links']}"
+    )
 
 
 if __name__ == "__main__":

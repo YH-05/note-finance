@@ -37,20 +37,35 @@ MODEL_NAME = "intfloat/multilingual-e5-large"
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Embed creator-neo4j Entity/Concept nodes.")
-    parser.add_argument("--dry-run", action="store_true", help="Count targets only, don't write")
-    parser.add_argument("--force", action="store_true", help="Re-embed all nodes (overwrite)")
-    parser.add_argument("--batch-size", type=int, default=BATCH_SIZE, help=f"Batch size (default: {BATCH_SIZE})")
+    parser = argparse.ArgumentParser(
+        description="Embed creator-neo4j Entity/Concept nodes."
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Count targets only, don't write"
+    )
+    parser.add_argument(
+        "--force", action="store_true", help="Re-embed all nodes (overwrite)"
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=BATCH_SIZE,
+        help=f"Batch size (default: {BATCH_SIZE})",
+    )
     args = parser.parse_args()
 
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    logging.basicConfig(
+        level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s"
+    )
 
     # Load model
     if not args.dry_run:
         try:
             from sentence_transformers import SentenceTransformer
         except ImportError:
-            logger.error("sentence-transformers not installed. Run: uv sync --extra embedding")
+            logger.error(
+                "sentence-transformers not installed. Run: uv sync --extra embedding"
+            )
             sys.exit(1)
 
         logger.info("Loading %s...", MODEL_NAME)
@@ -91,7 +106,9 @@ def _embed_label(
         result = session.run(count_query).single()
         total = result["cnt"] if result else 0
 
-    logger.info("[%s] Target nodes: %d%s", label, total, " (dry-run)" if args.dry_run else "")
+    logger.info(
+        "[%s] Target nodes: %d%s", label, total, " (dry-run)" if args.dry_run else ""
+    )
     if total == 0 or args.dry_run:
         return
 
@@ -115,7 +132,9 @@ def _embed_label(
             break
 
         texts = [r["text"] or "" for r in records]
-        embeddings = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+        embeddings = model.encode(
+            texts, normalize_embeddings=True, show_progress_bar=False
+        )
 
         rows = [
             {"id": r["id"], "embedding": emb.tolist()}

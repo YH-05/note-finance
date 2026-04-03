@@ -112,7 +112,9 @@ SITEMAP_CONFIG_PATH = Path("data/config/wealth-sitemap-config.json")
 """Path to wealth sitemap configuration file."""
 
 _NAS_SCRAPED_WEALTH = _NAS_SCRAPED_BASE / "wealth"
-SCRAPED_OUTPUT_DIR = _NAS_SCRAPED_WEALTH if _NAS_AVAILABLE else Path("data/scraped/wealth")
+SCRAPED_OUTPUT_DIR = (
+    _NAS_SCRAPED_WEALTH if _NAS_AVAILABLE else Path("data/scraped/wealth")
+)
 """Base directory for scraped Markdown article files (NAS preferred, local fallback)."""
 
 FEED_READ_LIMIT = 200

@@ -37,7 +37,7 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass, field
 from pathlib import (
-    Path,  # noqa: TC003 — Pydantic needs Path at runtime for field validation
+    Path,
 )
 from typing import TYPE_CHECKING, Literal
 
@@ -58,6 +58,7 @@ def get_processed_dir() -> Path:
         if p.exists():
             return p.resolve()
     return get_path("processed")
+
 
 # ---------------------------------------------------------------------------
 # Type aliases

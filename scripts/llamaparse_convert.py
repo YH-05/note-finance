@@ -23,14 +23,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import logging
 import os
 import subprocess
 import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-
-import logging
 
 import requests
 
@@ -115,7 +114,9 @@ def upload_pdf(
     """
     logger.info(
         "Uploading PDF to LlamaParse: %s (tier=%s, %s cr/page)",
-        pdf_path.name, tier, TIER_CREDITS.get(tier, "?"),
+        pdf_path.name,
+        tier,
+        TIER_CREDITS.get(tier, "?"),
     )
 
     headers = {
@@ -287,8 +288,15 @@ def convert_pdf(
     try:
         result = subprocess.run(
             [
-                "uv", "run", "python", "-m", "pdf_pipeline.cli.helpers",
-                "chunk_and_save", str(report_path), sha256, str(output_dir),
+                "uv",
+                "run",
+                "python",
+                "-m",
+                "pdf_pipeline.cli.helpers",
+                "chunk_and_save",
+                str(report_path),
+                sha256,
+                str(output_dir),
             ],
             capture_output=True,
             text=True,

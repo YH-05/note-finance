@@ -428,11 +428,23 @@ def _parse_heading(line: str) -> ContentBlock | None:
         the heading level exceeds 3.
     """
     if line.startswith("### "):
-        return ContentBlock(block_type="heading", content=_strip_inline_markdown(line[4:].strip()), level=3)
+        return ContentBlock(
+            block_type="heading",
+            content=_strip_inline_markdown(line[4:].strip()),
+            level=3,
+        )
     if line.startswith("## "):
-        return ContentBlock(block_type="heading", content=_strip_inline_markdown(line[3:].strip()), level=2)
+        return ContentBlock(
+            block_type="heading",
+            content=_strip_inline_markdown(line[3:].strip()),
+            level=2,
+        )
     if line.startswith("# "):
-        return ContentBlock(block_type="heading", content=_strip_inline_markdown(line[2:].strip()), level=1)
+        return ContentBlock(
+            block_type="heading",
+            content=_strip_inline_markdown(line[2:].strip()),
+            level=1,
+        )
     return None
 
 
@@ -486,7 +498,8 @@ def _remove_title_from_body(
         Body blocks with h1 headings removed.
     """
     return [
-        block for block in body_blocks
+        block
+        for block in body_blocks
         if not (block.block_type == "heading" and block.level == 1)
     ]
 

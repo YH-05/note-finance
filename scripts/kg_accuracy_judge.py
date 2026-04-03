@@ -366,9 +366,7 @@ def evaluate_accuracy(
         return CategoryResult(
             name="accuracy",
             score=0.0,
-            metrics=[
-                MetricValue(value=0.0, unit="ratio", status="yellow", stub=True)
-            ],
+            metrics=[MetricValue(value=0.0, unit="ratio", status="yellow", stub=True)],
         )
 
     evaluations = evaluate_batch(facts, client, cache_path=cache_path)

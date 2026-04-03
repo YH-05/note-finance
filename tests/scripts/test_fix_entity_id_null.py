@@ -166,4 +166,4 @@ class TestParseArgs:
 
     def test_正常系_neo4j_uriのデフォルト値(self) -> None:
         args = parse_args([])
-        assert args.neo4j_uri == "bolt://localhost:7688"
+        assert args.neo4j_uri == "bolt://localhost:7687"
