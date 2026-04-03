@@ -548,7 +548,9 @@ class TestCodeQuality:
 
         mock_driver = MagicMock()
         mock_session = MagicMock()
-        mock_driver.session.return_value.__enter__ = MagicMock(return_value=mock_session)
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
         mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
 
         rels = [
@@ -574,7 +576,9 @@ class TestCodeQuality:
 
         mock_driver = MagicMock()
         mock_session = MagicMock()
-        mock_driver.session.return_value.__enter__ = MagicMock(return_value=mock_session)
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
         mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
 
         rels = [
@@ -676,7 +680,9 @@ class TestIngestEntityNodes:
 
         mock_driver = MagicMock()
         mock_session = MagicMock()
-        mock_driver.session.return_value.__enter__ = MagicMock(return_value=mock_session)
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
         mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
 
         queue_data = {
@@ -734,7 +740,9 @@ class TestIngestEntityNodes:
 
         mock_driver = MagicMock()
         mock_session = MagicMock()
-        mock_driver.session.return_value.__enter__ = MagicMock(return_value=mock_session)
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
         mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
 
         queue_data = {
@@ -765,7 +773,9 @@ class TestIngestEntityRels:
 
         mock_driver = MagicMock()
         mock_session = MagicMock()
-        mock_driver.session.return_value.__enter__ = MagicMock(return_value=mock_session)
+        mock_driver.session.return_value.__enter__ = MagicMock(
+            return_value=mock_session
+        )
         mock_driver.session.return_value.__exit__ = MagicMock(return_value=False)
 
         queue_data = {

@@ -535,9 +535,7 @@ def _ingest_entity_rels_for_type(
                 f"MERGE (f)-[:RELATES_TO]->(e)"
             )
             with driver.session(database=_RESEARCH_DB) as session:
-                session.execute_write(
-                    lambda tx, q=query, r=rows: tx.run(q, rows=r)
-                )
+                session.execute_write(lambda tx, q=query, r=rows: tx.run(q, rows=r))
     return count
 
 

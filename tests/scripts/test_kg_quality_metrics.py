@@ -18,7 +18,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "scripts"))
 
 from kg_quality_metrics import (
-    ALLOWED_ENTITY_TYPES,
+    ALLOWED_ENTITY_LABELS,
     ALLOWED_RELATIONSHIP_TYPES,
     THRESHOLDS,
     CategoryResult,
@@ -248,18 +248,18 @@ class TestThresholds:
 
 
 # ---------------------------------------------------------------------------
-# ALLOWED_ENTITY_TYPES 定数
+# ALLOWED_ENTITY_LABELS 定数
 # ---------------------------------------------------------------------------
 
 
 class TestAllowedEntityTypes:
-    def test_正常系_ALLOWED_ENTITY_TYPESがセットまたはリスト(self) -> None:
-        assert isinstance(ALLOWED_ENTITY_TYPES, (set, list, tuple, frozenset))
+    def test_正常系_ALLOWED_ENTITY_LABELSがセットまたはリスト(self) -> None:
+        assert isinstance(ALLOWED_ENTITY_LABELS, (set, list, tuple, frozenset))
 
-    def test_正常系_基本的なentity_typeが含まれる(self) -> None:
-        expected = {"company", "index", "sector", "indicator", "currency"}
-        for et in expected:
-            assert et in ALLOWED_ENTITY_TYPES, f"'{et}' not in ALLOWED_ENTITY_TYPES"
+    def test_正常系_基本的なラベルが含まれる(self) -> None:
+        expected = {"Company", "Technology", "Organization", "Person", "MarketIndex"}
+        for lbl in expected:
+            assert lbl in ALLOWED_ENTITY_LABELS, f"'{lbl}' not in ALLOWED_ENTITY_LABELS"
 
 
 # ---------------------------------------------------------------------------
@@ -272,7 +272,7 @@ class TestAllowedRelationshipTypes:
         assert isinstance(ALLOWED_RELATIONSHIP_TYPES, (set, list, tuple, frozenset))
 
     def test_正常系_基本的なrelationship_typeが含まれる(self) -> None:
-        expected = {"STATES_FACT", "MAKES_CLAIM", "RELATES_TO", "ABOUT", "TREND"}
+        expected = {"STATES_FACT", "MAKES_CLAIM", "RELATES_TO", "TAGGED", "TREND"}
         for rt in expected:
             assert rt in ALLOWED_RELATIONSHIP_TYPES, (
                 f"'{rt}' not in ALLOWED_RELATIONSHIP_TYPES"
@@ -344,7 +344,7 @@ class TestLoadSchema:
 
             invalidate_cache()
             schema = load_schema()
-        assert "Entity" in schema["nodes"]
+        assert "Company" in schema["nodes"]
         assert "Fact" in schema["nodes"]
 
 
@@ -600,24 +600,19 @@ def sample_schema_with_required(tmp_path: Path) -> Path:
                     "fetched_at": {"type": "datetime", "required": True},
                 },
             },
-            "Entity": {
-                "description": "test entity",
+            "Company": {
+                "description": "Company entity (NODE KEY: name)",
                 "properties": {
-                    "entity_id": {"type": "string", "unique": True, "required": True},
-                    "name": {"type": "string", "required": True},
-                    "entity_type": {
-                        "type": "string",
-                        "required": True,
-                        "enum": ["company", "index"],
-                    },
+                    "name": {"type": "string", "unique": True, "required": True},
+                    "created_at": {"type": "datetime", "required": True},
                 },
             },
         },
         "relationships": {
-            "MENTIONS": {"from": "Source", "to": "Entity"},
+            "RELATES_TO": {"from": "Fact", "to": "Company"},
         },
         "namespaces": {
-            "kg_v2": {"labels": ["Source", "Entity"]},
+            "kg_v3": {"labels": ["Source", "Company"]},
         },
     }
     schema_file = tmp_path / "knowledge-graph-schema.yaml"
@@ -695,14 +690,13 @@ class TestMeasureCompleteness:
         mock_results: list[MagicMock] = []
 
         # Entity の1バッチクエリ結果 (3 required: entity_id, entity_type, name)
-        r_entity = MagicMock()
-        r_entity.single.return_value = {
+        r_company = MagicMock()
+        r_company.single.return_value = {
             "total": 200,
             "filled_0": 190,
             "filled_1": 190,
-            "filled_2": 190,
         }
-        mock_results.append(r_entity)
+        mock_results.append(r_company)
 
         # Source の1バッチクエリ結果 (5 required: authority_level, fetched_at, source_id, source_type, title)
         r_source = MagicMock()
@@ -764,12 +758,12 @@ class TestMeasureConsistency:
     def test_正常系_型一貫性と重複率と制約違反を返す(self) -> None:
         mock_session = MagicMock()
 
-        # entity_type 一貫性: 許可リスト内/外
+        # ラベル一貫性: 許可リスト内/外
         mock_type_check = MagicMock()
         mock_type_check.data.return_value = [
-            {"entity_type": "company", "count": 50},
-            {"entity_type": "index", "count": 30},
-            {"entity_type": "INVALID", "count": 2},
+            {"label": "Company", "count": 50},
+            {"label": "MarketIndex", "count": 30},
+            {"label": "INVALID", "count": 2},
         ]
 
         # 重複率: name重複ノード数
@@ -796,7 +790,7 @@ class TestMeasureConsistency:
         mock_session = MagicMock()
 
         mock_type_check = MagicMock()
-        mock_type_check.data.return_value = [{"entity_type": "company", "count": 50}]
+        mock_type_check.data.return_value = [{"label": "Company", "count": 50}]
         mock_duplicate = MagicMock()
         mock_duplicate.single.return_value = {"duplicate_count": 0, "total": 100}
         mock_constraint = MagicMock()
@@ -1228,22 +1222,22 @@ class TestCheckEntityLength:
 
 class TestCheckSchemaCompliance:
     def test_正常系_全て許可リスト内で通過(self) -> None:
-        entity_types = ["company", "index", "sector", "indicator"]
-        result = check_schema_compliance(entity_types)
+        labels = ["Company", "MarketIndex", "Indicator", "Technology"]
+        result = check_schema_compliance(labels)
         assert isinstance(result, CheckRuleResult)
         assert result.rule_name == "schema_compliance"
         assert result.pass_rate == 1.0
         assert result.violations == []
 
-    def test_異常系_許可リスト外のentity_typeで違反(self) -> None:
-        entity_types = ["company", "INVALID_TYPE", "index", "unknown"]
-        result = check_schema_compliance(entity_types)
+    def test_異常系_許可リスト外のラベルで違反(self) -> None:
+        labels = ["Company", "INVALID_TYPE", "MarketIndex", "unknown"]
+        result = check_schema_compliance(labels)
         assert result.pass_rate < 1.0
         assert "INVALID_TYPE" in result.violations
         assert "unknown" in result.violations
 
-    def test_正常系_ALLOWED_ENTITY_TYPES全てが通過(self) -> None:
-        entity_types = list(ALLOWED_ENTITY_TYPES)
+    def test_正常系_ALLOWED_ENTITY_LABELS全てが通過(self) -> None:
+        entity_types = list(ALLOWED_ENTITY_LABELS)
         result = check_schema_compliance(entity_types)
         assert result.pass_rate == 1.0
 
@@ -1259,7 +1253,7 @@ class TestCheckSchemaCompliance:
 
 class TestCheckRelationshipCompliance:
     def test_正常系_全て許可リスト内で通過(self) -> None:
-        rel_types = ["STATES_FACT", "MAKES_CLAIM", "RELATES_TO", "ABOUT"]
+        rel_types = ["STATES_FACT", "MAKES_CLAIM", "RELATES_TO", "TAGGED"]
         result = check_relationship_compliance(rel_types)
         assert isinstance(result, CheckRuleResult)
         assert result.rule_name == "relationship_compliance"
@@ -1267,7 +1261,7 @@ class TestCheckRelationshipCompliance:
         assert result.violations == []
 
     def test_異常系_許可リスト外のリレーション型で違反(self) -> None:
-        rel_types = ["STATES_FACT", "UNKNOWN_REL", "ABOUT"]
+        rel_types = ["STATES_FACT", "UNKNOWN_REL", "TAGGED"]
         result = check_relationship_compliance(rel_types)
         assert result.pass_rate < 1.0
         assert "UNKNOWN_REL" in result.violations
