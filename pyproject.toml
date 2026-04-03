@@ -50,7 +50,7 @@ dev = [
     "bandit>=1.8.0",
     "cssselect>=1.2.0",
 ]
-mcp = ["fastmcp>=2.14.3", "mcp>=1.0.0"]
+mcp = ["fastmcp>=3.2.0", "mcp>=1.0.0"]  # >=3.2.0: CVE-2025-64340, CVE-2026-27124 修正
 playwright = ["playwright>=1.49.0,<2.0.0"]
 automation = ["claude-agent-sdk>=0.1.22", "anyio>=4.0.0"]
 scheduler = ["apscheduler>=3.10.0"]
