@@ -201,7 +201,7 @@ LIMIT 10;
 // 特定セッションの提案一覧（スコア順）
 MATCH (s:Source {source_id: 'topic-suggestion-2026-03-16T1430'})-[:MAKES_CLAIM]->(c:Claim)
 OPTIONAL MATCH (c)-[:TAGGED]->(t:Topic)
-OPTIONAL MATCH (c)-[:ABOUT]->(e:Entity)
+OPTIONAL MATCH (c)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 RETURN c.rank, c.topic_title, c.total_score, c.magnitude,
        t.name AS category, collect(e.ticker) AS symbols
 ORDER BY c.rank;

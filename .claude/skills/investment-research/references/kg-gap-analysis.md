@@ -15,12 +15,12 @@ article-research の Phase 0（KG照会+ギャップ分析）で使用する。
 
 ```cypher
 // テーマキーワードで Entity を検索（部分一致）
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name CONTAINS $keyword OR any(a IN coalesce(e.aliases, []) WHERE a CONTAINS $keyword)
 WITH e
 OPTIONAL MATCH (f:Fact)-[:RELATES_TO]->(e)
-OPTIONAL MATCH (c:Claim)-[:ABOUT]->(e)
-OPTIONAL MATCH (s:Source)-[:MENTIONS]->(e)
+OPTIONAL MATCH (c:Claim)-[:RELATES_TO]->(e)
+OPTIONAL MATCH (s:Source)-[:RELATES_TO]->(e)
 RETURN e.name AS entity,
        e.entity_type AS type,
        count(DISTINCT f) AS fact_count,
@@ -54,7 +54,7 @@ ORDER BY source_count DESC
 
 ```cypher
 // 関連エンティティに紐づくソースの鮮度を確認
-MATCH (e:Entity)<-[:MENTIONS]-(s:Source)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)<-[:RELATES_TO]-(s:Source)
 WHERE e.name CONTAINS $keyword
 RETURN s.title AS source_title,
        s.authority_level AS authority,
@@ -68,7 +68,7 @@ LIMIT 15
 
 ```cypher
 // 関連エンティティの Fact を時系列で取得
-MATCH (f:Fact)-[:RELATES_TO]->(e:Entity)
+MATCH (f:Fact)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name CONTAINS $keyword
 RETURN f.content AS fact,
        f.fact_type AS type,
@@ -81,7 +81,7 @@ LIMIT 20
 
 ```cypher
 // 関連エンティティに対する Claim のセンチメント分布
-MATCH (c:Claim)-[:ABOUT]->(e:Entity)
+MATCH (c:Claim)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name CONTAINS $keyword
 RETURN c.sentiment AS sentiment,
        c.claim_type AS claim_type,
@@ -93,7 +93,7 @@ ORDER BY count DESC
 
 ```cypher
 // トピック関連で未回答のQuestionを取得
-MATCH (q:Question)-[:ASKS_ABOUT]->(e:Entity)
+MATCH (q:Question)-[:ASKS_ABOUT]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name CONTAINS $keyword AND q.status IN ['open', 'investigating']
 RETURN q.content AS question,
        q.question_type AS type,
@@ -155,8 +155,8 @@ FinancialDataPoint が存在しない、または最新期のデータがない�
 
 ```cypher
 // 関連エンティティの FinancialDataPoint 有無を確認
-MATCH (e:Entity)
-WHERE e.name CONTAINS $keyword AND e.entity_type IN ['company', 'etf', 'index']
+MATCH (e:Company|MarketIndex|Instrument)
+WHERE e.name CONTAINS $keyword
 OPTIONAL MATCH (fdp:FinancialDataPoint)-[:RELATES_TO|MEASURES]->(e)
 WITH e, count(fdp) AS dp_count,
      max(fdp.created_at) AS latest_dp

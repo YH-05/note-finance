@@ -76,7 +76,7 @@ MATCH (c:{{CONCEPT_LABEL}} {name: $topic_name})
 WHERE NOT 'Memory' IN labels(c)
 OPTIONAL MATCH (content)-[:{{CONTENT_TO_CONCEPT_REL}}]->(c)
 WHERE ({{CONTENT_LABEL_FILTER}})
-OPTIONAL MATCH (content)-[:{{CONTENT_TO_ENTITY_REL}}]->(e:Entity)
+OPTIONAL MATCH (content)-[:{{CONTENT_TO_ENTITY_REL}}]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 RETURN c.name AS topic,
        collect(DISTINCT {
          type: labels(content)[0],
@@ -95,14 +95,14 @@ RETURN c.name AS topic,
 -- パラメータ: $entity_name
 -- 目的: 特定 Entity に関連する全コンテンツとトピックを取得
 
-MATCH (e:Entity {name: $entity_name})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $entity_name})
 WHERE NOT 'Memory' IN labels(e)
 OPTIONAL MATCH (content)-[:{{CONTENT_TO_ENTITY_REL}}]->(e)
 WHERE ({{CONTENT_LABEL_FILTER}})
 OPTIONAL MATCH (content)-[:{{CONTENT_TO_CONCEPT_REL}}]->(c:{{CONCEPT_LABEL}})
 OPTIONAL MATCH (content)-[:{{CONTENT_TO_SOURCE_REL}}]->(s:Source)
 RETURN e.name AS entity,
-       e.entity_type AS type,
+       labels(e)[0] AS type,
        collect(DISTINCT c.name) AS topics,
        collect(DISTINCT {
          type: labels(content)[0],
@@ -224,13 +224,13 @@ LIMIT 20
 -- 同じコンテンツで共起する Entity ペアを発見
 -- コンテンツ共有数が多いペアはクラスタを形成
 
-MATCH (e1:Entity)<-[:{{CONTENT_TO_ENTITY_REL}}]-(content)-[:{{CONTENT_TO_ENTITY_REL}}]->(e2:Entity)
+MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)<-[:{{CONTENT_TO_ENTITY_REL}}]-(content)-[:{{CONTENT_TO_ENTITY_REL}}]->(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e1) AND NOT 'Memory' IN labels(e2)
 AND elementId(e1) < elementId(e2)
 WITH e1, e2, count(DISTINCT content) AS shared_content
 WHERE shared_content >= 2
-RETURN e1.name AS entity_1, e1.entity_type AS type_1,
-       e2.name AS entity_2, e2.entity_type AS type_2,
+RETURN e1.name AS entity_1, labels(e1)[0] AS type_1,
+       e2.name AS entity_2, labels(e2)[0] AS type_2,
        shared_content
 ORDER BY shared_content DESC
 LIMIT 20

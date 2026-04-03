@@ -44,16 +44,16 @@ category_gap = 1 - min(facts_per_topic / min_facts_per_topic, 1.0)
 
 ## Q2: Entity 空洞（ticker あり & Fact 0 件）
 
-ticker を持つ Entity のうち、ABOUT・RELATES_TO のいずれでも Fact が接続されていないものを検出する。
+ticker を持つ Entity のうち、RELATES_TO で Fact が接続されていないものを検出する。
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.ticker IS NOT NULL AND e.ticker <> ''
-OPTIONAL MATCH (f:Fact)-[:ABOUT|RELATES_TO]->(e)
+OPTIONAL MATCH (f:Fact)-[:RELATES_TO]->(e)
 WITH e, count(DISTINCT f) AS fact_count
 WHERE fact_count = 0
 OPTIONAL MATCH (e)-[:IN_SECTOR]->(sec:Sector)
-RETURN e.name AS name, e.ticker AS ticker, e.entity_key AS entity_key,
+RETURN e.name AS name, e.ticker AS ticker,
        e.sec_cik AS sec_cik, sec.name AS sector, fact_count
 LIMIT 30
 ```
@@ -67,13 +67,13 @@ LIMIT 30
 ### Fact 件数付きバリアント（1-3 件判定用）
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.ticker IS NOT NULL AND e.ticker <> ''
-OPTIONAL MATCH (f:Fact)-[:ABOUT|RELATES_TO]->(e)
+OPTIONAL MATCH (f:Fact)-[:RELATES_TO]->(e)
 WITH e, count(DISTINCT f) AS fact_count
 WHERE fact_count BETWEEN 1 AND 3
 OPTIONAL MATCH (e)-[:IN_SECTOR]->(sec:Sector)
-RETURN e.name AS name, e.ticker AS ticker, e.entity_key AS entity_key,
+RETURN e.name AS name, e.ticker AS ticker,
        fact_count, sec.name AS sector
 ORDER BY fact_count ASC
 LIMIT 20
@@ -86,13 +86,13 @@ LIMIT 20
 ticker を持つ Entity について、最新の Fact.as_of_date を取得し、古い順に並べる。
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.ticker IS NOT NULL AND e.ticker <> ''
-OPTIONAL MATCH (f:Fact)-[:ABOUT|RELATES_TO]->(e)
-WITH e.name AS name, e.ticker AS ticker, e.entity_key AS entity_key,
+OPTIONAL MATCH (f:Fact)-[:RELATES_TO]->(e)
+WITH e.name AS name, e.ticker AS ticker,
      max(f.as_of_date) AS latest_fact, count(f) AS fact_count
 WHERE fact_count > 0
-RETURN name, ticker, entity_key, latest_fact, fact_count
+RETURN name, ticker, latest_fact, fact_count
 ORDER BY latest_fact ASC
 LIMIT 20
 ```
@@ -122,12 +122,11 @@ staleness = min(days_since_latest / staleness_threshold_days, 1.0)
 SEC EDGAR 取得可能（sec_cik が存在）だが FinancialDataPoint が未収集の Entity を検出する。
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.ticker IS NOT NULL AND e.ticker <> ''
 AND e.sec_cik IS NOT NULL AND e.sec_cik <> ''
 AND NOT exists { (fdp:FinancialDataPoint)-[:RELATES_TO]->(e) }
-RETURN e.name AS name, e.ticker AS ticker, e.sec_cik AS sec_cik,
-       e.entity_key AS entity_key
+RETURN e.name AS name, e.ticker AS ticker, e.sec_cik AS sec_cik
 LIMIT 20
 ```
 
@@ -208,7 +207,7 @@ unified_score = 0.15 * category_gap + 0.35 * entity_gap + 0.30 * staleness + 0.2
 
 ### 適用タイミング
 
-- Phase 1 のスコア算出時、前サイクルまでに処理済みの `entity_key` リストを保持
+- Phase 1 のスコア算出時、前サイクルまでに処理済みの `name` リストを保持
 - 処理済み Entity のスコアに 0.3 を乗じる
 - これにより、未処理の Entity が優先的に選択される
 
@@ -240,7 +239,6 @@ unified_score の上位 `max_targets_per_cycle` 件（Config デフォルト: 5�
 ```json
 [
   {
-    "entity_key": "amd::company",
     "name": "AMD",
     "ticker": "AMD",
     "sec_cik": "2488",

@@ -726,25 +726,25 @@ SET t.name = $name,
 
 #### Entity ノード
 
-> **MERGEキー**: `entity_key`（ビジネスキー）を使用する。
-> `entity_id` はパイプラインごとに異なる値が生成される可能性があるため、
-> UNIQUE制約がある `entity_key` でMERGEし、`entity_id` は ON CREATE で設定する。
+> **v4.0 スキーマ（KG v3.0 / Wave6以降）**: `Entity` ラベルは廃止され、13種の個別ラベルに分解された。
+> MERGEキーは `name`（NODE KEY 制約）を使用する。`entity_key` は廃止。
+>
+> v2/v3 互換情報（歴史的参照）: `entity_key`（`{name}::{entity_type}`形式）でMERGEしていた。
 
 ```cypher
-MERGE (e:Entity {entity_key: $entity_key})
-ON CREATE SET e.entity_id = $entity_id
-SET e.name = $name,
-    e.entity_type = $entity_type,
-    e.entity_key = $name + '::' + $entity_type
+// v4.0: 個別ラベルで MERGE（entity_type に応じてラベルを選択）
+// 例: Company の場合
+MERGE (e:Company {name: $name})
+SET e.ticker = $ticker,
+    e.description = $description
 ```
 
 **パラメータマッピング**:
 
 | パラメータ | graph-queue フィールド |
 |-----------|----------------------|
-| `$entity_id` | `entities[].entity_id` |
 | `$name` | `entities[].name` |
-| `$entity_type` | `entities[].entity_type` |
+| `$ticker` | `entities[].ticker` |
 
 #### Claim ノード
 
@@ -896,17 +896,17 @@ MATCH (f:Fact {fact_id: $to_id})
 MERGE (s)-[:STATES_FACT]->(f)
 ```
 
-#### RELATES_TO（Fact/FinancialDataPoint -> Entity）
+#### RELATES_TO（Fact/FinancialDataPoint -> Entity系ラベル）
 
 ```cypher
--- Fact -> Entity
+-- Fact -> Entity系ラベル（neo4j_loader.py がラベルを動的に選択）
 MATCH (f:Fact {fact_id: $from_id})
-MATCH (e:Entity {entity_id: $to_id})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $to_name})
 MERGE (f)-[:RELATES_TO]->(e)
 
--- FinancialDataPoint -> Entity
+-- FinancialDataPoint -> Entity系ラベル
 MATCH (dp:FinancialDataPoint {datapoint_id: $from_id})
-MATCH (e:Entity {entity_id: $to_id})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $to_name})
 MERGE (dp)-[:RELATES_TO]->(e)
 ```
 
@@ -970,20 +970,20 @@ for claim in claims:
             create_makes_claim(source_id, claim["claim_id"])
 ```
 
-#### ABOUT（Claim -> Entity）
+#### RELATES_TO（Claim -> Entity系ラベル）
+
+> **v4.0 変更点（Wave5）**: `ABOUT` は廃止。Claim → Entity 系の接続は `RELATES_TO` に統一。
 
 ```cypher
 MATCH (c:Claim {claim_id: $claim_id})
-MATCH (e:Entity {entity_id: $entity_id})
-MERGE (c)-[:ABOUT]->(e)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $entity_name})
+MERGE (c)-[:RELATES_TO]->(e)
 ```
 
 **リレーション推論ルール**:
 
-現在の graph-queue フォーマットでは Claim と Entity の明示的な紐付けはありません。
-将来的に `relations.about` フィールドで明示的に定義される予定です。
-
-暫定的には同一ファイル内の Claim と Entity を全て ABOUT で接続します。
+現在の graph-queue フォーマットでは Claim と Entity 系ラベルの明示的な紐付けは
+`relations.claim_entity` フィールドで定義されます。`type: "RELATES_TO"` を使用すること。
 
 ---
 
@@ -1112,10 +1112,10 @@ MATCH (a:Author {author_id: rel.from_id})
 MATCH (st:Stance {stance_id: rel.to_id})
 MERGE (a)-[:HOLDS_STANCE]->(st)
 
--- ON_ENTITY: Stance -> Entity
+-- ON_ENTITY: Stance -> Entity系ラベル
 UNWIND $on_entity AS rel
 MATCH (st:Stance {stance_id: rel.from_id})
-MATCH (e:Entity {entity_id: rel.to_id})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: rel.to_name})
 MERGE (st)-[:ON_ENTITY]->(e)
 
 -- BASED_ON: Stance -> Claim
@@ -1322,10 +1322,10 @@ SET q.content = question.content,
 ### Wave 4 リレーション投入
 
 ```cypher
--- ASKS_ABOUT: Question -> Entity
+-- ASKS_ABOUT: Question -> Entity系ラベル
 UNWIND $asks_about AS rel
 MATCH (q:Question {question_id: rel.from_id})
-MATCH (e:Entity {entity_id: rel.to_id})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: rel.to_name})
 MERGE (q)-[:ASKS_ABOUT]->(e)
 
 -- MOTIVATED_BY: Question -> Claim/Fact/Insight
@@ -1667,23 +1667,23 @@ MATCH (s:Source {source_id: $from_id})
 MATCH (p:Pipeline {pipeline_id: $to_id})
 MERGE (s)-[:INGESTED_VIA]->(p)
 
-// IS_TYPE: Entity → EntityType
-MATCH (e:Entity {entity_key: $from_id})
+// IS_TYPE: Entity系ラベル → EntityType（v4.0: entity_key廃止→nameで照合）
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $from_name})
 MATCH (t:EntityType {entity_type_id: $to_id})
 MERGE (e)-[:IS_TYPE]->(t)
 
-// HAS_IDENTIFIER: Entity → Identifier
-MATCH (e:Entity {entity_key: $from_id})
+// HAS_IDENTIFIER: Entity系ラベル → Identifier
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $from_name})
 MATCH (i:Identifier {identifier_id: $to_id})
 MERGE (e)-[:HAS_IDENTIFIER]->(i)
 
-// IN_INDUSTRY: Entity → Industry
-MATCH (e:Entity {entity_key: $from_id})
+// IN_INDUSTRY: Entity系ラベル → Industry
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $from_name})
 MATCH (i:Industry {industry_id: $to_id})
 MERGE (e)-[:IN_INDUSTRY]->(i)
 
-// IS_INSTRUMENT_CLASS: Entity → InstrumentClass
-MATCH (e:Entity {entity_key: $from_id})
+// IS_INSTRUMENT_CLASS: Entity系ラベル → InstrumentClass
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $from_name})
 MATCH (ic:InstrumentClass {instrument_class_id: $to_id})
 MERGE (e)-[:IS_INSTRUMENT_CLASS]->(ic)
 
@@ -1722,15 +1722,15 @@ MATCH (a:Author {author_id: $from_id})
 MATCH (at:AuthorType {author_type_id: $to_id})
 MERGE (a)-[:IS_AUTHOR_TYPE]->(at)
 
-// AFFILIATED_WITH: Author → Entity
+// AFFILIATED_WITH: Author → Entity系ラベル
 MATCH (a:Author {author_id: $from_id})
-MATCH (e:Entity {entity_key: $to_id})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $to_name})
 MERGE (a)-[:AFFILIATED_WITH]->(e)
 
-// ALIAS_OF: Alias → Entity|Topic (to_label で分岐)
-// to_label = "Entity":
+// ALIAS_OF: Alias → Entity系ラベル|Topic (to_label で分岐)
+// to_label = Entity系ラベル:
 MATCH (al:Alias {alias_id: $from_id})
-MATCH (e:Entity {entity_key: $to_id})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $to_name})
 MERGE (al)-[:ALIAS_OF]->(e)
 // to_label = "Topic":
 MATCH (al:Alias {alias_id: $from_id})
@@ -1747,9 +1747,9 @@ MATCH (i:Industry {industry_id: $from_id})
 MATCH (s:Sector {sector_id: $to_id})
 MERGE (i)-[:IN_PARENT_SECTOR]->(s)
 
-// ISSUED_BY: Identifier → Entity
+// ISSUED_BY: Identifier → Entity系ラベル
 MATCH (id:Identifier {identifier_id: $from_id})
-MATCH (e:Entity {entity_key: $to_id})
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $to_name})
 MERGE (id)-[:ISSUED_BY]->(e)
 ```
 
@@ -1926,24 +1926,24 @@ Source.category  ←→  Topic.category
 ```cypher
 UNWIND $claim_ids AS cid
 MATCH (c:Claim {claim_id: cid})
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e)
   AND size(e.name) >= 2 AND c.content CONTAINS e.name
-MERGE (c)-[:ABOUT]->(e)
+MERGE (c)-[:RELATES_TO]->(e)
 ```
 
-#### 新 Entity → 既存 Claim
+#### 新 Entity系ラベル → 既存 Claim
 
-今回投入した Entity の `name` が、既存 Claim の `content` に含まれる場合に接続する。
+今回投入した Entity 系ラベルの `name` が、既存 Claim の `content` に含まれる場合に接続する。
 
 ```cypher
-UNWIND $entity_ids AS eid
-MATCH (e:Entity {entity_id: eid})
+UNWIND $entity_names AS ename
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: ename})
 WHERE NOT 'Memory' IN labels(e)
 MATCH (c:Claim)
 WHERE NOT 'Memory' IN labels(c)
   AND size(e.name) >= 2 AND c.content CONTAINS e.name
-MERGE (c)-[:ABOUT]->(e)
+MERGE (c)-[:RELATES_TO]->(e)
 ```
 
 #### マッチング条件の詳細
@@ -1981,15 +1981,15 @@ MERGE (c)-[:ABOUT]->(e)
 
 ```cypher
 // Claim 数が多い場合、直近30日の Claim に限定
-UNWIND $entity_ids AS eid
-MATCH (e:Entity {entity_id: eid})
+UNWIND $entity_names AS ename
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: ename})
 WHERE NOT 'Memory' IN labels(e)
 MATCH (c:Claim)
 WHERE NOT 'Memory' IN labels(c)
   AND size(e.name) >= 2
   AND c.content CONTAINS e.name
   AND c.created_at > datetime() - duration('P30D')
-MERGE (c)-[:ABOUT]->(e)
+MERGE (c)-[:RELATES_TO]->(e)
 ```
 
 > **注意**: Claim に `created_at` プロパティが必要。未設定の場合は全件走査にフォールバック。
@@ -2031,30 +2031,30 @@ def phase_3b_cross_file_relations(
         """, topic_ids=topic_ids)
         stats["tagged_cross"] += result["cnt"]
 
-    # 3b.2: ABOUT コンテンツマッチング
+    # 3b.2: RELATES_TO コンテンツマッチング（v4.0: ABOUT廃止→RELATES_TO統一）
     if claim_ids:
         result = run_cypher("""
             UNWIND $claim_ids AS cid
             MATCH (c:Claim {claim_id: cid})
-            MATCH (e:Entity)
+            MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
             WHERE NOT 'Memory' IN labels(e)
               AND size(e.name) >= 2 AND c.content CONTAINS e.name
-            MERGE (c)-[r:ABOUT]->(e)
+            MERGE (c)-[r:RELATES_TO]->(e)
             RETURN count(r) AS cnt
         """, claim_ids=claim_ids)
         stats["about_cross"] += result["cnt"]
 
-    if entity_ids:
+    if entity_names:
         result = run_cypher("""
-            UNWIND $entity_ids AS eid
-            MATCH (e:Entity {entity_id: eid})
+            UNWIND $entity_names AS ename
+            MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: ename})
             WHERE NOT 'Memory' IN labels(e)
             MATCH (c:Claim)
             WHERE NOT 'Memory' IN labels(c)
               AND size(e.name) >= 2 AND c.content CONTAINS e.name
-            MERGE (c)-[r:ABOUT]->(e)
+            MERGE (c)-[r:RELATES_TO]->(e)
             RETURN count(r) AS cnt
-        """, entity_ids=entity_ids)
+        """, entity_names=entity_names)
         stats["about_cross"] += result["cnt"]
 
     return stats
@@ -2325,11 +2325,12 @@ RETURN t.name AS topic, t.category AS category, count(s) AS source_count
 ORDER BY source_count DESC
 ```
 
-#### Entity 一覧
+#### Entity 一覧（v4.0: 個別ラベル別）
 
 ```cypher
-MATCH (e:Entity)
-RETURN e.name AS name, e.entity_type AS type, e.ticker AS ticker
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+WHERE NOT 'Memory' IN labels(e)
+RETURN e.name AS name, labels(e)[0] AS type, e.ticker AS ticker
 ORDER BY e.name
 ```
 
@@ -2342,10 +2343,10 @@ ORDER BY claim_count DESC
 LIMIT 20
 ```
 
-#### Claim -> Entity 統計（ABOUT）
+#### Claim -> Entity 統計（RELATES_TO）
 
 ```cypher
-MATCH (c:Claim)-[:ABOUT]->(e:Entity)
+MATCH (c:Claim)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 RETURN e.name AS entity, count(c) AS claim_count
 ORDER BY claim_count DESC
 ```
@@ -2353,12 +2354,21 @@ ORDER BY claim_count DESC
 #### ノード総数の確認（v2 対応）
 
 ```cypher
+// v4.0: Entity ラベルは廃止。個別ラベル別に集計する
 CALL {
   MATCH (s:Source) RETURN 'Source' AS label, count(s) AS count
   UNION ALL
   MATCH (t:Topic) RETURN 'Topic' AS label, count(t) AS count
   UNION ALL
-  MATCH (e:Entity) RETURN 'Entity' AS label, count(e) AS count
+  MATCH (e:Company) RETURN 'Company' AS label, count(e) AS count
+  UNION ALL
+  MATCH (e:Technology) RETURN 'Technology' AS label, count(e) AS count
+  UNION ALL
+  MATCH (e:Organization) RETURN 'Organization' AS label, count(e) AS count
+  UNION ALL
+  MATCH (e:Person) RETURN 'Person' AS label, count(e) AS count
+  UNION ALL
+  MATCH (e:MarketIndex) RETURN 'MarketIndex' AS label, count(e) AS count
   UNION ALL
   MATCH (c:Claim) RETURN 'Claim' AS label, count(c) AS count
   UNION ALL
@@ -2381,7 +2391,7 @@ CALL {
   UNION ALL
   MATCH ()-[r:MAKES_CLAIM]->() RETURN 'MAKES_CLAIM' AS type, count(r) AS count
   UNION ALL
-  MATCH ()-[r:ABOUT]->() RETURN 'ABOUT' AS type, count(r) AS count
+  MATCH ()-[r:RELATES_TO]->() RETURN 'RELATES_TO(v4)' AS type, count(r) AS count
   UNION ALL
   MATCH ()-[r:CONTAINS_CHUNK]->() RETURN 'CONTAINS_CHUNK' AS type, count(r) AS count
   UNION ALL
@@ -2416,7 +2426,7 @@ LIMIT 20
 
 ```cypher
 MATCH (dp:FinancialDataPoint)-[:FOR_PERIOD]->(fp:FiscalPeriod)
-OPTIONAL MATCH (dp)-[:RELATES_TO]->(e:Entity)
+OPTIONAL MATCH (dp)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 RETURN dp.metric_name AS metric,
        dp.value AS value,
        dp.unit AS unit,

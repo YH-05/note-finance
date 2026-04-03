@@ -82,17 +82,17 @@ ORDER BY cnt DESC
 ### --dry-run の動作
 
 ```cypher
--- 通常実行
-MATCH (e:Entity)
-WHERE e.entity_type = 'old_type'
-SET e.entity_type = 'new_type'
+-- 通常実行（v4.0: Entity は個別ラベルに分解済み）
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+WHERE labels(e)[0] = 'old_type'
+SET e.new_property = 'new_value'
 RETURN count(e) AS updated
 
 -- --dry-run 実行（EXPLAIN プレフィックス）
 EXPLAIN
-MATCH (e:Entity)
-WHERE e.entity_type = 'old_type'
-SET e.entity_type = 'new_type'
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+WHERE labels(e)[0] = 'old_type'
+SET e.new_property = 'new_value'
 RETURN count(e) AS updated
 ```
 
@@ -143,12 +143,12 @@ dry_run_results:
 
 ### 手順
 
-1. **既存 entity_type の一覧を取得**:
+1. **既存ラベルの一覧を取得**（v4.0: entity_type は labels() で代替）:
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e)
-RETURN e.entity_type AS current_type, count(e) AS cnt
+RETURN labels(e)[0] AS current_label, count(e) AS cnt
 ORDER BY cnt DESC
 ```
 
@@ -166,15 +166,15 @@ entity_type_mapping:
 
 3. **マッピング表をユーザーに確認**（重要な変更がある場合）
 
-4. **entity_type の更新を実行**:
+4. **ラベルの更新を実行**（v4.0: entity_type はラベルで代替、SET label は APOC 経由）:
 
 ```cypher
--- --dry-run の場合は EXPLAIN を付与
-MATCH (e:Entity)
+-- --dry-run の場合は EXPLAIN を付与（v4.0: 対象ラベルを明示）
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e)
-AND e.entity_type = $old_type
-SET e.entity_type = $new_type
-RETURN count(e) AS updated
+AND labels(e)[0] = $old_label
+// ラベル変更は APOC を使用: apoc.refactor.rename.label($old_label, $new_label)
+RETURN count(e) AS target_count
 ```
 
 5. **既存 Concept/Topic の再分類**:
@@ -205,17 +205,17 @@ WHERE NOT (c)-[:IS_A]->(:ConceptCategory)
 MATCH (n)
 WHERE (n:Fact OR n:Tip OR n:Story OR n:Claim)
 AND NOT 'Memory' IN labels(n)
-AND NOT (n)-[:ABOUT|RELATES_TO]->()
+AND NOT (n)-[:RELATES_TO]->()
 RETURN labels(n)[0] AS label, count(n) AS cnt
 ```
 
-2. **Entity 接続なしコンテンツの検出**:
+2. **Entity 接続なしコンテンツの検出**（v4.0: MENTIONS は RELATES_TO に統一）:
 
 ```cypher
 MATCH (n)
 WHERE (n:Fact OR n:Tip OR n:Story OR n:Claim)
 AND NOT 'Memory' IN labels(n)
-AND NOT (n)-[:MENTIONS|RELATES_TO]->(:Entity)
+AND NOT (n)-[:RELATES_TO]->(:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 RETURN labels(n)[0] AS label, count(n) AS cnt
 ```
 
@@ -227,7 +227,7 @@ LLM を使用して、コンテンツの text/content プロパティから Enti
 -- バッチ処理: 未接続コンテンツを取得
 MATCH (n:Fact)
 WHERE NOT 'Memory' IN labels(n)
-AND NOT (n)-[:RELATES_TO]->(:Entity)
+AND NOT (n)-[:RELATES_TO]->(:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 RETURN n.fact_id AS id, n.text AS text
 LIMIT 50
 ```
@@ -258,11 +258,11 @@ null 値の推定と、既存プロパティの正規化を行う。
 1. **null プロパティの検出**:
 
 ```cypher
--- Entity の entity_type が null
-MATCH (e:Entity)
+-- v4.0: entity_type は廃止。ラベルでノード種別を判定
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e)
-AND e.entity_type IS NULL
-RETURN e.name AS name, e.entity_key AS key
+AND e.name IS NOT NULL
+RETURN e.name AS name, labels(e)[0] AS label
 LIMIT 50
 ```
 
@@ -288,8 +288,8 @@ type_rules = {
 ontology.yaml の `normalization_rules` に基づき、既存 Entity 名を正規化する。
 
 ```cypher
--- 全角英数字を半角に統一（APOC 利用可能な場合）
-MATCH (e:Entity)
+-- 全角英数字を半角に統一（APOC 利用可能な場合）（v4.0: 個別ラベル列挙）
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e)
 AND e.name =~ '.*[Ａ-Ｚａ-ｚ０-９].*'
 SET e.name = apoc.text.replace(e.name, '[Ａ-Ｚ]', /* 半角変換 */)
@@ -301,7 +301,7 @@ RETURN count(e) AS normalized
 変更されたノードの `updated_at` を更新する。
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e)
 AND e.updated_at IS NULL
 SET e.updated_at = datetime()
