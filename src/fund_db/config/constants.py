@@ -17,6 +17,8 @@ TOUSHIN_STATS_PAGE
 
 from __future__ import annotations
 
+from typing import Literal
+
 # ---------------------------------------------------------------------------
 # Download URLs
 # ---------------------------------------------------------------------------
@@ -90,3 +92,9 @@ JPX_LISTED_COLUMNS: dict[str, str] = {
     "規模区分": "size_category",
 }
 """Column mapping for JPX listed securities data files."""
+
+JPX_EXCEL_ENGINE: Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"] = "xlrd"
+"""Excel engine for reading JPX data files (.xls format).
+
+Change to ``'openpyxl'`` if JPX migrates to .xlsx format.
+"""
