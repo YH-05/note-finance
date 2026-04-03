@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
 import yaml
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 
 class TestPhaseDisplayName:
@@ -39,7 +42,11 @@ class TestParseCommonChecks:
         schema = self._make_schema(
             phase1_overview={
                 "facts": [
-                    {"label": "事業モデル", "priority": "high", "pattern": "事業.*モデル"},
+                    {
+                        "label": "事業モデル",
+                        "priority": "high",
+                        "pattern": "事業.*モデル",
+                    },
                 ]
             }
         )
@@ -80,7 +87,11 @@ class TestParseCommonChecks:
         schema = self._make_schema(
             phase1_overview={
                 "claims": [
-                    {"label": "アナリスト評価", "priority": "medium", "pattern": "rates.*Buy"},
+                    {
+                        "label": "アナリスト評価",
+                        "priority": "medium",
+                        "pattern": "rates.*Buy",
+                    },
                 ]
             }
         )
