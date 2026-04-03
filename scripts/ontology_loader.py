@@ -88,53 +88,26 @@ def load_consolidation_mapping(
 ) -> dict[str, str]:
     """Entity type の統合マッピングを返す.
 
-    ontology.yaml の ``entity_classification_nodes`` から ``EntityType`` の
-    ``canonical_values`` を読み取り、旧 ``consolidation_rules.entity_type.mapping``
-    互換の ``{raw_type: canonical_type}`` 辞書を生成する。
+    Wave10 (Issue #316) で EntityType ノードを ontology.yaml から削除したため、
+    ``_ENTITY_TYPE_CONSOLIDATION`` ハードコード定数を返す。
+    ``ontology_path`` 引数は後方互換のために保持するが使用しない。
 
     Parameters
     ----------
     ontology_path : Path | None
-        ontology.yaml のパス。None の場合はデフォルトパスを使用。
+        使用しない（後方互換のために保持）。
 
     Returns
     -------
     dict[str, str]
         ``{raw_entity_type: canonical_entity_type}`` マッピング。
         例: ``{"fintech": "company", "system": "technology", ...}``
-
-    Raises
-    ------
-    FileNotFoundError
-        ontology.yaml が存在しない場合。
-    ValueError
-        EntityType の canonical_values が見つからない場合。
     """
-    path = ontology_path or _DEFAULT_ONTOLOGY_PATH
-    data = _load_yaml(path)
-    entity_type_node = _find_classification_node(
-        data, "entity_classification_nodes", "EntityType"
-    )
-
-    canonical_values: list[dict[str, Any]] = entity_type_node.get(
-        "canonical_values", []
-    )
-    if not canonical_values:
-        msg = "EntityType canonical_values is empty in ontology.yaml"
-        raise ValueError(msg)
-
-    mapping: dict[str, str] = {}
-    for entry in canonical_values:
-        key: str = entry["key"]
-        # canonical type maps to itself
-        mapping[key] = key
-        # consolidated types map to the canonical key
-        for raw_type in entry.get("consolidates", []):
-            mapping[raw_type] = key
-
+    # AIDEV-NOTE: Wave10 — EntityType ノード削除後はハードコード定数から返す
+    mapping = dict(_ENTITY_TYPE_CONSOLIDATION)
     logger.info(
-        "Loaded consolidation mapping",
-        canonical_count=len(canonical_values),
+        "Loaded consolidation mapping (hardcoded)",
+        canonical_count=len(_VALID_ENTITY_TYPES),
         total_mappings=len(mapping),
     )
     return mapping
@@ -209,42 +182,24 @@ def load_multilabel_types(
 ) -> list[str]:
     """マルチラベル entity_type キー一覧を返す.
 
-    ontology.yaml の ``entity_classification_nodes[EntityType].canonical_values``
-    から ``key`` を抽出し、14 種の正規 entity_type リストを返す。
+    Wave10 (Issue #316) で EntityType ノードを ontology.yaml から削除したため、
+    ``_VALID_ENTITY_TYPES`` ハードコード定数を返す。
+    ``ontology_path`` 引数は後方互換のために保持するが使用しない。
 
     Parameters
     ----------
     ontology_path : Path | None
-        ontology.yaml のパス。None の場合はデフォルトパスを使用。
+        使用しない（後方互換のために保持）。
 
     Returns
     -------
     list[str]
-        正規 entity_type キーのリスト。
+        正規 entity_type キーのリスト（14種）。
         例: ``["company", "technology", "organization", ...]``
-
-    Raises
-    ------
-    FileNotFoundError
-        ontology.yaml が存在しない場合。
-    ValueError
-        EntityType の canonical_values が見つからない場合。
     """
-    path = ontology_path or _DEFAULT_ONTOLOGY_PATH
-    data = _load_yaml(path)
-    entity_type_node = _find_classification_node(
-        data, "entity_classification_nodes", "EntityType"
-    )
-
-    canonical_values: list[dict[str, Any]] = entity_type_node.get(
-        "canonical_values", []
-    )
-    if not canonical_values:
-        msg = "EntityType canonical_values is empty in ontology.yaml"
-        raise ValueError(msg)
-
-    keys = [entry["key"] for entry in canonical_values]
-    logger.info("Loaded multilabel types", count=len(keys))
+    # AIDEV-NOTE: Wave10 — EntityType ノード削除後はハードコード定数から返す
+    keys = sorted(_VALID_ENTITY_TYPES)
+    logger.info("Loaded multilabel types (hardcoded)", count=len(keys))
     return keys
 
 
@@ -456,8 +411,94 @@ _LEGACY_SOURCE_TYPE_NORMALIZATION: dict[str, str] = {
 
 
 # ---------------------------------------------------------------------------
+# Entity type consolidation mapping (hardcoded fallback)
+# AIDEV-NOTE: Wave10 (Issue #316) — EntityType ノード削除に伴い、
+# ontology.yaml から読み込む代わりにここで定義する。
+# 旧 EntityType.canonical_values と同等の情報を保持。
+# ---------------------------------------------------------------------------
+
+_ENTITY_TYPE_CONSOLIDATION: dict[str, str] = {
+    # company cluster
+    "company": "company",
+    "fintech": "company",
+    "subsidiary": "company",
+    "fintech_holding": "company",
+    "digital_bank": "company",
+    "it_services": "company",
+    # technology cluster
+    "technology": "technology",
+    "system": "technology",
+    # organization cluster
+    "organization": "organization",
+    "central_bank": "organization",
+    "government": "organization",
+    "government_agency": "organization",
+    "institution": "organization",
+    "exchange": "organization",
+    # person
+    "person": "person",
+    # index
+    "index": "index",
+    # indicator cluster
+    "indicator": "indicator",
+    "metric": "indicator",
+    # instrument cluster
+    "instrument": "instrument",
+    "etf": "instrument",
+    "currency": "instrument",
+    "currency_pair": "instrument",
+    "fund": "instrument",
+    "bond": "instrument",
+    "asset": "instrument",
+    # commodity
+    "commodity": "commodity",
+    # country cluster
+    "country": "country",
+    "region": "country",
+    # sector cluster
+    "sector": "sector",
+    "market": "sector",
+    # concept cluster
+    "concept": "concept",
+    "model": "concept",
+    "method": "concept",
+    "theme": "concept",
+    "article_proposal": "concept",
+    "event": "concept",
+    "macro": "concept",
+    # regulation
+    "regulation": "regulation",
+    # broker
+    "broker": "broker",
+    # product cluster
+    "product": "product",
+    "dataset": "product",
+    "data_center": "product",
+}
+
+_VALID_ENTITY_TYPES: frozenset[str] = frozenset(
+    {
+        "company",
+        "technology",
+        "organization",
+        "person",
+        "index",
+        "indicator",
+        "instrument",
+        "commodity",
+        "country",
+        "sector",
+        "concept",
+        "regulation",
+        "broker",
+        "product",
+    }
+)
+
+# ---------------------------------------------------------------------------
 # Default entity labels (13 individual labels, replaces the Entity label)
 # AIDEV-NOTE: Wave6 (Issue #310) — Entity ラベル廃止、13個別ラベルに分解
+# AIDEV-NOTE: Wave10 (Issue #316) — EntityType/InstrumentClass ノード削除完了
 # ---------------------------------------------------------------------------
 
 _DEFAULT_ENTITY_LABELS: list[str] = [
@@ -525,8 +566,7 @@ _DEFAULT_INDICES: list[dict[str, str]] = [
     {"label": "Fact", "property": "as_of_date"},
     {"label": "Claim", "property": "claim_type"},
     {"label": "Claim", "property": "sentiment"},
-    {"label": "Entity", "property": "entity_type"},
-    {"label": "Entity", "property": "ticker"},
+    # Wave10: Entity.entity_type / Entity.ticker インデックスは削除済み（Entity ラベル廃止）
     {"label": "FinancialDataPoint", "property": "metric_name"},
     {"label": "FinancialDataPoint", "property": "is_estimate"},
     {"label": "FiscalPeriod", "property": "period_label"},
@@ -559,7 +599,10 @@ _DEFAULT_NAMESPACES: dict[str, Any] = {
             "Chunk",
             "Fact",
             "Claim",
-            "Entity",
+            # Wave10: Entity ラベル廃止 → Company/Technology/Organization 等13個別ラベルに移行
+            "Company", "Technology", "Organization", "Person", "MarketIndex",
+            "Indicator", "Instrument", "Commodity", "Country", "Concept",
+            "Regulation", "Broker", "Product",
             "FinancialDataPoint",
             "FiscalPeriod",
             "Topic",

@@ -164,36 +164,49 @@ class TestLoadConsolidationMapping:
         assert mapping["event"] == "concept"
 
     def test_正常系_最小YAMLから読み込める(self, minimal_ontology: Path) -> None:
+        # Wave10: load_consolidation_mapping はハードコード定数を使用するため
+        # minimal_ontology の内容に関わらず全14種のマッピングを返す
         mapping = load_consolidation_mapping(minimal_ontology)
         assert mapping["company"] == "company"
         assert mapping["fintech"] == "company"
         assert mapping["subsidiary"] == "company"
         assert mapping["person"] == "person"
+        # 全14正規型が含まれること
+        assert mapping["technology"] == "technology"
+        assert mapping["broker"] == "broker"
 
     def test_正常系_consolidatesなしの項目は自己マッピングのみ(
         self, minimal_ontology: Path
     ) -> None:
+        # Wave10: ハードコード定数から返すため person は self-mapping のみ
         mapping = load_consolidation_mapping(minimal_ontology)
         assert mapping["person"] == "person"
         # person には consolidates がないので person のみ
         person_mappings = [k for k, v in mapping.items() if v == "person"]
         assert person_mappings == ["person"]
 
-    def test_異常系_ファイルが存在しない場合FileNotFoundError(self) -> None:
-        with pytest.raises(FileNotFoundError, match="not found"):
-            load_consolidation_mapping(Path("/nonexistent/ontology.yaml"))
+    def test_異常系_ファイルが存在しない場合でもマッピングを返す(self) -> None:
+        # Wave10: load_consolidation_mapping はハードコード定数を使用するため
+        # ファイルが存在しなくてもマッピングを返す
+        mapping = load_consolidation_mapping(Path("/nonexistent/ontology.yaml"))
+        assert mapping["company"] == "company"
+        assert mapping["fintech"] == "company"
 
-    def test_異常系_EntityTypeセクションが空の場合ValueError(
+    def test_異常系_EntityTypeセクションが空の場合でもマッピングを返す(
         self, empty_entity_type_ontology: Path
     ) -> None:
-        with pytest.raises(ValueError, match="empty"):
-            load_consolidation_mapping(empty_entity_type_ontology)
+        # Wave10: load_consolidation_mapping はハードコード定数を使用するため
+        # ontology.yaml の EntityType セクションが空でもマッピングを返す
+        mapping = load_consolidation_mapping(empty_entity_type_ontology)
+        assert mapping["company"] == "company"
 
-    def test_異常系_セクション自体がない場合ValueError(
+    def test_異常系_セクション自体がない場合でもマッピングを返す(
         self, missing_section_ontology: Path
     ) -> None:
-        with pytest.raises(ValueError, match="not found"):
-            load_consolidation_mapping(missing_section_ontology)
+        # Wave10: load_consolidation_mapping はハードコード定数を使用するため
+        # ontology.yaml にセクションがなくてもマッピングを返す
+        mapping = load_consolidation_mapping(missing_section_ontology)
+        assert mapping["company"] == "company"
 
 
 # =========================================================================
@@ -298,21 +311,26 @@ class TestLoadMultilabelTypes:
         assert "broker" in keys
         assert "product" in keys
 
-    def test_正常系_順序が保持される(self, real_ontology_path: Path) -> None:
+    def test_正常系_ソート順で返される(self, real_ontology_path: Path) -> None:
+        # Wave10: load_multilabel_types はハードコード定数をソートして返す
         keys = load_multilabel_types(real_ontology_path)
-        # ontology.yaml の定義順
-        assert keys[0] == "company"
-        assert keys[1] == "technology"
+        assert keys == sorted(keys), "keys should be in sorted order"
 
     def test_正常系_最小YAMLから読み込める(self, minimal_ontology: Path) -> None:
+        # Wave10: load_multilabel_types はハードコード定数を使用するため
+        # minimal_ontology の内容に関わらず全14種を返す
         keys = load_multilabel_types(minimal_ontology)
-        assert keys == ["company", "person"]
+        assert len(keys) == 14
+        assert "company" in keys
+        assert "person" in keys
 
-    def test_異常系_EntityTypeが空の場合ValueError(
+    def test_異常系_EntityTypeが空でもリストが返される(
         self, empty_entity_type_ontology: Path
     ) -> None:
-        with pytest.raises(ValueError, match="empty"):
-            load_multilabel_types(empty_entity_type_ontology)
+        # Wave10: load_multilabel_types はハードコード定数を使用するため
+        # empty_entity_type_ontology でも ValueError にならない
+        keys = load_multilabel_types(empty_entity_type_ontology)
+        assert len(keys) == 14
 
 
 # =========================================================================
@@ -403,7 +421,8 @@ class TestLoadIndices:
         indices = load_indices()
         index_set = {(i["label"], i["property"]) for i in indices}
         assert ("Fact", "fact_type") in index_set
-        assert ("Entity", "entity_type") in index_set
+        # Wave10: Entity ラベル廃止により Entity.entity_type インデックスは削除済み
+        assert ("Entity", "entity_type") not in index_set
         assert ("Source", "source_type") in index_set
         assert ("SkillRun", "skill_name") in index_set
 
@@ -426,12 +445,18 @@ class TestLoadNamespaces:
         ns = load_namespaces()
         assert set(ns.keys()) == {"kg_v2", "conversation", "memory", "archived"}
 
-    def test_正常系_kg_v2に12ラベルが含まれる(self) -> None:
+    def test_正常系_kg_v2に個別エンティティラベルが含まれる(self) -> None:
+        # Wave10: Entity ラベル廃止 → 13個別ラベルに変更。合計ラベル数が増加。
         ns = load_namespaces()
-        assert len(ns["kg_v2"]["labels"]) == 12
         assert "Source" in ns["kg_v2"]["labels"]
-        assert "Entity" in ns["kg_v2"]["labels"]
+        # Wave10: Entity ラベルは廃止済み
+        assert "Entity" not in ns["kg_v2"]["labels"]
+        assert "Company" in ns["kg_v2"]["labels"]
+        assert "Technology" in ns["kg_v2"]["labels"]
+        assert "Organization" in ns["kg_v2"]["labels"]
         assert "Claim" in ns["kg_v2"]["labels"]
+        # 13個別ラベル + 元のラベルで合計が増加している
+        assert len(ns["kg_v2"]["labels"]) > 12
 
     def test_正常系_memoryにroot_labelとsub_labelsがある(self) -> None:
         ns = load_namespaces()
@@ -459,48 +484,22 @@ class TestLoadNamespaces:
 class TestInvalidateCache:
     """invalidate_cache のテスト。"""
 
-    def test_正常系_キャッシュ無効化後に再読み込みされる(self, tmp_path: Path) -> None:
-        # v1: company only
-        data_v1: dict[str, Any] = {
-            "entity_classification_nodes": [
-                {
-                    "label": "EntityType",
-                    "canonical_values": [
-                        {"key": "company", "name_ja": "企業"},
-                    ],
-                },
-            ],
-        }
+    def test_正常系_キャッシュ無効化後も同じ結果を返す(self, tmp_path: Path) -> None:
+        # Wave10: load_multilabel_types はハードコード定数を使用するため
+        # YAML の内容に関わらず常に同じ14種を返す。キャッシュ無効化しても同じ。
         yaml_path = tmp_path / "ontology.yaml"
+        data: dict[str, Any] = {"schema_version": "test-1.0"}
         with yaml_path.open("w", encoding="utf-8") as f:
-            dump(data_v1, f, allow_unicode=True)
+            dump(data, f, allow_unicode=True)
 
         keys_v1 = load_multilabel_types(yaml_path)
-        assert keys_v1 == ["company"]
+        assert len(keys_v1) == 14
 
-        # v2: company + person
-        data_v2: dict[str, Any] = {
-            "entity_classification_nodes": [
-                {
-                    "label": "EntityType",
-                    "canonical_values": [
-                        {"key": "company", "name_ja": "企業"},
-                        {"key": "person", "name_ja": "人物"},
-                    ],
-                },
-            ],
-        }
-        with yaml_path.open("w", encoding="utf-8") as f:
-            dump(data_v2, f, allow_unicode=True)
-
-        # Before invalidation: still cached v1
-        keys_cached = load_multilabel_types(yaml_path)
-        assert keys_cached == ["company"]
-
-        # After invalidation: should load v2
+        # After invalidation: still returns hardcoded 14 types
         invalidate_cache()
         keys_v2 = load_multilabel_types(yaml_path)
-        assert keys_v2 == ["company", "person"]
+        assert len(keys_v2) == 14
+        assert keys_v1 == keys_v2
 
 
 # =========================================================================
