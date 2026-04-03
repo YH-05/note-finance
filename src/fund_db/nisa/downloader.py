@@ -59,6 +59,15 @@ class NisaDownloader:
         *,
         timeout: float = 30.0,
     ) -> None:
+        """Initialize NisaDownloader.
+
+        Parameters
+        ----------
+        store : FundDbStore
+            Storage backend for saving downloaded files.
+        timeout : float
+            HTTP request timeout in seconds. Default is 30.0.
+        """
         self._store = store
         self._timeout = timeout
 

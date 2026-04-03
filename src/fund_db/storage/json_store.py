@@ -215,13 +215,42 @@ class FundDbStore:
 
         return output_path
 
-    def load_latest(self, category: str) -> list[dict[str, Any]] | None:
+    def get_latest_raw_files(self, category: str) -> list[Path]:
+        """Get raw Excel files from the latest partition.
+
+        Parameters
+        ----------
+        category : str
+            Data category.
+
+        Returns
+        -------
+        list[Path]
+            List of raw file paths from the latest partition.
+        """
+        partitions = self.list_partitions(category)
+        if not partitions:
+            return []
+        latest = max(partitions)
+        raw_dir = self._partition_dir(category, latest) / "raw"
+        if not raw_dir.exists():
+            return []
+        return sorted(raw_dir.iterdir())
+
+    def load_latest(
+        self,
+        category: str,
+        partitions: list[date] | None = None,
+    ) -> list[dict[str, Any]] | None:
         """Load records from the latest partition for a given category.
 
         Parameters
         ----------
         category : str
             Data category to load from.
+        partitions : list[date] | None
+            Pre-fetched partition list. When provided, avoids a
+            redundant ``list_partitions()`` call. Defaults to None.
 
         Returns
         -------
@@ -236,7 +265,8 @@ class FundDbStore:
         >>> store.load_latest("nisa_unlisted") is None
         True
         """
-        partitions = self.list_partitions(category)
+        if partitions is None:
+            partitions = self.list_partitions(category)
         if not partitions:
             logger.debug("No partitions found", category=category)
             return None

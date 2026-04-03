@@ -215,6 +215,22 @@ class TestExtractDownloadLinksEdgeCases:
         links = downloader._extract_download_links(html, "https://www.toushin.or.jp/")
         assert "b1" in links
 
+    def test_正常系_extract_download_linksでxlsxリンク0件時空dict(
+        self,
+        store: FundDbStore,
+    ) -> None:
+        """HTML with no xlsx links at all returns empty dict."""
+        html = """
+        <html><body>
+        <a href="/report.pdf">PDF Report</a>
+        <a href="/data.csv">CSV Data</a>
+        <p>No xlsx here</p>
+        </body></html>
+        """
+        downloader = ToushinStatsDownloader(store=store)
+        links = downloader._extract_download_links(html, "https://www.toushin.or.jp/")
+        assert links == {}
+
     def test_エッジケース_信頼できないホストのURLはスキップされる(
         self,
         store: FundDbStore,
@@ -238,7 +254,7 @@ class TestExtractDownloadLinksEdgeCases:
 class TestDownloadB1ErrorHandling:
     """Tests for download_b1 error handling."""
 
-    def test_異常系_リンク未発見でDownloadError(
+    def test_異常系_download_b1でリンク未発見時DownloadError(
         self,
         store: FundDbStore,
     ) -> None:
@@ -250,6 +266,39 @@ class TestDownloadB1ErrorHandling:
 
         with pytest.raises(DownloadError):
             downloader.download_b1()
+
+    def test_異常系_download_b2でリンク未発見時DownloadError(
+        self,
+        store: FundDbStore,
+    ) -> None:
+        """When B-2 link is not found, download_b2 raises DownloadError."""
+        downloader = ToushinStatsDownloader(store=store, timeout=0.5)
+        downloader._get_links = lambda: {}  # type: ignore[method-assign]
+
+        with pytest.raises(DownloadError):
+            downloader.download_b2()
+
+    def test_異常系_download_b3でリンク未発見時DownloadError(
+        self,
+        store: FundDbStore,
+    ) -> None:
+        """When B-3 link is not found, download_b3 raises DownloadError."""
+        downloader = ToushinStatsDownloader(store=store, timeout=0.5)
+        downloader._get_links = lambda: {}  # type: ignore[method-assign]
+
+        with pytest.raises(DownloadError):
+            downloader.download_b3()
+
+    def test_異常系_download_a2でリンク未発見時DownloadError(
+        self,
+        store: FundDbStore,
+    ) -> None:
+        """When A-2 link is not found, download_a2 raises DownloadError."""
+        downloader = ToushinStatsDownloader(store=store, timeout=0.5)
+        downloader._get_links = lambda: {}  # type: ignore[method-assign]
+
+        with pytest.raises(DownloadError):
+            downloader.download_a2()
 
     def test_異常系_接続不可でDownloadError(
         self,

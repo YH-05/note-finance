@@ -112,7 +112,7 @@ def nisa_download(ctx: click.Context) -> None:
         )
         logger.info("NISA download complete", file_count=len(results))
     except Exception as exc:
-        console.print(f"[red]Error: {exc}[/red]")
+        console.print("[red]Error occurred. Check logs for details.[/red]")
         logger.error("NISA download failed", error=str(exc), exc_info=True)
         sys.exit(1)
 
@@ -127,15 +127,15 @@ def nisa_parse(ctx: click.Context) -> None:
     parser = NisaParser()
 
     # Find latest raw files
-    unlisted_partitions = store.list_partitions("nisa_unlisted")
-    listed_partitions = store.list_partitions("nisa_listed")
+    unlisted_raw_files = store.get_latest_raw_files("nisa_unlisted")
+    listed_raw_files = store.get_latest_raw_files("nisa_listed")
 
     total_records = 0
 
-    if unlisted_partitions:
+    if unlisted_raw_files:
+        unlisted_partitions = store.list_partitions("nisa_unlisted")
         latest_date = max(unlisted_partitions)
-        raw_path = store.data_dir / "nisa_unlisted" / latest_date.isoformat() / "raw"
-        xlsx_files = list(raw_path.glob("*.xlsx")) if raw_path.exists() else []
+        xlsx_files = [f for f in unlisted_raw_files if f.suffix == ".xlsx"]
         for xlsx_file in xlsx_files:
             try:
                 funds = parser.parse_unlisted(xlsx_file)
@@ -150,10 +150,10 @@ def nisa_parse(ctx: click.Context) -> None:
             "[yellow]No NISA unlisted data found. Run download first.[/yellow]"
         )
 
-    if listed_partitions:
+    if listed_raw_files:
+        listed_partitions = store.list_partitions("nisa_listed")
         latest_date = max(listed_partitions)
-        raw_path = store.data_dir / "nisa_listed" / latest_date.isoformat() / "raw"
-        xlsx_files = list(raw_path.glob("*.xlsx")) if raw_path.exists() else []
+        xlsx_files = [f for f in listed_raw_files if f.suffix == ".xlsx"]
         for xlsx_file in xlsx_files:
             try:
                 etfs = parser.parse_listed(xlsx_file)
@@ -236,7 +236,7 @@ def jpx_download(ctx: click.Context) -> None:
         )
         logger.info("JPX download complete", size_bytes=result.size_bytes)
     except Exception as exc:
-        console.print(f"[red]Error: {exc}[/red]")
+        console.print("[red]Error occurred. Check logs for details.[/red]")
         logger.error("JPX download failed", error=str(exc), exc_info=True)
         sys.exit(1)
 
@@ -249,15 +249,15 @@ def jpx_parse(ctx: click.Context) -> None:
 
     store = ctx.obj["store"]
     parser = JpxParser()
-    partitions = store.list_partitions("jpx_listed")
+    raw_files = store.get_latest_raw_files("jpx_listed")
 
-    if not partitions:
+    if not raw_files:
         console.print("[yellow]No JPX data found. Run download first.[/yellow]")
         return
 
+    partitions = store.list_partitions("jpx_listed")
     latest_date = max(partitions)
-    raw_path = store.data_dir / "jpx_listed" / latest_date.isoformat() / "raw"
-    xls_files = list(raw_path.glob("*.xls")) if raw_path.exists() else []
+    xls_files = [f for f in raw_files if f.suffix == ".xls"]
 
     total_records = 0
     for xls_file in xls_files:
@@ -290,16 +290,13 @@ def jpx_list_etfs(ctx: click.Context) -> None:
     from fund_db.jpx import JpxParser
 
     store = ctx.obj["store"]
-    partitions = store.list_partitions("jpx_listed")
+    raw_files = store.get_latest_raw_files("jpx_listed")
 
-    if not partitions:
+    if not raw_files:
         console.print("[yellow]No JPX data found. Run download first.[/yellow]")
         return
 
-    latest_date = max(partitions)
-    raw_path = store.data_dir / "jpx_listed" / latest_date.isoformat() / "raw"
-    xls_files = list(raw_path.glob("*.xls")) if raw_path.exists() else []
-
+    xls_files = [f for f in raw_files if f.suffix == ".xls"]
     if not xls_files:
         console.print("[yellow]No raw XLS files found.[/yellow]")
         return
@@ -353,7 +350,7 @@ def stats_download(ctx: click.Context) -> None:
         )
         logger.info("Stats download complete", file_count=len(results))
     except Exception as exc:
-        console.print(f"[red]Error: {exc}[/red]")
+        console.print("[red]Error occurred. Check logs for details.[/red]")
         logger.error("Stats download failed", error=str(exc), exc_info=True)
         sys.exit(1)
 
@@ -376,14 +373,14 @@ def stats_parse(ctx: click.Context) -> None:
     ]
 
     for category, method_name, label in report_configs:
-        partitions = store.list_partitions(category)
-        if not partitions:
+        raw_files = store.get_latest_raw_files(category)
+        if not raw_files:
             console.print(f"[yellow]No {label} data found.[/yellow]")
             continue
 
+        partitions = store.list_partitions(category)
         latest_date = max(partitions)
-        raw_path = store.data_dir / category / latest_date.isoformat() / "raw"
-        xlsx_files = list(raw_path.glob("*.xlsx")) if raw_path.exists() else []
+        xlsx_files = [f for f in raw_files if f.suffix == ".xlsx"]
 
         for xlsx_file in xlsx_files:
             try:
@@ -483,7 +480,7 @@ def etf_fetch(tickers: tuple[str, ...], start: str, end: str | None) -> None:
     try:
         records = fetcher.fetch(list(tickers), start=start, end=end)
     except Exception as exc:
-        console.print(f"[red]Error: {exc}[/red]")
+        console.print("[red]Error occurred. Check logs for details.[/red]")
         logger.error("ETF fetch failed", error=str(exc), exc_info=True)
         sys.exit(1)
 
@@ -538,7 +535,7 @@ def etf_performance(tickers: tuple[str, ...], years: int) -> None:
     try:
         summaries = fetcher.get_performance(list(tickers), years=years)
     except Exception as exc:
-        console.print(f"[red]Error: {exc}[/red]")
+        console.print("[red]Error occurred. Check logs for details.[/red]")
         logger.error("ETF performance failed", error=str(exc), exc_info=True)
         sys.exit(1)
 
@@ -622,7 +619,7 @@ def status(ctx: click.Context) -> None:
             continue
 
         latest_date = max(partitions)
-        records = store.load_latest(category)
+        records = store.load_latest(category, partitions=partitions)
         record_count = str(len(records)) if records else "-"
         table.add_row(
             label,

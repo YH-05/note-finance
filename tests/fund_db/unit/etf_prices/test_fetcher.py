@@ -229,6 +229,157 @@ class TestEtfPriceFetcherFetch:
         )
 
 
+def _make_multi_ticker_df() -> pd.DataFrame:
+    """Create a MultiIndex DataFrame mimicking yf.download for multiple tickers."""
+    dates = pd.to_datetime(["2026-04-01", "2026-04-02", "2026-04-03"])
+    arrays = [
+        [
+            "Close",
+            "Close",
+            "High",
+            "High",
+            "Low",
+            "Low",
+            "Open",
+            "Open",
+            "Volume",
+            "Volume",
+        ],
+        [
+            "1306.T",
+            "1321.T",
+            "1306.T",
+            "1321.T",
+            "1306.T",
+            "1321.T",
+            "1306.T",
+            "1321.T",
+            "1306.T",
+            "1321.T",
+        ],
+    ]
+    columns = pd.MultiIndex.from_arrays(arrays)
+    data = np.array(
+        [
+            [
+                2500.0,
+                30000.0,
+                2510.0,
+                30100.0,
+                2485.0,
+                29900.0,
+                2490.0,
+                29950.0,
+                1e6,
+                5e5,
+            ],
+            [
+                2515.0,
+                30200.0,
+                2520.0,
+                30300.0,
+                2495.0,
+                30100.0,
+                2500.0,
+                30150.0,
+                1.2e6,
+                6e5,
+            ],
+            [
+                2525.0,
+                30400.0,
+                2530.0,
+                30500.0,
+                2505.0,
+                30200.0,
+                2510.0,
+                30300.0,
+                9e5,
+                4e5,
+            ],
+        ]
+    )
+    return pd.DataFrame(data, index=dates, columns=columns)
+
+
+def _make_multi_ticker_df_partial_error() -> pd.DataFrame:
+    """Create a MultiIndex DataFrame with only one ticker present."""
+    dates = pd.to_datetime(["2026-04-01", "2026-04-02"])
+    arrays = [
+        ["Close", "High", "Low", "Open", "Volume"],
+        ["1306.T", "1306.T", "1306.T", "1306.T", "1306.T"],
+    ]
+    columns = pd.MultiIndex.from_arrays(arrays)
+    data = np.array(
+        [
+            [2500.0, 2510.0, 2485.0, 2490.0, 1e6],
+            [2515.0, 2520.0, 2495.0, 2500.0, 1.2e6],
+        ]
+    )
+    return pd.DataFrame(data, index=dates, columns=columns)
+
+
+class TestEtfPriceFetcherFetchMultipleTickers:
+    """Tests for EtfPriceFetcher.fetch with multiple tickers."""
+
+    @patch("fund_db.etf_prices.fetcher.yf.download")
+    def test_正常系_複数ティッカーでMultiIndex_DataFrameを処理できる(
+        self, mock_download: MagicMock
+    ) -> None:
+        mock_download.return_value = _make_multi_ticker_df()
+        fetcher = EtfPriceFetcher()
+        records = fetcher.fetch(["1306", "1321"], start="2026-04-01", end="2026-04-04")
+
+        # Should have 3 records per ticker = 6 total
+        assert len(records) == 6
+        tickers = {r.ticker for r in records}
+        assert tickers == {"1306.T", "1321.T"}
+
+        # Verify records for each ticker
+        records_1306 = [r for r in records if r.ticker == "1306.T"]
+        records_1321 = [r for r in records if r.ticker == "1321.T"]
+        assert len(records_1306) == 3
+        assert len(records_1321) == 3
+        assert records_1306[0].close == 2500.0
+        assert records_1321[0].close == 30000.0
+
+    @patch("fund_db.etf_prices.fetcher.yf.download")
+    def test_正常系_複数ティッカーで一部KeyErrorの場合スキップする(
+        self, mock_download: MagicMock
+    ) -> None:
+        # Only 1306.T is in the MultiIndex; 1321.T will cause KeyError in xs()
+        mock_download.return_value = _make_multi_ticker_df_partial_error()
+        fetcher = EtfPriceFetcher()
+        records = fetcher.fetch(["1306", "1321"], start="2026-04-01", end="2026-04-03")
+
+        # Only 1306.T records should be present; 1321.T skipped
+        assert all(r.ticker == "1306.T" for r in records)
+        assert len(records) == 2
+
+    @patch("fund_db.etf_prices.fetcher.yf.download")
+    def test_正常系_get_performanceで1件のみの場合スキップする(
+        self, mock_download: MagicMock
+    ) -> None:
+        """When a ticker has only 1 record, it is skipped in performance calculation."""
+        dates = pd.to_datetime(["2026-04-01"])
+        df = pd.DataFrame(
+            {
+                "Open": [2490.0],
+                "High": [2510.0],
+                "Low": [2485.0],
+                "Close": [2500.0],
+                "Volume": [1000000.0],
+            },
+            index=dates,
+        )
+        mock_download.return_value = df
+        fetcher = EtfPriceFetcher()
+        summaries = fetcher.get_performance(["1306"], years=3)
+
+        # With only 1 record, performance cannot be calculated
+        assert summaries == []
+
+
 class TestEtfPriceFetcherGetPerformance:
     """Tests for EtfPriceFetcher.get_performance method."""
 

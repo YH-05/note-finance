@@ -77,39 +77,42 @@ class JpxParser:
         reverse_mapping = {jp: en for jp, en in JPX_LISTED_COLUMNS.items()}
         df = df.rename(columns=reverse_mapping)
 
-        records: list[JpxListedStock] = []
-        for row_idx, row in df.iterrows():
-            row_data: dict[str, str | None] = {}
-            for field_name in JPX_LISTED_COLUMNS.values():
-                if field_name in row.index:
-                    row_data[field_name] = normalize_cell_value(
-                        row[field_name], nan_check=True
-                    )
-                else:
-                    row_data[field_name] = None
+        # Drop rows missing required fields
+        required_fields = ["ticker_code", "name"]
+        for field in required_fields:
+            if field not in df.columns:
+                logger.warning("Required column missing", column=field)
+                return []
 
-            # Required fields check
-            ticker = row_data.get("ticker_code")
-            name = row_data.get("name")
-            if not ticker or not name:
-                logger.debug(
-                    "Skipping row with missing required fields",
-                    row=row_idx,
-                )
-                continue
+        pre_count = len(df)
+        df = df.dropna(subset=required_fields)
+        dropped = pre_count - len(df)
+        if dropped > 0:
+            logger.debug(
+                "Dropped rows with missing required fields",
+                dropped_count=dropped,
+            )
+
+        # Convert NaN to None for all columns
+        df = df.where(df.notna(), None)
+
+        # Vectorized conversion to list of dicts
+        row_dicts: list[dict[str, str | None]] = df.to_dict("records")
+
+        records: list[JpxListedStock] = []
+        for row_idx, row_data in enumerate(row_dicts):
+            # Normalize cell values for mapped fields
+            for field_name in JPX_LISTED_COLUMNS.values():
+                if field_name in row_data:
+                    raw = row_data[field_name]
+                    row_data[field_name] = (
+                        normalize_cell_value(raw, nan_check=True)
+                        if raw is not None
+                        else None
+                    )
 
             try:
-                stock = JpxListedStock(
-                    ticker_code=ticker,
-                    name=name,
-                    market_segment=row_data.get("market_segment"),
-                    sector_code_33=row_data.get("sector_code_33"),
-                    sector_name_33=row_data.get("sector_name_33"),
-                    sector_code_17=row_data.get("sector_code_17"),
-                    sector_name_17=row_data.get("sector_name_17"),
-                    size_code=row_data.get("size_code"),
-                    size_category=row_data.get("size_category"),
-                )
+                stock = JpxListedStock.model_validate(row_data)
                 records.append(stock)
             except Exception as exc:
                 logger.warning(

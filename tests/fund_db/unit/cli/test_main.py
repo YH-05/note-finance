@@ -108,7 +108,7 @@ class TestNisaGroup:
     ) -> None:
         result = runner.invoke(cli, ["--data-dir", str(tmp_store), "nisa", "parse"])
         assert result.exit_code == 0
-        assert "No NISA" in result.output or "Total:" in result.output
+        assert "No NISA" in result.output
 
     def test_正常系_nisaリストでデータなし警告(
         self, runner: CliRunner, tmp_store: Path
@@ -165,7 +165,7 @@ class TestJpxGroup:
     ) -> None:
         result = runner.invoke(cli, ["--data-dir", str(tmp_store), "jpx", "parse"])
         assert result.exit_code == 0
-        assert "No JPX" in result.output or "Total:" in result.output
+        assert "No JPX" in result.output
 
     def test_正常系_jpxリストETFでデータなし警告(
         self, runner: CliRunner, tmp_store: Path
@@ -225,7 +225,7 @@ class TestStatsGroup:
         result = runner.invoke(cli, ["--data-dir", str(tmp_store), "stats", "summary"])
         assert result.exit_code == 0
         # Should display the table even with no data
-        assert "Statistics Summary" in result.output or "No data" in result.output
+        assert "Statistics Summary" in result.output
 
 
 # ---------------------------------------------------------------------------

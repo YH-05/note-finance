@@ -54,6 +54,17 @@ class DownloadError(FundDbError):
         url: str,
         status_code: int | None = None,
     ) -> None:
+        """Initialize DownloadError.
+
+        Parameters
+        ----------
+        message : str
+            Human-readable error description.
+        url : str
+            The URL that failed to download.
+        status_code : int | None
+            HTTP status code, if available.
+        """
         super().__init__(message)
         self.url = url
         self.status_code = status_code
@@ -77,6 +88,17 @@ class ParseError(FundDbError):
         source: str,
         reason: str | None = None,
     ) -> None:
+        """Initialize ParseError.
+
+        Parameters
+        ----------
+        message : str
+            Human-readable error description.
+        source : str
+            The source file or data that failed to parse.
+        reason : str | None
+            Specific reason for the parse failure.
+        """
         super().__init__(message)
         self.source = source
         self.reason = reason
@@ -97,6 +119,15 @@ class StorageError(FundDbError):
         *,
         path: str | None = None,
     ) -> None:
+        """Initialize StorageError.
+
+        Parameters
+        ----------
+        message : str
+            Human-readable error description.
+        path : str | None
+            The file path involved in the failed operation.
+        """
         super().__init__(message)
         self.path = path
 
@@ -116,5 +147,14 @@ class ConfigError(FundDbError):
         *,
         field: str | None = None,
     ) -> None:
+        """Initialize ConfigError.
+
+        Parameters
+        ----------
+        message : str
+            Human-readable error description.
+        field : str | None
+            The configuration field that caused the error.
+        """
         super().__init__(message)
         self.field = field

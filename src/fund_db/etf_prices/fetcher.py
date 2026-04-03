@@ -289,7 +289,8 @@ class EtfPriceFetcher:
                 np.std(daily_returns, ddof=1) * np.sqrt(_TRADING_DAYS_PER_YEAR)
             )
 
-            # Max drawdown
+            # AIDEV-NOTE: Max drawdown is calculated relative to the cumulative return
+            # running maximum (not the initial price), per standard finance convention.
             cumulative = np.cumprod(1 + daily_returns)
             running_max = np.maximum.accumulate(cumulative)
             drawdowns = (cumulative - running_max) / running_max

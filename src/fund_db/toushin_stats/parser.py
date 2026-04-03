@@ -414,6 +414,9 @@ class ToushinStatsParser:
         self,
         sheet: Worksheet,
     ) -> tuple[int, dict[int, str]] | None:
+        # AIDEV-NOTE: B-2 uses a 2-pass strategy because some sheets have
+        # merged cells where only one header keyword is visible in a single row.
+        # First pass requires 2+ matches; second pass accepts 1 match with context.
         """Find the header row for B-2 product class data.
 
         Parameters
