@@ -177,7 +177,9 @@ class TestBuildInsightRows:
         assert skipped == 0
         assert rows == [{"insight_id": "insight-1", "entity_id": "entity-1"}]
 
-    def test_異常系_導出Entityが複数ならスキップ(self) -> None:
+    def test_異常系_導出EntityがRELATES_TOのみで1件なら行を作成(self) -> None:
+        # Wave7 (Issue #312): ABOUT は廃止。Source + ABOUT は無視される
+        # Fact + RELATES_TO のみが有効 → entity-1 のみ derivable → row 作成
         rows, skipped = _build_insight_rows(
             [
                 {
@@ -190,17 +192,18 @@ class TestBuildInsightRows:
                         },
                         {
                             "labels": ["Source"],
-                            "rel_type": "ABOUT",
+                            "rel_type": "ABOUT",  # 廃止済み → 無視
                             "entity_id": "entity-2",
                         },
                     ],
                 }
             ]
         )
-        assert rows == []
-        assert skipped == 1
+        assert rows == [{"insight_id": "insight-2", "entity_id": "entity-1"}]
+        assert skipped == 0
 
-    def test_異常系_Source由来でRELATES_TOのみは無効(self) -> None:
+    def test_正常系_Source由来でRELATES_TOは有効(self) -> None:
+        # Wave7 (Issue #312): Source + RELATES_TO (旧 MENTIONS) は有効
         rows, skipped = _build_insight_rows(
             [
                 {
@@ -215,8 +218,8 @@ class TestBuildInsightRows:
                 }
             ]
         )
-        assert rows == []
-        assert skipped == 1
+        assert rows == [{"insight_id": "insight-3", "entity_id": "entity-1"}]
+        assert skipped == 0
 
 
 class TestCli:

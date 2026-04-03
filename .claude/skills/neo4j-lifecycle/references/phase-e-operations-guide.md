@@ -201,8 +201,8 @@ RETURN type(r) AS rel_type, count(r) AS cnt
 
 ```cypher
 -- 同じ Source から言及されている Entity ペア
-MATCH (s:Source)-[]->(c1)-[]->(e1:Entity),
-      (s)-[]->(c2)-[]->(e2:Entity)
+MATCH (s:Source)-[]->(c1)-[:RELATES_TO]->(e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product),
+      (s)-[]->(c2)-[:RELATES_TO]->(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e1 <> e2
 AND NOT 'Memory' IN labels(e1)
 AND NOT 'Memory' IN labels(e2)

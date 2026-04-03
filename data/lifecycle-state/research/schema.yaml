@@ -5,11 +5,11 @@
 # ontology.yaml のカスタマイズ確定後に更新すること。
 # =============================================================================
 
-schema_version: "research-2.0"
+schema_version: "research-4.0"
 instance_name: "research"
 created_at: "2026-03-23T15:09:06+09:00"
-updated_at: "2026-03-23T15:09:06+09:00"
-status: "confirmed"  # 2026-03-23 全カスタマイズ反映済み
+updated_at: "2026-04-03T00:00:00+09:00"
+status: "confirmed"  # 2026-04-03 Wave10 Entity廃止・entity_key廃止・EntityType/InstrumentClass削除
 
 # ---------------------------------------------------------------------------
 # UNIQUE 制約
@@ -21,10 +21,9 @@ constraints:
     property: source_id
     type: UNIQUE
 
-  - name: unique_research_entity_key
-    label: Entity
-    property: entity_key
-    type: UNIQUE
+  # Wave10: unique_research_entity_key (Entity.entity_key) — 廃止済み
+  # Wave10: Entity ラベル・entity_key プロパティ全削除完了 (Issue #316)
+  # 旧制約 unique_entity_key / entity_id / entity_ticker は DB 側で手動削除が必要
 
   # Content Types
   - name: unique_research_fact_id
@@ -104,11 +103,7 @@ constraints:
     property: pipeline_id
     type: UNIQUE
 
-  # ① 新設ノード (Entity 由来)
-  - name: unique_research_entity_type_id
-    label: EntityType
-    property: entity_type_id
-    type: UNIQUE
+  # Wave10: unique_research_entity_type_id (EntityType) — 廃止済み（EntityType ノード削除）
 
   # FIBO統合: TickerSymbol + SECRegistration → Identifier
   - name: unique_research_identifier_id
@@ -121,11 +116,7 @@ constraints:
     property: industry_id
     type: UNIQUE
 
-  # FIBO準拠: InstrumentClass
-  - name: unique_research_instrument_class_id
-    label: InstrumentClass
-    property: instrument_class_id
-    type: UNIQUE
+  # Wave10: unique_research_instrument_class_id (InstrumentClass) — 廃止済み（InstrumentClass ノード削除）
 
   # 追加精査で新設
   - name: unique_research_source_type_id
@@ -176,11 +167,8 @@ constraints:
 # Full-Text Index
 # ---------------------------------------------------------------------------
 fulltext_indexes:
-  - name: research_entity_fulltext
-    type: FULLTEXT
-    label: Entity
-    properties: [name]
-    description: Entity 名のフルテキスト検索
+  # Wave10: research_entity_fulltext (Entity.name) — Entity ラベル廃止により無効化
+  # 個別ラベル（Company/Technology/Organization 等）でのフルテキスト検索に移行予定
 
   - name: research_topic_fulltext
     type: FULLTEXT
@@ -259,13 +247,9 @@ btree_indexes:
     properties: [type, value]
     description: Identifier のタイプ+値 複合検索（例: ticker+AAPL）
 
-  - name: idx_research_entity_type_name
-    type: BTREE
-    label: EntityType
-    properties: [name]
-    description: EntityType の名前検索
+  # Wave10: idx_research_entity_type_name (EntityType.name) — 廃止済み（EntityType ノード削除）
 
   # Deprecated (リレーション化により不要)
-  # - idx_research_entity_type → IS_TYPE リレーションで代替
+  # - idx_research_entity_type → IS_TYPE リレーションで代替 → Wave10 で IS_TYPE/EntityType 廃止
   # - idx_research_source_category → TAGGED リレーションで代替
   # - idx_research_entity_ticker → HAS_TICKER リレーションで代替

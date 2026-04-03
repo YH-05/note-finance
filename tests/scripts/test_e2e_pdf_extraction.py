@@ -470,14 +470,14 @@ class TestPdfExtractionFormatCompliance:
         assert isinstance(queue_data, dict)
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_schema_versionが3_0である(self, tmp_path: Path) -> None:
-        """受け入れ条件: schema_version が '3.0' であること。"""
+    def test_正常系_schema_versionがresearch_4_0である(self, tmp_path: Path) -> None:
+        """v4.0: schema_version が 'research-4.0' であること。"""
         data = _realistic_pdf_extraction_data()
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "3.0"
-        assert SCHEMA_VERSION == "3.0"
+        assert queue_data["schema_version"] == "research-4.0"
+        assert SCHEMA_VERSION == "research-4.0"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_必須トップレベルキーが全て存在する(self, tmp_path: Path) -> None:
@@ -1118,7 +1118,7 @@ class TestMinimalPdfExtraction:
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "3.0"
+        assert queue_data["schema_version"] == "research-4.0"  # v4.0 schema
         assert queue_data["command_source"] == "pdf-extraction"
 
     @freeze_time(FROZEN_TIME)
@@ -1151,7 +1151,7 @@ class TestMinimalPdfExtraction:
         output_file = _generate_pdf_queue_file(tmp_path, data)
         queue_data = _load_queue_file(output_file)
 
-        assert queue_data["schema_version"] == "3.0"
+        assert queue_data["schema_version"] == "research-4.0"  # v4.0 schema
         assert len(queue_data["sources"]) == 1  # source always created
         assert queue_data["entities"] == []
         assert queue_data["facts"] == []

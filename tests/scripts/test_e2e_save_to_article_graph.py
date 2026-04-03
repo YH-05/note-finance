@@ -654,7 +654,7 @@ class TestTopicDiscoveryGraphQueue:
 
         missing = GRAPH_QUEUE_REQUIRED_KEYS - set(q.keys())
         assert not missing, f"Missing keys: {missing}"
-        assert q["schema_version"] == "3.0"
+        assert q["schema_version"] == "research-4.0"  # v4.0 schema
         assert q["command_source"] == "topic-discovery"
 
     @freeze_time(FROZEN_TIME)
@@ -791,7 +791,7 @@ class TestWealthScrapeGraphQueue:
 
         missing = GRAPH_QUEUE_REQUIRED_KEYS - set(q.keys())
         assert not missing, f"Missing keys: {missing}"
-        assert q["schema_version"] == "3.0"
+        assert q["schema_version"] == "research-4.0"  # v4.0 schema
         assert q["command_source"] == "wealth-scrape"
 
     @freeze_time(FROZEN_TIME)

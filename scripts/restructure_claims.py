@@ -173,10 +173,11 @@ def fetch_claims(
 
     limit_clause = f"LIMIT {limit}" if limit > 0 else ""
 
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、[:ABOUT] → [:RELATES_TO] に更新
     query = f"""
     MATCH (s:Source)-[:MAKES_CLAIM]->(c:Claim)
     {where_clause}
-    OPTIONAL MATCH (c)-[:ABOUT]->(e:Entity)
+    OPTIONAL MATCH (c)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
     WITH s, c, collect(DISTINCT e.name) AS entity_names
     RETURN c.claim_id AS claim_id,
            c.content AS content,

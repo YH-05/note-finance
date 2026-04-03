@@ -1,0 +1,194 @@
+{
+  "timestamp": "2026-04-03T03:47:23.207983+00:00",
+  "overall_score": 50.0,
+  "rating": "C",
+  "categories": [
+    {
+      "name": "structural",
+      "score": 50.0,
+      "metrics": [
+        {
+          "value": 0.107143,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 1.5,
+          "unit": "count",
+          "status": "yellow",
+          "stub": false
+        },
+        {
+          "value": 0.875,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        },
+        {
+          "value": 0.125,
+          "unit": "ratio",
+          "status": "yellow",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "completeness",
+      "score": 100.0,
+      "metrics": [
+        {
+          "value": 0.9556,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "consistency",
+      "score": 100.0,
+      "metrics": [
+        {
+          "value": 1.0,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 1.0,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "count",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "accuracy",
+      "score": 0.0,
+      "metrics": [
+        {
+          "value": 0.0,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "timeliness",
+      "score": 33.3,
+      "metrics": [
+        {
+          "value": 0.0,
+          "unit": "days",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "count",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "days",
+          "status": "red",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "finance_specific",
+      "score": 0.0,
+      "metrics": [
+        {
+          "value": 0.0,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "count",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 0.0,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        }
+      ]
+    },
+    {
+      "name": "discoverability",
+      "score": 66.7,
+      "metrics": [
+        {
+          "value": 1.71,
+          "unit": "hops",
+          "status": "green",
+          "stub": false
+        },
+        {
+          "value": 0.0952,
+          "unit": "ratio",
+          "status": "red",
+          "stub": false
+        },
+        {
+          "value": 0.75,
+          "unit": "ratio",
+          "status": "green",
+          "stub": false
+        }
+      ]
+    }
+  ],
+  "check_rules": [
+    {
+      "rule_name": "subject_reference",
+      "pass_rate": 1.0,
+      "violations": []
+    },
+    {
+      "rule_name": "entity_length",
+      "pass_rate": 1.0,
+      "violations": []
+    },
+    {
+      "rule_name": "schema_compliance",
+      "pass_rate": 1.0,
+      "violations": []
+    },
+    {
+      "rule_name": "relationship_compliance",
+      "pass_rate": 0.0,
+      "violations": [
+        "RESULTED_IN",
+        "PRODUCED"
+      ]
+    }
+  ],
+  "entropy": {
+    "entity_type_entropy": 0.0,
+    "topic_category_entropy": 0.0,
+    "relationship_type_entropy": 0.9183,
+    "semantic_diversity": 0.3061
+  }
+}

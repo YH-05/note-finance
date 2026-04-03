@@ -145,12 +145,10 @@ KG の真の価値は「個別ソースの読解だけでは得られない、�
 **Probe A: クロスドメイン・ブリッジ** — 異なる entity_type の Entity が Fact を共有するパターン
 
 ```cypher
-MATCH (e1:Entity)<-[:RELATES_TO]-(f:Fact)-[:RELATES_TO]->(e2:Entity)
+MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)<-[:RELATES_TO]-(f:Fact)-[:RELATES_TO]->(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e1) AND NOT 'Memory' IN labels(e2) AND NOT 'Memory' IN labels(f)
-AND e1.entity_type <> e2.entity_type
 AND elementId(e1) < elementId(e2)
-RETURN e1.name + ' (' + e1.entity_type + ')' AS entity1,
-       e2.name + ' (' + e2.entity_type + ')' AS entity2,
+RETURN e1.name AS entity1, e2.name AS entity2,
        count(DISTINCT f) AS shared_facts,
        collect(DISTINCT f.content)[..2] AS sample_content
 ORDER BY shared_facts DESC LIMIT 10
@@ -159,21 +157,20 @@ ORDER BY shared_facts DESC LIMIT 10
 **Probe B: 間接接続パス** — 直接つながっていないが、2ホップで到達可能な Entity ペア
 
 ```cypher
-MATCH (e1:Entity)-[:RELATES_TO]-(f1)-[:RELATES_TO]-(bridge:Entity)-[:RELATES_TO]-(f2)-[:RELATES_TO]-(e2:Entity)
+MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)-[:RELATES_TO]-(f1)-[:RELATES_TO]-(bridge:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)-[:RELATES_TO]-(f2)-[:RELATES_TO]-(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e1) AND NOT 'Memory' IN labels(e2) AND NOT 'Memory' IN labels(bridge)
 AND e1 <> e2 AND e1 <> bridge AND e2 <> bridge
-AND e1.entity_type <> e2.entity_type
 AND NOT EXISTS { MATCH (e1)-[:RELATES_TO]-(:Fact)-[:RELATES_TO]-(e2) }
-RETURN e1.name AS from_entity, e1.entity_type AS from_type,
-       bridge.name AS via_bridge, bridge.entity_type AS bridge_type,
-       e2.name AS to_entity, e2.entity_type AS to_type
+RETURN e1.name AS from_entity, labels(e1)[0] AS from_type,
+       bridge.name AS via_bridge, labels(bridge)[0] AS bridge_type,
+       e2.name AS to_entity, labels(e2)[0] AS to_type
 ORDER BY rand() LIMIT 5
 ```
 
 **Probe C: Stance 対立** — 同一 Entity に対する異なる見解・評価の存在
 
 ```cypher
-MATCH (s:Stance)-[:ON_ENTITY]->(e:Entity)
+MATCH (s:Stance)-[:ON_ENTITY]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(s) AND NOT 'Memory' IN labels(e)
 WITH e, collect({type: s.stance_type, content: s.summary}) AS stances, count(s) AS cnt
 WHERE cnt >= 2
@@ -194,12 +191,12 @@ LIMIT 10
 **Probe E: Topic クラスタ間ブリッジ** — 異なる Topic カテゴリにまたがる Entity
 
 ```cypher
-MATCH (e:Entity)<-[:RELATES_TO]-(f)-[:TAGGED]->(t:Topic)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)<-[:RELATES_TO]-(f)-[:TAGGED]->(t:Topic)
 WHERE NOT 'Memory' IN labels(e) AND NOT 'Memory' IN labels(f) AND NOT 'Memory' IN labels(t)
 AND t.category IS NOT NULL
 WITH e, collect(DISTINCT t.category) AS categories, count(DISTINCT t) AS topic_count
 WHERE size(categories) >= 2
-RETURN e.name AS entity, e.entity_type AS type, categories, topic_count
+RETURN e.name AS entity, labels(e)[0] AS type, categories, topic_count
 ORDER BY topic_count DESC LIMIT 10
 ```
 

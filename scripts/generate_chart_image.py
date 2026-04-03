@@ -123,42 +123,115 @@ def _format_axis(ax: object, fmt: str | None, axis: str = "y") -> None:
 
 
 def _apply_annotations(
-    ax: object, annotations: list[dict] | None, theme: object
+    ax: object,
+    annotations: list[dict] | None,
+    theme: object,
+    x_labels: list[str] | None = None,
 ) -> None:
-    """チャートにアノテーションを追加する."""
+    """チャートにアノテーションを追加する.
+
+    サポートするタイプ:
+    - text / arrow : テキスト＆矢印ラベル
+    - circle       : 点線楕円（注目領域ハイライト）
+    """
     if not annotations:
         return
+
     for ann in annotations:
-        kwargs = {
-            "fontsize": theme.caption_size,
-            "color": theme.text_color,
-            "ha": "center",
-        }
-        if ann.get("arrow"):
-            ax.annotate(
-                ann["text"],
-                xy=(ann["x"], ann["y"]),
-                xytext=(ann["x"], ann["y"] * 1.15 if ann["y"] != 0 else 0.5),
-                arrowprops={"arrowstyle": "->", "color": theme.text_color},
-                **kwargs,
+        ann_type = ann.get("type", "text")
+        ann_color = ann.get("color", theme.text_color)
+
+        # ── 点線楕円（サンプルチャートの「注目サークル」）──────────────────
+        if ann_type == "circle":
+            from matplotlib.patches import Ellipse
+
+            # 中心 x の解決（文字列ラベル → インデックス）
+            cx_raw = ann.get("cx", ann.get("x"))
+            cy = float(ann.get("cy", ann.get("y", 0)))
+
+            if cx_raw is None and x_labels:
+                cx = len(x_labels) * 0.85  # デフォルト: 右端付近
+            elif isinstance(cx_raw, str) and x_labels:
+                xl = list(x_labels)
+                if cx_raw in xl:
+                    cx = float(xl.index(cx_raw))
+                else:
+                    cx = next(
+                        (float(i) for i, l in enumerate(xl) if l.startswith(cx_raw[:7])),
+                        len(xl) * 0.85,
+                    )
+            else:
+                cx = float(cx_raw) if cx_raw is not None else 0.0
+
+            x_span = float(ann.get("x_span", ann.get("width_n", 5)))
+            y_span = float(ann.get("y_span", ann.get("height", 4)))
+            ls_map = {"dashed": "--", "dotted": ":", "solid": "-"}
+            ls = ls_map.get(ann.get("style", "dashed"), "--")
+
+            ellipse = Ellipse(
+                xy=(cx, cy),
+                width=x_span,
+                height=y_span,
+                fill=False,
+                edgecolor=ann_color,
+                linestyle=ls,
+                linewidth=float(ann.get("linewidth", 1.8)),
+                zorder=10,
             )
+            ax.add_patch(ellipse)
+
+        # ── 矢印アノテーション ─────────────────────────────────────────────
+        elif ann_type == "arrow" or ann.get("arrow"):
+            x_from = ann.get("x_from", ann.get("x_text", ann.get("x")))
+            y_from = ann.get("y_from", ann.get("y_text", ann.get("y")))
+            x_to = ann.get("x_to", ann.get("x"))
+            y_to = ann.get("y_to", ann.get("y"))
+            ax.annotate(
+                ann.get("text", ""),
+                xy=(x_to, y_to),
+                xytext=(x_from, y_from),
+                fontsize=theme.caption_size,
+                color=ann_color,
+                ha=ann.get("ha", "center"),
+                va=ann.get("va", "center"),
+                arrowprops={
+                    "arrowstyle": "->",
+                    "color": ann_color,
+                    "lw": 1.5,
+                },
+            )
+
+        # ── テキストラベル ─────────────────────────────────────────────────
         else:
-            ax.annotate(ann["text"], xy=(ann["x"], ann["y"]), **kwargs)
+            ax.annotate(
+                ann.get("text", ""),
+                xy=(ann["x"], ann["y"]),
+                fontsize=float(ann.get("fontsize", theme.caption_size)),
+                color=ann_color,
+                ha=ann.get("ha", "center"),
+                va=ann.get("va", "center"),
+                fontweight=ann.get("fontweight", "normal"),
+            )
 
 
 def _add_caption(fig: object, caption: str | None, theme: object) -> None:
-    """図の下部にキャプション（出典等）を追加する."""
+    """図の下部にキャプション（出典等）を追加する.
+
+    jp_analysis テーマでは左揃え（「出所：〜」スタイル）。
+    """
     if not caption:
         return
+    # jp_analysis: 左揃え・太字なし・サンプルチャート風
+    is_jp = getattr(theme, "name", "") == "jp_analysis"
     fig.text(
-        0.5,
+        0.02 if is_jp else 0.5,
         0.01,
         caption,
-        ha="center",
+        ha="left" if is_jp else "center",
         va="bottom",
         fontsize=theme.caption_size,
-        color="#888888",
-        style="italic",
+        color=theme.text_color if is_jp else "#888888",
+        style="normal" if is_jp else "italic",
     )
 
 
@@ -166,6 +239,116 @@ def _color_bars_by_value(bars: object, values: list[float], theme: object) -> No
     """値の正負に基づいて棒の色を設定する."""
     for bar, val in zip(bars, values, strict=False):
         bar.set_color(theme.positive_color if val >= 0 else theme.negative_color)
+
+
+def _render_reference_lines(
+    ax: object, ref_lines: list[dict] | None, theme: object
+) -> None:
+    """水平基準線を描画する（FRB目標・価格閾値・ゼロラインなど）.
+
+    Parameters
+    ----------
+    ref_lines : list[dict] | None
+        各要素: {
+            "y": float,
+            "label": str,
+            "color": str,
+            "style": "solid"|"dashed"|"dotted",
+            "linewidth": float,   # デフォルト 1.2
+            "alpha": float,       # デフォルト 0.75
+            "label_side": "right"|"left"  # デフォルト "right"
+        }
+    """
+    if not ref_lines:
+        return
+    for ref in ref_lines:
+        y_val = float(ref["y"])
+        color = ref.get("color", "#AAAAAA")
+        style = ref.get("style", "dashed")
+        linestyle = {"dashed": "--", "dotted": ":", "solid": "-"}.get(style, "--")
+        lw = float(ref.get("linewidth", 1.2))
+        alpha = float(ref.get("alpha", 0.75))
+        label = ref.get("label", "")
+        label_side = ref.get("label_side", "right")
+
+        ax.axhline(
+            y=y_val,
+            color=color,
+            linestyle=linestyle,
+            linewidth=lw,
+            alpha=alpha,
+            zorder=1,
+        )
+        if label:
+            x_pos = 1.01 if label_side == "right" else -0.01
+            ha = "left" if label_side == "right" else "right"
+            ax.text(
+                x_pos,
+                y_val,
+                label,
+                transform=ax.get_yaxis_transform(),
+                fontsize=theme.caption_size,
+                color=color,
+                va="center",
+                ha=ha,
+                clip_on=False,
+            )
+
+
+def _render_event_lines(
+    ax: object,
+    event_lines: list[dict] | None,
+    x_labels: list[str],
+    theme: object,
+) -> None:
+    """垂直イベントラインを描画する（歴史的事件のマーカー）.
+
+    Parameters
+    ----------
+    event_lines : list[dict] | None
+        各要素: {"x": "2022/03", "label": "ウクライナ侵攻", "color": "#D6604D"}
+    x_labels : list[str]
+        x軸ラベルのリスト
+    """
+    if not event_lines:
+        return
+    x_list = list(x_labels)
+    for event in event_lines:
+        key = event.get("x", "")
+        # 完全一致 → 年月前方一致の順で検索
+        idx = None
+        if key in x_list:
+            idx = x_list.index(key)
+        else:
+            for i, xl in enumerate(x_list):
+                if xl.startswith(key[:7]):
+                    idx = i
+                    break
+        if idx is None:
+            continue
+        color = event.get("color", "#AAAAAA")
+        text = event.get("label", "")
+        ax.axvline(
+            x=x_list[idx],
+            color=color,
+            linestyle="--",
+            linewidth=1.0,
+            alpha=0.5,
+            zorder=1,
+        )
+        if text:
+            y_top = ax.get_ylim()[1]
+            ax.annotate(
+                text,
+                xy=(x_list[idx], y_top * 0.97),
+                fontsize=theme.caption_size - 1,
+                color=color,
+                ha="center",
+                va="top",
+                rotation=90,
+                zorder=5,
+                annotation_clip=False,
+            )
 
 
 def _add_bar_labels(
@@ -191,34 +374,120 @@ def _add_bar_labels(
 # ---------------------------------------------------------------------------
 @register_renderer("line")
 def _render_line(ax: object, data: dict, theme: object) -> None:
-    """折れ線グラフを描画する."""
+    """折れ線グラフを描画する.
+
+    シリーズ別オプション（series 要素に追加可能）:
+        linewidth  : float  — 個別の線幅（テーマのデフォルトを上書き）
+        color      : str    — 個別カラー（パレットを上書き）
+        style      : "solid"|"dashed"|"dotted"
+        glow       : bool   — 発光（ハロー）エフェクト
+        marker     : "circle"|"square"|"triangle"|"diamond"|true|false
+        marker_size: float  — マーカーサイズ
+        last_label : bool   — 最終値ラベルを表示
+        last_label_fmt : str — フォーマット文字列（例: "{:.1f}"）
+    """
     x = data["x"]
+    theme_lw = getattr(theme, "line_width", 2.5)
+
+    _MARKER_MAP = {
+        "circle":   "o",
+        "square":   "s",
+        "triangle": "^",
+        "diamond":  "D",
+        "dot":      ".",
+        True:       "o",
+        False:      None,
+        None:       None,
+    }
+    _LS_MAP = {"solid": "-", "dashed": "--", "dotted": ":"}
+
+    n_series = len(data.get("series", []))
+    # 複数シリーズの場合はデフォルト透過率 0.7、単一は 1.0
+    default_alpha = 0.7 if n_series > 1 else 1.0
+
     for i, series in enumerate(data.get("series", [])):
-        color = theme.palette[i % len(theme.palette)]
+        color = series.get("color") or theme.palette[i % len(theme.palette)]
+        lw = float(series.get("linewidth", theme_lw))
         style = series.get("style", "solid")
-        linestyle = {"solid": "-", "dashed": "--", "dotted": ":"}
+        ls = _LS_MAP.get(style, "-")
+        values = series["values"]
+        marker_raw = series.get("marker", None)
+        marker = _MARKER_MAP.get(marker_raw, None)
+        ms = float(series.get("marker_size", 5))
+        alpha = float(series.get("alpha", default_alpha))
+
+        # ── グロー（ハロー）エフェクト ─────────────────────────────────────
+        if series.get("glow"):
+            for gw, ga in [(lw * 5, 0.04), (lw * 3, 0.08), (lw * 1.8, 0.12)]:
+                ax.plot(
+                    x, values,
+                    color=color,
+                    linewidth=gw,
+                    alpha=ga,
+                    linestyle=ls,
+                    zorder=2,
+                    solid_capstyle="round",
+                )
+
+        # ── メインライン ───────────────────────────────────────────────────
         ax.plot(
             x,
-            series["values"],
+            values,
             label=series.get("label"),
             color=color,
-            linestyle=linestyle.get(style, "-"),
-            linewidth=2,
-            marker="o" if series.get("marker") else None,
-            markersize=5,
+            linestyle=ls,
+            linewidth=lw,
+            alpha=alpha,
+            marker=marker,
+            markersize=ms,
+            solid_capstyle="round",
+            solid_joinstyle="round",
+            zorder=3,
         )
+
+        # ── 最終値ラベル ───────────────────────────────────────────────────
+        if series.get("last_label") and values:
+            last_v = values[-1]
+            fmt = series.get("last_label_fmt", "{:.1f}")
+            try:
+                label_text = fmt.format(last_v)
+            except (ValueError, KeyError):
+                label_text = str(last_v)
+            ax.annotate(
+                label_text,
+                xy=(x[-1], last_v),
+                xytext=(6, -4),
+                textcoords="offset points",
+                fontsize=theme.tick_size + 1,
+                fontweight="bold",
+                color=color,
+                ha="left",
+                va="center",
+                zorder=6,
+            )
+
     ax.set_xlabel(data.get("x_label", ""))
     ax.set_ylabel(data.get("y_label", ""))
     _format_axis(ax, data.get("y_format"))
+    # 参照ライン（水平）
+    _render_reference_lines(ax, data.get("reference_lines"), theme)
+    # イベントライン（垂直）
+    _render_event_lines(ax, data.get("event_lines"), x, theme)
     if len(data.get("series", [])) > 1:
-        ax.legend()
-    _apply_annotations(ax, data.get("annotations"), theme)
+        ax.legend(
+            loc=data.get("legend_loc", "upper left"),
+            frameon=getattr(theme, "legend_frameon", False),
+            borderaxespad=0.8,
+        )
+    _apply_annotations(ax, data.get("annotations"), theme, x_labels=list(x))
 
 
 @register_renderer("area")
 def _render_area(ax: object, data: dict, theme: object) -> None:
     """面グラフを描画する."""
     x = data["x"]
+    lw = getattr(theme, "line_width", 2.5)
+    area_alpha = getattr(theme, "area_alpha", 0.13)
     stacked = data.get("stacked", False)
     if stacked:
         values_list = [s["values"] for s in data.get("series", [])]
@@ -230,16 +499,29 @@ def _render_area(ax: object, data: dict, theme: object) -> None:
     else:
         for i, series in enumerate(data.get("series", [])):
             color = theme.palette[i % len(theme.palette)]
-            ax.fill_between(x, series["values"], alpha=0.3, color=color)
+            vals = series["values"]
+            # グラジェント効果: 2層の fill_between で深みを出す
+            ax.fill_between(x, vals, alpha=area_alpha * 1.5, color=color, zorder=2)
+            ax.fill_between(x, vals, alpha=area_alpha, color=color, zorder=2)
             ax.plot(
-                x, series["values"], label=series.get("label"), color=color, linewidth=2
+                x,
+                vals,
+                label=series.get("label"),
+                color=color,
+                linewidth=lw,
+                solid_capstyle="round",
+                zorder=3,
             )
     ax.set_xlabel(data.get("x_label", ""))
     ax.set_ylabel(data.get("y_label", ""))
     _format_axis(ax, data.get("y_format"))
+    # 参照ライン（水平）
+    _render_reference_lines(ax, data.get("reference_lines"), theme)
+    # イベントライン（垂直）
+    _render_event_lines(ax, data.get("event_lines"), x, theme)
     if len(data.get("series", [])) > 1:
-        ax.legend()
-    _apply_annotations(ax, data.get("annotations"), theme)
+        ax.legend(frameon=getattr(theme, "legend_frameon", False))
+    _apply_annotations(ax, data.get("annotations"), theme, x_labels=list(x))
 
 
 @register_renderer("bar")
@@ -561,12 +843,73 @@ def generate_chart_image(
     else:
         renderer(ax, data, theme)
 
+    # 水平グリッドのみ（縦グリッド除去）
+    if getattr(theme, "grid_y_only", True):
+        ax.xaxis.grid(False)
+        ax.yaxis.grid(True)
+
+    # スパインカラー調整（jp_analysis は全4辺、note_light は左のみ）
+    spine_c = getattr(theme, "spine_color", "") or theme.grid_color
+    if getattr(theme, "spine_visible", False):
+        for side in ("top", "right", "bottom", "left"):
+            ax.spines[side].set_color(spine_c)
+            ax.spines[side].set_linewidth(1.0)
+    elif getattr(theme, "spine_left_visible", True):
+        ax.spines["left"].set_color(spine_c)
+        ax.spines["left"].set_linewidth(1.0)
+
+    # x軸ティック間引き + 回転 + 再フォーマット
+    # tick_every     : N 本に 1 本だけ表示
+    # tick_label_fmt : "%Y" / "%Y/%m" など strftime 形式でラベルを再フォーマット
+    tick_every = spec.get("tick_every", 1)
+    tick_label_fmt = spec.get("tick_label_fmt")  # e.g. "%Y" or "%Y/%m"
+    rotate_x = spec.get("rotate_x_labels", True)
+
+    x_data = data.get("x", [])
+    # x_tick_fontsize: x軸ラベルのフォントサイズ個別指定（省略時はテーマのtick_size）
+    x_tick_fs = spec.get("x_tick_fontsize", theme.tick_size)
+
+    if tick_every > 1 or tick_label_fmt:
+        # ax.set_xticks/set_xticklabels で直接設定（tight_layout に上書きされない）
+        from datetime import datetime as _dt
+
+        chosen_pos = [i for i in range(len(x_data)) if i % max(tick_every, 1) == 0]
+        chosen_labels = []
+        for i in chosen_pos:
+            raw = x_data[i] if i < len(x_data) else ""
+            if tick_label_fmt:
+                for src_fmt in ("%Y/%m/%d", "%Y/%m", "%Y-%m-%d", "%Y-%m"):
+                    try:
+                        raw = _dt.strptime(raw, src_fmt).strftime(tick_label_fmt)
+                        break
+                    except ValueError:
+                        continue
+            chosen_labels.append(raw)
+
+        is_rotate = rotate_x and chart_type in ("line", "area", "combo")
+        ax.set_xticks(chosen_pos)
+        ax.set_xticklabels(
+            chosen_labels,
+            rotation=45 if is_rotate else 0,
+            ha="right" if is_rotate else "center",
+            fontsize=x_tick_fs,
+        )
+    elif rotate_x and chart_type in ("line", "area", "combo"):
+        fig.canvas.draw()
+        for label in ax.get_xticklabels():
+            label.set_rotation(45)
+            label.set_ha("right")
+            label.set_fontsize(x_tick_fs)
+
     # キャプション
     _add_caption(fig, spec.get("caption"), theme)
 
-    # レイアウト調整
+    # レイアウト調整（右側に参照ラベル用のマージンを確保）
+    right_margin = 0.88 if any(
+        r.get("label") for r in (spec.get("data", {}).get("reference_lines") or [])
+    ) else 1.0
     bottom = 0.05 if spec.get("caption") else 0.12
-    fig.tight_layout(rect=[0, bottom, 1, 0.95 if subtitle else 1.0])
+    fig.tight_layout(rect=[0, bottom, right_margin, 0.95 if subtitle else 1.0])
 
     # 保存
     fig.savefig(
@@ -656,8 +999,8 @@ JSON入力例:
     parser.add_argument("-o", "--output", required=True, help="出力PNGファイルのパス")
     parser.add_argument(
         "--theme",
-        default=DEFAULT_THEME,
-        help=f"テーマ名（デフォルト: {DEFAULT_THEME}）",
+        default=None,
+        help=f"テーマ名（デフォルト: spec内のtheme、なければ {DEFAULT_THEME}）",
     )
     parser.add_argument(
         "--scale",

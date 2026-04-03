@@ -78,9 +78,12 @@ class AiResearchMapper(BaseMapper):
             generate_entity_id,
         )
 
+        from ontology_loader import ENTITY_TYPE_TO_LABEL  # noqa: PLC0415
+
         companies = input_data.get("companies", [])
         entities: list[dict[str, Any]] = []
         sources: list[dict[str, Any]] = []
+        seen_names: set[str] = set()
 
         logger.debug("AiResearchMapper.map: processing %d companies", len(companies))
 
@@ -89,14 +92,23 @@ class AiResearchMapper(BaseMapper):
             ticker = company.get("ticker", "")
             url = company.get("url", "")
 
+            # v4.0: name ベース重複排除（entity_key 廃止）
+            if not company_name or company_name in seen_names:
+                continue
+            seen_names.add(company_name)
+
+            # entity_type → Neo4j ラベル
+            neo4j_label = ENTITY_TYPE_TO_LABEL.get("company", "Company")
+
             # Create entity for the company
             entities.append(
                 {
                     "entity_id": generate_entity_id(company_name, "company"),
                     "name": company_name,
                     "entity_type": "company",
+                    "neo4j_label": neo4j_label,
                     "ticker": ticker,
-                    "entity_key": f"{company_name}::company",
+                    # v4.0: entity_key フィールドは生成しない
                 }
             )
 

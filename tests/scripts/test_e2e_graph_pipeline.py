@@ -307,12 +307,13 @@ class TestGraphQueueFormatCompliance:
         assert not missing, f"Missing keys for {command}: {missing}"
 
     @freeze_time(FROZEN_TIME)
-    def test_正常系_schema_versionが2_0(self, tmp_path: Path) -> None:
+    def test_正常系_schema_versionがresearch_4_0(self, tmp_path: Path) -> None:
+        """v4.0: schema_version は "research-4.0" であること。"""
         output_file = _generate_queue_file(
             tmp_path, "finance-news-workflow", _realistic_news_batch()
         )
         data = _load_queue_file(output_file)
-        assert data["schema_version"] == "3.0"
+        assert data["schema_version"] == "research-4.0"
 
     @freeze_time(FROZEN_TIME)
     def test_正常系_queue_idがgqプレフィックスで始まる(self, tmp_path: Path) -> None:
@@ -551,7 +552,7 @@ class TestMultiCommandPipeline:
         for command, data in results.items():
             missing = GRAPH_QUEUE_REQUIRED_KEYS - set(data.keys())
             assert not missing, f"{command}: missing keys {missing}"
-            assert data["schema_version"] == "3.0"
+            assert data["schema_version"] == "research-4.0"  # v4.0 schema
             assert data["command_source"] == command
 
     @freeze_time(FROZEN_TIME)

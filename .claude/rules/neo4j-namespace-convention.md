@@ -11,7 +11,7 @@ Memory MCP の `create_entities` 呼び出し時、`entityType` / `type` は必�
 
 | 名前空間 | ラベル | 用途 |
 |---------|--------|------|
-| kg_v2 | Source, Author, Chunk, Fact, Claim, Entity, FinancialDataPoint, FiscalPeriod, Topic, Insight | KG v2 スキーマ |
+| kg_v3 | Source, Author, Chunk, Fact, Claim, FinancialDataPoint, FiscalPeriod, Topic, Insight,<br>Company, Technology, Organization, Person, MarketIndex, Indicator, Instrument, Commodity, Country, Concept, Regulation, Broker, Product | KG v3 スキーマ（Entity ラベル廃止・個別ラベル化済み） |
 | conversation | ConversationSession, ConversationTopic, Project | 会話履歴 |
 | memory | Memory (root) + サブラベル | MCP Memory |
 | archived | Archived | アーカイブ済みレガシーノード |
@@ -42,11 +42,15 @@ Memory MCP の `create_entities` 呼び出し時、`entityType` / `type` は必�
 
 ## クエリガイドライン
 
-### KG v2 専用クエリ（Memory を除外）
+### KG v3 専用クエリ（個別エンティティラベルを使用）
 
 ```cypher
-MATCH (n:Entity)
-WHERE NOT 'Memory' IN labels(n)
+// Entity ラベルは廃止。個別ラベルで検索すること
+MATCH (n)
+WHERE (n:Company OR n:Organization OR n:Person OR n:Technology
+    OR n:MarketIndex OR n:Indicator OR n:Instrument OR n:Commodity
+    OR n:Country OR n:Concept OR n:Regulation OR n:Broker OR n:Product)
+  AND NOT 'Memory' IN labels(n)
 RETURN n
 ```
 

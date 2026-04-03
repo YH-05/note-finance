@@ -46,15 +46,15 @@ neo4j-lifecycle Phase D で使用する品質検証クエリテンプレート�
 --   {{CONTENT_TO_CONCEPT_REL}} を relation_types から取得
 --   {{CONCEPT_LABEL}} を "Concept" or "Topic" に置換
 --
--- --- creator v2 参考例 ---
+-- --- creator v2 参考例 (creator-neo4j 固有: RELATES_TO → Concept) ---
 -- MATCH (n) WHERE (n:Fact OR n:Tip OR n:Story)
--- AND NOT (n)-[:ABOUT]->(:Concept)
+-- AND NOT (n)-[:RELATES_TO]->(:Concept)
 -- RETURN labels(n)[0] AS label, count(n) AS orphan_count
 --
--- --- research v2 参考例 ---
+-- --- research v4 参考例 ---
 -- MATCH (n) WHERE (n:Fact OR n:Claim)
 -- AND NOT 'Memory' IN labels(n)
--- AND NOT (n)-[:RELATES_TO]->(:Entity)
+-- AND NOT (n)-[:RELATES_TO]->(:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 -- RETURN labels(n)[0] AS label, count(n) AS orphan_count
 -- ================================================================
 
@@ -136,17 +136,16 @@ RETURN c.name AS name, count(*) AS cnt
 -- Phase D 埋め込み手順:
 --   {{ENTITY_TYPES}} を ontology.yaml > entity_types[].key のリストに置換
 --
--- --- creator v2 参考例 ---
--- MATCH (e:Entity)
--- WHERE NOT e.entity_type IN ['platform', 'company', 'person', 'organization']
--- RETURN e.entity_type AS invalid_type, count(e) AS cnt
+-- --- creator v2 参考例 (creator-neo4j 固有: Entity ラベルを維持) ---
+-- MATCH (e:Company|Technology|Organization|Person)
+-- WHERE NOT labels(e)[0] IN ['Platform', 'Company', 'Person', 'Organization']
+-- RETURN labels(e)[0] AS invalid_label, count(e) AS cnt
 --
--- --- research v2 参考例 ---
--- MATCH (e:Entity)
+-- --- research v4 参考例 (v4.0: entity_type 廃止 → ラベルで判定) ---
+-- MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 -- WHERE NOT 'Memory' IN labels(e)
--- AND NOT e.entity_type IN ['company', 'index', 'commodity', 'country',
---   'organization', 'person', 'sector', 'regulation']
--- RETURN e.entity_type AS invalid_type, count(e) AS cnt
+-- RETURN labels(e)[0] AS label, count(e) AS cnt
+-- ORDER BY cnt DESC
 -- ================================================================
 
 MATCH (e:{{ENTITY_LABEL}})
@@ -191,8 +190,8 @@ LIMIT 20
 -- APOC 文字列類似度による重複候補検出。
 -- APOC が利用可能な場合のみ実行。
 --
--- --- creator v2 参考例 ---
--- MATCH (e1:Entity), (e2:Entity)
+-- --- 汎用参考例 (v4.0: 個別ラベルで指定) ---
+-- MATCH (e1:Company|Organization|Person), (e2:Company|Organization|Person)
 -- WHERE e1 <> e2
 -- AND apoc.text.jaroWinklerDistance(e1.name, e2.name) > 0.85
 -- RETURN e1.name, e2.name, apoc.text.jaroWinklerDistance(e1.name, e2.name) AS similarity
@@ -262,16 +261,16 @@ LIMIT 20
 -- ================================================================
 -- どのコンテンツからも参照されていない Entity を検出。
 --
--- --- creator v2 参考例 ---
--- MATCH (e:Entity)
--- WHERE NOT (e)<-[:MENTIONS]-() AND NOT (e)-[:SERVES_AS]->()
--- RETURN e.name, e.entity_type
+-- --- creator v2 参考例 (creator-neo4j 固有: Entity ラベルを維持) ---
+-- MATCH (e:Company|Technology|Organization|Person)
+-- WHERE NOT (e)<-[:RELATES_TO]-() AND NOT (e)-[:SERVES_AS]->()
+-- RETURN e.name, labels(e)[0] AS label
 --
--- --- research v2 参考例 ---
--- MATCH (e:Entity)
+-- --- research v4 参考例 ---
+-- MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 -- WHERE NOT 'Memory' IN labels(e)
 -- AND NOT (e)<-[:RELATES_TO]-()
--- RETURN e.name, e.entity_type
+-- RETURN e.name, labels(e)[0] AS label
 -- ================================================================
 
 MATCH (e:{{ENTITY_LABEL}})
@@ -316,9 +315,9 @@ LIMIT 50
 -- ================================================================
 -- どのコンテンツからも参照されず、カテゴリにも属さない Concept/Topic を検出。
 --
--- --- creator v2 参考例 ---
+-- --- creator v2 参考例 (creator-neo4j 固有: RELATES_TO で代替) ---
 -- MATCH (c:Concept)
--- WHERE NOT (c)<-[:ABOUT]-() AND NOT (c)-[:IS_A]->()
+-- WHERE NOT (c)<-[:RELATES_TO]-() AND NOT (c)-[:IS_A]->()
 -- RETURN c.name
 --
 -- --- research v2 参考例 ---
@@ -381,9 +380,9 @@ ORDER BY cnt DESC
 --   ConceptCategory が存在する場合は IS_A リレーション経由
 --   Topic category プロパティの場合は直接集計
 --
--- --- creator v2 参考例 ---
+-- --- creator v2 参考例 (creator-neo4j 固有: RELATES_TO で代替) ---
 -- MATCH (cc:ConceptCategory)
--- OPTIONAL MATCH (content)-[:ABOUT]->(concept:Concept)-[:IS_A]->(cc)
+-- OPTIONAL MATCH (content)-[:RELATES_TO]->(concept:Concept)-[:IS_A]->(cc)
 -- WHERE content:Fact OR content:Tip OR content:Story
 -- WITH cc.name AS category, cc.layer AS layer, count(DISTINCT content) AS contents
 -- RETURN category, layer, contents

@@ -1,152 +1,152 @@
 {
-  "b7700c99ccb053dc": {
-    "content_id": "fact-kpi-004",
-    "content_type": "Fact",
-    "content_quality": 0.7,
-    "source_grounding": 0.6,
-    "classification_accuracy": 0.5,
-    "overall": 0.61,
-    "reasoning": "数値具体的だがcareerへの分類が微妙（SNSマーケティング指標）",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "b3e9a8977e27716e": {
-    "content_id": "tip-ba6ccad7",
+  "tip-97a6ae45": {
+    "content_id": "tip-97a6ae45",
     "content_type": "Tip",
-    "content_quality": 0.5,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.4,
-    "overall": 0.53,
-    "reasoning": "デザインエージェンシーの自社PR混入。career分類は微妙",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "91fe82017870d323": {
-    "content_id": "fact-adc49d4e",
-    "content_type": "Fact",
-    "content_quality": 0.8,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.6,
-    "overall": 0.71,
-    "reasoning": "具体的数値あり、beauty-romanceへの分類は許容範囲",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "b5aebf4c4ddd8c4e": {
-    "content_id": "tip-6cfdd4b5",
-    "content_type": "Tip",
-    "content_quality": 0.7,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.2,
-    "overall": 0.55,
-    "reasoning": "⚠️ ポイントカード比較 → spiritual に誤分類。careerまたはself-developmentが正しい",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "7f19fc34e27f6de5": {
-    "content_id": "story-50340897",
-    "content_type": "Story",
-    "content_quality": 0.8,
+    "content_quality": 0.6,
     "source_grounding": 0.7,
     "classification_accuracy": 0.8,
-    "overall": 0.77,
-    "reasoning": "具体的な体験、共感できる。self-development分類適切",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
+    "overall": 0.69,
+    "reasoning": "コンセプトは明確だが「解説するコンテンツ」という抽象的な記述で、実際の手法が含まれていない",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
   },
-  "321c4f830a422acf": {
-    "content_id": "fact-sp-029",
+  "tip-sp-002": {
+    "content_id": "tip-sp-002",
+    "content_type": "Tip",
+    "content_quality": 0.8,
+    "source_grounding": 0.5,
+    "classification_accuracy": 0.9,
+    "overall": 0.74,
+    "reasoning": "具体的な3段階の設計が明確。SourceのタイトルなしでSource Groundingが低下",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "fact-c5552e60": {
+    "content_id": "fact-c5552e60",
+    "content_type": "Fact",
+    "content_quality": 0.9,
+    "source_grounding": 0.9,
+    "classification_accuracy": 0.5,
+    "overall": 0.78,
+    "reasoning": "非常に具体的なデータ。Concept未接続で分類精度低下",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "tip-zucks-001": {
+    "content_id": "tip-zucks-001",
+    "content_type": "Tip",
+    "content_quality": 0.8,
+    "source_grounding": 0.9,
+    "classification_accuracy": 0.7,
+    "overall": 0.80,
+    "reasoning": "官公式ソース付きの具体的な選択判断材料",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "story-1139e35e": {
+    "content_id": "story-1139e35e",
+    "content_type": "Story",
+    "content_quality": 0.7,
+    "source_grounding": 0.7,
+    "classification_accuracy": 0.5,
+    "overall": 0.64,
+    "reasoning": "共感できる状況設定だが結末が不明確。Concept未接続",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "tip-5b260084": {
+    "content_id": "tip-5b260084",
+    "content_type": "Tip",
+    "content_quality": 0.9,
+    "source_grounding": 0.8,
+    "classification_accuracy": 0.8,
+    "overall": 0.84,
+    "reasoning": "2026年の収益化トレンドを具体的に整理。実践的で有用",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "tip-risk-003": {
+    "content_id": "tip-risk-003",
+    "content_type": "Tip",
+    "content_quality": 0.8,
+    "source_grounding": 0.5,
+    "classification_accuracy": 0.8,
+    "overall": 0.71,
+    "reasoning": "具体的で実践的なリスク回避Tip。Sourceタイトルなし",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "fact-br-022": {
+    "content_id": "fact-br-022",
+    "content_type": "Fact",
+    "content_quality": 0.9,
+    "source_grounding": 0.6,
+    "classification_accuracy": 0.8,
+    "overall": 0.78,
+    "reasoning": "具体的な単価データは超実用的。Sourceタイトルなし",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "tip-e4d74280": {
+    "content_id": "tip-e4d74280",
+    "content_type": "Tip",
+    "content_quality": 0.8,
+    "source_grounding": 0.7,
+    "classification_accuracy": 0.9,
+    "overall": 0.80,
+    "reasoning": "具体的な3つの鉄則、行動可能。spiritual/占いジャンル適切",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "fact-cc5083ee": {
+    "content_id": "fact-cc5083ee",
+    "content_type": "Fact",
+    "content_quality": 0.9,
+    "source_grounding": 0.9,
+    "classification_accuracy": 0.9,
+    "overall": 0.90,
+    "reasoning": "科学的根拠・具体的研究結果・実践手法を含む高品質Fact",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "fact-auto-011": {
+    "content_id": "fact-auto-011",
     "content_type": "Fact",
     "content_quality": 0.7,
     "source_grounding": 0.5,
-    "classification_accuracy": 0.8,
-    "overall": 0.67,
-    "reasoning": "占星術ドメインで適切。タイトル欠落が惜しい",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "c4ee0eb67e420b9c": {
-    "content_id": "tip-30ea71c7",
-    "content_type": "Tip",
-    "content_quality": 0.8,
-    "source_grounding": 0.9,
-    "classification_accuracy": 0.8,
-    "overall": 0.83,
-    "reasoning": "doda.jpメディア、具体的で実用的。転職者に直接役立つ高品質",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "c2f6ddb9326f4ea8": {
-    "content_id": "fact-e32a9e7a",
-    "content_type": "Fact",
-    "content_quality": 0.7,
-    "source_grounding": 0.0,
-    "classification_accuracy": 0.8,
-    "overall": 0.52,
-    "reasoning": "⚠️ source完全なし。内容は有用だがソース根拠ゼロ",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "b50af48133b11927": {
-    "content_id": "tip-e861128d",
-    "content_type": "Tip",
-    "content_quality": 0.4,
-    "source_grounding": 0.6,
-    "classification_accuracy": 0.1,
-    "overall": 0.37,
-    "reasoning": "⚠️ ポイントサイト副業 → spiritual に誤分類。「推測される」という曖昧表現も問題",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "a5cd32c3b4ec7185": {
-    "content_id": "fact-ac54c860",
-    "content_type": "Fact",
-    "content_quality": 0.8,
-    "source_grounding": 0.7,
     "classification_accuracy": 0.7,
-    "overall": 0.74,
-    "reasoning": "複数統計で質高い。career分類適切",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
+    "overall": 0.64,
+    "reasoning": "具体的な事例だが検証困難。Sourceタイトルなし",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
   },
-  "57cd22056f3f527b": {
-    "content_id": "fact-b1c3034f",
-    "content_type": "Fact",
-    "content_quality": 0.5,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.1,
-    "overall": 0.44,
-    "reasoning": "⚠️ YouTube法律解説 → beauty-romance に誤分類。careerが正しい",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "843f1387978bcbe5": {
-    "content_id": "tip-e7bb15bd",
+  "tip-9e4836ef": {
+    "content_id": "tip-9e4836ef",
     "content_type": "Tip",
-    "content_quality": 0.5,
-    "source_grounding": 0.0,
-    "classification_accuracy": 0.5,
-    "overall": 0.35,
-    "reasoning": "⚠️ source完全なし。企業向け価格戦略でクリエイター向けとして文脈が薄い",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
+    "content_quality": 0.9,
+    "source_grounding": 1.0,
+    "classification_accuracy": 0.9,
+    "overall": 0.93,
+    "reasoning": "Tony Robbins公式ソース・詳細プロトコル付き・高品質",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
   },
-  "991a456453456688": {
-    "content_id": "tip-2836bc7e",
+  "tip-1904530b": {
+    "content_id": "tip-1904530b",
     "content_type": "Tip",
-    "content_quality": 0.85,
-    "source_grounding": 0.7,
-    "classification_accuracy": 0.8,
-    "overall": 0.79,
-    "reasoning": "具体的ステップ、AI時代の視点含む。high quality",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
-  },
-  "b6e9a19c5b851029": {
-    "content_id": "fact-02bb6504",
-    "content_type": "Fact",
     "content_quality": 0.8,
     "source_grounding": 0.9,
-    "classification_accuracy": 0.6,
-    "overall": 0.77,
-    "reasoning": "QuickBooks公式ソース、優良。ただし米国向けで日本クリエイターDBとして地域ズレ",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
+    "classification_accuracy": 0.9,
+    "overall": 0.86,
+    "reasoning": "James Clear公式・英語テキストだが内容は具体的で有用",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
   },
-  "bf90f6c331a9c7c9": {
-    "content_id": "tip-c2732a63",
-    "content_type": "Tip",
-    "content_quality": 0.4,
+  "fact-br-026": {
+    "content_id": "fact-br-026",
+    "content_type": "Fact",
+    "content_quality": 0.9,
     "source_grounding": 0.6,
     "classification_accuracy": 0.8,
-    "overall": 0.58,
-    "reasoning": "記事のメタ説明に留まり、実際のActionable tipsとして弱い",
-    "evaluated_at": "2026-03-26T07:25:04.721844+00:00"
+    "overall": 0.78,
+    "reasoning": "具体的な比較優位データ。Sourceタイトルなし",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
+  },
+  "story-33ca0811": {
+    "content_id": "story-33ca0811",
+    "content_type": "Story",
+    "content_quality": 0.9,
+    "source_grounding": 0.8,
+    "classification_accuracy": 0.9,
+    "overall": 0.87,
+    "reasoning": "具体的な時系列体験談・読者動機付けに効果的",
+    "evaluated_at": "2026-04-03T00:00:00+00:00"
   }
 }

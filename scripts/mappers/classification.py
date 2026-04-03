@@ -20,6 +20,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from mappers.base import BaseMapper
+from ontology_loader import load_consolidation_mapping
 
 try:
     from utils_core.logging.config import get_logger
@@ -54,66 +55,8 @@ SOURCE_TYPE_NORMALIZATION: dict[str, str] = {
 }
 """Maps source_type values to 12 canonical types for SourceType nodes."""
 
-ENTITY_TYPE_CONSOLIDATION: dict[str, str] = {
-    # company -> company
-    "company": "company",
-    "fintech": "company",
-    "subsidiary": "company",
-    "fintech_holding": "company",
-    "digital_bank": "company",
-    "it_services": "company",
-    # technology -> technology
-    "technology": "technology",
-    "system": "technology",
-    # organization -> organization
-    "organization": "organization",
-    "central_bank": "organization",
-    "government": "organization",
-    "government_agency": "organization",
-    "institution": "organization",
-    "exchange": "organization",
-    # person -> person
-    "person": "person",
-    # index -> index
-    "index": "index",
-    # indicator -> indicator
-    "indicator": "indicator",
-    "metric": "indicator",
-    # instrument -> instrument
-    "instrument": "instrument",
-    "etf": "instrument",
-    "currency": "instrument",
-    "currency_pair": "instrument",
-    "fund": "instrument",
-    "bond": "instrument",
-    "asset": "instrument",
-    # commodity -> commodity
-    "commodity": "commodity",
-    # country -> country
-    "country": "country",
-    "region": "country",
-    # sector -> sector
-    "sector": "sector",
-    "market": "sector",
-    # concept -> concept
-    "concept": "concept",
-    "model": "concept",
-    "method": "concept",
-    "theme": "concept",
-    "article_proposal": "concept",
-    "event": "concept",
-    # regulation -> regulation
-    "regulation": "regulation",
-    # broker -> broker
-    "broker": "broker",
-    # product -> product
-    "product": "product",
-    "dataset": "product",
-    "data_center": "product",
-    # domain -> concept (legacy wealth-scrape type)
-    "domain": "concept",
-}
-"""Maps raw entity_types to 14 canonical types."""
+ENTITY_TYPE_CONSOLIDATION: dict[str, str] = load_consolidation_mapping()
+"""Maps raw entity_types to 14 canonical types. SSoT: ontology_loader._ENTITY_TYPE_CONSOLIDATION."""
 
 ENTITY_TYPE_META: dict[str, str] = {
     "company": "企業",
@@ -617,10 +560,11 @@ def apply_classification_layer(  # noqa: PLR0912, PLR0915
         _add_rel(_make_classification_rel("INGESTED_VIA", source_id, command))
 
     # Entities -> EntityType, Identifier
+    # v4.0: entity_key 廃止。entity_id または name を ref_id として使用
     for entity in mapped.get("entities", []):
         entity_id = entity.get("entity_id", "")
-        entity_key = entity.get("entity_key", "")
-        ref_id = entity_key or entity_id
+        # v4.0: entity_key 廃止。ref_id は entity_id を使用
+        ref_id = entity_id
         if not ref_id:
             continue
 
@@ -710,7 +654,8 @@ def apply_classification_layer(  # noqa: PLR0912, PLR0915
             entity_match = None
             for ent in mapped.get("entities", []):
                 if ent.get("name") == org_name:
-                    entity_match = ent.get("entity_key") or ent.get("entity_id")
+                    # v4.0: entity_key 廃止。entity_id を使用
+                    entity_match = ent.get("entity_id")
                     break
             if entity_match:
                 _add_rel(
@@ -800,16 +745,26 @@ def _strip_flat_classification_props(mapped: dict[str, Any]) -> None:  # noqa: P
 
 
 def get_schema_version() -> str:
-    """Get schema version from YAML SSoT via BaseMapper.
+    """Get schema version from YAML SSoT via ontology_loader.
+
+    v4.0: ontology.yaml の schema_version フィールドを参照。
 
     Returns
     -------
     str
-        Schema version string (e.g. "3.0"). Falls back to "3.0" on error.
+        Schema version string (e.g. "research-4.0"). Falls back to "4.0" on error.
     """
     try:
-        schema = BaseMapper.load_yaml_ssot()
-        return str(schema.get("version", "3.0"))
+        import sys
+        from pathlib import Path
+
+        _scripts_dir = str(Path(__file__).resolve().parent.parent)
+        if _scripts_dir not in sys.path:
+            sys.path.insert(0, _scripts_dir)
+        from ontology_loader import _DEFAULT_ONTOLOGY_PATH, _load_yaml
+
+        data = _load_yaml(_DEFAULT_ONTOLOGY_PATH)
+        return str(data.get("schema_version", "4.0"))
     except Exception as exc:
         logger.warning("Failed to load schema version from YAML: %s", exc)
-        return "3.0"
+        return "4.0"

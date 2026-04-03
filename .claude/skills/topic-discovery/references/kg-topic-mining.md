@@ -17,7 +17,7 @@ status: open の Question はそのまま記事トピックの種になる。
 ```cypher
 MATCH (q:Question)
 WHERE q.status IN ['open', 'investigating']
-OPTIONAL MATCH (q)-[:ASKS_ABOUT]->(e:Entity)
+OPTIONAL MATCH (q)-[:ASKS_ABOUT]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 OPTIONAL MATCH (q)-[:MOTIVATED_BY]->(m)
 RETURN q.content AS question,
        q.question_type AS type,
@@ -60,12 +60,12 @@ LIMIT 10
 Fact/Claim が少ないが、他エンティティとの関連が多いエンティティは「重要だが記事が不足」。
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE NOT 'Memory' IN labels(e)
   AND e.entity_type IN ['company', 'index', 'sector', 'etf', 'central_bank', 'commodity']
 OPTIONAL MATCH (f:Fact)-[:RELATES_TO]->(e)
-OPTIONAL MATCH (c:Claim)-[:ABOUT]->(e)
-OPTIONAL MATCH (e)-[r]-(other:Entity)
+OPTIONAL MATCH (c:Claim)-[:RELATES_TO]->(e)
+OPTIONAL MATCH (e)-[r]-(other:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WITH e,
      count(DISTINCT f) AS fact_count,
      count(DISTINCT c) AS claim_count,
@@ -87,7 +87,7 @@ LIMIT 15
 直近30日でソースが急増しているエンティティはホットトピック。
 
 ```cypher
-MATCH (s:Source)-[:MENTIONS]->(e:Entity)
+MATCH (s:Source)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE s.published_at > datetime() - duration('P30D')
   AND NOT 'Memory' IN labels(e)
 WITH e, count(DISTINCT s) AS recent_source_count
@@ -95,7 +95,7 @@ ORDER BY recent_source_count DESC
 LIMIT 20
 
 // 比較: 全期間のソース数
-MATCH (s2:Source)-[:MENTIONS]->(e)
+MATCH (s2:Source)-[:RELATES_TO]->(e)
 WITH e, recent_source_count, count(DISTINCT s2) AS total_source_count
 WHERE total_source_count > 0
 RETURN e.name AS entity,
@@ -131,7 +131,7 @@ LIMIT 10
 COMPETES_WITH, CAUSES, INFLUENCES 等のリレーションは、複数エンティティを横断する記事テーマを示唆する。
 
 ```cypher
-MATCH (e1:Entity)-[r]->(e2:Entity)
+MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)-[r]->(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE type(r) IN ['COMPETES_WITH', 'CAUSES', 'INFLUENCES', 'CUSTOMER_OF', 'PARTNERS_WITH']
   AND NOT 'Memory' IN labels(e1) AND NOT 'Memory' IN labels(e2)
 WITH type(r) AS rel_type, e1, e2,
@@ -150,7 +150,7 @@ LIMIT 30
 同一 Entity に対して bullish/bearish の Claim が拮抗している場合、論争テーマとして記事価値が高い。
 
 ```cypher
-MATCH (c:Claim)-[:ABOUT]->(e:Entity)
+MATCH (c:Claim)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE c.sentiment IN ['bullish', 'bearish']
   AND NOT 'Memory' IN labels(e)
 WITH e,

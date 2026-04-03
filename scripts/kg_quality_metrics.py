@@ -192,37 +192,24 @@ ORPHAN_ENTITY_WARN: int = 50
 ORPHAN_ENTITY_CRIT: int = 200
 """CRITICAL: Orphan Entity が 200 件以上で重大アラート。"""
 
-ALLOWED_ENTITY_TYPES: frozenset[str] = frozenset(
+ALLOWED_ENTITY_LABELS: frozenset[str] = frozenset(
     {
-        "company",
-        "index",
-        "sector",
-        "indicator",
-        "currency",
-        "commodity",
-        "person",
-        "organization",
-        "country",
-        "instrument",
-        "technology",
-        "central_bank",
-        "broker",
-        "etf",
-        "bond",
-        "currency_pair",
-        "exchange",
-        "government",
-        "region",
-        "subsidiary",
-        "product",
-        "macro",
-        "fintech",
-        "theme",
-        "concept",
-        "regulation",
+        "Company",
+        "Technology",
+        "Organization",
+        "Person",
+        "MarketIndex",
+        "Indicator",
+        "Instrument",
+        "Commodity",
+        "Broker",
+        "Product",
+        "Concept",
+        "Country",
+        "Regulation",
     }
 )
-"""Entity.entity_type の許可リスト。ontology.yaml v3.0 準拠。"""
+"""個別エンティティラベルの許可リスト（NODE KEY(name) 制約付き）。"""
 
 ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
     {
@@ -234,7 +221,6 @@ ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
         "SUPPORTED_BY",
         "CONTRADICTS",
         "RELATES_TO",
-        "ABOUT",
         "AUTHORED_BY",
         "TAGGED",
         "FOR_PERIOD",
@@ -269,13 +255,30 @@ ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
         "LED_BY",
         "SPUN_OFF_FROM",
         # Source provenance
-        "MENTIONS",
         "SOURCED_FROM",
         "BELONGS_TO",
         "FOR_METRIC",
+        # Classification / enum nodes
+        "IS_FACT_TYPE",
+        "IS_CLAIM_TYPE",
+        "IS_SOURCE_TYPE",
+        "IS_DATAPOINT_TYPE",
+        "IS_AUTHOR_TYPE",
+        "IS_CATEGORY",
+        "RATED_AS",
+        "IN_UNIT",
+        "IN_LANGUAGE",
+        "INGESTED_VIA",
+        "FROM_DOMAIN",
+        # Entity attributes
+        "AFFILIATED_WITH",
+        "COAUTHORED_WITH",
+        "HAS_IDENTIFIER",
+        "IN_INDUSTRY",
+        "IN_PARENT_SECTOR",
     }
 )
-"""リレーションタイプの許可リスト。ontology.yaml v3.0 準拠。"""
+"""リレーションタイプの許可リスト。新スキーマ（Entity廃止・個別ラベル化）準拠。"""
 
 # 代名詞パターン（英語・日本語）
 _ENGLISH_PRONOUNS: frozenset[str] = frozenset(
@@ -363,12 +366,11 @@ _DEFAULT_NODES_DEF: dict[str, Any] = {
             "created_at": {"type": "datetime", "required": True},
         },
     },
-    "Entity": {
-        "description": "Named entity",
+    "Company": {
+        "description": "Company entity (NODE KEY: name)",
         "properties": {
-            "entity_key": {"type": "string", "unique": True, "required": True},
-            "name": {"type": "string", "required": True},
-            "entity_type": {"type": "string", "required": True},
+            "name": {"type": "string", "unique": True, "required": True},
+            "created_at": {"type": "datetime", "required": True},
         },
     },
     "FinancialDataPoint": {
@@ -430,10 +432,9 @@ _DEFAULT_RELATIONSHIPS_DEF: dict[str, Any] = {
     "EXTRACTED_FROM": {"from": "Fact", "to": "Source"},
     "STATES_FACT": {"from": "Source", "to": "Fact"},
     "MAKES_CLAIM": {"from": "Source", "to": "Claim"},
-    "RELATES_TO": {"from": "Fact", "to": "Entity"},
-    "ABOUT": {"from": "Claim", "to": "Entity"},
-    "TAGGED": {"from": "Source", "to": "Topic"},
-    "HAS_DATAPOINT": {"from": "Entity", "to": "FinancialDataPoint"},
+    "RELATES_TO": {"from": "Fact|Claim|Source|FinancialDataPoint", "to": "Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Broker|Product|Concept|Country|Regulation"},
+    "TAGGED": {"from": "Source|Fact|Claim", "to": "Topic"},
+    "HAS_DATAPOINT": {"from": "Source", "to": "FinancialDataPoint"},
     "FOR_PERIOD": {"from": "FinancialDataPoint", "to": "FiscalPeriod"},
     "AUTHORED_BY": {"from": "Source", "to": "Author"},
     "SUPPORTED_BY": {"from": "Claim", "to": "Fact"},
@@ -639,10 +640,11 @@ def measure_structural(session: Any) -> CategoryResult:
     orphan_count: int = orphan_result.single()["orphan_count"]
     orphan_ratio = orphan_count / node_count if node_count > 0 else 0.0
 
-    # Orphan Entity 数（Entity ラベルかつリレーション 0 のノード）
+    # Orphan Entity 数（個別ラベルかつリレーション 0 のノード）
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     orphan_entity_query = """
-    MATCH (e:Entity)
-    WHERE NOT 'Memory' IN labels(e) AND NOT (e)--()
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE NOT (e)--()
     RETURN count(e) AS orphan_entity_count
     """
     orphan_entity_result = session.run(orphan_entity_query)
@@ -860,7 +862,7 @@ def measure_completeness(session: Any, schema: dict[str, Any]) -> CategoryResult
 def measure_consistency(session: Any) -> CategoryResult:
     """一貫性指標を計測する。
 
-    型一貫性（Entity.entity_type の許可リスト遵守率）、重複率、
+    ラベル一貫性（個別ラベルの許可リスト遵守率）、重複率、
     制約違反数の3指標を返す。
 
     Parameters
@@ -873,25 +875,23 @@ def measure_consistency(session: Any) -> CategoryResult:
     CategoryResult
         ``"consistency"`` カテゴリの計測結果。
     """
-    # 1. 型一貫性: Entity.entity_type の許可リスト内率
+    # 1. ラベル一貫性: 個別ラベルが許可リスト内かチェック
     type_query = """
-    MATCH (n:Entity)
-    WHERE NOT 'Memory' IN labels(n)
-    RETURN n.entity_type AS entity_type, count(n) AS count
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    RETURN labels(n)[0] AS label, count(n) AS count
     """
     type_result = session.run(type_query)
     type_records = type_result.data()
 
     total_entities = sum(r["count"] for r in type_records)
     valid_entities = sum(
-        r["count"] for r in type_records if r["entity_type"] in ALLOWED_ENTITY_TYPES
+        r["count"] for r in type_records if r["label"] in ALLOWED_ENTITY_LABELS
     )
     type_consistency = valid_entities / total_entities if total_entities > 0 else 1.0
 
     # 2. 重複率: Entity.name の重複数
     duplicate_query = """
-    MATCH (n:Entity)
-    WHERE NOT 'Memory' IN labels(n)
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
     WITH n.name AS name, count(n) AS cnt
     RETURN sum(CASE WHEN cnt > 1 THEN cnt ELSE 0 END) AS duplicate_count,
            count(name) AS total
@@ -904,11 +904,10 @@ def measure_consistency(session: Any) -> CategoryResult:
     # 重複率は低いほど良い → 1 - duplicate_rate で一貫性指標に変換
     dedup_score = 1.0 - duplicate_rate
 
-    # 3. 制約違反: entity_id が null の Entity 数
+    # 3. 制約違反: NODE KEY (name) が null のノード数
     constraint_query = """
-    MATCH (n:Entity)
-    WHERE NOT 'Memory' IN labels(n)
-    AND n.entity_id IS NULL
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE n.name IS NULL
     RETURN count(n) AS violation_count
     """
     constraint_result = session.run(constraint_query)
@@ -1019,7 +1018,6 @@ def measure_timeliness(session: Any) -> CategoryResult:
     )
 
     # 2. 更新頻度: 過去30日に追加された Source 数（上記ループで計算済み）
-    frequency_query = ""  # computed in loop above
 
     # 3. 時間カバレッジ: fetched_at の最古/最新
     coverage_query = """
@@ -1109,13 +1107,11 @@ def measure_finance_specific(session: Any) -> CategoryResult:
     sector_count: int = sector_result.single()["sector_count"]
     sector_coverage = sector_count / GICS_SECTOR_COUNT
 
-    # 2. メトリクス/社: company Entity あたりの平均 FinancialDataPoint 数
+    # 2. メトリクス/社: Company ノードあたりの平均 FinancialDataPoint 数
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル :Company に更新
     metrics_per_query = """
-    MATCH (e:Entity)
-    WHERE NOT 'Memory' IN labels(e)
-    AND e.entity_type = 'company'
+    MATCH (e:Company)
     OPTIONAL MATCH (e)<-[:RELATES_TO]-(dp:FinancialDataPoint)
-    WHERE NOT 'Memory' IN labels(dp)
     WITH e, count(dp) AS dp_count
     RETURN avg(dp_count) AS avg_metrics
     """
@@ -1123,20 +1119,23 @@ def measure_finance_specific(session: Any) -> CategoryResult:
     avg_metrics: float = metrics_per_result.single()["avg_metrics"] or 0.0
 
     # 3. Entity-Entity 関係密度
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     ee_query = """
-    MATCH (e1:Entity)-[r]-(e2:Entity)
-    WHERE NOT 'Memory' IN labels(e1)
-    AND NOT 'Memory' IN labels(e2)
-    AND elementId(e1) < elementId(e2)
+    MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)-[r]-(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE elementId(e1) < elementId(e2)
     WITH count(r) AS ee_rel_count
-    MATCH (e:Entity)
-    WHERE NOT 'Memory' IN labels(e)
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
     RETURN ee_rel_count, count(e) AS entity_count
     """
     ee_result = session.run(ee_query)
     ee_record = ee_result.single()
-    ee_rel_count: int = ee_record["ee_rel_count"]
-    entity_count: int = ee_record["entity_count"]
+    if ee_record is not None:
+        ee_rel_count: int = ee_record["ee_rel_count"]
+        entity_count: int = ee_record["entity_count"]
+    else:
+        logger.warning("Entity-Entity relationship query returned no results")
+        ee_rel_count = 0
+        entity_count = 0
     ee_density = ee_rel_count / entity_count if entity_count > 0 else 0.0
 
     metrics = [
@@ -1522,12 +1521,12 @@ def check_entity_length(entities: list[str]) -> CheckRuleResult:
 
 
 def check_schema_compliance(entity_types: list[str]) -> CheckRuleResult:
-    """entity_type の許可リスト遵守を検証する。
+    """エンティティラベルの許可リスト遵守を検証する。
 
     Parameters
     ----------
     entity_types : list[str]
-        検証対象の entity_type リスト。
+        検証対象のラベル名リスト。
 
     Returns
     -------
@@ -1540,7 +1539,7 @@ def check_schema_compliance(entity_types: list[str]) -> CheckRuleResult:
         )
 
     violations: list[str] = [
-        et for et in entity_types if et not in ALLOWED_ENTITY_TYPES
+        et for et in entity_types if et not in ALLOWED_ENTITY_LABELS
     ]
     return _compute_check_result("schema_compliance", len(entity_types), violations)
 
@@ -2421,15 +2420,16 @@ def _collect_check_rules(session: Any) -> list[CheckRuleResult]:
     """
     texts = [r["text"] for r in session.run(text_query).data()]
 
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     entity_query = """
-    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
-    AND n.name IS NOT NULL RETURN n.name AS name
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE n.name IS NOT NULL RETURN n.name AS name
     """
     entity_names = [r["name"] for r in session.run(entity_query).data()]
 
     et_query = """
-    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
-    AND n.entity_type IS NOT NULL RETURN n.entity_type AS et
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    RETURN labels(n)[0] AS et
     """
     entity_types = [r["et"] for r in session.run(et_query).data()]
 
@@ -2450,9 +2450,8 @@ def _collect_check_rules(session: Any) -> list[CheckRuleResult]:
 def _collect_entropy(session: Any) -> dict[str, float]:
     """Entropy / Semantic Diversity 用データを Neo4j から取得する。"""
     et_dist_query = """
-    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
-    AND n.entity_type IS NOT NULL
-    RETURN n.entity_type AS et, count(n) AS cnt
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    RETURN labels(n)[0] AS et, count(n) AS cnt
     """
     entity_type_counts = {r["et"]: r["cnt"] for r in session.run(et_dist_query).data()}
 

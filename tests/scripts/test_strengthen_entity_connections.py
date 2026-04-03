@@ -224,10 +224,10 @@ class TestCountIsolatedEntities:
         count = count_isolated_entities(mock_session)
 
         assert count == 97
-        # Memory除外フィルタが含まれていることを確認
+        # Wave7 (Issue #312): 個別ラベル union を使用していることを確認
         query_arg = mock_session.run.call_args[0][0]
-        assert "Memory" in query_arg
-        assert "NOT" in query_arg
+        assert "Company" in query_arg
+        assert "Person" in query_arg
 
     def test_正常系_孤立Entity0件(self, mock_session: MagicMock) -> None:
         mock_result = MagicMock()
@@ -237,7 +237,7 @@ class TestCountIsolatedEntities:
         count = count_isolated_entities(mock_session)
         assert count == 0
 
-    def test_正常系_CypherにMemory除外フィルタが含まれる(
+    def test_正常系_Cypherに個別ラベルunionが含まれる(
         self, mock_session: MagicMock
     ) -> None:
         mock_result = MagicMock()
@@ -246,8 +246,9 @@ class TestCountIsolatedEntities:
 
         count_isolated_entities(mock_session)
 
+        # Wave7 (Issue #312): 個別ラベル union を使用していることを確認
         query = mock_session.run.call_args[0][0]
-        assert "NOT 'Memory' IN labels" in query
+        assert "Company|Technology|Organization|Person" in query
 
 
 # ---------------------------------------------------------------------------
@@ -264,8 +265,8 @@ class TestLowerCoMentionThreshold:
         mock_candidates.__iter__ = MagicMock(
             return_value=iter(
                 [
-                    {"e1_key": "Apple", "e2_key": "Microsoft", "shared": 1},
-                    {"e1_key": "Google", "e2_key": "Meta", "shared": 1},
+                    {"e1_id": "elem-1", "e2_id": "elem-2", "shared": 1},
+                    {"e1_id": "elem-3", "e2_id": "elem-4", "shared": 1},
                 ]
             )
         )
@@ -292,7 +293,7 @@ class TestLowerCoMentionThreshold:
         mock_candidates.__iter__ = MagicMock(
             return_value=iter(
                 [
-                    {"e1_key": "Apple", "e2_key": "Microsoft", "shared": 1},
+                    {"e1_id": "elem-1", "e2_id": "elem-2", "shared": 1},
                 ]
             )
         )
@@ -309,9 +310,9 @@ class TestLowerCoMentionThreshold:
         mock_candidates.__iter__ = MagicMock(
             return_value=iter(
                 [
-                    {"e1_key": "A", "e2_key": "B", "shared": 1},
-                    {"e1_key": "C", "e2_key": "D", "shared": 1},
-                    {"e1_key": "E", "e2_key": "F", "shared": 1},
+                    {"e1_id": "elem-1", "e2_id": "elem-2", "shared": 1},
+                    {"e1_id": "elem-3", "e2_id": "elem-4", "shared": 1},
+                    {"e1_id": "elem-5", "e2_id": "elem-6", "shared": 1},
                 ]
             )
         )
@@ -330,8 +331,10 @@ class TestLowerCoMentionThreshold:
 
         lower_co_mention_threshold(mock_session, dry_run=True, limit=None)
 
+        # Wave7 (Issue #312): 個別ラベル union と RELATES_TO を使用していることを確認
         query = mock_session.run.call_args[0][0]
-        assert "Memory" in query
+        assert "Company|Technology|Organization|Person" in query
+        assert "RELATES_TO" in query
 
 
 # ---------------------------------------------------------------------------
@@ -345,7 +348,7 @@ class TestStrengthenTopicLinks:
         mock_candidates.__iter__ = MagicMock(
             return_value=iter(
                 [
-                    {"e1_key": "Tesla", "e2_key": "Nvidia", "shared_topics": 2},
+                    {"e1_id": "elem-1", "e2_id": "elem-2", "shared_topics": 2},
                 ]
             )
         )
@@ -367,7 +370,7 @@ class TestStrengthenTopicLinks:
         mock_candidates.__iter__ = MagicMock(
             return_value=iter(
                 [
-                    {"e1_key": "Tesla", "e2_key": "Nvidia", "shared_topics": 2},
+                    {"e1_id": "elem-1", "e2_id": "elem-2", "shared_topics": 2},
                 ]
             )
         )
@@ -378,7 +381,7 @@ class TestStrengthenTopicLinks:
         assert stats.dry_run is True
         assert stats.relationships_created == 0
 
-    def test_正常系_CypherにMemory除外フィルタが含まれる(
+    def test_正常系_Cypherに個別ラベルunionが含まれる(
         self, mock_session: MagicMock
     ) -> None:
         mock_candidates = MagicMock()
@@ -387,8 +390,10 @@ class TestStrengthenTopicLinks:
 
         strengthen_topic_links(mock_session, dry_run=True, limit=None)
 
+        # Wave7 (Issue #312): 個別ラベル union を使用していることを確認
         query = mock_session.run.call_args[0][0]
-        assert "Memory" in query
+        assert "Company|Technology|Organization|Person" in query
+        assert "TAGGED" in query
 
 
 # ---------------------------------------------------------------------------

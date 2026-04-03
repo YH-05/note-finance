@@ -345,7 +345,7 @@ WHERE src.collected_at >= cutoff
 WITH skill_name, cmd_src, run_count, count(src) AS source_count
 
 // Entity ノード（Source 経由）
-OPTIONAL MATCH (src2:Source {command_source: cmd_src})<-[:ABOUT]-(:Claim)-[:ABOUT]->(e:Entity)
+OPTIONAL MATCH (src2:Source {command_source: cmd_src})-[:MAKES_CLAIM]->(:Claim)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WITH skill_name, cmd_src, run_count, source_count,
      count(DISTINCT e) AS entity_count
 

@@ -1,182 +1,182 @@
 {
-  "c807f92e1c552c0a": {
-    "fact_id": "asean-submarine-cables-2025",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.3,
-    "temporal_validity": 0.75,
-    "overall": 0.655,
-    "reasoning": "Specific technical facts with concrete numbers and dates. No URL source linked (source_url=null), only source title available. Recent/future-oriented data from 2025.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  "bae6aa81796c2d44": {
+    "fact_id": "360a0435afa53e71774b5ed55f81f504",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.7,
+    "overall": 0.74,
+    "reasoning": "正確な税務知識。ソースURL有、fetched_at欠落。税制は変動しうるが一般原則として有効",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   },
-  "cc264219811a6463": {
-    "fact_id": "6417db253d9bfa5a523069ec9b9d094a",
+  "56f991aefd2223b2": {
+    "fact_id": "5ca4130845e66da6b9ba2ca1ff4d141c",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.2,
+    "overall": 0.59,
+    "reasoning": "日次FXデータ。記録時点では正確だが完全に陳腐化",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "6a2d0583435273d6": {
+    "fact_id": "db95fc68ed7199f7fdb6cf7083258735",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.6,
+    "overall": 0.71,
+    "reasoning": "空き家特例の条件として正確。税制改正で変更される可能性あり",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "77dc8173ba7b9df4": {
+    "fact_id": "79af346c141880444e4998968be0db67",
     "factual_correctness": 0.9,
     "source_grounding": 0.7,
-    "temporal_validity": 0.7,
-    "overall": 0.78,
-    "reasoning": "Concrete financial metrics. Source title references Nomura Indonesia equity strategy report, but URL is an internal identifier not a public URL. 2026 forward estimate.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+    "temporal_validity": 0.2,
+    "overall": 0.63,
+    "reasoning": "非常に具体的な日次終値データ。記録としては正確だが時間的価値は低い",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   },
-  "51daf022d08c70e0": {
-    "fact_id": "4886ef66bc6d3b54c39651472d4b7be1",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.75,
-    "overall": 0.565,
-    "reasoning": "Specific financial data and product roadmap. Zero source grounding - no source_title, no source_url, no fetched_at.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  "d1474f484a2acb9f": {
+    "fact_id": "c9e16109204dbc278627bca13525aea6",
+    "factual_correctness": 0.3,
+    "source_grounding": 0.1,
+    "temporal_validity": 0.3,
+    "overall": 0.24,
+    "reasoning": "HTMLノイズ。コンテンツが適切に抽出されておらず、ソース情報も欠落。品質改善の優先対象",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   },
-  "e7c28577c9c3d53f": {
-    "fact_id": "d662b9b237ae107114f90fb1e410fad8",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.7,
-    "temporal_validity": 0.7,
-    "overall": 0.76,
-    "reasoning": "Concrete macro data with multiple specific figures. Has Morningstar URL. Time-sensitive - market conditions as of early 2026.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "63bba1e27f9a4409": {
-    "fact_id": "63bba1e27f9a440929fac9011ab774e2",
-    "factual_correctness": 0.65,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.65,
-    "overall": 0.725,
-    "reasoning": "Forward-looking claim about future Fed policy. CNBC URL present with good source grounding. Temporal validity limited as policy situation evolves.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "e03edd85ddde8abf": {
-    "fact_id": "e03edd85ddde8abf805c37b1996e9bf9",
-    "factual_correctness": 0.05,
-    "source_grounding": 0.7,
-    "temporal_validity": 0.5,
-    "overall": 0.38,
-    "reasoning": "RSS/HN metadata noise - HTML markup with URLs and engagement counts. Not a meaningful factual claim. Source URL present but content is essentially noise data.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "faf5428b1b1f82e4": {
-    "fact_id": "faf5428b1b1f82e47112f4a1342084c1",
-    "factual_correctness": 0.7,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.75,
-    "overall": 0.745,
-    "reasoning": "Accurate Japanese tax guidance. note.com URL provides good grounding. General tax principle with lasting validity.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "a6237cd52c5d1eb7": {
-    "fact_id": "a6237cd52c5d1eb7",
+  "0f6d10460b2954c6": {
+    "fact_id": "fact-0f6d10460b2954c6",
     "factual_correctness": 0.9,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.7,
-    "overall": 0.84,
-    "reasoning": "Factual news event. CNBC URL with full grounding. Jan 2026 event with ongoing regulatory implications.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "da2eb3720f89de1e": {
-    "fact_id": "114e8dfd824ad5cadc06ba5c37b9b4d2",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.7,
-    "temporal_validity": 0.8,
-    "overall": 0.79,
-    "reasoning": "Specific ML result from academic paper. AI-gakkai URL for source grounding. Methodological finding with lasting academic value.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "3f05862522b23c97": {
-    "fact_id": "6f7eedf2a265991435b96e068ccf3f35",
-    "factual_correctness": 0.7,
     "source_grounding": 0.8,
-    "temporal_validity": 0.75,
-    "overall": 0.745,
-    "reasoning": "Specific legal/regulatory fact. note.com URL present. Japanese corporate law discussion with ongoing relevance.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+    "temporal_validity": 0.7,
+    "overall": 0.81,
+    "reasoning": "具体的なKPIデータ。Nomuraリサーチソース。エクイティリサーチとして高品質",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   },
-  "1c50cd75057b829a": {
-    "fact_id": "1c50cd75057b829a",
+  "0e536ab8a9f5b81b": {
+    "fact_id": "0e536ab8a9f5b81baadfa63360684063",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.1,
+    "overall": 0.48,
+    "reasoning": "週次マーケットコメント。時間依存が極めて高く、現在は無価値",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "2461dfe580eb73bb": {
+    "fact_id": "c0126184075e033b",
+    "factual_correctness": 0.2,
+    "source_grounding": 0.6,
+    "temporal_validity": 0.3,
+    "overall": 0.35,
+    "reasoning": "生HTML。HNリンクの羅列であり、有意味なFactではない。ノイズデータ",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "2181e05ee0eeafa0": {
+    "fact_id": "4884ed49374413dd7134a4e1ba8fdd76",
     "factual_correctness": 0.8,
     "source_grounding": 0.8,
     "temporal_validity": 0.5,
     "overall": 0.71,
-    "reasoning": "Specific ETF flow data with dollar amount. Nasdaq URL present. Highly time-sensitive daily data.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+    "reasoning": "Nomuraインドネシア戦略レポートからの金市場データ。中程度の鮮度",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   },
-  "13040199b78075ac": {
-    "fact_id": "ae330c2e33104f4628c56aca3a6f0c9e",
+  "7343d7e8c790b402": {
+    "fact_id": "7343d7e8c790b402c007aa0639a25e25",
     "factual_correctness": 0.8,
     "source_grounding": 0.7,
-    "temporal_validity": 0.8,
-    "overall": 0.77,
-    "reasoning": "Specific academic finding from municipal bond study. sigfin.org URL. Methodological result with lasting validity.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+    "temporal_validity": 0.7,
+    "overall": 0.74,
+    "reasoning": "2025年税制改正の文脈で有効な注意喚起",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   },
-  "cc681bb1b7a3d3d7": {
-    "fact_id": "cc681bb1b7a3d3d7de7b6a13e4a2f0ca",
-    "factual_correctness": 0.6,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.8,
-    "overall": 0.75,
-    "reasoning": "Vague corporate statement. CNBC URL with good grounding. Content lacks specificity - no numbers or concrete claims.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+  "47b49c4ab4e0871e": {
+    "fact_id": "82eaa2cc915b16592ec2a4a6bd5dab76",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.6,
+    "temporal_validity": 0.5,
+    "overall": 0.61,
+    "reasoning": "2026年予測値。fetched_at欠落だがソースURL有",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   },
-  "7af32c485e2c52cd": {
-    "fact_id": "5356c0ce52404e38d40ff06828dd84a3",
+  "e3296933fa166cf0": {
+    "fact_id": "fab0890f02eb92ac759f0032d5656f2e",
     "factual_correctness": 0.8,
+    "source_grounding": 0.5,
+    "temporal_validity": 0.7,
+    "overall": 0.68,
+    "reasoning": "学術研究の知見。ソースURLがPDFハッシュで直接アクセス不可",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "08dce78e3bffa128": {
+    "fact_id": "d03c73ff6ab4c4b6d072fbee4080d514",
+    "factual_correctness": 0.9,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.6,
+    "overall": 0.75,
+    "reasoning": "歴史的記録として有効。日付入りの具体的データ",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "611ba63565d96c19": {
+    "fact_id": "6571e5887a5d8df9b986f53c8f479f81",
+    "factual_correctness": 0.6,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.2,
+    "overall": 0.51,
+    "reasoning": "日次マーケット解説。陳腐化が著しい",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "026cceda966f923a": {
+    "fact_id": "ccbc65fae145aed218fa858286fceac0",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.4,
+    "overall": 0.61,
+    "reasoning": "企業ニュース。CNBC出典で信頼性あるが時間依存",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "1a32d95dbf3f3d38": {
+    "fact_id": "db893fc45d84aeead94c0e7db1def173",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.7,
+    "overall": 0.74,
+    "reasoning": "一般的な税務原則。安定性高い",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "a4016f715a124bb3": {
+    "fact_id": "54f0644421e896aa3109d3be0ce7e39b",
+    "factual_correctness": 0.7,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.5,
+    "overall": 0.64,
+    "reasoning": "業界動向分析。CNBC出典",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "def8cc147c6c54e8": {
+    "fact_id": "df8693d08e4dfef2cd29f382e3377bec",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.7,
+    "temporal_validity": 0.6,
+    "overall": 0.71,
+    "reasoning": "企業財務データ。具体的で正確",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "7761877989c36455": {
+    "fact_id": "932ceb8d12e1178b4d379a711afdce68",
+    "factual_correctness": 0.8,
+    "source_grounding": 0.5,
+    "temporal_validity": 0.7,
+    "overall": 0.68,
+    "reasoning": "学術研究の知見。PDFハッシュURL",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
+  },
+  "cb442bbb0204d8a9": {
+    "fact_id": "e79c6d806c17abd1262534c27c1659b8",
+    "factual_correctness": 0.9,
     "source_grounding": 0.6,
     "temporal_validity": 0.8,
-    "overall": 0.74,
-    "reasoning": "Academic finding about lead-lag hypothesis. PDF hash as source URL (internal reference). Solid methodological result.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "3a08506bc16fc7bd": {
-    "fact_id": "c28a120ec527f3343c4d05080a24e40b",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.0,
-    "temporal_validity": 0.75,
-    "overall": 0.565,
-    "reasoning": "Specific data (863 tons, $5000-6000 target). Zero source grounding - no source linked at all. Data is credible but unverifiable.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "2d45d6ea59677048": {
-    "fact_id": "2d45d6ea59677048845419ccbcdcc1c4",
-    "factual_correctness": 0.8,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.7,
-    "overall": 0.8,
-    "reasoning": "Specific PMI data point. CNBC URL with good grounding. Mar 2026 data, time-sensitive.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "8dcc69440f694a56": {
-    "fact_id": "29a3b53c3f3237e48e8e4502ca61e52a",
-    "factual_correctness": 0.95,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.6,
-    "overall": 0.8,
-    "reasoning": "Precise market price data with specific date. note.com URL present. Historical price is accurate but time-specific.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "f3a80c9429d251aa": {
-    "fact_id": "f3a80c9429d251aa7e4ce62f007c1aab",
-    "factual_correctness": 0.65,
-    "source_grounding": 0.8,
-    "temporal_validity": 0.65,
-    "overall": 0.695,
-    "reasoning": "Market analysis claim. note.com URL present. Analyst interpretation with temporal limitation.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "9c1f355c4bc24cc5": {
-    "fact_id": "e7320c410f2ab0bb",
-    "factual_correctness": 0.85,
-    "source_grounding": 0.9,
-    "temporal_validity": 0.75,
-    "overall": 0.835,
-    "reasoning": "Specific corporate announcement. Verge URL with good source grounding. Jan 2026 event.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
-  },
-  "555af5dd96710138": {
-    "fact_id": "555af5dd9671013864ffb29975ca503c",
-    "factual_correctness": 0.5,
-    "source_grounding": 0.7,
-    "temporal_validity": 0.8,
-    "overall": 0.65,
-    "reasoning": "Life advice claim, completely off-domain for finance KG. note.com URL present but content is irrelevant to finance research.",
-    "evaluated_at": "2026-03-30T12:04:34.219484+00:00"
+    "overall": 0.78,
+    "reasoning": "学術フレームワーク定義。安定性高い。J-STAGE URL有",
+    "evaluated_at": "2026-04-03T03:45:12.650364+00:00"
   }
 }
