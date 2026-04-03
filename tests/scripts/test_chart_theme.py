@@ -16,13 +16,13 @@ class TestChartTheme:
         assert NOTE_LIGHT.title_size == 16
         assert NOTE_LIGHT.background_color == "#FFFFFF"
         assert NOTE_LIGHT.text_color == "#333333"
-        assert NOTE_LIGHT.positive_color == "#2563EB"
+        assert NOTE_LIGHT.positive_color == "#2166AC"
         assert NOTE_LIGHT.negative_color == "#DC2626"
         assert NOTE_LIGHT.spine_visible is False
 
     def test_正常系_パレットが8色ある(self) -> None:
         assert len(NOTE_LIGHT.palette) == 8
-        assert NOTE_LIGHT.palette[0] == "#2563EB"
+        assert NOTE_LIGHT.palette[0] == "#2166AC"
 
     def test_正常系_NOTE_DARKの背景色が暗い(self) -> None:
         assert NOTE_DARK.name == "note_dark"

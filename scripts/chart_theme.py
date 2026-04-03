@@ -1,7 +1,7 @@
 """note.com 記事用チャートテーマ設定.
 
 チャート画像の統一的なビジュアルスタイルを定義する。
-generate-table-image の DEFAULT_THEME_COLOR (#2563eb) と統一。
+generate-table-image の DEFAULT_THEME_COLOR (#2166ac) と統一。
 
 Usage
 -----
@@ -36,7 +36,7 @@ class ChartTheme:
     grid_alpha: float = 0.5
     palette: list[str] = field(
         default_factory=lambda: [
-            "#2563EB",  # blue (Primary / Positive)
+            "#2166AC",  # 深い信頼感の青 (Primary) — ColorBrewer RdYlBu
             "#DC2626",  # red (Negative)
             "#059669",  # green
             "#D97706",  # amber
@@ -46,7 +46,7 @@ class ChartTheme:
             "#65A30D",  # lime
         ]
     )
-    positive_color: str = "#2563EB"
+    positive_color: str = "#2166AC"
     negative_color: str = "#DC2626"
     spine_visible: bool = False
 
