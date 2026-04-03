@@ -484,6 +484,9 @@ def _ingest_entity_rels_for_type(
 ) -> int:
     """単一リレーション種別 (fact_entity / claim_entity) のループ処理サブ関数.
 
+    AIDEV-NOTE: N+1クエリ → UNWIND バッチに変換。
+    neo4j_label ごとにグループ化し、1ラベル = 1トランザクションで実行する。
+
     Parameters
     ----------
     driver : neo4j.Driver | None
@@ -502,7 +505,8 @@ def _ingest_entity_rels_for_type(
     int
         投入したリレーション数。
     """
-    count = 0
+    # neo4j_label → [{from_id, entity_name}] でグループ化
+    label_to_rows: dict[str, list[dict[str, str]]] = {}
     for rel in rels:
         from_id = rel.get("from_id") or rel.get(from_id_rel_key)
         to_val = rel.get("to_id") or rel.get("entity_key") or rel.get("entity_name")
@@ -515,11 +519,25 @@ def _ingest_entity_rels_for_type(
         entity_name = entity_info["name"]
         if not entity_name or not _is_safe_identifier(neo4j_label):
             continue
+        label_to_rows.setdefault(neo4j_label, []).append(
+            {"from_id": from_id, "entity_name": entity_name}
+        )
+
+    count = 0
+    for neo4j_label, rows in label_to_rows.items():
+        count += len(rows)
         if driver:
-            _ingest_entity_rel_single(
-                driver, from_label, from_id_rel_key, from_id, neo4j_label, entity_name
+            # 1ラベルにつき1クエリ（N+1 → O(unique_labels) に削減）
+            query = (
+                f"UNWIND $rows AS row "
+                f"MATCH (f:{from_label} {{{from_id_rel_key}: row.from_id}}) "
+                f"MATCH (e:{neo4j_label} {{name: row.entity_name}}) "
+                f"MERGE (f)-[:RELATES_TO]->(e)"
             )
-        count += 1
+            with driver.session(database=_RESEARCH_DB) as session:
+                session.execute_write(
+                    lambda tx, q=query, r=rows: tx.run(q, rows=r)
+                )
     return count
 
 
