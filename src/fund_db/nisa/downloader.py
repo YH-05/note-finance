@@ -21,11 +21,9 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING
 
-import httpx
-
+from fund_db._http import download_bytes
 from fund_db._logging import get_logger
 from fund_db.config.constants import NISA_LISTED_URL, NISA_UNLISTED_URL
-from fund_db.exceptions import DownloadError
 from fund_db.types import DownloadResult
 
 if TYPE_CHECKING:
@@ -87,23 +85,7 @@ class NisaDownloader:
             If the HTTP request fails or returns a non-2xx status.
         """
         logger.info("Downloading NISA Excel", url=url, category=category)
-        try:
-            with httpx.Client(timeout=self._timeout) as client:
-                response = client.get(url)
-                response.raise_for_status()
-        except httpx.HTTPStatusError as exc:
-            raise DownloadError(
-                f"HTTP {exc.response.status_code} downloading {url}",
-                url=url,
-                status_code=exc.response.status_code,
-            ) from exc
-        except httpx.HTTPError as exc:
-            raise DownloadError(
-                f"Failed to download {url}: {exc}",
-                url=url,
-            ) from exc
-
-        content = response.content
+        content = download_bytes(url, timeout=self._timeout)
         saved_path = self._store.save_raw_excel(
             content=content,
             category=category,

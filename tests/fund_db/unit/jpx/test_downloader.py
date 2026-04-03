@@ -52,6 +52,7 @@ class TestJpxDownloaderDownload:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xls_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
@@ -66,14 +67,15 @@ class TestJpxDownloaderDownload:
         downloader = JpxDownloader(store=store)
         import fund_db.jpx.downloader as dl_module
 
-        original_url = dl_module.JPX_LISTED_URL
-        dl_module.JPX_LISTED_URL = httpserver.url_for(
-            "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+        monkeypatch.setattr(
+            dl_module,
+            "JPX_LISTED_URL",
+            httpserver.url_for(
+                "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+            ),
         )
-        try:
-            result = downloader.download()
-        finally:
-            dl_module.JPX_LISTED_URL = original_url
+
+        result = downloader.download()
 
         assert result.path.exists()
         assert result.size_bytes == len(fake_xls_content)
@@ -84,6 +86,7 @@ class TestJpxDownloaderDownload:
         self,
         httpserver: HTTPServer,
         store: FundDbStore,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
@@ -92,21 +95,23 @@ class TestJpxDownloaderDownload:
         downloader = JpxDownloader(store=store)
         import fund_db.jpx.downloader as dl_module
 
-        original_url = dl_module.JPX_LISTED_URL
-        dl_module.JPX_LISTED_URL = httpserver.url_for(
-            "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+        monkeypatch.setattr(
+            dl_module,
+            "JPX_LISTED_URL",
+            httpserver.url_for(
+                "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+            ),
         )
-        try:
-            with pytest.raises(DownloadError) as exc_info:
-                downloader.download()
-            assert exc_info.value.status_code == 404
-        finally:
-            dl_module.JPX_LISTED_URL = original_url
+
+        with pytest.raises(DownloadError) as exc_info:
+            downloader.download()
+        assert exc_info.value.status_code == 404
 
     def test_異常系_HTTP500でDownloadError(
         self,
         httpserver: HTTPServer,
         store: FundDbStore,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
@@ -115,16 +120,17 @@ class TestJpxDownloaderDownload:
         downloader = JpxDownloader(store=store)
         import fund_db.jpx.downloader as dl_module
 
-        original_url = dl_module.JPX_LISTED_URL
-        dl_module.JPX_LISTED_URL = httpserver.url_for(
-            "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+        monkeypatch.setattr(
+            dl_module,
+            "JPX_LISTED_URL",
+            httpserver.url_for(
+                "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+            ),
         )
-        try:
-            with pytest.raises(DownloadError) as exc_info:
-                downloader.download()
-            assert exc_info.value.status_code == 500
-        finally:
-            dl_module.JPX_LISTED_URL = original_url
+
+        with pytest.raises(DownloadError) as exc_info:
+            downloader.download()
+        assert exc_info.value.status_code == 500
 
 
 class TestJpxDownloaderSaveVerification:
@@ -135,6 +141,7 @@ class TestJpxDownloaderSaveVerification:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xls_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
@@ -149,14 +156,15 @@ class TestJpxDownloaderSaveVerification:
         downloader = JpxDownloader(store=store)
         import fund_db.jpx.downloader as dl_module
 
-        original_url = dl_module.JPX_LISTED_URL
-        dl_module.JPX_LISTED_URL = httpserver.url_for(
-            "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+        monkeypatch.setattr(
+            dl_module,
+            "JPX_LISTED_URL",
+            httpserver.url_for(
+                "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+            ),
         )
-        try:
-            result = downloader.download()
-        finally:
-            dl_module.JPX_LISTED_URL = original_url
+
+        result = downloader.download()
 
         # Verify directory structure: data_dir/jpx_listed/{date}/raw/data_j.xls
         assert "jpx_listed" in str(result.path)
@@ -168,6 +176,7 @@ class TestJpxDownloaderSaveVerification:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xls_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
@@ -182,14 +191,15 @@ class TestJpxDownloaderSaveVerification:
         downloader = JpxDownloader(store=store)
         import fund_db.jpx.downloader as dl_module
 
-        original_url = dl_module.JPX_LISTED_URL
-        dl_module.JPX_LISTED_URL = httpserver.url_for(
-            "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+        monkeypatch.setattr(
+            dl_module,
+            "JPX_LISTED_URL",
+            httpserver.url_for(
+                "/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+            ),
         )
-        try:
-            result = downloader.download()
-        finally:
-            dl_module.JPX_LISTED_URL = original_url
+
+        result = downloader.download()
 
         saved_content = result.path.read_bytes()
         assert saved_content == fake_xls_content
@@ -202,14 +212,16 @@ class TestJpxDownloaderConnectionError:
     def test_異常系_接続不可でDownloadError(
         self,
         store: FundDbStore,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         downloader = JpxDownloader(store=store, timeout=0.1)
         import fund_db.jpx.downloader as dl_module
 
-        original_url = dl_module.JPX_LISTED_URL
-        dl_module.JPX_LISTED_URL = "http://127.0.0.1:1/nonexistent"
-        try:
-            with pytest.raises(DownloadError):
-                downloader.download()
-        finally:
-            dl_module.JPX_LISTED_URL = original_url
+        monkeypatch.setattr(
+            dl_module,
+            "JPX_LISTED_URL",
+            "http://127.0.0.1:1/nonexistent",
+        )
+
+        with pytest.raises(DownloadError):
+            downloader.download()

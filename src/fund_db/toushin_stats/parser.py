@@ -317,7 +317,7 @@ class ToushinStatsParser:
         """
         logger.info("Parsing B-1 asset flow Excel", path=str(path))
         try:
-            wb = openpyxl.load_workbook(path, data_only=True)
+            wb = openpyxl.load_workbook(path, data_only=True, read_only=True)
         except Exception as exc:
             raise ParseError(
                 f"Failed to open workbook: {exc}",
@@ -326,7 +326,7 @@ class ToushinStatsParser:
             ) from exc
 
         try:
-            sheet = wb.active
+            sheet = wb.worksheets[0] if wb.worksheets else None
             if sheet is None:
                 raise ParseError(
                     "No active sheet found",
@@ -489,7 +489,7 @@ class ToushinStatsParser:
         """
         logger.info("Parsing B-2 product class Excel", path=str(path))
         try:
-            wb = openpyxl.load_workbook(path, data_only=True)
+            wb = openpyxl.load_workbook(path, data_only=True, read_only=True)
         except Exception as exc:
             raise ParseError(
                 f"Failed to open workbook: {exc}",
@@ -702,7 +702,7 @@ class ToushinStatsParser:
         """
         logger.info("Parsing B-3 management company Excel", path=str(path))
         try:
-            wb = openpyxl.load_workbook(path, data_only=True)
+            wb = openpyxl.load_workbook(path, data_only=True, read_only=True)
         except Exception as exc:
             raise ParseError(
                 f"Failed to open workbook: {exc}",
@@ -711,7 +711,7 @@ class ToushinStatsParser:
             ) from exc
 
         try:
-            sheet = wb.active
+            sheet = wb.worksheets[0] if wb.worksheets else None
             if sheet is None:
                 raise ParseError(
                     "No active sheet found",
@@ -900,7 +900,7 @@ class ToushinStatsParser:
         """
         logger.info("Parsing A-2 overall status Excel", path=str(path))
         try:
-            wb = openpyxl.load_workbook(path, data_only=True)
+            wb = openpyxl.load_workbook(path, data_only=True, read_only=True)
         except Exception as exc:
             raise ParseError(
                 f"Failed to open workbook: {exc}",
@@ -909,7 +909,7 @@ class ToushinStatsParser:
             ) from exc
 
         try:
-            sheet = wb.active
+            sheet = wb.worksheets[0] if wb.worksheets else None
             if sheet is None:
                 raise ParseError(
                     "No active sheet found",

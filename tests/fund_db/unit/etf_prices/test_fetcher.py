@@ -8,7 +8,7 @@ ticker suffix normalization, and performance calculations.
 from __future__ import annotations
 
 from datetime import date
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import numpy as np
 import pandas as pd
@@ -134,10 +134,9 @@ class TestEtfPriceFetcherFetch:
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
     def test_正常系_単一ティッカーで価格を取得できる(
-        self, mock_download: object
+        self, mock_download: MagicMock
     ) -> None:
-        mock_download.return_value = _make_single_ticker_df()  # type: ignore[union-attr]
-
+        mock_download.return_value = _make_single_ticker_df()
         fetcher = EtfPriceFetcher()
         records = fetcher.fetch(["1306"], start="2026-04-01", end="2026-04-04")
 
@@ -149,7 +148,7 @@ class TestEtfPriceFetcherFetch:
         assert records[0].volume == 1000000
 
         # Verify yf.download was called with correct args
-        mock_download.assert_called_once_with(  # type: ignore[union-attr]
+        mock_download.assert_called_once_with(
             ["1306.T"],
             start="2026-04-01",
             end="2026-04-04",
@@ -158,32 +157,29 @@ class TestEtfPriceFetcherFetch:
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
     def test_正常系_サフィックスなしティッカーにTが付与される(
-        self, mock_download: object
+        self, mock_download: MagicMock
     ) -> None:
-        mock_download.return_value = _make_single_ticker_df()  # type: ignore[union-attr]
-
+        mock_download.return_value = _make_single_ticker_df()
         fetcher = EtfPriceFetcher()
         fetcher.fetch(["1306"], start="2026-04-01")
 
-        call_args = mock_download.call_args  # type: ignore[union-attr]
+        call_args = mock_download.call_args
         assert call_args[0][0] == ["1306.T"]
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
     def test_正常系_既にサフィックスがあるティッカーはそのまま(
-        self, mock_download: object
+        self, mock_download: MagicMock
     ) -> None:
-        mock_download.return_value = _make_single_ticker_df()  # type: ignore[union-attr]
-
+        mock_download.return_value = _make_single_ticker_df()
         fetcher = EtfPriceFetcher()
         fetcher.fetch(["1306.T"], start="2026-04-01")
 
-        call_args = mock_download.call_args  # type: ignore[union-attr]
+        call_args = mock_download.call_args
         assert call_args[0][0] == ["1306.T"]
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
-    def test_正常系_NaN値がNoneに変換される(self, mock_download: object) -> None:
-        mock_download.return_value = _make_single_ticker_df_with_nan()  # type: ignore[union-attr]
-
+    def test_正常系_NaN値がNoneに変換される(self, mock_download: MagicMock) -> None:
+        mock_download.return_value = _make_single_ticker_df_with_nan()
         fetcher = EtfPriceFetcher()
         records = fetcher.fetch(["1306"], start="2026-04-01")
 
@@ -196,9 +192,10 @@ class TestEtfPriceFetcherFetch:
         assert records[1].volume == 1200000
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
-    def test_正常系_NaN_closeの行はスキップされる(self, mock_download: object) -> None:
-        mock_download.return_value = _make_single_ticker_df_with_nan_close()  # type: ignore[union-attr]
-
+    def test_正常系_NaN_closeの行はスキップされる(
+        self, mock_download: MagicMock
+    ) -> None:
+        mock_download.return_value = _make_single_ticker_df_with_nan_close()
         fetcher = EtfPriceFetcher()
         records = fetcher.fetch(["1306"], start="2026-04-01")
 
@@ -207,9 +204,10 @@ class TestEtfPriceFetcherFetch:
         assert records[0].close == 2515.0
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
-    def test_正常系_空のDataFrameで空リストが返る(self, mock_download: object) -> None:
-        mock_download.return_value = _make_empty_df()  # type: ignore[union-attr]
-
+    def test_正常系_空のDataFrameで空リストが返る(
+        self, mock_download: MagicMock
+    ) -> None:
+        mock_download.return_value = _make_empty_df()
         fetcher = EtfPriceFetcher()
         records = fetcher.fetch(["1306"], start="2026-04-01")
 
@@ -217,14 +215,13 @@ class TestEtfPriceFetcherFetch:
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
     def test_正常系_endがNoneの場合もyf_downloadに渡される(
-        self, mock_download: object
+        self, mock_download: MagicMock
     ) -> None:
-        mock_download.return_value = _make_single_ticker_df()  # type: ignore[union-attr]
-
+        mock_download.return_value = _make_single_ticker_df()
         fetcher = EtfPriceFetcher()
         fetcher.fetch(["1306"], start="2026-04-01")
 
-        mock_download.assert_called_once_with(  # type: ignore[union-attr]
+        mock_download.assert_called_once_with(
             ["1306.T"],
             start="2026-04-01",
             end=None,
@@ -237,7 +234,7 @@ class TestEtfPriceFetcherGetPerformance:
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
     def test_正常系_パフォーマンスサマリーが計算される(
-        self, mock_download: object
+        self, mock_download: MagicMock
     ) -> None:
         # Create a longer DataFrame for performance calculation
         dates = pd.date_range("2023-04-01", periods=100, freq="B")
@@ -252,8 +249,7 @@ class TestEtfPriceFetcherGetPerformance:
             },
             index=dates,
         )
-        mock_download.return_value = df  # type: ignore[union-attr]
-
+        mock_download.return_value = df
         fetcher = EtfPriceFetcher()
         summaries = fetcher.get_performance(["1306"], years=3)
 
@@ -266,9 +262,8 @@ class TestEtfPriceFetcherGetPerformance:
         assert summary.max_drawdown <= 0.0
 
     @patch("fund_db.etf_prices.fetcher.yf.download")
-    def test_正常系_空のデータで空リストが返る(self, mock_download: object) -> None:
-        mock_download.return_value = _make_empty_df()  # type: ignore[union-attr]
-
+    def test_正常系_空のデータで空リストが返る(self, mock_download: MagicMock) -> None:
+        mock_download.return_value = _make_empty_df()
         fetcher = EtfPriceFetcher()
         summaries = fetcher.get_performance(["1306"], years=3)
 

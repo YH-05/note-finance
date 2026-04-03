@@ -22,9 +22,9 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING
 
-import httpx
 import lxml.html
 
+from fund_db._http import download_bytes, validate_url_host
 from fund_db._logging import get_logger
 from fund_db.config.constants import TOUSHIN_STATS_PAGE
 from fund_db.exceptions import DownloadError
@@ -73,6 +73,7 @@ class ToushinStatsDownloader:
     ) -> None:
         self._store = store
         self._timeout = timeout
+        self._cached_links: dict[str, str] | None = None
 
     def _fetch_page(self, url: str) -> str:
         """Fetch HTML content from a URL.
@@ -93,23 +94,8 @@ class ToushinStatsDownloader:
             If the HTTP request fails.
         """
         logger.info("Fetching statistics page", url=url)
-        try:
-            with httpx.Client(timeout=self._timeout) as client:
-                response = client.get(url)
-                response.raise_for_status()
-        except httpx.HTTPStatusError as exc:
-            raise DownloadError(
-                f"HTTP {exc.response.status_code} fetching {url}",
-                url=url,
-                status_code=exc.response.status_code,
-            ) from exc
-        except httpx.HTTPError as exc:
-            raise DownloadError(
-                f"Failed to fetch {url}: {exc}",
-                url=url,
-            ) from exc
-
-        return response.text
+        content = download_bytes(url, timeout=self._timeout)
+        return content.decode()
 
     def _extract_download_links(self, html: str, base_url: str) -> dict[str, str]:
         """Extract download links for each report type from HTML.
@@ -154,6 +140,16 @@ class ToushinStatsDownloader:
                     for pattern in patterns
                 )
                 if matched:
+                    # Validate URL host before accepting
+                    try:
+                        validate_url_host(href)
+                    except DownloadError:
+                        logger.warning(
+                            "Skipping link with untrusted host",
+                            report=report_key,
+                            url=href,
+                        )
+                        continue
                     result[report_key] = href
                     logger.debug(
                         "Matched download link",
@@ -192,23 +188,7 @@ class ToushinStatsDownloader:
             If the HTTP request fails or returns a non-2xx status.
         """
         logger.info("Downloading statistics Excel", url=url, category=category)
-        try:
-            with httpx.Client(timeout=self._timeout) as client:
-                response = client.get(url)
-                response.raise_for_status()
-        except httpx.HTTPStatusError as exc:
-            raise DownloadError(
-                f"HTTP {exc.response.status_code} downloading {url}",
-                url=url,
-                status_code=exc.response.status_code,
-            ) from exc
-        except httpx.HTTPError as exc:
-            raise DownloadError(
-                f"Failed to download {url}: {exc}",
-                url=url,
-            ) from exc
-
-        content = response.content
+        content = download_bytes(url, timeout=self._timeout)
         saved_path = self._store.save_raw_excel(
             content=content,
             category=category,
@@ -230,6 +210,9 @@ class ToushinStatsDownloader:
     def _get_links(self) -> dict[str, str]:
         """Fetch page and extract download links.
 
+        Results are cached after the first call to avoid
+        redundant HTTP requests within the same instance.
+
         Returns
         -------
         dict[str, str]
@@ -240,8 +223,11 @@ class ToushinStatsDownloader:
         DownloadError
             If page fetch or link extraction fails.
         """
+        if self._cached_links is not None:
+            return self._cached_links
         html = self._fetch_page(TOUSHIN_STATS_PAGE)
         links = self._extract_download_links(html, TOUSHIN_STATS_PAGE)
+        self._cached_links = links
         return links
 
     def download_b1(self) -> DownloadResult:

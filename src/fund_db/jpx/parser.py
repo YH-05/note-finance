@@ -17,11 +17,12 @@ Examples
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 import pandas as pd
 
 from fund_db._logging import get_logger
+from fund_db._utils import normalize_cell_value
 from fund_db.config.constants import JPX_EXCEL_ENGINE, JPX_LISTED_COLUMNS
 from fund_db.exceptions import ParseError
 from fund_db.jpx.models import JpxListedStock
@@ -30,30 +31,6 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 logger = get_logger(__name__, module="jpx_parser")
-
-
-def _normalize_value(value: Any) -> str | None:
-    """Normalize a cell value to a string or None.
-
-    Converts NaN, None, and empty strings to None.
-    All other values are converted to stripped strings.
-
-    Parameters
-    ----------
-    value : Any
-        Raw cell value from pandas DataFrame.
-
-    Returns
-    -------
-    str | None
-        Stripped string if non-empty, otherwise None.
-    """
-    if value is None or pd.isna(value):
-        return None
-    text = str(value).strip()
-    if text in {"", "None", "nan"}:
-        return None
-    return text
 
 
 class JpxParser:
@@ -105,7 +82,9 @@ class JpxParser:
             row_data: dict[str, str | None] = {}
             for field_name in JPX_LISTED_COLUMNS.values():
                 if field_name in row.index:
-                    row_data[field_name] = _normalize_value(row[field_name])
+                    row_data[field_name] = normalize_cell_value(
+                        row[field_name], nan_check=True
+                    )
                 else:
                     row_data[field_name] = None
 

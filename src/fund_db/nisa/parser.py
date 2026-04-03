@@ -17,7 +17,7 @@ Examples
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 import openpyxl
 
@@ -27,32 +27,12 @@ if TYPE_CHECKING:
     from openpyxl.worksheet.worksheet import Worksheet
 
 from fund_db._logging import get_logger
+from fund_db._utils import normalize_cell_value
 from fund_db.config.constants import NISA_LISTED_COLUMNS, NISA_UNLISTED_COLUMNS
 from fund_db.exceptions import ParseError
 from fund_db.nisa.models import NisaListedEtf, NisaUnlistedFund
 
 logger = get_logger(__name__, module="nisa_parser")
-
-
-def _normalize_value(value: Any) -> str | None:
-    """Normalize a cell value to a string or None.
-
-    Parameters
-    ----------
-    value : Any
-        Raw cell value from openpyxl.
-
-    Returns
-    -------
-    str | None
-        Stripped string if non-empty, otherwise None.
-    """
-    if value is None:
-        return None
-    text = str(value).strip()
-    if text in {"", "None"}:
-        return None
-    return text
 
 
 class NisaParser:
@@ -167,7 +147,7 @@ class NisaParser:
                 row_data: dict[str, str | None] = {}
                 for col_idx, field_name in col_map.items():
                     cell = row[col_idx]
-                    row_data[field_name] = _normalize_value(cell.value)
+                    row_data[field_name] = normalize_cell_value(cell.value)
 
                 # Skip entirely empty rows
                 if all(v is None for v in row_data.values()):
@@ -261,7 +241,7 @@ class NisaParser:
                 row_data: dict[str, str | None] = {}
                 for col_idx, field_name in col_map.items():
                     cell = row[col_idx]
-                    row_data[field_name] = _normalize_value(cell.value)
+                    row_data[field_name] = normalize_cell_value(cell.value)
 
                 # Skip entirely empty rows
                 if all(v is None for v in row_data.values()):

@@ -11,9 +11,10 @@ from pathlib import Path
 import openpyxl
 import pytest
 
+from fund_db._utils import normalize_cell_value
 from fund_db.exceptions import ParseError
 from fund_db.nisa.models import NisaListedEtf, NisaUnlistedFund
-from fund_db.nisa.parser import NisaParser, _normalize_value
+from fund_db.nisa.parser import NisaParser
 
 # ---------------------------------------------------------------------------
 # Paths to real Excel files (skipped if absent)
@@ -148,28 +149,28 @@ class TestNormalizeValue:
     """Tests for the _normalize_value helper function."""
 
     def test_正常系_文字列をそのまま返す(self) -> None:
-        assert _normalize_value("hello") == "hello"
+        assert normalize_cell_value("hello") == "hello"
 
     def test_正常系_数値を文字列に変換する(self) -> None:
-        assert _normalize_value(42) == "42"
+        assert normalize_cell_value(42) == "42"
 
     def test_正常系_Noneを返す(self) -> None:
-        assert _normalize_value(None) is None
+        assert normalize_cell_value(None) is None
 
     def test_正常系_空文字列をNoneに変換する(self) -> None:
-        assert _normalize_value("") is None
+        assert normalize_cell_value("") is None
 
     def test_正常系_空白文字列をNoneに変換する(self) -> None:
-        assert _normalize_value("   ") is None
+        assert normalize_cell_value("   ") is None
 
     def test_正常系_前後空白をトリムする(self) -> None:
-        assert _normalize_value("  hello  ") == "hello"
+        assert normalize_cell_value("  hello  ") == "hello"
 
     def test_正常系_None文字列をNoneに変換する(self) -> None:
-        assert _normalize_value("None") is None
+        assert normalize_cell_value("None") is None
 
     def test_正常系_浮動小数点を文字列に変換する(self) -> None:
-        assert _normalize_value(0.05775) == "0.05775"
+        assert normalize_cell_value(0.05775) == "0.05775"
 
 
 # ---------------------------------------------------------------------------

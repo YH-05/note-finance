@@ -51,6 +51,7 @@ class TestNisaDownloaderUnlisted:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xlsx_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/statistics/tsumitate/files/tsumitate_target.xlsx"
@@ -63,17 +64,15 @@ class TestNisaDownloaderUnlisted:
         )
 
         downloader = NisaDownloader(store=store)
-        # Monkey-patch the URL to use the mock server
         import fund_db.nisa.downloader as dl_module
 
-        original_url = dl_module.NISA_UNLISTED_URL
-        dl_module.NISA_UNLISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_UNLISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target.xlsx"),
         )
-        try:
-            result = downloader.download_unlisted()
-        finally:
-            dl_module.NISA_UNLISTED_URL = original_url
+
+        result = downloader.download_unlisted()
 
         assert result.path.exists()
         assert result.size_bytes == len(fake_xlsx_content)
@@ -84,6 +83,7 @@ class TestNisaDownloaderUnlisted:
         self,
         httpserver: HTTPServer,
         store: FundDbStore,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/statistics/tsumitate/files/tsumitate_target.xlsx"
@@ -92,21 +92,21 @@ class TestNisaDownloaderUnlisted:
         downloader = NisaDownloader(store=store)
         import fund_db.nisa.downloader as dl_module
 
-        original_url = dl_module.NISA_UNLISTED_URL
-        dl_module.NISA_UNLISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_UNLISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target.xlsx"),
         )
-        try:
-            with pytest.raises(DownloadError) as exc_info:
-                downloader.download_unlisted()
-            assert exc_info.value.status_code == 404
-        finally:
-            dl_module.NISA_UNLISTED_URL = original_url
+
+        with pytest.raises(DownloadError) as exc_info:
+            downloader.download_unlisted()
+        assert exc_info.value.status_code == 404
 
     def test_異常系_HTTP500でDownloadError(
         self,
         httpserver: HTTPServer,
         store: FundDbStore,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/statistics/tsumitate/files/tsumitate_target.xlsx"
@@ -115,16 +115,15 @@ class TestNisaDownloaderUnlisted:
         downloader = NisaDownloader(store=store)
         import fund_db.nisa.downloader as dl_module
 
-        original_url = dl_module.NISA_UNLISTED_URL
-        dl_module.NISA_UNLISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_UNLISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target.xlsx"),
         )
-        try:
-            with pytest.raises(DownloadError) as exc_info:
-                downloader.download_unlisted()
-            assert exc_info.value.status_code == 500
-        finally:
-            dl_module.NISA_UNLISTED_URL = original_url
+
+        with pytest.raises(DownloadError) as exc_info:
+            downloader.download_unlisted()
+        assert exc_info.value.status_code == 500
 
 
 class TestNisaDownloaderListed:
@@ -135,6 +134,7 @@ class TestNisaDownloaderListed:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xlsx_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/statistics/tsumitate/files/tsumitate_target_etf.xlsx"
@@ -149,14 +149,13 @@ class TestNisaDownloaderListed:
         downloader = NisaDownloader(store=store)
         import fund_db.nisa.downloader as dl_module
 
-        original_url = dl_module.NISA_LISTED_URL
-        dl_module.NISA_LISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target_etf.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_LISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target_etf.xlsx"),
         )
-        try:
-            result = downloader.download_listed()
-        finally:
-            dl_module.NISA_LISTED_URL = original_url
+
+        result = downloader.download_listed()
 
         assert result.path.exists()
         assert result.size_bytes == len(fake_xlsx_content)
@@ -172,6 +171,7 @@ class TestNisaDownloaderAll:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xlsx_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/statistics/tsumitate/files/tsumitate_target.xlsx"
@@ -195,19 +195,18 @@ class TestNisaDownloaderAll:
         downloader = NisaDownloader(store=store)
         import fund_db.nisa.downloader as dl_module
 
-        original_unlisted = dl_module.NISA_UNLISTED_URL
-        original_listed = dl_module.NISA_LISTED_URL
-        dl_module.NISA_UNLISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_UNLISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target.xlsx"),
         )
-        dl_module.NISA_LISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target_etf.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_LISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target_etf.xlsx"),
         )
-        try:
-            results = downloader.download_all()
-        finally:
-            dl_module.NISA_UNLISTED_URL = original_unlisted
-            dl_module.NISA_LISTED_URL = original_listed
+
+        results = downloader.download_all()
 
         assert len(results) == 2
         assert all(r.path.exists() for r in results)
@@ -223,6 +222,7 @@ class TestNisaDownloaderSaveVerification:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xlsx_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/statistics/tsumitate/files/tsumitate_target.xlsx"
@@ -237,14 +237,13 @@ class TestNisaDownloaderSaveVerification:
         downloader = NisaDownloader(store=store)
         import fund_db.nisa.downloader as dl_module
 
-        original_url = dl_module.NISA_UNLISTED_URL
-        dl_module.NISA_UNLISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_UNLISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target.xlsx"),
         )
-        try:
-            result = downloader.download_unlisted()
-        finally:
-            dl_module.NISA_UNLISTED_URL = original_url
+
+        result = downloader.download_unlisted()
 
         # Verify directory structure: data_dir/nisa_unlisted/{date}/raw/tsumitate_target.xlsx
         assert "nisa_unlisted" in str(result.path)
@@ -256,6 +255,7 @@ class TestNisaDownloaderSaveVerification:
         httpserver: HTTPServer,
         store: FundDbStore,
         fake_xlsx_content: bytes,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         httpserver.expect_request(
             "/statistics/tsumitate/files/tsumitate_target_etf.xlsx"
@@ -270,14 +270,13 @@ class TestNisaDownloaderSaveVerification:
         downloader = NisaDownloader(store=store)
         import fund_db.nisa.downloader as dl_module
 
-        original_url = dl_module.NISA_LISTED_URL
-        dl_module.NISA_LISTED_URL = httpserver.url_for(
-            "/statistics/tsumitate/files/tsumitate_target_etf.xlsx"
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_LISTED_URL",
+            httpserver.url_for("/statistics/tsumitate/files/tsumitate_target_etf.xlsx"),
         )
-        try:
-            result = downloader.download_listed()
-        finally:
-            dl_module.NISA_LISTED_URL = original_url
+
+        result = downloader.download_listed()
 
         saved_content = result.path.read_bytes()
         assert saved_content == fake_xlsx_content
@@ -290,14 +289,16 @@ class TestNisaDownloaderConnectionError:
     def test_異常系_接続不可でDownloadError(
         self,
         store: FundDbStore,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         downloader = NisaDownloader(store=store, timeout=0.1)
         import fund_db.nisa.downloader as dl_module
 
-        original_url = dl_module.NISA_UNLISTED_URL
-        dl_module.NISA_UNLISTED_URL = "http://127.0.0.1:1/nonexistent"
-        try:
-            with pytest.raises(DownloadError):
-                downloader.download_unlisted()
-        finally:
-            dl_module.NISA_UNLISTED_URL = original_url
+        monkeypatch.setattr(
+            dl_module,
+            "NISA_UNLISTED_URL",
+            "http://127.0.0.1:1/nonexistent",
+        )
+
+        with pytest.raises(DownloadError):
+            downloader.download_unlisted()

@@ -14,9 +14,10 @@ from unittest.mock import patch
 import pandas as pd
 import pytest
 
+from fund_db._utils import normalize_cell_value
 from fund_db.exceptions import ParseError
 from fund_db.jpx.models import JpxListedStock
-from fund_db.jpx.parser import JpxParser, _normalize_value
+from fund_db.jpx.parser import JpxParser
 
 # ---------------------------------------------------------------------------
 # Path to optional real XLS file for integration-style tests
@@ -32,34 +33,34 @@ _has_real_xls = _REAL_XLS_PATH.exists()
 
 
 class TestNormalizeValue:
-    """Tests for the _normalize_value helper function."""
+    """Tests for the normalize_cell_value helper function (nan_check=True)."""
 
     def test_正常系_文字列を返す(self) -> None:
-        assert _normalize_value("トヨタ自動車") == "トヨタ自動車"
+        assert normalize_cell_value("トヨタ自動車") == "トヨタ自動車"
 
     def test_正常系_前後空白を除去する(self) -> None:
-        assert _normalize_value("  トヨタ自動車  ") == "トヨタ自動車"
+        assert normalize_cell_value("  トヨタ自動車  ") == "トヨタ自動車"
 
     def test_正常系_Noneを返す_None入力(self) -> None:
-        assert _normalize_value(None) is None
+        assert normalize_cell_value(None) is None
 
     def test_正常系_Noneを返す_NaN入力(self) -> None:
-        assert _normalize_value(float("nan")) is None
+        assert normalize_cell_value(float("nan"), nan_check=True) is None
 
     def test_正常系_Noneを返す_空文字列(self) -> None:
-        assert _normalize_value("") is None
+        assert normalize_cell_value("") is None
 
     def test_正常系_Noneを返す_None文字列(self) -> None:
-        assert _normalize_value("None") is None
+        assert normalize_cell_value("None") is None
 
     def test_正常系_Noneを返す_nan文字列(self) -> None:
-        assert _normalize_value("nan") is None
+        assert normalize_cell_value("nan", nan_check=True) is None
 
     def test_正常系_数値を文字列に変換する(self) -> None:
-        assert _normalize_value(7203) == "7203"
+        assert normalize_cell_value(7203) == "7203"
 
     def test_正常系_浮動小数点を文字列に変換する(self) -> None:
-        assert _normalize_value(3700.0) == "3700.0"
+        assert normalize_cell_value(3700.0) == "3700.0"
 
 
 # ---------------------------------------------------------------------------

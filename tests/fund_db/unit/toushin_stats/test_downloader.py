@@ -215,6 +215,20 @@ class TestExtractDownloadLinksEdgeCases:
         links = downloader._extract_download_links(html, "https://www.toushin.or.jp/")
         assert "b1" in links
 
+    def test_エッジケース_信頼できないホストのURLはスキップされる(
+        self,
+        store: FundDbStore,
+    ) -> None:
+        """URLs from untrusted hosts are skipped by validate_url_host."""
+        html = """
+        <html><body>
+        <a href="https://evil.example.com/files/B1_shisan_zougen.xlsx">B-1 data</a>
+        </body></html>
+        """
+        downloader = ToushinStatsDownloader(store=store)
+        links = downloader._extract_download_links(html, "https://evil.example.com/")
+        assert "b1" not in links
+
 
 # ---------------------------------------------------------------------------
 # Tests: Download error handling
@@ -240,20 +254,42 @@ class TestDownloadB1ErrorHandling:
     def test_異常系_接続不可でDownloadError(
         self,
         store: FundDbStore,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         """When server is unreachable, _fetch_page raises DownloadError."""
         downloader = ToushinStatsDownloader(store=store, timeout=0.1)
 
-        # Monkey-patch to use unreachable URL
         import fund_db.toushin_stats.downloader as dl_module
 
-        original = dl_module.TOUSHIN_STATS_PAGE
-        dl_module.TOUSHIN_STATS_PAGE = "http://127.0.0.1:1/nonexistent"
-        try:
-            with pytest.raises(DownloadError):
-                downloader.download_b1()
-        finally:
-            dl_module.TOUSHIN_STATS_PAGE = original
+        monkeypatch.setattr(
+            dl_module,
+            "TOUSHIN_STATS_PAGE",
+            "http://127.0.0.1:1/nonexistent",
+        )
+
+        with pytest.raises(DownloadError):
+            downloader.download_b1()
+
+
+# ---------------------------------------------------------------------------
+# Tests: _get_links caching
+# ---------------------------------------------------------------------------
+
+
+class TestGetLinksCache:
+    """Tests for _get_links caching behaviour."""
+
+    def test_正常系_キャッシュがヒットする(
+        self,
+        store: FundDbStore,
+    ) -> None:
+        """Second call to _get_links should return cached result."""
+        downloader = ToushinStatsDownloader(store=store)
+        fake_links = {"b1": "https://www.toushin.or.jp/b1.xlsx"}
+        downloader._cached_links = fake_links
+
+        result = downloader._get_links()
+        assert result is fake_links
 
 
 # ---------------------------------------------------------------------------
