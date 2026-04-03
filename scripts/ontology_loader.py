@@ -474,6 +474,8 @@ _ENTITY_TYPE_CONSOLIDATION: dict[str, str] = {
     "product": "product",
     "dataset": "product",
     "data_center": "product",
+    # domain -> concept (legacy wealth-scrape type, from classification.py)
+    "domain": "concept",
 }
 
 _VALID_ENTITY_TYPES: frozenset[str] = frozenset(
@@ -600,9 +602,19 @@ _DEFAULT_NAMESPACES: dict[str, Any] = {
             "Fact",
             "Claim",
             # Wave10: Entity ラベル廃止 → Company/Technology/Organization 等13個別ラベルに移行
-            "Company", "Technology", "Organization", "Person", "MarketIndex",
-            "Indicator", "Instrument", "Commodity", "Country", "Concept",
-            "Regulation", "Broker", "Product",
+            "Company",
+            "Technology",
+            "Organization",
+            "Person",
+            "MarketIndex",
+            "Indicator",
+            "Instrument",
+            "Commodity",
+            "Country",
+            "Concept",
+            "Regulation",
+            "Broker",
+            "Product",
             "FinancialDataPoint",
             "FiscalPeriod",
             "Topic",

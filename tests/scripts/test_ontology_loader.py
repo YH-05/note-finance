@@ -39,8 +39,14 @@ def _clear_cache() -> None:
 
 @pytest.fixture
 def real_ontology_path() -> Path:
-    """実際の ontology.yaml パスを返す。"""
-    return Path("data/lifecycle-state/research/ontology.yaml")
+    """実際の ontology.yaml パスを返す（絶対パスで実行ディレクトリ非依存）。"""
+    return (
+        Path(__file__).parents[2]
+        / "data"
+        / "lifecycle-state"
+        / "research"
+        / "ontology.yaml"
+    )
 
 
 @pytest.fixture

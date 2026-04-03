@@ -51,7 +51,9 @@ if _scripts_dir not in _sys.path:
 
 from ontology_loader import load_consolidation_mapping as _ol_load_consolidation_mapping  # noqa: E402, I001
 from ontology_loader import load_multilabel_types as _ol_load_multilabel_types  # noqa: E402
-from ontology_loader import load_source_type_normalization as _ol_load_source_type_normalization  # noqa: E402
+from ontology_loader import (  # noqa: E402
+    load_source_type_normalization as _ol_load_source_type_normalization,
+)
 
 # Internal mapping for backward-compatible multilabel_types structure
 _CANONICAL_TO_LABEL_INTERNAL: dict[str, str] = {
@@ -64,7 +66,7 @@ _CANONICAL_TO_LABEL_INTERNAL: dict[str, str] = {
     "instrument": "Instrument",
     "commodity": "Commodity",
     "country": "Country",
-    "sector": "Sector",
+    "sector": "Concept",  # AIDEV-NOTE: Wave10 — sector entities become Concept nodes (aligned with ontology_loader.ENTITY_TYPE_TO_LABEL)
     "concept": "Concept",
     "regulation": "Regulation",
     "broker": "Broker",
@@ -412,7 +414,10 @@ class BaseMapper(ABC):
             新規作成されたエンティティノード dict のリスト。
             v4.0: ``entity_key`` フィールドなし、``neo4j_label`` フィールドあり。
         """
-        from ontology_loader import ENTITY_TYPE_TO_LABEL, load_consolidation_mapping  # noqa: PLC0415
+        from ontology_loader import (
+            ENTITY_TYPE_TO_LABEL,
+            load_consolidation_mapping,
+        )
 
         consolidation_map = load_consolidation_mapping()
         entities: list[dict[str, Any]] = []

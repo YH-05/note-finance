@@ -658,6 +658,9 @@ def _batch_set_extra_labels(
             label_to_keys.setdefault(extra_label, []).append(key_val)
 
     for extra_label, keys in label_to_keys.items():
+        if not _is_safe_identifier(extra_label):
+            logger.warning("Skipping unsafe extra_label: %r", extra_label)
+            continue
         query = (
             f"UNWIND $keys AS key "
             f"MATCH (n:{label} {{{key_prop}: key}}) "
@@ -832,6 +835,11 @@ def _ingest_classification_rels(
 
     for crel in queue_data.get("classification_rels", []):
         rel_type = crel.get("type", "CLASSIFIED_AS")
+        if not _is_safe_identifier(rel_type):
+            logger.warning(
+                "Skipping unsafe rel_type in classification_rels: %r", rel_type
+            )
+            continue
         from_id = crel.get("from_id")
         to_id = crel.get("to_id")
         # from_label/key: source_id ならば Source として扱う
@@ -840,6 +848,11 @@ def _ingest_classification_rels(
             from_key = "source_id"
         else:
             from_label = crel.get("from_label", "Entity")
+            if not _is_safe_identifier(from_label):
+                logger.warning(
+                    "Skipping unsafe from_label in classification_rels: %r", from_label
+                )
+                continue
             from_key = f"{from_label.lower()}_id"
         # to_label/key: classification_nodes のマップで解決
         if to_id in cn_keymap:
@@ -988,6 +1001,11 @@ def apply_constraints_from_yaml(
         for constraint in constraints:
             label = constraint["label"]
             prop = constraint["property"]
+            if not _is_safe_identifier(label) or not _is_safe_identifier(prop):
+                logger.warning(
+                    "Skipping unsafe constraint label/prop: %r/%r", label, prop
+                )
+                continue
             ctype = constraint.get("type", "UNIQUE")
             if ctype == "UNIQUE":
                 cypher = (
@@ -1013,6 +1031,9 @@ def apply_constraints_from_yaml(
         for index in indices:
             label = index["label"]
             prop = index["property"]
+            if not _is_safe_identifier(label) or not _is_safe_identifier(prop):
+                logger.warning("Skipping unsafe index label/prop: %r/%r", label, prop)
+                continue
             cypher = f"CREATE INDEX IF NOT EXISTS FOR (n:{label}) ON (n.{prop})"
             try:
                 session.run(cypher)

@@ -70,7 +70,9 @@ except ImportError:
 
 _DEFAULT_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 _DEFAULT_USER = os.environ.get("NEO4J_USER", "neo4j")
-_DEFAULT_PASSWORD = os.environ.get("NEO4J_PASSWORD", "gomasuke")
+_DEFAULT_PASSWORD = os.environ.get(
+    "NEO4J_PASSWORD"
+)  # 本番環境では必須。未設定時はエラー終了
 _DEFAULT_DATABASE = "research"
 _DEFAULT_OUTPUT_DIR = Path("data/migration")
 
@@ -784,7 +786,10 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     # Neo4j 接続
-    password = os.environ.get("NEO4J_PASSWORD", _DEFAULT_PASSWORD)
+    password = _DEFAULT_PASSWORD
+    if not password:
+        logger.error("NEO4J_PASSWORD environment variable is required.")
+        return 1
     try:
         driver = GraphDatabase.driver(args.uri, auth=(_DEFAULT_USER, password))
         driver.verify_connectivity()

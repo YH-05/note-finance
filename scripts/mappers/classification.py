@@ -20,6 +20,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from mappers.base import BaseMapper
+from ontology_loader import load_consolidation_mapping
 
 try:
     from utils_core.logging.config import get_logger
@@ -54,66 +55,8 @@ SOURCE_TYPE_NORMALIZATION: dict[str, str] = {
 }
 """Maps source_type values to 12 canonical types for SourceType nodes."""
 
-ENTITY_TYPE_CONSOLIDATION: dict[str, str] = {
-    # company -> company
-    "company": "company",
-    "fintech": "company",
-    "subsidiary": "company",
-    "fintech_holding": "company",
-    "digital_bank": "company",
-    "it_services": "company",
-    # technology -> technology
-    "technology": "technology",
-    "system": "technology",
-    # organization -> organization
-    "organization": "organization",
-    "central_bank": "organization",
-    "government": "organization",
-    "government_agency": "organization",
-    "institution": "organization",
-    "exchange": "organization",
-    # person -> person
-    "person": "person",
-    # index -> index
-    "index": "index",
-    # indicator -> indicator
-    "indicator": "indicator",
-    "metric": "indicator",
-    # instrument -> instrument
-    "instrument": "instrument",
-    "etf": "instrument",
-    "currency": "instrument",
-    "currency_pair": "instrument",
-    "fund": "instrument",
-    "bond": "instrument",
-    "asset": "instrument",
-    # commodity -> commodity
-    "commodity": "commodity",
-    # country -> country
-    "country": "country",
-    "region": "country",
-    # sector -> sector
-    "sector": "sector",
-    "market": "sector",
-    # concept -> concept
-    "concept": "concept",
-    "model": "concept",
-    "method": "concept",
-    "theme": "concept",
-    "article_proposal": "concept",
-    "event": "concept",
-    # regulation -> regulation
-    "regulation": "regulation",
-    # broker -> broker
-    "broker": "broker",
-    # product -> product
-    "product": "product",
-    "dataset": "product",
-    "data_center": "product",
-    # domain -> concept (legacy wealth-scrape type)
-    "domain": "concept",
-}
-"""Maps raw entity_types to 14 canonical types."""
+ENTITY_TYPE_CONSOLIDATION: dict[str, str] = load_consolidation_mapping()
+"""Maps raw entity_types to 14 canonical types. SSoT: ontology_loader._ENTITY_TYPE_CONSOLIDATION."""
 
 ENTITY_TYPE_META: dict[str, str] = {
     "company": "企業",
@@ -818,7 +761,7 @@ def get_schema_version() -> str:
         _scripts_dir = str(Path(__file__).resolve().parent.parent)
         if _scripts_dir not in sys.path:
             sys.path.insert(0, _scripts_dir)
-        from ontology_loader import _load_yaml, _DEFAULT_ONTOLOGY_PATH  # noqa: PLC0415
+        from ontology_loader import _DEFAULT_ONTOLOGY_PATH, _load_yaml
 
         data = _load_yaml(_DEFAULT_ONTOLOGY_PATH)
         return str(data.get("schema_version", "4.0"))
