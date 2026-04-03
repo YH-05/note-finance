@@ -1,7 +1,7 @@
 """Unit tests for fund_db.toushin_stats.parser module.
 
-Tests parse_b1() using synthetic openpyxl workbooks.
-B-2/B-3/A-2 tests are skipped as those parsers are not yet implemented.
+Tests parse_b1(), parse_b2(), parse_b3(), parse_a2() using synthetic
+openpyxl workbooks.
 """
 
 from __future__ import annotations
@@ -366,68 +366,471 @@ class TestParseB1:
 
 
 # ---------------------------------------------------------------------------
-# Tests: parse_b2, parse_b3, parse_a2 (skipped - not implemented)
+# Fixtures: B-2, B-3, A-2
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def b2_workbook(tmp_path: Path) -> Path:
+    """Create a synthetic B-2 Excel workbook with multiple sheets.
+
+    Mimics the structure of toushin_B2_shohin_bunrui.xlsx:
+    - Multiple sheets, each representing a product class
+    - Each sheet has year_month + numeric columns (net_assets, fund_count)
+    """
+    wb = openpyxl.Workbook()
+
+    # Remove default sheet
+    default_ws = wb.active
+    assert default_ws is not None
+
+    # Sheet 1: 株式投信
+    ws1 = wb.create_sheet(title="株式投信")
+    ws1.cell(row=1, column=1, value="商品分類別純資産総額等")
+    ws1.cell(row=2, column=1, value="（単位：百万円）")
+    ws1.cell(row=3, column=1, value="年月")
+    ws1.cell(row=3, column=2, value="純資産総額")
+    ws1.cell(row=3, column=3, value="ファンド本数")
+    ws1.cell(row=4, column=1, value="2024/1")
+    ws1.cell(row=4, column=2, value=800000.0)
+    ws1.cell(row=4, column=3, value=150)
+    ws1.cell(row=5, column=1, value="2024/2")
+    ws1.cell(row=5, column=2, value=820000.0)
+    ws1.cell(row=5, column=3, value=155)
+
+    # Sheet 2: 公社債投信
+    ws2 = wb.create_sheet(title="公社債投信")
+    ws2.cell(row=1, column=1, value="商品分類別純資産総額等")
+    ws2.cell(row=2, column=1, value="（単位：百万円）")
+    ws2.cell(row=3, column=1, value="年月")
+    ws2.cell(row=3, column=2, value="純資産総額")
+    ws2.cell(row=3, column=3, value="ファンド本数")
+    ws2.cell(row=4, column=1, value="2024/1")
+    ws2.cell(row=4, column=2, value=300000.0)
+    ws2.cell(row=4, column=3, value=80)
+
+    # Sheet 3: MMF
+    ws3 = wb.create_sheet(title="MMF")
+    ws3.cell(row=1, column=1, value="商品分類別純資産総額等")
+    ws3.cell(row=2, column=1, value="（単位：百万円）")
+    ws3.cell(row=3, column=1, value="年月")
+    ws3.cell(row=3, column=2, value="純資産総額")
+    ws3.cell(row=3, column=3, value="ファンド本数")
+    ws3.cell(row=4, column=1, value="2024/1")
+    ws3.cell(row=4, column=2, value=50000.0)
+    ws3.cell(row=4, column=3, value=10)
+
+    # Remove the default sheet
+    wb.remove(default_ws)
+
+    path = tmp_path / "test_b2.xlsx"
+    wb.save(path)
+    wb.close()
+    return path
+
+
+@pytest.fixture
+def b3_workbook(tmp_path: Path) -> Path:
+    """Create a synthetic B-3 Excel workbook for testing.
+
+    Mimics the structure of toushin_B3_unyou_kaisha.xlsx:
+    - Single sheet with management company rows
+    - Columns: company_name, net_assets, fund_count
+    - Year-month from a header area or column
+    """
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    assert ws is not None
+    ws.title = "運用会社別"
+
+    # Title rows
+    ws.cell(row=1, column=1, value="運用会社別純資産総額等")
+    ws.cell(row=2, column=1, value="2024年1月末")
+    ws.cell(row=3, column=1, value="（単位：百万円）")
+
+    # Header row
+    ws.cell(row=4, column=1, value="会社名")
+    ws.cell(row=4, column=2, value="純資産総額")
+    ws.cell(row=4, column=3, value="ファンド本数")
+
+    # Data rows - management companies
+    ws.cell(row=5, column=1, value="野村アセットマネジメント")
+    ws.cell(row=5, column=2, value=500000.0)
+    ws.cell(row=5, column=3, value=200)
+
+    ws.cell(row=6, column=1, value="大和アセットマネジメント")
+    ws.cell(row=6, column=2, value=400000.0)
+    ws.cell(row=6, column=3, value=180)
+
+    ws.cell(row=7, column=1, value="三菱UFJアセットマネジメント")
+    ws.cell(row=7, column=2, value=350000.0)
+    ws.cell(row=7, column=3, value=160)
+
+    path = tmp_path / "test_b3.xlsx"
+    wb.save(path)
+    wb.close()
+    return path
+
+
+@pytest.fixture
+def b3_workbook_with_ym_column(tmp_path: Path) -> Path:
+    """Create a B-3 workbook with an explicit year_month column."""
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    assert ws is not None
+    ws.title = "運用会社別"
+
+    # Header row
+    ws.cell(row=1, column=1, value="年月")
+    ws.cell(row=1, column=2, value="会社名")
+    ws.cell(row=1, column=3, value="純資産総額")
+    ws.cell(row=1, column=4, value="ファンド本数")
+
+    # Data rows
+    ws.cell(row=2, column=1, value="2024/1")
+    ws.cell(row=2, column=2, value="野村アセットマネジメント")
+    ws.cell(row=2, column=3, value=500000.0)
+    ws.cell(row=2, column=4, value=200)
+
+    ws.cell(row=3, column=1, value="2024/1")
+    ws.cell(row=3, column=2, value="大和アセットマネジメント")
+    ws.cell(row=3, column=3, value=400000.0)
+    ws.cell(row=3, column=4, value=180)
+
+    path = tmp_path / "test_b3_ym_col.xlsx"
+    wb.save(path)
+    wb.close()
+    return path
+
+
+@pytest.fixture
+def a2_workbook(tmp_path: Path) -> Path:
+    """Create a synthetic A-2 Excel workbook for testing.
+
+    Mimics the structure of toushin_A2_zentaizo.xlsx:
+    - Single sheet with monthly time series
+    - Columns: year_month, total_net_assets, total_fund_count,
+               total_inflow, total_outflow
+    """
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    assert ws is not None
+    ws.title = "全体像"
+
+    # Title rows
+    ws.cell(row=1, column=1, value="投資信託の全体像")
+    ws.cell(row=2, column=1, value="（単位：百万円）")
+
+    # Header row
+    ws.cell(row=3, column=1, value="年月")
+    ws.cell(row=3, column=2, value="純資産総額")
+    ws.cell(row=3, column=3, value="ファンド本数")
+    ws.cell(row=3, column=4, value="設定額")
+    ws.cell(row=3, column=5, value="解約額")
+
+    # Data rows
+    ws.cell(row=4, column=1, value="2024/1")
+    ws.cell(row=4, column=2, value=2000000.0)
+    ws.cell(row=4, column=3, value=500)
+    ws.cell(row=4, column=4, value=100000.0)
+    ws.cell(row=4, column=5, value=80000.0)
+
+    ws.cell(row=5, column=1, value="2024/2")
+    ws.cell(row=5, column=2, value=2050000.0)
+    ws.cell(row=5, column=3, value=510)
+    ws.cell(row=5, column=4, value=110000.0)
+    ws.cell(row=5, column=5, value=85000.0)
+
+    ws.cell(row=6, column=1, value="2024/3")
+    ws.cell(row=6, column=2, value=2100000.0)
+    ws.cell(row=6, column=3, value=520)
+    ws.cell(row=6, column=4, value=120000.0)
+    ws.cell(row=6, column=5, value=90000.0)
+
+    path = tmp_path / "test_a2.xlsx"
+    wb.save(path)
+    wb.close()
+    return path
+
+
+# ---------------------------------------------------------------------------
+# Tests: ToushinStatsParser.parse_b2
 # ---------------------------------------------------------------------------
 
 
 class TestParseB2:
-    """Tests for ToushinStatsParser.parse_b2() (not yet implemented)."""
+    """Tests for ToushinStatsParser.parse_b2()."""
 
-    @pytest.mark.skip(reason="B-2 parser not yet implemented")
-    def test_正常系_B2をパースできる(
+    def test_正常系_複数シートからレコードを読み込める(
+        self,
+        parser: ToushinStatsParser,
+        b2_workbook: Path,
+    ) -> None:
+        records = parser.parse_b2(b2_workbook)
+        assert len(records) == 4  # 2 (株式投信) + 1 (公社債投信) + 1 (MMF)
+
+    def test_正常系_シート名がproduct_classに設定される(
+        self,
+        parser: ToushinStatsParser,
+        b2_workbook: Path,
+    ) -> None:
+        records = parser.parse_b2(b2_workbook)
+        product_classes = {r.product_class for r in records}
+        assert "株式投信" in product_classes
+        assert "公社債投信" in product_classes
+        assert "MMF" in product_classes
+
+    def test_正常系_最初のシートのレコード値が正しい(
+        self,
+        parser: ToushinStatsParser,
+        b2_workbook: Path,
+    ) -> None:
+        records = parser.parse_b2(b2_workbook)
+        kabushiki_records = [r for r in records if r.product_class == "株式投信"]
+        assert len(kabushiki_records) == 2
+        first = kabushiki_records[0]
+        assert first.year_month == "2024-01"
+        assert first.net_assets == 800000.0
+        assert first.fund_count == 150
+
+    def test_正常系_2番目のシートのレコード値が正しい(
+        self,
+        parser: ToushinStatsParser,
+        b2_workbook: Path,
+    ) -> None:
+        records = parser.parse_b2(b2_workbook)
+        koshasai_records = [r for r in records if r.product_class == "公社債投信"]
+        assert len(koshasai_records) == 1
+        first = koshasai_records[0]
+        assert first.year_month == "2024-01"
+        assert first.net_assets == 300000.0
+        assert first.fund_count == 80
+
+    def test_正常系_レコードがProductClassRecord型である(
+        self,
+        parser: ToushinStatsParser,
+        b2_workbook: Path,
+    ) -> None:
+        from fund_db.toushin_stats.models import ProductClassRecord
+
+        records = parser.parse_b2(b2_workbook)
+        for record in records:
+            assert isinstance(record, ProductClassRecord)
+
+    def test_異常系_存在しないファイルでParseError(
         self,
         parser: ToushinStatsParser,
         tmp_path: Path,
     ) -> None:
-        records = parser.parse_b2(tmp_path / "dummy.xlsx")
-        assert isinstance(records, list)
+        with pytest.raises(ParseError):
+            parser.parse_b2(tmp_path / "nonexistent.xlsx")
 
-    def test_異常系_NotImplementedErrorが発生する(
+    def test_正常系_ヘッダーなしシートはスキップされる(
         self,
         parser: ToushinStatsParser,
         tmp_path: Path,
     ) -> None:
-        with pytest.raises(NotImplementedError, match="B-2"):
-            parser.parse_b2(tmp_path / "dummy.xlsx")
+        """A sheet with no recognizable header should be skipped."""
+        wb = openpyxl.Workbook()
+        default_ws = wb.active
+        assert default_ws is not None
+
+        # Sheet with valid data
+        ws1 = wb.create_sheet(title="株式投信")
+        ws1.cell(row=1, column=1, value="年月")
+        ws1.cell(row=1, column=2, value="純資産総額")
+        ws1.cell(row=1, column=3, value="ファンド本数")
+        ws1.cell(row=2, column=1, value="2024/1")
+        ws1.cell(row=2, column=2, value=100000.0)
+        ws1.cell(row=2, column=3, value=50)
+
+        # Sheet with no recognizable header
+        ws2 = wb.create_sheet(title="メモ")
+        ws2.cell(row=1, column=1, value="このシートはデータなし")
+
+        wb.remove(default_ws)
+        path = tmp_path / "test_b2_skip.xlsx"
+        wb.save(path)
+        wb.close()
+
+        records = parser.parse_b2(path)
+        assert len(records) == 1
+        assert records[0].product_class == "株式投信"
+
+
+# ---------------------------------------------------------------------------
+# Tests: ToushinStatsParser.parse_b3
+# ---------------------------------------------------------------------------
 
 
 class TestParseB3:
-    """Tests for ToushinStatsParser.parse_b3() (not yet implemented)."""
+    """Tests for ToushinStatsParser.parse_b3()."""
 
-    @pytest.mark.skip(reason="B-3 parser not yet implemented")
-    def test_正常系_B3をパースできる(
+    def test_正常系_運用会社レコードを読み込める(
+        self,
+        parser: ToushinStatsParser,
+        b3_workbook: Path,
+    ) -> None:
+        records = parser.parse_b3(b3_workbook)
+        assert len(records) == 3
+
+    def test_正常系_最初の運用会社レコードの値が正しい(
+        self,
+        parser: ToushinStatsParser,
+        b3_workbook: Path,
+    ) -> None:
+        records = parser.parse_b3(b3_workbook)
+        first = records[0]
+        assert first.company_name == "野村アセットマネジメント"
+        assert first.net_assets == 500000.0
+        assert first.fund_count == 200
+
+    def test_正常系_year_monthがヘッダー領域から推定される(
+        self,
+        parser: ToushinStatsParser,
+        b3_workbook: Path,
+    ) -> None:
+        records = parser.parse_b3(b3_workbook)
+        # year_month should be extracted from the title area "2024年1月末"
+        for record in records:
+            assert record.year_month == "2024-01"
+
+    def test_正常系_year_monthカラムが存在する場合(
+        self,
+        parser: ToushinStatsParser,
+        b3_workbook_with_ym_column: Path,
+    ) -> None:
+        records = parser.parse_b3(b3_workbook_with_ym_column)
+        assert len(records) == 2
+        assert records[0].year_month == "2024-01"
+        assert records[0].company_name == "野村アセットマネジメント"
+
+    def test_正常系_レコードがManagementCompanyRecord型である(
+        self,
+        parser: ToushinStatsParser,
+        b3_workbook: Path,
+    ) -> None:
+        from fund_db.toushin_stats.models import ManagementCompanyRecord
+
+        records = parser.parse_b3(b3_workbook)
+        for record in records:
+            assert isinstance(record, ManagementCompanyRecord)
+
+    def test_異常系_存在しないファイルでParseError(
         self,
         parser: ToushinStatsParser,
         tmp_path: Path,
     ) -> None:
-        records = parser.parse_b3(tmp_path / "dummy.xlsx")
-        assert isinstance(records, list)
+        with pytest.raises(ParseError):
+            parser.parse_b3(tmp_path / "nonexistent.xlsx")
 
-    def test_異常系_NotImplementedErrorが発生する(
+    def test_異常系_ヘッダー行なしでParseError(
         self,
         parser: ToushinStatsParser,
-        tmp_path: Path,
+        empty_workbook: Path,
     ) -> None:
-        with pytest.raises(NotImplementedError, match="B-3"):
-            parser.parse_b3(tmp_path / "dummy.xlsx")
+        with pytest.raises(ParseError):
+            parser.parse_b3(empty_workbook)
+
+
+# ---------------------------------------------------------------------------
+# Tests: ToushinStatsParser.parse_a2
+# ---------------------------------------------------------------------------
 
 
 class TestParseA2:
-    """Tests for ToushinStatsParser.parse_a2() (not yet implemented)."""
+    """Tests for ToushinStatsParser.parse_a2()."""
 
-    @pytest.mark.skip(reason="A-2 parser not yet implemented")
-    def test_正常系_A2をパースできる(
+    def test_正常系_全体統計レコードを読み込める(
+        self,
+        parser: ToushinStatsParser,
+        a2_workbook: Path,
+    ) -> None:
+        records = parser.parse_a2(a2_workbook)
+        assert len(records) == 3
+
+    def test_正常系_最初のレコードの値が正しい(
+        self,
+        parser: ToushinStatsParser,
+        a2_workbook: Path,
+    ) -> None:
+        records = parser.parse_a2(a2_workbook)
+        first = records[0]
+        assert first.year_month == "2024-01"
+        assert first.total_net_assets == 2000000.0
+        assert first.total_fund_count == 500
+        assert first.total_inflow == 100000.0
+        assert first.total_outflow == 80000.0
+
+    def test_正常系_3レコード目の値が正しい(
+        self,
+        parser: ToushinStatsParser,
+        a2_workbook: Path,
+    ) -> None:
+        records = parser.parse_a2(a2_workbook)
+        third = records[2]
+        assert third.year_month == "2024-03"
+        assert third.total_net_assets == 2100000.0
+        assert third.total_fund_count == 520
+        assert third.total_inflow == 120000.0
+        assert third.total_outflow == 90000.0
+
+    def test_正常系_レコードがOverallStatusRecord型である(
+        self,
+        parser: ToushinStatsParser,
+        a2_workbook: Path,
+    ) -> None:
+        from fund_db.toushin_stats.models import OverallStatusRecord
+
+        records = parser.parse_a2(a2_workbook)
+        for record in records:
+            assert isinstance(record, OverallStatusRecord)
+
+    def test_異常系_存在しないファイルでParseError(
         self,
         parser: ToushinStatsParser,
         tmp_path: Path,
     ) -> None:
-        records = parser.parse_a2(tmp_path / "dummy.xlsx")
-        assert isinstance(records, list)
+        with pytest.raises(ParseError):
+            parser.parse_a2(tmp_path / "nonexistent.xlsx")
 
-    def test_異常系_NotImplementedErrorが発生する(
+    def test_異常系_ヘッダー行なしでParseError(
+        self,
+        parser: ToushinStatsParser,
+        empty_workbook: Path,
+    ) -> None:
+        with pytest.raises(ParseError):
+            parser.parse_a2(empty_workbook)
+
+    def test_正常系_Noneセルを含むレコードを正しく変換できる(
         self,
         parser: ToushinStatsParser,
         tmp_path: Path,
     ) -> None:
-        with pytest.raises(NotImplementedError, match="A-2"):
-            parser.parse_a2(tmp_path / "dummy.xlsx")
+        """A-2 with some None values in numeric columns."""
+        wb = openpyxl.Workbook()
+        ws = wb.active
+        assert ws is not None
+
+        ws.cell(row=1, column=1, value="年月")
+        ws.cell(row=1, column=2, value="純資産総額")
+        ws.cell(row=1, column=3, value="ファンド本数")
+        ws.cell(row=1, column=4, value="設定額")
+        ws.cell(row=1, column=5, value="解約額")
+
+        ws.cell(row=2, column=1, value="2024/1")
+        ws.cell(row=2, column=2, value=2000000.0)
+        ws.cell(row=2, column=3, value=None)
+        ws.cell(row=2, column=4, value=100000.0)
+        ws.cell(row=2, column=5, value=None)
+
+        path = tmp_path / "test_a2_none.xlsx"
+        wb.save(path)
+        wb.close()
+
+        records = parser.parse_a2(path)
+        assert len(records) == 1
+        assert records[0].total_net_assets == 2000000.0
+        assert records[0].total_fund_count is None
+        assert records[0].total_inflow == 100000.0
+        assert records[0].total_outflow is None
