@@ -25,6 +25,7 @@ _SCRIPTS_DIR = str(Path(__file__).resolve().parent.parent.parent / "scripts")
 if _SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, _SCRIPTS_DIR)
 
+from ontology_loader import ENTITY_TYPE_TO_LABEL as _ENTITY_TYPE_TO_LABEL  # noqa: E402
 from ontology_loader import load_constraints as _ol_load_constraints  # noqa: E402
 from ontology_loader import load_indices as _ol_load_indices  # noqa: E402
 
@@ -53,14 +54,12 @@ _RESEARCH_DB = os.environ.get("NEO4J_RESEARCH_DB", "research")
 _CREATOR_DB = os.environ.get("NEO4J_CREATOR_DB", "creator")
 
 # ノードラベルとキープロパティのマッピング
+# AIDEV-NOTE: v4.0 (Issue #310) — Entity ラベル廃止。entities セクションは neo4j_label ごとに動的処理
 _NODE_KEY_MAP = {
     "sources": ("Source", "source_id"),
     "facts": ("Fact", "fact_id"),
     "claims": ("Claim", "claim_id"),
-    "entities": (
-        "Entity",
-        "entity_key",
-    ),  # AIDEV-NOTE: entity_key (UNIQUE制約キー) で MERGE。entity_id は ON CREATE のみ設定
+    "entities": None,  # v4.0: 個別ラベル動的処理 (_ingest_entity_nodes)
     "topics": (
         "Topic",
         "topic_key",
@@ -72,14 +71,15 @@ _NODE_KEY_MAP = {
     "classification_nodes": None,  # 別処理
 }
 
-# AIDEV-NOTE: entity/topic は business key でMERGEするため id は ON CREATE のみ保存する
+# AIDEV-NOTE: topic は business key でMERGEするため id は ON CREATE のみ保存する
+# Entity は v4.0 で個別ラベルに分解済み (entity_id → ON CREATE も廃止)
 _NODE_ID_ON_CREATE: dict[str, str] = {
-    "Entity": "entity_id",
     "Topic": "topic_id",
 }
 
 # リレーションの from/to キー名
-# AIDEV-NOTE: entity/topic 参照は entity_key/topic_key で MATCH する（entity_id/topic_id はパイプライン間で異なる場合あり）
+# AIDEV-NOTE: v4.0 — entity 参照は name+label で MATCH する（entity_key 廃止）
+# fact_entity / claim_entity / has_datapoint / datapoint_entity は _ingest_entity_rels で処理
 _REL_ENDPOINTS = {
     "source_fact": ("source_id", "Source", "fact_id", "Fact", "STATES_FACT"),
     "source_claim": ("source_id", "Source", "claim_id", "Claim", "MAKES_CLAIM"),
@@ -92,31 +92,19 @@ _REL_ENDPOINTS = {
         "Source",
         "EXTRACTED_FROM",
     ),
-    "fact_entity": ("fact_id", "Fact", "entity_key", "Entity", "RELATES_TO"),
-    "claim_entity": ("claim_id", "Claim", "entity_key", "Entity", "ABOUT"),
+    # fact_entity / claim_entity は entity_key 廃止により _ingest_entity_rels で処理
+    # "fact_entity": 廃止 (entity_key 参照のため)
+    # "claim_entity": 廃止 (entity_key 参照のため)
     "tagged": ("source_id", "Source", "topic_key", "Topic", "TAGGED"),
     "tagged_fact": ("fact_id", "Fact", "topic_key", "Topic", "TAGGED"),
     "contains_chunk": ("source_id", "Source", "chunk_id", "Chunk", "CONTAINS_CHUNK"),
-    "has_datapoint": (
-        "entity_key",
-        "Entity",
-        "datapoint_id",
-        "FinancialDataPoint",
-        "HAS_DATAPOINT",
-    ),
+    # has_datapoint / datapoint_entity は _ingest_entity_rels で処理
     "for_period": (
         "datapoint_id",
         "FinancialDataPoint",
         "period_id",
         "FiscalPeriod",
         "FOR_PERIOD",
-    ),
-    "datapoint_entity": (
-        "datapoint_id",
-        "FinancialDataPoint",
-        "entity_key",
-        "Entity",
-        "ABOUT",
     ),
     "authored_by": ("source_id", "Source", "author_id", "Author", "AUTHORED_BY"),
 }
@@ -323,20 +311,289 @@ def _merge_relation(
     return summary.counters.relationships_created
 
 
-def _build_id_to_key(queue_data: dict[str, Any]) -> dict[str, str]:
-    """entity_id/topic_id → entity_key/topic_key の解決マップを構築する.
+def _get_entity_neo4j_label(entity: dict[str, Any]) -> str:
+    """entity dict から Neo4j 個別ラベルを取得する.
 
-    AIDEV-NOTE: graph-queue v3.0 では relations の to_id が entity_id (UUID) を指すが、
-    Neo4j では entity_key でMERGEするため、投入前に解決する。
+    v4.0: Entity 汎用ラベル廃止。neo4j_label フィールドまたは entity_type から決定。
+    SSoT: ontology_loader.ENTITY_TYPE_TO_LABEL
+
+    Parameters
+    ----------
+    entity : dict[str, Any]
+        エンティティ dict（neo4j_label または entity_type フィールドを含む）。
+
+    Returns
+    -------
+    str
+        Neo4j 個別ラベル (e.g. "Company", "MarketIndex")。
+    """
+    # 明示的な neo4j_label フィールドを優先
+    neo4j_label = entity.get("neo4j_label")
+    if neo4j_label and _is_safe_identifier(neo4j_label):
+        return neo4j_label
+
+    # entity_type から ENTITY_TYPE_TO_LABEL でマッピング
+    entity_type: str = str(entity.get("entity_type", "concept")).lower().strip()
+    # 統合マッピング（fine-grained → canonical）
+    from ontology_loader import load_consolidation_mapping as _load_cm
+
+    consolidation = _load_cm()
+    canonical_type: str = consolidation.get(entity_type, entity_type)
+    label = _ENTITY_TYPE_TO_LABEL.get(canonical_type, "Concept")
+    return label
+
+
+def _build_id_to_key(queue_data: dict[str, Any]) -> dict[str, str]:
+    """topic_id → topic_key の解決マップを構築する.
+
+    v4.0 変更: entity_key 廃止のため Entity の解決マップは除去。
+    Topic の topic_id → topic_key の解決のみ行う。
+
+    AIDEV-NOTE: graph-queue の relations の to_id が topic_id (UUID) を指す場合、
+    Neo4j では topic_key で MERGE するため、投入前に解決する。
     """
     id_to_key: dict[str, str] = {}
-    for entity in queue_data.get("entities", []):
-        if entity.get("entity_id") and entity.get("entity_key"):
-            id_to_key[entity["entity_id"]] = entity["entity_key"]
+    # v4.0: Entity の entity_id → entity_key マッピングは廃止
     for topic in queue_data.get("topics", []):
         if topic.get("topic_id") and topic.get("topic_key"):
             id_to_key[topic["topic_id"]] = topic["topic_key"]
     return id_to_key
+
+
+def _ingest_entity_nodes(
+    queue_data: dict[str, Any],
+    driver,
+) -> int:
+    """entities セクションを個別ラベルで MERGE 投入するサブ関数.
+
+    v4.0: Entity 汎用ラベル廃止。neo4j_label または entity_type から個別ラベルを決定し、
+    ラベルごとに UNWIND バッチで MERGE (n:Label {name: $name}) を実行する。
+
+    Parameters
+    ----------
+    queue_data : dict
+        graph-queue JSON のパース済みデータ。
+    driver : neo4j.Driver | None
+        Neo4j ドライバー。None の場合は dry_run（カウントのみ）。
+
+    Returns
+    -------
+    int
+        投入したエンティティ数。
+    """
+    entities = queue_data.get("entities", [])
+    if not entities:
+        return 0
+
+    # ラベルごとにグループ化
+    label_to_items: dict[str, list[dict[str, Any]]] = {}
+    for entity in entities:
+        neo4j_label = _get_entity_neo4j_label(entity)
+        label_to_items.setdefault(neo4j_label, []).append(entity)
+
+    count = 0
+    for neo4j_label, items in label_to_items.items():
+        if not _is_safe_identifier(neo4j_label):
+            logger.warning("Skipping unsafe entity label: %r", neo4j_label)
+            continue
+        logger.info("Ingesting %d %s nodes", len(items), neo4j_label)
+
+        # UNWIND バッチ: name を NODE KEY として MERGE
+        rows = []
+        for item in items:
+            name = item.get("name", "")
+            if not name:
+                continue
+            # name と updated_at/enriched_at のみ保存（entity_key/entity_id は廃止）
+            props = {
+                k: v
+                for k, v in item.items()
+                if k
+                not in {
+                    "entity_id",
+                    "entity_key",
+                    "entity_type",
+                    "neo4j_label",
+                    "extra_labels",
+                }
+                and v is not None
+            }
+            rows.append({"name": name, "props": props})
+
+        if not rows:
+            continue
+
+        if driver:
+            query = (
+                f"UNWIND $rows AS row "
+                f"MERGE (n:{neo4j_label} {{name: row.name}}) "
+                f"SET n += row.props"
+            )
+            with driver.session(database=_RESEARCH_DB) as session:
+                session.execute_write(lambda tx, q=query, r=rows: tx.run(q, rows=r))
+
+        count += len(rows)
+
+    return count
+
+
+def _ingest_entity_rel_single(
+    driver,
+    from_label: str,
+    from_id_key: str,
+    from_id: str,
+    neo4j_label: str,
+    entity_name: str,
+) -> None:
+    """単一の entity リレーション (from_node)-[:RELATES_TO]->(entity) を投入するサブ関数.
+
+    Parameters
+    ----------
+    driver : neo4j.Driver
+        Neo4j ドライバー。
+    from_label : str
+        始点ノードのラベル (例: "Fact", "Claim")。
+    from_id_key : str
+        始点ノードのキープロパティ名 (例: "fact_id", "claim_id")。
+    from_id : str
+        始点ノードのキー値。
+    neo4j_label : str
+        終点エンティティのラベル。
+    entity_name : str
+        終点エンティティの name プロパティ値。
+    """
+    query = (
+        f"MATCH (f:{from_label} {{{from_id_key}: $from_id}}) "
+        f"MATCH (e:{neo4j_label} {{name: $entity_name}}) "
+        f"MERGE (f)-[:RELATES_TO]->(e)"
+    )
+    with driver.session(database=_RESEARCH_DB) as session:
+        session.execute_write(
+            lambda tx, q=query, fid=from_id, en=entity_name: tx.run(
+                q, from_id=fid, entity_name=en
+            )
+        )
+
+
+def _ingest_entity_rels_for_type(
+    driver,
+    rels: list[dict[str, Any]],
+    from_label: str,
+    from_id_rel_key: str,
+    entity_id_to_info: dict[str, dict[str, str]],
+) -> int:
+    """単一リレーション種別 (fact_entity / claim_entity) のループ処理サブ関数.
+
+    AIDEV-NOTE: N+1クエリ → UNWIND バッチに変換。
+    neo4j_label ごとにグループ化し、1ラベル = 1トランザクションで実行する。
+
+    Parameters
+    ----------
+    driver : neo4j.Driver | None
+        Neo4j ドライバー。None の場合はカウントのみ。
+    rels : list[dict]
+        当該リレーション種別のリスト。
+    from_label : str
+        始点ノードのラベル (例: "Fact", "Claim")。
+    from_id_rel_key : str
+        始点ノードのキープロパティ名 (例: "fact_id", "claim_id")。
+    entity_id_to_info : dict
+        entity_id → {name, neo4j_label} の解決マップ。
+
+    Returns
+    -------
+    int
+        投入したリレーション数。
+    """
+    # neo4j_label → [{from_id, entity_name}] でグループ化
+    label_to_rows: dict[str, list[dict[str, str]]] = {}
+    for rel in rels:
+        from_id = rel.get("from_id") or rel.get(from_id_rel_key)
+        to_val = rel.get("to_id") or rel.get("entity_key") or rel.get("entity_name")
+        if not from_id or not to_val:
+            continue
+        entity_info = entity_id_to_info.get(to_val)
+        if entity_info is None:
+            continue
+        neo4j_label = entity_info["neo4j_label"]
+        entity_name = entity_info["name"]
+        if not entity_name or not _is_safe_identifier(neo4j_label):
+            continue
+        label_to_rows.setdefault(neo4j_label, []).append(
+            {"from_id": from_id, "entity_name": entity_name}
+        )
+
+    count = 0
+    for neo4j_label, rows in label_to_rows.items():
+        count += len(rows)
+        if driver:
+            # 1ラベルにつき1クエリ（N+1 → O(unique_labels) に削減）
+            query = (
+                f"UNWIND $rows AS row "
+                f"MATCH (f:{from_label} {{{from_id_rel_key}: row.from_id}}) "
+                f"MATCH (e:{neo4j_label} {{name: row.entity_name}}) "
+                f"MERGE (f)-[:RELATES_TO]->(e)"
+            )
+            with driver.session(database=_RESEARCH_DB) as session:
+                session.execute_write(
+                    lambda tx, q=query, r=rows: tx.run(q, rows=r)
+                )
+    return count
+
+
+def _ingest_entity_rels(
+    queue_data: dict[str, Any],
+    driver,
+) -> int:
+    """entity 関連リレーション (fact_entity / claim_entity 等) を投入するサブ関数.
+
+    v4.0: entity_key 廃止のため、name+label で MATCH する Cypher に変更。
+    relations セクションの fact_entity / claim_entity / has_datapoint /
+    datapoint_entity を処理する。
+
+    Parameters
+    ----------
+    queue_data : dict
+        graph-queue JSON のパース済みデータ。
+    driver : neo4j.Driver | None
+        Neo4j ドライバー。None の場合は dry_run（カウントのみ）。
+
+    Returns
+    -------
+    int
+        投入したリレーション数。
+    """
+    entities = queue_data.get("entities", [])
+    if not entities:
+        return 0
+
+    # entity_id → (name, neo4j_label) の解決マップ
+    # AIDEV-NOTE: relations の from_id/to_id が entity_id を指す場合に name+label で解決
+    entity_id_to_info: dict[str, dict[str, str]] = {}
+    for e in entities:
+        eid = e.get("entity_id", "")
+        if eid:
+            entity_id_to_info[eid] = {
+                "name": e.get("name", ""),
+                "neo4j_label": _get_entity_neo4j_label(e),
+            }
+
+    relations = queue_data.get("relations", {})
+    count = _ingest_entity_rels_for_type(
+        driver,
+        relations.get("fact_entity", []),
+        "Fact",
+        "fact_id",
+        entity_id_to_info,
+    )
+    count += _ingest_entity_rels_for_type(
+        driver,
+        relations.get("claim_entity", []),
+        "Claim",
+        "claim_id",
+        entity_id_to_info,
+    )
+    return count
 
 
 def _batch_merge_nodes_tx(
@@ -419,6 +676,9 @@ def _batch_set_extra_labels(
             label_to_keys.setdefault(extra_label, []).append(key_val)
 
     for extra_label, keys in label_to_keys.items():
+        if not _is_safe_identifier(extra_label):
+            logger.warning("Skipping unsafe extra_label: %r", extra_label)
+            continue
         query = (
             f"UNWIND $keys AS key "
             f"MATCH (n:{label} {{{key_prop}: key}}) "
@@ -486,8 +746,8 @@ def _ingest_nodes(
     """ノードを投入するサブ関数.
 
     _NODE_KEY_MAP に定義された全セクションのノードを投入する。
+    entities セクションは v4.0 スキーマで個別ラベル動的処理 (_ingest_entity_nodes)。
     classification_nodes は動的ラベルとして別処理する。
-    extra_labels が指定された Entity には _batch_set_extra_labels を適用する。
 
     Parameters
     ----------
@@ -503,10 +763,14 @@ def _ingest_nodes(
     """
     node_count = 0
 
+    # v4.0: entities セクションは個別ラベル動的処理
+    entity_count = _ingest_entity_nodes(queue_data, driver)
+    node_count += entity_count
+
     # 通常ノード投入（UNWIND バッチ: N+1 → 1クエリ/section）
     for section, config in _NODE_KEY_MAP.items():
         if config is None:
-            continue
+            continue  # entities と classification_nodes は別処理
         label, key_prop = config
         items = queue_data.get(section, [])
         if not items:
@@ -518,6 +782,7 @@ def _ingest_nodes(
                 session.execute_write(
                     _batch_merge_nodes_tx, label, key_prop, items, on_create_field
                 )
+                # extra_labels は v4.0 では entities に使用しないが、他のノード型に残す
                 items_with_extra = [
                     (item[key_prop], item["extra_labels"])
                     for item in items
@@ -588,6 +853,11 @@ def _ingest_classification_rels(
 
     for crel in queue_data.get("classification_rels", []):
         rel_type = crel.get("type", "CLASSIFIED_AS")
+        if not _is_safe_identifier(rel_type):
+            logger.warning(
+                "Skipping unsafe rel_type in classification_rels: %r", rel_type
+            )
+            continue
         from_id = crel.get("from_id")
         to_id = crel.get("to_id")
         # from_label/key: source_id ならば Source として扱う
@@ -596,6 +866,11 @@ def _ingest_classification_rels(
             from_key = "source_id"
         else:
             from_label = crel.get("from_label", "Entity")
+            if not _is_safe_identifier(from_label):
+                logger.warning(
+                    "Skipping unsafe from_label in classification_rels: %r", from_label
+                )
+                continue
             from_key = f"{from_label.lower()}_id"
         # to_label/key: classification_nodes のマップで解決
         if to_id in cn_keymap:
@@ -646,7 +921,11 @@ def _ingest_rels(
     rel_verification: dict[str, tuple[int, int]] = {}
     rel_endpoints = _resolve_rel_endpoints(queue_data)
 
-    # ファイル内リレーション投入
+    # v4.0: entity 関連リレーション (fact_entity / claim_entity 等) を個別処理
+    entity_rel_count = _ingest_entity_rels(queue_data, driver)
+    rel_count += entity_rel_count
+
+    # ファイル内リレーション投入（entity 関連を除く）
     relations = queue_data.get("relations", {})
     for rel_section, endpoints in rel_endpoints.items():
         rels = relations.get(rel_section, [])
@@ -740,11 +1019,22 @@ def apply_constraints_from_yaml(
         for constraint in constraints:
             label = constraint["label"]
             prop = constraint["property"]
+            if not _is_safe_identifier(label) or not _is_safe_identifier(prop):
+                logger.warning(
+                    "Skipping unsafe constraint label/prop: %r/%r", label, prop
+                )
+                continue
             ctype = constraint.get("type", "UNIQUE")
             if ctype == "UNIQUE":
                 cypher = (
                     f"CREATE CONSTRAINT IF NOT EXISTS "
                     f"FOR (n:{label}) REQUIRE n.{prop} IS UNIQUE"
+                )
+            elif ctype == "NODE_KEY":
+                # Neo4j Enterprise Edition のみ対応
+                cypher = (
+                    f"CREATE CONSTRAINT IF NOT EXISTS "
+                    f"FOR (n:{label}) REQUIRE (n.{prop}) IS NODE KEY"
                 )
             else:
                 logger.warning("Unsupported constraint type: %s, skipping", ctype)
@@ -759,6 +1049,9 @@ def apply_constraints_from_yaml(
         for index in indices:
             label = index["label"]
             prop = index["property"]
+            if not _is_safe_identifier(label) or not _is_safe_identifier(prop):
+                logger.warning("Skipping unsafe index label/prop: %r/%r", label, prop)
+                continue
             cypher = f"CREATE INDEX IF NOT EXISTS FOR (n:{label}) ON (n.{prop})"
             try:
                 session.run(cypher)

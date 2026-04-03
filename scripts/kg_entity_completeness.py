@@ -352,19 +352,19 @@ def fetch_company_entities(driver: Any, entity_name: str | None = None) -> list[
     list[dict[str, Any]]
         Entity レコードのリスト。各要素は entity_key, name, entity_type を持つ。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル :Company に更新、entity_key 廃止
     if entity_name:
         query = """
-        MATCH (e:Entity)
-        WHERE e.entity_type = 'company' AND e.name CONTAINS $name
-        RETURN e.entity_key AS entity_key, e.name AS name, e.entity_type AS entity_type
+        MATCH (e:Company)
+        WHERE e.name CONTAINS $name
+        RETURN e.name AS entity_key, e.name AS name, 'company' AS entity_type
         ORDER BY e.name
         """
         params = {"name": entity_name}
     else:
         query = """
-        MATCH (e:Entity)
-        WHERE e.entity_type = 'company'
-        RETURN e.entity_key AS entity_key, e.name AS name, e.entity_type AS entity_type
+        MATCH (e:Company)
+        RETURN e.name AS entity_key, e.name AS name, 'company' AS entity_type
         ORDER BY e.name
         """
         params = {}
@@ -393,12 +393,13 @@ def fetch_entity_facts(driver: Any, entity_key: str) -> list[str]:
     list[str]
         Fact.content のリスト。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、entity_key → name に更新
     query = """
-    MATCH (e:Entity {entity_key: $entity_key})<-[:RELATES_TO]-(f:Fact)
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $name})<-[:RELATES_TO]-(f:Fact)
     RETURN f.content AS content
     """
     with driver.session() as session:
-        result = session.run(query, {"entity_key": entity_key})
+        result = session.run(query, {"name": entity_key})
         facts = [record["content"] for record in result if record["content"]]
     logger.debug("Entity '%s': %d facts", entity_key, len(facts))
     return facts
@@ -419,13 +420,14 @@ def fetch_entity_datapoints(driver: Any, entity_key: str) -> list[dict[str, Any]
     list[dict[str, Any]]
         FinancialDataPoint レコードのリスト。各要素は metric_name, value, fiscal_year, fiscal_quarter を持つ。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、entity_key → name に更新
     query = """
-    MATCH (e:Entity {entity_key: $entity_key})<-[:RELATES_TO]-(dp:FinancialDataPoint)
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $name})<-[:RELATES_TO]-(dp:FinancialDataPoint)
     RETURN dp.metric_name AS metric_name, dp.value AS value,
            dp.fiscal_year AS fiscal_year, dp.fiscal_quarter AS fiscal_quarter
     """
     with driver.session() as session:
-        result = session.run(query, {"entity_key": entity_key})
+        result = session.run(query, {"name": entity_key})
         datapoints = [record.data() for record in result]
     logger.debug("Entity '%s': %d datapoints", entity_key, len(datapoints))
     return datapoints
@@ -446,12 +448,13 @@ def fetch_entity_claims(driver: Any, entity_key: str) -> list[str]:
     list[str]
         Claim.content のリスト。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、entity_key → name、[:ABOUT] → [:RELATES_TO] に更新
     query = """
-    MATCH (e:Entity {entity_key: $entity_key})<-[:ABOUT]-(c:Claim)
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $name})<-[:RELATES_TO]-(c:Claim)
     RETURN c.content AS content
     """
     with driver.session() as session:
-        result = session.run(query, {"entity_key": entity_key})
+        result = session.run(query, {"name": entity_key})
         claims = [record["content"] for record in result if record["content"]]
     logger.debug("Entity '%s': %d claims", entity_key, len(claims))
     return claims
@@ -472,12 +475,13 @@ def fetch_entity_fact_count(driver: Any, entity_key: str) -> int:
     int
         Fact の件数。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、entity_key → name に更新
     query = """
-    MATCH (e:Entity {entity_key: $entity_key})<-[:RELATES_TO]-(f:Fact)
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $name})<-[:RELATES_TO]-(f:Fact)
     RETURN count(f) AS cnt
     """
     with driver.session() as session:
-        result = session.run(query, {"entity_key": entity_key})
+        result = session.run(query, {"name": entity_key})
         record = result.single()
         return record["cnt"] if record else 0
 
@@ -509,13 +513,14 @@ def detect_sector(
         検出されたセクターキー。未検出の場合は "unknown"。
     """
     # 1. Topic の category をチェック
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、entity_key → name に更新
     query = """
-    MATCH (e:Entity {entity_key: $entity_key})-[:TAGGED]->(t:Topic)
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: $name})-[:TAGGED]->(t:Topic)
     RETURN t.category AS category, t.name AS name
     """
     topic_texts: list[str] = []
     with driver.session() as session:
-        result = session.run(query, {"entity_key": entity_key})
+        result = session.run(query, {"name": entity_key})
         for record in result:
             if record["category"]:
                 topic_texts.append(record["category"])

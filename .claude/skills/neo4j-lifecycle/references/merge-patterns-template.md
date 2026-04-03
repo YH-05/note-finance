@@ -261,32 +261,32 @@ neo4j-lifecycle Phase B-4 で使用する MERGE Cypher パターンテンプレ�
   MERGE (c)-[:IS_A]->(cc)
   ```
 
-  ### SERVES_AS（Entity → Concept）
+  ### SERVES_AS（Entity系ラベル → Concept）（v4.0: Entity は個別ラベルに分解済み）
 
   ```cypher
   UNWIND $rels AS row
-  MATCH (e:Entity {entity_id: row.from_id})
+  MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: row.from_name})
   MATCH (c:Concept {concept_id: row.to_id})
   MERGE (e)-[r:SERVES_AS]->(c)
   SET r.context = row.context
   ```
 
-  ### ABOUT（Fact → Concept）
+  ### RELATES_TO（Fact → Concept）（v4.0: ABOUT → RELATES_TO に統一）
 
   ```cypher
   UNWIND $rels AS row
   MATCH (f:Fact {fact_id: row.from_id})
   MATCH (c:Concept {concept_id: row.to_id})
-  MERGE (f)-[:ABOUT]->(c)
+  MERGE (f)-[:RELATES_TO]->(c)
   ```
 
-  ### MENTIONS（Fact → Entity）
+  ### RELATES_TO（Fact → Entity系ラベル）（v4.0: MENTIONS → RELATES_TO に統一、Entity → 個別ラベル）
 
   ```cypher
   UNWIND $rels AS row
   MATCH (f:Fact {fact_id: row.from_id})
-  MATCH (e:Entity {entity_id: row.to_id})
-  MERGE (f)-[:MENTIONS]->(e)
+  MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: row.to_name})
+  MERGE (f)-[:RELATES_TO]->(e)
   ```
 
   ### FROM_SOURCE（Fact → Source）
@@ -309,12 +309,12 @@ neo4j-lifecycle Phase B-4 で使用する MERGE Cypher パターンテンプレ�
   MERGE (s)-[:TAGGED]->(t)
   ```
 
-  ### RELATES_TO（Fact → Entity）
+  ### RELATES_TO（Fact → Entity系ラベル）（v4.0: entity_key → name に変更）
 
   ```cypher
   UNWIND $rels AS row
   MATCH (f:Fact {fact_id: row.from_id})
-  MATCH (e:Entity {entity_key: row.to_id})
+  MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {name: row.to_name})
   MERGE (f)-[:RELATES_TO]->(e)
   ```
 
@@ -433,8 +433,8 @@ neo4j-lifecycle Phase B-4 で使用する MERGE Cypher パターンテンプレ�
 
   --- creator v2 参考例 ---
 
-  // 孤立コンテンツ（ABOUT なし）
-  MATCH (n) WHERE (n:Fact OR n:Tip OR n:Story) AND NOT (n)-[:ABOUT]->()
+  // 孤立コンテンツ（RELATES_TO なし）（v4.0: ABOUT → RELATES_TO に統一）
+  MATCH (n) WHERE (n:Fact OR n:Tip OR n:Story) AND NOT (n)-[:RELATES_TO]->()
   RETURN count(n) AS orphan_content
 
   // IS_A なし Concept

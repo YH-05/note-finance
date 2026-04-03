@@ -79,12 +79,12 @@ Docker起動: cd docker/research-neo4j && docker compose up -d
 **Q1: 関連Entity検索**
 
 ```cypher
-MATCH (e:Entity)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name CONTAINS $keyword
    OR any(a IN coalesce(e.aliases, []) WHERE a CONTAINS $keyword)
    OR e.ticker = $keyword
-OPTIONAL MATCH (f:Fact)-[:RELATES_TO|ABOUT]->(e)
-OPTIONAL MATCH (c:Claim)-[:ABOUT]->(e)
+OPTIONAL MATCH (f:Fact)-[:RELATES_TO]->(e)
+OPTIONAL MATCH (c:Claim)-[:RELATES_TO]->(e)
 RETURN e.name AS entity, e.entity_type AS type, e.ticker AS ticker,
        e.description AS description,
        count(DISTINCT f) AS facts, count(DISTINCT c) AS claims
@@ -100,7 +100,7 @@ Fact → Source の接続パスは複数ある（EXTRACTED_FROM → Chunk → So
 OPTIONAL MATCH で複数パスを試み、いずれかで Source 情報を取得する。
 
 ```cypher
-MATCH (f:Fact)-[:RELATES_TO|ABOUT]->(e:Entity)
+MATCH (f:Fact)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name IN $entity_names
 OPTIONAL MATCH (s1:Source)-[:STATES_FACT]->(f)
 OPTIONAL MATCH (f)-[:SOURCED_FROM]->(s2:Source)
@@ -116,7 +116,7 @@ LIMIT 30
 **Q3: ソース一覧（時系列）**
 
 ```cypher
-MATCH (s:Source)-[:ABOUT]->(e:Entity)
+MATCH (s:Source)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name IN $entity_names
 RETURN s.title AS title, s.url AS url, s.published_at AS published,
        s.authority_level AS authority, s.source_type AS type
@@ -130,7 +130,7 @@ LIMIT 15
 > Claim.magnitude は影響の大きさを示す FLOAT。
 
 ```cypher
-MATCH (c:Claim)-[:ABOUT]->(e:Entity)
+MATCH (c:Claim)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name IN $entity_names
 OPTIONAL MATCH (s:Source)-[:MAKES_CLAIM]->(c)
 RETURN c.content AS claim, c.claim_type AS type,
@@ -149,7 +149,7 @@ LIMIT 20
 > Metric への接続は `MEASURES` リレーションが主。`FOR_METRIC` も存在するが補助的。
 
 ```cypher
-MATCH (fdp:FinancialDataPoint)-[:RELATES_TO]->(e:Entity)
+MATCH (fdp:FinancialDataPoint)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name IN $entity_names
 OPTIONAL MATCH (fdp)-[:FOR_PERIOD]->(fp:FiscalPeriod)
 OPTIONAL MATCH (fdp)-[:MEASURES]->(m:Metric)
@@ -164,7 +164,7 @@ LIMIT 20
 **Q6: 関連Topic・タグ構造**
 
 ```cypher
-MATCH (e:Entity)<-[:ABOUT]-(f:Fact)-[:TAGGED]->(t:Topic)
+MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)<-[:RELATES_TO]-(f:Fact)-[:TAGGED]->(t:Topic)
 WHERE e.name IN $entity_names
 RETURN t.name AS topic, count(DISTINCT f) AS fact_count
 ORDER BY fact_count DESC
@@ -176,7 +176,7 @@ LIMIT 10
 質問がセンチメントや投資判断に関する場合に実行する。
 
 ```cypher
-MATCH (st:Stance)-[:ON_ENTITY]->(e:Entity)
+MATCH (st:Stance)-[:ON_ENTITY]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
 WHERE e.name IN $entity_names
 OPTIONAL MATCH (a:Author)-[:HOLDS_STANCE]->(st)
 OPTIONAL MATCH (st)-[:BASED_ON]->(s:Source)

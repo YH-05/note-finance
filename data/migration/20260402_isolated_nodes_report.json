@@ -1,0 +1,490 @@
+{
+  "generated_at": "20260402",
+  "database": "research",
+  "dry_run": false,
+  "issue": "#306",
+  "description": "Wave2 孤立ノード処理: Archived ラベル付与",
+  "policy": {
+    "isolated_entity": "Entity:Person かつ RELATES_TO/ABOUT/MENTIONS リレーション欠落 → Archived ラベル付与",
+    "isolated_fact": "Fact かつ RELATES_TO/ABOUT/MENTIONS → Entity リレーション欠落 → Archived ラベル付与"
+  },
+  "summary": {
+    "entity_detected": 18,
+    "entity_archived": 18,
+    "entity_remaining_after": 0,
+    "fact_detected": 554,
+    "fact_archived": 554,
+    "fact_remaining_after": 0,
+    "fact_by_source_type": {
+      "null": 105,
+      "blog": 1,
+      "news": 288,
+      "pdf": 45,
+      "report": 1,
+      "web": 114
+    }
+  },
+  "isolated_entities": [
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:2065",
+      "name": "Arthur Angelo Syailendra",
+      "entity_key": "Arthur Angelo Syailendra::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5981",
+      "name": "Didier Sornette",
+      "entity_key": "Didier Sornette::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7323",
+      "name": "Kentaro Haraguchi",
+      "entity_key": "Kentaro Haraguchi::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7368",
+      "name": "Kiyoshi Izumi",
+      "entity_key": "Kiyoshi Izumi::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5972",
+      "name": "Marian Gidea",
+      "entity_key": "Marian Gidea::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7164",
+      "name": "Masanori Hirano",
+      "entity_key": "Masanori Hirano::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5973",
+      "name": "Matteo Manzi",
+      "entity_key": "Matteo Manzi::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7163",
+      "name": "Ryoya Yoshida",
+      "entity_key": "Ryoya Yoshida::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7367",
+      "name": "Ryuji Hashimoto",
+      "entity_key": "Ryuji Hashimoto::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:5974",
+      "name": "Vahid Nateghi",
+      "entity_key": "Vahid Nateghi::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:7082",
+      "name": "スプリチャル 仁マイケル",
+      "entity_key": "スプリチャル 仁マイケル::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6230",
+      "name": "丹波靖博",
+      "entity_key": "丹波靖博::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6972",
+      "name": "土井 惟成",
+      "entity_key": "土井 惟成::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6619",
+      "name": "森川 博之",
+      "entity_key": "森川 博之::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6859",
+      "name": "櫱井 慶悟",
+      "entity_key": "櫱井 慶悟::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6913",
+      "name": "欅惇志",
+      "entity_key": "欅惇志::person",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6278",
+      "name": "白井 祐典",
+      "entity_key": "shirai_yusuke",
+      "entity_type": "person"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:6862",
+      "name": "阿南 晏樹",
+      "entity_key": "阿南 晏樹::person",
+      "entity_type": "person"
+    }
+  ],
+  "isolated_facts_sample": [
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13897",
+      "fact_id": "aa974763f7b849fea634b7610a136a32",
+      "content_preview": "ドル円相場が2026年3月30日に160.47円をつけ、2024年7月以来の円安水準に達した",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/dollar-holds-firm-risk-protracted-middle-east-war-saps-sentiment-2026-03-30/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13898",
+      "fact_id": "5fb6879c0aacb3b3b7b6e58799d7d9f1",
+      "content_preview": "日銀3月18-19日会合で政策金利0.75%を全会一致で据え置き決定",
+      "source_type": "",
+      "source_url": "https://www.cnbc.com/2026/03/19/bank-of-japan-keeps-rates-steady-as-expected-warns-iran-war-may-push-up-inflation.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13899",
+      "fact_id": "25b1c7e3f91924dbd269d78323f008dd",
+      "content_preview": "日銀3月会合意見要旨（3/30公開）に「中東戦争による原油高が1970年代型スタグフレーションを引き起こす可能性がある」との委員発言が記録された",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/boj-debated-need-more-rate-hikes-march-meeting-summary-shows-2026-03-30/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13900",
+      "fact_id": "c755e0bc454bf21643cd90d6499cbc3e",
+      "content_preview": "植田日銀総裁が3/30に「4月会合での利上げの可能性を排除しない」と発言",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/japan-steps-up-yen-intervention-threats-signals-rate-hike-chance-2026-03-30/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13901",
+      "fact_id": "c59cfc736461206062172896bc9e5f63",
+      "content_preview": "連合の2026年春闘第1回集計（3/23発表）で賃上げ率5.26%を確認。3年連続5%超",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/business/world-at-work/japanese-firms-agree-526-wage-hike-top-union-groups-preliminary-data-shows-2026-03-23/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13902",
+      "fact_id": "c8007aafc224b20cd0daf8460a86c747",
+      "content_preview": "米・イスラエルが2026年2月末にイランへの軍事作戦を開始。ホルムズ海峡が事実上封鎖され世界の石油・LNG供給の約20%が影響",
+      "source_type": "",
+      "source_url": "https://www.cnbc.com/2026/03/19/bank-of-japan-keeps-rates-steady-as-expected-warns-iran-war-may-push-up-inflation.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13903",
+      "fact_id": "c8f76c2e93afd4c18c42bef64422c26a",
+      "content_preview": "WTI原油価格が3/26時点で$105/bblを突破",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/japan-shifts-focus-to-oil-in-unorthodox-scramble-to-talk-up-yen-2026-03-26/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13904",
+      "fact_id": "71e58804619e2eff734ed9d03debea4c",
+      "content_preview": "ミムラ通貨外交官が3/30に「投機的な動きが続けば断固たる措置を取る準備がある」と口先介入",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/dollar-holds-firm-risk-protracted-middle-east-war-saps-sentiment-2026-03-30/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13905",
+      "fact_id": "51d590d3bfcc7e9023be1a747f342d5b",
+      "content_preview": "日本政府がFX準備（1.4兆ドル）を使った原油先物空売り介入を検討中とロイターが報道（3/26）",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/japan-shifts-focus-to-oil-in-unorthodox-scramble-to-talk-up-yen-2026-03-26/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13906",
+      "fact_id": "f6b8da051108a40cb03d8230010af324",
+      "content_preview": "FOMC（3/17-18）はFF金利3.50-3.75%を11対1で据え置き。2026年末ドットプロット中央値3.4%（年1回0.25%利下げ）",
+      "source_type": "",
+      "source_url": "https://www.axios.com/2026/03/18/fed-powell-interest-rate"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13907",
+      "fact_id": "c62ba1b81dd800f9d7102f73820a11c3",
+      "content_preview": "FOMCのSEP（経済見通し）でPCEインフレ2026年見通しを2.7%に上方修正（12月時点の2.4%から）",
+      "source_type": "",
+      "source_url": "https://www.cnbc.com/2026/03/18/dot-plot-fed-still-expects-to-cut-rates-once-this-year-despite-spiking-oil-prices-.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13908",
+      "fact_id": "8df05bebcfdeb285a75701940d48d47e",
+      "content_preview": "FF金利先物で年内利下げゼロの確率が38.7%まで上昇",
+      "source_type": "",
+      "source_url": "https://www.axios.com/2026/03/18/fed-powell-interest-rate"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13909",
+      "fact_id": "5631999d838722cac4b291d15e0b8f1c",
+      "content_preview": "日本の2年国債利回りが1.33%と30年ぶりの高水準に達した",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/japan-steps-up-yen-intervention-threats-signals-rate-hike-chance-2026-03-30/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13910",
+      "fact_id": "adfedbacc3b439682b4c928e3f4b04b3",
+      "content_preview": "日本の実質賃金が2026年1月に+1.4%と13ヶ月ぶりプラスに転換",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/business/world-at-work/japanese-firms-agree-526-wage-hike-top-union-groups-preliminary-data-shows-2026-03-23/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13911",
+      "fact_id": "3ad2e52046300b82d932a8cbe87fac7c",
+      "content_preview": "ブルームバーグ調査（3/19時点）で37%のエコノミストが4月利上げを予想（前回17%から急上昇）",
+      "source_type": "",
+      "source_url": "https://www.reuters.com/world/asia-pacific/bojs-narrative-shift-signals-dogged-commitment-rate-hikes-2026-03-23/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12789",
+      "fact_id": "b74dd2498705215925cb31f93137960c",
+      "content_preview": "Indonesia attracted $2.02 billion in telecom FDI in 2024",
+      "source_type": "blog",
+      "source_url": "https://www.minichart.com.sg/2025/01/06/asean-telecom-outlook-2025-navigating-challenges-and-opportunities-in-a-maturing-market/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12862",
+      "fact_id": "f8134ef6cb37d4326b27c82fdff1139f",
+      "content_preview": "BBRI 2025年通期純利益 IDR 57.13兆（前年比-5.26%、前年IDR 60.3兆）",
+      "source_type": "news",
+      "source_url": "https://voi.id/en/economy/560960"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12863",
+      "fact_id": "83c9fccea15691825661e0d5c1e31e11",
+      "content_preview": "BBRI Q4 2025 EPS 105.13（アナリスト予想98.34を上回る）、売上IDR 56.25兆（予想49.55兆超）",
+      "source_type": "news",
+      "source_url": "https://www.investing.com/news/transcripts/earnings-call-transcript-bank-rakyat-indonesia-beats-q4-2025-expectations-93CH-4538529"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12864",
+      "fact_id": "f4adc252f591364f7e381a2f2318bd0b",
+      "content_preview": "BBRI 総資産IDR 2,135兆（+7.1% YoY）、融資残高+12.3%、マイクロ融資+1.5%。BRImoユーザー4,440万人（+19.4%）",
+      "source_type": "news",
+      "source_url": "https://voi.id/en/economy/560960"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12865",
+      "fact_id": "29204300fdd104e33ac72898e4d6e74a",
+      "content_preview": "BMRI Q3 2025累計純利益 IDR 37.75兆（前年比-10.14%）。純金利収入+4.9%でIDR 78.3兆",
+      "source_type": "news",
+      "source_url": "https://www.idnfinancials.com/news/58204/net-profit-of-bmri-reaches-idr-37-75-trillion-down-10-14"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:12866",
+      "fact_id": "bc87262455430dd742a9c52c387c4972",
+      "content_preview": "BBNI 2025年5月累計純利益 IDR 8.5兆（前年比-1%）。配当IDR 13.03兆（配当性向65%）",
+      "source_type": "news",
+      "source_url": "https://www.idnfinancials.com/news/62258/bbni-reveals-schedule-of-thr-dividend-payout-of-idr-13-03-trillion"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13019",
+      "fact_id": "e8572f4c127dad38595813bdf0d77c0f",
+      "content_preview": "Ministerial Direction No. 4 of 2024 (December 31, 2024) revoked 2021 single-wholesale 5G direction a...",
+      "source_type": "news",
+      "source_url": "https://techwireasia.com/2026/01/malaysia-5g-speeds-drop-dual-network-2025/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13020",
+      "fact_id": "d47923916f56f5820bb4db4f727a27ac",
+      "content_preview": "Ministerial Direction No. 7 (October 2025): MCMC allocated additional 100MHz spectrum (3.3GHz-3.4GHz...",
+      "source_type": "news",
+      "source_url": "https://techwireasia.com/2026/01/malaysia-5g-speeds-drop-dual-network-2025/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13021",
+      "fact_id": "0cdcf5483d82bc16a15135e3f67307c1",
+      "content_preview": "U Mobile launched 5G services on January 26, 2026 and issued Reference Access Offer (RAO). As of Mar...",
+      "source_type": "news",
+      "source_url": "https://www.rcrwireless.com/20260309/5g/malaysian-telcos-dnb"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13022",
+      "fact_id": "2e9a5f33e749f4c2b26a0171732351a5",
+      "content_preview": "TM (Telekom Malaysia) issued early termination notice to DNB and MCMC on February 25, 2026, to exit ...",
+      "source_type": "news",
+      "source_url": "https://soyacincau.com/2026/03/03/dnb-rejects-tm-unifi-mobile-early-5g-aa-termination-notice/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13023",
+      "fact_id": "3282048095eaa34ee48afaf45c73995e",
+      "content_preview": "Komdigi Director General Wayan Toni Supriyanto confirmed 700MHz (2x45MHz, 112MHz total) and 2.6GHz (...",
+      "source_type": "news",
+      "source_url": "https://www.qoo10.co.id/en/gadget/66711/700-mhz-spectrum-auction-set-for-2026-to-boost-5g-coverage-and-mobile-broadband-speeds/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13024",
+      "fact_id": "9b2ff2794d07e066a1cba15636ba3213",
+      "content_preview": "Indonesia 5G coverage: 6.33% of national inhabited area as of end-2025 (exceeding RPJMN target of 4....",
+      "source_type": "news",
+      "source_url": "https://www.qoo10.co.id/en/gadget/66711/700-mhz-spectrum-auction-set-for-2026-to-boost-5g-coverage-and-mobile-broadband-speeds/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13025",
+      "fact_id": "0e41223bfc2e27e82ed6855b2dafa01b",
+      "content_preview": "XLSmart (XL-Smartfren merger) required to return 900MHz spectrum (2x7.5MHz) to Komdigi by December 2...",
+      "source_type": "news",
+      "source_url": "https://www.antaranews.com/berita/4778501/kemkomdigi-sebut-xlsmart-kembalikan-frekuensi-pada-akhir-2026"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13028",
+      "fact_id": "5887d85734fa3100d39b522cc3d2fec8",
+      "content_preview": "NBTC 3rd spectrum management roadmap (2025-2030) under development: 3.3-3.6GHz (mid-band for mass ma...",
+      "source_type": "news",
+      "source_url": "https://developingtelecoms.com/telecom-business/telecom-regulation/15738-nbtc-spectrum-roadmap-could-see-3500-mhz-auctions-in-2026.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:13029",
+      "fact_id": "536a34b8d3f2a84924900322ada24acd",
+      "content_preview": "Philippines Public Service Act (Republic Act 11659, 2022): Reclassified telecommunications from 'pub...",
+      "source_type": "news",
+      "source_url": "https://www.globalcompliancenews.com/2022/04/18/philippines-amendment-allowing-full-foreign-ownership-of-telcos-signed-by-president-rodrigo-duterte010422/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14600",
+      "fact_id": "f3d8b8b609de45951b71d7bc83a1cce3",
+      "content_preview": "2026年3月20日時点で、S&P 500の11セクター中エネルギーのみがYTDでプラスを維持。NasdaqはYTD -7.8%、S&P 500は-5.0%、Dow Jonesは-5.2%。",
+      "source_type": "news",
+      "source_url": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-032020206-11930544"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14601",
+      "fact_id": "e130bdbcdd26a7128ba4974852aac157",
+      "content_preview": "ゴールドマンサックスのジオポリティカルバスケット（L3Harris, RTX等の防衛＋原油生産・タンカー会社Frontline）は2026年YTDで約+23%のゲインを記録（2026年3月6日時点）。",
+      "source_type": "news",
+      "source_url": "https://www.bloomberg.com/news/articles/2026-03-06/defense-energy-megacaps-wall-street-s-top-banks-pivot-to-quality-stocks"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14602",
+      "fact_id": "35db0188244302e4b06bb219ddab2e72",
+      "content_preview": "米国・イスラエルがイランへの軍事攻撃を開始（Operation Epic Fury等）した後、原油価格は40%急騰し$100/barrel超えに。イランが商船16隻以上を攻撃し、ホルムズ海峡封鎖リスク...",
+      "source_type": "news",
+      "source_url": "https://www.reuters.com/world/asia-pacific/global-markets-trading-day-graphic-2026-03-30/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14603",
+      "fact_id": "ec2f309dfc410bd1cfc94dbb392469d1",
+      "content_preview": "Nasdaqは2026年3月26日に修正（コレクション）領域に入り、2025年10月29日の史上最高値から-11%の下落を確認。2026年内では-8%となり、2025年8月以来の低水準。",
+      "source_type": "news",
+      "source_url": "https://www.reuters.com/business/nasdaq-composite-confirms-correction-war-worries-weigh-2026-03-26/"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14604",
+      "fact_id": "3d13742c43505aea25f1e44e385ef3c9",
+      "content_preview": "Barclaysは2026年3月24日にセクターコールを更新。インダストリアルをneutral→positiveにアップグレード、素材・エネルギーをnegative→neutralに引き上げ。S&P ...",
+      "source_type": "news",
+      "source_url": "https://www.kitco.com/news/off-the-wire/2026-03-24/barclays-raises-2026-year-end-sp-500-target-7650-despite-middle-east"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14606",
+      "fact_id": "d388d8210426be0a0f2408b99a679fa3",
+      "content_preview": "グローバル防衛支出は2030年までに$3.6兆に達する見込み（2024年比+33%）。防衛関連企業は従来のディフェンシブ株から成長株へと性質が変化しつつある（Bloomberg, 2025年12月）。",
+      "source_type": "news",
+      "source_url": "https://www.bloomberg.com/jp/news/articles/2025-12-21/T7KWPHKJH6VE00"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:14607",
+      "fact_id": "f3d3fb52d7ffcd51759d85da9520a29a",
+      "content_preview": "2026年3月10日、Russell 2000が急騰しNasdaqが苦戦。アナリストが「2026年の大いなるローテーション（Great Rotation）」と命名。テックメガキャップからの脱出が加速。",
+      "source_type": "news",
+      "source_url": "http://markets.chroniclejournal.com/chroniclejournal/article/marketminute-2026-3-10-the-great-rotation-russell-2000-surges-as-investors-flee-overstretched-tech-giants"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8142",
+      "fact_id": "f4738d43615bbe1d0c9aaaf2e07809c8",
+      "content_preview": "LPL Research: Short-duration TIPS preferred for inflation hedging. Commodity indices delivered retur...",
+      "source_type": "news",
+      "source_url": "https://www.lpl.com/research/weekly-market-commentary/lpl-research-2026-strategic-asset-allocation.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8143",
+      "fact_id": "6392f890d278a82da637afad8b236bbc",
+      "content_preview": "Wellington Management: Moderately overweight global equities as of Dec 2025. Forward P/E ratios well...",
+      "source_type": "news",
+      "source_url": "https://www.wellington.com/en/insights/2026-allocator-checklist"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8183",
+      "fact_id": "23269cb8903ba545cc93bd7d2e39f2aa",
+      "content_preview": "US private credit default rate climbed to 5.8% (Fitch) - highest in years. Apollo capped redemptions...",
+      "source_type": "news",
+      "source_url": "https://www.cnbc.com/2026/03/17/private-credit-liquidity-jitters-crisis-investors-redemptions-withdrawals-defaults-risk-debt.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8370",
+      "fact_id": "c8cd272e8c94d01c3ccc0d9626a29dd7",
+      "content_preview": "ジェトロ、コンゴ民主共和国（DRC）にミッション派遣、25社・団体が参加\n（コンゴ民主共和国、アフリカ）\nナイロビ発\n2026年03月24日\nジェトロは2月23～27日の5日間、世界有数の資源国である...",
+      "source_type": "news",
+      "source_url": "https://www.jetro.go.jp/biznews/2026/03/bb92bff498a6baaf.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8371",
+      "fact_id": "5cf19c7d049d20bd01570e17fc8af485",
+      "content_preview": "米イリノイ州シャンペーンでアグテックウイーク開催、農業とバイオの融合進む\n（米国）\nシカゴ発\n2026年03月24日\n米国イリノイ州シャンペーンで3月9～12日、シャンペーン・アーバナ・アグテック・ウ...",
+      "source_type": "news",
+      "source_url": "https://www.jetro.go.jp/biznews/2026/03/9d6367b9dc5cd378.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8372",
+      "fact_id": "9162b54542ca46ddc7950392ea1df179",
+      "content_preview": "お知らせ・記者発表\nジェトロとRISE-Aとの業務協力に関する覚書締結について ―半導体分野で国内外協業推進、国内の地域エコシステム形成・強化へ―\n2026年03月19日\nジェトロ\n一般社団法人RIS...",
+      "source_type": "news",
+      "source_url": "https://www.jetro.go.jp/news/releases/2026/2482e1ac94af591d.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8373",
+      "fact_id": "547502132a695ab83193b198d99f2472",
+      "content_preview": "お知らせ・記者発表\nベトナム最大級の日越交流イベント「ジャパンベトナムフェスティバル」 ベトナムの一般消費者に“日本の味と食文化”を発信\n2026年03月13日\n日本食品海外プロモーションセンター（J...",
+      "source_type": "news",
+      "source_url": "https://www.jetro.go.jp/news/announcement/2026/16a39a2cb1fc6657.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8599",
+      "fact_id": "7962db4c782dee3d41bf7970fdb44e86",
+      "content_preview": "The major averages staged a rebound on Monday after President Trump said that the U.S. and Iran have...",
+      "source_type": "news",
+      "source_url": "https://www.cnbc.com/2026/03/23/stock-market-today-live-updates.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8600",
+      "fact_id": "2d2b0b38a18ed2e5dc7eae9952c29166",
+      "content_preview": "President Donald Trump tapped Sen. Markwayne Mullin, R-Okla., earlier this month to replace embattle...",
+      "source_type": "news",
+      "source_url": "https://www.cnbc.com/2026/03/23/markwayne-mullin-trump-dhs-senate-confirmation.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8601",
+      "fact_id": "496e00d2f25b3e5c538a31d96b91b67a",
+      "content_preview": "Asia-Pacific markets rose but pared earlier gains as oil prices rebounded, underscoring lingering un...",
+      "source_type": "news",
+      "source_url": "https://www.cnbc.com/2026/03/24/asia-markets-live-updates-oil-nikkei-225-hang-seng-index-kospi.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8602",
+      "fact_id": "ef879a391d1c9bdca38ead0ff0444290",
+      "content_preview": "Trump's statement sent oil lower, while equities jumped. Still, the recovery on Tuesday suggests lin...",
+      "source_type": "news",
+      "source_url": "https://www.cnbc.com/2026/03/24/oil-prices-today-wti-brent-middle-east-iran-war.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8603",
+      "fact_id": "692ca4b359120a1b638333d34aac5e59",
+      "content_preview": "The investor lays out the case for this best-in-class airline for the long term.",
+      "source_type": "news",
+      "source_url": "https://www.cnbc.com/2026/03/23/jet-fuel-jump-is-a-buying-opportunity-for-a-great-airline-comeback-story-says-tim-seymour.html"
+    },
+    {
+      "element_id": "4:aff6b542-275f-4e50-ab61-4db17c90a072:8604",
+      "fact_id": "2e11c61f0cafcaac04b8f919e4523ca5",
+      "content_preview": "The consumer price index fell to 1.3% last month, its lowest level since March 2022 and below the ce...",
+      "source_type": "news",
+      "source_url": "https://www.cnbc.com/2026/03/24/japan-cpi-inflation-february-.html"
+    }
+  ],
+  "note": "孤立ノードは Archived ラベルで保護。孤立 Fact の根本修復（LLM NER バッチ）は後続 Wave で実施予定。"
+}

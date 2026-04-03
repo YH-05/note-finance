@@ -79,6 +79,7 @@ class TestTavilyKeyPool:
     @patch.dict(
         "os.environ",
         {"TAVILY_API_KEY_1": "a", "TAVILY_API_KEY_2": "b", "TAVILY_API_KEY_3": "c"},
+        clear=True,
     )
     def test_正常系_from_envで連番キーを読む(self) -> None:
         pool = TavilyKeyPool.from_env()
@@ -202,7 +203,9 @@ class TestPostWithRotation:
 
     @patch("tavily_mcp.server._get_pool")
     @patch("tavily_mcp.server.httpx.post")
-    def test_異常系_HTTP500でエラー(self, mock_post: MagicMock, mock_pool: MagicMock) -> None:
+    def test_異常系_HTTP500でエラー(
+        self, mock_post: MagicMock, mock_pool: MagicMock
+    ) -> None:
         pool = TavilyKeyPool(["key1"])
         mock_pool.return_value = pool
         mock_post.return_value = httpx.Response(

@@ -51,7 +51,9 @@ if _scripts_dir not in _sys.path:
 
 from ontology_loader import load_consolidation_mapping as _ol_load_consolidation_mapping  # noqa: E402, I001
 from ontology_loader import load_multilabel_types as _ol_load_multilabel_types  # noqa: E402
-from ontology_loader import load_source_type_normalization as _ol_load_source_type_normalization  # noqa: E402
+from ontology_loader import (  # noqa: E402
+    load_source_type_normalization as _ol_load_source_type_normalization,
+)
 
 # Internal mapping for backward-compatible multilabel_types structure
 _CANONICAL_TO_LABEL_INTERNAL: dict[str, str] = {
@@ -64,7 +66,7 @@ _CANONICAL_TO_LABEL_INTERNAL: dict[str, str] = {
     "instrument": "Instrument",
     "commodity": "Commodity",
     "country": "Country",
-    "sector": "Sector",
+    "sector": "Concept",  # AIDEV-NOTE: Wave10 — sector entities become Concept nodes (aligned with ontology_loader.ENTITY_TYPE_TO_LABEL)
     "concept": "Concept",
     "regulation": "Regulation",
     "broker": "Broker",
@@ -85,6 +87,9 @@ class ChunkProcessingContext:
     ----------
     seen_entity_keys : set[str]
         Already-seen ``name::entity_type`` keys for entity deduplication.
+        Deprecated: v4.0 では entity_key 廃止。seen_entity_names を使用すること。
+    seen_entity_names : set[str]
+        Already-seen normalized entity names for entity deduplication (v4.0).
     entity_name_to_id : dict[str, str]
         Mapping from entity name to entity ID.
     entity_name_to_ticker : dict[str, str]
@@ -97,7 +102,8 @@ class ChunkProcessingContext:
         Mapping from author name to author ID.
     """
 
-    seen_entity_keys: set[str] = field(default_factory=set)
+    seen_entity_keys: set[str] = field(default_factory=set)  # Deprecated: v4.0
+    seen_entity_names: set[str] = field(default_factory=set)  # v4.0: name-based dedup
     entity_name_to_id: dict[str, str] = field(default_factory=dict)
     entity_name_to_ticker: dict[str, str] = field(default_factory=dict)
     seen_period_ids: set[str] = field(default_factory=set)
@@ -383,6 +389,9 @@ class BaseMapper(ABC):
     ) -> list[dict[str, Any]]:
         """チャンクから Entity ノードを生成する（旧 ``_build_entity_nodes``）。
 
+        v4.0 変更: entity_key ("name::type") 廃止。name を重複排除キーとして使用。
+        neo4j_label フィールドを entity_type から決定してノードに付与する。
+
         *seen_entity_keys*, *entity_name_to_id*, *entity_name_to_ticker*
         をインプレースに更新しながら重複排除を行う。
 
@@ -391,7 +400,7 @@ class BaseMapper(ABC):
         chunk : dict[str, Any]
             ``entities[]`` を含む生チャンクデータ。
         seen_entity_keys : set[str]
-            処理済みエンティティキー（``name::type``）。
+            Deprecated: v4.0 では seen_entity_names を使用。後方互換のため残す。
         entity_name_to_id : dict[str, str]
             名前→IDルックアップ（インプレース更新）。
         entity_name_to_ticker : dict[str, str]
@@ -402,8 +411,15 @@ class BaseMapper(ABC):
         Returns
         -------
         list[dict[str, Any]]
-            新規作成された Entity ノード dict のリスト。
+            新規作成されたエンティティノード dict のリスト。
+            v4.0: ``entity_key`` フィールドなし、``neo4j_label`` フィールドあり。
         """
+        from ontology_loader import (
+            ENTITY_TYPE_TO_LABEL,
+            load_consolidation_mapping,
+        )
+
+        consolidation_map = load_consolidation_mapping()
         entities: list[dict[str, Any]] = []
 
         for entity in chunk.get("entities", []):
@@ -411,24 +427,33 @@ class BaseMapper(ABC):
             entity_type = (
                 entity.get("entity_type", "").lower()
                 if entity.get("entity_type")
-                else ""
+                else "concept"
             )
-            entity_key = f"{name}::{entity_type}"
-            if entity_key not in seen_entity_keys:
-                seen_entity_keys.add(entity_key)
-                eid = generate_entity_id_fn(name, entity_type)
-                entities.append(
-                    {
-                        "entity_id": eid,
-                        "name": name,
-                        "entity_type": entity_type,
-                        "ticker": entity.get("ticker"),
-                        "entity_key": f"{name}::{entity_type}",
-                    }
-                )
-                entity_name_to_id[name] = eid
-                if entity.get("ticker"):
-                    entity_name_to_ticker[name] = entity["ticker"]
+
+            # v4.0: name で重複排除（entity_key 廃止）
+            if name in entity_name_to_id:
+                continue
+
+            # entity_type → canonical → Neo4j ラベル
+            canonical_type = consolidation_map.get(entity_type, entity_type)
+            neo4j_label = ENTITY_TYPE_TO_LABEL.get(canonical_type, "Concept")
+
+            eid = generate_entity_id_fn(name, entity_type)
+            entities.append(
+                {
+                    "entity_id": eid,
+                    "name": name,
+                    "entity_type": entity_type,
+                    "neo4j_label": neo4j_label,
+                    "ticker": entity.get("ticker"),
+                    # v4.0: entity_key フィールドは生成しない
+                }
+            )
+            entity_name_to_id[name] = eid
+            # 後方互換: seen_entity_keys にも追加（呼び出し元が参照する可能性）
+            seen_entity_keys.add(name)
+            if entity.get("ticker"):
+                entity_name_to_ticker[name] = entity["ticker"]
 
         logger.debug("build_entity_nodes: created %d entities", len(entities))
         return entities

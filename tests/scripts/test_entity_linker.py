@@ -198,15 +198,15 @@ class TestMaskUri:
 
 
 class TestNodeResolveConfig:
-    """_NodeResolveConfig と _build_result のテスト。"""
+    """_NodeResolveConfig と _build_result のテスト。v4.0: entity_key 廃止。"""
 
     def test_正常系_ENTITY_CONFIGが正しく定義されている(self) -> None:
-        """_ENTITY_CONFIG の各フィールドが正しいこと。"""
+        """_ENTITY_CONFIG の各フィールドが正しいこと（v4.0: Concept フォールバック）。"""
         from entity_linker import _ENTITY_CONFIG
 
-        assert _ENTITY_CONFIG.label == "Entity"
+        # v4.0: Entity 廃止。_ENTITY_CONFIG は後方互換フォールバックとして Concept を使用
         assert _ENTITY_CONFIG.id_key == "entity_id"
-        assert _ENTITY_CONFIG.key_key == "entity_key"
+        assert _ENTITY_CONFIG.key_key is None  # v4.0: entity_key 廃止
 
     def test_正常系_CONCEPT_CONFIGが正しく定義されている(self) -> None:
         """_CONCEPT_CONFIG の各フィールドが正しいこと。"""
@@ -217,14 +217,15 @@ class TestNodeResolveConfig:
         assert _CONCEPT_CONFIG.key_key is None
 
     def test_正常系_build_resultがEntity用dictを構築する(self) -> None:
-        """_build_result が entity_key を含む dict を返すこと。"""
+        """_build_result が entity_id を含む dict を返すこと（v4.0: entity_key なし）。"""
         from entity_linker import _ENTITY_CONFIG, _build_result
 
-        row = {"id": "eid1", "key": "Instagram::platform", "name": "Instagram"}
+        # v4.0: key_key=None なので key フィールドは無視される
+        row = {"id": "eid1", "name": "Instagram"}
         result = _build_result(row, _ENTITY_CONFIG, "exact")
 
         assert result["entity_id"] == "eid1"
-        assert result["entity_key"] == "Instagram::platform"
+        assert "entity_key" not in result  # v4.0: entity_key 廃止
         assert result["match_layer"] == "exact"
 
     def test_正常系_build_resultがConcept用dictを構築する(self) -> None:
@@ -266,7 +267,8 @@ class TestNeo4jClient:
         client = Neo4jClient()
         mock_gdb.driver.assert_called_once()
         call_args = mock_gdb.driver.call_args
-        assert call_args[0][0] == "bolt://localhost:7689"
+        # Enterprise multi-database への移行後: デフォルトは bolt://localhost:7687
+        assert call_args[0][0] == "bolt://localhost:7687"
         client.close()
 
     @patch("entity_linker.GraphDatabase")
@@ -976,10 +978,10 @@ class TestV3BackwardCompatibility:
 
 
 class TestMakeV3EntityConfig:
-    """_make_v3_entity_config のテスト。"""
+    """_make_v3_entity_config と _make_v4_entity_config のテスト。"""
 
     def test_正常系_v3EntityConfigがsearch_configのインデックスを使用する(self) -> None:
-        """v3 entity config が search_config のインデックス名を使用すること。"""
+        """v3 entity config（後方互換）が search_config のインデックス名を使用すること。"""
         from entity_linker import LinkerSearchConfig, _make_v3_entity_config
 
         search_config = LinkerSearchConfig(
@@ -988,11 +990,35 @@ class TestMakeV3EntityConfig:
         )
         config = _make_v3_entity_config(search_config)
 
-        assert config.label == "Entity"
+        # v4.0: entity_key 廃止。key_key は None
         assert config.node_index == "custom_entity_ft"
         assert config.alias_index == "custom_alias_ft"
         assert config.id_key == "entity_id"
-        assert config.key_key == "entity_key"
+        assert config.key_key is None  # v4.0: entity_key 廃止
+
+    def test_正常系_v4EntityConfigが個別ラベルを使用する(self) -> None:
+        """v4 entity config が個別ラベルを使用すること。"""
+        from entity_linker import LinkerSearchConfig, _make_v4_entity_config
+
+        search_config = LinkerSearchConfig(
+            fulltext_index="research_entity_fulltext",
+            alias_fulltext_index="research_alias_fulltext",
+        )
+        config = _make_v4_entity_config("Company", search_config)
+
+        assert config.label == "Company"
+        assert config.id_key == "entity_id"
+        assert config.key_key is None  # v4.0: entity_key 廃止
+        assert config.node_index == "research_entity_fulltext"
+
+    def test_正常系_get_neo4j_labelがcompanyをCompanyにマップする(self) -> None:
+        """get_neo4j_label() が company → Company にマップすること。"""
+        from entity_linker import get_neo4j_label
+
+        assert get_neo4j_label("company") == "Company"
+        assert get_neo4j_label("index") == "MarketIndex"
+        assert get_neo4j_label("technology") == "Technology"
+        assert get_neo4j_label("concept") == "Concept"
 
 
 # ---------------------------------------------------------------------------

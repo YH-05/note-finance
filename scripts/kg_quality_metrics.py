@@ -269,7 +269,6 @@ ALLOWED_RELATIONSHIP_TYPES: frozenset[str] = frozenset(
         "LED_BY",
         "SPUN_OFF_FROM",
         # Source provenance
-        "MENTIONS",
         "SOURCED_FROM",
         "BELONGS_TO",
         "FOR_METRIC",
@@ -431,7 +430,7 @@ _DEFAULT_RELATIONSHIPS_DEF: dict[str, Any] = {
     "STATES_FACT": {"from": "Source", "to": "Fact"},
     "MAKES_CLAIM": {"from": "Source", "to": "Claim"},
     "RELATES_TO": {"from": "Fact", "to": "Entity"},
-    "ABOUT": {"from": "Claim", "to": "Entity"},
+    "ABOUT": {"from": "Fact|Claim", "to": "Topic"},
     "TAGGED": {"from": "Source", "to": "Topic"},
     "HAS_DATAPOINT": {"from": "Entity", "to": "FinancialDataPoint"},
     "FOR_PERIOD": {"from": "FinancialDataPoint", "to": "FiscalPeriod"},
@@ -639,10 +638,11 @@ def measure_structural(session: Any) -> CategoryResult:
     orphan_count: int = orphan_result.single()["orphan_count"]
     orphan_ratio = orphan_count / node_count if node_count > 0 else 0.0
 
-    # Orphan Entity 数（Entity ラベルかつリレーション 0 のノード）
+    # Orphan Entity 数（個別ラベルかつリレーション 0 のノード）
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     orphan_entity_query = """
-    MATCH (e:Entity)
-    WHERE NOT 'Memory' IN labels(e) AND NOT (e)--()
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE NOT (e)--()
     RETURN count(e) AS orphan_entity_count
     """
     orphan_entity_result = session.run(orphan_entity_query)
@@ -874,9 +874,9 @@ def measure_consistency(session: Any) -> CategoryResult:
         ``"consistency"`` カテゴリの計測結果。
     """
     # 1. 型一貫性: Entity.entity_type の許可リスト内率
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     type_query = """
-    MATCH (n:Entity)
-    WHERE NOT 'Memory' IN labels(n)
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
     RETURN n.entity_type AS entity_type, count(n) AS count
     """
     type_result = session.run(type_query)
@@ -890,8 +890,7 @@ def measure_consistency(session: Any) -> CategoryResult:
 
     # 2. 重複率: Entity.name の重複数
     duplicate_query = """
-    MATCH (n:Entity)
-    WHERE NOT 'Memory' IN labels(n)
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
     WITH n.name AS name, count(n) AS cnt
     RETURN sum(CASE WHEN cnt > 1 THEN cnt ELSE 0 END) AS duplicate_count,
            count(name) AS total
@@ -906,9 +905,8 @@ def measure_consistency(session: Any) -> CategoryResult:
 
     # 3. 制約違反: entity_id が null の Entity 数
     constraint_query = """
-    MATCH (n:Entity)
-    WHERE NOT 'Memory' IN labels(n)
-    AND n.entity_id IS NULL
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE n.entity_id IS NULL
     RETURN count(n) AS violation_count
     """
     constraint_result = session.run(constraint_query)
@@ -1109,13 +1107,11 @@ def measure_finance_specific(session: Any) -> CategoryResult:
     sector_count: int = sector_result.single()["sector_count"]
     sector_coverage = sector_count / GICS_SECTOR_COUNT
 
-    # 2. メトリクス/社: company Entity あたりの平均 FinancialDataPoint 数
+    # 2. メトリクス/社: Company ノードあたりの平均 FinancialDataPoint 数
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル :Company に更新
     metrics_per_query = """
-    MATCH (e:Entity)
-    WHERE NOT 'Memory' IN labels(e)
-    AND e.entity_type = 'company'
+    MATCH (e:Company)
     OPTIONAL MATCH (e)<-[:RELATES_TO]-(dp:FinancialDataPoint)
-    WHERE NOT 'Memory' IN labels(dp)
     WITH e, count(dp) AS dp_count
     RETURN avg(dp_count) AS avg_metrics
     """
@@ -1123,14 +1119,12 @@ def measure_finance_specific(session: Any) -> CategoryResult:
     avg_metrics: float = metrics_per_result.single()["avg_metrics"] or 0.0
 
     # 3. Entity-Entity 関係密度
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     ee_query = """
-    MATCH (e1:Entity)-[r]-(e2:Entity)
-    WHERE NOT 'Memory' IN labels(e1)
-    AND NOT 'Memory' IN labels(e2)
-    AND elementId(e1) < elementId(e2)
+    MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)-[r]-(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE elementId(e1) < elementId(e2)
     WITH count(r) AS ee_rel_count
-    MATCH (e:Entity)
-    WHERE NOT 'Memory' IN labels(e)
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
     RETURN ee_rel_count, count(e) AS entity_count
     """
     ee_result = session.run(ee_query)
@@ -2421,15 +2415,16 @@ def _collect_check_rules(session: Any) -> list[CheckRuleResult]:
     """
     texts = [r["text"] for r in session.run(text_query).data()]
 
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     entity_query = """
-    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
-    AND n.name IS NOT NULL RETURN n.name AS name
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE n.name IS NOT NULL RETURN n.name AS name
     """
     entity_names = [r["name"] for r in session.run(entity_query).data()]
 
     et_query = """
-    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
-    AND n.entity_type IS NOT NULL RETURN n.entity_type AS et
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE n.entity_type IS NOT NULL RETURN n.entity_type AS et
     """
     entity_types = [r["et"] for r in session.run(et_query).data()]
 
@@ -2449,9 +2444,10 @@ def _collect_check_rules(session: Any) -> list[CheckRuleResult]:
 
 def _collect_entropy(session: Any) -> dict[str, float]:
     """Entropy / Semantic Diversity 用データを Neo4j から取得する。"""
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     et_dist_query = """
-    MATCH (n:Entity) WHERE NOT 'Memory' IN labels(n)
-    AND n.entity_type IS NOT NULL
+    MATCH (n:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE n.entity_type IS NOT NULL
     RETURN n.entity_type AS et, count(n) AS cnt
     """
     entity_type_counts = {r["et"]: r["cnt"] for r in session.run(et_dist_query).data()}

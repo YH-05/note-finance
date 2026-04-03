@@ -11,18 +11,16 @@ from __future__ import annotations
 from typing import Any
 
 import pytest
-
 from mappers.classification import (
     CONCEPT_CATEGORY_MAP,
     ENTITY_TYPE_CONSOLIDATION,
     ENTITY_TYPE_META,
     SOURCE_TYPE_NORMALIZATION,
     TRUST_LEVEL_NORMALIZATION,
-    apply_classification_layer,
     _make_entity_type_node,
     _make_source_type_node,
+    apply_classification_layer,
 )
-
 
 # ---------------------------------------------------------------------------
 # SOURCE_TYPE_NORMALIZATION 定数
@@ -30,20 +28,22 @@ from mappers.classification import (
 
 
 class TestSourceTypeNormalization:
-    _CANONICAL_SOURCE_TYPES = frozenset({
-        "academic",
-        "analysis",
-        "data",
-        "web",
-        "company_filing",
-        "report",
-        "news",
-        "blog",
-        "social",
-        "pdf",
-        "official",
-        "original",
-    })
+    _CANONICAL_SOURCE_TYPES = frozenset(
+        {
+            "academic",
+            "analysis",
+            "data",
+            "web",
+            "company_filing",
+            "report",
+            "news",
+            "blog",
+            "social",
+            "pdf",
+            "official",
+            "original",
+        }
+    )
 
     def test_正常系_全エントリが期待するcanonical型にマップされる(self) -> None:
         for raw, canonical in SOURCE_TYPE_NORMALIZATION.items():
@@ -85,22 +85,24 @@ class TestSourceTypeNormalization:
 
 
 class TestEntityTypeConsolidation:
-    _CANONICAL_14_TYPES = frozenset({
-        "company",
-        "technology",
-        "organization",
-        "person",
-        "index",
-        "indicator",
-        "instrument",
-        "commodity",
-        "country",
-        "sector",
-        "concept",
-        "regulation",
-        "broker",
-        "product",
-    })
+    _CANONICAL_14_TYPES = frozenset(
+        {
+            "company",
+            "technology",
+            "organization",
+            "person",
+            "index",
+            "indicator",
+            "instrument",
+            "commodity",
+            "country",
+            "sector",
+            "concept",
+            "regulation",
+            "broker",
+            "product",
+        }
+    )
 
     def test_正常系_全エントリが14キャノニカル型のどれかにマップされる(self) -> None:
         for raw, canonical in ENTITY_TYPE_CONSOLIDATION.items():
@@ -129,7 +131,9 @@ class TestEntityTypeConsolidation:
     def test_正常系_14キャノニカル型が全てバリューに含まれる(self) -> None:
         all_values = set(ENTITY_TYPE_CONSOLIDATION.values())
         for canonical in self._CANONICAL_14_TYPES:
-            assert canonical in all_values, f"canonical型 {canonical!r} がバリューに存在しない"
+            assert canonical in all_values, (
+                f"canonical型 {canonical!r} がバリューに存在しない"
+            )
 
     def test_正常系_全エントリのキーとバリューが文字列であること(self) -> None:
         for raw, canonical in ENTITY_TYPE_CONSOLIDATION.items():
@@ -143,7 +147,9 @@ class TestEntityTypeConsolidation:
 
 
 class TestEntityTypeMeta:
-    _EXPECTED_14_TYPES = {
+    from typing import ClassVar
+
+    _EXPECTED_14_TYPES: ClassVar[set[str]] = {
         "company",
         "technology",
         "organization",
@@ -162,7 +168,9 @@ class TestEntityTypeMeta:
 
     def test_正常系_14キャノニカル型が全て存在すること(self) -> None:
         for canonical in self._EXPECTED_14_TYPES:
-            assert canonical in ENTITY_TYPE_META, f"{canonical!r} が ENTITY_TYPE_META に存在しない"
+            assert canonical in ENTITY_TYPE_META, (
+                f"{canonical!r} が ENTITY_TYPE_META に存在しない"
+            )
 
     def test_正常系_キー数が14であること(self) -> None:
         assert len(ENTITY_TYPE_META) == 14
@@ -185,18 +193,22 @@ class TestEntityTypeMeta:
 
 
 class TestConceptCategoryMap:
-    _VALID_8_CATEGORIES = frozenset({
-        "MacroEconomics",
-        "EquityResearch",
-        "SectorAnalysis",
-        "InvestmentStrategy",
-        "Technology",
-        "WealthManagement",
-        "Regulation",
-        "ContentPlanning",
-    })
+    _VALID_8_CATEGORIES = frozenset(
+        {
+            "MacroEconomics",
+            "EquityResearch",
+            "SectorAnalysis",
+            "InvestmentStrategy",
+            "Technology",
+            "WealthManagement",
+            "Regulation",
+            "ContentPlanning",
+        }
+    )
 
-    def test_正常系_全エントリが8つのConceptCategoryのどれかにマップされる(self) -> None:
+    def test_正常系_全エントリが8つのConceptCategoryのどれかにマップされる(
+        self,
+    ) -> None:
         for key, val in CONCEPT_CATEGORY_MAP.items():
             assert val in self._VALID_8_CATEGORIES, (
                 f"{key!r} -> {val!r} は8ConceptCategoryに含まれない"
@@ -236,23 +248,27 @@ class TestConceptCategoryMap:
 
 
 class TestTrustLevelNormalization:
-    _CANONICAL_10_LEVELS = frozenset({
-        "official",
-        "academic",
-        "company",
-        "institutional",
-        "analyst",
-        "industry",
-        "media",
-        "primary",
-        "blog",
-        "social",
-    })
+    _CANONICAL_10_LEVELS = frozenset(
+        {
+            "official",
+            "academic",
+            "company",
+            "institutional",
+            "analyst",
+            "industry",
+            "media",
+            "primary",
+            "blog",
+            "social",
+        }
+    )
 
     def test_正常系_20エントリが存在すること(self) -> None:
         assert len(TRUST_LEVEL_NORMALIZATION) == 20
 
-    def test_正常系_全エントリが10キャノニカルレベルのどれかにマップされる(self) -> None:
+    def test_正常系_全エントリが10キャノニカルレベルのどれかにマップされる(
+        self,
+    ) -> None:
         for raw, canonical in TRUST_LEVEL_NORMALIZATION.items():
             assert canonical in self._CANONICAL_10_LEVELS, (
                 f"{raw!r} -> {canonical!r} は10キャノニカルレベルに含まれない"
@@ -294,9 +310,20 @@ class TestMakeEntityTypeNode:
 
     def test_正常系_14キャノニカル型全てでname_jaが設定される(self) -> None:
         canonical_types = [
-            "company", "technology", "organization", "person",
-            "index", "indicator", "instrument", "commodity",
-            "country", "sector", "concept", "regulation", "broker", "product",
+            "company",
+            "technology",
+            "organization",
+            "person",
+            "index",
+            "indicator",
+            "instrument",
+            "commodity",
+            "country",
+            "sector",
+            "concept",
+            "regulation",
+            "broker",
+            "product",
         ]
         for etype in canonical_types:
             node = _make_entity_type_node(etype)
@@ -446,7 +473,8 @@ class TestApplyClassificationLayer:
         apply_classification_layer(mapped, "web-research")
         # SourceType "web" は1つだけ（重複排除）
         source_type_nodes = [
-            n for n in mapped["classification_nodes"]
+            n
+            for n in mapped["classification_nodes"]
             if n["label"] == "SourceType" and n["key_value"] == "web"
         ]
         assert len(source_type_nodes) == 1
@@ -465,7 +493,9 @@ class TestApplyClassificationLayer:
         assert mapped["classification_nodes"] == []
         assert mapped["classification_rels"] == []
 
-    def test_正常系_tickerがある場合にHAS_IDENTIFIERリレーションが生成される(self) -> None:
+    def test_正常系_tickerがある場合にHAS_IDENTIFIERリレーションが生成される(
+        self,
+    ) -> None:
         mapped: dict[str, Any] = {
             "sources": [],
             "entities": [

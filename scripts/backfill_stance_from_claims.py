@@ -76,10 +76,11 @@ def _rating_to_sentiment(rating: str) -> str:
 
 def _fetch_claims(driver: GraphDatabase.driver) -> list[dict]:
     """Fetch Claims with rating/target_price and their Entity."""
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、[:ABOUT] → [:RELATES_TO] に更新
     query = """
     MATCH (c:Claim)
     WHERE c.rating IS NOT NULL OR c.target_price IS NOT NULL
-    OPTIONAL MATCH (c)-[:ABOUT]->(e:Entity)
+    OPTIONAL MATCH (c)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
     OPTIONAL MATCH (s:Source)-[:MAKES_CLAIM]->(c)
     RETURN c.claim_id AS claim_id,
            c.rating AS rating,
@@ -247,12 +248,13 @@ def _write_to_neo4j(driver: GraphDatabase.driver, data: dict) -> dict[str, int]:
             counts["holds_stance"] = len(data["holds_stance"])
 
         # ON_ENTITY
+        # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
         if data["on_entity"]:
             session.run(
                 """
                 UNWIND $rels AS rel
                 MATCH (st:Stance {stance_id: rel.from_id})
-                MATCH (e:Entity {entity_id: rel.to_id})
+                MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {entity_id: rel.to_id})
                 MERGE (st)-[:ON_ENTITY]->(e)
                 """,
                 rels=data["on_entity"],

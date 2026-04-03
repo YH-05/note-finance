@@ -321,8 +321,11 @@ class TestBuildEntityNodes:
         assert entities[0]["name"] == "Apple"
         assert entities[0]["entity_type"] == "company"
         assert entities[0]["ticker"] == "AAPL"
-        assert entities[0]["entity_key"] == "Apple::company"
-        assert "Apple::company" in seen_keys
+        # v4.0: entity_key は廃止。代わりに neo4j_label が付与される
+        assert "entity_key" not in entities[0]
+        assert entities[0]["neo4j_label"] == "Company"
+        # v4.0: seen_keys には name が追加される（後方互換）
+        assert "Apple" in seen_keys
         assert name_to_id["Apple"] == "eid-Apple-company"
         assert name_to_ticker["Apple"] == "AAPL"
 
@@ -344,16 +347,19 @@ class TestBuildEntityNodes:
         assert len(entities) == 1
 
     def test_正常系_クロスチャンク重複排除(self) -> None:
-        seen_keys: set[str] = {"Apple::company"}  # pre-populated
+        # v4.0: seen_keys は name ベース（entity_key 廃止）
+        # name_to_id に "Apple" を事前登録することでクロスチャンク重複排除をシミュレート
         chunk = {
             "entities": [
                 {"name": "Apple", "entity_type": "company"},
             ]
         }
+        # v4.0: 重複排除は entity_name_to_id (name_to_id) によって行われる
+        name_to_id: dict[str, str] = {"Apple": "eid-Apple-company"}  # pre-populated
         entities = BaseMapper.build_entity_nodes(
             chunk,
-            seen_keys,
-            {},
+            set(),
+            name_to_id,
             {},
             generate_entity_id_fn=self._make_entity_id,
         )

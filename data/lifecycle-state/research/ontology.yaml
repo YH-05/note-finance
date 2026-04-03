@@ -1,19 +1,20 @@
 # =============================================================================
-# research-neo4j ontology.yaml (v3.0)
+# research-neo4j ontology.yaml (v4.0)
 # =============================================================================
-# Phase A 完了版。FIBO準拠 + 薄いハブノード設計。
-# 全プロパティ→リレーション変換適用済み。
+# Wave10 完了版。Entity ラベル廃止・entity_key 廃止・NODE KEY 採用。
+# EntityType/InstrumentClass ノード削除済み。
+# FIBO準拠 + 薄いハブノード設計。全プロパティ→リレーション変換適用済み。
 # =============================================================================
 
-schema_version: "research-3.0"
+schema_version: "research-4.0"
 instance_name: "research"
 domain: "金融リサーチ・銘柄調査のナレッジグラフ"
 created_at: "2026-03-23T15:09:06+09:00"
-updated_at: "2026-03-23T18:00:00+09:00"
+updated_at: "2026-04-03T00:00:00+09:00"
 status: "confirmed"
 
 # =============================================================================
-# ノード定義（33ラベル）
+# ノード定義（31ラベル）— EntityType・InstrumentClass 削除済み（Wave10）
 # =============================================================================
 
 # ---------------------------------------------------------------------------
@@ -25,10 +26,90 @@ common_nodes:
     description: データの出典元（ニュース記事、論文、レポート等）
     properties: [source_id, url, title, collected_at, published_at]
 
-  - label: Entity
-    key_property: entity_key
-    description: 固有名詞（企業、人物、指数等）。entity_key は "Name::type" 形式
-    properties: [entity_key, entity_id, name, enriched_at, updated_at]
+# ---------------------------------------------------------------------------
+# Entity Nodes（13）— 個別エンティティラベル（Entity ラベル廃止・NODE KEY採用）
+# ---------------------------------------------------------------------------
+# entity_key ("Name::type") 廃止 → ラベルごとに name を NODE KEY 制約で一意識別
+# AIDEV-NOTE: Wave6 (Issue #310) で Entity ラベルを13個別ラベルに分解
+# AIDEV-NOTE: Wave10 (Issue #316) で Entity ラベル・entity_key プロパティを全削除完了
+entity_nodes:
+  - label: Company
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 企業（上場・非上場）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Technology
+    key_property: name
+    constraint_type: NODE_KEY
+    description: テクノロジー・システム
+    properties: [name, enriched_at, updated_at]
+
+  - label: Organization
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 機関（中央銀行・政府機関・取引所・国際機関等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Person
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 人物（経営者・アナリスト・政策担当者等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: MarketIndex
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 株価指数（S&P500・日経平均等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Indicator
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 経済指標（CPI・GDP・失業率等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Instrument
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 金融商品（ETF・通貨・ファンド・債券等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Commodity
+    key_property: name
+    constraint_type: NODE_KEY
+    description: コモディティ（原油・金・農産物等）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Country
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 国・地域（属性ノード兼分析対象）
+    properties: [name, enriched_at, updated_at]
+
+  - label: Concept
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 概念・モデル・手法・テーマ・イベント等
+    properties: [name, enriched_at, updated_at]
+
+  - label: Regulation
+    key_property: name
+    constraint_type: NODE_KEY
+    description: 規制・政策・法令
+    properties: [name, enriched_at, updated_at]
+
+  - label: Broker
+    key_property: name
+    constraint_type: NODE_KEY
+    description: ブローカー・証券会社
+    properties: [name, enriched_at, updated_at]
+
+  - label: Product
+    key_property: name
+    constraint_type: NODE_KEY
+    description: プロダクト・データセット・データセンター等
+    properties: [name, enriched_at, updated_at]
 
 # ---------------------------------------------------------------------------
 # Content Types（5）— ナレッジの種類
@@ -103,10 +184,8 @@ domain_nodes:
     description: 著者の種類分類（analyst, journalist, official 等）
     properties: [author_type_id, name, name_ja]
 
-  - label: InstrumentClass
-    key_property: instrument_class_id
-    description: 金融商品の種類分類（FIBO SEC階層 L1/L2）
-    properties: [instrument_class_id, name, name_ja, fibo_domain]
+  # InstrumentClass — Wave10 (Issue #316) で削除済み。InstrumentClass 分類は
+  # Entity.entity_type='instrument' ラベルで代替。IS_INSTRUMENT_CLASS リレーションも削除。
 
 # ---------------------------------------------------------------------------
 # Classification Nodes — Source 由来（5）
@@ -151,28 +230,12 @@ source_classification_nodes:
     known_values: [finance-news-workflow, wealth-scrape, web-research, pdf-archive, academic-fetch, pdf-extraction, reddit-finance-topics, manual-research, topic-discovery, equity-research]
 
 # ---------------------------------------------------------------------------
-# Classification Nodes — Entity 由来（4）
+# Classification Nodes — Entity 由来（3）— EntityType 削除済み（Wave10）
 # ---------------------------------------------------------------------------
 entity_classification_nodes:
-  - label: EntityType
-    key_property: entity_type_id
-    description: Entity のサブタイプ分類（42種→14種に統合）
-    properties: [entity_type_id, name, name_ja, description, normalization_rule]
-    canonical_values:
-      - {key: company, name_ja: 企業, consolidates: [company, fintech, subsidiary, fintech_holding, digital_bank, it_services]}
-      - {key: technology, name_ja: テクノロジー, consolidates: [technology, system]}
-      - {key: organization, name_ja: 機関, consolidates: [organization, central_bank, government, government_agency, institution, exchange]}
-      - {key: person, name_ja: 人物}
-      - {key: index, name_ja: 株価指数}
-      - {key: indicator, name_ja: 経済指標, consolidates: [indicator, metric]}
-      - {key: instrument, name_ja: 金融商品, consolidates: [instrument, etf, currency, currency_pair, fund, bond, asset]}
-      - {key: commodity, name_ja: コモディティ}
-      - {key: country, name_ja: 国・地域, consolidates: [country, region]}
-      - {key: sector, name_ja: セクター, consolidates: [sector, market]}
-      - {key: concept, name_ja: 概念, consolidates: [concept, model, method, theme, article_proposal, event]}
-      - {key: regulation, name_ja: 規制・政策}
-      - {key: broker, name_ja: ブローカー}
-      - {key: product, name_ja: プロダクト, consolidates: [product, dataset, data_center]}
+  # EntityType — Wave10 (Issue #316) で削除済み。
+  # 旧 EntityType 分類は個別ラベル（Company/Technology/Organization 等）で代替。
+  # IS_TYPE リレーションも全削除済み（42ノード・1,587リレーション）。
 
   - label: Identifier
     key_property: identifier_id
@@ -269,11 +332,11 @@ relation_types:
   - {type: HAS_DATAPOINT, from: Source, to: FinancialDataPoint, card: "1:N", desc: ソースに含まれる定量データ}
   - {type: ABOUT, from: "Fact|Claim", to: Topic, card: "N:M", desc: コンテンツが扱うトピック}
 
-  # --- エンティティ関連（4）---
-  - {type: RELATES_TO, from: "Fact|FDP", to: Entity, card: "N:M", desc: データが言及するエンティティ}
-  - {type: MENTIONS, from: "Fact|Claim|Chunk", to: Entity, card: "N:M", desc: コンテンツがエンティティに言及}
-  - {type: IN_SECTOR, from: Entity, to: Sector, card: "N:1", desc: エンティティのセクター分類}
-  - {type: ON_ENTITY, from: Stance, to: Entity, card: "N:1", desc: スタンスの対象エンティティ}
+  # --- エンティティ関連（4）— Wave10: Entity → 個別ラベル表記に更新 ---
+  - {type: RELATES_TO, from: "Fact|Claim|FinancialDataPoint", to: "Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product", card: "N:M", desc: データが言及するエンティティ（統一リレーション）}
+  - {type: MENTIONS, from: "Fact|Claim|Chunk", to: "Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product", card: "N:M", desc: コンテンツがエンティティに言及}
+  - {type: IN_SECTOR, from: "Company|Organization|Instrument|Broker", to: Sector, card: "N:1", desc: エンティティのセクター分類}
+  - {type: ON_ENTITY, from: Stance, to: "Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product", card: "N:1", desc: スタンスの対象エンティティ}
 
   # --- 分析・推論（6）---
   - {type: SUPPORTED_BY, from: Claim, to: Fact, card: "N:M", desc: 主張を裏付ける事実}
@@ -288,29 +351,30 @@ relation_types:
   - {type: NEXT_PERIOD, from: FiscalPeriod, to: FiscalPeriod, card: "1:1", desc: 次の会計期間}
   - {type: TREND, from: FinancialDataPoint, to: FinancialDataPoint, card: "N:M", desc: 時系列チェーン}
 
-  # --- エンティティ間（9）---
-  - {type: COMPETES_WITH, from: Entity, to: Entity, card: "N:M", desc: 競合関係}
-  - {type: CUSTOMER_OF, from: Entity, to: Entity, card: "N:M", desc: 顧客関係}
-  - {type: SUBSIDIARY_OF, from: Entity, to: Entity, card: "N:1", desc: 子会社関係}
-  - {type: PARTNERS_WITH, from: Entity, to: Entity, card: "N:M", desc: パートナーシップ}
-  - {type: INVESTED_IN, from: Entity, to: Entity, card: "N:M", desc: 投資関係}
-  - {type: GOVERNS, from: Entity, to: Entity, card: "N:M", desc: 規制・監督関係}
-  - {type: OPERATES_IN, from: Entity, to: Entity, card: "N:M", desc: 事業展開先}
-  - {type: SPUN_OFF_FROM, from: Entity, to: Entity, card: "N:1", desc: スピンオフ元}
-  - {type: LED_BY, from: Entity, to: Entity, card: "N:1", desc: 経営リーダー}
+  # --- エンティティ間（9）— Wave10: Entity → EntityUnion 表記に更新 ---
+  # EntityUnion = Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product
+  - {type: COMPETES_WITH, from: EntityUnion, to: EntityUnion, card: "N:M", desc: 競合関係}
+  - {type: CUSTOMER_OF, from: EntityUnion, to: EntityUnion, card: "N:M", desc: 顧客関係}
+  - {type: SUBSIDIARY_OF, from: "Company|Organization", to: "Company|Organization", card: "N:1", desc: 子会社関係}
+  - {type: PARTNERS_WITH, from: EntityUnion, to: EntityUnion, card: "N:M", desc: パートナーシップ}
+  - {type: INVESTED_IN, from: EntityUnion, to: EntityUnion, card: "N:M", desc: 投資関係}
+  - {type: GOVERNS, from: "Organization|Regulation", to: EntityUnion, card: "N:M", desc: 規制・監督関係}
+  - {type: OPERATES_IN, from: "Company|Organization", to: "Country|Concept", card: "N:M", desc: 事業展開先}
+  - {type: SPUN_OFF_FROM, from: "Company|Organization", to: "Company|Organization", card: "N:1", desc: スピンオフ元}
+  - {type: LED_BY, from: "Company|Organization", to: Person, card: "N:1", desc: 経営リーダー}
 
   # --- メタ・スタンス（8）---
   - {type: AUTHORED_BY, from: Source, to: Author, card: "N:M", desc: ソースの著者}
   - {type: COAUTHORED_WITH, from: Author, to: Author, card: "N:M", desc: 共著関係}
-  - {type: CO_MENTIONED_WITH, from: Entity, to: Entity, card: "N:M", desc: 共起関係}
-  - {type: MEASURES, from: Metric, to: Entity, card: "N:M", desc: 指標の計測対象}
+  - {type: CO_MENTIONED_WITH, from: EntityUnion, to: EntityUnion, card: "N:M", desc: 共起関係}
+  - {type: MEASURES, from: Metric, to: EntityUnion, card: "N:M", desc: 指標の計測対象}
   - {type: FOR_METRIC, from: FinancialDataPoint, to: Metric, card: "N:1", desc: データポイントの指標種別}
   - {type: HOLDS_STANCE, from: Source, to: Stance, card: "1:N", desc: ソースが示すスタンス}
   - {type: BASED_ON, from: Stance, to: Source, card: "N:1", desc: スタンスの根拠ソース}
   - {type: SOURCED_FROM, from: "Fact|Claim", to: Source, card: "N:1", desc: コンテンツの出典ソース}
 
   # --- レガシー（2）---
-  - {type: BELONGS_TO, from: "Entity|Topic", to: "Sector|Topic", card: "N:1", desc: 所属関係}
+  - {type: BELONGS_TO, from: "EntityUnion|Topic", to: "Sector|Topic", card: "N:1", desc: 所属関係}
   - {type: ASKS_ABOUT, from: Question, to: Topic, card: "N:M", desc: 調査質問のトピック}
 
   # --- Source 分類（5）---
@@ -320,12 +384,12 @@ relation_types:
   - {type: IN_LANGUAGE, from: Source, to: Language, card: "N:1", desc: ソースの言語}
   - {type: INGESTED_VIA, from: Source, to: Pipeline, card: "N:1", desc: データ投入パイプライン}
 
-  # --- Entity 分類（5）---
-  - {type: IS_TYPE, from: Entity, to: EntityType, card: "N:1", desc: エンティティのサブタイプ}
-  - {type: HAS_IDENTIFIER, from: Entity, to: Identifier, card: "N:M", desc: FIBO hasIdentifier パターン}
-  - {type: IN_INDUSTRY, from: Entity, to: Industry, card: "N:1", desc: 産業分類（Sectorの下位）}
-  - {type: ALIAS_OF, from: Alias, to: "Entity|Topic", card: "N:1", desc: 別名の正規化リンク}
-  - {type: IS_INSTRUMENT_CLASS, from: Entity, to: InstrumentClass, card: "N:1", desc: FIBO 金融商品種類分類}
+  # --- Entity 分類（3）— Wave10: IS_TYPE・IS_INSTRUMENT_CLASS 削除済み ---
+  # IS_TYPE (Entity→EntityType): Wave10 で EntityType ノード削除に伴い廃止
+  # IS_INSTRUMENT_CLASS (Entity→InstrumentClass): Wave10 で InstrumentClass ノード削除に伴い廃止
+  - {type: HAS_IDENTIFIER, from: "Company|Organization|Instrument|Person", to: Identifier, card: "N:M", desc: FIBO hasIdentifier パターン}
+  - {type: IN_INDUSTRY, from: "Company|Organization", to: Industry, card: "N:1", desc: 産業分類（Sectorの下位）}
+  - {type: ALIAS_OF, from: Alias, to: "Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product|Topic", card: "N:1", desc: 別名の正規化リンク}
 
   # --- Content 分類（4）---
   - {type: IS_FACT_TYPE, from: Fact, to: FactType, card: "N:1", desc: 事実の種類分類}
@@ -335,13 +399,13 @@ relation_types:
 
   # --- Domain 分類（3）---
   - {type: IS_CATEGORY, from: Topic, to: ConceptCategory, card: "N:1", desc: トピックの上位概念カテゴリ}
-  - {type: AFFILIATED_WITH, from: Author, to: Entity, card: "N:1", desc: 著者の所属組織}
+  - {type: AFFILIATED_WITH, from: Author, to: "Company|Organization", card: "N:1", desc: 著者の所属組織}
   - {type: IS_AUTHOR_TYPE, from: Author, to: AuthorType, card: "N:1", desc: 著者の種類分類}
 
-  # --- 階層・参照（3）---
-  - {type: PARENT_CLASS, from: InstrumentClass, to: InstrumentClass, card: "N:1", desc: InstrumentClass L2→L1 階層}
+  # --- 階層・参照（2）— Wave10: PARENT_CLASS 削除済み（InstrumentClass ノード廃止） ---
+  # PARENT_CLASS (InstrumentClass→InstrumentClass): Wave10 で InstrumentClass 削除に伴い廃止
   - {type: IN_PARENT_SECTOR, from: Industry, to: Sector, card: "N:1", desc: 産業の親セクター}
-  - {type: ISSUED_BY, from: Identifier, to: Entity, card: "N:1", desc: 識別子の発行機関}
+  - {type: ISSUED_BY, from: Identifier, to: "Company|Organization", card: "N:1", desc: 識別子の発行機関}
 
 # =============================================================================
 # ConceptCategory 定義（topic.category 46種 → 8大分類）
@@ -357,9 +421,11 @@ concept_categories:
   - {name: ContentPlanning, name_ja: コンテンツ企画, layer: Meta, source_categories: [content_planning, reddit, theme]}
 
 # =============================================================================
-# InstrumentClass 階層（FIBO SEC domain 準拠）
+# InstrumentClass 階層（参考情報のみ — ノード廃止済み）
 # =============================================================================
-instrument_class_hierarchy:
+# AIDEV-NOTE: Wave10 (Issue #316) で InstrumentClass ノード（13件）を削除。
+# 以下は参考情報として保持。実際の分類は Instrument ノードの entity_type プロパティで管理。
+instrument_class_hierarchy_reference:
   - name: equity
     name_ja: 株式
     fibo_domain: SEC/Equities

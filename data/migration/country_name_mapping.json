@@ -1,0 +1,239 @@
+{
+  "generated_at": "20260402",
+  "issue": "#305",
+  "description": "Country ノードの英日名寄せテーブル。name（現在のノード名）→ canonical_name_en / canonical_name_ja での正規化。",
+  "mappings": [
+    {
+      "current_name": "Japan",
+      "canonical_name_en": "Japan",
+      "canonical_name_ja": "日本",
+      "iso_alpha2": "JP",
+      "iso_alpha3": "JPN",
+      "notes": null
+    },
+    {
+      "current_name": "日本",
+      "canonical_name_en": "Japan",
+      "canonical_name_ja": "日本",
+      "iso_alpha2": "JP",
+      "iso_alpha3": "JPN",
+      "notes": "日本語表記。Japanと重複統合対象"
+    },
+    {
+      "current_name": "United States",
+      "canonical_name_en": "United States",
+      "canonical_name_ja": "米国",
+      "iso_alpha2": "US",
+      "iso_alpha3": "USA",
+      "notes": null
+    },
+    {
+      "current_name": "米国",
+      "canonical_name_en": "United States",
+      "canonical_name_ja": "米国",
+      "iso_alpha2": "US",
+      "iso_alpha3": "USA",
+      "notes": "日本語表記"
+    },
+    {
+      "current_name": "China",
+      "canonical_name_en": "China",
+      "canonical_name_ja": "中国",
+      "iso_alpha2": "CN",
+      "iso_alpha3": "CHN",
+      "notes": null
+    },
+    {
+      "current_name": "中国",
+      "canonical_name_en": "China",
+      "canonical_name_ja": "中国",
+      "iso_alpha2": "CN",
+      "iso_alpha3": "CHN",
+      "notes": "日本語表記。Chinaと重複統合対象"
+    },
+    {
+      "current_name": "India",
+      "canonical_name_en": "India",
+      "canonical_name_ja": "インド",
+      "iso_alpha2": "IN",
+      "iso_alpha3": "IND",
+      "notes": null
+    },
+    {
+      "current_name": "インド",
+      "canonical_name_en": "India",
+      "canonical_name_ja": "インド",
+      "iso_alpha2": "IN",
+      "iso_alpha3": "IND",
+      "notes": "日本語表記。Indiaと重複統合対象"
+    },
+    {
+      "current_name": "Indonesia",
+      "canonical_name_en": "Indonesia",
+      "canonical_name_ja": "インドネシア",
+      "iso_alpha2": "ID",
+      "iso_alpha3": "IDN",
+      "notes": null
+    },
+    {
+      "current_name": "Malaysia",
+      "canonical_name_en": "Malaysia",
+      "canonical_name_ja": "マレーシア",
+      "iso_alpha2": "MY",
+      "iso_alpha3": "MYS",
+      "notes": null
+    },
+    {
+      "current_name": "Thailand",
+      "canonical_name_en": "Thailand",
+      "canonical_name_ja": "タイ",
+      "iso_alpha2": "TH",
+      "iso_alpha3": "THA",
+      "notes": null
+    },
+    {
+      "current_name": "Vietnam",
+      "canonical_name_en": "Vietnam",
+      "canonical_name_ja": "ベトナム",
+      "iso_alpha2": "VN",
+      "iso_alpha3": "VNM",
+      "notes": null
+    },
+    {
+      "current_name": "Philippines",
+      "canonical_name_en": "Philippines",
+      "canonical_name_ja": "フィリピン",
+      "iso_alpha2": "PH",
+      "iso_alpha3": "PHL",
+      "notes": null
+    },
+    {
+      "current_name": "Singapore",
+      "canonical_name_en": "Singapore",
+      "canonical_name_ja": "シンガポール",
+      "iso_alpha2": "SG",
+      "iso_alpha3": "SGP",
+      "notes": null
+    },
+    {
+      "current_name": "Cambodia",
+      "canonical_name_en": "Cambodia",
+      "canonical_name_ja": "カンボジア",
+      "iso_alpha2": "KH",
+      "iso_alpha3": "KHM",
+      "notes": null
+    },
+    {
+      "current_name": "Laos",
+      "canonical_name_en": "Laos",
+      "canonical_name_ja": "ラオス",
+      "iso_alpha2": "LA",
+      "iso_alpha3": "LAO",
+      "notes": null
+    },
+    {
+      "current_name": "ASEAN",
+      "canonical_name_en": "ASEAN",
+      "canonical_name_ja": "ASEAN",
+      "iso_alpha2": null,
+      "iso_alpha3": null,
+      "notes": "地域グループ。単一国ではなくリージョン扱い"
+    },
+    {
+      "current_name": "Australia",
+      "canonical_name_en": "Australia",
+      "canonical_name_ja": "オーストラリア",
+      "iso_alpha2": "AU",
+      "iso_alpha3": "AUS",
+      "notes": null
+    },
+    {
+      "current_name": "Swiss",
+      "canonical_name_en": "Switzerland",
+      "canonical_name_ja": "スイス",
+      "iso_alpha2": "CH",
+      "iso_alpha3": "CHE",
+      "notes": "Swiss → Switzerland に正規化"
+    },
+    {
+      "current_name": "アメリカ",
+      "canonical_name_en": "United States",
+      "canonical_name_ja": "米国",
+      "iso_alpha2": "US",
+      "iso_alpha3": "USA",
+      "notes": "日本語表記（アメリカ）。米国・United Statesと統合対象"
+    },
+    {
+      "current_name": "イスラエル",
+      "canonical_name_en": "Israel",
+      "canonical_name_ja": "イスラエル",
+      "iso_alpha2": "IL",
+      "iso_alpha3": "ISR",
+      "notes": null
+    },
+    {
+      "current_name": "イラク",
+      "canonical_name_en": "Iraq",
+      "canonical_name_ja": "イラク",
+      "iso_alpha2": "IQ",
+      "iso_alpha3": "IRQ",
+      "notes": null
+    },
+    {
+      "current_name": "イラン",
+      "canonical_name_en": "Iran",
+      "canonical_name_ja": "イラン",
+      "iso_alpha2": "IR",
+      "iso_alpha3": "IRN",
+      "notes": null
+    },
+    {
+      "current_name": "トルコ",
+      "canonical_name_en": "Turkey",
+      "canonical_name_ja": "トルコ",
+      "iso_alpha2": "TR",
+      "iso_alpha3": "TUR",
+      "notes": null
+    },
+    {
+      "current_name": "欧州",
+      "canonical_name_en": "Europe",
+      "canonical_name_ja": "欧州",
+      "iso_alpha2": null,
+      "iso_alpha3": null,
+      "notes": "地域グループ。単一国ではなくリージョン扱い"
+    },
+    {
+      "current_name": "中東",
+      "canonical_name_en": "Middle East",
+      "canonical_name_ja": "中東",
+      "iso_alpha2": null,
+      "iso_alpha3": null,
+      "notes": "地域グループ。単一国ではなくリージョン扱い"
+    },
+    {
+      "current_name": "東京都",
+      "canonical_name_en": "Tokyo",
+      "canonical_name_ja": "東京都",
+      "iso_alpha2": null,
+      "iso_alpha3": null,
+      "notes": "都市・都道府県レベル。Country ではなく Region/City として再分類対象"
+    },
+    {
+      "current_name": "ホルムズ海峡",
+      "canonical_name_en": "Strait of Hormuz",
+      "canonical_name_ja": "ホルムズ海峡",
+      "iso_alpha2": null,
+      "iso_alpha3": null,
+      "notes": "地理的特徴。Country ではなく Location/GeographicFeature として再分類対象"
+    },
+    {
+      "current_name": "米国市場",
+      "canonical_name_en": "US Market",
+      "canonical_name_ja": "米国市場",
+      "iso_alpha2": "US",
+      "iso_alpha3": "USA",
+      "notes": "Country ノードではなく MarketIndex/Topic として再分類対象"
+    }
+  ]
+}

@@ -270,9 +270,10 @@ def _write_fact_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
 
 def _fetch_claim_candidates(driver: Any, limit: int | None = None) -> list[dict[str, Any]]:
     """Fetch Claim->Entity pairs derivable from supported Facts."""
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、[:ABOUT] → [:RELATES_TO] に更新
     query = """
-    MATCH (c:Claim)-[:SUPPORTED_BY]->(:Fact)-[:RELATES_TO]->(e:Entity)
-    WHERE NOT EXISTS { MATCH (c)-[:ABOUT]->(e) }
+    MATCH (c:Claim)-[:SUPPORTED_BY]->(:Fact)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE NOT EXISTS { MATCH (c)-[:RELATES_TO]->(e) }
     RETURN DISTINCT c.claim_id AS claim_id,
                     e.entity_id AS entity_id
     ORDER BY claim_id, entity_id
@@ -302,7 +303,8 @@ def _build_claim_rows(candidates: list[dict[str, Any]]) -> tuple[list[dict[str, 
 
 
 def _write_claim_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
-    """Write Claim->Entity ABOUT relationships."""
+    """Write Claim->Entity RELATES_TO relationships."""
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、[:ABOUT] → [:RELATES_TO] に更新
     if not rows:
         return 0
     with driver.session() as session:
@@ -310,8 +312,8 @@ def _write_claim_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
             """
             UNWIND $rows AS row
             MATCH (c:Claim {claim_id: row.claim_id})
-            MATCH (e:Entity {entity_id: row.entity_id})
-            MERGE (c)-[:ABOUT]->(e)
+            MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {entity_id: row.entity_id})
+            MERGE (c)-[:RELATES_TO]->(e)
             """,
             rows=rows,
         )
@@ -320,12 +322,13 @@ def _write_claim_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
 
 def _fetch_insight_candidates(driver: Any, limit: int | None = None) -> list[dict[str, Any]]:
     """Fetch Insights and their derivation context."""
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、[:ABOUT] → [:RELATES_TO] に更新
     query = """
     MATCH (i:Insight)
-    WHERE NOT EXISTS { MATCH (i)-[:ABOUT]->(:Entity) }
+    WHERE NOT EXISTS { MATCH (i)-[:RELATES_TO]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product) }
     OPTIONAL MATCH (i)-[:DERIVED_FROM]->(n)
-    OPTIONAL MATCH (n)-[r]->(e:Entity)
-    WHERE type(r) IN ['ABOUT', 'RELATES_TO']
+    OPTIONAL MATCH (n)-[r]->(e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE type(r) = 'RELATES_TO'
     RETURN i.insight_id AS insight_id,
            collect(DISTINCT {
              labels: labels(n),
@@ -343,15 +346,16 @@ def _fetch_insight_candidates(driver: Any, limit: int | None = None) -> list[dic
 
 def _allowed_insight_entity_id(entry: dict[str, Any]) -> str | None:
     """Return entity_id when derivation path is deterministic and allowed."""
+    # AIDEV-NOTE: Wave7 (Issue #312) — ABOUT → RELATES_TO に統一
     entity_id = entry.get("entity_id")
     if not entity_id:
         return None
     labels = set(entry.get("labels") or [])
     rel_type = entry.get("rel_type")
     if "Source" in labels:
-        return entity_id if rel_type == "ABOUT" else None
+        return entity_id if rel_type == "RELATES_TO" else None
     if labels.intersection({"Fact", "Claim"}):
-        return entity_id if rel_type in {"ABOUT", "RELATES_TO"} else None
+        return entity_id if rel_type == "RELATES_TO" else None
     return None
 
 
@@ -378,7 +382,8 @@ def _build_insight_rows(candidates: list[dict[str, Any]]) -> tuple[list[dict[str
 
 
 def _write_insight_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
-    """Write Insight->Entity ABOUT relationships."""
+    """Write Insight->Entity RELATES_TO relationships."""
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、[:ABOUT] → [:RELATES_TO] に更新
     if not rows:
         return 0
     with driver.session() as session:
@@ -386,8 +391,8 @@ def _write_insight_rows(driver: Any, rows: list[dict[str, Any]]) -> int:
             """
             UNWIND $rows AS row
             MATCH (i:Insight {insight_id: row.insight_id})
-            MATCH (e:Entity {entity_id: row.entity_id})
-            MERGE (i)-[:ABOUT]->(e)
+            MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product {entity_id: row.entity_id})
+            MERGE (i)-[:RELATES_TO]->(e)
             """,
             rows=rows,
         )

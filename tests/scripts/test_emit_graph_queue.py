@@ -783,11 +783,13 @@ class TestMapAiResearch:
 
         assert result["entities"][0]["ticker"] == "NVDA"
 
-    def test_正常系_entity_keyが生成される(self) -> None:
+    def test_正常系_neo4j_labelがCompanyに設定される(self) -> None:
+        """v4.0: entity_key 廃止、neo4j_label が Company に設定されることを確認。"""
         batch = _ai_research_batch()
         result = map_ai_research(batch)
 
-        assert result["entities"][0]["entity_key"] == "NVIDIA::company"
+        assert result["entities"][0]["neo4j_label"] == "Company"
+        assert "entity_key" not in result["entities"][0]
 
     def test_正常系_batch_labelがaiに設定される(self) -> None:
         batch = _ai_research_batch()
@@ -1219,7 +1221,7 @@ class TestRun:
 
         # Verify schema
         data = json.loads(output_files[0].read_text(encoding="utf-8"))
-        assert data["schema_version"] == "3.0"
+        assert data["schema_version"] == "research-4.0"  # v4.0 schema
         assert data["command_source"] == "finance-news-workflow"
         assert "queue_id" in data
         assert "created_at" in data
@@ -1986,11 +1988,13 @@ class TestMapWealthScrapeBackfill:
             expected_id = generate_entity_id(entity["name"], "domain")
             assert entity["entity_id"] == expected_id
 
-    def test_正常系_entity_keyが生成される(self) -> None:
+    def test_正常系_neo4j_labelがConceptに設定される(self) -> None:
+        """v4.0: entity_key 廃止、domain entity の neo4j_label が Concept に設定されることを確認。"""
         data = _wealth_scrape_backfill_data()
         result = map_wealth_scrape_backfill(data)
         for entity in result["entities"]:
-            assert entity["entity_key"] == f"{entity['name']}::{entity['entity_type']}"
+            assert entity["neo4j_label"] == "Concept"
+            assert "entity_key" not in entity
 
     def test_正常系_topic_keyが生成される(self) -> None:
         data = _wealth_scrape_backfill_data()
@@ -4730,18 +4734,21 @@ class TestMapWebResearch:
             assert rel["type"] == "EXTRACTED_FROM"
 
     def test_正常系_エンティティ重複排除(self) -> None:
-        """同名+同typeのエンティティが重複しないことを確認。"""
+        """同名のエンティティが重複しないことを確認（v4.0: name ベース重複排除）。"""
         data = _web_research_mapper_data()
         # 日本銀行 appears in both facts
         result = map_web_research(data)
 
-        entity_keys = [e["entity_key"] for e in result["entities"]]
-        assert len(entity_keys) == len(set(entity_keys))
+        # v4.0: name で重複排除
+        entity_names = [e["name"] for e in result["entities"]]
+        assert len(entity_names) == len(set(entity_names))
 
-        # 日本銀行::organization should appear only once
+        # 日本銀行 should appear only once
         boj_entities = [e for e in result["entities"] if e["name"] == "日本銀行"]
         assert len(boj_entities) == 1
-        assert boj_entities[0]["entity_key"] == "日本銀行::organization"
+        # v4.0: entity_key 廃止、neo4j_label を確認
+        assert boj_entities[0]["neo4j_label"] == "Organization"
+        assert "entity_key" not in boj_entities[0]
 
     def test_正常系_ソースURL紐付け_ファクトからソースへ(self) -> None:
         """extracted_from_fact でファクトが正しいソースに紐付くこと。"""

@@ -1,24 +1,30 @@
 #!/usr/bin/env python3
-"""Entity Linker for Neo4j instances (v3.0).
+"""Entity Linker for Neo4j instances (v4.0).
 
 Resolves extracted entity/concept names to existing nodes in Neo4j
-using a multi-stage matching strategy aligned with research-neo4j v3.0
-ontology (EntityType consolidation, Identifier pattern, Alias fallback).
+using a multi-stage matching strategy aligned with research-neo4j v4.0
+ontology (13 individual entity labels, NODE KEY on name, Alias fallback).
 
 パイプライン位置
 -----------------
 
-ステップ2: entity_key 事前解決（neo4j_loader.py の前処理）
+ステップ2: エンティティ名解決（neo4j_loader.py の前処理）
 
   emit_research_queue.py → entity_linker.py → neo4j_loader.py
 
 本スクリプトは neo4j_loader.py がグラフに書き込む前に entity_type の
-正規化と entity_key 解決を行う中間処理を担う。
+正規化とラベルごとの name 検索による解決を行う中間処理を担う。
+
+v4.0 変更点（Issue #310）
+--------------------------
+- entity_key ("Name::type" 複合キー) 廃止
+- Entity 汎用ラベル廃止 → 13個別ラベル (Company/Technology/Organization 等)
+- 検索: ラベルごとの name exact match → fulltext → alias
 
 Matching stages
 ---------------
 
-Stage 1: entity_key exact match (``Name::type``)
+Stage 1: name exact match per individual label (``MATCH (n:Company {name: $name})``)
 Stage 2: Full-text search via ``research_entity_fulltext`` index
 Stage 3: Alias fallback via ``research_alias_fulltext`` index
 Stage 4 (optional): multilingual-e5-large embedding similarity
@@ -47,7 +53,8 @@ Output JSON format::
       "entities": [
         {"name": "トヨタ自動車", "entity_type": "company",
          "canonical_type": "company",
-         "resolved": true, "entity_key": "トヨタ自動車::company",
+         "neo4j_label": "Company",
+         "resolved": true,
          "match_layer": "exact",
          "identifier": {"type": "ticker", "value": "7203"}}
       ],
@@ -131,6 +138,7 @@ _ENV_VAR_PATTERN = re.compile(r"^\$\{([^}]+)\}$")
 # defined in ontology.yaml (via ontology_loader).
 # SSoT: data/lifecycle-state/research/ontology.yaml
 from ontology_loader import load_consolidation_mapping  # noqa: E402
+from ontology_loader import ENTITY_TYPE_TO_LABEL  # noqa: E402
 
 ENTITY_TYPE_CONSOLIDATION: dict[str, str] = load_consolidation_mapping()
 
@@ -250,19 +258,25 @@ def load_linker_config(
 
 @dataclass(frozen=True)
 class _NodeResolveConfig:
-    """Configuration for resolving a specific node type (Entity or Concept)."""
+    """Configuration for resolving a specific node type (Entity or Concept).
 
-    label: str  # "Entity" or "Concept"
-    id_key: str  # "entity_id" or "concept_id"
-    key_key: str | None  # "entity_key" or None
-    alias_index: str  # "alias_fulltext" or v3.0 index name
+    v4.0 変更: key_key を廃止。個別ラベル名を label フィールドで指定する。
+    AIDEV-NOTE: label は "Company", "Technology" 等の個別ラベルまたは "Concept"
+    """
+
+    label: str  # individual label: "Company", "Concept", etc.
+    id_key: str  # "entity_id" or "concept_id" (後方互換)
+    key_key: str | None  # Deprecated: always None in v4.0
+    alias_index: str  # "alias_fulltext" or v4.0 index name
     node_index: str  # "entity_fulltext" or "concept_fulltext"
 
 
+# AIDEV-NOTE: _ENTITY_CONFIG は後方互換のために残す。v4.0 では get_neo4j_label() でラベルを
+# 動的に決定し、_make_v4_entity_config() でラベル別の Config を生成する。
 _ENTITY_CONFIG = _NodeResolveConfig(
-    label="Entity",
+    label="Concept",  # v4.0: Entity 廃止。デフォルトフォールバックとして Concept を使用
     id_key="entity_id",
-    key_key="entity_key",
+    key_key=None,  # v4.0: entity_key 廃止
     alias_index="alias_fulltext",
     node_index="entity_fulltext",
 )
@@ -276,8 +290,40 @@ _CONCEPT_CONFIG = _NodeResolveConfig(
 )
 
 
+def _make_v4_entity_config(
+    neo4j_label: str,
+    search_config: LinkerSearchConfig | None = None,
+) -> _NodeResolveConfig:
+    """Create a v4.0 entity resolve config for a specific individual label.
+
+    Parameters
+    ----------
+    neo4j_label
+        Neo4j individual label (e.g. "Company", "MarketIndex").
+    search_config
+        Optional v4.0 search configuration.
+
+    Returns
+    -------
+    _NodeResolveConfig
+        Entity resolve config using individual label and v4.0 index names.
+    """
+    alias_index = search_config.alias_fulltext_index if search_config else "research_alias_fulltext"
+    node_index = search_config.fulltext_index if search_config else "research_entity_fulltext"
+    return _NodeResolveConfig(
+        label=neo4j_label,
+        id_key="entity_id",
+        key_key=None,  # v4.0: entity_key 廃止
+        alias_index=alias_index,
+        node_index=node_index,
+    )
+
+
 def _make_v3_entity_config(search_config: LinkerSearchConfig) -> _NodeResolveConfig:
     """Create a v3.0 Entity resolve config using search config index names.
+
+    .. deprecated::
+        v4.0 で廃止。``_make_v4_entity_config()`` を使用してください。
 
     Parameters
     ----------
@@ -287,12 +333,12 @@ def _make_v3_entity_config(search_config: LinkerSearchConfig) -> _NodeResolveCon
     Returns
     -------
     _NodeResolveConfig
-        Entity resolve config using v3.0 index names.
+        Entity resolve config using v4.0 index names (label="Concept" as fallback).
     """
     return _NodeResolveConfig(
-        label="Entity",
+        label="Concept",  # v4.0: Entity 廃止
         id_key="entity_id",
-        key_key="entity_key",
+        key_key=None,  # v4.0: entity_key 廃止
         alias_index=search_config.alias_fulltext_index,
         node_index=search_config.fulltext_index,
     )
@@ -369,6 +415,10 @@ def consolidate_entity_type(raw_type: str) -> str:
 def build_entity_key(name: str, entity_type: str) -> str:
     """Build a v3.0 entity_key from name and canonical entity_type.
 
+    .. deprecated::
+        entity_key は v4.0 で廃止されました。
+        代わりに ``get_neo4j_label(entity_type)`` + name で検索してください。
+
     Format: ``{name}::{entity_type}``
 
     Parameters
@@ -384,6 +434,35 @@ def build_entity_key(name: str, entity_type: str) -> str:
         Entity key in ``Name::type`` format.
     """
     return f"{name}::{entity_type}"
+
+
+def get_neo4j_label(entity_type: str) -> str:
+    """Map a canonical entity_type to its Neo4j individual label.
+
+    v4.0 スキーマ: Entity 汎用ラベル廃止 → 13個別ラベルに対応。
+    SSoT: ``ontology_loader.ENTITY_TYPE_TO_LABEL``
+
+    Parameters
+    ----------
+    entity_type
+        Canonical entity type (e.g. ``"company"``, ``"index"``).
+
+    Returns
+    -------
+    str
+        Neo4j label (e.g. ``"Company"``, ``"MarketIndex"``).
+        未知の entity_type の場合は ``"Concept"`` をフォールバックとして返す。
+    """
+    canonical = consolidate_entity_type(entity_type)
+    label = ENTITY_TYPE_TO_LABEL.get(canonical)
+    if label is None:
+        logger.warning(
+            "No Neo4j label mapping for entity_type '%s' (canonical: '%s'), using Concept",
+            entity_type,
+            canonical,
+        )
+        return "Concept"
+    return label
 
 
 # ---------------------------------------------------------------------------
@@ -576,7 +655,7 @@ class Neo4jClient:
 
 
 # ---------------------------------------------------------------------------
-# 3-Stage Linking (v3.0)
+# 3-Stage Linking (v4.0)
 # ---------------------------------------------------------------------------
 
 
@@ -597,8 +676,12 @@ def _escape_lucene(text: str) -> str:
 
 
 def _return_clause(config: _NodeResolveConfig) -> str:
-    """Build the RETURN clause based on node config."""
+    """Build the RETURN clause based on node config.
+
+    v4.0: key_key は廃止済み。id_key と name のみ返す。
+    """
     parts = [f"n.{config.id_key} AS id"]
+    # key_key は廃止済み (None) のため条件チェックは後方互換のために残す
     if config.key_key:
         parts.append(f"n.{config.key_key} AS key")
     parts.append("n.name AS name")
@@ -618,10 +701,10 @@ def _resolve_by_text(
     This is the unified resolution logic for both Entity and Concept
     nodes, parameterised by ``config``.
 
-    Stages (v3.0)
+    Stages (v4.0)
     --------------
-    Stage 1: entity_key exact match (Entity only) + name exact match
-    Stage 2: Full-text search on Entity/Concept node name index
+    Stage 1: name exact match per individual label
+    Stage 2: Full-text search on entity/concept node name index
     Stage 3: Alias fulltext search + ALIAS_OF traversal
 
     Parameters
@@ -631,12 +714,12 @@ def _resolve_by_text(
     name
         Name to resolve.
     config
-        Node type configuration.
+        Node type configuration. ``config.label`` は個別ラベル
+        (e.g. "Company", "MarketIndex") を指定する。
     entity_key
-        Optional composite key (``name::type``) for Entity-only exact
-        match.  Ignored for Concept.
+        Deprecated: v4.0 では使用しない。後方互換のため引数は残す。
     search_config
-        Optional v3.0 search configuration.  When provided, uses the
+        Optional v4.0 search configuration.  When provided, uses the
         configured thresholds instead of defaults.
     """
     ret = _return_clause(config)
@@ -648,23 +731,13 @@ def _resolve_by_text(
     )
     max_candidates = search_config.max_candidates if search_config else 10
 
-    # Stage 1a (Entity only): entity_key exact match
-    if entity_key is not None and config.key_key is not None:
-        results = client.query(
-            f"MATCH (n:{config.label} {{{config.key_key}: $key}}) RETURN {ret}",
-            key=entity_key,
-        )
-        if results:
-            return _build_result(results[0], config, "exact")
-
-    # Stage 1b: name exact match
+    # Stage 1: name exact match (v4.0: entity_key 廃止、ラベルごとの name 検索に変更)
     results = client.query(
         f"MATCH (n:{config.label} {{name: $name}}) RETURN {ret}",
         name=name,
     )
     if results:
-        layer = "exact_name" if entity_key is not None else "exact"
-        return _build_result(results[0], config, layer)
+        return _build_result(results[0], config, "exact")
 
     # Stage 2: Full-text search on node name index + similarity filter
     escaped_name = _escape_lucene(name)
@@ -737,42 +810,31 @@ def resolve_entity_by_text(
     entity_type
         Entity type (may be legacy fine-grained or canonical).
     search_config
-        Optional v3.0 search configuration.
+        Optional v4.0 search configuration.
     use_v3
-        When True, applies v3.0 EntityType consolidation and uses
-        v3.0 fulltext index names from ``search_config``.
+        Deprecated: v4.0 では常に個別ラベル検索を使用する。
+        後方互換のため引数は残すが、v3/v4 共通で個別ラベル検索を行う。
 
     Returns
     -------
     dict or None
         Resolved entity info, or None if no match found.
     """
-    if use_v3:
-        canonical_type = consolidate_entity_type(entity_type)
-        normalized = normalize_name(name)
-        entity_key = build_entity_key(normalized, canonical_type)
-        config = (
-            _make_v3_entity_config(search_config) if search_config else _ENTITY_CONFIG
-        )
-        result = _resolve_by_text(
-            client,
-            normalized,
-            config,
-            entity_key=entity_key,
-            search_config=search_config,
-        )
-        if result is not None:
-            result["canonical_type"] = canonical_type
-        return result
-
-    # Legacy path (backward compatible)
-    return _resolve_by_text(
+    # v4.0: entity_key 廃止。ラベルごとの name 検索に変更
+    canonical_type = consolidate_entity_type(entity_type)
+    normalized = normalize_name(name)
+    neo4j_label = get_neo4j_label(canonical_type)
+    config = _make_v4_entity_config(neo4j_label, search_config)
+    result = _resolve_by_text(
         client,
-        name,
-        _ENTITY_CONFIG,
-        entity_key=f"{name}::{entity_type}",
+        normalized,
+        config,
         search_config=search_config,
     )
+    if result is not None:
+        result["canonical_type"] = canonical_type
+        result["neo4j_label"] = neo4j_label
+    return result
 
 
 def resolve_concept_by_text(
@@ -948,7 +1010,11 @@ def _batch_exact_entities(
     *,
     use_v3: bool = False,
 ) -> dict[str, dict[str, Any]]:
-    """Batch exact match for entities (2 queries instead of 2*N).
+    """Batch exact match for entities per individual label (v4.0).
+
+    v4.0 変更: entity_key ("Name::type") 廃止。
+    entity_type → 個別ラベルに変換し、ラベルごとに name で検索する。
+    グループ化により1ラベルあたり1クエリに最適化。
 
     Parameters
     ----------
@@ -957,68 +1023,46 @@ def _batch_exact_entities(
     entities
         List of entity dicts with ``name`` and ``entity_type`` fields.
     use_v3
-        When True, applies v3.0 EntityType consolidation and name
-        normalization before building entity keys.
+        Deprecated: v4.0 では常に個別ラベル検索を使用する。後方互換のため残す。
 
     Returns
     -------
     dict[str, dict[str, Any]]
-        Mapping of ``name::type`` -> resolution result.
+        Mapping of normalized name -> resolution result.
     """
     if not entities:
         return {}
 
     matches: dict[str, dict[str, Any]] = {}
 
-    # Build keys with optional v3.0 normalization
-    def _make_key(e: dict[str, Any]) -> str:
-        if use_v3:
-            canonical_type = consolidate_entity_type(e["entity_type"])
-            normalized_name = normalize_name(e["name"])
-            return build_entity_key(normalized_name, canonical_type)
-        return f"{e['name']}::{e['entity_type']}"
+    # v4.0: ラベルごとにグループ化して name exact match
+    # グループキー: normalized_name（重複排除のためのルックアップキー）
+    label_to_names: dict[str, set[str]] = {}
+    # 元エンティティの name → normalized_name の対応
+    name_to_normalized: dict[str, str] = {}
 
-    keys = [_make_key(e) for e in entities]
+    for e in entities:
+        canonical_type = consolidate_entity_type(e.get("entity_type", "concept"))
+        normalized = normalize_name(e["name"])
+        neo4j_label = get_neo4j_label(canonical_type)
+        name_to_normalized[e["name"]] = normalized
+        label_to_names.setdefault(neo4j_label, set()).add(normalized)
 
-    # Step 1: entity_key exact match
-    results = client.query(
-        "UNWIND $keys AS key "
-        "MATCH (e:Entity {entity_key: key}) "
-        "RETURN key, e.entity_id AS id, e.entity_key AS entity_key, e.name AS name",
-        keys=keys,
-    )
-    for r in results:
-        matches[r["key"]] = {
-            "entity_id": r["id"],
-            "entity_key": r["entity_key"],
-            "matched_name": r["name"],
-            "match_layer": "exact",
-        }
-
-    # Step 2: name exact match for unresolved
-    unresolved = [(e, _make_key(e)) for e in entities if _make_key(e) not in matches]
-    if unresolved:
-        if use_v3:
-            names = list({normalize_name(e["name"]) for e, _ in unresolved})
-        else:
-            names = list({e["name"] for e, _ in unresolved})
-        name_results = client.query(
-            "UNWIND $names AS n "
-            "MATCH (e:Entity {name: n}) "
-            "RETURN n AS input_name, e.entity_id AS id, "
-            "       e.entity_key AS entity_key, e.name AS name",
-            names=names,
+    for neo4j_label, names in label_to_names.items():
+        name_list = list(names)
+        results = client.query(
+            f"UNWIND $names AS n "
+            f"MATCH (e:{neo4j_label} {{name: n}}) "
+            f"RETURN n AS input_name, e.entity_id AS id, e.name AS name",
+            names=name_list,
         )
-        for r in name_results:
-            for e, k in unresolved:
-                check_name = normalize_name(e["name"]) if use_v3 else e["name"]
-                if check_name == r["input_name"] and k not in matches:
-                    matches[k] = {
-                        "entity_id": r["id"],
-                        "entity_key": r["entity_key"],
-                        "matched_name": r["name"],
-                        "match_layer": "exact_name",
-                    }
+        for r in results:
+            matches[r["input_name"]] = {
+                "entity_id": r["id"],
+                "matched_name": r["name"],
+                "neo4j_label": neo4j_label,
+                "match_layer": "exact",
+            }
 
     return matches
 
@@ -1152,28 +1196,24 @@ def _resolve_items(
     items
         List of entity or concept dicts.
     exact_matches
-        Pre-computed batch exact match results.
+        Pre-computed batch exact match results. v4.0: normalized name がキー。
     item_type
         ``"entity"`` or ``"concept"``.
     model
         SentenceTransformer model (or None).
     use_v3
-        When True, enables v3.0 EntityType consolidation, name
-        normalization, and Identifier output for entities.
+        Deprecated: v4.0 では常に個別ラベル検索を使用する。後方互換のため残す。
     search_config
-        Optional v3.0 search configuration.
+        Optional v4.0 search configuration.
     """
     resolved = []
     for item in items:
         name = item["name"]
 
         if item_type == "entity":
-            if use_v3:
-                canonical_type = consolidate_entity_type(item["entity_type"])
-                normalized_name = normalize_name(name)
-                lookup_key = build_entity_key(normalized_name, canonical_type)
-            else:
-                lookup_key = f"{name}::{item['entity_type']}"
+            # v4.0: lookup_key は normalized_name（entity_key は廃止）
+            normalized_name = normalize_name(name)
+            lookup_key = normalized_name
         else:
             lookup_key = name
 
@@ -1186,7 +1226,7 @@ def _resolve_items(
                 match = resolve_entity_by_text(
                     client,
                     name,
-                    item["entity_type"],
+                    item.get("entity_type", "concept"),
                     search_config=search_config,
                     use_v3=use_v3,
                 )
@@ -1207,19 +1247,22 @@ def _resolve_items(
             item["resolved"] = False
             item["match_layer"] = "new"
 
-        # v3.0: Add canonical_type and identifier for entities
-        if item_type == "entity" and use_v3:
-            item["canonical_type"] = consolidate_entity_type(item["entity_type"])
+        # v4.0: Add canonical_type, neo4j_label and identifier for entities
+        if item_type == "entity":
+            canonical_type = consolidate_entity_type(item.get("entity_type", "concept"))
+            item["canonical_type"] = canonical_type
+            if "neo4j_label" not in item:
+                item["neo4j_label"] = get_neo4j_label(canonical_type)
             identifier = _build_identifier_ref(item)
             if identifier is not None:
                 item["identifier"] = identifier
 
         resolved.append(item)
         layer = item.get("match_layer", "new")
-        label = "Entity" if item_type == "entity" else "Concept"
+        neo4j_label = item.get("neo4j_label", "Concept") if item_type == "entity" else "Concept"
         logger.info(
             "%s: %s -> %s (%s)",
-            label,
+            neo4j_label,
             name,
             item.get("matched_name", "NEW"),
             layer,

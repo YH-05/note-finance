@@ -316,7 +316,7 @@ class TestCreateDriver:
         create_driver()
 
         mock_gdb.driver.assert_called_once_with(
-            "bolt://localhost:7688",
+            "bolt://localhost:7687",
             auth=("neo4j", "env_pass"),
         )
 
@@ -667,13 +667,14 @@ class TestMeasureStructural:
         assert orphan_ratio.unit == "ratio"
         assert 0.0 <= orphan_ratio.value <= 1.0
 
-    def test_正常系_Memory除外フィルタが全Cypherに含まれる(self) -> None:
+    def test_正常系_EntityクエリにOrphanフィルタが含まれる(self) -> None:
+        # Wave7 (Issue #312): 孤立Entity検出クエリが個別ラベル union を使用することを確認
         mock_session = _make_mock_session_for_structural()
         measure_structural(mock_session)
         calls = mock_session.run.call_args_list
-        for call in calls:
-            query = call[0][0]
-            assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
+        # 少なくとも1つのクエリが個別ラベルを使用している
+        entity_queries = [call[0][0] for call in calls if "Company" in call[0][0]]
+        assert len(entity_queries) > 0, "No queries with individual entity labels found"
 
 
 # ---------------------------------------------------------------------------
@@ -790,7 +791,8 @@ class TestMeasureConsistency:
         assert result.name == "consistency"
         assert len(result.metrics) == 3
 
-    def test_正常系_Memory除外フィルタが全Cypherに含まれる(self) -> None:
+    def test_正常系_Cypherに個別ラベルunionが含まれる(self) -> None:
+        # Wave7 (Issue #312): 個別ラベル union を使用していることを確認
         mock_session = MagicMock()
 
         mock_type_check = MagicMock()
@@ -809,7 +811,9 @@ class TestMeasureConsistency:
         calls = mock_session.run.call_args_list
         for call in calls:
             query = call[0][0]
-            assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
+            assert "Company" in query, (
+                f"Individual label missing in query: {query[:80]}"
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -933,7 +937,8 @@ class TestMeasureFinanceSpecific:
         sector_metric = result.metrics[0]
         assert sector_metric.value == pytest.approx(1.0)
 
-    def test_正常系_Memory除外フィルタが全Cypherに含まれる(self) -> None:
+    def test_正常系_Cypherに個別ラベルunionが含まれる(self) -> None:
+        # Wave7 (Issue #312): 個別ラベル union を使用していることを確認
         mock_session = MagicMock()
 
         mock_sector = MagicMock()
@@ -946,9 +951,9 @@ class TestMeasureFinanceSpecific:
 
         measure_finance_specific(mock_session)
         calls = mock_session.run.call_args_list
-        for call in calls:
-            query = call[0][0]
-            assert "Memory" in query, f"Memory filter missing in query: {query[:80]}"
+        # 個別ラベル union を使用するクエリが少なくとも1つある
+        entity_queries = [c[0][0] for c in calls if "Company" in c[0][0]]
+        assert len(entity_queries) > 0, "No queries with individual entity labels found"
 
 
 # ---------------------------------------------------------------------------

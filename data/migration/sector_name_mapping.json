@@ -1,0 +1,195 @@
+{
+  "generated_at": "20260402",
+  "issue": "#305",
+  "description": "Entity:Sector の名寄せマッピング。variant_name → gics_sector（GICS 11種）への正規化テーブル。",
+  "gics_11_sectors": [
+    "Communication Services",
+    "Consumer Discretionary",
+    "Consumer Staples",
+    "Energy",
+    "Financials",
+    "Health Care",
+    "Industrials",
+    "Information Technology",
+    "Materials",
+    "Real Estate",
+    "Utilities"
+  ],
+  "mappings": [
+    {
+      "variant_name": "Banking Sector",
+      "gics_sector": "Financials",
+      "rationale": "銀行セクターはGICS Financials（金融）に包含される"
+    },
+    {
+      "variant_name": "銀行",
+      "gics_sector": "Financials",
+      "rationale": "銀行はGICS Financials（金融）に包含される"
+    },
+    {
+      "variant_name": "銀行セクター",
+      "gics_sector": "Financials",
+      "rationale": "銀行セクターはGICS Financials（金融）に包含される"
+    },
+    {
+      "variant_name": "Healthcare Sector",
+      "gics_sector": "Health Care",
+      "rationale": "Healthcare SectorはGICS Health Careの表記揺れ"
+    },
+    {
+      "variant_name": "Auto Sector",
+      "gics_sector": "Consumer Discretionary",
+      "rationale": "自動車セクターはGICS Consumer Discretionary（一般消費財）に包含される"
+    },
+    {
+      "variant_name": "FMCG Sector",
+      "gics_sector": "Consumer Staples",
+      "rationale": "FMCG（日用消費財）はGICS Consumer Staplesに包含される"
+    },
+    {
+      "variant_name": "食料品",
+      "gics_sector": "Consumer Staples",
+      "rationale": "食料品はGICS Consumer Staplesに包含される"
+    },
+    {
+      "variant_name": "食料品セクター",
+      "gics_sector": "Consumer Staples",
+      "rationale": "食料品セクターはGICS Consumer Staplesに包含される"
+    },
+    {
+      "variant_name": "Telco Sector",
+      "gics_sector": "Communication Services",
+      "rationale": "通信セクターはGICS Communication Servicesに包含される"
+    },
+    {
+      "variant_name": "Indonesian Telecom",
+      "gics_sector": "Communication Services",
+      "rationale": "インドネシア通信セクターはGICS Communication Servicesに包含される（地域限定表記）"
+    },
+    {
+      "variant_name": "US Telecom",
+      "gics_sector": "Communication Services",
+      "rationale": "米国通信セクターはGICS Communication Servicesに包含される（地域限定表記）"
+    },
+    {
+      "variant_name": "Property Sector",
+      "gics_sector": "Real Estate",
+      "rationale": "不動産セクターはGICS Real Estateの表記揺れ"
+    },
+    {
+      "variant_name": "エネルギーセクター",
+      "gics_sector": "Energy",
+      "rationale": "エネルギーセクターはGICS Energyの日本語表記"
+    },
+    {
+      "variant_name": "資源",
+      "gics_sector": "Materials",
+      "rationale": "資源はGICS Materials（素材）に包含される"
+    },
+    {
+      "variant_name": "資源セクター",
+      "gics_sector": "Materials",
+      "rationale": "資源セクターはGICS Materialsの日本語表記"
+    },
+    {
+      "variant_name": "Commodities Sector",
+      "gics_sector": "Materials",
+      "rationale": "コモディティはGICS Materials（素材・資源）に近い（Energyとの重複に注意）"
+    },
+    {
+      "variant_name": "Textile & Apparel Sector",
+      "gics_sector": "Consumer Discretionary",
+      "rationale": "繊維・アパレルはGICS Consumer Discretionary（一般消費財）に包含される"
+    },
+    {
+      "variant_name": "Retail Sector",
+      "gics_sector": "Consumer Discretionary",
+      "rationale": "小売セクターはGICS Consumer Discretionary（一般消費財）に包含される"
+    },
+    {
+      "variant_name": "Poultry Sector",
+      "gics_sector": "Consumer Staples",
+      "rationale": "食品（鶏肉）産業はGICS Consumer Staplesに包含される"
+    },
+    {
+      "variant_name": "空運・運輸セクター",
+      "gics_sector": "Industrials",
+      "rationale": "運輸・物流はGICS Industrials（資本財）に包含される"
+    },
+    {
+      "variant_name": "空運",
+      "gics_sector": "Industrials",
+      "rationale": "航空はGICS Industrials（資本財）に包含される"
+    },
+    {
+      "variant_name": "海運",
+      "gics_sector": "Industrials",
+      "rationale": "海運はGICS Industrials（資本財）に包含される"
+    },
+    {
+      "variant_name": "海運セクター",
+      "gics_sector": "Industrials",
+      "rationale": "海運セクターはGICS Industrials（資本財）に包含される"
+    },
+    {
+      "variant_name": "デリバリー産業",
+      "gics_sector": "Industrials",
+      "rationale": "配送・物流産業はGICS Industrials（資本財）に包含される"
+    },
+    {
+      "variant_name": "ホテル・旅館・民泊事業者",
+      "gics_sector": "Consumer Discretionary",
+      "rationale": "宿泊・ホスピタリティはGICS Consumer Discretionary（一般消費財）に包含される"
+    },
+    {
+      "variant_name": "高級ホテル",
+      "gics_sector": "Consumer Discretionary",
+      "rationale": "高級ホテルはGICS Consumer Discretionary（一般消費財）に包含される"
+    },
+    {
+      "variant_name": "外食産業",
+      "gics_sector": "Consumer Discretionary",
+      "rationale": "外食産業はGICS Consumer Discretionary（一般消費財）に包含される"
+    },
+    {
+      "variant_name": "美容グッズ",
+      "gics_sector": "Consumer Staples",
+      "rationale": "美容・パーソナルケア製品はGICS Consumer Staplesに包含される"
+    },
+    {
+      "variant_name": "ソフトウェア",
+      "gics_sector": "Information Technology",
+      "rationale": "ソフトウェアはGICS Information Technologyに包含される"
+    },
+    {
+      "variant_name": "テック",
+      "gics_sector": "Information Technology",
+      "rationale": "テックはGICS Information Technologyの略称"
+    },
+    {
+      "variant_name": "ハイテク",
+      "gics_sector": "Information Technology",
+      "rationale": "ハイテクはGICS Information Technologyに包含される"
+    },
+    {
+      "variant_name": "半導体",
+      "gics_sector": "Information Technology",
+      "rationale": "半導体はGICS Information Technologyに包含される"
+    },
+    {
+      "variant_name": "半導体セクター",
+      "gics_sector": "Information Technology",
+      "rationale": "半導体セクターはGICS Information Technologyに包含される"
+    },
+    {
+      "variant_name": "電線関連",
+      "gics_sector": "Industrials",
+      "rationale": "電線・電気機器はGICS Industrials（資本財）に包含される"
+    },
+    {
+      "variant_name": "防衛セクター",
+      "gics_sector": "Industrials",
+      "rationale": "防衛産業はGICS Industrials（資本財）に包含される（Aerospace & Defense）"
+    }
+  ]
+}

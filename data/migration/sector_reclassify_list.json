@@ -1,0 +1,564 @@
+{
+  "generated_at": "20260402",
+  "issue": "#305",
+  "description": "Entity:Sector 77件の分類確定リスト。classification='gics_sector'のものはGICS正規セクターへの名寄せ対象。classification='topic'のものはTopicノードへの変換対象。",
+  "summary": {
+    "total": 77,
+    "gics_sector_variants": 37,
+    "topic_conversion": 40
+  },
+  "gics_11_reference": [
+    "Communication Services",
+    "Consumer Discretionary",
+    "Consumer Staples",
+    "Energy",
+    "Financials",
+    "Health Care",
+    "Industrials",
+    "Information Technology",
+    "Materials",
+    "Real Estate",
+    "Utilities"
+  ],
+  "items": [
+    {
+      "name": "Banking Sector",
+      "entity_key": "Banking Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Financials",
+      "rationale": "銀行セクターはGICS Financialsの下位セクター"
+    },
+    {
+      "name": "銀行",
+      "entity_key": "銀行::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Financials",
+      "rationale": "銀行はGICS Financialsに包含される"
+    },
+    {
+      "name": "銀行セクター",
+      "entity_key": "銀行セクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Financials",
+      "rationale": "銀行セクターはGICS Financialsの日本語表記バリアント"
+    },
+    {
+      "name": "Healthcare Sector",
+      "entity_key": "Healthcare Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Health Care",
+      "rationale": "Healthcare SectorはGICS Health Careの表記揺れ（スペースなし）"
+    },
+    {
+      "name": "Auto Sector",
+      "entity_key": "Auto Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Discretionary",
+      "rationale": "自動車はGICS Consumer Discretionaryの下位セクター（Automobiles & Components）"
+    },
+    {
+      "name": "FMCG Sector",
+      "entity_key": "FMCG Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Staples",
+      "rationale": "FMCG（Fast Moving Consumer Goods）はGICS Consumer Staplesに包含される"
+    },
+    {
+      "name": "食料品",
+      "entity_key": "食料品::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Staples",
+      "rationale": "食料品はGICS Consumer Staplesに包含される"
+    },
+    {
+      "name": "食料品セクター",
+      "entity_key": "食料品セクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Staples",
+      "rationale": "食料品セクターはGICS Consumer Staplesの日本語バリアント"
+    },
+    {
+      "name": "Telco Sector",
+      "entity_key": "Telco Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Communication Services",
+      "rationale": "通信（Telco）はGICS Communication Servicesに包含される"
+    },
+    {
+      "name": "Indonesian Telecom",
+      "entity_key": "Indonesian Telecom::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Communication Services",
+      "rationale": "インドネシア通信はGICS Communication Servicesの地域バリアント。地域限定であることはTopicでも表現可能だが、主たる分類はGICS"
+    },
+    {
+      "name": "US Telecom",
+      "entity_key": "US Telecom::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Communication Services",
+      "rationale": "米国通信はGICS Communication Servicesの地域バリアント"
+    },
+    {
+      "name": "Property Sector",
+      "entity_key": "Property Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Real Estate",
+      "rationale": "Property SectorはGICS Real Estateの表記揺れ"
+    },
+    {
+      "name": "エネルギーセクター",
+      "entity_key": "エネルギーセクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Energy",
+      "rationale": "エネルギーセクターはGICS Energyの日本語表記"
+    },
+    {
+      "name": "資源",
+      "entity_key": "資源::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Materials",
+      "rationale": "資源はGICS Materials（素材）に包含される"
+    },
+    {
+      "name": "資源セクター",
+      "entity_key": "資源セクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Materials",
+      "rationale": "資源セクターはGICS Materialsの日本語バリアント"
+    },
+    {
+      "name": "資源株",
+      "entity_key": "資源株::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Materials",
+      "rationale": "資源株はGICS Materials関連銘柄"
+    },
+    {
+      "name": "Commodities Sector",
+      "entity_key": "Commodities Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Materials",
+      "rationale": "コモディティはGICS Materials（素材・資源）に包含される（エネルギーコモディティはEnergyとの重複に注意）"
+    },
+    {
+      "name": "Textile & Apparel Sector",
+      "entity_key": "Textile & Apparel Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Discretionary",
+      "rationale": "繊維・アパレルはGICS Consumer Discretionaryの下位セクター（Textiles, Apparel & Luxury Goods）"
+    },
+    {
+      "name": "Retail Sector",
+      "entity_key": "Retail Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Discretionary",
+      "rationale": "小売はGICS Consumer Discretionaryの下位セクター（Retailing）"
+    },
+    {
+      "name": "Poultry Sector",
+      "entity_key": "Poultry Sector::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Staples",
+      "rationale": "鶏肉・食品加工はGICS Consumer Staplesに包含される（Food Products）"
+    },
+    {
+      "name": "空運・運輸セクター",
+      "entity_key": "空運・運輸セクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "航空・運輸はGICS Industrialsの下位セクター（Transportation）"
+    },
+    {
+      "name": "空運",
+      "entity_key": "空運::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "航空はGICS Industrialsに包含される（Airlines）"
+    },
+    {
+      "name": "海運",
+      "entity_key": "海運::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "海運はGICS Industrialsに包含される（Marine）"
+    },
+    {
+      "name": "海運セクター",
+      "entity_key": "海運セクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "海運セクターはGICS Industrialsの日本語バリアント"
+    },
+    {
+      "name": "デリバリー産業",
+      "entity_key": "デリバリー産業::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "配送・物流産業はGICS Industrials（Air Freight & Logistics）に包含される"
+    },
+    {
+      "name": "ホテル・旅館・民泊事業者",
+      "entity_key": "ホテル・旅館・民泊事業者::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Discretionary",
+      "rationale": "宿泊・ホスピタリティはGICS Consumer Discretionary（Hotels, Restaurants & Leisure）に包含される"
+    },
+    {
+      "name": "高級ホテル",
+      "entity_key": "高級ホテル::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Discretionary",
+      "rationale": "高級ホテルはGICS Consumer Discretionary（Hotels, Restaurants & Leisure）に包含される"
+    },
+    {
+      "name": "外食産業",
+      "entity_key": "外食産業::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Discretionary",
+      "rationale": "外食産業はGICS Consumer Discretionary（Hotels, Restaurants & Leisure）に包含される"
+    },
+    {
+      "name": "美容グッズ",
+      "entity_key": "美容グッズ::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Consumer Staples",
+      "rationale": "美容・パーソナルケア製品はGICS Consumer Staples（Household & Personal Products）に包含される"
+    },
+    {
+      "name": "ソフトウェア",
+      "entity_key": "ソフトウェア::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Information Technology",
+      "rationale": "ソフトウェアはGICS Information Technology（Software）に包含される"
+    },
+    {
+      "name": "テック",
+      "entity_key": "テック::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Information Technology",
+      "rationale": "テックはGICS Information Technologyの略称"
+    },
+    {
+      "name": "ハイテク",
+      "entity_key": "ハイテク::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Information Technology",
+      "rationale": "ハイテクはGICS Information Technologyに包含される"
+    },
+    {
+      "name": "半導体",
+      "entity_key": "半導体::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Information Technology",
+      "rationale": "半導体はGICS Information Technology（Semiconductors & Semiconductor Equipment）に包含される"
+    },
+    {
+      "name": "半導体セクター",
+      "entity_key": "半導体セクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Information Technology",
+      "rationale": "半導体セクターはGICS Information Technologyの日本語バリアント"
+    },
+    {
+      "name": "電線関連",
+      "entity_key": "電線関連::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "電線・電気機器はGICS Industrials（Electrical Equipment）に包含される"
+    },
+    {
+      "name": "防衛セクター",
+      "entity_key": "防衛セクター::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "防衛産業はGICS Industrials（Aerospace & Defense）に包含される"
+    },
+    {
+      "name": "防衛関連",
+      "entity_key": "防衛関連::sector",
+      "classification": "gics_sector",
+      "maps_to_gics": "Industrials",
+      "rationale": "防衛関連はGICS Industrials（Aerospace & Defense）に包含される"
+    },
+    {
+      "name": "データセンター",
+      "entity_key": "データセンター::sector",
+      "classification": "topic",
+      "topic_name": "データセンター",
+      "rationale": "データセンターはGICS横断的テーマ（IT+Real Estate+Industrials）。AIインフラ投資テーマとしてTopicノードに分類"
+    },
+    {
+      "name": "AI",
+      "entity_key": "AI::sector",
+      "classification": "topic",
+      "topic_name": "AI",
+      "rationale": "AIは特定のGICSセクターではなく横断的テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "AI/半導体セクター",
+      "entity_key": "AI/半導体セクター::sector",
+      "classification": "topic",
+      "topic_name": "AI・半導体",
+      "rationale": "AI/半導体はGICS横断的テーマ（IT+Materials）。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "AIインフラ",
+      "entity_key": "AIインフラ::sector",
+      "classification": "topic",
+      "topic_name": "AIインフラ",
+      "rationale": "AIインフラはGICS横断的テーマ（IT+Industrials）。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "AIインフラセクター",
+      "entity_key": "AIインフラセクター::sector",
+      "classification": "topic",
+      "topic_name": "AIインフラ",
+      "rationale": "AIインフラセクターはAIインフラのバリアント。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "AI・半導体",
+      "entity_key": "AI・半導体::sector",
+      "classification": "topic",
+      "topic_name": "AI・半導体",
+      "rationale": "AI・半導体はGICS横断的テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "AI周辺企業",
+      "entity_key": "AI周辺企業::sector",
+      "classification": "topic",
+      "topic_name": "AI関連",
+      "rationale": "AI周辺企業はGICS横断的テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "AI銘柄",
+      "entity_key": "AI銘柄::sector",
+      "classification": "topic",
+      "topic_name": "AI関連",
+      "rationale": "AI銘柄はGICS横断的テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "ASEAN Digital Economy",
+      "entity_key": "ASEAN Digital Economy::sector",
+      "classification": "topic",
+      "topic_name": "ASEANデジタル経済",
+      "rationale": "ASEAN Digital EconomyはGICS横断的テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "DeFi",
+      "entity_key": "DeFi::sector",
+      "classification": "topic",
+      "topic_name": "DeFi・暗号資産",
+      "rationale": "DeFiはGICSに存在しない新興テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "Japanese Municipal Bond Market",
+      "entity_key": "Japanese Municipal Bond Market::market",
+      "classification": "topic",
+      "topic_name": "日本地方債市場",
+      "rationale": "地方債市場はGICSセクターではなく特定市場テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "SNS占いコンテンツ",
+      "entity_key": "SNS占いコンテンツ::market",
+      "classification": "topic",
+      "topic_name": "SNS占いコンテンツ",
+      "rationale": "SNS占いコンテンツはニッチ市場テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "スピリチュアルサービス市場（グローバル）",
+      "entity_key": "スピリチュアルサービス市場（グローバル）::market",
+      "classification": "topic",
+      "topic_name": "スピリチュアル市場",
+      "rationale": "スピリチュアルサービス市場はニッチ市場テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "スピリチュアル市場（日本）",
+      "entity_key": "スピリチュアル市場（日本）::market",
+      "classification": "topic",
+      "topic_name": "スピリチュアル市場",
+      "rationale": "スピリチュアル市場はニッチ市場テーマ。テーマ的Topicノードとして分類"
+    },
+    {
+      "name": "グロース",
+      "entity_key": "グロース::sector",
+      "classification": "topic",
+      "topic_name": "グロース株",
+      "rationale": "グロース（成長株）は投資スタイルテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "グロース株",
+      "entity_key": "グロース株::sector",
+      "classification": "topic",
+      "topic_name": "グロース株",
+      "rationale": "グロース株は投資スタイルテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "グロース銘柄",
+      "entity_key": "グロース銘柄::sector",
+      "classification": "topic",
+      "topic_name": "グロース株",
+      "rationale": "グロース銘柄は投資スタイルテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "バリュー株",
+      "entity_key": "バリュー株::sector",
+      "classification": "topic",
+      "topic_name": "バリュー株",
+      "rationale": "バリュー株は投資スタイルテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "ディフェンシブ",
+      "entity_key": "ディフェンシブ::sector",
+      "classification": "topic",
+      "topic_name": "ディフェンシブ株",
+      "rationale": "ディフェンシブは投資スタイルテーマ（景気非循環株）。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "日本株",
+      "entity_key": "日本株::sector",
+      "classification": "topic",
+      "topic_name": "日本株",
+      "rationale": "日本株は地域×アセットクラスのテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "日本株市場",
+      "entity_key": "日本株市場::market",
+      "classification": "topic",
+      "topic_name": "日本株市場",
+      "rationale": "日本株市場はマーケットテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "米国株",
+      "entity_key": "米国株::sector",
+      "classification": "topic",
+      "topic_name": "米国株",
+      "rationale": "米国株は地域×アセットクラスのテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "米国株市場",
+      "entity_key": "米国株市場::market",
+      "classification": "topic",
+      "topic_name": "米国株市場",
+      "rationale": "米国株市場はマーケットテーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "株式",
+      "entity_key": "株式::sector",
+      "classification": "topic",
+      "topic_name": "株式投資",
+      "rationale": "株式はアセットクラス全般テーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "株式市場",
+      "entity_key": "株式市場::market",
+      "classification": "topic",
+      "topic_name": "株式市場",
+      "rationale": "株式市場はマーケット全般テーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "日米債券市場",
+      "entity_key": "日米債券市場::sector",
+      "classification": "topic",
+      "topic_name": "債券市場",
+      "rationale": "債券市場はアセットクラステーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "米ハイテク",
+      "entity_key": "米ハイテク::sector",
+      "classification": "topic",
+      "topic_name": "米国ハイテク株",
+      "rationale": "米ハイテクは地域+セクターの複合テーマ。純粋なGICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "ハイテク株",
+      "entity_key": "ハイテク株::sector",
+      "classification": "topic",
+      "topic_name": "ハイテク株",
+      "rationale": "ハイテク株は投資テーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "ハイテク銘柄",
+      "entity_key": "ハイテク銘柄::sector",
+      "classification": "topic",
+      "topic_name": "ハイテク株",
+      "rationale": "ハイテク銘柄はハイテク株のバリアント。Topicとして分類"
+    },
+    {
+      "name": "半導体関連",
+      "entity_key": "半導体関連::sector",
+      "classification": "topic",
+      "topic_name": "半導体",
+      "rationale": "半導体関連はGICS IT下位セクターだが、より広いテーマ（AI・製造含む）なのでTopicとして分類"
+    },
+    {
+      "name": "レアアース",
+      "entity_key": "レアアース::sector",
+      "classification": "topic",
+      "topic_name": "レアアース・重要鉱物",
+      "rationale": "レアアースはGICS Materials下位だが地政学・サプライチェーンテーマとして重要。Topicとして分類"
+    },
+    {
+      "name": "レアアース関連",
+      "entity_key": "レアアース関連::sector",
+      "classification": "topic",
+      "topic_name": "レアアース・重要鉱物",
+      "rationale": "レアアース関連はレアアースのバリアント。Topicとして分類"
+    },
+    {
+      "name": "公益",
+      "entity_key": "公益::sector",
+      "classification": "topic",
+      "topic_name": "公益事業",
+      "rationale": "公益（Utilities）に近いが、日本語文脈では「社会的公益」の意味も含むためTopicとして分類。GICSのUtilitiesとは区別"
+    },
+    {
+      "name": "商社",
+      "entity_key": "商社::sector",
+      "classification": "topic",
+      "topic_name": "日本総合商社",
+      "rationale": "商社は日本特有の業態（総合商社）。GICSには対応するセクターがなく、TopicまたはIndustryとして分類"
+    },
+    {
+      "name": "占い市場（日本）",
+      "entity_key": "占い市場（日本）::market",
+      "classification": "topic",
+      "topic_name": "占い市場",
+      "rationale": "占い市場はニッチ市場テーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "占星術アプリ市場",
+      "entity_key": "占星術アプリ市場::market",
+      "classification": "topic",
+      "topic_name": "占星術アプリ市場",
+      "rationale": "占星術アプリ市場はニッチ市場テーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "対面事業",
+      "entity_key": "対面事業::sector",
+      "classification": "topic",
+      "topic_name": "対面ビジネス",
+      "rationale": "対面事業はビジネス形態テーマ（B2C）。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "電線株",
+      "entity_key": "電線株::sector",
+      "classification": "topic",
+      "topic_name": "電線・インフラ株",
+      "rationale": "電線株は投資テーマ（AI・電力インフラ関連）。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "瞑想アプリ市場",
+      "entity_key": "瞑想アプリ市場::market",
+      "classification": "topic",
+      "topic_name": "メンタルウェルネス市場",
+      "rationale": "瞑想アプリ市場はニッチ市場テーマ。GICSセクターではなくTopicとして分類"
+    },
+    {
+      "name": "高配当銘柄",
+      "entity_key": "高配当銘柄::sector",
+      "classification": "topic",
+      "topic_name": "高配当株",
+      "rationale": "高配当銘柄は投資スタイルテーマ（Dividend Investing）。GICSセクターではなくTopicとして分類"
+    }
+  ]
+}

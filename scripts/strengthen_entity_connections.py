@@ -203,13 +203,12 @@ def count_isolated_entities(session: Any) -> int:
         孤立 Entity 数。
     """
     # AIDEV-NOTE: type(r) IN [...] は ENTITY_RELATIONSHIP_TYPES 定数と同期すること
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     query = """
-    MATCH (e:Entity)
-    WHERE NOT 'Memory' IN labels(e)
-      AND NOT EXISTS {
-        MATCH (e)-[r]-(other:Entity)
-        WHERE NOT 'Memory' IN labels(other)
-          AND type(r) IN [
+    MATCH (e:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE NOT EXISTS {
+        MATCH (e)-[r]-(other:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+        WHERE type(r) IN [
             'CO_MENTIONED_WITH', 'SHARES_TOPIC',
             'COMPETES_WITH', 'PARTNERS_WITH', 'SUBSIDIARY_OF',
             'CUSTOMER_OF', 'INVESTED_IN', 'LED_BY',
@@ -282,8 +281,8 @@ def _execute_strengthen_method(
             logger.info(
                 "  [DRY-RUN] %s: %s <-> %s (%s=%d)",
                 method_name,
-                c["e1_key"],
-                c["e2_key"],
+                c["e1_id"],
+                c["e2_id"],
                 count_key,
                 c[count_key],
             )
@@ -297,8 +296,8 @@ def _execute_strengthen_method(
         for i in range(0, len(candidates), _MERGE_BATCH_SIZE):
             batch = [
                 {
-                    "e1_key": c["e1_key"],
-                    "e2_key": c["e2_key"],
+                    "e1_id": c["e1_id"],
+                    "e2_id": c["e2_id"],
                     "count_val": c[count_key],
                 }
                 for c in candidates[i : i + _MERGE_BATCH_SIZE]
@@ -353,11 +352,10 @@ def lower_co_mention_threshold(
         実行統計。
     """
     # AIDEV-NOTE: type(existing) IN [...] は ENTITY_RELATIONSHIP_TYPES 定数と同期すること
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union、[:ABOUT] → [:RELATES_TO] に更新
     find_query = """
-    MATCH (e1:Entity)<-[:ABOUT]-(c:Claim)-[:ABOUT]->(e2:Entity)
-    WHERE NOT 'Memory' IN labels(e1)
-      AND NOT 'Memory' IN labels(e2)
-      AND id(e1) < id(e2)
+    MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)<-[:RELATES_TO]-(c:Claim)-[:RELATES_TO]->(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE id(e1) < id(e2)
       AND NOT EXISTS {
         MATCH (e1)-[existing]-(e2)
         WHERE type(existing) IN [
@@ -369,17 +367,15 @@ def lower_co_mention_threshold(
       }
     WITH e1, e2, count(DISTINCT c) AS shared
     WHERE shared >= 1
-    RETURN e1.entity_key AS e1_key, e2.entity_key AS e2_key, shared
+    RETURN elementId(e1) AS e1_id, elementId(e2) AS e2_id, shared
     ORDER BY shared DESC
     """
 
     # AIDEV-NOTE: rel_type は定数文字列なので f-string 埋め込みは安全
     merge_query = """
     UNWIND $batch AS c
-    MATCH (e1:Entity {entity_key: c.e1_key})
-    MATCH (e2:Entity {entity_key: c.e2_key})
-    WHERE NOT 'Memory' IN labels(e1)
-      AND NOT 'Memory' IN labels(e2)
+    MATCH (e1) WHERE elementId(e1) = c.e1_id
+    MATCH (e2) WHERE elementId(e2) = c.e2_id
     MERGE (e1)-[r:CO_MENTIONED_WITH]-(e2)
     ON CREATE SET r.shared_claims = c.count_val,
                   r.method = $method_label,
@@ -424,26 +420,23 @@ def strengthen_topic_links(
     MethodStats
         実行統計。
     """
+    # AIDEV-NOTE: Wave7 (Issue #312) — :Entity → 個別ラベル union に更新
     find_query = """
-    MATCH (e1:Entity)-[:TAGGED]->(t:Topic)<-[:TAGGED]-(e2:Entity)
-    WHERE NOT 'Memory' IN labels(e1)
-      AND NOT 'Memory' IN labels(e2)
-      AND id(e1) < id(e2)
+    MATCH (e1:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)-[:TAGGED]->(t:Topic)<-[:TAGGED]-(e2:Company|Technology|Organization|Person|MarketIndex|Indicator|Instrument|Commodity|Country|Concept|Regulation|Broker|Product)
+    WHERE id(e1) < id(e2)
       AND NOT EXISTS {
         MATCH (e1)-[existing:SHARES_TOPIC]-(e2)
       }
     WITH e1, e2, count(DISTINCT t) AS shared_topics
     WHERE shared_topics >= 3
-    RETURN e1.entity_key AS e1_key, e2.entity_key AS e2_key, shared_topics
+    RETURN elementId(e1) AS e1_id, elementId(e2) AS e2_id, shared_topics
     ORDER BY shared_topics DESC
     """
 
     merge_query = """
     UNWIND $batch AS c
-    MATCH (e1:Entity {entity_key: c.e1_key})
-    MATCH (e2:Entity {entity_key: c.e2_key})
-    WHERE NOT 'Memory' IN labels(e1)
-      AND NOT 'Memory' IN labels(e2)
+    MATCH (e1) WHERE elementId(e1) = c.e1_id
+    MATCH (e2) WHERE elementId(e2) = c.e2_id
     MERGE (e1)-[r:SHARES_TOPIC]-(e2)
     ON CREATE SET r.shared_count = c.count_val,
                   r.method = $method_label,
