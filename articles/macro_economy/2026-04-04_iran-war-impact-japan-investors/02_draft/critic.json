@@ -189,25 +189,101 @@
             "issues_found": 3,
             "verification_rate": 89.5,
             "verified_facts_detail": [
-                {"fact": "ホルムズ海峡の原油輸送量 約20%", "status": "disputed", "note": "Economic impact記事では約20%、Strait of Hormuz本体記事では25%と記載が異なる（F001）"},
-                {"fact": "ブレント原油最高値 126ドル/バレル", "status": "verified", "note": "2026 Strait of Hormuz crisis（S003）に明記"},
-                {"fact": "アジア向けLNGスポット価格 +140%以上", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "日本の中東原油依存度 93%（2022年）", "status": "verified", "note": "Energy in Japan（S006）に明記"},
-                {"fact": "日本の石油備蓄 国家92日分＋民間77日分＝計169日分", "status": "verified", "note": "Energy in Japan（S006）に明記"},
-                {"fact": "日本のLNG輸入先：オーストラリア42%、カタル4%（2022年）", "status": "verified", "note": "Energy in Japan（S006）に明記"},
-                {"fact": "日本のエネルギー海外輸入依存度 84%", "status": "verified", "note": "Energy in Japan（S006）に明記"},
-                {"fact": "日経平均 開戦後2%超下落", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "韓国KOSPI 最大12%下落（2008年以来最大）サーキットブレーカー発動", "status": "verified", "note": "raw-data.jsonに明記（2026年3月4日）"},
-                {"fact": "ECBが2026年3月19日の予定利下げを見送り", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "米10年債利回り 4.46%（2025年7月以来最高水準）", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "航空燃料（ジェット燃料・ケロシン系）が2倍超に上昇", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "世界の航空トラフィックの15%が影響", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "1973年石油ショック：原油$3→$12（+300%）", "status": "verified", "note": "1973 oil crisis（S008）に明記。$3→$12は+300%（4倍）で記事の「4倍（+300%）」表記は正確"},
-                {"fact": "1990年湾岸戦争：原油$17→$36（約2倍）", "status": "verified", "note": "1990 oil price shock（S009）に明記"},
-                {"fact": "金（ゴールド）戦争開始後28%下落", "status": "disputed", "note": "単一ソース（confidence: 0.85）のみで独立検証不可（F002）"},
-                {"fact": "中東のアルミニウムは日本の輸入量の約25%", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "カタルのLNG生産能力 17%減少、修復に3〜5年", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
-                {"fact": "IRGCが2026年3月27日に同盟国向け航路の封鎖宣言", "status": "verified", "note": "2026 Strait of Hormuz crisis（S003）に明記"}
+                {
+                    "fact": "ホルムズ海峡の原油輸送量 約20%",
+                    "status": "disputed",
+                    "note": "Economic impact記事では約20%、Strait of Hormuz本体記事では25%と記載が異なる（F001）"
+                },
+                {
+                    "fact": "ブレント原油最高値 126ドル/バレル",
+                    "status": "verified",
+                    "note": "2026 Strait of Hormuz crisis（S003）に明記"
+                },
+                {
+                    "fact": "アジア向けLNGスポット価格 +140%以上",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "日本の中東原油依存度 93%（2022年）",
+                    "status": "verified",
+                    "note": "Energy in Japan（S006）に明記"
+                },
+                {
+                    "fact": "日本の石油備蓄 国家92日分＋民間77日分＝計169日分",
+                    "status": "verified",
+                    "note": "Energy in Japan（S006）に明記"
+                },
+                {
+                    "fact": "日本のLNG輸入先：オーストラリア42%、カタル4%（2022年）",
+                    "status": "verified",
+                    "note": "Energy in Japan（S006）に明記"
+                },
+                {
+                    "fact": "日本のエネルギー海外輸入依存度 84%",
+                    "status": "verified",
+                    "note": "Energy in Japan（S006）に明記"
+                },
+                {
+                    "fact": "日経平均 開戦後2%超下落",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "韓国KOSPI 最大12%下落（2008年以来最大）サーキットブレーカー発動",
+                    "status": "verified",
+                    "note": "raw-data.jsonに明記（2026年3月4日）"
+                },
+                {
+                    "fact": "ECBが2026年3月19日の予定利下げを見送り",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "米10年債利回り 4.46%（2025年7月以来最高水準）",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "航空燃料（ジェット燃料・ケロシン系）が2倍超に上昇",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "世界の航空トラフィックの15%が影響",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "1973年石油ショック：原油$3→$12（+300%）",
+                    "status": "verified",
+                    "note": "1973 oil crisis（S008）に明記。$3→$12は+300%（4倍）で記事の「4倍（+300%）」表記は正確"
+                },
+                {
+                    "fact": "1990年湾岸戦争：原油$17→$36（約2倍）",
+                    "status": "verified",
+                    "note": "1990 oil price shock（S009）に明記"
+                },
+                {
+                    "fact": "金（ゴールド）戦争開始後28%下落",
+                    "status": "disputed",
+                    "note": "単一ソース（confidence: 0.85）のみで独立検証不可（F002）"
+                },
+                {
+                    "fact": "中東のアルミニウムは日本の輸入量の約25%",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "カタルのLNG生産能力 17%減少、修復に3〜5年",
+                    "status": "verified",
+                    "note": "Economic impact of the 2026 Iran war（S002）に明記"
+                },
+                {
+                    "fact": "IRGCが2026年3月27日に同盟国向け航路の封鎖宣言",
+                    "status": "verified",
+                    "note": "2026 Strait of Hormuz crisis（S003）に明記"
+                }
             ]
         },
         "compliance": {
@@ -549,17 +625,50 @@
                 "シナリオ（楽観・中立・悲観）のセクションはテーブル画像または箇条書きによる骨子提示を先頭に置き、詳細を後に続ける逆ピラミッド型にすると、スマホで途中離脱する読者にも要旨が伝わる",
                 "まとめセクション末尾の「地政学リスクは仮定ではなく現実となることがある」という締めは読者の記憶に残りやすく、全体の論調と一致していて効果的"
             ]
+        },
+        "writer_rules": {
+            "score": 88,
+            "status": "warn",
+            "word_count": {
+                "actual": 9406,
+                "range": "8000-10000",
+                "status": "pass"
+            },
+            "issues": [
+                {
+                    "issue_id": "WR001",
+                    "severity": "MEDIUM",
+                    "description": "概要セクションが510字で規定200-300字を大幅超過。背景・経緯セクションと内容が重複。",
+                    "suggestion": "概要を200-300字以内に圧縮。「戦争開始→ホルムズ封鎖→日本の脆弱性→記事の目的」の4点を端的に示す1段落に再構成。"
+                },
+                {
+                    "issue_id": "WR002",
+                    "severity": "MEDIUM",
+                    "description": "参考データソースセクションにデータ取得時点の注記がない。",
+                    "suggestion": "セクション末尾に「※ データは2026年4月時点のものです。」を追加する。"
+                },
+                {
+                    "issue_id": "WR003",
+                    "severity": "LOW",
+                    "description": "海外機関のイベント日付に日本時間補足がない。",
+                    "suggestion": "「本記事の日付は現地時間基準」と冒頭注記するか、主要日付に「（日本時間〇月〇日）」を追記する。"
+                }
+            ]
         }
     },
-    "overall_score": null,
+    "overall_score": 81,
     "priority_fixes": [
-        "CP001: 末尾免責事項を snippets/disclaimer.md の統合テキストに差し替える（high）",
-        "CP002: 「検討する時期といえます」を投資助言色のより低い表現に変更する（medium）",
-        "CP003: 為替予測の具体数値（150円台後半〜160円台）に根拠・出典を付記するか定性表現に置き換える（medium）",
-        "DA001: 1973年の中東依存75%は日本+西欧合算の可能性があり「変わっていない」は93%への上昇と矛盾。表現修正が必要（medium）",
-        "DA002: ホルムズ海峡の石油通過量がソース間で20% vs 25%と乖離。「約20〜25%」または出典明示の上「25%」への修正を検討（medium）",
-        "RD001: テーブルコメント（原油価格比較）を /generate-table-image で画像化して埋め込む（high）",
-        "RD002: テーブルコメント（セクター別影響度マトリクス）を /generate-table-image で画像化して埋め込む（high）",
-        "RD006: 冒頭の価値提示文を第1段落先頭に前出しして note.com 離脱率を低減する（medium）"
+        "[HIGH] CP001: 免責事項をsnippets/disclaimer.mdの正式全文に差し替える",
+        "[HIGH] ST001/RD001/RD002: 2つの表プレースホルダーをgenerate-table-imageで画像化する",
+        "[MEDIUM] CP002: 「検討する時期といえます」→投資助言色のより低い表現に変更",
+        "[MEDIUM] CP003: 為替予測「150円台後半〜160円台」→定性表現に変更するか根拠を明示",
+        "[MEDIUM] DA001: 「構造的な脆弱性は当時と変わっていません」→正確な表現に修正",
+        "[MEDIUM] DA002/F001: ホルムズ海峡の石油通過量を「約20〜25%」に修正",
+        "[MEDIUM] WR001: 概要を300字以内に圧縮（現在510字）",
+        "[MEDIUM] RD003: 長段落（230〜310字）を分割",
+        "[MEDIUM] RD004: 冒頭フックを強化（価値提示を第1文に）",
+        "[MEDIUM] WR002: 参考データソースにデータ取得時点注記を追加",
+        "[LOW] RD006: スタグフレーションの初出時に括弧注釈を追加",
+        "[LOW] ST002: 分析セクション間の遷移文を追加"
     ]
 }

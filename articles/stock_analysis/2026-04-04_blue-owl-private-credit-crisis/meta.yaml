@@ -13,13 +13,13 @@ symbols:
 - BLK
 status: published
 created_at: '2026-04-04'
-updated_at: '2026-04-04T14:21:10.056107+00:00'
+updated_at: '2026-04-04T14:27:51.329667+00:00'
 workflow:
   research: done
   draft: done
   critique: done
   revision: done
-  publish: pending
+  publish: done
   publishing:
     published: done
     final_review: done
@@ -28,5 +28,5 @@ human_feedback:
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: false
-published_at: '2026-04-04T14:21:10.056107+00:00'
-draft_url: https://editor.note.com/notes/n03a412f073ab/edit/
+published_at: '2026-04-04T14:27:51.329667+00:00'
+draft_url: https://editor.note.com/notes/n4b58e3442796/edit/
