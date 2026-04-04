@@ -7,15 +7,15 @@ target_wordcount: 4000
 
 fred_series: []
 
-status: draft
+status: review
 created_at: "2026-04-04"
-updated_at: "2026-04-04"
+updated_at: "2026-04-05"
 
 workflow:
   research: done
   draft: done
-  critique: pending
-  revision: pending
+  critique: done
+  revision: done
   publish: pending
 
 human_feedback:

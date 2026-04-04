@@ -237,3 +237,10 @@ Traceback (most recent call last):
   File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
 httpx.ReadError: [Errno 54] Connection reset by peer
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 0 slots
+  - skipped (already posted): 1 slots
+  - failed: 0 slots
+
