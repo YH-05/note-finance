@@ -1,10 +1,20 @@
-title: 'インデックス投資のポートフォリオ、本当に「S&P500一本」でいい？2026年のデータが語る最適配分'
+title: インデックス投資のポートフォリオ、本当に「S&P500一本」でいい？2026年のデータが語る最適配分
 category: asset_management
 type: column
-status: draft
+status: published
 created_at: '2026-03-15T01:21:14.527718+00:00'
-updated_at: '2026-04-04'
-tags: [インデックス投資, ポートフォリオ, 分散投資, NISA, 債券, S&P500, 全世界株式, 国際分散]
+updated_at: '2026-04-04T06:21:29.124617+00:00'
+critic_score: null
+revision_count: 0
+tags:
+- インデックス投資
+- ポートフォリオ
+- 分散投資
+- NISA
+- 債券
+- S&P500
+- 全世界株式
+- 国際分散
 target_audience: intermediate
 target_wordcount: 4000
 symbols: []
@@ -12,7 +22,7 @@ date_range:
   start: ''
   end: ''
 fred_series: []
-theme: 'インデックス投資ポートフォリオ配分（S&P500一本 vs 分散）'
+theme: インデックス投資ポートフォリオ配分（S&P500一本 vs 分散）
 experience:
   spec_card:
     age_range: ''
@@ -21,17 +31,18 @@ experience:
     income_range: ''
     duration: ''
     outcome: ''
-critic_score: null
-revision_count: 0
-note_url: null
+note_url: https://editor.note.com/notes/n17632d368cd3/edit/
 x_post_url: null
 research_sources: 20
 workflow:
   research: done
   draft: done
-  critique: pending
-  revision: pending
-  publish: pending
+  critique: done
+  revision: done
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 neo4j:
   pattern_node_id: null
   source_node_ids: []
@@ -40,3 +51,5 @@ legacy:
   old_path: asset_management/index-investing-portfolio-allocation
   old_article_id: null
   migrated_at: '2026-03-15T01:21:14.527718+00:00'
+published_at: '2026-04-04T06:21:29.124617+00:00'
+draft_url: https://editor.note.com/notes/n17632d368cd3/edit/
