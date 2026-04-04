@@ -1,0 +1,74 @@
+[
+  {
+    "rank": 1,
+    "url": "https://www.schwab.com/learn/story/does-market-timing-work",
+    "title": "Does Market Timing Work? - Charles Schwab",
+    "authority_rank": "A",
+    "relevance_score": 98,
+    "used_in": "データで見る現状・実践ガイド",
+    "notes": "2005-2024年の20年間で5つの投資スタイルを比較。完璧なタイミング$186,077 / 即座に一括$170,555 / DCA$166,591 / 最悪タイミング$145,069 / 現金保有$41,083。記事の核心データとして使用。"
+  },
+  {
+    "rank": 2,
+    "url": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/guide-to-the-markets/",
+    "title": "Guide to the Markets - J.P. Morgan Asset Management",
+    "authority_rank": "A",
+    "relevance_score": 97,
+    "used_in": "データで見る現状",
+    "notes": "2005-2024年の20年間で最良の日を逃した場合のコスト試算。10日を逃した場合に資産が60%以上減少するデータ。記事の重要な根拠として使用。"
+  },
+  {
+    "rank": 3,
+    "url": "https://www.jsda.or.jp/shiryoshitsu/toukei/nisa/index.html",
+    "title": "NISA・ジュニアNISA口座の利用状況調査 - 日本証券業協会",
+    "authority_rank": "A",
+    "relevance_score": 90,
+    "used_in": "基礎知識",
+    "notes": "2024年12月末時点の新NISA口座総数2,558万6,460口座、年代別構成（50代19.4%、40代19.2%、30代17.5%）。日本における積立投資の普及状況を示す公式データ。"
+  },
+  {
+    "rank": 4,
+    "url": "https://www.am.mufg.jp/",
+    "title": "eMAXIS Slim全世界株式（オール・カントリー）運用データ - 三菱UFJアセットマネジメント",
+    "authority_rank": "A",
+    "relevance_score": 85,
+    "used_in": "基礎知識",
+    "notes": "2026年2月27日時点でeMAXIS Slim全世界株式の純資産総額が10兆2,846億円に達し、国内公募投信1位となったデータ。日本の積立投資トレンドを示すデータとして使用。"
+  },
+  {
+    "rank": 5,
+    "url": "https://www.fsa.go.jp/policy/nisa2/about/nisa/index.html",
+    "title": "NISAについて（特設ウェブサイト） - 金融庁",
+    "authority_rank": "A",
+    "relevance_score": 88,
+    "used_in": "実践ガイド",
+    "notes": "毎月1万円×年利3%×40年で積立額480万円が約930万円に成長するシミュレーション。積立投資の長期効果を示す公式データとして実践ガイドで使用。"
+  },
+  {
+    "rank": 6,
+    "url": "https://www.mufg.jp/",
+    "title": "MUFG資産形成研究所「eMAXIS Slim全世界株式 2024年8月5日前後の解約動向分析」",
+    "authority_rank": "A",
+    "relevance_score": 93,
+    "used_in": "歴史的事例データ（令和のブラックマンデー）",
+    "notes": "令和のブラックマンデー時のeMAXIS Slim全世界株式の解約率ピーク0.59%データ。日本の積立投資家の狼狽売りが限定的だったことを示す重要な一次データ。"
+  },
+  {
+    "rank": 7,
+    "url": "https://www.alliancebernstein.com/japan/",
+    "title": "アライアンス・バーンスタイン「2025年4月 市場急落時のNISA投資家行動調査」(2025年8月)",
+    "authority_rank": "B",
+    "relevance_score": 92,
+    "used_in": "歴史的事例データ（トランプ関税ショック）",
+    "notes": "2025年4月の関税ショック時にNISA口座では売却額より買付額が多かったデータ。NISAの枠組みが損失回避バイアスに対抗する機能を持つという示唆に使用。"
+  },
+  {
+    "rank": 8,
+    "url": "https://www.dalbar.com/",
+    "title": "DALBAR「Quantitative Analysis of Investor Behavior (QAIB) 2024」",
+    "authority_rank": "A",
+    "relevance_score": 90,
+    "used_in": "なぜ人は暴落時に売ってしまうのか",
+    "notes": "2024年S&P500リターン+25.02%に対し平均的個人投資家のリターンは+16.54%（ギャップ8.48%）。タイミング判断の正解率25%。感情的売買のコストを定量化するデータとして使用。"
+  }
+]

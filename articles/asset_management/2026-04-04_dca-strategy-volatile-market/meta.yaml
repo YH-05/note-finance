@@ -5,13 +5,13 @@ type: column
 target_audience: beginner
 target_wordcount: 4000
 
-status: research
+status: draft
 created_at: "2026-04-04"
 updated_at: "2026-04-04"
 
 workflow:
   research: done
-  draft: pending
+  draft: done
   critique: pending
   revision: pending
   publish: pending

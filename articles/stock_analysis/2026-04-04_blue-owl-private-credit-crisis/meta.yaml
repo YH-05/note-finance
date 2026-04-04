@@ -13,9 +13,9 @@ updated_at: "2026-04-04"
 
 workflow:
   research: done
-  draft: pending
-  critique: pending
-  revision: pending
+  draft: done
+  critique: done
+  revision: done
   publish: pending
 
 human_feedback:

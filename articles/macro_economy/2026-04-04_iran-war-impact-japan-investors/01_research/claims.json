@@ -1,4 +1,65 @@
 {
-    "article_id": "",
-    "claims": []
+  "article_id": "2026-04-04_iran-war-impact-japan-investors",
+  "claims": [
+    {
+      "content": "2026年2月28日に実際に米イラン戦争が勃発し、ホルムズ海峡が封鎖された。IEAが「史上最大の石油市場供給混乱」と認定。2026年4月現在も戦争は継続中。",
+      "sentiment": "bearish",
+      "confidence": 1.0,
+      "evidence": "Wikipedia: 2026 Iran war / 2026 Strait of Hormuz crisis / Economic impact of the 2026 Iran war"
+    },
+    {
+      "content": "日本は特にこの危機に脆弱。原油輸入の93%が中東依存（2022年）、世界最大のLNG輸入国、エネルギーの84%が輸入依存。ホルムズ海峡封鎖は日本のエネルギー安全保障に直撃する。",
+      "sentiment": "bearish",
+      "confidence": 1.0,
+      "evidence": "Wikipedia: Energy in Japan - 原油輸入の93%が中東由来、LNG世界最大輸入国"
+    },
+    {
+      "content": "日経平均は戦争開始後2%超下落。歴史的パターン（1973年石油ショック、1990年湾岸戦争）では、エネルギー輸入大国の日本は中東有事に特に脆弱であり、企業のコスト増→収益悪化→株安というメカニズムが働く。",
+      "sentiment": "bearish",
+      "confidence": 0.9,
+      "evidence": "Wikipedia: Economic impact of 2026 Iran war、Japanese asset price bubble"
+    },
+    {
+      "content": "円は「有事のドル買い・円売り」になるリスクがある。エネルギー輸入コスト急増→経常赤字拡大→円安進行というメカニズムが働く。1973年の石油ショック時にも円は大きく動揺した。",
+      "sentiment": "bearish",
+      "confidence": 0.85,
+      "evidence": "日本のエネルギー依存構造（Energy in Japan）、ドル高傾向（Economic impact of 2026 Iran war）"
+    },
+    {
+      "content": "日本の総合商社（三菱商事・伊藤忠・三井物産等）はコモディティ取引でエネルギー価格高騰の恩恵を受ける可能性がある。バフェットも注目した総合商社は原油・LNG・コモディティ全般の価格上昇でパフォーマンスが改善する傾向。",
+      "sentiment": "bullish",
+      "confidence": 0.8,
+      "evidence": "総合商社のコモディティビジネスモデル"
+    },
+    {
+      "content": "日本の航空会社（ANA・JAL）や海運会社は航空燃料・重油の価格急騰と中東路線の運航停止により大きなダメージを受ける。航空燃料がケロシン系で2倍超に上昇した。",
+      "sentiment": "bearish",
+      "confidence": 0.9,
+      "evidence": "Wikipedia: Economic impact of 2026 Iran war（ケロシン系燃料が2倍超上昇）"
+    },
+    {
+      "content": "三菱重工等の日本の防衛関連企業は、地政学的緊張の高まりと防衛予算増加（日本のGDP比2%目標）から中長期的に恩恵を受ける可能性がある。",
+      "sentiment": "bullish",
+      "confidence": 0.75,
+      "evidence": "Japan Self-Defense Forces Wikipedia記事（三菱重工のPAC-3生産拡大能力への言及）"
+    },
+    {
+      "content": "金（ゴールド）は戦争開始後28%下落という異常な動きを示している。ドバイ経由の金輸送混乱が原因とされる。金は必ずしも確実なセーフヘイブンではない可能性がある。",
+      "sentiment": "neutral",
+      "confidence": 0.8,
+      "evidence": "Wikipedia: Economic impact of 2026 Iran war（「gold decreased by 28% since the beginning of the war」）"
+    },
+    {
+      "content": "日本の石油備蓄（国家92日分＋民間77日分＝計169日分）は即座の危機緩衝効果を持つが、ホルムズ海峡が長期閉鎖した場合（数ヶ月〜数年）には備蓄枯渇リスクがある。",
+      "sentiment": "neutral",
+      "confidence": 0.9,
+      "evidence": "Wikipedia: Energy in Japan（国家備蓄92日分、民間備蓄77日分）"
+    },
+    {
+      "content": "インフレ加速と金利上昇が同時進行するスタグフレーションリスクが現実化しつつある。ECBは利下げを見送り、米10年債利回りは4.46%に上昇。日銀の利上げペースにも影響が出る可能性。",
+      "sentiment": "bearish",
+      "confidence": 0.85,
+      "evidence": "Wikipedia: Economic impact of 2026 Iran war（ECBの利下げ見送り、米国債利回り4.46%）"
+    }
+  ]
 }

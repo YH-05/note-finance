@@ -1,0 +1,123 @@
+{
+  "critic_type": "fact",
+  "score": 77,
+  "status": "warning",
+  "issues": [
+    {
+      "issue_id": "F001",
+      "severity": "high",
+      "location": {
+        "section": "5. 競合5社リスク比較",
+        "line": "2026年年初来でOWLは40%超の下落に加え、KKR（KKR）-16%、Ares（ARES）-15%、Apollo（APO）-12%、Blackstone（BX）-12%と、業界全体が軟調に推移しています。"
+      },
+      "issue": "Morningstarをソースとして引用しているが、Morningstarデータ（sources.json）ではOWL年初来は-18%。「40%超」という数値はCNNやCNBCが報じた別の期間基準（2025年9月以降の下落）またはCNN(2026/4/2)の数値と混在している可能性がある。Morningstarリンクに紐付けた数値として-40%超は不正確。",
+      "original": "2026年年初来でOWLは40%超の下落に加え",
+      "correct": "Morningstarデータでは2026年年初来でOWLは約-18%の下落。2025年9月以降の下落は-46%超。「40%超」はCNNソース（2026/04/02）ベースの数値。引用元をMorningstarからCNNに変更するか、数値を-18%に修正する必要がある。",
+      "source": "https://www.morningstar.com/stocks/why-alts-manager-stocks-are-getting-hit-hard",
+      "suggestion": "「Morningstarの分析によれば、2026年年初来でOWLは約18%の下落に加え」と修正するか、出典をCNNに変更して40%超の記述を維持する。"
+    },
+    {
+      "issue_id": "F002",
+      "severity": "high",
+      "location": {
+        "section": "3. 「次の亀裂」——デフォルト率の急上昇",
+        "line": "2026年に$127億ものBDC無担保債が満期を迎えるという事実です。これは前年比で73%増という急増ぶりです。"
+      },
+      "issue": "claims.jsonでは同じCNBCソースを参照しつつ「約$12.7億相当の無担保BDC債務が満期」と記載しており、記事の$127億（=$12.7B）は億/十億の単位換算が明示されていない。正確には約$12.7B（1兆2700億円）であり「$127億」という日本語表現は約1270億円と誤読される可能性がある。",
+      "original": "$127億ものBDC無担保債が満期を迎える",
+      "correct": "$127億ドル（約1兆9000億円）または$12.7B（127億ドル）という形で単位を明示する必要がある。日本語の「億」は1億=0.1B相当のため、$127億ドル=$127×100万×100=約1.27兆円。記事の表現では単位が不明瞭。",
+      "source": "https://www.cnbc.com/2026/03/25/private-credit-defaults-loan-quality-debt-risk-systemic-ai-disruption.html",
+      "suggestion": "「$127億（約1.9兆円）ものBDC無担保債が満期を迎える」または「約$12.7BのBDC無担保債が満期を迎える」と表記を明確化する。"
+    },
+    {
+      "issue_id": "F003",
+      "severity": "medium",
+      "location": {
+        "section": "2. プライベートクレジットとは何か",
+        "line": "2020年の$2兆から75%増と急拡大しています。"
+      },
+      "issue": "AIMAソースは「市場規模$3.5兆到達」を示しているが、成長の起点として「2020年の$2兆」という具体的な数値と「75%増」という計算の根拠がソースに明示されていない。claims.jsonでは「2025年初時点で$3兆（5年前の$2兆から50%増）」と記述しており、$2兆→$3.5兆を75%増とする記事の計算と$2兆→$3兆を50%増とするclaimsの数値に矛盾がある。起点・終点のどちらかが不正確な可能性がある。",
+      "original": "2020年の$2兆から75%増と急拡大しています",
+      "correct": "AIMAソースの直接データに基づく記述に限定するか、成長率の計算根拠を明示する。$2兆から$3.5兆は確かに75%増だが、起点の$2兆が「2020年」であることの出典確認が必要。claims.jsonとの整合性確保のため、起点を「2020年の$2兆」と統一するかデータを修正する。",
+      "source": "https://www.aima.org/article/press-release-strong-growth-sees-private-credit-market-reach-us-3-5-trillion.html",
+      "suggestion": "「（AIMA調べ）市場規模は$3.5兆に達しており、直近5年間で約75%拡大しています」のように出典を明確にしつつ、起点年度の検証が取れない場合は具体年数を外す。"
+    },
+    {
+      "issue_id": "F004",
+      "severity": "medium",
+      "location": {
+        "section": "5. 競合5社リスク比較",
+        "line": "Apolloは手数料収入の86%がプライベートクレジット関連とされており"
+      },
+      "issue": "claims.jsonによると「手数料収入資産の86%・基本報酬の72%がプライベートクレジット由来」とある。記事では単に「手数料収入の86%」と記述しているが、これは「手数料収入資産（fee-earning AUM）」ベースの数値であり、「基本報酬（management fee）ベース」では72%と異なる。読者に誤解を与える可能性がある。",
+      "original": "Apolloは手数料収入の86%がプライベートクレジット関連",
+      "correct": "Apolloの手数料収益資産（fee-earning AUM）の86%、管理報酬の72%がプライベートクレジット関連（Morningstar）",
+      "source": "https://www.morningstar.com/stocks/why-alts-manager-stocks-are-getting-hit-hard",
+      "suggestion": "「Apolloは手数料収益資産の86%（管理報酬ベースでは72%）がプライベートクレジット関連」と注記を追加する。"
+    },
+    {
+      "issue_id": "F005",
+      "severity": "medium",
+      "location": {
+        "section": "6. コックローチ効果",
+        "line": "2025年のトランプ政権の関税発表後、レバレッジドローン市場は19日間凍結し、指数が1.8%下落"
+      },
+      "issue": "記事では「2025年の関税発表後」と記述しているが、冒頭で「2026年4月初旬」の出来事として文脈を設定しており、且つ記事内の他箇所では「トランプ関税（2026年4月）」と明記されている。claconnect.comソースは「2026年」付けの記事であり、19日間凍結の事例が2025年の関税発表後を指しているのか、2026年4月のLiberation Day関税後を指しているのかが不明瞭。時期の表記が混乱している。",
+      "original": "2025年のトランプ政権の関税発表後",
+      "correct": "「2026年4月のトランプ政権の関税発表後」または関税発表時期を明確にした表記に修正する。本記事の分析日は2026年4月4日であり、関税が同時期であれば「今回の」等に統一する。",
+      "source": "https://www.claconnect.com/en/resources/blogs/private-equity/the-impact-of-trumps-tariffs-on-private-equity-firms-portfolio-companies",
+      "suggestion": "「2026年4月のトランプ政権による相互関税発表後、レバレッジドローン市場は19日間凍結し」と修正する。"
+    },
+    {
+      "issue_id": "F006",
+      "severity": "low",
+      "location": {
+        "section": "2. プライベートクレジットとは何か",
+        "line": "Morgan Stanleyは2029年には$5兆を超えるとも予測していました。"
+      },
+      "issue": "「予測していました」という過去形は、予測が撤回または更新されたかのような印象を与える。claims.jsonには「Morgan Stanley予測：2029年に$5兆」とのみ記載があり、予測の更新有無は不明。単なる文体上の過去形であれば問題ないが、読者には「古い予測」と誤解される可能性がある。",
+      "original": "Morgan Stanleyは2029年には$5兆を超えるとも予測していました。",
+      "correct": "「Morgan Stanleyは2029年には$5兆を超えるとも予測しています。」（現在形）もしくは「予測していました（ただし現在は見直しの可能性あり）」のように補足する。",
+      "source": "claims.json",
+      "suggestion": "現在形「予測しています」に修正し、必要に応じて予測の時期を明記する（例：「2023年時点の予測では」）。"
+    },
+    {
+      "issue_id": "F007",
+      "severity": "low",
+      "location": {
+        "section": "エグゼクティブサマリー",
+        "line": "52週高値から約60%暴落"
+      },
+      "issue": "エグゼクティブサマリーでは「約60%暴落」と記述しているが、同記事内セクション1では「約59.2%の暴落」と正確な数値を示している。冒頭の「約60%」は概数として許容範囲だが、表記の統一性の観点では「約59%」か「約60%」に揃えることが望ましい。",
+      "original": "52週高値から約60%暴落",
+      "correct": "52週高値から約59%暴落（または「約60%暴落」を維持し、詳細はセクション1参照とする）",
+      "source": "https://stockanalysis.com/stocks/owl/",
+      "suggestion": "表記を「約59%」に統一するか、エグゼクティブサマリーでは概数「約60%」を維持し、本文では「59.2%」と正確な数値を使用するという意図を明確化する。"
+    }
+  ],
+  "verified_facts": [
+    "OWL株価$8.64、52週高値$21.18（stockanalysis.com）",
+    "OCICに21.9%、OTICに40.7%の解約請求（CNBC/coincentral）",
+    "合計解約請求$54億（Bloomberg/coincentral）",
+    "四半期5%の解約上限（SEC標準慣行、複数ソース確認）",
+    "Fitch：デフォルト率9.2%（28社、38件）、前年8.1%（financialcontent.com）",
+    "歴史的デフォルト率平均2〜2.5%（複数ソース）",
+    "プライベートクレジット市場規模$3.5兆（AIMA公式発表）",
+    "BIS：SaaS向け融資$5000億超・直接融資全体の19%（BIS公式レポート）",
+    "UBSのAI加速シナリオでデフォルト率13%試算（CNBC）",
+    "テックセクターディストレスト債務$469億・4週間で$177億増加（CNBC）",
+    "KKR年初来-16%、ARES -15%、APO -12%、BX -12%（Morningstar）",
+    "Ares Strategic Income Fundで解約請求11.6%、$524.5Mを支払い（Bloomberg）",
+    "Aresが認めた解約は請求額の43.1%（Bloomberg）",
+    "Blue Owl 2025年通期収益約$29億（Seeking Alpha/MacroTrends）",
+    "管理報酬の約85%がパーマネントキャピタル由来（Seeking Alpha）",
+    "円ヘッジコスト年率約4%（ピクテ、2025年6月末時点）",
+    "PIKトグルの概念説明（現物払い利息の元本組み込み）は正確",
+    "BDCの利益90%以上配当義務（法定要件として正確）",
+    "ApolloのKKR・日本市場展開に関する言及は事実"
+  ],
+  "summary": "全体的に主要な数値データはソースと整合しており、信頼性の高い記事です。ただし2点のhigh issueが存在します。第1に、Morningstarをソースとしながらも「OWL年初来40%超下落」と記述している点は、Morningstarデータ（-18%年初来）と乖離しており出典と数値の不整合があります。第2に$127億という表記は日本語の億（=1/10 billion）と英語のbillion（=10億円）の混在により読者に誤解を与える可能性があります。BDC債務は$12.7B（日本語で1.9兆円）が正確な表記です。これら2点を修正すれば公開可能なレベルです。",
+  "verified_claims": 19,
+  "issues_found": 7,
+  "verification_rate": 73.1
+}

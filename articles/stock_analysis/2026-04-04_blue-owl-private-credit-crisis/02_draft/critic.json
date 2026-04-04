@@ -1,7 +1,231 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-04-04_blue-owl-private-credit-crisis",
+  "category": "stock_analysis",
+  "mode": "full",
+  "generated_at": "2026-04-04",
+  "critics": {
+    "compliance": {
+      "critic_type": "compliance",
+      "score": 78,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "high",
+          "location": "7. 日本人投資家への警告 — OWL・BDC株保有のリスク",
+          "issue": "「反発を待つという判断はひとつの選択肢」が保有継続行動を示唆。金融商品取引法第2条第8項第11号の投資助言に抵触する可能性",
+          "suggestion": "「保有継続か否かの判断には、デフォルト率の上昇・解約制限継続・市場再評価の長期化といったリスク要因を十分に理解したうえで、ご自身の投資方針に照らしてご判断ください」に変更"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "medium",
+          "location": "末尾免責事項",
+          "issue": "「本記事の内容により生じたいかなる損失についても責任を負いかねます」の文言が欠落",
+          "suggestion": "免責事項末尾に損失責任の免責文言を追加"
+        },
+        {
+          "issue_id": "CP003",
+          "severity": "low",
+          "location": "7. 日本人投資家への警告 — KKRの日本戦略",
+          "issue": "「必ず確認することが重要です」が断定的な行動指示として読まれる可能性",
+          "suggestion": "「こうした点を理解しておくことが、リスクの把握に役立つでしょう」に変更"
+        }
+      ],
+      "disclaimer_check": {
+        "present": true,
+        "position": "末尾",
+        "decoration": false
+      },
+      "prohibited_expressions_found": [],
+      "summary": "禁止表現・目標株価・断定的将来予測はゼロ。投資助言的ニュアンスのある表現が1箇所（high）、免責事項の文言不足（medium）あり。"
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 87,
+      "status": "warning",
+      "word_count": {
+        "actual": 8529,
+        "target_min": 8000,
+        "target_max": 10000,
+        "status": "within_range"
+      },
+      "frontmatter": {
+        "present": true,
+        "missing_fields": []
+      },
+      "markdown_tables": {
+        "remaining": 0,
+        "status": "pass"
+      },
+      "source_links": {
+        "count": 18,
+        "status": "pass"
+      },
+      "required_sections": {
+        "found": ["エグゼクティブサマリー", "まとめ", "参考データソース"],
+        "missing": ["リスク要因（独立 ## 見出し）"]
+      },
+      "issues": [
+        {
+          "issue_id": "WR-SC001",
+          "severity": "medium",
+          "location": "全体構成",
+          "issue": "stock_analysis 必須セクション「リスク要因」が独立した ## 見出しとして存在しない",
+          "suggestion": "「## リスク要因の整理」セクションを追加し、デフォルト・流動性・AI担保毀損・為替の4リスクを集約"
+        },
+        {
+          "issue_id": "WR-SC002",
+          "severity": "low",
+          "location": "## プライベートクレジット市場の主要指標",
+          "issue": "画像1枚のみのセクションで本文テキストがなく位置も不自然",
+          "suggestion": "まとめセクション内に移動し前後に説明文を追加"
+        }
+      ],
+      "summary": "文字数・フロントマター・マークダウン表・ソースリンク・免責事項は合格。リスク要因独立セクションの欠如が唯一の中程度問題。"
+    },
+    "fact": {
+      "critic_type": "fact",
+      "score": 88,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "FA001",
+          "severity": "medium",
+          "location": "5. 競合5社リスク比較",
+          "issue": "OWL年初来下落を「40%超」と記述しているが、claims.jsonでは年初来-18%と52週高値比-59.2%の2種類が存在し区別が不明確",
+          "suggestion": "「52週高値比▲59%、2026年年初来▲40%超」と明示して区別する"
+        }
+      ],
+      "verified_claims": [
+        "OWL 52週高値$21.18→$8.64（-59.2%）",
+        "OCIC 21.9%・OTIC 40.7%の解約請求",
+        "Fitch デフォルト率9.2%（2025年末）",
+        "SaaS融資$5000億超（直接融資の19%）",
+        "BDC満期$127億（前年比73%増）",
+        "Ares 11.6%→43.1%のみ支払",
+        "円ヘッジコスト年率約4%",
+        "UBSシナリオ：デフォルト率13%",
+        "テックディストレスト$469億"
+      ],
+      "summary": "主要数値データはリサーチと概ね整合。年初来下落率の記述に軽微な不明確さあり。"
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 82,
+      "status": "pass",
+      "section_scores": {
+        "introduction": 88,
+        "flow": 85,
+        "sections": 75,
+        "conclusion": 82
+      },
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "medium",
+          "location": "全体",
+          "issue": "リスク要因が各セクションに分散しており、読者が一目でリスク全体を把握できない",
+          "suggestion": "独立した「リスク要因の整理」セクションを追加（既存内容を再利用）"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "low",
+          "location": "## プライベートクレジット市場の主要指標",
+          "issue": "まとめ直前に唐突に出てくる指標表セクションが流れを断ち切っている",
+          "suggestion": "まとめ内部か競合比較セクション近くに移動"
+        }
+      ],
+      "summary": "7セクションの論理展開は明確。冒頭フックは効果的。リスク要因の独立セクション追加が望ましい。"
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 90,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "DA001",
+          "severity": "low",
+          "location": "6. コックローチ効果",
+          "issue": "「2025年のトランプ政権の関税発表後」と記述しているが、文脈上は2026年4月の関税発動を指していると思われる",
+          "suggestion": "「2026年4月のトランプ政権の関税発動後」に変更"
+        }
+      ],
+      "verified_data_points": [
+        "$54億の解約請求額（OCIC+OTIC）",
+        "Fitch 9.2%デフォルト率（前年8.1%）",
+        "$3.5兆市場規模（AIMA）",
+        "$5000億SaaS融資（BIS）",
+        "$127億BDC満期（前年比73%増）",
+        "Ares $524.5百万支払（43.1%）",
+        "$469億テックディストレスト（2026年2月）"
+      ],
+      "summary": "数値データは全体的に正確。関税の年次記述に軽微な不明確さあり。"
+    },
+    "readability": {
+      "critic_type": "readability",
+      "score": 85,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "RD001",
+          "severity": "low",
+          "location": "3. デフォルト率の急上昇",
+          "issue": "「PIKトグル（PIK Toggle）」の説明段落がやや重い",
+          "suggestion": "PIK説明を1-2文に短縮し要点を先に示す"
+        },
+        {
+          "issue_id": "RD002",
+          "severity": "low",
+          "location": "まとめ：投資家として今できること",
+          "issue": "「第一に…第二に…第三に」という列挙が連続し文末がやや単調",
+          "suggestion": "表現に変化をつけるか箇条書きを検討"
+        }
+      ],
+      "style_check": {
+        "desu_masu": "consistent",
+        "paragraph_length": "appropriate",
+        "heading_interval": "appropriate"
+      },
+      "summary": "全文ですます調で統一。段落間空行あり。冒頭フック効果的。中級者向けBDC/PIK説明も適切。"
+    }
+  },
+  "overall_score": 84,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "high",
+      "issue_id": "CP001",
+      "fix": "「反発を待つという判断はひとつの選択肢」を情報提供表現に変更"
+    },
+    {
+      "priority": 2,
+      "severity": "medium",
+      "issue_id": "WR-SC001",
+      "fix": "「## リスク要因の整理」独立セクションを追加"
+    },
+    {
+      "priority": 3,
+      "severity": "medium",
+      "issue_id": "CP002",
+      "fix": "免責事項に損失責任免責文言を追加"
+    },
+    {
+      "priority": 4,
+      "severity": "medium",
+      "issue_id": "FA001",
+      "fix": "OWL下落率を「52週高値比▲59%・年初来▲40%超」と明示"
+    },
+    {
+      "priority": 5,
+      "severity": "low",
+      "issue_id": "DA001",
+      "fix": "「2025年のトランプ関税」→「2026年4月のトランプ関税」"
+    },
+    {
+      "priority": 6,
+      "severity": "low",
+      "issue_id": "WR-SC002",
+      "fix": "主要指標表セクションをまとめ内に移動し説明文追加"
+    }
+  ]
 }

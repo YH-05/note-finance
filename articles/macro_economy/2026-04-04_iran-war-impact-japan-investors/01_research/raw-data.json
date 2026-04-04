@@ -1,4 +1,263 @@
 {
-    "article_id": "",
-    "raw_data": []
+  "article_id": "2026-04-04_iran-war-impact-japan-investors",
+  "session_id": "article-research-iran-war-20260404",
+  "research_topic": "米イラン戦争が日本人投資家のポートフォリオに与える影響",
+  "as_of_date": "2026-04-04",
+  "raw_data": [
+    {
+      "content": "2026年2月28日、米国とイスラエルが「オペレーション・エピック・フューリー（Operation Epic Fury）」としてイランへの奇襲攻撃を開始。最高指導者アリー・ハーメネイーを暗殺した。",
+      "source_url": "https://en.wikipedia.org/wiki/2026_Iran_war",
+      "confidence": 1.0,
+      "category": "geopolitical",
+      "about_entities": [
+        {"name": "イラン", "entity_type": "country"},
+        {"name": "United States", "entity_type": "country"},
+        {"name": "Israel", "entity_type": "country"}
+      ]
+    },
+    {
+      "content": "ホルムズ海峡でのタンカー通航量は、イランの封鎖警告後に最初は約70%減少し、その後ほぼゼロになった。150隻以上の船舶が海峡外で錨を下ろした。",
+      "source_url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis",
+      "confidence": 1.0,
+      "category": "oil_price",
+      "about_entities": [
+        {"name": "Strait of Hormuz", "entity_type": "concept"},
+        {"name": "イラン", "entity_type": "country"}
+      ]
+    },
+    {
+      "content": "ブレント原油価格は、2026年3月8日に4年ぶりに1バレル100ドルを突破し、最高値は1バレル126ドルに達した。これは歴史上どの紛争より速いペースでの原油価格上昇だった。",
+      "source_url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis",
+      "confidence": 1.0,
+      "category": "oil_price",
+      "about_entities": [
+        {"name": "Crude Oil", "entity_type": "commodity"},
+        {"name": "Strait of Hormuz", "entity_type": "concept"}
+      ]
+    },
+    {
+      "content": "ホルムズ海峡の閉鎖は世界の日次石油供給の約20%に影響し、LNG（液化天然ガス）の大規模な供給も遮断された。IEAは「史上最大の石油市場供給混乱」と認定。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "oil_price",
+      "about_entities": [
+        {"name": "Strait of Hormuz", "entity_type": "concept"},
+        {"name": "International Energy Agency", "entity_type": "organization"}
+      ]
+    },
+    {
+      "content": "中国・インド・日本・韓国のアジア4ヶ国が、中東石油輸出の75%、LNG輸出の59%を受け取っている。ホルムズ海峡の封鎖は特にアジア向けエネルギー供給に直撃した。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "energy_dependency",
+      "about_entities": [
+        {"name": "日本", "entity_type": "country"},
+        {"name": "China", "entity_type": "country"},
+        {"name": "Strait of Hormuz", "entity_type": "concept"}
+      ]
+    },
+    {
+      "content": "2026年3月18日、イランがカタルのラス・ラファン工業都市LNG施設を攻撃。カタルのLNG生産能力が17%減少し、修復には3〜5年かかると推定された。その結果、アジアのLNGスポット価格が140%以上上昇した。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "oil_price",
+      "about_entities": [
+        {"name": "QatarEnergy", "entity_type": "company"},
+        {"name": "LNG", "entity_type": "commodity"},
+        {"name": "日本", "entity_type": "country"}
+      ]
+    },
+    {
+      "content": "日本は2022年時点で原油輸入の93%を中東に依存している。世界最大のLNG輸入国であり、エネルギーの84%を海外輸入に頼っている。",
+      "source_url": "https://en.wikipedia.org/wiki/Energy_in_Japan",
+      "confidence": 1.0,
+      "category": "energy_dependency",
+      "about_entities": [
+        {"name": "日本", "entity_type": "country"},
+        {"name": "中東", "entity_type": "concept"}
+      ]
+    },
+    {
+      "content": "日本の国家戦略石油備蓄（SPR）は約92日分、民間備蓄は77日分、合計169日分（約5億7900万バレル）。JOGMEC（石油天然ガス金属鉱物資源機構）が運営。",
+      "source_url": "https://en.wikipedia.org/wiki/Energy_in_Japan",
+      "confidence": 1.0,
+      "category": "energy_dependency",
+      "about_entities": [
+        {"name": "日本", "entity_type": "country"},
+        {"name": "JOGMEC", "entity_type": "organization"}
+      ]
+    },
+    {
+      "content": "2022年における日本のLNG輸入先はオーストラリア42%（最大）、マレーシア、カタル4%。2016年時点ではカタルが15%を占めていたが低下傾向。",
+      "source_url": "https://en.wikipedia.org/wiki/Energy_in_Japan",
+      "confidence": 1.0,
+      "category": "energy_dependency",
+      "about_entities": [
+        {"name": "日本", "entity_type": "country"},
+        {"name": "Australia", "entity_type": "country"},
+        {"name": "Qatar", "entity_type": "country"}
+      ]
+    },
+    {
+      "content": "日経平均株価（Nikkei 225）は2026年3月初旬の戦争開始後に2%超下落した。S&P 500は0.7%、欧州・アジア株価指数は1〜2%下落した。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "market",
+      "about_entities": [
+        {"name": "日経平均", "entity_type": "index"},
+        {"name": "日本", "entity_type": "country"}
+      ]
+    },
+    {
+      "content": "1973年の第一次石油ショックでは原油価格が1バレル3ドルから約12ドルに300%上昇。日本と西欧諸国は中東から石油の75%を輸入しており、外相が直接リヤドへ飛んで石油確保交渉を行った。",
+      "source_url": "https://en.wikipedia.org/wiki/1973_oil_crisis",
+      "confidence": 1.0,
+      "category": "historical",
+      "about_entities": [
+        {"name": "日本", "entity_type": "country"},
+        {"name": "原油", "entity_type": "commodity"}
+      ]
+    },
+    {
+      "content": "1990年湾岸戦争時、原油価格は7月の1バレル17ドルから10月に36ドルへ上昇（約2倍）。9ヶ月の価格高騰で収まり、1990年代初頭の米国景気後退に寄与した。",
+      "source_url": "https://en.wikipedia.org/wiki/1990_oil_price_shock",
+      "confidence": 1.0,
+      "category": "historical",
+      "about_entities": [
+        {"name": "原油", "entity_type": "commodity"},
+        {"name": "Gulf War", "entity_type": "concept"}
+      ]
+    },
+    {
+      "content": "日本のバブル経済は1990年8月（湾岸戦争勃発と同時期）に日銀の5回目の利上げにより日経225がピークから半値に急落。1991年末に他の資産価格も下落し始め「失われた10年」へ。",
+      "source_url": "https://en.wikipedia.org/wiki/Japanese_asset_price_bubble",
+      "confidence": 0.9,
+      "category": "historical",
+      "about_entities": [
+        {"name": "日経平均", "entity_type": "index"},
+        {"name": "日本", "entity_type": "country"},
+        {"name": "日本銀行", "entity_type": "organization"}
+      ]
+    },
+    {
+      "content": "ホルムズ海峡は2023〜2025年に世界LNGの20%、海上石油貿易の25%が通過した。",
+      "source_url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+      "confidence": 1.0,
+      "category": "energy_dependency",
+      "about_entities": [
+        {"name": "Strait of Hormuz", "entity_type": "concept"},
+        {"name": "LNG", "entity_type": "commodity"}
+      ]
+    },
+    {
+      "content": "ECBは2026年3月19日に予定していた利下げを見送り、インフレ見通しを引き上げた。10年米国債利回りが4.46%（2025年7月以来の最高水準）に上昇。30年モーゲージ金利は3月26日に6.38%に上昇。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "macro",
+      "about_entities": [
+        {"name": "European Central Bank", "entity_type": "organization"},
+        {"name": "US Treasuries", "entity_type": "instrument"}
+      ]
+    },
+    {
+      "content": "2026年3月末時点でガソリン価格が1ガロン4ドルに達し、イラン戦争で30%急騰。航空燃料・ディーゼル等のケロシン系燃料価格は2倍超に上昇し、多くの航空会社がフライトを値上げまたはキャンセル。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "sector",
+      "about_entities": [
+        {"name": "航空", "entity_type": "concept"},
+        {"name": "jet fuel", "entity_type": "commodity"}
+      ]
+    },
+    {
+      "content": "国際航空ルートが大幅に混乱。中東主要空港が閉鎖され世界の航空トラフィックの15%が影響を受けた。UAEのドバイ国際空港も攻撃を受けた。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "sector",
+      "about_entities": [
+        {"name": "航空", "entity_type": "concept"}
+      ]
+    },
+    {
+      "content": "ホルムズ海峡危機は世界の肥料供給にも影響。中東は世界の尿素輸出の30〜35%、アンモニア輸出の20〜30%を占めており、農業コスト上昇を通じた食料インフレ拡大が懸念される。",
+      "source_url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis",
+      "confidence": 1.0,
+      "category": "macro",
+      "about_entities": [
+        {"name": "fertilizer", "entity_type": "commodity"},
+        {"name": "food inflation", "entity_type": "concept"}
+      ]
+    },
+    {
+      "content": "QatarEnergyは2026年3月、全契約に対してフォースマジュール（不可抗力）を宣言。LNGタンカーがペルシャ湾から出られないため、LNG液化施設のシャットダウンも余儀なくされた。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "oil_price",
+      "about_entities": [
+        {"name": "QatarEnergy", "entity_type": "company"},
+        {"name": "LNG", "entity_type": "commodity"},
+        {"name": "日本", "entity_type": "country"}
+      ]
+    },
+    {
+      "content": "2026年3月27日、IRGCが「米国・イスラエルとその同盟国の港に向かう・または来る全ての船舶に対しホルムズ海峡を封鎖」と宣言。日本は米国の同盟国であるため、この影響を直接受ける。",
+      "source_url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis",
+      "confidence": 1.0,
+      "category": "geopolitical",
+      "about_entities": [
+        {"name": "イラン", "entity_type": "country"},
+        {"name": "日本", "entity_type": "country"},
+        {"name": "IRGC", "entity_type": "organization"}
+      ]
+    },
+    {
+      "content": "韓国のKOSPI指数が2008年金融危機以来最大の1日下落（最大12%下落）を記録し、サーキットブレーカーが発動（2026年3月4日）。日本の日経平均は2%超下落。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "market",
+      "about_entities": [
+        {"name": "KOSPI", "entity_type": "index"},
+        {"name": "日経平均", "entity_type": "index"}
+      ]
+    },
+    {
+      "content": "金（ゴールド）は戦争開始後28%下落した。従来セーフヘイブンとされてきたが、ドバイ経由の輸送混乱が原因とされる異常な動き。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 0.85,
+      "category": "safe_haven",
+      "about_entities": [
+        {"name": "gold", "entity_type": "commodity"}
+      ]
+    },
+    {
+      "content": "中東のアルミニウムは日本の輸入量の約25%を占める。ホルムズ海峡封鎖後の原油価格急騰を受けて、アルミニウム・肥料・ヘリウム等のコモディティ価格も上昇。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "sector",
+      "about_entities": [
+        {"name": "aluminum", "entity_type": "commodity"},
+        {"name": "日本", "entity_type": "country"}
+      ]
+    },
+    {
+      "content": "欧州では天然ガス価格が2倍超に上昇（オランダTTF基準で60ユーロ/MWh超）。英国のインフレが2026年に5%超になる見通し。欧州の化学・鉄鋼メーカーはコスト上昇分を30%のサーチャージとして転嫁。",
+      "source_url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war",
+      "confidence": 1.0,
+      "category": "macro",
+      "about_entities": [
+        {"name": "Europe", "entity_type": "concept"},
+        {"name": "natural gas", "entity_type": "commodity"}
+      ]
+    },
+    {
+      "content": "日本の化石燃料依存度：一次エネルギーの67%が化石燃料（2023年）。石油依存度は1973年の77.4%から2010年の43.7%に低下したが依然大きい。2011年の福島事故後に原子力がほぼ停止し、化石燃料・LNG依存が再び上昇した。",
+      "source_url": "https://en.wikipedia.org/wiki/Energy_in_Japan",
+      "confidence": 1.0,
+      "category": "energy_dependency",
+      "about_entities": [
+        {"name": "日本", "entity_type": "country"},
+        {"name": "fossil fuel", "entity_type": "commodity"}
+      ]
+    }
+  ]
 }

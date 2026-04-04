@@ -1,7 +1,416 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
+    "article_id": "2026-04-04_iran-war-impact-japan-investors",
+    "generated_at": "2026-04-04",
+    "critics": {
+        "structure": {
+            "critic_type": "structure",
+            "score": 83,
+            "status": "pass",
+            "section_scores": {
+                "introduction": {
+                    "score": 88,
+                    "comment": "「2026年2月28日」という具体的な日付と126ドル/バレル・140%急騰という数値で即座にフックが成立している。事実→価格インパクト→日本の脆弱性→記事の価値という4ステップの導入構造が明確で、読者が続きを読む動機を与えている。概要の字数は約280字でカテゴリ要件（200-300字）の範囲内。問題提起と読む価値の提示は十分。"
+                },
+                "flow": {
+                    "score": 85,
+                    "comment": "背景・経緯→分析→見通し→投資家示唆→まとめという大枠の流れは理想的で、読者を自然に誘導できている。ただし「分析」セクション内の5つのH2（全体像→日本の脆弱性→セクター別→為替→歴史比較）は並列的に配置されており、各サブセクションを橋渡しする遷移文がほぼ存在しない。セクション間の論理的な接続がやや唐突に感じられる箇所がある。"
+                },
+                "sections": {
+                    "score": 78,
+                    "comment": "macro_economyカテゴリの必須要件（概要・シナリオ分析3パターン・投資家示唆・まとめ）はすべて充足。見出しの階層構造（H1→H2→H3なし）はシンプルで一貫している。ただし「## 金融市場への即時波及」（約150字）と「## ホルムズ海峡封鎖と原油・LNGショックの全体像」（約400字）の分量差が大きく、前者は独立したH2として情報密度が不足している。また記事中に`<!-- TABLE: ... -->`コメントが2か所残存しており、画像化未完了の表データが含まれている。"
+                },
+                "conclusion": {
+                    "score": 82,
+                    "comment": "まとめセクションは危機の構造的要因・主要数値・スタグフレーションリスク・金の逆行という本文の論点を的確に圧縮している。読者への示唆（ポートフォリオ点検・セーフヘイブン見直し・円安インフレ備え）も明示されている。一方、「次に読者が取るべき具体的アクション」への誘導が抽象的にとどまっており、行動喚起としての具体性が不足している。"
+                },
+                "readability": {
+                    "score": 80,
+                    "comment": "専門用語（IRGC・フォースマジュール・スタグフレーション・コストプッシュインフレ・サーキットブレーカー）は本文内で都度説明されており基準を満たしている。段落の長さは概ね3〜6文で許容範囲内。ただし一部の文が80字を超える長文となっており、読者の認知負荷が高い。特に分析セクションの複合条件文（〜であり、〜である一方、〜という点で）が重なる箇所は分割を推奨。"
+                }
+            },
+            "issues": [
+                {
+                    "issue_id": "ST001",
+                    "severity": "high",
+                    "category": "sections",
+                    "location": {
+                        "section": "分析 — ホルムズ海峡封鎖と原油・LNGショックの全体像 / セクター別影響度マトリクス",
+                        "description": "「<!-- TABLE: 原油価格比較... -->」と「<!-- TABLE: セクター別影響度マトリクス... -->」の2つのHTMLコメントが記事本文に残存"
+                    },
+                    "issue": "article-quality-standardsルールによりマークダウン表は全て画像化必須だが、表データが未生成のままHTMLコメントとして放置されている。読者には表が表示されず、データの欠落として認識される。",
+                    "suggestion": "`/generate-table-image`スキルで両表をPNG画像化し、コメントを`![表タイトル](images/table_*.png)`に置き換えること。"
+                },
+                {
+                    "issue_id": "ST002",
+                    "severity": "medium",
+                    "category": "flow",
+                    "location": {
+                        "section": "分析（5つのH2セクション間）",
+                        "description": "各H2セクションの末尾と次のH2冒頭の接続部分"
+                    },
+                    "issue": "「分析」セクション内の5つのH2が独立したブロックとして並列配置されており、各H2の末尾から次のH2への遷移文がほぼ存在しない。読者にとって「次の話題に移る理由」が不明確になる。",
+                    "suggestion": "各H2の末尾または次のH2の冒頭に1〜2文の橋渡し文を追加する。例：「このエネルギー構造の脆弱性は、日本株式市場のセクター別パフォーマンスにどう影響するのかを次に見ていきます。」"
+                },
+                {
+                    "issue_id": "ST003",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "背景・経緯 — ## 金融市場への即時波及",
+                        "description": "H2セクション全体（約150字）"
+                    },
+                    "issue": "このH2セクションは約150字と他のH2と比べて著しく短く、背景・経緯セクション内での分量バランスが崩れている。内容的には前セクションの締めくくりとして機能しているが、独立したH2として立てる情報量が不足している。",
+                    "suggestion": "「## カタルのLNG施設への攻撃」セクションと統合するか、金融市場への具体的な追加データ（日経平均の日次変動推移、為替動向）を追記して独立セクションとしての情報密度を高める。"
+                },
+                {
+                    "issue_id": "ST004",
+                    "severity": "medium",
+                    "category": "conclusion",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "まとめセクション末尾の結語"
+                    },
+                    "issue": "「地政学リスクは仮定ではなく現実となることがある」という教訓提示で終わっており、読者が次に取るべきアクションへの具体的な誘導が弱い。",
+                    "suggestion": "「投資家への示唆」セクションのセクター別チェックポイントへの内部参照、または「まず自分のポートフォリオの中で航空・電力株の比率を確認するところから始めてみてください」のような具体的な行動喚起文を追加する。"
+                },
+                {
+                    "issue_id": "ST005",
+                    "severity": "low",
+                    "category": "readability",
+                    "location": {
+                        "section": "分析 — なぜ日本は特に脆弱なのか",
+                        "description": "複合条件文を含む長文（80字超）が複数存在する段落"
+                    },
+                    "issue": "「〜であり、〜である一方、〜という点で、〜と考えられます」のように条件・補足・主張が一文に集約されており、1文あたりの平均字数が基準（40-60字）を超過している。",
+                    "suggestion": "80字を超える文は2文以上に分割する。例：「日本はエネルギーの84%を海外輸入に依存しています。化石燃料が一次エネルギーの67%を占めており、再生可能エネルギーへの転換は進んでいるものの、短期的な代替は困難です。」"
+                },
+                {
+                    "issue_id": "ST006",
+                    "severity": "low",
+                    "category": "introduction",
+                    "location": {
+                        "section": "背景・経緯（H1直下）",
+                        "description": "H1見出し直後、最初のH2が始まる前の位置"
+                    },
+                    "issue": "「背景・経緯」のH1直下に導入文がなく、「## Operation Epic Fury から ホルムズ封鎖へ」のH2が唐突に始まる。読者が当セクションで何を得られるかの期待値設定がない。",
+                    "suggestion": "H1直下に1〜2文の導入文（「本セクションでは、2026年2月から現在に至るまでの出来事の経緯を時系列で整理します。」等）を追加することで読者の期待値を設定できる。"
+                }
+            ],
+            "section_analysis": [
+                {
+                    "section": "概要",
+                    "word_count": 280,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "背景・経緯",
+                    "word_count": 450,
+                    "subsections": 3,
+                    "balance": "適切"
+                },
+                {
+                    "section": "分析",
+                    "word_count": 1500,
+                    "subsections": 5,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "今後の見通し",
+                    "word_count": 450,
+                    "subsections": 3,
+                    "balance": "適切"
+                },
+                {
+                    "section": "投資家への示唆",
+                    "word_count": 550,
+                    "subsections": 4,
+                    "balance": "適切"
+                },
+                {
+                    "section": "まとめ",
+                    "word_count": 300,
+                    "subsections": 0,
+                    "balance": "適切"
+                }
+            ],
+            "readability_metrics": {
+                "avg_sentence_length": 62,
+                "avg_paragraph_length": 4,
+                "technical_terms_explained": 7,
+                "technical_terms_unexplained": 1
+            }
+        },
+        "fact": {
+            "critic_type": "fact",
+            "score": 78,
+            "issues": [
+                {
+                    "issue_id": "F001",
+                    "severity": "medium",
+                    "location": {
+                        "section": "概要・分析（ホルムズ海峡封鎖と原油・LNGショックの全体像）",
+                        "line": "この海峡は世界の原油輸送量の約20%が通過する要衝です。"
+                    },
+                    "issue": "ホルムズ海峡の輸送量シェアについて、使用ソース間で数値が食い違っている。Economic impact of the 2026 Iran war（S003）では「世界の日次石油供給の約20%」と記載しているが、より直接的な出典であるStrait of Hormuz本体記事（S007）では「海上石油貿易の25%（2023〜2025年）」と記載している。記事本文は20%を採用しているが、権威ある直接ソースとの差異を注記していない。",
+                    "original": "この海峡は世界の原油輸送量の約20%が通過する要衝です。",
+                    "correct": "この海峡は世界の海上石油貿易の約20〜25%が通過する要衝です。（ソースにより20%〜25%の幅あり）",
+                    "source": "S007（Strait of Hormuz Wikipedia: 25%）、S002/S003（Economic impact of the 2026 Iran war: 約20%）",
+                    "suggestion": "「約20〜25%」と幅を持たせた表記にするか、採用数値の出典を明示する。Strait of Hormuz本体記事の25%の方が直接的な出典であるため、25%を採用する方が望ましい。"
+                },
+                {
+                    "issue_id": "F002",
+                    "severity": "medium",
+                    "location": {
+                        "section": "投資家への示唆（「安全資産」の再考 — 金の異常挙動）",
+                        "line": "今回の戦争開始後、金は28%下落という逆行する動きを見せています。"
+                    },
+                    "issue": "金の28%下落という数値はEconomic impact of the 2026 Iran warに「gold decreased by 28% since the beginning of the war」と記載されており、ソース内の記述とは一致している。ただし、地政学的危機において金が28%下落するのは歴史的に極めて異常であり、独立した検証ソースが存在しない。ソースのconfidenceも0.85（他の多くのデータが1.0）と低めに設定されている点も留意が必要。",
+                    "original": "今回の戦争開始後、金は28%下落",
+                    "correct": "ソース記載通りだが、独立検証が不可能。注釈として「この数値はWikipedia記事1件のみに基づく」旨を付記することが望ましい。",
+                    "source": "S002（Economic impact of the 2026 Iran war、confidence: 0.85）",
+                    "suggestion": "記事内でこの数値に「※単一ソースによる記載」等の注記を加えるか、実際の金価格データ（Reuters、Bloomberg等）で二次検証を行うことを推奨。現時点では記事内の記述は出典と一致しているが、出典自体の信頼性に留意が必要。"
+                },
+                {
+                    "issue_id": "F003",
+                    "severity": "low",
+                    "location": {
+                        "section": "全体（参考データソース）",
+                        "line": "参考データソース（Wikipedia 6件のみ）"
+                    },
+                    "issue": "記事で使用されている全数値データのソースがWikipedia記事のみであり、IEA・EIA・経済産業省・JOGMEC等の一次情報源が使用されていない。Wikipediaのauthority_levelは「media」（一部「official」だが二次情報源）であり、エネルギー統計（93%、169日分、42%等）については官公庁の一次データで裏付けを取ることが望ましい。",
+                    "original": "参考データソース：Wikipedia 6件",
+                    "correct": "IEA、経済産業省、資源エネルギー庁、JOGMEC等の一次情報源を補完的に引用することが望ましい。",
+                    "source": "全ソース（S001〜S009）",
+                    "suggestion": "記事の信頼性向上のため、エネルギー依存度・備蓄データについては資源エネルギー庁（https://www.enecho.meti.go.jp/）やJOGMECの公式統計へのリンクを追加することを推奨。現状の数値自体はWikipedia記載と一致している。"
+                }
+            ],
+            "verified_facts": 19,
+            "issues_found": 3,
+            "verification_rate": 89.5,
+            "verified_facts_detail": [
+                {"fact": "ホルムズ海峡の原油輸送量 約20%", "status": "disputed", "note": "Economic impact記事では約20%、Strait of Hormuz本体記事では25%と記載が異なる（F001）"},
+                {"fact": "ブレント原油最高値 126ドル/バレル", "status": "verified", "note": "2026 Strait of Hormuz crisis（S003）に明記"},
+                {"fact": "アジア向けLNGスポット価格 +140%以上", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "日本の中東原油依存度 93%（2022年）", "status": "verified", "note": "Energy in Japan（S006）に明記"},
+                {"fact": "日本の石油備蓄 国家92日分＋民間77日分＝計169日分", "status": "verified", "note": "Energy in Japan（S006）に明記"},
+                {"fact": "日本のLNG輸入先：オーストラリア42%、カタル4%（2022年）", "status": "verified", "note": "Energy in Japan（S006）に明記"},
+                {"fact": "日本のエネルギー海外輸入依存度 84%", "status": "verified", "note": "Energy in Japan（S006）に明記"},
+                {"fact": "日経平均 開戦後2%超下落", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "韓国KOSPI 最大12%下落（2008年以来最大）サーキットブレーカー発動", "status": "verified", "note": "raw-data.jsonに明記（2026年3月4日）"},
+                {"fact": "ECBが2026年3月19日の予定利下げを見送り", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "米10年債利回り 4.46%（2025年7月以来最高水準）", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "航空燃料（ジェット燃料・ケロシン系）が2倍超に上昇", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "世界の航空トラフィックの15%が影響", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "1973年石油ショック：原油$3→$12（+300%）", "status": "verified", "note": "1973 oil crisis（S008）に明記。$3→$12は+300%（4倍）で記事の「4倍（+300%）」表記は正確"},
+                {"fact": "1990年湾岸戦争：原油$17→$36（約2倍）", "status": "verified", "note": "1990 oil price shock（S009）に明記"},
+                {"fact": "金（ゴールド）戦争開始後28%下落", "status": "disputed", "note": "単一ソース（confidence: 0.85）のみで独立検証不可（F002）"},
+                {"fact": "中東のアルミニウムは日本の輸入量の約25%", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "カタルのLNG生産能力 17%減少、修復に3〜5年", "status": "verified", "note": "Economic impact of the 2026 Iran war（S002）に明記"},
+                {"fact": "IRGCが2026年3月27日に同盟国向け航路の封鎖宣言", "status": "verified", "note": "2026 Strait of Hormuz crisis（S003）に明記"}
+            ]
+        },
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 78,
+            "status": "warning",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾（参考データソース直後）",
+                        "line": "免責事項: 本記事は一般的な情報提供を目的としており、..."
+                    },
+                    "issue": "記事内の免責事項が snippets/disclaimer.md の統合免責事項テキストと一致しない。snippets には「本記事の内容により生じたいかなる損失についても責任を負いかねます。」の文言が含まれるが、記事の免責事項にはこのフレーズが欠落している。また、記事の免責事項には「NISA等の税制優遇制度の内容は、税制改正により変更される可能性があります。」「本記事に含まれる見通しや予測は、作成時点の情報に基づくものであり、将来の結果を保証するものではありません。」という追記があり、snippets の文言と乖離している。統合免責事項は snippets/disclaimer.md から一字一句コピーして使用すべきである。",
+                    "regulation": "金融商品取引法第37条（広告等の規制）・note.com 利用規約 第14条（禁止行為）",
+                    "suggestion": "末尾の免責事項を snippets/disclaimer.md の全文（「免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。」）に差し替えること。"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "投資家への示唆 — 円安とインフレへの備え",
+                        "line": "外貨建て資産や株式のウエイトについて、自身のリスク許容度に照らして検討する時期といえます。"
+                    },
+                    "issue": "「検討する時期といえます」という表現は、資産配分の変更行動を読者に促す投資助言的なニュアンスを帯びている。直後に「為替変動は予測困難であり、一方向の見通しに大きく傾けることはリスクを伴います。」というヘッジ文が続いているが、「検討する時期」という表現自体が行動を後押しする語感を持つ。",
+                    "regulation": "金融商品取引法第2条第8項（投資助言・代理業の定義）",
+                    "suggestion": "「外貨建て資産や株式のウエイトについて、自身のリスク許容度や投資方針を改めて確認することが有益かもしれません。」などの表現に変更し、特定行動への誘導色をさらに弱めること。"
+                },
+                {
+                    "issue_id": "CP003",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "中立シナリオ（前提：2026年末〜2027年前半まで戦争継続）",
+                        "line": "円安は150円台後半〜160円台を意識する水準が続き、輸入インフレが長期化する可能性があります。"
+                    },
+                    "issue": "具体的な数値レンジ（150円台後半〜160円台）を示した為替予測であり、根拠となる分析や情報ソースへの参照が付されていない。読者が当該数値を確定的な見通しとして受け取るリスクがある。シナリオ分析の文脈とはいえ、数値を伴う将来予測には出典または分析根拠の明示が必要。",
+                    "regulation": "金融商品取引法第38条第8号（不適切な勧誘行為の禁止）・金融庁「広告等に関するガイドライン」",
+                    "suggestion": "「円安圧力が継続する可能性があります」など定性的表現に留めるか、予測数値の根拠（引用先またはシナリオ仮定条件）を明示すること。"
+                },
+                {
+                    "issue_id": "CP004",
+                    "severity": "low",
+                    "category": "source",
+                    "location": {
+                        "section": "参考データソース",
+                        "line": "全参考リンクが Wikipedia のみ"
+                    },
+                    "issue": "全ての参照リンクが Wikipedia 記事（2026年イラン戦争関連ページ含む）に集中しており、一次情報源（政府発表・IEA報告・取引所データ・報道機関等）が明示されていない。Wikipedia は二次情報源であり、特に未来日付（2026年）のイベントを扱う記事については信頼性の検証が困難。金融情報としての客観性・公正性に疑問が生じる可能性がある。",
+                    "regulation": "note.com 利用規約 第14条（虚偽・誤解を招くコンテンツの禁止）",
+                    "suggestion": "可能な範囲で一次情報源（IEA発表・日本エネルギー経済研究所・EIA・Bloomberg等）へのリンクを追加すること。Wikipedia リンクは補助的な参照として残しつつ、主要なデータ引用箇所には一次ソースを併記することが望ましい。"
+                },
+                {
+                    "issue_id": "CP005",
+                    "severity": "low",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾",
+                        "line": "免責事項（区切り線の直後ではなく「参考データソース」セクションに続けて記載）"
+                    },
+                    "issue": "免責事項が参考データソースのリストと同一ブロック内に連続して記載されており、視覚的に独立した段落として識別しにくい。compliance-standards.md の要件では「区切り線の下に装飾なし段落で挿入する」とされているが、現状は「---」の直後に参考データソースの見出しと本文が来ており、免責事項は参考データソースの後に続く形になっている。免責事項の視認性と独立性が低い。",
+                    "regulation": "金融商品取引法第37条・compliance-standards.md 内部規定",
+                    "suggestion": "参考データソースの後に新たな「---」区切り線を追加し、免責事項を独立した段落として配置すること。"
+                }
+            ],
+            "required_disclaimers": {
+                "disclaimer": {
+                    "present": true,
+                    "location": "末尾",
+                    "note": "免責事項は末尾に1箇所存在するが、snippets/disclaimer.md の統合免責事項テキストと完全一致していない。「本記事の内容により生じたいかなる損失についても責任を負いかねます。」のフレーズが欠落しており、代わりに snippets に存在しない「見通し・予測」条項と「NISA税制優遇」条項が追加されている。snippets の文言を正とし、差し替えが必要。"
+                }
+            },
+            "prohibited_expressions_found": []
+        }
+    },
+        "data_accuracy": {
+            "critic_type": "data_accuracy",
+            "score": 87,
+            "status": "warn",
+            "issues": [
+                {
+                    "issue_id": "DA001",
+                    "severity": "medium",
+                    "location": {
+                        "section": "歴史に学ぶ — 1973年・1990年との比較",
+                        "line": "当時、日本は石油の75%を中東に依存しており、消費者物価は年率30%近くまで上昇しました。現在も原油の中東依存度は93%であり、構造的な脆弱性は当時と変わっていません。"
+                    },
+                    "data_type": "economic",
+                    "issue": "「構造的な脆弱性は当時と変わっていません」という表現は数値と整合しない。sources.jsonの1973_oil_crisisのkey_pointsでは「日本は西ヨーロッパ諸国とともに中東から石油の75%を輸入していた」と記録されており、75%は日本単独値ではなく日本+西欧の合算値の可能性が高い。また現在の93%は当時の75%より18ポイント上昇しており「変わっていない」という主張は数値的に不正確。",
+                    "article_value": "75%（1973年）→93%（現在）で「変わっていない」",
+                    "correct_value": "sources.json(1973_oil_crisis): 「日本は西ヨーロッパ諸国とともに中東から石油の75%を輸入」。75%は日本+西欧の合算値の可能性あり。現在93%は明確に上昇。",
+                    "source": "sources.json (1973_oil_crisis key_points) / raw-data.json",
+                    "deviation": "1973年75%→現在93%は+18ポイントの上昇であり「変わっていない」は不正確",
+                    "suggestion": "「1973年当時の日本および西欧諸国の中東石油依存度は75%であり、現在の日本の93%よりも低い水準でした。依存度は当時以上に深刻化しています。」と修正し、数値の比較対象（日本単独か日本+西欧か）を明示すること。"
+                },
+                {
+                    "issue_id": "DA002",
+                    "severity": "medium",
+                    "location": {
+                        "section": "分析 — ホルムズ海峡封鎖と原油・LNGショックの全体像",
+                        "line": "世界の石油輸送量の約20%、LNG輸送量のかなりの部分がここを通ります。"
+                    },
+                    "data_type": "economic",
+                    "issue": "sources.jsonのStrait_of_Hormuzソースでは「海上石油貿易の25%（2023〜2025年）」と記録されており、記事の20%と5ポイントの乖離がある。raw-data.jsonでは「世界の日次石油供給の約20%」と記録されており、ソース間で数値が異なる。また、LNGについてStrait_of_Hormuzソースでは「世界LNGの20%」と記録されているが、記事では「かなりの部分」と定性的に記述されており具体的数値を省略している。",
+                    "article_value": "石油20%、LNG「かなりの部分」",
+                    "correct_value": "sources.json(Strait_of_Hormuz): 「海上石油貿易の25%、世界LNGの20%が通過（2023〜2025年）」。raw-data.json: 「世界の日次石油供給の約20%」",
+                    "source": "sources.json (Strait of Hormuz key_points / Economic impact key_points)",
+                    "deviation": "石油: 記事20% vs Strait_of_Hormuzソース25%（+5ポイント差）",
+                    "suggestion": "「世界の海上石油貿易の約20〜25%、LNG貿易の約20%が通過する」と修正し、ソース間の乖離を幅で表現するか採用した数値の出典を明示すること。"
+                },
+                {
+                    "issue_id": "DA003",
+                    "severity": "low",
+                    "location": {
+                        "section": "概要",
+                        "line": "ブレント原油は最高値126ドル/バレルを記録し、アジア向けLNGスポット価格は140%以上の急騰となりました。"
+                    },
+                    "data_type": "price",
+                    "issue": "数値自体はraw-data.jsonと一致する。ただし概要セクションでは126ドルとLNG+140%がほぼ同時点の事象として並列記述されているが、ブレント126ドルは2026年3月上旬の最高値、LNG+140%はカタルのラス・ラファン施設攻撃（3月18日）後の上昇であり発生タイミングが約2週間異なる。時制の厳密さが欠ける。",
+                    "article_value": "126ドル、+140%（概要で同時並列記述）",
+                    "correct_value": "数値は正確。原油126ドルは3月8日以降の最高値、LNG+140%は3月18日のカタル施設攻撃後（raw-data.json）",
+                    "source": "raw-data.json",
+                    "deviation": "数値誤差なし。時系列の明示が不十分。",
+                    "suggestion": "括弧書きで時点を添えること（例: 「ブレント原油は最高値126ドル（3月以降）を記録し、カタル施設攻撃後にアジア向けLNGスポット価格が140%以上急騰しました。」）。"
+                },
+                {
+                    "issue_id": "DA004",
+                    "severity": "low",
+                    "location": {
+                        "section": "なぜ日本は特に脆弱なのか — エネルギー依存の構造",
+                        "line": "カタルを含む中東・アジアのサプライヤーからの調達も複数あり、今回の危機でスポット調達コストが急騰しています。（前文の「短期的な代替調達が難しい構造」と合わせた文脈）"
+                    },
+                    "data_type": "economic",
+                    "issue": "カタルのLNG依存度は2022年時点で4%と小さく（raw-data.json）、「短期的な代替調達が難しい構造」という記述との整合性が弱い。raw-data.jsonには「2016年時点ではカタルが15%を占めていたが低下傾向」という記録があり、過去の依存度を示す方が論拠として適切。数値自体の誤りではないが選択した数値と主張の論拠の整合性に改善余地がある。",
+                    "article_value": "カタル4%（2022年）を引用しつつ「代替困難な構造」と記述",
+                    "correct_value": "カタル4%は数値として正確。ただし2016年時点では15%（raw-data.json）であり歴史的依存度を示す方が「代替困難」の論拠として整合する。",
+                    "source": "raw-data.json (Energy in Japan)",
+                    "deviation": "数値誤差なし。論拠選択の妥当性に改善余地あり。",
+                    "suggestion": "「カタルは2016年時点では日本のLNG輸入の15%を占めていたが2022年には4%に低下している。それでも同施設のフォースマジュール宣言はアジア全体のスポット市場に波及し価格急騰を引き起こしている。」と補足することで数値と主張の整合性を高めること。"
+                }
+            ],
+            "verified_data": {
+                "total": 18,
+                "correct": 15,
+                "incorrect": 1,
+                "questionable": 2,
+                "unverifiable": 0,
+                "note": "market_data/data.jsonは空（article_idとdataフィールドのみで実データなし）のため、sources.jsonおよびraw-data.jsonをデータ照合の正典として使用した。"
+            },
+            "calculation_checks": [
+                {
+                    "calculation": "1973年石油ショックの価格変動率",
+                    "formula": "(12 - 3) / 3 × 100",
+                    "result": "300%（4倍）",
+                    "article_value": "4倍（+300%）",
+                    "match": true
+                },
+                {
+                    "calculation": "1990年湾岸戦争の価格変動率",
+                    "formula": "(36 - 17) / 17 × 100",
+                    "result": "111.8%（約2倍）",
+                    "article_value": "約2倍",
+                    "match": true
+                },
+                {
+                    "calculation": "石油備蓄の合計",
+                    "formula": "92 + 77",
+                    "result": "169日分",
+                    "article_value": "169日分",
+                    "match": true
+                },
+                {
+                    "calculation": "1973年依存度と現在の差分（「変わっていない」の妥当性）",
+                    "formula": "93 - 75 = 18ポイント",
+                    "result": "現在(93%)は当時(75%)より18ポイント上昇",
+                    "article_value": "「構造的な脆弱性は当時と変わっていません」",
+                    "match": false
+                }
+            ],
+            "data_source_quality": {
+                "primary_sources_count": 0,
+                "wikipedia_sources_count": 13,
+                "wikipedia_only": true,
+                "market_data_json_available": false,
+                "note": "market_data/data.jsonは空。全データソースがWikipedia記事。IEA・EIA・資源エネルギー庁・JOGMEC等の一次情報源との照合は未実施。Wikipedia記事間でのソース間乖離（ホルムズ石油通過量: 20% vs 25%）が1件確認された。"
+            },
+            "wikipedia_limitations": [
+                "全ソースがWikipedia記事（一次情報源なし）",
+                "ソース間の数値乖離：Strait_of_Hormuzページ(25%)とEconomic_impactページ(20%)でホルムズ石油通過量が異なる",
+                "「2026 Iran war」等の記事は更新中の可能性があり数値の確定性が低い",
+                "金の28%下落はconfidence 0.85の単一ソースのみ（独立検証不可）"
+            ]
+        }
+    },
     "overall_score": null,
-    "priority_fixes": []
+    "priority_fixes": [
+        "CP001: 末尾免責事項を snippets/disclaimer.md の統合テキストに差し替える（high）",
+        "CP002: 「検討する時期といえます」を投資助言色のより低い表現に変更する（medium）",
+        "CP003: 為替予測の具体数値（150円台後半〜160円台）に根拠・出典を付記するか定性表現に置き換える（medium）",
+        "DA001: 1973年の中東依存75%は日本+西欧合算の可能性があり「変わっていない」は93%への上昇と矛盾。表現修正が必要（medium）",
+        "DA002: ホルムズ海峡の石油通過量がソース間で20% vs 25%と乖離。「約20〜25%」または出典明示の上「25%」への修正を検討（medium）"
+    ]
 }

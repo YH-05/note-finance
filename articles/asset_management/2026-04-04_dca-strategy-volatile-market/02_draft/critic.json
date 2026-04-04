@@ -1,7 +1,247 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-04-04_dca-strategy-volatile-market",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-04",
+  "critics": {
+    "fact": {
+      "score": 82,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "なぜ人は暴落時に売ってしまうのか / 損失回避バイアス",
+          "issue": "「ノーベル経済学賞を受賞したダニエル・カーネマン教授とエイモス・トベルスキー教授」は誤り。受賞はカーネマン教授のみ（2002年）。トベルスキーは1996年に死去しノーベル賞は受賞していない。",
+          "suggestion": "「ノーベル経済学賞受賞者のダニエル・カーネマン教授と、共同研究者のエイモス・トベルスキー教授が提唱した」に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "なぜ人は暴落時に売ってしまうのか / 近視眼的損失回避",
+          "issue": "リチャード・セイラーは経済学者（行動経済学者・2017年ノーベル経済学賞）であり「心理学者」は不正確。",
+          "suggestion": "「行動経済学者のリチャード・セイラー教授とシュロモ・ベナルツィ教授は」に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "DALBARのデータ",
+          "issue": "「タイミング投資の正解率25%」はDALBAR QAIBの主要指標ではない可能性があり根拠が弱い。",
+          "suggestion": "DALBARから直接引用できる数値のみに限定するか、出典を具体的に明記する。"
+        },
+        {
+          "severity": "low",
+          "location": "データで見る / コロナショック",
+          "issue": "「わずか4〜5ヶ月」は底値起算では概ね正確だが、高値起算では約6ヶ月。",
+          "suggestion": "「2020年8月（底値から約5ヶ月後）に下落前の水準を回復した」と底値起算であることを明記する。"
+        },
+        {
+          "severity": "low",
+          "location": "参考データソース",
+          "issue": "アライアンス・バーンスタイン調査の具体的なURLが記載されておらず検証可能性が低い。",
+          "suggestion": "公開URLを追記するか「（社内調査・非公開資料）」等と注記する。"
+        }
+      ],
+      "verified_facts": 38,
+      "summary": "主要数値は概ね正確。最重要問題はトベルスキーのノーベル賞記述の誤り。"
+    },
+    "compliance": {
+      "score": 83,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "実践ガイド / ステップ4",
+          "issue": "「単一国への集中投資は避けることが望ましいです」は投資助言に該当するおそれがある。",
+          "suggestion": "「過去のデータでは、グローバル分散型の指数ファンドが長期的に回復してきた事例が多く見られます」と歴史的事実の提示にとどめる。"
+        },
+        {
+          "severity": "high",
+          "location": "実践ガイド / ステップ4",
+          "issue": "「長期的には世界経済の成長に乗ることができます」はリターン保証の示唆と受け取られるリスクがある。",
+          "suggestion": "「過去の歴史では、長期的に世界経済の成長に沿った推移が見られた時期もあります。ただし将来の運用成果を保証するものではありません」に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "まとめ",
+          "issue": "「歴史は一貫して、暴落時に積み立てを継続した人が最も高いリターンを得ることを示しています」は将来のリターンを保証するかのような表現。",
+          "suggestion": "「過去の複数の暴落局面において、継続した投資家が高いリターンを得た傾向が確認されています」と過去の傾向として記述する。"
+        },
+        {
+          "severity": "medium",
+          "location": "実践ガイド / ステップ3",
+          "issue": "「評価額のチェック頻度を意識的に減らすことを検討してください」は行動指示に該当する。",
+          "suggestion": "「行動経済学の研究では、確認頻度を下げることで近視眼的損失回避を軽減できると報告されています」と研究知見の紹介にとどめる。"
+        },
+        {
+          "severity": "medium",
+          "location": "ケーススタディ / Aさん",
+          "issue": "「『自動積立設定で何もしなかった』ことが、最良の行動でした」は特定行動を最優秀として断言している。",
+          "suggestion": "「このシナリオにおいては、自動積立の継続が結果として最も有利に働きました」に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "基礎知識",
+          "issue": "「最も損失が大きい行動は『暴落時に売ること』と『積み立てを停止すること』です」は状況によっては一面的な断言になりうる。",
+          "suggestion": "「このシミュレーション条件下では、暴落時の売却・停止は結果として不利に働いた事例が多く見られます」とヘッジを加える。"
+        },
+        {
+          "severity": "low",
+          "location": "参考データソース",
+          "issue": "MUFG資産形成研究所・アライアンス・バーンスタインにURLが未付与で検証可能性が低い。",
+          "suggestion": "公式URLを追記するか非公開を明記する。"
+        }
+      ],
+      "disclaimer_check": {
+        "present": true,
+        "position": "末尾",
+        "decoration": false
+      },
+      "summary": "禁止表現は検出されず。免責事項は末尾に適切。ただし投資助言・リターン保証示唆表現がhigh 2件・medium 4件存在する。"
+    },
+    "structure": {
+      "score": 78,
+      "status": "warn",
+      "sections_found": ["はじめに", "基礎知識", "データで見る", "研究", "行動経済学", "実践ガイド", "ケーススタディ", "注意点・リスク", "まとめ", "参考データソース"],
+      "sections_missing": [],
+      "issues": [
+        {
+          "severity": "high",
+          "location": "全文",
+          "issue": "文字数が約11,000字超と目標上限10,000字を超過している。",
+          "suggestion": "行動経済学セクションを実践ガイドに統合することで900〜1,000字削減できる。"
+        },
+        {
+          "severity": "high",
+          "location": "基礎知識セクション",
+          "issue": "基礎知識セクションが約1,015字と目標1,500〜2,000字に対して不足。",
+          "suggestion": "実践ガイドのステップ4・注意点1の要旨を基礎知識セクションに前倒しして充実させる。"
+        },
+        {
+          "severity": "high",
+          "location": "データセクション（67行目）",
+          "issue": "table_01.pngへの参照が2箇所に重複。67行目は孤立した重複参照で削除が必要。",
+          "suggestion": "67行目のプレースホルダーを削除し103行目の参照のみ残す。"
+        },
+        {
+          "severity": "medium",
+          "location": "まとめ",
+          "issue": "今日できる具体的なアクションが「自動積立設定」という単語レベルでしか示されていない。",
+          "suggestion": "「今日できる3つのアクション」（生活防衛資金確認・自動積立設定・評価額チェック頻度見直し）を箇条書きで追加する。"
+        },
+        {
+          "severity": "medium",
+          "location": "ケーススタディ",
+          "issue": "ケーススタディが695字と短く、コロナショックの1事例に限定されている。",
+          "suggestion": "Aさん・Bさんのケースに数字の比較（積立元本比での最終評価額）を加えて具体性を高める。"
+        }
+      ],
+      "summary": "必須セクションはすべて存在し論理の流れも良好。主な問題は文字数超過・基礎知識セクションの薄さ・table_01.pngの重複。"
+    },
+    "readability": {
+      "score": 74,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "基礎知識（32行目）",
+          "issue": "冒頭1文が116字と非常に長い。",
+          "suggestion": "「ドルコスト平均法とは、毎月一定の金額を機械的に投資し続ける方法です。株価が高くても安くても、同じ金額を淡々と積み立てるシンプルな戦略です。」と2文に分割する。"
+        },
+        {
+          "severity": "high",
+          "location": "データセクション（61行目）",
+          "issue": "数値・時期情報が140字以上の1文に密集している。",
+          "suggestion": "4文に分割する（投資条件→総額→評価額→リターン）。"
+        },
+        {
+          "severity": "high",
+          "location": "「市場にい続けること」（108〜110行目）",
+          "issue": "「第一に〜」「第二に〜」の段落がそれぞれ100字超で情報量が多すぎる。",
+          "suggestion": "各ポイントを2〜3文に分割し、結論→根拠→補足の順で展開する。"
+        },
+        {
+          "severity": "medium",
+          "location": "行動経済学（140行目）",
+          "issue": "「近視眼的損失回避（Myopic Loss Aversion）」の英語表記が初心者に不要。",
+          "suggestion": "英語表記を削除し「近視眼的損失回避（短期的な損失に過敏になる心理現象）」に置き換える。"
+        },
+        {
+          "severity": "low",
+          "location": "まとめ（295行目）",
+          "issue": "英語格言が先に来ており初心者への障壁になりやすい。",
+          "suggestion": "日本語訳を先に置き、英語格言を後に添える構成に変更する。"
+        },
+        {
+          "severity": "low",
+          "location": "全体",
+          "issue": "S&P500（初出17行目）・NISA（50行目）・DCA（108行目）の初出時説明が不足。",
+          "suggestion": "S&P500→「（米国を代表する500銘柄の株価指数）」、DCA初出時→「ドルコスト平均法（DCA）」として定義してから以降で使用する。"
+        }
+      ],
+      "tone_check": "全体を通じてです・ます調（敬体）で統一されており問題なし",
+      "glossary_check": "主要な専門用語の多くは初出時に括弧説明があるが、S&P500・NISA・DCAの説明が一部不足",
+      "summary": "文体統一・具体例の豊富さは高品質。平均文長が約62字と初心者向け基準（30-40字）の1.5倍超で長文が全体に散在している。"
+    },
+    "writer_rules": {
+      "score": 76,
+      "status": "warn",
+      "word_count": {
+        "actual": 9940,
+        "target_min": 8000,
+        "target_max": 10000,
+        "status": "pass"
+      },
+      "sections": {
+        "found": ["はじめに", "基礎知識", "データで見る現状", "研究", "行動経済学", "実践ガイド", "ケーススタディ", "注意点・リスク", "まとめ", "参考データソース", "免責事項"],
+        "missing": []
+      },
+      "frontmatter": {
+        "fields_found": ["title", "article_id", "category", "theme", "target_audience", "target_wordcount", "status"],
+        "fields_missing": []
+      },
+      "quality_rules": {
+        "no_markdown_tables": true,
+        "source_urls_embedded": false,
+        "chart_placeholders": 4,
+        "paragraph_spacing": true
+      },
+      "issues": [
+        {
+          "severity": "high",
+          "location": "参考データソース",
+          "issue": "MUFG資産形成研究所・アライアンス・バーンスタイン・DALBARの3件にURLリンクが存在しない。",
+          "suggestion": "公式URLを追記するか、URLが非公開の場合は「（社内調査・非公開資料）」と明記する。"
+        },
+        {
+          "severity": "high",
+          "location": "データセクション（67行目）",
+          "issue": "table_01.png が2箇所に重複参照されている。67行目は削除が必要。",
+          "suggestion": "67行目のプレースホルダーを削除し103行目の参照のみ残す。"
+        },
+        {
+          "severity": "medium",
+          "location": "令和のブラックマンデー / トランプ関税ショック",
+          "issue": "MUFG（解約率0.59%）とAB調査データに本文中のインラインURLリンクが存在しない。",
+          "suggestion": "各数値に対応するソースURLのインラインリンクを追加する。"
+        },
+        {
+          "severity": "medium",
+          "location": "DALBARのデータ",
+          "issue": "DALBAR QAIBの具体的数値4件にURLリンクが存在しない。",
+          "suggestion": "DALBAR公式ページのURLをインラインリンクとして埋め込む。"
+        }
+      ],
+      "summary": "文字数・必須セクション・フロントマター・禁止表現・マークダウン表画像化・段落空行は充足。URLリンク未付与（3ソース）とtable_01.pngの重複が主な問題。"
+    }
+  },
+  "overall_score": 79,
+  "priority_fixes": [
+    {"priority": 1, "severity": "high", "category": "fact", "fix": "トベルスキー教授のノーベル賞記述を修正（カーネマン教授のみ受賞）"},
+    {"priority": 2, "severity": "high", "category": "compliance", "fix": "「避けることが望ましい」「乗ることができます」等の投資助言・リターン保証示唆表現を修正"},
+    {"priority": 3, "severity": "high", "category": "writer_rules", "fix": "67行目のtable_01.png重複プレースホルダーを削除"},
+    {"priority": 4, "severity": "high", "category": "writer_rules", "fix": "MUFG・AB・DALBARのURLリンクを追加（本文中インライン + 参考ソース末尾）"},
+    {"priority": 5, "severity": "high", "category": "readability", "fix": "長文の分割（特に61行目・32行目・108〜110行目）"},
+    {"priority": 6, "severity": "medium", "category": "compliance", "fix": "「最良の行動でした」「最も損失が大きい行動は」等の断定表現にヘッジを追加"},
+    {"priority": 7, "severity": "medium", "category": "fact", "fix": "リチャード・セイラーを「心理学者」から「行動経済学者」に修正"},
+    {"priority": 8, "severity": "medium", "category": "readability", "fix": "S&P500・NISA・DCAの初出時説明を追加、英語表記（Myopic Loss Aversionなど）を日本語に統一"},
+    {"priority": 9, "severity": "medium", "category": "structure", "fix": "まとめに「今日できる3つのアクション」を追加（生活防衛資金確認・自動積立設定・評価額チェック頻度の見直し）"}
+  ]
 }
