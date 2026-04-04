@@ -11,6 +11,9 @@ if TYPE_CHECKING:
     from pathlib import Path
 import yaml
 
+if TYPE_CHECKING:
+    from pathlib import Path
+
 
 class TestPhaseDisplayName:
     """_phase_display_name() のテスト."""
@@ -42,7 +45,11 @@ class TestParseCommonChecks:
         schema = self._make_schema(
             phase1_overview={
                 "facts": [
-                    {"label": "事業モデル", "priority": "high", "pattern": "事業.*モデル"},
+                    {
+                        "label": "事業モデル",
+                        "priority": "high",
+                        "pattern": "事業.*モデル",
+                    },
                 ]
             }
         )
@@ -83,7 +90,11 @@ class TestParseCommonChecks:
         schema = self._make_schema(
             phase1_overview={
                 "claims": [
-                    {"label": "アナリスト評価", "priority": "medium", "pattern": "rates.*Buy"},
+                    {
+                        "label": "アナリスト評価",
+                        "priority": "medium",
+                        "pattern": "rates.*Buy",
+                    },
                 ]
             }
         )
