@@ -34,3 +34,136 @@ ingest_graph_queue 完了
   投入:  0 件
   失敗:  1 件
 [[31m[1merror    [0m] [1mStage 4 failed                [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mreturncode[0m=[35m1[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/deduped-all-20260401180012-293e6f9c.json[0m
+[[32m[1minfo     [0m] [1mStage 3: emit_research_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/deduped-all-20260401180012-293e6f9c.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 3: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260401180026-9d96fe9d.json[0m
+[[32m[1minfo     [0m] [1mStage 4: ingest_graph_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260401180026-9d96fe9d.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[31m[1merror    [0m] [1mFailed to ingest gq-20260401180026-9d96fe9d.json: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)[0m [[0m[1m[34m__main__[0m][0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 512, in _connect_secure
+    s.connect(resolved_address)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 329, in connect
+    s = cls._connect_secure(
+        resolved_address,
+    ...<3 lines>...
+        ssl_context,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_async_compat/network/_bolt_socket.py", line 523, in _connect_secure
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from error
+neo4j.exceptions.ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/ingest_graph_queue.py", line 248, in process_single_file
+    result = ingest_to_neo4j(queue_data, dry_run=dry_run)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 831, in ingest_to_neo4j
+    node_result = _ingest_nodes(queue_data, driver)
+  File "/Users/yuki/Desktop/note-finance/src/data_pipeline/neo4j_loader.py", line 514, in _ingest_nodes
+    session.execute_write(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        _batch_merge_nodes_tx, label, key_prop, items, on_create_field
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 720, in execute_write
+    return self._run_transaction(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        WRITE_ACCESS,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        kwargs,
+        ^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 584, in _run_transaction
+    raise errors[-1]
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 532, in _run_transaction
+    self._open_transaction(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        tx_cls=ManagedTransaction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        api_success_cb=api_success_cb,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 398, in _open_transaction
+    self._connect(access_mode=access_mode)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/session.py", line 126, in _connect
+    super()._connect(
+    ~~~~~~~~~~~~~~~~^
+        access_mode, auth=self._config.auth, **acquire_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/work/workspace.py", line 181, in _connect
+    self._connection = self._pool.acquire(**acquire_kwargs_)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 678, in acquire
+    return self._acquire(
+           ~~~~~~~~~~~~~^
+        self.address, auth, deadline, liveness_check_timeout, unprepared
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 418, in _acquire
+    return connection_creator()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 231, in connection_creator
+    connection = self.opener(
+        address, auth or self.pool_config.auth, deadline
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_pool.py", line 638, in opener
+    return Bolt.open(
+           ~~~~~~~~~^
+        addr,
+        ^^^^^
+    ...<3 lines>...
+        pool_config=pool_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt.py", line 368, in open
+    s, protocol_version = BoltSocket.connect(
+                          ~~~~~~~~~~~~~~~~~~^
+        address,
+        ^^^^^^^^
+    ...<4 lines>...
+        keep_alive=pool_config.keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/neo4j/_sync/io/_bolt_socket.py", line 380, in connect
+    raise ServiceUnavailable(
+    ...<2 lines>...
+    ) from errors[0]
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+
+ingest_graph_queue 完了
+  発見:  1 件
+  投入:  0 件
+  失敗:  1 件
+[[31m[1merror    [0m] [1mStage 4 failed                [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mreturncode[0m=[35m1[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: no new articles, stopping pipeline[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete (no new articles or dry-run)[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: no new articles, stopping pipeline[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete (no new articles or dry-run)[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m

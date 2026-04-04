@@ -385,3 +385,5 @@ Traceback (most recent call last):
 neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7688 (resolved to ('[::1]:7688', '127.0.0.1:7688')):
 Failed to establish connection to ResolvedIPv6Address(('::1', 7688, 0, 0)) (reason [Errno 61] Connection refused)
 Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7688)) (reason [Errno 61] Connection refused)
+/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/structlog/stdlib.py:1166: UserWarning: Remove `format_exc_info` from your processor chain if you want pretty exceptions.
+  ed = p(logger, meth_name, ed)  # type: ignore[arg-type]
