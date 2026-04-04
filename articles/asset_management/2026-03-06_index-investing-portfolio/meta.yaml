@@ -1,10 +1,10 @@
-title: ''
+title: 'インデックス投資のポートフォリオ、本当に「S&P500一本」でいい？2026年のデータが語る最適配分'
 category: asset_management
 type: column
 status: draft
 created_at: '2026-03-15T01:21:14.527718+00:00'
-updated_at: '2026-03-15T01:21:14.527718+00:00'
-tags: []
+updated_at: '2026-04-04'
+tags: [インデックス投資, ポートフォリオ, 分散投資, NISA, 債券, S&P500, 全世界株式, 国際分散]
 target_audience: intermediate
 target_wordcount: 4000
 symbols: []
@@ -12,7 +12,7 @@ date_range:
   start: ''
   end: ''
 fred_series: []
-theme: ''
+theme: 'インデックス投資ポートフォリオ配分（S&P500一本 vs 分散）'
 experience:
   spec_card:
     age_range: ''
@@ -25,9 +25,9 @@ critic_score: null
 revision_count: 0
 note_url: null
 x_post_url: null
-research_sources: 0
+research_sources: 20
 workflow:
-  research: pending
+  research: done
   draft: pending
   critique: pending
   revision: pending

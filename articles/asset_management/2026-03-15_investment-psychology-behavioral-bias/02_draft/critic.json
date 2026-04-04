@@ -2,115 +2,278 @@
   "article_id": "2026-03-15_investment-psychology-behavioral-bias",
   "category": "asset_management",
   "mode": "full",
-  "generated_at": "2026-03-15",
-  "scores": {
-    "fact": 90,
-    "compliance": 68,
-    "structure": 77,
-    "readability": 74,
-    "overall": 77
-  },
-  "compliance_status": "warning",
+  "generated_at": "2026-04-04",
   "critics": {
     "fact": {
-      "score": 90,
+      "score": 83,
+      "status": "warning",
       "issues": [
         {
-          "id": "F001", "severity": "medium", "location": "第3章",
-          "issue": "Harris/Stash調査の実施年（2017〜2018年頃）と対象国（米国）が未明示",
-          "suggestion": "「米国のHarris/Stash調査（2017〜2018年頃）によれば」と明記する"
+          "id": "FA-001",
+          "severity": "HIGH",
+          "location": "データで見る・バイアスに打ち克つ（Jeff Ptak引用2箇所）",
+          "description": "Jeff Ptak（モーニングスター）の直接引用「自動化できる部分を最大化し、裁量的な売買の機会を減らすことが行動ギャップを縮小させる最善策だ」がソースURLなしで2箇所に登場。記事中のソースURLはBarclays/Strategence経由の二次引用であり、直接引用の根拠として不十分。",
+          "suggestion": "引用を削除するか、Morningstar公式レポートURLを一次ソースとして明示する。または「モーニングスターの調査では…とされています」という形式に変更し直接引用を回避する。"
         },
         {
-          "id": "F002", "severity": "medium", "location": "第3章",
-          "issue": "「歴史的平均7%」が実質リターンか名目か未明示。15%（名目）との非対称比較になっている",
-          "suggestion": "「歴史的長期平均7%（インフレ調整後の実質ベース）」と注記するか、名目10%との比較に統一"
+          "id": "FA-002",
+          "severity": "MEDIUM",
+          "location": "令和のブラックマンデー（ケーススタディ）",
+          "description": "eMAXIS Slim全世界株式の解約率0.59%（2024年8月7日）のソースを「大和アセットマネジメントの資産形成白書2025」と記載しているが、リサーチノートとresearch-neo4jのデータではMUFG資産形成研究所（2024年10月）に帰属している。",
+          "suggestion": "「MUFG資産形成研究所の分析（2024年10月）によれば」に修正し、URLも https://www.tr.mufg.jp/shisan-ken/pdf/shisan_keisei_34.pdf に変更する。"
+        },
+        {
+          "id": "FA-003",
+          "severity": "LOW",
+          "location": "仕組み3・参考データソース",
+          "description": "年10万円積立・7%利回りのシミュレーション（積立78%・投資リターン22%）はGet Rich Slowly（米国ドル建て）のデータ。100万円（日本円）という表記と元データとの通貨・規模の不一致が読者に混乱を生じさせる可能性がある。",
+          "suggestion": "「参考として米国の試算では…」等、米国事例と明記するか、同じ前提で日本円ベースに再計算した数値を使用する。"
         }
       ]
     },
     "compliance": {
-      "score": 68,
+      "score": 51,
       "status": "warning",
       "issues": [
         {
-          "id": "CP001", "severity": "high", "location": "第4章",
-          "issue": "「7%の利回り」を使った将来計算例に予測免責注記が欠落。断定的判断の提供リスクあり",
-          "suggestion": "計算例直後に「※7%はあくまで計算上の仮定値です。実際の運用成果は市場環境により大きく異なります」を追記"
+          "id": "CP-001",
+          "severity": "HIGH",
+          "location": "免責事項（末尾）",
+          "description": "asset_managementカテゴリの必須表現「本記事の内容により生じたいかなる損失についても責任を負いかねます」が免責事項ブロックに含まれていない。",
+          "suggestion": "末尾の免責事項ブロックに当該文言を追加する。"
         },
         {
-          "id": "CP002", "severity": "medium", "location": "第5章",
-          "issue": "「市場が-20%以上下落したら積立額を増やすことを検討する」が投資助言に準じる表現の可能性",
-          "suggestion": "具体的数値（-20%）を削除するか、「これは概念的な例示であり特定の行動を推奨するものではありません」と明記"
+          "id": "CP-002",
+          "severity": "HIGH",
+          "location": "はじめに（末尾）",
+          "description": "「次の暴落で同じ失敗を繰り返さないための最も確実な武器になります」——「最も確実な武器」は断定的判断の提供に該当する可能性がある。",
+          "suggestion": "「次の暴落で同じ失敗を繰り返さない可能性を高める手がかりになります」等に変更する。"
         },
         {
-          "id": "CP003", "severity": "medium", "location": "第3章",
-          "issue": "15%（名目）と7%（実質）の非対称比較で誤解を招くリスク",
-          "suggestion": "実質/名目の区別を明記する"
+          "id": "CP-003",
+          "severity": "HIGH",
+          "location": "仕組み3（継続こそ最大のリターン）",
+          "description": "「年間10万円を7%の利回りで積み立てた場合」という計算例に、将来リターンの仮定値についての免責注記がない。",
+          "suggestion": "計算例の直後に「※7%は計算上の仮定値です。実際の運用成果は市場環境により大きく異なり、この水準のリターンを保証するものではありません」を追記する。"
         },
         {
-          "id": "CP004", "severity": "medium", "location": "参考情報",
-          "issue": "Harris/Stash調査の対象国（米国）・年度が未記載",
-          "suggestion": "本文・参考情報に米国データであること、調査年を明記"
+          "id": "CP-004",
+          "severity": "HIGH",
+          "location": "仕組み2（暴落時のルール例）",
+          "description": "「市場が高値から20%以上下落した場合、積立額を通常の1.5倍に増やすことを検討する」——具体的な数値条件（-20%、1.5倍）と行動の組み合わせは投資助言に該当し得る。",
+          "suggestion": "「例えば、暴落時に積立額を増やすルールを事前に設定しておく方法もあります（自身のリスク許容度・家計状況に応じた設定が必要です）」等、具体的数値を削除した表現に変更する。"
         },
         {
-          "id": "CP005", "severity": "low", "location": "参考情報",
-          "issue": "積立78%データの出典が個人ブログで原典URL・算出前提が未記載",
-          "suggestion": "原典URLを追記するか、算出前提を本文に明記"
+          "id": "CP-005",
+          "severity": "HIGH",
+          "location": "まとめ（末尾）",
+          "description": "「それだけで、あなたの投資行動は大きく変わり始めます」——「大きく変わり始めます」は断定的表現であり、特定の行動から生じる効果を保証する表現に相当する。",
+          "suggestion": "「それだけで、暴落時に感情に流されにくくなる可能性があります」等に変更する。"
+        },
+        {
+          "id": "CP-006",
+          "severity": "MEDIUM",
+          "location": "FOMO（第3章）",
+          "description": "「2009年以降の米国株市場の年平均リターンは約15%」（名目）と「歴史的な長期平均の7%」（実質の可能性）を直接比較しており、非対称な比較が誤解を招く恐れがある。",
+          "suggestion": "「歴史的な長期平均（名目では約10%、インフレ調整後の実質では約7%）」と明記し、比較を整合させる。"
+        },
+        {
+          "id": "CP-007",
+          "severity": "LOW",
+          "location": "参考データソース",
+          "description": "Get Rich Slowly（米国個人ブログ）は権威性が低く、積立78%・投資リターン22%という具体的データの根拠として使用することにリスクがある。",
+          "suggestion": "金融庁・生命保険文化センター等の公的機関のシミュレーションまたはモーニングスター等の調査機関のデータで代替するか、「参考試算」として位置づける。"
         }
       ]
     },
     "structure": {
-      "score": 77,
+      "score": 74,
+      "status": "warning",
       "issues": [
         {
-          "id": "ST001", "severity": "high", "location": "全体構成",
-          "issue": "タイトル「5つ」と実際の構成の不整合。第4章（感情マネジメント）・第5章（仕組み）はバイアスの解説ではない",
-          "suggestion": "タイトルを「3つのバイアス＋2つの対処法」に変更するか、第4章を確証バイアス等の独立バイアスとして再構成"
+          "id": "ST-001",
+          "severity": "HIGH",
+          "location": "投資心理の基礎知識（バイアス4・5）",
+          "description": "バイアス4（現状維持バイアス）は約200字、バイアス5（確証バイアス）は約200字と、バイアス1-3（各600-800字）と比べて著しく短い。全体の基礎知識セクションも2747字と目安の1500-2000字を超過。",
+          "suggestion": "バイアス1-3を各500字程度に圧縮し、バイアス4・5を各400-500字に拡充する。全体を1800字以内に収める。"
         },
         {
-          "id": "ST002", "severity": "medium", "location": "冒頭免責",
-          "issue": "冒頭免責ブロック（>引用形式）が導入の引力を削ぐ",
-          "suggestion": "免責文を記事末尾にまとめるか、より目立たない形式に変更"
+          "id": "ST-002",
+          "severity": "HIGH",
+          "location": "まとめ（最終セクション）",
+          "description": "まとめセクションが約923字と長く、asset_managementカテゴリの目安（400-600字）を超過。各バイアスの説明を再度書き直しており本文の繰り返しになっている。",
+          "suggestion": "3-5つのキーポイントのみに絞り込み、400-600字以内に圧縮する。"
         },
         {
-          "id": "ST003", "severity": "medium", "location": "第4章",
-          "issue": "感情フローのアロー表記がスマホ縦画面で折り返し・崩れるリスク",
-          "suggestion": "横並びアロー→縦方向の番号リストに変換"
+          "id": "ST-003",
+          "severity": "HIGH",
+          "location": "全体構成",
+          "description": "asset_managementカテゴリには独立した「注意点・リスク」セクションが必要だが、現在は末尾の免責事項ブロックに埋め込まれており見出しがない。",
+          "suggestion": "「## 投資リスクについて」という独立した見出しセクションを作成し、元本割れリスク等を明記する。"
         }
-      ],
-      "strengths": ["各章600〜700字の均等バランス", "理論→事例→対処法の流れが機能している"]
+      ]
+    },
+    "data_accuracy": {
+      "score": 93,
+      "status": "pass",
+      "issues": [
+        {
+          "id": "DA-001",
+          "severity": "LOW",
+          "location": "モーニングスターデータ（引用経路）",
+          "description": "Morningstar Mind the Gap 2025データをBarclays Private Bank（2025年9月）経由で二次引用しているが、引用経路が不透明。",
+          "suggestion": "「Barclays Private Bank（2025年9月）がMorningstarのデータを引用したところによれば」等と引用経路を明記する。"
+        },
+        {
+          "id": "DA-002",
+          "severity": "LOW",
+          "location": "仕組み3（積立78%・投資リターン22%）",
+          "description": "Get Rich Slowly（米国ドル建て試算）のシミュレーション数値を日本語コンテキストで「年間10万円を7%」として使用しているが通貨・税制・手数料の前提が異なる。",
+          "suggestion": "計算前提（円建て、NISA非課税想定等）を明示するか、日本の公式シミュレーターで検証した値を使用する。"
+        },
+        {
+          "id": "DA-003",
+          "severity": "LOW",
+          "location": "FOMO（2009年以降15%リターン）",
+          "description": "「2009年以降の米国株市場の年平均リターンは約15%」は計算期間・指数によって異なる。出典URLがない。",
+          "suggestion": "期間・指数・計算方法を明記し出典URLを追加する。またはDALBARデータから引用可能な数値に置き換える。"
+        }
+      ]
     },
     "readability": {
-      "score": 74,
+      "score": 76,
+      "status": "warning",
       "issues": [
         {
-          "id": "RD001", "severity": "high", "location": "第4章",
-          "issue": "横並びアロー表記がスマホで崩れるリスク（ST003と同一）",
-          "suggestion": "縦方向リストに変換"
+          "id": "RD-001",
+          "severity": "MEDIUM",
+          "location": "基礎知識セクション・バイアス4・5",
+          "description": "バイアス4（現状維持）とバイアス5（確証バイアス）の説明が各約200字と、バイアス1-3（各600-800字）と比べて著しく短い。読後感が薄い。",
+          "suggestion": "バイアス4・5を各400-500字程度に拡充し、具体的な投資場面での現れ方と対処を加える。"
         },
         {
-          "id": "RD002", "severity": "medium", "location": "第1章",
-          "issue": "「ダニエル・カーネマンとエイモス・トベルスキーが提唱した」は初心者に長く冗長",
-          "suggestion": "「行動経済学の研究（プロスペクト理論）によれば」と短縮し、注釈に人名を記載"
+          "id": "RD-002",
+          "severity": "MEDIUM",
+          "location": "場面3（感情の連鎖・横並びアロー）",
+          "description": "「ショック → 否定 → 怒り → 恐怖 → パニック売りの衝動」が横並びアロー表記のみ。スマートフォンでの表示で崩れが発生しやすい。",
+          "suggestion": "縦方向の番号リスト（1. ショック　2. 否定…）に変換する。"
         },
         {
-          "id": "RD003", "severity": "medium", "location": "第2章",
-          "issue": "「ファンダメンタルズ（資産の本質的な価値を構成する要因）」の括弧説明が長い",
-          "suggestion": "「企業の業績など本質的な価値」と短く言い換え"
+          "id": "RD-003",
+          "severity": "LOW",
+          "location": "基礎知識セクション・バイアス1冒頭",
+          "description": "「行動経済学者のダニエル・カーネマンとエイモス・トベルスキーが提唱したプロスペクト理論」という人名列挙が冗長。",
+          "suggestion": "「行動経済学の研究（プロスペクト理論：カーネマン＆トベルスキー）によれば」と短縮し、人名を括弧内に収める。"
         }
-      ],
-      "strengths": [
-        "冒頭の一人称体験フックが非常に効果的",
-        "まとめの締め文「暴落で売りたくなるのは当然です」のタイトル回収が良好",
-        "専門用語12語中11語に括弧説明あり"
+      ]
+    },
+    "writer_rules": {
+      "score": 88,
+      "status": "pass",
+      "issues": [
+        {
+          "id": "WR-001",
+          "severity": "LOW",
+          "location": "フロントマター",
+          "description": "target_wordcount: 8000と記載されているが、実文字数は10,035字で上限に近い。フロントマターと実態の乖離。",
+          "suggestion": "フロントマターを target_wordcount: 9000 等に修正する（軽微）。"
+        },
+        {
+          "id": "WR-002",
+          "severity": "LOW",
+          "location": "参考データソース（末尾）",
+          "description": "参考文献リストがマークダウンリスト形式で記述。テーブル形式に変換して画像化するか、テキスト形式として許容するかを確認する必要がある。",
+          "suggestion": "article-quality-standardsに従い、テーブル形式なら画像化。参考文献リストとして扱うならテキスト形式のまま許容。"
+        },
+        {
+          "id": "WR-003",
+          "severity": "LOW",
+          "location": "画像プレースホルダー3件",
+          "description": "images/chart_behavior_gap.png、images/table_bias_summary.png、images/table_nisa_behavior.png の3ファイルが未生成。",
+          "suggestion": "/generate-chart-image および /generate-table-image で実際のPNGファイルを生成する。"
+        }
       ]
     }
   },
+  "overall_score": 78,
   "priority_fixes": [
-    {"priority": 1, "id": "CP001", "severity": "high", "summary": "7%利回り計算例に予測免責注記を追加"},
-    {"priority": 2, "id": "ST001", "severity": "high", "summary": "タイトル「5つ」と構成の整合性を修正"},
-    {"priority": 3, "id": "RD001/ST003", "severity": "high", "summary": "第4章アロー表記を縦リストに変換"},
-    {"priority": 4, "id": "CP002", "severity": "medium", "summary": "-20%という数値条件の表現を緩和"},
-    {"priority": 5, "id": "F002/CP003", "severity": "medium", "summary": "15%vs7%の実質/名目区別を明記"},
-    {"priority": 6, "id": "F001/CP004", "severity": "medium", "summary": "Harris/Stash調査に米国・年度を明記"}
+    {
+      "priority": 1,
+      "id": "CP-001",
+      "severity": "HIGH",
+      "description": "免責事項に「本記事の内容により生じたいかなる損失についても責任を負いかねます」を追加"
+    },
+    {
+      "priority": 2,
+      "id": "CP-002",
+      "severity": "HIGH",
+      "description": "「最も確実な武器」→「可能性を高める手がかり」等に変更"
+    },
+    {
+      "priority": 3,
+      "id": "CP-004",
+      "severity": "HIGH",
+      "description": "-20%/1.5倍の具体的数値条件を削除し投資助言的表現を緩和"
+    },
+    {
+      "priority": 4,
+      "id": "CP-003",
+      "severity": "HIGH",
+      "description": "7%利回り計算例の直後に仮定値免責注記を追加"
+    },
+    {
+      "priority": 5,
+      "id": "CP-005",
+      "severity": "HIGH",
+      "description": "「大きく変わり始めます」→「変わりやすくなります」等に変更"
+    },
+    {
+      "priority": 6,
+      "id": "FA-001",
+      "severity": "HIGH",
+      "description": "Jeff Ptak直接引用を削除または間接表現に変更（ソースURL追加または引用削除）"
+    },
+    {
+      "priority": 7,
+      "id": "FA-002",
+      "severity": "MEDIUM",
+      "description": "0.59%解約率データのソースを大和AM→MUFG資産形成研究所に修正"
+    },
+    {
+      "priority": 8,
+      "id": "ST-003",
+      "severity": "HIGH",
+      "description": "「投資リスクについて」の独立した見出しセクションを追加"
+    },
+    {
+      "priority": 9,
+      "id": "ST-001",
+      "severity": "HIGH",
+      "description": "基礎知識セクションのバイアス4・5を各400-500字に拡充しバランスを整える"
+    },
+    {
+      "priority": 10,
+      "id": "ST-002",
+      "severity": "HIGH",
+      "description": "まとめセクションを400-600字以内に圧縮"
+    },
+    {
+      "priority": 11,
+      "id": "CP-006",
+      "severity": "MEDIUM",
+      "description": "15%（名目）vs 7%（実質）の非対称比較を解消"
+    },
+    {
+      "priority": 12,
+      "id": "RD-001",
+      "severity": "MEDIUM",
+      "description": "バイアス4・5の説明を各400-500字に拡充"
+    },
+    {
+      "priority": 13,
+      "id": "RD-002",
+      "severity": "MEDIUM",
+      "description": "場面3の横並びアロー表記を縦リストに変換"
+    }
   ]
 }

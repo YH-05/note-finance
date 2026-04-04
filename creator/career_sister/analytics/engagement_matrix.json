@@ -1,0 +1,411 @@
+{
+  "generated_at": "2026-04-04T05:16:33.665604+00:00",
+  "total_posts_analyzed": 46,
+  "by_theme": {
+    "T7": {
+      "posts": 2,
+      "avg_views": 56,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "T3": {
+      "posts": 2,
+      "avg_views": 67,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "T2": {
+      "posts": 2,
+      "avg_views": 34,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "T4": {
+      "posts": 1,
+      "avg_views": 9,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "T10": {
+      "posts": 1,
+      "avg_views": 11,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "T1": {
+      "posts": 1,
+      "avg_views": 92,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "null": {
+      "posts": 37,
+      "avg_views": 41,
+      "avg_engagement_rate": 0.0084,
+      "total_likes": 38,
+      "total_replies": 10
+    }
+  },
+  "by_type": {
+    "型1": {
+      "posts": 1,
+      "avg_views": 91,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "型3": {
+      "posts": 3,
+      "avg_views": 44,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "型1-B": {
+      "posts": 1,
+      "avg_views": 42,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "型2": {
+      "posts": 1,
+      "avg_views": 49,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "型1-A": {
+      "posts": 1,
+      "avg_views": 9,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "型5": {
+      "posts": 1,
+      "avg_views": 11,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "型4": {
+      "posts": 1,
+      "avg_views": 92,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "null": {
+      "posts": 37,
+      "avg_views": 41,
+      "avg_engagement_rate": 0.0084,
+      "total_likes": 38,
+      "total_replies": 10
+    }
+  },
+  "by_slot": {
+    "夜": {
+      "posts": 4,
+      "avg_views": 36,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "昼": {
+      "posts": 3,
+      "avg_views": 48,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "朝": {
+      "posts": 2,
+      "avg_views": 70,
+      "avg_engagement_rate": 0.0,
+      "total_likes": 0,
+      "total_replies": 0
+    },
+    "null": {
+      "posts": 37,
+      "avg_views": 41,
+      "avg_engagement_rate": 0.0084,
+      "total_likes": 38,
+      "total_replies": 10
+    }
+  },
+  "cross_dimensional": {
+    "theme_x_type": {
+      "T7_型1": {
+        "posts": 1,
+        "avg_views": 91,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T7_型3": {
+        "posts": 1,
+        "avg_views": 21,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T3_型1-B": {
+        "posts": 1,
+        "avg_views": 42,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T2_型3": {
+        "posts": 1,
+        "avg_views": 20,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T2_型2": {
+        "posts": 1,
+        "avg_views": 49,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T4_型1-A": {
+        "posts": 1,
+        "avg_views": 9,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T10_型5": {
+        "posts": 1,
+        "avg_views": 11,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T3_型4": {
+        "posts": 1,
+        "avg_views": 92,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T1_型3": {
+        "posts": 1,
+        "avg_views": 92,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "None_None": {
+        "posts": 37,
+        "avg_views": 41,
+        "avg_engagement_rate": 0.0084,
+        "total_likes": 38,
+        "total_replies": 10
+      }
+    },
+    "theme_x_slot": {
+      "T7_夜": {
+        "posts": 2,
+        "avg_views": 56,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T3_昼": {
+        "posts": 1,
+        "avg_views": 42,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T2_夜": {
+        "posts": 1,
+        "avg_views": 20,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T2_朝": {
+        "posts": 1,
+        "avg_views": 49,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T4_昼": {
+        "posts": 1,
+        "avg_views": 9,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T10_夜": {
+        "posts": 1,
+        "avg_views": 11,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T3_朝": {
+        "posts": 1,
+        "avg_views": 92,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "T1_昼": {
+        "posts": 1,
+        "avg_views": 92,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "None_None": {
+        "posts": 37,
+        "avg_views": 41,
+        "avg_engagement_rate": 0.0084,
+        "total_likes": 38,
+        "total_replies": 10
+      }
+    },
+    "type_x_slot": {
+      "型1_夜": {
+        "posts": 1,
+        "avg_views": 91,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "型3_夜": {
+        "posts": 2,
+        "avg_views": 20,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "型1-B_昼": {
+        "posts": 1,
+        "avg_views": 42,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "型2_朝": {
+        "posts": 1,
+        "avg_views": 49,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "型1-A_昼": {
+        "posts": 1,
+        "avg_views": 9,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "型5_夜": {
+        "posts": 1,
+        "avg_views": 11,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "型4_朝": {
+        "posts": 1,
+        "avg_views": 92,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "型3_昼": {
+        "posts": 1,
+        "avg_views": 92,
+        "avg_engagement_rate": 0.0,
+        "total_likes": 0,
+        "total_replies": 0
+      },
+      "None_None": {
+        "posts": 37,
+        "avg_views": 41,
+        "avg_engagement_rate": 0.0084,
+        "total_likes": 38,
+        "total_replies": 10
+      }
+    }
+  },
+  "top_combinations": [
+    {
+      "combo": "None_None",
+      "dimension": "theme_x_type",
+      "avg_engagement_rate": 0.0084,
+      "posts": 37
+    },
+    {
+      "combo": "None_None",
+      "dimension": "theme_x_slot",
+      "avg_engagement_rate": 0.0084,
+      "posts": 37
+    },
+    {
+      "combo": "None_None",
+      "dimension": "type_x_slot",
+      "avg_engagement_rate": 0.0084,
+      "posts": 37
+    },
+    {
+      "combo": "T7_夜",
+      "dimension": "theme_x_slot",
+      "avg_engagement_rate": 0.0,
+      "posts": 2
+    },
+    {
+      "combo": "型3_夜",
+      "dimension": "type_x_slot",
+      "avg_engagement_rate": 0.0,
+      "posts": 2
+    }
+  ],
+  "bottom_combinations": [
+    {
+      "combo": "None_None",
+      "dimension": "theme_x_type",
+      "avg_engagement_rate": 0.0084,
+      "posts": 37
+    },
+    {
+      "combo": "None_None",
+      "dimension": "theme_x_slot",
+      "avg_engagement_rate": 0.0084,
+      "posts": 37
+    },
+    {
+      "combo": "None_None",
+      "dimension": "type_x_slot",
+      "avg_engagement_rate": 0.0084,
+      "posts": 37
+    },
+    {
+      "combo": "T7_夜",
+      "dimension": "theme_x_slot",
+      "avg_engagement_rate": 0.0,
+      "posts": 2
+    },
+    {
+      "combo": "型3_夜",
+      "dimension": "type_x_slot",
+      "avg_engagement_rate": 0.0,
+      "posts": 2
+    }
+  ]
+}

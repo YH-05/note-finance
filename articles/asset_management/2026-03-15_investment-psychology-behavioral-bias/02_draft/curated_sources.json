@@ -1,132 +1,359 @@
 {
-  "theme": "investment_psychology_behavioral_bias",
-  "curated_at": "2026-03-15T12:00:00+09:00",
-  "sources": [
+  "article_id": "2026-03-15_investment-psychology-behavioral-bias",
+  "curated_at": "2026-04-04",
+  "curation_criteria": "スコア50以上（信頼度・関連度・記事への貢献度を総合評価、100点満点）",
+  "curated_sources": [
     {
-      "url": "https://www.investopedia.com/terms/l/loss-psychology.asp",
-      "title": "Loss Aversion / Loss Psychology — Investopedia",
-      "publisher": "Investopedia",
-      "reliability_rank": "B",
-      "relevance_score": 92,
-      "key_findings": [
-        "損失の痛みは利益の喜びの約2倍（Kahneman & Tversky、プロスペクト理論）",
-        "ディスポジション効果：勝ち株を早期売却・負け株を持ち続けるバイアス",
-        "損失心理は株式市場の非対称ボラティリティ現象の原因とされる",
-        "進化的背景：損失への防御は生存上有利だったため脳に組み込まれている",
-        "対策：戦略的アセットアロケーション、ルールベースのリバランス、分散投資"
-      ],
-      "used_in_article": true
-    },
-    {
-      "url": "https://www.investopedia.com/terms/a/anchoring.asp",
-      "title": "Anchoring Bias — Investopedia",
-      "publisher": "Investopedia",
-      "reliability_rank": "B",
-      "relevance_score": 88,
-      "key_findings": [
-        "アンカリング：任意の基準値に不均衡に高い重みを置く認知バイアス",
-        "投資家は買値（取得コスト）をアンカーとして売買判断する",
-        "ハイウォーターマーク（最高値）もアンカーとして機能し非合理的な判断を生む",
-        "対策：アンカー要因を特定し定量的データを使用する"
-      ],
-      "used_in_article": true
-    },
-    {
-      "url": "https://www.getrichslowly.org/building-wealth/",
-      "title": "Building Wealth: Savings Rate vs Investment Returns — Get Rich Slowly",
-      "publisher": "Get Rich Slowly",
-      "reliability_rank": "C",
-      "relevance_score": 85,
-      "key_findings": [
-        "最初の100万円到達時：積立78%・投資リターン22%（年10,000ドル・7%リターンの場合）",
-        "最初の100万円到達期間：約7.84年",
-        "転換点は11年目：年間投資リターンが積立額を超える",
-        "2009年以降の市場は年平均15%という異常に高いリターン（通常の長期平均は約7%）",
-        "若い投資家の多くは特例的な強気相場しか経験しておらず期待値が歪んでいる"
-      ],
-      "used_in_article": true
-    },
-    {
-      "url": "https://www.getrichslowly.org/bouncing-back-from-financial-grief-and-loss/",
-      "title": "Bouncing Back from Financial Grief and Loss — Get Rich Slowly",
-      "publisher": "Get Rich Slowly",
-      "reliability_rank": "C",
-      "relevance_score": 82,
-      "key_findings": [
-        "金融的損失には「恥（Embarrassment）」が伴い他者に打ち明けにくい",
-        "金融的喪失には死別の葬儀のような社会的区切りの儀式がなく未完了感が残る",
-        "回復フレームワーク：現実を受け入れ悲しみを尊重する、サポートシステムを構築する等"
-      ],
-      "used_in_article": true
-    },
-    {
-      "url": "https://www.getrichslowly.org/a-guide-to-managing-your-fear-of-money/",
-      "title": "A Guide to Managing Your Fear of Money (Chrometophobia) — Get Rich Slowly",
-      "publisher": "Get Rich Slowly",
-      "reliability_rank": "C",
-      "relevance_score": 80,
-      "key_findings": [
-        "恐怖のトリガーを早期にキャッチすることが重要",
-        "知識が恐怖をコントロールに変える：投資の勉強を通じ恐怖を興奮に転換できる",
-        "損失回避が投資の合理的意思決定を妨げる"
-      ],
-      "used_in_article": true
-    },
-    {
-      "url": "https://www.fsa.go.jp/policy/nisa2/about/tsumitate/guide/index.html",
-      "title": "金融庁 NISAガイドブック（2024年版）",
-      "publisher": "金融庁",
+      "id": "src-008",
+      "title": "DALBAR QAIB 2025 - Investors' Bad Behavior Led to Sharp Underperformance in 2024",
+      "url": "https://www.planadviser.com/investors-bad-behavior-led-sharp-underperformance-2024/",
+      "publisher": "PlanAdviser / DALBAR",
+      "authority_level": "analyst",
       "reliability_rank": "A",
-      "relevance_score": 78,
-      "key_findings": [
-        "金融庁が「長期・積立・分散」を新NISA活用の3原則として公式推奨",
-        "2024年から新NISA：年間投資上限360万円（積立投資枠120万円＋成長投資枠240万円）、非課税期間の恒久化",
-        "初心者向けに非課税のメリットを強調しているが暴落時の行動バイアスへの言及は薄い"
+      "score": 98,
+      "score_breakdown": {
+        "credibility": 35,
+        "relevance": 35,
+        "article_contribution": 28
+      },
+      "used_in_sections": ["データで見る", "バイアスに打ち克つ"],
+      "key_data_used": [
+        "2024年行動ギャップ848bp（S&P500 25.02% vs 投資家 16.54%）",
+        "2009年以降15年連続でS&P500を下回る",
+        "Q3の最大資金流出後に大幅ラリーが発生——最も動いた時期が最悪のタイミング"
       ],
       "used_in_article": true
     },
     {
-      "url": "https://www.getrichslowly.org/beginners-guide-investing/",
-      "title": "A Beginner's Guide to Investing — Get Rich Slowly",
+      "id": "src-009",
+      "title": "Morningstar Mind the Gap 2025 - Closing the Behaviour Gap（Barclays Private Bank）",
+      "url": "https://privatebank.barclays.com/insights/market-perspectives-september-09-2025/closing-the-behaviour-gap/",
+      "publisher": "Barclays Private Bank / Morningstar",
+      "authority_level": "analyst",
+      "reliability_rank": "A",
+      "score": 95,
+      "score_breakdown": {
+        "credibility": 33,
+        "relevance": 35,
+        "article_contribution": 27
+      },
+      "used_in_sections": ["データで見る", "バイアスに打ち克つ"],
+      "key_data_used": [
+        "直近10年（2015〜2024年）の年間行動ギャップ122bp（1.22%）",
+        "10年間で潜在リターンの約15%を失う計算"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-013",
+      "title": "相場急変局面であなたはどうする？～行動経済学の観点から投資行動をひも解く～（アライアンス・バーンスタイン）",
+      "url": "https://www.alliancebernstein.co.jp/knowledge/33280.html",
+      "publisher": "アライアンス・バーンスタイン",
+      "authority_level": "analyst",
+      "reliability_rank": "A",
+      "score": 95,
+      "score_breakdown": {
+        "credibility": 32,
+        "relevance": 35,
+        "article_contribution": 28
+      },
+      "used_in_sections": ["ケーススタディ", "バイアスに打ち克つ"],
+      "key_data_used": [
+        "2024年8月・2025年4月ともにNISA口座では買付額>売却額（逆張り行動）",
+        "2025年4月：日本株高値から18%下落・VIXはコロナ・リーマンに次ぐ水準",
+        "暴落を主導したのは信用取引の追証売却と海外機関・ヘッジファンド"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-012",
+      "title": "資産形成白書2025（大和アセットマネジメント）",
+      "url": "https://www.daiwa-am.co.jp/hukyu-center/pdf/hakusyo/2025/hakusyo_2025.pdf",
+      "publisher": "大和アセットマネジメント",
+      "authority_level": "analyst",
+      "reliability_rank": "A",
+      "score": 93,
+      "score_breakdown": {
+        "credibility": 33,
+        "relevance": 33,
+        "article_contribution": 27
+      },
+      "used_in_sections": ["ケーススタディ"],
+      "key_data_used": [
+        "2024年8月5日日経平均-12.4%（4,451円安）・1日の下落幅は過去最大",
+        "つみたてNISAの狼狽売りは「極めて限定的」",
+        "eMAXIS Slim全世界株式の解約率は8月7日で0.59%"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-015",
+      "title": "Evidence from Japanese Retail Investors: Disposition Effect（MDPI Risks, 2025）",
+      "url": "https://www.mdpi.com/2227-9091/14/1/21",
+      "publisher": "MDPI / Risks Journal",
+      "authority_level": "official",
+      "reliability_rank": "A",
+      "score": 92,
+      "score_breakdown": {
+        "credibility": 35,
+        "relevance": 30,
+        "article_contribution": 27
+      },
+      "used_in_sections": ["投資心理の基礎知識"],
+      "key_data_used": [
+        "投資家が利益株を売る確率は損失株より約50%高い（Odean 1998）",
+        "日本人投資家でもディスポジション効果が実証（Kohsaka et al. 2013）"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-004",
+      "title": "Loss Aversion / Loss Psychology — Investopedia",
+      "url": "https://www.investopedia.com/terms/l/loss-psychology.asp",
+      "publisher": "Investopedia",
+      "authority_level": "media",
+      "reliability_rank": "B",
+      "score": 88,
+      "score_breakdown": {
+        "credibility": 30,
+        "relevance": 30,
+        "article_contribution": 28
+      },
+      "used_in_sections": ["投資心理の基礎知識"],
+      "key_data_used": [
+        "損失の痛みは利益の喜びの約2倍（Kahneman & Tversky・プロスペクト理論）",
+        "ディスポジション効果：損失回避により負け株を持ち続け、勝ち株を早期売却するバイアス"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-007",
+      "title": "金融庁 NISAガイドブック（2024年版）",
+      "url": "https://www.fsa.go.jp/policy/nisa2/about/tsumitate/guide/index.html",
+      "publisher": "金融庁",
+      "authority_level": "official",
+      "reliability_rank": "A",
+      "score": 88,
+      "score_breakdown": {
+        "credibility": 35,
+        "relevance": 28,
+        "article_contribution": 25
+      },
+      "used_in_sections": ["バイアスに打ち克つ"],
+      "key_data_used": [
+        "2024年新NISA：年間360万円まで非課税（積立投資枠120万+成長投資枠240万）",
+        "非課税期間の恒久化"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-003",
+      "title": "Building Wealth: Savings Rate vs Investment Returns — Get Rich Slowly",
+      "url": "https://www.getrichslowly.org/building-wealth/",
       "publisher": "Get Rich Slowly",
+      "authority_level": "blog",
       "reliability_rank": "C",
-      "relevance_score": 62,
-      "key_findings": [
-        "ハリス世論調査（Stash委託）：ミレニアル世代の80%は株式市場に未参加",
-        "投資しない理由：方法を知らないが34%、学生ローンが13%"
+      "score": 85,
+      "score_breakdown": {
+        "credibility": 25,
+        "relevance": 32,
+        "article_contribution": 28
+      },
+      "used_in_sections": ["バイアスに打ち克つ"],
+      "key_data_used": [
+        "最初の100万円の78%は積立から・投資リターンは22%のみ（年10万円・7%リターンの場合）",
+        "最初の100万円到達期間：約7.84年",
+        "転換点は11年目：年間投資リターンが積立額を超える"
       ],
       "used_in_article": true
     },
     {
-      "url": "internal://neo4j/content-theme",
-      "title": "Neo4j ContentTheme: 投資の心理学シリーズ分析（内部データ）",
-      "publisher": "内部データ",
-      "reliability_rank": "D",
-      "relevance_score": 70,
-      "key_findings": [
-        "Reddit暴落時の自殺予防ホットライン投稿が49,769スコアを獲得するほど深刻な心理ニーズが存在",
-        "note競合実態：教科書的バイアス解説が大半。相場×心理日記型の連載はnoteにほぼ存在しない",
-        "NISA改革で初心者大量流入中"
+      "id": "src-011",
+      "title": "相場急変時に長期積立投資家はどのように行動したか（MUFG資産形成研究所）",
+      "url": "https://www.tr.mufg.jp/shisan-ken/pdf/shisan_keisei_34.pdf",
+      "publisher": "MUFG資産形成研究所",
+      "authority_level": "analyst",
+      "reliability_rank": "A",
+      "score": 85,
+      "score_breakdown": {
+        "credibility": 32,
+        "relevance": 28,
+        "article_contribution": 25
+      },
+      "used_in_sections": ["ケーススタディ"],
+      "key_data_used": [
+        "eMAXIS Slim全世界株式の解約率は0.59%（ピーク）",
+        "長期積立投資家は教科書通りの行動ができていた"
       ],
-      "used_in_article": false
+      "used_in_article": true
     },
     {
-      "url": "internal://archived/survival-strategy",
-      "title": "既存関連記事: 暴落が来たとき個人投資家がやるべきこと（アーカイブ）",
-      "publisher": "内部アーカイブ",
-      "reliability_rank": "D",
-      "relevance_score": 60,
-      "key_findings": [
-        "暴落時に「何もしない」ことの難しさを解説",
-        "含み損＝悪ではないというメンタル管理を解説",
-        "積立NISA・iDeCoの継続戦略"
+      "id": "src-005",
+      "title": "Anchoring Bias — Investopedia",
+      "url": "https://www.investopedia.com/terms/a/anchoring.asp",
+      "publisher": "Investopedia",
+      "authority_level": "media",
+      "reliability_rank": "B",
+      "score": 82,
+      "score_breakdown": {
+        "credibility": 28,
+        "relevance": 28,
+        "article_contribution": 26
+      },
+      "used_in_sections": ["投資心理の基礎知識", "あなたも経験した？"],
+      "key_data_used": [
+        "アンカリング：任意の基準値に不均衡に高い重みを置く認知バイアス",
+        "投資家は買値（取得コスト）をアンカーとして売買判断する"
       ],
-      "used_in_article": false
+      "used_in_article": true
+    },
+    {
+      "id": "src-010",
+      "title": "Morningstar Mind the Gap 2024（Strategence Capital レビュー）",
+      "url": "https://strategencecapital.com/2024/11/01/mind-the-gap/",
+      "publisher": "Strategence Capital / Morningstar",
+      "authority_level": "analyst",
+      "reliability_rank": "B",
+      "score": 80,
+      "score_breakdown": {
+        "credibility": 28,
+        "relevance": 27,
+        "article_contribution": 25
+      },
+      "used_in_sections": ["データで見る"],
+      "key_data_used": [
+        "セクターファンドの行動ギャップ2.6%（最大）——FOMOによる高値買いが多い",
+        "アロケーションファンドの行動ギャップ0.4%（最小）——分散投資の恩恵"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-016",
+      "title": "【NISA】暴落ショック発生時でも積立投資を続けられる「無リスク資産」の考え方（ダイヤモンドZAi）",
+      "url": "https://diamond.jp/zai/articles/-/1064653",
+      "publisher": "ダイヤモンドZAi",
+      "authority_level": "media",
+      "reliability_rank": "B",
+      "score": 75,
+      "score_breakdown": {
+        "credibility": 25,
+        "relevance": 25,
+        "article_contribution": 25
+      },
+      "used_in_sections": ["ケーススタディ"],
+      "key_data_used": [
+        "プロスペクト理論の「反転効果」：損失領域ではリスク追求的になる",
+        "参照基準点効果：同じ株価でも買値によって感じ方が変わる",
+        "「自己規律」（ドルコスト平均法継続・現金比率ルール・資産配分ルール）が行動バイアスの罠を防ぐ"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-017",
+      "title": "Behavioural Finance Perspectives: Market Anomalies（PICBE 2025）",
+      "url": "https://sciendo.com/pdf/10.2478/picbe-2025-0227",
+      "publisher": "PICBE 2025 / Sciendo",
+      "authority_level": "official",
+      "reliability_rank": "A",
+      "score": 72,
+      "score_breakdown": {
+        "credibility": 30,
+        "relevance": 22,
+        "article_contribution": 20
+      },
+      "used_in_sections": ["参考データソース（補足）"],
+      "key_data_used": [
+        "損失回避・過信・ハーディングは行動ファイナンスの支配的テーマ",
+        "EMHは行動バイアスによる異常の前に限界を露呈"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-001",
+      "title": "Bouncing Back from Financial Grief and Loss — Get Rich Slowly",
+      "url": "https://www.getrichslowly.org/bouncing-back-from-financial-grief-and-loss/",
+      "publisher": "Get Rich Slowly",
+      "authority_level": "blog",
+      "reliability_rank": "C",
+      "score": 68,
+      "score_breakdown": {
+        "credibility": 22,
+        "relevance": 25,
+        "article_contribution": 21
+      },
+      "used_in_sections": ["あなたも経験した？（場面3）"],
+      "key_data_used": [
+        "金融的損失には「恥（Embarrassment）」が伴い他者に打ち明けにくい",
+        "回復フレームワーク：現実を受け入れ悲しみを尊重する"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-002",
+      "title": "A Guide to Managing Your Fear of Money — Get Rich Slowly",
+      "url": "https://www.getrichslowly.org/a-guide-to-managing-your-fear-of-money/",
+      "publisher": "Get Rich Slowly",
+      "authority_level": "blog",
+      "reliability_rank": "C",
+      "score": 62,
+      "score_breakdown": {
+        "credibility": 20,
+        "relevance": 22,
+        "article_contribution": 20
+      },
+      "used_in_sections": ["バイアスに打ち克つ（仕組み2）"],
+      "key_data_used": [
+        "恐怖のトリガーを早期にキャッチすることが重要",
+        "知識が恐怖をコントロールに変える"
+      ],
+      "used_in_article": true
+    },
+    {
+      "id": "src-006",
+      "title": "A Beginner's Guide to Investing — Get Rich Slowly",
+      "url": "https://www.getrichslowly.org/beginners-guide-investing/",
+      "publisher": "Get Rich Slowly",
+      "authority_level": "blog",
+      "reliability_rank": "C",
+      "score": 60,
+      "score_breakdown": {
+        "credibility": 20,
+        "relevance": 22,
+        "article_contribution": 18
+      },
+      "used_in_sections": ["投資心理の基礎知識（FOMO）"],
+      "key_data_used": [
+        "ミレニアル世代の80%は株式市場に未参加（Harris/Stash調査）",
+        "投資しない理由：方法を知らない34%、学生ローン13%"
+      ],
+      "used_in_article": true
+    }
+  ],
+  "excluded_sources": [
+    {
+      "id": "src-014",
+      "title": "Japan retail investors ignore domestic bull market to opt for US（Yahoo Finance）",
+      "url": "https://sg.finance.yahoo.com/news/japan-retail-investors-ignore-domestic-155425538.html",
+      "score": 48,
+      "exclusion_reason": "スコア50未満。日本個人投資家の日本株売り越しデータはコンテキスト補足として確認したが記事本文での直接引用なし"
+    },
+    {
+      "id": "src-018",
+      "title": "Neo4j ContentTheme: 投資の心理学シリーズ分析（内部データ）",
+      "url": "internal://neo4j/content-theme",
+      "score": 0,
+      "exclusion_reason": "内部データのため公開記事での引用不可。競合分析・差別化アングル検討の参考のみ"
     }
   ],
   "stats": {
-    "total_sources": 9,
-    "used_sources": 7,
-    "avg_relevance_score": 77.4
+    "total_sources_evaluated": 18,
+    "sources_above_threshold_50": 16,
+    "sources_excluded": 2,
+    "sources_used_in_article": 16,
+    "avg_score_used_sources": 79.6,
+    "primary_quantitative_data_sources": ["src-008", "src-009", "src-013", "src-012"],
+    "academic_sources": ["src-015", "src-017"],
+    "official_sources": ["src-007"],
+    "japanese_market_data_sources": ["src-011", "src-012", "src-013"]
   }
 }

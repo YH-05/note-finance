@@ -1,21 +1,20 @@
 {
   "topic": "投資の心理学（損失回避・FOMO・暴落時の行動バイアス）",
-  "researched_at": "2026-03-15",
+  "researched_at": "2026-04-04",
+  "original_research_at": "2026-03-15",
   "sources": [
     {
       "id": "src-001",
       "title": "Bouncing Back from Financial Grief and Loss",
       "url": "https://www.getrichslowly.org/bouncing-back-from-financial-grief-and-loss/",
       "source_type": "wealth-blog",
+      "authority_level": "blog",
+      "published_at": "2023-01-01",
       "key_facts": [
         "金融的損失後の感情反応：悲しみ・怒り・罪悪感・不安・孤独感・ショック・渇望",
         "金融的喪失には「恥（Embarrassment）」が伴い、死別と異なり他者に打ち明けにくい",
         "金融危機はアイデンティティ喪失を引き起こす（例：『一戸建てを持つソフトウェアエンジニア』→『無職の父親』）",
-        "制度・アドバイザー・家族への裏切り感・恨みという感情的負担が重なる",
-        "自責（自己の失敗として内面化する傾向）が回復を妨げる",
-        "金融的喪失には死別の葬儀のような社会的区切りの儀式がなく、未完了感が残る",
-        "回復フレームワーク：①現実を受け入れ悲しみを尊重する ②サポートシステムを構築する ③過去の困難からの回復を振り返る ④教訓と価値観の変化を抽出する ⑤収縮ではなく拡張を選ぶ",
-        "感情的回復力を保った女性の事例：収縮するのではなく拡張を選び、新スキル習得と別の人生経路を探索した"
+        "回復フレームワーク：①現実を受け入れ悲しみを尊重する ②サポートシステムを構築する ③過去の困難からの回復を振り返る ④教訓と価値観の変化を抽出する ⑤収縮ではなく拡張を選ぶ"
       ],
       "quotes": [
         "Decide to expand rather than contract—seek new skills and opportunities",
@@ -28,18 +27,16 @@
       "title": "A Guide to Managing Your Fear of Money (Chrometophobia)",
       "url": "https://www.getrichslowly.org/a-guide-to-managing-your-fear-of-money/",
       "source_type": "wealth-blog",
+      "authority_level": "blog",
+      "published_at": "2023-01-01",
       "key_facts": [
         "お金への恐怖（クロメトフォビア）は幼少期の体験（親の金銭的対立・離婚・経済的困難）から発生することが多い",
-        "金銭不安は予算管理の妨げとなり、借金の蓄積につながる",
         "損失回避が投資の合理的意思決定を妨げる",
         "恐怖のトリガーを早期にキャッチすることが重要：ペマ・チョードロン『最初に生じたとき（単なる緊張感の段階）に気づけば、十分対処可能』",
-        "精神科医アシュ・ナドカーニ：金融的刺激への継続的暴露が恐怖を駆動する思考パターンを問い直す助けになる",
-        "知識が恐怖をコントロールに変える：著者は投資の勉強を通じ恐怖を興奮に転換",
-        "リターンよりもお金がもたらす安心感や借金解消に焦点を当てることが有効"
+        "知識が恐怖をコントロールに変える：著者は投資の勉強を通じ恐怖を興奮に転換"
       ],
       "quotes": [
-        "If we catch it when it first arises, when it's just a tightening... it's very workable.",
-        "Instead of seeing [your fear trigger] as an obstacle... consider it an opportunity for transformation, an open doorway to awakening."
+        "If we catch it when it first arises, when it's just a tightening... it's very workable."
       ],
       "relevance": "high"
     },
@@ -48,16 +45,15 @@
       "title": "Building Wealth: Savings Rate vs Investment Returns",
       "url": "https://www.getrichslowly.org/building-wealth/",
       "source_type": "wealth-blog",
+      "authority_level": "blog",
+      "published_at": "2023-01-01",
       "key_facts": [
         "最初の100万円（$100,000）到達まで最も長い時間がかかる（年10,000ドル・7%リターンで7.84年）",
-        "最初の100万円に至る期間は1,000万円到達総時間の26%を占める",
         "最初の100万円の78%は積立（貯蓄）から来ており、投資リターンは22%のみ",
         "転換点は11年目：年間積立金額を投資リターンが超える",
         "2009年以降の市場は年平均15%という異常に高いリターン。標準的な長期期待値は約7%",
         "若い投資家の多くは特例的な強気相場しか経験しておらず、期待値が歪んでいる（FOMOの温床）",
-        "チャーリー・マンガー：『最初の100,000ドルは辛い（a bitch）』",
-        "早期リタイア（FI）を目指す13〜17年組：投資リターンが純資産増加の33〜52%を占める",
-        "早期は市場リターンより貯蓄規律・手数料最小化・収入増が資産形成を左右する"
+        "チャーリー・マンガー：『最初の100,000ドルは辛い（a bitch）』"
       ],
       "quotes": [
         "The first $100,000 is a bitch. — Charlie Munger",
@@ -70,21 +66,18 @@
       "title": "Loss Aversion / Loss Psychology — Investopedia",
       "url": "https://www.investopedia.com/terms/l/loss-psychology.asp",
       "source_type": "web",
+      "authority_level": "media",
+      "published_at": "2024-01-01",
       "key_facts": [
         "損失回避：損失は同等の利益より感情的に大きく感じられる現象（行動経済学）",
         "研究によれば損失の痛みは利益の喜びの約2倍（ただし異論もあり）",
         "ディスポジション効果：損失回避により負け株を持ち続け、勝ち株を早期売却するバイアス",
-        "損失心理は株式市場の非対称ボラティリティ現象（下落時の方がボラティリティが高い）の原因とされる",
-        "損失回避はネガティビティバイアスをも引き起こす：投資家は悪いニュースに過剰集中し、強気相場を見逃したり売り相場でパニックになる",
+        "損失心理は株式市場の非対称ボラティリティ現象の原因とされる",
         "プロスペクト理論：人は損失を避けることを利益獲得よりも強く好む（Kahneman & Tversky）",
-        "経済学者・プロトレーダーは一般人より損失回避が平均的に低い",
-        "対策：戦略的アセットアロケーション、ルールベースのリバランス、分散投資、バイ・アンド・ホールド",
-        "進化的背景：損失への防御は生存上有利だったため脳に組み込まれている（社会的条件付けもあり）",
-        "損失を確定させる痛みを避けるために、紙上損失（含み損）を抱えたまま更なるリスクを取ることがある"
+        "対策：戦略的アセットアロケーション、ルールベースのリバランス、分散投資、バイ・アンド・ホールド"
       ],
       "quotes": [
         "Some studies suggest losing hurts about twice as much as winning feels good.",
-        "Loss psychology may even be the cause of the asymmetric volatility phenomenon exhibited in stock markets, where equity market volatility is higher in declining markets than in rising ones.",
         "Investors often focus more on bad news than good, missing bull markets due to fear and panicking during sell-offs."
       ],
       "relevance": "high"
@@ -94,14 +87,13 @@
       "title": "Anchoring Bias — Investopedia",
       "url": "https://www.investopedia.com/terms/a/anchoring.asp",
       "source_type": "web",
+      "authority_level": "media",
+      "published_at": "2024-01-01",
       "key_facts": [
         "アンカリング：任意の基準値（アンカー）に不均衡に高い重みを置く認知バイアス",
         "投資家は買値（取得コスト）をアンカーとして利用し、ファンダメンタルズではなく取得価格を基準に売買判断する",
-        "損失した投資を保有し続ける原因の一つ：アンカリングが損切りを妨げる",
         "ハイウォーターマーク（最高値）もアンカーとして機能し非合理的な判断を生む",
-        "アンカリングはバリュエーション倍率の比較でも生じる",
-        "調整ヒューリスティックと組み合わさることが多い：基準点を調整しようとするが、元のバイアスが残る",
-        "対策：アンカー要因を特定し、推測ではなく定量的データを使用する。包括的なリサーチと価格評価"
+        "対策：アンカー要因を特定し、推測ではなく定量的データを使用する"
       ],
       "quotes": [
         "Anchoring is a cognitive bias in which the use of an arbitrary benchmark such as a purchase price or sticker price carries a disproportionately high weight in one's decision-making process."
@@ -113,30 +105,25 @@
       "title": "A Beginner's Guide to Investing — Get Rich Slowly",
       "url": "https://www.getrichslowly.org/beginners-guide-investing/",
       "source_type": "wealth-blog",
+      "authority_level": "blog",
+      "published_at": "2023-01-01",
       "key_facts": [
         "ハリス世論調査（Stash委託）：ミレニアル世代の80%は株式市場に未参加",
-        "投資しない理由（同調査）：学生ローンが13%、方法を知らないが34%",
-        "若い投資家はリスク許容度が高く、より高いリターンの機会がある（長期投資の優位性）",
-        "分散投資：多様な投資の組み合わせがリスクを軽減する（卵を一つのバスケットに入れない）",
-        "ミューチュアルファンド・ETFは分散投資の手段として有効",
-        "投資の基本：株式（エクイティ）・債券（固定利付）・現金同等物の三資産クラス理解"
+        "投資しない理由（同調査）：学生ローンが13%、方法を知らないが34%"
       ],
-      "quotes": [
-        "Investing can be intimidating, but it doesn't have to be.",
-        "Diversification: A technique that mixes a wide variety of investments in a portfolio... Eggs are not in a single basket."
-      ],
+      "quotes": [],
       "relevance": "medium"
     },
     {
       "id": "src-007",
       "title": "金融庁 NISAガイドブック（2024年版）",
       "url": "https://www.fsa.go.jp/policy/nisa2/about/tsumitate/guide/index.html",
-      "source_type": "web",
+      "source_type": "official",
+      "authority_level": "official",
+      "published_at": "2024-01-01",
       "key_facts": [
         "金融庁が「長期・積立・分散」を新NISA活用の3原則として公式推奨",
         "2024年から新NISA：年間投資上限360万円（積立投資枠120万円＋成長投資枠240万円）、非課税期間の恒久化",
-        "ガイドブックの主要内容：ライフプランと安定的な資産形成・長期投資・積立投資・分散投資",
-        "NISA改革により初心者の大量流入が想定されており、心理的サポートのニーズが高い",
         "初心者向けに非課税のメリットを強調しているが、暴落時の行動バイアスへの言及は薄い（記事の差別化余地）"
       ],
       "quotes": [],
@@ -144,46 +131,255 @@
     },
     {
       "id": "src-008",
-      "title": "Neo4j ContentTheme: 投資の心理学シリーズ分析（内部データ）",
-      "url": "internal://neo4j/content-theme",
+      "title": "DALBAR QAIB 2025 - Investors' Bad Behavior Led to Sharp Underperformance in 2024",
+      "url": "https://www.planadviser.com/investors-bad-behavior-led-sharp-underperformance-2024/",
       "source_type": "web",
+      "authority_level": "analyst",
+      "published_at": "2025-04-01",
       "key_facts": [
-        "Reddit暴落時の自殺予防ホットライン投稿が49,769スコアを獲得するほど深刻な心理ニーズが存在",
-        "note競合実態：教科書的バイアス解説が大半。相場×心理日記型の連載はnote上に皆無（ブルーオーシャン）",
-        "差別化切り口：相場×心理日記型（リアルタイムの相場で自分の心理を分析）",
-        "有料マガジン（月額800〜1,000円）との相性良好。暴落時に需要急増するエバーグリーンテーマ",
-        "X連携：相場急変時にリアルタイム投稿→note誘導の導線が自然に構築可能",
-        "投資本レビューと「この本にも書いてある心理」で相乗効果",
-        "深掘り調査評価：A（強く推奨）・推奨優先順位1位（5テーマ中）",
-        "NISA改革で初心者大量流入中"
+        "2024年：平均株式ファンド投資家のリターン16.54% vs S&P500の25.02%（差：848bp、8.48%ポイント）",
+        "848bpのギャップは1985年以来4番目に大きい（1995・1997・2021のみ上回る）",
+        "2009年以降15年連続でS&P500を下回っている",
+        "Q3（最大の資金流出）の直後に大幅ラリーが発生——「最も動いた時期が最悪のタイミング」",
+        "20年間の累積：株式投資家は年間1.20%、債券投資家は年間3.30%のギャップ",
+        "「Whether through late re-entries, poor rebalancing, or tactical moves that missed rallies, the end result was the same: more effort, less return」（DALBARレポートより）"
+      ],
+      "quotes": [
+        "Many investors either got spooked by the headlines or tried to optimize themselves into underperformance.",
+        "Even in a favorable market, behavioral missteps continued to erode real returns."
+      ],
+      "relevance": "high"
+    },
+    {
+      "id": "src-009",
+      "title": "Morningstar Mind the Gap 2025 - Closing the Behaviour Gap（Barclays Private Bank）",
+      "url": "https://privatebank.barclays.com/insights/market-perspectives-september-09-2025/closing-the-behaviour-gap/",
+      "source_type": "web",
+      "authority_level": "analyst",
+      "published_at": "2025-09-05",
+      "key_facts": [
+        "直近10年（終了2024年12月）：年間行動ギャップは122bp（1.22%）",
+        "10年間で潜在リターンの約15%を失う計算",
+        "DALBAR 2024：平均株式投資家は848bp（2024年）、平均債券投資家は232bp劣後",
+        "ボラティリティが高いファンドほど行動ギャップが大きい",
+        "債券ファンドとセクターファンドで最大のギャップ（セクターファンドは半分程度しか取れない）"
       ],
       "quotes": [],
       "relevance": "high"
     },
     {
-      "id": "src-009",
-      "title": "既存関連記事: 暴落が来たとき個人投資家がやるべきこと｜積立NISA・iDeCoの生還戦略（アーカイブ）",
-      "url": "internal://archived/survival-strategy",
+      "id": "src-010",
+      "title": "Morningstar Mind the Gap 2024 - レビュー（Strategence Capital）",
+      "url": "https://strategencecapital.com/2024/11/01/mind-the-gap/",
       "source_type": "web",
+      "authority_level": "analyst",
+      "published_at": "2024-11-01",
       "key_facts": [
-        "暴落時に『何もしない』ことの難しさを解説",
-        "含み損＝悪ではないというメンタル管理を解説",
-        "積立NISA・iDeCoの継続戦略"
+        "2024年版：平均ファンドリターン7.3%に対し平均投資家リターン6.3%（差1%、13%の機会損失）",
+        "セクターファンドの行動ギャップ：2.6%（最大）——FOMOによる高値買いが多い",
+        "アロケーションファンドの行動ギャップ：0.4%（最小）——分散投資の恩恵",
+        "「Timing is the culprit」——基本的にほとんどの投資家が買い高売り安をしている",
+        "優れたファイナンシャルアドバイザーがこの衝動を抑制できる"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-011",
+      "title": "相場急変時に長期積立投資家はどのように行動したか（MUFG資産形成研究所）",
+      "url": "https://www.tr.mufg.jp/shisan-ken/pdf/shisan_keisei_34.pdf",
+      "source_type": "research",
+      "authority_level": "analyst",
+      "published_at": "2024-10-16",
+      "key_facts": [
+        "2024年8月5日の日経平均-12.4%（4,451円安）——1日の下落幅は過去最大（下落率は1987年に次ぐ2番目）",
+        "eMAXIS Slim全世界株式（オールカントリー）の8月7日の解約率は0.59%（ピーク）",
+        "解約額がネットマイナスとなったのは8月7日のみ。その後は急減",
+        "投資信託協会アンケート：損失1万円で解約を考える回答が約41%（損失許容度が低い）",
+        "損失10万円まで含めると73%が解約を考える——事前調査では損失許容度が低い",
+        "実際のデータでは狼狽売りは少なく、「長期積立投資家は教科書通りの行動ができていた」"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-012",
+      "title": "資産形成白書2025（大和アセットマネジメント）",
+      "url": "https://www.daiwa-am.co.jp/hukyu-center/pdf/hakusyo/2025/hakusyo_2025.pdf",
+      "source_type": "research",
+      "authority_level": "analyst",
+      "published_at": "2025-01-01",
+      "key_facts": [
+        "2024年8月5日「令和のブラックマンデー」：日経平均-12.4%（4,451円安）",
+        "つみたてNISA対象の主要投資信託の狼狽売りは「極めて限定的」",
+        "8月1日〜5日の株安を受けて資金流出があったが、極めて限定的",
+        "「多くの投資家が不安を覚えたのは間違いないが、売買を考える間もなく下がって戻った」",
+        "2024年9月末：成長投資枠10兆2,456億円・つみたて投資枠3兆5,476億円の買付実績",
+        "年代別では30〜50代が中心（口座数・買付額ともに）"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-013",
+      "title": "相場急変局面であなたはどうする？～行動経済学の観点から投資行動をひも解く～（アライアンス・バーンスタイン）",
+      "url": "https://www.alliancebernstein.co.jp/knowledge/33280.html",
+      "source_type": "research",
+      "authority_level": "analyst",
+      "published_at": "2025-08-04",
+      "key_facts": [
+        "2025年4月：トランプ関税ショック——日本株式市場は3月の高値から18%下落、VIXはコロナ・リーマンに次ぐレベル",
+        "2024年8月・2025年4月ともに、NISA口座では売却額より買付額の方が多かった（逆張り行動）",
+        "2024年8月の相場下落を主導したのはNISA投資家ではなく信用取引の追証売却と海外機関・ヘッジファンド",
+        "NISAの枠組みが認知バイアス対処に機能した可能性がある（損益非課税のため売却にメリットが薄い）",
+        "「これだけ相場が下がっているので売却」ではなく「反対に買いに動いていた」",
+        "2024年8月ショックはわずか8ヶ月後に2025年4月のトランプ関税ショックが来た"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-014",
+      "title": "Japan retail investors ignore domestic bull market to opt for US（Yahoo Finance）",
+      "url": "https://sg.finance.yahoo.com/news/japan-retail-investors-ignore-domestic-155425538.html",
+      "source_type": "web",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "key_facts": [
+        "2025年通年でTOPIXは約25%上昇したにもかかわらず、個人投資家は日本株を3.8兆円の純売り越し（過去10年以上で最大）",
+        "海外株（投資信託経由）の純買いは約9.4兆円（2024年の過去最高近辺）",
+        "「日本株は下がったら買い、上がったら売る」という逆張り精神が30年以上かけて形成——Nomura AM",
+        "NISAが円安を加速させている：海外株買いにより円売り圧力が増大（BofA Securities）",
+        "高市政権のもとで日本株が堅調推移したが個人投資家は売り越し"
+      ],
+      "quotes": [
+        "Those old fixed ideas are deeply ingrained. Selling by retail investors will probably continue.",
+        "The outflow has been unprecedented."
+      ],
+      "relevance": "medium"
+    },
+    {
+      "id": "src-015",
+      "title": "Evidence from Japanese Retail Investors: Disposition Effect（MDPI, 2025）",
+      "url": "https://www.mdpi.com/2227-9091/14/1/21",
+      "source_type": "academic",
+      "authority_level": "official",
+      "published_at": "2025-01-01",
+      "key_facts": [
+        "Kohsaka et al. (2013)：プロスペクト理論の損失回避パラメータが日本人投資家のディスポジション効果を有意に説明",
+        "Odean (1998)：投資家が利益株を売る確率は損失株より約50%高い",
+        "ディスポジション効果は高ボラティリティ時に強まる",
+        "日本市場でも欧米と同様のディスポジション効果が実証されている"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-016",
+      "title": "【NISA】暴落ショック発生時でも積立投資を続けられる｢無リスク資産｣の考え方（ダイヤモンドZAi）",
+      "url": "https://diamond.jp/zai/articles/-/1064653",
+      "source_type": "web",
+      "authority_level": "media",
+      "published_at": "2025-04-01",
+      "key_facts": [
+        "トランプ関税ショック（2025年）はNISA投資家にとって2度目の大きな暴落体験",
+        "暴落の歴史一覧：ブラックマンデー(1978)、平成バブル崩壊(1989)、リーマン(2008)、コロナ(2020)、令和ブラックマンデー(2024)、トランプ関税ショック(2025)",
+        "プロスペクト理論の「反転効果」：損失領域ではリスク追求的になり、損失挽回のためにリスクの高い取引をして損失拡大",
+        "参照基準点効果：同じ株価でも買値によって「高い」「安い」の感じ方が変わる",
+        "「自己規律」（ドルコスト平均法継続・現金比率ルール・資産配分ルール）が行動バイアスの罠を防ぐ"
+      ],
+      "quotes": [],
+      "relevance": "high"
+    },
+    {
+      "id": "src-017",
+      "title": "Behavioural Finance Perspectives: Market Anomalies（PICBE 2025）",
+      "url": "https://sciendo.com/pdf/10.2478/picbe-2025-0227",
+      "source_type": "academic",
+      "authority_level": "official",
+      "published_at": "2025-01-01",
+      "key_facts": [
+        "損失回避・過信・ハーディング（群集心理）は行動ファイナンスの支配的テーマ",
+        "アンカリング・後悔嫌悪はまだ研究が少なく今後の焦点",
+        "カレンダー効果（1月効果・月曜効果）も損失回避・投資家心理・AMHで説明可能",
+        "EMH（効率的市場仮説）は行動バイアスによる説明不能な異常の前に限界を露呈"
+      ],
+      "quotes": [],
+      "relevance": "medium"
+    },
+    {
+      "id": "src-018",
+      "title": "Neo4j ContentTheme: 投資の心理学シリーズ分析（内部データ）",
+      "url": "internal://neo4j/content-theme",
+      "source_type": "internal",
+      "authority_level": "analyst",
+      "published_at": "2026-03-15",
+      "key_facts": [
+        "Reddit暴落時の自殺予防ホットライン投稿が49,769スコアを獲得するほど深刻な心理ニーズが存在",
+        "note競合実態：教科書的バイアス解説が大半。相場×心理日記型の連載はnote上に皆無（ブルーオーシャン）",
+        "差別化切り口：相場×心理日記型（リアルタイムの相場で自分の心理を分析）",
+        "有料マガジン（月額800〜1,000円）との相性良好"
       ],
       "quotes": [],
       "relevance": "high"
     }
   ],
+  "kg_gap_report": {
+    "status": "partial_error",
+    "note": "research-neo4j (bolt://localhost:7688) は起動中だがapoc.meta.schemaでI/Oエラー。文字列プロパティストアに一部破損疑いあり。ラベル確認は可能",
+    "existing_coverage": {
+      "behavioral_finance_facts": 0,
+      "behavioral_finance_topics": 0,
+      "investment_psychology_sources": 0,
+      "nisa_topics": ["投資教育", "新NISA制度", "長期積立投資", "資産形成・長期積立投資", "NISA制度と投資信託による長期積立投資"]
+    },
+    "gaps_identified": [
+      {
+        "type": "no_coverage",
+        "priority": "HIGH",
+        "description": "損失回避・FOMO・アンカリング・ディスポジション効果のFact/Claimがゼロ件"
+      },
+      {
+        "type": "no_coverage",
+        "priority": "HIGH",
+        "description": "DALBAR・モーニングスター行動ギャップデータがゼロ件"
+      },
+      {
+        "type": "no_coverage",
+        "priority": "HIGH",
+        "description": "日本NISA投資家の暴落時行動データがゼロ件"
+      },
+      {
+        "type": "stale_data",
+        "priority": "HIGH",
+        "description": "前回リサーチ2026-03-15から約20日経過。2025年4月トランプ関税ショック後のデータが未反映"
+      }
+    ],
+    "gaps_resolved": [
+      "DALBAR 2024/2025行動ギャップデータ（848bp）",
+      "Morningstar Mind the Gap 2024/2025（122bp annual gap）",
+      "2024年8月令和のブラックマンデーのNISA行動データ（MUFG・大和アセット）",
+      "2025年4月トランプ関税ショックのNISA行動データ（AB）",
+      "ディスポジション効果の最新実証研究（日本含む）",
+      "日本個人投資家の2025年行動統計（3.8兆円売り越し・海外株9.4兆円買い）"
+    ]
+  },
   "research_notes": {
-    "tavily_status": "API制限超過のため取得不可（2026-03-15時点）",
-    "rss_status": "暴落・狼狽売り体験フィードおよびNISA投資体験フィードは登録済みだが現時点でアイテム未収集",
+    "tavily_status": "正常（2026-04-04時点）",
+    "rss_status": "未確認",
     "key_statistics": {
       "loss_aversion_multiplier": "損失の痛みは利益の喜びの約2倍（Kahneman & Tversky, Prospect Theory）",
+      "dalbar_2024_gap": "DALBAR 2024：平均株式投資家は848bp劣後（2009年以来15年連続）",
+      "morningstar_gap_10yr": "Morningstar Mind the Gap：年間行動ギャップ122bp→10年で潜在リターンの15%を失う",
+      "disposition_effect": "投資家が利益株を売る確率は損失株の約50%高い（Odean 1998）",
       "millenial_non_investor_rate": "ミレニアル世代の80%が株式市場に未参加（Harris/Stash調査）",
       "savings_vs_returns_early": "最初の10万ドル到達時：積立78%、投資リターン22%",
       "time_to_first_100k": "年1万ドル積立・7%リターンで7.84年",
       "post_2009_return": "2009年以降の市場年平均リターン15%（通常の7%を大幅上回る）",
-      "reddit_suicide_hotline_score": "暴落時のReddit自殺予防ホットライン投稿が49,769スコア獲得"
+      "reddit_suicide_hotline_score": "暴落時のReddit自殺予防ホットライン投稿が49,769スコア獲得",
+      "japan_2024_crash": "2024年8月5日令和のブラックマンデー：日経平均-12.4%（4,451円安）、NISA口座の狼狽売りは極めて限定的",
+      "japan_2025_crash": "2025年4月トランプ関税ショック：日本株18%下落、NISA口座では買い越し継続",
+      "japan_retail_2025": "2025年個人投資家：日本株3.8兆円純売り越し（過去10年最大）、海外株9.4兆円純買い"
     }
   }
 }

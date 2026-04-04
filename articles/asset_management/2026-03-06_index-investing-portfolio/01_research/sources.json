@@ -1,0 +1,236 @@
+{
+  "session_id": "article-research-index-investing-portfolio-20260404",
+  "research_topic": "インデックス投資ポートフォリオ配分（S&P500一本 vs 分散）",
+  "as_of_date": "2026-04-04",
+  "sources": [
+    {
+      "url": "https://www.am-expo.jp/hub/ja-jp/blog/article_65.html",
+      "title": "オルカンとS＆P500の今後はどうなる？リターンやリスク・分散比較",
+      "authority_level": "media",
+      "published_at": "2026-02-25",
+      "source_type": "web",
+      "key_data": "オルカン信託報酬0.05775%、S&P500 0.0814%。オルカン国別構成：米国63.9%、日本4.8%"
+    },
+    {
+      "url": "https://dime.jp/genre/2071622/",
+      "title": "S&P500とオルカンの違いは？2026年はどっちがおすすめか？",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "S&P500が向いている人vs全世界株式が向いている人の整理"
+    },
+    {
+      "url": "https://www.aol.com/finance/smart-investors-adding-vxus-international-113009008.html",
+      "title": "Smart Investors Are Adding VXUS as International Stocks Surge Past U.S. Benchmarks",
+      "authority_level": "media",
+      "published_at": "2026-03-10",
+      "source_type": "news",
+      "key_data": "VXUS YTD +5.92%、VTI ±0%（2026年3月10日時点）。VXUS 1年38.4%、VTI 15%"
+    },
+    {
+      "url": "https://www.fool.com/investing/2026/04/02/is-spring-2026-the-best-time-to-buy-vxus-for-globa/",
+      "title": "Is Spring 2026 the Best Time to Buy VXUS for Global Diversification?",
+      "authority_level": "analyst",
+      "published_at": "2026-04-02",
+      "source_type": "web",
+      "key_data": "VXUSのPER18倍（S&P500は28倍）。過去5年: VXUS +42%、VOO +74%"
+    },
+    {
+      "url": "https://www.fool.com/investing/2026/02/23/how-international-etf-can-complement-us-portfolio/",
+      "title": "How This International ETF Could Complement a U.S.-Heavy Portfolio",
+      "authority_level": "analyst",
+      "published_at": "2026-02-23",
+      "source_type": "web",
+      "key_data": "S&P500 2026年EPS成長予想13%。新興国17%。非米国株が米国株より35%割安（Forward PE比）"
+    },
+    {
+      "url": "https://www.ishares.com/us/insights/inside-the-market/international-investing-stocks-2026",
+      "title": "International Stocks: Getting Tactical and Targeted in 2026 | iShares",
+      "authority_level": "official",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "20,000超のポートフォリオ分析→平均75%が米国株（ベンチマーク63%より高い）。28%のアドバイザーが国際株式を「最大追加候補」"
+    },
+    {
+      "url": "https://www.fidelity.com/learning-center/trading-investing/international-stocks-outlook",
+      "title": "2026 international stock outlook - Fidelity Investments",
+      "authority_level": "official",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "2025年: 非米国株+30%（S&P500をダブルスコアで上回る）。非米国株は米国株より35%割安"
+    },
+    {
+      "url": "https://www.nri.com/jp/media/column/kiuchi/20230119.html",
+      "title": "インフレ時代の到来に合わせた投資戦略の見直しは必要か：米国で高まる6対4の分散投資の有効性議論",
+      "authority_level": "analyst",
+      "published_at": "2023-01-19",
+      "source_type": "web",
+      "key_data": "2022年: 株式-19.5%、債券-12.9%の同時下落。1926年以降で株・債同時損失はわずか2%"
+    },
+    {
+      "url": "https://note.com/yui_060300/n/nc0df3e4736cd",
+      "title": "【投資初心者必見】プロが教える「勝てる」資産配分モデル5選",
+      "authority_level": "blog",
+      "published_at": "2026-01-01",
+      "source_type": "blog",
+      "key_data": "60/40: 株式eMAXIS Slimオルカン60%+先進国債券（ヘッジあり）40%。2026年でヘッジコスト低下で魅力的"
+    },
+    {
+      "url": "https://forbesjapan.com/articles/detail/87197",
+      "title": "2026年の米株式市場はどうなるのか、バリュエーションは歴史的高値",
+      "authority_level": "media",
+      "published_at": "2025-12-17",
+      "source_type": "news",
+      "key_data": "S&P500上位10銘柄比率約40%（2000-2010年は10-15%）。テック比率1/3（ITバブル最盛期と同程度）"
+    },
+    {
+      "url": "https://note.com/_takumi_inoue_/n/nd8daed682a78",
+      "title": "2026年における米国株式強気相場の持続可能性",
+      "authority_level": "blog",
+      "published_at": "2026-01-26",
+      "source_type": "blog",
+      "key_data": "CAPE比率41.03（30年平均28.5超）。バフェット指数224.7%。予想PER22.0倍（平均17.1倍超）"
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/9047",
+      "title": "NISA投資信託のおすすめはどれ？選び方と始め方を解説【2026年】",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "年代別ポートフォリオ例：20代から60代まで。eMAXIS Slimバランス8資産均等型: 信託報酬0.143%"
+    },
+    {
+      "url": "https://www.a-ifa.jp/feature/column/column60.html",
+      "title": "【2026年】新NISAおすすめ銘柄3選｜ランキングの罠と失敗しない選び方",
+      "authority_level": "analyst",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "年代別ポートフォリオ詳細。60代: バランス60%+国内債券30%+高配当10%"
+    },
+    {
+      "url": "https://go.sbisec.co.jp/media/report/fund_info_plus/fund_info_plus_260113.html",
+      "title": "2025年の勝者はオルカンではなく3地域均等型！？2026年の分散投資は？",
+      "authority_level": "official",
+      "published_at": "2026-01-13",
+      "source_type": "web",
+      "key_data": "2025年: 3地域均等型がオルカンを+4.6%上回る。新興国・国内・欧州株が米国株をアウトパフォーム"
+    },
+    {
+      "url": "https://www.cambridgeassociates.com/insight/2026-outlook-portfolio-wide-views/",
+      "title": "2026 Outlook: Portfolio-Wide Views - Cambridge Associates",
+      "authority_level": "analyst",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "247の米国寄付財団: 株式配分51.7%（2015年）→64.8%（2025年）。「ポートフォリオが逆境に脆弱」と警告"
+    },
+    {
+      "url": "https://www.gpif.go.jp/gpif/15324685gpif/5th_policy_asset_mix_details_jp.pdf",
+      "title": "第5期中期目標期間における基本ポートフォリオについて - GPIF",
+      "authority_level": "official",
+      "published_at": "2024-01-01",
+      "source_type": "web",
+      "key_data": "GPIF基本ポートフォリオ: 国内債券25%+外国債券25%+国内株式25%+外国株式25%"
+    },
+    {
+      "url": "https://itf.minkabu.jp/ranking/recommend_nisa_growth?fund_type=intl_bond",
+      "title": "【国際債券】NISA成長投資枠 おすすめランキング",
+      "authority_level": "media",
+      "published_at": "2026-04-01",
+      "source_type": "web",
+      "key_data": "eMAXIS Slim先進国債券（除く日本）: 信託報酬0.154%。ニッセイ外国債券: 0.154%"
+    },
+    {
+      "url": "https://media.monex.co.jp/articles/-/28473",
+      "title": "2026年私の投資計画：積立投資家編1",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "実際の投資家: 国内株式:海外株式:国内債券:海外債券=35:35:15:15のポートフォリオを15年維持"
+    },
+    {
+      "url": "https://www.morningstar.com/markets/why-international-stocks-still-matter-diversifying-beyond-us-winners-2026",
+      "title": "Why International Stocks Still Matter: Diversifying Beyond US Winners in 2026",
+      "authority_level": "analyst",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_data": "過去10年: 米国株+14.42%/年、国際株+8.54%/年。「2026年以降は世界を保有せよ」"
+    },
+    {
+      "url": "https://www.rakuten-sec.co.jp/web/special/am_mufg/02/",
+      "title": "全世界株vs米国株～S&P500指数に死角はあるか？～",
+      "authority_level": "official",
+      "published_at": "2024-01-01",
+      "source_type": "web",
+      "key_data": "1970年以降: 各年代で主役は変わる。1970-80年代は日本株・新興国株が主役の時代も"
+    }
+  ],
+  "entities": [
+    {"name": "eMAXIS Slim 米国株式(S&P500)", "entity_type": "Instrument"},
+    {"name": "eMAXIS Slim 全世界株式(オール・カントリー)", "entity_type": "Instrument"},
+    {"name": "eMAXIS Slim 先進国債券インデックス（除く日本）", "entity_type": "Instrument"},
+    {"name": "eMAXIS Slim バランス（8資産均等型）", "entity_type": "Instrument"},
+    {"name": "VXUS", "entity_type": "Instrument"},
+    {"name": "S&P500", "entity_type": "MarketIndex"},
+    {"name": "GPIF", "entity_type": "Organization"},
+    {"name": "iShares", "entity_type": "Company"},
+    {"name": "Fidelity", "entity_type": "Company"}
+  ],
+  "topics": [
+    {"name": "インデックス投資ポートフォリオ配分", "category": "investment_strategy"},
+    {"name": "国際分散投資（米国除く）", "category": "investment_strategy"},
+    {"name": "株式債券60/40ポートフォリオ", "category": "investment_strategy"},
+    {"name": "S&P500集中リスク", "category": "risk_analysis"},
+    {"name": "年代別資産配分", "category": "investment_strategy"},
+    {"name": "NISA活用ポートフォリオ", "category": "regulation"}
+  ],
+  "facts": [
+    {
+      "content": "eMAXIS Slim 全世界株式（オルカン）の純資産総額は2026年2月27日時点で10兆2,846億円となり、S&P500ファンド（10兆2,652億円）を逆転して国内公募投信首位に",
+      "source_url": "https://itf.minkabu.jp/ranking/recommend_nisa_growth?fund_type=intl_bond",
+      "confidence": 0.95,
+      "about_entities": [{"name": "eMAXIS Slim 全世界株式(オール・カントリー)", "entity_type": "Instrument"}]
+    },
+    {
+      "content": "S&P500のCAPE比率（シラーPER）は2026年1月時点で41.03に達し、30年平均の28.5を大幅に上回っている",
+      "source_url": "https://note.com/_takumi_inoue_/n/nd8daed682a78",
+      "confidence": 0.9,
+      "about_entities": [{"name": "S&P500", "entity_type": "MarketIndex"}]
+    },
+    {
+      "content": "S&P500の上位10銘柄が指数全体の約40%を占める（2000-2010年は10-15%）。テックセクターが指数の約1/3（ITバブル最盛期と同程度）",
+      "source_url": "https://forbesjapan.com/articles/detail/87197",
+      "confidence": 0.9,
+      "about_entities": [{"name": "S&P500", "entity_type": "MarketIndex"}]
+    },
+    {
+      "content": "VXUS（バンガード 米国除く全世界株式ETF）は2026年YTD（3月10日）で+5.92%、VTI（全米株式）は±0%。VXUSのPERは18倍（S&P500は28倍）",
+      "source_url": "https://www.fool.com/investing/2026/04/02/is-spring-2026-the-best-time-to-buy-vxus-for-globa/",
+      "confidence": 0.9,
+      "about_entities": [{"name": "VXUS", "entity_type": "Instrument"}]
+    },
+    {
+      "content": "iShares調査（2026年）: 20,000超のポートフォリオで平均75%を米国株に配分（MSCI ACWIベンチマークの63%より高い）。28%のアドバイザーが国際株式を最大追加候補",
+      "source_url": "https://www.ishares.com/us/insights/inside-the-market/international-investing-stocks-2026",
+      "confidence": 0.85,
+      "about_entities": [{"name": "iShares", "entity_type": "Company"}]
+    },
+    {
+      "content": "2022年は株式-19.5%と債券-12.9%が同時下落（1926年以降で株・債券の同時損失はわずか2%）。2026年現在、金利正常化で60/40の有効性が回復",
+      "source_url": "https://www.nri.com/jp/media/column/kiuchi/20230119.html",
+      "confidence": 0.9,
+      "about_entities": [{"name": "株式債券60/40ポートフォリオ", "entity_type": "Concept"}]
+    },
+    {
+      "content": "GPIFの基本ポートフォリオは国内債券25%+外国債券25%+国内株式25%+外国株式25%の4資産均等配分",
+      "source_url": "https://www.gpif.go.jp/gpif/15324685gpif/5th_policy_asset_mix_details_jp.pdf",
+      "confidence": 0.95,
+      "about_entities": [{"name": "GPIF", "entity_type": "Organization"}]
+    },
+    {
+      "content": "2025年: 国際株式（非米国）は30%リターン（S&P500をダブルスコアで上回る）。Fidelityは「国際分散の本格的な流れが始まりつつある」と指摘",
+      "source_url": "https://www.fidelity.com/learning-center/trading-investing/international-stocks-outlook",
+      "confidence": 0.85,
+      "about_entities": [{"name": "国際分散投資（米国除く）", "entity_type": "Concept"}]
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* === Cover Slide === */
+  .slide-title {
+    background: #FFF8F0;
+  }
+  .slide-title .top-block {
+    background: #D4A574;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 60px 40px 60px;
+  }
+  .slide-title .top-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+    letter-spacing: 4px;
+    opacity: 0.8;
+  }
+  .slide-title .bottom-block {
+    flex: 1;
+    background: #FFF8F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px;
+    gap: 24px;
+  }
+  .slide-title .hook {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #2D2D2D;
+  }
+  .slide-title .account-name {
+    font-size: 22px;
+    font-weight: 400;
+    color: #D4A574;
+  }
+  .slide-title .swipe-hint {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2D2D2D;
+    opacity: 0.5;
+  }
+
+  /* === Content Slide === */
+  .slide-content {
+    background: #FFF8F0;
+  }
+  .slide-content .accent-bar {
+    width: 100%;
+    height: 8px;
+    background: #D4A574;
+  }
+  .slide-content .main-area {
+    flex: 1;
+    padding: 60px 60px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+  }
+  .slide-content .content-number {
+    font-size: 72px;
+    font-weight: 800;
+    color: #D4A574;
+    opacity: 0.2;
+  }
+  .slide-content .content-heading {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #2D2D2D;
+  }
+  .slide-content .content-body {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #2D2D2D;
+    opacity: 0.85;
+  }
+  .slide-content .content-body .highlight {
+    font-weight: 700;
+    opacity: 1;
+  }
+  .slide-content .divider {
+    width: 80px;
+    height: 4px;
+    background: #D4A574;
+    border-radius: 2px;
+  }
+  .slide-content .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 60px;
+  }
+  .slide-content .footer-account {
+    font-size: 18px;
+    font-weight: 400;
+    color: #D4A574;
+  }
+  .slide-content .footer-page {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2D2D2D;
+    opacity: 0.3;
+  }
+
+  /* === Points (Summary) Slide === */
+  .slide-points {
+    background: #FFF8F0;
+  }
+  .slide-points .accent-bar {
+    width: 100%;
+    height: 8px;
+    background: #D4A574;
+  }
+  .slide-points .main-area {
+    flex: 1;
+    padding: 60px 60px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+  .slide-points .points-number {
+    font-size: 72px;
+    font-weight: 800;
+    color: #D4A574;
+    opacity: 0.2;
+  }
+  .slide-points .points-heading {
+    font-size: 44px;
+    font-weight: 700;
+    color: #2D2D2D;
+  }
+  .slide-points .summary-box {
+    background: #F5E6D3;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .slide-points .point-item {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2D2D2D;
+  }
+  .slide-points .divider {
+    width: 80px;
+    height: 4px;
+    background: #D4A574;
+    border-radius: 2px;
+  }
+  .slide-points .closing {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #2D2D2D;
+    opacity: 0.8;
+  }
+  .slide-points .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 60px;
+  }
+  .slide-points .footer-account {
+    font-size: 18px;
+    font-weight: 400;
+    color: #D4A574;
+  }
+  .slide-points .footer-page {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2D2D2D;
+    opacity: 0.3;
+  }
+
+  /* === CTA Slide === */
+  .slide-cta {
+    background: #D4A574;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    gap: 40px;
+  }
+  .slide-cta .cta-heading {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .slide-cta .cta-emphasis {
+    font-size: 44px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .slide-cta .cta-divider {
+    width: 120px;
+    height: 3px;
+    background: #FFFFFF;
+    opacity: 0.5;
+    border-radius: 2px;
+  }
+  .slide-cta .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 60px;
+    background: #FFF8F0;
+    border-radius: 36px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #D4A574;
+  }
+  .slide-cta .cta-account {
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+    opacity: 0.9;
+  }
+  .slide-cta .cta-tagline {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #FFFFFF;
+    opacity: 0.8;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<!-- Slides will be injected by render_carousel.py -->
+
+    <div class="slide slide-title">
+        <div class="top-block">
+            <div class="top-label">CAREER TIPS</div>
+        </div>
+        <div class="bottom-block">
+            <div class="hook">2026年の転職市場、<br>数字で見ると見え方が変わる</div>
+            <div class="account-name">@career_sister</div>
+            <div class="swipe-hint">スワイプで読む →</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">01</div>
+            <div class="content-heading">転職市場の現状（2026年2月）</div>
+            <div class="content-body">doda調べ：求人倍率 2.40倍<br>有効求人倍率（季節調整）：1.18倍<br>正社員平均初年度年収：509.7万円<br><br>売り手市場は継続中</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">1/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">02</div>
+            <div class="content-heading">業種別で見ると全然違う</div>
+            <div class="content-body">電子・電子半導体：4.25倍（最高）<br>輸送機器：3.92倍<br><br>「全体2.40倍」より「自分が狙う業種」を見よう</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">2/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">03</div>
+            <div class="content-heading">年収の実態</div>
+            <div class="content-body">ITコンサル：916万円<br>PM：870万円<br>社内SE：861万円<br>金融・保険：628万円（業種最高）<br><br>職種×業種の組み合わせが年収を決める</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">3/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">04</div>
+            <div class="content-heading">書類選考通過率のリアル</div>
+            <div class="content-body">同業種同職種：50〜80%<br>同職種異業種：40〜60%<br>異業種異職種：10〜30%<br><br>「どこに向かうか」で通過率が変わる</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">4/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-points">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="points-number">05</div>
+            <div class="points-heading">今動くべき3つの理由</div>
+            <div class="summary-box">
+            <div class="point-item">✔ 売り手市場が継続中。今が有利なタイミング</div>
+            <div class="point-item">✔ 業界×職種を変えるだけで年収が大幅UP</div>
+            <div class="point-item">✔ 採用は「量から質へ」移行中。早め行動が有利</div>
+            </div>
+            <div class="divider"></div>
+            
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">5/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-cta">
+        <div class="cta-heading">この投稿が<br>役に立ったら</div>
+        <div class="cta-emphasis">♡ いいね &amp; 保存</div>
+        <div class="cta-divider"></div>
+        <div class="cta-button">フォローする</div>
+        <div class="cta-account">@career_sister</div>
+        <div class="cta-tagline">転職の不安を、<br>一歩踏み出す勇気に変える。</div>
+    </div>
+</body>
+</html>

@@ -1273,6 +1273,8 @@ class StateUpdater:
         posted_at: str,
         threads_permalink: str,
         instagram_permalink: str | None = None,
+        threads_media_id: str | None = None,
+        instagram_media_id: str | None = None,
     ) -> None:
         """posting_state.json の post_history にエントリを追記する.
 
@@ -1290,6 +1292,10 @@ class StateUpdater:
             Threads 投稿の permalink URL。
         instagram_permalink : str | None
             Instagram 投稿の permalink URL（あれば）。
+        threads_media_id : str | None
+            Threads メディア ID（Insights API 用）。
+        instagram_media_id : str | None
+            Instagram メディア ID（Insights API 用）。
         """
         # posting_state.json の読み込み（存在しない場合は空の構造を作成）
         if self._posting_state_path.exists():
@@ -1315,7 +1321,9 @@ class StateUpdater:
             "instagram": slot_meta.get("instagram", False),
             "posted_at": posted_at,
             "threads_permalink": threads_permalink,
+            "threads_media_id": threads_media_id,
             "instagram_permalink": instagram_permalink,
+            "instagram_media_id": instagram_media_id,
         }
 
         if "post_history" not in state:
@@ -1614,6 +1622,7 @@ def _execute_post(
 
     # --- Instagram 投稿（career_sister のみ、独立した try/except）---
     instagram_permalink: str | None = None
+    instagram_media_id: str | None = None
     if account == "career_sister" and slot_meta.get("instagram") is True:
         slot_dir = slot_file.parent
         ig_poster = CareerSisterInstagramPoster()
@@ -1621,6 +1630,7 @@ def _execute_post(
             ig_result = ig_poster.post(slot_dir)
             if ig_result is not None:
                 instagram_permalink = ig_result.permalink
+                instagram_media_id = ig_result.media_id
                 logger.info(
                     "instagram_post_result",
                     account=account,
@@ -1654,6 +1664,8 @@ def _execute_post(
         posted_at=posted_at,
         threads_permalink=result.permalink or "",
         instagram_permalink=instagram_permalink,
+        threads_media_id=result.media_id,
+        instagram_media_id=instagram_media_id,
     )
     return True
 

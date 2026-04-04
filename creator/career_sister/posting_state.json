@@ -1,7 +1,7 @@
 {
-  "current_cycle": 3,
-  "cycle_position": 2,
-  "total_posts": 22,
+  "current_cycle": 5,
+  "cycle_position": 3,
+  "total_posts": 43,
   "cycle_schedule": [
     "有益",
     "有益",
@@ -30,9 +30,9 @@
     ]
   },
   "type_rotation": {
-    "有益": 16,
-    "エンゲージメント": 4,
-    "収益化": 2
+    "有益": 30,
+    "エンゲージメント": 9,
+    "収益化": 4
   },
   "type_sequence": {
     "有益": [
@@ -180,19 +180,40 @@
     "T5",
     "T3",
     "T10",
-    "T6"
+    "T6",
+    "T9",
+    "T7",
+    "T8",
+    "T4",
+    "T1",
+    "T3",
+    "T5",
+    "T9",
+    "T10",
+    "T2",
+    "T6",
+    "T8",
+    "T7",
+    "T1",
+    "T9",
+    "T4",
+    "T5",
+    "T10",
+    "T6",
+    "T3",
+    "T2"
   ],
   "theme_use_counts": {
-    "T1": 2,
-    "T2": 2,
-    "T3": 2,
-    "T4": 2,
-    "T5": 2,
-    "T6": 2,
-    "T7": 3,
-    "T8": 2,
-    "T9": 2,
-    "T10": 3
+    "T1": 4,
+    "T2": 4,
+    "T3": 4,
+    "T4": 4,
+    "T5": 4,
+    "T6": 4,
+    "T7": 5,
+    "T8": 4,
+    "T9": 5,
+    "T10": 5
   },
   "used_material_ids": [],
   "post_history": [
@@ -207,7 +228,8 @@
       "instagram": false,
       "posted_at": "2026-03-23T06:16:44+00:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWN3DvUE3vF",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "17882118468489903"
     },
     {
       "post_id": "2026-03-28_001",
@@ -220,7 +242,8 @@
       "instagram": false,
       "posted_at": "2026-03-28T22:27:13.208966+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWbgSpXGJWR",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "17864093451535164"
     },
     {
       "post_id": "2026-03-29_001",
@@ -233,7 +256,8 @@
       "instagram": false,
       "posted_at": "2026-03-29T12:32:02.896126+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWdA-SaGF3v",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "18002124698883287"
     },
     {
       "post_id": "2026-03-30_001",
@@ -246,7 +270,8 @@
       "instagram": false,
       "posted_at": "2026-03-30T20:33:22.509442+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWgc2gJkykW",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "18105758527898643"
     },
     {
       "post_id": "2026-03-31_001",
@@ -259,7 +284,8 @@
       "instagram": false,
       "posted_at": "2026-03-31T07:31:38.176280+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWhoL2tEwpx",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "18142490554500600"
     },
     {
       "post_id": "2026-03-31_002",
@@ -272,7 +298,8 @@
       "instagram": false,
       "posted_at": "2026-03-31T12:33:41.046549+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWiKwJvExb5",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "18121854178715115"
     },
     {
       "post_id": "2026-03-31_003",
@@ -285,7 +312,8 @@
       "instagram": true,
       "posted_at": "2026-03-31T20:31:27.496370+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWjBbbQEgvw",
-      "instagram_permalink": "https://www.instagram.com/p/DWjBmjbEu50/"
+      "instagram_permalink": "https://www.instagram.com/p/DWjBmjbEu50/",
+      "threads_media_id": "17870954457478041"
     },
     {
       "post_id": "2026-04-01_001",
@@ -298,7 +326,8 @@
       "instagram": false,
       "posted_at": "2026-04-01T07:35:42.849744+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWkNcaoE-WP",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "17952953031109237"
     },
     {
       "post_id": "2026-04-01_002",
@@ -311,7 +340,8 @@
       "instagram": false,
       "posted_at": "2026-04-01T12:31:03.599083+09:00",
       "threads_permalink": "https://www.threads.com/@career_sister/post/DWkvPnVkpE7",
-      "instagram_permalink": null
+      "instagram_permalink": null,
+      "threads_media_id": "17851126647658692"
     }
   ]
 }

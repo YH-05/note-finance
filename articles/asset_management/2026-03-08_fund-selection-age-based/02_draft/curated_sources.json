@@ -1,32 +1,86 @@
 [
   {
-    "title": "JNB投資信託 - FPが解説！ 年代別おすすめファンド「50代」",
-    "url": "https://www.japannetbank.co.jp/investment/trust/sp/f_column03.html",
-    "score": 85,
-    "relevance": "50代の運用戦略とコスト意識に関する具体的な解説"
+    "url": "https://www.japannetbank.co.jp/investment/trust/sp/f_column01.html",
+    "title": "FPが解説！年代別おすすめファンド「20代」 - 日本ネット銀行",
+    "authority_level": "official",
+    "relevance_score": 95,
+    "used_in": "実践ガイド（20代の戦略）"
   },
   {
-    "title": "一番儲かる投資信託はどれ？おすすめランキングや選び方・戦略を ...",
-    "url": "https://biz.moneyforward.com/tax_return/basic/81286/",
-    "score": 90,
-    "relevance": "40代・50代の安定と成長のバランスに関する解説"
+    "url": "https://www.japannetbank.co.jp/investment/trust/sp/f_column02.html",
+    "title": "FPが解説！年代別おすすめファンド「30〜40代」 - 日本ネット銀行",
+    "authority_level": "official",
+    "relevance_score": 93,
+    "used_in": "実践ガイド（30代の戦略）"
   },
   {
-    "title": "【NISAでつみたて投資】年代別人気ファンドを紹介！",
-    "url": "https://info.monex.co.jp/nisa/ranking/age-group.html",
-    "score": 80,
-    "relevance": "NISAでの年代別人気ファンドの傾向"
+    "url": "https://mlplanning.co.jp/about/14_%E8%B3%87%E7%94%A3%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9%E3%83%BB%E8%80%83%E3%81%88%E6%96%B9/",
+    "title": "お金の専門家が伝えたい。理想の年代別の資産運用ポートフォリオ - mlplanning.co.jp",
+    "authority_level": "analyst",
+    "relevance_score": 90,
+    "used_in": "基礎知識（人的資本）・実践ガイド（40代の戦略）"
   },
   {
-    "title": "年代別！資産運用おすすめプランのご紹介",
-    "url": "https://www.nomura-am.co.jp/sodateru/start/recommended_plan/",
-    "score": 95,
-    "relevance": "20代から60代までの包括的なおすすめプラン"
+    "url": "https://www.dir.co.jp/report/research/capital-mkt/asset/20250813_025259.pdf",
+    "title": "米国401(k)TDF導入の効果 - 大和総研",
+    "authority_level": "analyst",
+    "relevance_score": 92,
+    "used_in": "基礎知識（グライドパス）・まとめ"
   },
   {
-    "title": "年代・タイプ別の投資信託の選び方 - 三井住友銀行",
-    "url": "https://www.smbc.co.jp/kojin/toushin/howtochoose1/",
-    "score": 90,
-    "relevance": "年代別のリスク許容度と投資信託の選び方の基礎"
+    "url": "https://www.77bank.co.jp/financial-column/article77.html",
+    "title": "iDeCoとNISAは併用可能！ - 七十七銀行",
+    "authority_level": "official",
+    "relevance_score": 80,
+    "used_in": "実践ガイド（iDeCo×NISA組み合わせ）"
+  },
+  {
+    "url": "https://www.rakuten-sec.co.jp/web/nisa/special/usage/10/",
+    "title": "インデックスファンド＋定期売却 - 楽天証券",
+    "authority_level": "official",
+    "relevance_score": 90,
+    "used_in": "実践ガイド（60代以降の戦略）・シミュレーション"
+  },
+  {
+    "url": "https://www.am-expo.jp/hub/ja-jp/blog/article_23.html",
+    "title": "オルカンvsS&P500徹底比較 - am-expo.jp",
+    "authority_level": "media",
+    "relevance_score": 95,
+    "used_in": "データで見る現状（ファンド比較表）・まとめ"
+  },
+  {
+    "url": "https://www.bk.mufg.jp/column/shisan_unyo/b0160.html",
+    "title": "NISAとは？ - 三菱UFJ銀行",
+    "authority_level": "official",
+    "relevance_score": 85,
+    "used_in": "基礎知識（新NISA制度概要）・データで見る現状"
+  },
+  {
+    "url": "https://www.tokaitokyo.co.jp/nisa-center/trend-nisa/2503071/",
+    "title": "新NISA1年目おさらい！年収や年齢別の平均購入金額 - 東海東京証券",
+    "authority_level": "official",
+    "relevance_score": 88,
+    "used_in": "データで見る現状（NISA利用者の年代分布）"
+  },
+  {
+    "url": "https://nisa-strategy.com/nisa-ideco-guide-2026",
+    "title": "新NISA×iDeCo完全併用ガイド - nisa-strategy.com",
+    "authority_level": "media",
+    "relevance_score": 87,
+    "used_in": "実践ガイド（30代の節税効果）・シミュレーション"
+  },
+  {
+    "url": "https://manabow.com/qa/20240904.html",
+    "title": "資産を運用で増やしながら定期的に取り崩していく方法 - manabow.com",
+    "authority_level": "media",
+    "relevance_score": 82,
+    "used_in": "実践ガイド（60代以降）・シミュレーション（取り崩し）"
+  },
+  {
+    "url": "https://www.am-one.co.jp/hagukumu/article/column-20260306-1.html",
+    "title": "年齢・人生のライフステージと投資 - アセットマネジメントOne",
+    "authority_level": "official",
+    "relevance_score": 85,
+    "used_in": "基礎知識（ライフステージと投資の関係）"
   }
 ]
