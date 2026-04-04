@@ -1565,3 +1565,10 @@
 [sync-nas]   ✓ data/config/
 [sync-nas] 完了: 2026-04-04T03:33:26Z
 ---
+[sync-nas] === PULL: NAS → ローカル ===
+[sync-nas] 最終PUSH: 2026-04-04T08:51:24Z
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了
