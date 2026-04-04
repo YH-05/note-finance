@@ -740,6 +740,190 @@ class TestMapFinanceNews:
         assert result["sources"] == []
         assert result["claims"] == []
 
+    def test_正常系_contentからchunkが生成される(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/full-article",
+                    "title": "Full Article",
+                    "summary": "Summary text",
+                    "content": "This is the full article body text.",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T10:00:00+00:00",
+                }
+            ]
+        )
+        result = map_finance_news(batch)
+
+        assert len(result["chunks"]) == 1
+        chunk = result["chunks"][0]
+        assert chunk["content"] == "This is the full article body text."
+        assert chunk["index"] == 0
+        assert "chunk_id" in chunk
+        assert "source_id" in chunk
+
+        # contains_chunk relation
+        rels = result["relations"]["contains_chunk"]
+        assert len(rels) == 1
+        assert rels[0]["from_id"] == result["sources"][0]["source_id"]
+        assert rels[0]["to_id"] == chunk["chunk_id"]
+
+    def test_正常系_contentが空ならchunkは生成されない(self) -> None:
+        batch = _news_batch()  # デフォルトはcontent無し
+        result = map_finance_news(batch)
+        assert result["chunks"] == []
+
+    def test_正常系_categoryとtagsからtopicが生成される(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/tagged",
+                    "title": "Tagged Article",
+                    "summary": "Summary",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T10:00:00+00:00",
+                    "category": "markets",
+                    "tags": ["inflation", "fed"],
+                }
+            ]
+        )
+        result = map_finance_news(batch)
+
+        assert len(result["topics"]) == 3
+        topic_names = {t["name"] for t in result["topics"]}
+        assert topic_names == {"markets", "inflation", "fed"}
+
+        # tagged relations
+        rels = result["relations"]["tagged"]
+        assert len(rels) == 3
+
+    def test_正常系_topic重複が排除される(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/a1",
+                    "title": "Article 1",
+                    "summary": "S1",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T10:00:00+00:00",
+                    "category": "markets",
+                },
+                {
+                    "url": "https://example.com/a2",
+                    "title": "Article 2",
+                    "summary": "S2",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T11:00:00+00:00",
+                    "category": "markets",
+                },
+            ]
+        )
+        result = map_finance_news(batch)
+
+        # Topic "markets" は1件のみ
+        assert len(result["topics"]) == 1
+        # tagged relations は2件（各記事から1件ずつ）
+        assert len(result["relations"]["tagged"]) == 2
+
+    def test_正常系_authorからauthorノードが生成される(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/authored",
+                    "title": "Authored Article",
+                    "summary": "Summary",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T10:00:00+00:00",
+                    "author": "John Smith",
+                }
+            ]
+        )
+        result = map_finance_news(batch)
+
+        assert len(result["authors"]) == 1
+        author = result["authors"][0]
+        assert author["name"] == "John Smith"
+        assert author["author_type"] == "journalist"
+        assert "author_id" in author
+
+        # authored_by relation
+        rels = result["relations"]["authored_by"]
+        assert len(rels) == 1
+        assert rels[0]["from_id"] == result["sources"][0]["source_id"]
+        assert rels[0]["to_id"] == author["author_id"]
+
+    def test_正常系_author重複が排除される(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/b1",
+                    "title": "Article 1",
+                    "summary": "S1",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T10:00:00+00:00",
+                    "author": "Jane Doe",
+                },
+                {
+                    "url": "https://example.com/b2",
+                    "title": "Article 2",
+                    "summary": "S2",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T11:00:00+00:00",
+                    "author": "Jane Doe",
+                },
+            ]
+        )
+        result = map_finance_news(batch)
+
+        # Author "Jane Doe" は1件のみ
+        assert len(result["authors"]) == 1
+        # authored_by relations は2件
+        assert len(result["relations"]["authored_by"]) == 2
+
+    def test_正常系_全フィールドが揃った記事でフルマッピング(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/full",
+                    "title": "Full Mapping Article",
+                    "summary": "Summary of the article.",
+                    "content": "Full body text of the article.",
+                    "feed_source": "CNBC - Markets",
+                    "published": "2026-03-07T10:00:00+00:00",
+                    "category": "economy",
+                    "tags": ["gdp", "growth"],
+                    "author": "Alice Reporter",
+                }
+            ]
+        )
+        result = map_finance_news(batch)
+
+        assert len(result["sources"]) == 1
+        assert len(result["claims"]) == 1
+        assert len(result["chunks"]) == 1
+        assert len(result["topics"]) == 3  # economy, gdp, growth
+        assert len(result["authors"]) == 1
+        assert "tagged" in result["relations"]
+        assert "contains_chunk" in result["relations"]
+        assert "authored_by" in result["relations"]
+
+    def test_エッジケース_authorが空文字ならauthorは生成されない(self) -> None:
+        batch = _news_batch(
+            articles=[
+                {
+                    "url": "https://example.com/no-author",
+                    "title": "No Author",
+                    "summary": "Summary",
+                    "feed_source": "Test",
+                    "published": "2026-03-07T10:00:00+00:00",
+                    "author": "",
+                }
+            ]
+        )
+        result = map_finance_news(batch)
+        assert result["authors"] == []
+        assert "authored_by" not in result["relations"]
+
 
 # ---------------------------------------------------------------------------
 # map_ai_research

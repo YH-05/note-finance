@@ -50,13 +50,16 @@ except ImportError:
 class FinanceNewsMapper(BaseMapper):
     """finance-news-workflow コマンド専用マッパー。
 
-    ``articles[]`` から Source と Claim ノードを生成する。
+    ``articles[]`` から Source, Claim, Chunk, Topic, Author ノードを生成する。
     共通処理（``build_result``）は ``BaseMapper`` に委譲する。
 
     Notes
     -----
     - Source: 各記事1件につき1ノード
     - Claim: ``summary`` が存在する場合のみ生成
+    - Chunk: ``content`` (本文) が存在する場合のみ生成
+    - Topic: ``category`` および ``tags`` から生成（重複排除済み）
+    - Author: ``author`` が存在する場合のみ生成（重複排除済み）
     - ``batch_label`` を ``category`` として使用
     """
 
@@ -71,22 +74,38 @@ class FinanceNewsMapper(BaseMapper):
         Returns
         -------
         dict[str, Any]
-            ``sources``, ``claims``, ``session_id``, ``batch_label`` を含む
-            標準化されたマッパー結果。
+            ``sources``, ``claims``, ``chunks``, ``topics``, ``authors``,
+            ``relations`` を含む標準化されたマッパー結果。
         """
         # 遅延インポートで循環依存を回避
         from mappers.helpers import (
             _make_source,
             generate_claim_id,
+            generate_chunk_id,
             generate_source_id,
+            generate_topic_id,
             resolve_category,
         )
 
         articles = input_data.get("articles", [])
         sources: list[dict[str, Any]] = []
         claims: list[dict[str, Any]] = []
+        chunks: list[dict[str, Any]] = []
+        topics: list[dict[str, Any]] = []
+        authors: list[dict[str, Any]] = []
+
+        # Relations
+        tagged_rels: list[dict[str, str]] = []
+        contains_chunk_rels: list[dict[str, str]] = []
+        authored_by_rels: list[dict[str, str]] = []
+
+        # Dedup tracking
+        seen_topic_ids: set[str] = set()
+        seen_author_names: set[str] = set()
 
         logger.debug("FinanceNewsMapper.map: processing %d articles", len(articles))
+
+        batch_category = resolve_category(input_data.get("batch_label", ""))
 
         for article in articles:
             url = article.get("url", "")
@@ -101,6 +120,7 @@ class FinanceNewsMapper(BaseMapper):
                 )
             )
 
+            # Claim from summary
             summary = article.get("summary", "")
             if summary:
                 claims.append(
@@ -108,19 +128,92 @@ class FinanceNewsMapper(BaseMapper):
                         "claim_id": generate_claim_id(summary),
                         "content": summary,
                         "source_id": source_id,
-                        "category": resolve_category(input_data.get("batch_label", "")),
+                        "category": batch_category,
                     }
                 )
 
+            # Chunk from content (full article body)
+            content = article.get("content", "")
+            if content:
+                chunk_id = generate_chunk_id(source_id, 0)
+                chunks.append(
+                    {
+                        "chunk_id": chunk_id,
+                        "source_id": source_id,
+                        "content": content,
+                        "index": 0,
+                    }
+                )
+                contains_chunk_rels.append(
+                    {"from_id": source_id, "to_id": chunk_id}
+                )
+
+            # Topics from category and tags
+            topic_names: list[str] = []
+            category = article.get("category", "")
+            if category:
+                topic_names.append(category)
+            for tag in article.get("tags", []):
+                if tag and tag not in topic_names:
+                    topic_names.append(tag)
+
+            for topic_name in topic_names:
+                topic_id = generate_topic_id(topic_name, batch_category)
+                if topic_id not in seen_topic_ids:
+                    seen_topic_ids.add(topic_id)
+                    topics.append(
+                        {
+                            "topic_key": topic_id,
+                            "name": topic_name,
+                            "category": batch_category,
+                        }
+                    )
+                tagged_rels.append({"from_id": source_id, "to_id": topic_id})
+
+            # Author
+            author_name = article.get("author", "")
+            if author_name:
+                from pdf_pipeline.services.id_generator import generate_author_id
+
+                author_id = generate_author_id(author_name, "journalist")
+                if author_name not in seen_author_names:
+                    seen_author_names.add(author_name)
+                    authors.append(
+                        {
+                            "author_id": author_id,
+                            "name": author_name,
+                            "author_type": "journalist",
+                        }
+                    )
+                authored_by_rels.append(
+                    {"from_id": source_id, "to_id": author_id}
+                )
+
         logger.info(
-            "FinanceNewsMapper.map: sources=%d, claims=%d",
+            "FinanceNewsMapper.map: sources=%d, claims=%d, chunks=%d, "
+            "topics=%d, authors=%d",
             len(sources),
             len(claims),
+            len(chunks),
+            len(topics),
+            len(authors),
         )
+
+        relations: dict[str, list[dict[str, str]]] = {}
+        if tagged_rels:
+            relations["tagged"] = tagged_rels
+        if contains_chunk_rels:
+            relations["contains_chunk"] = contains_chunk_rels
+        if authored_by_rels:
+            relations["authored_by"] = authored_by_rels
 
         return self.build_result(
             input_data,
             input_data.get("batch_label", ""),
             sources=sources,
             claims=claims,
+            chunks=chunks,
+            topics=topics,
+            authors=authors,
+            relations=relations,
         )
