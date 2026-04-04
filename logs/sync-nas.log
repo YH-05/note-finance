@@ -1620,3 +1620,7 @@
 [sync-nas]   ✓ data/config/
 [sync-nas] 完了: 2026-04-04T22:30:10Z
 ---
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T08:28:11+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
