@@ -1,9 +1,9 @@
 title: インデックスファンドの選び方を年齢別に解説：ライフステージに合わせた最適資産設計ガイド
 category: asset_management
 type: column
-status: draft
+status: published
 created_at: '2026-03-08T13:45:00Z'
-updated_at: '2026-04-04T14:15:00Z'
+updated_at: '2026-04-04T05:38:09.587120+00:00'
 tags:
 - NISA
 - 投資初心者
@@ -27,7 +27,7 @@ experience:
     outcome: ''
 critic_score: 76
 revision_count: 1
-note_url: null
+note_url: https://editor.note.com/notes/n20aa83bc3c74/edit/
 x_post_url: null
 research_sources: 17
 workflow:
@@ -35,7 +35,10 @@ workflow:
   draft: done
   critique: done
   revision: done
-  publish: pending
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 neo4j:
   pattern_node_id: null
   source_node_ids: []
@@ -44,3 +47,5 @@ legacy:
   old_path: asset_management/fund_selection_age_based
   old_article_id: fund_selection_age_based
   migrated_at: '2026-03-15T01:21:14.522193+00:00'
+published_at: '2026-04-04T05:38:09.587120+00:00'
+draft_url: https://editor.note.com/notes/n20aa83bc3c74/edit/

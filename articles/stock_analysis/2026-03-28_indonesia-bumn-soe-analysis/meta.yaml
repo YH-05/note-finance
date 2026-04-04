@@ -1,51 +1,46 @@
-article_id: "2026-03-28_indonesia-bumn-soe-analysis"
-topic: "インドネシアのBUMN（国有企業）分析"
-category: "stock_analysis"
-type: "data_analysis"
-target_audience: "intermediate"
+article_id: 2026-03-28_indonesia-bumn-soe-analysis
+topic: インドネシアのBUMN（国有企業）分析
+category: stock_analysis
+type: data_analysis
+target_audience: intermediate
 target_wordcount: 4000
-
 symbols:
-  # 銀行セクター
-  - BBRI.JK    # Bank Rakyat Indonesia
-  - BMRI.JK    # Bank Mandiri
-  - BBNI.JK    # Bank Negara Indonesia
-  - BBTN.JK    # Bank Tabungan Negara
-  # 通信
-  - TLKM.JK    # Telkom Indonesia
-  # エネルギー・資源
-  - PGAS.JK    # Perusahaan Gas Negara
-  - PTBA.JK    # Bukit Asam (石炭)
-  - ANTM.JK    # Aneka Tambang (鉱業)
-  - TINS.JK    # Timah (錫)
-  # 建設・インフラ
-  - WIKA.JK    # Wijaya Karya
-  - WSKT.JK    # Waskita Karya
-  - PTPP.JK    # PP Pembangunan Perumahan
-  - ADHI.JK    # Adhi Karya
-  - JSMR.JK    # Jasa Marga (高速道路)
-  # その他
-  - SMGR.JK    # Semen Indonesia (セメント)
-  - KAEF.JK    # Kimia Farma (製薬)
-  - ELSA.JK    # Elnusa (石油サービス)
-
+- BBRI.JK
+- BMRI.JK
+- BBNI.JK
+- BBTN.JK
+- TLKM.JK
+- PGAS.JK
+- PTBA.JK
+- ANTM.JK
+- TINS.JK
+- WIKA.JK
+- WSKT.JK
+- PTPP.JK
+- ADHI.JK
+- JSMR.JK
+- SMGR.JK
+- KAEF.JK
+- ELSA.JK
 date_range:
-  start: "2020-01-01"
-  end: "2026-03-28"
-
-status: "review"
-created_at: "2026-03-28"
-updated_at: "2026-03-28"
-
+  start: '2020-01-01'
+  end: '2026-03-28'
+status: published
+created_at: '2026-03-28'
+updated_at: '2026-04-04T05:38:00.805061+00:00'
 workflow:
-  research: "done"
-  draft: "done"
-  critique: "done"
-  revision: "done"
-  publish: "pending"
-
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: false
+published_at: '2026-04-04T05:38:00.805061+00:00'
+draft_url: https://editor.note.com/notes/nf8819a455e6b/edit/
