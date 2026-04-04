@@ -189,7 +189,7 @@
     {
       "date": "2026-04-04",
       "day_label": "金",
-      "status": "draft",
+      "status": "published",
       "slots": [
         {
           "slot": "朝",
@@ -224,8 +224,10 @@
           "instagram": true,
           "carousel_slides": 7,
           "posted_at": null,
-          "threads_permalink": null,
-          "instagram_permalink": null
+          "threads_permalink": "https://www.threads.com/@career_sister/post/DWtVNOvk-Wo",
+          "instagram_permalink": null,
+          "status": "published",
+          "published_at": "2026-04-04T20:36:41.375402+09:00"
         }
       ]
     },

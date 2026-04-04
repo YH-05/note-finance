@@ -1,0 +1,61 @@
+{
+    "article_id": "2026-04-04_dca-strategy-volatile-market",
+    "sources": [
+        {
+            "url": "https://www.fsa.go.jp/policy/nisa2/about/nisa/index.html",
+            "title": "NISAを使ったシミュレーション｜金融庁",
+            "authority_level": "official",
+            "source_type": "government",
+            "published_at": "2024-01-01",
+            "notes": "毎月1万円×年利3%×40年→930万円シミュレーション"
+        },
+        {
+            "url": "https://www.am.mufg.jp/",
+            "title": "三菱UFJ国際投信 - eMAXIS Slim 全世界株式（オール・カントリー）運用データ",
+            "authority_level": "official",
+            "source_type": "fund",
+            "published_at": "2026-02-27",
+            "notes": "純資産総額10兆2,846億円（2026年2月27日）、S&P500ファンドを逆転し国内1位"
+        },
+        {
+            "url": "https://www.jsda.or.jp/shiryoshitsu/toukei/nisa/index.html",
+            "title": "NISA口座の利用状況調査（金融庁/日本証券業協会）",
+            "authority_level": "official",
+            "source_type": "government",
+            "published_at": "2025-03-01",
+            "notes": "新NISA口座総数2,558万6,460口座（2024年12月末）、つみたて投資枠インデックス型65.5%"
+        },
+        {
+            "url": "https://www.alliancebernstein.co.jp/",
+            "title": "アライアンス・バーンスタイン調査（2025年8月）- NISA口座における暴落時の投資家行動分析",
+            "authority_level": "analyst",
+            "source_type": "research",
+            "published_at": "2025-08-01",
+            "notes": "2024年8月・2025年4月の両暴落でNISA口座は買付額>売却額を確認。VIXがコロナ・リーマン水準に上昇した2025年4月関税ショック時のデータ含む"
+        },
+        {
+            "url": "https://www.bk.mufg.jp/report/report2024/",
+            "title": "MUFG資産形成研究所 - 令和のブラックマンデー分析（2024年8月）",
+            "authority_level": "analyst",
+            "source_type": "research",
+            "published_at": "2024-09-01",
+            "notes": "2024年8月5日の日経平均-12.4%暴落時、長期積立投資家の狼狽売りは極めて限定的（解約率ピーク0.59%）"
+        },
+        {
+            "url": "https://www.schwab.com/learn/story/does-market-timing-work",
+            "title": "Does Market Timing Work? | Charles Schwab",
+            "authority_level": "analyst",
+            "source_type": "research",
+            "published_at": "2024-01-01",
+            "notes": "20年間の投資スタイル比較：完璧なタイミング$186K vs DCA$166K vs 現金保有$41K"
+        },
+        {
+            "url": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/guide-to-the-markets/",
+            "title": "J.P. Morgan Asset Management - Guide to the Markets",
+            "authority_level": "analyst",
+            "source_type": "research",
+            "published_at": "2024-12-31",
+            "notes": "20年間で最良の10日を逃した場合の資産損失（71,750ドル→28,260ドル）"
+        }
+    ]
+}

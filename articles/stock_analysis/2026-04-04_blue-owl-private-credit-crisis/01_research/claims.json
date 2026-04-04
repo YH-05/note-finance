@@ -1,0 +1,125 @@
+{
+  "article_id": "2026-04-04_blue-owl-private-credit-crisis",
+  "claims": [
+    {
+      "claim": "Blue Owl Capital (OWL) の株価は2026年に入り約40%超下落し、52週高値$21.18から現在$8.64（約59%安）となった",
+      "evidence": "OWL株価 $8.64、市場時価総額$133.2億。52週高値$21.18から-59.2%。年初来でも-40%を超える下落幅（2026年4月時点）",
+      "source_url": "https://stockanalysis.com/stocks/owl/",
+      "confidence": 0.95,
+      "sentiment": "bearish",
+      "category": "fact"
+    },
+    {
+      "claim": "OWLの2つの主要ファンドに計$54億の解約請求が殺到し、四半期5%の上限で制限された（Q1 2026）",
+      "evidence": "OCIC（$360億ファンド）に21.9%、OTIC（$60億テックファンド）に40.7%の解約請求。実際の支払い可能額は請求の3分の2程度に制限",
+      "source_url": "https://www.cnbc.com/2026/04/02/blue-owl-private-credit-funds-redemptions-requests.html",
+      "confidence": 0.98,
+      "sentiment": "bearish",
+      "category": "fact"
+    },
+    {
+      "claim": "Blue Owlのクレジットプラットフォームは総AUM $3074億の約50%を占め、プライベートクレジット市場の下落に対して構造的に脆弱",
+      "evidence": "2025年末時点のAUM $307.4B、うちクレジット事業約50%。管理報酬の約85%がパーマネントキャピタル由来と主張していたが、解約請求で「パーマネント」の脆弱性が露呈",
+      "source_url": "https://seekingalpha.com/article/4873550-blue-owl-capital-in-the-eye-of-a-private-credit-storm",
+      "confidence": 0.90,
+      "sentiment": "bearish",
+      "category": "analysis"
+    },
+    {
+      "claim": "プライベートクレジット市場のデフォルト率は2025年末に9.2%（前年8.1%）の過去最高を記録",
+      "evidence": "Fitch発表：2025年米国プライベートクレジット借り手のデフォルト率9.2%（28社、38件のデフォルト）。歴史的平均の2〜2.5%の4倍水準",
+      "source_url": "https://www.financialcontent.com/article/marketminute-2026-3-26-the-private-credit-reckoning-us-default-rates-surge-as-golden-age-ends",
+      "confidence": 0.95,
+      "sentiment": "bearish",
+      "category": "fact"
+    },
+    {
+      "claim": "AIによるSaaS企業の競争優位侵食がプライベートクレジット市場の「次の亀裂」の本質的原因",
+      "evidence": "SaaS向け融資は2015年の$80億から2025年末に$5000億超（直接融資全体の19%）に急増。AIにより伝統的SaaS企業の収益モデルが侵食され、ローンの担保価値が急速に劣化。ソフトウェア企業株は10月2025〜2月2026に約30%下落",
+      "source_url": "https://www.bis.org/publ/qtrpdf/r_qt2603v.htm",
+      "confidence": 0.88,
+      "sentiment": "bearish",
+      "category": "analysis"
+    },
+    {
+      "claim": "UBSはAIディスラプションが加速した場合の米国プライベートクレジットのデフォルト率が13%に達する可能性を試算",
+      "evidence": "UBS試算：AIディスラプション加速シナリオでプライベートクレジットのデフォルト率13%。ハイイールド債の予測デフォルト率の3倍超",
+      "source_url": "https://www.cnbc.com/2026/03/25/private-credit-defaults-loan-quality-debt-risk-systemic-ai-disruption.html",
+      "confidence": 0.85,
+      "sentiment": "bearish",
+      "category": "risk"
+    },
+    {
+      "claim": "AresもQ1 2026に$107億ファンドの解約を5%に制限。プライベートクレジット市場全体で解約制限が拡大",
+      "evidence": "Ares Strategic Income Fundで解約請求が残高の11.6%に達し、5%の四半期上限を適用。$524.5百万の解約しか認めず（請求の43.1%）",
+      "source_url": "https://www.bloomberg.com/news/articles/2026-03-24/ares-limits-private-credit-fund-withdrawals-as-redemptions-surge",
+      "confidence": 0.97,
+      "sentiment": "bearish",
+      "category": "fact"
+    },
+    {
+      "claim": "2026年に入り、オルタナ資産運用会社株は大幅に下落：OWL -18%、KKR -16%、ARES -15%、APO/BX -12%（年初来）",
+      "evidence": "2026年年初来パフォーマンス：OWL -18%、KKR -16%、ARES -15%、APO -12%、BX -12%（Morningstar）。2025年9月からの下落はさらに大きく：APO・BX -46%、ARES・KKR -48%",
+      "source_url": "https://www.morningstar.com/stocks/why-alts-manager-stocks-are-getting-hit-hard",
+      "confidence": 0.93,
+      "sentiment": "bearish",
+      "category": "fact"
+    },
+    {
+      "claim": "プライベートクレジット市場規模は2025年初時点で$3兆（5年前の$2兆から50%増）、2029年に$5兆超との予測も存在する",
+      "evidence": "Morgan Stanley予測：2029年に$5兆。AIMA発表：市場規模$3.5兆到達。Preqin予測：2029年に$2.64兆（別指標での推計）",
+      "source_url": "https://www.aima.org/article/press-release-strong-growth-sees-private-credit-market-reach-us-3-5-trillion.html",
+      "confidence": 0.90,
+      "sentiment": "neutral",
+      "category": "fact"
+    },
+    {
+      "claim": "非上場BDCの四半期解約上限は5%がSEC規制上の標準だが、解約殺到でSECが「ゲーティング」メカニズムの監視を強化",
+      "evidence": "SEC：非上場BDCの四半期5%解約上限はファンドの利用規約に準拠した標準的慣行。ただし複数ファンドで同時に発動されたことから、SECは監視を強化",
+      "source_url": "https://www.congress.gov/crs-product/IN12674",
+      "confidence": 0.88,
+      "sentiment": "bearish",
+      "category": "risk"
+    },
+    {
+      "claim": "トランプ関税（2026年4月）はプライベートクレジット借り手企業の収益を圧迫し、デフォルトリスクをさらに高める",
+      "evidence": "2025年関税発表後、レバレッジドローン市場は19日間凍結し、ローン指数が1.8%下落。「宙吊り債務（hung debt）」が銀行のバランスシートに35〜40%ディスカウントで滞留",
+      "source_url": "https://www.claconnect.com/en/resources/blogs/private-equity/the-impact-of-trumps-tariffs-on-private-equity-firms-portfolio-companies",
+      "confidence": 0.82,
+      "sentiment": "bearish",
+      "category": "risk"
+    },
+    {
+      "claim": "日本から米ドルプライベートクレジットに投資する際、年率3.5〜4%程度の円ヘッジコストが発生し、実質リターンを大幅に圧縮する",
+      "evidence": "ピクテ：2025年6月末時点で米ドル/円の為替ヘッジコストは年率約4%前後。日米金利差（米5.25-5.50% vs 日0.25-0.5%）を反映。高格付外債の円ヘッジ後利回りはほぼゼロになるケースも",
+      "source_url": "https://www.pictet.co.jp/basics-of-asset-management/new-generation/environmental-changes-confirmation/20250710.html",
+      "confidence": 0.92,
+      "sentiment": "bearish",
+      "category": "risk"
+    },
+    {
+      "claim": "Apolloのプライベートクレジット依存度は最も高く、手数料収入の86%（フィー収入ベース）がプライベートクレジット事業から",
+      "evidence": "Apollo：手数料収入資産の86%・基本報酬の72%がプライベートクレジット由来。Ares：66%/65%、Blue Owl：53%/61%、KKR：48%/30%",
+      "source_url": "https://www.morningstar.com/stocks/why-alts-manager-stocks-are-getting-hit-hard",
+      "confidence": 0.88,
+      "sentiment": "bearish",
+      "category": "analysis"
+    },
+    {
+      "claim": "2026年にBDC無担保債の$127億が満期を迎える（前年比73%増）、資金調達コストの上昇リスクが高まる",
+      "evidence": "2026年に約$12.7億相当の無担保BDC債務が満期。前年比73%増。金利高止まり環境下での借り換えは大幅なコスト増を招く",
+      "source_url": "https://www.cnbc.com/2026/03/25/private-credit-defaults-loan-quality-debt-risk-systemic-ai-disruption.html",
+      "confidence": 0.85,
+      "sentiment": "bearish",
+      "category": "risk"
+    },
+    {
+      "claim": "Blue Owlの2025年通期売上高は約$29億で、AUMは過去2年で$174億から$307億へと急増した",
+      "evidence": "2025年通期収益$2.9B（記録的$560億の新規資金調達）。AUM $307.4B（2023年の$174Bから急増）",
+      "source_url": "https://markets.financialcontent.com/stocks/article/finterra-2026-2-20-the-permanent-capital-powerhouse-a-comprehensive-research-feature-on-blue-owl-capital-nyse-owl",
+      "confidence": 0.90,
+      "sentiment": "bullish",
+      "category": "fact"
+    }
+  ]
+}

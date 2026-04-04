@@ -1,0 +1,106 @@
+{
+  "article_id": "2026-04-04_blue-owl-private-credit-crisis",
+  "key_themes": [
+    "プライベートクレジット市場の流動性幻想の崩壊",
+    "AIによるSaaS企業破壊がプライベートクレジットに波及",
+    "BDC解約制限（ゲーティング）の連鎖",
+    "OWLを起点とした業界全体への信頼失墜",
+    "トランプ関税とデフォルト率上昇の悪循環",
+    "日本人投資家のオルタナ株式保有リスク"
+  ],
+  "bull_case": "プライベートクレジット市場の規模は$3兆を超え、依然として旺盛な需要がある。BDCの解約上限はSEC規制に準拠した標準的慣行であり、パニック的売りは過剰反応の可能性がある。Blue Owlは2025年通期収益$2.9Bと堅調で、管理報酬の約85%がパーマネントキャピタル由来の安定収益構造を持つ。金利が2026年後半に3〜3.5%に低下すれば、借り手ストレスが緩和し、デフォルト率の正常化が期待できる。",
+  "bear_case": "デフォルト率が9.2%（2025年末）から13%（UBS試算のAI加速シナリオ）へ悪化するリスクがある。プライベートクレジット市場に組み込まれたSaaS企業向け融資（直接融資の19%）は、AIによる競争優位の喪失で価値が急速に劣化。BDCの解約制限が複数ファンドで同時発動し、「コックローチ効果」（1件が露見すれば複数が存在する）が市場の信頼を崩壊させている。トランプ関税による景気減速がさらに信用コストを押し上げる。日本の投資家にとっては円ヘッジコスト年4%という二重の重荷もある。",
+  "key_data_points": [
+    {
+      "metric": "OWL株価（2026年4月時点）",
+      "value": "$8.64（52週高値$21.18から-59%）",
+      "source": "https://stockanalysis.com/stocks/owl/"
+    },
+    {
+      "metric": "OWL年初来下落率",
+      "value": "-40%超（2026年）",
+      "source": "https://www.cnn.com/2026/04/02/business/blue-owl-private-credit-nightcap"
+    },
+    {
+      "metric": "OCICファンド解約請求比率（Q1 2026）",
+      "value": "21.9%（$360億ファンド）",
+      "source": "https://www.cnbc.com/2026/04/02/blue-owl-private-credit-funds-redemptions-requests.html"
+    },
+    {
+      "metric": "OTICファンド解約請求比率（Q1 2026）",
+      "value": "40.7%（$60億テックファンド）",
+      "source": "https://www.cnbc.com/2026/04/02/blue-owl-private-credit-funds-redemptions-requests.html"
+    },
+    {
+      "metric": "Blue Owl総AUM（2025年末）",
+      "value": "$307.4億（2年前の$174億から急増）",
+      "source": "https://markets.financialcontent.com/stocks/article/finterra-2026-2-20-the-permanent-capital-powerhouse-a-comprehensive-research-feature-on-blue-owl-capital-nyse-owl"
+    },
+    {
+      "metric": "Blue Owl 2025年通期収益",
+      "value": "約$29億",
+      "source": "https://www.macrotrends.net/stocks/charts/OWL/blue-owl-capital/revenue"
+    },
+    {
+      "metric": "プライベートクレジット市場規模（2025年初）",
+      "value": "$3兆超（AIMA発表は$3.5兆）",
+      "source": "https://www.aima.org/article/press-release-strong-growth-sees-private-credit-market-reach-us-3-5-trillion.html"
+    },
+    {
+      "metric": "米国プライベートクレジットのデフォルト率（2025年）",
+      "value": "9.2%（前年8.1%、歴史的平均2〜2.5%の約4倍）",
+      "source": "https://www.financialcontent.com/article/marketminute-2026-3-26-the-private-credit-reckoning-us-default-rates-surge-as-golden-age-ends"
+    },
+    {
+      "metric": "UBSのAI加速シナリオデフォルト率試算",
+      "value": "13%（ハイイールド債予測の3倍超）",
+      "source": "https://www.cnbc.com/2026/03/25/private-credit-defaults-loan-quality-debt-risk-systemic-ai-disruption.html"
+    },
+    {
+      "metric": "SaaS向けプライベートクレジット融資残高（2025年末）",
+      "value": "$5000億超（直接融資全体の19%）",
+      "source": "https://www.bis.org/publ/qtrpdf/r_qt2603v.htm"
+    },
+    {
+      "metric": "2026年BDC無担保債満期額",
+      "value": "$127億（前年比73%増）",
+      "source": "https://www.cnbc.com/2026/03/25/private-credit-defaults-loan-quality-debt-risk-systemic-ai-disruption.html"
+    },
+    {
+      "metric": "Ares Strategic Income Fund解約請求比率（Q1 2026）",
+      "value": "11.6%（制限後の支払いは$5.245億、請求の43.1%のみ）",
+      "source": "https://www.bloomberg.com/news/articles/2026-03-24/ares-limits-private-credit-fund-withdrawals-as-redemptions-surge"
+    },
+    {
+      "metric": "競合株価の2026年年初来パフォーマンス",
+      "value": "OWL -18%、KKR -16%、ARES -15%、APO -12%、BX -12%",
+      "source": "https://www.morningstar.com/stocks/why-alts-manager-stocks-are-getting-hit-hard"
+    },
+    {
+      "metric": "各社プライベートクレジット依存度（手数料収入ベース）",
+      "value": "APO 86%、ARES 66%、OWL 53%、KKR 48%",
+      "source": "https://www.morningstar.com/stocks/why-alts-manager-stocks-are-getting-hit-hard"
+    },
+    {
+      "metric": "円ドル為替ヘッジコスト（2025年6月末）",
+      "value": "年率約4%前後（日米金利差を反映）",
+      "source": "https://www.pictet.co.jp/basics-of-asset-management/new-generation/environmental-changes-confirmation/20250710.html"
+    },
+    {
+      "metric": "テックディストレスト債務規模（2026年2月）",
+      "value": "$469億（主にSaaS企業、4週間で$177億追加）",
+      "source": "https://www.cnbc.com/2026/03/25/private-credit-defaults-loan-quality-debt-risk-systemic-ai-disruption.html"
+    }
+  ],
+  "article_angle": "「Blue Owlの暴落は単なる一社の問題ではなく、$3兆プライベートクレジット市場に潜む構造的な『亀裂』——AI/SaaSリスク、流動性幻想、デフォルト増——を示す警告シグナル。日本の投資家がこの市場動向をどう読み解き、自分のポートフォリオにどんなリスクが潜んでいるかを解説する。」という視点で、危機の構造を分かりやすく整理し、日本人投資家が取るべき行動指針を提示する。",
+  "key_questions": [
+    "なぜBlue Owl（OWL）株は2026年に40%以上も急落したのか？単なる一時的な調整？それとも構造的問題？",
+    "「プライベートクレジット」はそもそも何か？なぜ今まで人気だったのか？",
+    "AIによるSaaS企業の破壊がなぜ直接クレジット市場に打撃を与えるのか？",
+    "BDCの「解約制限（ゲーティング）」とは何か？私のお金は戻ってくるのか？",
+    "OWL・APO・ARES・BX・KKRはどう違う？今どれが一番リスクが高いか？",
+    "トランプ関税がプライベートクレジットにどう影響するか？",
+    "日本人投資家としてプライベートクレジット関連株を持っている（または買おうとしている）場合、何に注意すべきか？",
+    "プライベートクレジット危機は2008年のリーマンショックと似ているのか？何が違うのか？"
+  ]
+}

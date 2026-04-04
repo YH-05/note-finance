@@ -131,3 +131,109 @@ career_sister:
   - skipped (already posted): 0 slots
   - failed: 0 slots
 
+[2m2026-04-04T11:54:11.052003+00:00[0m [ERROR    [0m] [1minstagram_post_failed         [0m [[0m[1m[34m__main__[0m][0m [36maccount[0m=[35mcareer_sister[0m [36mcaller[0m=[35m{'filename': 'auto_poster.py', 'function': '_execute_post', 'line': 1643}[0m [36mdate[0m=[35m2026-04-04[0m [36merror[0m=[35m'[Errno 54] Connection reset by peer'[0m [36mslot[0m=[35m夜[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+        self.READ_NUM_BYTES, timeout=timeout
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError: [Errno 54] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1630, in _execute_post
+    ig_result = ig_poster.post(slot_dir)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1046, in post
+    result = _post_carousel_with_retry()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1044, in _post_carousel_with_retry
+    return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 263, in post_carousel
+    resp = self._client.post(
+        f"{INSTAGRAM_BASE}/{self.config.user_id}/media",
+    ...<4 lines>...
+        },
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_client.py", line 1144, in post
+    return self.request(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<11 lines>...
+        extensions=extensions,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError: [Errno 54] Connection reset by peer
