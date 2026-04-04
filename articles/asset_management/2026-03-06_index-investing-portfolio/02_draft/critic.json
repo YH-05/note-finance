@@ -11,19 +11,231 @@
       "low_issues": ["F006: ボーグルの「教祖」表現", "F007: 全世界株式の米国比率「約60%」がやや低い"]
     },
     "compliance": {
-      "score": 76,
+      "critic_type": "compliance",
+      "score": 78,
       "status": "warning",
-      "issues_count": 7,
-      "medium_issues": ["CP001: 「最強の投資法」断定表現", "CP002: 「最強の投資戦略」断定表現", "CP003: ポートフォリオ配分比率の提示が投資助言リスク", "CP004: 年7%想定利回りの根拠・計算前提不明", "CP007: 将来見通しの包括的免責事項欠落"],
-      "low_issues": ["CP005: FAQ Q2の「基本的にはYes」", "CP006: 冒頭の断定的引用"]
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "high",
+          "category": "investment_advice",
+          "location": {
+            "section": "分散のための選択肢 > 選択肢1: 米国除く全世界株（VXUS相当）で地理的分散",
+            "line": "S&P500にプラスして最も合理的な分散手段として、VXUS（米国除く全世界株式ETF）が注目されています。"
+          },
+          "issue": "「最も合理的な分散手段」という断定的表現で特定ETFを評価しており、投資助言に該当しうる。「合理的」の根拠が記事内で示されているが、「最も」という最上級表現は一つの選択肢の提示を超えて特定商品への誘導と受け取られる可能性がある。",
+          "regulation": "金融商品取引法 第2条第8項（投資助言業務）、金融サービス提供法",
+          "suggestion": "「S&P500に加える地理的分散の選択肢として、VXUS（米国除く全世界株式ETF）が挙げられます」と修正し、最上級表現を排除する。"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "medium",
+          "category": "investment_advice",
+          "location": {
+            "section": "海外投資家は「本当に」何に投資しているか > Redditのインデックス投資コミュニティでの議論",
+            "line": "「VTI/VXUS = 80/20 または 70/30」という配分が標準的な推奨として議論されることが多いです。"
+          },
+          "issue": "「標準的な推奨」という表現は、文脈上はr/Boggleheadsコミュニティ内の議論紹介であるが、読者に特定の配分が「推奨」と映る可能性がある。金融商品取引法上、投資判断の提供と解釈されるリスクがある。",
+          "regulation": "金融商品取引法 第2条第8項、note.com 利用規約 第13条（違法行為等の禁止）",
+          "suggestion": "「VTI/VXUS = 80/20 または 70/30 という配分が一般的な議論の出発点として取り上げられることが多いです」と修正し、「推奨」という語を除去する。"
+        },
+        {
+          "issue_id": "CP003",
+          "severity": "medium",
+          "category": "expression",
+          "location": {
+            "section": "年代別・シチュエーション別ポートフォリオ例",
+            "line": "![年代別 推奨ポートフォリオ例](images/table_age_portfolio.png)"
+          },
+          "issue": "画像のaltテキストに「推奨ポートフォリオ」という語が含まれており、年代別ポートフォリオ配分の提示が投資助言的な表現となっている。記事本文では「あくまで一例」と注記しているが、画像タイトル自体に「推奨」が残る点は問題がある。",
+          "regulation": "金融商品取引法 第2条第8項、金融庁ガイドライン（投資助言・代理業）",
+          "suggestion": "altテキストを「![年代別 ポートフォリオ構成例](images/table_age_portfolio.png)」に変更し、「推奨」を「例」または「参考例」に置き換える。"
+        },
+        {
+          "issue_id": "CP004",
+          "severity": "low",
+          "category": "expression",
+          "location": {
+            "section": "まとめ",
+            "line": "今日からできるアクションとして、まずは自分のポートフォリオの米国株比率を確認してみてください。次に、VXUSや先進国株式（除く米国）の比率を意識的に加えることで、地理的分散を高める選択肢を検討してみましょう。"
+          },
+          "issue": "「VXUSや先進国株式（除く米国）を加えること」を「アクション」として提示する記述が、特定商品群への投資を促す内容になっている。一般的な分散の考え方の説明の範囲は超えていないが、行動促進の強さが軽度の投資助言的トーンを持つ。",
+          "regulation": "金融商品取引法 第2条第8項",
+          "suggestion": "「VXUSや先進国株式（除く米国）という選択肢の存在を確認してみましょう」など、具体的な投資行動ではなく情報確認を促す表現に和らげる。"
+        }
+      ],
+      "required_disclaimers": {
+        "disclaimer": {
+          "present": true,
+          "location": "末尾",
+          "note": "記事末尾の「---」区切り線の下に装飾なし段落で挿入されている。情報提供目的・元本割れリスク・過去実績は将来を保証しない旨・見通し予測の限界・税制改正の可能性・自己責任の明示という必須6要素をすべて含んでおり、compliance-standards.md の要件を満たしている。"
+        }
+      },
+      "prohibited_expressions_found": [
+        {
+          "expression": "最も合理的な分散手段",
+          "location": "分散のための選択肢 > 選択肢1",
+          "suggestion": "地理的分散の選択肢の一つとして"
+        },
+        {
+          "expression": "標準的な推奨として議論される",
+          "location": "Redditのインデックス投資コミュニティでの議論",
+          "suggestion": "一般的な議論の出発点として取り上げられる"
+        },
+        {
+          "expression": "推奨ポートフォリオ例（画像altテキスト）",
+          "location": "年代別・シチュエーション別ポートフォリオ例セクション",
+          "suggestion": "ポートフォリオ構成例"
+        }
+      ]
     },
     "structure": {
-      "score": 82,
+      "critic_type": "structure",
+      "score": 77,
       "status": "pass",
-      "issues_count": 7,
-      "high_issues": ["ST002: FA手数料セクションへの遷移が唐突", "ST009: 専門用語7語が説明なし"],
-      "medium_issues": ["ST001: 導入部の読者ベネフィット弱い", "ST003: FA手数料セクションがテーマ逸脱", "ST004: 3原則と実践ステップの対応不明瞭", "ST006: パターンBの実質米国比率90%の説明欠落"],
-      "low_issues": ["ST010: タイトルの問いへの回答がまとめ冒頭にない"]
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "medium",
+          "category": "sections",
+          "location": {
+            "section": "海外投資家は「本当に」何に投資しているか",
+            "description": "データで見る現状相当セクション全体"
+          },
+          "issue": "テンプレート要件（1000-1500字）に対して約870字と不足。iShares調査・Fidelity調査・Reddit議論の3項目を持つが、各項目の深掘りが浅く説得力に欠ける。",
+          "suggestion": "各データソースの含意をもう1段掘り下げ（例: iShares調査の75%集中が意味するリスク量を具体的に補足）して1000字以上に拡充する。"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "medium",
+          "category": "sections",
+          "location": {
+            "section": "年代別・シチュエーション別ポートフォリオ例",
+            "description": "ケーススタディ相当セクション全体"
+          },
+          "issue": "テンプレート要件（800-1200字）に対して約700字と不足。年代別の表画像参照と短い補足説明のみで、具体的な人物像・状況設定・意思決定プロセスを示すケーススタディとして機能していない。",
+          "suggestion": "「30代共働き・子あり」「50代単身・退職5年前」などのペルソナを設定し、各ペルソナがどのポートフォリオを選ぶか・その理由を100-200字で記述する事例を2-3件追加する。"
+        },
+        {
+          "issue_id": "ST003",
+          "severity": "medium",
+          "category": "conclusion",
+          "location": {
+            "section": "まとめ",
+            "description": "まとめセクション全体"
+          },
+          "issue": "テンプレート要件（400-600字）に対して約750字と超過。第三・第四の要点でVXUSリターン数値（+38.4%）など本文未記載の新情報を追加しており、まとめとしての役割（既出情報の統合）を超えている。",
+          "suggestion": "VXUS+38.4%・VTI+15%などの新規データ言及を「分散のための選択肢」セクションに移動し、まとめは既出の論点を400-600字に圧縮する。"
+        },
+        {
+          "issue_id": "ST004",
+          "severity": "medium",
+          "category": "sections",
+          "location": {
+            "section": "こんな人は「S&P500一本」で問題ない",
+            "description": "注意点・リスク相当セクション全体"
+          },
+          "issue": "テンプレートの「注意点・リスク」セクションに相当するが、実際の内容はS&P500一本が合理的なケースの列挙であり、具体的なリスク説明が最後の短い1段落のみ。リスク説明機能が大幅に欠落している。",
+          "suggestion": "セクション後半に「S&P500一本を選ぶ際の注意点」として①集中リスク顕在化時の最大下落幅（過去事例）②長期低迷期（2000-2013年）の実績③為替リスクの3点を追記し、リスクと適合条件をバランスよく提示する。"
+        },
+        {
+          "issue_id": "ST005",
+          "severity": "low",
+          "category": "introduction",
+          "location": {
+            "section": "はじめに",
+            "description": "はじめに最終段落"
+          },
+          "issue": "「読み終えるころには〜整理できるはずです」という予告文が3点を示しているが、実際のセクション構成との対応が完全には一致しない。特に「S&P500の本当のリスク構造」と「海外投資家の投資先」が1セクションで混在している。",
+          "suggestion": "予告文の3点とセクション構成を完全に対応させるか、予告文を2点に簡略化して読者の期待値を正確に設定する。"
+        },
+        {
+          "issue_id": "ST006",
+          "severity": "low",
+          "category": "sections",
+          "location": {
+            "section": "全体",
+            "description": "セクション名とテンプレートの対応"
+          },
+          "issue": "asset_managementカテゴリのテンプレートで定義されたセクション名（基礎知識・データで見る現状・実践ガイド・ケーススタディ・注意点・リスク）と実際の見出しが全て異なる。テンプレートとの対応関係が管理上不明確になる。",
+          "suggestion": "セクション名の変更自体は読者体験上問題ないが、meta.yaml にテンプレートセクションとの対応表を記録しておくとよい。"
+        },
+        {
+          "issue_id": "ST007",
+          "severity": "low",
+          "category": "readability",
+          "location": {
+            "section": "全体",
+            "description": "図表配置"
+          },
+          "issue": "図表が2枚（table_fund_comparison.png・table_age_portfolio.png）のみで目標の3-5枚を下回る。「S&P500一本投資の現実」（約1950字）と「分散のための選択肢」（約2150字）に図表がなく、視認性が低い。",
+          "suggestion": "S&P500上位10銘柄集中度の推移・CAPE比率の歴史的推移・VTI vs VXUS リターン比較のいずれか1-2枚を追加して図表を3-4枚に増やす。"
+        }
+      ],
+      "section_analysis": [
+        {
+          "section": "はじめに",
+          "word_count": 490,
+          "subsections": 0,
+          "balance": "適切"
+        },
+        {
+          "section": "S&P500一本投資の現実",
+          "word_count": 1950,
+          "subsections": 4,
+          "balance": "適切"
+        },
+        {
+          "section": "海外投資家は「本当に」何に投資しているか",
+          "word_count": 870,
+          "subsections": 3,
+          "balance": "短すぎ"
+        },
+        {
+          "section": "分散のための選択肢",
+          "word_count": 2150,
+          "subsections": 4,
+          "balance": "適切"
+        },
+        {
+          "section": "年代別・シチュエーション別ポートフォリオ例",
+          "word_count": 700,
+          "subsections": 1,
+          "balance": "短すぎ"
+        },
+        {
+          "section": "こんな人は「S&P500一本」で問題ない",
+          "word_count": 900,
+          "subsections": 0,
+          "balance": "適切"
+        },
+        {
+          "section": "まとめ",
+          "word_count": 750,
+          "subsections": 0,
+          "balance": "長すぎ"
+        },
+        {
+          "section": "参考データソース",
+          "word_count": 200,
+          "subsections": 0,
+          "balance": "適切"
+        },
+        {
+          "section": "免責事項",
+          "word_count": 130,
+          "subsections": 0,
+          "balance": "適切"
+        }
+      ],
+      "readability_metrics": {
+        "avg_sentence_length": 52,
+        "avg_paragraph_length": 4,
+        "technical_terms_explained": 6,
+        "technical_terms_unexplained": 3
+      },
+      "chart_count": 2,
+      "summary": "全体的な論理展開（問題提起→現状分析→データ→選択肢→ケース→例外→まとめ）は一貫しており、スコア77点でBグレード相当。主な課題は①「データで見る現状」相当セクションが目標文字数に約130字不足、②「ケーススタディ」相当セクションが100字不足かつ具体的人物事例が欠落、③「まとめ」が約150字超過し新情報を混在、④「注意点・リスク」セクションがリスク説明機能を十分に果たしていない、⑤図表が2枚と目標（3-5枚）に未達の5点。セクション名はテンプレートと異なるが読者体験上は問題なし。"
     },
     "data_accuracy": {
       "score": 79,

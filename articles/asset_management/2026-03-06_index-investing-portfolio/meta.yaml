@@ -28,7 +28,7 @@ x_post_url: null
 research_sources: 20
 workflow:
   research: done
-  draft: pending
+  draft: done
   critique: pending
   revision: pending
   publish: pending
