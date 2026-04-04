@@ -1,25 +1,32 @@
-article_id: "2026-04-04_blue-owl-private-credit-crisis"
-topic: "Blue Owl暴落が示すプライベートクレジットの「次の亀裂」"
-category: "stock_analysis"
+article_id: 2026-04-04_blue-owl-private-credit-crisis
+topic: Blue Owl暴落が示すプライベートクレジットの「次の亀裂」
+category: stock_analysis
 type: data_analysis
 target_audience: intermediate
 target_wordcount: 4000
-
-symbols: ["OWL", "APO", "ARES", "BX", "KKR", "BLK"]
-
-status: research
-created_at: "2026-04-04"
-updated_at: "2026-04-04"
-
+symbols:
+- OWL
+- APO
+- ARES
+- BX
+- KKR
+- BLK
+status: published
+created_at: '2026-04-04'
+updated_at: '2026-04-04T14:21:10.056107+00:00'
 workflow:
   research: done
   draft: done
   critique: done
   revision: done
   publish: pending
-
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: false
+published_at: '2026-04-04T14:21:10.056107+00:00'
+draft_url: https://editor.note.com/notes/n03a412f073ab/edit/
