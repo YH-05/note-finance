@@ -22,6 +22,22 @@ date modified: 2026-04-05 20:04
 ### A2 
 
 
+
+### Q12. Could you elaborate on your outlook for 'market repair' (price discipline) in the mobile market and your defensive strategies to counter the decline in revenue share?
+
+> 業界内が実質3社体制になったことで、業界全体で低価格な初期SIMカード（Starter pack）の販売を縮小し、価格を35,000ルピア（3GB）に引き上げるなどの価格修復（Market repair）が観測されている。
+> 
+> TLKMのモバイルARPUは1Q2025にYoY -6%、3Q25にはQoQ+5%、YoY+1%の43,000ルピアへの回復の兆しが見える。
+> 
+> しかしTLKMは2024年にモバイル収益の市場シェアを3pptほど落としており、競合のISATやXLSmasrtの成長率（~10%）に対して、TLKM4%程度の成長と見られている。
+> 
+> 市場全体の価格修復が進む中、更新パッケージ（Renewal package）の価格引き上げのタイムラインと許容度をどう見積もっているか。また、ARPUの回復と引き換えに、競合（ISAT、XLSmart）へのこれ以上の市場シェア流出をどのように食い止める方針か。
+
+
+### A12.
+
+
+
 ### Q3. Regarding the decline in IndiHome’s revenue, which fell 8.8% YoY in FY2024, when do you expect it to bottom out? Furthermore, regarding the Fixed Mobile Convergence rate, is it currently stagnating or do you see further room for growth?
 
 - FMC: Fixed Mobile Convergence
@@ -96,22 +112,6 @@ date modified: 2026-04-05 20:04
 ---
 
 ## 競合との位置関係
-
-### Q12. Could you elaborate on your outlook for 'market repair' (price discipline) in the mobile market and your defensive strategies to counter the decline in revenue share?
-
-> 業界内が実質3社体制になったことで、業界全体で低価格な初期SIMカード（Starter pack）の販売を縮小し、価格を35,000ルピア（3GB）に引き上げるなどの価格修復（Market repair）が観測されている。
-> 
-> TLKMのモバイルARPUは1Q2025にYoY -6%、3Q25にはQoQ+5%、YoY+1%の43,000ルピアへの回復の兆しが見える。
-> 
-> しかしTLKMは2024年にモバイル収益の市場シェアを3pptほど落としており、競合のISATやXLSmasrtの成長率（~10%）に対して、TLKM4%程度の成長と見られている。
-> 
-> 市場全体の価格修復が進む中、更新パッケージ（Renewal package）の価格引き上げのタイムラインと許容度をどう見積もっているか。また、ARPUの回復と引き換えに、競合（ISAT、XLSmart）へのこれ以上の市場シェア流出をどのように食い止める方針か。
-
-
-### A12.
-
-
-
 
 
 ### Q13. While we appreciate the focus on improving FCF through lower Capex intensity, how do you plan to mitigate the risk of network quality degradation? Specifically, what measures are in place to defend your long-standing market leadership and pricing premium in **ex-Java regions**, as your competitors close the infrastructure gap?
