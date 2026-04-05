@@ -1,7 +1,7 @@
 ---
 title: ir_meeting_prep_20260401
 date created: 2026-04-01 14:04
-date modified: 2026-04-01 15:04
+date modified: 2026-04-05 18:04
 ---
 # TLKM IJ — IR Meeting Prep Memo
 **作成日**: 2026-04-01  

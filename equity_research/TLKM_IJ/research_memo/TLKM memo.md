@@ -5,6 +5,13 @@ date modified: 2026-04-05 18:04
 ---
 # 会社概要
 
+## Danantara（Daya Anagata Nusantara）
+- 2025年3月22日から移管プロセスが開始され、最終的に現在のDanantara Asset Management（DAM）名義で株主名簿に記載されたのは2026年1月6日
+- 経緯としては、プラボウォ政権下で設立された、スーパーホールディングであるDanantaraへの資産移管は、法改正と段階的な現物出資（Inbreng）を通じて実施された。
+- 現在はDanataraがTLKMを管理しているが、インドネシア政府は依然としてシリーズA Dwiwarna株（黄金株）を1株保有しており、戦略的な意思決定に対する拒否権を保持することで、最終的な受益者（Ultimate Beneficial Owner）としての地位を維持している。
+
+
+
 # 株価・バリュエーション
 
 ![[TLKM IJ Equity (Telkom Indonesia 2026-04-01 14-53-06.jpg]]
