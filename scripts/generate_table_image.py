@@ -76,8 +76,9 @@ def _parse_cell(value: str) -> dict[str, str | bool | None]:
     """セル値をパースし、太字・色マーカーを処理する.
 
     記法:
-        **text**        → 太字 + テーマカラー
-        !!color!!text   → 太字 + 指定色 (red/green/blue/orange またはCSSカラー)
+        **text**            → 太字 + テーマカラー
+        **text**（補足）    → **...** を除去しセル全体を太字 + テーマカラー
+        !!color!!text       → 太字 + 指定色 (red/green/blue/orange またはCSSカラー)
     """
     color_match = re.fullmatch(r"!!(\w+|#[\da-fA-F]{3,6})!!(.*)", value.strip(), re.DOTALL)
     if color_match:
@@ -85,9 +86,11 @@ def _parse_cell(value: str) -> dict[str, str | bool | None]:
         text = color_match.group(2)
         color = _COLOR_MAP.get(color_key, color_key)
         return {"text": text, "bold": True, "align": "left", "color": color}
-    bold_match = re.fullmatch(r"\*\*(.+?)\*\*", value.strip())
-    if bold_match:
-        return {"text": bold_match.group(1), "bold": True, "align": "left", "color": None}
+    # **...** が含まれる場合はセル全体を太字にして ** を除去
+    # fullmatch では "**val**（補足）" がマッチしないため search + sub で処理する
+    if "**" in value:
+        text = re.sub(r"\*\*(.+?)\*\*", r"\1", value.strip())
+        return {"text": text, "bold": True, "align": "left", "color": None}
     return {"text": value, "bold": False, "align": "left", "color": None}
 
 
