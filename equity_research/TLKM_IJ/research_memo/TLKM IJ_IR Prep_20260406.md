@@ -108,11 +108,11 @@ date modified: 2026-04-05 20:04
 > 市場全体の価格修復が進む中、更新パッケージ（Renewal package）の価格引き上げのタイムラインと許容度をどう見積もっているか。また、ARPUの回復と引き換えに、競合（ISAT、XLSmart）へのこれ以上の市場シェア流出をどのように食い止める方針か。
 
 
-
-
-
-
 ### A12.
+
+
+
+
 
 ### Q13. While we appreciate the focus on improving FCF through lower Capex intensity, how do you plan to mitigate the risk of network quality degradation? Specifically, what measures are in place to defend your long-standing market leadership and pricing premium in **ex-Java regions**, as your competitors close the infrastructure gap?
 
@@ -129,6 +129,9 @@ date modified: 2026-04-05 20:04
 ### A13.
 
 
+
+
+
 ### Q14. How do you plan to address the narrowing gap in spectrum holdings relative to your peers, and what is your capital allocation strategy for the upcoming 5G auctions?
 
 > これまでTelkomselは周波数保有量で他社を圧倒していたが、合併後のXLSmartは152MHzを保有することとなり、Telkomselの165MHz（ISATは135MHz）に対するインフラ面での圧倒的優位性が薄れています。
@@ -142,6 +145,12 @@ date modified: 2026-04-05 20:04
 
 
 ### A14.
+
+
+
+
+
+
 
 
 ### Q15. How do you intend to leverage your Fixed-Mobile Convergence (FMC) strategy to reverse the ARPU decline in IndiHome caused by intensifying competition from local ISPs?
