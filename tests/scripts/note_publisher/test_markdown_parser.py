@@ -150,7 +150,11 @@ class TestParagraphBlock:
     """段落ブロックのテスト。"""
 
     def test_正常系_段落ブロックを正しくパースできる(self, tmp_path: Path) -> None:
-        """通常テキスト行が paragraph ブロックとしてパースされることを確認。"""
+        """通常テキスト行が paragraph ブロックとしてパースされることを確認。
+
+        連続段落の間には空 paragraph が1つ挿入される（note.com 上で1行空ける
+        ための spacer）ので、非空 paragraph のみを対象にカウントする。
+        """
         md = """\
 # タイトル
 
@@ -163,10 +167,14 @@ class TestParagraphBlock:
 
         result = parse_draft(draft_path)
 
-        paragraphs = [b for b in result.body_blocks if b.block_type == "paragraph"]
-        assert len(paragraphs) == 2
-        assert paragraphs[0].content == "最初の段落です。"
-        assert paragraphs[1].content == "二番目の段落です。"
+        non_empty_paragraphs = [
+            b
+            for b in result.body_blocks
+            if b.block_type == "paragraph" and b.content
+        ]
+        assert len(non_empty_paragraphs) == 2
+        assert non_empty_paragraphs[0].content == "最初の段落です。"
+        assert non_empty_paragraphs[1].content == "二番目の段落です。"
 
 
 class TestListItemBlock:
@@ -679,3 +687,287 @@ title: FMタイトル
             b for b in result.body_blocks if b.block_type == "heading" and b.level == 1
         ]
         assert len(h1_blocks) == 0
+
+
+# =============================================================================
+# 参考データソース節の除去
+# =============================================================================
+
+
+class TestReferencesSection:
+    """``## 参考データソース`` / ``## 参考情報`` 節の除去テスト。"""
+
+    def test_正常系_参考データソース節が除去される(self, tmp_path: Path) -> None:
+        """``## 参考データソース`` 見出しとそのリストが body から除外される。"""
+        md = """\
+# タイトル
+
+## 第1章
+
+本文テキスト。
+
+---
+
+## 参考データソース
+
+- [リンク1](https://example.com/1)
+- [リンク2](https://example.com/2)
+
+※ データは2026年4月時点のものです。
+
+---
+
+免責事項: 本記事は情報提供を目的としています。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        all_content = " ".join(b.content for b in result.body_blocks)
+        assert "参考データソース" not in all_content
+        assert "リンク1" not in all_content
+        assert "リンク2" not in all_content
+        assert "2026年4月時点" not in all_content
+
+        # 本文は残る
+        assert any("本文テキスト" in b.content for b in result.body_blocks)
+        # 免責事項は残る（末尾に移動）
+        assert any("免責事項" in b.content for b in result.body_blocks)
+
+    def test_正常系_参考情報節も除去される(self, tmp_path: Path) -> None:
+        """``## 参考情報`` という別表記の見出しも除去対象。"""
+        md = """\
+# タイトル
+
+本文。
+
+## 参考情報
+
+- 出典A
+- 出典B
+
+免責事項: 投資は自己責任で。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        all_content = " ".join(b.content for b in result.body_blocks)
+        assert "参考情報" not in all_content
+        assert "出典A" not in all_content
+        assert "出典B" not in all_content
+
+    def test_エッジケース_参考セクションがない場合は変更なし(
+        self, tmp_path: Path
+    ) -> None:
+        """参考節が存在しない記事では body が変化しないことを確認。"""
+        md = """\
+# タイトル
+
+## 本文
+
+通常のテキストのみです。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        assert any("通常のテキスト" in b.content for b in result.body_blocks)
+
+
+# =============================================================================
+# 免責事項の直前 separator を常に1本だけに統一
+# =============================================================================
+
+
+class TestDisclaimerSeparatorCount:
+    """免責事項の直前に置かれる separator が常に1本であることのテスト。"""
+
+    def test_正常系_複数の末尾separatorが1本に統一される(
+        self, tmp_path: Path
+    ) -> None:
+        """参考データソース + 複数 separator + 免責事項 の構造でも、
+        note.com 出力は免責事項直前に separator を1本だけ残す。
+        """
+        md = """\
+# タイトル
+
+## 本文
+
+本文テキスト。
+
+---
+
+## 参考データソース
+
+- [リンク](https://example.com)
+
+---
+
+免責事項: 投資は自己責任で。
+
+---
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        # 免責事項の直前ブロックは separator、その前は非 separator であること
+        disclaimer_idx = next(
+            i
+            for i, b in enumerate(result.body_blocks)
+            if "免責事項" in b.content
+        )
+        assert disclaimer_idx >= 1
+        assert result.body_blocks[disclaimer_idx - 1].block_type == "separator"
+        if disclaimer_idx >= 2:
+            assert result.body_blocks[disclaimer_idx - 2].block_type != "separator"
+
+        # separator の総数は本文内で明示された1本（参考セクション前）を除去 +
+        # 免責事項直前の1本のみ → 合計1本
+        total_separators = [
+            b for b in result.body_blocks if b.block_type == "separator"
+        ]
+        assert len(total_separators) == 1
+
+    def test_正常系_免責事項直後のseparatorも含めて1本に統一される(
+        self, tmp_path: Path
+    ) -> None:
+        """免責事項の後ろに余分な separator があっても、
+        relocate 後は直前1本のみになる。
+        """
+        md = """\
+# タイトル
+
+本文。
+
+---
+
+免責事項: 情報提供のみ。
+
+---
+
+---
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        # 末尾は [..., separator, disclaimer]
+        assert result.body_blocks[-1].block_type == "paragraph"
+        assert "免責事項" in result.body_blocks[-1].content
+        assert result.body_blocks[-2].block_type == "separator"
+        # さらに前は separator であってはならない
+        if len(result.body_blocks) >= 3:
+            assert result.body_blocks[-3].block_type != "separator"
+
+
+# =============================================================================
+# 連続段落間の空 paragraph 挿入（note.com で1行空ける）
+# =============================================================================
+
+
+class TestParagraphSpacing:
+    """連続する paragraph ブロック間に空 paragraph が挿入されるテスト。"""
+
+    def test_正常系_連続段落の間に空paragraphが1つ挿入される(
+        self, tmp_path: Path
+    ) -> None:
+        """note.com 上で1行空けるため、連続する段落の間に
+        ``paragraph(content='')`` が1つ挿入される。
+        """
+        md = """\
+# タイトル
+
+段落A。
+
+段落B。
+
+段落C。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        # 想定される並び: [段落A, 空, 段落B, 空, 段落C]
+        paragraphs = [b for b in result.body_blocks if b.block_type == "paragraph"]
+        assert len(paragraphs) == 5
+        assert paragraphs[0].content == "段落A。"
+        assert paragraphs[1].content == ""
+        assert paragraphs[2].content == "段落B。"
+        assert paragraphs[3].content == ""
+        assert paragraphs[4].content == "段落C。"
+
+    def test_正常系_段落と見出しの間には空paragraphが入らない(
+        self, tmp_path: Path
+    ) -> None:
+        """``paragraph → heading`` の境界には spacer を挿入しない。"""
+        md = """\
+# タイトル
+
+段落A。
+
+## 見出し
+
+段落B。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        # 並び: [段落A, 見出し, 段落B] （空 paragraph は存在しない）
+        empty_paragraphs = [
+            b
+            for b in result.body_blocks
+            if b.block_type == "paragraph" and b.content == ""
+        ]
+        assert len(empty_paragraphs) == 0
+
+    def test_正常系_段落とリストの間には空paragraphが入らない(
+        self, tmp_path: Path
+    ) -> None:
+        """``paragraph → list_item`` の境界には spacer を挿入しない。"""
+        md = """\
+# タイトル
+
+段落A。
+
+- 項目1
+- 項目2
+
+段落B。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        empty_paragraphs = [
+            b
+            for b in result.body_blocks
+            if b.block_type == "paragraph" and b.content == ""
+        ]
+        assert len(empty_paragraphs) == 0
+
+    def test_エッジケース_単一段落では挿入なし(self, tmp_path: Path) -> None:
+        """段落が1つしかない場合は spacer を挿入しない。"""
+        md = """\
+# タイトル
+
+唯一の段落。
+"""
+        draft_path = tmp_path / "revised_draft.md"
+        draft_path.write_text(md, encoding="utf-8")
+
+        result = parse_draft(draft_path)
+
+        paragraphs = [b for b in result.body_blocks if b.block_type == "paragraph"]
+        assert len(paragraphs) == 1
+        assert paragraphs[0].content == "唯一の段落。"

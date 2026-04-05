@@ -195,6 +195,20 @@ workflow:
 | `![alt](path)` | 画像 | ファイルアップロード |
 | 最初の `##` 直前 | 目次ブロック | 自動挿入（手書き不要） |
 
+### 自動除去・整形されるセクション
+
+パーサーは revised_draft.md を note.com に投稿する際、以下を自動で除外・整形する。
+**revised_draft.md 側には従来どおり各セクションを記載してよい**（アーカイブ用に保持される）。
+
+| 対象 | 挙動 | 実装箇所 |
+|------|------|---------|
+| `## 修正履歴` セクション以降 | 完全に除外 | `markdown_parser.py::_remove_revision_history` |
+| `## 参考データソース` / `## 参考情報` セクション | 完全に除外（次の `免責事項` または次の `##` 見出しまで） | `markdown_parser.py::_remove_references_section` |
+| 免責事項直前の複数 `---` 区切り線 | 常に1本だけに統一 | `markdown_parser.py::_relocate_disclaimer` |
+| 連続する段落ブロック間 | 空段落ブロックを1つ挿入（note.com上で1行分空ける） | `markdown_parser.py::_insert_paragraph_spacing` |
+
+段落スペーシングは `paragraph` → `paragraph` の遷移のみ対象。見出し・リスト・画像・引用との境界には挿入されない（それらのブロックは note.com 側で独自の視覚的分離を持つため）。
+
 ### 絶対禁止（投稿前チェック）
 
 | 禁止 | 理由 |

@@ -64,12 +64,31 @@ DEFAULT_FONT_SIZE = 15
 DEFAULT_SCALE = 2
 
 
-def _parse_cell(value: str) -> dict[str, str | bool]:
-    """セル値をパースし、太字マーカーを処理する."""
+_COLOR_MAP = {
+    "red": "#dc2626",
+    "green": "#16a34a",
+    "blue": "#2563eb",
+    "orange": "#ea580c",
+}
+
+
+def _parse_cell(value: str) -> dict[str, str | bool | None]:
+    """セル値をパースし、太字・色マーカーを処理する.
+
+    記法:
+        **text**        → 太字 + テーマカラー
+        !!color!!text   → 太字 + 指定色 (red/green/blue/orange またはCSSカラー)
+    """
+    color_match = re.fullmatch(r"!!(\w+|#[\da-fA-F]{3,6})!!(.*)", value.strip(), re.DOTALL)
+    if color_match:
+        color_key = color_match.group(1)
+        text = color_match.group(2)
+        color = _COLOR_MAP.get(color_key, color_key)
+        return {"text": text, "bold": True, "align": "left", "color": color}
     bold_match = re.fullmatch(r"\*\*(.+?)\*\*", value.strip())
     if bold_match:
-        return {"text": bold_match.group(1), "bold": True, "align": "left"}
-    return {"text": value, "bold": False, "align": "left"}
+        return {"text": bold_match.group(1), "bold": True, "align": "left", "color": None}
+    return {"text": value, "bold": False, "align": "left", "color": None}
 
 
 def _detect_alignment(headers: list[str], rows: list[list[str]]) -> list[str]:

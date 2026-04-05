@@ -122,7 +122,7 @@
         {% for row in rows %}
         <tr>
           {% for cell in row %}
-          <td class="{% if cell.bold %}cell-bold {% endif %}{% if cell.align == 'right' %}cell-right{% endif %}">{{ cell.text }}</td>
+          <td class="{% if cell.bold %}cell-bold {% endif %}{% if cell.align == 'right' %}cell-right{% endif %}"{% if cell.color %} style="color: {{ cell.color }}; font-weight: 700;"{% endif %}>{{ cell.text }}</td>
           {% endfor %}
         </tr>
         {% endfor %}

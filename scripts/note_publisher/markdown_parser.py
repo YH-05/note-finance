@@ -83,10 +83,12 @@ def parse_draft(draft_path: Path) -> ArticleDraft:
 
     frontmatter, body_text = _extract_frontmatter(text)
     body_text = _remove_revision_history(body_text)
+    body_text = _remove_references_section(body_text)
     body_blocks, image_paths = _parse_body(body_text, draft_path.parent)
     title = _resolve_title(frontmatter, body_blocks)
     body_blocks = _remove_title_from_body(body_blocks)
     body_blocks = _relocate_disclaimer(body_blocks)
+    body_blocks = _insert_paragraph_spacing(body_blocks)
 
     logger.info(
         "Draft parsed successfully",
@@ -165,6 +167,66 @@ def _remove_revision_history(body: str) -> str:
 
     logger.debug("Revision history section found, removing")
     return body[:idx]
+
+
+# AIDEV-NOTE: References section headings observed in existing drafts.
+# When the list grows, update this tuple rather than scattering string
+# literals across the codebase.
+_REFERENCES_HEADINGS: tuple[str, ...] = (
+    "## 参考データソース",
+    "## 参考情報",
+)
+
+
+def _remove_references_section(body: str) -> str:
+    """Remove the references section (``## 参考データソース`` / ``## 参考情報``).
+
+    note.com 下書きに参考データソース節を載せない方針のため、
+    当該見出しから次の区切り（``免責事項`` 段落または次の ``## `` 見出し、
+    それもなければ本文末尾）までを削除する。前後の ``---`` 区切り線は
+    触らず、``_relocate_disclaimer`` 側で末尾の余剰 separator を刈る。
+
+    Parameters
+    ----------
+    body : str
+        Markdown body text (after revision history removal).
+
+    Returns
+    -------
+    str
+        Body text with the references section removed.  If no
+        references heading is found, returns the input unchanged.
+    """
+    lines = body.split("\n")
+
+    start_idx = -1
+    for i, line in enumerate(lines):
+        if line.strip() in _REFERENCES_HEADINGS:
+            start_idx = i
+            break
+
+    if start_idx == -1:
+        return body
+
+    end_idx = len(lines)
+    for i in range(start_idx + 1, len(lines)):
+        stripped = lines[i].strip()
+        if stripped.startswith("免責事項"):
+            end_idx = i
+            break
+        if (
+            stripped.startswith("## ") or stripped.startswith("# ")
+        ) and stripped not in _REFERENCES_HEADINGS:
+            end_idx = i
+            break
+
+    logger.debug(
+        "references_section_removed",
+        start_line=start_idx,
+        end_line=end_idx,
+        removed_lines=end_idx - start_idx,
+    )
+    return "\n".join(lines[:start_idx] + lines[end_idx:])
 
 
 def _parse_body(
@@ -510,8 +572,14 @@ def _relocate_disclaimer(
     """Move disclaimer blocks to the end of the article.
 
     Detects blocks containing ``免責事項`` and relocates them to the
-    end, preceded by a separator. Disclaimer text is converted to
-    plain paragraphs (no blockquote or other decoration).
+    end, preceded by exactly one separator. Disclaimer text is
+    converted to plain paragraphs (no blockquote or other decoration).
+
+    Any trailing ``separator`` blocks that remain after pulling out the
+    disclaimer are stripped before appending the canonical separator.
+    This ensures the disclaimer is always preceded by a single ``---``
+    even if the source markdown contained multiple adjacent separators
+    around the disclaimer or references section.
 
     Parameters
     ----------
@@ -521,7 +589,8 @@ def _relocate_disclaimer(
     Returns
     -------
     list[ContentBlock]
-        Body blocks with disclaimer moved to end.
+        Body blocks with disclaimer moved to end, preceded by exactly
+        one separator.
     """
     disclaimer_blocks: list[ContentBlock] = []
     remaining_blocks: list[ContentBlock] = []
@@ -537,11 +606,68 @@ def _relocate_disclaimer(
     if not disclaimer_blocks:
         return body_blocks
 
+    # Strip trailing separator blocks so exactly one separator precedes
+    # the disclaimer regardless of how many were in the source markdown.
+    stripped_separator_count = 0
+    while remaining_blocks and remaining_blocks[-1].block_type == "separator":
+        remaining_blocks.pop()
+        stripped_separator_count += 1
+
     logger.debug(
         "disclaimer_relocated",
         count=len(disclaimer_blocks),
+        stripped_trailing_separators=stripped_separator_count,
     )
 
     remaining_blocks.append(ContentBlock(block_type="separator", content=""))
     remaining_blocks.extend(disclaimer_blocks)
     return remaining_blocks
+
+
+def _insert_paragraph_spacing(
+    body_blocks: list[ContentBlock],
+) -> list[ContentBlock]:
+    """Insert empty paragraph blocks between consecutive paragraph blocks.
+
+    note.com のエディタでは連続する段落ブロックが視覚的に詰まって
+    表示されるため、Markdown 上の段落区切りを「1行空き」として
+    note.com に反映するために、連続 ``paragraph`` ブロックの間に
+    空の ``paragraph`` ブロックを1つ挿入する。
+
+    対象は ``paragraph`` → ``paragraph`` の遷移のみ。見出し・リスト・
+    画像・引用・separator との境界には挿入しない（それらのブロックは
+    note.com 側で独自の視覚的分離を持つため）。
+
+    Parameters
+    ----------
+    body_blocks : list[ContentBlock]
+        Parsed body blocks (after disclaimer relocation).
+
+    Returns
+    -------
+    list[ContentBlock]
+        Body blocks with empty paragraph spacers inserted between
+        consecutive paragraph blocks.
+    """
+    if not body_blocks:
+        return body_blocks
+
+    result: list[ContentBlock] = []
+    inserted_count = 0
+    for i, block in enumerate(body_blocks):
+        result.append(block)
+        if (
+            block.block_type == "paragraph"
+            and i + 1 < len(body_blocks)
+            and body_blocks[i + 1].block_type == "paragraph"
+        ):
+            result.append(ContentBlock(block_type="paragraph", content=""))
+            inserted_count += 1
+
+    if inserted_count > 0:
+        logger.debug(
+            "paragraph_spacing_inserted",
+            spacer_count=inserted_count,
+            total_blocks=len(result),
+        )
+    return result
