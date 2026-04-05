@@ -38,6 +38,7 @@ Step 2: カテゴリ別リサーチ実行（ギャップ優先検索）
 ├── quant_analysis    → investment-research スキル
 ├── investment_education → investment-research スキル
 ├── asset_management   → investment-research スキル（JP RSSプリセット + Web検索）
+├── earnings          → investment-research スキル + quants DB（NASDAQ/yfinance/SEC EDGAR）
 ├── side_business (type: case_study)  → Web検索 + Reddit + RSS（事例収集+パターン抽出）
 ├── side_business (type: experience)  → experience-db-workflow Phase 1-2
 └── market_report     → generate-market-report Phase 2-3
@@ -143,6 +144,28 @@ Step 0 で特定されたギャップ情報を各スキルに渡し、**ギャ�
 ```
 
 出力先: `01_research/` 配下に各成果物を保存
+
+#### earnings
+
+`investment-research` スキルに加えて、quants プロジェクトの SQLite DB（`/Volumes/personal_folder/Projects/quants/data/sqlite/`）から決算関連データを取得します。
+
+```
+実行内容:
+- Phase 0: 対象銘柄の特定（meta.yaml.symbols または NASDAQ calendar から 3-5日後の決算銘柄）
+- Phase 1: quants DB 読み込み
+  - nasdaq_calendar.db / nc_earnings_calendar — EPS予想・発表時間・会計四半期末
+  - sec_edgar.db / se_financial_statements — 売上・純利益・総資産・総負債・営業CF（過去annual/quarterly）
+  - yfinance.db / yf_daily_prices — 直近1年の日次 OHLCV
+  - alphavantage.db / av_earnings — 過去EPSサプライズ履歴
+  - alphavantage.db / av_company_overview — 会社概要・セクター・アナリストレーティング（取得済み銘柄のみ）
+- Phase 2: Web検索で補完リサーチ（コンセンサス予想、最新ニュース、セルサイドレポート）
+- Phase 3: ファクト整理・論点抽出（事前予想 vs 過去実績のトレンド）
+- Phase 4: リサーチノート出力（決算プレビュー観点）
+```
+
+出力先: `01_research/earnings_data.json`（quants DB からの抽出結果）+ 他成果物を同ディレクトリに保存
+
+**注意**: 財務データは SEC EDGAR を優先使用（5指標: revenue, net_income, total_assets, total_liabilities, operating_cashflow）。AV の income/balance/cashflow は意図的に未収集のため参照しない。
 
 #### asset_management
 

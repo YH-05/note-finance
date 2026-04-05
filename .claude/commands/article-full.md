@@ -11,7 +11,7 @@ argument-hint: [トピック名] [--category <category>] [--skip-publish]
 |-----------|------|-----------|------|
 | トピック名 | ○※ | - | 記事のテーマ（例: 新NISAつみたて投資枠の活用法） |
 | @article_dir | ○※ | - | 既存記事ディレクトリ（途中から再開する場合） |
-| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education） |
+| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education / earnings） |
 | --skip-publish | - | false | 投稿をスキップ（批評・修正で完了） |
 | --mode | - | full | 批評モード（quick / full） |
 | --skip-hf | - | false | ヒューマンフィードバックをスキップ（非推奨） |
@@ -296,6 +296,7 @@ Phase 5: 投稿（--skip-publish でスキップ可能）
 | market_report | quick | 定期レポート、速報性重視 |
 | quant_analysis | full | 数値分析、データ正確性重視 |
 | investment_education | full | 教育コンテンツ、読みやすさ重視 |
+| earnings | full | 決算プレビュー、データ正確性重視 |
 
 ## 記事品質ルール（全フェーズ共通）
 

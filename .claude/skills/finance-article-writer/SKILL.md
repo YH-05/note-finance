@@ -9,7 +9,7 @@ note.com 向け金融記事の初稿を生成するオーケストレーター�
 
 ## 対象カテゴリ
 
-stock_analysis, macro_economy, investment_education, quant_analysis, market_report, asset_management
+stock_analysis, macro_economy, investment_education, quant_analysis, market_report, asset_management, earnings
 
 ## 引数
 
@@ -37,6 +37,7 @@ stock_analysis, macro_economy, investment_education, quant_analysis, market_repo
 | quant_analysis | `references/quant-analysis.md` |
 | market_report | `references/market-report.md` |
 | asset_management | `references/asset-management.md` |
+| earnings | `references/earnings.md` |
 
 ### Step 3: Agent ���ポーン
 
@@ -121,6 +122,7 @@ stock_analysis, macro_economy, investment_education, quant_analysis, market_repo
 | `references/quant-analysis.md` | クオンツ分析の構成・テンプレート |
 | `references/market-report.md` | 週次市場レポートの構成・テンプレート |
 | `references/asset-management.md` | 資産形成記事の構成・テンプレート・ソースキュレーション |
+| `references/earnings.md` | 決算プレビュー記事の構成・テンプレート（設計中） |
 
 ## エラーハンドリング
 
