@@ -94,7 +94,6 @@ uv run python scripts/generate_chart_image.py indices.json -o output.png --prese
     "chart_type": "line",
     "title": "チャートタイトル",
     "subtitle": "サブタイトル（省略可）",
-    "caption": "出典: Yahoo Finance（省略可）",
     "width": 800,
     "height": 500,
     "scale": 2,
@@ -103,6 +102,8 @@ uv run python scripts/generate_chart_image.py indices.json -o output.png --prese
     "data": { ... }
 }
 ```
+
+> **注意**: `caption` フィールド（出典記載）は**使用しない**。詳細は下記「チャートスタイル規約 > 共通ルール」を参照。
 
 ### チャートタイプ別 data スキーマ
 
@@ -217,20 +218,53 @@ uv run python scripts/generate_chart_image.py INPUT_JSON -o OUTPUT_PNG [OPTIONS]
 
 ## チャートスタイル規約
 
-### 複数ラインの場合
+### 共通ルール（必須）
 
-- `alpha=0.6`（透過率60%）、`linewidth=1.0`（1pt）、`marker=False`
-- 関連系列（同カテゴリの年限違い等）はグラデーションカラー
-
-### 単一ラインの場合
-
-- `alpha=1.0`、`linewidth=2.0`、`marker` は任意
-
-### タイトル
-
-- 1行で完結させる（サブタイトル・出典は使わない）
+- **データの出所（出典・caption）は記載しない**。`fig.text()` 等での「出典: Yahoo Finance」表記や `caption` フィールドによるソース明記は禁止。note記事の本文側で別途URLリンクとして引用する。
+- タイトルは1行で完結させる（サブタイトル・出典は使わない）。
 - 期間を含める場合: `米国債利回り推移（1999年1月4日〜2026年3月12日）`
 - 日付の0パディングはしない: `1月4日` (OK) / `01月04日` (NG)
+
+### 単一ラインの場合（必須）
+
+- **カラーは青で統一**する。`NOTE_LIGHT.palette[0]`（`#2166AC`）または `#2563EB` を使用。
+- `alpha=1.0`、`linewidth=2.0`、`marker` は任意。
+- 塗りつぶし（`fill_between`）を使う場合も同じ青を `alpha=0.08〜0.13` で使用。
+
+```python
+ax.plot(dates, values, color="#2166AC", linewidth=2.0, alpha=1.0)
+ax.fill_between(dates, values, alpha=0.1, color="#2166AC")
+```
+
+### 複数ラインの場合（必須）
+
+- **線の透過率は `alpha=0.6`（60%）で統一**する。視覚的なノイズを抑え、重なりでも識別しやすくするため。
+- `linewidth=1.0`（1pt）、`marker=False` を基本とする。
+- **カラーは別系統（青・赤・緑・黄等）の色相で区別する**。同系統（ブルー系グラデーション等）では複数系列の識別が困難になるため、視認性を優先し `NOTE_LIGHT.palette` の先頭から順に使用する。
+- 例外: 年限別金利カーブ等、**順序性のある関連系列**（短期→長期）の場合のみブルー系グラデーションを使用してもよい。
+
+```python
+from chart_theme import NOTE_LIGHT
+
+# 別系統カラー（推奨）: 青・赤・緑・黄・紫…の順で視認性を最大化
+theme = NOTE_LIGHT
+for i, sid in enumerate(series_ids):
+    ax.plot(dates, series_data[sid], label=labels[sid],
+            color=theme.palette[i], linewidth=1.0, alpha=0.6)
+```
+
+`NOTE_LIGHT.palette` のデフォルト順序:
+
+| # | 色 | 用途 |
+|---|-----|------|
+| 0 | `#2166AC` 深い青 | プライマリ |
+| 1 | `#D6604D` コーラルレッド | セカンダリ |
+| 2 | `#1A9641` フォレストグリーン | 3系列目 |
+| 3 | `#FDAE61` 温かいアンバー（黄） | 4系列目 |
+| 4 | `#762A83` パープル | 5系列目 |
+| 5 | `#4393C3` スカイブルー | 6系列目 |
+| 6 | `#A6DBA0` ペールグリーン | 7系列目 |
+| 7 | `#C2A5CF` ソフトパープル | 8系列目 |
 
 ### 凡例
 
@@ -241,7 +275,9 @@ ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.1),
           fontsize=9, ncol=6, frameon=False)
 ```
 
-### ブルー系グラデーション（年限・段階比較用）
+### ブルー系グラデーション（順序性のある関連系列のみ）
+
+年限別金利カーブ（3M→1Y→2Y→5Y→10Y→30Y）等、**順序性を視覚的に表現したい場合**のみ使用する。独立系列の比較ではテーマパレット（別系統カラー）を使うこと。
 
 ```python
 blue_gradient = [

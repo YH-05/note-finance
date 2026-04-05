@@ -35,13 +35,51 @@ uv run python scripts/generate_chart_image.py chart.json -o output.png
 
 | 項目 | 値 |
 |------|-----|
+| color | **青（`#2166AC` または `#2563EB`）で統一** |
 | alpha | 1.0 |
 | linewidth | 2.0pt |
 | marker | 任意 |
 
+```python
+# 単一ラインは常に青
+ax.plot(dates, values, color="#2166AC", linewidth=2.0, alpha=1.0)
+# 塗りつぶしを追加する場合も同じ青を使う
+ax.fill_between(dates, values, alpha=0.1, color="#2166AC")
+```
+
 ### カラーパレット
 
-#### 関連系列（同カテゴリの年限違い等）→ グラデーション
+#### 独立系列（異なるカテゴリの比較）→ テーマパレット【デフォルト】
+
+複数ラインチャートは**視認性を最優先し、別系統の色相（青・赤・緑・黄等）で区別する**。
+`NOTE_LIGHT.palette` の先頭から順に割り当てる。
+
+```python
+from chart_theme import NOTE_LIGHT
+
+theme = NOTE_LIGHT
+for i, series in enumerate(series_list):
+    ax.plot(dates, series.values, label=series.label,
+            color=theme.palette[i], linewidth=1.0, alpha=0.6)
+```
+
+`NOTE_LIGHT.palette` の並び（視認性重視の8色）:
+
+| # | 色 | HEX |
+|---|-----|------|
+| 0 | 深い青（プライマリ） | `#2166AC` |
+| 1 | コーラルレッド | `#D6604D` |
+| 2 | フォレストグリーン | `#1A9641` |
+| 3 | 温かいアンバー（黄） | `#FDAE61` |
+| 4 | パープル | `#762A83` |
+| 5 | スカイブルー | `#4393C3` |
+| 6 | ペールグリーン | `#A6DBA0` |
+| 7 | ソフトパープル | `#C2A5CF` |
+
+#### 順序性のある関連系列 → ブルー系グラデーション【例外】
+
+年限別金利カーブ（3M→1Y→2Y→5Y→10Y→30Y）のように**順序性を視覚的に伝えたい場合のみ**使用する。
+独立カテゴリ（銘柄比較・セクター比較）には使わない。
 
 ```python
 # ブルー系グラデーション（短期=薄い → 長期=濃い）
@@ -53,13 +91,6 @@ blue_gradient = [
     "#1D4ED8",
     "#1E3A8A",  # dark navy
 ]
-```
-
-#### 独立系列（異なるカテゴリの比較）→ テーマパレット
-
-```python
-from chart_theme import NOTE_LIGHT
-# NOTE_LIGHT.palette の 8 色を使用
 ```
 
 ### タイトル
