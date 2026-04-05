@@ -1,7 +1,7 @@
 ---
 title: TLKM IJ_IR Prep_20260406
 date created: 2026-04-05 16:04
-date modified: 2026-04-05 18:04
+date modified: 2026-04-05 20:04
 ---
 
 
@@ -45,9 +45,50 @@ date modified: 2026-04-05 18:04
 > また、Danantara配下になってインドネシア政府案件の優遇・新規受注の機会はあるか？
 
 ---
-# Infranexia spin-off / NeutraDC sell-off
+# Infranexia spin-off
+
+[[Infranexia]]
+### Q9. Regarding Infranexia’s initial EBITDA of approximately IDR 10 trillion, what is the current status of the wholesale pricing determination process with your anchor tenant, IndiHome? 
+
+
+### A9.
+
+### Q10. Furthermore, how do you evaluate the impact of this pricing benchmark on the implied valuation—specifically the expected EV/EBITDA multiple of 9x to 10x—being calculated by potential external partners?
+
+
+### A10.
+
+
+### Q11. Regarding the network tenancy ratio, which currently remains at approximately 40%, what specific target levels or internal KPIs have been established for the three-to-five-year period following the completion of the spin-off and the onboarding of a strategic partner?
+
+> 現在のInfranexiaのファイバー網の稼働率（ネットワーク利用率）は約40%にとどまっており、外部顧客へ開放することによる収益拡大のアップサイドが非常に大きい。国内に約100社存在するISPやほかの通信事業者への回線卸売に加え、データセンター間（DC to DC）のダークファイバー需要などハイパースケーラーの取り込みが期待されている。
+> ただし、売部へ卸売を行い際には独占禁止法（anti-monopoly regulation）に準拠した公正な価格設定が求められる。
+
+### A11.
+
+
+
+
+---
+# NeutraDB sell-off
 
 ---
 # Danantaraとの関係（パワーバランス）
+
+### KPI設定とDanataraのハードルレート
+- Danataraの参画により経営陣のKPI項目は9つに絞り込まれ、半数は収益性、株主還元、配当・時価総額・ROIC、組織のスリム化に関するもの。特に組織スリム化のウェイトが大きくなっている。
+
+
+### Q7. Regarding the (nine) KPIs established under Danantara’s mandate, could you specify the 'hurdle rates' or target levels that Danantara is requiring for dividends and ROIC?
+
+### A7.
+
+### Q8. While I understand that Danantara’s fund performance is evaluated with transparency, what specific mechanisms are in place regarding penalties or accountability measures for executive compensation and capital allocation plans in the event that Telkom falls short of its established KPIs?
+
+### A8.
+
+---
+
+## #Infranexia
 
 

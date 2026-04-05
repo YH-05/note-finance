@@ -1,10 +1,13 @@
 ---
 title: TLKM memo
 date created: 2026-04-01 14:04
-date modified: 2026-04-05 18:04
+date modified: 2026-04-05 20:04
 ---
 # 会社概要
 
+## Segments 
+
+[[TLKM Segments]]
 ## Danantara（Daya Anagata Nusantara）
 - 2025年3月22日から移管プロセスが開始され、最終的に現在のDanantara Asset Management（DAM）名義で株主名簿に記載されたのは2026年1月6日
 - 経緯としては、プラボウォ政権下で設立された、スーパーホールディングであるDanantaraへの資産移管は、法改正と段階的な現物出資（Inbreng）を通じて実施された。
@@ -71,6 +74,8 @@ date modified: 2026-04-05 18:04
 インフラが同等レベルになることでTelkomselの市場シェア低下と、競合へのシェア収束を招く要因になる可能性がある。
 
 ## 3. Infranexia（InfraCo）によるバリューアンロック
+
+[[Infranexia]]
 
 TLKMはインフラを自社専用の武器として独占するモデルから、資産を切り離して収益化する、戦略的持ち株会社への移行を進めている（5 Bold Moves戦略）。
 
