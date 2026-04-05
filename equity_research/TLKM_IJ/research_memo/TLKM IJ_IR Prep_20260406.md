@@ -67,6 +67,12 @@ date modified: 2026-04-05 20:04
 ### A11.
 
 
+#### Q16. How does Infraco plan to differentiate its wholesale offerings from other infrastructure players, and how will you ensure that opening access to your network won't disproportionately cannibalize IndiHome's retail market share?
+
+> TLKMは資産価値の最大化（アンロック）を目的とし、ファイバー資産の約56%（純簿価約35.8兆ルピア）を「Infranexia」としてスピンオフする計画（フェーズ1）を2025年末〜2026年にかけて進めています。経営陣はEV/EBITDAで9〜10倍の評価での戦略的パートナーへの一部株式売却（20〜30%）を目指しています。 現在、同ネットワークの利用率は約40%に留まっており、収益の約88%をグループ内のTelkomsel（IndiHome）に依存しています。企業価値を最大化するには、他キャリア（ISAT、XLSmart）や地方ISPへのホールセール（貸し出し）を拡大し、利用率を引き上げる必要があります。
+> Infranexiaの高いバリュエーション（EV/EBITDA 9-10倍）を正当化するためには、現在の40%の利用率を外部顧客の獲得によって引き上げる必要がある。しかし、競合キャリアも自社のファイバー網を保有・拡張している中、どのような価格インセンティブやサービス差別化によって彼らを自社ファイバー網のテナントとして取り込む計画か。
+
+### A16. 
 
 
 ---
@@ -89,6 +95,58 @@ date modified: 2026-04-05 20:04
 
 ---
 
-## #Infranexia
+## 競合との位置関係
+
+### Q12. Could you elaborate on your outlook for 'market repair' (price discipline) in the mobile market and your defensive strategies to counter the decline in revenue share?
+
+> 業界内が実質3社体制になったことで、業界全体で低価格な初期SIMカード（Starter pack）の販売を縮小し、価格を35,000ルピア（3GB）に引き上げるなどの価格修復（Market repair）が観測されている。
+> 
+> TLKMのモバイルARPUは1Q2025にYoY -6%、3Q25にはQoQ+5%、YoY+1%の43,000ルピアへの回復の兆しが見える。
+> 
+> しかしTLKMは2024年にモバイル収益の市場シェアを3pptほど落としており、競合のISATやXLSmasrtの成長率（~10%）に対して、TLKM4%程度の成長と見られている。
+> 
+> 市場全体の価格修復が進む中、更新パッケージ（Renewal package）の価格引き上げのタイムラインと許容度をどう見積もっているか。また、ARPUの回復と引き換えに、競合（ISAT、XLSmart）へのこれ以上の市場シェア流出をどのように食い止める方針か。
 
 
+
+
+
+
+### A12.
+
+### Q13. While we appreciate the focus on improving FCF through lower Capex intensity, how do you plan to mitigate the risk of network quality degradation? Specifically, what measures are in place to defend your long-standing market leadership and pricing premium in **ex-Java regions**, as your competitors close the infrastructure gap?
+
+> TLKMの最大の競争優位性は、インドネシア全土（特にジャワ島外）における広範なネットワーク・カバレッジ。
+> 
+> しかし、TLKMのCapex対売上高比率は、2023年の22%超から2024年には16%へ急低下し、2025年のガイダンスでも17〜19%に抑制されている。 
+> 
+> 一方で、ISATやXLSmartはジャワ島外への積極的なネットワーク拡張を進めており、通信速度やカバレッジの面でTelkomselに肉薄しつつある。
+> 
+> Capexの抑制はフリーキャッシュフロー（FCF）の創出と配当増（配当性向90%への引き上げ期待など）には寄与するものの、長期的なネットワーク品質の低下リスクをはらんでいる。
+> 
+> 過去の20%超のCapex水準から17〜19%への引き下げは、調達の効率化によるものとされているが、競合がジャワ島外でカバレッジを急速に拡大している現状において、ネットワーク品質の優位性を維持するのに十分な投資水準と言えるか。短期的なFCF創出を優先しすぎているリスクはないか。
+
+### A13.
+
+
+### Q14. How do you plan to address the narrowing gap in spectrum holdings relative to your peers, and what is your capital allocation strategy for the upcoming 5G auctions?
+
+> これまでTelkomselは周波数保有量で他社を圧倒していたが、合併後のXLSmartは152MHzを保有することとなり、Telkomselの165MHz（ISATは135MHz）に対するインフラ面での圧倒的優位性が薄れています。
+> 
+> さらに、2025年後半から2026年前半にかけて、700MHzおよび2600MHz帯の5G向け周波数オークションが予定されています。 
+> 
+> 5G投資は、現時点では消費者の購買力不足や明確なユースケースの欠如から、短期的な収益貢献が不透明です。しかし、ネットワーク競争力を維持するためには取得が不可避となる可能性があります。
+> 
+> XLSmartの誕生により周波数の保有格差が縮小した中、次期の700MHz/2600MHzオークションにおいて、どのような取得戦略と予算枠を想定しているか。5Gのマネタイズが見えにくい中での周波数獲得コストが、今後の配当や財務レバレッジに与える影響をどう見積もっているか。
+
+
+
+### A14.
+
+
+### Q15. How do you intend to leverage your Fixed-Mobile Convergence (FMC) strategy to reverse the ARPU decline in IndiHome caused by intensifying competition from local ISPs?
+
+
+> インドネシアの固定ブロードバンド（FBB）市場は世帯普及率が約25%未満と低く、成長余地が大きいものの、700社以上存在する地方ISPとの価格競争が激化しています。その結果、IndiHomeのARPUは2024年3Qの235,000ルピアから、2025年3Qには210,000ルピアへと下落傾向が続いています。 TLKMはTelkomselとIndiHomeを統合し、Fixed Mobile Convergence（FMC）戦略を推進していますが、ISAT（MNC Playの買収）やXLSmart（LinkNet）も同様の戦略で追い上げています。
+> 
+> 地方ISPの台頭によるIndiHomeのARPU低下圧力が続いているが、このトレンドはどこで底打ちすると見ているか。FMC（モバイルとのバンドル）によるクロスセルの進捗は、競合のFBB戦略に対してどの程度の解約率低下（Churn reduction）とLTV向上をもたらしているのか具体的なデータを示してほしい。
