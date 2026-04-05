@@ -10,7 +10,7 @@ argument-hint: [トピック名] [--category <category>]
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
 | トピック名 | ○ | - | 記事のテーマ（例: 新NISAつみたて投資枠の活用法、テスラ決算分析） |
-| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education） |
+| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education / earnings） |
 
 ## 処理フロー
 
@@ -37,6 +37,7 @@ argument-hint: [トピック名] [--category <category>]
    5. market_report      (週次レポート)
    6. quant_analysis     (クオンツ分析)
    7. investment_education (投資教育・基礎知識)
+   8. earnings           (決算プレビュー・決算銘柄分析)
    ```
 
 3. **英語スラッグの生成**
@@ -58,11 +59,17 @@ argument-hint: [トピック名] [--category <category>]
 
 4. **カテゴリ別追加入力**
 
-   **stock_analysis / quant_analysis の場合**:
+   **stock_analysis / quant_analysis / earnings の場合**:
    ```
    対象シンボルを入力してください（カンマ区切り）
    例: AAPL,^GSPC,USDJPY=X
    ```
+
+   **earnings の場合**（追加）:
+   ```
+   決算発表予定日を入力してください（YYYY-MM-DD）:
+   ```
+   NASDAQ earnings calendar DB（`/Volumes/personal_folder/Projects/quants/data/sqlite/nasdaq_calendar.db` の `nc_earnings_calendar` テーブル）から取得した値を使用してください。
 
    **macro_economy の場合**:
    ```
@@ -95,7 +102,7 @@ argument-hint: [トピック名] [--category <category>]
 
    ※ konkatsu は常に `experience`（合成パターン法）を使用
 
-   **stock_analysis / macro_economy / quant_analysis の場合**:
+   **stock_analysis / macro_economy / quant_analysis / earnings の場合**:
    ```
    分析期間を入力してください
    開始日 (YYYY-MM-DD):
@@ -197,6 +204,7 @@ argument-hint: [トピック名] [--category <category>]
 | market_report | market_report | intermediate | 5000 |
 | quant_analysis | data_analysis | advanced | 4000 |
 | investment_education | column | beginner | 3500 |
+| earnings | earnings_preview | intermediate | 4000 |
 
 ### Phase 4: 完了報告
 

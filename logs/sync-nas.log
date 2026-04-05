@@ -1524,3 +1524,35 @@
 [sync-nas]   ✓ data/config/
 [sync-nas] 完了: 2026-04-04T08:51:24Z
 ---
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T09:34:35+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T09:34:35+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了: 2026-04-05T00:35:23Z
+---
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T10:31:12+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T10:31:12+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T10:31:13+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T10:31:13+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了: 
+---
+[sync-nas] 完了: 2026-04-05T01:32:12Z
+---
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T11:31:57+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-05T11:31:57+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了: 2026-04-05T02:32:46Z
+---
