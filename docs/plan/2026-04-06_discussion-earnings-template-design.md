@@ -155,11 +155,68 @@ Pencilで表を作成。以下のフィールドを含む:
 - BLK CIK: `2012383`（新持株会社）/ `1364742`（旧）
 - EX-99.1 URL例: `https://www.sec.gov/Archives/edgar/data/2012383/000119312525237960/blk-ex99_1.htm`
 
+## 実装進捗（2026-04-06 セッション内で完了）
+
+### 完了済みアクション
+
+| # | Action ID | 内容 | 成果物 |
+|---|---|---|---|
+| 1 | act-2026-04-06-001 | references/earnings.md 本設計版更新 | `.claude/skills/finance-article-writer/references/earnings.md` |
+| 2 | act-2026-04-06-002 | SEC EDGAR 8-K 取得ヘルパースクリプト | `scripts/fetch_earnings_8k.py` |
+| 3 | act-2026-04-06-003 | 決算前後株価反応分析ヘルパースクリプト | `scripts/analyze_earnings_reaction.py` |
+
+### 追加で作成した成果物
+
+| 成果物 | パス | 説明 |
+|---|---|---|
+| 決算チャート生成スクリプト | `scripts/generate_earnings_chart.py` | 株価+累積リターン2段チャート（reaction JSON入力で決算マーカー自動配置） |
+| BLK試作記事 | `articles/earnings/2026-04-06_blk-earnings-preview/` | Phase 1-4完了（init→research→draft→critique→revision） |
+
+### BLK試作記事の構成
+
+```
+articles/earnings/2026-04-06_blk-earnings-preview/
+├── meta.yaml
+├── 01_research/
+│   ├── blk_reaction.json      (analyze_earnings_reaction.py 出力)
+│   ├── blk_8k.json            (fetch_earnings_8k.py 出力)
+│   └── research_notes.md      (Web検索結果まとめ)
+├── 02_draft/
+│   ├── first_draft.md
+│   ├── critic.json
+│   └── revised_draft.md       (4494字、目標範囲内)
+├── 03_published/
+└── images/
+    ├── table_overview.png     (銘柄概要テーブル)
+    ├── table_earnings_history.png (直近8四半期決算実績)
+    └── chart_price_1y.png     (5年株価+累積リターン2段チャート)
+```
+
+### チャート設計の確定仕様
+
+| 項目 | 仕様 |
+|---|---|
+| 上段 | 株価チャート（5年、青） |
+| 下段 | 累積リターン（5年、緑） |
+| 高さ比率 | 1:1 |
+| X軸 | 共有（sharex=True）、上段ティック非表示 |
+| 決算マーカー | 赤丸（半径9pt）+ 矢印アノテーション（両パネル） |
+| ラベル | 2行（1Q25 / 2025/4/11）、奇数偶数で上下交互配置 |
+| タイトル | 左寄せ（loc="left"） |
+| 縦波線 | なし |
+
+### 残アクション
+
+| # | Action ID | 内容 | 優先度 | ステータス |
+|---|---|---|---|---|
+| 4 | act-2026-04-06-004 | BLK試作記事のnote.com投稿（Phase 5） | 中 | pending |
+| 5 | act-2026-04-06-005 | Pencil 銘柄概要テーブルテンプレート | 中 | pending（generate-table-imageで代替済み） |
+
 ## 保存先
 
 | リソース | パス |
 |---|---|
 | note-neo4j Discussion | `disc-2026-04-06-earnings-template-design` |
-| note-neo4j Decision | `dec-2026-04-06-yfinance-realtime`, `dec-2026-04-06-section-structure`, `dec-2026-04-06-earnings-history-design`, `dec-2026-04-06-sec-edgar-rest-api`, `dec-2026-04-06-overview-table` |
+| note-neo4j Decision | `dec-2026-04-06-yfinance-realtime`, `dec-2026-04-06-section-structure`, `dec-2026-04-06-earnings-history-design`, `dec-2026-04-06-sec-edgar-rest-api`, `dec-2026-04-06-overview-table`, `dec-2026-04-06-earnings-chart-cli` |
 | note-neo4j ActionItem | `act-2026-04-06-001` 〜 `act-2026-04-06-005` |
 | ドキュメント | `docs/plan/2026-04-06_discussion-earnings-template-design.md`（このファイル） |

@@ -24,6 +24,7 @@
 |---|---|---|
 | `scripts/fetch_earnings_8k.py` | SEC EDGAR 8-K（EX-99.1）プレスリリース取得 | `uv run python scripts/fetch_earnings_8k.py --symbol BLK --quarters 8` |
 | `scripts/analyze_earnings_reaction.py` | 決算前後株価反応分析 + リターン算出 | `uv run python scripts/analyze_earnings_reaction.py --symbol BLK --quarters 8` |
+| `scripts/generate_earnings_chart.py` | 株価 + 累積リターン 2段チャート生成 | `PYTHONPATH=scripts uv run --with yfinance python scripts/generate_earnings_chart.py --reaction-json {reaction.json} -o {output.png}` |
 
 ### データソース優先順位
 
