@@ -1,0 +1,53 @@
+{
+  "overall_score": 78,
+  "scores": {
+    "compliance": 85,
+    "fact_accuracy": 80,
+    "structure": 82,
+    "data_accuracy": 75,
+    "readability": 78
+  },
+  "checklist": {
+    "earnings_date_bmo_amc_stated": {"pass": true, "note": "冒頭・セクション2で明示"},
+    "eps_consensus_stated": {"pass": true, "note": "$12.16、ソースリンク付き"},
+    "overview_table_created": {"pass": true, "note": "table_overview.png 生成済み"},
+    "earnings_history_table_image": {"pass": true, "note": "table_earnings_history.png 生成済み"},
+    "divergence_pattern_explained": {"pass": true, "note": "3件の乖離パターンを文章で解説"},
+    "price_chart_created": {"pass": true, "note": "chart_price_1y.png 決算日マーカー付き"},
+    "no_buy_sell_recommendation": {"pass": true, "note": "レーティング・目標株価の推奨なし"},
+    "risk_section_exists": {"pass": true, "note": "ダウンサイド3点 + アップサイド3点"},
+    "sec_edgar_priority": {"pass": true, "note": "AV income/balance/cashflow 未参照"},
+    "as_of_date_in_frontmatter": {"pass": true, "note": "2026-04-06"},
+    "source_urls_embedded": {"pass": false, "note": "セクション3の8-Kデータ引用にSEC EDGAR URLなし。セクション4のリターン数値にソースなし"},
+    "no_markdown_tables_remaining": {"pass": false, "note": "マークダウン表は除去済みだが、セクション4の本文内にリターン数値がインラインで残存（テーブル形式ではないのでOKだが確認）"},
+    "word_count_target": {"pass": false, "note": "約3200字。目標4000-5000字に対して不足"}
+  },
+  "critical_issues": [
+    {
+      "severity": "high",
+      "section": "全体",
+      "issue": "文字数が約3200字で目標の4000-5000字に対して800字以上不足",
+      "fix": "セクション2（カタリスト）とセクション3（乖離解説）を拡充"
+    },
+    {
+      "severity": "medium",
+      "section": "3. 過去の決算実績",
+      "issue": "8-Kプレスリリースからの引用にSEC EDGAR URLが埋め込まれていない",
+      "fix": "GAAP/Adjusted EPS等のデータにSEC EDGAR 8-Kの直リンクを追加"
+    },
+    {
+      "severity": "medium",
+      "section": "2. 今回の決算ポイント",
+      "issue": "Q1 2026の具体的な注目数値（前年同期比較）が不足",
+      "fix": "Q1 2025実績（Adj EPS $11.30, Revenue $5.3B）との比較を追加"
+    }
+  ],
+  "improvements": [
+    "セクション1: 企業概要テキストにAUM $14Tの出典リンクを追加",
+    "セクション2: Q1 2025 vs Q1 2026予想の比較表を追加（前年同期比+7.6%）",
+    "セクション3: 2025 Q2の下落要因をWeb検索で補完し解説を拡充",
+    "セクション4: 決算前後反応の統計サマリーを拡充（ビート時平均、ミス時平均）",
+    "セクション5: バリュエーションリスク（PER 27.4x vs 業界平均）を追加",
+    "セクション6: 注目すべき3つのKPIを箇条書きで再確認"
+  ]
+}
