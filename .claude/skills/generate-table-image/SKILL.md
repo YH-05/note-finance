@@ -67,13 +67,19 @@ generate_table_image(
 
 | パラメータ | デフォルト | 説明 |
 |-----------|-----------|------|
-| headers | (必須) | ヘッダー行のテキストリスト |
+| headers | (必須) | ヘッダー行のテキストリスト（**最大3列**） |
 | rows | (必須) | 各行のセルテキストリスト |
 | title | null | 表のタイトル（省略可） |
 | caption | null | 表の下部に表示する注記（省略可） |
 | theme_color | `#2563eb` | テーマカラー（CSSカラーコード） |
-| font_size | 15 | 基本フォントサイズ（px） |
+| font_size | 20 | 基本フォントサイズ（px） |
 | scale | 2 | デバイスピクセル比（2でRetina対応） |
+
+## 制約
+
+- **列数は最大3列**。4列以上を指定するとエラーになる。列が多い場合は表を分割すること。
+- テキストは自動折り返し。固定幅（620px）内でセルが均等に配分される。
+- **出典・データソースは表内に記載しない**。caption にも書かない。出典は記事本文側で記載すること。
 
 ## セル記法
 
@@ -91,17 +97,18 @@ generate_table_image(
 uv run python scripts/generate_table_image.py INPUT_JSON -o OUTPUT_PNG [OPTIONS]
 
 # オプション
---color COLOR      テーマカラー（デフォルト: #2563eb）
---font-size SIZE   フォントサイズ px（デフォルト: 15）
---scale SCALE      デバイスピクセル比（デフォルト: 2）
+--color COLOR        テーマカラー（デフォルト: #2563eb）
+--font-size SIZE     フォントサイズ px（デフォルト: 20）
+--scale SCALE        デバイスピクセル比（デフォルト: 2）
+--max-width WIDTH    ビューポート幅 px（デフォルト: 620）
 ```
 
 ## 実行フロー
 
 ```
-JSON/引数 → テンプレートデータ構築 → Jinja2 HTML レンダリング
-  → Playwright でブラウザ起動 → 自然幅測定 → ビューポート調整
-  → .table-container をスクリーンショット → PNG 出力
+JSON/引数 → 列数チェック（最大3列） → テンプレートデータ構築
+  → Jinja2 HTML レンダリング → Playwright でブラウザ起動
+  → 固定幅ビューポート（620px） → .table-container をスクリーンショット → PNG 出力
 ```
 
 ## 出力先の慣例

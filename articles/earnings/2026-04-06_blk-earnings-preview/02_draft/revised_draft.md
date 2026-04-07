@@ -21,6 +21,8 @@ BlackRockは運用資産残高（AUM）約[14兆ドル](https://finance.yahoo.co
 
 2025年にはGlobal Infrastructure Partners（GIP）とHPS Investment Partnersの買収を完了し、さらにプライベートマーケットデータプロバイダーのPreqinを統合しました。この3社統合により、BlackRockはパブリック・プライベート両市場をカバーする統一プラットフォームを構築しています。
 
+![Q1 2026 注目カタリスト](images/concept_catalysts.png)
+
 ## 2. 今回の決算ポイント
 
 ### 発表スケジュールとコンセンサス
@@ -56,7 +58,9 @@ BlackRockは運用資産残高（AUM）約[14兆ドル](https://finance.yahoo.co
 
 ### 直近8四半期のサプライズと株価反応
 
-![過去8四半期の決算実績](images/table_earnings_history.png)
+![直近8四半期 EPS実績](images/table_earnings_eps.png)
+
+![決算翌日の株価反応](images/table_earnings_reaction.png)
 
 直近8四半期のうち**7回がビート、1回がミス**です。決算発表翌日の平均リターンは+2.2%、中央値は+3.5%、決算翌日に株価が上昇した確率は75%と、BlackRockは市場予想を上回る傾向が強い銘柄です。
 
@@ -102,6 +106,8 @@ BlackRockの株価は現在$966.56（2026年4月2日終値）で推移してい�
 
 ビートしても2024年Q1のようにマクロ環境で打ち消されるケースがあるため、決算内容だけでなく、発表時点の市場環境も合わせて確認することが重要です。
 
+![リスク要因 vs アップサイド](images/concept_risk_reward.png)
+
 ## 5. リスク要因
 
 ### ダウンサイドシナリオ
@@ -117,6 +123,8 @@ BlackRockの株価は現在$966.56（2026年4月2日終値）で推移してい�
 - Aladdinのテクノロジーサービス収益の二桁成長継続
 - プライベートマーケットAUMが$4000億目標を前倒し達成
 - 市場回復によるAUM評価増
+
+![今回の決算 注目ポイント](images/concept_key_points.png)
 
 ## 6. まとめ
 

@@ -60,8 +60,10 @@ logger = structlog.get_logger(__name__)
 TEMPLATE_PATH = Path(__file__).parent / "templates" / "table.html"
 
 DEFAULT_THEME_COLOR = "#2563eb"
-DEFAULT_FONT_SIZE = 15
+DEFAULT_FONT_SIZE = 20
 DEFAULT_SCALE = 2
+DEFAULT_MAX_WIDTH = 620
+MAX_COLUMNS = 3
 
 
 _COLOR_MAP = {
@@ -184,6 +186,13 @@ async def generate_table_image_async(
     Path
         生成された画像のパス。
     """
+    if len(headers) > MAX_COLUMNS:
+        msg = (
+            f"列数が{len(headers)}列です（上限: {MAX_COLUMNS}列）。"
+            "note.com での可読性のため、列数を減らしてください。"
+        )
+        raise ValueError(msg)
+
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -210,20 +219,11 @@ async def generate_table_image_async(
 
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        # 初回: 広いビューポートで自然な表幅を測定
         page = await browser.new_page(device_scale_factor=scale)
-        await page.set_content(html_content, wait_until="networkidle")
 
-        # table の自然な幅を取得してビューポートをフィットさせる
-        natural_width = await page.evaluate(
-            "document.querySelector('table').scrollWidth"
-        )
-        container_padding = 0
-        if title or caption:
-            container_padding = 48  # padding-left + padding-right (24px * 2)
-        fit_width = max(natural_width + container_padding, 300)
-
-        await page.set_viewport_size({"width": fit_width, "height": 800})
+        # 固定幅でレンダリング（note.com コンテンツ幅に最適化）
+        viewport_width = DEFAULT_MAX_WIDTH
+        await page.set_viewport_size({"width": viewport_width, "height": 800})
         await page.set_content(html_content, wait_until="networkidle")
 
         container = page.locator(".table-container")
@@ -293,6 +293,12 @@ JSON入力例:
     )
     parser.add_argument(
         "--scale", type=int, default=DEFAULT_SCALE, help="デバイスピクセル比"
+    )
+    parser.add_argument(
+        "--max-width",
+        type=int,
+        default=DEFAULT_MAX_WIDTH,
+        help="ビューポート幅 px（デフォルト: 620）",
     )
 
     args = parser.parse_args()

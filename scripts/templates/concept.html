@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; display: inline-block; }
+
+  .concept-container {
+    width: {{ width }}px;
+    height: {{ height }}px;
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── 濃紺ヘッダーバー ─── */
+  .concept-header {
+    background: #1a2744;
+    padding: {{ (height * 0.035)|round|int }}px {{ (height * 0.06)|round|int }}px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: baseline;
+    gap: {{ (height * 0.03)|round|int }}px;
+  }
+
+  .concept-title {
+    font-size: {{ (height * 0.05)|round|int }}px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+
+  .concept-subtitle {
+    font-size: {{ (height * 0.026)|round|int }}px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.3;
+  }
+
+  /* ─── Caption ─── */
+  .concept-caption {
+    padding: {{ (height * 0.015)|round|int }}px {{ (height * 0.05)|round|int }}px {{ (height * 0.025)|round|int }}px;
+    font-size: {{ (height * 0.02)|round|int }}px;
+    color: #94a3b8;
+    flex-shrink: 0;
+  }
+
+  /* ════════════════════════════════
+     GRID / MATRIX — 枠線カード型
+     ════════════════════════════════ */
+  {% if type in ['matrix', 'grid'] %}
+  .concept-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: {{ (height * 0.04)|round|int }}px {{ (height * 0.05)|round|int }}px;
+    background: #eef3f8;
+    position: relative;
+  }
+
+  .concept-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: {{ (height * 0.025)|round|int }}px;
+  }
+
+  .concept-cell {
+    background: #ffffff;
+    border: 1px solid #c8d6e0;
+    border-radius: 4px;
+    padding: {{ (height * 0.03)|round|int }}px {{ (height * 0.028)|round|int }}px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cell-label {
+    font-size: {{ (height * 0.032)|round|int }}px;
+    font-weight: 900;
+    color: #1a2744;
+    line-height: 1.3;
+    margin-bottom: {{ (height * 0.008)|round|int }}px;
+  }
+
+  .cell-description {
+    font-size: {{ (height * 0.023)|round|int }}px;
+    font-weight: 400;
+    color: #5a6a7a;
+    line-height: 1.5;
+  }
+  {% endif %}
+
+  {% if type == 'matrix' %}
+  .axis-x-label {
+    text-align: center;
+    font-size: {{ (height * 0.02)|round|int }}px;
+    color: #8899aa;
+    padding-top: {{ (height * 0.01)|round|int }}px;
+    letter-spacing: 0.06em;
+  }
+  .axis-y-label {
+    position: absolute;
+    left: {{ (height * 0.015)|round|int }}px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: {{ (height * 0.02)|round|int }}px;
+    color: #8899aa;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  {% endif %}
+
+  /* ════════════════════════════════
+     COMPARISON — 2カラム対比
+     ════════════════════════════════ */
+  {% if type == 'comparison' %}
+  .concept-body {
+    flex: 1;
+    display: flex;
+    padding: {{ (height * 0.04)|round|int }}px {{ (height * 0.05)|round|int }}px;
+    gap: {{ (height * 0.025)|round|int }}px;
+    background: #eef3f8;
+  }
+
+  .comparison-side {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #c8d6e0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .side-header {
+    padding: {{ (height * 0.025)|round|int }}px {{ (height * 0.03)|round|int }}px;
+    font-size: {{ (height * 0.032)|round|int }}px;
+    font-weight: 900;
+    color: #ffffff;
+  }
+
+  .side-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: {{ (height * 0.015)|round|int }}px {{ (height * 0.03)|round|int }}px;
+  }
+
+  .side-item {
+    font-size: {{ (height * 0.024)|round|int }}px;
+    font-weight: 400;
+    color: #3a4a5a;
+    line-height: 1.5;
+    padding: {{ (height * 0.018)|round|int }}px 0;
+    border-bottom: 1px solid #e8edf2;
+  }
+
+  .side-item:last-child {
+    border-bottom: none;
+  }
+  {% endif %}
+
+  /* ════════════════════════════════
+     STEPS — 番号リスト
+     ════════════════════════════════ */
+  {% if type == 'steps' %}
+  .concept-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: {{ (height * 0.04)|round|int }}px {{ (height * 0.05)|round|int }}px;
+    gap: {{ (height * 0.02)|round|int }}px;
+    background: #eef3f8;
+  }
+
+  .step-item {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #c8d6e0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: {{ (height * 0.025)|round|int }}px {{ (height * 0.03)|round|int }}px;
+    gap: {{ (height * 0.025)|round|int }}px;
+  }
+
+  .step-number {
+    font-family: 'Inter', sans-serif;
+    font-size: {{ (height * 0.065)|round|int }}px;
+    font-weight: 900;
+    color: #1a2744;
+    line-height: 1;
+    flex-shrink: 0;
+    width: {{ (height * 0.07)|round|int }}px;
+    text-align: center;
+    opacity: 0.25;
+  }
+
+  .step-divider {
+    width: 2px;
+    align-self: stretch;
+    background: #d0dae4;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    flex: 1;
+    padding-left: {{ (height * 0.015)|round|int }}px;
+  }
+
+  .step-label {
+    font-size: {{ (height * 0.03)|round|int }}px;
+    font-weight: 900;
+    color: #1a2744;
+    line-height: 1.3;
+  }
+
+  .step-description {
+    font-size: {{ (height * 0.022)|round|int }}px;
+    font-weight: 400;
+    color: #5a6a7a;
+    line-height: 1.5;
+    margin-top: {{ (height * 0.005)|round|int }}px;
+  }
+  {% endif %}
+</style>
+</head>
+<body>
+  <div class="concept-container">
+
+    <div class="concept-header">
+      <div class="concept-title">{{ title }}</div>
+      {% if subtitle %}
+      <div class="concept-subtitle">{{ subtitle }}</div>
+      {% endif %}
+    </div>
+
+    {% if type == 'matrix' %}
+    <div class="concept-body">
+      {% if axes and axes.y_label %}<div class="axis-y-label">{{ axes.y_label }}</div>{% endif %}
+      <div class="concept-grid">
+        {% for item in items %}
+        <div class="concept-cell">
+          <div class="cell-label"{% if item.accent_color %} style="color: {{ item.accent_color }};"{% endif %}>{{ item.label }}</div>
+          {% if item.description %}<div class="cell-description">{{ item.description }}</div>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% if axes and axes.x_label %}<div class="axis-x-label">{{ axes.x_label }}</div>{% endif %}
+    </div>
+
+    {% elif type == 'grid' %}
+    <div class="concept-body">
+      <div class="concept-grid">
+        {% for item in items %}
+        <div class="concept-cell">
+          <div class="cell-label"{% if item.accent_color %} style="color: {{ item.accent_color }};"{% endif %}>{{ item.label }}</div>
+          {% if item.description %}<div class="cell-description">{{ item.description }}</div>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% elif type == 'comparison' %}
+    <div class="concept-body">
+      {% for item in items %}
+      <div class="comparison-side">
+        <div class="side-header" style="background: {{ item.accent_color or '#1a2744' }};">{{ item.label }}</div>
+        <div class="side-items">
+          {% for point in item.points %}
+          <div class="side-item">{{ point }}</div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% elif type == 'steps' %}
+    <div class="concept-body">
+      {% for item in items %}
+      <div class="step-item">
+        <div class="step-number">{{ loop.index }}</div>
+        <div class="step-divider"></div>
+        <div class="step-content">
+          <div class="step-label">{{ item.label }}</div>
+          {% if item.description %}<div class="step-description">{{ item.description }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if caption %}
+    <div class="concept-caption">{{ caption }}</div>
+    {% endif %}
+
+  </div>
+</body>
+</html>
