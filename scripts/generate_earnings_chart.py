@@ -248,6 +248,17 @@ def generate_earnings_chart(
     closes = np.array(hist["Close"].to_list())
     cumulative_return = (closes / closes[0] - 1) * 100
 
+    # S&P500 を同期間で取得して累積リターンを計算
+    logger.info("Fetching SPY data for benchmark comparison (period=%s)", period)
+    spy_hist = yf.Ticker("SPY").history(period=period)
+    spy_hist.index = spy_hist.index.tz_localize(None)
+    # 銘柄の開始日に最も近い日付で基点を揃える
+    spy_start_idx = spy_hist.index.searchsorted(hist.index[0])
+    spy_hist = spy_hist.iloc[spy_start_idx:]
+    spy_closes = np.array(spy_hist["Close"].to_list())
+    spy_dates = spy_hist.index.to_list()
+    spy_cumulative_return = (spy_closes / spy_closes[0] - 1) * 100
+
     logger.info(
         "Data points: %d, range: %s ~ %s",
         len(dates), dates[0].date(), dates[-1].date(),
@@ -272,13 +283,20 @@ def generate_earnings_chart(
     )
     ax_price.tick_params(axis="x", which="both", bottom=False, labelbottom=False)
 
-    # 下段: 累積リターン
-    ax_ret.plot(dates, cumulative_return, color="#1A9641", linewidth=1.8, alpha=1.0)
-    ax_ret.fill_between(dates, cumulative_return, alpha=0.08, color="#1A9641")
-    ax_ret.axhline(y=0, color="#888888", linewidth=0.8, linestyle="-", alpha=0.5)
+    # 下段: 累積リターン（銘柄 vs S&P500）
+    ax_ret.plot(
+        dates, cumulative_return,
+        color="#1A9641", linewidth=1.8, alpha=1.0, label=symbol,
+    )
+    ax_ret.plot(
+        spy_dates, spy_cumulative_return,
+        color="#888888", linewidth=1.4, alpha=0.8, linestyle="--", label="S&P500",
+    )
+    ax_ret.axhline(y=0, color="#AAAAAA", linewidth=0.8, linestyle="-", alpha=0.5)
     ax_ret.set_ylabel("累積リターン (%)", fontsize=theme.label_size)
+    ax_ret.legend(loc="upper left", fontsize=theme.label_size, framealpha=0.7)
 
-    # 決算発表日アノテーション
+    # 決算発表日アノテーション（上段のみ）
     if earnings_dates:
         fig.canvas.draw()  # レンダラー確定
 
@@ -290,11 +308,8 @@ def generate_earnings_chart(
                 )
                 above = i % 2 == 0
                 _annotate_panel(ax_price, fig, dt, closes[nearest_idx], label, above)
-                _annotate_panel(
-                    ax_ret, fig, dt, cumulative_return[nearest_idx], label, above,
-                )
 
-        logger.info("Annotated %d earnings dates", len(earnings_dates))
+        logger.info("Annotated %d earnings dates (price panel only)", len(earnings_dates))
 
     # X軸
     ax_ret.xaxis.set_major_locator(mdates.YearLocator())
