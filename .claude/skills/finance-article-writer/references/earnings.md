@@ -24,7 +24,14 @@
 |---|---|---|
 | `scripts/fetch_earnings_8k.py` | SEC EDGAR 8-K（EX-99.1）プレスリリース取得 | `uv run python scripts/fetch_earnings_8k.py --symbol BLK --quarters 8` |
 | `scripts/analyze_earnings_reaction.py` | 決算前後株価反応分析 + リターン算出 | `uv run python scripts/analyze_earnings_reaction.py --symbol BLK --quarters 8` |
-| `scripts/generate_earnings_chart.py` | 株価 + 累積リターン 2段チャート生成 | `PYTHONPATH=scripts uv run --with yfinance python scripts/generate_earnings_chart.py --reaction-json {reaction.json} -o {output.png}` |
+| `scripts/generate_earnings_chart.py` | 株価 + 累積リターン 2段チャート生成 | `PYTHONPATH=scripts uv run --with yfinance python scripts/generate_earnings_chart.py --article-dir articles/earnings/{slug}` |
+
+**`generate_earnings_chart.py` の仕様（2026-04-08 更新）**:
+
+- **推奨実行方法**: `--article-dir` を指定するだけで完結。`01_research/*_reaction.json` を自動探索し、出力先を `images/chart_price_1y.png` に自動設定する
+- **上段（株価）**: シンプルなラインチャート。決算日に赤丸マーカー + 矢印アノテーションを配置
+- **下段（累積リターン）**: 銘柄（緑実線）と S&P500＝SPY（グレー破線）を重ね描き。面プロットなし。決算日アノテーションは描画しない
+- **アノテーションなし**: `--no-annotations` フラグで明示的に無効化できる
 
 ### データソース優先順位
 
@@ -134,7 +141,9 @@ Pencil MCP で以下の項目を含む表を作成する:
 
 #### 4. 株価パフォーマンス（目安: 500-800字 + チャート）
 
-- 1年株価チャート: `/generate-chart-image` で yfinance データから生成
+- **チャート生成**: `generate_earnings_chart.py --article-dir {article_dir}` で生成（推奨）
+  - 上段: 5年株価推移（ラインチャート）+ 決算日の赤丸マーカー・矢印アノテーション
+  - 下段: 銘柄累積リターン vs S&P500（SPY）の比較ライン
 - 決算前後の株価反応パターン: 直近8四半期の翌日リターンの傾向
 - ボラティリティの傾向（決算前に上がりやすい/下がりやすい等）
 
