@@ -58,6 +58,17 @@ _INLINE_LINK_PATTERN = re.compile(r"\[([^\]]*)\]\([^)]+\)")
 # paragraphs, so they are converted to blockquotes for visual distinction.
 _BOLD_ONLY_PATTERN = re.compile(r"^\*\*(.+)\*\*$")
 
+# AIDEV-NOTE: Standard disclaimer text injected when no disclaimer is found in source.
+# Matches the text defined in .claude/skills/finance-article-writer/references/common-rules.md
+_STANDARD_DISCLAIMER = (
+    "免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。"
+    "投資には元本割れリスクがあります。株式、債券、投資信託、ETF等の金融商品は、市場の変動により価値が上下します。"
+    "過去の実績は将来の運用成果を保証するものではありません。本記事に含まれる見通しや予測は、"
+    "作成時点の情報に基づくものであり、将来の結果を保証するものではありません。"
+    "NISA等の税制優遇制度の内容は、税制改正により変更される可能性があります。"
+    "投資に関する最終決定は、ご自身の判断と責任において行ってください。"
+)
+
 
 def parse_draft(draft_path: Path) -> ArticleDraft:
     """Parse a revised_draft.md file into an ArticleDraft.
@@ -604,7 +615,14 @@ def _relocate_disclaimer(
             remaining_blocks.append(block)
 
     if not disclaimer_blocks:
-        return body_blocks
+        # 免責事項ブロックが存在しない場合、標準文を自動挿入する
+        result = list(body_blocks)
+        while result and result[-1].block_type == "separator":
+            result.pop()
+        result.append(ContentBlock(block_type="separator", content=""))
+        result.append(ContentBlock(block_type="paragraph", content=_STANDARD_DISCLAIMER))
+        logger.debug("disclaimer_auto_injected")
+        return result
 
     # Strip trailing separator blocks so exactly one separator precedes
     # the disclaimer regardless of how many were in the source markdown.
