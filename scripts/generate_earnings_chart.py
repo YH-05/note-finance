@@ -3,20 +3,28 @@
 
 analyze_earnings_reaction.py の出力 JSON から決算発表日を読み取り、
 5年間の株価推移（上段）と累積リターン（下段）の2段チャートを生成する。
-各決算発表日に赤丸マーカーと矢印アノテーションを配置する。
+各決算発表日に赤丸マーカーと矢印アノテーションを配置する（デフォルト動作）。
 
 Examples
 --------
-reaction JSON を入力に自動生成:
+記事ディレクトリを指定（推奨・最も簡単）:
 
-    $ uv run python scripts/generate_earnings_chart.py \\
+    $ PYTHONPATH=scripts uv run --with yfinance python scripts/generate_earnings_chart.py \\
+        --article-dir articles/earnings/2026-04-06_blk-earnings-preview
+
+    出力先は ``{article_dir}/images/chart_price_1y.png`` に自動設定される。
+    ``01_research/*_reaction.json`` を自動探索してアノテーション付きで生成する。
+
+reaction JSON を明示指定:
+
+    $ PYTHONPATH=scripts uv run --with yfinance python scripts/generate_earnings_chart.py \\
         --reaction-json .tmp/blk_reaction.json \\
         --output articles/earnings/.../images/chart_price.png
 
-銘柄指定のみ（reaction JSON なし、決算マーカーなし）:
+アノテーションなし（銘柄指定のみ）:
 
-    $ uv run python scripts/generate_earnings_chart.py \\
-        --symbol BLK \\
+    $ PYTHONPATH=scripts uv run --with yfinance python scripts/generate_earnings_chart.py \\
+        --symbol BLK --no-annotations \\
         --output .tmp/blk_chart.png
 
 Notes
@@ -312,15 +320,44 @@ def generate_earnings_chart(
 # ---------------------------------------------------------------------------
 
 
+def _find_reaction_json(article_dir: Path) -> Path | None:
+    """記事ディレクトリから reaction JSON を自動探索する.
+
+    Parameters
+    ----------
+    article_dir : Path
+        記事ルートディレクトリ（例: ``articles/earnings/2026-04-06_blk-earnings-preview``）。
+
+    Returns
+    -------
+    Path | None
+        見つかった JSON ファイルのパス。見つからない場合は None。
+    """
+    research_dir = article_dir / "01_research"
+    if not research_dir.exists():
+        return None
+    candidates = sorted(research_dir.glob("*_reaction.json"))
+    return candidates[0] if candidates else None
+
+
 def main() -> None:
     """CLI エントリーポイント."""
     parser = argparse.ArgumentParser(
         description="決算プレビュー用 株価 + 累積リターン チャート生成",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "--article-dir", "-d",
+        default=None,
+        help=(
+            "記事ディレクトリパス（推奨）。指定すると 01_research/*_reaction.json を"
+            "自動探索し、出力先を {article_dir}/images/chart_price_1y.png に自動設定する。"
+        ),
     )
     parser.add_argument(
         "--symbol",
         default=None,
-        help="ティッカーシンボル（--reaction-json 未指定時は必須）",
+        help="ティッカーシンボル（--article-dir / --reaction-json 未指定時は必須）",
     )
     parser.add_argument(
         "--reaction-json",
@@ -329,8 +366,13 @@ def main() -> None:
     )
     parser.add_argument(
         "--output", "-o",
-        required=True,
-        help="出力 PNG ファイルパス",
+        default=None,
+        help="出力 PNG ファイルパス（--article-dir 指定時は自動設定）",
+    )
+    parser.add_argument(
+        "--no-annotations",
+        action="store_true",
+        help="決算日マーカー・矢印アノテーションを付けない",
     )
     parser.add_argument(
         "--period",
@@ -340,12 +382,36 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    # reaction JSON があればシンボルと決算日を取得
     earnings_dates: list[tuple[str, str]] | None = None
     symbol = args.symbol
+    output_path = args.output
+    reaction_json_path = args.reaction_json
 
-    if args.reaction_json:
-        reaction_path = Path(args.reaction_json)
+    # --article-dir モード: reaction JSON と出力先を自動解決
+    if args.article_dir:
+        article_dir = Path(args.article_dir)
+        if not article_dir.exists():
+            logger.error("Article directory not found: %s", article_dir)
+            sys.exit(1)
+
+        if output_path is None:
+            output_path = str(article_dir / "images" / "chart_price_1y.png")
+
+        if reaction_json_path is None and not args.no_annotations:
+            found = _find_reaction_json(article_dir)
+            if found:
+                reaction_json_path = str(found)
+                logger.info("Auto-discovered reaction JSON: %s", found)
+            else:
+                logger.warning(
+                    "No *_reaction.json found in %s/01_research/. "
+                    "Generating chart without annotations.",
+                    article_dir,
+                )
+
+    # reaction JSON からシンボル・決算日を取得
+    if reaction_json_path and not args.no_annotations:
+        reaction_path = Path(reaction_json_path)
         if not reaction_path.exists():
             logger.error("Reaction JSON not found: %s", reaction_path)
             sys.exit(1)
@@ -362,11 +428,16 @@ def main() -> None:
         )
 
     if not symbol:
-        parser.error("--symbol または --reaction-json のいずれかを指定してください")
+        parser.error(
+            "--article-dir、--symbol、--reaction-json のいずれかを指定してください"
+        )
+
+    if not output_path:
+        parser.error("--output は --article-dir 未指定時に必須です")
 
     generate_earnings_chart(
         symbol=symbol,
-        output_path=args.output,
+        output_path=output_path,
         earnings_dates=earnings_dates,
         period=args.period,
     )
