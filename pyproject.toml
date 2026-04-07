@@ -34,6 +34,7 @@ dependencies = [
     "cryptography==46.0.6",
     "quants",
     "liteparse>=1.2.1",
+    "pyswisseph>=2.10.3.2",
 ]
 
 [project.optional-dependencies]

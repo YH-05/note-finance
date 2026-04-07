@@ -1703,7 +1703,7 @@ def _execute_note_post(day_dir: Path) -> tuple[bool, str | None]:
             capture_output=True,
             text=True,
             check=False,
-            env={**__import__("os").environ, "NOTE_HEADLESS": "true"},
+            env=os.environ.copy(),
         )
     except Exception as exc:
         logger.error(

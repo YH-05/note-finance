@@ -369,6 +369,97 @@ if state["note_mode"] == "free" and state["note_count"] >= state["note_paid_thre
 }
 ```
 
+## メンバーシップ限定記事の生成ロジック
+
+`posting_state.json` に `membership_enabled: true` が設定されている場合、週次ドラフトに加えてメンバーシップ限定記事も生成する。
+
+### 週次固定スケジュール（週3本）
+
+| 曜日 | 記事タイプ | 文字数 | ファイル名 | CTA先 |
+|------|-----------|--------|-----------|-------|
+| **月** | タロット深掘り | 800-1,200字 | `membership_tarot.md` | ここナラ個別タロットリーディング¥1,000 |
+| **水** | 心理学Tips深掘り | 800-1,200字 | `membership_tips.md` | 数秘術×心理学PDF鑑定書¥3,000-4,000 |
+| **金** | 星座リーディング | 800-1,200字 | `membership_zodiac.md` | 数秘術×心理学PDF鑑定書¥3,000-4,000 |
+
+### 月次特別版（週次枠内で差し替え）
+
+対象週を計算して自動判定する:
+
+```python
+from datetime import date
+
+def get_special_override(day_date: date) -> dict | None:
+    """その日が月次特別版の対象かどうかを判定する。"""
+    day_of_week = day_date.weekday()  # 0=月, 4=金
+    # その月の第N週を計算
+    first_day_of_month = day_date.replace(day=1)
+    week_num = (day_date.day + first_day_of_month.weekday() - 1) // 7 + 1
+
+    # 第1金曜: 星座→月間テーマ（12星座の月間メッセージ+心理学テーマ）
+    if day_of_week == 4 and week_num == 1:
+        return {"type": "月間テーマ", "file": "membership_monthly_theme.md", "cta": "強め"}
+
+    # 第2水曜: Tips→セルフケアワークシート
+    if day_of_week == 2 and week_num == 2:
+        return {"type": "ワークシート", "file": "membership_worksheet.md", "cta": "強め"}
+
+    # 第3月曜: タロット→みつきの本音コラム（CTAなし）
+    if day_of_week == 0 and week_num == 3:
+        return {"type": "本音コラム", "file": "membership_honest.md", "cta": "なし"}
+
+    # 第4水曜: Tips→月間振り返り&来月プレビュー（CTAなし）
+    if day_of_week == 2 and week_num == 4:
+        return {"type": "月間振り返り", "file": "membership_monthly_review.md", "cta": "なし"}
+
+    return None
+```
+
+### 記事テンプレートの参照先
+
+詳細テンプレートは `creator/mitsuki/membership_design.md` を参照:
+- タロット深掘り: Section 5.1
+- Tips深掘り: Section 5.2
+- 星座リーディング: Section 5.3
+- みつきの本音コラム: Section 5.4
+- 月間振り返り: Section 5.5
+- CTA文言: Section 6
+
+### ディレクトリ構造（メンバーシップ有効時の追加ファイル）
+
+```
+creator/mitsuki/drafts/week_YYYY-MM-DD/
+├── day_1_月/
+│   ├── ... (通常投稿)
+│   └── membership_tarot.md         ← 月曜分（または monthly_honest.md）
+├── day_3_水/
+│   └── membership_tips.md          ← 水曜分（または monthly_worksheet.md）
+├── day_5_金/
+│   └── membership_zodiac.md        ← 金曜分（または monthly_theme.md）
+└── meta.json
+```
+
+### メタ情報への記録
+
+`meta.json` にメンバーシップ記事の情報を追記:
+
+```json
+{
+  "membership_articles": [
+    {
+      "day": "月", "date": "2026-04-13",
+      "type": "タロット深掘り",
+      "file": "day_1_月/membership_tarot.md",
+      "char_count": 950, "cta": "ここナラ個別タロットリーディング",
+      "published_at": null, "permalink": null
+    }
+  ]
+}
+```
+
+### membership_enabled が false の場合
+
+通常の週次ドラフト（35 Threads + 7 note）のみ生成。メンバーシップ記事は生成しない。
+
 ## 注意事項
 
 - 投稿文生成時は必ず mitsuki-writer スキルを参照すること（`.claude/skills/mitsuki-writer/SKILL.md`）
@@ -377,4 +468,4 @@ if state["note_mode"] == "free" and state["note_count"] >= state["note_paid_thre
 - 星座 × 心理学マッピングは `posting_algorithm.md` Section 7 を参照
 - 素材の text が空の場合はスキップして別素材を取得（またはマッピングテーブルから生成）
 - note記事は Threads投稿と連動させる（当日のカード・星座を深掘りする構成）
-- NGワード（「スピリチュアル」「波動」「絶対」「〜すべき」等）は `persona.md` を参照
+- NGワード（「スピリチュアル」「波動」「絶対」「〜すべき」「ボウルビィ」「Attachment Theory」等）は `persona.md` を参照
