@@ -262,9 +262,8 @@ def generate_earnings_chart(
     )
     fig.subplots_adjust(top=0.93)
 
-    # 上段: 株価
+    # 上段: 株価（シンプルなラインチャート）
     ax_price.plot(dates, closes, color="#2166AC", linewidth=1.8, alpha=1.0)
-    ax_price.fill_between(dates, closes, alpha=0.08, color="#2166AC")
     ax_price.set_ylabel("株価 (USD)", fontsize=theme.label_size)
     ax_price.set_title(
         f"{symbol} 株価推移と累積リターン（直近{period.replace('y', '年')}）",
