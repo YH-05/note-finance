@@ -107,7 +107,8 @@
       "Task(general-purpose:*)",
       "Read(CLAUDE.md)",
       "Read(README.md)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "mcp__wikipedia__*"
     ],
     "deny": [
       "Bash(rm -rf:*)",
