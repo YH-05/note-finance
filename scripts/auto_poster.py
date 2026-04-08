@@ -740,10 +740,24 @@ class DraftReader:
             return None
 
         # career_sister: ディレクトリ構造ベースで解決
-        day_dir_map = self._get_day_dir_map()
-        day_dir_name = day_dir_map.get(day_label)
-        if day_dir_name is None:
+        # week_start の曜日によって day_1 が変わるため、meta.json の days[] の
+        # インデックスから通し番号を動的に計算する（固定マッピング不使用）
+        day_ja_to_en: dict[str, str] = {
+            "月": "mon", "火": "tue", "水": "wed",
+            "木": "thu", "金": "fri", "土": "sat", "日": "sun",
+        }
+        day_en = day_ja_to_en.get(day_label)
+        if day_en is None:
             return None
+        day_index: int | None = None
+        if meta:
+            for i, day in enumerate(meta.get("days", [])):
+                if day.get("date") == date:
+                    day_index = i
+                    break
+        if day_index is None:
+            return None
+        day_dir_name = f"day_{day_index + 1}_{day_en}"
 
         slot_dir_map = {
             "朝": "slot_1_morning",
