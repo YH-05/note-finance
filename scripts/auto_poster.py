@@ -2082,7 +2082,7 @@ def _print_dry_run(
         slot_name = slot_meta.get("slot", "")
         time_str = slot_time_map.get(slot_name, "?:??")
         posted = slot_meta.get("status") == "published"
-        file_path = reader.get_slot_file(week_dir_name, today_str, day_label, slot_name)
+        file_path = reader.get_slot_file(week_dir_name, today_str, day_label, slot_name, meta=meta)
         file_str = str(file_path) if file_path else "（なし）"
 
         info = SlotInfo(
