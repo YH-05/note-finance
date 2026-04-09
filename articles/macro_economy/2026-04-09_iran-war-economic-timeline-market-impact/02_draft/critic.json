@@ -1,0 +1,264 @@
+{
+  "article_id": "2026-04-09_iran-war-economic-timeline-market-impact",
+  "category": "macro_economy",
+  "mode": "full",
+  "generated_at": "2026-04-09",
+  "critics": {
+    "fact": {
+      "score": 76,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "原油市場への衝撃セクション（本文L81）",
+          "description": "「4月5〜6日には115ドル超まで上昇し、+69.9%という驚異的な騰落率」と記述。+69.9%は4月2日時点の111.54ドルに対応する計算値。115ドルに対応する変化率は約75.2%。時点と数値が混在している。",
+          "fix": "「4月2日時点の111.54ドル（+69.9%）から、4月5〜6日にはさらに115ドル超（+約75%）まで上昇し」と時点を分けて記述"
+        },
+        {
+          "severity": "HIGH",
+          "location": "4月5〜6日セクション「最後通牒と原油115ドル超」",
+          "description": "「ブレント原油は112ドル超」と記述しているが、claims.jsonではブレントピークは116ドル超（confidence 0.98）。ブレントのピーク値（116ドル）と本文の112ドル超という数値の整合性が不明。",
+          "fix": "4月5〜6日時点のブレント価格と別途ピーク値116ドル超の時系列を整合させる"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "株式・金融市場への波及",
+          "description": "「ダウとナスダックは『調整局面』（高値から10%超の下落）入りとなりました」の根拠が示されていない。開戦来の下落率はダウ-5.4%、ナスダック100-3.2%であり、調整局面の定義（高値から-10%超）を単独では満たさない。",
+          "fix": "「調整局面入り」の根拠（高値からの累積下落幅）を明記するか、「大幅に下落しました」に修正"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "原油市場セクション（2022年比較）",
+          "description": "「2022年のロシア・ウクライナ紛争時でも数週間で30〜40%程度の上昇でしたが」という比較数値に出典なし。",
+          "fix": "出典を付けるか「大幅な上昇を記録した2022年の状況と比べても」などの定性表現に変更"
+        },
+        {
+          "severity": "LOW",
+          "location": "まとめセクション",
+          "description": "「2022年のロシア・ウクライナ紛争時のエネルギーショックに匹敵するインパクト」と記述しているが、本文では今回が2022年を大幅に上回ると記述しており論理矛盾。",
+          "fix": "「2022年を上回る規模のエネルギーショック」に修正"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 85,
+      "status": "pass",
+      "disclaimer_present": true,
+      "issues": [
+        {
+          "severity": "MEDIUM",
+          "location": "今後のシナリオ分析 / 楽観シナリオ",
+          "description": "「原油価格は段階的に80ドル台まで下落し、株式市場は急反発が見込まれます」という断定的表現。",
+          "fix": "「原油価格は段階的に80ドル台まで下落する可能性があり、株式市場には反発の余地が生じると考えられます」に修正"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "今後のシナリオ分析 / 悲観シナリオ",
+          "description": "「株式市場は大幅な追加下落が見込まれます」という断定的表現。",
+          "fix": "「株式市場にはさらなる下落圧力が生じる可能性があります」に修正"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "投資家への示唆",
+          "description": "「コモディティ・外貨建て資産・インフレ連動債など」という具体的な資産クラスへの言及が投資助言に読める可能性。",
+          "fix": "「本示唆は一般的な市場観察であり、個別の投資推奨ではありません」という注記を追加"
+        }
+      ]
+    },
+    "structure": {
+      "score": 82,
+      "sections_found": ["概要", "前半時系列（10サブセクション）", "後半テーマ別（4セクション）", "シナリオ分析", "投資家への示唆", "まとめ"],
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "後半テーマ別分析 → 原油市場への衝撃",
+          "description": "前半時系列で既に詳述したWTI+69.9%・デリバラビリティ危機・ホルムズ海峡リスクが後半でほぼ同内容で再登場。重複が冗長。",
+          "fix": "後半の原油分析では数値を簡潔に示し、分析・解釈のみを深堀りする構成に変更"
+        },
+        {
+          "severity": "HIGH",
+          "location": "後半テーマ別分析 → 株式・金融市場への波及",
+          "description": "スタグフレーション的な株式・債券同時安の説明が前半3月26日セクションと後半で重複。",
+          "fix": "後半では新たな分析（セクター別の詳細、将来への含意）に絞り、重複を削除"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "投資家への示唆",
+          "description": "「地政学リスクは予測が難しい」という一般論が中心で、今回のシナリオと連動した具体的視点が弱い。",
+          "fix": "各シナリオ（楽観/中立/悲観）ごとの留意点を1行ずつ示すと実用性が増す"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "score": 88,
+      "data_points_checked": 18,
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "原油市場セクション（本文L81）",
+          "data": "4月5〜6日の115ドル超と+69.9%の混在",
+          "description": "(115-65.65)/65.65=75.17%。+69.9%は4月2日111.54ドル基準。115ドルなら+約75%が正確。",
+          "fix": "時点を明示して数値を分けて記述"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "株式市場（調整局面の記述）",
+          "data": "調整局面（高値から10%超の下落）入りの根拠なし",
+          "description": "開戦来下落率はダウ-5.4%、ナスダック100-3.2%のみ確認。調整局面定義を満たすデータなし。",
+          "fix": "根拠を明記するか「大幅に下落した」に修正"
+        },
+        {
+          "severity": "LOW",
+          "location": "まとめ（2022年比較）",
+          "data": "「匹敵」という表現が本文の「30〜40%vs今回70%」と矛盾",
+          "description": "本文では今回が2022年を大幅に上回ると明示しているが、まとめでは「匹敵」と記述。",
+          "fix": "「2022年を上回る規模のエネルギーショック」に修正"
+        }
+      ]
+    },
+    "readability": {
+      "score": 82,
+      "tone_consistent": true,
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "概要",
+          "description": "1段落に開戦・原油上昇・停戦・今後への示唆が詰め込まれており初読で消化しにくい。",
+          "fix": "冒頭の書き出しを整理し、要点を追いやすい構成に"
+        },
+        {
+          "severity": "HIGH",
+          "location": "原油市場への衝撃（後半）",
+          "description": "「スーパーバックワーデーション（期近が期先を大きく上回る状態）」が中級者でも難解。",
+          "fix": "「今月の原油が来月よりずっと高い状態（スーパーバックワーデーション）」のような平易な言い換えを追加"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "スタグフレーション懸念の顕在化（3月26日）",
+          "description": "「スタグフレーション」の初出で用語後すぐに説明が来ていない。",
+          "fix": "「スタグフレーション（景気減速とインフレ上昇が同時に起きる状態）」と括弧説明を即座に付与"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "経済見通しセクション",
+          "description": "Goldman Sachs・Oxford Economics・WSJエコノミストのデータが連続して読みにくい。",
+          "fix": "各数値の前に「世界GDP成長率」「リセッション確率」といったラベルを付与"
+        },
+        {
+          "severity": "LOW",
+          "location": "株式・金融市場への波及",
+          "description": "VIXが未説明のまま使われている。",
+          "fix": "「VIX（市場の恐怖指数と呼ばれる変動率指標）」という短い説明を追加"
+        }
+      ]
+    },
+    "writer_rules": {
+      "score": 72,
+      "word_count": {
+        "actual": 11516,
+        "target": 4000,
+        "max_allowed": 10000,
+        "status": "over",
+        "note": "カテゴリ上限10,000字を約1,516字超過"
+      },
+      "frontmatter": {
+        "present": true,
+        "placement": "非標準（H1見出し後にYAML）",
+        "missing_fields": []
+      },
+      "disclaimer": {
+        "present": true,
+        "adequate": true
+      },
+      "tone": {
+        "desumasu": true
+      },
+      "markdown_tables": {
+        "found": false
+      },
+      "source_urls": {
+        "embedded": true,
+        "coverage": "主要データポイントの約90%以上にURLリンクあり（24件）"
+      },
+      "required_sections": {
+        "found": ["概要", "時系列（背景・経緯に相当）", "テーマ別分析", "今後のシナリオ分析", "投資家への示唆", "まとめ"],
+        "missing": ["背景・経緯（独立H2セクション）"]
+      },
+      "issues": [
+        {
+          "severity": "HIGH",
+          "description": "本文字数11,516字がカテゴリ上限10,000字を約1,516字超過。前半時系列の中間イベントセクション（石油施設攻撃・バグダッド大使館攻撃等）を圧縮することで削減可能。"
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "テンプレート必須セクション「背景・経緯」の独立見出しが欠落。「【前半】時系列で振り返る40日間」を「## 背景・経緯：40日間の時系列」に改名することで対応可能。"
+        },
+        {
+          "severity": "LOW",
+          "description": "参考データソースセクションにデータ時点注記なし。「※ データは2026年4月9日時点のものです。」を追加推奨。"
+        },
+        {
+          "severity": "LOW",
+          "description": "フロントマターの配置位置が非標準（H1見出し後にYAML）。ファイル先頭を---で始めるのが標準。"
+        }
+      ]
+    }
+  },
+  "overall_score": 81,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "HIGH",
+      "category": "data_accuracy + fact",
+      "description": "本文L81の数値混在修正：115ドル超（4月5〜6日）と+69.9%（4月2日基準）を明確に分けて記述"
+    },
+    {
+      "priority": 2,
+      "severity": "HIGH",
+      "category": "writer_rules",
+      "description": "文字数を11,516字から10,000字以内に削減。前半中間イベントセクションの圧縮と後半の重複削除で対応"
+    },
+    {
+      "priority": 3,
+      "severity": "HIGH",
+      "category": "structure",
+      "description": "前半と後半の重複説明を削減（原油価格・スタグフレーション）"
+    },
+    {
+      "priority": 4,
+      "severity": "HIGH",
+      "category": "fact + data",
+      "description": "「ダウとナスダックが調整局面（高値から10%超）入り」の根拠明示または表現修正"
+    },
+    {
+      "priority": 5,
+      "severity": "MEDIUM",
+      "category": "compliance",
+      "description": "シナリオ分析の断定的表現を軟化（「見込まれます」→「可能性があります」）"
+    },
+    {
+      "priority": 6,
+      "severity": "MEDIUM",
+      "category": "fact",
+      "description": "2022年ウクライナ比較「30〜40%」の出典追加または定性表現に変更"
+    },
+    {
+      "priority": 7,
+      "severity": "MEDIUM",
+      "category": "writer_rules",
+      "description": "「背景・経緯」セクション名への変更"
+    },
+    {
+      "priority": 8,
+      "severity": "MEDIUM",
+      "category": "readability",
+      "description": "スーパーバックワーデーションの平易な説明追加、スタグフレーション初出への括弧説明追加"
+    },
+    {
+      "priority": 9,
+      "severity": "LOW",
+      "category": "fact",
+      "description": "まとめの「匹敵」を「上回る」に修正"
+    }
+  ]
+}

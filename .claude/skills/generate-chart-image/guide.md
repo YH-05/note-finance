@@ -118,6 +118,80 @@ ax.legend(
 )
 ```
 
+### キーイベントアノテーション（中抜き円 + 矢印）
+
+時系列チャートで特定の日付・イベントを強調する場合は、**中抜き円マーカー + 矢印アノテーション**を使用する。
+`scripts/generate_earnings_chart.py` の `_annotate_panel()` で確立されたプロジェクト共通パターン。
+
+- 色: `#D6604D`（`NOTE_LIGHT.palette[1]`、コーラルレッド）で統一
+- 円: `markerfacecolor="none"`（中抜き）、`markeredgewidth=1.5`、`markersize=9`
+- 矢印: `arrowstyle="->"`, `alpha=0.7`, `linewidth=1.2`
+
+```python
+MARKER_RADIUS_PT = 9
+COLOR_ANNOT = "#D6604D"  # palette[1]
+
+def draw_circle_annotation(ax, fig, dt, value, label, above=True):
+    """中抜き円マーカー + 矢印アノテーションを描画する（全カテゴリ共通）"""
+    import matplotlib.dates as mdates
+    import pandas as pd
+
+    # 中抜き円マーカー
+    ax.plot(
+        dt, value,
+        marker="o", markersize=MARKER_RADIUS_PT,
+        markerfacecolor="none",
+        markeredgecolor=COLOR_ANNOT,
+        markeredgewidth=1.5,
+        zorder=5, linestyle="none",
+    )
+
+    # 丸の縁に矢印先端を合わせる（ピクセル→データ座標変換）
+    transform = ax.transData
+    inv = transform.inverted()
+    anchor_px = transform.transform((mdates.date2num(dt), value))
+    r_px = MARKER_RADIUS_PT * (fig.dpi / 72.0) * 0.5
+
+    if above:
+        text_offset_pt = (0, 55)
+        arrow_tip_px   = (anchor_px[0], anchor_px[1] + r_px)
+    else:
+        text_offset_pt = (0, -60)
+        arrow_tip_px   = (anchor_px[0], anchor_px[1] - r_px)
+
+    tip_data = inv.transform(arrow_tip_px)
+    tip_date = mdates.num2date(tip_data[0])
+    tip_y    = tip_data[1]
+
+    ax.annotate(
+        label,
+        xy=(tip_date, tip_y),
+        xytext=text_offset_pt,
+        textcoords="offset points",
+        fontsize=8, color=COLOR_ANNOT, fontweight="bold",
+        ha="center", va="center",
+        arrowprops={
+            "arrowstyle": "->",
+            "color": COLOR_ANNOT,
+            "alpha": 0.7,
+            "linewidth": 1.2,
+        },
+    )
+```
+
+**注意**: `draw_circle_annotation()` は `tight_layout()` の**後**に呼び出すこと。
+座標変換（ピクセル↔データ座標）がレイアウト確定後でないとズレる。
+
+```python
+# 正しい順序
+fig.tight_layout(rect=[0, 0.08, 1, 1.0])
+
+for dt, val, label, above in key_events:
+    draw_circle_annotation(ax, fig, dt, val, label, above=above)
+
+fig.savefig(...)
+```
+
 ### 出典
 
 - チャート内には出典を記載しない（記事本文側で記述する）

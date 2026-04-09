@@ -9,58 +9,16 @@
 
 ## Project Overview
 
-note.com での金融コンテンツ発信を支援するツールキット。RSSニュース自動収集・AI要約・GitHub Issue投稿、週次レポート生成、記事執筆支援を提供。
+note.com での金融コンテンツを中心とした発信を支援するツールキット。RSSニュース自動収集・AI要約・GitHub Issue投稿、週次レポート生成、記事執筆支援を提供。
 
 - **GitHub**: `YH-05/finance`
 - **Python 3.12+** / uv / Ruff / pyright / pytest
 
-## Purpose & Vision
-
-### 目的
-
-AIツール（Claude Code, Gemini CLI, Google Antigravity）のみを活用し、note.com + Xでの金融コンテンツ発信で**月5万円の安定収益**を目指す副業プロジェクト。Claude Code subscription費用をまかないつつ収益化の幅を広げる。
-
-### 制約
-
-- 副業に割ける時間: **1時間/日**
-- 1日の作業フロー: テーマ選定・AI生成指示(10分) → 記事確認(5分) → note投稿+X投稿(5分) → 残りはストック生成
-- リーンスタートアップ的アプローチ（Phase 1: テスト期間 → Phase 2: 絞り込み）
-
-### ターゲット読者
-
-20-30代の新NISA世代。DIYで資産管理したいが不安な層。NISA改革で初心者が大量流入中。
-
-### コンテンツ戦略
-
-**テーマ優先順位**（2026-03-09 深掘り調査結果）:
-
-| 順位 | テーマ | 評価 | 差別化切り口 |
-|------|--------|------|-------------|
-| 1 | 投資の心理学 | A | 相場×心理日記型（リアルタイム連載） |
-| 2 | ポイント経済圏 | B+ | 乗り換えガイド + 改悪ウォッチ |
-| 3 | 制度活用（NISA/iDeCo/ふるさと納税） | B+ | 3制度横断×年収別シミュレーション |
-| 4 | 投資本レビュー | B+ | 2冊比較型 |
-| 5 | クレカ比較 | B- | ライフスタイル別診断型 |
-
-**ハイブリッド戦略**: 投資（信頼構築）× ビジネス（ストック）× 恋愛（集客）のジャンル横断。
-
-**AI臭さ対策**（最重要）:
-- 自分の実体験・数字を入れる（1記事2-3行、5分）
-- 意見・立場を明確にする
-- マリーさんトーン（`mary-tone-writer`スキル）の活用
-- ストーリー型タイトル、X投稿との連動で人格を作る
-
-### トラフィック戦略
-
-SNS（特にX）→ メールリスト → YouTube/Pinterest → コンテンツ再利用。SEO依存は致命的（HCU事例）。noteへの適用: X投稿で認知 → note記事で信頼構築。
-
-### 収益モデル
-
-| 手段 | 単価 | 月5万に必要な規模 |
-|------|------|-------------------|
-| 有料記事（単品） | 300-500円 | 月100-170人購入 |
+| 手段       | 単価           | 月5万に必要な規模    |
+| -------- | ------------ | ------------ |
+| 有料記事（単品） | 300-500円     | 月100-170人購入  |
 | 定期購読マガジン | 500-1,000円/月 | 50-100人の定期読者 |
-| メンバーシップ | 500-1,000円/月 | 50-100人 |
+| メンバーシップ  | 500-1,000円/月 | 50-100人      |
 
 ## Design Philosophy
 
@@ -132,13 +90,13 @@ uv sync --all-extras
 
 6パッケージ構成。`pyproject.toml` の `pythonpath = ["src"]` により `src/` がPythonパスに追加される。
 
-| パッケージ   | 説明                                                               | エントリポイント                              |
-| ------------ | ------------------------------------------------------------------ | --------------------------------------------- |
-| `rss`        | RSSフィード管理（パーサー・HTTP・差分検知・MCP Server）            | `rss-mcp`, `rss-cli`                          |
-| `news`       | ニュース処理パイプライン（収集→抽出→要約→グルーピング→GitHub投稿） | `python -m news.scripts.finance_news_workflow` |
-| `news_scraper` | ニューススクレイピング                                           | -                                             |
-| `report_scraper` | レポートスクレイピング                                         | -                                             |
-| `pdf_pipeline` | PDF→ナレッジグラフ パイプライン                                  | -                                             |
+| パッケージ            | 説明                                     | エントリポイント                                       |
+| ---------------- | -------------------------------------- | ---------------------------------------------- |
+| `rss`            | RSSフィード管理（パーサー・HTTP・差分検知・MCP Server）   | `rss-mcp`, `rss-cli`                           |
+| `news`           | ニュース処理パイプライン（収集→抽出→要約→グルーピング→GitHub投稿） | `python -m news.scripts.finance_news_workflow` |
+| `news_scraper`   | ニューススクレイピング                            | -                                              |
+| `report_scraper` | レポートスクレイピング                            | -                                              |
+| `pdf_pipeline`   | PDF→ナレッジグラフ パイプライン                     | -                                              |
 
 ### News Pipeline
 
@@ -168,29 +126,6 @@ MCP Server (`rss.mcp.server`) でRSSフィード操作可能。7ツール: list/
 | Claude Code            | `.claude/`              | 60エージェント、21コマンド、44スキル、8ルール |
 | Gemini CLI/Antigravity | `.gemini/` + `.agents/` | 16コマンド、10ワークフロー、38スキル          |
 
-### MCP Servers
-
-以下のMCPサーバーが利用可能（`.gemini/settings.json` / `.claude/settings.local.json`）:
-
-| サーバー              | 用途                          |
-| --------------------- | ----------------------------- |
-| `rss`                 | プロジェクト内RSSフィード管理 |
-| `git`                 | Git操作                       |
-| `filesystem`          | ファイルシステム操作          |
-| `sequential-thinking` | 逐次思考                      |
-| `memory`              | 永続メモリ                    |
-| `fetch`               | URL取得                       |
-| `time`                | タイムゾーン管理（Asia/Tokyo）|
-| `reddit`              | Reddit情報収集                |
-| `wikipedia`           | Wikipedia検索                 |
-| `sec-edgar-mcp`       | SEC EDGAR企業情報             |
-| `slack`               | Slack連携                     |
-| `notebooklm`          | NotebookLM連携                |
-| `context7`            | ライブラリドキュメント検索    |
-| `tavily`              | Web検索（Tavily API）         |
-| `playwright`          | ブラウザ自動化                |
-| `neo4j-cypher`        | Neo4j Cypherクエリ            |
-| `neo4j-data-modeling`  | Neo4jデータモデリング        |
 
 ### Data Layout
 

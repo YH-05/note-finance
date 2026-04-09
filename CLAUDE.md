@@ -54,17 +54,6 @@
 | `/kuroto-draft` | 玄人領域の週次投稿ドラフト生成（哲学・FW・海外メソッド・内向型・書籍 5本/日） |
 | `/kuroto-publish` | 玄人領域のドラフトをThreads/noteに投稿 |
 
-### 非推奨コマンド
-
-| コマンド | 移行先 |
-|----------|--------|
-| `/new-finance-article` | `/article-init` |
-| `/finance-edit` | `/article-draft` + `/article-critique` |
-| `/finance-full` | `/article-full` |
-| `/publish-to-note` | `/article-publish` |
-| `/asset-management` | `/article-full --category asset_management` |
-| `/finance-suggest-topics` | `/topic-discovery` |
-
 ## 実行環境
 
 - Python スクリプトは必ず `uv run` 経由で実行すること（素の `python` / `python3` 直接実行は禁止）

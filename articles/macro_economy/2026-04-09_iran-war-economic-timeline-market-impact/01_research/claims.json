@@ -1,0 +1,110 @@
+{
+  "article_id": "2026-04-09_iran-war-economic-timeline-market-impact",
+  "claims": [
+    {
+      "claim": "WTI原油価格は開戦（2/28）から4月2日時点で69.9%上昇し、65.65ドルから111.54ドルに達した。",
+      "stance": "bearish",
+      "confidence": 0.99,
+      "source_url": "https://www.forbes.com/sites/petercohan/2026/04/05/after-the-70-oil-spike-markets-are-bracing-for-the-next-big-move/",
+      "category": "energy_market"
+    },
+    {
+      "claim": "ブレント原油は116ドル超まで上昇し、2026年3月は記録的な月間騰落率を記録した。",
+      "stance": "bearish",
+      "confidence": 0.98,
+      "source_url": "https://finance.yahoo.com/sectors/energy/articles/oil-prices-rise-again-war-222857751.html",
+      "category": "energy_market"
+    },
+    {
+      "claim": "S&P500は開戦来-4.3%、ダウは-5.4%、ナスダック100は-3.2%下落。ダウとナスダックは調整局面入り。",
+      "stance": "bearish",
+      "confidence": 0.97,
+      "source_url": "https://finance.yahoo.com/sectors/energy/articles/market-winners-losers-iran-war-205400100.html",
+      "category": "equity_market"
+    },
+    {
+      "claim": "MSCI World指数が5%超下落し、VIXが「リベレーション・デー」関税ショック以来の高水準に達した（株債同時安）。",
+      "stance": "bearish",
+      "confidence": 0.95,
+      "source_url": "https://news.bloomberglaw.com/banking-law/finance-isnt-ready-for-an-iran-crisis-it-should-be-editorial",
+      "category": "volatility"
+    },
+    {
+      "claim": "Oxford Economicsは長期的な混乱が続いた場合、2026年の世界GDP成長率が1.4%に低下すると試算した。",
+      "stance": "bearish",
+      "confidence": 0.95,
+      "source_url": "https://uk.finance.yahoo.com/news/trump-war-iran-could-see-124509530.html",
+      "category": "economic_outlook"
+    },
+    {
+      "claim": "米国のリセッション確率は開戦前の22%から37%に上昇した。エコノミスト調査では原油が138ドル未満ならリセッションを見込まず。",
+      "stance": "bearish",
+      "confidence": 0.93,
+      "source_url": "https://www.forbes.com/sites/bill_stone/2026/03/29/iran-conflict-100-oil-and-what-it-means-for-stocks-and-consumers/",
+      "category": "economic_outlook"
+    },
+    {
+      "claim": "ゴールドマン・サックスはイラン戦争による原油高がインフレを上押しし、FRBの政策を複雑化させると警告した。",
+      "stance": "bearish",
+      "confidence": 0.93,
+      "source_url": "https://finance.yahoo.com/economy/policy/articles/iran-war-could-push-inflation-204700547.html",
+      "category": "monetary_policy"
+    },
+    {
+      "claim": "Oxford Economicsは原油価格が戦前の軌道に戻るのは2028年以降と予測する。",
+      "stance": "bearish",
+      "confidence": 0.88,
+      "source_url": "https://www.investopedia.com/the-iran-war-is-worsening-the-economic-outlook-11931020",
+      "category": "energy_market"
+    },
+    {
+      "claim": "米国内ガソリン価格は全米平均で37.9%上昇した。",
+      "stance": "bearish",
+      "confidence": 0.97,
+      "source_url": "https://www.forbes.com/sites/petercohan/2026/04/05/after-the-70-oil-spike-markets-are-bracing-for-the-next-big-move/",
+      "category": "consumer_impact"
+    },
+    {
+      "claim": "イランが世界石油・ガス輸送の約20%が通過するホルムズ海峡を封鎖したことが最大のサプライショックとなった。",
+      "stance": "bearish",
+      "confidence": 0.99,
+      "source_url": "https://www.aljazeera.com/news/2026/4/8/oil-prices-slide-stocks-surge-as-trump-announces-two-week-iran-ceasefire",
+      "category": "supply_disruption"
+    },
+    {
+      "claim": "4月8日の2週間停戦合意後、原油価格は100ドル割れに急落し、ダウが1,000ポイント超の急騰を記録した。",
+      "stance": "bullish",
+      "confidence": 0.98,
+      "source_url": "https://www.reuters.com/world/asia-pacific/trump-agrees-two-week-ceasefire-iran-says-safe-passage-through-hormuz-possible-2026-04-08/",
+      "category": "ceasefire_reaction"
+    },
+    {
+      "claim": "停戦は「脆弱」であり、核問題・弾道ミサイルプログラム・ホルムズ問題では大きな隔たりが残存する。",
+      "stance": "bearish",
+      "confidence": 0.92,
+      "source_url": "https://www.cnbc.com/video/2026/04/09/ahold-tight-to-giddy-optimisma-barbara-leaf-on-fragile-iran-us-ceasefire.html",
+      "category": "geopolitical_risk"
+    },
+    {
+      "claim": "日本では日銀の利上げ路線がイラン戦争の影響（東京インフレ鈍化・鉱工業生産減少）で複雑化した。",
+      "stance": "bearish",
+      "confidence": 0.85,
+      "source_url": "https://www.wsj.com/economy/japan-economic-data-signal-uneven-recovery-as-iran-war-risks-mount-4b7c7837",
+      "category": "japan_impact"
+    },
+    {
+      "claim": "金は戦争中に2月高値から約11%下落し、有事の安全資産としての機能が後退した（ドルへの資金シフトが主因）。",
+      "stance": "bearish",
+      "confidence": 0.88,
+      "source_url": "https://finance.yahoo.com/markets/commodities/articles/gold-silver-hit-3-week-133720808.html",
+      "category": "safe_haven"
+    },
+    {
+      "claim": "米国は現在のシェール革命・消費構造の変化により、エネルギーショックへの耐性が1970年代と比べて大幅に向上している。",
+      "stance": "bullish",
+      "confidence": 0.85,
+      "source_url": "https://www.forbes.com/sites/bill_stone/2026/03/08/iran-conflict-91-oil92k-jobs-what-investors-should-watch/",
+      "category": "economic_resilience"
+    }
+  ]
+}

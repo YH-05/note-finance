@@ -1,0 +1,165 @@
+{
+  "article_id": "2026-04-09_iran-war-economic-timeline-market-impact",
+  "sources": [
+    {
+      "url": "https://en.royanews.tv/news/68640/US-%26-%E2%80%98Israel%E2%80%99-at-war-with-Iran-%7C-Day-32-coverage",
+      "title": "US & 'Israel' at war with Iran | Day 32 coverage - Roya News",
+      "authority_level": "media",
+      "published_at": "2026-03-31",
+      "source_type": "news",
+      "key_fact": "作戦開始日2/28・900回空爆・イランが7カ国に5558発のミサイル・ドローンを発射"
+    },
+    {
+      "url": "https://www.timesofisrael.com/liveblog_entry/us-soldier-dies-of-their-wounds-in-seventh-american-casaulty-of-iran-war/",
+      "title": "US soldier dies of their wounds, in seventh American casaulty of Iran war - Times of Israel",
+      "authority_level": "media",
+      "published_at": "2026-03-08",
+      "source_type": "news",
+      "key_fact": "イスラエルがイラン石油デポを初攻撃、ドバイ空港ドローン攻撃"
+    },
+    {
+      "url": "https://www.timesofisrael.com/liveblog_entry/idfs-zamir-israel-approaching-a-strategic-crossroads-in-war-against-iran/",
+      "title": "IDF's Zamir: Israel 'approaching a strategic crossroads' in war against Iran - Times of Israel",
+      "authority_level": "media",
+      "published_at": "2026-04-07",
+      "source_type": "news",
+      "key_fact": "IDF参謀総長「戦略的岐路」発言、トランプのエスカレーション警告"
+    },
+    {
+      "url": "https://www.reuters.com/world/asia-pacific/trump-agrees-two-week-ceasefire-iran-says-safe-passage-through-hormuz-possible-2026-04-08/",
+      "title": "US, Iran agree to two-week ceasefire with reopening of Strait of Hormuz - Reuters",
+      "authority_level": "media",
+      "published_at": "2026-04-08",
+      "source_type": "news",
+      "key_fact": "米・イランが2週間停戦合意、ホルムズ海峡安全通過へ"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/04/08/daily-open-trump-iran-pause-strait-hormuz-oil-markets.html",
+      "title": "CNBC Daily Open: Markets cheer as Trump and Tehran agree to 2-week ceasefire - CNBC",
+      "authority_level": "media",
+      "published_at": "2026-04-08",
+      "source_type": "news",
+      "key_fact": "停戦後の市場反応：株式先物急騰・原油急落"
+    },
+    {
+      "url": "https://www.latimes.com/business/story/2026-04-08/oil-prices-sink-stocks-jump-as-u-s-iran-agree-to-ceasefire",
+      "title": "Oil prices sink and stocks jump as the U.S. and Iran agree to ceasefire - LA Times",
+      "authority_level": "media",
+      "published_at": "2026-04-08",
+      "source_type": "news",
+      "key_fact": "原油100ドル割れ急落、アジア株・米株先物急反発"
+    },
+    {
+      "url": "https://www.forbes.com/sites/petercohan/2026/04/05/after-the-70-oil-spike-markets-are-bracing-for-the-next-big-move/",
+      "title": "After The 70% Oil Spike, Markets Are Bracing For The Next Big Move - Forbes",
+      "authority_level": "media",
+      "published_at": "2026-04-05",
+      "source_type": "news",
+      "key_fact": "WTI原油+69.9%（65.65→111.54ドル）、ガソリン全米平均+37.9%"
+    },
+    {
+      "url": "https://finance.yahoo.com/sectors/energy/articles/oil-prices-rise-again-war-222857751.html",
+      "title": "Oil prices swing as Trump threatens to strike Iran's power plants - Yahoo Finance",
+      "authority_level": "media",
+      "published_at": "2026-04-06",
+      "source_type": "news",
+      "key_fact": "ブレント原油が112ドル超、WTIが115ドル超に上昇後に反落"
+    },
+    {
+      "url": "https://finance.yahoo.com/sectors/energy/articles/market-winners-losers-iran-war-205400100.html",
+      "title": "Market Winners and Losers in the Iran War - Yahoo Finance",
+      "authority_level": "media",
+      "published_at": "2026-03-28",
+      "source_type": "news",
+      "key_fact": "S&P500 -4.3%、ダウ -5.4%、ナスダック100 -3.2%（開戦来）"
+    },
+    {
+      "url": "https://news.bloomberglaw.com/banking-law/finance-isnt-ready-for-an-iran-crisis-it-should-be-editorial",
+      "title": "Finance Isn't Ready for an Iran Crisis. It Should Be: Editorial - Bloomberg Law",
+      "authority_level": "analyst",
+      "published_at": "2026-03-26",
+      "source_type": "news",
+      "key_fact": "VIXが「リベレーション・デー」以来の高水準、MSCI World -5%超、株債同時安"
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-03-31/oil-prices-fall-sharply-wti-trades-near-102-a-barrel",
+      "title": "Oil Prices Drop as Iran Signals Readiness to End War - Bloomberg",
+      "authority_level": "media",
+      "published_at": "2026-03-31",
+      "source_type": "news",
+      "key_fact": "イランが停戦意欲示し原油急落、WTI 102ドル付近"
+    },
+    {
+      "url": "https://uk.finance.yahoo.com/news/trump-war-iran-could-see-124509530.html",
+      "title": "Trump's war with Iran could see fuel rationing and global recession... - Yahoo Finance UK",
+      "authority_level": "analyst",
+      "published_at": "2026-03-05",
+      "source_type": "news",
+      "key_fact": "Oxford Economics：長期混乱で2026年世界GDP成長率が1.4%に低下"
+    },
+    {
+      "url": "https://www.investopedia.com/the-iran-war-is-worsening-the-economic-outlook-11931020",
+      "title": "The Iran War Is Worsening The Economic Outlook - Investopedia",
+      "authority_level": "media",
+      "published_at": "2026-03-20",
+      "source_type": "news",
+      "key_fact": "高インフレ・低成長・高失業・消費支出減の見通し。原油が正常化するのは2028年"
+    },
+    {
+      "url": "https://www.forbes.com/sites/bill_stone/2026/03/29/iran-conflict-100-oil-and-what-it-means-for-stocks-and-consumers/",
+      "title": "Iran Conflict, $100 Oil And What It Means For Stocks And Consumers - Forbes",
+      "authority_level": "analyst",
+      "published_at": "2026-03-29",
+      "source_type": "news",
+      "key_fact": "米リセッション確率：開戦前22%→37%に上昇"
+    },
+    {
+      "url": "https://www.wsj.com/economy/economist-survey-inflation-unemployment-3c3003b7",
+      "title": "Economists Don't See a Recession Unless Oil Hits $138... - WSJ",
+      "authority_level": "analyst",
+      "published_at": "2026-03-25",
+      "source_type": "news",
+      "key_fact": "WSJエコノミスト調査：原油138ドル未満ではリセッション見込まず"
+    },
+    {
+      "url": "https://finance.yahoo.com/economy/policy/articles/iran-war-could-push-inflation-204700547.html",
+      "title": "Iran war could push inflation higher this year, Goldman Sachs says - Yahoo Finance",
+      "authority_level": "analyst",
+      "published_at": "2026-03-10",
+      "source_type": "news",
+      "key_fact": "ゴールドマン・サックス：イラン戦争による原油高がインフレを上押し"
+    },
+    {
+      "url": "https://www.wsj.com/economy/japan-economic-data-signal-uneven-recovery-as-iran-war-risks-mount-4b7c7837",
+      "title": "Japan Economic Data Signal Uneven Recovery as Iran War Risks Mount - WSJ",
+      "authority_level": "media",
+      "published_at": "2026-03-31",
+      "source_type": "news",
+      "key_fact": "日本の東京インフレ鈍化・鉱工業生産減少、BOJ利上げ路線が複雑化"
+    },
+    {
+      "url": "https://www.forbes.com/sites/arielcohen/2026/03/05/how-the-iran-war-will-change-energy-markets-and-oil-prices/",
+      "title": "How The Iran War Will Change Energy Markets And Oil Prices - Forbes",
+      "authority_level": "analyst",
+      "published_at": "2026-03-05",
+      "source_type": "news",
+      "key_fact": "短期：SPR放出・タンカー護衛。中期：米LNG・シェール生産拡大で供給耐性強化"
+    },
+    {
+      "url": "https://www.aljazeera.com/news/2026/4/8/oil-prices-slide-stocks-surge-as-trump-announces-two-week-iran-ceasefire",
+      "title": "Oil prices slide, stocks surge as Trump announces two-week Iran ceasefire - Al Jazeera",
+      "authority_level": "media",
+      "published_at": "2026-04-08",
+      "source_type": "news",
+      "key_fact": "停戦発表後：原油急落・債券急騰・株式急伸。ホルムズ通過再開"
+    },
+    {
+      "url": "https://finance.yahoo.com/markets/commodities/articles/gold-silver-hit-3-week-133720808.html",
+      "title": "Gold And Silver Hit 3-Week Highs After U.S.-Iran Ceasefire Agreement - Yahoo Finance",
+      "authority_level": "media",
+      "published_at": "2026-04-08",
+      "source_type": "news",
+      "key_fact": "停戦後に金・銀が3週間ぶり高値。戦争中は金が2月高値から11%下落（安全資産需要の異例の低迷）"
+    }
+  ]
+}
