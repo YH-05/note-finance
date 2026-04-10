@@ -8,17 +8,21 @@
 ::
 
     {
-        "articles": [
+        "news": [
             {
                 "url": "https://...",
                 "title": "...",
                 "summary": "...",
                 "published": "2026-01-01T00:00:00+00:00",
-                "feed_source": "CNBC - Markets"
+                "source": "cnbc",
+                "category": "markets",
+                "tags": ["inflation"],
+                "author": "John Smith",
+                "content": "Full article body..."
             }
         ],
-        "session_id": "...",
-        "batch_label": "index"
+        "collected_at": "2026-01-01T00:00:00+00:00",
+        "total_count": 1
     }
 
 Usage
@@ -50,7 +54,7 @@ except ImportError:
 class FinanceNewsMapper(BaseMapper):
     """finance-news-workflow コマンド専用マッパー。
 
-    ``articles[]`` から Source, Claim, Chunk, Topic, Author ノードを生成する。
+    ``news[]`` から Source, Claim, Chunk, Topic, Author ノードを生成する。
     共通処理（``build_result``）は ``BaseMapper`` に委譲する。
 
     Notes
@@ -60,7 +64,7 @@ class FinanceNewsMapper(BaseMapper):
     - Chunk: ``content`` (本文) が存在する場合のみ生成
     - Topic: ``category`` および ``tags`` から生成（重複排除済み）
     - Author: ``author`` が存在する場合のみ生成（重複排除済み）
-    - ``batch_label`` を ``category`` として使用
+    - ``batch_label`` を ``category`` として使用（省略時は空文字）
     """
 
     def map(self, input_data: dict[str, Any]) -> dict[str, Any]:
@@ -69,7 +73,8 @@ class FinanceNewsMapper(BaseMapper):
         Parameters
         ----------
         input_data : dict[str, Any]
-            ``articles[]``, ``session_id``, ``batch_label`` を含む入力データ。
+            ``news[]``, ``collected_at``, ``total_count`` を含む入力データ。
+            scrape_finance_news.py の出力形式に直接対応する。
 
         Returns
         -------
@@ -87,7 +92,7 @@ class FinanceNewsMapper(BaseMapper):
             resolve_category,
         )
 
-        articles = input_data.get("articles", [])
+        articles = input_data.get("news", [])
         sources: list[dict[str, Any]] = []
         claims: list[dict[str, Any]] = []
         chunks: list[dict[str, Any]] = []
@@ -116,7 +121,8 @@ class FinanceNewsMapper(BaseMapper):
                     url,
                     title=article.get("title", ""),
                     published=article.get("published", ""),
-                    feed_source=article.get("feed_source", ""),
+                    feed_source=article.get("source", ""),
+                    source_type="news",
                 )
             )
 

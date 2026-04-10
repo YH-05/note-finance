@@ -91,21 +91,29 @@ def _news_batch(
     theme_key: str = "index",
     articles: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """finance-news-workflow 形式のバッチデータを生成。"""
+    """finance-news-workflow 形式のバッチデータを生成。scraper の news[] 形式に準拠。
+
+    Notes
+    -----
+    session_id / batch_label はオプショナル。実際のスクレイパー出力には含まれないが
+    テスト目的で含める（mapper は .get() でデフォルト値を使用）。
+    """
     if articles is None:
         articles = [
             {
                 "url": "https://www.cnbc.com/2026/03/07/sp500-hits-record.html",
                 "title": "S&P 500 hits record high",
                 "summary": "The S&P 500 index reached an all-time high on Friday.",
-                "feed_source": "CNBC - Markets",
+                "source": "cnbc",
                 "published": "2026-03-07T10:00:00+00:00",
             }
         ]
     return {
         "session_id": "news-20260307-120000",
         "batch_label": theme_key,
-        "articles": articles,
+        "collected_at": "2026-03-07T12:00:00+00:00",
+        "total_count": len(articles),
+        "news": articles,
     }
 
 
@@ -725,7 +733,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/no-summary",
                     "title": "No Summary Article",
                     "summary": "",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T10:00:00+00:00",
                 }
             ]
@@ -748,7 +756,7 @@ class TestMapFinanceNews:
                     "title": "Full Article",
                     "summary": "Summary text",
                     "content": "This is the full article body text.",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T10:00:00+00:00",
                 }
             ]
@@ -780,7 +788,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/tagged",
                     "title": "Tagged Article",
                     "summary": "Summary",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T10:00:00+00:00",
                     "category": "markets",
                     "tags": ["inflation", "fed"],
@@ -804,7 +812,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/a1",
                     "title": "Article 1",
                     "summary": "S1",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T10:00:00+00:00",
                     "category": "markets",
                 },
@@ -812,7 +820,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/a2",
                     "title": "Article 2",
                     "summary": "S2",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T11:00:00+00:00",
                     "category": "markets",
                 },
@@ -832,7 +840,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/authored",
                     "title": "Authored Article",
                     "summary": "Summary",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T10:00:00+00:00",
                     "author": "John Smith",
                 }
@@ -859,7 +867,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/b1",
                     "title": "Article 1",
                     "summary": "S1",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T10:00:00+00:00",
                     "author": "Jane Doe",
                 },
@@ -867,7 +875,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/b2",
                     "title": "Article 2",
                     "summary": "S2",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T11:00:00+00:00",
                     "author": "Jane Doe",
                 },
@@ -888,7 +896,7 @@ class TestMapFinanceNews:
                     "title": "Full Mapping Article",
                     "summary": "Summary of the article.",
                     "content": "Full body text of the article.",
-                    "feed_source": "CNBC - Markets",
+                    "source": "cnbc",
                     "published": "2026-03-07T10:00:00+00:00",
                     "category": "economy",
                     "tags": ["gdp", "growth"],
@@ -914,7 +922,7 @@ class TestMapFinanceNews:
                     "url": "https://example.com/no-author",
                     "title": "No Author",
                     "summary": "Summary",
-                    "feed_source": "Test",
+                    "source": "test",
                     "published": "2026-03-07T10:00:00+00:00",
                     "author": "",
                 }

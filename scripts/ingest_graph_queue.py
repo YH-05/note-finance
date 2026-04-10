@@ -159,6 +159,7 @@ def process_queue(
     subdir: str = _DEFAULT_SUBDIR,
     *,
     dry_run: bool = False,
+    no_verify: bool = False,
 ) -> dict[str, int]:
     """未処理の graph-queue ファイルを全件 Neo4j に投入する.
 
@@ -170,6 +171,9 @@ def process_queue(
         対象サブディレクトリ名。
     dry_run : bool
         True の場合は Neo4j に書き込まず件数確認のみ行う。
+    no_verify : bool
+        True の場合は投入後の検証をスキップして必ず processed に移動する。
+        バックフィル等で既存データを MERGE する場合に使用する。
 
     Returns
     -------
@@ -196,16 +200,19 @@ def process_queue(
                 result.get("relations", 0),
             )
             if not dry_run:
-                verified = _verify_ingestion(result, queue_file)
-                if verified:
+                if no_verify:
                     _mark_processed(queue_file)
                 else:
-                    logger.warning(
-                        "Skipping move to processed due to verification errors: %s",
-                        queue_file.name,
-                    )
-                    failed += 1
-                    continue
+                    verified = _verify_ingestion(result, queue_file)
+                    if verified:
+                        _mark_processed(queue_file)
+                    else:
+                        logger.warning(
+                            "Skipping move to processed due to verification errors: %s",
+                            queue_file.name,
+                        )
+                        failed += 1
+                        continue
             ingested += 1
         except Exception as exc:
             logger.error(
@@ -325,6 +332,12 @@ Examples:
         help="処理済みファイルを移動せず保持する",
     )
     parser.add_argument(
+        "--no-verify",
+        action="store_true",
+        default=False,
+        help="投入後の検証をスキップして必ず processed に移動する（バックフィル用）",
+    )
+    parser.add_argument(
         "--log-level",
         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
         default="INFO",
@@ -365,7 +378,9 @@ def main() -> int:
                 args.queue_dir,
             )
             return 1
-        summary = process_queue(args.queue_dir, args.subdir, dry_run=args.dry_run)
+        summary = process_queue(
+            args.queue_dir, args.subdir, dry_run=args.dry_run, no_verify=args.no_verify
+        )
 
     print(f"\n{'[DRY RUN] ' if args.dry_run else ''}ingest_graph_queue 完了")
     print(f"  発見:  {summary['found']} 件")
