@@ -1,56 +1,57 @@
-# === Core (必須) ===
-title: "決算シーズンの読み方：EPS・売上・ガイダンス3軸スコアリングフレームワーク"
-article_id: "2026-04-11_earnings-season-reading-guide"
-topic: "決算シーズンの読み方フレームワーク"
-category: "investment_education"
-type: "column"
-status: "draft"
-
-# === Timestamps ===
-created_at: "2026-04-11"
-updated_at: "2026-04-11"
-research_sources: 12
-
-# === Content ===
-tags: [investment_education, earnings, EPS, guidance, fundamentals, beginner]
+title: 決算シーズンの読み方：EPS・売上・ガイダンス3軸スコアリングフレームワーク
+article_id: 2026-04-11_earnings-season-reading-guide
+topic: 決算シーズンの読み方フレームワーク
+category: investment_education
+type: column
+status: published
+created_at: '2026-04-11'
+updated_at: '2026-04-11T09:10:04.613380+00:00'
+revision_count: 0
+research_sources: 0
+tags:
+- investment_education
+- earnings
+- EPS
+- guidance
+- fundamentals
+- beginner
 target_audience: beginner
 target_wordcount: 3500
-
-# === Category-Specific ===
 symbols: []
 date_range:
-  start: ""
-  end: ""
+  start: ''
+  end: ''
 fred_series: []
-theme: "決算分析の基礎"
-
-# === Tracking ===
-critic_score: null
-revision_count: 0
-note_url: null
+theme: 決算分析の基礎
+critic_score: 75
+note_url: https://editor.note.com/notes/na706043c885d/edit/
 x_post_url: null
-research_sources: 0
-
-# === Workflow ===
 workflow:
   research: done
   draft: done
-  critique: pending
-  revision: pending
-  publish: pending
-
-# === Human Feedback ===
+  critique: done
+  revision: done
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
-  hf6_final_approved: false
+  hf6_final_approved: true
+notes: '- 3軸スコアリング: EPS Beat/Miss、Revenue Beat/Miss、Forward Guidance
 
-# === Notes ===
-notes: |
-  - 3軸スコアリング: EPS Beat/Miss、Revenue Beat/Miss、Forward Guidance
   - "Beat-and-Raise" / "Beat-and-Lower" の意味
+
   - Conference Call の注目ポイント（コメンタリーから読む経営の本音）
+
   - 決算後の株価反応（ガラ／急騰）の典型パターン
+
   - 日本人投資家向け：日本株の決算短信との違い
+
   - Q1 2026決算シーズン開幕に合わせたタイムリーガイド
+
+  '
+published_at: '2026-04-11T09:10:04.613380+00:00'
+draft_url: https://editor.note.com/notes/na706043c885d/edit/
