@@ -1,0 +1,54 @@
+# === Core (必須) ===
+title: "配当ETFへ4年ぶりの大量流入：Q1 $24Bが示す投資家マインドの変化"
+article_id: "2026-04-11_dividend-etf-q1-inflows-2026"
+topic: "配当ETF Q1 2026 大量流入"
+category: "asset_management"
+type: "column"
+status: "draft"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+
+# === Content ===
+tags: [asset_management, dividend-ETF, SCHD, VIG, CGDV, defensive]
+target_audience: beginner
+target_wordcount: 4000
+
+# === Category-Specific ===
+symbols: [SCHD, VIG, CGDV, "DGRW"]
+date_range:
+  start: "2025-01-01"
+  end: "2026-04-11"
+fred_series: []
+theme: "高配当・ディフェンシブ戦略"
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Notes ===
+notes: |
+  - LSEG Lipper data: Q1 米配当ファンド流入 $24.1B（4年ぶり高水準）
+  - SCHD $4B、CGDV $3B、VanEck Dev Mkts Div Leaders $2B
+  - 流入背景：地政学リスク、レート不確実性、ボラ上昇
+  - 既存「DCA戦略」(4/4)・「年齢別ファンド選び」(3/8)とは別軸：戦略シフト論
+  - 日本投資家にとっての示唆（2階建てNISA成長投資枠）

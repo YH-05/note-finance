@@ -1,0 +1,97 @@
+{
+  "symbol": "JPM",
+  "company_name": "JPMorgan Chase & Co",
+  "report_date": "2026-04-14",
+  "report_time": "before_open",
+  "fiscal_quarter_ending": "Mar/2026",
+  "as_of_date": "2026-04-11",
+
+  "q1_2026_estimates": {
+    "source": "LSEG consensus / NASDAQ calendar",
+    "eps_estimate_lseg": 5.44,
+    "eps_estimate_nasdaq": 5.46,
+    "eps_q1_2025_actual": 5.07,
+    "eps_growth_yoy_pct": 7.18,
+    "nii_growth_estimate_pct": 8.54,
+    "note": "コンセンサスEPS $5.44（LSEG）/ $5.46（NASDAQ calendar）。差異は集計時点の違い"
+  },
+
+  "annual_fy2025_actual": {
+    "source": "SEC EDGAR (fetched 2026-04-04)",
+    "fiscal_date_ending": "2025-12-31",
+    "report_type": "annual",
+    "revenue": 182447000000,
+    "net_income": 57048000000,
+    "total_assets": 4424900000000,
+    "total_liabilities": 4062462000000,
+    "operating_cashflow": -147782000000,
+    "eps_basic": 20.05,
+    "eps_diluted": 20.02,
+    "note": "OCFマイナスはトレーディング勘定の変動によるもの（銀行業の特性）"
+  },
+
+  "quarterly_q3_2025_actual": {
+    "source": "SEC EDGAR (fetched 2026-04-04)",
+    "fiscal_date_ending": "2025-09-30",
+    "report_type": "quarterly",
+    "revenue": 46427000000,
+    "net_income": 14393000000,
+    "total_assets": 4560205000000,
+    "total_liabilities": 4199993000000
+  },
+
+  "stock_performance": {
+    "source": "yfinance (fetched 2026-04-04)",
+    "latest_close": 294.60,
+    "latest_close_date": "2026-04-02",
+    "week_52_high": 335.87,
+    "week_52_low": 199.32,
+    "price_at_iran_war_start_approx": 310.79,
+    "iran_war_start": "2026-02-28",
+    "decline_since_iran_war_pct": -5.2,
+    "recent_trend": "2026-02-20の$310.79から2026-04-02の$294.60まで下落（約5.2%）"
+  },
+
+  "company_overview": {
+    "source": "AlphaVantage (fetched 2026-04-05)",
+    "market_cap": 794545750000,
+    "pe_ratio_trailing": 14.71,
+    "pe_ratio_forward": 13.74,
+    "eps_ttm": 20.03,
+    "book_value_per_share": 126.99,
+    "price_to_book": 2.321,
+    "dividend_per_share": 5.80,
+    "dividend_yield_pct": 1.96,
+    "roe_ttm_pct": 16.1,
+    "roa_ttm_pct": 1.35,
+    "profit_margin_pct": 33.9,
+    "analyst_target_price": 337.75,
+    "analyst_strong_buy": 5,
+    "analyst_buy": 9,
+    "analyst_hold": 13,
+    "analyst_sell": 0,
+    "shares_outstanding": 2697032000,
+    "quarterly_earnings_growth_yoy_pct": -3.6,
+    "quarterly_revenue_growth_yoy_pct": 2.5
+  },
+
+  "guidance_fy2026": {
+    "source": "Q4 2025 earnings call (2026-01-13)",
+    "nii_total": 103000000000,
+    "nii_total_note": "$103B（コンセンサス$100Bを上回る）",
+    "nii_ex_markets": 95000000000,
+    "expenses": 105000000000,
+    "card_net_charge_off_rate_pct": 3.4,
+    "q1_ib_fees_outlook": "Strong growth（2026年2月にガイダンス）",
+    "q1_markets_revenue_outlook": "Strong growth（2026年2月にガイダンス）"
+  },
+
+  "eps_surprise_history": {
+    "note": "AV earningsテーブルにJPM履歴データなし（未収集）。直近実績はSEC EDGAR + CNBC報道で補完",
+    "q4_2025_actual": {
+      "eps_beat": true,
+      "source": "Seeking Alpha / CNBC 2026-01-13",
+      "note": "Q4 2025はコンセンサス（$4.93）を上回る。コアEPS $5.28（Piper Sandler調整後）"
+    }
+  }
+}

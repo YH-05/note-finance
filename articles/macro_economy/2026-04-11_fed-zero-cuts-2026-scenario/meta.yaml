@@ -1,0 +1,54 @@
+# === Core (必須) ===
+title: "FRB「2026年ゼロ利下げ」シナリオ：Polymarket確率34%が示す市場の本音"
+article_id: "2026-04-11_fed-zero-cuts-2026-scenario"
+topic: "FRB 2026年ゼロ利下げシナリオ"
+category: "macro_economy"
+type: "column"
+status: "draft"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+
+# === Content ===
+tags: [macro, Fed, FOMC, rates, inflation, Polymarket]
+target_audience: intermediate
+target_wordcount: 4500
+
+# === Category-Specific ===
+symbols: ["^TNX", "^FVX", "DXY"]
+date_range:
+  start: "2025-12-01"
+  end: "2026-04-11"
+fred_series: [FEDFUNDS, CPIAUCSL, DGS10, DGS2, T10Y2Y]
+theme: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Notes ===
+notes: |
+  - Polymarket: 2026年利下げなし確率10% → 34%に急上昇（イラン戦争前→後）
+  - 3月FOMCのインフレ予想上方修正、成長予想下方修正
+  - 「Iran War Has Put A Fed Rate Hike Back On The Table」の論調
+  - Warsh議長候補への市場懸念
+  - 既存記事「institutional-10y-treasury-rotation」(4/4)とは別軸：政策パスシナリオ分析

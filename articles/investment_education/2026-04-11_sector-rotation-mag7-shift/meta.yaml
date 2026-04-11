@@ -1,0 +1,55 @@
+# === Core (必須) ===
+title: "セクターローテーション入門：Mag7偏重からバランス型への移行タイミング"
+article_id: "2026-04-11_sector-rotation-mag7-shift"
+topic: "セクターローテーション Mag7偏重からの脱却"
+category: "investment_education"
+type: "column"
+status: "draft"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+
+# === Content ===
+tags: [investment_education, sector-rotation, MAG7, diversification, beginner]
+target_audience: beginner
+target_wordcount: 3500
+
+# === Category-Specific ===
+symbols: ["^GSPC", XLK, XLF, XLI, XLU, XLE, XLP, XLY]
+date_range:
+  start: "2024-01-01"
+  end: "2026-04-11"
+fred_series: []
+theme: "セクター分散の基礎"
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 8
+
+# === Workflow ===
+workflow:
+  research: done
+  draft: done
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Notes ===
+notes: |
+  - Mag7外セクターの2026年パフォーマンス（金融・産業・公益・エネルギー・素材）
+  - 「Magnificent 7を除外したS&P493」の動き
+  - セクターローテーションの典型シグナル（イールドカーブ、PMI、原油）
+  - 個人投資家がオルカン/S&P500偏重から分散する実践ステップ
+  - SPDR XLシリーズETFの活用法
+  - 既存「オルカンvsS&P500分散シフト」記事との差別化：セクター単位の分散

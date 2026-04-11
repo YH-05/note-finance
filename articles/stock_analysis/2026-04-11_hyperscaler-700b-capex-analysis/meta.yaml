@@ -1,0 +1,54 @@
+# === Core (必須) ===
+title: "ハイパースケーラー$700B Capex論争：META/MSFT/GOOGL/AMZN AI投資の収益性"
+article_id: "2026-04-11_hyperscaler-700b-capex-analysis"
+topic: "ハイパースケーラーAI Capex 700B論争"
+category: "stock_analysis"
+type: "data_analysis"
+status: "draft"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+
+# === Content ===
+tags: [stock_analysis, hyperscaler, AI-capex, MAG7, MSFT, META, GOOGL, AMZN]
+target_audience: intermediate
+target_wordcount: 5000
+
+# === Category-Specific ===
+symbols: [MSFT, META, GOOGL, AMZN]
+date_range:
+  start: "2024-01-01"
+  end: "2026-04-11"
+fred_series: []
+theme: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Notes ===
+notes: |
+  - 4社合計2026年Capex 約$650-700B（AI データセンター投資）
+  - 各社のCapex/売上比、Capex/FCF比、減価償却負担の推移
+  - クラウド売上成長率と Capex Payback Period
+  - OpenAI Stargate凍結報道（コスト・規制）の波及
+  - バイサイド視点：投資回収シナリオとリスクプレミアムの再評価

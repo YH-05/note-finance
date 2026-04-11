@@ -1,0 +1,149 @@
+{
+  "symbol": "TSM",
+  "company": "Taiwan Semiconductor Manufacturing Co.",
+  "report_date": "2026-04-10",
+  "full_earnings_date": "2026-04-16",
+
+  "q1_2026_revenue": {
+    "nt_dollar_billions": 1134.10,
+    "usd_billions": 35.71,
+    "yoy_growth_pct": 35.1,
+    "vs_guidance": {
+      "guidance_low_usd_b": 34.6,
+      "guidance_high_usd_b": 35.8,
+      "status": "high_end_in_line"
+    },
+    "vs_consensus": {
+      "lseg_smart_estimate_nt_t": 1.125,
+      "result_nt_t": 1.134,
+      "beat_pct": 0.8
+    },
+    "source": "https://www.reuters.com/world/asia-pacific/tsmcs-q1-revenue-jumps-35-yy-beats-market-forecast-2026-04-10/"
+  },
+
+  "monthly_revenue_march_2026": {
+    "nt_dollar_billions": 415.19,
+    "yoy_growth_pct": 45.2,
+    "mom_growth_pct": 30.7,
+    "source": "https://www.stocktitan.net/sec-filings/TSM/6-k-taiwan-semiconductor-manufacturing-co-ltd-current-report-foreign--ad634bdd2780.html"
+  },
+
+  "quarterly_eps_history": [
+    {"period": "Q1-2026", "type": "estimate", "reported_date": "2026-04-16", "reported_eps": null, "estimated_eps": 3.30, "surprise_pct": null},
+    {"period": "Q4-2025", "type": "actual", "reported_date": "2026-01-15", "reported_eps": 3.14, "estimated_eps": 2.84, "surprise_pct": 10.56},
+    {"period": "Q3-2025", "type": "actual", "reported_date": "2025-10-16", "reported_eps": 2.92, "estimated_eps": 2.66, "surprise_pct": 9.77},
+    {"period": "Q2-2025", "type": "actual", "reported_date": "2025-07-17", "reported_eps": 2.47, "estimated_eps": 2.31, "surprise_pct": 6.93},
+    {"period": "Q1-2025", "type": "actual", "reported_date": "2025-04-17", "reported_eps": 2.12, "estimated_eps": 2.05, "surprise_pct": 3.41},
+    {"period": "Q4-2024", "type": "actual", "reported_date": "2025-01-16", "reported_eps": 2.24, "estimated_eps": 2.22, "surprise_pct": 0.90}
+  ],
+
+  "q1_2026_guidance_recap": {
+    "revenue_usd_b_low": 34.6,
+    "revenue_usd_b_high": 35.8,
+    "yoy_midpoint_pct": 38,
+    "gross_margin_low_pct": 63,
+    "gross_margin_high_pct": 65,
+    "source": "Q4 2025 Earnings Call (2026-01-15)"
+  },
+
+  "q2_2026_analyst_estimates": {
+    "revenue_nt_t_avg": 1.19,
+    "revenue_nt_t_low": 1.14,
+    "revenue_nt_t_high": 1.26,
+    "eps_usd_avg": 3.45,
+    "eps_usd_low": 3.40,
+    "eps_usd_high": 3.60,
+    "source": "Yahoo Finance analyst consensus (as of 2026-04-10)"
+  },
+
+  "fy2026_estimates": {
+    "revenue_nt_t_avg": 4.99,
+    "eps_usd_avg": 14.52,
+    "yoy_revenue_guidance_pct_approx": 30,
+    "source": "Yahoo Finance / Q4 2025 Earnings Call"
+  },
+
+  "ai_accelerator_guidance": {
+    "official_cagr": "mid-to-high 50%",
+    "cagr_period": "2024-2029",
+    "analyst_rounded": "nearly 60%",
+    "hpc_pct_q4_2025": 55,
+    "hpc_pct_fy2025": 58,
+    "note": "Official guidance is 'mid-to-high 50%'. Analysts round to '~60%'. Article title uses '60% CAGR'.",
+    "sources": [
+      "https://finance.yahoo.com/news/tsmcs-strong-guidance-supports-stocks-232800722.html",
+      "https://www.forbes.com/sites/jonmarkman/2026/01/16/fabless-trap-why-great-designs-are-worthless-without-a-reserved-slot/",
+      "https://finance.yahoo.com/news/major-chipmaker-hidden-winner-2026-233500199.html"
+    ]
+  },
+
+  "capex_fy2026": {
+    "usd_b_low": 52,
+    "usd_b_high": 56,
+    "advanced_process_pct": "70-80%",
+    "source": "Q4 2025 Earnings Call"
+  },
+
+  "global_fabs": {
+    "arizona_fab21": {
+      "phase1": {"node": "4nm", "status": "volume_production", "started": "2024"},
+      "phase2": {
+        "node": "2nm",
+        "status": "construction_complete",
+        "tooling_start": "H2 2026",
+        "volume_production": "H2 2027",
+        "source": "https://www.manufacturingdive.com/news/tsmc-q4-full-year-2025-earnings-ai-taiwan/809775/"
+      }
+    },
+    "kumamoto_jasm": {
+      "phase1": {"node": "16nm/12nm", "status": "volume_production", "started": "late 2024"},
+      "phase2": {
+        "node": "3nm",
+        "status": "construction_underway",
+        "equipment_installation": "2027",
+        "volume_production": "2028",
+        "note": "Phase 2 timing delayed from earlier estimates",
+        "sources": [
+          "https://www.reuters.com/business/autos-transportation/tsmc-plans-3-nanometre-chip-production-launch-japan-2028-2026-04-01/",
+          "https://finance.yahoo.com/news/tsmcs-second-japanese-fab-reportedly-180109352.html"
+        ]
+      }
+    }
+  },
+
+  "geopolitical_risks": {
+    "iran_war": {
+      "start_date": "2026-02-28",
+      "strait_of_hormuz": "disrupted",
+      "taiwan_lng_impact": "~1/3 from Qatar disrupted; alternate sources secured",
+      "taiwan_exports_march_2026": "+61.8% YoY (WSJ, above 35% forecast)",
+      "taiwan_semiconductor_pmi_march": "some drag noted",
+      "assessment": "AI demand strong enough to offset near-term supply chain concerns",
+      "sources": [
+        "https://news.bloomberglaw.com/us-law-week/asian-factories-show-mixed-activity-on-war-strains-supply-lines",
+        "https://www.wsj.com/economy/trade/taiwan-exports-accelerate-sharply-in-march-despite-mideast-tensions-25fb58fd",
+        "https://www.reuters.com/business/energy/taiwan-says-it-has-assurances-over-lng-supplies-major-country-2026-04-04/"
+      ]
+    },
+    "china_chip_espionage": {
+      "description": "China targeting Taiwan's advanced chip talent/expertise to break through tech containment",
+      "source": "https://www.reuters.com/world/china/china-targets-taiwans-chip-prowess-evade-global-containment-taipei-government-2026-04-07/"
+    }
+  },
+
+  "stock_price_context": {
+    "latest_close": {"date": "2026-04-02", "price_usd": 339.04},
+    "recent_peak": {"approx_date": "2026-02-mid", "approx_price_usd": 387},
+    "pe_ratio_ttm": 28.08,
+    "forward_pe_fy2026": 23.4,
+    "note": "At $339 / $14.52 FY2026 EPS estimate = ~23.4x forward P/E"
+  },
+
+  "q4_2025_results_summary": {
+    "gross_margin_pct": 62,
+    "yoy_gross_margin_improvement_bps": 330,
+    "fy2025_revenue_usd_b": 122,
+    "long_term_cagr_guidance": "~25% (2024-2029, company-wide)",
+    "source": "https://www.bloomberg.com/news/articles/2026-01-15/tsmc-profit-beats-estimates-in-fresh-sign-of-ai-demand-strength"
+  }
+}

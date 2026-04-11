@@ -1,0 +1,54 @@
+# === Core (必須) ===
+title: "Vistra (VST) 深掘り：AI電力需要と原発復活ストーリーの実需"
+article_id: "2026-04-11_vistra-ai-power-demand"
+topic: "Vistra AI電力需要分析"
+category: "stock_analysis"
+type: "data_analysis"
+status: "draft"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+
+# === Content ===
+tags: [stock_analysis, VST, utilities, AI-power, nuclear, IPP]
+target_audience: intermediate
+target_wordcount: 4500
+
+# === Category-Specific ===
+symbols: [VST, CEG, NRG]
+date_range:
+  start: "2024-01-01"
+  end: "2026-04-11"
+fred_series: []
+theme: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Notes ===
+notes: |
+  - AIデータセンター電力需要の構造変化
+  - VistraのERCOT(テキサス)エクスポージャ・原発資産・PPAパイプライン
+  - PJM Capacity市場価格との連動性
+  - 競合（CEG, NRG）との比較
+  - バリュエーション(EV/EBITDA, Free Cash Flow Yield)の妥当性チェック

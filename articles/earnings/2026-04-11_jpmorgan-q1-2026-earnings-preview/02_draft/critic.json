@@ -1,0 +1,182 @@
+{
+  "article_id": "2026-04-11_jpmorgan-q1-2026-earnings-preview",
+  "category": "earnings",
+  "mode": "full",
+  "generated_at": "2026-04-11",
+  "critics": {
+    "fact": {
+      "score": 62,
+      "status": "fail",
+      "verified_count": 42,
+      "issues": [
+        {
+          "severity": "critical",
+          "location": "セクション2（NII項）",
+          "issue": "NII通期ガイダンス「103億ドル」は誤り。正しくは「1,030億ドル」（$103 billion = 1,030億ドル）",
+          "fix": "「103億ドル」→「1,030億ドル」に修正"
+        },
+        {
+          "severity": "critical",
+          "location": "セクション5（上値シナリオ）",
+          "issue": "「NII $103億ドルガイダンス達成」→「NII 1,030億ドルガイダンス達成」",
+          "fix": "「103億ドル」→「1,030億ドル」に修正"
+        },
+        {
+          "severity": "critical",
+          "location": "セクション6（まとめ）",
+          "issue": "「NII $103億ドル」→「NII 1,030億ドル」",
+          "fix": "「103億ドル」→「1,030億ドル」に修正"
+        },
+        {
+          "severity": "critical",
+          "location": "セクション5（下値シナリオ）",
+          "issue": "費用ガイダンス「$105億ドル」は誤り。正しくは「1,050億ドル」",
+          "fix": "「105億ドル」→「1,050億ドル」に修正"
+        },
+        {
+          "severity": "medium",
+          "location": "セクション3（Dimon書簡）",
+          "issue": "Dimon株主書簡の日付「4月7日」は不正確。書簡の公開報道は2026年4月6日",
+          "fix": "「4月7日」→「4月6日」に修正"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 85,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "medium",
+          "location": "セクション2",
+          "issue": "「フィーマシン復活」という断定的表現。投資勧誘と誤解される可能性",
+          "fix": "「Wall Street Journal等が『フィーマシン復活』と報じているように」等のヘッジ表現を追加"
+        },
+        {
+          "severity": "low",
+          "location": "免責事項",
+          "issue": "免責事項は適切に末尾に配置されており内容も適切",
+          "fix": "修正不要"
+        }
+      ]
+    },
+    "structure": {
+      "score": 78,
+      "issues": [
+        {
+          "severity": "high",
+          "location": "セクション5（上値・下値シナリオ）",
+          "issue": "400字超の連続テキスト。箇条書き形式にすべき",
+          "fix": "上値・下値シナリオを箇条書きに変換"
+        },
+        {
+          "severity": "high",
+          "location": "セクション1（株価パフォーマンス）",
+          "issue": "株価リターン数値が連続した文章。リスト形式が読みやすい",
+          "fix": "「1ヶ月: +8.3%、3ヶ月: -5.4%...」のリスト形式に変換"
+        },
+        {
+          "severity": "medium",
+          "location": "セクション6（まとめ）",
+          "issue": "注目ポイントのまとめが連続文章。要点をリスト化すべき",
+          "fix": "4つの注目点を箇条書きリストに変換"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "score": 80,
+      "issues": [
+        {
+          "severity": "high",
+          "location": "全体",
+          "issue": "NII/$103Bの日本語表現ミス（上記fact同様）",
+          "fix": "1,030億ドルに統一修正"
+        },
+        {
+          "severity": "low",
+          "location": "セクション1",
+          "issue": "株価$294.60（4月2日終値）と$309.87（4月11日現在）の混在。読者に混乱を与える可能性",
+          "fix": "最新価格（$309.87、4月11日時点）を基準に統一し、4月2日価格は参考値として注記"
+        }
+      ]
+    },
+    "readability": {
+      "score": 62,
+      "issues": [
+        {
+          "severity": "high",
+          "location": "リード（冒頭段落）",
+          "issue": "冒頭段落が1文で終わっており情報が少ない。読者の興味を引くには不足",
+          "fix": "2〜3文に拡張。「JPMorgan決算は米国経済の体温計」という角度を冒頭で明確化"
+        },
+        {
+          "severity": "high",
+          "location": "セクション5",
+          "issue": "リスクシナリオの段落が長すぎる（1段落400字超）",
+          "fix": "各シナリオを3〜4文以内の段落に分割"
+        },
+        {
+          "severity": "medium",
+          "location": "セクション3",
+          "issue": "Dimon書簡の引用が多すぎる。読者目線での解説が不足",
+          "fix": "引用を1〜2件に絞り、「なぜこれが投資家に重要か」の解説を追加"
+        }
+      ]
+    },
+    "writer_rules": {
+      "score": 85,
+      "issues": [
+        {
+          "severity": "medium",
+          "location": "全体",
+          "issue": "文字数: 約7,994字（目標: 4,000字。上限5,000字を大幅超過）",
+          "fix": "各セクションを要約し5,000字以内に収める"
+        },
+        {
+          "severity": "low",
+          "location": "全体",
+          "issue": "必須セクション6項目は全て揃っている",
+          "fix": "修正不要"
+        }
+      ]
+    }
+  },
+  "overall_score": 75,
+  "priority_fixes": [
+    {
+      "priority": "CRITICAL",
+      "description": "NII「103億ドル」→「1,030億ドル」に修正（セクション2・5・6の3箇所）"
+    },
+    {
+      "priority": "CRITICAL",
+      "description": "費用「105億ドル」→「1,050億ドル」に修正（セクション5）"
+    },
+    {
+      "priority": "HIGH",
+      "description": "セクション5の上値・下値シナリオを箇条書きに変換（400字超の連続テキスト解消）"
+    },
+    {
+      "priority": "HIGH",
+      "description": "セクション1の株価リターン数値をリスト形式に変換"
+    },
+    {
+      "priority": "HIGH",
+      "description": "冒頭リードを2〜3文に拡張（「JPMは米国経済の体温計」角度を明示）"
+    },
+    {
+      "priority": "HIGH",
+      "description": "「フィーマシン」→ヘッジ表現に修正（コンプライアンス対応）"
+    },
+    {
+      "priority": "MEDIUM",
+      "description": "Dimon書簡日付「4月7日」→「4月6日」に修正"
+    },
+    {
+      "priority": "MEDIUM",
+      "description": "セクション6のまとめを箇条書きリストに変換"
+    },
+    {
+      "priority": "MEDIUM",
+      "description": "全体の文字数を5,000字以内に圧縮（現在7,994字）"
+    }
+  ]
+}

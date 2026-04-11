@@ -1,0 +1,54 @@
+# === Core (必須) ===
+title: "米国10年債利回り5%復活シナリオ：財政懸念とタームプレミアムの再評価"
+article_id: "2026-04-11_us-10y-yield-5pct-scenario"
+topic: "米国10年債利回り5%復活シナリオ"
+category: "macro_economy"
+type: "column"
+status: "draft"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+
+# === Content ===
+tags: [macro, treasuries, term-premium, fiscal, yields]
+target_audience: advanced
+target_wordcount: 5000
+
+# === Category-Specific ===
+symbols: ["^TNX", "^TYX", "TLT", "IEF"]
+date_range:
+  start: "2025-01-01"
+  end: "2026-04-11"
+fred_series: [DGS10, DGS30, GFDEBTN, GFDEGDQ188S, T10Y2Y, THREEFYTP10]
+theme: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Notes ===
+notes: |
+  - タームプレミアム（NY Fed ACM model）の動向
+  - 米国財政赤字のGDP比、債務上限論議
+  - イラン戦争・関税1周年がインフレ期待に与える影響
+  - 海外投資家(日本・中国)の保有動向
+  - 5%復活時のセクター・資産配分インパクト

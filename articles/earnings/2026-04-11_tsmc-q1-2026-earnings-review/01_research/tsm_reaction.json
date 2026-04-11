@@ -1,0 +1,135 @@
+{
+  "symbol": "TSM",
+  "as_of_date": "2026-04-11",
+  "current_price": 370.6,
+  "returns": {
+    "1M": 4.8,
+    "3M": 14.8,
+    "6M": 32.8,
+    "1Y": 148.3,
+    "3Y": 334.1,
+    "5Y": 227.9
+  },
+  "earnings_reactions": [
+    {
+      "fiscal_quarter": "2025-Q4",
+      "fiscal_date_ending": "2025-12-31",
+      "reported_date": "2026-01-15",
+      "reported_eps": 3.14,
+      "estimated_eps": 2.84,
+      "surprise_pct": 10.56,
+      "surprise_direction": "beat",
+      "day_return_pct": 4.7,
+      "week_return_pct": 5.3,
+      "price_direction": "up",
+      "divergence": false
+    },
+    {
+      "fiscal_quarter": "2025-Q3",
+      "fiscal_date_ending": "2025-09-30",
+      "reported_date": "2025-10-16",
+      "reported_eps": 2.92,
+      "estimated_eps": 2.66,
+      "surprise_pct": 9.77,
+      "surprise_direction": "beat",
+      "day_return_pct": -3.2,
+      "week_return_pct": -3.1,
+      "price_direction": "down",
+      "divergence": true
+    },
+    {
+      "fiscal_quarter": "2025-Q2",
+      "fiscal_date_ending": "2025-06-30",
+      "reported_date": "2025-07-17",
+      "reported_eps": 2.47,
+      "estimated_eps": 2.31,
+      "surprise_pct": 6.93,
+      "surprise_direction": "beat",
+      "day_return_pct": 1.2,
+      "week_return_pct": 5.2,
+      "price_direction": "up",
+      "divergence": false
+    },
+    {
+      "fiscal_quarter": "2025-Q1",
+      "fiscal_date_ending": "2025-03-31",
+      "reported_date": "2025-04-17",
+      "reported_eps": 2.12,
+      "estimated_eps": 2.05,
+      "surprise_pct": 3.41,
+      "surprise_direction": "beat",
+      "day_return_pct": -2.5,
+      "week_return_pct": 9.2,
+      "price_direction": "down",
+      "divergence": true
+    },
+    {
+      "fiscal_quarter": "2024-Q4",
+      "fiscal_date_ending": "2024-12-31",
+      "reported_date": "2025-01-16",
+      "reported_eps": 2.24,
+      "estimated_eps": 2.22,
+      "surprise_pct": 0.9,
+      "surprise_direction": "inline",
+      "day_return_pct": 2.3,
+      "week_return_pct": 7.1,
+      "price_direction": "up",
+      "divergence": false
+    },
+    {
+      "fiscal_quarter": "2024-Q3",
+      "fiscal_date_ending": "2024-09-30",
+      "reported_date": "2024-10-17",
+      "reported_eps": 1.94,
+      "estimated_eps": 1.79,
+      "surprise_pct": 8.38,
+      "surprise_direction": "beat",
+      "day_return_pct": 7.1,
+      "week_return_pct": 6.5,
+      "price_direction": "up",
+      "divergence": false
+    },
+    {
+      "fiscal_quarter": "2024-Q2",
+      "fiscal_date_ending": "2024-06-30",
+      "reported_date": "2024-07-18",
+      "reported_eps": 1.48,
+      "estimated_eps": 1.43,
+      "surprise_pct": 3.5,
+      "surprise_direction": "beat",
+      "day_return_pct": -3.2,
+      "week_return_pct": -13.1,
+      "price_direction": "down",
+      "divergence": true
+    },
+    {
+      "fiscal_quarter": "2024-Q1",
+      "fiscal_date_ending": "2024-03-31",
+      "reported_date": "2024-04-18",
+      "reported_eps": 1.38,
+      "estimated_eps": 1.32,
+      "surprise_pct": 4.55,
+      "surprise_direction": "beat",
+      "day_return_pct": -8.1,
+      "week_return_pct": -7.2,
+      "price_direction": "down",
+      "divergence": true
+    }
+  ],
+  "summary": {
+    "total_quarters": 8,
+    "beats": 7,
+    "misses": 0,
+    "avg_day_return_pct": -0.2,
+    "median_day_return_pct": -0.6,
+    "up_probability_pct": 50.0,
+    "divergence_count": 4,
+    "divergence_quarters": [
+      "2025-Q3",
+      "2025-Q1",
+      "2024-Q2",
+      "2024-Q1"
+    ]
+  },
+  "fetched_at": "2026-04-11T09:16:41.171227"
+}

@@ -1,0 +1,25 @@
+{
+  "symbol": "JPM",
+  "as_of_date": "2026-04-11",
+  "current_price": 309.87,
+  "returns": {
+    "1M": 8.3,
+    "3M": -5.4,
+    "6M": 4.0,
+    "1Y": 39.1,
+    "3Y": 158.2,
+    "5Y": 125.0
+  },
+  "earnings_reactions": [],
+  "summary": {
+    "total_quarters": 0,
+    "beats": 0,
+    "misses": 0,
+    "avg_day_return_pct": 0.0,
+    "median_day_return_pct": 0.0,
+    "up_probability_pct": 0.0,
+    "divergence_count": 0,
+    "divergence_quarters": []
+  },
+  "fetched_at": "2026-04-11T09:16:06.601496"
+}

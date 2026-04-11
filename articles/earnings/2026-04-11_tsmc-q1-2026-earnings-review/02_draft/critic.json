@@ -1,0 +1,236 @@
+{
+  "article_id": "2026-04-11_tsmc-q1-2026-earnings-review",
+  "category": "earnings",
+  "mode": "full",
+  "generated_at": "2026-04-11",
+  "critics": {
+    "fact": {
+      "score": 88,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "high",
+          "description": "Q1 2026 USD売上高の転記ミス: 「34.71B米ドル換算」→ 正しくは「35.71B米ドル換算」",
+          "location": "## 2. 今回の決算ポイント — Q1 2026 売上速報：冒頭",
+          "original": "NT$1,134.10B（34.71B米ドル換算、前年同期比+35.1%）",
+          "correct": "NT$1,134.10B（35.71B米ドル換算、前年同期比+35.1%）",
+          "source": "earnings_data.json: usd_billions=35.71"
+        },
+        {
+          "severity": "medium",
+          "description": "Q1 2026ガイダンス下限誤記: 「340億〜358億ドル」の下限340億（$34.0B）→ 正しくは346億（$34.6B）",
+          "location": "## 2. 今回の決算ポイント — Q1 2026 売上速報：2段落目",
+          "original": "ガイダンス（340億〜358億ドル）",
+          "correct": "ガイダンス（346億〜358億ドル）",
+          "source": "earnings_data.json: guidance_low_usd_b=34.6"
+        },
+        {
+          "severity": "low",
+          "description": "「8四半期中7四半期ビート」の主張はAV DBの収録範囲（6四半期）では完全検証不可。Q2-2024・Q3-2024のデータが未収録",
+          "location": "## 3. 過去の決算実績 — EPSサプライズの加速",
+          "suggestion": "表現はそのまま維持してよいが、yfinanceから取得した8四半期データ（tsm_reaction.json）を根拠に記述されていることを確認"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 82,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "prediction_assertion",
+          "location": "## 2. 今回の決算ポイント / 4月16日フル決算の注目KPI",
+          "description": "「この水準を上回るガイダンスが出れば、さらなる上方修正期待につながる可能性があります」— 条件付き株価示唆",
+          "suggestion": "「市場参加者の一部はさらなる上方修正期待につながる可能性があると見ています」など第三者視点に変更"
+        },
+        {
+          "severity": "medium",
+          "type": "prediction_assertion",
+          "location": "## 3. 過去の決算実績 / 決算後の株価反応：末尾",
+          "description": "「4月16日の決算後も同様の良好な反応が期待されますが」— 将来の良好反応を示唆",
+          "suggestion": "「4月16日の決算後の株価反応は、Q2ガイダンスやマーケット環境にも依存するため、一方向に決め打ちすることは難しい状況です」に変更"
+        },
+        {
+          "severity": "low",
+          "type": "investment_advice_adjacent",
+          "location": "## 5. リスク要因 / アップサイドシナリオ",
+          "description": "「フォワードPER約25.5倍は…成長率対比で過度に割高とはいえない水準と捉えることも可能です」— バリュエーション評価的コメント",
+          "suggestion": "「一部のアナリストは成長率対比で過度に割高とはいえないと評価しています」と第三者出典を明示"
+        }
+      ],
+      "disclaimer_check": {
+        "present": true,
+        "location": "記事末尾（---区切り後）",
+        "decorated": false,
+        "status": "OK"
+      }
+    },
+    "structure": {
+      "score": 75,
+      "section_scores": {
+        "introduction": 52,
+        "flow": 78,
+        "sections": 72,
+        "conclusion": 78,
+        "readability": 70
+      },
+      "issues": [
+        {
+          "severity": "high",
+          "section": "導入部",
+          "description": "タイトル直後に独立した導入段落がなく、いきなり「## 1. 銘柄概要（1987年設立…）」から始まる。フックとして機能しない。",
+          "suggestion": "タイトル直後に100〜150字の導入リード文を追加。例：「4月10日にQ1売上+35.1%速報が発表されたTSMC。4月16日のフル決算まで5日、EPS・粗利益率・Q2ガイダンスと『60% CAGR』コメントの4点を中心に注目ポイントを整理する。」"
+        },
+        {
+          "severity": "high",
+          "section": "まとめ",
+          "description": "まとめが約334字（全体の6%）と薄い。KPI列挙のみで読者への具体的示唆がない。",
+          "suggestion": "まとめを500字程度に拡充し、「強気/弱気シナリオ別チェックポイント」を提示する"
+        },
+        {
+          "severity": "medium",
+          "section": "銘柄概要",
+          "description": "2段落目が1文で250字超え。5指標を1文に詰め込み情報過密",
+          "suggestion": "2文に分割する"
+        },
+        {
+          "severity": "medium",
+          "section": "論理展開",
+          "description": "セクション間のブリッジ文が不足。特にセクション2→3→4の繋ぎが唐突",
+          "suggestion": "各セクション末尾か次セクション冒頭に1〜2文のブリッジを追加"
+        },
+        {
+          "severity": "medium",
+          "section": "リスク要因",
+          "description": "アップサイド（170字・1段落）vs ダウンサイド（740字・4項目）で分量が大きく非対称",
+          "suggestion": "アップサイドを2〜3項目に展開し、ダウンサイドと均衡させる"
+        }
+      ],
+      "strengths": [
+        "「60% CAGR」vs「mid-to-high 50%」の整理が記事の核心テーマとして一貫",
+        "過去8Qの乖離パターン解説が独自の洞察を提供",
+        "画像（表・チャート）とソースURLの配置が適切"
+      ]
+    },
+    "data_accuracy": {
+      "score": 82,
+      "issues": [
+        {
+          "severity": "high",
+          "description": "USD換算誤記（factと同じ）",
+          "actual": "34.71B",
+          "expected": "35.71B"
+        },
+        {
+          "severity": "medium",
+          "description": "ガイダンス下限誤記（factと同じ）",
+          "actual": "340億",
+          "expected": "346億"
+        }
+      ],
+      "source_url_coverage": "partial",
+      "calculation_checks": [
+        {"calculation": "フォワードPER（$370.6÷$14.52）", "result": "25.52→25.5倍", "status": "correct"},
+        {"calculation": "Q1 EPS前年比（3.30-2.12）/2.12", "result": "55.7%→約56%", "status": "correct"},
+        {"calculation": "LSEG超過率（1.134-1.125）/1.125", "result": "0.8%", "status": "correct"}
+      ]
+    },
+    "readability": {
+      "score": 72,
+      "hook_effectiveness": 45,
+      "mobile_optimization": 58,
+      "term_explanation": 78,
+      "issues": [
+        {
+          "severity": "high",
+          "description": "冒頭3行にフックなし。1987年設立の企業沿革から始まり、読者がスクロールを止める理由がない",
+          "suggestion": "導入リード文を追加（構成チェックと同じ修正）"
+        },
+        {
+          "severity": "high",
+          "description": "「注目KPI」段落が400字超の1ブロック。スマホで8〜10行以上が連続し離脱リスク高",
+          "suggestion": "4つのKPIを番号付き箇条書きに分割"
+        },
+        {
+          "severity": "high",
+          "description": "乖離事例4件の説明が視覚的区切りなく連続している",
+          "suggestion": "各乖離事例を小見出し（###）で分けるか、冒頭にパターン分類サマリーを追加"
+        },
+        {
+          "severity": "medium",
+          "description": "TTMとCapexが説明なし初出",
+          "suggestion": "TTM→「（直近12ヶ月合算ベース、TTM）」、Capex→「設備投資（Capex）」と初出時に補記"
+        },
+        {
+          "severity": "medium",
+          "description": "銘柄概要の長文（250字超1文）",
+          "suggestion": "2文に分割"
+        }
+      ],
+      "strengths": [
+        "「60% CAGR」vs公式表現の整理が中級者には有益",
+        "ですます調がほぼ一貫して維持",
+        "数値データへのURLリンクが充実"
+      ]
+    }
+  },
+  "overall_score": 80,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "high",
+      "type": "数値誤記",
+      "description": "USD換算$34.71B → $35.71Bに修正",
+      "affected_section": "## 2. Q1 2026 売上速報"
+    },
+    {
+      "priority": 2,
+      "severity": "high",
+      "type": "数値誤記",
+      "description": "ガイダンス下限340億 → 346億ドルに修正",
+      "affected_section": "## 2. Q1 2026 売上速報"
+    },
+    {
+      "priority": 3,
+      "severity": "high",
+      "type": "構成・読みやすさ",
+      "description": "タイトル直後に導入リード文（100〜150字）を追加",
+      "affected_section": "記事冒頭"
+    },
+    {
+      "priority": 4,
+      "severity": "high",
+      "type": "構成・読みやすさ",
+      "description": "注目KPI段落を番号付き箇条書きに変換",
+      "affected_section": "## 2. 4月16日フル決算の注目KPI"
+    },
+    {
+      "priority": 5,
+      "severity": "high",
+      "type": "構成",
+      "description": "まとめを500字程度に拡充し、強気/弱気シナリオ別チェックポイントを追加",
+      "affected_section": "## 6. まとめ"
+    },
+    {
+      "priority": 6,
+      "severity": "medium",
+      "type": "コンプライアンス",
+      "description": "「良好な反応が期待されますが」→ 中立的表現に変更",
+      "affected_section": "## 3. 決算後の株価反応"
+    },
+    {
+      "priority": 7,
+      "severity": "medium",
+      "type": "コンプライアンス",
+      "description": "「上方修正期待につながる可能性があります」→ 第三者視点に変更",
+      "affected_section": "## 2. 注目KPI"
+    },
+    {
+      "priority": 8,
+      "severity": "medium",
+      "type": "読みやすさ",
+      "description": "TTM→初出時に「（直近12ヶ月合算ベース）」補記、Capex→「設備投資（Capex）」補記",
+      "affected_section": "## 1. 銘柄概要、## 5. リスク要因"
+    }
+  ]
+}

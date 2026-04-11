@@ -1,0 +1,57 @@
+# === Core (必須) ===
+title: "TSMC Q1 2026決算レビュー：AI需要60% CAGRガイダンスの実現性"
+article_id: "2026-04-11_tsmc-q1-2026-earnings-review"
+topic: "TSMC Q1 2026決算レビュー"
+category: "earnings"
+type: "earnings_review"
+status: "review"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+research_sources: 15
+
+
+# === Content ===
+tags: [earnings, semiconductor, TSM, AI-chips, Q1-2026]
+target_audience: intermediate
+target_wordcount: 4000
+
+# === Category-Specific ===
+symbols: [TSM, "2330.TW"]
+date_range:
+  start: "2026-01-01"
+  end: "2026-03-31"
+report_date: "2026-04-10"
+fred_series: []
+theme: ""
+
+# === Tracking ===
+critic_score: 80
+revision_count: 1
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: true
+  hf6_final_approved: true
+
+# === Notes ===
+notes: |
+  - 4/10発表済み (Q1 売上 +35% YoY、Q2ガイダンス +38%中央値、Q2予想 T$1.2兆)
+  - イラン戦争の供給網懸念を打ち消すAI需要強さ
+  - AI chip売上 60% CAGR through 2029 ガイダンスの内訳と実現性
+  - 設備投資・先端ノード(2nm/A16)の進捗
+  - 日本(熊本)・米国(アリゾナ)拠点の収益貢献タイミング

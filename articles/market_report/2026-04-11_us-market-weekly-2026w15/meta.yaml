@@ -1,0 +1,55 @@
+# === Core (必須) ===
+title: "2026年4月第2週 米国市場週間レビュー：決算シーズン開幕とイラン情勢の交錯"
+article_id: "2026-04-11_us-market-weekly-2026w15"
+topic: "2026年4月第2週 米国市場週間レビュー"
+category: "market_report"
+type: "market_report"
+status: "draft"
+
+# === Timestamps ===
+created_at: "2026-04-11"
+updated_at: "2026-04-11"
+
+# === Content ===
+tags: [market_report, weekly, US-market, 2026-W15]
+target_audience: intermediate
+target_wordcount: 5000
+
+# === Category-Specific ===
+symbols: ["^GSPC", "^NDX", "^DJI", "^RUT", "^VIX", "^TNX", "DXY"]
+date_range:
+  start: "2026-04-07"
+  end: "2026-04-11"
+fred_series: []
+theme: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Notes ===
+notes: |
+  - 主要トピック:
+    * Q1決算シーズン開幕（TSMC 4/10、JPM/C/WFC 4/14）
+    * イラン戦争の継続的影響（原油・金・FX）
+    * FRB利下げ期待後退（Polymarket 2026利下げなし確率34%）
+    * トランプ関税訴訟（4/10 米国際貿易裁判所）
+  - 主要セクターパフォーマンス・MAG7・ボラティリティを集計
