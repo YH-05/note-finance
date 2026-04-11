@@ -1,40 +1,131 @@
 {
-    "critic_type": "compliance",
-    "score": 90,
-    "status": "pass",
-    "issues": [
-        {
-            "issue_id": "CP001",
-            "severity": "medium",
-            "category": "expression",
-            "location": {
-                "section": "2026年のセクターローテーション：プロはどこを見ているか",
-                "line": "バンク・オブ・アメリカ（BofA）やモルガン・スタンレーといった大手金融機関のストラテジスト（市場分析の専門家）たちは、2026年はヘルスケア・資本財（産業）・エネルギーへの資金移動を予測し、積極的に推奨しています。"
-            },
-            "issue": "「推奨」という語が投資助言的文脈で使用されている。第三者（ウォール街ストラテジスト）の行動を紹介した文脈であり記事著者自身の推奨ではないが、文脈によっては読者が投資推奨と受け取る可能性がある。",
-            "regulation": "金融商品取引法第2条第8項第11号（投資助言業）、note.com利用規約",
-            "suggestion": "「積極的に推奨しています」を「注目分野として挙げています」または「有望視しています」に変更することで、ストラテジストの分析予測として明確に位置づけられる。"
-        },
-        {
-            "issue_id": "CP002",
-            "severity": "medium",
-            "category": "investment_advice",
-            "location": {
-                "section": "実践：XLシリーズETFで分散するステップ／ステップ3：セクターETFを少量から追加する",
-                "line": "例えば、XLF（金融）やXLE（エネルギー）を少量（数株〜数十株）購入してみるところから始めることができます。"
-            },
-            "issue": "具体的な商品ティッカー（XLF、XLE）を明示した上で購入行動を示唆している。「〜ことができます」「少しずつ試してみることを考えてみましょう」というヘッジ表現が付帯しており直接的な投資推奨ではないが、特定商品の購入示唆として投資助言的に解釈される余地がある。",
-            "regulation": "金融商品取引法第2条第8項第11号（投資助言業）、金融庁「投資助言・代理業の登録を要しない場合の考え方」",
-            "suggestion": "「XLF（金融）やXLE（エネルギー）を少量購入してみるところから始めることができます」を「XLF（金融）やXLE（エネルギー）といったセクターETFを参考に、少量から検討してみる方法もあります」等に修正し、検討の参考例であることをより明確にする。または直前に「以下はあくまで例示であり、特定商品の推奨ではありません」といった一文を追加する。"
-        }
-    ],
-    "required_disclaimers": {
-        "disclaimer": {
-            "present": true,
-            "location": "末尾",
-            "note": "記事末尾の区切り線（---）の下に装飾なし段落として配置されており、compliance-standards.mdが定める6要素（情報提供目的、元本割れリスク、過去実績は将来保証しない、見通し・予測は作成時点基準、税制優遇制度の変更可能性、投資判断は自己責任）をすべて含んでいる。snippets/disclaimer.mdの文言とは一部差異があるが（「本記事の内容により生じたいかなる損失についても責任を負いかねます」の追記と語句の微差）、必須要素は充足している。"
-        }
+  "article_id": "2026-04-11_sector-rotation-mag7-shift",
+  "category": "investment_education",
+  "mode": "full",
+  "generated_at": "2026-04-11",
+  "critics": {
+    "fact": {
+      "score": 72,
+      "issues": [
+        {"severity": "HIGH", "location": "95行目", "issue": "XLK YTDの符号誤り。記事+1.20%だが4月9日時点の実測値は約-0.81%（マイナス）", "suggestion": "XLK YTDを負のリターンに修正"},
+        {"severity": "HIGH", "location": "41行目", "issue": "Mag7 -5.1%、MS -17.6%、Tesla -10.4%は「4月9日時点」と記載しているがKGデータは2026年3月初旬時点。4月9日時点はより悪化（Mag7約-11%台）", "suggestion": "日時表記を「2026年3月初旬時点」に修正"},
+        {"severity": "MEDIUM", "location": "55行目", "issue": "GDPコンセンサス3.0%はArgus固有予測の可能性あり", "suggestion": "「約2〜3%」に幅を持たせるか出典明記"},
+        {"severity": "MEDIUM", "location": "97行目", "issue": "S&P 493成長率7%→9%は他ソースと乖離する可能性。Bloomberg原文確認が必要", "suggestion": "「予測があり」を維持しBloombergリンクを追加"},
+        {"severity": "LOW", "location": "137行目", "issue": "「SPDR S&P 500 ETF」という括弧書きがSPYと混同される", "suggestion": "「SPDRによるS&P500セクター別ETFシリーズ」に修正"}
+      ],
+      "verified_facts": [
+        "Mag7の構成7社は正確",
+        "Mag7のS&P500比率32.7%（2026年3月初旬時点）は確認済み",
+        "2016年比率12.5%から約2.6倍拡大は確認済み",
+        "4Q25 GDP速報値1.4%は正確",
+        "逆イールドが2022年〜2024年約2年間続いた事実は正確",
+        "XLE YTD約29%台は概ね正確",
+        "Bloomberg 2025年12月のBofA/MSセクター推奨は事実",
+        "PMI 50が景気拡大・後退の境界値は正確"
+      ],
+      "summary": "最重要はXLK YTDの符号誤りとMag7数値の基準日不整合。他のファクトは概ね正確。"
     },
-    "prohibited_expressions_found": [],
-    "summary": "禁止表現（「買うべき」「今が買い時」「絶対に上がる」等）は本文中に存在しない。免責事項は末尾に1箇所、区切り線（---）の下に装飾なしで配置されており、必須6要素を充足している。問題点はmedium severity 2件のみ：(1) 第三者ストラテジストの行動を紹介する文脈での「推奨」という語の使用、(2) 具体的ティッカー（XLF・XLE）を明示した購入示唆。いずれもヘッジ表現が付帯しており直接的な投資助言には該当しないが、よりニュートラルな表現への修正が望ましい。criticalおよびhigh severity問題なし、免責事項充足のため status: pass。スコア90（100 - medium×2×5）。"
+    "compliance": {
+      "score": 78,
+      "status": "fail",
+      "issues": [
+        {"severity": "HIGH", "location": "91行目", "issue": "「積極的に推奨しています」がBofA/MSによる投資推奨と誤解されるリスク", "suggestion": "「資金移動が起きると見込んでいると報じられています」に変更"},
+        {"severity": "MEDIUM", "location": "97行目", "issue": "「着実に利益の拡大が見込まれています」の「着実に」が将来利益を過度に確実視させる", "suggestion": "「着実に」を削除"},
+        {"severity": "MEDIUM", "location": "13行目", "issue": "冒頭でのXLシリーズETF言及が特定商品への誘導と受け取られる可能性", "suggestion": "「セクターETFを例に〜」と汎化"},
+        {"severity": "LOW", "location": "172行目", "issue": "特定ETF（XLF、XLE）の具体的購入示唆", "suggestion": "「金融・エネルギー系のETFなど」と例示程度に留める"}
+      ],
+      "disclaimer_check": {"present": true, "location": "末尾", "decoration_free": false, "note": "---（水平線）で囲まれており装飾ルール違反"},
+      "summary": "免責事項は末尾1箇所に配置済みだが---装飾あり。91行目の推奨表現と97行目の「着実に」が要修正。"
+    },
+    "structure": {
+      "score": 88,
+      "sections_found": {
+        "introduction": true, "concept_explanation": true, "practical_guide": true,
+        "faq": true, "risks": true, "conclusion": true
+      },
+      "faq_count": 5,
+      "issues": [
+        {"severity": "MEDIUM", "location": "セクション順序", "issue": "「セクターローテーションとは」が4番目。概念定義より先にMag7不振データが来る", "suggestion": "概念定義を2番目に移動し、事例の前に置く"},
+        {"severity": "MEDIUM", "location": "シグナルセクション", "issue": "シグナル解説と実践ステップの接続が弱い", "suggestion": "実践セクション冒頭に橋渡し文を追加"},
+        {"severity": "LOW", "location": "まとめ", "issue": "具体的な次のアクションがない", "suggestion": "「まず証券会社アプリでセクター配分を確認」など具体的な一歩を追加"}
+      ],
+      "strengths": [
+        "冒頭フックが初心者の思い込みを突く効果的な設計",
+        "全6必須セクション完備・FAQ5問完備",
+        "リスクセクションでプロも読み外れることを正直に記載"
+      ],
+      "summary": "全必須セクション完備で構成の完全性は高い。概念定義の位置とまとめの具体性が主な改善点。"
+    },
+    "data_accuracy": {
+      "score": 72,
+      "source_url_coverage": {"total_key_numbers": 12, "numbers_with_links": 7,
+        "missing_links": [
+          "2016年の12.5%（過去比率）",
+          "Microsoft -17.6% YTD（個別リンクなし）",
+          "Tesla -10.4% YTD（個別リンクなし）",
+          "GDP速報値1.4%（BEAリンクなし）",
+          "S&P 493利益成長率7%→9%（Bloombergリンクなし）",
+          "参考データソース欄に時点情報なし"
+        ]
+      },
+      "markdown_tables": {"count": 0, "locations": []},
+      "issues": [
+        {"severity": "HIGH", "location": "55行目", "issue": "GDP速報値1.4%にソースURLなし", "suggestion": "BEAまたはCNBC等のリンクを追加"},
+        {"severity": "HIGH", "location": "41行目", "issue": "Microsoft/Tesla個別YTDにリンクなし", "suggestion": "Yahoo Finance個別ページリンクを追加"},
+        {"severity": "HIGH", "location": "97行目", "issue": "S&P 493利益成長率予測にリンクなし", "suggestion": "Bloomberg記事リンクを追加"},
+        {"severity": "MEDIUM", "location": "参考データソース", "issue": "各ソースに時点情報なし", "suggestion": "「（2026年4月9日時点）」を追記"}
+      ],
+      "summary": "マークダウン表は不使用で問題なし。GDP・個別銘柄・利益成長率の3箇所でリンク欠落。"
+    },
+    "readability": {
+      "score": 82,
+      "jargon_handling": {
+        "well_explained": ["Mag7", "セクターローテーション", "S&P500", "PMI", "イールドカーブ", "ETF", "ティッカーシンボル", "PER", "バリュエーション", "ディフェンシブ", "YTD", "REIT"],
+        "missing_explanation": ["GDP（因果関係説明不足）", "FRB（役割説明が薄い）", "リバランス（具体的手順なし）"]
+      },
+      "tone_check": {"style": "ですます", "educational_tone": true},
+      "issues": [
+        {"severity": "MEDIUM", "location": "9行目", "issue": "「オールドスクール」が初心者に伝わりにくい", "suggestion": "「伝統的な」または括弧補足"},
+        {"severity": "MEDIUM", "location": "41-43行目", "issue": "1文57文字と長め", "suggestion": "「Microsoftは-17.6%。Teslaも-10.4%の下落です。」と2文に分割"},
+        {"severity": "LOW", "location": "174行目", "issue": "「考えてみましょう」が二重で冗長", "suggestion": "「少しずつ試してみましょう。」に"},
+        {"severity": "LOW", "location": "228行目", "issue": "リバランスの説明が「比率の調整」のみ", "suggestion": "「年1回程度」など具体例を補足"}
+      ],
+      "strengths": [
+        "専門用語の初出説明が徹底",
+        "「100万円のうち約32万7,000円がMag7に」など具体的な金額換算",
+        "教育的トーン（読者と並走する姿勢）を維持",
+        "ですます調で全体統一"
+      ],
+      "summary": "読みやすさは良好。「オールドスクール」の日本語化と長文の分割で更に改善可能。"
+    },
+    "writer_rules": {
+      "score": 83,
+      "word_count": {"estimated": 9735, "target_min": 8000, "target_max": 10000, "status": "OK"},
+      "checklist": {
+        "desumasu_style": true, "disclaimer_end_only": true, "no_markdown_tables": true,
+        "paragraph_spacing": true, "strong_opening": true, "faq_3to5": true, "no_prohibited_expressions": true
+      },
+      "issues": [
+        {"severity": "MEDIUM", "location": "248・258行目", "issue": "免責事項が---（水平線）で囲まれており「装飾なし」ルール違反", "suggestion": "---を削除"},
+        {"severity": "MEDIUM", "location": "1・3行目", "issue": "H1見出しが2つ連続（タイトルと「はじめに」が両方H1）", "suggestion": "「# はじめに」→「## はじめに」に変更"},
+        {"severity": "LOW", "location": "参考データソース", "issue": "本文インラインリンクと重複し冗長", "suggestion": "時点情報追記で補完"}
+      ],
+      "summary": "文字数・FAQ・ですます調・禁止表現は全て適合。免責事項の---装飾とH1二重見出しが要修正。"
+    }
+  },
+  "overall_score": 79,
+  "priority_fixes": [
+    {"priority": 1, "severity": "HIGH", "issue": "XLK YTDの符号誤り（+1.20% → 負の値に修正）"},
+    {"priority": 2, "severity": "HIGH", "issue": "Mag7/MS/Tesla YTDの基準日を「4月9日時点」→「2026年3月初旬時点」に修正"},
+    {"priority": 3, "severity": "HIGH", "issue": "「積極的に推奨しています」→「見込んでいると報じられています」"},
+    {"priority": 4, "severity": "HIGH", "issue": "GDP・S&P 493利益成長率・個別銘柄YTDへのソースURL追加"},
+    {"priority": 5, "severity": "MEDIUM", "issue": "「着実に」削除"},
+    {"priority": 6, "severity": "MEDIUM", "issue": "免責事項の---装飾削除"},
+    {"priority": 7, "severity": "MEDIUM", "issue": "「# はじめに」→「## はじめに」（H1→H2）"},
+    {"priority": 8, "severity": "MEDIUM", "issue": "ETF名称「SPDR S&P 500 ETF」→「SPDRによるS&P500セクター別ETFシリーズ」"},
+    {"priority": 9, "severity": "LOW", "issue": "「オールドスクール」→「伝統的な」"},
+    {"priority": 10, "severity": "LOW", "issue": "まとめに具体的な次のアクション（セクター配分確認）を1文追加"},
+    {"priority": 11, "severity": "LOW", "issue": "「考えてみましょう」二重の整理"},
+    {"priority": 12, "severity": "LOW", "issue": "参考データソースに時点情報追加"}
+  ]
 }
