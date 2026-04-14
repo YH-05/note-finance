@@ -150,14 +150,14 @@ date modified: 2026-03-29 14:03
 
 **主要業績（実績）** [(Jakarta Post FY2024)](https://www.thejakartapost.com/adv/2025/02/11/indosat-record-38-net-profit-deliver-standouts-performance-throughout-2024.html) [(Telecom Review Asia)](https://www.telecomreviewasia.com/news/industry-news/12445-indosat-reports-strong-growth-in-2024/) [(Quartr IR)](https://quartr.com/companies/pt-indosat-ooredoo-hutchison-tbk_19816)
 
-| 指標 | FY2022 | FY2023 | FY2024 | FY2025 |
-|---|---|---|---|---|
-| 収益（IDR T） | 31.4 | 46.8 | 51.2 | 55.9 |
-| EBITDA（IDR T） | 19.5 | 23.9 | 26.4 | 26.6 |
-| EBITDAマージン | 41.6% | 44.0% | 46.7% | 47.1–47.2% |
-| 純利益（IDR T） | 4.5 | 4.7 | 4.9 | 5.5–6.8 |
-| Blended ARPU（IDR） | ― | 37,200 | 38,400 | 44,000（4Q25） |
-| 加入者数（M） | ― | ― | 100.9→93.7 | ~95 |
+| 指標                | FY2022 | FY2023 | FY2024     | FY2025       |
+| ----------------- | ------ | ------ | ---------- | ------------ |
+| 収益（IDR T）         | 31.4   | 46.8   | 51.2       | 55.9         |
+| EBITDA（IDR T）     | 19.5   | 23.9   | 26.4       | 26.6         |
+| EBITDAマージン        | 41.6%  | 44.0%  | 46.7%      | 47.1–47.2%   |
+| 純利益（IDR T）        | 4.5    | 4.7    | 4.9        | 5.5–6.8      |
+| Blended ARPU（IDR） | ―      | 37,200 | 38,400     | 44,000（4Q25） |
+| 加入者数（M）           | ―      | ―      | 100.9→93.7 | ~95          |
 
 **ARPU回復の3要因（FY2025）**
 1. 価格修復: スターターパック価格フロアIDR 35,000（2025年10月）、28日サイクル化（実質~7%値上げ）
