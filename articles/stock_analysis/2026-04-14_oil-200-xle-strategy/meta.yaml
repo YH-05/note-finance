@@ -1,0 +1,56 @@
+article_id: 2026-04-14_oil-200-xle-strategy
+title: 原油$200シナリオとXLE投資戦略
+topic: 原油$200シナリオとXLE投資戦略：ホルムズ海峡封鎖4月の需給ショックを整理する
+category: stock_analysis
+type: data_analysis
+status: published
+created_at: '2026-04-14'
+updated_at: '2026-04-14T09:40:07.285250+00:00'
+tags:
+- oil
+- energy
+- XLE
+- geopolitics
+- futures
+- backwardation
+target_audience: intermediate
+target_wordcount: 4500
+symbols:
+- XLE
+- USO
+- XOM
+- CVX
+date_range:
+  start: '2026-04-14'
+  end: '2026-04-30'
+fred_series: []
+theme: ''
+critic_score: 91
+revision_count: 1
+note_url: null
+x_post_url: null
+research_sources: 12
+workflow:
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: pending
+  publishing:
+    published: done
+    final_review: done
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: true
+  hf5_draft_reviewed: true
+  hf6_final_approved: true
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null
+published_at: '2026-04-14T09:40:07.285250+00:00'
+draft_url: https://editor.note.com/notes/n3f93dbbc0a7f/edit/

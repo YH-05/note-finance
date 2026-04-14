@@ -1,0 +1,71 @@
+{
+  "article_id": "2026-04-14_oil-200-xle-strategy",
+  "category": "stock_analysis",
+  "mode": "full",
+  "generated_at": "2026-04-14T15:45:00+09:00",
+  "critics": {
+    "fact": {
+      "score": 92,
+      "status": "pass",
+      "verified_claims": 12,
+      "issues": [
+        {"severity": "LOW", "location": "§1", "issue": "スポット$124.68と先物$95前後の差を$30と記載、実測$29.68。丸めは許容"},
+        {"severity": "LOW", "location": "§7", "issue": "FOMC 3月会合「利下げ1回」維持にソースURL未付与"}
+      ]
+    },
+    "compliance": {
+      "score": 95,
+      "status": "pass",
+      "issues": [
+        {"severity": "MEDIUM", "location": "§6戦略B", "issue": "E&P銘柄の過去リターン「10〜20ポイント上回る」は断定風、一般論化推奨"},
+        {"severity": "LOW", "location": "§6戦略A", "issue": "「分配金利回り約3%」の出典未記載"}
+      ]
+    },
+    "structure": {
+      "score": 88,
+      "status": "pass",
+      "sections_found": 9,
+      "issues": [
+        {"severity": "LOW", "location": "§2", "issue": "table_timeline.png 生成未完（Phase 5対応）"},
+        {"severity": "LOW", "location": "§5", "issue": "table_xle_holdings.png 生成未完（Phase 5対応）"}
+      ]
+    },
+    "data_accuracy": {
+      "score": 90,
+      "status": "pass",
+      "issues": [
+        {"severity": "LOW", "location": "§3", "issue": "Goldman $98予想は3月12日時点、時点注記の明確化推奨"}
+      ]
+    },
+    "readability": {
+      "score": 87,
+      "status": "pass",
+      "word_count": 9511,
+      "issues": [
+        {"severity": "LOW", "location": "§4", "issue": "キャッシュ&キャリートレードの説明密度が高い、補足1文推奨"}
+      ]
+    },
+    "writer_rules": {
+      "score": 94,
+      "status": "pass",
+      "checks": {
+        "word_count": "9511/8000-10000 ok",
+        "masu_form": "ok",
+        "prohibited_expressions": "none",
+        "disclaimer_placement": "tail single ok",
+        "source_url_embedded": "12 places ok",
+        "frontmatter": "complete ok",
+        "no_buy_sell_recommendation": "ok",
+        "risk_both_sides": "bear section exists ok"
+      }
+    }
+  },
+  "overall_score": 91,
+  "priority_fixes": [
+    {"priority": "MEDIUM", "task": "§6戦略Bの「10〜20ポイント上回る」を一般論化"},
+    {"priority": "MEDIUM", "task": "§6戦略Aの「分配金利回り約3%」をぼかし表現に変更"},
+    {"priority": "LOW", "task": "§7 FOMC 3月会合の出典URL追加"},
+    {"priority": "LOW", "task": "§4 キャッシュ&キャリー補足1文追加"},
+    {"priority": "LOW", "task": "§3 Goldman $98予想の時点注記明確化"}
+  ]
+}
