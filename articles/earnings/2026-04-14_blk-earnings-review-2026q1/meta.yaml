@@ -1,0 +1,52 @@
+# === Core (必須) ===
+article_id: "2026-04-14_blk-earnings-review-2026q1"
+title: "Blackrock決算レビュー"
+topic: "Blackrock決算レビュー"
+category: "earnings"
+type: earnings_review
+status: init
+
+# === Timestamps ===
+created_at: "2026-04-14"
+updated_at: "2026-04-14T18:15+09:00"
+
+# === Content ===
+tags: ["BLK", "Blackrock", "決算", "資産運用"]
+target_audience: intermediate
+target_wordcount: 4000
+
+# === Category-Specific ===
+symbols: ["BLK"]
+earnings_date: "2026-04-14"
+fiscal_quarter: "Q1 2026"
+date_range:
+  start: ""
+  end: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 16
+
+# === Workflow ===
+workflow:
+  research: done
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Legacy ===
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null

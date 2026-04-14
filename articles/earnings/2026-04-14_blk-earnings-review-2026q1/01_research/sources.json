@@ -1,0 +1,170 @@
+{
+  "metadata": {
+    "compiled_at": "2026-04-14",
+    "ticker": "BLK",
+    "article_type": "earnings_review",
+    "fiscal_quarter": "2026-Q1",
+    "release_status": "pre_release_preview",
+    "note": "Q1 2026 actual results 8-K and BlackRock IR press release had not been published at the time of compilation (JST 2026-04-14 before 21:30)."
+  },
+  "sources": [
+    {
+      "url": "https://s24.q4cdn.com/856567660/files/doc_financials/2025/Q4/BLK-4Q25-Earnings-Release.pdf",
+      "title": "BlackRock Reports Full Year 2025 Diluted EPS of $35.31 (Q4 2025 Earnings Release)",
+      "publisher": "BlackRock Investor Relations",
+      "published_date": "2026-01-15",
+      "authority_level": "official",
+      "source_type": "press_release",
+      "notes": "Q4 2025 / FY2025 実績。AUM $14.04T、FY純流入$698B、Q4純流入$342B、Adjusted EPS $48.09/FY $13.16/Q4、配当10%増配 $5.73。"
+    },
+    {
+      "url": "https://s24.q4cdn.com/856567660/files/doc_financials/2025/Q4/BLK-4Q25-Earnings-Supplement.pdf",
+      "title": "Q4 2025 Earnings Release Supplement",
+      "publisher": "BlackRock Investor Relations",
+      "published_date": "2026-01-15",
+      "authority_level": "official",
+      "source_type": "financial_supplement",
+      "notes": "セグメント別、AUMロールフォワード、フィー分解等の詳細資料"
+    },
+    {
+      "url": "https://ir.blackrock.com/news-and-events/press-releases/press-releases-details/2026/BlackRock-Reports-First-Quarter-2026-Earnings/default.aspx",
+      "title": "BlackRock Reports First Quarter 2026 Earnings (期待URLパターン)",
+      "publisher": "BlackRock Investor Relations",
+      "published_date": "2026-04-14",
+      "authority_level": "official",
+      "source_type": "press_release",
+      "notes": "未公開。発表後に内容取得予定。URLは Q4 2025 のパターンに基づく推定。"
+    },
+    {
+      "url": "https://www.theglobeandmail.com/investing/markets/stocks/BLK/pressreleases/1244848/blackrock-slated-to-report-q1-earnings-whats-in-the-cards/",
+      "title": "BlackRock Slated to Report Q1 Earnings: What's in the Cards?",
+      "publisher": "Zacks / The Globe and Mail",
+      "published_date": "2026-04-10",
+      "authority_level": "analyst",
+      "source_type": "earnings_preview",
+      "notes": "AUM $14.21T 予想（YoY +22.7%）、Revenue $6.62B、EPS $12.09 コンセンサス"
+    },
+    {
+      "url": "https://www.tradingview.com/news/tradingview:2ac8e05386806:0-blk-q1-26-earnings-eps-estimate-is-11-64-usd/",
+      "title": "BLK Q1'26 Earnings: EPS estimate is 11.64 USD",
+      "publisher": "TradingView",
+      "published_date": "2026-04-11",
+      "authority_level": "media",
+      "source_type": "earnings_preview",
+      "notes": "EPSコンセンサス下限 $11.64"
+    },
+    {
+      "url": "https://www.tradingview.com/news/tradingview:e3effe4b864f8:0-blk-q1-26-earnings-revenue-estimate-is-6-59b-usd/",
+      "title": "BLK Q1'26 Earnings: revenue estimate is 6.59B USD",
+      "publisher": "TradingView",
+      "published_date": "2026-04-11",
+      "authority_level": "media",
+      "source_type": "earnings_preview",
+      "notes": "Revenueコンセンサス $6.59B"
+    },
+    {
+      "url": "https://markets.financialcontent.com/stocks/article/marketminute-2026-4-10-blackrock-eyes-1206-eps-as-capital-markets-rebound-ignites-18-monthly-surge",
+      "title": "BlackRock Eyes $12.06 EPS as Capital Markets Rebound Ignites 18% Monthly Surge",
+      "publisher": "FinancialContent",
+      "published_date": "2026-04-10",
+      "authority_level": "media",
+      "source_type": "earnings_preview",
+      "notes": "EPS予想 $12.06"
+    },
+    {
+      "url": "https://www.benzinga.com/analyst-stock-ratings/price-target/26/04/51700967/blackrock-likely-to-report-higher-q1-earnings-these-most-accurate-analysts-rev",
+      "title": "BlackRock Likely To Report Higher Q1 Earnings; These Most Accurate Analysts Revise Forecasts",
+      "publisher": "Benzinga",
+      "published_date": "2026-04-11",
+      "authority_level": "analyst",
+      "source_type": "earnings_preview",
+      "notes": "最精度アナリストの予想改定動向"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/blackrock-stock-analyst-estimates-ratings-133407172.html",
+      "title": "BlackRock Stock: Analyst Estimates & Ratings",
+      "publisher": "Yahoo Finance",
+      "published_date": "2026-03",
+      "authority_level": "analyst",
+      "source_type": "analyst_summary",
+      "notes": "FY2026 EPS $53.64 コンセンサス、YoY +11.5%"
+    },
+    {
+      "url": "https://finance.yahoo.com/research/stock-forecast/BLK/",
+      "title": "BlackRock, Inc. BLK Stock Forecast & Price Target",
+      "publisher": "Yahoo Finance",
+      "published_date": "2026-01-16",
+      "authority_level": "analyst",
+      "source_type": "analyst_summary",
+      "notes": "Argus bullish 2026-01-16、Morningstar neutral 2025-10-14"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/04/13/blackrock-raises-view-on-us-stocks-on-belief-that-war-is-over-profits-are-up.html",
+      "title": "BlackRock raises view on U.S. stocks on belief that war is over, profits are up",
+      "publisher": "CNBC",
+      "published_date": "2026-04-13",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "BlackRock Investment Institute が US/EM 株式見通しを引き上げ。決算前日のマクロスタンス表明。"
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-04-13/why-investors-are-exiting-private-credit-markets",
+      "title": "Why Private Credit Is Facing a Sudden Investor Exodus",
+      "publisher": "Bloomberg",
+      "published_date": "2026-04-13",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "Apollo/BlackRock/Ares の私募ファンドが未曾有の解約要請、一部で解約停止権行使。Q1 2026の決算読み解きに直結する重要リスク。"
+    },
+    {
+      "url": "https://www.cryptopolitan.com/blackrocks-q4-earnings-aum-top-14-trillion/",
+      "title": "BlackRock's Q4 earnings shows best performance in its history, as AUM surpass $14 trillion",
+      "publisher": "Cryptopolitan",
+      "published_date": "2026-01-16",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "Q4 2025 実績の要約、AUM $14T突破を資産運用業界初と報道"
+    },
+    {
+      "url": "https://www.nasdaq.com/articles/blackrock-beats-q4-earnings-revenues-aum-increase-y-y",
+      "title": "BlackRock Beats on Q4 Earnings as Revenues & AUM Increase Y/Y",
+      "publisher": "Nasdaq / Zacks",
+      "published_date": "2026-01-15",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "Q4 2025 Adjusted EPS $13.16 vs コンセンサス $12.19（+7.96%ビート）、Revenue $7.01B（YoY +23.4%）"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/blackrocks-q1-earnings-beat-aum-123800399.html",
+      "title": "BlackRock's Q1 Earnings Beat on AUM Growth & Higher Revenues (Q1 2025)",
+      "publisher": "Zacks / Yahoo Finance",
+      "published_date": "2025-04-11",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "Q1 2025 実績。Adjusted EPS $11.30 vs コンセンサス $10.43。YoY 比較のベース。"
+    },
+    {
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002012383&type=8-K",
+      "title": "BlackRock, Inc. Recent 8-K Filings (EDGAR)",
+      "publisher": "SEC EDGAR",
+      "published_date": "2026-04-14",
+      "authority_level": "official",
+      "source_type": "filing_index",
+      "notes": "最新8-K(2026-04-03)は決算事前通告。Q1 2026業績8-Kは未登録。"
+    }
+  ],
+  "internal_references": [
+    {
+      "path": "articles/earnings/2026-04-06_blk-earnings-preview/01_research/research_notes.md",
+      "notes": "プレビュー時リサーチノート。カタリスト、乖離パターン、SQLiteデータ含む。"
+    },
+    {
+      "path": "articles/earnings/2026-04-06_blk-earnings-preview/01_research/blk_reaction.json",
+      "notes": "直近8QのEPSサプライズと株価反応の構造化データ。"
+    },
+    {
+      "path": "articles/earnings/2026-04-06_blk-earnings-preview/01_research/blk_8k.json",
+      "notes": "直近6Qの8-K EX-99.1ハイライト。"
+    }
+  ]
+}
