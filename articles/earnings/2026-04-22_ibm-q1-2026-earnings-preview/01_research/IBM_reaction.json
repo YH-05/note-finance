@@ -1,0 +1,25 @@
+{
+  "symbol": "IBM",
+  "as_of_date": "2026-04-15",
+  "current_price": 240.27,
+  "returns": {
+    "1M": -3.6,
+    "3M": -20.3,
+    "6M": -12.0,
+    "1Y": 3.0,
+    "3Y": 107.8,
+    "5Y": 131.3
+  },
+  "earnings_reactions": [],
+  "summary": {
+    "total_quarters": 0,
+    "beats": 0,
+    "misses": 0,
+    "avg_day_return_pct": 0.0,
+    "median_day_return_pct": 0.0,
+    "up_probability_pct": 0.0,
+    "divergence_count": 0,
+    "divergence_quarters": []
+  },
+  "fetched_at": "2026-04-15T09:09:53.504810"
+}

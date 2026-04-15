@@ -1,135 +1,174 @@
-# BlackRock Q1 2026 決算リサーチノート
+# BlackRock Q1 2026 決算レビュー リサーチノート
 
-> **作成日**: 2026-04-14（日本時間）
-> **決算予定**: 2026-04-14 BMO（米国東部時間開場前 / 日本時間 21:30 前後）
-> **ステータス**: 🔴 **決算発表前（プレビュー段階）** — 本ノート作成時点で、SEC EDGAR上に Q1 2026 の 8-K 業績報告は未登録。Reuters / Bloomberg / WSJ / BlackRock IR ともに実績数値の公表は未確認。本ノートは**コンセンサス予想 + 前期（Q4 2025）実績 + アナリストポジショニング**をまとめたプレ版である。決算発表後に同ディレクトリで追記する。
-
----
-
-## 1. 決算サマリー（コンセンサス予想ベース）
-
-| 指標 | Q1 2026 コンセンサス | Q1 2025 実績 | YoY 予想変化 |
-|-----|-----|-----|-----|
-| AUM（期末） | $14.21T | $11.58T | +22.7% |
-| 総収益 | $6.59〜6.62B | $5.28B | +25%前後 |
-| Adjusted EPS | $11.64〜$12.45（中央値 $12.09） | $11.30 | +7〜10% |
-| 決算日 | 2026-04-14 BMO | — | — |
-
-**EPS コンセンサスの幅**
-- Yahoo Finance / TradingView: $11.64 → $12.45
-- Zacks 中央値: $12.09
-- FinancialContent: $12.06
-- ([出典: TradingView](https://www.tradingview.com/news/tradingview:2ac8e05386806:0-blk-q1-26-earnings-eps-estimate-is-11-64-usd/) / [FinancialContent](https://markets.financialcontent.com/stocks/article/marketminute-2026-4-10-blackrock-eyes-1206-eps-as-capital-markets-rebound-ignites-18-monthly-surge))
-
-**前期比の参考値（Q4 2025 実績）**
-- AUM: $14.04T（資産運用業界で初の$14T超え）
-- 総収益: $7.01B（YoY +23.4%）
-- Adjusted EPS: $13.16（コンセンサス $12.19 を +7.96% beat）
-- Q4 純流入: $342B、FY2025 純流入: $698B（過去最高）
-- 年間オーガニックベースフィー成長率 12%
-- 配当10%増配 → $5.73/株（3/24 支払い）
-- ([出典: BlackRock Q4 2025 Earnings Release PDF](https://s24.q4cdn.com/856567660/files/doc_financials/2025/Q4/BLK-4Q25-Earnings-Release.pdf))
-
-## 2. ハイライト（予想/プレビュー）
-
-- **AUM $14.21T 予想**はZacks Consensus で、YoY +22.7%。実現すればQ4末$14.04Tから小幅プラス、ただし2026年Q1は市場ボラティリティが高く、評価益の寄与は限定的な可能性（[Zacks/Globe and Mail](https://www.theglobeandmail.com/investing/markets/stocks/BLK/pressreleases/1244848/blackrock-slated-to-report-q1-earnings-whats-in-the-cards/)）
-- **カタリスト（プレビュー時）**:
-  - GIP / HPS / Preqin 買収統合による統一プラットフォームの通年寄与が始まる初年
-  - Bitcoin ETF（IBIT）AUM $123B、XRP ETF等の新ETF投機的関心
-  - 12%オーガニックベースフィー成長を受けた新たなentry run-rate
-- **潜在リスク**:
-  - **プライベートクレジット市場の投資家エクソダス**: 2026-04-13 Bloomberg報道で、Apollo/BlackRock/Ares の私募ファンドが未曾有の解約要請に直面、一部で解約停止権行使。BlackRock の HPS統合初年にダウンサイドリスク（[Bloomberg, 2026-04-13](https://www.bloomberg.com/news/articles/2026-04-13/why-investors-are-exiting-private-credit-markets)）
-  - Iran戦争関連の地政学リスク → ただし 2026-04-13 BlackRockはUS株見通しを「引き上げ」、全体マクロスタンスは強気（[CNBC, 2026-04-13](https://www.cnbc.com/2026/04/13/blackrock-raises-view-on-us-stocks-on-belief-that-war-is-over-profits-are-up.html)）
-  - 関税政策、市場集中リスク
-
-## 3. セグメント別の見方（予想）
-
-| セグメント | Q4 2025 状況 | Q1 2026 予想ポイント |
-|-----|-----|-----|
-| iShares ETF | Q4 純流入の主力、12%オーガニック成長の中核 | 市場ボラ上昇局面でBond/Commodity ETFへのリオーテーション |
-| アクティブ運用 | 系統的アクティブ株式が好調 | — |
-| プライベートマーケット | GIP/HPS/Preqin統合開始 | 通年寄与初年。ただし private credit 解約圧力に警戒 |
-| テクノロジー (Aladdin) | 売上25% YoY成長（Q3 2025） | クラウド/AI需要継続、Preqin連携進捗 |
-
-## 4. ガイダンス・見通し（既知情報）
-
-- Larry Fink CEO は Q4 2025 コールで「2026は GIP/HPS/Preqin 統合の初年度」「One BlackRock アプローチで AUM $14T を新たな entry run-rate に」と発言
-- 2026年Q1 時点で BlackRock Investment Institute は**US株見通しを引き上げ**、EMも引き上げ（2026-04-13 CNBC）
-- 経営陣の Q1 2026 コメントは**発表後に追記必要**
-
-## 5. 市場反応・アナリスト
-
-**アナリストポジショニング（プレビュー段階）**
-- **ブル率**: カバレッジアナリストの90%が強気
-- **コンセンサス目標株価**: $1,300
-- **Bank of America**: 目標株価 $1,467
-- **Deutsche Bank**: $1,380
-- **Argus**: 強気維持、EPS予想引き上げ（2026-01-16）
-- **Morningstar**: 中立、目標株価引き上げ
-- **FY2026 EPS コンセンサス**: $53.64（YoY +11.5%）([出典: Yahoo Finance](https://finance.yahoo.com/news/blackrock-stock-analyst-estimates-ratings-133407172.html))
-
-**株価動向（2026-04-06 時点）**
-- 現在値: $966.56
-- 直近リターン: 1M -7.7%, 3M -10.4%, 6M -15.8%, 1Y +2.6%
-- 2026年2月に-4.89%下落、その後も軟調。関税・地政学の不確実性を反映
-- 時価総額 $150.3B、Forward PE 18.02、配当利回り 2.18%
-
-**決算後の株価反応**は 2026-04-14 NY時間中〜翌日のデータを追記予定。
-
-## 6. プレビューとの比較（`2026-04-06_blk-earnings-preview` より）
-
-| 指標 | プレビュー予想 (4/6) | Q1 2026 実績 | 差異 |
-|-----|-----|-----|-----|
-| Adjusted EPS | $12.16 | **未発表** | — |
-| AUM | $14.21T（Zacks） | **未発表** | — |
-| Revenue | $6.59–6.62B | **未発表** | — |
-| Net Inflows | — | **未発表** | — |
-
-過去8四半期の乖離パターン（`blk_reaction.json` より）:
-- 2025 Q4: +7.96% ビート → 株価 +6.5%（day）、+3.9%（week）
-- 2025 Q3: -21.4% ミス（GAAP） → 株価 +4.1%（GIP/HPS非現金費用で調整後EPS $11.55）
-- 2025 Q2: +11.5% ビート → 株価 -2.6%（$52Bクライアント引出しが重荷）
-- 2025 Q1: +11.55% ビート → 株価動向は preview 参照
-
-**執筆上の注意**: 2026 Q1 はプライベートクレジット懸念と地政学リスクが重なる特殊局面。単なる EPS surprise だけでなく、**(1) 私募ファンドの流入/流出動向、(2) Fink CEO のマクロコメント、(3) Aladdin 収益モメンタム**が株価反応の分水嶺となる可能性。
+> **作成日**: 2026-04-15（決算発表翌日・実績データ版）
+> **決算発表**: 2026-04-14 BMO（米国東部時間開場前）
+> **ステータス**: ✅ **実績データ確定版** — SEC EDGAR 8-K（受理番号: 0001193125-26-153768）+ Reuters/WSJ/Yahoo Finance/Business Insider による実績報道に基づく。
 
 ---
 
-## 7. 発表後の追記項目（チェックリスト）
+## 1. 決算サマリー（実績 vs コンセンサス）
 
-決算発表後（2026-04-14 21:30 JST 以降）に以下を追記:
+| 指標 | Q1 2026 実績 | Q1 2026 予想 | Q1 2025 実績 | YoY変化 |
+|-----|-----|-----|-----|-----|
+| AUM（期末） | **$13.89T** | $14.21T（Zacks） | $11.58T | +19.9% |
+| IA費・管理費収入 | **$5.44B** | $5.36B | — | — |
+| 総収入（推計） | **~$6.58B** | $6.59-6.62B | $5.28B | +24.6% |
+| 調整後EPS | **$12.53** | $11.54（Reuters/YF） | $11.30 | +10.9% |
+| GAAP EPS | **$14.06** | — | — | — |
+| 純利益 | **$22.1億** | — | ~$15.1億 | +46% |
+| 営業利益 | **$27億** | — | ~$20.6億 | +31% |
+| 調整後営業利益率 | **44.5%** | — | — | — |
+| 総費用 | **$38.8億** | — | ~$35.7億 | +8.6% |
 
-- [ ] Adjusted EPS 実績 と コンセンサス差異
-- [ ] GAAP EPS（買収関連費用の影響）
-- [ ] Revenue 実績
-- [ ] AUM 期末値（前四半期比、YoY）
-- [ ] Net Inflows（iShares ETF / アクティブ / プライベート / キャッシュ別）
-- [ ] テクノロジーサービス売上（Aladdin）
-- [ ] Operating Income と Margin
-- [ ] プライベートクレジット関連のディスクロージャー
-- [ ] Larry Fink / Martin Small カンファレンスコール発言
-- [ ] FY2026 ガイダンス変更の有無
-- [ ] 決算発表当日／翌日の株価変動
-- [ ] 主要アナリストの発表後コメント（BofA, DB, Argus, Morningstar）
-- [ ] 同業（STT, BEN, AMG, IVZ）比較
+**ビート/ミス判定**:
+- ✅ 調整後EPS: $12.53 vs $11.54 → **+$0.99（+8.6%ビート）**
+- ✅ IA費収入: $5.44B vs $5.36B → **+$0.08B（小幅ビート）**
+- ❌ AUM: $13.89T vs $14.21T（Zacks） → **-$320B（2.3%ミス）** ※市場下落の影響
+
+**出典**: [Reuters 2026-04-14](https://www.reuters.com/business/blackrock-quarterly-profit-rises-active-etfs-2026-04-14/) / [Yahoo Finance Q1 2026 Key Metrics](https://finance.yahoo.com/markets/stocks/articles/blackrock-blk-q1-earnings-taking-133004637.html) / [Yahoo Finance Earnings Call Highlights](https://finance.yahoo.com/markets/stocks/articles/blackrock-q1-earnings-call-highlights-135254801.html)
+
+---
+
+## 2. ハイライト（実績）
+
+### 利益面
+- **純利益46%増**: $22.1億（$14.06/株 GAAP）、WSJ見出し「46% Gain in Quarterly Profit」
+- **調整後EPS $12.53**: 前四半期（Q4 2025: $13.16）よりは低いが、前年同期（Q1 2025: $11.30）比+10.9%
+- **パフォーマンスフィー急騰**: $2.72億（Q1 2025: $0.60億 → **+353% YoY**）、アクティブETFや好成績ファンドの報酬フィー
+
+### 資産規模
+- **AUM $13.89T**: Q4 2025末の$14.04Tから微減（-$1,500億）
+  - 2026年Q1はS&P500等主要株価指数が下落、市場評価益がマイナス寄与
+  - YoY+19.9%（$11.58T → $13.89T）は引き続き強い有機成長を示す
+- **純流入$1,300億**: 主にiShares ETF（特に国際株・新興市場ETF）
+- **プライベートマーケット純流入**: $91億（保険会社クライアントとの数十億ドル規模の大型案件含む）
+
+### 有機成長
+- **オーガニックベースフィー成長率**: 8%（直近12ヶ月ベースでは10%）
+- 高フィー率商品（新興市場株、国際iShares、システマティック株式、Aperio、アクティブETF）への需要が牽引
+
+### プライベートクレジット問題
+- **HPS Corporate Lending Fund**: 解約要請9.3%に対し、返金上限5%のゲートを発動
+- プライベートクレジット市場全体でリテール投資家からの解約要請増加
+- Fink CEO: 「ヘッドラインはクライアントが伝えていること・ポートフォリオデータ・市場見通しを反映していない」
+- 機関投資家需要は逆に「加速」、民間融資の85%を機関投資家が保有
+
+---
+
+## 3. セグメント別実績
+
+| セグメント | Q1 2026 状況 | 評価 |
+|-----------|-------------|------|
+| iShares ETF | 純流入の大半を占める。国際株・新興市場ETF需要が特に強い | ✅ 好調 |
+| アクティブ運用 | 系統的（systematic）株式が高フィー率寄与 | ✅ 好調 |
+| プライベートマーケット | AUM $320.4B（Q4末$322.6Bから微減）、純流入$91億。一方でリテール解約ゲート発動 | ⚠️ 混在 |
+| テクノロジー（Aladdin） | 130,000人超のユーザー基盤。プライベートクレジットのリスク管理ギャップを「意義ある機会」と位置付け | ✅ 好調 |
+
+**プライベートマーケットの内訳**:
+- 期末AUM: $320.4B（vs Q4末$322.6B）
+- 純流入: +$91億
+- 資本返還: -$85億
+- 市場価値下落: -$20億
+- 差引: -$21億（AUM純減）
+
+---
+
+## 4. Larry Fink CEO 主要発言
+
+> 「BlackRockはパブリックマーケット、プライベートマーケット、テクノロジーにわたるスケール事業者だ。その組み合わせは日々より価値を増している」
+> — [Reuters, 2026-04-14](https://www.reuters.com/business/blackrock-quarterly-profit-rises-active-etfs-2026-04-14/)
+
+> 「プライベートクレジットへの需要は『構造的』だ。2008年金融危機後の銀行の市場撤退と世界的な債務増加が背景にある。それは変わらない」
+> — [Reuters, 2026-04-14](https://www.reuters.com/business/blackrock-quarterly-profit-rises-active-etfs-2026-04-14/)
+
+> 「私たちは資本市場成長の始まりにいる」
+> — [CNBC Squawk on the Street インタビュー, 2026-04-14](https://www.cnbc.com/video/2026/04/14/blackrock-ceo-larry-fink-were-at-the-beginning-of-growing-capital-markets.html)
+
+> Aladdinについて：プライベートクレジット業界はリスク管理が成長に「追いついていない」→ Aladdinの「意義ある機会」
+
+### 市場見通し（決算コール内容）
+- グローバル株式市場は4月に改善中（BlackRock Equity Indexが4月最初の2週間で+5%上昇）
+- プライベートクレジット市場の「シェイクアウト（淘汰）」は BlackRock にとって市場シェア獲得の機会
+- 富裕層向け・ウェルスプラットフォームでの需要強化
+
+---
+
+## 5. 市場反応
+
+**株価反応（2026-04-14）**:
+- 寄り付き: **+4.1%上昇**（Reuters）
+- 日中: +2.44%（WSJ）
+- 決算前株価: $966.56（2026-04-06時点）
+- 上昇要因: 大幅なEPSビートと「AUMミスは市場下落による想定内」との解釈
+
+**過去8四半期EPSサプライズ + 株価反応（比較用）**:
+| 四半期 | EPS実績 | コンセンサス | サプライズ% | 株価日次 | 乖離? |
+|-------|---------|-------------|------------|---------|-------|
+| **Q1 2026** | **$12.53** | **$11.54** | **+8.6%** | **+4.1%** | **なし** |
+| Q4 2025 | $13.16 | $12.19 | +7.96% | +6.5% | なし |
+| Q3 2025 | $8.43 | $10.73 | -21.4% | +4.1% | あり |
+| Q2 2025 | $12.05 | $10.81 | +11.5% | -2.6% | あり |
+| Q1 2025 | $11.30 | $10.13 | +11.6% | +3.6% | なし |
+| Q4 2024 | $11.93 | $11.45 | +4.2% | +3.4% | なし |
+| Q3 2024 | $11.46 | $10.31 | +11.2% | +3.8% | なし |
+| Q1 2024 | $9.81 | $9.39 | +4.5% | -2.9% | あり |
+
+→ Q1 2026の結果は「EPSビート→株価上昇」という素直な反応。過去3回あった乖離パターン（ビート↓、ミス↑）は発生せず。
+
+---
+
+## 6. 前回プレビュー（2026-04-06）との比較
+
+| 指標 | プレビュー予想 | Q1 2026 実績 | 差異・評価 |
+|-----|-----|-----|-----|
+| 調整後EPS | $12.09（Zacks中央値） | **$12.53** | +$0.44（+3.6%ビート） |
+| AUM | $14.21T（Zacks） | **$13.89T** | -$320B（市場下落が主因） |
+| 総収入 | $6.59-6.62B | **~$6.58B** | ほぼ予想通り |
+| プライベートクレジットリスク | 懸念「あり」 | **実際に解約ゲート発動** | 予想通りリスク顕在化 |
+| Finkマクロスタンス | US株見通し引き上げ | **一貫してブル継続** | 予想通り |
+
+**プレビュー精度評価**: EPS・収益は概ね的中。AUMはZacksが楽観的すぎた（市場下落考慮不足）。プライベートクレジットリスク顕在化は的中。
+
+---
+
+## 7. 論点整理（執筆用）
+
+### 論点1：「AUMミス」の解釈
+- AUM $13.89T（vs 予想$14.21T）は「ミス」だが、**市場下落が主因**であり運営能力の問題ではない
+- 純流入$1,300億は強い有機成長の証拠
+- Q4 2025の$14.04Tからの微減は、Q1 2026の株式市場下落局面（S&P500等が軟調）を反映
+- 4月に入ってBLK Equity Indexが+5%改善中 → Q2に向けてリカバリーの可能性
+
+### 論点2：パフォーマンスフィーの急騰
+- $2.72億（Q1 2025: $0.60億）の急増は、アクティブETFや高成績ファンドの好パフォーマンスを示す
+- これはアクティブ運用への転換トレンド（ETFのアクティブ化）の加速を示す
+- 通年でパフォーマンスフィーが高水準なら、FY2026 EPS $53.64達成は現実的
+
+### 論点3：プライベートクレジット「シェイクアウト」
+- BlackRock自身のHPS Corporate Lending Fundが解約ゲート発動という矛盾
+- しかしFinkの主張：機関投資家需要は「加速」、リテールの揺り戻しは一時的
+- Aladdinによるパブリックとプライベートのワークフロー統合が差別化要因
+- 2026年はGIP/HPS/Preqin通年寄与の初年度 → 長期的にはブル要因
+
+### 論点4：株価の読み方
+- 決算直後+4.1%は過去8四半期の平均(+2.2%)を上回る強い反応
+- 決算前に$966.56まで調整（1M -7.7%、3M -10.4%）していたため、期待値が低かった
+- コンセンサス目標株価$1,300に対し現値$966.56 → 上昇余地は約34%
+
+---
 
 ## 8. データソース一覧
 
-### ヘルパースクリプト出力（2026-04-06 preview より流用）
-- `../../2026-04-06_blk-earnings-preview/01_research/blk_reaction.json`: 直近8Q EPSサプライズ + 株価反応
-- `../../2026-04-06_blk-earnings-preview/01_research/blk_8k.json`: 直近6Q 8-K EX-99.1 ハイライト
-
-### research-neo4j
-- クエリ: `MATCH (f:Fact)-[:RELATES_TO]->(e:Company {name:'BlackRock'}) RETURN f.statement LIMIT 20`
-- 結果: Fact ノードは登録されているが `statement` プロパティが null（過去の古いスキーマ時代のノード）。追加投入推奨。
-
-### SEC EDGAR（CIK: 2012383）
-- 最新 8-K（2026-04-03）: 期間 2026-03-31、items 情報なし（決算事前通告の定例 8-K）
-- **Q1 2026 業績 8-K は未登録**。通常、決算プレスリリース発表と同時に EX-99.1 として登録される
-
-### Web ソース
-- BlackRock IR: https://ir.blackrock.com/ （403でfetch不可。ブラウザ/curl経由で参照）
-- Q4 2025 Earnings Release PDF: https://s24.q4cdn.com/856567660/files/doc_financials/2025/Q4/BLK-4Q25-Earnings-Release.pdf
-- プレビュー報道: Zacks, Globe and Mail, TradingView, FinancialContent, Benzinga
-- Bloomberg private credit 解約記事（2026-04-13）
-- CNBC BlackRock US株見通し引き上げ（2026-04-13）
+| ソース | URL | 信頼度 |
+|-------|-----|--------|
+| SEC EDGAR 8-K（2026-04-14） | https://www.sec.gov/Archives/edgar/data/2012383/0001193125-26-153768-index.html | official |
+| Reuters 決算報道 | https://www.reuters.com/business/blackrock-quarterly-profit-rises-active-etfs-2026-04-14/ | media |
+| WSJ 決算報道 | https://www.wsj.com/finance/investing/blackrock-blk-q1-earnings-report-2026-91afa0dc | media |
+| Yahoo Finance Q1 2026 Key Metrics | https://finance.yahoo.com/markets/stocks/articles/blackrock-blk-q1-earnings-taking-133004637.html | media |
+| Yahoo Finance Earnings Call Summary | https://finance.yahoo.com/markets/stocks/articles/blackrock-q1-earnings-call-highlights-135254801.html | media |
+| Yahoo Finance Earnings Call Transcript | https://finance.yahoo.com/quote/BLK/earnings/BLK-Q1-2026-earnings_call-541756.html | media |
+| Business Insider プライベートクレジット分析 | https://www.businessinsider.com/blackrock-sees-opportunity-for-growth-in-private-credit-shakeout-2026-4 | media |
+| CNBC Fink インタビュー | https://www.cnbc.com/video/2026/04/14/watch-cnbcs-full-interview-with-blackrock-ceo-larry-fink.html | media |
+| CNBC 米株見通し引き上げ（2026-04-13） | https://www.cnbc.com/2026/04/13/blackrock-raises-view-on-us-stocks-on-belief-that-war-is-over-profits-are-up.html | media |
+| blk_reaction.json（quants DB） | ローカルファイル | analyst |
+| BlackRock Q4 2025 Earnings Release PDF | https://s24.q4cdn.com/856567660/files/doc_financials/2025/Q4/BLK-4Q25-Earnings-Release.pdf | official |

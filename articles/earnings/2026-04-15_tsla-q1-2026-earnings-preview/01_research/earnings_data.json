@@ -1,0 +1,133 @@
+{
+  "ticker": "TSLA",
+  "company": "Tesla, Inc.",
+  "earnings_date": "2026-04-22",
+  "fiscal_quarter": "Q1 2026",
+  "fiscal_period_end": "2026-03-31",
+
+  "q1_2026_estimates": {
+    "eps_consensus": 0.38,
+    "eps_range_low": 0.22,
+    "eps_range_high": 0.54,
+    "revenue_consensus_b": 22.82,
+    "revenue_range_low_b": 20.28,
+    "revenue_range_high_b": 24.86,
+    "revenue_yoy_pct": 18.0,
+    "source": "WSJ, Yahoo Finance"
+  },
+
+  "q1_2026_deliveries": {
+    "deliveries": 358023,
+    "production": 408386,
+    "inventory_buildup": 50363,
+    "delivery_consensus": 365645,
+    "delivery_miss": -7622,
+    "energy_deployed_gwh": 8.8,
+    "report_date": "2026-04-02",
+    "source": "Tesla Q1 2026 Production, Deliveries & Deployments Report"
+  },
+
+  "q4_2025_actuals": {
+    "revenue_b": 24.9,
+    "deliveries": 418227,
+    "delivery_consensus": 428536,
+    "gross_margin_pct": 20.1,
+    "auto_gross_margin_pct": 17.2,
+    "operating_margin_pct": 5.7,
+    "eps_beat": true,
+    "report_date": "2026-01-29"
+  },
+
+  "q1_2025_actuals": {
+    "revenue_b": 19.34,
+    "eps_adjusted": 0.27,
+    "eps_consensus_at_time": 0.44,
+    "eps_surprise_pct": -38.64,
+    "revenue_yoy_pct": -9.2,
+    "report_date": "2025-04-22"
+  },
+
+  "fy2025_actuals": {
+    "revenue_m": 82056,
+    "gross_profit_m": 17094,
+    "gross_margin_pct": 20.83,
+    "operating_income_m": 4355,
+    "net_income_m": 3794,
+    "eps_diluted": 1.08,
+    "cash_m": 16513,
+    "total_assets_m": 137806,
+    "total_liabilities_m": 54941,
+    "stockholders_equity_m": 82137,
+    "operating_cash_flow_m": 14747,
+    "source": "SEC 10-K 0001628280-26-003952 filed 2026-01-29"
+  },
+
+  "stock_metrics": {
+    "last_close": 364.20,
+    "last_open": 357.36,
+    "week52_high": 489.88,
+    "week52_low": 142.05,
+    "avg_2y_close": 323.46,
+    "total_return_2y_pct": 125.54,
+    "cagr_2y_pct": 50.18,
+    "sharpe_ratio_2y": 0.55,
+    "as_of": "2026-04-15"
+  },
+
+  "analyst_views": [
+    {
+      "firm": "JPMorgan",
+      "rating": "Sell",
+      "price_target": 145,
+      "fy2026_eps_estimate": 1.80,
+      "comment": "2026 EPS revised down from $2.00. Core auto weakening."
+    },
+    {
+      "firm": "Morgan Stanley",
+      "rating": "Overweight",
+      "price_target": 430,
+      "fy2026_eps_estimate": null,
+      "comment": "Reinstated as top pick. AI/robotics angle. Bull case $800."
+    },
+    {
+      "firm": "Wedbush (Ives)",
+      "rating": "Buy",
+      "price_target": 600,
+      "price_target_bull": 800,
+      "fy2026_eps_estimate": null,
+      "comment": "$2T market cap scenario in 2026. FSD monetization key."
+    }
+  ],
+
+  "key_themes": [
+    "50,000-unit inventory buildup and ASP/margin pressure",
+    "Musk brand damage from DOGE/political controversy affecting sales in Europe/US",
+    "Tariff impact on supply chain costs (China components)",
+    "FSD/robotaxi timeline - June 2026 multi-city launch promised but Austin limited",
+    "Cybercab (no-steering-wheel) production start expected April-May 2026",
+    "Optimus humanoid + xAI Digital Optimus joint project",
+    "Model Y Juniper refresh driving demand recovery",
+    "Energy storage segment (8.8 GWh Q1 2026)"
+  ],
+
+  "watch_items_for_earnings_call": [
+    "Gross margin vs. Q4 2025's 20.1% - key pressure point from delivery miss",
+    "EPS: will $0.38 consensus be beaten or missed?",
+    "Musk comment on brand damage and Musk role as CEO going forward",
+    "Tariff specifics: impact on Q2 2026 cost structure",
+    "Cybercab production timeline and Robotaxi city expansion plan",
+    "Q2 2026 revenue guidance and annual delivery outlook",
+    "Optimus shipment timeline (commercial deployment milestone)"
+  ],
+
+  "fsd_robotaxi_status": {
+    "fsd_miles_accumulated_b": 8.2,
+    "musk_required_miles_b": 10.0,
+    "austin_pilot_scale": "few dozen cars, 32% availability",
+    "california_status": "chauffeur service (human driver), not autonomous",
+    "netherlands_approval": "FSD approved (spring 2026)",
+    "cybercab_production": "planned April-May 2026",
+    "spring_update_date": "2026-04-14",
+    "spring_update_features": ["Self-Driving App with FSD stats", "Revamped Grok integration", "Pet Mode overhaul"]
+  }
+}

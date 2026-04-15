@@ -1,0 +1,205 @@
+{
+  "symbol": "IBM",
+  "company_name": "International Business Machines Corporation",
+  "as_of_date": "2026-04-15",
+  "upcoming_earnings": {
+    "report_date": "2026-04-22",
+    "announcement_time": "AMC",
+    "fiscal_quarter": "Q1 2026",
+    "fiscal_quarter_ending": "Mar/2026",
+    "eps_estimate_consensus": 1.81,
+    "revenue_estimate_consensus": 15600000000,
+    "source": "NASDAQ calendar DB + Benzinga"
+  },
+  "current_price_data": {
+    "price": 240.27,
+    "as_of": "2026-04-15",
+    "52w_high": 313.19,
+    "52w_low": 155.22,
+    "returns": {
+      "1M": -3.6,
+      "3M": -20.3,
+      "6M": -12.0,
+      "1Y": 3.0,
+      "3Y": 107.8,
+      "5Y": 131.3
+    },
+    "source": "yfinance"
+  },
+  "company_overview": {
+    "sector": "TECHNOLOGY",
+    "industry": "IT Services",
+    "market_cap": null,
+    "description": "エンタープライズ向けIT企業。ソフトウェア（Red Hat、WatsonX）・コンサルティング・インフラストラクチャの3セグメント。",
+    "note": "av_company_overview にIBMのデータなし。Web検索で補完"
+  },
+  "eps_history": [
+    {
+      "quarter": "Q4 2025",
+      "report_date": "2026-01-28",
+      "eps_actual": 4.52,
+      "eps_estimate": 4.31,
+      "eps_surprise_pct": 4.87,
+      "revenue_actual": 19690000000,
+      "revenue_estimate": 19210000000,
+      "revenue_surprise_pct": 2.50,
+      "yoy_revenue_growth_pct": 12.1,
+      "key_highlights": "Software 11%成長(年間最高9%)、Infrastructure 17%成長(z17効果)、AI book $7.5B、FCF $14.7B(年間記録)"
+    },
+    {
+      "quarter": "Q3 2025",
+      "report_date": "2025-10-22",
+      "eps_actual": 2.65,
+      "eps_estimate": 2.44,
+      "eps_surprise_pct": 8.61,
+      "revenue_actual": 16330000000,
+      "revenue_estimate": 16100000000,
+      "revenue_surprise_pct": 1.44,
+      "yoy_revenue_growth_pct": null,
+      "key_highlights": "全セグメントで収益成長加速、通期売上成長・FCF見通し上方修正、z17でInfrastructure 1.5pt超寄与"
+    },
+    {
+      "quarter": "Q2 2025",
+      "report_date": "2025-07-23",
+      "eps_actual": 2.80,
+      "eps_estimate": 2.65,
+      "eps_surprise_pct": 5.66,
+      "revenue_actual": 16980000000,
+      "revenue_estimate": 16580000000,
+      "revenue_surprise_pct": 2.39,
+      "yoy_revenue_growth_pct": null,
+      "key_highlights": "Software・Infrastructure成長をリード、利益率大幅拡大、FCFガイダンス$13.5B超に引き上げ"
+    },
+    {
+      "quarter": "Q1 2025",
+      "report_date": "2025-04-23",
+      "eps_actual": 1.60,
+      "eps_estimate": 1.40,
+      "eps_surprise_pct": 14.29,
+      "revenue_actual": 14540000000,
+      "revenue_estimate": 14400000000,
+      "revenue_surprise_pct": 0.98,
+      "yoy_revenue_growth_pct": null,
+      "key_highlights": "Software売上$6.34B(前年比+7.5%)、大幅な粗利率拡大、堅調FCF、Software成長ガイダンス引き上げ"
+    },
+    {
+      "quarter": "Q4 2024",
+      "report_date": "2025-01-29",
+      "eps_actual": 3.92,
+      "eps_estimate": 3.77,
+      "eps_surprise_pct": 3.98,
+      "revenue_actual": 17550000000,
+      "revenue_estimate": 17560000000,
+      "revenue_surprise_pct": -0.06,
+      "yoy_revenue_growth_pct": null,
+      "key_highlights": "Software二桁成長、FCF$13.5B超過達成、HashiCorp統合後初の通期"
+    },
+    {
+      "quarter": "Q3 2024",
+      "report_date": "2024-10-23",
+      "eps_actual": 2.30,
+      "eps_estimate": null,
+      "eps_surprise_pct": null,
+      "revenue_actual": null,
+      "revenue_estimate": null,
+      "revenue_surprise_pct": null,
+      "key_highlights": "Web検索で補完要"
+    },
+    {
+      "quarter": "Q2 2024",
+      "report_date": "2024-07-24",
+      "eps_actual": 2.43,
+      "eps_estimate": null,
+      "eps_surprise_pct": null,
+      "revenue_actual": null,
+      "revenue_estimate": null,
+      "revenue_surprise_pct": null,
+      "key_highlights": "Web検索で補完要"
+    },
+    {
+      "quarter": "Q1 2024",
+      "report_date": "2024-04-24",
+      "eps_actual": 1.68,
+      "eps_estimate": null,
+      "eps_surprise_pct": null,
+      "revenue_actual": null,
+      "revenue_estimate": null,
+      "revenue_surprise_pct": null,
+      "key_highlights": "Web検索で補完要"
+    }
+  ],
+  "price_reactions": [
+    {"quarter": "Q1 2024", "earnings_date": "2024-04-24", "eps_actual": 1.68, "day1_return_pct": -8.25, "week_return_pct": -10.68, "divergence": true, "note": "ビート推定だが株価急落。Consulting懸念・ガイダンス失望"},
+    {"quarter": "Q2 2024", "earnings_date": "2024-07-24", "eps_actual": 2.43, "day1_return_pct": 4.33, "week_return_pct": 4.41, "divergence": false, "note": "ビート+株価上昇"},
+    {"quarter": "Q3 2024", "earnings_date": "2024-10-23", "eps_actual": 2.30, "day1_return_pct": -6.17, "week_return_pct": -11.97, "divergence": true, "note": "Consulting成長鈍化・売上ミスで株価下落"},
+    {"quarter": "Q4 2024", "earnings_date": "2025-01-29", "eps_actual": 3.92, "eps_estimate": 3.77, "eps_surprise_pct": 3.98, "day1_return_pct": 12.96, "week_return_pct": 15.16, "divergence": false, "note": "Software二桁成長・FCF達成で+12.96%急騰"},
+    {"quarter": "Q1 2025", "earnings_date": "2025-04-23", "eps_actual": 1.60, "eps_estimate": 1.40, "eps_surprise_pct": 14.29, "day1_return_pct": -6.58, "week_return_pct": -1.49, "divergence": true, "note": "EPS +14.29%大幅ビートなのに翌日-6.58%。Consultingへの懸念が優勢"},
+    {"quarter": "Q2 2025", "earnings_date": "2025-07-23", "eps_actual": 2.80, "eps_estimate": 2.65, "eps_surprise_pct": 5.66, "day1_return_pct": -7.62, "week_return_pct": -7.71, "divergence": true, "note": "EPS +5.66%ビートなのに翌日-7.62%。Consulting成長の鈍化失望"},
+    {"quarter": "Q3 2025", "earnings_date": "2025-10-22", "eps_actual": 2.65, "eps_estimate": 2.44, "eps_surprise_pct": 8.61, "day1_return_pct": -0.87, "week_return_pct": 7.20, "divergence": false, "note": "翌日ほぼ横ばいも週次+7.2%。通期見通し上方修正を評価"},
+    {"quarter": "Q4 2025", "earnings_date": "2026-01-28", "eps_actual": 4.52, "eps_estimate": 4.31, "eps_surprise_pct": 4.87, "day1_return_pct": 5.13, "week_return_pct": -1.74, "divergence": false, "note": "EPS+Revenue両方ビート。翌日+5.13%上昇も週次ではやや失速"}
+  ],
+  "beat_streak": {
+    "consecutive_eps_beats": 8,
+    "last_4q_avg_eps_surprise_pct": 7.2,
+    "last_4q_avg_rev_surprise_pct": 0.8,
+    "source": "Benzinga / ChartMill"
+  },
+  "financials_annual": {
+    "fy2025": {
+      "revenue": 67535000000,
+      "net_income": 10593000000,
+      "operating_cashflow": 13193000000,
+      "free_cashflow": 14700000000,
+      "revenue_growth_pct": 6.0,
+      "net_income_growth_pct": 76.7,
+      "source": "SEC EDGAR + Q4 2025 earnings call"
+    }
+  },
+  "segment_data_q4_2025": {
+    "software": {
+      "annual_growth_pct": 9.0,
+      "q4_growth_pct": 11.0,
+      "note": "2025年通年で歴史的最高成長率"
+    },
+    "infrastructure": {
+      "q4_growth_pct": 17.0,
+      "q1_2026_outlook": "前年比ひと桁台前半の減少予想（z17製品サイクルの谷）",
+      "note": "z17メインフレームの製品サイクルによる季節性"
+    },
+    "consulting": {
+      "concern": "成長鈍化懸念。一部アナリストがHold格下げの要因"
+    }
+  },
+  "ai_data": {
+    "ai_book_of_business": 7500000000,
+    "split": "Consulting 80% / Software 20%",
+    "watsonx_orchestrate_agents": 150,
+    "key_partnerships": ["S&P Global"],
+    "2026_software_growth_target": "10%",
+    "source": "Yahoo Finance / Forbes (2025-10)"
+  },
+  "ma_activity": {
+    "hashicorp": {
+      "status": "統合済み",
+      "note": "Q4 2024に統合完了、ハイブリッドクラウド自動化強化"
+    },
+    "confluent": {
+      "deal_value": 11000000000,
+      "description": "リアルタイムデータストリーミング(Kafka)企業",
+      "status": "買収発表済み（2025年12月）",
+      "strategic_rationale": "ハイブリッドクラウドスタック完成。Red Hat+HashiCorp+Confluentで企業向けAI基盤を統合",
+      "source": "Forbes 2025-12-09"
+    }
+  },
+  "analyst_views": {
+    "consensus_direction": "強気・中立混在",
+    "bull_case": "WatsonX AI収益化加速、Software 10%成長目標、エンタープライズAI需要拡大",
+    "bear_case": "Consulting成長鈍化、Infrastructureサイクルの谷、バリュエーション割高感（一部アナリストがHold格下げ）",
+    "revenue_growth_3y_consensus": "5.1%/年"
+  },
+  "q1_2026_guidance_from_q4_call": {
+    "infrastructure_q1": "前年比ひと桁台前半の減少（z17製品サイクル）",
+    "revenue_q2_guide": "約$16.56B（アナリスト予想に近い水準）",
+    "software_2026": "10%成長目標"
+  }
+}

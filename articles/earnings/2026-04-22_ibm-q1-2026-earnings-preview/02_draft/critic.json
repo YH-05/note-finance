@@ -1,0 +1,92 @@
+{
+  "article_id": "2026-04-22_ibm-q1-2026-earnings-preview",
+  "critiqued_at": "2026-04-15",
+  "mode": "full",
+  "scores": {
+    "overall": 79,
+    "compliance": 83,
+    "fact": 91,
+    "structure": 74,
+    "readability": 68
+  },
+  "issues": [
+    {
+      "severity": "high",
+      "category": "compliance",
+      "location": "line 161",
+      "description": "免責事項が snippets/disclaimer.md の正規テキストと不一致。「本記事の内容により生じたいかなる損失についても責任を負いかねます。」が欠落している。また「株式、債券、投資信託、ETF等の金融商品は、市場の変動により価値が上下します。」「本記事に含まれる見通しや予測は、作成時点の情報に基づくものであり、将来の結果を保証するものではありません。」は正規テキストに存在しない追加文。",
+      "fix": "snippets/disclaimer.md の本文をそのまま使用する"
+    },
+    {
+      "severity": "high",
+      "category": "fact",
+      "location": "line 71-72",
+      "description": "不要なマークダウン表ヘッダー行「| 発表日 | 実績EPS | 予想EPS | サプライズ率 |」と注記「（※表は画像を参照）」が残存。画像（table_eps_surprise.png）はすでにline 67で埋め込み済みであり、このテキストは重複かつ表示崩れの原因となる。",
+      "fix": "lines 71-72 を削除する"
+    },
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "location": "§4 line 110",
+      "description": "「この水準が「押し目」とみるか「高値掴み回避」とみるか」という表現は特定の投資行動（買い増し）を示唆する可能性があり、中立的表現への変更が望ましい。",
+      "fix": "「この水準をどのように評価するかは、今回の決算内容と経営陣のガイダンスを踏まえてご自身でご判断ください。」に変更"
+    },
+    {
+      "severity": "medium",
+      "category": "readability",
+      "location": "冒頭 line 14",
+      "description": "冒頭段落が220字超。3つの独立した内容（発表告知・焦点・本記事概要）が1段落にまとめられており、読者の負荷が高い。",
+      "fix": "2段落に分割"
+    },
+    {
+      "severity": "medium",
+      "category": "readability",
+      "location": "§1 line 20",
+      "description": "IBMの設立背景とセグメント説明が1段落に集約されており長い。",
+      "fix": "2段落に分割"
+    },
+    {
+      "severity": "medium",
+      "category": "readability",
+      "location": "§2 line 47",
+      "description": "watsonx Orchestrateの説明とS&P Global事例が1段落で続いており、長い。",
+      "fix": "2段落に分割"
+    },
+    {
+      "severity": "medium",
+      "category": "readability",
+      "location": "§2 line 59",
+      "description": "コンセンサス温度感の段落が3文・150字超で一体化している。強気派と弱気派を明確に分けると読みやすくなる。",
+      "fix": "2段落に分割"
+    },
+    {
+      "severity": "medium",
+      "category": "readability",
+      "location": "§3 line 82",
+      "description": "Q1 2025解説段落が5文一体で構成されており、因果関係が追いにくい。",
+      "fix": "結論文と背景説明を段落分割"
+    },
+    {
+      "severity": "medium",
+      "category": "readability",
+      "location": "§3 line 98",
+      "description": "乖離パターン結論段落が3文・160字超。パターン提示と具体的根拠が混在。",
+      "fix": "2段落に分割"
+    },
+    {
+      "severity": "low",
+      "category": "structure",
+      "location": "全体",
+      "description": "各セクションの構成と遷移は自然で、earnings_preview として必要な情報は網羅されている。見出し階層も適切。",
+      "fix": "変更不要"
+    }
+  ],
+  "positive_findings": [
+    "8四半期連続EPSビートという事実の提示が明確",
+    "ビートと株価反応の乖離パターン分析（Q1・Q2・Q4 2024・Q4 2025の4ケース）が具体的かつ有用",
+    "AI Book of Businessの指標化と数値提示が投資家目線で適切",
+    "ソースURLの埋め込みが各数値データに対して適切に実施されている",
+    "表・チャートは全て画像化済み（マークダウン表残存は1か所のみで修正容易）",
+    "ですます調の文体が一貫している"
+  ]
+}

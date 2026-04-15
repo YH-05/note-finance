@@ -1,0 +1,124 @@
+{
+  "symbol": "UNH",
+  "company_name": "UnitedHealth Group Incorporated",
+  "fiscal_quarter": "Q1 2026",
+  "fiscal_quarter_ending": "Mar/2026",
+  "earnings_date": "2026-04-21",
+  "earnings_time": "before_open",
+
+  "consensus_estimates": {
+    "eps_gaap": 6.48,
+    "eps_adjusted": 6.62,
+    "revenue_b": 111.01,
+    "source_nasdaq_calendar": 6.48,
+    "source_yahoo_finance": 6.62,
+    "source_zacks": 7.27
+  },
+
+  "q1_2025_actuals": {
+    "revenue_b": 109.6,
+    "adj_eps": 7.20,
+    "mcr_pct": 84.8,
+    "yoy_revenue_growth_pct": 9.8,
+    "vs_estimate_miss_pct": 1.7,
+    "outcome": "miss",
+    "stock_reaction_pct": -20.0
+  },
+
+  "q3_2025_actuals": {
+    "revenue_b": 113.16,
+    "adj_eps": 2.92,
+    "adj_eps_vs_q3_2024": -59.2,
+    "mcr_pct": 89.9,
+    "yoy_revenue_growth_pct": 12.0,
+    "fy2025_guidance_raised_to": 16.25
+  },
+
+  "q4_2025_actuals": {
+    "premium_revenue_b": 88.8,
+    "consensus_miss_b": -0.2,
+    "fy2026_guidance_revenue_b": 440.0,
+    "fy2026_guidance_net_eps": 17.10,
+    "fy2026_guidance_adj_eps_midpoint": 17.75,
+    "fy2026_guidance_ocf_b": 18.0,
+    "operating_margin_pct": 0.3,
+    "stock_reaction_pct": -19.57,
+    "report_date": "2026-01-27"
+  },
+
+  "fy2025_guidance_final": {
+    "revenue_b_range": [445.5, 448.0],
+    "adj_eps_min": 16.25,
+    "gaap_eps_min": 14.90
+  },
+
+  "mcr_trend": [
+    {"period": "FY2023", "mcr_pct": 83.2},
+    {"period": "FY2024", "mcr_pct": 85.5},
+    {"period": "Q1 2025", "mcr_pct": 84.8},
+    {"period": "Q3 2025", "mcr_pct": 89.9},
+    {"period": "Q1 2026 est (bull)", "mcr_pct": 87.0},
+    {"period": "Q1 2026 est (bear)", "mcr_pct": 90.5}
+  ],
+
+  "stock_price_data": {
+    "latest_date": "2026-04-06",
+    "latest_close": 282.76,
+    "week_52_high": 589.73,
+    "week_52_low": 229.79,
+    "ytd_change_pct": -44.6,
+    "q1_2026_change_pct": -15.3,
+    "q1_2026_open": 333.80,
+    "pe_ttm": 24.12,
+    "eps_ttm": 13.19,
+    "market_cap_b": 284.1,
+    "shares_outstanding_m": 907.7,
+    "dividend_yield_pct": 2.78
+  },
+
+  "key_events": [
+    {"date": "2024-12-04", "event": "CEO Brian Thompson射殺", "impact": "リーダーシップ危機"},
+    {"date": "2025-04-17", "event": "Q1 2025 ミス＋ガイダンス大幅引き下げ", "impact": "株価-20%"},
+    {"date": "2025-05-01", "event": "Stephen HemselyがCEOに復帰（2006-2017以来）", "impact": "経営立て直し開始"},
+    {"date": "2025-07-01", "event": "DOJ: Medicare不正請求調査報道", "impact": "規制リスク浮上"},
+    {"date": "2025-10-28", "event": "Q3 2025 アナリスト予想を上回る（$2.92 vs $2.74）", "impact": "株価+4%"},
+    {"date": "2026-01-27", "event": "Q4 2025発表＋トランプ政権がMedicare率をほぼ横ばいに", "impact": "株価-19.57%（1998年以来最大下落）"},
+    {"date": "2026-04-08", "event": "CMS: 2027年MA率を+2.48%に最終決定", "impact": "株価+9-10%"},
+    {"date": "2026-04-21", "event": "Q1 2026 決算発表予定", "impact": "TBD"}
+  ],
+
+  "analyst_views": {
+    "tipranks_consensus": "Strong Buy",
+    "buy_count": 17,
+    "hold_count": 2,
+    "sell_count": 1,
+    "avg_price_target": 331.68,
+    "fy2026_eps_consensus_analyst": 17.59,
+    "fy2027_eps_consensus": 19.95,
+    "fy2026_eps_growth_pct": 8.0,
+    "fy2027_eps_growth_pct": 13.0
+  },
+
+  "medicare_advantage_actions": {
+    "plans_dropped": 100,
+    "members_affected": 600000,
+    "counties_exiting": 109,
+    "gov_funding_decline_vs_2023_pct": -20,
+    "cms_2027_rate_increase_pct": 2.48,
+    "cms_2026_rate_context": "ほぼ横ばい（トランプ政権の1月27日決定）"
+  },
+
+  "optum_restructuring": {
+    "change": "Optum Financial を Optum Health から Optum Insight へ移管",
+    "clinical_service_locations": "縮小中",
+    "purpose": "セグメント最適化・コスト圧縮"
+  },
+
+  "sec_edgar_data": {
+    "fy2025_annual": {"revenue_b": 53.4, "note": "SEC EDGARのデータは部分的（セグメント集計の可能性）"},
+    "q3_2025_quarterly": {"revenue_b": 13.3, "note": "同上"}
+  },
+
+  "data_sources": ["nasdaq_calendar.db", "yfinance.db", "sec_edgar.db", "tavily_web_search"],
+  "fetched_at": "2026-04-15"
+}

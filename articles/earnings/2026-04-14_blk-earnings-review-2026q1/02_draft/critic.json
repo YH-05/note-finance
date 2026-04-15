@@ -1,7 +1,210 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-04-14_blk-earnings-review-2026q1",
+  "category": "earnings",
+  "mode": "full",
+  "generated_at": "2026-04-15",
+  "critics": {
+    "fact": {
+      "score": 88,
+      "status": "warn",
+      "verified_count": 42,
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "セクション4（過去8四半期）",
+          "issue": "「過去8四半期平均+2.2%」の表記が実データと一致しない。blk_reaction.jsonの8四半期平均は約+2.8%",
+          "fix": "2.2% → 2.8% に修正"
+        },
+        {
+          "severity": "HIGH",
+          "location": "セクション4 乖離パターン3（2024 Q1）",
+          "issue": "「週間で-6.0%の下落」と週次リターンを使用しているが、他の四半期はすべて当日リターン。不統一",
+          "fix": "当日リターン -2.9% に統一して記述"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション5（株価パフォーマンス）",
+          "issue": "Bank of America $1,467、Deutsche Bank $1,380の個別目標株価にソースURLがない",
+          "fix": "出典URLを追加するか、概括表現に変更"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 93,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "免責事項（末尾）",
+          "issue": "「本記事の内容により生じたいかなる損失についても責任を負いかねます」という損失責任免責フレーズが欠落",
+          "fix": "免責事項末尾に当該フレーズを追加"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション1（銘柄概要）",
+          "issue": "「コンセンサス目標株価$1,300に対して34%の上昇余地があると見られていました」—誰がそう見ていたか不明",
+          "fix": "「アナリストコンセンサスでは」と明示"
+        }
+      ]
+    },
+    "structure": {
+      "score": 81,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "イントロ",
+          "issue": "冒頭フックが事実の羅列に留まり、読者の関心を引く逆説・問いがない",
+          "fix": "「純利益46%増なのにAUMは予想未達—この逆説をどう読むか」など逆説フックで始める"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション5・6",
+          "issue": "株価見通しとリスクが分離しており、強み・弱みの対比構造が弱い",
+          "fix": "セクション5末尾にリスクへの前置き文を加え自然につなげる"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション7（まとめ）",
+          "issue": "結論がQ1の振り返りに留まり、次四半期の注目ポイントが欠落",
+          "fix": "「Q2の注目点：純流入動向・HPS AUM・Aladdinコントラクト件数」を明示"
+        },
+        {
+          "severity": "LOW",
+          "location": "セクション3の小見出し",
+          "issue": "「①②③」の囲み数字と他セクションの見出し形式が不統一",
+          "fix": "全セクションで小見出し形式を統一"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "score": 82,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "記事全体（数値表記）",
+          "issue": "「$520億」「$1,300億」「$27億」「$11億」のように $ と 億 が混在",
+          "fix": "「520億ドル」形式に統一（$記号は数字の前に付けない）"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション2",
+          "issue": "兆と億の混在が読みにくい（$14.04兆から-$1,500億）",
+          "fix": "「前四半期末$14.04兆から▲1,500億ドル（▲1.1%）」など単位を揃える"
+        }
+      ]
+    },
+    "readability": {
+      "score": 82,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "MEDIUM",
+          "location": "イントロ",
+          "issue": "読者が得る具体的ベネフィットが「二軸で読み解きます」という定型句のみ",
+          "fix": "「5分でQ1の強みと懸念が整理できます」など具体的価値提示を追加"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション2",
+          "issue": "1段落に6個以上の数値が詰め込まれており認知負荷が高い",
+          "fix": "表画像に委ね、文章は解釈・意味の説明に集中"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション3・6",
+          "issue": "「解約ゲート」「オーガニックベースフィー成長率」が定義なく登場",
+          "fix": "初出時に括弧書きで簡潔な定義を追加"
+        }
+      ]
+    },
+    "writer_rules": {
+      "score": 74,
+      "status": "warn",
+      "word_count_actual": 5373,
+      "word_count_target_min": 4000,
+      "word_count_target_max": 5000,
+      "word_count_status": "over",
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "文字数",
+          "issue": "5,373字で目標上限5,000字を373字超過",
+          "fix": "セクション4の乖離事例説明を各100字削減するなど全体を圧縮"
+        },
+        {
+          "severity": "HIGH",
+          "location": "イントロ",
+          "issue": "BMO（寄り前発表）が本文に記述されていない（フロントマターのみ）",
+          "fix": "「2026年4月14日の市場開始前（BMO）に発表」と冒頭に追記"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "イントロ・セクション2・セクション5",
+          "issue": "複数のデータポイントにソースURLリンクが欠落",
+          "fix": "各数値にソースURLをマークダウンリンクで追加"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "セクション6（リスク）",
+          "issue": "バリュエーションリスク（PER）への言及がない",
+          "fix": "「予想PER18倍水準でのバリュエーション再評価リスク」を追記"
+        }
+      ]
+    }
+  },
+  "overall_score": 83,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "HIGH",
+      "item": "文字数を5,373字→5,000字以下に削減（主にセクション4の乖離事例説明を圧縮）"
+    },
+    {
+      "priority": 2,
+      "severity": "HIGH",
+      "item": "$ + 億 混在表記を統一（'$1,300億' → '1,300億ドル'等）"
+    },
+    {
+      "priority": 3,
+      "severity": "HIGH",
+      "item": "免責事項に「本記事の内容により生じたいかなる損失についても責任を負いかねます」を追加"
+    },
+    {
+      "priority": 4,
+      "severity": "HIGH",
+      "item": "過去8四半期平均株価反応を2.2%→2.8%に修正"
+    },
+    {
+      "priority": 5,
+      "severity": "HIGH",
+      "item": "2024 Q1の株価反応を「週間-6.0%」→「当日-2.9%」に修正"
+    },
+    {
+      "priority": 6,
+      "severity": "HIGH",
+      "item": "イントロにBMO追記＋逆説フック（純利益46%増 vs AUM未達）で始める"
+    },
+    {
+      "priority": 7,
+      "severity": "MEDIUM",
+      "item": "「解約ゲート」「オーガニックベースフィー成長率」の定義を初出時に追加"
+    },
+    {
+      "priority": 8,
+      "severity": "MEDIUM",
+      "item": "結論にQ2注目ポイントを明示（純流入動向・HPS AUM・Aladdinコントラクト）"
+    },
+    {
+      "priority": 9,
+      "severity": "MEDIUM",
+      "item": "コンセンサス目標株価に「アナリストコンセンサスでは」と明示"
+    },
+    {
+      "priority": 10,
+      "severity": "MEDIUM",
+      "item": "リスクセクションにバリュエーションリスク（予想PER18倍）への言及を追加"
+    }
+  ]
 }

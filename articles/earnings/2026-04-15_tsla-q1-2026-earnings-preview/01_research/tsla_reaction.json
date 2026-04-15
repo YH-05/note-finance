@@ -1,0 +1,67 @@
+{
+  "ticker": "TSLA",
+  "as_of": "2026-04-15",
+  "context": "Pre-earnings sentiment and analyst reactions to Q1 2026 delivery miss",
+
+  "delivery_miss_reaction": {
+    "date": "2026-04-02",
+    "initial_reaction": "Stock fell ~4% to $365.03 following Q1 delivery report",
+    "narrative": "Biggest delivery miss yet. 50,000+ cars in inventory. Bears see structural demand problem; bulls say one-time inventory build.",
+    "sources": [
+      "https://finance.yahoo.com/markets/stocks/articles/tesla-reports-q1-deliveries-358-133645518.html",
+      "https://finance.yahoo.com/markets/stocks/articles/tesla-q1-delivery-miss-storage-191024906.html"
+    ]
+  },
+
+  "pre_earnings_sentiment": {
+    "overall": "Cautious/Bearish",
+    "key_risks": [
+      "Gross margin compression from inventory overhang",
+      "Revenue miss vs. wide estimate range",
+      "Musk brand damage in Europe (boycotts)",
+      "Tariff cost pressure",
+      "FSD/robotaxi timeline credibility"
+    ],
+    "key_catalysts": [
+      "Model Y Juniper demand strength",
+      "FSD Europe expansion",
+      "Cybercab production news",
+      "Energy segment strength",
+      "Musk announcement on stepping back from DOGE"
+    ]
+  },
+
+  "cramer_view": {
+    "comment": "Tesla can't trade on hopes forever. Consensus expects sales and earnings to grow again in 2026/2027, but Q1 delivery results show YoY production decline.",
+    "source": "https://finance.yahoo.com/markets/stocks/articles/cramer-tesla-t-trade-hopes-101155589.html"
+  },
+
+  "historical_earnings_reactions": [
+    {
+      "quarter": "Q1 2025",
+      "eps_actual": 0.27,
+      "eps_estimate": 0.44,
+      "surprise_pct": -38.64,
+      "revenue_b": 19.34,
+      "revenue_yoy_pct": -9.2,
+      "stock_reaction": "negative",
+      "source": "Investopedia, Yahoo Finance"
+    },
+    {
+      "quarter": "Q4 2025",
+      "revenue_b": 24.9,
+      "eps_beat": true,
+      "gross_margin_pct": 20.1,
+      "deliveries": 418227,
+      "delivery_miss_pct": -2.4,
+      "stock_reaction": "positive (beat on EPS and margin)",
+      "note": "Optimus robots on track for year-end production confirmed",
+      "source": "Yahoo Finance"
+    }
+  ],
+
+  "options_market_implied": {
+    "note": "Wide EPS range ($0.22-$0.54) suggests options market pricing large move",
+    "implied_move": "To be confirmed closer to earnings"
+  }
+}

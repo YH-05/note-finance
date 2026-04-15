@@ -1,13 +1,129 @@
 {
   "metadata": {
-    "compiled_at": "2026-04-14",
+    "compiled_at": "2026-04-15",
     "ticker": "BLK",
     "article_type": "earnings_review",
     "fiscal_quarter": "2026-Q1",
-    "release_status": "pre_release_preview",
-    "note": "Q1 2026 actual results 8-K and BlackRock IR press release had not been published at the time of compilation (JST 2026-04-14 before 21:30)."
+    "release_status": "post_release_actual",
+    "note": "Q1 2026 actual results confirmed. Sources updated after 2026-04-14 earnings release."
+  },
+  "key_metrics_summary": {
+    "q1_2026_actual": {
+      "adjusted_eps": 12.53,
+      "gaap_eps": 14.06,
+      "net_income_bn": 2.21,
+      "aum_tn": 13.89,
+      "ia_fees_revenue_bn": 5.44,
+      "total_revenue_implied_bn": 6.58,
+      "operating_income_bn": 2.7,
+      "adjusted_operating_margin_pct": 44.5,
+      "total_expenses_bn": 3.88,
+      "performance_fees_mn": 272,
+      "net_inflows_bn": 130,
+      "private_markets_aum_bn": 320.4,
+      "private_markets_inflows_bn": 9.1,
+      "organic_base_fee_growth_pct": 8,
+      "stock_reaction_day_pct": 4.1
+    },
+    "q1_2026_consensus": {
+      "adjusted_eps": 11.54,
+      "aum_tn": 14.21,
+      "ia_fees_revenue_bn": 5.36
+    },
+    "q1_2025_actual": {
+      "adjusted_eps": 11.30,
+      "aum_tn": 11.58,
+      "total_revenue_bn": 5.28,
+      "performance_fees_mn": 60
+    },
+    "q4_2025_actual": {
+      "adjusted_eps": 13.16,
+      "aum_tn": 14.04,
+      "total_revenue_bn": 7.01
+    }
   },
   "sources": [
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/2012383/0001193125-26-153768-index.html",
+      "title": "BlackRock 8-K Q1 2026 Earnings Release (Filed 2026-04-14)",
+      "publisher": "SEC EDGAR",
+      "published_date": "2026-04-14",
+      "authority_level": "official",
+      "source_type": "sec_filing",
+      "notes": "Form 8-K, Item 2.02 Results of Operations, Accession: 0001193125-26-153768"
+    },
+    {
+      "url": "https://www.reuters.com/business/blackrock-quarterly-profit-rises-active-etfs-2026-04-14/",
+      "title": "BlackRock quarterly profit rises on active ETFs and performance fees - Reuters",
+      "publisher": "Reuters",
+      "published_date": "2026-04-14",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "主要実績数値：EPS $12.53、純利益$22.1億、AUM $13.89T、パフォーマンスフィー$272M、純流入$130B、株価+4.1%"
+    },
+    {
+      "url": "https://www.wsj.com/finance/investing/blackrock-blk-q1-earnings-report-2026-91afa0dc",
+      "title": "BlackRock Posts 46% Gain in Quarterly Profit on Growth in Investment Fees - WSJ",
+      "publisher": "WSJ",
+      "published_date": "2026-04-14",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "AUM $13.89T確認、Q1市場ボラティリティによる微減を報道"
+    },
+    {
+      "url": "https://finance.yahoo.com/markets/stocks/articles/blackrock-blk-q1-earnings-taking-133004637.html",
+      "title": "BlackRock (BLK) Q1 Earnings: Taking a Look at Key Metrics Versus Estimates",
+      "publisher": "Yahoo Finance",
+      "published_date": "2026-04-14",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "IA費収入 $5.44B（予想$5.36B）、費用$38.8億（+8.6% YoY）"
+    },
+    {
+      "url": "https://finance.yahoo.com/markets/stocks/articles/blackrock-q1-earnings-call-highlights-135254801.html",
+      "title": "BlackRock Q1 Earnings Call Highlights - Yahoo Finance",
+      "publisher": "Yahoo Finance",
+      "published_date": "2026-04-14",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "営業利益+31%/$27億、調整後営業利益率44.5%、EPS+11%、有機ベースフィー成長8%"
+    },
+    {
+      "url": "https://finance.yahoo.com/quote/BLK/earnings/BLK-Q1-2026-earnings_call-541756.html",
+      "title": "BlackRock Q1 FY2026 Earnings Call Transcript - Yahoo Finance",
+      "publisher": "Yahoo Finance",
+      "published_date": "2026-04-14",
+      "authority_level": "media",
+      "source_type": "transcript",
+      "notes": "プライベートクレジットシェイクアウトをシェア獲得機会と位置付け。BLK Equity Index 4月+5%"
+    },
+    {
+      "url": "https://www.businessinsider.com/blackrock-sees-opportunity-for-growth-in-private-credit-shakeout-2026-4",
+      "title": "BlackRock says the private credit 'shakeout' is an opportunity - Business Insider",
+      "publisher": "Business Insider",
+      "published_date": "2026-04-14",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "HPS Corporate Lending Fund解約ゲート詳細（9.3%→5%）、Aladdin 130,000ユーザー"
+    },
+    {
+      "url": "https://www.cnbc.com/video/2026/04/14/blackrock-ceo-larry-fink-were-at-the-beginning-of-growing-capital-markets.html",
+      "title": "BlackRock CEO Larry Fink: We're at the beginning of growing capital markets - CNBC",
+      "publisher": "CNBC",
+      "published_date": "2026-04-14",
+      "authority_level": "media",
+      "source_type": "video_interview",
+      "notes": "Squawk on the Street インタビュー、決算後"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/04/13/blackrock-raises-view-on-us-stocks-on-belief-that-war-is-over-profits-are-up.html",
+      "title": "BlackRock raises view on U.S. stocks on belief that war is over, profits are up - CNBC",
+      "publisher": "CNBC",
+      "published_date": "2026-04-13",
+      "authority_level": "media",
+      "source_type": "news",
+      "notes": "決算前日：BlackRock Investment Instituteが米国・新興市場株式見通しを引き上げ"
+    },
     {
       "url": "https://s24.q4cdn.com/856567660/files/doc_financials/2025/Q4/BLK-4Q25-Earnings-Release.pdf",
       "title": "BlackRock Reports Full Year 2025 Diluted EPS of $35.31 (Q4 2025 Earnings Release)",

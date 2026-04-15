@@ -1,0 +1,204 @@
+{
+  "article_id": "2026-04-15_tsla-q1-2026-earnings-preview",
+  "category": "earnings",
+  "mode": "full",
+  "generated_at": "2026-04-15",
+  "critics": {
+    "fact": {
+      "score": 90,
+      "status": "pass",
+      "verified_count": 22,
+      "issues": [
+        {
+          "severity": "medium",
+          "location": "セクション6（バリュエーション）",
+          "issue": "「コア自動車バリューからすれば過大評価」は主観的断定。JPMorganの見解として出典を明示すべき",
+          "fix": "「JPMorganなど一部のアナリストは『コア自動車事業のみでは$364を正当化するのは困難』と指摘」に変更"
+        },
+        {
+          "severity": "low",
+          "location": "セクション5（株価チャート）",
+          "issue": "chart_price_1y.png は実際の株価データではなく概略推移値を使用。注記は subtitle にのみあり本文に記載なし",
+          "fix": "本文チャート参照箇所に「概略推移（参考値）」を明記"
+        },
+        {
+          "severity": "low",
+          "location": "セクション2（軸①）",
+          "issue": "Q4 2025 自動車粗利益率「17.2%」が「17.2%（自動車）」と記載されているが、全体粗利益率「20.1%」との混在が読者を混乱させる可能性",
+          "fix": "「全体粗利益率20.1%、自動車部門粗利益率17.2%」と明確に区別"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 82,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "セクション5（FSD/ロボタクシー）",
+          "issue": "「決算コールでの Cybercab 量産確認と、ロボタクシー展開の具体的な都市名・台数が示されるかが重要です」— 将来の株価へのカタリストを示唆するニュアンス",
+          "fix": "「市場参加者の多くは、決算コールでの Cybercab 量産確認とロボタクシー展開の具体的な都市名・台数を重要な確認ポイントとして見ています」に変更"
+        },
+        {
+          "severity": "high",
+          "location": "セクション5（FSD/ロボタクシー末尾）",
+          "issue": "「Q1 2026 の決算コールで Musk がロボタクシーの具体的な都市名・台数・展開タイムラインを示せるかが、株価にとって最大のカタリストになる可能性があります」— 株価カタリストの断定的示唆",
+          "fix": "「市場の一部では、…が示されれば株価の重要なカタリストになるとの見方があります」と第三者視点に修正"
+        },
+        {
+          "severity": "medium",
+          "location": "セクション7（アナリスト評価末尾）",
+          "issue": "「本記事はいずれかの立場を推奨するものではありません」は適切。免責事項も末尾に配置されており問題なし",
+          "fix": "修正不要"
+        },
+        {
+          "severity": "low",
+          "location": "全体",
+          "issue": "免責事項は末尾に適切に配置されている",
+          "fix": "修正不要"
+        }
+      ]
+    },
+    "structure": {
+      "score": 80,
+      "issues": [
+        {
+          "severity": "critical",
+          "location": "セクション6（バリュエーション）",
+          "issue": "マークダウン表が残存。article-quality-standards.md のルール1「全マークダウン表を画像化」に違反",
+          "fix": "「バリュエーションの2層構造」のマークダウン表を /generate-table-image で PNG 化し、images/table_valuation.png として参照"
+        },
+        {
+          "severity": "medium",
+          "location": "セクション4（配送実績）",
+          "issue": "「事実①②③」の形式で列挙しているが、小見出しレベル（###）がないため視覚的にわかりにくい",
+          "fix": "「**事実①」の太字を「### 事実①」の小見出しに格上げ"
+        },
+        {
+          "severity": "medium",
+          "location": "セクション間ブリッジ",
+          "issue": "セクション4→5の繋ぎが唐突。「配送実績」の後に「FSD/ロボタクシー」に飛ぶ理由の説明がない",
+          "fix": "セクション4末尾か5冒頭に「在庫問題が示す課題の一方、Tesla が株価を支えている理由は別にあります——それが FSD とロボタクシーというオプション価値です」のようなブリッジ文を追加"
+        },
+        {
+          "severity": "low",
+          "location": "セクション9（まとめ）",
+          "issue": "「まとめ」の5ポイントは適切だが、Bull/Bear どちらの場合に何が確認できたとなるかの判断基準が不足",
+          "fix": "各ポイントに「強気サイン: ○○ / 弱気サイン: ○○」を短く付記"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "score": 88,
+      "issues": [
+        {
+          "severity": "medium",
+          "location": "セクション6",
+          "issue": "PER計算：FY2025 EPS $1.08 で PER 337倍を算出しているが、正確には $364.20 ÷ $1.08 = 337.2倍。丸め誤差なし。ただし、FY2025 は通年EPS なので フォワードPER（FY2026 EPS ベース）との比較が自然",
+          "fix": "「フォワードPER（FY2026 EPS $1.80 ベース）は $364 ÷ $1.80 ≈ 202倍」を補記し、より実務的な指標として提示"
+        },
+        {
+          "severity": "low",
+          "location": "セクション1",
+          "issue": "「時価総額 約 $1.17兆」はテーブル画像中の記載。発行済株式数の根拠が本文に明記されていない",
+          "fix": "「FY2025 10-K の純利益/希薄化後EPS から換算した約31.4億株 × $364 = 約 $1.14兆（概算）」として注記"
+        },
+        {
+          "severity": "low",
+          "location": "セクション4（配送実績）",
+          "issue": "「50,000台超」と書いているが正確には50,363台。精度の一貫性のため",
+          "fix": "「約50,363台」または「50,000台超（正確には50,363台）」に統一"
+        }
+      ],
+      "calculation_checks": [
+        {"calculation": "在庫ビルドアップ: 408,386 - 358,023", "result": "50,363台", "status": "correct"},
+        {"calculation": "配送ミス率: (358,023 - 365,645) / 365,645", "result": "-2.08%", "status": "correct（記事は-2.1%と丸め）"},
+        {"calculation": "YoY売上回復: (22.82 - 19.34) / 19.34", "result": "18.0%", "status": "correct"},
+        {"calculation": "52週高値からの下落: (489.88 - 364.20) / 489.88", "result": "25.7%（記事は約26%）", "status": "correct"},
+        {"calculation": "52週安値からの上昇: (364.20 - 142.05) / 142.05", "result": "156.4%（記事は+156%）", "status": "correct"},
+        {"calculation": "PER（TTM EPS $1.08）: 364.20 / 1.08", "result": "337.2倍（記事は337倍）", "status": "correct"}
+      ]
+    },
+    "readability": {
+      "score": 78,
+      "issues": [
+        {
+          "severity": "high",
+          "location": "セクション2（6軸）",
+          "issue": "軸①〜⑥の各項目が300〜400字の長文ブロックで連続。スマホで読む際に圧迫感がある",
+          "fix": "各軸の冒頭に1〜2行の要約ボックス（**TL;DR: ○○**）を追加し、詳細は本文に展開"
+        },
+        {
+          "severity": "medium",
+          "location": "セクション8（Bull/Bear）",
+          "issue": "Bull Case・Bear Case の各項目が太字タイトル+説明文の形式で適切。ただし Bear Case の最後「JPMorganの$145」は Bull Case の反論的な性格が強く、別フレームで提示しても良い",
+          "fix": "現状維持でも可。ただし Bear Case ①〜④でマクロ・需要面をカバーし、⑤でバリュエーションを分けたほうが論点が整理される"
+        },
+        {
+          "severity": "low",
+          "location": "全体",
+          "issue": "「ですます調」がほぼ一貫。専門用語（ASP・FSD・AMC）は初出時に説明あり。全体的に読みやすい",
+          "fix": "修正不要"
+        }
+      ]
+    },
+    "writer_rules": {
+      "score": 82,
+      "issues": [
+        {
+          "severity": "critical",
+          "location": "セクション6",
+          "issue": "マークダウン表が残存（article-quality-standards.md ルール1違反）",
+          "fix": "PNG 画像に変換"
+        },
+        {
+          "severity": "medium",
+          "location": "全体",
+          "issue": "文字数: 約3,900字（目標4,000字に対してやや不足）",
+          "fix": "セクション9のまとめを各ポイントの強気/弱気サイン付きで拡充し、4,000〜4,200字に調整"
+        },
+        {
+          "severity": "low",
+          "location": "全体",
+          "issue": "ソースURLリンクは主要数値に適切に埋め込まれている。免責事項も適切に配置",
+          "fix": "修正不要"
+        }
+      ]
+    }
+  },
+  "overall_score": 83,
+  "priority_fixes": [
+    {
+      "priority": "CRITICAL",
+      "description": "セクション6の「バリュエーションの2層構造」マークダウン表を table_valuation.png に変換（article-quality-standards.md 違反）"
+    },
+    {
+      "priority": "HIGH",
+      "description": "セクション5末尾「株価にとって最大のカタリストになる可能性」→ 第三者視点（「市場の一部では…との見方があります」）に修正（コンプライアンス）"
+    },
+    {
+      "priority": "HIGH",
+      "description": "セクション5「決算コールで…が重要です」→「市場参加者の多くは…を重要な確認ポイントとして見ています」に修正（コンプライアンス）"
+    },
+    {
+      "priority": "HIGH",
+      "description": "セクション6「コア自動車バリューからすれば過大評価」→「JPMorganなど一部アナリストは…と指摘」に修正（出典明示・断定回避）"
+    },
+    {
+      "priority": "MEDIUM",
+      "description": "セクション6にフォワードPER補記（FY2026 EPS $1.80 JPMorgan推定ベース: $364÷$1.80≈202倍）"
+    },
+    {
+      "priority": "MEDIUM",
+      "description": "セクション4→5のブリッジ文追加（「在庫問題の一方、株価を支えるオプション価値がある」）"
+    },
+    {
+      "priority": "MEDIUM",
+      "description": "セクション9まとめを強気/弱気サイン付きで拡充（現在3,900字→4,000字調整）"
+    },
+    {
+      "priority": "LOW",
+      "description": "セクション5チャート参照箇所に「概略推移（参考値）」を本文中に明記"
+    }
+  ]
+}

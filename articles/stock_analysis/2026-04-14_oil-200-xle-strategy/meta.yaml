@@ -5,7 +5,7 @@ category: stock_analysis
 type: data_analysis
 status: published
 created_at: '2026-04-14'
-updated_at: '2026-04-14T09:40:07.285250+00:00'
+updated_at: '2026-04-15T00:27:52.818487+00:00'
 tags:
 - oil
 - energy
@@ -35,7 +35,7 @@ workflow:
   draft: done
   critique: done
   revision: done
-  publish: pending
+  publish: done
   publishing:
     published: done
     final_review: done
@@ -52,5 +52,5 @@ legacy:
   old_path: null
   old_article_id: null
   migrated_at: null
-published_at: '2026-04-14T09:40:07.285250+00:00'
-draft_url: https://editor.note.com/notes/n3f93dbbc0a7f/edit/
+published_at: '2026-04-15T00:27:52.818487+00:00'
+draft_url: https://editor.note.com/notes/n29453b0aab31/edit/

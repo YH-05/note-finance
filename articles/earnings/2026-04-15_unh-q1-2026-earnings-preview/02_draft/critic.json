@@ -1,0 +1,334 @@
+{
+  "article_id": "2026-04-15_unh-q1-2026-earnings-preview",
+  "category": "earnings",
+  "mode": "full",
+  "generated_at": "2026-04-15",
+  "critics": {
+    "fact": {
+      "critic_type": "fact",
+      "score": 58,
+      "status": "fail",
+      "verified_count": 32,
+      "issues": [
+        {
+          "issue_id": "FA001",
+          "severity": "critical",
+          "location": "セクション3・Q1 2025実績",
+          "original": "売上収益109.6億ドル",
+          "fix": "売上収益1,096億ドル（$109.6B）",
+          "reason": "$109.6B は Billion（十億ドル）単位。日本語では1,096億ドルが正確。109.6億ドルは約$1.096Bの意味になり100倍ずれる"
+        },
+        {
+          "issue_id": "FA002",
+          "severity": "critical",
+          "location": "セクション3・Q4 2025実績",
+          "original": "プレミアム収益88.8億ドルがコンセンサス（89億ドル）を若干下回り",
+          "fix": "プレミアム収益888億ドル（$88.8B）がコンセンサス（890億ドル）を若干下回り",
+          "reason": "同上。$88.8Bは888億ドルであり88.8億ドルではない"
+        },
+        {
+          "issue_id": "FA003",
+          "severity": "high",
+          "location": "セクション3・Q3 2025実績",
+          "original": "調整後 EPS 2.92ドル（予想2.74ドルをビート）",
+          "fix": "調整後 EPS 2.92ドル（予想2.81ドルをビート）",
+          "reason": "Q3 2025のアナリスト予想EPSコンセンサスは$2.81（$2.74ではない）"
+        },
+        {
+          "issue_id": "FA004",
+          "severity": "high",
+          "location": "セクション4・株価動向",
+          "original": "2026年4月8日のCMS（米医療・福祉センター）発表",
+          "fix": "CMSは2026年4月6日（月）に2027年MA報酬率+2.48%を最終決定し、UNH株は4月8日（水）に9〜10%急騰した",
+          "reason": "CMS最終発表日は4月6日、株価急騰は4月8日（営業日2日ずれ）"
+        },
+        {
+          "issue_id": "FA005",
+          "severity": "high",
+          "location": "セクション1・銘柄概要",
+          "original": "創業期から会社を率いた Stephen Hemsley 氏が 2025年5月に CEO に復帰",
+          "fix": "2006〜2017年に CEO を務めた Stephen Hemsley 氏が 2025年5月に復帰",
+          "reason": "Hemsley氏は創業CEOではなく2006〜2017年のCEO。創業者との混同を避けるべき"
+        },
+        {
+          "issue_id": "FA006",
+          "severity": "medium",
+          "location": "セクション4・株価パフォーマンス",
+          "original": "過去1年リターンは約−45%",
+          "fix": "YTD（年初来）リターンは約−45%",
+          "reason": "研究ノートのYTD変化率-44.6%をデータソースとしているが、記事では「過去1年」と誤表記"
+        }
+      ]
+    },
+    "compliance": {
+      "critic_type": "compliance",
+      "score": 68,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "high",
+          "category": "disclaimer",
+          "location": "末尾・免責事項",
+          "issue": "「本記事の内容により生じたいかなる損失についても責任を負いかねます」という損失責任免除文言が欠落している",
+          "suggestion": "免責事項末尾に「本記事の内容により生じたいかなる損失についても責任を負いかねます。」を追記"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "medium",
+          "category": "source",
+          "location": "セクション4・アナリスト評価",
+          "issue": "Strong Buy（Buy 17件、Hold 2件、Sell 1件）・平均目標株価331.68ドルにソースURLなし",
+          "suggestion": "TipRanksの対象URLをリンクとして明示"
+        },
+        {
+          "issue_id": "CP003",
+          "severity": "medium",
+          "category": "source",
+          "location": "セクション4・アナリスト評価",
+          "issue": "FY2026 EPS 17.59ドル・FY2027 19.95ドルのソースURL未明示",
+          "suggestion": "Yahoo FinanceまたはZacksへのリンクを付与"
+        },
+        {
+          "issue_id": "CP004",
+          "severity": "low",
+          "category": "expression",
+          "location": "参考データソース末尾",
+          "issue": "データ取得時点が明記されていない",
+          "suggestion": "「※上記データは2026年4月15日時点の情報です。」を追記"
+        }
+      ],
+      "required_disclaimers": {
+        "disclaimer": {
+          "present": true,
+          "location": "末尾",
+          "note": "免責事項は存在するが、損失責任免除文言が欠落"
+        }
+      }
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 81,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "medium",
+          "location": "セクション2・今回の決算ポイント",
+          "issue": "3サブセクションが全体の40%超を占めており、バランスが悪い",
+          "suggestion": "字数削減の際にサブセクションを圧縮・統合"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "low",
+          "location": "セクション3・過去の決算実績",
+          "issue": "Q1 2025/Q3 2025/Q4 2025が段落形式で見出しなし",
+          "suggestion": "### Q1 2025 / ### Q3 2025 / ### Q4 2025 のサブ見出しを追加"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 72,
+      "status": "warn",
+      "issues": [
+        {
+          "issue_id": "DA001",
+          "severity": "critical",
+          "location": "セクション3・Q1 2025実績",
+          "article_value": "109.6億ドル",
+          "correct_value": "1,096億ドル（$109.6B）",
+          "deviation": "単位誤り（1/10スケール）"
+        },
+        {
+          "issue_id": "DA002",
+          "severity": "critical",
+          "location": "セクション3・Q4 2025実績",
+          "article_value": "88.8億ドル / コンセンサス89億ドル",
+          "correct_value": "888億ドル（$88.8B）/ コンセンサス890億ドル（$89B）",
+          "deviation": "単位誤り（1/10スケール）"
+        },
+        {
+          "issue_id": "DA003",
+          "severity": "medium",
+          "location": "セクション1・銘柄概要",
+          "article_value": "約47%下落",
+          "correct_value": "46.7%下落（(589.73-314.19)/589.73×100）",
+          "deviation": "0.3ポイント超過（四捨五入として許容範囲）"
+        },
+        {
+          "issue_id": "DA004",
+          "severity": "medium",
+          "location": "セクション4・株価パフォーマンス",
+          "article_value": "過去1年リターン約-45%",
+          "correct_value": "YTD変化率-44.6%（1年リターンではなく年初来）",
+          "deviation": "指標の性質の誤表記"
+        },
+        {
+          "issue_id": "DA005",
+          "severity": "low",
+          "location": "セクション2・MCR説明",
+          "article_value": "Medical Cost Ratio",
+          "correct_value": "Medical Care Ratio（UNH公式用語）",
+          "deviation": "用語の軽微な不一致（定義は正確）"
+        }
+      ],
+      "calculation_checks": [
+        {
+          "calculation": "平均目標株価の現値比上昇率",
+          "formula": "(331.68 - 314.19) / 314.19 × 100",
+          "result": "5.57%",
+          "article_value": "5.6%",
+          "match": true
+        },
+        {
+          "calculation": "時価総額（$314.19×907.7M株）",
+          "formula": "$314.19 × 907.7M",
+          "result": "$285.3B（約2,853億ドル）",
+          "article_value": "約2,850億ドル",
+          "match": true
+        }
+      ]
+    },
+    "readability": {
+      "critic_type": "readability",
+      "score": 77,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "RD001",
+          "severity": "medium",
+          "location": "セクション1・2",
+          "issue": "「ビート」「TTM」「Strong Buy」を初出で説明なしに使用",
+          "suggestion": "初出時に括弧で補足: 「ビート（予想超過）」「TTM（直近12ヶ月実績ベース）」「Strong Buy（強い買い推奨）」"
+        },
+        {
+          "issue_id": "RD002",
+          "severity": "low",
+          "location": "セクション2・MCR説明",
+          "issue": "MCRの目標水準（正常値）に言及がなく、数字の良し悪しが読者に伝わりにくい",
+          "suggestion": "「目標水準は80〜83%程度とされており」などの文脈を追加"
+        }
+      ]
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 50,
+      "status": "fail",
+      "word_count": {
+        "actual": 7125,
+        "target_min": 3200,
+        "target_max": 5500,
+        "status": "over"
+      },
+      "frontmatter_issues": [
+        {
+          "issue_id": "WR001",
+          "severity": "high",
+          "missing_field": "as_of_date",
+          "fix": "as_of_date: \"2026-04-15\" をフロントマターに追加"
+        },
+        {
+          "issue_id": "WR002",
+          "severity": "high",
+          "missing_field": "announcement_time",
+          "fix": "announcement_time: \"BMO\" をフロントマターに追加（before market open）"
+        }
+      ],
+      "other_issues": [
+        {
+          "issue_id": "WR003",
+          "severity": "high",
+          "description": "文字数が目標上限5,500字を約30%超過（7,125字）。セクション2・5を中心に圧縮が必要"
+        }
+      ]
+    }
+  },
+  "overall_score": 68,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "critical",
+      "issue_ids": ["FA001", "DA001"],
+      "description": "「109.6億ドル」→「1,096億ドル（$109.6B）」（Q1 2025売上収益の単位エラー）"
+    },
+    {
+      "priority": 2,
+      "severity": "critical",
+      "issue_ids": ["FA002", "DA002"],
+      "description": "「88.8億ドル」→「888億ドル（$88.8B）」、「89億ドル」→「890億ドル（$89B）」（Q4 2025プレミアム収益の単位エラー）"
+    },
+    {
+      "priority": 3,
+      "severity": "high",
+      "issue_ids": ["WR003"],
+      "description": "文字数を7,125字から5,500字以内に削減（主にセクション2・5を圧縮）"
+    },
+    {
+      "priority": 4,
+      "severity": "high",
+      "issue_ids": ["WR001"],
+      "description": "フロントマターに as_of_date: \"2026-04-15\" を追加"
+    },
+    {
+      "priority": 5,
+      "severity": "high",
+      "issue_ids": ["WR002"],
+      "description": "フロントマターに announcement_time: \"BMO\" を追加"
+    },
+    {
+      "priority": 6,
+      "severity": "high",
+      "issue_ids": ["FA004"],
+      "description": "CMS発表日の修正：「4月8日のCMS発表」→「CMSが4月6日に最終決定、株価は4月8日に急騰」"
+    },
+    {
+      "priority": 7,
+      "severity": "high",
+      "issue_ids": ["FA003"],
+      "description": "Q3 2025 EPS予想の修正：$2.74→$2.81"
+    },
+    {
+      "priority": 8,
+      "severity": "high",
+      "issue_ids": ["FA005"],
+      "description": "Hemsley氏の経歴修正：「創業期から会社を率いた」→「2006〜2017年にCEOを務めた」"
+    },
+    {
+      "priority": 9,
+      "severity": "medium",
+      "issue_ids": ["CP001"],
+      "description": "免責事項末尾に「本記事の内容により生じたいかなる損失についても責任を負いかねます。」を追記"
+    },
+    {
+      "priority": 10,
+      "severity": "medium",
+      "issue_ids": ["CP002", "CP003"],
+      "description": "アナリスト評価データにTipRanksソースURLリンクを追加（Strong Buy・目標株価・EPS予想）"
+    },
+    {
+      "priority": 11,
+      "severity": "medium",
+      "issue_ids": ["ST002"],
+      "description": "セクション3に四半期別サブ見出し（### Q1 2025 / ### Q3 2025 / ### Q4 2025）を追加"
+    },
+    {
+      "priority": 12,
+      "severity": "medium",
+      "issue_ids": ["DA004", "FA006"],
+      "description": "「過去1年リターン」→「YTD（年初来）リターン」に修正"
+    },
+    {
+      "priority": 13,
+      "severity": "low",
+      "issue_ids": ["RD001"],
+      "description": "投資用語の初出時補足：「ビート（予想超過）」「TTM（直近12ヶ月）」「Strong Buy（強い買い推奨）」"
+    },
+    {
+      "priority": 14,
+      "severity": "low",
+      "issue_ids": ["DA005"],
+      "description": "「Medical Cost Ratio」→「Medical Care Ratio」（UNH公式用語に修正）"
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "symbol": "NFLX",
+  "company": "Netflix, Inc.",
+  "as_of_date": "2026-04-15",
+  "earnings_date": "2026-04-16",
+  "earnings_time": "After Market Close (EC: 4:45 PM EDT)",
+  "fiscal_quarter": "Q1 2026",
+  "fiscal_date_ending": "2026-03-31",
+
+  "current_price": 106.28,
+  "market_cap_approx": "約470億ドル",
+
+  "returns": {
+    "1M": 11.6,
+    "3M": 17.7,
+    "6M": -12.6,
+    "1Y": 14.1,
+    "3Y": 213.9,
+    "5Y": 96.8
+  },
+
+  "q1_2026_estimates": {
+    "revenue_consensus": 12.157,
+    "revenue_unit": "billion USD",
+    "revenue_yoy_growth_pct": 15.3,
+    "revenue_year_ago": 10.54,
+    "eps_consensus": 0.76,
+    "eps_year_ago": 0.66,
+    "eps_yoy_growth_pct": 15.2,
+    "operating_margin_consensus": 32.1,
+    "netflix_own_revenue_guidance": 12.157,
+    "netflix_own_eps_guidance": 0.76,
+    "wedbush_estimate_revenue": 12.22,
+    "ubs_estimate": "guidance beat expected (FX-neutral +14.4%)"
+  },
+
+  "q4_2025_actual": {
+    "revenue": 12.05,
+    "revenue_unit": "billion USD",
+    "revenue_yoy_growth_pct": 17.6,
+    "revenue_vs_estimate_pct": 0.7,
+    "operating_income_growth_pct": 30.09,
+    "free_cash_flow": 2.66,
+    "eps_reported": 0.56,
+    "eps_estimated": 0.55,
+    "surprise_pct": 1.82,
+    "day_return_pct": -3.0,
+    "week_return_pct": -4.3,
+    "paid_memberships": "325M+"
+  },
+
+  "q1_2025_actual": {
+    "revenue": 10.54,
+    "revenue_unit": "billion USD",
+    "revenue_yoy_growth_pct": 12.5,
+    "eps_reported": 0.66,
+    "eps_estimated": 0.57,
+    "surprise_pct": 15.79,
+    "day_return_pct": 2.7,
+    "week_return_pct": 19.6
+  },
+
+  "fy2025_actual": {
+    "revenue": 45.18,
+    "revenue_unit": "billion USD",
+    "revenue_growth_pct": 16.0,
+    "operating_margin": 29.5,
+    "eps": 2.53
+  },
+
+  "fy2026_guidance": {
+    "revenue_low": 50.7,
+    "revenue_high": 51.7,
+    "revenue_unit": "billion USD",
+    "revenue_growth_pct_low": 12,
+    "revenue_growth_pct_high": 14,
+    "operating_margin_target": 31.5,
+    "ad_revenue_target": 3.0,
+    "ad_revenue_target_note": "2025年比ほぼ倍増"
+  },
+
+  "fy2026_consensus": {
+    "eps_low": 2.88,
+    "eps_high": 4.10,
+    "eps_mean": 3.15,
+    "eps_yoy_growth_pct": 24.5,
+    "revenue_consensus": 51.16
+  },
+
+  "options_market": {
+    "expected_move_pct": 6.3,
+    "expiration": "2026-04-24"
+  },
+
+  "analyst_ratings": {
+    "mean_target_price": 115.65,
+    "upside_from_current_pct": 12.0,
+    "hold_count": 12,
+    "bullish_comments": [
+      "Morgan Stanley: Attractive Entry Point (raised target)",
+      "Goldman Sachs: Positive despite Warner Bros. loss",
+      "UBS: Expects slight guidance beat",
+      "Wedbush: Revenue $12.22B (above consensus)"
+    ]
+  },
+
+  "historical_reaction_summary": {
+    "total_quarters": 8,
+    "beats": 7,
+    "misses": 1,
+    "avg_day_return_pct": -0.7,
+    "median_day_return_pct": -2.6,
+    "up_probability_pct": 37.5,
+    "divergence_count": 4,
+    "note": "ビートしても株価が下がる乖離パターンが多い(4/8四半期)"
+  },
+
+  "historical_earnings_reactions": [
+    {
+      "fiscal_quarter": "2025-Q4",
+      "reported_date": "2026-01-20",
+      "eps_reported": 0.56,
+      "eps_estimated": 0.55,
+      "surprise_pct": 1.82,
+      "surprise_direction": "beat",
+      "day_return_pct": -3.0,
+      "week_return_pct": -4.3,
+      "divergence": true,
+      "reason": "2026年ガイダンス（31.5%営業利益率）が市場期待を下回り・Warner Bros.買収失敗が嫌気される"
+    },
+    {
+      "fiscal_quarter": "2025-Q3",
+      "reported_date": "2025-10-21",
+      "eps_reported": 0.59,
+      "eps_estimated": 0.70,
+      "surprise_pct": -15.71,
+      "surprise_direction": "miss",
+      "day_return_pct": -9.9,
+      "week_return_pct": -9.3,
+      "divergence": false,
+      "reason": "ブラジル税務問題（$619M）によるEPSミス。調整後では良好な業績"
+    },
+    {
+      "fiscal_quarter": "2025-Q2",
+      "reported_date": "2025-07-17",
+      "eps_reported": 0.72,
+      "eps_estimated": 0.71,
+      "surprise_pct": 1.41,
+      "surprise_direction": "beat",
+      "day_return_pct": -3.3,
+      "week_return_pct": -5.6,
+      "divergence": true,
+      "reason": "下半期コンテンツ費用増加・マージンヘッドウィンド懸念"
+    },
+    {
+      "fiscal_quarter": "2025-Q1",
+      "reported_date": "2025-04-17",
+      "eps_reported": 0.66,
+      "eps_estimated": 0.57,
+      "surprise_pct": 15.79,
+      "surprise_direction": "beat",
+      "day_return_pct": 2.7,
+      "week_return_pct": 19.6,
+      "divergence": false,
+      "reason": "大幅ビート。パスワード共有対策効果とAd tiersの好調が評価"
+    },
+    {
+      "fiscal_quarter": "2024-Q4",
+      "reported_date": "2025-01-21",
+      "eps_reported": 0.43,
+      "eps_estimated": 0.42,
+      "surprise_pct": 2.38,
+      "surprise_direction": "beat",
+      "day_return_pct": 11.2,
+      "week_return_pct": 15.7,
+      "divergence": false,
+      "reason": "会員数4100万人純増（2024年記録）・2025年ガイダンス好調"
+    },
+    {
+      "fiscal_quarter": "2024-Q3",
+      "reported_date": "2024-10-17",
+      "eps_reported": 0.54,
+      "eps_estimated": 0.51,
+      "surprise_pct": 5.88,
+      "surprise_direction": "beat",
+      "day_return_pct": 8.8,
+      "week_return_pct": 3.3,
+      "divergence": false,
+      "reason": "強い会員数純増・コンテンツ視聴シェア拡大"
+    },
+    {
+      "fiscal_quarter": "2024-Q2",
+      "reported_date": "2024-07-18",
+      "eps_reported": 0.49,
+      "eps_estimated": 0.48,
+      "surprise_pct": 2.08,
+      "surprise_direction": "beat",
+      "day_return_pct": -2.2,
+      "week_return_pct": -2.9,
+      "divergence": true,
+      "reason": "ビートも軽微、ガイダンス不安・会員報告停止発表が嫌気"
+    },
+    {
+      "fiscal_quarter": "2024-Q1",
+      "reported_date": "2024-04-18",
+      "eps_reported": 0.52,
+      "eps_estimated": 0.45,
+      "surprise_pct": 15.56,
+      "surprise_direction": "beat",
+      "day_return_pct": -9.6,
+      "week_return_pct": -10.2,
+      "divergence": true,
+      "reason": "大幅ビートも翌四半期ガイダンスが軟調・会員数開示停止への失望"
+    }
+  ],
+
+  "key_metrics_to_watch": [
+    "Q1 2026 売上高（コンセンサス$12.157B、自社ガイダンス$12.157B）",
+    "Q1 2026 営業利益率（コンセンサス32.1%、FY2026ガイダンス31.5%）",
+    "広告売上高の開示・進捗（2026年$30億目標の初回具体的進捗）",
+    "Q2 2026 ガイダンス（株価のカタリストとなる最重要指標）",
+    "コンテンツ費用償却の見通し（H1が高い）"
+  ],
+
+  "key_catalysts": [
+    "広告収益の倍増トレンド（2025年$15億→2026年$30億目標）",
+    "価格改定の効果（チャーンリスク最小で$17億解放可能）",
+    "Q1コンテンツ実績（Adolescence: 1.24億視聴、Back in Action: 1.46億等）",
+    "ライブコンテンツ（WWE年52週、ボクシング: Crawford vs Canelo 4100万視聴）",
+    "パスワード共有対策の継続効果",
+    "325M+会員という規模の経済"
+  ],
+
+  "key_risks": [
+    "FX逆風（ガイダンスは1/1/2026レートで計算、ドル高再燃リスク）",
+    "H1コンテンツ費用増加による営業利益率の季節変動",
+    "Warner Bros.買収失敗（資金使途の不透明化）",
+    "マクロ環境悪化・関税不安によるプレミアム消費後退",
+    "YouTubeとの競合激化（TV視聴シェア争奪）",
+    "コンセンサスが既にガイダンスを織り込み済み（アップサイド限定的？）"
+  ],
+
+  "sources": [
+    {
+      "title": "Netflix Before Q1 Earnings: Should Investors Buy the Stock Now?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-q1-earnings-investors-buy-153800087.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Netflix Q1 Earnings Preview: What Investors Should Expect on April 16",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-q1-earnings-preview-investors-135858338.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Netflix Q1 2026 Preview: The 3 Metrics That Could Move the Stock",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-q1-2026-preview-3-164000773.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Netflix Price Hikes Could Unlock $1.7 Billion With Minimal Churn Risk",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-price-hikes-could-unlock-141113467.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Netflix Is Quietly Building a $3 Billion Engine",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-quietly-building-3-billion-180138738.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Netflix ad-supported tier gains traction",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-ad-supported-tier-gains-121600172.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Netflix Lost the Battle for Warner Bros, but Goldman Sachs Says...",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-lost-battle-warner-bros-130002292.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Is Netflix Stock a Buy Ahead of Its Q1 Earnings Report on April 16",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-stock-buy-ahead-q1-204522048.html",
+      "publisher": "Yahoo Finance"
+    },
+    {
+      "title": "Netflix Q4 2025 8-K EX-99.1 (SEC EDGAR)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/ex991_q425.htm",
+      "publisher": "SEC EDGAR"
+    }
+  ],
+
+  "fetched_at": "2026-04-15"
+}
