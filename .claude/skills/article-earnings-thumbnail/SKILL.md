@@ -8,7 +8,9 @@ description: 決算記事（category=earnings）の note.com サムネイルを�
 決算記事用の note.com サムネイル（1280×670 PNG）を自動生成する。
 
 - **企業ロゴ**: Wikidata P154 経由で Wikipedia/Commons から取得しローカルキャッシュ（`assets/company_logos/{ticker}.png`）
-- **テンプレート**: Pencil `.pen` ファイル内の「Thumbnail - 決算」フレーム（nodeId = `CAXCU`）
+- **テンプレート**: Pencil `.pen` 内に2種類のフレームを用意
+  - **「Thumbnail - 決算」**（nodeId = `CAXCU`）→ `type: earnings_preview` 用。バッジ色 `#111827`（ネイビー）
+  - **「Thumbnail - 決算レビュー」**（nodeId = `har1R`）→ `type: earnings_review` 用。バッジ色 `#059669`（グリーン）で視覚的に差別化
 - **出力**: `articles/earnings/{slug}/images/thumbnail.png`
 
 ## いつ使用するか
@@ -71,12 +73,16 @@ date_text = f"発表日 {earnings_date}"  # "発表日 2026-04-22"
 ## Step 2: ロゴ取得
 
 ```bash
-uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml --remove-background
+uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml
 ```
 
 出力: `assets/company_logos/{TICKER}.png`（既にキャッシュ済みの場合は再利用）
 
-`--remove-background` は四隅から検出した単色背景を透過化するオプション（Netflix赤背景対策）。既に透過済みのロゴ（四隅の平均アルファ < 50）はスキップされる安全設計。白背景のサムネイルに合うよう **earnings スキルでは常時オン** にする。
+### ロゴ加工ポリシー
+
+**Wikidata P154 のオリジナルロゴをそのまま貼る**（透過化処理は行わない）。Netflix のような赤背景ワードマークも、ブランド公式表現として尊重する。白背景のサムネイルに赤ブロックが入る構図は許容する。
+
+`--remove-background` オプションは保持するが、earnings スキルのデフォルトでは使用しない。特定記事で透過版を望む場合のみ、手動でオプションを付けて実行する。
 
 スクリプト内部のフォールバック順:
 1. **SEC EDGAR 公式名**（`company_tickers.json`）で Wikipedia 検索 — 曖昧ティッカー対策（例: UNH → UnitedHealth Group）
@@ -87,15 +93,31 @@ uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml 
 
 ## Step 3: Pencil テンプレに上書き
 
-テンプレフレーム `CAXCU` の子ノードに対して以下を `mcp__pencil__batch_design` で一括更新:
+`meta.yaml` の `type` に応じてテンプレフレームを選択:
 
-| nodeId | 役割 | 更新内容 |
-|--------|------|---------|
-| `f8jSq` | Logo Container | `fill = { type: "image", url: "file://<logo_path>", mode: "fit" }` |
-| `ZByjU` | Logo Placeholder (text) | `content = ""`（LOGO文字を消す） |
-| `CFBpG` | Title (ticker big) | `content = "{TICKER}"` |
-| `VbtEH` | Subtitle | `content = "{fiscal_quarter} {label}"` |
-| `mlUJ1` | EarningsDate | `content = "発表日 {YYYY-MM-DD}"` |
+| type | フレーム名 | root nodeId | export_nodes 対象 |
+|------|-----------|------------|------------------|
+| `earnings_preview` | Thumbnail - 決算 | `CAXCU` | `CAXCU` |
+| `earnings_review` | Thumbnail - 決算レビュー | `har1R` | `har1R` |
+
+### 子ノードID対応表
+
+| 役割 | プレビュー (`CAXCU` 配下) | レビュー (`har1R` 配下) | 更新内容 |
+|------|-----|-----|---------|
+| Logo Container | `f8jSq` | `9JHoC` | `fill = { type: "image", url: "file://<logo_path>", mode: "fit" }` |
+| Logo Placeholder | `ZByjU` | `RUMba` | `content = ""`（LOGO文字を消す） |
+| CompanyName (大) | `6g00c` | `psqPo` | `content = "{COMPANY_NAME}"`（例: `Netflix, Inc.`） |
+| Ticker (小) | `CFBpG` | `8Zjbx` | `content = "{TICKER}"` |
+| Subtitle | `VbtEH` | `xUTDJ` | `content = "{fiscal_quarter} {label}"` |
+| EarningsDate | `mlUJ1` | `9z5hB` | `content = "発表日 {YYYY-MM-DD}"` |
+
+### 企業名の解決
+
+`COMPANY_NAME` は以下の優先順で決定する:
+
+1. `meta.yaml` の `tags[]` から ASCII の企業名を抽出（例: `tags: [NFLX, Netflix, ...]` → `Netflix`）
+2. 1 が取れない場合、SEC EDGAR `company_tickers.json` で公式名を解決して `_normalize_sec_name()` 相当で整形（例: `NETFLIX INC` → `Netflix, Inc.`）
+3. どちらも失敗した場合は空文字列を設定（ロゴ + ティッカーのみ表示）
 
 ### 具体的な呼び出し例
 
@@ -143,14 +165,16 @@ mv /tmp/earnings-thumb/CAXCU.png {article_dir}/images/thumbnail.png
 
 ## Step 5: テンプレをプレースホルダー状態に戻す
 
-次回実行時のクリーンな初期状態を維持するため、使用後にテンプレをリセット:
+次回実行時のクリーンな初期状態を維持するため、使用後にテンプレをリセット。
 
+**プレビュー版 (`CAXCU`) リセット**:
 ```python
 mcp__pencil__batch_design(
     filePath="/Users/yukihata/Desktop/new.pen",
     operations='''
 U("f8jSq",{"fill":"#FFFFFFFF"})
 U("ZByjU",{"content":"LOGO"})
+U("6g00c",{"content":"[Company Name]"})
 U("CFBpG",{"content":"[Ticker]"})
 U("VbtEH",{"content":"Q1 YYYY 決算プレビュー"})
 U("mlUJ1",{"content":"発表日 YYYY-MM-DD"})
@@ -158,29 +182,61 @@ U("mlUJ1",{"content":"発表日 YYYY-MM-DD"})
 )
 ```
 
+**レビュー版 (`har1R`) リセット**:
+```python
+mcp__pencil__batch_design(
+    filePath="/Users/yukihata/Desktop/new.pen",
+    operations='''
+U("9JHoC",{"fill":"#FFFFFFFF"})
+U("RUMba",{"content":"LOGO"})
+U("psqPo",{"content":"[Company Name]"})
+U("8Zjbx",{"content":"[Ticker]"})
+U("xUTDJ",{"content":"Q1 YYYY 決算レビュー"})
+U("9z5hB",{"content":"発表日 YYYY-MM-DD"})
+'''
+)
+```
+
 ## テンプレート情報
 
-| 項目 | 値 |
-|------|-----|
-| Pencil ファイル | `/Users/yukihata/Desktop/new.pen` |
-| フレームノードID | `CAXCU` |
-| フレーム名 | `Thumbnail - 決算` |
-| サイズ | 1280×670 px |
-| 背景色 | `#FFFFFF`（白） |
-| レイアウト | 左半分ロゴ、右半分テキスト（縦線セパレーター中央） |
+| 項目 | プレビュー版 | レビュー版 |
+|------|-----|-----|
+| Pencil ファイル | `/Users/yukihata/Desktop/new.pen` | `/Users/yukihata/Desktop/new.pen` |
+| フレームノードID | `CAXCU` | `har1R` |
+| フレーム名 | `Thumbnail - 決算` | `Thumbnail - 決算レビュー` |
+| サイズ | 1280×670 px | 1280×670 px |
+| 背景色 | `#FFFFFF`（白） | `#FFFFFF`（白） |
+| バッジ色 | `#111827`（ネイビー） | `#059669`（グリーン） |
+| レイアウト | 左半分ロゴ、右半分テキスト | 左半分ロゴ、右半分テキスト |
 
-### 子ノード構造
+### 子ノード構造（プレビュー版 `CAXCU`）
 
 ```
 CAXCU (frame, 1280×670, white bg)
 ├── f8jSq  (frame, Logo Container, 480×400 at x=80,y=135)
 │   └── ZByjU  (text, "LOGO" placeholder)
 ├── tXa3j  (rect, Separator, 2×400 at x=640,y=135)
-├── CFBpG  (text, Title, 88px Inter Bold, at y=180)
-├── VbtEH  (text, Subtitle, 44px Inter Bold, at y=300)
-├── mlUJ1  (text, EarningsDate, 28px Inter Medium, at y=420)
-└── uGtyD  (frame, Brand Badge "株投資ラボ", bottom-right)
-    └── 59GuP  (text inside badge)
+├── 6g00c  (text, CompanyName, 64px Inter Bold, at y=150)      ← 大見出し
+├── CFBpG  (text, Ticker, 32px Inter Medium, at y=260)          ← 小見出し
+├── VbtEH  (text, Subtitle, 44px Inter Bold, at y=320)
+├── mlUJ1  (text, EarningsDate, 28px Inter Medium, at y=430)
+└── uGtyD  (frame, Brand Badge ネイビー, bottom-right)
+    └── 59GuP  (text "株投資ラボ")
+```
+
+### 子ノード構造（レビュー版 `har1R`）
+
+```
+har1R (frame, 1280×670, white bg)
+├── 9JHoC  (frame, Logo Container, 480×400 at x=80,y=135)
+│   └── RUMba  (text, "LOGO" placeholder)
+├── v6wFe  (rect, Separator, 2×400 at x=640,y=135)
+├── psqPo  (text, CompanyName, 64px Inter Bold, at y=150)      ← 大見出し
+├── 8Zjbx  (text, Ticker, 32px Inter Medium, at y=260)          ← 小見出し
+├── xUTDJ  (text, Subtitle "Q1 YYYY 決算レビュー", 44px, at y=320)
+├── 9z5hB  (text, EarningsDate, 28px Inter Medium, at y=430)
+└── D4lnA  (frame, Brand Badge グリーン, bottom-right)
+    └── zwHOb  (text "株投資ラボ")
 ```
 
 ## エラーハンドリング

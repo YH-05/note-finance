@@ -223,6 +223,50 @@ Task 1: wr-report-validator（レポート検証）
    出力: 02_draft/revised_draft.md
    ```
 
+### Step 4.4: 表・チャート画像化ポストプロセス（全カテゴリ共通・必須）
+
+revised_draft.md を生成した直後に、以下を**必ず実行する**。失敗しても警告のみ表示して Step 4.5 に進む。
+
+1. **マークダウン表の検出**
+
+   revised_draft.md を読み込み、マークダウン表（`| ... |` のヘッダ + `| --- |` のセパレータ行を含むブロック）をすべて列挙する。
+
+2. **画像化対象の判定**
+
+   各表について、以下の閾値で画像化するか判定:
+   - **列数 3以上** または **行数 5以上**（データ行のみカウント）
+   - どちらも満たさない小さな表はマークダウンのまま残す（note.com の可読性維持のため）
+
+3. **表の画像化**
+
+   画像化対象の表について:
+   - 表データを JSON 化して `.tmp/table_{slug}_{n}.json` に保存
+   - `uv run --with playwright python scripts/generate_table_image.py` で PNG 生成
+   - 出力先: `{article_dir}/images/table_{n}.png`
+   - revised_draft.md の該当表を `![表タイトル](images/table_{n}.png)` に置換
+   - 置換前に `.bak` バックアップを作成（`revised_draft.md.bak`）
+
+4. **チャート化すべきデータの検出**
+
+   revised_draft.md 内の時系列データ・比較データが**テキスト記述のまま**残っていないか確認:
+   - 4期以上の数値推移が段落に列挙されている
+   - 3社以上の比較数値が箇条書きになっている
+   - 検出されたら `/generate-chart-image` 相当の JSON を作成 → `scripts/generate_chart_image.py` で PNG 化
+   - 出力先: `{article_dir}/images/chart_{n}.png`
+
+5. **変更内容の報告**
+
+   ```
+   画像ポストプロセス完了:
+   - 画像化した表: {n}枚
+   - 画像化したチャート: {m}枚
+   - バックアップ: revised_draft.md.bak
+
+   マークダウン表のまま残った小さな表: {k}件（閾値未満）
+   ```
+
+**エラーハンドリング**: 検出/画像化/置換のいずれかで失敗しても、警告のみ表示して Step 4.5 に進む。致命的な本文破壊を避けるため `revised_draft.md.bak` を残す。
+
 ### Step 4.5: 決算サムネイル自動生成（earnings カテゴリのみ）
 
 `meta.yaml` の `category` が `earnings` の場合、revised_draft.md 生成後に **article-earnings-thumbnail スキルを自動で呼び出す**。

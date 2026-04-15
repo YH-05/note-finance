@@ -290,7 +290,7 @@ def generate_earnings_chart(
     )
     ax_ret.plot(
         spy_dates, spy_cumulative_return,
-        color="#888888", linewidth=1.4, alpha=0.8, linestyle="--", label="S&P500",
+        color="#888888", linewidth=1.4, alpha=0.8, label="S&P500",
     )
     ax_ret.axhline(y=0, color="#AAAAAA", linewidth=0.8, linestyle="-", alpha=0.5)
     ax_ret.set_ylabel("累積リターン (%)", fontsize=theme.label_size)

@@ -51,11 +51,14 @@ Phase 4: 批評・修正
 │   ├── カテゴリ別批評（並列）
 │   ├── 02_draft/critic.json, critic.md
 │   ├── リバイザー実行
-│   └── 02_draft/revised_draft.md
+│   ├── 02_draft/revised_draft.md
+│   ├── Step 4.4: 表・チャート画像ポストプロセス（全カテゴリ必須）
+│   └── Step 4.5: 決算サムネイル生成（earnings のみ）
 └── [HF6] 最終確認
 
 Phase 5: 投稿（--skip-publish でスキップ可能）
 ├── /article-publish
+│   ├── Step 1.5: 残存マークダウン表 gate（閾値超過で中止）
 │   ├── ドライラン確認
 │   ├── note.com 下書き投稿
 │   └── 03_published/article.md
@@ -304,9 +307,10 @@ Phase 5: 投稿（--skip-publish でスキップ可能）
 
 | ルール | 内容 | 適用フェーズ |
 |--------|------|-------------|
-| 表の画像化 | マークダウン表を `/generate-table-image` でPNG変換 | draft, critique |
+| 表の画像化 | マークダウン表（3列以上 or 5行以上）を `/generate-table-image` でPNG変換 | draft, critique(Step 4.4), publish(Step 1.5) |
 | ソースURL埋め込み | 数値データ・引用に `[テキスト](URL)` リンク | research, draft, critique |
-| チャートの画像化 | データ可視化は `/generate-chart-image` でPNG変換 | draft, critique |
+| チャートの画像化 | データ可視化は `/generate-chart-image` でPNG変換 | draft, critique(Step 4.4) |
+| サムネイル生成 | earnings カテゴリはサムネイル自動生成 | critique(Step 4.5) |
 
 ## エラーハンドリング
 

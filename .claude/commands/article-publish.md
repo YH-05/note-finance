@@ -1,6 +1,6 @@
 ---
 description: 記事をnote.comに下書き投稿します。
-argument-hint: @<article_dir> [--dry-run] [--login-only]
+argument-hint: @<article_dir> [--dry-run] [--login-only] [--force-publish]
 ---
 
 記事をnote.comに下書き投稿します。
@@ -12,6 +12,7 @@ argument-hint: @<article_dir> [--dry-run] [--login-only]
 | @article_dir | ○※ | - | 記事ディレクトリのパス |
 | --dry-run | - | false | Markdownパースのみ（ブラウザ操作なし） |
 | --login-only | - | false | ログインしてセッション保存のみ |
+| --force-publish | - | false | 残存マークダウン表の gate を無視して強制投稿（非推奨） |
 
 ※ `--login-only` 時は不要
 
@@ -118,6 +119,40 @@ Step 4: 後処理
 
    /article-publish --login-only
    ```
+
+### Step 1.5: 残存マークダウン表の検出（投稿前 gate）
+
+revised_draft.md にマークダウン表が残っていないかを検出する。note.com ではマークダウン表が正しくレンダリングされないため、大きな表が残ったままの投稿を防ぐ。
+
+1. **検出ロジック**
+
+   revised_draft.md をスキャンし、`| --- |` セパレータを含むマークダウン表を列挙する。
+
+2. **閾値判定**
+
+   - **列数 3以上** または **行数 5以上** の表が1つでも残っていれば **投稿を中止**
+   - 閾値未満の小さな表のみ残存している場合は警告表示のみで続行
+
+3. **中止時の対応**
+
+   ```
+   ⚠️ 投稿を中止しました
+
+   revised_draft.md に画像化すべきマークダウン表が残っています:
+   - 表1: {col}列 × {row}行（行 {line_number}）
+   - 表2: {col}列 × {row}行（行 {line_number}）
+
+   対処:
+   1. /article-critique @{article_dir} を再実行し Step 4.4（画像ポストプロセス）で画像化
+   2. または /generate-table-image で手動画像化して revised_draft.md を更新
+   3. 画像化が完了したら /article-publish を再実行
+
+   強制投稿する場合は --force-publish を指定してください（非推奨）
+   ```
+
+4. **--force-publish オプション**
+
+   緊急時の抜け道として、`--force-publish` が指定されている場合は警告のみで続行する。通常は使用しない。
 
 ### Step 2: ドライラン
 
