@@ -71,10 +71,12 @@ date_text = f"発表日 {earnings_date}"  # "発表日 2026-04-22"
 ## Step 2: ロゴ取得
 
 ```bash
-uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml
+uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml --remove-background
 ```
 
 出力: `assets/company_logos/{TICKER}.png`（既にキャッシュ済みの場合は再利用）
+
+`--remove-background` は四隅から検出した単色背景を透過化するオプション（Netflix赤背景対策）。既に透過済みのロゴ（四隅の平均アルファ < 50）はスキップされる安全設計。白背景のサムネイルに合うよう **earnings スキルでは常時オン** にする。
 
 スクリプト内部のフォールバック順:
 1. **SEC EDGAR 公式名**（`company_tickers.json`）で Wikipedia 検索 — 曖昧ティッカー対策（例: UNH → UnitedHealth Group）
@@ -97,9 +99,15 @@ uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml
 
 ### 具体的な呼び出し例
 
+> **重要**: Pencil は画像 URL をキャッシュするため、同じ `file://` パスで内容が変わった場合、古い画像がそのまま使われる。ロゴを更新した場合や透過化処理を追加した場合は、**実行ごとに一時コピーを作ってユニークなパスを渡す**こと（例: `/tmp/{TICKER}_{timestamp}.png` へコピー）。
+
 ```python
-# 絶対パスを file:// URL に変換
-logo_url = f"file://{Path('assets/company_logos/NFLX.png').resolve()}"
+# キャッシュ回避のため /tmp にユニーク名でコピー
+import shutil, time
+src = Path("assets/company_logos/NFLX.png").resolve()
+tmp_logo = Path(f"/tmp/NFLX_{int(time.time())}.png")
+shutil.copy(src, tmp_logo)
+logo_url = f"file://{tmp_logo}"
 
 mcp__pencil__batch_design(
     filePath="/Users/yukihata/Desktop/new.pen",
