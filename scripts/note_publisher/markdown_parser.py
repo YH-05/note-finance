@@ -69,6 +69,12 @@ _STANDARD_DISCLAIMER = (
     "投資に関する最終決定は、ご自身の判断と責任において行ってください。"
 )
 
+# AIDEV-NOTE: Closing greeting text prefix — used as a boundary marker to protect
+# the greeting paragraph from being swept up by references-section removal.
+# Full text lives in snippets/closing-greeting.md and the rule is documented in
+# .claude/skills/finance-article-writer/references/common-rules.md § 4.
+_CLOSING_GREETING_PREFIX = "いつも読んでいただきありがとうございます"
+
 
 def parse_draft(draft_path: Path) -> ArticleDraft:
     """Parse a revised_draft.md file into an ArticleDraft.
@@ -223,6 +229,9 @@ def _remove_references_section(body: str) -> str:
     for i in range(start_idx + 1, len(lines)):
         stripped = lines[i].strip()
         if stripped.startswith("免責事項"):
+            end_idx = i
+            break
+        if stripped.startswith(_CLOSING_GREETING_PREFIX):
             end_idx = i
             break
         if (

@@ -41,7 +41,7 @@ critic.json の compliance セクションを生成してください。
         {
             "issue_id": "CP001",
             "severity": "critical | high | medium | low",
-            "category": "investment_advice | disclaimer | expression | fairness | source",
+            "category": "investment_advice | disclaimer | greeting | expression | prohibited_symbol | fairness | source",
             "location": {
                 "section": "セクション名",
                 "line": "該当行のテキスト"
@@ -52,17 +52,30 @@ critic.json の compliance セクションを生成してください。
         }
     ],
     "required_disclaimers": {
+        "closing_greeting": {
+            "present": true | false,
+            "location": "末尾（免責事項の直前） | なし",
+            "note": "snippets/closing-greeting.md の全文が免責事項の直前に装飾なし段落で存在するか"
+        },
         "disclaimer": {
             "present": true | false,
             "location": "末尾 | なし",
             "note": "snippets/disclaimer.md の統合免責事項が末尾に1箇所存在するか"
-        }
+        },
+        "order_correct": true | false
     },
     "prohibited_expressions_found": [
         {
             "expression": "見つかった禁止表現",
             "location": "位置",
             "suggestion": "代替表現"
+        }
+    ],
+    "prohibited_symbols_found": [
+        {
+            "symbol": "ーー | —— | — | --",
+            "location": "位置",
+            "suggestion": "代替表現（読点・かっこ・全角コロン等）"
         }
     ]
 }
@@ -73,12 +86,25 @@ critic.json の compliance セクションを生成してください。
 
 1. **first_draft.md の読み込み**
 2. **禁止表現のスキャン**
-3. **免責事項の確認**
-4. **投資助言的表現のチェック**
-5. **公正性の評価**
-6. **問題の記録**
-7. **ステータス・スコア判定**
-8. **critic.json (compliance) 出力**
+3. **禁止記号のスキャン**（`ーー` `——` `—` `--`）
+4. **挨拶文の確認**（`snippets/closing-greeting.md` の全文が免責事項の直前に挿入されているか）
+5. **免責事項の確認**
+6. **順序の確認**（挨拶文 → 免責事項の順になっているか）
+7. **投資助言的表現のチェック**
+8. **公正性の評価**
+9. **問題の記録**
+10. **ステータス・スコア判定**
+11. **critic.json (compliance) 出力**
+
+## 挨拶文の検出方法
+
+記事末尾付近（免責事項の直前）に以下の固定テキストが存在するかを確認する:
+
+```
+いつも読んでいただきありがとうございます！これからも株式投資・資産形成で役立つ記事をお届けします⭐️スキやフォローしていただけると励みになります！！
+```
+
+部分一致（「いつも読んでいただきありがとうございます」が含まれる段落の存在）で判定してよい。欠落している場合は severity: high、category: greeting の issue を立て、末尾への追加を suggestion とする。
 
 ## 重要
 

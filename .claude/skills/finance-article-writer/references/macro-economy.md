@@ -46,8 +46,16 @@
 ## 参考データソース
 {中央銀行、IMF、World Bank、Bloomberg 等}
 
-{snippets/disclaimer.md の全文を挿入}
+---
+
+{snippets/closing-greeting.md の全文を挿入（挨拶文）}
+
+---
+
+{snippets/disclaimer.md の全文を挿入（免責事項）}
 ```
+
+タイトルは common-rules.md § 3 の「タイトル生成ルール」に従い、一発で理解できる／読者メリットが明確なものにする。例: `3月FOMCの据え置きが示すもの｜年内の利下げシナリオを再点検`
 
 ## カテゴリ固有ルール
 

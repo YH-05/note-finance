@@ -51,8 +51,16 @@
 ## 参考データソース
 {Yahoo Finance, Bloomberg, 各国中央銀行等}
 
-{snippets/disclaimer.md の全文を挿入}
+---
+
+{snippets/closing-greeting.md の全文を挿入（挨拶文）}
+
+---
+
+{snippets/disclaimer.md の全文を挿入（免責事項）}
 ```
+
+タイトルは common-rules.md § 3 の「タイトル生成ルール」に従い、週次レポートの最重要ポイントが伝わる形にする。例: `3/24週の米国市場｜エヌビディア決算と雇用統計を振り返る`
 
 ## カテゴリ固有ルール
 
