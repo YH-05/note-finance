@@ -25,6 +25,7 @@ CLI:
 # dependencies = [
 #     "requests>=2.31",
 #     "pyyaml>=6.0",
+#     "Pillow>=10.0",
 # ]
 # ///
 
@@ -77,6 +78,61 @@ def _wikidata_logo_filename(session: requests.Session, qid: str) -> str | None:
     if not p154:
         return None
     return p154[0]["mainsnak"]["datavalue"]["value"]
+
+
+def _remove_solid_background(path: Path, threshold: int = 40) -> bool:
+    """PNGの四隅から検出した単色背景を透過化する（Netflix赤背景等の対策）.
+
+    Parameters
+    ----------
+    path : Path
+        処理対象のPNGファイル（上書き保存される）
+    threshold : int
+        背景色とみなすRGB許容差（デフォルト40）
+
+    Returns
+    -------
+    bool
+        処理が成功した場合 True。画像でない場合やエラー時は False
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        logger.warning("Pillow not installed; skipping background removal")
+        return False
+
+    try:
+        img = Image.open(path).convert("RGBA")
+    except Exception as e:
+        logger.warning("Failed to open image for bg removal: %s", e)
+        return False
+
+    width, height = img.size
+    pixels = img.load()
+    corners = [pixels[0, 0], pixels[width - 1, 0], pixels[0, height - 1], pixels[width - 1, height - 1]]
+    br = sum(c[0] for c in corners) // 4
+    bg = sum(c[1] for c in corners) // 4
+    bb = sum(c[2] for c in corners) // 4
+
+    # 四隅の平均アルファが低ければ既に透過済みとみなしスキップ
+    avg_alpha = sum(c[3] for c in corners) // 4
+    if avg_alpha < 50:
+        logger.debug("Logo already has transparent corners; skipping bg removal")
+        return True
+
+    removed = 0
+    for y in range(height):
+        for x in range(width):
+            r, g, b, a = pixels[x, y]
+            if abs(r - br) < threshold and abs(g - bg) < threshold and abs(b - bb) < threshold:
+                pixels[x, y] = (r, g, b, 0)
+                removed += 1
+    img.save(path)
+    logger.info(
+        "Background removed: detected rgb(%d,%d,%d), transparent %d/%d pixels (%d%%)",
+        br, bg, bb, removed, width * height, removed * 100 // (width * height),
+    )
+    return True
 
 
 def _download_logo(session: requests.Session, filename: str, dest: Path) -> bool:
@@ -196,6 +252,7 @@ def fetch_company_logo(
     company_name: str,
     output_path: Path | None = None,
     force_refresh: bool = False,
+    remove_background: bool = False,
 ) -> Path | None:
     """企業ロゴをWikidata P154経由で取得しローカルキャッシュに保存.
 
@@ -266,6 +323,8 @@ def fetch_company_logo(
         logger.info("Found logo filename: %s", filename)
 
         if _download_logo(session, filename, dest):
+            if remove_background:
+                _remove_solid_background(dest)
             return dest
 
     logger.error("Failed to fetch logo: ticker=%s company=%s", ticker_norm, company_name)
@@ -297,6 +356,11 @@ def main() -> int:
     parser.add_argument("--meta-yaml", type=Path, help="meta.yamlから ticker/company を自動解決")
     parser.add_argument("--output", type=Path, help="出力先PNGパス")
     parser.add_argument("--force-refresh", action="store_true", help="キャッシュを無視して再取得")
+    parser.add_argument(
+        "--remove-background",
+        action="store_true",
+        help="取得後、四隅から検出した単色背景を透過化（Netflix赤背景対策）",
+    )
     parser.add_argument("--log-level", default="INFO")
     args = parser.parse_args()
 
@@ -317,6 +381,7 @@ def main() -> int:
         company_name=company,
         output_path=args.output,
         force_refresh=args.force_refresh,
+        remove_background=args.remove_background,
     )
     if not path:
         return 1
