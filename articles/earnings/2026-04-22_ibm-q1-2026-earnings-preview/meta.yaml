@@ -1,54 +1,50 @@
-# === Core (必須) ===
-article_id: "2026-04-22_ibm-q1-2026-earnings-preview"
-title: "IBM (IBM) 決算プレビュー — 2026年4月22日"
-topic: "IBM Q1 2026 決算プレビュー"
-category: "earnings"
+article_id: 2026-04-22_ibm-q1-2026-earnings-preview
+title: IBM (IBM) 決算プレビュー — 2026年4月22日
+topic: IBM Q1 2026 決算プレビュー
+category: earnings
 type: earnings_preview
-status: init
-
-# === Timestamps ===
-created_at: "2026-04-15"
-updated_at: "2026-04-15T10:00:00"
-
-# === Content ===
-tags: ["IBM", "決算", "エンタープライズAI", "WatsonX", "クラウド"]
+status: published
+created_at: '2026-04-15'
+updated_at: '2026-04-15T00:56:31.202984+00:00'
+tags:
+- IBM
+- 決算
+- エンタープライズAI
+- WatsonX
+- クラウド
 target_audience: intermediate
 target_wordcount: 4500
-
-# === Category-Specific ===
-symbols: ["IBM"]
-earnings_date: "2026-04-22"
-announcement_time: "AMC"
-fiscal_quarter: "Q1 2026"
-as_of_date: "2026-04-15"
+symbols:
+- IBM
+earnings_date: '2026-04-22'
+announcement_time: AMC
+fiscal_quarter: Q1 2026
+as_of_date: '2026-04-15'
 date_range:
-  start: "2024-01-01"
-  end: "2026-04-15"
-
-# === Tracking ===
+  start: '2024-01-01'
+  end: '2026-04-15'
 critic_score: 79
 revision_count: 1
-note_url: null
+note_url: https://editor.note.com/notes/nce8febe2eb50/edit/
 x_post_url: null
 research_sources: 9
-
-# === Workflow ===
 workflow:
   research: done
   draft: done
   critique: done
   revision: done
-  publish: pending
-
-# === Human Feedback ===
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
-  hf6_final_approved: false  # 要確認
-
-# === Legacy ===
+  hf6_final_approved: false
 legacy:
   old_path: null
   old_article_id: null
   migrated_at: null
+published_at: '2026-04-15T00:56:31.202984+00:00'
+draft_url: https://editor.note.com/notes/nce8febe2eb50/edit/

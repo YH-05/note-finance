@@ -223,6 +223,16 @@ Task 1: wr-report-validator（レポート検証）
    出力: 02_draft/revised_draft.md
    ```
 
+### Step 4.5: 決算サムネイル自動生成（earnings カテゴリのみ）
+
+`meta.yaml` の `category` が `earnings` の場合、revised_draft.md 生成後に **article-earnings-thumbnail スキルを自動で呼び出す**。
+
+- 呼び出し: `/article-earnings-thumbnail @{article_dir}`
+- スキル定義: `.claude/skills/article-earnings-thumbnail/SKILL.md`
+- 出力: `{article_dir}/images/thumbnail.png`
+
+ロゴ取得失敗やPencil操作失敗が発生しても、article-critique 全体は成功扱いとする。警告のみ表示して Step 5 に進む。
+
 ### Step 5: ステータス更新・最終確認
 
 7. **meta.yaml の更新**

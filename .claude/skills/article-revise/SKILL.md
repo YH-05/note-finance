@@ -134,6 +134,18 @@ meta.yaml の `category` に応じて、`finance-article-writer` スキルのカ
 | market_report | `.claude/skills/finance-article-writer/references/market-report.md` |
 | asset_management | `.claude/skills/finance-article-writer/references/asset-management.md` |
 
+## Step 3.5: 決算サムネイル自動生成（earnings カテゴリのみ）
+
+`meta.yaml` の `category` が `earnings` の場合、revised_draft.md の書き出し直後に **article-earnings-thumbnail スキルを自動で呼び出す**。
+
+- 呼び出し: `/article-earnings-thumbnail @{article_dir}`
+- スキル定義: `.claude/skills/article-earnings-thumbnail/SKILL.md`
+- 出力: `{article_dir}/images/thumbnail.png`
+
+サムネイル生成に失敗しても（ロゴ取得失敗など）記事修正自体は成功扱いとする。警告のみ表示。
+
+`category != earnings` の場合はスキップ。
+
 ## Step 4: 変更サマリー表示
 
 修正完了後、以下を表示する:

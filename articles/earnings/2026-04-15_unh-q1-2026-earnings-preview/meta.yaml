@@ -1,48 +1,42 @@
-# === Core (必須) ===
-article_id: "2026-04-15_unh-q1-2026-earnings-preview"
-topic: "UNH Q1 2026 決算プレビュー"
-title: "UnitedHealth Group（UNH）Q1 2026 決算プレビュー — 4月21日発表"
-category: "earnings"
-type: "earnings_preview"
-status: "review"
-
-# === Timestamps ===
-created_at: "2026-04-15"
-updated_at: "2026-04-15"  # critique & revision done
-
-# === Content ===
+article_id: 2026-04-15_unh-q1-2026-earnings-preview
+topic: UNH Q1 2026 決算プレビュー
+title: UnitedHealth Group（UNH）Q1 2026 決算プレビュー — 4月21日発表
+category: earnings
+type: earnings_preview
+status: published
+created_at: '2026-04-15'
+updated_at: '2026-04-15T00:54:26.682153+00:00'
 tags: []
 target_audience: intermediate
 target_wordcount: 4000
-
-# === Category-Specific ===
-symbols: ["UNH"]
-earnings_date: "2026-04-21"
-earnings_time: "before_open"
-fiscal_quarter: "Q1 2026"
-fiscal_quarter_ending: "Mar/2026"
+symbols:
+- UNH
+earnings_date: '2026-04-21'
+earnings_time: before_open
+fiscal_quarter: Q1 2026
+fiscal_quarter_ending: Mar/2026
 eps_estimate: 6.48
 date_range:
-  start: "2026-01-01"
-  end: "2026-03-31"
-
-# === Tracking ===
+  start: '2026-01-01'
+  end: '2026-03-31'
 critic_score: 68
 revision_count: 1
-note_url: null
+note_url: https://editor.note.com/notes/n361a30299cd5/edit/
 x_post_url: null
 research_sources: 13
-
-# === Workflow ===
 workflow:
   research: done
   draft: done
   critique: done
   revision: done
-  publish: pending
-
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: true
+published_at: '2026-04-15T00:54:26.682153+00:00'
+draft_url: https://editor.note.com/notes/n361a30299cd5/edit/
