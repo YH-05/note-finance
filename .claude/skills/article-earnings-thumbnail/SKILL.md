@@ -73,10 +73,14 @@ date_text = f"発表日 {earnings_date}"  # "発表日 2026-04-22"
 ## Step 2: ロゴ取得
 
 ```bash
-uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml
+uv run python scripts/fetch_company_logo.py --meta-yaml {article_dir}/meta.yaml --pad-ratio 1.2
 ```
 
 出力: `assets/company_logos/{TICKER}.png`（既にキャッシュ済みの場合は再利用）
+
+### `--pad-ratio 1.2` は必須
+
+Pencil の `fill.mode: "fit"` には極端なアスペクト比のロゴで縦方向にゴースト/ストレッチが発生するレンダリングバグがある（例: BLK 6.9:1 → 縦棒のアーティファクト）。これを回避するため、ロゴを Logo Container と同じアスペクト比 `1.2:1`（480×400）に透明パディングしてから貼り付ける。パディングはピクセル本体には触れず、上下／左右に透明余白を追加するだけなので「実質、原画像をそのまま使う」状態となる。
 
 ### ロゴ加工ポリシー
 

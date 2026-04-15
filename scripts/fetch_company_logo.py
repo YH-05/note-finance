@@ -135,6 +135,63 @@ def _remove_solid_background(path: Path, threshold: int = 40) -> bool:
     return True
 
 
+def _pad_to_aspect_ratio(path: Path, target_ratio: float, tolerance: float = 0.02) -> bool:
+    """ロゴPNGをターゲットアスペクト比（width/height）に透明パディングで合わせる.
+
+    Pencilテンプレの Logo Container (480×400 = 1.2:1) に合わせ、fit モードの
+    レンダリングバグ（アスペクト比ズレ時の縦ストレッチ）を回避する。
+
+    Parameters
+    ----------
+    path : Path
+        処理対象のPNGファイル（上書き保存）
+    target_ratio : float
+        目標アスペクト比 (width / height)
+    tolerance : float
+        既に許容範囲内なら処理をスキップする閾値（デフォルト±2%）
+
+    Returns
+    -------
+    bool
+        パディング処理を実施した場合 True。スキップ/失敗時は False
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        logger.warning("Pillow not installed; skipping aspect-ratio padding")
+        return False
+
+    try:
+        img = Image.open(path).convert("RGBA")
+    except Exception as e:
+        logger.warning("Failed to open image for padding: %s", e)
+        return False
+
+    w, h = img.size
+    current_ratio = w / h
+    if abs(current_ratio - target_ratio) / target_ratio < tolerance:
+        logger.debug("Aspect ratio %.3f already within tolerance of %.3f; skipping pad", current_ratio, target_ratio)
+        return False
+
+    if current_ratio > target_ratio:
+        new_w = w
+        new_h = int(round(w / target_ratio))
+    else:
+        new_h = h
+        new_w = int(round(h * target_ratio))
+
+    canvas = Image.new("RGBA", (new_w, new_h), (0, 0, 0, 0))
+    offset_x = (new_w - w) // 2
+    offset_y = (new_h - h) // 2
+    canvas.paste(img, (offset_x, offset_y), img)
+    canvas.save(path)
+    logger.info(
+        "Padded logo: %dx%d (ratio %.3f) → %dx%d (ratio %.3f, target %.3f)",
+        w, h, current_ratio, new_w, new_h, new_w / new_h, target_ratio,
+    )
+    return True
+
+
 def _download_logo(session: requests.Session, filename: str, dest: Path) -> bool:
     """Commons Special:FilePath で指定幅PNGをダウンロードし保存."""
     encoded = urllib.parse.quote(filename)
@@ -253,6 +310,7 @@ def fetch_company_logo(
     output_path: Path | None = None,
     force_refresh: bool = False,
     remove_background: bool = False,
+    pad_ratio: float | None = None,
 ) -> Path | None:
     """企業ロゴをWikidata P154経由で取得しローカルキャッシュに保存.
 
@@ -277,6 +335,8 @@ def fetch_company_logo(
 
     if dest.exists() and not force_refresh:
         logger.info("Using cached logo: %s", dest)
+        if pad_ratio is not None:
+            _pad_to_aspect_ratio(dest, pad_ratio)
         return dest
 
     session = _session()
@@ -325,6 +385,8 @@ def fetch_company_logo(
         if _download_logo(session, filename, dest):
             if remove_background:
                 _remove_solid_background(dest)
+            if pad_ratio is not None:
+                _pad_to_aspect_ratio(dest, pad_ratio)
             return dest
 
     logger.error("Failed to fetch logo: ticker=%s company=%s", ticker_norm, company_name)
@@ -361,6 +423,12 @@ def main() -> int:
         action="store_true",
         help="取得後、四隅から検出した単色背景を透過化（Netflix赤背景対策）",
     )
+    parser.add_argument(
+        "--pad-ratio",
+        type=float,
+        default=None,
+        help="ターゲットアスペクト比 (width/height) に透明パディングで合わせる。Pencil Logo Container 用は 1.2",
+    )
     parser.add_argument("--log-level", default="INFO")
     args = parser.parse_args()
 
@@ -382,6 +450,7 @@ def main() -> int:
         output_path=args.output,
         force_refresh=args.force_refresh,
         remove_background=args.remove_background,
+        pad_ratio=args.pad_ratio,
     )
     if not path:
         return 1
