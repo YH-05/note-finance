@@ -1,0 +1,201 @@
+{
+    "article_id": "2026-04-16_kodomo-nisa-2027-guide",
+    "session_id": "kodomo-nisa-research-2026-04-16",
+    "topic": "こどもNISA完全ガイド",
+    "collected_at": "2026-04-16T19:00:00+09:00",
+    "total_sources": 15,
+    "sources": [
+        {
+            "id": "fsa-official-pdf",
+            "title": "令和8年度税制改正の大綱 金融庁関係の主要項目",
+            "url": "https://www.fsa.go.jp/access/r7/270/270_03.pdf",
+            "authority_level": "official",
+            "publisher": "金融庁",
+            "published_at": "2025-12-26",
+            "key_facts": [
+                "こどもNISAは2027年1月開始",
+                "年60万円/累計600万円",
+                "12歳以降払出可能（要件あり）",
+                "読売333・JPXプライム150指数を追加",
+                "債券中心投信もつみたて対象に拡充"
+            ]
+        },
+        {
+            "id": "daiwa-institute-report",
+            "title": "NISA: つみたて投資枠を未成年に解禁 — こどもNISAの制度設計",
+            "url": "https://www.dir.co.jp/report/research/law-research/tax/20260116_025523.pdf",
+            "authority_level": "analyst",
+            "publisher": "大和総研",
+            "published_at": "2026-01-16",
+            "key_facts": [
+                "正式名称は未成年者特定累積投資勘定",
+                "1月1日時点で18歳未満を判定",
+                "特定課税未成年者口座で分配金管理",
+                "要件外払出しは遡及課税"
+            ]
+        },
+        {
+            "id": "scbri-niscb",
+            "title": "こどもNISA新設へ",
+            "url": "https://www.scbri.jp/reports/.assets/newstopics_20260126.pdf",
+            "authority_level": "analyst",
+            "publisher": "信金中央金庫 地域・中小企業研究所",
+            "published_at": "2026-01-26",
+            "key_facts": [
+                "ジュニアNISA口座数は2023年度末104万口座",
+                "こどもNISAは一定要件下で払出可",
+                "世代間資産移転の受け皿として期待"
+            ]
+        },
+        {
+            "id": "77bank-column",
+            "title": "2027年開始！こども支援NISAとは？制度内容を解説",
+            "url": "https://www.77bank.co.jp/financial-column/article93.html",
+            "authority_level": "analyst",
+            "publisher": "七十七銀行",
+            "published_at": "2026-02-01",
+            "key_facts": [
+                "夫婦+子1人の非課税枠は累計4,200万円",
+                "ジュニアNISA口座数は約99万口座（2023年3月末）",
+                "18歳到達時にNISA成人口座へ自動移行"
+            ]
+        },
+        {
+            "id": "moneyizm-article",
+            "title": "2027年1月開始こどもNISAとは？制度概要・ジュニアNISAとの違い・教育資金シミュレーション",
+            "url": "https://www.all-senmonka.jp/moneyizm/money/314274/",
+            "authority_level": "media",
+            "publisher": "MONEYIZM",
+            "published_at": "2026-02-15",
+            "key_facts": [
+                "毎月5万円×18年で約1,726万円（年利5%）",
+                "第3子以降の児童手当は月3万円",
+                "家族合計年間180万円の非課税投資可能"
+            ]
+        },
+        {
+            "id": "matsui-securities",
+            "title": "こどもNISAとは？ジュニアNISAとの違いや制度について",
+            "url": "https://www.matsui.co.jp/money-satellite/column/beginner/nisa/cl-kodomo-nisa.html",
+            "authority_level": "analyst",
+            "publisher": "松井証券",
+            "published_at": "2026-01-10",
+            "key_facts": [
+                "毎月1.5万円×12年運用で評価額約293万円（年利5%）",
+                "課税口座との差額: 約15万円の節税効果",
+                "教育資金一括贈与制度との比較あり"
+            ]
+        },
+        {
+            "id": "finwell-fp-article",
+            "title": "2027年から！こどもNISAの内容と活用ポイント",
+            "url": "https://finwell.jp/lab/junior_nisa_fp/",
+            "authority_level": "analyst",
+            "publisher": "Finwell（独立系FP）",
+            "published_at": "2026-01-15",
+            "key_facts": [
+                "運用原資は児童手当+お年玉+お祝い金が実務的",
+                "年間110万円贈与税非課税枠内での拠出を推奨"
+            ]
+        },
+        {
+            "id": "rakuten-securities",
+            "title": "こどもNISAとは？制度内容やジュニアNISAとの違いを解説",
+            "url": "https://www.rakuten-sec.co.jp/web/nisa/under_age/",
+            "authority_level": "analyst",
+            "publisher": "楽天証券",
+            "published_at": "2026-01-20",
+            "key_facts": [
+                "親のNISAでの代替先行運用法の紹介",
+                "未成年口座開設の推奨"
+            ]
+        },
+        {
+            "id": "sbi-report",
+            "title": "SBI証券で始めるこどもNISAの可能性",
+            "url": "https://go.sbisec.co.jp/media/report/nisaideco_topic/nisa_child_251223.html",
+            "authority_level": "analyst",
+            "publisher": "SBI証券",
+            "published_at": "2025-12-23",
+            "key_facts": [
+                "教育資金+金融教育の複合メリット",
+                "未成年口座の事前開設方法"
+            ]
+        },
+        {
+            "id": "aeon-bank",
+            "title": "【2027年開始予定】こどもNISAとは？制度やジュニアNISAとの違い",
+            "url": "https://www.aeonbank.co.jp/column/nisa/kodomonisa/toha/",
+            "authority_level": "analyst",
+            "publisher": "イオン銀行",
+            "published_at": "2026-01-25",
+            "key_facts": [
+                "引き出し可能年齢の詳細説明",
+                "金融庁の方針解説"
+            ]
+        },
+        {
+            "id": "nomura-fin-wing",
+            "title": "18歳未満向けこどもNISAが税制大綱入り！制度のポイント",
+            "url": "https://www.nomura.co.jp/fin-wing/column/new-nisa4/",
+            "authority_level": "analyst",
+            "publisher": "野村證券",
+            "published_at": "2026-01-05",
+            "key_facts": [
+                "年間60万円/累計600万円の方針",
+                "親権者等の同意取得方法"
+            ]
+        },
+        {
+            "id": "jfc-education-cost",
+            "title": "教育資金はいくら必要？かかる目安額",
+            "url": "https://www.jfc.go.jp/n/finance/ippan/kyoikuhi/cost.html",
+            "authority_level": "official",
+            "publisher": "日本政策金融公庫",
+            "published_at": "2025-04-01",
+            "key_facts": [
+                "国立大学初年度81.8万円、私立文系118.9万円、私立理系156.6万円",
+                "幼稚園から大学までの学費総額（全公立816万円、全私立2,364万円）"
+            ]
+        },
+        {
+            "id": "moneiro-child-allowance",
+            "title": "児童手当の総額はいくら？制度改正の要点",
+            "url": "https://moneiro.jp/media/article/child-allowance-total-amount",
+            "authority_level": "analyst",
+            "publisher": "マネイロ",
+            "published_at": "2026-01-10",
+            "key_facts": [
+                "第1子・第2子の総額234〜245万円",
+                "第3子以降は最大648〜681万円",
+                "2024年10月改正で高校生年代まで延長"
+            ]
+        },
+        {
+            "id": "nta-gift-tax",
+            "title": "No.4402 贈与税がかかる場合",
+            "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/zoyo/4402_qa.htm",
+            "authority_level": "official",
+            "publisher": "国税庁",
+            "published_at": "2024-04-01",
+            "key_facts": [
+                "暦年贈与の基礎控除は年110万円",
+                "定期贈与と認定されると一括課税",
+                "贈与契約書を年ごとに作成すれば問題なし"
+            ]
+        },
+        {
+            "id": "sbi-platinum-nisa",
+            "title": "プラチナNISAとは？いつから？導入見送りの代替案",
+            "url": "https://www.sbi-efinance.co.jp/contents/platinum_nisa/",
+            "authority_level": "analyst",
+            "publisher": "SBIエステートファイナンス",
+            "published_at": "2025-12-20",
+            "key_facts": [
+                "プラチナNISAは2026年度導入見送り",
+                "65歳以上対象、毎月分配型投信の非課税化を検討中",
+                "現時点で制度は未確定"
+            ]
+        }
+    ]
+}

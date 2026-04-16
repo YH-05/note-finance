@@ -1,0 +1,56 @@
+# === Core (必須) ===
+article_id: "2026-04-16_kodomo-nisa-2027-guide"
+title: "こどもNISA完全ガイド — 2027年開始、年60万円×累計600万円枠の賢い使い方とジュニアNISAとの違い"
+topic: "こどもNISA完全ガイド — 2027年開始、年60万円×累計600万円枠の賢い使い方とジュニアNISAとの違い"
+category: "asset_management"
+type: "column"
+status: "review"
+
+# === Timestamps ===
+created_at: "2026-04-16"
+updated_at: "2026-04-16"
+
+# === Content ===
+tags:
+  - こどもNISA
+  - 新NISA
+  - 教育資金
+  - ジュニアNISA
+  - 資産形成
+target_audience: "beginner"
+target_wordcount: 8000
+
+# === Category-Specific ===
+theme: "nisa"
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: "done"
+  draft: "done"
+  critique: "done"
+  revision: "done"
+  publish: "pending"
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: true
+  hf5_draft_reviewed: true
+  hf6_final_approved: true
+
+# === Critic ===
+critic_score: 88
+revision_count: 1
+research_sources: 15
+
+# === Source References ===
+source_topic_suggestion: ".tmp/topic-suggestions/2026-04-16_1852.json"
+source_topic_rank: 1
+source_topic_score: 48
