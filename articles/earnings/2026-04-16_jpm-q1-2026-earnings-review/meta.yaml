@@ -1,0 +1,42 @@
+article_id: 2026-04-16_jpm-q1-2026-earnings-review
+title: "【🇺🇸米株決算】JPMorgan Chase（JPM）Q1 2026 決算レビュー"
+topic: JPMorgan Chase Q1 2026決算レビュー
+category: earnings
+type: earnings_review
+status: init
+created_at: '2026-04-16'
+updated_at: '2026-04-16'
+symbols:
+  - JPM
+fiscal_quarter: Q1
+fiscal_year: '2026'
+earnings_date: '2026-04-14'
+announcement_time: BMO
+target_audience: intermediate
+target_wordcount: 4000
+tags:
+  - earnings
+  - banks
+  - JPM
+  - NII
+  - Q1-2026
+  - review
+preview_ref:
+  path: articles/earnings/2026-04-11_jpmorgan-q1-2026-earnings-preview/
+  note_url: https://editor.note.com/notes/nc0427e9a06a1/edit/
+  focus_points:
+    - "純金利収入（NII）ガイダンスの継続性 — 2026年通期1,030億ドル見通しへの進捗"
+    - "投資銀行（IB）手数料の回復ペース — M&A活況と金融規制緩和期待"
+    - "カードローン延滞率・信用損失引当（PCL） — カードNCO率3.4%ガイダンスの実現性"
+    - "Jamie Dimon CEO の2026年マクロコメンタリー — 48頁株主書簡・イラン戦争リスク"
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false

@@ -1,0 +1,197 @@
+{
+  "sources": [
+    {
+      "id": "sec_8k_2026q1",
+      "title": "JPMorgan Chase 8-K Q1 2026 Earnings Presentation (Exhibit 99)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000019617&type=8-K&dateb=&owner=include&count=40",
+      "published_date": "2026-04-14",
+      "accessed_date": "2026-04-16",
+      "source_type": "primary_sec_filing",
+      "accession_number": "0001628280-26-024990",
+      "notes": "Q1 2026 Financial Results Exhibit 99 - 13 slides including line of business detail, capital, outlook, Basel III commentary"
+    },
+    {
+      "id": "sec_8k_2026q1_second",
+      "title": "JPMorgan Chase 8-K Q1 2026 Press Release Companion Filing",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000019617&type=8-K&dateb=&owner=include&count=40",
+      "published_date": "2026-04-14",
+      "accessed_date": "2026-04-16",
+      "source_type": "primary_sec_filing",
+      "accession_number": "0001628280-26-025013"
+    },
+    {
+      "id": "seeking_alpha_nii_trimmed",
+      "title": "JPMorgan Chase Q1 earnings beat, but NII outlook trimmed",
+      "url": "https://seekingalpha.com/news/4574690-jpmorgan-chase-q1-earnings-beat-but-nii-outlook-trimmed",
+      "published_date": "2026-04-14",
+      "source_type": "media_analyst",
+      "key_claim": "NIIガイダンス引き下げが株価下押し要因、ただしbeat要因が懸念を緩和"
+    },
+    {
+      "id": "cnbc_earnings_q1",
+      "title": "JPMorgan Chase is set to report first-quarter earnings – here's what the Street expects",
+      "url": "https://www.cnbc.com/2026/04/14/jpmorgan-chase-jpm-earnings-1q-2026.html",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "LSEGコンセンサスEPS $5.45、売上 $49.17B"
+    },
+    {
+      "id": "cnbc_premarket",
+      "title": "Stocks making the biggest moves premarket: Novo Nordisk, JPMorgan Chase, United Airlines & more",
+      "url": "https://www.cnbc.com/2026/04/14/stocks-making-the-biggest-moves-premarket-nvo-jpm-ual.html",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "EPS $5.94 / 売上 $50.54B、プレマーケット +1%初動"
+    },
+    {
+      "id": "barrons_profit_rises",
+      "title": "JPMorgan's Profit Rises 13%, Tops Wall Street Expectations",
+      "url": "https://www.barrons.com/livecoverage/jpmorgan-chase-bofa-citigroup-wells-fargo-bank-earnings/card/jpmorgan-s-profit-rises-13-tops-wall-street-expectations-QmHW9TRyOqHtVJvax44y",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "純利益+13% $16.5B、売上 $49.8B（FactSet基準）、プレマーケット -2.6%"
+    },
+    {
+      "id": "kitco_reuters_record_trading",
+      "title": "JPMorgan profit beats estimates on record trading haul, strong dealmaking",
+      "url": "https://www.kitco.com/news/off-the-wire/2026-04-14/jpmorgan-profit-beats-estimates-record-trading-haul-strong-dealmaking",
+      "published_date": "2026-04-14",
+      "source_type": "media_wire",
+      "key_claim": "Markets revenue +20% $11.6B記録、Dimon: US economy resilient、労働市場軟化"
+    },
+    {
+      "id": "nyt_resilience",
+      "title": "JPMorgan Sees Resilience in U.S. Economy Despite Iran War",
+      "url": "https://www.nytimes.com/2026/04/14/business/jpmorgan-wells-fargo-citi-earnings.html",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "record trading profits、通期NII小幅引き下げ、Citi $5B超利益"
+    },
+    {
+      "id": "reuters_banks_trading",
+      "title": "Banks show trading strength, caution on economic risk",
+      "url": "https://www.reuters.com/business/finance/banks-show-trading-strength-caution-economic-risk-2026-04-14/",
+      "published_date": "2026-04-14",
+      "source_type": "media_wire",
+      "key_claim": "大手銀全体でトレーディング好調、一方で景気リスクに慎重"
+    },
+    {
+      "id": "reuters_jpm_trading",
+      "title": "JPMorgan profit rises as volatile markets drive trading division",
+      "url": "https://www.reuters.com/business/finance/jpmorgan-profit-rises-volatile-markets-drive-trading-division-2026-04-14/",
+      "published_date": "2026-04-14",
+      "source_type": "media_wire"
+    },
+    {
+      "id": "ap_news_resilient",
+      "title": "Banks see economy as 'resilient' but warn about rising energy prices",
+      "url": "https://apnews.com/article/jpmorgan-wells-fargo-citigroup-banks-wall-street-20e472331deb22afb58c31d93d0ab497",
+      "published_date": "2026-04-14",
+      "source_type": "media_wire",
+      "key_claim": "Dimon: 'increasingly complex set of risks'、CFO Barnum: プライベートクレジットに'broadly comfortable'"
+    },
+    {
+      "id": "yahoo_blowout",
+      "title": "JPMorgan Posted a Blowout Quarter, Jamie Dimon Is Already Worried",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-posted-blowout-quarter-jamie-124058762.html",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "M&A助言フィー+82%、プライベートクレジット担保マークダウン、$327M業務引当増、NII通期$104.5B→$103B"
+    },
+    {
+      "id": "marketwatch_pullback",
+      "title": "JPMorgan's markets and investment banking revenue surge, but here's why the stock is pulling back",
+      "url": "https://www.marketwatch.com/story/jpmorgans-markets-and-investment-banking-revenue-surge-but-heres-why-the-stock-is-pulling-back-2e03575f",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "Dimon: US economy resilient; エネルギー価格volatility、貿易uncertainty、elevated asset pricesをリスクに挙げるがprivate credit systemic risk否定"
+    },
+    {
+      "id": "bi_private_credit_50b",
+      "title": "JPMorgan exec says the bank is 'broadly comfortable' with its $50 billion private credit exposure",
+      "url": "https://www.businessinsider.com/jpmorgan-jamie-dimon-50-billion-private-credit-exposure-citi-wells-2026-4",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "JPM $50B / WFC $36.2B / C $22B プライベートクレジットエクスポージャー"
+    },
+    {
+      "id": "bi_dicenso",
+      "title": "A top JPMorgan strategist brushes off private credit worries",
+      "url": "https://www.businessinsider.com/private-credit-smart-money-redemption-risk-jpmorgan-markets-2026-4",
+      "published_date": "2026-04-15",
+      "source_type": "media",
+      "key_claim": "Dimon: 'not particularly worried' about systemic risk related to private credit"
+    },
+    {
+      "id": "nypost_warsh",
+      "title": "JPMorgan CEO Jamie Dimon urges Senate to vote in Fed Chair nominee Kevin Warsh",
+      "url": "https://nypost.com/2026/04/14/business/jpmorgan-ceo-jamie-dimon-urges-senate-to-vote-in-fed-chair-nominee-kevin-warsh/",
+      "published_date": "2026-04-14",
+      "source_type": "media",
+      "key_claim": "DimonがFed議長候補Warshを支持、上院に早期採決要請"
+    },
+    {
+      "id": "cnbc_link_amazing",
+      "title": "JPMorgan's Q1 was really amazing, says Hightower's Stephanie Link",
+      "url": "https://www.cnbc.com/video/2026/04/14/jpmorgans-q1-was-really-amazing-says-hightowers-stephanie-link.html",
+      "published_date": "2026-04-14",
+      "source_type": "media_video",
+      "key_claim": "アナリスト強気評価"
+    },
+    {
+      "id": "cnbc_bac_earnings",
+      "title": "Bank of America is set to report earnings. Here's what to expect",
+      "url": "https://www.cnbc.com/2026/04/15/bank-of-america-bac-earnings-q1-2026.html",
+      "published_date": "2026-04-15",
+      "source_type": "media",
+      "key_claim": "JPM通期NIIを$103Bに引き下げ、WFCはNII/売上ミス、セクター比較"
+    },
+    {
+      "id": "reuters_bac",
+      "title": "Bank of America profit rises as trading shines",
+      "url": "https://www.reuters.com/sustainability/boards-policy-regulation/bank-america-profit-rises-trading-shines-2026-04-15/",
+      "published_date": "2026-04-15",
+      "source_type": "media_wire",
+      "key_claim": "JPM/BAC/WFCはYTD赤字、S&P500は+1.8%"
+    },
+    {
+      "id": "cnbc_earnings_playbook",
+      "title": "Earnings playbook: JPMorgan Chase and Netflix kick off the reporting season",
+      "url": "https://www.cnbc.com/2026/04/12/earnings-playbook-jpm-nflx-kick-off-the-reporting-season.html",
+      "published_date": "2026-04-12",
+      "source_type": "media",
+      "key_claim": "JPM beat率82%（Bespoke）"
+    },
+    {
+      "id": "yahoo_history",
+      "title": "JPMorgan Chase & Co. (JPM) Stock Historical Prices",
+      "url": "https://finance.yahoo.com/quote/JPM/history",
+      "published_date": "2026-04-16",
+      "source_type": "data",
+      "key_claim": "4/13 終値 $313.39、4/14 終値 $311.03"
+    },
+    {
+      "id": "cnbc_hickey_energy",
+      "title": "Economy not derailed by energy shocks so market is looking past it, says Bespoke's Paul Hickey",
+      "url": "https://www.cnbc.com/video/2026/04/15/economy-not-derailed-by-energy-shocks-so-market-is-looking-past-it-says-bespokes-paul-hickey.html",
+      "published_date": "2026-04-15",
+      "source_type": "media_video"
+    },
+    {
+      "id": "preview_article_jpm_q1",
+      "title": "JPMorgan Chase（JPM）決算プレビュー — 4月14日発表",
+      "url": "articles/earnings/2026-04-11_jpmorgan-q1-2026-earnings-preview/02_draft/revised_draft.md",
+      "published_date": "2026-04-11",
+      "source_type": "internal_preview",
+      "key_claim": "focus_points 4項目の仮説源"
+    }
+  ],
+  "metadata": {
+    "compiled_date": "2026-04-16",
+    "symbol": "JPM",
+    "quarter": "Q1 2026",
+    "earnings_date": "2026-04-14",
+    "article_id": "2026-04-16_jpm-q1-2026-earnings-review",
+    "total_sources": 22
+  }
+}

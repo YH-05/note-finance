@@ -16,6 +16,9 @@ target_audience: intermediate
 target_wordcount: 4000
 symbols:
 - JPM
+fiscal_quarter: Q1 2026
+earnings_date: '2026-04-14'
+announcement_time: BMO
 date_range:
   start: '2026-01-01'
   end: '2026-03-31'

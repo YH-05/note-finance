@@ -64,7 +64,7 @@ elif article_type == "earnings_review":
 else:
     raise ValueError(f"Unsupported type for earnings thumbnail: {article_type}")
 
-subtitle = f"{fiscal_quarter} {label}".strip()  # "Q1 2026 決算プレビュー"
+subtitle = f"{fiscal_quarter}\n{label}".strip()  # "Q1 2026\n決算プレビュー" (2行表示)
 date_text = f"発表日 {earnings_date}"  # "発表日 2026-04-22"
 ```
 
@@ -110,18 +110,10 @@ Pencil の `fill.mode: "fit"` には極端なアスペクト比のロゴで縦�
 |------|-----|-----|---------|
 | Logo Container | `f8jSq` | `9JHoC` | `fill = { type: "image", url: "file://<logo_path>", mode: "fit" }` |
 | Logo Placeholder | `ZByjU` | `RUMba` | `content = ""`（LOGO文字を消す） |
-| CompanyName (大) | `6g00c` | `psqPo` | `content = "{COMPANY_NAME}"`（例: `Netflix, Inc.`） |
-| Ticker (小) | `CFBpG` | `8Zjbx` | `content = "{TICKER}"` |
-| Subtitle | `VbtEH` | `xUTDJ` | `content = "{fiscal_quarter} {label}"` |
-| EarningsDate | `mlUJ1` | `9z5hB` | `content = "発表日 {YYYY-MM-DD}"` |
+| Subtitle (特大・2行) | `VbtEH` | `xUTDJ` | `content = "{fiscal_quarter}\n{label}"`（例: `"Q1 2026\n決算プレビュー"`） |
+| EarningsDate (大) | `mlUJ1` | `9z5hB` | `content = "発表日 {YYYY-MM-DD}"` |
 
-### 企業名の解決
-
-`COMPANY_NAME` は以下の優先順で決定する:
-
-1. `meta.yaml` の `tags[]` から ASCII の企業名を抽出（例: `tags: [NFLX, Netflix, ...]` → `Netflix`）
-2. 1 が取れない場合、SEC EDGAR `company_tickers.json` で公式名を解決して `_normalize_sec_name()` 相当で整形（例: `NETFLIX INC` → `Netflix, Inc.`）
-3. どちらも失敗した場合は空文字列を設定（ロゴ + ティッカーのみ表示）
+企業の識別はロゴ画像のみで行う（CompanyName/Ticker テキストは非表示）。
 
 ### 具体的な呼び出し例
 
@@ -140,8 +132,7 @@ mcp__pencil__batch_design(
     operations=f'''
 U("f8jSq",{{"fill":{{"enabled":true,"mode":"fit","type":"image","url":"{logo_url}"}}}})
 U("ZByjU",{{"content":""}})
-U("CFBpG",{{"content":"NFLX"}})
-U("VbtEH",{{"content":"Q1 2026 決算プレビュー"}})
+U("VbtEH",{{"content":"Q1 2026\n決算プレビュー"}})
 U("mlUJ1",{{"content":"発表日 2026-04-22"}})
 '''
 )
@@ -178,9 +169,7 @@ mcp__pencil__batch_design(
     operations='''
 U("f8jSq",{"fill":"#FFFFFFFF"})
 U("ZByjU",{"content":"LOGO"})
-U("6g00c",{"content":"[Company Name]"})
-U("CFBpG",{"content":"[Ticker]"})
-U("VbtEH",{"content":"Q1 YYYY 決算プレビュー"})
+U("VbtEH",{"content":"Q1 YYYY\n決算プレビュー"})
 U("mlUJ1",{"content":"発表日 YYYY-MM-DD"})
 '''
 )
@@ -193,9 +182,7 @@ mcp__pencil__batch_design(
     operations='''
 U("9JHoC",{"fill":"#FFFFFFFF"})
 U("RUMba",{"content":"LOGO"})
-U("psqPo",{"content":"[Company Name]"})
-U("8Zjbx",{"content":"[Ticker]"})
-U("xUTDJ",{"content":"Q1 YYYY 決算レビュー"})
+U("xUTDJ",{"content":"Q1 YYYY\n決算レビュー"})
 U("9z5hB",{"content":"発表日 YYYY-MM-DD"})
 '''
 )
@@ -220,10 +207,8 @@ CAXCU (frame, 1280×670, white bg)
 ├── f8jSq  (frame, Logo Container, 480×400 at x=80,y=135)
 │   └── ZByjU  (text, "LOGO" placeholder)
 ├── tXa3j  (rect, Separator, 2×400 at x=640,y=135)
-├── 6g00c  (text, CompanyName, 64px Inter Bold, at y=150)      ← 大見出し
-├── CFBpG  (text, Ticker, 32px Inter Medium, at y=260)          ← 小見出し
-├── VbtEH  (text, Subtitle, 44px Inter Bold, at y=320)
-├── mlUJ1  (text, EarningsDate, 28px Inter Medium, at y=430)
+├── VbtEH  (text, Subtitle 2行, 72px Inter 900, fixed-width 600, at y=170)  ← ヒーロー
+├── mlUJ1  (text, EarningsDate, 56px Inter 700, at y=440)                   ← 大
 └── uGtyD  (frame, Brand Badge ネイビー, bottom-right)
     └── 59GuP  (text "株投資ラボ")
 ```
@@ -235,10 +220,8 @@ har1R (frame, 1280×670, white bg)
 ├── 9JHoC  (frame, Logo Container, 480×400 at x=80,y=135)
 │   └── RUMba  (text, "LOGO" placeholder)
 ├── v6wFe  (rect, Separator, 2×400 at x=640,y=135)
-├── psqPo  (text, CompanyName, 64px Inter Bold, at y=150)      ← 大見出し
-├── 8Zjbx  (text, Ticker, 32px Inter Medium, at y=260)          ← 小見出し
-├── xUTDJ  (text, Subtitle "Q1 YYYY 決算レビュー", 44px, at y=320)
-├── 9z5hB  (text, EarningsDate, 28px Inter Medium, at y=430)
+├── xUTDJ  (text, Subtitle 2行 "Q1 YYYY\n決算レビュー", 72px Inter 900, fixed-width 600, at y=170)  ← ヒーロー
+├── 9z5hB  (text, EarningsDate, 56px Inter 700, at y=440)                                           ← 大
 └── D4lnA  (frame, Brand Badge グリーン, bottom-right)
     └── zwHOb  (text "株投資ラボ")
 ```

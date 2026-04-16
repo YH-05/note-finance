@@ -1,0 +1,265 @@
+{
+  "article_id": "2026-04-16_retirement-10m-nisa-exit-strategy",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-16",
+  "critics": {
+    "fact": {
+      "score": 83,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "medium",
+          "location": "実践ガイド > 口座の取り崩し順序",
+          "issue": "取り崩し口座順序「NISA→特定→iDeCo」の説明がリサーチノートのロジック（高期待リターン資産はNISAで運用し続け、低リターン資産から先に取り崩す）と矛盾している。",
+          "suggestion": "「NISA口座を最初に取り崩す理由」を明示するか、順序を「特定口座→NISA→iDeCo」に整理し、iDeCoを最後にする理由のみ残す形に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "データで見る現状 > 老後資産の平均保有状況",
+          "issue": "「金融広報中央委員会の世論調査（2024年）」の出典URLが参考データソースに未記載。",
+          "suggestion": "金融広報中央委員会の公式サイトから該当データを確認し、出典URLを参考データソースに追加する。"
+        },
+        {
+          "severity": "medium",
+          "location": "注意点・リスク > iDeCo改正 > 対応策1",
+          "issue": "「iDeCoの受取を60歳ではなく70歳以降に繰り延べる」が、Aさん（65歳退職金受取）の文脈と整合しない。65歳退職金から10年後は75歳であり、「70歳以降」では10年未満になるケースがある。",
+          "suggestion": "「退職金の受取年齢＋10年（かつ75歳まで）」という計算式を明示し、「70歳以降」を「退職金受取から10年以上後（75歳まで）」に修正する。"
+        },
+        {
+          "severity": "low",
+          "location": "実践ガイド > 定率取り崩し（4%ルール）",
+          "issue": "「株式50%と債券50%のポートフォリオで」は複数配分の一例であり、50/50が最推奨配分という誤解を招く可能性がある。",
+          "suggestion": "「株式50%・債券50%のポートフォリオ（研究内の一例）で」と補足するか、「株式比率50〜75%のポートフォリオで」と幅を持たせる。"
+        }
+      ],
+      "verified_facts_count": 41,
+      "summary": "新NISA数値・iDeCo改正・4%ルール・ハイブリッド戦略の出典はリサーチノートと高精度で一致。取り崩し口座順序の説明矛盾、金融広報データの出典欠落、iDeCo10年ルール対応策の記述不整合の3件がmediumレベルで特定された。"
+    },
+    "compliance": {
+      "score": 75,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "末尾 > 免責事項",
+          "issue": "免責事項から「本記事の内容により生じたいかなる損失についても責任を負いかねます。」の文が欠落している。",
+          "suggestion": "免責事項を「本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。」に修正する。"
+        },
+        {
+          "severity": "medium",
+          "location": "ケーススタディ > 取り崩しのシミュレーション",
+          "issue": "Aさんの65歳時点の金額計算に試算性の明示が不足している。",
+          "suggestion": "「この試算では」を冒頭に付け、「実際の運用成果は市場環境により大きく異なります」を追記する。"
+        },
+        {
+          "severity": "medium",
+          "location": "注意点・リスク > iDeCo改正",
+          "issue": "税制情報に記事作成時点の明示がない。",
+          "suggestion": "はじめにまたは注意点セクション冒頭に「本記事の税制情報は2026年4月時点の法令・制度に基づいています。」を追記する。"
+        }
+      ],
+      "checklist": {
+        "no_specific_recommendation": true,
+        "no_guaranteed_returns": true,
+        "disclaimer_present": true,
+        "tax_info_dated": false,
+        "expert_consultation_recommended": true,
+        "principal_loss_risk_disclosed": true,
+        "simulation_marked_as_estimate": false
+      },
+      "summary": "特定商品推奨・断定的成果保証・禁止記号等の違反は見当たらない。免責事項の損失責任免除文欠落（high）、シミュレーション数値の試算性明示不足（medium）、税制情報の時点明示なし（medium）の3件が検出された。"
+    },
+    "structure": {
+      "score": 83,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "medium",
+          "location": "データで見る現状",
+          "issue": "含み損活用戦略の説明が実践ガイドの戦略3と重複しており、セクションの役割が曖昧。",
+          "suggestion": "データセクションは数値・統計ファクトに絞り、含み損活用の詳細は実践ガイドのみに集約する。"
+        },
+        {
+          "severity": "medium",
+          "location": "実践ガイド > FAQ",
+          "issue": "FAQが実践ガイド内に埋め込まれており、独立した情報として見つけにくい。",
+          "suggestion": "FAQをまとめの直前か注意点の直前に独立H2セクションとして配置する。"
+        },
+        {
+          "severity": "medium",
+          "location": "ケーススタディ",
+          "issue": "ケーススタディ（約280語）が他セクション（650語・620語）と比べて極端に少なく、ハイブリッド戦略の数値展開が不足。",
+          "suggestion": "65歳からのシミュレーションに定額・定率・ハイブリッドの3パターン比較を追加して20年後の資産残高を数値で示す。"
+        },
+        {
+          "severity": "low",
+          "location": "基礎知識 > iDeCoの基本",
+          "issue": "iDeCo基礎の説明が「詳しくは注意点セクションで」という後方参照で終わっており完結していない。",
+          "suggestion": "受け取り方の2択（一時金 vs 年金）を1〜2段落補足する。"
+        }
+      ],
+      "section_scores": {
+        "intro": 85,
+        "basics": 80,
+        "data": 75,
+        "practice": 82,
+        "case_study": 70,
+        "risks": 88,
+        "conclusion": 90
+      },
+      "summary": "7セクション構成・論理展開・専門用語解説・まとめの行動指針と全体的に高品質。ケーススタディの数値展開不足・FAQの埋め込み配置・データと実践の内容重複が改善余地として残る。"
+    },
+    "data_accuracy": {
+      "score": 88,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "ケーススタディ > Aさんの資産配分設計 > 60歳時点",
+          "issue": "現金クッション「168〜252万円」が誤り。60〜64歳は年金収入ゼロのため月22万円全額が必要で、正確には528〜792万円（22万円×24〜36ヶ月）。84万円×2〜3年という計算は年金開始後の不足額ベースで、この時期には不適切。",
+          "suggestion": "「60〜64歳は年金収入がないため、月22万円×24〜36ヶ月＝528〜792万円を現金クッションとして確保する」に修正する。"
+        },
+        {
+          "severity": "low",
+          "location": "実践ガイド > ハイブリッド戦略",
+          "issue": "「30年後も約690万円が残存」の前提となる初期資産額（2,000万円）が未明示。",
+          "suggestion": "「2,000万円からスタートした場合、運用利回り3%を想定すると30年後も約690万円が残存（マネクリ試算）」のように初期資産額を明示する。"
+        },
+        {
+          "severity": "low",
+          "location": "注意点・リスク > iDeCo改正",
+          "issue": "「変更されました」という表現は正確だが、施行済みであることをより明確にする余地がある。",
+          "suggestion": "「2026年1月1日に施行されたiDeCo改正により…」と過去完了の表現で統一する。"
+        }
+      ],
+      "verified_numbers": [
+        "2,000万円÷月10万円＝16年8ヶ月（正確）",
+        "3,000万円×4%＝年120万円・月10万円（正確）",
+        "1,800万円÷360万円/年＝最短5年（正確）",
+        "退職金1,000万円の移行計画360+360+280万円（正確）",
+        "Aさんの年間不足額264万-180万=84万円・月7万円（正確）",
+        "65歳時1,200万円×4%=年48万円・月4万円（正確）",
+        "iDeCo改正後税額約93万円（計算上92.2万円）（正確）",
+        "ハイブリッド30年後690万円（初期2,000万円前提、計算上694.9万円）（正確）"
+      ],
+      "summary": "主要な計算式はすべて正確。重大誤りとしてケーススタディの現金クッション計算（168〜252万円→正しくは528〜792万円）が特定された。ハイブリッド戦略の初期資産額未明示はlow問題として記録。"
+    },
+    "readability": {
+      "score": 79,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "実践ガイド > 戦略1・戦略2",
+          "issue": "「インデックスファンド」が説明なしで使用されている。beginner対象読者には未知語の可能性が高い。",
+          "suggestion": "初出時に「インデックスファンド（日経平均や世界株指数に連動する低コスト投資信託）」と括弧補足を追加する。"
+        },
+        {
+          "severity": "high",
+          "location": "はじめに > 2段落目",
+          "issue": "不安喚起の直後に安心感のフォローがなく、50〜60代読者の離脱リスクがある。",
+          "suggestion": "「ただし、正しい手順を踏めばリスクを大幅に下げられます。この記事ではその具体的な方法をご紹介します。」を直後に追加する。"
+        },
+        {
+          "severity": "medium",
+          "location": "基礎知識 > 退職金1,000万円はそのままNISAに入れられない",
+          "issue": "「特定口座（課税口座）」の補足はあるが「特定口座」「一般口座」の違いが未説明。",
+          "suggestion": "「特定口座（証券会社が税計算を代行してくれる口座。NISA以外の一般的な投資口座）」と補足する。"
+        },
+        {
+          "severity": "medium",
+          "location": "注意点・リスク > 初心者が陥りやすい3つの罠 > 罠1・罠2",
+          "issue": "罠1はFAQと、罠2は基礎知識セクションと内容が重複している。",
+          "suggestion": "罠1・罠2を要点1〜2行にまとめるか、FAQセクションと統合整理する。"
+        },
+        {
+          "severity": "medium",
+          "location": "はじめに",
+          "issue": "読後ベネフィット（「この記事を読むとどうなるか」）が冒頭で明示されていない。",
+          "suggestion": "問いかけの直後に「この記事を読むと、3年間の具体的なNISA移行プランと老後20〜30年の取り崩し設計の考え方が分かります。」などを追加する。"
+        },
+        {
+          "severity": "low",
+          "location": "実践ガイド > 定率取り崩し（4%ルール）",
+          "issue": "1文が70字超でbeginner目安（60字以内）を超えている。",
+          "suggestion": "「株式50%・債券50%の組み合わせで4%を取り崩すと、30年間資産が持つ確率は95%以上です。」と短く分割する。"
+        }
+      ],
+      "tone_analysis": {
+        "desumasu": true,
+        "beginner_friendly": true,
+        "emotional_connection": false
+      },
+      "summary": "ですます調で統一され具体的な金額・年齢・シナリオが豊富で初心者向けとして高評価。1文の平均長（52字）がbeginner目安を超え、インデックスファンド等の専門用語説明が漏れている点が主な改善ポイント。冒頭の不安喚起への感情的フォローが不足している。"
+    },
+    "writer_rules": {
+      "score": 72,
+      "status": "warn",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "ファイル先頭",
+          "issue": "フロントマターが存在しない。title / article_id / category / theme / target_audience / target_wordcount / status フィールドがすべて欠落。",
+          "suggestion": "ファイル先頭に frontmatter ブロック（---で囲んだYAML）を追加する。"
+        },
+        {
+          "severity": "high",
+          "location": "table_01 / table_02 / table_03",
+          "issue": "マークダウン表の生データ行が画像参照・プレースホルダーコメントと並んで残存している。note.com では表が崩れて表示される。",
+          "suggestion": "画像生成（/generate-table-image）完了後にマークダウン表の生データ行をすべて削除し、画像参照行のみを残す。"
+        },
+        {
+          "severity": "medium",
+          "location": "## 参考データソース",
+          "issue": "データの時点注記が存在しない。",
+          "suggestion": "リストの末尾に「※ データは2026年4月時点のものです。」を追加する。"
+        },
+        {
+          "severity": "medium",
+          "location": "注意点・リスク > iDeCo改正 > 対応策",
+          "issue": "「強くお勧めします」はasset-management.md禁止表現に類する。",
+          "suggestion": "「税理士や金融機関のFPへの事前相談をご検討ください。」に変更する。"
+        },
+        {
+          "severity": "medium",
+          "location": "## 基礎知識",
+          "issue": "基礎知識セクション約1,427字がasset-management.md指定の目標1,500〜2,000字を下回っている。",
+          "suggestion": "iDeCoの受取方法（一時金・年金）の詳細を約100字以上補強して1,500字以上にする。"
+        },
+        {
+          "severity": "low",
+          "location": "## 実践ガイド",
+          "issue": "実践ガイドセクション約2,551字がasset-management.md指定の目標2,000〜2,500字を51字超過。",
+          "suggestion": "FAQの回答文を簡潔にするか、一部を注意点セクションに移動して調整する。"
+        }
+      ],
+      "checklist": {
+        "word_count": {"actual": 9466, "range": "8000-10000", "status": "pass"},
+        "required_sections": {"found": 7, "total": 7, "missing": []},
+        "closing_greeting": true,
+        "disclaimer": true,
+        "table_placeholders": 5,
+        "source_links": 16,
+        "no_dash_symbol": true,
+        "curated_sources_json": true
+      },
+      "summary": "文字数・必須7セクション・挨拶文・免責事項・プレースホルダー・ソースURL・em dashなし・curated_sources.jsonはすべて要件を満たす。フロントマターの完全欠落とマークダウン表本体の残存が優先修正項目。"
+    }
+  },
+  "overall_score": 80,
+  "priority_fixes": [
+    {"priority": 1, "severity": "high", "source": "compliance", "fix": "免責事項に「本記事の内容により生じたいかなる損失についても責任を負いかねます。」を追加"},
+    {"priority": 2, "severity": "high", "source": "data_accuracy", "fix": "ケーススタディの現金クッション計算を168〜252万円→528〜792万円（月22万円×24〜36ヶ月）に修正"},
+    {"priority": 3, "severity": "high", "source": "writer_rules", "fix": "フロントマターをファイル先頭に追加"},
+    {"priority": 4, "severity": "high", "source": "writer_rules", "fix": "table_01/02/03のマークダウン表本体を画像化後に削除（Step 4.4で対応）"},
+    {"priority": 5, "severity": "high", "source": "readability", "fix": "「インデックスファンド」初出時に括弧で説明を追加"},
+    {"priority": 6, "severity": "high", "source": "readability", "fix": "はじめに部分の不安喚起直後に安心感のフォロー文を追加"},
+    {"priority": 7, "severity": "medium", "source": "fact", "fix": "取り崩し口座順序の説明を整合性のある形に修正（特定口座→NISA→iDeCoまたは理由を明示）"},
+    {"priority": 8, "severity": "medium", "source": "fact", "fix": "iDeCo10年ルール対応策の「70歳以降」を「退職金受取から10年以上後（75歳まで）」に修正"},
+    {"priority": 9, "severity": "medium", "source": "compliance", "fix": "はじめにまたは注意点冒頭に「税制情報は2026年4月時点」の明示を追加"},
+    {"priority": 10, "severity": "medium", "source": "writer_rules", "fix": "参考データソース末尾に「※ データは2026年4月時点のものです。」を追加"},
+    {"priority": 11, "severity": "medium", "source": "writer_rules", "fix": "「強くお勧めします」を「ご検討ください」等に変更"},
+    {"priority": 12, "severity": "medium", "source": "data_accuracy", "fix": "ハイブリッド戦略の「690万円残存」に初期資産額（2,000万円）を明示"}
+  ]
+}
