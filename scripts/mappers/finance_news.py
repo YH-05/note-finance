@@ -92,7 +92,8 @@ class FinanceNewsMapper(BaseMapper):
             resolve_category,
         )
 
-        articles = input_data.get("news", [])
+        # scrape_finance_news.py 出力は "news"、dedup_scraped.py 出力は "articles" を使う
+        articles = input_data.get("news") or input_data.get("articles", [])
         sources: list[dict[str, Any]] = []
         claims: list[dict[str, Any]] = []
         chunks: list[dict[str, Any]] = []
@@ -121,7 +122,7 @@ class FinanceNewsMapper(BaseMapper):
                     url,
                     title=article.get("title", ""),
                     published=article.get("published", ""),
-                    feed_source=article.get("source", ""),
+                    feed_source=article.get("source") or article.get("feed_source", ""),
                     source_type="news",
                 )
             )

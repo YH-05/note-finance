@@ -54,6 +54,63 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 NAS_SCRAPED_BASE = os.environ.get(
     "NAS_SCRAPED_BASE", "/Volumes/personal_folder/scraped"
 )
+NEO4J_RESEARCH_URI = os.environ.get(
+    "NEO4J_RESEARCH_URI",
+    os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
+)
+
+
+# ---------------------------------------------------------------------------
+# Pre-checks
+# ---------------------------------------------------------------------------
+
+
+def _check_neo4j_available(uri: str) -> bool:
+    """research-neo4j に Bolt 接続できるか確認する。
+
+    Parameters
+    ----------
+    uri : str
+        Neo4j の Bolt URI (例 ``bolt://localhost:7688``)。
+
+    Returns
+    -------
+    bool
+        接続可能なら True。
+    """
+    import socket
+    from urllib.parse import urlparse
+
+    parsed = urlparse(uri)
+    host = parsed.hostname or "localhost"
+    port = parsed.port or 7687
+    try:
+        with socket.create_connection((host, port), timeout=3):
+            return True
+    except OSError as exc:
+        logger.warning(
+            "research-neo4j unreachable", uri=uri, host=host, port=port, error=str(exc)
+        )
+        return False
+
+
+def _check_nas_mounted(scraped_base: str) -> bool:
+    """NAS scraped ベースディレクトリがマウントされているか確認する。
+
+    Parameters
+    ----------
+    scraped_base : str
+        NAS 上の scraped ルートパス。
+
+    Returns
+    -------
+    bool
+        ディレクトリが存在すれば True。
+    """
+    if not Path(scraped_base).is_dir():
+        logger.error("NAS scraped directory not accessible", path=scraped_base)
+        return False
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -101,15 +158,26 @@ def _run_stage2_dedup(
         cmd.append("--dry-run")
 
     logger.info("Stage 2: dedup_scraped starting", dry_run=dry_run)
-    result = subprocess.run(
-        cmd, capture_output=False, text=True, stdout=subprocess.PIPE
-    )
+    result = subprocess.run(cmd, capture_output=True, text=True)
+
+    # dedup ログは常にパススルー（ユーザーに件数サマリを見せる）
+    if result.stdout:
+        sys.stdout.write(result.stdout)
+        sys.stdout.flush()
+    if result.stderr:
+        sys.stderr.write(result.stderr)
+        sys.stderr.flush()
 
     if result.returncode != 0:
         logger.error("Stage 2 failed", returncode=result.returncode)
         sys.exit(result.returncode)
 
-    # stdout 最終行が出力ファイルパス（新規記事あり時のみ）
+    # dry-run は常に Stage 3/4 をスキップ（dedup_scraped.py は出力パスを書かない）
+    if dry_run:
+        logger.info("Stage 2: dry-run complete, skipping Stage 3/4")
+        return None
+
+    # 本実行時は stdout 最終非空行が出力ファイルパス（新規記事あり時のみ）
     stdout_lines = [l.strip() for l in result.stdout.strip().splitlines() if l.strip()]
     if not stdout_lines:
         logger.info("Stage 2: no new articles, stopping pipeline")
@@ -169,6 +237,12 @@ def _run_stage3_emit(dedup_output: Path) -> Path | None:
     sys.exit(1)
 
 
+_INGEST_SUMMARY_RE = re.compile(
+    r"投入ノード:\s*(\d+).*?投入リレーション:\s*(\d+)",
+    re.DOTALL,
+)
+
+
 def _run_stage4_ingest(queue_file: Path, log_level: str) -> None:
     """Stage 4: ingest_graph_queue.py を実行して Neo4j に投入する。
 
@@ -191,13 +265,26 @@ def _run_stage4_ingest(queue_file: Path, log_level: str) -> None:
     ]
 
     logger.info("Stage 4: ingest_graph_queue starting", input=str(queue_file))
-    result = subprocess.run(cmd, capture_output=False, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True)
+
+    # ingest_graph_queue のサマリをパススルーしつつ node/rel 数を抽出
+    if result.stdout:
+        sys.stdout.write(result.stdout)
+        sys.stdout.flush()
+    if result.stderr:
+        sys.stderr.write(result.stderr)
+        sys.stderr.flush()
 
     if result.returncode != 0:
         logger.error("Stage 4 failed", returncode=result.returncode)
         sys.exit(result.returncode)
 
-    logger.info("Stage 4: complete")
+    match = _INGEST_SUMMARY_RE.search(result.stdout or "")
+    if match:
+        nodes, relations = int(match.group(1)), int(match.group(2))
+        logger.info("Stage 4: complete", nodes=nodes, relations=relations)
+    else:
+        logger.info("Stage 4: complete (summary not parsed)")
 
 
 # ---------------------------------------------------------------------------
@@ -240,6 +327,17 @@ Examples:
         default="INFO",
         help="ログレベル (default: INFO)",
     )
+    parser.add_argument(
+        "--skip-precheck",
+        action="store_true",
+        default=False,
+        help="NAS/Neo4j 接続確認をスキップ",
+    )
+    parser.add_argument(
+        "--neo4j-uri",
+        default=NEO4J_RESEARCH_URI,
+        help=f"research-neo4j Bolt URI (default: {NEO4J_RESEARCH_URI})",
+    )
     return parser.parse_args()
 
 
@@ -253,6 +351,21 @@ def main() -> int:
         sources=args.sources or "all",
         dry_run=args.dry_run,
     )
+
+    # Stage 1: pre-checks（NAS マウント / Neo4j 接続）
+    if not args.skip_precheck:
+        if not _check_nas_mounted(args.scraped_base):
+            logger.error(
+                "NAS not mounted. Mount /Volumes/personal_folder and retry, "
+                "or pass --skip-precheck to override.",
+            )
+            return 2
+        if not args.dry_run and not _check_neo4j_available(args.neo4j_uri):
+            logger.error(
+                "research-neo4j is unreachable. Start the Neo4j container "
+                "(bolt://localhost:7688) and retry, or pass --skip-precheck / --dry-run.",
+            )
+            return 2
 
     # Stage 2: dedup
     dedup_output = _run_stage2_dedup(

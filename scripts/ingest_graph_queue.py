@@ -183,21 +183,27 @@ def process_queue(
     files = _find_pending_files(queue_dir, subdir)
 
     if not files:
-        return {"found": 0, "ingested": 0, "failed": 0}
+        return {"found": 0, "ingested": 0, "failed": 0, "nodes": 0, "relations": 0}
 
     ingested = 0
     failed = 0
+    nodes_total = 0
+    relations_total = 0
 
     for queue_file in files:
         logger.info("Processing: %s", queue_file.name)
         try:
             queue_data = load_graph_queue(queue_file)
             result = ingest_to_neo4j(queue_data, dry_run=dry_run)
+            nodes = result.get("nodes", 0)
+            relations = result.get("relations", 0)
+            nodes_total += nodes
+            relations_total += relations
             logger.info(
                 "Ingested %s: nodes=%d, relations=%d",
                 queue_file.name,
-                result.get("nodes", 0),
-                result.get("relations", 0),
+                nodes,
+                relations,
             )
             if not dry_run:
                 if no_verify:
@@ -223,7 +229,13 @@ def process_queue(
             )
             failed += 1
 
-    return {"found": len(files), "ingested": ingested, "failed": failed}
+    return {
+        "found": len(files),
+        "ingested": ingested,
+        "failed": failed,
+        "nodes": nodes_total,
+        "relations": relations_total,
+    }
 
 
 def process_single_file(
@@ -250,17 +262,19 @@ def process_single_file(
     """
     if not queue_file.exists():
         logger.error("File not found: %s", queue_file)
-        return {"found": 0, "ingested": 0, "failed": 0}
+        return {"found": 0, "ingested": 0, "failed": 0, "nodes": 0, "relations": 0}
 
     logger.info("Processing: %s", queue_file.name)
     try:
         queue_data = load_graph_queue(queue_file)
         result = ingest_to_neo4j(queue_data, dry_run=dry_run)
+        nodes = result.get("nodes", 0)
+        relations = result.get("relations", 0)
         logger.info(
             "Ingested %s: nodes=%d, relations=%d",
             queue_file.name,
-            result.get("nodes", 0),
-            result.get("relations", 0),
+            nodes,
+            relations,
         )
         if not dry_run:
             verified = _verify_ingestion(result, queue_file)
@@ -269,13 +283,25 @@ def process_single_file(
                     "Verification errors detected: %s (file kept in place)",
                     queue_file.name,
                 )
-                return {"found": 1, "ingested": 0, "failed": 1}
+                return {
+                    "found": 1,
+                    "ingested": 0,
+                    "failed": 1,
+                    "nodes": nodes,
+                    "relations": relations,
+                }
             if not keep:
                 _mark_processed(queue_file)
-        return {"found": 1, "ingested": 1, "failed": 0}
+        return {
+            "found": 1,
+            "ingested": 1,
+            "failed": 0,
+            "nodes": nodes,
+            "relations": relations,
+        }
     except Exception as exc:
         logger.error("Failed to ingest %s: %s", queue_file.name, exc, exc_info=True)
-        return {"found": 1, "ingested": 0, "failed": 1}
+        return {"found": 1, "ingested": 0, "failed": 1, "nodes": 0, "relations": 0}
 
 
 def _parse_args() -> argparse.Namespace:
@@ -383,9 +409,11 @@ def main() -> int:
         )
 
     print(f"\n{'[DRY RUN] ' if args.dry_run else ''}ingest_graph_queue 完了")
-    print(f"  発見:  {summary['found']} 件")
-    print(f"  投入:  {summary['ingested']} 件")
-    print(f"  失敗:  {summary['failed']} 件")
+    print(f"  発見ファイル:  {summary['found']} 件")
+    print(f"  投入ファイル:  {summary['ingested']} 件")
+    print(f"  失敗ファイル:  {summary['failed']} 件")
+    print(f"  投入ノード:    {summary.get('nodes', 0)} 件")
+    print(f"  投入リレーション: {summary.get('relations', 0)} 件")
 
     return 1 if summary["failed"] > 0 else 0
 
