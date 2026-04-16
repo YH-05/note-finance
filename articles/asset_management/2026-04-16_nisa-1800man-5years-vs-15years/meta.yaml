@@ -1,46 +1,38 @@
-# === Core (必須) ===
-article_id: "2026-04-16_nisa-1800man-5years-vs-15years"
-title: "新NISA1800万円を最速5年で埋める vs 15年かけて分散 — どちらが期待値で勝つか"
-topic: "新NISA1800万円最速5年vs15年分散"
-category: "asset_management"
-type: "column"
-status: "init"
-
-# === Timestamps ===
-created_at: "2026-04-16"
-updated_at: "2026-04-16"
-
-# === Content ===
+article_id: 2026-04-16_nisa-1800man-5years-vs-15years
+title: 新NISA1800万円、最速5年vs15年分散｜勝つのはどっち？
+topic: 新NISA1800万円最速5年vs15年分散
+category: asset_management
+type: column
+status: published
+created_at: '2026-04-16'
+updated_at: '2026-04-16T11:56:02.091010+00:00'
 tags:
-  - 新NISA
-  - 生涯投資枠1800万円
-  - 一括投資
-  - ドルコスト平均法
-  - 資産形成
-target_audience: "beginner"
+- 新NISA
+- 生涯投資枠1800万円
+- 一括投資
+- ドルコスト平均法
+- 資産形成
+target_audience: beginner
 target_wordcount: 4500
-
-# === Category-Specific ===
-theme: "nisa"
-
-# === Tracking ===
-critic_score: null
-revision_count: 0
-note_url: null
+theme: nisa
+critic_score: 88
+revision_count: 1
+note_url: https://editor.note.com/notes/n415113cab7e1/edit/
 x_post_url: null
-research_sources: 0
-
-# === Workflow ===
+research_sources: 24
 workflow:
-  research: "pending"
-  draft: "pending"
-  critique: "pending"
-  revision: "pending"
-  publish: "pending"
-
-# === Human Feedback ===
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: true
   hf5_draft_reviewed: true
   hf6_final_approved: true
+published_at: '2026-04-16T11:56:02.091010+00:00'
+draft_url: https://editor.note.com/notes/n415113cab7e1/edit/
