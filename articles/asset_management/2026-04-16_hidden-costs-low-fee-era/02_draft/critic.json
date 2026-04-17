@@ -1,0 +1,337 @@
+{
+  "article_id": "2026-04-16_hidden-costs-low-fee-era",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-17",
+  "critics": {
+    "fact": {
+      "score": 68,
+      "status": "issues",
+      "verified_count": 42,
+      "issues": [
+        {
+          "id": "F001",
+          "severity": "HIGH",
+          "location": "データで見る現状（line 92-93）",
+          "description": "S&P500実質コストの数値混在。本文line 92では0.089%、line 112では0.084%が混在。リサーチノートではeMAXIS Slim S&P500の実質コストは0.084%（2026年2月16日時点）。0.089%は楽天・プラス・S&P500の数値。",
+          "recommendation": "eMAXIS Slim S&P500の実質コストを0.084%に統一。逆転現象の差を0.010%（=0.094%-0.084%）と正確に記述する"
+        },
+        {
+          "id": "F002",
+          "severity": "HIGH",
+          "location": "ケーススタディ（line 193-194）",
+          "description": "「0.005%差が20年で14万円の差」の計算誤り。月3万円・年率5%・コスト差0.010%（修正後）の場合、実際の差額は約1.4万円。14万円は約10倍の過大推計。",
+          "recommendation": "「実質コスト差0.010%が20年で約1.4万円の差」に修正"
+        },
+        {
+          "id": "F003",
+          "severity": "HIGH",
+          "location": "ケーススタディ（line 195）",
+          "description": "「信託報酬1%差が20年で200万円以上」が過大。月3万円・年率5%運用でコスト差1%（5%→4%）の20年後差額は約132万円。",
+          "recommendation": "「約130万円の差」または「100万円以上の差」に修正"
+        },
+        {
+          "id": "F004",
+          "severity": "HIGH",
+          "location": "ケーススタディ・ポイント還元（line 207）",
+          "description": "「年間3,600円 ≒ 実質コスト約0.1%分」が誤り。月3万円×12=36万円の3,600円=1.0%。0.1%ではなく1.0%が正しい。",
+          "recommendation": "「年間投資額（36万円）の約1.0%分に相当」に修正"
+        },
+        {
+          "id": "F005",
+          "severity": "LOW",
+          "location": "野村スリーゼロ（line 179）",
+          "description": "「純資産総額約545億円、eMAXIS Slim比約0.18%」の比較対象が不明確。eMAXIS Slim S&P500（約3兆円）なのかオルカン（約9.8兆円）なのか文脈不明。",
+          "recommendation": "比較対象を明示するか数値を省略して概要のみ記載"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 95,
+      "status": "pass",
+      "issues": [
+        {
+          "id": "C001",
+          "severity": "MEDIUM",
+          "location": "免責事項（line 296）",
+          "description": "snippets/disclaimer.md の固定テンプレートと完全一致しない。「本記事の内容により生じたいかなる損失についても責任を負いかねます」が欠落。内容は充実しているが標準テンプレートからの逸脱がある。",
+          "recommendation": "標準テンプレートをベースに追加要素を補完する形で免責事項を再構成"
+        }
+      ],
+      "required_disclaimers": {
+        "closing_greeting": { "present": true },
+        "disclaimer": { "present": true },
+        "order_correct": true
+      },
+      "prohibited_expressions_found": [],
+      "prohibited_symbols_found": []
+    },
+    "structure": {
+      "score": 81,
+      "status": "issues",
+      "issues": [
+        {
+          "id": "ST001",
+          "severity": "MEDIUM",
+          "location": "データで見る現状セクション",
+          "description": "約1,000字程度で他のセクションと比較して短い。記事のメインテーゼ（逆転現象）を扱う核心部分の説明が薄い。",
+          "recommendation": "逆転現象の原因解説を深める。有価証券取引税の国別詳細、逆転現象の数値説明を拡充"
+        },
+        {
+          "id": "ST002",
+          "severity": "MEDIUM",
+          "location": "ケーススタディセクション",
+          "description": "約900字と短く、20年シミュレーションのコンテンツが薄い。計算根拠・前提条件の説明不足。",
+          "recommendation": "シミュレーションの前提条件・計算式を追加。複数コスト差シナリオを比較"
+        },
+        {
+          "id": "ST003",
+          "severity": "MEDIUM",
+          "location": "実践ガイドセクション",
+          "description": "投資信託 vs ETF比較と注意点セクションのETF項目が重複。",
+          "recommendation": "ETF比較は注意点セクションに集約し実践ガイドは確認手順に絞り込む"
+        },
+        {
+          "id": "ST004",
+          "severity": "LOW",
+          "location": "参考データソース",
+          "description": "本文中リンクとの二重掲載あり。",
+          "recommendation": "参考データソースリストは維持（読者の参照用として有益）"
+        },
+        {
+          "id": "ST005",
+          "severity": "LOW",
+          "location": "まとめセクション",
+          "description": "アクション3がケーススタディのポイント還元内容と重複。",
+          "recommendation": "まとめのアクション3は方向性を簡潔に示す形に整理"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "score": 71,
+      "status": "issues",
+      "issues": [
+        {
+          "id": "DA001",
+          "severity": "HIGH",
+          "location": "データで見る現状（line 92）",
+          "description": "S&P500実質コスト0.089%（楽天・プラスS&P500の数値）とeMAXIS Slim S&P500の0.084%が混在。逆転現象の差が0.005%と誤記されているが正しくは0.010%（修正後）。",
+          "recommendation": "eMAXIS Slim S&P500 = 0.084%に統一。コスト差 = 0.094% - 0.084% = 0.010%"
+        },
+        {
+          "id": "DA002",
+          "severity": "HIGH",
+          "location": "ケーススタディ（line 193）",
+          "description": "コスト差0.010%（修正後）の20年差額 ≈ 1.4万円。現在の「14万円」は約10倍の誤り。元の0.005%差でも正確値は約7,116円。",
+          "recommendation": "「実質コスト差0.010%が20年で約1.4万円の差」に修正"
+        },
+        {
+          "id": "DA003",
+          "severity": "HIGH",
+          "location": "ケーススタディ（line 195）",
+          "description": "月3万円・年率5%・コスト差1%の20年差額は約132万円。「200万円以上」は約52%の過大推計。",
+          "recommendation": "「約130万円の差」に修正"
+        },
+        {
+          "id": "DA004",
+          "severity": "HIGH",
+          "location": "ポイント還元（line 207）",
+          "description": "3,600円 ÷ 360,000円（年間投資額）= 1.0%。現在の「0.1%」は一桁誤り。",
+          "recommendation": "「実質コストを約1.0%ポイント相殺できる計算」に修正"
+        }
+      ]
+    },
+    "readability": {
+      "score": 67,
+      "status": "issues",
+      "issues": [
+        {
+          "id": "RD001",
+          "severity": "HIGH",
+          "location": "タイトル（line 1）",
+          "description": "タイトル46文字。ルール上限38文字を超過。",
+          "recommendation": "38文字以内に短縮。例:「信託報酬0.05%時代の隠れコスト完全ガイド」"
+        },
+        {
+          "id": "RD002",
+          "severity": "HIGH",
+          "location": "line 63, 69, 94, 98",
+          "description": "「oルカン」（半角英字o）が4箇所。正しくは「オルカン」（カタカナ）。",
+          "recommendation": "全4箇所を「オルカン」に修正"
+        },
+        {
+          "id": "RD003",
+          "severity": "MEDIUM",
+          "location": "基礎知識セクション",
+          "description": "「カストディアン」などの専門用語に説明が不足。",
+          "recommendation": "括弧で簡単な説明を追加"
+        },
+        {
+          "id": "RD004",
+          "severity": "MEDIUM",
+          "location": "全体",
+          "description": "箇条書きが多く語りかけスタイルと乖離している部分がある。",
+          "recommendation": "一部箇条書きを段落に変換してストーリー性を高める"
+        },
+        {
+          "id": "RD005",
+          "severity": "LOW",
+          "location": "ケーススタディ",
+          "description": "数値誤りがあるため数値修正後に文章の流れも調整が必要。",
+          "recommendation": "数値訂正後に前後文章を自然になるよう調整"
+        },
+        {
+          "id": "RD006",
+          "severity": "LOW",
+          "location": "まとめ",
+          "description": "まとめの冒頭にメインメッセージ再掲があるとより締まる。",
+          "recommendation": "「信託報酬0.05%時代の今、本当の選択基準は実質コストです」等の一文を追加"
+        }
+      ]
+    },
+    "writer_rules": {
+      "score": 62,
+      "status": "issues",
+      "issues": [
+        {
+          "id": "WR001",
+          "severity": "HIGH",
+          "location": "meta.yaml",
+          "description": "meta.yamlのtitleフィールドが未設定。",
+          "recommendation": "記事タイトルをtitleフィールドに設定"
+        },
+        {
+          "id": "WR002",
+          "severity": "HIGH",
+          "location": "meta.yaml",
+          "description": "meta.yamlのthemeフィールドが空白。",
+          "recommendation": "theme: fund_selection を設定"
+        },
+        {
+          "id": "WR003",
+          "severity": "HIGH",
+          "location": "文字数",
+          "description": "実測約7,924字（空白除外）。目標8,000-10,000字の下限をわずかに下回る。",
+          "recommendation": "データセクションとケーススタディを各300-500字拡充して8,000字以上に"
+        },
+        {
+          "id": "WR004",
+          "severity": "HIGH",
+          "location": "line 63, 69, 94, 98",
+          "description": "「oルカン」誤字4箇所。",
+          "recommendation": "全4箇所を「オルカン」に一括修正"
+        },
+        {
+          "id": "WR005",
+          "severity": "MEDIUM",
+          "location": "タイトル",
+          "description": "タイトル46字がルール上限（38字）を超過。",
+          "recommendation": "38字以内に短縮"
+        },
+        {
+          "id": "WR006",
+          "severity": "MEDIUM",
+          "location": "信頼度表現",
+          "description": "出典URLのある確定情報に「〜と言われています」等の伝聞調が使われている。",
+          "recommendation": "出典明確な情報は断定調で記述"
+        },
+        {
+          "id": "WR007",
+          "severity": "MEDIUM",
+          "location": "数値精度",
+          "description": "計算誤り（DA002, DA003, DA004）が複数あり記事全体の信頼性を損なう。",
+          "recommendation": "data_accuracyの修正事項に連動して全数値を精査"
+        },
+        {
+          "id": "WR008",
+          "severity": "LOW",
+          "location": "必須セクション",
+          "description": "7セクション構成はasset_managementルールに準拠。変更不要。",
+          "recommendation": "変更不要"
+        },
+        {
+          "id": "WR009",
+          "severity": "LOW",
+          "location": "免責事項",
+          "description": "標準テンプレートからの逸脱あり（C001参照）。",
+          "recommendation": "compliance修正事項と連動して対応"
+        }
+      ]
+    }
+  },
+  "overall_score": 74,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "HIGH",
+      "ids": ["DA002", "F002"],
+      "title": "ケーススタディの差額計算誤り（最重要）",
+      "description": "コスト差0.010%（修正後）の20年差額は約1.4万円。現在の「14万円」は10倍の誤り。",
+      "fix": "「実質コスト差0.010%が20年で約1.4万円の差」に修正"
+    },
+    {
+      "priority": 2,
+      "severity": "HIGH",
+      "ids": ["DA003", "F003"],
+      "title": "信託報酬1%差の20年差額計算誤り",
+      "description": "月3万円・年率5%・コスト差1%の20年差額は約132万円。「200万円以上」は誤り。",
+      "fix": "「約130万円の差」に修正"
+    },
+    {
+      "priority": 3,
+      "severity": "HIGH",
+      "ids": ["DA004", "F004"],
+      "title": "ポイント還元率の計算誤り",
+      "description": "3,600円 ÷ 36万円 = 1.0%。現在の「0.1%」は一桁誤り。",
+      "fix": "「実質コストを約1.0%ポイント相殺」に修正"
+    },
+    {
+      "priority": 4,
+      "severity": "HIGH",
+      "ids": ["DA001", "F001"],
+      "title": "S&P500実質コスト数値の統一",
+      "description": "eMAXIS Slim S&P500の実質コストを0.084%に統一（line 92の0.089%は誤り）",
+      "fix": "line 92を0.084%に修正。逆転現象の差を0.010%と記述"
+    },
+    {
+      "priority": 5,
+      "severity": "HIGH",
+      "ids": ["RD002", "WR004"],
+      "title": "「oルカン」誤字の修正",
+      "description": "line 63, 69, 94, 98の「oルカン」→「オルカン」",
+      "fix": "全4箇所を「オルカン」に一括置換"
+    },
+    {
+      "priority": 6,
+      "severity": "HIGH",
+      "ids": ["RD001", "WR005"],
+      "title": "タイトルの短縮（38字以内）",
+      "description": "現在46字。38字以内に短縮。",
+      "fix": "例: 「信託報酬0.05%時代の隠れコスト完全ガイド」（21字）"
+    },
+    {
+      "priority": 7,
+      "severity": "HIGH",
+      "ids": ["WR001", "WR002"],
+      "title": "meta.yamlのtitle・theme設定",
+      "description": "meta.yamlにtitleとtheme=fund_selectionを設定",
+      "fix": "meta.yamlを更新"
+    },
+    {
+      "priority": 8,
+      "severity": "MEDIUM",
+      "ids": ["C001"],
+      "title": "免責事項を標準テンプレートに準拠",
+      "description": "「本記事の内容により生じたいかなる損失についても責任を負いかねます」を追加",
+      "fix": "標準テンプレートをベースに免責事項を再構成"
+    },
+    {
+      "priority": 9,
+      "severity": "MEDIUM",
+      "ids": ["WR003", "ST001", "ST002"],
+      "title": "文字数の補充（8,000字以上）",
+      "description": "現在約7,924字。データセクション（+300字）とケーススタディ（+500字）を拡充",
+      "fix": "逆転現象の詳細解説とシミュレーション前提条件を追加"
+    }
+  ]
+}

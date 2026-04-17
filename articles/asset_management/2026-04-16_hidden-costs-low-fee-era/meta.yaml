@@ -4,9 +4,10 @@ category: asset_management
 type: column
 target_audience: beginner
 target_wordcount: 4000
-status: draft
+title: 信託報酬0.05%時代の隠れコスト完全ガイド：実質コストで選ぶ正しい方法
+status: published
 created_at: '2026-04-16'
-updated_at: '2026-04-16'
+updated_at: '2026-04-16T23:33:19.843207+00:00'
 tags:
 - 信託報酬
 - 隠れコスト
@@ -14,20 +15,22 @@ tags:
 - NISA
 - 投資信託
 - コスト比較
-theme: ''
+theme: fund_selection
 note_url: null
 x_post_url: null
-research_sources: 0
-critic_score: null
-revision_count: 0
+research_sources: 9
+critic_score: 74
+revision_count: 1
 workflow:
-  research: pending
-  draft: pending
-  critique: pending
-  revision: pending
-  publish: pending
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: false
+published_at: '2026-04-16T23:33:19.843207+00:00'
+draft_url: https://editor.note.com/notes/n6a73060749dc/edit/

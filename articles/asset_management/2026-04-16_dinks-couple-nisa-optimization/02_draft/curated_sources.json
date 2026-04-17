@@ -1,0 +1,74 @@
+[
+  {
+    "rank": "A",
+    "score": 95,
+    "url": "https://www.fsa.go.jp/policy/nisa2/about/nisa/index.html",
+    "title": "NISAとは（金融庁公式）",
+    "used_in": "基礎知識",
+    "note": "2026年税制改正（対象商品拡充・所在地確認廃止・こどもNISA創設）の一次ソース"
+  },
+  {
+    "rank": "A",
+    "score": 92,
+    "url": "https://www.jsda.or.jp/shiryoshitsu/toukei/nisa/index.html",
+    "title": "NISA口座の開設・利用状況調査（日本証券業協会）",
+    "used_in": "データで見る現状",
+    "note": "2024年12月末時点の口座数2,558万6,460口座・年代別比率・インデックス比率データの一次ソース"
+  },
+  {
+    "rank": "B",
+    "score": 80,
+    "url": "https://wealther.me/blog/2026-02-11-dual-income-asset-strategy",
+    "title": "共働き夫婦の資産形成戦略（2026年版）（ウェルサー）",
+    "used_in": "実践ガイド, シミュレーション",
+    "note": "月15万円×20年積立のシミュレーション数値・世帯年収別投資額目安の出典"
+  },
+  {
+    "rank": "B",
+    "score": 80,
+    "url": "https://izumimanerite-blog.com/new-nisa-for-married-couples/",
+    "title": "夫婦でNISAを活用する方法（いずみマネリテブログ）",
+    "used_in": "シミュレーション, 注意点・リスク",
+    "note": "夫婦満額投資後の長期保有シミュレーション数値・贈与税リスク解説の出典"
+  },
+  {
+    "rank": "B",
+    "score": 78,
+    "url": "https://www.am-one.co.jp/pickup/nisa-guide/method-nisa/simulation.html",
+    "title": "NISAシミュレーション（アセットマネジメントOne）",
+    "used_in": "シミュレーション",
+    "note": "35歳DINKSが月2万円×30年積立・65歳時3,329万円・90歳まで取り崩し可能のシミュレーション出典"
+  },
+  {
+    "rank": "B",
+    "score": 82,
+    "url": "https://nisa-strategy.com/ideco-nisa-combination-guide",
+    "title": "iDeCo×NISA組み合わせ活用ガイド（NISA戦略研究所）",
+    "used_in": "実践ガイド",
+    "note": "2026年12月iDeCo改正内容・DINKSの節税シミュレーションの出典"
+  },
+  {
+    "rank": "B",
+    "score": 78,
+    "url": "https://kabu.com/kabuyomu/life/1280.html",
+    "title": "iDeCo（イデコ）改正の内容（カブドットコム）",
+    "used_in": "実践ガイド",
+    "note": "2026年12月1日施行のiDeCo改正・会社員の拠出限度額月6.2万円への改正詳細"
+  },
+  {
+    "rank": "A",
+    "score": 88,
+    "url": "https://www.z-kyosai.com/column/7422.html",
+    "title": "遺族厚生年金の改正について（Z共済）",
+    "used_in": "注意点・リスク",
+    "note": "2028年4月施行の遺族厚生年金有期化（5年）改正・DINKSへの影響解説"
+  },
+  {
+    "rank": "B",
+    "score": 75,
+    "url": "https://www.behavior.co.jp/blog/dinks-life-insurance-2025",
+    "title": "DINKSの生命保険の考え方（2025年版）（ビヘイビア）",
+    "used_in": "注意点・リスク",
+    "note": "遺族厚生年金改正後のDINKSの生命保険補完戦略・収入保障保険の活用"
+  }
+]

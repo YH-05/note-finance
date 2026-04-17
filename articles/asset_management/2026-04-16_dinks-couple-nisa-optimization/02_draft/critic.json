@@ -1,0 +1,283 @@
+{
+  "article_id": "2026-04-16-dinks-couple-nisa-optimization",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-17",
+  "critics": {
+    "fact": {
+      "score": 76,
+      "status": "warning",
+      "verified_count": 42,
+      "issues": [
+        {
+          "issue_id": "F001",
+          "severity": "high",
+          "location": "実践ガイド：ステップ4 iDeCoと組み合わせて節税効果を最大化する",
+          "claim": "これを30年間継続すると、節税効果だけで約250万円になる計算です。",
+          "issue": "年間5.5万円×30年=165万円が正しい単純計算。250万円は税率30%計算に相当するが、年収600万円の会社員の所得税率は10%であり整合しない。",
+          "suggestion": "「節税効果の累計は約166万円になる計算です（所得税10%・住民税10%合計20%の前提）」に修正。高収入層は「税率が高い場合は約250万円も可能」と条件分けで補足。"
+        },
+        {
+          "issue_id": "F002",
+          "severity": "medium",
+          "location": "基礎知識：新NISAの制度概要",
+          "claim": "従来10年ごとに必要だったNISA口座の所在地確認手続きが廃止され",
+          "issue": "正しくは「5年ごと」。10年ごとという記述は誤り。",
+          "suggestion": "「従来5年ごとに必要だったNISA口座の所在地確認手続きが廃止され」に修正。"
+        },
+        {
+          "issue_id": "F003",
+          "severity": "medium",
+          "location": "シミュレーション：モデルケース2",
+          "claim": "1人あたりの満額投資後30年目の資産は約6,917万円",
+          "issue": "「満額投資後30年目」という表現が「積立完了後30年保有」と誤読される恐れがある。実際の前提は「積立開始から30年後（最速5年積立＋25年保有）」。",
+          "suggestion": "「積立開始から30年後（最速5年で満額積立後、25年保有した場合）の資産は約6,917万円」と明確化する。"
+        },
+        {
+          "issue_id": "F004",
+          "severity": "low",
+          "location": "データで見る現状：インデックス投資が主流になった背景",
+          "claim": "eMAXIS Slim 米国株式（S&P500）は年率0.09372%",
+          "issue": "2023年10月時点の数値。2024年以降の引き下げ競争で最新値が異なる可能性がある。",
+          "suggestion": "時点注記を追加するか、公開直前に公式サイトで最新値を確認。"
+        },
+        {
+          "issue_id": "F005",
+          "severity": "low",
+          "location": "シミュレーション：モデルケース3",
+          "claim": "公的年金（共働き夫婦の場合、合計で月30万円程度を見込める場合があります）",
+          "issue": "厚生労働省の標準モデルでは夫婦2人で月23万円が基準。「月30万円」は高収入層に限られる。",
+          "suggestion": "「月22〜30万円程度（加入状況・年収により異なる）」と幅を持たせた表現に修正。"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 73,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "high",
+          "location": "末尾免責事項",
+          "text": "投資には元本割れリスクがあります。株式、債券、投資信託、ETF等の金融商品は〜",
+          "issue": "正規免責事項テキストと不一致。「本記事の内容により生じたいかなる損失についても責任を負いかねます。」が欠落している。",
+          "suggestion": "末尾の免責事項を正規テキストに置き換える：「免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。」"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "medium",
+          "location": "シミュレーション：モデルケース1",
+          "text": "節税できる効果は約521万円にのぼります。",
+          "issue": "年利5%という仮定に基づく試算値なのに確定した節税額であるかのような断定的表現。",
+          "suggestion": "「この試算上の節税効果は約521万円になる計算です（年利5%・非課税を前提とした試算値）」に変更。"
+        },
+        {
+          "issue_id": "CP003",
+          "severity": "medium",
+          "location": "シミュレーション：モデルケース3",
+          "text": "月15万円を取り崩しながら運用を継続しても、90歳まで資産を維持できる計算です。",
+          "issue": "将来の資産維持を約束するかのような印象を与える。",
+          "suggestion": "「年率5%の運用が継続した場合のシミュレーションでは、90歳時点でも資産が残る計算になります。実際の運用成果は市場環境により大きく異なります。」に変更。"
+        },
+        {
+          "issue_id": "CP004",
+          "severity": "low",
+          "location": "シミュレーション全般",
+          "text": "年利5%（長期の株式インデックス投資における歴史的な期待リターンの目安）",
+          "issue": "年利5%の根拠となる指数・期間・出典が未記載。",
+          "suggestion": "参照指数・期間を明示するか「あくまでシミュレーション上の仮定」を強調する文言を追加。"
+        }
+      ]
+    },
+    "structure": {
+      "score": 78,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "データで見る現状：口座数と活用トレンド",
+          "issue": "「基礎知識」と「実践ガイド」の間に挟まれた統計セクションが読者の行動への流れを中断している。",
+          "suggestion": "「データで見る現状」を「基礎知識」セクション内のサブセクションに格下げするか、実践ガイドの導入として統合する。"
+        },
+        {
+          "severity": "high",
+          "location": "注意点・リスク：DINKSが知っておくべき落とし穴",
+          "issue": "リスク情報が末尾に集約され、実践ガイドで高めた行動意欲を削ぐ構成。贈与税は冒頭で言及しながら詳細が末尾に回されており読者が混乱する可能性がある。",
+          "suggestion": "贈与税ルールをNISA口座開設ステップ直後に注意書きとして埋め込む。リスクセクション冒頭に橋渡し文を置く。"
+        },
+        {
+          "severity": "medium",
+          "location": "はじめに",
+          "issue": "複数の情報（DINKSの強み・iDeCo・贈与税・年金改正）が一段落に詰め込まれており情報密度が高すぎる。",
+          "suggestion": "DINKSの強みという一点に絞り、具体数値を早期に示す。落とし穴情報は予告にとどめる。"
+        },
+        {
+          "severity": "medium",
+          "location": "シミュレーション：DINKSの資産形成モデルケース",
+          "issue": "3ケースの比較軸が統一されていない。読者が自分のケースを判断しにくい。",
+          "suggestion": "各ケース冒頭に「世帯年収〇〇万円のDINKS向け」等の読者分類文を1行追加する。"
+        },
+        {
+          "severity": "low",
+          "location": "まとめ",
+          "issue": "アクションリストが各セクションとの対応を示していない。",
+          "suggestion": "番号付きで5項目以内に絞り、各項目に対応セクション名を括弧書きで示す。"
+        }
+      ],
+      "strengths": [
+        "基礎知識→データ→実践→シミュレーション→リスク→まとめという大枠の流れは読者の心理遷移に沿っている",
+        "ステップ形式の実践ガイドが行動障壁を下げている",
+        "FAQを実践ガイド内に組み込む設計は疑問解消が文脈の直近でできる"
+      ]
+    },
+    "data_accuracy": {
+      "score": 82,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "実践ガイド：ステップ4 iDeCo節税30年累計",
+          "claimed_value": "約250万円",
+          "verified_value": "約166万円",
+          "issue": "年収600万円会社員の実効税率は所得税10%+住民税10%=20%。正しい累計は5.52万円/年×30年=166万円。記事の250万円は税率30%計算（高収入層にのみ適用）。",
+          "suggestion": "「節税効果の累計は約166万円になる計算です（税率20%を前提）」に修正。高収入層向けに「税率が高い場合は約250万円も可能」と条件分けで補足。"
+        },
+        {
+          "severity": "low",
+          "location": "シミュレーション：モデルケース2 40年後夫婦合計",
+          "claimed_value": "約2億2,535万円",
+          "verified_value": "約2億2,534万円",
+          "issue": "1万円の端数処理差異（軽微）。",
+          "suggestion": "修正任意。端数処理方法を統一する。"
+        }
+      ],
+      "calculations_verified": [
+        {"name": "NISA年間合計枠（120+240）", "result": "360万円", "status": "correct"},
+        {"name": "夫婦合計生涯枠（1800×2）", "result": "3,600万円", "status": "correct"},
+        {"name": "最速満額期間（3600÷720）", "result": "5年", "status": "correct"},
+        {"name": "iDeCo DINKS月額（6.2×2）", "result": "12.4万円", "status": "correct"},
+        {"name": "iDeCo DINKS年額（12.4×12）", "result": "148.8万円", "status": "correct"},
+        {"name": "モデルケース1：積立元本（15万×12×20）", "result": "3,600万円", "status": "correct"},
+        {"name": "モデルケース1：20年後資産", "result": "6,166万円（誤差1万円）", "status": "approximately_correct"},
+        {"name": "モデルケース1：NISA節税効果（運用益×20.315%）", "result": "521万円", "status": "correct"},
+        {"name": "モデルケース3：65歳時資産", "result": "3,329万円", "status": "correct"},
+        {"name": "iDeCo年間節税（27.6万×20%）", "result": "5.52万円", "status": "correct"},
+        {"name": "iDeCo節税30年累計（税率20%）", "result": "166万円 vs 記事250万円（税率誤用）", "status": "incorrect"},
+        {"name": "eMAXIS Slim 全世界株式 信託報酬", "result": "0.05775%", "status": "correct"},
+        {"name": "eMAXIS Slim S&P500 信託報酬", "result": "0.09372%", "status": "correct"}
+      ]
+    },
+    "readability": {
+      "score": 68,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "high",
+          "location": "はじめに（冒頭フック）",
+          "issue": "冒頭がDINKS固有の優位性（3,600万円という他の世帯にはない非課税枠）を即座に示せていない。スマホ読者は最初の3行で離脱を判断する。",
+          "suggestion": "「共働きのあなたたち夫婦には、一人で投資するより3,600万円多い非課税枠がある」という具体数字の提示から始める。"
+        },
+        {
+          "severity": "high",
+          "location": "注意点・リスクセクション",
+          "issue": "5項目のリスクが並列されており読者の心理的負荷が高い。切実さを先に示してから詳細に入る構成が必要。",
+          "suggestion": "遺族厚生年金改正をDINKSに最も影響が大きいトピックとして冒頭で問題提起してから詳細に入る。"
+        },
+        {
+          "severity": "medium",
+          "location": "基礎知識セクション（2026年制度変更ポイント）",
+          "issue": "制度概要（不変の知識）と制度変更（時事情報）が同一セクションに混在。",
+          "suggestion": "2026年制度変更ポイントを「【2026年最新】ここが変わった」として分離し時点明示のバッジを付ける。"
+        },
+        {
+          "severity": "medium",
+          "location": "実践ガイド（ステップ1〜4）",
+          "issue": "ステップ間の「なぜこの順番か」説明がなく、初心者が離脱するリスクがある。",
+          "suggestion": "各ステップ冒頭に「このステップは〇〇な人向け」という条件文を1行追加する。"
+        },
+        {
+          "severity": "medium",
+          "location": "フッター",
+          "issue": "「いつも読んでいただきありがとうございます！」が免責事項の直前に置かれており、専門的なトーンとのギャップが信頼感を損なう。",
+          "suggestion": "まとめセクション末尾にフッターを配置し、免責事項はフッターの後ろに移動する。"
+        },
+        {
+          "severity": "medium",
+          "location": "シミュレーションセクション",
+          "issue": "3つのモデルケースで読者が「自分はどのケースか」を判断する手がかりが不足している。",
+          "suggestion": "各シミュレーション冒頭に「世帯年収〇〇〜〇〇万円のDINKS向け」等の1行リードを置く。"
+        },
+        {
+          "severity": "low",
+          "location": "まとめセクション",
+          "issue": "アクションが時間コストで整理されていない。",
+          "suggestion": "アクションを3段階の時間コストで提示し行動ハードルの低さを可視化する。"
+        }
+      ],
+      "strengths": [
+        "DINKS固有を明示したタイトルで読者の自己選別が機能しやすい",
+        "ステップ形式の実践ガイドが直感的で追いやすい",
+        "3つのシミュレーションが世帯別・ライフステージ別で自己投影を促す"
+      ]
+    },
+    "writer_rules": {
+      "score": 55,
+      "word_count": 8700,
+      "word_count_status": "ok",
+      "word_count_note": "asset-management.mdカテゴリルールの8,000〜10,000字目標に準拠。",
+      "sections_found": ["はじめに", "基礎知識", "データで見る現状", "実践ガイド", "シミュレーション", "注意点・リスク", "まとめ", "参考データソース"],
+      "sections_missing": [],
+      "frontmatter_present": false,
+      "issues": [
+        {
+          "issue_id": "WR-CL001",
+          "severity": "medium",
+          "location": "実践ガイド：ステップ2",
+          "issue": "「インデックスファンド」初出時に括弧書きによる平易化説明がない。beginner向け記事として必須。",
+          "suggestion": "「インデックスファンド（株価指数など市場全体の値動きに連動する投資信託）」と初出時に説明を追加。"
+        },
+        {
+          "issue_id": "WR-CL002",
+          "severity": "medium",
+          "location": "データで見る現状",
+          "issue": "「信託報酬」初出時に平易化説明がない。",
+          "suggestion": "「信託報酬（投資信託を保有している間にかかる運用コスト）」と初出時に説明を追加。"
+        },
+        {
+          "issue_id": "WR-CL003",
+          "severity": "medium",
+          "location": "はじめに",
+          "issue": "「iDeCo」初出時に個人型確定拠出年金等の説明がない。",
+          "suggestion": "「iDeCo（個人型確定拠出年金。老後資金を自分で積み立てる制度）」と初出時に説明を追加。"
+        },
+        {
+          "issue_id": "WR-SC001",
+          "severity": "medium",
+          "location": "参考データソース",
+          "issue": "参考データソースセクションにデータの時点（分析期間）の記載がない。",
+          "suggestion": "「※ データは2026年4月時点のものです。」の注記を追加。"
+        },
+        {
+          "issue_id": "WR-TL001",
+          "severity": "low",
+          "location": "タイトル",
+          "issue": "meta.yaml のtitleとfirst_draft.mdの見出しが不一致。",
+          "suggestion": "meta.yaml のtitleをfirst_draft.mdの見出し「DINKS夫婦の新NISA最適化戦略：3600万円の非課税枠を最速で活かす方法」に統一。"
+        }
+      ]
+    }
+  },
+  "overall_score": 72,
+  "priority_fixes": [
+    {"priority": 1, "severity": "high", "category": "compliance", "issue": "免責事項を正規テキスト（損失責任否認文を含む形）に修正"},
+    {"priority": 2, "severity": "high", "category": "fact/data_accuracy", "issue": "iDeCo節税30年累計を250万円→166万円に修正（または税率条件を明記）"},
+    {"priority": 3, "severity": "high", "category": "fact", "issue": "旧NISA所在地確認周期「10年ごと」→「5年ごと」に修正"},
+    {"priority": 4, "severity": "medium", "category": "compliance", "issue": "「90歳まで資産を維持できる計算」「521万円にのぼります」を試算前提表現に変更"},
+    {"priority": 5, "severity": "medium", "category": "readability", "issue": "冒頭フックを「3,600万円の非課税枠」という具体数字から始める形に改善"},
+    {"priority": 6, "severity": "medium", "category": "writer_rules", "issue": "専門用語（インデックスファンド・信託報酬・iDeCo）の初出時に括弧書きで平易化説明を追加"},
+    {"priority": 7, "severity": "medium", "category": "fact", "issue": "モデルケース2の「満額投資後30年目」表現を「積立開始から30年後」と明確化"},
+    {"priority": 8, "severity": "medium", "category": "structure/readability", "issue": "「データで見る現状」を基礎知識内サブセクションに格下げまたは実践ガイドの導入として統合"},
+    {"priority": 9, "severity": "low", "category": "writer_rules", "issue": "参考データソースに「2026年4月時点」の時点注記を追加"},
+    {"priority": 10, "severity": "low", "category": "writer_rules", "issue": "meta.yaml titleとfirst_draft.md見出しを統一"}
+  ]
+}

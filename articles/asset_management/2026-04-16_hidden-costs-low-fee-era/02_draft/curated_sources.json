@@ -1,0 +1,68 @@
+{
+  "curated_at": "2026-04-16",
+  "sources": [
+    {
+      "url": "https://note.com/norenkun/n/nc43fa1631837",
+      "title": "オルカンの実質コスト分解（信託報酬の1.6倍の実質コスト・逆転現象の解説）",
+      "reliability_rank": "B",
+      "relevance_score": 95,
+      "used_in": ["基礎知識", "データで見る現状", "ケーススタディ"]
+    },
+    {
+      "url": "https://cocozas.jp/coco-the-style/toshishintaku-kakurekosuto/",
+      "title": "投資信託の隠れコストの仕組み詳解（eMAXIS Slim運用報告書データ含む）",
+      "reliability_rank": "B",
+      "relevance_score": 90,
+      "used_in": ["基礎知識", "実践ガイド"]
+    },
+    {
+      "url": "https://diamond.jp/zai/articles/-/131949",
+      "title": "インデックスファンド信託報酬比較ランキング（2026年2月16日時点）｜ダイヤモンドZAIオンライン",
+      "reliability_rank": "A",
+      "relevance_score": 92,
+      "used_in": ["データで見る現状"]
+    },
+    {
+      "url": "https://www.tsumitatenisa.jp/list/data2.php",
+      "title": "新NISA銘柄の信託報酬・隠れコスト・実質コスト一覧（2026年）｜新NISAナビ",
+      "reliability_rank": "B",
+      "relevance_score": 88,
+      "used_in": ["データで見る現状"]
+    },
+    {
+      "url": "https://emaxis.am.mufg.jp/lp/slim/pr1/index.html",
+      "title": "eMAXIS Slim 公式費用ページ｜三菱UFJアセットマネジメント",
+      "reliability_rank": "A",
+      "relevance_score": 85,
+      "used_in": ["実践ガイド"]
+    },
+    {
+      "url": "https://kabu.com/item/foreign_stock/us_stock/column/15.html",
+      "title": "投資信託 vs 米国ETFのコスト比較｜kabu.com",
+      "reliability_rank": "B",
+      "relevance_score": 80,
+      "used_in": ["注意点・リスク"]
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/8288",
+      "title": "野村スリーゼロ先進国株式投信 詳細（信託報酬0%・2030年末まで・野村証券専売）",
+      "reliability_rank": "B",
+      "relevance_score": 75,
+      "used_in": ["実践ガイド"]
+    },
+    {
+      "url": "https://shintaro-money.com/emaxis-slim-allcountry/",
+      "title": "eMAXIS Slim オルカン詳細（純資産・コスト情報）",
+      "reliability_rank": "C",
+      "relevance_score": 70,
+      "used_in": ["実践ガイド"]
+    },
+    {
+      "url": "https://nextfunds.jp/semi/article905.html",
+      "title": "ETF選択基準：コスト・トラッキングディファレンス｜NEXT FUNDS",
+      "reliability_rank": "A",
+      "relevance_score": 65,
+      "used_in": ["注意点・リスク"]
+    }
+  ]
+}
