@@ -183,3 +183,97 @@ ingest_graph_queue 完了
 [[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
 [[32m[1minfo     [0m] [1mStage 2: no new articles, stopping pipeline[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
 [[32m[1minfo     [0m] [1mPipeline complete (no new articles or dry-run)[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: no new articles, stopping pipeline[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete (no new articles or dry-run)[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: no new articles, stopping pipeline[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete (no new articles or dry-run)[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: no new articles, stopping pipeline[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete (no new articles or dry-run)[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: no new articles, stopping pipeline[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete (no new articles or dry-run)[0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/deduped-all-20260412180013-4f326b31.json[0m
+[[32m[1minfo     [0m] [1mStage 3: emit_research_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/deduped-all-20260412180013-4f326b31.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 3: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260412180108-6a94070a.json[0m
+[[32m[1minfo     [0m] [1mStage 4: ingest_graph_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260412180108-6a94070a.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+
+ingest_graph_queue 完了
+  発見:  1 件
+  投入:  1 件
+  失敗:  0 件
+[[32m[1minfo     [0m] [1mStage 4: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete             [0m [[0m[1m[34m__main__[0m][0m [36mdedup_output[0m=[35m.tmp/deduped-all-20260412180013-4f326b31.json[0m [36melapsed_sec[0m=[35m65.4[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mqueue_file[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260412180108-6a94070a.json[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/deduped-all-20260413180016-6c287bbd.json[0m
+[[32m[1minfo     [0m] [1mStage 3: emit_research_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/deduped-all-20260413180016-6c287bbd.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 3: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260413180033-044d3fea.json[0m
+[[32m[1minfo     [0m] [1mStage 4: ingest_graph_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260413180033-044d3fea.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+
+ingest_graph_queue 完了
+  発見:  1 件
+  投入:  1 件
+  失敗:  0 件
+[[32m[1minfo     [0m] [1mStage 4: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete             [0m [[0m[1m[34m__main__[0m][0m [36mdedup_output[0m=[35m.tmp/deduped-all-20260413180016-6c287bbd.json[0m [36melapsed_sec[0m=[35m29.0[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mqueue_file[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260413180033-044d3fea.json[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/deduped-all-20260414180016-95f0af2e.json[0m
+[[32m[1minfo     [0m] [1mStage 3: emit_research_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/deduped-all-20260414180016-95f0af2e.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 3: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260414180043-995e219e.json[0m
+[[32m[1minfo     [0m] [1mStage 4: ingest_graph_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260414180043-995e219e.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+
+ingest_graph_queue 完了
+  発見:  1 件
+  投入:  1 件
+  失敗:  0 件
+[[32m[1minfo     [0m] [1mStage 4: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete             [0m [[0m[1m[34m__main__[0m][0m [36mdedup_output[0m=[35m.tmp/deduped-all-20260414180016-95f0af2e.json[0m [36melapsed_sec[0m=[35m38.3[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mqueue_file[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260414180043-995e219e.json[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/deduped-all-20260415180016-02d7136d.json[0m
+[[32m[1minfo     [0m] [1mStage 3: emit_research_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/deduped-all-20260415180016-02d7136d.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 3: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260415180042-5a9a57c6.json[0m
+[[32m[1minfo     [0m] [1mStage 4: ingest_graph_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260415180042-5a9a57c6.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+
+ingest_graph_queue 完了
+  発見:  1 件
+  投入:  1 件
+  失敗:  0 件
+[[32m[1minfo     [0m] [1mStage 4: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete             [0m [[0m[1m[34m__main__[0m][0m [36mdedup_output[0m=[35m.tmp/deduped-all-20260415180016-02d7136d.json[0m [36melapsed_sec[0m=[35m38.4[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mqueue_file[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260415180042-5a9a57c6.json[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/deduped-all-20260416180015-e14d95be.json[0m
+[[32m[1minfo     [0m] [1mStage 3: emit_research_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/deduped-all-20260416180015-e14d95be.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 3: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260416180031-bab12bef.json[0m
+[[32m[1minfo     [0m] [1mStage 4: ingest_graph_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260416180031-bab12bef.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+
+ingest_graph_queue 完了
+  発見:  1 件
+  投入:  1 件
+  失敗:  0 件
+[[32m[1minfo     [0m] [1mStage 4: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete             [0m [[0m[1m[34m__main__[0m][0m [36mdedup_output[0m=[35m.tmp/deduped-all-20260416180015-e14d95be.json[0m [36melapsed_sec[0m=[35m27.7[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mqueue_file[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260416180031-bab12bef.json[0m
+[[32m[1minfo     [0m] [1mpipeline_scraped_to_neo4j starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mscraped_base[0m=[35m/Volumes/personal_folder/scraped[0m [36msources[0m=[35mall[0m
+[[32m[1minfo     [0m] [1mStage 2: dedup_scraped starting[0m [[0m[1m[34m__main__[0m][0m [36mdry_run[0m=[35mFalse[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 2: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/deduped-all-20260417180017-5c0bc367.json[0m
+[[32m[1minfo     [0m] [1mStage 3: emit_research_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/deduped-all-20260417180017-5c0bc367.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mStage 3: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36moutput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260417180041-66df822a.json[0m
+[[32m[1minfo     [0m] [1mStage 4: ingest_graph_queue starting[0m [[0m[1m[34m__main__[0m][0m [36minput[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260417180041-66df822a.json[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+
+ingest_graph_queue 完了
+  発見:  1 件
+  投入:  1 件
+  失敗:  0 件
+[[32m[1minfo     [0m] [1mStage 4: complete             [0m [[0m[1m[34m__main__[0m][0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m
+[[32m[1minfo     [0m] [1mPipeline complete             [0m [[0m[1m[34m__main__[0m][0m [36mdedup_output[0m=[35m.tmp/deduped-all-20260417180017-5c0bc367.json[0m [36melapsed_sec[0m=[35m37.3[0m [36mmodule[0m=[35mpipeline_scraped_to_neo4j[0m [36mqueue_file[0m=[35m.tmp/graph-queue/finance-news-workflow/gq-20260417180041-66df822a.json[0m

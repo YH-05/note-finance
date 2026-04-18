@@ -307,3 +307,420 @@ career_sister:
   - skipped (already posted): 1 slots
   - failed: 0 slots
 
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+[2m2026-04-11T03:33:38.734675+00:00[0m [ERROR    [0m] [1minstagram_post_failed         [0m [[0m[1m[34m__main__[0m][0m [36maccount[0m=[35mcareer_sister[0m [36mcaller[0m=[35m{'filename': 'auto_poster.py', 'function': '_execute_post', 'line': 1657}[0m [36mdate[0m=[35m2026-04-11[0m [36merror[0m=[35m"Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"[0m [36mslot[0m=[35m昼[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1644, in _execute_post
+    ig_result = ig_poster.post(slot_dir)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1060, in post
+    result = _post_carousel_with_retry()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1058, in _post_carousel_with_retry
+    return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 295, in post_carousel
+    return self._publish(carousel_id)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 340, in _publish
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 0 slots
+  - skipped (already posted): 1 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 0 slots
+  - skipped (already posted): 1 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 0 slots
+  - skipped (already posted): 1 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+[2m2026-04-13T11:34:36.705140+00:00[0m [ERROR    [0m] [1minstagram_post_failed         [0m [[0m[1m[34m__main__[0m][0m [36maccount[0m=[35mcareer_sister[0m [36mcaller[0m=[35m{'filename': 'auto_poster.py', 'function': '_execute_post', 'line': 1657}[0m [36mdate[0m=[35m2026-04-13[0m [36merror[0m=[35m"Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"[0m [36mslot[0m=[35m夜[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1644, in _execute_post
+    ig_result = ig_poster.post(slot_dir)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1060, in post
+    result = _post_carousel_with_retry()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1058, in _post_carousel_with_retry
+    return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 295, in post_carousel
+    return self._publish(carousel_id)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 340, in _publish
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+[2m2026-04-14T11:38:14.009312+00:00[0m [ERROR    [0m] [1minstagram_post_failed         [0m [[0m[1m[34m__main__[0m][0m [36maccount[0m=[35mcareer_sister[0m [36mcaller[0m=[35m{'filename': 'auto_poster.py', 'function': '_execute_post', 'line': 1657}[0m [36mdate[0m=[35m2026-04-14[0m [36merror[0m=[35m"Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"[0m [36mslot[0m=[35m夜[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1644, in _execute_post
+    ig_result = ig_poster.post(slot_dir)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1060, in post
+    result = _post_carousel_with_retry()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1058, in _post_carousel_with_retry
+    return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 295, in post_carousel
+    return self._publish(carousel_id)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 340, in _publish
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+[2m2026-04-15T11:33:55.347867+00:00[0m [ERROR    [0m] [1minstagram_post_failed         [0m [[0m[1m[34m__main__[0m][0m [36maccount[0m=[35mcareer_sister[0m [36mcaller[0m=[35m{'filename': 'auto_poster.py', 'function': '_execute_post', 'line': 1657}[0m [36mdate[0m=[35m2026-04-15[0m [36merror[0m=[35m"Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"[0m [36mslot[0m=[35m夜[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1644, in _execute_post
+    ig_result = ig_poster.post(slot_dir)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1060, in post
+    result = _post_carousel_with_retry()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1058, in _post_carousel_with_retry
+    return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 295, in post_carousel
+    return self._publish(carousel_id)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 340, in _publish
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+[2m2026-04-16T11:33:43.364897+00:00[0m [ERROR    [0m] [1minstagram_post_failed         [0m [[0m[1m[34m__main__[0m][0m [36maccount[0m=[35mcareer_sister[0m [36mcaller[0m=[35m{'filename': 'auto_poster.py', 'function': '_execute_post', 'line': 1657}[0m [36mdate[0m=[35m2026-04-16[0m [36merror[0m=[35m"Client error '400 Bad Request' for url 'https://graph.instagram.com/v24.0/34332538239725913/media'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"[0m [36mslot[0m=[35m夜[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1644, in _execute_post
+    ig_result = ig_poster.post(slot_dir)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1060, in post
+    result = _post_carousel_with_retry()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1058, in _post_carousel_with_retry
+    return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 271, in post_carousel
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'https://graph.instagram.com/v24.0/34332538239725913/media'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+[2m2026-04-17T11:32:37.518193+00:00[0m [ERROR    [0m] [1minstagram_post_failed         [0m [[0m[1m[34m__main__[0m][0m [36maccount[0m=[35mcareer_sister[0m [36mcaller[0m=[35m{'filename': 'auto_poster.py', 'function': '_execute_post', 'line': 1657}[0m [36mdate[0m=[35m2026-04-17[0m [36merror[0m=[35m"Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"[0m [36mslot[0m=[35m夜[0m
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1644, in _execute_post
+    ig_result = ig_poster.post(slot_dir)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1060, in post
+    result = _post_carousel_with_retry()
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1058, in _post_carousel_with_retry
+    return ig_poster.post_carousel(caption=caption, image_urls=image_urls)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 295, in post_carousel
+    return self._publish(carousel_id)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/yuki/Desktop/note-finance/src/creator/poster.py", line 340, in _publish
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://graph.instagram.com/v24.0/34332538239725913/media_publish'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
+
+=== Auto Poster Summary ===
+career_sister:
+  - posted: 1 slots
+  - skipped (already posted): 0 slots
+  - failed: 0 slots
+
