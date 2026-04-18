@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* === Cover Slide === */
+  .slide-title {
+    background: #FFF8F0;
+  }
+  .slide-title .top-block {
+    background: #D4A574;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 60px 40px 60px;
+  }
+  .slide-title .top-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+    letter-spacing: 4px;
+    opacity: 0.8;
+  }
+  .slide-title .bottom-block {
+    flex: 1;
+    background: #FFF8F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px;
+    gap: 24px;
+  }
+  .slide-title .hook {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #2D2D2D;
+  }
+  .slide-title .account-name {
+    font-size: 22px;
+    font-weight: 400;
+    color: #D4A574;
+  }
+  .slide-title .swipe-hint {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2D2D2D;
+    opacity: 0.5;
+  }
+
+  /* === Content Slide === */
+  .slide-content {
+    background: #FFF8F0;
+  }
+  .slide-content .accent-bar {
+    width: 100%;
+    height: 8px;
+    background: #D4A574;
+  }
+  .slide-content .main-area {
+    flex: 1;
+    padding: 60px 60px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+  }
+  .slide-content .content-number {
+    font-size: 72px;
+    font-weight: 800;
+    color: #D4A574;
+    opacity: 0.2;
+  }
+  .slide-content .content-heading {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #2D2D2D;
+  }
+  .slide-content .content-body {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #2D2D2D;
+    opacity: 0.85;
+  }
+  .slide-content .content-body .highlight {
+    font-weight: 700;
+    opacity: 1;
+  }
+  .slide-content .divider {
+    width: 80px;
+    height: 4px;
+    background: #D4A574;
+    border-radius: 2px;
+  }
+  .slide-content .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 60px;
+  }
+  .slide-content .footer-account {
+    font-size: 18px;
+    font-weight: 400;
+    color: #D4A574;
+  }
+  .slide-content .footer-page {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2D2D2D;
+    opacity: 0.3;
+  }
+
+  /* === Points (Summary) Slide === */
+  .slide-points {
+    background: #FFF8F0;
+  }
+  .slide-points .accent-bar {
+    width: 100%;
+    height: 8px;
+    background: #D4A574;
+  }
+  .slide-points .main-area {
+    flex: 1;
+    padding: 60px 60px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+  .slide-points .points-number {
+    font-size: 72px;
+    font-weight: 800;
+    color: #D4A574;
+    opacity: 0.2;
+  }
+  .slide-points .points-heading {
+    font-size: 44px;
+    font-weight: 700;
+    color: #2D2D2D;
+  }
+  .slide-points .summary-box {
+    background: #F5E6D3;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .slide-points .point-item {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2D2D2D;
+  }
+  .slide-points .divider {
+    width: 80px;
+    height: 4px;
+    background: #D4A574;
+    border-radius: 2px;
+  }
+  .slide-points .closing {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #2D2D2D;
+    opacity: 0.8;
+  }
+  .slide-points .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 60px;
+  }
+  .slide-points .footer-account {
+    font-size: 18px;
+    font-weight: 400;
+    color: #D4A574;
+  }
+  .slide-points .footer-page {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2D2D2D;
+    opacity: 0.3;
+  }
+
+  /* === CTA Slide === */
+  .slide-cta {
+    background: #D4A574;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    gap: 40px;
+  }
+  .slide-cta .cta-heading {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .slide-cta .cta-emphasis {
+    font-size: 44px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .slide-cta .cta-divider {
+    width: 120px;
+    height: 3px;
+    background: #FFFFFF;
+    opacity: 0.5;
+    border-radius: 2px;
+  }
+  .slide-cta .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 60px;
+    background: #FFF8F0;
+    border-radius: 36px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #D4A574;
+  }
+  .slide-cta .cta-account {
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+    opacity: 0.9;
+  }
+  .slide-cta .cta-tagline {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #FFFFFF;
+    opacity: 0.8;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<!-- Slides will be injected by render_carousel.py -->
+
+    <div class="slide slide-title">
+        <div class="top-block">
+            <div class="top-label">CAREER TIPS</div>
+        </div>
+        <div class="bottom-block">
+            <div class="hook">職務経歴書<br>通過率が跳ねる<br>『3要素』の書き方</div>
+            <div class="account-name">@career_sister</div>
+            <div class="swipe-hint">スワイプで読む →</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">01</div>
+            <div class="content-heading">NG：成果だけ</div>
+            <div class="content-body">「営業4年。顧客50社担当。売上120%達成。」<br>→ 誰でも書ける。印象ゼロ。</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">1/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">02</div>
+            <div class="content-heading">採用担当が見るポイント</div>
+            <div class="content-body">本当に見てるのは『成果に至るプロセス』。思考と行動がない書類は通らない。</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">2/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">03</div>
+            <div class="content-heading">3要素フレーム</div>
+            <div class="content-body">❶ 状況：どんな環境だったか<br>❷ 思考：何を考え判断したか<br>❸ 行動：何をやり何が変わったか</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">3/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-content">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="content-number">04</div>
+            <div class="content-heading">OK例</div>
+            <div class="content-body">既存顧客の離脱が続く時期に、ヒアリング50件から離脱パターンを分析、提案資料を刷新、解約率15%改善。</div>
+            <div class="divider"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">4/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-points">
+        <div class="accent-bar"></div>
+        <div class="main-area">
+            <div class="points-number">05</div>
+            <div class="points-heading">今日やる3ステップ</div>
+            <div class="summary-box">
+            <div class="point-item">✔ 直近1案件を思い出す</div>
+            <div class="point-item">✔ 状況→思考→行動で書き出す</div>
+            <div class="point-item">✔ 面接で話せる形に整える</div>
+            </div>
+            <div class="divider"></div>
+            
+        </div>
+        <div class="footer">
+            <div class="footer-account">@career_sister</div>
+            <div class="footer-page">5/5</div>
+        </div>
+    </div>
+
+    <div class="slide slide-cta">
+        <div class="cta-heading">この投稿が<br>役に立ったら</div>
+        <div class="cta-emphasis">♡ いいね &amp; 保存</div>
+        <div class="cta-divider"></div>
+        <div class="cta-button">フォローする</div>
+        <div class="cta-account">@career_sister</div>
+        <div class="cta-tagline">転職の不安を、<br>一歩踏み出す勇気に変える。</div>
+    </div>
+</body>
+</html>

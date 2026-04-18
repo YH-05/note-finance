@@ -1,0 +1,47 @@
+{
+  "slides": [
+    {
+      "type": "title",
+      "hook": "SaaS×CSが\n今、穴場な\n3つの理由",
+      "sub": "@career_sister"
+    },
+    {
+      "type": "content",
+      "heading": "求人が急増中",
+      "body": "SaaS業界のカスタマーサクセス職、2025年の求人数が前年比+40%。供給が追いついてない職種。",
+      "number": "01"
+    },
+    {
+      "type": "content",
+      "heading": "未経験OKが4割",
+      "body": "かつては激戦区だったCS職、今は募集の約40%が未経験歓迎。門戸が一気に開いている。",
+      "number": "02"
+    },
+    {
+      "type": "content",
+      "heading": "活かせるスキルが広い",
+      "body": "営業・接客・教育のどれかの経験があれば「顧客対応力」として翻訳できる。",
+      "number": "03"
+    },
+    {
+      "type": "content",
+      "heading": "なぜCSは人が足りないのか",
+      "body": "SaaSは契約後の運用でLTVが決まるモデル。人の対応力が売上に直結するから、採用が止まらない。",
+      "number": "04"
+    },
+    {
+      "type": "points",
+      "heading": "今週やること 3つ",
+      "items": [
+        "自分のCS適性を5分でチェック",
+        "SaaS求人サイトで3社ブックマーク",
+        "飲食・接客→CSの事例を検索"
+      ]
+    },
+    {
+      "type": "cta",
+      "message": "転職のリアルを\n毎日発信中",
+      "account": "@career_sister"
+    }
+  ]
+}
