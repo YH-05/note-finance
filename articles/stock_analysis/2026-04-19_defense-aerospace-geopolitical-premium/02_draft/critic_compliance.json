@@ -1,0 +1,222 @@
+{
+    "critic_type": "compliance",
+    "score": 40,
+    "status": "fail",
+    "issues": [
+        {
+            "issue_id": "CP001",
+            "severity": "critical",
+            "category": "investment_advice",
+            "location": {
+                "section": "11. まとめ：停戦ラリーは「入り口」を広げる",
+                "line": "中期の強いストラクチャルを信じられるなら、決算週の下振れは仕込みどきです。"
+            },
+            "issue": "「仕込みどき」は『今が買い時』と同義の投資タイミング推奨表現であり、投資助言に該当する可能性が高い。太字強調されているため訴求性も高い。",
+            "regulation": "金融商品取引法第2条第8項第11号（投資助言業）、compliance-standards.md 禁止表現『今が買い時/売り時』",
+            "suggestion": "『中期の構造的追い風を重視する投資家にとっては、決算週の調整局面が検討に値するタイミングとなり得ます』などヘッジ付き表現に置換する。"
+        },
+        {
+            "issue_id": "CP002",
+            "severity": "critical",
+            "category": "investment_advice",
+            "location": {
+                "section": "11. まとめ",
+                "line": "個別銘柄なら、民需×軍需の二刀流で守りの効くGE、バックログ最大のRTX、F-35再加速が視野に入ったLMT、次世代プログラムが集中するNOCを、自分のリスク選好で選び分けます。迷うならITA（大型集中型）で一括、分散重視ならPPA。"
+        },
+            "issue": "読者に対して具体的な銘柄選別アドバイス・ETF選択アドバイスを行っており、個別投資助言に該当する可能性が高い。『迷うならITA』『分散重視ならPPA』は選択指南そのもの。",
+            "regulation": "金融商品取引法第2条第8項第11号（投資助言業）、compliance-standards.md 禁止表現『おすすめ銘柄』『買うべき』",
+            "suggestion": "『各社の特性として、GEは民需×軍需の二刀流、RTXはバックログ規模、LMTはF-35再加速、NOCは次世代プログラム集中という違いがあります。ETFでは、ITAは大型集中型、PPAは分散型という特徴があります』のように『選ぶ』『迷うなら』等の指南語を削り、特性の提示に留める。"
+        },
+        {
+            "issue_id": "CP003",
+            "severity": "high",
+            "category": "investment_advice",
+            "location": {
+                "section": "9. 投資シナリオ",
+                "line": "実務的な行動：ETF全体は静観、個別のNOC・GEで買い場を探す。"
+            },
+            "issue": "『実務的な行動』として『NOC・GEで買い場を探す』と具体的な売買行動を指示しており、投資推奨と誤認される。",
+            "regulation": "金融商品取引法第2条第8項第11号、compliance-standards.md 禁止表現『今が買い時』",
+            "suggestion": "『想定される反応例：ETF全体は様子見、個別のNOC・GEについては押し目の可能性が検討対象となり得る』のように、読者自身の判断に委ねる記述に修正する。"
+        },
+        {
+            "issue_id": "CP004",
+            "severity": "high",
+            "category": "investment_advice",
+            "location": {
+                "section": "9. 投資シナリオ",
+                "line": "実務的な行動：決算直前はETFでエクスポージャー縮小し、個別で押し目待ち。"
+            },
+            "issue": "『ETFでエクスポージャー縮小』『個別で押し目待ち』という具体的売買戦術の指示は投資助言に該当。",
+            "regulation": "金融商品取引法第2条第8項第11号",
+            "suggestion": "『こうした局面ではエクスポージャー管理と押し目待ちという戦術を検討する投資家もいると考えられます』など、一般論としての記述に変更。"
+        },
+        {
+            "issue_id": "CP005",
+            "severity": "high",
+            "category": "investment_advice",
+            "location": {
+                "section": "11. まとめ",
+                "line": "停戦は「買い場の入り口」を広げる出来事であって、構造の終わりを意味しません。"
+            },
+            "issue": "『買い場の入り口を広げる』という表現は、購入を推奨する投資助言と解される可能性が高い。",
+            "regulation": "金融商品取引法第2条第8項第11号、compliance-standards.md『今が買い時』",
+            "suggestion": "『停戦は投資家にとって新たな検討機会を提供する出来事と位置づけられ、構造的要因の終わりを意味するものではないと考えられます』"
+        },
+        {
+            "issue_id": "CP006",
+            "severity": "high",
+            "category": "disclaimer",
+            "location": {
+                "section": "記事末尾",
+                "line": "**免責事項**: 本記事は情報提供を目的としたものであり、特定銘柄の投資推奨ではありません。投資判断はご自身の責任で行ってください。実際の投資に際しては、最新の決算資料、有価証券報告書、目論見書等を必ずご確認ください。"
+            },
+            "issue": "snippets/disclaimer.md の統合免責事項が使用されておらず、必須要素（元本割れリスク、過去実績は将来を保証しない旨、見通しは作成時点、税制優遇制度の改正可能性等）が欠落している。また太字装飾が付いており、装飾なし段落の規定に違反している。",
+            "regulation": "compliance-standards.md 必須免責事項、snippets/disclaimer.md",
+            "suggestion": "snippets/disclaimer.md 全文（『免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。』）を装飾なし段落で末尾に配置する。新NISA言及があるため税制改正可能性の一文も補記推奨。"
+        },
+        {
+            "issue_id": "CP007",
+            "severity": "high",
+            "category": "greeting",
+            "location": {
+                "section": "記事末尾",
+                "line": "（該当なし）"
+            },
+            "issue": "snippets/closing-greeting.md の挨拶文（『いつも読んでいただきありがとうございます！これからも株式投資・資産形成で役立つ記事をお届けします⭐️スキやフォローしていただけると励みになります！！』）が免責事項の直前に存在しない。",
+            "regulation": "compliance-standards.md 必須の記事末尾テンプレート",
+            "suggestion": "末尾に区切り線→挨拶文（装飾なし段落）→区切り線→免責事項（装飾なし段落）の順で追加する。"
+        },
+        {
+            "issue_id": "CP008",
+            "severity": "medium",
+            "category": "prohibited_symbol",
+            "location": {
+                "section": "複数箇所",
+                "line": "── 各社の「追い風の源泉」が違うため / GE Aerospace（GE）── 民需×軍需の二刀流 / RTX Corporation（RTX）── 「$268Bバックログ」の中身 / Northrop Grumman（NOC）── B-21・Sentinel・FAXX・Golden Dome の4本柱"
+            },
+            "issue": "『──』（2倍ダッシュ）が複数箇所で使用されており、note.com 向け記事の禁止記号（em dash 系）に該当する。",
+            "regulation": "compliance-standards.md 禁止記号リスト（——/—/ーー/--）",
+            "suggestion": "読点『、』、全角コロン『：』、またはかっこ書き『（〜）』に置換する。例: 『GE Aerospace（GE）: 民需×軍需の二刀流』"
+        },
+        {
+            "issue_id": "CP009",
+            "severity": "medium",
+            "category": "investment_advice",
+            "location": {
+                "section": "1. イラン停戦で防衛株は売られた",
+                "line": "各社の「追い風の源泉」が違うため、一括りで買う・売るは危険。"
+            },
+            "issue": "『買う・売る』という直接的な売買表現が使われており、注意喚起の文脈とはいえ投資助言規制との関係で慎重な表現が望ましい。",
+            "regulation": "compliance-standards.md 禁止表現『買うべき/売るべき』",
+            "suggestion": "『各社の追い風の源泉が異なるため、一括りにポジションを取る判断はリスクを伴います』"
+        },
+        {
+            "issue_id": "CP010",
+            "severity": "medium",
+            "category": "expression",
+            "location": {
+                "section": "6. Lockheed Martin",
+                "line": "少なくとも向こう3年のF-35売上は再加速シナリオに切り替わりました。"
+            },
+            "issue": "『再加速シナリオに切り替わりました』は将来売上の変化を断定的に述べており、シナリオであるにもかかわらず既成事実化している。",
+            "regulation": "compliance-standards.md 断定的将来予測の回避",
+            "suggestion": "『少なくとも向こう3年のF-35売上について再加速シナリオが現実味を帯びてきたと考えられます』"
+        },
+        {
+            "issue_id": "CP011",
+            "severity": "medium",
+            "category": "investment_advice",
+            "location": {
+                "section": "9. シナリオA",
+                "line": "個別の強い銘柄（NOC、GE）が市場を牽引し、セクター指数は最高値近辺で推移。"
+            },
+            "issue": "『強い銘柄』という評価語と具体的銘柄名の併記は、銘柄推奨と誤認されるリスクあり。",
+            "regulation": "金融商品取引法第2条第8項第11号",
+            "suggestion": "『個別で相対的にリターンが高い銘柄（例: NOC、GE）が市場を牽引する可能性があり』のように事実としての記述に変更。"
+        },
+        {
+            "issue_id": "CP012",
+            "severity": "low",
+            "category": "expression",
+            "location": {
+                "section": "8. ETFで買うなら",
+                "line": "## 8. ETFで買うなら：ITA vs PPA の違い"
+            },
+            "issue": "セクション見出しに『買うなら』を含めており、購入を前提とした文言は投資勧誘的トーンと受け取られる余地がある。",
+            "regulation": "金融商品取引法第2条第8項第11号",
+            "suggestion": "『ETFで検討する場合: ITA vs PPA の違い』や『ETFでのアプローチ: ITA vs PPA』"
+        },
+        {
+            "issue_id": "CP013",
+            "severity": "low",
+            "category": "source",
+            "location": {
+                "section": "8. ETFで買うなら",
+                "line": "どちらも日本の主要ネット証券で取引可能で、新NISA成長投資枠の対象となります（商品毎に個別確認が必要）。"
+            },
+            "issue": "ITA/PPA の新NISA成長投資枠対象該否は『商品毎に個別確認が必要』とヘッジされているが、金融庁の対象リストや各証券会社の取扱有無に関する出典URLが示されていない。米国ETFは対象外の商品もあるため、出典明記で公正性が担保される。",
+            "regulation": "compliance-standards.md データソースの明示、article-quality-standards.md ソースURL埋め込み",
+            "suggestion": "金融庁の成長投資枠対象銘柄リストまたはSBI証券・楽天証券等の該当ページURLへのリンクを追加する。"
+        },
+        {
+            "issue_id": "CP014",
+            "severity": "low",
+            "category": "expression",
+            "location": {
+                "section": "8. ETFで買うなら",
+                "line": "経費率0.40%前後 / 経費率0.58%前後"
+            },
+            "issue": "ITA/PPAの経費率は実際には公式に0.40%・0.58%（2026年時点）と固定値が公表されており、『前後』とぼかすのは逆に不正確。",
+            "regulation": "データ正確性（compliance-standards.md 参考）",
+            "suggestion": "『経費率0.40%』『経費率0.58%』と公式の確定値を記載し、iShares公式ページまたはInvesco公式ページのURLをソースとしてリンク。"
+        }
+    ],
+    "required_disclaimers": {
+        "closing_greeting": {
+            "present": false,
+            "location": "なし",
+            "note": "snippets/closing-greeting.md の固定テキストが免責事項の直前に存在しない。末尾は区切り線の後に免責事項のみが太字段落で配置されている。"
+        },
+        "disclaimer": {
+            "present": true,
+            "location": "末尾",
+            "note": "snippets/disclaimer.md の統合免責事項ではなく、独自短縮版が太字装飾付きで配置されている。元本割れリスク・過去実績は将来を保証しない旨・見通しの時点性・税制優遇改正の可能性等が欠落。装飾なし段落の規定にも違反。"
+        },
+        "order_correct": false
+    },
+    "prohibited_expressions_found": [
+        {
+            "expression": "仕込みどき",
+            "location": "11. まとめ（太字内）",
+            "suggestion": "検討に値するタイミング / 中期視点で投資機会となり得る局面"
+        },
+        {
+            "expression": "買い場",
+            "location": "9. シナリオA『買い場を探す』 / 11. まとめ『買い場の入り口』",
+            "suggestion": "押し目の可能性 / 検討機会"
+        },
+        {
+            "expression": "買う・売る",
+            "location": "1. セクション末尾『一括りで買う・売るは危険』",
+            "suggestion": "一括りにポジションを取る"
+        },
+        {
+            "expression": "ETFで買うなら（見出し）",
+            "location": "8. セクション見出し",
+            "suggestion": "ETFで検討する場合"
+        },
+        {
+            "expression": "選び分けます / 迷うならITA / 分散重視ならPPA",
+            "location": "11. まとめ",
+            "suggestion": "特性の違いを提示する客観記述（例: 『ITAは大型集中型、PPAは分散型という特徴があります』）"
+        }
+    ],
+    "prohibited_symbols_found": [
+        {
+            "symbol": "──",
+            "location": "1章末尾『各社の「追い風の源泉」が違うため』/ 4章見出し『GE Aerospace（GE）── 民需×軍需の二刀流』/ 5章見出し『RTX Corporation（RTX）── 「$268Bバックログ」の中身と4/22決算ポイント』/ 7章見出し『Northrop Grumman（NOC）── B-21・Sentinel・FAXX・Golden Dome の4本柱』",
+            "suggestion": "全角コロン『：』、かっこ書き『（〜）』、または読点『、』に置換。例: 『GE Aerospace（GE）: 民需×軍需の二刀流』"
+        }
+    ]
+}

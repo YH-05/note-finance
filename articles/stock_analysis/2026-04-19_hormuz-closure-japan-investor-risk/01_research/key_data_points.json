@@ -1,0 +1,146 @@
+{
+  "article_slug": "2026-04-19_hormuz-closure-japan-investor-risk",
+  "created_at": "2026-04-19",
+  "charts": [
+    {
+      "chart_id": "japan_middle_east_dependency_trend",
+      "title": "日本の原油輸入における中東依存度の推移（FY2015-FY2024）",
+      "chart_type": "line",
+      "unit": "%",
+      "data": [
+        {"year": "FY2015", "dependency_pct": 82.5},
+        {"year": "FY2016", "dependency_pct": 87.2},
+        {"year": "FY2017", "dependency_pct": 87.0},
+        {"year": "FY2018", "dependency_pct": 88.0},
+        {"year": "FY2019", "dependency_pct": 89.0},
+        {"year": "FY2020", "dependency_pct": 92.0},
+        {"year": "FY2021", "dependency_pct": 92.5},
+        {"year": "FY2022", "dependency_pct": 95.2},
+        {"year": "FY2023", "dependency_pct": 94.7},
+        {"year": "FY2024", "dependency_pct": 95.9},
+        {"year": "FY2025_Apr_Nov", "dependency_pct": 93.0}
+      ],
+      "annotations": ["FY2024は1965年以降の統計史上最高値", "FY2025は米国産原油輸入増加で緩和傾向"],
+      "source_url": "https://eneken.ieej.or.jp/data/12998.pdf"
+    },
+    {
+      "chart_id": "japan_crude_import_by_country_2025",
+      "title": "日本の原油輸入先シェア（2025年）",
+      "chart_type": "pie",
+      "unit": "%",
+      "data": [
+        {"country": "UAE", "share_pct": 43.3},
+        {"country": "サウジアラビア", "share_pct": 39.4},
+        {"country": "クウェート", "share_pct": 6.2},
+        {"country": "カタール", "share_pct": 4.2},
+        {"country": "米国", "share_pct": 3.8},
+        {"country": "エクアドル", "share_pct": 1.1},
+        {"country": "オマーン", "share_pct": 1.0},
+        {"country": "その他", "share_pct": 1.0}
+      ],
+      "annotations": ["中東依存度94.0%", "ホルムズ海峡依存度93.0%", "日量約236万バレル"],
+      "source_url": "https://www.cas.go.jp/jp/seisaku/chyutoujyousei/dai1/pdf/siryou4.pdf"
+    },
+    {
+      "chart_id": "dated_brent_vs_futures_spread",
+      "title": "物理原油（Dated Brent）vs 先物価格の乖離（2026年4月）",
+      "chart_type": "line_comparison",
+      "unit": "USD/bbl",
+      "data": [
+        {"date": "2026-04-07", "dated_brent_spot": 144.42, "brent_futures": 109.0, "spread": 35.42},
+        {"date": "2026-04-10", "dated_brent_spot": 131.97, "brent_futures": 96.51, "spread": 35.46},
+        {"date": "2026-04-15", "dated_brent_spot": 120.0, "brent_futures": 100.0, "spread": 20.0},
+        {"date": "2026-04-17", "dated_brent_spot": 105.0, "brent_futures": 95.0, "spread": 10.0}
+      ],
+      "annotations": ["4月7日Dated Brentは1987年の指標開始以降で史上最高値", "4月17日に和平進展期待で約9%急落"],
+      "source_url": "https://www.bloomberg.com/news/articles/2026-04-07/key-real-world-oil-price-soars-to-highest-level-on-record"
+    },
+    {
+      "chart_id": "household_cost_scenarios",
+      "title": "原油価格上昇シナリオ別の日本家計年間追加負担（帝国データバンク試算）",
+      "chart_type": "bar",
+      "unit": "円/年",
+      "data": [
+        {"scenario": "+20%", "avg_household": 10078, "low_income_under_2m": 5039, "high_income_over_15m": 17384},
+        {"scenario": "+50%", "avg_household": 25194, "low_income_under_2m": 12597, "high_income_over_15m": 43460},
+        {"scenario": "+100%", "avg_household": 50388, "low_income_under_2m": 25194, "high_income_over_15m": 86919}
+      ],
+      "annotations": ["年収200万円未満世帯の支出は収入の95%超、打撃が深刻"],
+      "source_url": "https://www.nippon.com/en/japan-data/h02752/crude-oil-spike-could-add-%C2%A550-000-to-japanese-households%E2%80%99-annual-costs.html"
+    },
+    {
+      "chart_id": "sp500_geopolitical_drawdown_history",
+      "title": "過去の中東地政学イベント時のS&P 500ドローダウンと回復日数",
+      "chart_type": "horizontal_bar",
+      "unit": "% / 日",
+      "data": [
+        {"event": "1973 Yom Kippur/アラブ禁輸", "drawdown_pct": -16.1, "recovery_days": 999, "note": "唯一の長期影響"},
+        {"event": "1990 湾岸戦争", "drawdown_pct": -17.5, "recovery_days": 260, "note": "年末には+29%"},
+        {"event": "2003 イラク戦争", "drawdown_pct": -3.0, "recovery_days": 30, "note": "sell the rumor, buy the news"},
+        {"event": "2006 イスラエル-ヒズボラ", "drawdown_pct": -5.0, "recovery_days": 30, "note": "短期"},
+        {"event": "2022 ウクライナ侵攻", "drawdown_pct": -7.4, "recovery_days": 90, "note": "軽微"},
+        {"event": "中東紛争14件平均", "drawdown_pct": -4.6, "recovery_days": 19, "note": "中央値-2.9%"}
+      ],
+      "annotations": ["1990-2024の原油供給ショック後S&P500: 1年後+12%, 2年後+32%（Capital Group）"],
+      "source_url": "https://www.rcmalternatives.com/2026/03/a-short-history-of-market-moving-middle-east-conflicts/"
+    },
+    {
+      "chart_id": "hormuz_alternative_route_capacity",
+      "title": "ホルムズ海峡経由量 vs 代替ルート能力",
+      "chart_type": "stacked_bar",
+      "unit": "百万バレル/日",
+      "data": [
+        {"category": "ホルムズ経由（通常）", "capacity_mbpd": 20.9, "color": "red"},
+        {"category": "サウジ東西パイプライン", "capacity_mbpd": 2.0, "color": "blue"},
+        {"category": "UAEフジャイラ港経由", "capacity_mbpd": 1.5, "color": "blue"},
+        {"category": "イラク-トルコ北部", "capacity_mbpd": 1.0, "color": "blue"},
+        {"category": "代替ルート合計", "capacity_mbpd": 4.5, "color": "orange"}
+      ],
+      "annotations": ["代替ルートは最大でもホルムズ経由の約20%しかカバーできない", "Kpler推計: 世界日量800万バレルの供給不足"],
+      "source_url": "https://www.recyclemart.jp/shop/matubara/info/1110889/"
+    },
+    {
+      "chart_id": "sp500_rally_velocity",
+      "title": "S&P 500の戦後最速復活（2026年3-4月）",
+      "chart_type": "line",
+      "unit": "USD",
+      "data": [
+        {"date": "2026-01-28", "sp500": 7002.28, "event": "戦前高値"},
+        {"date": "2026-02-27", "sp500": 6700.0, "event": "米-イスラエル攻撃開始"},
+        {"date": "2026-03-30", "sp500": 6320.0, "event": "直近安値（戦前比-9%）"},
+        {"date": "2026-04-07", "sp500": 6582.0, "event": ""},
+        {"date": "2026-04-14", "sp500": 6954.0, "event": "前高値まで-0.6%"},
+        {"date": "2026-04-15", "sp500": 7022.95, "event": "最高値更新（11取引日で達成・史上初）"},
+        {"date": "2026-04-17", "sp500": 7000.0, "event": "高値圏維持"}
+      ],
+      "annotations": ["CTA買い$86 billion（史上5位の買い速度、Goldman Sachs）", "Bespoke: 1928年以降、10%以内のドローダウンから11日で最高値更新は前例なし"],
+      "source_url": "https://www.reuters.com/business/wall-st-week-ahead-surging-record-high-us-stocks-wade-deeper-into-earnings-2026-04-17/"
+    },
+    {
+      "chart_id": "japan_oil_majors_earnings_impact",
+      "title": "日本石油元売り大手3社の業績（2026年3月期中間）",
+      "chart_type": "grouped_bar",
+      "unit": "億円",
+      "data": [
+        {"company": "ENEOSホールディングス", "revenue_oku": 56919, "revenue_yoy_pct": -5.3, "net_income_oku": 647, "net_income_yoy_pct": -5.0},
+        {"company": "出光興産", "revenue_oku": 38057, "revenue_yoy_pct": -15.5, "net_income_oku": 360, "net_income_yoy_pct": -63.7},
+        {"company": "コスモエネルギーHD", "revenue_oku": 13337, "revenue_yoy_pct": 1.0, "net_income_oku": 346, "net_income_yoy_pct": -19.6}
+      ],
+      "annotations": ["在庫評価損（約300億円）が共通の逆風", "INPEX（上流）は2026年12月期予想3,300億円（原油63ドル前提）"],
+      "source_url": "https://diamond.jp/articles/-/379851"
+    },
+    {
+      "chart_id": "oil_shock_macro_impact",
+      "title": "WTI原油価格シナリオ別 日本実質GDPインパクト（2026年度）",
+      "chart_type": "bar",
+      "unit": "%pt",
+      "data": [
+        {"scenario": "WTI 120ドル推移", "gdp_impact_pt": -0.5, "note": "中東からの供給維持"},
+        {"scenario": "WTI 150ドル+中東10%供給減", "gdp_impact_pt": -2.0, "note": "マイナス成長に転落"},
+        {"scenario": "ホルムズ経由10%減（原油・LNG）", "gdp_impact_pt": -0.8, "note": "大和総研試算"}
+      ],
+      "annotations": ["中国・韓国経由の間接影響を含むと更に拡大", "コアCPI+0.5%（原油20%高）", "TOPIX EPS -5〜-7%"],
+      "source_url": "https://www.dir.co.jp/report/research/economics/japan/20260318_025641.pdf"
+    }
+  ]
+}

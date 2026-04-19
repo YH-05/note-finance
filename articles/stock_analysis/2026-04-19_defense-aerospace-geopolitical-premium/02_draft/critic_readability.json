@@ -1,0 +1,188 @@
+{
+  "critic_type": "readability",
+  "score": 72,
+  "target_audience": "intermediate",
+  "issues": [
+    {
+      "issue_id": "RD001",
+      "severity": "high",
+      "category": "density",
+      "location": {
+        "section": "全体（8,130字 / 目標4,500字）",
+        "description": "記事全体が目標比約1.8倍。モバイル読者のスクロール疲労が発生しやすい分量"
+      },
+      "issue": "note.comのintermediate読者は3,500-5,000字が適正レンジ。8,130字は読了率を大きく下げる。特にセクション4-7の4社深掘り（各500-700字）が冗長。",
+      "suggestion": "4社解説を「共通構造（バックログ/プログラム/リスク）」のテンプレで各300-400字に圧縮。セクション10『リスク要因（一括）』は各社セクションで触れているため丸ごと削除可能。目標: 約2,000字削減で5,500字台へ。"
+    },
+    {
+      "issue_id": "RD002",
+      "severity": "high",
+      "category": "terminology",
+      "location": {
+        "section": "2章・6章・7章",
+        "description": "Golden Dome, FAXX, Sentinel ICBM, THAAD, PAC-3, JASSM, LRASM, Aegis, B-21, LEAP, GTF 等"
+      },
+      "issue": "intermediate読者でも軍事プログラム名・エンジン型式が一度に14個以上登場し、初出時の1行説明のみでは理解が追いつかない。特に『FAXX（F/A-XX）』は略称の略称で混乱を招く。",
+      "suggestion": "(1) 固有名詞を『次世代爆撃機（B-21）』『次世代海軍戦闘機（FAXX）』のように日本語カテゴリ+略称の形に統一。(2) 初出時に1-2行の「なぜ重要か」を添える。(3) ミサイル名（THAAD/PAC-3/JASSM/LRASM）は『防空・巡航ミサイル群』に集約し列挙を削減。"
+    },
+    {
+      "issue_id": "RD003",
+      "severity": "medium",
+      "category": "hook",
+      "location": {
+        "section": "1章冒頭",
+        "description": "S&P 7,000突破→停戦→防衛株調整の3点"
+      },
+      "issue": "導入は悪くないが、『S&P 7,000台』『停戦』『決算週』の3つを並列で提示しており、読者が『どの視点で読めばいいか』を即断できない。noteの最初の3行で『今週これを知らないと損する』の訴求が弱い。",
+      "suggestion": "1行目を『停戦ラリーで防衛株は売られた。でも来週の決算を見る前に売ったら危ない。』のような1テーマ断定型に変更。第1段落は5行以内、S&P数値は第2段落に回す。"
+    },
+    {
+      "issue_id": "RD004",
+      "severity": "medium",
+      "category": "density",
+      "location": {
+        "section": "5章 RTX（約900字）",
+        "description": "5.1/5.2/5.3の3階層ネスト"
+      },
+      "issue": "3階層見出し（## → ### → -）がモバイルで深すぎ、情報過多。Pratt & Whitneyのセグメント別数値（売上・利益・成長率）が羅列で可読性を下げる。",
+      "suggestion": "5.1-5.3をフラットな3段落に統合し、セグメント数値は画像テーブル化（既存のtable_defense4_comparisonに統合or別画像）。『粉末金属問題』などの専門リスクは1文に短縮。"
+    },
+    {
+      "issue_id": "RD005",
+      "severity": "medium",
+      "category": "specificity",
+      "location": {
+        "section": "9章 投資シナリオ",
+        "description": "シナリオA/B/Cの行動指針"
+      },
+      "issue": "シナリオ提示は良いが、『実務的な行動』がA/Cにしか書かれておらず、Bでは欠落。また『3〜5%剥落』『買い場を探す』など具体性にバラつきあり。",
+      "suggestion": "全シナリオに『具体的行動（価格帯・ETF/個別の選択・想定保有期間）』を3点セットで統一記述。例: シナリオBに『ITA $X以下で買い増し、想定保有3-6ヶ月』を追加。"
+    },
+    {
+      "issue_id": "RD006",
+      "severity": "low",
+      "category": "visual",
+      "location": {
+        "section": "全体",
+        "description": "画像2点（4社比較表・ITA/PPA比較表）のみ"
+      },
+      "issue": "8,130字の長文に対して視覚要素が表2点のみ。バックログ推移やYTDリターン比較などチャート化すべきデータがテキストに埋もれている。",
+      "suggestion": "(1) 4社のYTDリターン比較棒グラフ、(2) 4社バックログ積み上げ横棒グラフ、の2点を追加（/generate-chart-image使用）。スクロール中の「視覚的休憩ポイント」を増やす。"
+    },
+    {
+      "issue_id": "RD007",
+      "severity": "low",
+      "category": "visual",
+      "location": {
+        "section": "5.2 Pratt & Whitneyとレイセオン",
+        "description": "セグメント別売上・利益数値"
+      },
+      "issue": "箇条書き内に『$8.42B（+16%）、利益 $751M（+26%）、アフターマーケット+23%、軍需+15%』と数値が密集、モバイルで1行に収まらず折返し多発。",
+      "suggestion": "3セグメント × 主要指標（売上/成長率/利益/注目点）の小テーブルに画像化。"
+    },
+    {
+      "issue_id": "RD008",
+      "severity": "low",
+      "category": "hook",
+      "location": {
+        "section": "11章まとめ",
+        "description": "結論の訴求"
+      },
+      "issue": "『停戦は買い場の入り口を広げる出来事』という締めは良いが、読者が『次に取る行動』が明示されていない。決算週のカレンダー（4/22, 4月下旬, 5月上旬）を最後にもう一度置くと行動喚起が強まる。",
+      "suggestion": "最終段落の直前に『このあとのチェックリスト: ①4/22 RTX決算FCFとバックログ、②LMTのF-35マージン、③NOCのGolden Dome言及』の3点リストを追加。"
+    }
+  ],
+  "metrics": {
+    "avg_sentence_length": 52,
+    "avg_paragraph_length": 3,
+    "long_paragraphs": 4,
+    "total_characters": 8130,
+    "target_characters": 4500,
+    "excess_ratio": 1.81,
+    "technical_terms": {
+      "total": 28,
+      "explained": 18,
+      "unexplained": 10,
+      "unexplained_examples": ["FAXX", "Sentinel ICBM", "JASSM", "LRASM", "PAC-3", "THAAD", "GTF", "粉末金属問題", "MFC", "RMS"]
+    },
+    "visual_elements": {
+      "tables": 2,
+      "lists": 9,
+      "charts": 0,
+      "headings_h2": 11,
+      "headings_h3": 3
+    },
+    "section_character_estimates": {
+      "1_intro": 720,
+      "2_macro": 780,
+      "3_comparison": 320,
+      "4_ge": 680,
+      "5_rtx": 950,
+      "6_lmt": 780,
+      "7_noc": 720,
+      "8_etf": 540,
+      "9_scenarios": 780,
+      "10_risks": 360,
+      "11_summary": 480
+    }
+  },
+  "audience_fit": {
+    "appropriate": true,
+    "suggested_adjustments": [
+      "intermediate読者向けだが、軍事プログラム名の密度はadvanced寄り。初出解説の強化で中級適合度を上げる",
+      "バリュエーション指標（PER、FCF、バックログ対売上比）は既に良好に説明されている",
+      "ETF（ITA/PPA）の使い分けは新NISA文脈への言及が効いており、日本読者への配慮が適切"
+    ]
+  },
+  "engagement_tips": [
+    "冒頭3行を1テーマに絞り、『停戦ラリーで売った人に読んでほしい』の明確なターゲティングにする",
+    "4社セクションは共通テンプレ（追い風の源泉 / 決算注目点 / 主要リスク）の3項目に構造化し、各400字程度で揃える",
+    "YTDリターン比較・バックログ比較のチャート2点を追加してスクロール時の視覚休憩を作る",
+    "セクション10『リスク要因（一括）』は各社セクションで触れているため削除し、まとめ直前に『決算週チェックリスト3項目』を置く方が行動喚起になる",
+    "Golden Dome / FAXX / Sentinel ICBM は初出時に日本語+1行説明をテンプレ化（例: 『Golden Dome（トランプ政権の本土ミサイル防衛構想、数百億ドル規模）』）",
+    "noteのタイムライン表示で最も読まれる冒頭300字に『結論・対象読者・取るべき行動』を凝縮する"
+  ],
+  "shortening_candidates": [
+    {
+      "section": "10. リスク要因（一括）",
+      "current_chars": 360,
+      "target_chars": 0,
+      "reason": "各社セクションで既に個別リスクに言及済み。独立セクションとして重複。削除して『決算週チェックリスト』に置換推奨。"
+    },
+    {
+      "section": "5. RTX（5.1/5.2/5.3の3階層）",
+      "current_chars": 950,
+      "target_chars": 500,
+      "reason": "Pratt & Whitneyのセグメント数値羅列とネスト見出しを画像化・フラット化で圧縮。"
+    },
+    {
+      "section": "6. LMT / 7. NOC",
+      "current_chars": 1500,
+      "target_chars": 900,
+      "reason": "ミサイル・プログラム列挙（THAAD/PAC-3/JASSM/LRASM/Sikorsky/Aegis等）を日本語カテゴリに集約。固有名詞削減で各300字圧縮可能。"
+    },
+    {
+      "section": "2. マクロ背景",
+      "current_chars": 780,
+      "target_chars": 550,
+      "reason": "NATOの定義変更交渉の説明（『会計操作に目を奪われず、5年スパンの予算トレンド〜』）は冗長。1行で十分。"
+    },
+    {
+      "section": "9. 投資シナリオ",
+      "current_chars": 780,
+      "target_chars": 600,
+      "reason": "3シナリオのフォーマットを統一（状況・行動・想定期間の3点）で簡潔化。"
+    }
+  ],
+  "total_estimated_reduction_chars": 2180,
+  "post_revision_target_chars": 5950,
+  "revision_priority": [
+    "1. セクション10削除（360字減）+ チェックリスト追加",
+    "2. セクション5のネスト解消と数値画像化（450字減）",
+    "3. セクション6/7の固有名詞集約（600字減）",
+    "4. セクション2の冗長部削除（230字減）",
+    "5. セクション9のフォーマット統一（180字減）",
+    "6. YTDリターン/バックログ比較チャート追加（視覚改善）",
+    "7. 導入部を1テーマ断定型に変更（フック強化）"
+  ]
+}

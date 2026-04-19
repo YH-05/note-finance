@@ -1,0 +1,106 @@
+{
+  "article_id": "2026-04-19_hormuz-closure-japan-investor-risk",
+  "generated_at": "2026-04-19T10:45:00+09:00",
+  "critics": {
+    "compliance": {"score": 85, "status": "warning"},
+    "fact": {"score": 92, "status": "pass"},
+    "data_accuracy": {"score": 92, "status": "pass"},
+    "structure": {"score": 88, "status": "pass"},
+    "readability": {"score": 78, "status": "warning"}
+  },
+  "overall_score": 87,
+  "status": "warning",
+  "priority_fixes": [
+    {
+      "id": "CP001",
+      "category": "compliance",
+      "severity": "high",
+      "description": "固定挨拶文 (snippets/closing-greeting.md) が挿入されていない",
+      "fix": "『いつも読んでいただきありがとうございます！これからも株式投資・資産形成で役立つ記事をお届けします⭐️スキやフォローしていただけると励みになります！！』に置換"
+    },
+    {
+      "id": "CP002",
+      "category": "compliance",
+      "severity": "medium",
+      "description": "免責事項に元本割れリスク・過去実績非保証・税制改正可能性が欠落",
+      "fix": "標準免責全文に差し替え（元本割れ・過去実績非保証・税制改正可能性を含む）"
+    },
+    {
+      "id": "RD001",
+      "category": "readability",
+      "severity": "high",
+      "description": "CTA初出時の説明が欠落（セクション1見出しで既に登場）",
+      "fix": "初出時に「CTA（Commodity Trading Advisors、機械的トレンドフォロー戦略ファンド）」と注記"
+    },
+    {
+      "id": "RD002",
+      "category": "readability",
+      "severity": "high",
+      "description": "Dated Brent・Brent先物・ショートスクイーズの初出説明が不十分",
+      "fix": "『Dated Brent（北海産原油の現物受渡し指標）』『Brent先物（金融市場で先渡し取引される派生商品）』『ショートスクイーズ（売り建玉の強制買い戻しによる急騰）』を注記"
+    },
+    {
+      "id": "RD004",
+      "category": "readability",
+      "severity": "medium",
+      "description": "Magnificent 7 の構成銘柄が未記載",
+      "fix": "初出時に『Apple・Microsoft・Alphabet・Amazon・Nvidia・Meta・Tesla』の7銘柄を併記"
+    },
+    {
+      "id": "RD006",
+      "category": "readability",
+      "severity": "high",
+      "description": "エグゼクティブサマリー1文目が160字超で長すぎ",
+      "fix": "2-3文に分割"
+    },
+    {
+      "id": "ST001",
+      "category": "structure",
+      "severity": "medium",
+      "description": "エグゼクティブサマリーが470字と長すぎ（推奨250-350字）",
+      "fix": "320字前後に短縮、3-4段落化して情報密度を下げる"
+    },
+    {
+      "id": "F001",
+      "category": "fact",
+      "severity": "low",
+      "description": "米国依存度 2.5% と 7% の2出典数値が併記され混在",
+      "fix": "『ホルムズ経由は米国原油輸入の約7%』で統一、『2.5%』は『ホルムズ通過量のうち米国向け』と分母を区別"
+    },
+    {
+      "id": "F004",
+      "category": "fact",
+      "severity": "medium",
+      "description": "4月12日和平交渉決裂の直接出典が未確認",
+      "fix": "『4月13日のCENTCOM封鎖発動』に焦点を絞るか、和平交渉決裂についてヘッジ表現を追加"
+    },
+    {
+      "id": "DA001",
+      "category": "data_accuracy",
+      "severity": "low",
+      "description": "$86B の円換算が12.9兆円（150円）と160円前提と不整合",
+      "fix": "『約13.8兆円（160円/USD換算）』に修正"
+    },
+    {
+      "id": "DA003",
+      "category": "data_accuracy",
+      "severity": "medium",
+      "description": "コスモエネルギーHDの業績指標が他社と異なる（セグメント実質益 vs 連結純利益）",
+      "fix": "『※セグメント実質益、連結純利益は346億円(▲19.6%)』の注記を追加"
+    },
+    {
+      "id": "RD010",
+      "category": "readability",
+      "severity": "medium",
+      "description": "家計負担の数字が生活者視点への翻訳なし",
+      "fix": "『月あたり約4,200円、一般的な光熱費の約1.5カ月分』等の換算を追加"
+    },
+    {
+      "id": "RD011",
+      "category": "readability",
+      "severity": "medium",
+      "description": "TOPIX EPS予想がインデックス投信保有額換算なし",
+      "fix": "『100万円保有なら▲5〜7万円相当の業績下振れ』等の翻訳を追加"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+    "critic_type": "fact",
+    "score": 78,
+    "issues": [
+        {
+            "issue_id": "F001",
+            "severity": "high",
+            "location": {
+                "section": "2. マクロ背景",
+                "line": "前年要求の47機から81%の増"
+            },
+            "issue": "F-35機数の増加率が research_notes.md の記述と矛盾。research_notes では『85機（前年47機の1.8倍）』と『+81%増』の両方が使われているが、正しい算出は (85-47)/47 = 80.85% ≈ +81% であり1.8倍表記は誤り。本文でも『81%の増』は正しいが、直前のブレット（第2節導入）で別途『+81%』と記述する場合に『1.8倍』と混在させると混乱を招く。",
+            "original": "前年要求の47機から81%の増",
+            "correct": "前年要求の47機から約81%増（＝1.81倍）",
+            "source": "Bloomberg 2026-04-03 (sources.md #18)",
+            "suggestion": "研究ノート内に『1.8倍』と『+81%』が混在しているため、本文で一貫性を持たせる。『47機→85機（前年比+81%、約1.81倍）』と1か所に統一表記する。"
+        },
+        {
+            "issue_id": "F002",
+            "severity": "high",
+            "location": {
+                "section": "6. Lockheed Martin",
+                "line": "FY27予算案で85機要求（前年47機の1.8倍）となったことで、少なくとも向こう3年のF-35売上は**再加速シナリオ**に切り替わりました"
+            },
+            "issue": "『再加速シナリオに切り替わった』という断定表現は、予算案がまだ提案段階（議会通過前）であり、実現には議会承認が必要な点を踏まえると過剰断定。research_notes でも『提案ベース、議会での修正リスクあり』と明記されている。記事自体の10章『リスク要因』でも『提案ベース、議会での修正リスクあり』と矛盾している。",
+            "original": "少なくとも向こう3年のF-35売上は**再加速シナリオ**に切り替わりました",
+            "correct": "少なくとも向こう3年のF-35売上に再加速シナリオの現実味が増した（ただし議会承認が前提）",
+            "source": "Bloomberg 2026-04-03 (sources.md #18), research_notes.md line 86",
+            "suggestion": "『切り替わった』→『再加速シナリオの現実味が増した（議会承認次第）』に修正。10章のリスク列挙と整合性を取る。"
+        },
+        {
+            "issue_id": "F003",
+            "severity": "medium",
+            "location": {
+                "section": "5.1 バックログ $268Bの内訳",
+                "line": "RTXの防衛バックログ単体でも、アナリストの集計では約$92B規模"
+            },
+            "issue": "バックログの内訳に不整合。本文冒頭で『商用$161B+防衛$107B=$268B』と記載しているが、同じ段落で『防衛バックログ単体で約$92B』と別の数字を併記しており、読者に混乱を与える。research_notes でも両方記載されているが、どちらの定義かが明記されていない。",
+            "original": "RTXの防衛バックログ単体でも、アナリストの集計では [約$92B](https://finance.yahoo.com/news/rtx-corp-strong-backlog-soaring-150018794.html) 規模に及び",
+            "correct": "RTXの防衛バックログは集計ベースにより$92B〜$107B（Raytheonセグメントのみか、Pratt軍需含むかで異なる）",
+            "source": "sources.md #6, #8",
+            "suggestion": "$92Bと$107Bの集計定義の違いを明記するか、どちらか一方に統一する（例: Raytheonセグメント単独$92B、防衛関連全体$107B）。"
+        },
+        {
+            "issue_id": "F004",
+            "severity": "high",
+            "location": {
+                "section": "5.2 3セグメントすべてが伸びている",
+                "line": "Q4 2025のフリーキャッシュフローは549%の急増を記録"
+            },
+            "issue": "FCF +549%はYoY成長率として過大で、単独四半期値か通期値かが明記されていない。research_notes の表にも『Q4 2025 FCF成長 +549% YoY』と記載されているが、元ソース（RTX IR）では2025年通期FCFについて言及される値の可能性がある。また数値単位（549%なのか+549bpsなのか）の曖昧性も残る。",
+            "original": "Q4 2025のフリーキャッシュフローは549%の急増を記録しており",
+            "correct": "要検証: 2025年通期FCF+549% vs Q4単独FCF+549%。ソース原典での確認が必要",
+            "source": "sources.md #8 (RTX 2025 Results)",
+            "suggestion": "RTX公式IRリリースで数値を再確認し、『2025年通期FCF』『Q4単独FCF』を明確に区別する。数値が極端なため補足として『特殊要因による反動（前年のGTF粉末金属問題による現金流出の反動）』などの文脈を添える。"
+        },
+        {
+            "issue_id": "F005",
+            "severity": "medium",
+            "location": {
+                "section": "6. Lockheed Martin",
+                "line": "2026年Q1で$176Bの記録的バックログ"
+            },
+            "issue": "research_notes では『バックログ（直近）$176B（記録的）』と記載されており、Q1 2026決算時点のバックログかどうかが曖昧。LMTの2026 Q1決算発表は4/22時点ではまだ先（22日以降）の可能性があり、4/19時点の記述として『2026年Q1で』と断定するのはフライング。",
+            "original": "Lockheed Martinは、[2026年Q1で$176Bの記録的バックログ](https://finance.yahoo.com/news/lockheed-martin-nyse-lmt-reports-173152759.html)を計上",
+            "correct": "Lockheed Martinは、直近四半期で$176Bの記録的バックログを計上",
+            "source": "sources.md #9",
+            "suggestion": "『2026年Q1』を『直近四半期』または『2025年Q4末』など確認可能な時点に修正。LMT Q1 2026決算はまだ発表前（4/22週）の可能性が高い。"
+        },
+        {
+            "issue_id": "F006",
+            "severity": "medium",
+            "location": {
+                "section": "9. 投資シナリオ",
+                "line": "決算週（4/22 RTX → 4月下旬 LMT/NOC → 5月上旬GE後続レビュー）"
+            },
+            "issue": "GEの決算について『5月上旬GE後続レビュー』と記載されているが、記事冒頭（4章）では『2026年4月、GE AerospaceはQ1 2026決算でアナリスト予想をビート』と既に発表済みとして扱われている。スケジュール記述に内部矛盾がある。",
+            "original": "決算週（4/22 RTX → 4月下旬 LMT/NOC → 5月上旬GE後続レビュー）",
+            "correct": "決算週（4/22 RTX → 4月下旬 LMT/NOC）※GEは既に4月中旬に発表済み",
+            "source": "記事内整合性",
+            "suggestion": "GEは既に決算発表済みである点を明示し、5月のイベントは『ガイダンスアップデート』等に修正するか、削除する。"
+        },
+        {
+            "issue_id": "F007",
+            "severity": "medium",
+            "location": {
+                "section": "8. ETFで買うなら",
+                "line": "PPA... YTD+7.41%、1年+47.54%（1/7時点）"
+            },
+            "issue": "PPAの数値引用に『1/7時点』という但し書きがあるが、ITAは『+8.55%』（研究ノートでは3/18時点と明記）と『+52.66%』を但し書きなしで引用しており、時点が異なる数値を併記することで誤った比較印象を与える可能性。",
+            "original": "**PPA** はInvesco Aerospace & Defense ETF。[YTD+7.41%、1年+47.54%](https://finance.yahoo.com/news/invest-invesco-aerospace-defense-etf-112002507.html)（1/7時点）",
+            "correct": "ITAとPPAの数値は時点が異なるため（ITA 3/18時点、PPA 1/7時点）、直接比較には留保が必要",
+            "source": "sources.md #14, #15; research_notes.md line 107",
+            "suggestion": "両ETFの時点を揃えるか、『データ取得時点が異なるため、YTDリターンの絶対比較には留保あり』と明記する。"
+        },
+        {
+            "issue_id": "F008",
+            "severity": "low",
+            "location": {
+                "section": "1. イラン停戦で防衛株は売られた",
+                "line": "S&P 500は2026年4月15日に史上初の7,000台へ乗せ、17日には7,100を突破"
+            },
+            "issue": "S&P 500の7,000台乗せ・7,100突破の日付は research_notes と一致しており事実関係は妥当。ただしInvestopediaのリンク先は4月9日記事でソースと日付の整合性に疑問あり（4/15・4/17の記事ではなく4/9のリンクを付けている）。",
+            "original": "史上初の7,000台へ乗せ、17日には7,100を突破しました。ラリーの引き金は、米・イランの[停戦合意への期待](https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-04092026-11946208)",
+            "correct": "4/15・4/17の個別事実は4/9の停戦期待記事では直接裏付けられない。追加ソースが必要",
+            "source": "sources.md #21",
+            "suggestion": "4/15の7,000台到達、4/17の7,100突破それぞれの一次ソースを追記する、または『停戦期待をきっかけに4月中旬までに最高値を更新』と丸める。"
+        },
+        {
+            "issue_id": "F009",
+            "severity": "low",
+            "location": {
+                "section": "3. 4社横並び比較",
+                "line": "2. **YTD株価はNOCが+29%で先行**"
+            },
+            "issue": "NOC YTD +29%はYahoo記事タイトル『Northrop Grumman Is Up 29% in 2026』から引用されているが、記事タイトル執筆時点（推定4月上〜中旬）と記事執筆時点（4/19）でわずかな差異がある可能性。",
+            "original": "**YTD株価はNOCが+29%で先行**",
+            "correct": "YTD株価はNOCが約+29%で先行（※ソース時点で）",
+            "source": "sources.md #12",
+            "suggestion": "『約+29%（4月中旬時点）』など時点を明示する。"
+        },
+        {
+            "issue_id": "F010",
+            "severity": "low",
+            "location": {
+                "section": "4. GE Aerospace",
+                "line": "GE Aerospaceは時価総額$320Bで最大"
+            },
+            "issue": "research_notes では『GE Aerospace 時価総額 約$320B（4/19時点）』、『RTX 約$264B（4/19時点）』と記載されている。『最大』の比較対象（4社のうち時価総額が最大）は妥当だが、『$320Bで最大』という表現は断定的。",
+            "original": "GE Aerospaceは時価総額$320Bで最大",
+            "correct": "GE Aerospaceは時価総額約$320B（4/19時点）で4社中最大",
+            "source": "research_notes.md line 34, 51",
+            "suggestion": "『約$320B（4/19時点）』と時点を明示する。"
+        }
+    ],
+    "verified_facts": 38,
+    "issues_found": 10,
+    "verification_rate": 73.7
+}

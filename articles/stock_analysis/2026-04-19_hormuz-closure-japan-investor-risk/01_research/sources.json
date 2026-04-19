@@ -1,0 +1,486 @@
+{
+  "article_slug": "2026-04-19_hormuz-closure-japan-investor-risk",
+  "total_sources": 25,
+  "sources": [
+    {
+      "id": "ieej_2026_01",
+      "title": "Expanding Import Share of US Crude Oil and LPG in Japan in FY2025",
+      "publisher": "Institute of Energy Economics, Japan (IEEJ)",
+      "url": "https://eneken.ieej.or.jp/data/12998.pdf",
+      "published_date": "2026-01",
+      "authority_level": "academic",
+      "reliability": "high",
+      "key_data": "FY2024 中東依存度95.9%（統計史上最高）、FY2025(4-11月)93.0%"
+    },
+    {
+      "id": "meti_2026_03_24",
+      "title": "中東情勢を踏まえた燃料油・石油製品の安定供給確保",
+      "publisher": "経済産業省（内閣官房資料）",
+      "url": "https://www.cas.go.jp/jp/seisaku/chyutoujyousei/dai1/pdf/siryou4.pdf",
+      "published_date": "2026-03-24",
+      "authority_level": "official",
+      "reliability": "high",
+      "key_data": "2025年原油輸入の中東依存度94.0%、ホルムズ依存度93.0%。UAE 43.3%, サウジ39.4%"
+    },
+    {
+      "id": "visual_capitalist_2025",
+      "title": "Charted: Oil Trade Through the Strait of Hormuz by Country",
+      "publisher": "Visual Capitalist",
+      "url": "https://www.visualcapitalist.com/charted-oil-trade-through-the-strait-of-hormuz-by-country/",
+      "published_date": "2025-Q1",
+      "authority_level": "media",
+      "reliability": "medium",
+      "key_data": "日本はホルムズ経由原油輸入の10.9%。米国は2.5%のみ"
+    },
+    {
+      "id": "anadolu_2025",
+      "title": "Around 70% of global oil demand transported through strategic maritime chokepoints",
+      "publisher": "Anadolu Agency",
+      "url": "https://www.aa.com.tr/en/economy/around-70-of-global-oil-demand-transported-through-strategic-maritime-chokepoints/3857495",
+      "published_date": "2025",
+      "authority_level": "media",
+      "reliability": "medium",
+      "key_data": "ホルムズ海峡を通過する原油日量20.9M bpd（世界の20%）"
+    },
+    {
+      "id": "speed_commerce_2025",
+      "title": "How Much US Oil Transits Through the Strait of Hormuz?",
+      "publisher": "Speed Commerce",
+      "url": "https://www.speedcommerce.com/insights/how-much-us-oil-transits-through-the-strait-of-hormuz/",
+      "published_date": "2025",
+      "authority_level": "media",
+      "reliability": "medium",
+      "key_data": "米国はホルムズ経由7%のみ、アジアが80%超、Canada 63%がメイン供給源"
+    },
+    {
+      "id": "daiwa_am_2026_04_01",
+      "title": "Update on the Middle East Situation and the Japanese Economy",
+      "publisher": "Daiwa Asset Management",
+      "url": "https://www.daiwa-am.co.jp/english/market-outlook/20260401_01.pdf",
+      "published_date": "2026-04-01",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "2026年2月末時点で石油備蓄254日分、ナフサ在庫20日分、Brent先物推移"
+    },
+    {
+      "id": "japantimes_2026_04_04",
+      "title": "Oil bypassing Strait of Hormuz set to arrive in Japan from May",
+      "publisher": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/business/2026/04/04/oil-bypassing-hormuz-japan-may/",
+      "published_date": "2026-04-04",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "UAE/サウジからの迂回ルート原油が5月から到着予定"
+    },
+    {
+      "id": "japantimes_2026_04_17",
+      "title": "Asia relying on U.S. crude to replace Middle East supply",
+      "publisher": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/business/2026/04/17/asia-rely-us-oil-supply/",
+      "published_date": "2026-04-17",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "戦争7週目、ブロックはU.S.・Iran双方で継続中"
+    },
+    {
+      "id": "ascii_2026_03",
+      "title": "When the Strait Closes: Trade Dependencies and Shipping Disruption Scenarios",
+      "publisher": "Supply Chain Intelligence Institute Austria (ASCII)",
+      "url": "https://ascii.ac.at/wp-content/uploads/ASCII_Research-Brief_Strait-of-Hormuz_March-2026.pdf",
+      "published_date": "2026-03",
+      "authority_level": "academic",
+      "reliability": "high",
+      "key_data": "湾岸5カ国のグローバル貿易依存$670Bドル/年"
+    },
+    {
+      "id": "isw_2026_04_13",
+      "title": "Iran Update Special Report, April 13, 2026",
+      "publisher": "Institute for the Study of War",
+      "url": "https://understandingwar.org/research/middle-east/iran-update-special-report-april-13-2026/",
+      "published_date": "2026-04-13",
+      "authority_level": "academic",
+      "reliability": "high",
+      "key_data": "CENTCOM 4月13日10:00 ETにイラン港湾封鎖開始、米空母・ミサイル駆逐艦展開"
+    },
+    {
+      "id": "newsweek_2026_04_18",
+      "title": "Iran Reimposes 'Strict Control' of Strait of Hormuz Over Trump Blockade",
+      "publisher": "Newsweek",
+      "url": "https://www.newsweek.com/iran-shuts-strait-hormuz-strict-control-donald-trump-blockade-iran-war-latest-11848653",
+      "published_date": "2026-04-18",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "イラン軍が4月18日ホルムズ海峡の厳格管理を再発表、通航にはイラン承認必須"
+    },
+    {
+      "id": "nypost_2026_04_13",
+      "title": "US blockade of Iranian ports via Strait of Hormuz takes effect",
+      "publisher": "New York Post",
+      "url": "https://nypost.com/2026/04/13/world-news/us-blockade-of-iranian-ports-via-strait-of-hormuz-takes-effect/",
+      "published_date": "2026-04-13",
+      "authority_level": "media",
+      "reliability": "medium",
+      "key_data": "ブロック開始でDow-0.7%, S&P500-0.3%急落、原油$100/bbl突破"
+    },
+    {
+      "id": "janes_2026_04_14",
+      "title": "Iran Conflict 2026: US blockades Iranian ports in Strait of Hormuz",
+      "publisher": "Janes",
+      "url": "https://www.janes.com/osint-insights/defence-news/air/iran-conflict-2026-us-blockades-iranian-ports-in-strait-of-hormuz",
+      "published_date": "2026-04-14",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "Hudson Institute Kasapoğlu分析、米海軍リスク"
+    },
+    {
+      "id": "bloomberg_2026_04_07",
+      "title": "Brent Oil Hits Record $144 a Barrel in Key Physical Market",
+      "publisher": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-07/key-real-world-oil-price-soars-to-highest-level-on-record",
+      "published_date": "2026-04-07",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "Dated Brent $144.42/bbl（1987年以降最高値）、先物$109と$35乖離"
+    },
+    {
+      "id": "reuters_2026_04_07",
+      "title": "Physical oil prices hit record highs near $150 a barrel as Hormuz crisis worsens",
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/business/energy/physical-oil-prices-hit-record-highs-near-150-barrel-hormuz-crisis-worsens-2026-04-07/",
+      "published_date": "2026-04-07",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "物理原油価格$150近接"
+    },
+    {
+      "id": "cnbc_2026_04_10",
+      "title": "What this real-world oil price says about the level of stress in the energy market",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/2026/04/10/oil-prices-dated-brent-energy-iran-war-ceasefire-strait-of-hormuz.html",
+      "published_date": "2026-04-10",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "Dated Brent $131.97/bbl、Morgan Stanley Martijn Rats引用"
+    },
+    {
+      "id": "aljazeera_2026_04_13",
+      "title": "Why oil prices aren't what you think - and what it means for global supply",
+      "publisher": "Al Jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/4/13/why-oil-prices-arent-what-you-think-and-what-it-means-for-global-supply",
+      "published_date": "2026-04-13",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "Kpler世界日量800万バレル供給不足、物理-先物$35乖離"
+    },
+    {
+      "id": "kitco_2026_04_17",
+      "title": "Goldman sees softer oil demand, flags two-sided risks to 2026 price outlook",
+      "publisher": "Kitco / Reuters",
+      "url": "https://www.kitco.com/news/off-the-wire/2026-04-17/goldman-sees-softer-oil-demand-flags-two-sided-risks-2026-price",
+      "published_date": "2026-04-17",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "Goldman Brent 2026平均予想$83/bbl据え置き、5月中旬正常化前提"
+    },
+    {
+      "id": "dir_2026_03_18",
+      "title": "中東産原油等の輸入10%減少で日本経済はマイナス成長へ",
+      "publisher": "大和総研",
+      "url": "https://www.dir.co.jp/report/research/economics/japan/20260318_025641.pdf",
+      "published_date": "2026-03-18",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "WTI 150ドル+中東10%減で2026年度GDP -2.0pt、日本ホルムズ依存93%"
+    },
+    {
+      "id": "meij_2026_03_23",
+      "title": "ホルムズ海峡の封鎖で揺らぐアジアの石油供給網",
+      "publisher": "中東調査会（MEIJ）",
+      "url": "https://www.meij.or.jp/research/2023/58.html",
+      "published_date": "2026-03-23",
+      "authority_level": "academic",
+      "reliability": "high",
+      "key_data": "ナフサ中東依存度47%、UAEルワイス製油所等被攻撃、韓国輸出制限動向"
+    },
+    {
+      "id": "cao_2026_03_27",
+      "title": "原油価格の変動が国内物価に与える影響",
+      "publisher": "内閣府",
+      "url": "https://www5.cao.go.jp/keizai3/monthly_topics/2026/0327/topics_082.pdf",
+      "published_date": "2026-03-27",
+      "authority_level": "official",
+      "reliability": "high",
+      "key_data": "原油価格は消費者物価変動の3割を説明、ガソリン→電気→財・サービス→食料へ波及"
+    },
+    {
+      "id": "nippon_com_2026",
+      "title": "Crude Oil Spike Could Add ¥50,000 to Japanese Households' Annual Costs",
+      "publisher": "nippon.com / 帝国データバンク",
+      "url": "https://www.nippon.com/en/japan-data/h02752/crude-oil-spike-could-add-%C2%A550-000-to-japanese-households%E2%80%99-annual-costs.html",
+      "published_date": "2026",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "原油+100%で家計+50,388円、+50%で+25,194円、+20%で+10,078円"
+    },
+    {
+      "id": "nippon_com_energy",
+      "title": "石油の中東依存度95%超",
+      "publisher": "nippon.com / 資源エネルギー庁",
+      "url": "https://www.nippon.com/ja/japan-data/h02718/",
+      "published_date": "2026",
+      "authority_level": "official",
+      "reliability": "high",
+      "key_data": "2024年度一次エネルギーの35%が石油、中東依存95%超"
+    },
+    {
+      "id": "jetro_2026_02_13",
+      "title": "日本は引き続き中東とアフリカから資源を輸入、2025年貿易統計",
+      "publisher": "ジェトロ",
+      "url": "https://www.jetro.go.jp/biznews/2026/02/1963e21719ed7c58.html",
+      "published_date": "2026-02-13",
+      "authority_level": "official",
+      "reliability": "high",
+      "key_data": "2025年日本の中東輸入11兆5,342億円、鉱物性燃料93.9%"
+    },
+    {
+      "id": "toyokeizai_karakama_2026",
+      "title": "原油高を起点に止まらない円売り",
+      "publisher": "東洋経済オンライン（唐鎌大輔）",
+      "url": "https://toyokeizai.net/articles/-/940972",
+      "published_date": "2026-04",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "ドル円160円近傍、10年国債利回り2.4%（27年ぶり）、原油高→貿易赤字→円安"
+    },
+    {
+      "id": "skam_2026_03_18",
+      "title": "需給動向、円安要因に",
+      "publisher": "しんきんアセット",
+      "url": "https://www.skam.co.jp/report_column/pdf/2258/kankyo_20260318.pdf",
+      "published_date": "2026-03-18",
+      "authority_level": "analyst",
+      "reliability": "medium",
+      "key_data": "中東紛争後160円で推移、FRB利下げ慎重論で二重ドル高円安圧力"
+    },
+    {
+      "id": "fp_media_2026",
+      "title": "「最悪のシナリオ」が現実になった日",
+      "publisher": "FPメディア（ファーストパートナーズ）",
+      "url": "https://f-p.jp/media/article/report-on-the-surge-in-crude-oil-prices/",
+      "published_date": "2026-03",
+      "authority_level": "analyst",
+      "reliability": "medium",
+      "key_data": "日本の三重苦（原油高・円安・インフレ）、早期収束/長期化シナリオ"
+    },
+    {
+      "id": "recyclemart_2026_04",
+      "title": "ホルムズ海峡封鎖で日本はどうなる？",
+      "publisher": "リサイクルマート（分析記事）",
+      "url": "https://www.recyclemart.jp/shop/matubara/info/1110889/",
+      "published_date": "2026-04",
+      "authority_level": "blog",
+      "reliability": "medium",
+      "key_data": "代替ルート日量350-550万バレル、日経平均一時4,200円急落、TOPIX EPS -5〜-7%"
+    },
+    {
+      "id": "inpex_2026_02_12",
+      "title": "2026年12月期 業績予想",
+      "publisher": "INPEX",
+      "url": "https://www.inpex.com/ir/financial/summary.html",
+      "published_date": "2026-02-12",
+      "authority_level": "official",
+      "reliability": "high",
+      "key_data": "売上18,930億円(-5.9%)、純利益3,300億円(-16.2%)、原油63ドル為替151円前提、配当108円"
+    },
+    {
+      "id": "diamond_oil_majors_2026",
+      "title": "ENEOSvs出光vsコスモ 半期決算分析",
+      "publisher": "ダイヤモンド・オンライン",
+      "url": "https://diamond.jp/articles/-/379851",
+      "published_date": "2026",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "ENEOS中間 純利益647億円(-5%)、出光360億円(-63.7%)、コスモ各社比較"
+    },
+    {
+      "id": "nikkei_2026_03_24",
+      "title": "米産原油、各社が調達模索 ENEOS・出光など",
+      "publisher": "日本経済新聞",
+      "url": "https://www.nikkei.com/nkd/company/article/?DisplayType=1&ng=DGKKZO95184580T20C26A3EA2000&scode=5020",
+      "published_date": "2026-03-24",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "石油連盟会長、米アラスカ産原油の中長期調達方針"
+    },
+    {
+      "id": "nenryo_2026_02_10",
+      "title": "実質経常益1135億円 コスモエネHD",
+      "publisher": "燃料油脂新聞",
+      "url": "http://www.nenryo.co.jp/kiji?kijiid=21125",
+      "published_date": "2026-02-10",
+      "authority_level": "media",
+      "reliability": "medium",
+      "key_data": "コスモエネHD石油事業実質益669億円(+12.8%)、マージン数量要因+192億円"
+    },
+    {
+      "id": "nikkei_us_crude_2026_03_17",
+      "title": "米国産原油の輸入拡大へ 政府が日米首脳会談で伝達",
+      "publisher": "日本経済新聞",
+      "url": "https://www.nikkei.com/article/DGXZQOUA179WJ0X10C26A3000000/",
+      "published_date": "2026-03-17",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "日米首脳会談でアラスカ産原油調達方針、2025年米国産3.8%"
+    },
+    {
+      "id": "jp_bank_2026_03_31",
+      "title": "APR. 2026 臨時レポート",
+      "publisher": "ゆうちょ銀行（日本郵政）",
+      "url": "https://www.jp-bank.japanpost.jp/kojin/tameru/toushin/report/pdf/rinji_report_260331_02.pdf",
+      "published_date": "2026-03-31",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "Brent$100/bbl近辺高止まり、春闘5.26%、激変緩和措置ガソリン170円/L補助"
+    },
+    {
+      "id": "jcer_2026_03",
+      "title": "How the Japanese Economy will be affected by the Oil Crisis of 2026",
+      "publisher": "日本経済研究センター（JCER）",
+      "url": "https://www.jcer.or.jp/english/japanese-economy-update_march-2026",
+      "published_date": "2026-03",
+      "authority_level": "academic",
+      "reliability": "high",
+      "key_data": "3月19日からガソリン170円/L補助再開、燃料費調整制度は2ヶ月ラグ"
+    },
+    {
+      "id": "tokyointlmeetup_2026_04_01",
+      "title": "Japan Electricity and Gas Bills Are Rising in April 2026",
+      "publisher": "Tokyo International Meetup",
+      "url": "https://tokyointernationalmeetup.com/2026/04/01/japan-electricity-gas-bills-rising-april-2026/",
+      "published_date": "2026-04-01",
+      "authority_level": "blog",
+      "reliability": "medium",
+      "key_data": "東京家庭の電気代+1500-5000円/月、都市ガス+15-25%見込み"
+    },
+    {
+      "id": "fintech_observer_2026_04_09",
+      "title": "Japan's Consumer Sentiment Sours as Energy Costs Surge",
+      "publisher": "Japan FinTech Observer / 伊藤忠総研",
+      "url": "https://www.fintechobserver.com/japans-consumer-sentiment-sours-as-energy-costs-surge-and-stock-volatility-amplifies-the-negative-wealth-effect/",
+      "published_date": "2026-04-09",
+      "authority_level": "analyst",
+      "reliability": "medium",
+      "key_data": "2026年3月消費者センチメント悪化、春闘5.09%（第3回、減速）、逆資産効果"
+    },
+    {
+      "id": "jpost_2026_04_15",
+      "title": "S&P 500 closes at fresh record, recovering all losses since start of US-Iran war",
+      "publisher": "Jerusalem Post / Reuters",
+      "url": "https://www.jpost.com/business-and-innovation/banking-and-finance/article-893160",
+      "published_date": "2026-04-15",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "S&P500 4月15日7,022.95で終値最高値更新、LSEG予想Q1合計利益$605.1B"
+    },
+    {
+      "id": "reuters_2026_04_17_wallst",
+      "title": "Wall St Week Ahead: Surging record-high US stocks",
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/business/wall-st-week-ahead-surging-record-high-us-stocks-wade-deeper-into-earnings-2026-04-17/",
+      "published_date": "2026-04-17",
+      "authority_level": "media",
+      "reliability": "high",
+      "key_data": "3月30日安値から11取引日で最高値更新（Bespoke: 1928年以降前例なし）、Deutsche Bank Jim Reid"
+    },
+    {
+      "id": "yahoo_finance_cta_2026_04_17",
+      "title": "Systematic funds buy stocks at record pace, adding $86 billion: Goldman",
+      "publisher": "Yahoo Finance / Goldman Sachs",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/systematic-funds-buy-stocks-record-122530261.html",
+      "published_date": "2026-04-17",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "CTAs 5日間で$86B買い（史上5位の速度）、今後5日でさらに$70B買い余地"
+    },
+    {
+      "id": "gsam_2026_04",
+      "title": "Goldman Sachs Asset Management Market Pulse April 2026",
+      "publisher": "Goldman Sachs Asset Management",
+      "url": "https://am.gs.com/cms-assets/gsam-app/documents/insights/en/2026/us-market-pulse_apr2026.pdf",
+      "published_date": "2026-04",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "S&P500 12ヶ月後7,600(+15.4%), TOPIX 12ヶ月後4,200(+15.2%), Brent $80, 為替155"
+    },
+    {
+      "id": "rbc_geopolitical_history",
+      "title": "Then and now: Market reactions to military conflicts",
+      "publisher": "RBC Wealth Management",
+      "url": "https://www.rbcwealthmanagement.com/en-us/insights/then-and-now-market-reactions-to-military-conflicts-and-what-they-mean-today",
+      "published_date": "2024",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "1973 Yom Kippur -16.1%, 1990 湾岸戦争 -15.9%, 2022 ウクライナ -7.4%"
+    },
+    {
+      "id": "rcm_alternatives_2026_03",
+      "title": "A Short History of Market-Moving Middle East Conflicts",
+      "publisher": "RCM Alternatives",
+      "url": "https://www.rcmalternatives.com/2026/03/a-short-history-of-market-moving-middle-east-conflicts/",
+      "published_date": "2026-03",
+      "authority_level": "analyst",
+      "reliability": "medium",
+      "key_data": "14紛争平均ドローダウン-4.6%（中央値-2.9%）、平均回復19日、1990湾岸-18%/260日"
+    },
+    {
+      "id": "capital_group_volatility",
+      "title": "Five charts that put market volatility in perspective",
+      "publisher": "Capital Group",
+      "url": "https://www.capitalgroup.com/intermediaries/gb/en/insights/articles/five-charts-that-put-market-volatility-in-perspective.html",
+      "published_date": "2024",
+      "authority_level": "analyst",
+      "reliability": "high",
+      "key_data": "1990年以降7件の原油供給ショック後S&P500: 2ヶ月小幅+, 1年後+12%, 2年後+32%"
+    },
+    {
+      "id": "shareplanner_war_history",
+      "title": "How the Stock Market Reacts to Wars and Major Conflicts",
+      "publisher": "SharePlanner",
+      "url": "https://www.shareplanner.com/blog/stock-market-history/sp500-war-market-reaction-oil-prices.html",
+      "published_date": "2024",
+      "authority_level": "blog",
+      "reliability": "medium",
+      "key_data": "Iraq-Kuwait 1990: -17.47% / 187日回復、1973オイル禁輸が最悪事例"
+    },
+    {
+      "id": "247wallst_2026_04_13",
+      "title": "Energy and International ETFs Offer the Diversification Your $1,000 Deserves in 2026",
+      "publisher": "24/7 Wall St.",
+      "url": "https://247wallst.com/investing/2026/04/13/energy-and-international-etfs-offer-the-diversification-your-1000-deserves-in-2026/",
+      "published_date": "2026-04-13",
+      "authority_level": "media",
+      "reliability": "medium",
+      "key_data": "XLE年初来+28%（WTI$114時点）、Exxon+Chevron 40%超構成"
+    },
+    {
+      "id": "jpx_etf_list_2026_04_01",
+      "title": "銘柄一覧（ETF）",
+      "publisher": "日本取引所グループ（JPX）",
+      "url": "https://www.jpx.co.jp/equities/products/etfs/issues/01.html",
+      "published_date": "2026-04-01",
+      "authority_level": "official",
+      "reliability": "high",
+      "key_data": "1671 WTI原油連動型ETF（信託報酬0.85%）、1674 白金、1675 パラジウム等"
+    },
+    {
+      "id": "matsui_1671_2026_04_17",
+      "title": "1671 WTI原油価格連動型上場投信チャート",
+      "publisher": "松井証券",
+      "url": "https://finance.matsui.co.jp/stock/1671/chart/index",
+      "published_date": "2026-04-17",
+      "authority_level": "official",
+      "reliability": "high",
+      "key_data": "4/17終値4,960円、前日比+118円、出来高667,344口"
+    }
+  ]
+}
