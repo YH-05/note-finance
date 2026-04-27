@@ -1,0 +1,210 @@
+{
+  "article_slug": "2026-04-27_usa-genz-ira-japan-nisa-implications",
+  "curated_at": "2026-04-27",
+  "total_sources": 17,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://finance.yahoo.com/news/fidelity-q4-2025-retirement-analysis-133000248.html",
+      "title": "Fidelity Q4 2025 Retirement Analysis",
+      "authority_level": "analyst",
+      "published": "2026-02",
+      "score": 10,
+      "score_reason": "一次データ。記事の核心となるIRA拠出25%増・総拠出23%増のキーファクトを提供。フィデリティ公式レポート。",
+      "used_in_draft": true,
+      "sections_used": ["はじめに", "データで見る現状"]
+    },
+    {
+      "id": 2,
+      "url": "https://finance.yahoo.com/news/average-gen-zer-started-saving-130000131.html",
+      "title": "Average Gen Zer Started Saving at 22 - Northwestern Mutual 2024",
+      "authority_level": "media",
+      "published": "2024",
+      "score": 9,
+      "score_reason": "Northwestern Mutual公式調査のメディア引用。Gen Z退職貯蓄開始年齢22歳・世代比較データを提供。",
+      "used_in_draft": true,
+      "sections_used": ["データで見る現状"]
+    },
+    {
+      "id": 3,
+      "url": "https://www.investopedia.com/this-generation-is-actually-good-at-saving-for-retirement-11764725",
+      "title": "This Generation Is Actually Good at Saving for Retirement - Investopedia",
+      "authority_level": "media",
+      "published": "2024",
+      "score": 8,
+      "score_reason": "自動登録制度により若年層拠出が2倍になりやすいデータを提供。実践ガイドの根拠として有効。",
+      "used_in_draft": true,
+      "sections_used": ["実践ガイド（要因1）"]
+    },
+    {
+      "id": 4,
+      "url": "https://finance.yahoo.com/news/robinhood-ceo-says-gen-z-180110832.html",
+      "title": "Robinhood CEO Says Gen Z - TIAA 2024 / Yahoo Finance",
+      "authority_level": "media",
+      "published": "2025",
+      "score": 6,
+      "score_reason": "TIAA調査引用。Gen Zの実際の退職貯蓄率は20%のみという課題データ。一次ソースがTIAAであるため評価やや低め。",
+      "used_in_draft": false,
+      "sections_used": []
+    },
+    {
+      "id": 5,
+      "url": "https://finance.yahoo.com/news/retirement-nest-egg-above-average-230114829.html",
+      "title": "Retirement Nest Egg Above Average - Fidelity / Yahoo Finance",
+      "authority_level": "media",
+      "published": "2025",
+      "score": 9,
+      "score_reason": "Gen Z平均IRA残高$6,672という具体的な数値データ。フィデリティデータのメディア引用。",
+      "used_in_draft": true,
+      "sections_used": ["データで見る現状"]
+    },
+    {
+      "id": 6,
+      "url": "https://www.forbes.com/sites/hershshefrin/2025/07/06/nudging-gen-z-to-make-sound-financial-decisions/",
+      "title": "Nudging Gen Z to Make Sound Financial Decisions - Forbes / Hershel Shefrin",
+      "authority_level": "analyst",
+      "published": "2025-07",
+      "score": 9,
+      "score_reason": "SECURE 2.0 Actの自動登録ナッジ効果を行動経済学的観点から解説。学術的根拠あり。",
+      "used_in_draft": true,
+      "sections_used": ["実践ガイド（要因1）"]
+    },
+    {
+      "id": 7,
+      "url": "https://www.forbes.com/advisor/d/high-yield-savings-sinking-funds-help-gen-z-money-anxiety/",
+      "title": "High-Yield Savings Sinking Funds Help Gen Z Money Anxiety - Forbes Advisor",
+      "authority_level": "media",
+      "published": "2024",
+      "score": 8,
+      "score_reason": "Gen Zが1日5時間お金を心配しているという印象的なデータ。金融不安要因の根拠として有効。",
+      "used_in_draft": true,
+      "sections_used": ["実践ガイド（要因2）"]
+    },
+    {
+      "id": 8,
+      "url": "https://www.forbes.com/sites/deloitte/2024/05/15/gen-zs-and-millennials-seek-purpose-and-progress-in-a-changing-world-insights-from-deloittes-2024-gen-z-and-millennial-survey/",
+      "title": "Deloitte 2024 Gen Z & Millennial Survey - Forbes",
+      "authority_level": "analyst",
+      "published": "2024-05",
+      "score": 9,
+      "score_reason": "Deloitte公式グローバル調査のForbes掲載版。金融不安・気候変動不安の世代的傾向を示す。",
+      "used_in_draft": true,
+      "sections_used": ["実践ガイド（要因2）"]
+    },
+    {
+      "id": 9,
+      "url": "https://www.forbes.com/advisor/d/gen-z-financial-literacy-roth-ira-retirement/",
+      "title": "Gen Z Financial Literacy, Roth IRA, Retirement - Forbes Advisor",
+      "authority_level": "media",
+      "published": "2024",
+      "score": 8,
+      "score_reason": "Gen Zが最も金融リテラシーが高い世代・FIRE関心のデータ。複数箇所で引用可能。",
+      "used_in_draft": true,
+      "sections_used": ["実践ガイド（要因3）", "ケーススタディ"]
+    },
+    {
+      "id": 10,
+      "url": "https://www.forbes.com/sites/timmaurer/2024/03/03/ditching-the-stereotypes-unveiling-the-financial-savvy-of-gen-z/",
+      "title": "Ditching the Stereotypes: Unveiling the Financial Savvy of Gen Z - Forbes / ICI",
+      "authority_level": "media",
+      "published": "2024-03",
+      "score": 8,
+      "score_reason": "ICI調査引用。Gen Z世帯が同年齢比で前の世代の約3倍の退職プラン資産というインパクトあるデータ。",
+      "used_in_draft": true,
+      "sections_used": ["実践ガイド（要因3）"]
+    },
+    {
+      "id": 11,
+      "url": "https://news.nifty.com/article/economy/business/12365-4282249/",
+      "title": "J.D.パワー 2025年NISA顧客満足度調査 - Nifty News",
+      "authority_level": "analyst",
+      "published": "2025",
+      "score": 9,
+      "score_reason": "NISA口座2600万突破・400万新規開設というキーデータの出典。J.D.パワー公式調査。",
+      "used_in_draft": true,
+      "sections_used": ["データで見る現状（日本）"]
+    },
+    {
+      "id": 12,
+      "url": "https://corporate.minna-no-ginko.com/information/corporate/2026/01/26/779",
+      "title": "みんなの銀行マネーインサイトラボ 2025年度調査",
+      "authority_level": "official",
+      "published": "2026-01",
+      "score": 10,
+      "score_reason": "Z世代NISA利用率77.1%（全年代最高）の出典。直近2026年1月発表の一次データ。信頼性高。",
+      "used_in_draft": true,
+      "sections_used": ["データで見る現状（日本）"]
+    },
+    {
+      "id": 13,
+      "url": "https://gritman520.com/in-depth-analysis-from-new-nisa-accounts-by-generation-2025your-investment-behavior-is-above-average/",
+      "title": "世代別の新NISA口座開設率分析 2025年",
+      "authority_level": "blog",
+      "published": "2025",
+      "score": 6,
+      "score_reason": "20代23.4%・30代33.5%という世代別開設率データ。ブログ媒体だが引用元が明確で使用可能。",
+      "used_in_draft": true,
+      "sections_used": ["データで見る現状（日本）"]
+    },
+    {
+      "id": 14,
+      "url": "https://redweb.jp/asset/new-nisa-data",
+      "title": "新NISAは「若年層×積立」で動く - redweb.jp",
+      "authority_level": "blog",
+      "published": "2025",
+      "score": 7,
+      "score_reason": "つみたて投資枠利用率78.9%・20代以下91.6%というデータ。ブログ媒体だが具体的数値が有用。",
+      "used_in_draft": true,
+      "sections_used": ["データで見る現状（日本）"]
+    },
+    {
+      "id": 15,
+      "url": "https://www.komei.or.jp/km/taniguchi-mutsuo-kariya/2025/11/04/",
+      "title": "家計金融資産2239兆円・NISA30歳以下3割 - 公明党HP（日銀統計参照）",
+      "authority_level": "official",
+      "published": "2025-11",
+      "score": 8,
+      "score_reason": "日銀資金循環統計を引用した公明党議員ブログ。家計金融資産2239兆円・若年層3割というデータ。",
+      "used_in_draft": false,
+      "sections_used": []
+    },
+    {
+      "id": 16,
+      "url": "https://www.jsri.or.jp/publication/periodical/economics/122/122-02",
+      "title": "日本証券経済研究所 iDeCo/NISA国際比較研究",
+      "authority_level": "academic",
+      "published": "2023-06",
+      "score": 10,
+      "score_reason": "学術機関の一次研究。iDeCoの拠出上限が米英比で低い・公的年金給付額の問題を指摘。信頼性最高。",
+      "used_in_draft": true,
+      "sections_used": ["基礎知識（iDeCo）", "示唆2"]
+    },
+    {
+      "id": 17,
+      "url": "https://junkurema.com/jp/investments/us-tax/basics-about-ira-and-401k-2026",
+      "title": "IRA・401kの基礎知識2026年版",
+      "authority_level": "blog",
+      "published": "2026",
+      "score": 7,
+      "score_reason": "Roth IRA年間拠出上限7000ドルの2026年最新情報。ブログだが数値の信頼性は確認済み。",
+      "used_in_draft": true,
+      "sections_used": ["基礎知識（IRA）"]
+    }
+  ],
+  "summary": {
+    "used_in_draft": 15,
+    "not_used": 2,
+    "high_score_sources": [
+      {"id": 1, "score": 10, "title": "Fidelity Q4 2025 Retirement Analysis"},
+      {"id": 12, "score": 10, "title": "みんなの銀行マネーインサイトラボ 2025年度調査"},
+      {"id": 16, "score": 10, "title": "日本証券経済研究所 iDeCo/NISA国際比較研究"}
+    ],
+    "authority_distribution": {
+      "official": 2,
+      "academic": 1,
+      "analyst": 4,
+      "media": 7,
+      "blog": 3
+    }
+  }
+}

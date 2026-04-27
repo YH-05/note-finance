@@ -1,4 +1,149 @@
 {
-    "article_id": "",
-    "sources": []
+  "article_id": "2026-04-27_usa-genz-ira-japan-nisa-implications",
+  "sources": [
+    {
+      "url": "https://finance.yahoo.com/news/fidelity-q4-2025-retirement-analysis-133000248.html",
+      "title": "Fidelity Q4 2025 Retirement Analysis",
+      "authority_level": "analyst",
+      "published_at": "2026-02",
+      "source_type": "news",
+      "key_data": "IRA contributions +25% YoY, Gen Z 13%+ increased contribution rate, 401k average $146,400"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/average-gen-zer-started-saving-130000131.html",
+      "title": "The average Gen Zer started saving for retirement 15 years earlier",
+      "authority_level": "media",
+      "published_at": "2024",
+      "source_type": "news",
+      "key_data": "Northwestern Mutual 2024: Gen Z starts retirement savings at avg age 22"
+    },
+    {
+      "url": "https://www.investopedia.com/this-generation-is-actually-good-at-saving-for-retirement-11764725",
+      "title": "This Generation Is Actually Good at Saving for Retirement",
+      "authority_level": "media",
+      "published_at": "2024",
+      "source_type": "web",
+      "key_data": "Gen Z twice as likely to contribute due to automatic enrollment"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/robinhood-ceo-says-gen-z-180110832.html",
+      "title": "Robinhood CEO Says Gen Z Is Obsessed With 'Grandparent' Investments",
+      "authority_level": "media",
+      "published_at": "2025",
+      "source_type": "news",
+      "key_data": "TIAA 2024: only 20% of Gen Zers actually saving for retirement"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/retirement-nest-egg-above-average-230114829.html",
+      "title": "Is Your Retirement Nest Egg Above Average?",
+      "authority_level": "media",
+      "published_at": "2025",
+      "source_type": "news",
+      "key_data": "Gen Z avg 401k $13,500, IRA $6,672"
+    },
+    {
+      "url": "https://www.forbes.com/sites/hershshefrin/2025/07/06/nudging-gen-z-to-make-sound-financial-decisions/",
+      "title": "How To Nudge Gen Z To Embrace Financial Literacy And Make Sound Financial Decisions",
+      "authority_level": "analyst",
+      "published_at": "2025-07",
+      "source_type": "web",
+      "key_data": "SECURE 2.0 Act automatic enrollment as key nudge for Gen Z"
+    },
+    {
+      "url": "https://www.forbes.com/advisor/d/high-yield-savings-sinking-funds-help-gen-z-money-anxiety/",
+      "title": "Tackling Money Anxiety: Why High-Yield Savings Accounts Help Gen Z",
+      "authority_level": "media",
+      "published_at": "2024",
+      "source_type": "web",
+      "key_data": "Gen Z spends nearly 5 hours/day worrying about money"
+    },
+    {
+      "url": "https://www.forbes.com/sites/deloitte/2024/05/15/gen-zs-and-millennials-seek-purpose-and-progress-in-a-changing-world-insights-from-deloittes-2024-gen-z-and-millennial-survey/",
+      "title": "Deloitte 2024 Gen Z and Millennial Survey",
+      "authority_level": "analyst",
+      "published_at": "2024-05",
+      "source_type": "web",
+      "key_data": "Gen Z grappling with financial insecurity and climate anxiety"
+    },
+    {
+      "url": "https://www.forbes.com/advisor/d/gen-z-financial-literacy-roth-ira-retirement/",
+      "title": "Gen-Z Is The Most Financially Literate Generation, How Roth IRAs Can Help",
+      "authority_level": "media",
+      "published_at": "2024",
+      "source_type": "web",
+      "key_data": "Gen Z is most financially literate generation; Roth IRA foundation for early retirement"
+    },
+    {
+      "url": "https://www.forbes.com/sites/timmaurer/2024/03/03/ditching-the-stereotypes-unveiling-the-financial-savvy-of-gen-z/",
+      "title": "Ditching The Stereotypes: Unveiling The Financial Savvy Of Gen Z",
+      "authority_level": "media",
+      "published_at": "2024-03",
+      "source_type": "web",
+      "key_data": "ICI study: Gen Z households have ~3x more retirement plan assets vs prior generations at same age"
+    },
+    {
+      "url": "https://news.nifty.com/article/economy/business/12365-4282249/",
+      "title": "J.D. パワー 2025年NISA顧客満足度調査",
+      "authority_level": "analyst",
+      "published_at": "2025",
+      "source_type": "news",
+      "key_data": "NISA口座総数2,600万突破（2025年3月末）、2024年新規400万口座超"
+    },
+    {
+      "url": "https://corporate.minna-no-ginko.com/information/corporate/2026/01/26/779",
+      "title": "マネーインサイトラボ 2025年度資産運用実態レポート",
+      "authority_level": "official",
+      "published_at": "2026-01",
+      "source_type": "news",
+      "key_data": "Z世代NISA利用率77.1%（全年代最高）、9割以上が投資信託"
+    },
+    {
+      "url": "https://gritman520.com/in-depth-analysis-from-new-nisa-accounts-by-generation-2025your-investment-behavior-is-above-average/",
+      "title": "世代別の新NISA口座から徹底分析（2025年）",
+      "authority_level": "blog",
+      "published_at": "2025",
+      "source_type": "blog",
+      "key_data": "20代開設率23.4%、30代33.5%（金融庁データ基）"
+    },
+    {
+      "url": "https://redweb.jp/asset/new-nisa-data",
+      "title": "新NISAは「若年層×積立」で動く｜最新統計から読み解く活用のヒント",
+      "authority_level": "blog",
+      "published_at": "2025",
+      "source_type": "blog",
+      "key_data": "つみたて投資枠利用率78.9%、20代以下91.6%、30代89.4%"
+    },
+    {
+      "url": "https://www.komei.or.jp/km/taniguchi-mutsuo-kariya/2025/11/04/",
+      "title": "ＮＩＳＡ　開設口座数２６００万超",
+      "authority_level": "official",
+      "published_at": "2025-11",
+      "source_type": "web",
+      "key_data": "30歳以下が約3割、年収300万円未満39.7%、家計金融資産2239兆円（25年4-6月）"
+    },
+    {
+      "url": "https://blog.roboadvisor.com.tw?p=14109",
+      "title": "個人退休帳戶比較 NISA/ISA/IRA/SRS",
+      "authority_level": "media",
+      "published_at": "2025",
+      "source_type": "blog",
+      "key_data": "NISA vs IRA 制度比較表：年度上限、税制優遇、引出制限"
+    },
+    {
+      "url": "https://www.jsri.or.jp/publication/periodical/economics/122/122-02",
+      "title": "日本のDC年金（iDeCo）とNISAをどう設計するか—アメリカとイギリスとの比較から考える",
+      "authority_level": "academic",
+      "published_at": "2023-06",
+      "source_type": "web",
+      "key_data": "日本のiDeCo拠出限度額は米英と比較して低い；公的年金の再分配効果も弱い"
+    },
+    {
+      "url": "https://junkurema.com/jp/investments/us-tax/basics-about-ira-and-401k-2026",
+      "title": "アメリカのIRAおよび401(k)制度についての基礎知識（2026年版）",
+      "authority_level": "blog",
+      "published_at": "2026",
+      "source_type": "blog",
+      "key_data": "2026年度IRA拠出上限$7,000、Roth IRA収入制限、401k拠出上限$23,500"
+    }
+  ]
 }

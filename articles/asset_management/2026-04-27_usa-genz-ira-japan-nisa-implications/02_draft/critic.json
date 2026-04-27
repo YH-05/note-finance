@@ -1,7 +1,253 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-04-27_usa-genz-ira-japan-nisa-implications",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-27",
+  "critics": {
+    "fact": {
+      "score": 78,
+      "status": "warn",
+      "issues": [
+        {
+          "issue_id": "F001",
+          "severity": "high",
+          "location": "ケーススタディ：米国Z世代の実例（FIRE）",
+          "issue": "Roth IRAの5年ルールの説明が不正確。元本（拠出額）は拠出後いつでもペナルティなしで引き出せる。5年ルールは運用益の非課税引き出しに適用される。",
+          "suggestion": "「Roth IRAの元本部分はいつでも引き出し可能。運用益も59.5歳以降かつ口座開設から5年経過後に非課税で引き出せる」という正確な説明に修正する。"
+        },
+        {
+          "issue_id": "F002",
+          "severity": "medium",
+          "location": "ケーススタディ：22歳から始めた場合と30歳から始めた場合の差",
+          "issue": "22歳38年間の複利シミュレーション。年利5%・毎月3万円・38年間の月次複利計算では約4,074万円。記載の4,400万円と326万円（7.4%）乖離。",
+          "suggestion": "「約4,000万円超」または「約4,074万円」に修正し、複利計算の前提（月次複利）を明示する。"
+        },
+        {
+          "issue_id": "F003",
+          "severity": "medium",
+          "location": "データで見る現状：米国Z世代のIRA拠出急増の実態",
+          "issue": "ミレニアル世代25歳・X世代35歳・ベビーブーマー45歳の具体的な開始年齢がNorthwestern Mutual 2024から直接確認できない。",
+          "suggestion": "別途ソースを追加するか「Z世代は前の世代と比べ最大15年早く退職貯蓄を開始している」という表現に簡略化する。"
+        },
+        {
+          "issue_id": "F004",
+          "severity": "low",
+          "location": "はじめに",
+          "issue": "Z世代の定義「2010年代生まれ」が広すぎる（通説はおよそ1997〜2012年）。",
+          "suggestion": "「1990年代後半〜2010年代前半生まれ」に修正する。"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 93,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "medium",
+          "location": "実践ガイド > 示唆1 見出し",
+          "issue": "見出し「「自動化」こそ最強の積み立て戦略」に禁止表現「最強の」が使用されている。",
+          "suggestion": "「「自動化」で積み立てを継続する仕組みを作る」などに変更する。"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "low",
+          "location": "末尾 免責事項",
+          "issue": "免責事項にsnippets/disclaimer.mdの「本記事の内容により生じたいかなる損失についても責任を負いかねます。」が欠落。",
+          "suggestion": "当該文言を免責事項末尾に追加する。"
+        }
+      ]
+    },
+    "structure": {
+      "score": 78,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "high",
+          "location": "基礎知識",
+          "issue": "文字数1270字で目標1500-2000字を下回る。3制度の使い分け基準が薄い。",
+          "suggestion": "Traditional IRAとRoth IRAの使い分け基準、新NISAとiDeCoの使い分けシナリオを200〜300字追加する。"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "high",
+          "location": "データで見る現状",
+          "issue": "文字数824字で目標1000-1500字を下回る。米日の対比データが不足。",
+          "suggestion": "iDeCo認知率・加入率データや米日の若年層退職貯蓄額比較を追加する。"
+        },
+        {
+          "issue_id": "ST003",
+          "severity": "medium",
+          "location": "実践ガイド",
+          "issue": "文字数2960字で目標上限2500字を460字超過。要因分析と示唆が混在。",
+          "suggestion": "要因分析を独立セクションに分離し、実践ガイドは示唆5点のみに絞る。"
+        },
+        {
+          "issue_id": "ST004",
+          "severity": "medium",
+          "location": "基礎知識→データで見る現状 の遷移",
+          "issue": "複利の説明からフィデリティ統計への転換が唐突で橋渡し文がない。",
+          "suggestion": "「この複利の力を、米国のZ世代はすでに実感し始めています」などの接続文を追加する。"
+        },
+        {
+          "issue_id": "ST005",
+          "severity": "medium",
+          "location": "ケーススタディ",
+          "issue": "文字数777字で目標800-1200字をわずかに下回る。基礎知識の複利説明と内容が重複。",
+          "suggestion": "NISAとiDeCo併用の節税効果など実践ガイドと連動する具体ケースを1例追加する。"
+        }
+      ],
+      "section_analysis": {
+        "intro":   {"char_count": 471,  "status": "ok"},
+        "basics":  {"char_count": 1270, "status": "short"},
+        "data":    {"char_count": 824,  "status": "short"},
+        "guide":   {"char_count": 2960, "status": "long"},
+        "case":    {"char_count": 777,  "status": "short"},
+        "risk":    {"char_count": 923,  "status": "ok"},
+        "summary": {"char_count": 520,  "status": "ok"}
+      }
+    },
+    "data_accuracy": {
+      "score": 74,
+      "status": "warn",
+      "issues": [
+        {
+          "issue_id": "DA001",
+          "severity": "high",
+          "location": "ケーススタディ",
+          "issue": "22歳38年シミュレーション: 記載4,400万円、月次複利正確値4,074万円（乖離7.4%）。",
+          "suggestion": "「約4,074万円」または「約4,000万円超」に修正する。"
+        },
+        {
+          "issue_id": "DA002",
+          "severity": "high",
+          "location": "ケーススタディ",
+          "issue": "差額「約1,900万円」は正確値1,578万円（DA001の派生誤差）。",
+          "suggestion": "「約1,500万円」または「約1,578万円」に修正する。"
+        },
+        {
+          "issue_id": "DA003",
+          "severity": "high",
+          "location": "まとめ",
+          "issue": "「2,000万円近い差」は22歳vs30歳では1,578万円（DA001・DA002の波及）。",
+          "suggestion": "「約1,500万円以上の差」に修正する。"
+        },
+        {
+          "issue_id": "DA004",
+          "severity": "medium",
+          "location": "実践ガイド（示唆2）",
+          "issue": "年収400万・年24万円iDeCo拠出の節税額「約4〜5万円」はやや過大（標準ケースは約3.6万円）。",
+          "suggestion": "「約3〜5万円程度（課税所得によって異なります）」に修正する。"
+        }
+      ],
+      "calculation_check": {
+        "sim_20y_40yr": {"stated": "4550万", "calculated": "4578万", "ok": true},
+        "sim_30y_30yr": {"stated": "2500万", "calculated": "2497万", "ok": true},
+        "sim_22y_38yr": {"stated": "4400万", "calculated": "4074万", "ok": false}
+      }
+    },
+    "readability": {
+      "score": 82,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "RD001",
+          "severity": "high",
+          "location": "はじめに（冒頭3行）",
+          "issue": "冒頭のフックが弱い。IRAの説明に入る前に読者の感情的な共感を引き出す問いかけが不足。",
+          "suggestion": "「なぜ22歳が老後のお金を貯め始めているのか。」のような問いかけを冒頭に置く。"
+        },
+        {
+          "issue_id": "RD002",
+          "severity": "high",
+          "location": "実践ガイド > 要因1",
+          "issue": "「米国で2022年に成立した〜義務付けました。」が80文字超の1文。",
+          "suggestion": "2文に分割する。"
+        },
+        {
+          "issue_id": "RD003",
+          "severity": "high",
+          "location": "注意点・リスク > iDeCo",
+          "issue": "「『緊急用の生活費3〜6か月分は別に確保する』〜という使い分けが大切です。」が270文字超の1文。",
+          "suggestion": "3つのポイントを箇条書きで分割する。"
+        },
+        {
+          "issue_id": "RD004",
+          "severity": "medium",
+          "location": "データで見る現状",
+          "issue": "「Q4 2025」が英語略語のまま初出使用されている。",
+          "suggestion": "「2025年第4四半期（Q4）」に修正する。"
+        },
+        {
+          "issue_id": "RD005",
+          "severity": "medium",
+          "location": "基礎知識 > IRAとは何か",
+          "issue": "「Traditional IRA（伝統的IRA）」「Roth IRA（ロスIRA）」と英語を先に出している。",
+          "suggestion": "「伝統的IRA（Traditional IRA）」「ロスIRA（Roth IRA）」の順に変更する。"
+        },
+        {
+          "issue_id": "RD006",
+          "severity": "medium",
+          "location": "実践ガイド > 示唆1",
+          "issue": "「毎月〇円を自動引き落し」の「引き落し」は誤字。",
+          "suggestion": "「引き落とし」に修正する。"
+        }
+      ],
+      "style_check": {
+        "desu_masu": "ok",
+        "technical_terms": "ok",
+        "sentence_length": "too_long",
+        "paragraph_length": "ok",
+        "dash_marks": "ok"
+      }
+    },
+    "writer_rules": {
+      "score": 88,
+      "status": "warn",
+      "checks": {
+        "word_count": {"value": 9375, "target": "8000-10000", "status": "ok"},
+        "title_length": {"value": 37, "target": "30-38", "status": "ok"},
+        "image_count": {"value": 5, "target": "3-5", "status": "ok"},
+        "source_links": {"value": 17, "target": "8+", "status": "ok"},
+        "required_sections": {"found": 10, "total": 10, "missing": []},
+        "forbidden_words": {
+          "found": [{"word": "最強の", "location": "示唆1見出し"}],
+          "status": "found"
+        },
+        "dash_marks": {"found": [], "status": "ok"}
+      },
+      "issues": [
+        {
+          "issue_id": "WR001",
+          "severity": "medium",
+          "location": "実践ガイド > 示唆1 見出し",
+          "issue": "禁止表現「最強の」が見出しに使用されている。",
+          "suggestion": "「「自動化」で積み立てを継続する仕組みを作る」などに変更する。"
+        },
+        {
+          "issue_id": "WR002",
+          "severity": "low",
+          "location": "注意点・リスク",
+          "issue": "「必ず儲かる」という禁止表現が警告目的で本文に含まれている。",
+          "suggestion": "「元本保証を謳う高利回り」などに言い換える。"
+        }
+      ]
+    }
+  },
+  "overall_score": 82,
+  "priority_fixes": [
+    {"priority": 1, "issue_id": "F001", "severity": "high", "summary": "Roth IRA 5年ルールの誤記修正"},
+    {"priority": 2, "issue_id": "DA001", "severity": "high", "summary": "22歳38年シミュ: 4,400万→4,074万に修正"},
+    {"priority": 3, "issue_id": "DA002", "severity": "high", "summary": "差額: 1,900万→1,578万に修正"},
+    {"priority": 4, "issue_id": "DA003", "severity": "high", "summary": "まとめ: 2,000万近い差→約1,500万以上に修正"},
+    {"priority": 5, "issue_id": "ST001", "severity": "high", "summary": "基礎知識を1,500字以上に拡充"},
+    {"priority": 6, "issue_id": "ST002", "severity": "high", "summary": "データセクションを1,000字以上に拡充"},
+    {"priority": 7, "issue_id": "RD001", "severity": "high", "summary": "冒頭フックを問いかけ型に改善"},
+    {"priority": 8, "issue_id": "RD003", "severity": "high", "summary": "270字1文を箇条書きに分割"},
+    {"priority": 9, "issue_id": "CP001", "severity": "medium", "summary": "「最強の」を禁止表現から別の表現に変更"},
+    {"priority": 10, "issue_id": "DA004", "severity": "medium", "summary": "iDeCo節税額を「約3〜5万円」に修正"},
+    {"priority": 11, "issue_id": "RD004", "severity": "medium", "summary": "Q4→2025年第4四半期（Q4）に修正"},
+    {"priority": 12, "issue_id": "CP002", "severity": "low", "summary": "免責事項に損失責任文言を追加"}
+  ]
 }
