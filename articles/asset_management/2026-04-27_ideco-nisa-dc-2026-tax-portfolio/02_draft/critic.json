@@ -1,0 +1,346 @@
+{
+    "article_id": "2026-04-27_ideco-nisa-dc-2026-tax-portfolio",
+    "generated_at": "2026-04-27",
+    "critics": {
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 83,
+            "status": "pass",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "medium",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "まとめ：今日からできる3ステップ",
+                        "line": "まずは自分の雇用形態（自営業か会社員か）と、勤務先に企業年金制度（DB・企業型DC）があるかどうかを確認してください。この2点で、2027年1月以降に使えるiDeCoの掛金上限が決まります。[厚生労働省の公式資料]や加入先の金融機関に問い合わせることで正確な情報を得られます。"
+                    },
+                    "issue": "「行動を始めることをお勧めします」（283行）が投資・制度加入行動の勧奨表現として投資助言規制に抵触する可能性がある。金融商品取引法上、無登録での投資助言に該当しないよう、読者の自律的判断を促す表現に留める必要がある。",
+                    "regulation": "金融商品取引法第28条（投資助言・代理業の登録義務）、note.com 利用規約 第6条（禁止行為）",
+                    "suggestion": "「お勧めします」を「検討する価値があります」「一つの方法として挙げられます」等、判断を読者に委ねる表現に変更する。"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "medium",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "まとめ：今日からできる3ステップ",
+                        "line": "金融機関へ早めに問い合わせ、変更手続きのタイミングを確認しておくことをお勧めします。"
+                    },
+                    "issue": "「お勧めします」（297行）が繰り返し使用されており、行動勧奨の積み重ねが投資助言的印象を強める。特定の金融行動（掛金変更手続き）を促す表現として注意が必要。",
+                    "regulation": "金融商品取引法第28条（投資助言・代理業の登録義務）、note.com 利用規約 第6条（禁止行為）",
+                    "suggestion": "「お勧めします」を「ご確認いただくことが有益です」「確認しておくと良いでしょう」などに変更し、読者が自発的に判断する余地を明確にする。"
+                },
+                {
+                    "issue_id": "CP003",
+                    "severity": "medium",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾免責事項",
+                        "line": "免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。"
+                    },
+                    "issue": "記事末尾の免責事項が snippets/disclaimer.md の正規テキストと一致していない。正規版に含まれる「本記事の内容により生じたいかなる損失についても責任を負いかねます」の文言が欠落している。損失免責の明示は法的保護の観点で必須要素。",
+                    "regulation": "金融商品取引法第37条の6（広告等に関する規制）、金融庁ガイドライン",
+                    "suggestion": "snippets/disclaimer.md の全文をそのまま使用し、記事版の拡張テキストを置き換える。特に「本記事の内容により生じたいかなる損失についても責任を負いかねます」を必ず含めること。"
+                },
+                {
+                    "issue_id": "CP004",
+                    "severity": "low",
+                    "category": "expression",
+                    "location": {
+                        "section": "シミュレーション：節税効果の試算",
+                        "line": "特に年収700万円以上の方にとっては、iDeCoの掛金最大化が最も費用対効果の高い税金対策のひとつとなる可能性があります。"
+                    },
+                    "issue": "「最も費用対効果の高い」という最上級表現が、他の税金対策との客観的比較根拠なしに使用されている。断定的ではなく「可能性があります」でヘッジされているが、最上級の使用は公正性の観点で注意が必要。",
+                    "regulation": "金融商品取引法第37条（広告等の規制）、金融庁「金融商品の販売等に関する法律」",
+                    "suggestion": "「最も費用対効果の高い税金対策のひとつとなる可能性があります」を「高い費用対効果が見込める税金対策のひとつです」などに変更し、最上級表現を回避する。"
+                }
+            ],
+            "required_disclaimers": {
+                "closing_greeting": {
+                    "present": true,
+                    "location": "末尾（免責事項の直前）",
+                    "note": "312行目に snippets/closing-greeting.md の全文と完全一致するテキストが、区切り線の下・免責事項の直前に装飾なし段落として存在する。"
+                },
+                "disclaimer": {
+                    "present": true,
+                    "location": "末尾",
+                    "note": "316行目に免責事項が存在するが、snippets/disclaimer.md の正規テキストと差異あり。「本記事の内容により生じたいかなる損失についても責任を負いかねます」が欠落している。正規テキストへの置き換えが必要。"
+                },
+                "order_correct": true
+            },
+            "prohibited_expressions_found": [
+                {
+                    "expression": "お勧めします",
+                    "location": "まとめ：今日からできる3ステップ（283行・297行）",
+                    "suggestion": "「検討する価値があります」「確認しておくと良いでしょう」等、読者の自律的判断を促す表現に変更"
+                }
+            ],
+            "prohibited_symbols_found": []
+        }
+    },
+        "data_accuracy": {
+            "critic_type": "data_accuracy",
+            "score": 90,
+            "issues": [
+                {
+                    "issue_id": "DA001",
+                    "severity": "medium",
+                    "location": {
+                        "section": "実践ガイド：属性別の最適設計 ケース4：自営業・フリーランス",
+                        "line": "所得税率が20%の場合、節税効果は年27万円（住民税含めると年31.5万円前後）になります。"
+                    },
+                    "data_type": "economic",
+                    "issue": "記述が内部矛盾している。「年27万円」は所得税20%+住民税10%=実効税率30%として90万円×30%=27万円で計算した値（住民税込み）。にもかかわらず「住民税含めると年31.5万円前後」と追記しており、住民税を二重に加算しているように読める。31.5万円は実効税率35%（所得税25%+住民税10%）相当であり、「所得税率が20%の場合」という前提と矛盾する。",
+                    "article_value": "年27万円（住民税含めると年31.5万円前後）",
+                    "correct_value": "所得税20%+住民税10%=実効税率30%の場合、節税効果は年27万円（住民税込み）。実効税率35%（例：所得税25%+住民税10%）なら年31.5万円。「住民税含めると」という表現は誤解を招く。",
+                    "source": "sources.json",
+                    "deviation": "「年27万円（税率30%相当）」と「年31.5万円（税率35%相当）」を同一税率前提（20%）で並記しており論理的に不整合",
+                    "suggestion": "「所得税率が20%の場合、節税効果は年27万円（所得税18万円+住民税9万円）になります。所得税率が23%になる場合（課税所得695万円超）は年31.5万円前後に拡大します。」と税率ごとに明示して記述する。"
+                },
+                {
+                    "issue_id": "DA002",
+                    "severity": "low",
+                    "location": {
+                        "section": "シミュレーション：節税効果の試算 年収600万円のケース",
+                        "line": "30年累積節税額：約249万円"
+                    },
+                    "data_type": "economic",
+                    "issue": "30年累積節税額の計算値が248.4万円（8.28万円×30年）であるのに対し、記事は約249万円と記載している。四捨五入すれば248万円が正確であり、249万円は切り上げ誤差。",
+                    "article_value": "約249万円",
+                    "correct_value": "約248万円（8.28万円×30年=248.4万円）",
+                    "source": "計算検証",
+                    "deviation": "0.6万円（+0.24%の切り上げ）",
+                    "suggestion": "「約248万円」または「248〜249万円」と記載する。なお、改正後の30年累積669万円は669.6万円の切り捨てであり端数処理が不統一なため、両値ともに「約」付きで統一するか端数処理方針を揃える。"
+                },
+                {
+                    "issue_id": "DA003",
+                    "severity": "low",
+                    "location": {
+                        "section": "シミュレーション：節税効果の試算 年収800万円のケース",
+                        "line": "30年累積節税額：約738万円"
+                    },
+                    "data_type": "economic",
+                    "issue": "実効税率33%で計算すると年間節税額は74.4万円×33%=24.552万円、30年累積は736.56万円。記事の約738万円は1.44万円（0.2%）高い。実効税率33.06%で738万円になるが、記事は33%としている。",
+                    "article_value": "約738万円",
+                    "correct_value": "約737万円（74.4万円×33%×30年=736.56万円）",
+                    "source": "計算検証",
+                    "deviation": "1.44万円（+0.20%）",
+                    "suggestion": "「約737万円」または「約736万円」に修正する。「約」表記の幅を考慮すれば許容範囲内とも言えるが、他の値との整合性のため737万円が望ましい。"
+                }
+            ],
+            "verified_data": {
+                "total": 31,
+                "correct": 28,
+                "incorrect": 3,
+                "unverifiable": 0
+            },
+            "calculation_checks": [
+                {
+                    "calculation": "改正前iDeCo年間掛金（月2.3万円）",
+                    "formula": "2.3万円 × 12ヶ月",
+                    "result": "27.6万円",
+                    "article_value": "27.6万円",
+                    "match": true
+                },
+                {
+                    "calculation": "改正前・年収600万・年間節税額",
+                    "formula": "27.6万円 × 30%（実効税率）",
+                    "result": "8.28万円",
+                    "article_value": "8.28万円",
+                    "match": true
+                },
+                {
+                    "calculation": "改正前・30年累積節税額",
+                    "formula": "8.28万円 × 30年",
+                    "result": "248.4万円",
+                    "article_value": "約249万円",
+                    "match": false
+                },
+                {
+                    "calculation": "改正後iDeCo年間掛金（月6.2万円）",
+                    "formula": "6.2万円 × 12ヶ月",
+                    "result": "74.4万円",
+                    "article_value": "74.4万円",
+                    "match": true
+                },
+                {
+                    "calculation": "改正後・年収600万・年間節税額",
+                    "formula": "74.4万円 × 30%（実効税率）",
+                    "result": "22.32万円",
+                    "article_value": "22.3万円",
+                    "match": true
+                },
+                {
+                    "calculation": "改正後・30年累積節税額（年収600万）",
+                    "formula": "22.32万円 × 30年",
+                    "result": "669.6万円",
+                    "article_value": "約669万円",
+                    "match": true
+                },
+                {
+                    "calculation": "節税倍率（改正前後）",
+                    "formula": "22.32万円 ÷ 8.28万円",
+                    "result": "2.696倍",
+                    "article_value": "約2.7倍",
+                    "match": true
+                },
+                {
+                    "calculation": "改正後・年収800万・年間節税額",
+                    "formula": "74.4万円 × 33%（実効税率）",
+                    "result": "24.552万円",
+                    "article_value": "約24.6万円",
+                    "match": true
+                },
+                {
+                    "calculation": "改正後・30年累積節税額（年収800万）",
+                    "formula": "24.552万円 × 30年",
+                    "result": "736.56万円",
+                    "article_value": "約738万円",
+                    "match": false
+                },
+                {
+                    "calculation": "退職所得控除（勤続30年）",
+                    "formula": "800万円 + 70万円 × (30年 - 20年)",
+                    "result": "1,500万円",
+                    "article_value": "1,500万円",
+                    "match": true
+                },
+                {
+                    "calculation": "マッチング拠出上限（Phase2・事業主掛金1万円）",
+                    "formula": "DC合計上限5.5万円 - 事業主掛金1.0万円",
+                    "result": "4.5万円",
+                    "article_value": "月4.5万円",
+                    "match": true
+                },
+                {
+                    "calculation": "企業型DC マッチング拠出導入率",
+                    "formula": "11,778件 ÷ 58,326件 × 100",
+                    "result": "20.2%",
+                    "article_value": "20.2%",
+                    "match": true
+                },
+                {
+                    "calculation": "NISA年間投資枠合計",
+                    "formula": "つみたて投資枠120万円 + 成長投資枠240万円",
+                    "result": "360万円",
+                    "article_value": "360万円",
+                    "match": true
+                },
+                {
+                    "calculation": "NISA+iDeCo（改正後）年間合計枠",
+                    "formula": "NISA年間枠360万円 + iDeCo年間枠74.4万円",
+                    "result": "434.4万円",
+                    "article_value": "434.4万円",
+                    "match": true
+                },
+                {
+                    "calculation": "公務員・DB加入者のiDeCo上限増加率",
+                    "formula": "(2.0万円 - 1.2万円) ÷ 1.2万円 × 100",
+                    "result": "66.7%",
+                    "article_value": "約67%",
+                    "match": true
+                },
+                {
+                    "calculation": "DB加入者・節税額（月2万円・所得税率20%）",
+                    "formula": "24万円（年間）× 20%（所得税のみ）",
+                    "result": "4.8万円",
+                    "article_value": "年4.8万円以上",
+                    "match": true
+                },
+                {
+                    "calculation": "自営業・年間掛金（月7.5万円）",
+                    "formula": "7.5万円 × 12ヶ月",
+                    "result": "90万円",
+                    "article_value": "年90万円",
+                    "match": true
+                },
+                {
+                    "calculation": "自営業・節税額（実効税率30%）",
+                    "formula": "90万円 × 30%（所得税20%+住民税10%）",
+                    "result": "27万円",
+                    "article_value": "年27万円",
+                    "match": true
+                }
+            ],
+            "source_url_check": {
+                "all_major_data_linked": true,
+                "links_found": [
+                    {"data": "iDeCo掛金上限（全加入区分）", "url": "https://www.mhlw.go.jp/content/12500000/001620594.pdf", "status": "embedded"},
+                    {"data": "NISA口座総数・非課税保有限度額", "url": "https://dc.rakuten-sec.co.jp/about/revised/202505/", "status": "embedded"},
+                    {"data": "マッチング拠出制限撤廃", "url": "https://media.monex.co.jp/articles/-/29227", "status": "embedded"},
+                    {"data": "退職所得控除10年ルール", "url": "https://www.freee.co.jp/kb/kb-payroll/retirement-income/", "status": "embedded"},
+                    {"data": "企業型DC統計データ", "url": "https://www.am-one.co.jp/hagukumu/article/column-20260319-1.html", "status": "embedded"},
+                    {"data": "退職所得控除計算式", "url": "https://www.soico.jp/no1/news/securities/5813", "status": "embedded"}
+                ],
+                "missing_links": []
+            }
+        }
+    },
+    "fact": {
+      "score": 82,
+      "issues": [
+        {"severity": "high", "location": "基礎知識：企業型DC", "issue": "「企業型DC加入者全体のうち実際にマッチング拠出を活用しているのは約3人に1人」は誤り。正確には「マッチング拠出導入企業在籍加入者の約34%」", "suggestion": "「マッチング拠出を導入している企業に在籍する企業型DC加入者のうち、実際にマッチング拠出を活用しているのは約34%（約3人に1人）」に修正"},
+        {"severity": "medium", "location": "実践ガイド：ケース2", "issue": "「会社が月3万円拠出している場合、マッチング拠出で残り3.2万円を追加」は2026年12月改正後（上限6.2万円）の話だが時点不明確", "suggestion": "「2026年12月改正後（2027年1月適用）」と時点を明記"},
+        {"severity": "medium", "location": "データで見る：Phase 2", "issue": "「月4.5万円まで上乗せ拠出できる（上限の合計枠内で）」が2026年4月時点の上限5.5万円か12月改正後の6.2万円か不明確", "suggestion": "「2026年4月時点のDC合計上限5.5万円の範囲内」と明確化"},
+        {"severity": "low", "location": "基礎知識：新NISA", "issue": "口座数データ（2025年12月末）のソースURLが楽天証券の202505ページで時点不整合の疑い", "suggestion": "金融庁等の一次資料へのリンクに変更を検討"},
+        {"severity": "low", "location": "基礎知識：新NISA", "issue": "「手数料も無料で始められるため」は買付手数料無料の意だが完全無料と誤解される可能性", "suggestion": "「口座開設・買付手数料は無料で始められるため」に修正"}
+      ]
+    },
+    "structure": {
+      "score": 78,
+      "section_scores": {"intro": 82, "flow": 62, "sections": 80, "conclusion": 75},
+      "issues": [
+        {"severity": "high", "location": "セクション間（全体）", "issue": "各h2セクションが「---」で機械的に区切られており、遷移文が一切ない", "suggestion": "各セクション末尾または次セクション冒頭に1〜2文の遷移文を追加"},
+        {"severity": "high", "location": "シミュレーション", "issue": "実践ガイドで4属性を解説しているのに、シミュレーションが会社員2ケースのみ。自営業・公務員の試算が欠落", "suggestion": "公務員（月2万円上限）と自営業（月7.5万円上限）のシミュレーションを追加"},
+        {"severity": "medium", "location": "各h2直下のリード文", "issue": "複数のh2見出し直下のリード文が38〜79文字と短すぎる", "suggestion": "各h2直下のリード文を100〜150文字以上に拡充"},
+        {"severity": "medium", "location": "注意点：注意点4", "issue": "「詳細は各金融機関に確認してください」で終わり実質的な指針を提供していない", "suggestion": "70歳未満加入継続の具体的条件を補足"},
+        {"severity": "medium", "location": "シミュレーション：前提条件", "issue": "87文字のみで運用利回り・加入期間等のモデル前提が明示されていない", "suggestion": "想定加入期間・運用利回り（または節税のみの計算であることの明記）を追加"}
+      ]
+    },
+    "readability": {
+      "score": 83,
+      "word_count": 9828,
+      "issues": [
+        {"severity": "critical", "location": "実践ガイド：ケース1 受取戦略", "issue": "3パターン列挙が1文200文字超。スマホで非常に読みにくい", "suggestion": "箇条書き（パターン①〜③）に分解"},
+        {"severity": "critical", "location": "基礎知識：企業型DC", "issue": "統計数値の説明段落が180文字超の長文", "suggestion": "「58,326件のうち11,778件（20.2%）です。」で一度区切り2文構成に"},
+        {"severity": "high", "location": "データで見る：Phase 1", "issue": "「例えば」が2文連続して登場する重複表現", "suggestion": "2文目の「例えば」を「具体的には」に変更"},
+        {"severity": "medium", "location": "基礎知識：iDeCo", "issue": "「公的年金等控除」が初出で定義説明なし", "suggestion": "「（65歳以上で年最大110万円が控除される制度）」と補足"},
+        {"severity": "medium", "location": "データで見る：Phase 1", "issue": "「退職所得控除」が最初の登場で定義が示されていない", "suggestion": "「退職所得控除（退職金・iDeCo一時金受取時に課税所得から差し引ける控除額）」と初出に定義を付加"},
+        {"severity": "medium", "location": "シミュレーション：前提条件", "issue": "「超過累進課税率」という用語に説明なし", "suggestion": "「超過累進課税率（所得が増えるほど高い税率が段階的に適用される仕組み）」と補足"}
+      ]
+    },
+    "writer_rules": {
+      "score": 88,
+      "word_count": 9828,
+      "title_length": 37,
+      "checks": {
+        "title_ok": true,
+        "word_count_ok": true,
+        "sections_ok": true,
+        "frontmatter_ok": true,
+        "closing_ok": true,
+        "no_markdown_tables": true,
+        "source_links_ok": false
+      },
+      "issues": [
+        {"severity": "medium", "location": "データで見る：Phase 3 箇条書き", "issue": "属性別掛金上限の箇条書き4行に個別ソースリンクがない", "suggestion": "各行末の数値にリンクを追加"},
+        {"severity": "medium", "location": "シミュレーション：節税試算", "issue": "節税額計算の税率前提（国税庁所得税率）にリンクがない", "suggestion": "国税庁所得税速算表へのリンク追加を検討"},
+        {"severity": "low", "location": "実践ガイド：ケース1", "issue": "「つみたて投資枠（年120万円）」「成長投資枠（年240万円）」にリンクなし", "suggestion": "金融庁NISAページへのリンクを追加"}
+      ]
+    }
+  },
+  "overall_score": 84,
+  "priority_fixes": [
+    {"priority": 1, "severity": "high", "item": "マッチング拠出統計の解釈修正（「全体のうち約3人に1人」→「導入企業在籍加入者の約34%」）"},
+    {"priority": 2, "severity": "high", "item": "受取戦略3パターンの箇条書き化（200文字超の1文を分解）"},
+    {"priority": 3, "severity": "high", "item": "セクション間の遷移文追加（全h2セクション）"},
+    {"priority": 4, "severity": "medium", "item": "「お勧めします」を適切な表現に変更（2箇所）"},
+    {"priority": 5, "severity": "medium", "item": "免責事項に損失免責文言を追加"},
+    {"priority": 6, "severity": "medium", "item": "自営業の節税額表記の矛盾を修正（27万円 vs 31.5万円の税率説明）"},
+    {"priority": 7, "severity": "medium", "item": "シミュレーションに公務員・自営業ケースを追加"},
+    {"priority": 8, "severity": "medium", "item": "Phase 2の上限枠の時点を明確化（5.5万円=2026年4月時点）"},
+    {"priority": 9, "severity": "medium", "item": "ソースURLリンクの追加（箇条書き行・シミュレーション税率）"},
+    {"priority": 10, "severity": "low", "item": "累積節税額の端数修正（249→248万円、738→737万円）"}
+  ]
+}

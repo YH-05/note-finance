@@ -1,0 +1,168 @@
+{
+  "article_slug": "ideco-nisa-dc-2026-tax-portfolio",
+  "curated_at": "2026-04-27",
+  "sources": [
+    {
+      "id": "mhlw_ideco_2026",
+      "url": "https://www.mhlw.go.jp/content/12500000/001620594.pdf",
+      "title": "iDeCoの改正内容について（厚生労働省公式）",
+      "publisher": "厚生労働省",
+      "authority": "official",
+      "score": 10,
+      "used_for": [
+        "Phase 3 掛金上限引き上げの数値（全加入区分）",
+        "自営業上限7.5万円",
+        "企業年金なし会社員6.2万円",
+        "公務員・DB加入者2万円"
+      ],
+      "notes": "一次資料。全数値の根拠として最優先で参照。"
+    },
+    {
+      "id": "rakuten_ideco_revised",
+      "url": "https://dc.rakuten-sec.co.jp/about/revised/202505/",
+      "title": "iDeCoに関する制度改正について（楽天証券）",
+      "publisher": "楽天証券",
+      "authority": "analyst",
+      "score": 8,
+      "used_for": [
+        "70歳未満加入可能化の言及",
+        "新NISA口座総数2,825万口座（2025年12月末）",
+        "新NISA非課税保有限度額1,800万円"
+      ],
+      "notes": "証券会社による制度解説。新NISA現状データも参照。"
+    },
+    {
+      "id": "monex_matching_reform",
+      "url": "https://media.monex.co.jp/articles/-/29227",
+      "title": "企業型DCマッチング拠出の改正解説（マネックス証券）",
+      "publisher": "マネックス証券",
+      "authority": "analyst",
+      "score": 8,
+      "used_for": [
+        "Phase 2 マッチング拠出「事業主掛金額以下」制限撤廃",
+        "改正前後の具体的な計算例（事業主1万円→マッチング4.5万円まで）"
+      ],
+      "notes": "Phase 2の主要根拠として使用。具体例が明確。"
+    },
+    {
+      "id": "freee_retirement_income",
+      "url": "https://www.freee.co.jp/kb/kb-payroll/retirement-income/",
+      "title": "退職所得控除（10年ルール）の解説（freee）",
+      "publisher": "freee株式会社",
+      "authority": "media",
+      "score": 7,
+      "used_for": [
+        "Phase 1 退職所得控除の調整期間5年→10年延長",
+        "iDeCo先受取→退職金の影響説明",
+        "退職金先→iDeCo後の19年ルール変更なし"
+      ],
+      "notes": "Phase 1の主要根拠として使用。わかりやすい図解あり。"
+    },
+    {
+      "id": "amone_dc_stats",
+      "url": "https://www.am-one.co.jp/hagukumu/article/column-20260319-1.html",
+      "title": "企業型DC統計データ（2025年3月末）（アムンディ・ジャパン）",
+      "publisher": "アムンディ・ジャパン（旧三菱UFJ国際投信）",
+      "authority": "analyst",
+      "score": 7,
+      "used_for": [
+        "企業型DC導入事業所数：58,326件",
+        "マッチング拠出導入事業所：11,778件（20.2%）",
+        "マッチング拠出実施率：34.1%"
+      ],
+      "notes": "企業型DC普及実態の統計根拠として使用。"
+    },
+    {
+      "id": "soico_retirement_deduction",
+      "url": "https://www.soico.jp/no1/news/securities/5813",
+      "title": "退職所得控除の計算方法（ソイコ）",
+      "publisher": "ソイコ",
+      "authority": "media",
+      "score": 6,
+      "used_for": [
+        "退職所得控除の計算式（20年以下：40万円×年数、20年超：800万円+70万円×超過年数）",
+        "勤続30年の場合の控除額1,500万円の計算例"
+      ],
+      "notes": "退職所得控除の計算例の補助根拠として使用。"
+    }
+  ],
+  "image_placeholders": [
+    {
+      "filename": "table_comparison_three_plans.png",
+      "type": "table",
+      "description": "3制度（新NISA・iDeCo・企業型DCマッチング）の特性比較表",
+      "columns": ["特性", "新NISA", "iDeCo", "企業型DC（マッチング）"],
+      "rows": [
+        ["掛金所得控除", "なし", "全額", "加入者掛金分"],
+        ["運用益非課税", "あり", "あり", "あり"],
+        ["出口課税", "非課税（期間無制限）", "退職所得控除 or 公的年金等控除", "同左"],
+        ["流動性", "いつでも換金可", "原則60歳まで引き出し不可", "同左"],
+        ["年間上限（改正後）", "360万円", "最大74.4万円（6.2万×12）", "DC+iDeCo合計6.2万円"],
+        ["手数料", "無料", "月約171円〜", "会社負担"]
+      ]
+    },
+    {
+      "filename": "table_contribution_limits.png",
+      "type": "table",
+      "description": "2026年改正後の掛金上限比較表（加入区分別）",
+      "columns": ["加入区分", "現行（月額）", "改正後（月額）", "年額（改正後）"],
+      "rows": [
+        ["企業年金なし会社員", "iDeCo 2.3万円", "iDeCo 6.2万円", "74.4万円"],
+        ["企業型DCのみ会社員", "DC+iDeCo合計5.5万円（iDeCo上限2万円）", "合計6.2万円（iDeCo個別上限撤廃）", "74.4万円"],
+        ["公務員・DB加入者", "iDeCo 1.2万円", "iDeCo 2万円", "24万円"],
+        ["自営業・第1号", "6.8万円", "7.5万円", "90万円"]
+      ],
+      "source_url": "https://www.mhlw.go.jp/content/12500000/001620594.pdf"
+    },
+    {
+      "filename": "table_attribute_matrix.png",
+      "type": "table",
+      "description": "属性別 制度活用優先順位マトリクス",
+      "columns": ["属性", "iDeCo上限（改正後）", "企業型DC活用", "新NISA", "推奨優先順位"],
+      "rows": [
+        ["企業年金なし会社員", "月6.2万円", "なし", "年360万円", "新NISA → iDeCo → 新NISA成長枠"],
+        ["企業型DCのみ会社員", "合計6.2万円", "マッチング拠出（制限撤廃後）", "年360万円", "新NISA → マッチング or iDeCo"],
+        ["公務員・DB加入者", "月2万円", "なし（DB）", "年360万円", "新NISA → iDeCo"],
+        ["自営業・第1号", "月7.5万円（国民年金基金と合算）", "なし", "年360万円", "iDeCo → 新NISA"]
+      ]
+    },
+    {
+      "filename": "chart_reform_schedule.png",
+      "type": "chart",
+      "chart_type": "timeline",
+      "description": "2026年改正3段階スケジュール（タイムライン）",
+      "data_points": [
+        {"date": "2026年1月", "event": "退職所得控除 調整期間 5年→10年延長"},
+        {"date": "2026年4月", "event": "企業型DCマッチング拠出 事業主掛金額以下制限 撤廃"},
+        {"date": "2026年12月", "event": "掛金上限改正確定"},
+        {"date": "2027年1月", "event": "新掛金上限 適用開始（企業年金なし会社員：6.2万円等）"}
+      ]
+    },
+    {
+      "filename": "chart_tax_simulation.png",
+      "type": "chart",
+      "chart_type": "bar",
+      "description": "年収別・改正前後の節税効果比較チャート",
+      "data": {
+        "x_axis": "年収",
+        "y_axis": "年間節税額（万円）",
+        "series": [
+          {
+            "label": "改正前（月2.3万円）",
+            "data": [
+              {"x": "600万円（実効税率30%）", "y": 8.3},
+              {"x": "800万円（実効税率33%）", "y": 9.1}
+            ]
+          },
+          {
+            "label": "改正後（月6.2万円）",
+            "data": [
+              {"x": "600万円（実効税率30%）", "y": 22.3},
+              {"x": "800万円（実効税率33%）", "y": 24.6}
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

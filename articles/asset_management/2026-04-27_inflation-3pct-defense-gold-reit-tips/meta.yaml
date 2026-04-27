@@ -1,0 +1,62 @@
+# === Core (必須) ===
+title: "インフレ3%時代の資産防衛戦略：ゴールド・REIT・TIPS・株式の使い分け完全ガイド"
+category: "asset_management"                     # asset_management | side_business | macro_economy | stock_analysis | market_report | quant_analysis | investment_education
+type: column                     # column | case_study | experience | market_report | data_analysis
+status: draft                    # draft | review | published
+
+# === Timestamps ===
+created_at: "2026-04-27"
+updated_at: "2026-04-27"
+
+# === Content ===
+tags:
+  - インフレ
+  - ゴールド
+  - REIT
+  - TIPS
+  - 資産防衛
+target_audience: intermediate    # beginner | intermediate | advanced
+target_wordcount: 5000
+
+# === Category-Specific (該当カテゴリのみ) ===
+symbols: []                      # stock_analysis / quant_analysis
+date_range:
+  start: ""
+  end: ""
+fred_series: []                  # macro_economy
+theme: "asset_management"                        # asset_management / side_business
+experience:                      # side_business (experience type)
+  spec_card:
+    age_range: ""
+    gender: ""
+    occupation: ""
+    income_range: ""
+    duration: ""
+    outcome: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 18
+
+# === Workflow ===
+workflow:
+  research: done                 # pending | in_progress | done | skipped
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Neo4j (side_business only) ===
+neo4j:
+  pattern_node_id: null
+  source_node_ids: []
+  embed_resource_ids: []
+
+# === Legacy ===
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null

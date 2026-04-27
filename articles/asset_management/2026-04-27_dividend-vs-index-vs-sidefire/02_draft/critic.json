@@ -1,0 +1,97 @@
+{
+  "article_id": "dividend-vs-index-vs-sidefire",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-27",
+  "critics": {
+    "fact": {
+      "score": 79, "status": "warn",
+      "issues": [
+        {"severity": "medium", "location": "基礎知識 - VYM説明", "description": "VYMリターンデータの出典URLが誤り。3-dividend-etfs-better-schd URLが正しいソース", "suggestion": "出典URLを https://finance.yahoo.com/news/3-dividend-etfs-better-schd-171755801.html に修正"},
+        {"severity": "medium", "location": "データで見る現状", "description": "S&P500の7,165.08という絶対値の出典が不明確", "suggestion": "絶対値の言及を削除しYTD -5.4%のみに絞る"},
+        {"severity": "medium", "location": "データで見る現状", "description": "トヨタ4.3兆円の出典がsources.jsonで直接確認できない", "suggestion": "Bloomberg記事の確認後に引用維持 or 除去"},
+        {"severity": "low", "location": "基礎知識 - VYM説明", "description": "VYM保有銘柄数「約470銘柄」が未確認", "suggestion": "銘柄数の記述を削除するか時点を明示"},
+        {"severity": "low", "location": "まとめ", "description": "「インデックス4000〜4500万円」と実践ガイドの「4500万円」が内部不整合", "suggestion": "4500万円に統一"}
+      ]
+    },
+    "compliance": {
+      "score": 86, "status": "pass",
+      "checklist": {
+        "disclaimer_present": true, "greeting_present": true, "no_investment_advice": true,
+        "no_guaranteed_return": true, "desu_masu_style": true, "no_dash_symbols": true
+      },
+      "issues": [
+        {"severity": "medium", "location": "末尾免責事項", "description": "「見通し・予測は作成時点の情報に基づく旨」と「税制優遇制度は改正により変更の可能性がある旨」が欠落", "suggestion": "免責事項にNISA・将来予測の注記を追加"},
+        {"severity": "medium", "location": "まとめ - 3つのアクション", "description": "「今日から取れる3つのアクション」が投資助言に近接", "suggestion": "「考えてみたいポイント」等に変更し「購入を推奨するものではありません」を追記"},
+        {"severity": "low", "location": "ケーススタディ", "description": "「見込めます」が断定的な収益予測に近い", "suggestion": "「計算上は見込める可能性がありますが、実際の運用成果は市場環境によって大きく異なります」に修正"},
+        {"severity": "low", "location": "実践ガイド - 黄金比", "description": "「黄金比」という見出しで特定配分比率を提示", "suggestion": "見出しを「配分の考え方（例）」に変更し個人差の注記を追加"}
+      ]
+    },
+    "structure": {
+      "score": 73, "status": "warn",
+      "section_analysis": [
+        {"section": "はじめに", "word_count": 438, "target_range": "400-600", "status": "ok"},
+        {"section": "基礎知識", "word_count": 1781, "target_range": "1500-2000", "status": "ok"},
+        {"section": "データで見る現状", "word_count": 943, "target_range": "1000-1500", "status": "short"},
+        {"section": "実践ガイド", "word_count": 2225, "target_range": "2000-2500", "status": "ok"},
+        {"section": "ケーススタディ", "word_count": 693, "target_range": "800-1200", "status": "short"},
+        {"section": "注意点・リスク", "word_count": 1297, "target_range": "800-1200", "status": "long"},
+        {"section": "まとめ", "word_count": 1144, "target_range": "400-600", "status": "long"}
+      ],
+      "issues": [
+        {"severity": "high", "description": "まとめが1144字（目安400-600字）に膨張。新情報がまとめに集中している", "suggestion": "アクション詳細を実践ガイドへ移動し400-600字に圧縮"},
+        {"severity": "high", "description": "データで見る現状が943字（目安1000-1500字）と短い。統合分析が薄い", "suggestion": "「なぜこの2つのデータが今の投資判断に影響するか」の分析段落を追加"},
+        {"severity": "high", "description": "ケーススタディが693字（目安800-1200字）と短い。1ケースのみで比較対照なし", "suggestion": "「インデックス100%」または「50代FIRE準備期」の対照ケースを追加"},
+        {"severity": "medium", "description": "「インデックス一本論」反論がリスクセクション末尾にあり焦点が散漫", "suggestion": "黄金比セクションの前段に移動"},
+        {"severity": "medium", "description": "データで見る現状→実践ガイドへのブリッジ文がない", "suggestion": "「では実際にどのような設計が考えられるのか次で見ていきます」等を追加"},
+        {"severity": "medium", "description": "ケーススタディ→注意点・リスクへのトランジションが唐突", "suggestion": "「ただしこれらの試算はうまくいった場合の数字です」等の橋渡し文を追加"}
+      ]
+    },
+    "data_accuracy": {
+      "score": 72, "status": "warn",
+      "issues": [
+        {"severity": "high", "location": "実践ガイド - 元本試算", "description": "「税引後4〜4.5%（税引前5〜5.5%）で元本2400万円で月15万円」が計算上誤り。SCHD実際利回り3.29〜3.4%で月15万円には約5300万円が必要", "suggestion": "利回り7.5%（配当+値上がり込みの総合利回り）という前提を明記するか、引用元ブログの試算値であることを明示する。「税引後4〜4.5%想定」という誤った計算説明は削除"},
+        {"severity": "high", "location": "まとめ - 月10万円元本", "description": "「月10万円なら約1600万円」も同じく利回り7.5%前提が未説明", "suggestion": "利回り前提を明示するか、実際の配当利回りベースの計算に修正"},
+        {"severity": "medium", "location": "まとめ - インデックス元本", "description": "「4000〜4500万円」の4000万円の根拠が不明確。4%ルールでは4500万円が正確", "suggestion": "「約4500万円（4%ルール基準）」に統一"},
+        {"severity": "medium", "location": "ケーススタディ - インデックス試算", "description": "年率7%前提の積立FVは約606万円だが記事は580万円（6.5%相当）を記載", "suggestion": "「約600万円」に修正し合計も「約835万円」に更新"}
+      ]
+    },
+    "readability": {
+      "score": 73, "status": "warn",
+      "title_evaluation": {"length": 44, "status": "too_long", "feedback": "44字で目標38字を超過。短縮案：「高配当 vs インデックス、サイドFIREの元本を数字で比較｜2026年版」（35字）"},
+      "issues": [
+        {"severity": "high", "location": "はじめに（冒頭1文）", "description": "冒頭1文が約140字と長く、スマホ3秒スキャンで意味が掴めない", "suggestion": "「相場が揺れるとき、配当収入は止まらない。」のような短いフックから始める"},
+        {"severity": "high", "location": "全体", "description": "総文字数が約9600字と長い。基礎知識セクションが中級者には冗長", "suggestion": "基礎知識セクションを中級者向けに圧縮（SCHD・VYMの基礎説明を短縮）"},
+        {"severity": "medium", "location": "基礎知識 - SCHD説明段落", "description": "SCHD説明が1段落250字超", "suggestion": "箇条書きに分解して3行以内に収める"},
+        {"severity": "medium", "location": "実践ガイド - 黄金比", "description": "ライフステージ3段階が長文テキストで視覚的に比較しにくい", "suggestion": "ライフステージ別一覧表に整理（画像化）"},
+        {"severity": "medium", "location": "データで見る現状", "description": "留保表現が主張を弱めすぎ", "suggestion": "留保を1文に縮め結論への移行を早める"}
+      ]
+    },
+    "writer_rules": {
+      "score": 85, "status": "warn",
+      "word_count": 9611, "word_count_status": "ok",
+      "checklist": {
+        "all_sections_present": true, "title_length_ok": false, "no_dash_in_title": true,
+        "desu_masu_unified": true, "no_dash_in_body": true, "greeting_present": true,
+        "disclaimer_present": true, "correct_template_order": true,
+        "no_markdown_tables": true, "source_urls_embedded": true, "terms_explained": true
+      },
+      "issues": [
+        {"severity": "high", "item": "title_length", "description": "タイトルが44字で目標38字を6字超過", "suggestion": "「高配当 vs インデックス、サイドFIREの元本を数字で比較｜2026年版」（35字）等に短縮"}
+      ]
+    }
+  },
+  "overall_score": 78,
+  "priority_fixes": [
+    {"priority": 1, "severity": "high", "type": "data_accuracy", "description": "元本2400万円・月15万円の計算根拠の説明が誤り（利回り7.5%前提が未説明）"},
+    {"priority": 2, "severity": "high", "type": "writer_rules", "description": "タイトルが44字で目標38字を超過"},
+    {"priority": 3, "severity": "high", "type": "structure", "description": "まとめが1144字（目安600字）、ケーススタディが693字（目安800字）"},
+    {"priority": 4, "severity": "high", "type": "readability", "description": "冒頭1文が140字と長くスマホフック効果が低い"},
+    {"priority": 5, "severity": "medium", "type": "compliance", "description": "免責事項にNISA・将来予測の注記が不足"},
+    {"priority": 6, "severity": "medium", "type": "compliance", "description": "まとめの「3つのアクション」が投資助言に近接"},
+    {"priority": 7, "severity": "medium", "type": "fact", "description": "VYMリターンデータの出典URL不整合"},
+    {"priority": 8, "severity": "medium", "type": "data_accuracy", "description": "インデックス元本「4000〜4500万円」を「4500万円」に統一"},
+    {"priority": 9, "severity": "medium", "type": "structure", "description": "データで見る現状のブリッジ文・ケーススタディの対照ケースが不足"},
+    {"priority": 10, "severity": "low", "type": "data_accuracy", "description": "ケーススタディのインデックス試算値580万円→600万円に修正"}
+  ]
+}

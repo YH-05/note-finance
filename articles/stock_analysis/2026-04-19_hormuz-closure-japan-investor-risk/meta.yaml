@@ -1,68 +1,58 @@
-# === Core (必須) ===
-article_id: "2026-04-19_hormuz-closure-japan-investor-risk"
-topic: "ホルムズ海峡封鎖が日本の個人投資家の資産を直撃する5つの経路"
-title: ""
-category: "stock_analysis"
+article_id: 2026-04-19_hormuz-closure-japan-investor-risk
+topic: ホルムズ海峡封鎖が日本の個人投資家の資産を直撃する5つの経路
+title: ホルムズ海峡封鎖が日本の投資家の資産を揺らす｜原油依存93%から考える5つの波及経路
+category: stock_analysis
 type: data_analysis
-status: draft
-
-# === Timestamps ===
-created_at: "2026-04-19"
-updated_at: "2026-04-19"
-
-# === Content ===
+status: published
+created_at: '2026-04-19'
+updated_at: '2026-04-19T23:48:42.538069+00:00'
 tags:
-  - ホルムズ海峡
-  - 原油
-  - 地政学リスク
-  - 日本経済
-  - 個人投資家
+- ホルムズ海峡
+- 原油
+- 地政学リスク
+- 日本経済
+- 個人投資家
 target_audience: intermediate
 target_wordcount: 4000
-
-# === Category-Specific ===
 symbols:
-  - "CL=F"      # WTI原油先物
-  - "BZ=F"      # Brent原油先物
-  - "^SPX"      # S&P500
-  - "XLE"       # Energy Select Sector SPDR
-  - "USDJPY=X"  # ドル円
-  - "1605.T"    # INPEX
-  - "5020.T"    # ENEOS
+- CL=F
+- BZ=F
+- ^SPX
+- XLE
+- USDJPY=X
+- 1605.T
+- 5020.T
 date_range:
-  start: "2026-02-27"
-  end: "2026-04-19"
+  start: '2026-02-27'
+  end: '2026-04-19'
 fred_series: []
-theme: ""
-
-# === Tracking ===
-critic_score: null
-revision_count: 0
-note_url: null
+theme: ''
+critic_score: 87
+revision_count: 1
+note_url: https://editor.note.com/notes/n68c929ed02a5/edit/
 x_post_url: null
-research_sources: 0
-
-# === Workflow ===
+research_sources: 48
 workflow:
-  research: pending
-  draft: pending
-  critique: pending
-  revision: pending
-  publish: pending
-
-# === Human Feedback ===
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
-  hf3_claims_reviewed: false
-  hf5_draft_reviewed: false
-  hf6_final_approved: false
-
-# === Source Material ===
+  hf3_claims_reviewed: true
+  hf5_draft_reviewed: true
+  hf6_final_approved: true
 source_material:
-  reddit_session: "reddit-collection-2026-04-19T09-55-17"
+  reddit_session: reddit-collection-2026-04-19T09-55-17
   reddit_topics:
-    - "T002"
-    - "T003"
-    - "T006"
-    - "T007"
-  analysis_file: ".tmp/reddit-topics/analyzed-2026-04-19T09-55-17-general_investing.json"
+  - T002
+  - T003
+  - T006
+  - T007
+  analysis_file: .tmp/reddit-topics/analyzed-2026-04-19T09-55-17-general_investing.json
+published_at: '2026-04-19T23:48:42.538069+00:00'
+draft_url: https://editor.note.com/notes/n68c929ed02a5/edit/

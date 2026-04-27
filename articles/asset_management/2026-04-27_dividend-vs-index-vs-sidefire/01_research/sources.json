@@ -1,0 +1,155 @@
+{
+  "session_id": "article-research-dividend-vs-index-vs-sidefire-20260427",
+  "article_slug": "dividend-vs-index-vs-sidefire",
+  "collected_at": "2026-04-27",
+  "sources": [
+    {
+      "url": "https://www.bloomberg.com/jp/quote/SCHD:US",
+      "title": "SCHD Quote - シュワブ米国配当株式ETF Fund - Bloomberg",
+      "authority_level": "media",
+      "published_at": "2026-04-27",
+      "source_type": "web",
+      "key_data": {
+        "直近配当利回り": "3.29%",
+        "信託報酬": "0.06%",
+        "直近配当額": "0.2569"
+      }
+    },
+    {
+      "url": "https://www.bloomberg.com/jp/news/articles/2023-11-27/S4SANMT0G1KW01",
+      "title": "安全なはずの高配当株ETFが裏目に、テク株復活で明暗分かれる - Bloomberg",
+      "authority_level": "media",
+      "published_at": "2023-11-27",
+      "source_type": "news",
+      "key_data": {
+        "SCHD 2023年リターン": "-2.4%",
+        "SDY 2023年リターン": "-3%（総合リターンベース）"
+      }
+    },
+    {
+      "url": "https://www.bloomberg.com/jp/news/articles/2026-04-02/TCR02YT96OSI00",
+      "title": "25年度の自社株買い設定件数、東証要請以降で初 - Bloomberg",
+      "authority_level": "media",
+      "published_at": "2026-04-02",
+      "source_type": "news",
+      "key_data": {
+        "2025年度自社株買い総額": "24兆9454億円",
+        "前年比": "27%増",
+        "特記": "過去最高、ただしトヨタ特殊要因含む"
+      }
+    },
+    {
+      "url": "https://note.com/asdmillionaire/n/nf6b48b0b8c1c",
+      "title": "自社株買いが減っても、あわてない🧘2026年🐎高配当株サイドFIREの新戦略",
+      "authority_level": "blog",
+      "published_at": "2026-04-01",
+      "source_type": "blog",
+      "key_data": {
+        "著者": "ASDだけど億り人になりたい（元人事×サイドFIRE中）",
+        "運用資産": "4300万円",
+        "ポートフォリオ": "日本高配当株40〜50%主力",
+        "2026年環境": "自社株買いは高水準だが一部見送り・減額も"
+      }
+    },
+    {
+      "url": "https://tonke-seikatsu.com/sidefire-investment-strategy/",
+      "title": "【2026年版】サイドFIRE投資戦略｜老後資金にも効く高配当×インデックス活用術",
+      "authority_level": "blog",
+      "published_at": "2026-04-01",
+      "source_type": "blog",
+      "key_data": {
+        "夫婦サイドFIRE必要資産": "約4500万円（月30万円生活費の半分カバー）",
+        "単身サイドFIRE必要資産": "約3000万円",
+        "高配当元本2400万円": "配当月15万円（年180万円）",
+        "インデックス元本4000万円": "取り崩し月15万円"
+      }
+    },
+    {
+      "url": "https://haito-index-log.com/portfolio-asset-allocation-index",
+      "title": "30代資産400万円のポートフォリオ。インデックス投資と高配当株の比率 - 夢はサイドFIRE",
+      "authority_level": "blog",
+      "published_at": "2026-01-01",
+      "source_type": "blog",
+      "key_data": {
+        "ポートフォリオ構成例": "インデックス70%：高配当30%",
+        "NISA活用": "つみたて投資枠でS&P500・オルカン積立",
+        "理由": "高配当はオールドエコノミー偏り、インデックスでグロースをカバー"
+      }
+    },
+    {
+      "url": "https://rakkosan777.hatenablog.com/entry/SCHD",
+      "title": "楽天・SCHD VS SBI・SCHD VS Tracers・SCHD 比較 - インデックス投資と配当金でFIREするブログ",
+      "authority_level": "blog",
+      "published_at": "2025-09-01",
+      "source_type": "blog",
+      "key_data": {
+        "楽天SCHD信託報酬": "0.1238%程度",
+        "SBI SCHD信託報酬": "0.1227%程度",
+        "Tracers SCHD信託報酬": "0.16725%",
+        "楽天・SBI SCHD純資産": "各1300億円超（2025年時点）",
+        "SCHDセクター": "生活必需品18.5%など、ディフェンシブ寄り"
+      }
+    },
+    {
+      "url": "https://finance.yahoo.com/news/better-dividend-etf-schwabs-schd-212803792.html",
+      "title": "Better Dividend ETF: Schwab's SCHD vs. Vanguard's VYM - Yahoo Finance",
+      "authority_level": "media",
+      "published_at": "2026-02-07",
+      "source_type": "news",
+      "key_data": {
+        "SCHD_AUM": "$65.8 billion",
+        "VYM総リターン2025": "直近1年でVYMがSCHDを上回る",
+        "SCHD配当利回り": "VYMより1.1%pt高い"
+      }
+    },
+    {
+      "url": "https://finance.yahoo.com/news/building-dividend-income-steadier-approach-181215548.html",
+      "title": "Building Dividend Income: VYM and SCHD - Yahoo Finance",
+      "authority_level": "media",
+      "published_at": "2026-02-10",
+      "source_type": "news",
+      "key_data": {
+        "VYM経費率": "0.04%",
+        "SCHD経費率": "0.06%",
+        "SCHD配当利回り": "3.4%",
+        "VYM配当利回り": "2.3%",
+        "差": "1.1%pt"
+      }
+    },
+    {
+      "url": "https://finance.yahoo.com/news/3-dividend-etfs-better-schd-171755801.html",
+      "title": "3 Dividend ETFs Better Than SCHD - Yahoo Finance",
+      "authority_level": "media",
+      "published_at": "2025-12-22",
+      "source_type": "news",
+      "key_data": {
+        "VYM 3年年率リターン": "12%",
+        "VYM 10年年率リターン": "11.28%",
+        "特徴": "大型・高バリュー株中心"
+      }
+    },
+    {
+      "url": "https://finance.yahoo.com/markets/options/articles/rspa-8-9-yield-hides-104840530.html",
+      "title": "RSPA vs SPY 2026 YTD比較 - Yahoo Finance",
+      "authority_level": "media",
+      "published_at": "2026-04-01",
+      "source_type": "news",
+      "key_data": {
+        "S&P500 2026 YTD": "-5.4%（SPY基準）",
+        "RSPA 2026 YTD": "ほぼフラット（<1%）",
+        "示唆": "2026年はインカム投資戦略が相対優位"
+      }
+    },
+    {
+      "url": "https://mamamimumemo.hatenablog.com/entry/2026/04/06/000000",
+      "title": "FIRE後の配当戦略は有効？インデックス取り崩しとの違いと税金・リスクを解説",
+      "authority_level": "blog",
+      "published_at": "2026-04-06",
+      "source_type": "blog",
+      "key_data": {
+        "論点": "配当は効率面では不利（税務コスト）だがFIRE後は心理的メリット大",
+        "目標": "月10万円の配当収入確保戦略"
+      }
+    }
+  ]
+}

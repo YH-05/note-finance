@@ -1,0 +1,149 @@
+{
+  "article_id": "2026-04-27_inflation-3pct-defense-gold-reit-tips",
+  "sources": [
+    {
+      "url": "https://www.dir.co.jp/report/research/economics/outlook/20260224_025595.pdf",
+      "title": "日本経済見通し：2026年2月 大和総研",
+      "authority_level": "analyst",
+      "published_at": "2026-02-24",
+      "source_type": "report",
+      "key_facts": ["2026年度コアCPI+1.5%予想", "日銀2026年4-6月期に1.0%利上げ想定"]
+    },
+    {
+      "url": "https://www.nippon.com/ja/in-depth/d01227/",
+      "title": "2026年春闘：賃上げ上昇トレンドを受け、「経済の好循環」につなげる政策を",
+      "authority_level": "media",
+      "published_at": "2026-04-01",
+      "source_type": "news",
+      "key_facts": ["2026年春闘賃上げ率5.26%（5%台維持）", "名目賃金上昇トレンド定着"]
+    },
+    {
+      "url": "https://www.boj.or.jp/mopo/outlook/gor2601b.pdf",
+      "title": "経済・物価情勢の展望（2026年1月）日本銀行",
+      "authority_level": "official",
+      "published_at": "2026-01-23",
+      "source_type": "official",
+      "key_facts": ["コアCPI2%程度で推移", "賃金と物価の緩やかな上昇メカニズム維持"]
+    },
+    {
+      "url": "https://www.smd-am.co.jp/market/ichikawa/2025/12/irepo251222_2/",
+      "title": "2026年の日本経済見通し 三井住友DSアセットマネジメント",
+      "authority_level": "analyst",
+      "published_at": "2025-12-22",
+      "source_type": "report",
+      "key_facts": ["2026年度コアCPI+1.5%（特殊要因除くと+2%モメンタム）", "日銀半年1回ペースで利上げ"]
+    },
+    {
+      "url": "https://www.transformations.knf.vu.lt/29/ge29.pdf",
+      "title": "Does Gold Act as Inflation Hedge in the USA and Japan?",
+      "authority_level": "academic",
+      "published_at": "2013-01-01",
+      "source_type": "academic",
+      "key_facts": ["日本：CPI+1%→金価格+0.607%（部分的ヘッジ）", "米国：CPI+1%→金価格+0.94%（ほぼ完全なヘッジ）"]
+    },
+    {
+      "url": "https://www.gold.org/goldhub/research/identify-opportunities-gold-among-japanese-insurers-market-study/gold-brings-inflation-hedging-ability",
+      "title": "Gold brings inflation hedging ability, particularly during times of stagflation risk | World Gold Council",
+      "authority_level": "official",
+      "published_at": "2025-01-01",
+      "source_type": "report",
+      "key_facts": ["ゴールドはスタグフレーションリスク時に有効", "日本の保険会社でのゴールド投資議論"]
+    },
+    {
+      "url": "https://www.gold.org/ja/goldhub/research/2025-japanese-gold-investor-insights-golden-opportunity",
+      "title": "日本の金（ゴールド）投資家に関する洞察‐2025年 World Gold Council",
+      "authority_level": "official",
+      "published_at": "2025-09-01",
+      "source_type": "report",
+      "key_facts": ["円建て金価格2024年+40%", "2025年+23%上昇", "日本コアCPI2025年7月3.4%（2024年1月以来の高水準）"]
+    },
+    {
+      "url": "https://www.tr.mufg.jp/shisan-ken/pdf/shisan_keisei_52.pdf",
+      "title": "実証シミュレーションで読み解く資産形成（前編） MUFG資産形成研究所",
+      "authority_level": "analyst",
+      "published_at": "2026-01-01",
+      "source_type": "report",
+      "key_facts": ["ゴールド年率リターン8.91%、リスク19.33%（1971-2026）", "S&P500との相関係数-0.017", "ゴールドは分散の補完要素として位置づけが自然"]
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/5147",
+      "title": "金ETFのおすすめはどこ？選び方と新NISA活用法を解説【2026年】",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "key_facts": ["ポートフォリオ5-10%配分推奨", "iシェアーズゴールドETF(314A)信託報酬0.22%", "グローバルXゴールドETF(425A)"]
+    },
+    {
+      "url": "https://www.nomura.co.jp/wealthstyle/article/0528/",
+      "title": "金利上昇でもJ-REITはなぜ上がる？インフレ下で賃料引き上げ期待が追い風に 野村証券",
+      "authority_level": "analyst",
+      "published_at": "2025-12-12",
+      "source_type": "report",
+      "key_facts": ["2025年東証REIT指数+21.8%（配当込み+27.9%）", "オフィス賃料CPI連動契約も広がり始め"]
+    },
+    {
+      "url": "https://www.camri.or.jp/files/libs/2346/202602271420298521.pdf",
+      "title": "2025年のJ-REIT市場と2026年の展望 SMBC日興証券",
+      "authority_level": "analyst",
+      "published_at": "2026-02-01",
+      "source_type": "report",
+      "key_facts": ["2015-2024年J-REIT分配金成長率年平均+5.2%（インフレに負けず）", "「インカム成長型エクイティ商品」への認識転換"]
+    },
+    {
+      "url": "https://www.nomu.com/cre-navi/market/20260303.html",
+      "title": "日系不動産ファンド最新動向（2025年度上期）野村不動産ソリューションズ",
+      "authority_level": "analyst",
+      "published_at": "2026-03-03",
+      "source_type": "report",
+      "key_facts": ["住居型REIT3社の入替時賃料上昇率が過去最高", "東京都区部CPI+2.3%を上回る賃料上昇（年5%試算）", "オフィス賃料+6.28%（21ヶ月連続増加）"]
+    },
+    {
+      "url": "https://www.nam.co.jp/news/mpdf/260313_tjj.pdf",
+      "title": "J-REIT市場現状と今後の見通し（2026年3月号） ニッセイアセットマネジメント",
+      "authority_level": "analyst",
+      "published_at": "2026-03-13",
+      "source_type": "report",
+      "key_facts": ["2026年2月末NAV倍率0.94倍（割安水準）", "都心5区オフィス空室率2.15%"]
+    },
+    {
+      "url": "https://tipswatch.com/2025/12/30/2025-an-inflation-watchers-year-in-review/",
+      "title": "2025: An inflation-watcher's year in review | TIPS Watch",
+      "authority_level": "blog",
+      "published_at": "2025-12-30",
+      "source_type": "blog",
+      "key_facts": ["10年TIPS実質利回り1.90%（2025年末）", "30年TIPS実質利回り2.6%"]
+    },
+    {
+      "url": "https://moneiro.jp/media/article/inflation-indexed-bonds",
+      "title": "物価連動国債とは？インフレに強い国債の仕組みと購入方法を解説 マネイロメディア",
+      "authority_level": "media",
+      "published_at": "2026-02-16",
+      "source_type": "web",
+      "key_facts": ["物価連動国債はCPI連動で元本が調整", "デフレ時の元本保証（フロア）あり"]
+    },
+    {
+      "url": "https://media.paypay-sec.co.jp/cat5/jisha260408",
+      "title": "インフレに強い高配当日米株10選 PayPay証券 2026年4月",
+      "authority_level": "analyst",
+      "published_at": "2026-04-08",
+      "source_type": "report",
+      "key_facts": ["JT予想配当利回り3.97%", "日本製鉄4.09%", "KDDI2.96%", "武田薬品3.44%"]
+    },
+    {
+      "url": "https://note.com/stock1/n/ne70602a10f34",
+      "title": "2026年インフレ定着の投資戦略、インフレの追い風を享受する日本株セクター",
+      "authority_level": "blog",
+      "published_at": "2026-01-01",
+      "source_type": "blog",
+      "key_facts": ["総合商社は資源権益+価格転嫁力+株主還元の三強", "ホテル系J-REITは「究極のインフレヘッジ」（日次価格転嫁）"]
+    },
+    {
+      "url": "https://f-p.jp/media/article/inflation-asset-protection/",
+      "title": "インフレ時代に差をつける！プロが勧める資産防衛の戦略 FPメディア",
+      "authority_level": "media",
+      "published_at": "2025-01-01",
+      "source_type": "web",
+      "key_facts": ["分散投資が基本", "インフレ連動債、不動産、価格転嫁力ある株式、金、外貨資産の組み合わせ"]
+    }
+  ]
+}
