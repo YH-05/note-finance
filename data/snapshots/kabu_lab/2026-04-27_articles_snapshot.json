@@ -1,0 +1,3917 @@
+{
+  "profile": {
+    "urlname": "kabutoushi_labo",
+    "noteCount": 28
+  },
+  "aggregate": {
+    "total_articles": 28,
+    "total_likes": 114,
+    "avg_likes": 4.071428571428571,
+    "paid_articles": 1
+  },
+  "notes": [
+    {
+      "id": 156074659,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【NISA】DINKS夫婦が3600万円のNISA非課税枠を最速で活かす方法",
+      "description": null,
+      "likeCount": 7,
+      "price": 0,
+      "key": "n562b203625a3",
+      "slug": "slug-n562b203625a3",
+      "publishAt": "2026-04-21T17:23:06+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/268790291/rectangle_large_type_2_e8598adc202361a598f4fcf2dda36a7c.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "共働きの夫婦には、一人で投資するより3,600万円も多い非課税枠があることをご存知ですか？DINKS（Double Income No Kids）と呼ばれる共働き・子なし夫婦には、新NISAを夫婦2口座で最大活用することで、一般的な家庭とは段違いの資産形成スピードが実現できます。\n\n「二人でバリバリ働いているのに、老後の資産形成はまだ手をつけていない」という共働き夫婦は、意外と多いのではないでしょうか。毎月の収入はそれなりにあるのに、なんとなく先送りにしてしまい、気がついたら",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産運用"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#結婚"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#夫婦"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#NISA"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#収入"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資初心者"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#人生設計"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#DINKS"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n562b203625a3&text=%E3%80%90NISA%E3%80%91DINKS%E5%A4%AB%E5%A9%A6%E3%81%8C3600%E4%B8%87%E5%86%86%E3%81%AENISA%E9%9D%9E%E8%AA%B2%E7%A8%8E%E6%9E%A0%E3%82%92%E6%9C%80%E9%80%9F%E3%81%A7%E6%B4%BB%E3%81%8B%E3%81%99%E6%96%B9%E6%B3%95%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n562b203625a3&t=%E3%80%90NISA%E3%80%91DINKS%E5%A4%AB%E5%A9%A6%E3%81%8C3600%E4%B8%87%E5%86%86%E3%81%AENISA%E9%9D%9E%E8%AA%B2%E7%A8%8E%E6%9E%A0%E3%82%92%E6%9C%80%E9%80%9F%E3%81%A7%E6%B4%BB%E3%81%8B%E3%81%99%E6%96%B9%E6%B3%95%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90NISA%E3%80%91DINKS%E5%A4%AB%E5%A9%A6%E3%81%8C3600%E4%B8%87%E5%86%86%E3%81%AENISA%E9%9D%9E%E8%AA%B2%E7%A8%8E%E6%9E%A0%E3%82%92%E6%9C%80%E9%80%9F%E3%81%A7%E6%B4%BB%E3%81%8B%E3%81%99%E6%96%B9%E6%B3%95%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n562b203625a3",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/268790291/square_large_e8598adc202361a598f4fcf2dda36a7c.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n562b203625a3",
+      "imageCount": 6,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155792595,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】IBM (IBM) Q1 2026 決算プレビュー",
+      "description": null,
+      "likeCount": 3,
+      "price": 0,
+      "key": "nce8febe2eb50",
+      "slug": "slug-nce8febe2eb50",
+      "publishAt": "2026-04-20T08:43:34+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267551607/rectangle_large_type_2_91e6c974ad92f20e476c7daac55026c8.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "エンタープライズAI・ハイブリッドクラウドの巨人、IBM（NYSE: IBM）が2026年4月22日（水）の市場終了後（AMC）に2026年第1四半期（1〜3月期）の決算を発表します。\n\nAI Book of Businessが$7.5Bに達し、Software部門が二桁成長を続ける中、今回の焦点はAI収益化の進捗とConsulting部門の減速に対する投資家の評価です。本記事では、コンセンサス予想、過去の決算実績と株価反応のパターン、そして今回の注目ポイントを整理します。\n",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#IBM"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ビート"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ガイダンス"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/nce8febe2eb50&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91IBM+%28IBM%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/nce8febe2eb50&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91IBM+%28IBM%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91IBM+%28IBM%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/nce8febe2eb50",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267551607/square_large_91e6c974ad92f20e476c7daac55026c8.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/nce8febe2eb50",
+      "imageCount": 5,
+      "format": "4.0",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155792605,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】UnitedHealth Group（UNH）Q1 2026 決算プレビュー",
+      "description": null,
+      "likeCount": 7,
+      "price": 0,
+      "key": "n361a30299cd5",
+      "slug": "slug-n361a30299cd5",
+      "publishAt": "2026-04-20T08:41:23+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/268523977/rectangle_large_type_2_fe13782659c8744476ee4b3fdf112649.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "米国最大の医療保険会社 UnitedHealth Group（NYSE: UNH）が、2026年4月21日（火）の寄り前（BMO）に Q1 2026 の決算を発表する予定です。\n\n昨年来の医療費上昇・Medicare Advantage（MA）収益悪化・株価半値割れと、波乱続きだった同社にとって、今回の決算は「本当に底を打ったのか」を市場が見極める重要な節目となります。\n\n本記事では、コンセンサス予想・過去の決算実績・株価動向・リスク要因を整理し、Q1 発表で注目すべきポイン",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#医薬品"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ユナイテッドヘルス"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#UnitedHealth"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n361a30299cd5&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91UnitedHealth+Group%EF%BC%88UNH%EF%BC%89Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n361a30299cd5&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91UnitedHealth+Group%EF%BC%88UNH%EF%BC%89Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91UnitedHealth+Group%EF%BC%88UNH%EF%BC%89Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n361a30299cd5",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/268523977/square_large_fe13782659c8744476ee4b3fdf112649.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n361a30299cd5",
+      "imageCount": 5,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155794665,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】TESLA（TSLA） Q1 2026 決算プレビュー",
+      "description": null,
+      "likeCount": 7,
+      "price": 0,
+      "key": "n2e735d7257ac",
+      "slug": "slug-n2e735d7257ac",
+      "publishAt": "2026-04-20T08:39:30+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267541775/rectangle_large_type_2_6c2269639712ea38ec0966984a89bf33.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "4月22日（水）、Teslaがマーケット終了後にQ1 2026決算を発表します。\n\n今回の決算は、通常の「EPS がコンセンサスを上回ったか下回ったか」を超えた問いを市場に突きつけています。4月2日に発表されたQ1 2026の配送台数は358,023台と、コンセンサスの365,645台を約7,600台下回りました。それ以上に市場が注目したのは、生産台数（408,386台）と配送台数の差から浮かび上がる50,363台の在庫ビルドアップです。\n\n売れ残った車が工場のヤードに積み上",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資初心者"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#テスラ"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#tesla"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n2e735d7257ac&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91TESLA%EF%BC%88TSLA%EF%BC%89+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n2e735d7257ac&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91TESLA%EF%BC%88TSLA%EF%BC%89+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91TESLA%EF%BC%88TSLA%EF%BC%89+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n2e735d7257ac",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267541775/square_large_6c2269639712ea38ec0966984a89bf33.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n2e735d7257ac",
+      "imageCount": 6,
+      "format": "4.0",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 156074419,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【投資信託】信託報酬0.05%時代の隠れコスト｜実質コストで選ぶ正しい方法",
+      "description": null,
+      "likeCount": 11,
+      "price": 0,
+      "key": "n6a73060749dc",
+      "slug": "slug-n6a73060749dc",
+      "publishAt": "2026-04-19T09:39:27+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/268522848/rectangle_large_type_2_06d6322804f019a559ae370b3b9ce1d1.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "「eMAXIS Slim全世界株式（オルカン）は信託報酬が0.05775%だから、コスト面は完璧。あとは積み立てるだけ！」\n\nそう思っていませんか？\n\n実は、信託報酬だけを見て投資先を選んでいると、見えないコストを見落としてしまいます。信託報酬の競争が激化し、主要インデックスファンドが0.05〜0.08%台に突入した2026年現在、多くの投資家が「信託報酬が一番安いファンドが最良の選択肢だ」と考えています。\n\nしかし、実際にはそうではありません。\n\n実は、信託報酬が安いオルカ",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産運用"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#投資信託"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#コスト"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ファンド"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#インデックスファンド"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#信託報酬"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n6a73060749dc&text=%E3%80%90%E6%8A%95%E8%B3%87%E4%BF%A1%E8%A8%97%E3%80%91%E4%BF%A1%E8%A8%97%E5%A0%B1%E9%85%AC0.05%25%E6%99%82%E4%BB%A3%E3%81%AE%E9%9A%A0%E3%82%8C%E3%82%B3%E3%82%B9%E3%83%88%EF%BD%9C%E5%AE%9F%E8%B3%AA%E3%82%B3%E3%82%B9%E3%83%88%E3%81%A7%E9%81%B8%E3%81%B6%E6%AD%A3%E3%81%97%E3%81%84%E6%96%B9%E6%B3%95%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n6a73060749dc&t=%E3%80%90%E6%8A%95%E8%B3%87%E4%BF%A1%E8%A8%97%E3%80%91%E4%BF%A1%E8%A8%97%E5%A0%B1%E9%85%AC0.05%25%E6%99%82%E4%BB%A3%E3%81%AE%E9%9A%A0%E3%82%8C%E3%82%B3%E3%82%B9%E3%83%88%EF%BD%9C%E5%AE%9F%E8%B3%AA%E3%82%B3%E3%82%B9%E3%83%88%E3%81%A7%E9%81%B8%E3%81%B6%E6%AD%A3%E3%81%97%E3%81%84%E6%96%B9%E6%B3%95%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%E6%8A%95%E8%B3%87%E4%BF%A1%E8%A8%97%E3%80%91%E4%BF%A1%E8%A8%97%E5%A0%B1%E9%85%AC0.05%25%E6%99%82%E4%BB%A3%E3%81%AE%E9%9A%A0%E3%82%8C%E3%82%B3%E3%82%B9%E3%83%88%EF%BD%9C%E5%AE%9F%E8%B3%AA%E3%82%B3%E3%82%B9%E3%83%88%E3%81%A7%E9%81%B8%E3%81%B6%E6%AD%A3%E3%81%97%E3%81%84%E6%96%B9%E6%B3%95%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n6a73060749dc",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/268522848/square_large_06d6322804f019a559ae370b3b9ce1d1.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n6a73060749dc",
+      "imageCount": 5,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155938702,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】JPMorgan Chase（JPM）Q1 2026 決算レビュー",
+      "description": null,
+      "likeCount": 2,
+      "price": 0,
+      "key": "n38a8d04ae99a",
+      "slug": "slug-n38a8d04ae99a",
+      "publishAt": "2026-04-17T08:50:28+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/268008428/rectangle_large_type_2_540447ce1a0a56303dcc7a3c84a97503.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "4月14日（火）、JPMorgan Chase（NYSE: JPM）が米国大手銀行のトップバッターとしてQ1 2026決算を発表しました。EPS・売上ともにコンセンサスを大きく上回る結果となった一方で、通期の純金利収入（NII：Net Interest Income、貸出金利等から得る収益）ガイダンスは引き下げられ、発表当日の株価は小幅安で取引を終えました。\n\n本記事では、プレビュー時点で整理した4つの注目ポイントに対する答え合わせと、プレビューで触れていなかった新情報（特に",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#JPモルガンチェース"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n38a8d04ae99a&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91JPMorgan+Chase%EF%BC%88JPM%EF%BC%89Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n38a8d04ae99a&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91JPMorgan+Chase%EF%BC%88JPM%EF%BC%89Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91JPMorgan+Chase%EF%BC%88JPM%EF%BC%89Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n38a8d04ae99a",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/268008428/square_large_540447ce1a0a56303dcc7a3c84a97503.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n38a8d04ae99a",
+      "imageCount": 2,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 156022959,
+      "type": "TextNote",
+      "status": "published",
+      "name": "新NISA枠1800万円を最速5年vs15年分散｜勝つのはどっち？",
+      "description": null,
+      "likeCount": 7,
+      "price": 0,
+      "key": "n415113cab7e1",
+      "slug": "slug-n415113cab7e1",
+      "publishAt": "2026-04-17T08:11:49+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/268002068/rectangle_large_type_2_85385fbbd755e28653a0a93ccd886933.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "新NISAの生涯投資枠1,800万円をどのペースで埋めるべきか。「5年で一気に入れる派」と「15年かけてじっくり積み立てる派」で意見が割れる話題ですが、この問いにはすでに学術的な答えがほぼ出ています。\n\n結論から言えば、統計的な期待値では「5年集中型」が「15年分散型」を明確に上回ります。年率6%の想定で30年後を比較すると、最終資産額の差は約2,000万円。ただしこれは「余裕資金を持っていて、一時的な50%下落にも耐えられる読者」に限定した話です。この記事では、根拠となるデ",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産運用"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#NISA"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#投資信託"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融市場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#分散投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#一括投資"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n415113cab7e1&text=%E6%96%B0NISA%E6%9E%A01800%E4%B8%87%E5%86%86%E3%82%92%E6%9C%80%E9%80%9F5%E5%B9%B4vs15%E5%B9%B4%E5%88%86%E6%95%A3%EF%BD%9C%E5%8B%9D%E3%81%A4%E3%81%AE%E3%81%AF%E3%81%A9%E3%81%A3%E3%81%A1%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n415113cab7e1&t=%E6%96%B0NISA%E6%9E%A01800%E4%B8%87%E5%86%86%E3%82%92%E6%9C%80%E9%80%9F5%E5%B9%B4vs15%E5%B9%B4%E5%88%86%E6%95%A3%EF%BD%9C%E5%8B%9D%E3%81%A4%E3%81%AE%E3%81%AF%E3%81%A9%E3%81%A3%E3%81%A1%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E6%96%B0NISA%E6%9E%A01800%E4%B8%87%E5%86%86%E3%82%92%E6%9C%80%E9%80%9F5%E5%B9%B4vs15%E5%B9%B4%E5%88%86%E6%95%A3%EF%BD%9C%E5%8B%9D%E3%81%A4%E3%81%AE%E3%81%AF%E3%81%A9%E3%81%A3%E3%81%A1%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n415113cab7e1",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/268002068/square_large_85385fbbd755e28653a0a93ccd886933.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n415113cab7e1",
+      "imageCount": 5,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 154245790,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【インデックス投資】Nasdaq100が5月に改変！知っておきたい4つのルール変更",
+      "description": null,
+      "likeCount": 11,
+      "price": 0,
+      "key": "n04b0d6074b6c",
+      "slug": "slug-n04b0d6074b6c",
+      "publishAt": "2026-04-16T09:01:05+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267766652/rectangle_large_type_2_7aff6a66f21de033a66c38c1a669e7b5.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "QQQやQQQMといったETFを通じてNasdaq-100に投資している方は、世界中に何百万人もいます。\n\n日本でも、NISAの成長投資枠でこれらのETFを購入されている方が増えています。パッシブ投資（インデックス投資）の魅力は、「買ったらほったらかしでOK」という手軽さにあります。\n\nしかし、2026年5月1日に、そのNasdaq-100の「ルール」が大きく変わります。\n\nルールが変わっても、パッシブ投資家に手動での対応は基本的に不要です。ただ、「何がどう変わるのか」を知っ",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#アメリカ"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#インデックス投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#積立投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#インデックス"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#NASDAQ"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#nasdaq100"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n04b0d6074b6c&text=%E3%80%90%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%8A%95%E8%B3%87%E3%80%91Nasdaq100%E3%81%8C5%E6%9C%88%E3%81%AB%E6%94%B9%E5%A4%89%EF%BC%81%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%844%E3%81%A4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB%E5%A4%89%E6%9B%B4%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n04b0d6074b6c&t=%E3%80%90%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%8A%95%E8%B3%87%E3%80%91Nasdaq100%E3%81%8C5%E6%9C%88%E3%81%AB%E6%94%B9%E5%A4%89%EF%BC%81%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%844%E3%81%A4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB%E5%A4%89%E6%9B%B4%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%8A%95%E8%B3%87%E3%80%91Nasdaq100%E3%81%8C5%E6%9C%88%E3%81%AB%E6%94%B9%E5%A4%89%EF%BC%81%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%844%E3%81%A4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB%E5%A4%89%E6%9B%B4%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n04b0d6074b6c",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267766652/square_large_7aff6a66f21de033a66c38c1a669e7b5.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n04b0d6074b6c",
+      "imageCount": 1,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155788390,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】Netflix (NFLX) Q1 2026 決算プレビュー",
+      "description": null,
+      "likeCount": 7,
+      "price": 0,
+      "key": "n10cdd5b09035",
+      "slug": "slug-n10cdd5b09035",
+      "publishAt": "2026-04-15T11:59:10+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267551953/rectangle_large_type_2_cd51dac18d50081f7f1ab4457788bfc6.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "世界最大のストリーミングサービス、Netflix（NASDAQ: NFLX）が2026年4月16日（木）の市場終了後（AMC）に2026年第1四半期（1〜3月期）の決算を発表します。本記事では、コンセンサス予想、過去の決算実績と株価反応のパターン、そして今回の注目ポイントを整理します。\n\n1. 銘柄概要Netflixは190以上の国・地域で展開する世界最大の定額制ストリーミングサービスです。2025年末時点で3億2500万人以上の有料会員を持ち、2025年通期の売上高は$45",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#netflix"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融市場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#決算発表"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ネットフリックス"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n10cdd5b09035&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91Netflix+%28NFLX%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n10cdd5b09035&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91Netflix+%28NFLX%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91Netflix+%28NFLX%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n10cdd5b09035",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267551953/square_large_cd51dac18d50081f7f1ab4457788bfc6.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n10cdd5b09035",
+      "imageCount": 5,
+      "format": "4.0",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155790003,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】BlackRock (BLK) Q1 2026 決算レビュー",
+      "description": null,
+      "likeCount": 2,
+      "price": 0,
+      "key": "n8b8f0ccd1d4d",
+      "slug": "slug-n8b8f0ccd1d4d",
+      "publishAt": "2026-04-15T11:49:35+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267549543/rectangle_large_type_2_80804d5d0d7f495f06015a2e30e841e3.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "純利益が前年同期比46%増—しかしAUM（運用資産残高）は予想を下回った。この一見矛盾した決算をどう読むか。\n\n2026年4月14日の市場開始前（BMO）に発表されたBlackRock（BLK）のQ1 2026決算は、調整後EPSが$12.53とアナリスト予想$11.54を8.6%上回る大幅ビート。決算当日の株価は4.1%上昇しました。一方、AUMは$13.89兆と予想の$14.21兆を下回り、HPS社のプライベートクレジットファンドで解約ゲート（投資家の解約請求額が上限を超",
+      "separator": "",
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#個別株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ブラックロック"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n8b8f0ccd1d4d&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91BlackRock+%28BLK%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n8b8f0ccd1d4d&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91BlackRock+%28BLK%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91BlackRock+%28BLK%29+Q1+2026+%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n8b8f0ccd1d4d",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267549543/square_large_80804d5d0d7f495f06015a2e30e841e3.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n8b8f0ccd1d4d",
+      "imageCount": 5,
+      "format": "4.0",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155788452,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【エネルギー投資】原油$200シナリオとXLE投資戦略！ホルムズ海峡封鎖4月の需給ショックを整理する",
+      "description": null,
+      "likeCount": 3,
+      "price": 500,
+      "key": "n29453b0aab31",
+      "slug": "slug-n29453b0aab31",
+      "publishAt": "2026-04-15T09:54:45+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267527061/rectangle_large_type_2_ce00cc50724f0db27d1cd47a4b09d410.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年、エネルギーセクターは年初来＋30%。この局面、あなたのポートフォリオは対応できていますか？\n\nBrent原油スポット価格が2008年以来の最高値$141.36を記録した2026年4月。毎日ニュースになるこの数字を見ながら、「どこかで投資できるのでは」と感じている方は多いと思います。\n\nしかし、多くの個人投資家が「具体的にどう動けばいいか分からない」まま、この歴史的な局面を傍観しています。エネルギー株？先物？XLE？原油ETF？情報が多すぎて整理できない、というのが",
+      "separator": "220fb88e-f326-4657-8f41-80e95127b0b6",
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": true,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#エネルギー"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融市場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#先物"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ETF"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ホルムズ海峡"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#原油価格"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n29453b0aab31&text=%E3%80%90%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC%E6%8A%95%E8%B3%87%E3%80%91%E5%8E%9F%E6%B2%B9%24200%E3%82%B7%E3%83%8A%E3%83%AA%E3%82%AA%E3%81%A8XLE%E6%8A%95%E8%B3%87%E6%88%A6%E7%95%A5%EF%BC%81%E3%83%9B%E3%83%AB%E3%83%A0%E3%82%BA%E6%B5%B7%E5%B3%A1%E5%B0%81%E9%8E%964%E6%9C%88%E3%81%AE%E9%9C%80%E7%B5%A6%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF%E3%82%92%E6%95%B4%E7%90%86%E3%81%99%E3%82%8B%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n29453b0aab31&t=%E3%80%90%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC%E6%8A%95%E8%B3%87%E3%80%91%E5%8E%9F%E6%B2%B9%24200%E3%82%B7%E3%83%8A%E3%83%AA%E3%82%AA%E3%81%A8XLE%E6%8A%95%E8%B3%87%E6%88%A6%E7%95%A5%EF%BC%81%E3%83%9B%E3%83%AB%E3%83%A0%E3%82%BA%E6%B5%B7%E5%B3%A1%E5%B0%81%E9%8E%964%E6%9C%88%E3%81%AE%E9%9C%80%E7%B5%A6%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF%E3%82%92%E6%95%B4%E7%90%86%E3%81%99%E3%82%8B%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC%E6%8A%95%E8%B3%87%E3%80%91%E5%8E%9F%E6%B2%B9%24200%E3%82%B7%E3%83%8A%E3%83%AA%E3%82%AA%E3%81%A8XLE%E6%8A%95%E8%B3%87%E6%88%A6%E7%95%A5%EF%BC%81%E3%83%9B%E3%83%AB%E3%83%A0%E3%82%BA%E6%B5%B7%E5%B3%A1%E5%B0%81%E9%8E%964%E6%9C%88%E3%81%AE%E9%9C%80%E7%B5%A6%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF%E3%82%92%E6%95%B4%E7%90%86%E3%81%99%E3%82%8B%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n29453b0aab31",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [
+        {
+          "type": "note",
+          "name": "¥500",
+          "action": "show_label_name",
+          "order": 1
+        }
+      ],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267527061/square_large_ce00cc50724f0db27d1cd47a4b09d410.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": false,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n29453b0aab31",
+      "imageCount": 3,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 7448,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": false,
+        "lowestPrice": 500,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": 500
+      }
+    },
+    {
+      "id": 155250732,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【セクターローテーション入門】Mag7偏重からバランス型への移行タイミング",
+      "description": null,
+      "likeCount": 5,
+      "price": 0,
+      "key": "n8092910d0bd6",
+      "slug": "slug-n8092910d0bd6",
+      "publishAt": "2026-04-13T21:04:51+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267171293/rectangle_large_type_2_648dc726945df3b408f83431e17d9eb7.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "あなたのオルカン、実はMag7に偏っています「オルカン（全世界株式インデックス）やS&P500を積み立てているから大丈夫」と思っていませんか？\n\n実は、そのポートフォリオは今、特定の7社に大きく偏っている可能性があります。\n\n2026年に入り、これまで株式市場をリードしてきたMag7（マグニフィセント・セブン）と呼ばれる米国巨大テック7社が不振に陥っています。一方で、エネルギーや金融、ヘルスケアといった「伝統的な」セクターが静かに輝き始めています。\n\nこの現象を「セクターロー",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#SP500"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融市場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#オルカン"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#セクター"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#セクターローテーション"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#Mag7"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#Magnificent7"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n8092910d0bd6&text=%E3%80%90%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%85%A5%E9%96%80%E3%80%91Mag7%E5%81%8F%E9%87%8D%E3%81%8B%E3%82%89%E3%83%90%E3%83%A9%E3%83%B3%E3%82%B9%E5%9E%8B%E3%81%B8%E3%81%AE%E7%A7%BB%E8%A1%8C%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n8092910d0bd6&t=%E3%80%90%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%85%A5%E9%96%80%E3%80%91Mag7%E5%81%8F%E9%87%8D%E3%81%8B%E3%82%89%E3%83%90%E3%83%A9%E3%83%B3%E3%82%B9%E5%9E%8B%E3%81%B8%E3%81%AE%E7%A7%BB%E8%A1%8C%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%85%A5%E9%96%80%E3%80%91Mag7%E5%81%8F%E9%87%8D%E3%81%8B%E3%82%89%E3%83%90%E3%83%A9%E3%83%B3%E3%82%B9%E5%9E%8B%E3%81%B8%E3%81%AE%E7%A7%BB%E8%A1%8C%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n8092910d0bd6",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267171293/square_large_648dc726945df3b408f83431e17d9eb7.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n8092910d0bd6",
+      "imageCount": 1,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155251799,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【株式投資の基本】決算の読み方：EPS・売上・ガイダンス",
+      "description": null,
+      "likeCount": 6,
+      "price": 0,
+      "key": "na706043c885d",
+      "slug": "slug-na706043c885d",
+      "publishAt": "2026-04-12T20:52:33+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/266912881/rectangle_large_type_2_85b071a93ab0e7b08fec427e761202e7.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年4月14日（火）、JPMorgan Chase（JPM）がQ1 2026決算を発表します。この発表をもって、Q1 2026決算シーズンが事実上スタートします。\n\n決算シーズンは、投資家にとって最も重要な情報収集の機会です。企業の「今の実力」と「これからの見通し」が一斉に公開されるため、株価が大きく動く局面でもあります。\n\nこの記事では、「決算発表を読んでも何を見ればいいか分からない」「EPSが良かったのに株価が下がった理由が謎」という方に向けて、EPS・売上高・ガイ",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#日本株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#NISA"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#決算発表"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ガイダンス"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#決算の読み方"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/na706043c885d&text=%E3%80%90%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%80%91%E6%B1%BA%E7%AE%97%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%EF%BC%9AEPS%E3%83%BB%E5%A3%B2%E4%B8%8A%E3%83%BB%E3%82%AC%E3%82%A4%E3%83%80%E3%83%B3%E3%82%B9%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/na706043c885d&t=%E3%80%90%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%80%91%E6%B1%BA%E7%AE%97%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%EF%BC%9AEPS%E3%83%BB%E5%A3%B2%E4%B8%8A%E3%83%BB%E3%82%AC%E3%82%A4%E3%83%80%E3%83%B3%E3%82%B9%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%80%91%E6%B1%BA%E7%AE%97%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%EF%BC%9AEPS%E3%83%BB%E5%A3%B2%E4%B8%8A%E3%83%BB%E3%82%AC%E3%82%A4%E3%83%80%E3%83%B3%E3%82%B9%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/na706043c885d",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/266912881/square_large_85b071a93ab0e7b08fec427e761202e7.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/na706043c885d",
+      "imageCount": 1,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155248487,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】TSMC (TSM) Q1 2026決算レビュー（4/10）",
+      "description": null,
+      "likeCount": 4,
+      "price": 0,
+      "key": "n0cbb3f9efdb3",
+      "slug": "slug-n0cbb3f9efdb3",
+      "publishAt": "2026-04-11T18:15:21+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267550854/rectangle_large_type_2_eb2bf946acafbbfa6e2502eeaaaccde3.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "4月10日にQ1売上+35.1%速報が発表されたTSMC。4月16日のフル決算まで5日、EPS・粗利益率・Q2ガイダンスと「60% CAGR」コメントの4点を中心に、注目ポイントを整理します。\n\n1. 銘柄概要台湾積体電路製造（Taiwan Semiconductor Manufacturing Company、以下TSMC）は、1987年に台湾・新竹で設立された世界最大のファウンドリー企業です。\n\nNVIDIA、Apple、AMD、Google（Alphabet）、Qual",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産運用"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#TSMC"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n0cbb3f9efdb3&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91TSMC+%28TSM%29+Q1+2026%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BC%884%2F10%EF%BC%89%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n0cbb3f9efdb3&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91TSMC+%28TSM%29+Q1+2026%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BC%884%2F10%EF%BC%89%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91TSMC+%28TSM%29+Q1+2026%E6%B1%BA%E7%AE%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BC%884%2F10%EF%BC%89%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n0cbb3f9efdb3",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267550854/square_large_eb2bf946acafbbfa6e2502eeaaaccde3.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n0cbb3f9efdb3",
+      "imageCount": 4,
+      "format": "4.0",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 155247891,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】JPMorgan Chase決算プレビュー（4/14）",
+      "description": null,
+      "likeCount": 5,
+      "price": 0,
+      "key": "nc0427e9a06a1",
+      "slug": "slug-nc0427e9a06a1",
+      "publishAt": "2026-04-11T17:53:18+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267551113/rectangle_large_type_2_e9adb2ca435599c3333725686ac8efdb.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "4月14日（火）、JPMorgan Chaseが米国大手銀行の中でいち早くQ1 2026決算を発表します。\n\n銀行決算シーズンの「ファーストリポーター」として、JPMの数字は単なる一企業の業績報告ではありません。\n\n純金利収入の動向は現在の金利環境が商業銀行にどう作用しているかを映し出し、クレジットカードの延滞率は家計ストレスの温度計として機能します。\n\n投資銀行部門の手数料収入は企業のリスク選好度を測る指標です。本記事では4月14日の発表前に押さえておきたい注目ポイントを整",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融市場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#JPモルガン・チェース"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/nc0427e9a06a1&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91JPMorgan+Chase%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BC%884%2F14%EF%BC%89%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/nc0427e9a06a1&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91JPMorgan+Chase%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BC%884%2F14%EF%BC%89%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91JPMorgan+Chase%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BC%884%2F14%EF%BC%89%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/nc0427e9a06a1",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267551113/square_large_e9adb2ca435599c3333725686ac8efdb.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/nc0427e9a06a1",
+      "imageCount": 4,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 154174154,
+      "type": "TextNote",
+      "status": "published",
+      "name": "インデックスファンドの選び方を年齢別に解説",
+      "description": null,
+      "likeCount": 3,
+      "price": 0,
+      "key": "n20aa83bc3c74",
+      "slug": "slug-n20aa83bc3c74",
+      "publishAt": "2026-04-10T23:34:45+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267554270/rectangle_large_type_2_55e7b9d977aa148a188c9056f749523f.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "はじめに「新NISAを始めたいけれど、どのファンドを選べばいいのかわからない」「SNSで人気の『オルカン』や『S&P500』を買っておけば、どの年代でも大丈夫なの？」\n\nこうした疑問を抱えている方は、とても多いのではないでしょうか。\n\nインデックスファンドとは、日経平均株価やS&P500といった株価指数（インデックス）の値動きに連動するよう設計された投資信託のことです。\n\n低コストで広く分散投資ができるため、長期資産形成の入門として非常に人気があります。\n\nただし、「誰にとっ",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産運用"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#NISA"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#SP500"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#オルカン"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ライフステージ"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n20aa83bc3c74&text=%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%83%95%E3%82%A1%E3%83%B3%E3%83%89%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9%E3%82%92%E5%B9%B4%E9%BD%A2%E5%88%A5%E3%81%AB%E8%A7%A3%E8%AA%AC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n20aa83bc3c74&t=%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%83%95%E3%82%A1%E3%83%B3%E3%83%89%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9%E3%82%92%E5%B9%B4%E9%BD%A2%E5%88%A5%E3%81%AB%E8%A7%A3%E8%AA%AC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%83%95%E3%82%A1%E3%83%B3%E3%83%89%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9%E3%82%92%E5%B9%B4%E9%BD%A2%E5%88%A5%E3%81%AB%E8%A7%A3%E8%AA%AC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n20aa83bc3c74",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267554270/square_large_55e7b9d977aa148a188c9056f749523f.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n20aa83bc3c74",
+      "imageCount": 5,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153827451,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株】ハイテクから「退屈な高配当」への資金シフト：ベライゾン（VZ）独走の背景！",
+      "description": null,
+      "likeCount": 2,
+      "price": 0,
+      "key": "n003bdc5a80ab",
+      "slug": "slug-n003bdc5a80ab",
+      "publishAt": "2026-04-09T10:01:06+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/img/1775357448-DwJ3nyOzNWSPtxMmL64iVBKu.png",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年に入り、米国株市場では鮮明なセクターローテーションが進行しています。\nQQQが年初来▲7.5%と急落する一方、ベライゾン（VZ）は同期間に+24%と独走しています。この背景には、地政学リスクの高まりとインフレ再燃懸念を受けたディフェンシブ資産への資金シフトがあります。\nVZはFY2025のFCFが$20.1Bに達し、業界最高水準のキャッシュ創出力を誇ります。Frontier買収によるファイバー網拡大が成長ドライバーとして機能し始める一方、$150B超の総負債や経営幹",
+      "separator": "",
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産運用"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#個別株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#セクター"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ベライゾン"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#コミュニケーションサービス"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n003bdc5a80ab&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E3%80%91%E3%83%8F%E3%82%A4%E3%83%86%E3%82%AF%E3%81%8B%E3%82%89%E3%80%8C%E9%80%80%E5%B1%88%E3%81%AA%E9%AB%98%E9%85%8D%E5%BD%93%E3%80%8D%E3%81%B8%E3%81%AE%E8%B3%87%E9%87%91%E3%82%B7%E3%83%95%E3%83%88%EF%BC%9A%E3%83%99%E3%83%A9%E3%82%A4%E3%82%BE%E3%83%B3%EF%BC%88VZ%EF%BC%89%E7%8B%AC%E8%B5%B0%E3%81%AE%E8%83%8C%E6%99%AF%EF%BC%81%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n003bdc5a80ab&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E3%80%91%E3%83%8F%E3%82%A4%E3%83%86%E3%82%AF%E3%81%8B%E3%82%89%E3%80%8C%E9%80%80%E5%B1%88%E3%81%AA%E9%AB%98%E9%85%8D%E5%BD%93%E3%80%8D%E3%81%B8%E3%81%AE%E8%B3%87%E9%87%91%E3%82%B7%E3%83%95%E3%83%88%EF%BC%9A%E3%83%99%E3%83%A9%E3%82%A4%E3%82%BE%E3%83%B3%EF%BC%88VZ%EF%BC%89%E7%8B%AC%E8%B5%B0%E3%81%AE%E8%83%8C%E6%99%AF%EF%BC%81%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E3%80%91%E3%83%8F%E3%82%A4%E3%83%86%E3%82%AF%E3%81%8B%E3%82%89%E3%80%8C%E9%80%80%E5%B1%88%E3%81%AA%E9%AB%98%E9%85%8D%E5%BD%93%E3%80%8D%E3%81%B8%E3%81%AE%E8%B3%87%E9%87%91%E3%82%B7%E3%83%95%E3%83%88%EF%BC%9A%E3%83%99%E3%83%A9%E3%82%A4%E3%82%BE%E3%83%B3%EF%BC%88VZ%EF%BC%89%E7%8B%AC%E8%B5%B0%E3%81%AE%E8%83%8C%E6%99%AF%EF%BC%81%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n003bdc5a80ab",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/img/1775357448-DwJ3nyOzNWSPtxMmL64iVBKu.png",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n003bdc5a80ab",
+      "imageCount": 7,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 154721643,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【🇺🇸米株決算】BlackRock (BLK) Q1 2026決算プレビュー",
+      "description": null,
+      "likeCount": 3,
+      "price": 0,
+      "key": "n1e20203128a9",
+      "slug": "slug-n1e20203128a9",
+      "publishAt": "2026-04-08T07:04:47+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/267549736/rectangle_large_type_2_3813668dcf5869fa491ee7e36e75a1db.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "世界最大の資産運用会社BlackRock（NYSE: BLK）が、2026年4月14日の市場開始前（BMO）に2026年第1四半期（2026年1-3月期）の決算を発表します。本記事では、コンセンサス予想、過去の決算実績と株価反応パターン、そして今回の注目ポイントを整理します。\n\n1. 銘柄概要\n\nBlackRockは運用資産残高（AUM）約14兆ドルを誇る世界最大の資産運用会社です。iShares ETFブランドを中核に、アクティブ運用、プライベートマーケット、テクノロジーサ",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産運用"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#米国株決算"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#BlackRock"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n1e20203128a9&text=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91BlackRock+%28BLK%29+Q1+2026%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n1e20203128a9&t=%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91BlackRock+%28BLK%29+Q1+2026%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%F0%9F%87%BA%F0%9F%87%B8%E7%B1%B3%E6%A0%AA%E6%B1%BA%E7%AE%97%E3%80%91BlackRock+%28BLK%29+Q1+2026%E6%B1%BA%E7%AE%97%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n1e20203128a9",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/267549736/square_large_3813668dcf5869fa491ee7e36e75a1db.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n1e20203128a9",
+      "imageCount": 8,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 154251432,
+      "type": "TextNote",
+      "status": "published",
+      "name": "COTデータが示す景気後退シグナルの読み方",
+      "description": null,
+      "likeCount": 0,
+      "price": 0,
+      "key": "n45e01c52f8ff",
+      "slug": "slug-n45e01c52f8ff",
+      "publishAt": "2026-04-07T10:23:59+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/264935934/rectangle_large_type_2_19f7a230fcfeb10b77768d3a9319f832.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "株式市場が乱高下するなか、ある債券市場のデータが静かに注目を集めています。\nCOTレポートによると、2026年3月3日時点で10年国債先物に対する大口スペキュレーターのネットロングポジションが+119,513枚に達し、週間ベースで債券市場全体の最大増加幅を記録しました。\n機関投資家はなぜ今、10年国債を積極的に買い集めているのか。そしてCOTデータはどのように景気後退のシグナルになり得るのか。本記事では、データを丁寧に読み解きながら、現在の債券市場が発しているメッセージを整理",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式市場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融市場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#景気後退"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n45e01c52f8ff&text=COT%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8C%E7%A4%BA%E3%81%99%E6%99%AF%E6%B0%97%E5%BE%8C%E9%80%80%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n45e01c52f8ff&t=COT%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8C%E7%A4%BA%E3%81%99%E6%99%AF%E6%B0%97%E5%BE%8C%E9%80%80%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?COT%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8C%E7%A4%BA%E3%81%99%E6%99%AF%E6%B0%97%E5%BE%8C%E9%80%80%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n45e01c52f8ff",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/264935934/square_large_19f7a230fcfeb10b77768d3a9319f832.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n45e01c52f8ff",
+      "imageCount": 4,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 154250866,
+      "type": "TextNote",
+      "status": "published",
+      "name": "市場が荒れているとき、積み立て投資を続けるべきか？",
+      "description": null,
+      "likeCount": 5,
+      "price": 0,
+      "key": "n8dc36ceb7db3",
+      "slug": "slug-n8dc36ceb7db3",
+      "publishAt": "2026-04-06T15:13:16+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/264938736/rectangle_large_type_2_209c12b1b5ba7dfb571cc02053242e0b.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年4月、日本の投資家は再び試されています。\n中東情勢の緊迫化、原油高、AI・半導体株の調整により、日経平均は3月末に一時50,566円まで急落しました。S&P500も2026年第1四半期で約4.6%下落し、2022年以来最悪の四半期となっています。毎月コツコツと積み立て投資を続けてきた方なら、今こんな気持ちになっているかもしれません。\n\n「こんなに下がっているのに、続けていいのだろうか」\n「いったん止めて、もっと下がったら再開した方がいいのでは」\n「このまま続けると損",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#相場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#インデックス投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#投資心理"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n8dc36ceb7db3&text=%E5%B8%82%E5%A0%B4%E3%81%8C%E8%8D%92%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E7%A9%8D%E3%81%BF%E7%AB%8B%E3%81%A6%E6%8A%95%E8%B3%87%E3%82%92%E7%B6%9A%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%8B%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n8dc36ceb7db3&t=%E5%B8%82%E5%A0%B4%E3%81%8C%E8%8D%92%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E7%A9%8D%E3%81%BF%E7%AB%8B%E3%81%A6%E6%8A%95%E8%B3%87%E3%82%92%E7%B6%9A%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%8B%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E5%B8%82%E5%A0%B4%E3%81%8C%E8%8D%92%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E7%A9%8D%E3%81%BF%E7%AB%8B%E3%81%A6%E6%8A%95%E8%B3%87%E3%82%92%E7%B6%9A%E3%81%91%E3%82%8B%E3%81%B9%E3%81%8D%E3%81%8B%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n8dc36ceb7db3",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/264938736/square_large_209c12b1b5ba7dfb571cc02053242e0b.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n8dc36ceb7db3",
+      "imageCount": 4,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 154281076,
+      "type": "TextNote",
+      "status": "published",
+      "name": "米イラン戦争が日本人投資家のポートフォリオに与える影響を整理する",
+      "description": null,
+      "likeCount": 2,
+      "price": 0,
+      "key": "nb54c45b2b76e",
+      "slug": "slug-nb54c45b2b76e",
+      "publishAt": "2026-04-05T10:14:51+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/264932001/rectangle_large_type_2_25ccd628146eaae7339b66ab913a51f6.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年2月、日本人投資家にとって最も警戒すべき事態が現実となりました。\n\n米国とイスラエルによるイランへの軍事行動が開始され、イランはホルムズ海峡を封鎖。世界の海上石油貿易の約20〜25%が通過するこの要衝が遮断された結果、ブレント原油は最高値126ドル/バレルを記録し、アジア向けLNGスポット価格は140%以上急騰しました。原油輸入の93%を中東に依存する日本は、G7諸国の中でも特に脆弱な立場に置かれています。\n\n本記事では現状の全体像を整理し、ポートフォリオ点検に必要",
+      "separator": "",
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#エネルギー"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#相場"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#イラン"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ポートフォリオ"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#中東"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#原油"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ホルムズ海峡"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#石油"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/nb54c45b2b76e&text=%E7%B1%B3%E3%82%A4%E3%83%A9%E3%83%B3%E6%88%A6%E4%BA%89%E3%81%8C%E6%97%A5%E6%9C%AC%E4%BA%BA%E6%8A%95%E8%B3%87%E5%AE%B6%E3%81%AE%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%81%AB%E4%B8%8E%E3%81%88%E3%82%8B%E5%BD%B1%E9%9F%BF%E3%82%92%E6%95%B4%E7%90%86%E3%81%99%E3%82%8B%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/nb54c45b2b76e&t=%E7%B1%B3%E3%82%A4%E3%83%A9%E3%83%B3%E6%88%A6%E4%BA%89%E3%81%8C%E6%97%A5%E6%9C%AC%E4%BA%BA%E6%8A%95%E8%B3%87%E5%AE%B6%E3%81%AE%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%81%AB%E4%B8%8E%E3%81%88%E3%82%8B%E5%BD%B1%E9%9F%BF%E3%82%92%E6%95%B4%E7%90%86%E3%81%99%E3%82%8B%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E7%B1%B3%E3%82%A4%E3%83%A9%E3%83%B3%E6%88%A6%E4%BA%89%E3%81%8C%E6%97%A5%E6%9C%AC%E4%BA%BA%E6%8A%95%E8%B3%87%E5%AE%B6%E3%81%AE%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%81%AB%E4%B8%8E%E3%81%88%E3%82%8B%E5%BD%B1%E9%9F%BF%E3%82%92%E6%95%B4%E7%90%86%E3%81%99%E3%82%8B%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/nb54c45b2b76e",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/264932001/square_large_25ccd628146eaae7339b66ab913a51f6.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/nb54c45b2b76e",
+      "imageCount": 3,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153518616,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【オルカンとS&P500】「米国一極集中」の終わりと国際分散の再評価",
+      "description": null,
+      "likeCount": 6,
+      "price": 0,
+      "key": "ncf5f57f5665e",
+      "slug": "slug-ncf5f57f5665e",
+      "publishAt": "2026-04-04T18:58:06+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/264772506/rectangle_large_type_2_45970ec486f4e926325a1c2d09895c1a.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年2月27日、日本の投資信託の歴史が静かに塗り替えられました。\n「オルカン」の愛称で知られる全世界株式ファンドの純資産総額（ファンドに集まったお金の合計額）が10兆2,846億円に到達し、同シリーズの米国株式ファンド（S&P500連動型）の10兆2,652億円を抜き去ったのです。\n\nこの逆転は、単なる数字の入れ替わりではありません。日本の個人投資家が「米国一強」という思い込みを見つめ直し始めた兆候として捉えることもできます。\nなぜこのタイミングで逆転が起きたのか。そし",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#投資初心者"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#投資信託"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#SP500"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#オルカン"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/ncf5f57f5665e&text=%E3%80%90%E3%82%AA%E3%83%AB%E3%82%AB%E3%83%B3%E3%81%A8S%26P500%E3%80%91%E3%80%8C%E7%B1%B3%E5%9B%BD%E4%B8%80%E6%A5%B5%E9%9B%86%E4%B8%AD%E3%80%8D%E3%81%AE%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%A8%E5%9B%BD%E9%9A%9B%E5%88%86%E6%95%A3%E3%81%AE%E5%86%8D%E8%A9%95%E4%BE%A1%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/ncf5f57f5665e&t=%E3%80%90%E3%82%AA%E3%83%AB%E3%82%AB%E3%83%B3%E3%81%A8S%26P500%E3%80%91%E3%80%8C%E7%B1%B3%E5%9B%BD%E4%B8%80%E6%A5%B5%E9%9B%86%E4%B8%AD%E3%80%8D%E3%81%AE%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%A8%E5%9B%BD%E9%9A%9B%E5%88%86%E6%95%A3%E3%81%AE%E5%86%8D%E8%A9%95%E4%BE%A1%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%E3%82%AA%E3%83%AB%E3%82%AB%E3%83%B3%E3%81%A8S%26P500%E3%80%91%E3%80%8C%E7%B1%B3%E5%9B%BD%E4%B8%80%E6%A5%B5%E9%9B%86%E4%B8%AD%E3%80%8D%E3%81%AE%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%A8%E5%9B%BD%E9%9A%9B%E5%88%86%E6%95%A3%E3%81%AE%E5%86%8D%E8%A9%95%E4%BE%A1%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/ncf5f57f5665e",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/264772506/square_large_45970ec486f4e926325a1c2d09895c1a.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/ncf5f57f5665e",
+      "imageCount": 2,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153971833,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【原油暴騰】イラン戦争が引き起こしたスタグフレーションの現実",
+      "description": null,
+      "likeCount": 0,
+      "price": 0,
+      "key": "n38e0a441a0e9",
+      "slug": "slug-n38e0a441a0e9",
+      "publishAt": "2026-04-03T07:03:44+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/264340759/rectangle_large_type_2_7dc837bcdc5c5ddd64ab2bb05f41f367.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年3月、Brent原油が月間で約+64%という、LSEGのデータが遡れる1988年以来の記録的な上昇を遂げました。これはロシアのウクライナ侵攻でも、2008年の金融危機でも見られなかった数字です。\n\n引き金となったのは、米国・イスラエルによるイラン攻撃（\"Operation Epic Fury\"）。3月初旬に開始されたこの軍事行動が、ホルムズ海峡という「世界のエネルギーの動脈」を事実上封鎖させることになりました。\n\n4月2日現在、Brent原油は3月31日終値約$11",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#インフレ"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金利"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#地政学"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#原油"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ホルムズ海峡"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n38e0a441a0e9&text=%E3%80%90%E5%8E%9F%E6%B2%B9%E6%9A%B4%E9%A8%B0%E3%80%91%E3%82%A4%E3%83%A9%E3%83%B3%E6%88%A6%E4%BA%89%E3%81%8C%E5%BC%95%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97%E3%81%9F%E3%82%B9%E3%82%BF%E3%82%B0%E3%83%95%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%8F%BE%E5%AE%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n38e0a441a0e9&t=%E3%80%90%E5%8E%9F%E6%B2%B9%E6%9A%B4%E9%A8%B0%E3%80%91%E3%82%A4%E3%83%A9%E3%83%B3%E6%88%A6%E4%BA%89%E3%81%8C%E5%BC%95%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97%E3%81%9F%E3%82%B9%E3%82%BF%E3%82%B0%E3%83%95%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%8F%BE%E5%AE%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%90%E5%8E%9F%E6%B2%B9%E6%9A%B4%E9%A8%B0%E3%80%91%E3%82%A4%E3%83%A9%E3%83%B3%E6%88%A6%E4%BA%89%E3%81%8C%E5%BC%95%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97%E3%81%9F%E3%82%B9%E3%82%BF%E3%82%B0%E3%83%95%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%8F%BE%E5%AE%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n38e0a441a0e9",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/264340759/square_large_7dc837bcdc5c5ddd64ab2bb05f41f367.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n38e0a441a0e9",
+      "imageCount": 5,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153524307,
+      "type": "TextNote",
+      "status": "published",
+      "name": "プライベートクレジット危機を解説！$130億の換金申請が明かす「高利回り投資」の落とし穴",
+      "description": null,
+      "likeCount": 0,
+      "price": 0,
+      "key": "n405e1d125e7e",
+      "slug": "slug-n405e1d125e7e",
+      "publishAt": "2026-04-02T10:34:48+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/264115244/rectangle_large_type_2_824bc335059b134c5195a17701f4fa20.jpg?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "はじめに2026年3月、米国の金融市場で静かな「取り付け騒ぎ」が始まりました。\n「四半期ごとに解約できます」と販売された高利回りファンドから、投資家が一斉に資金を引き出そうとし、運用会社が次々と出金を制限する事態に発展したのです。\nこの記事では、プライベートクレジット（銀行を介さない直接融資）という金融の仕組みと、2026年に表面化した危機の構造を初心者向けにわかりやすく解説します。難しい専門用語は初出時に説明しますので、投資初心者の方もぜひ最後まで読んでみてください。\n\nプ",
+      "separator": "",
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#銀行"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#プライベートクレジット"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n405e1d125e7e&text=%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E5%8D%B1%E6%A9%9F%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BC%81%24130%E5%84%84%E3%81%AE%E6%8F%9B%E9%87%91%E7%94%B3%E8%AB%8B%E3%81%8C%E6%98%8E%E3%81%8B%E3%81%99%E3%80%8C%E9%AB%98%E5%88%A9%E5%9B%9E%E3%82%8A%E6%8A%95%E8%B3%87%E3%80%8D%E3%81%AE%E8%90%BD%E3%81%A8%E3%81%97%E7%A9%B4%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n405e1d125e7e&t=%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E5%8D%B1%E6%A9%9F%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BC%81%24130%E5%84%84%E3%81%AE%E6%8F%9B%E9%87%91%E7%94%B3%E8%AB%8B%E3%81%8C%E6%98%8E%E3%81%8B%E3%81%99%E3%80%8C%E9%AB%98%E5%88%A9%E5%9B%9E%E3%82%8A%E6%8A%95%E8%B3%87%E3%80%8D%E3%81%AE%E8%90%BD%E3%81%A8%E3%81%97%E7%A9%B4%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E5%8D%B1%E6%A9%9F%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BC%81%24130%E5%84%84%E3%81%AE%E6%8F%9B%E9%87%91%E7%94%B3%E8%AB%8B%E3%81%8C%E6%98%8E%E3%81%8B%E3%81%99%E3%80%8C%E9%AB%98%E5%88%A9%E5%9B%9E%E3%82%8A%E6%8A%95%E8%B3%87%E3%80%8D%E3%81%AE%E8%90%BD%E3%81%A8%E3%81%97%E7%A9%B4%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n405e1d125e7e",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/264115244/square_large_824bc335059b134c5195a17701f4fa20.jpg?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": {
+        "id": 220865393,
+        "noteId": 153524307,
+        "name": "プライベートクレジット危機とは何か？$130億の換金申請が明かす「高利回り投資」の落とし穴",
+        "body": "<h2 name=\"cb647592-ce95-4a68-94ff-27f3559af180\" id=\"cb647592-ce95-4a68-94ff-27f3559af180\">はじめに</h2><table-of-contents name=\"626FBD7A-A270-4E0D-9C92-5F97DFB8834C\" id=\"626FBD7A-A270-4E0D-9C92-5F97DFB8834C\"><br></table-of-contents><p name=\"b1d7dc57-7d96-4a86-88f4-5b277b6181d3\" id=\"b1d7dc57-7d96-4a86-88f4-5b277b6181d3\">2026年3月、米国の金融市場で静かな「取り付け騒ぎ」が始まりました。<br>「四半期ごとに解約できます」と販売された高利回りファンドから、投資家が一斉に資金を引き出そうとし、運用会社が次々と出金を制限する事態に発展したのです。<br>この記事では、プライベートクレジット（銀行を介さない直接融資）という金融の仕組みと、2026年に表面化した危機の構造を初心者向けにわかりやすく解説します。難しい専門用語は初出時に説明しますので、投資初心者の方もぜひ最後まで読んでみてください。<br></p><hr name=\"f690808e-94a3-4084-a6b6-8896cfa9f2bb\" id=\"f690808e-94a3-4084-a6b6-8896cfa9f2bb\"><h2 name=\"c5f5140f-b396-4ba2-9aa2-0616da56dff3\" id=\"c5f5140f-b396-4ba2-9aa2-0616da56dff3\">プライベートクレジットとは何か？</h2><p name=\"910f0e43-25e5-4096-8106-5926516bf625\" id=\"910f0e43-25e5-4096-8106-5926516bf625\">プライベートクレジット（Private Credit）とは、銀行を通さずに資産運用会社が企業に直接お金を貸す「非公開の融資市場」のことです。<br>通常の銀行融資では、預金者→銀行→企業という経路でお金が流れます。これに対してプライベートクレジットでは、アポロ・グローバル・マネジメントやブラックストーン、KKRといった大手運用会社が投資家から資金を集め、直接企業へ融資します。<br>銀行は金融規制が厳しく、信用リスク（貸したお金が返ってこないリスク）の高い企業には融資しにくい側面があります。そこで「銀行より高い金利を払うから、私たちから借りよう」という需要が企業側に生まれ、プライベートクレジット市場が生まれました。<br></p><h3 name=\"f4555d33-c28d-40dc-9c4a-ce3bd1831b19\" id=\"f4555d33-c28d-40dc-9c4a-ce3bd1831b19\">なぜここまで成長したのか</h3><p name=\"aca71bbb-0172-4fcb-b851-a008cf103df4\" id=\"aca71bbb-0172-4fcb-b851-a008cf103df4\">過去10年で市場規模は約2兆ドル（300兆円）に膨張しました。これほど急拡大した背景には、主に3つの理由があります。<br>まず「利回り難民」の存在です。2010年代の超低金利時代、国債や社債では満足なリターンが得られなくなった機関投資家や富裕層が、通常の債券より年率2〜5%高い利回り（出典: CNBC）を求めてプライベートクレジットに流入しました。<br>次に「価格変動の見えにくさ」です。株式は毎日値動きが表示されますが、プライベートクレジットは非公開取引なので日々の価格が見えません。「安定した資産」に見えやすいという心理的な魅力がありました。<br>そして「銀行規制の強化」です。2008年のリーマンショック後、銀行はリスクの高い融資を縮小しました。その空白を埋めるかたちでプライベートクレジットが拡大していったのです。<br></p><h3 name=\"81d77780-0abb-4d9d-bc95-a6216f4a5ede\" id=\"81d77780-0abb-4d9d-bc95-a6216f4a5ede\">高利回りは「リスクの対価」</h3><p name=\"68b0273d-c033-4712-a4f9-9c0299a6aed0\" id=\"68b0273d-c033-4712-a4f9-9c0299a6aed0\">通常の債券より高い利回りは、2種類のリスクに対する「対価」として生まれています。<br><br>ひとつは信用リスクです。これは貸したお金が返ってこない（デフォルト＝債務不履行）リスクのことです。銀行が断るような企業に貸しているため、当然ながらデフォルトの可能性は高くなります。<br><br>もうひとつが流動性リスクです。流動性とは「必要なときにすぐ換金できる能力」のことです。株式は取引所でいつでも売れますが、プライベートクレジットのローンはすぐに売り買いできません。これが今回の危機の核心につながっていきます。<br></p><hr name=\"7e7e66ec-41eb-41c4-a76e-b95b41b14af2\" id=\"7e7e66ec-41eb-41c4-a76e-b95b41b14af2\"><h2 name=\"638f6495-c4f2-45c8-9e5a-c9fbdc05202a\" id=\"638f6495-c4f2-45c8-9e5a-c9fbdc05202a\">なぜ今、危機が起きているのか</h2><p name=\"e61c08e1-f154-4d61-bd5d-ea4b39262d01\" id=\"e61c08e1-f154-4d61-bd5d-ea4b39262d01\">2026年の危機の直接的な引き金は、生成AIの普及によるSaaS企業の価値崩壊でした。<br>SaaS（サース）とはソフトウェア・アズ・ア・サービスの略で、クラウド経由でソフトウェアを提供する企業のことです。2020年代前半に急成長したこれらの企業は、プライベートクレジット市場の主要な資金調達先となっていました。ポートフォリオの20〜30%がSaaS企業向け融資を占めるファンドも珍しくありませんでした。<br><br>ところがChatGPTをはじめとする生成AIの急速な普及が状況を一変させます。コーディング補助、データ分析、業務自動化……。SaaS企業が有料で提供していたサービスの多くが、AIによって代替・コモディティ化されていきました。<br><br>成長が鈍化した企業は借入金の返済が困難になり、デフォルト（債務不履行）率が上昇しました。フィッチ・レーティングスの調査では、米国プライベートクレジットのデフォルト率が5.8%に上昇し、近年の最高水準となっています。UBSはAIディスラプションが続けばデフォルト率が13%まで上昇する可能性があると試算しています。<br><br>さらに追い打ちをかけたのが「higher-for-longer（高金利の長期化）」です。高金利が続くと借り手企業の利息負担が増し、返済が困難になります。すでに事業が苦しくなっている企業には、これが二重苦となりました。<br></p><hr name=\"946710cc-a950-4c32-9232-080601dbbb42\" id=\"946710cc-a950-4c32-9232-080601dbbb42\"><h2 name=\"8481c573-e175-4f53-8673-3a4a5346fd4d\" id=\"8481c573-e175-4f53-8673-3a4a5346fd4d\">危機のメカニズム──「流動性幻想」の崩壊</h2><p name=\"45c1e9e9-ae8e-4525-8c31-8eb81cde2e1b\" id=\"45c1e9e9-ae8e-4525-8c31-8eb81cde2e1b\">今回の危機の核心は、「流動性幻想」という構造的な問題にあります。<br>プライベートクレジットファンドの多くは「四半期ごとに解約できます」と説明して個人投資家や機関投資家から資金を集めていました。この説明自体は嘘ではありません。しかし重大な前提が省略されていました。<br>ファンドが実際に行っているのは、企業への数年単位の長期ローンです。貸したお金はすぐには返ってきません。「四半期ごとに解約できる」という約束は、解約希望者が少数である平常時にしか機能しない仕組みでした。<br>アポロのジム・ゼルター社長は後に「一部の地域・チャネルで流動性リスクを投資家に十分説明できていなかった可能性がある」と認めています。債券運用大手PIMCOも「今回は流動性リスクへの現実確認のきっかけになる」と述べています。<br></p><h3 name=\"d7addbfb-6761-4d2f-9b20-91955d9aaaef\" id=\"d7addbfb-6761-4d2f-9b20-91955d9aaaef\">ゲーティングとは何か</h3><p name=\"bbb8cf2f-a598-498a-8082-51b652895cc2\" id=\"bbb8cf2f-a598-498a-8082-51b652895cc2\">デフォルト率の上昇と不安心理が重なった2026年3月、多くの投資家が同時に解約を申請しました。その結果、ファンドは「ゲーティング（出金制限）」を発動せざるを得なくなります。<br>ゲーティングとは、ファンドが一定期間の換金申請を受け付けるものの、実際に応じられる金額を制限する仕組みです。「解約申請の受付はしますが、全額はお返しできません」という通知です。<br>業界全体で約130億ドル（約2兆円）の換金申請が殺到し、そのうち46億ドル以上がゲーティングによって足止めされました。<br>主要ファンドの対応は以下のとおりです。<br></p><figure name=\"d907a35a-986c-485b-8a6a-6e45b401d8c8\" id=\"d907a35a-986c-485b-8a6a-6e45b401d8c8\" data-align=\"center\"><img src=\"https://assets.st-note.com/img/1774918878-PdhbvqkLp7gfZ1I3SwntEH2Y.png\" alt=\"\" width=\"620\" height=\"301\" contenteditable=\"false\" draggable=\"false\"><figcaption></figcaption></figure><p name=\"b53e0db3-72df-4102-b010-7b9118f37ccd\" id=\"b53e0db3-72df-4102-b010-7b9118f37ccd\">アポロは全体の11.2%に達した解約申請のうち45%のみを認容し、アレス・マネジメントは換金上限を5%に設定しました。一方、オークツリー・キャピタルは8.5%の申請に対して全額を認容するという対照的な対応を見せました。ファンドの質の差が、有事の対応力に直結することを示した事例です。</p><h3 name=\"4c0b486b-5ce2-44cb-9205-3ece3201af48\" id=\"4c0b486b-5ce2-44cb-9205-3ece3201af48\">ムーディーズによるジャンク格下げ</h3><p name=\"c64453cf-f3ec-45fb-a35e-e7e79c1a663c\" id=\"c64453cf-f3ec-45fb-a35e-e7e79c1a663c\">2026年3月24日、格付け機関ムーディーズが衝撃的な発表を行いました。KKRと提携するプライベートクレジットファンド「FS KKR Capital Corp」の格付けをBa1に引き下げたのです。<br>Ba1とはいわゆる「ジャンク格」（投機的等級）を指します。これは単なる数字の変更ではありません。機関投資家の多くは「投資適格債のみ保有可能」という内部規定を持っており、ジャンク格への格下げは強制的な売却（いわゆる「強制セル」）を引き起こす可能性があります。<br>著名投資家のジェフリー・ガンドラック（ダブルライン・キャピタルCEO）は、「マーケットはどこにも行かない状態で、プライベートクレジットには重大なストレスがある」と警告しました。ゴールドマン・サックス元CEOのロイド・ブランクファインも「個人投資家が不透明な資産へのエクスポージャー（投資している割合・リスクにさらされている度合い）を高めているまさにこの時に清算が来る可能性がある」と指摘しています。<br></p><hr name=\"9a0aaf0a-2df2-4344-9685-5c62b3d59fa4\" id=\"9a0aaf0a-2df2-4344-9685-5c62b3d59fa4\"><h2 name=\"4ffa684e-f0fb-4137-bcfb-89646bedee89\" id=\"4ffa684e-f0fb-4137-bcfb-89646bedee89\">質問コーナー</h2><p name=\"16ea1daf-68ce-4de1-b44d-69b267179037\" id=\"16ea1daf-68ce-4de1-b44d-69b267179037\">Q1. プライベートクレジットは「怪しい投資」なの？<br>いいえ、プライベートクレジット自体は正当な資産クラスです。アポロ、ブラックストーン、KKRといった世界有数の運用会社が手掛けています。問題は商品そのものではなく、「流動性があるように見せて販売する」という構造と、リスクが十分に説明されなかった点にあります。<br><br>Q2. 日本の私の投資口座には影響があるの？<br>直接投資していなければ、すぐに影響は出ません。ただし、証券会社や銀行を通じて「高利回り海外クレジットファンド」という名称で販売されている商品の中に、プライベートクレジット関連のものが含まれている場合があります。投資前に「換金制限の条件」を確認することが重要です。<br><br>Q3. 2022年のBREIT危機と同じ話では？<br>構造は似ていますが、内容は異なります。2022年のブラックストーン不動産ファンド（BREIT）のゲーティングは、金利上昇による「評価額の問題」でした。今回は実際のデフォルト（貸したお金が返ってこない）が増加しているという「信用の根本的な劣化」です。こちらのほうが深刻と見られています。<br><br>Q4. 401(k)って何のこと？日本には関係ない？<br>401(k)は米国の確定拠出型年金制度で、日本のiDeCoに近い仕組みです。2026年3月末にはトランプ政権が401(k)でのプライベートクレジット投資を解禁する検討を始めたと報じられました。もし実現すれば、数百万人の米国の一般市民の退職資産がリスクにさらされる可能性があります。<br><br>Q5. これから買ってもいいの？<br>本記事は特定の金融商品の売買を推奨するものではありません。興味がある場合は「換金条件の詳細」「デフォルト率の開示状況」「ゲーティング発動の条件」を確認した上で、慎重に検討することが大切です。利回りが高い商品には相応のリスクが伴います。<br></p><hr name=\"2caed4f0-3d77-4726-9112-36e7c9bc8f87\" id=\"2caed4f0-3d77-4726-9112-36e7c9bc8f87\"><h2 name=\"33c00dba-e8ab-4250-ad7f-69a1f7518991\" id=\"33c00dba-e8ab-4250-ad7f-69a1f7518991\">注意点: 個人投資家へのリスク</h2><p name=\"eb6d88bc-6d18-4523-880a-9420839b7e3b\" id=\"eb6d88bc-6d18-4523-880a-9420839b7e3b\">今回の事態は、個人投資家が「見えにくいリスク」を取らされていた構造を浮き彫りにしました。<br>まず重要なのは「流動性の約束」を鵜呑みにしないことです。「四半期解約可能」という条件は、平常時のみ有効な約束です。市場ストレス時には制限される可能性があり、「本当に必要なときに換金できるか？」を常に考える習慣が必要です。<br><br>次に「高利回り＝高リスク」の原則を忘れないことです。通常の債券より高い利回りは、信用リスクと流動性リスクを引き受けることへの対価です。リターンが高いほどリスクも高まります。「なぜ高いのか」を理解せずに投資すると、リスクに気づかないまま損失を被る可能性があります。<br><br>また「価格が動かない＝安全」ではないことも理解しておきましょう。プライベートクレジットは非公開取引のため日々の価格が表示されません。損失が表面化するまでに時間差があり、気づいたときには手遅れというリスクがあります。<br><br>なお今後については、JPモルガンが四半期ごとに7.5%まで換金可能な新しいプライベートクレジットファンドの設立を計画していると報じられています。業界全体として流動性の条件を改善しようという動きも出始めていますが、販売資料の細かい条件を確認する習慣を持つことが最大の自衛策です。<br></p><hr name=\"2560b36e-96e0-4363-b649-377094e4b6e6\" id=\"2560b36e-96e0-4363-b649-377094e4b6e6\"><h2 name=\"938f2d6b-f288-4fac-bba6-7bd9e6b7eaa0\" id=\"938f2d6b-f288-4fac-bba6-7bd9e6b7eaa0\">まとめ</h2><p name=\"21c00a2f-b3d9-453b-b822-92024ebfc26a\" id=\"21c00a2f-b3d9-453b-b822-92024ebfc26a\">プライベートクレジット危機は、投資の世界における普遍的な教訓を改めて浮き彫りにしました。<br>リターンはリスクの対価である。流動性は当たり前ではない。見えにくいリスクほど、実は危険である。<br>超低金利時代を経て「高利回りを求める」動きが世界中で加速しました。その過程で、多くの投資家が「リスクを取っている意識」なくリスクを取る商品を購入してしまいました。<br>プライベートクレジットは今後も存在し続ける資産クラスです。問題は商品そのものではなく、「流動性があるかのように見せて販売する」という構造と、リスクを理解しないまま購入する投資家側の知識不足にあります。<br>利回りが高い商品には相応のリスクが伴います。この基本に立ち返ることが、今回の危機から私たちが学ぶべき最大の教訓です。わからない商品には手を出さない。これが個人投資家として資産を守るための第一歩です。<br></p><hr name=\"229efb47-5b42-4a10-abc2-b69225859230\" id=\"229efb47-5b42-4a10-abc2-b69225859230\"><p name=\"15e4f6fb-b144-44cf-8660-a5c8aaa701d6\" id=\"15e4f6fb-b144-44cf-8660-a5c8aaa701d6\">免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。<br></p>",
+        "updatedAt": "2026-04-02T11:50:25+09:00"
+      },
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n405e1d125e7e",
+      "imageCount": 2,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153524826,
+      "type": "TextNote",
+      "status": "published",
+      "name": "【2026年版】インデックス投資の始め方ガイド｜新NISAで資産形成を始めよう",
+      "description": null,
+      "likeCount": 5,
+      "price": 0,
+      "key": "n453a216d93ae",
+      "slug": "slug-n453a216d93ae",
+      "publishAt": "2026-04-01T12:31:33+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/263828539/rectangle_large_type_2_2818c0f89add2f491d4e2bca31e47932.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "はじめに「投資を始めたいけど、何を買えばいいかまったくわからない」――そう感じている方に向けて、この記事を書きました。\n実は、投資の知識がほぼゼロでも始められる方法があります。それがインデックス投資（市場全体の値動きに連動する投資信託を積み立てる方法）です。\nこの記事では、インデックス投資の仕組みから口座開設の手順、ファンドの選び方、暴落時の心構えまでをステップ形式で解説します。対象は「これから投資を始めたい初心者」の方です。\n\nインデックス投資とは何か1本で数百社に分散でき",
+      "separator": "",
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#資産形成"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#NISA"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#金融"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#投資信託"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ファンド"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/n453a216d93ae&text=%E3%80%902026%E5%B9%B4%E7%89%88%E3%80%91%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%8A%95%E8%B3%87%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89%EF%BD%9C%E6%96%B0NISA%E3%81%A7%E8%B3%87%E7%94%A3%E5%BD%A2%E6%88%90%E3%82%92%E5%A7%8B%E3%82%81%E3%82%88%E3%81%86%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/n453a216d93ae&t=%E3%80%902026%E5%B9%B4%E7%89%88%E3%80%91%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%8A%95%E8%B3%87%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89%EF%BD%9C%E6%96%B0NISA%E3%81%A7%E8%B3%87%E7%94%A3%E5%BD%A2%E6%88%90%E3%82%92%E5%A7%8B%E3%82%81%E3%82%88%E3%81%86%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%902026%E5%B9%B4%E7%89%88%E3%80%91%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E6%8A%95%E8%B3%87%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89%EF%BD%9C%E6%96%B0NISA%E3%81%A7%E8%B3%87%E7%94%A3%E5%BD%A2%E6%88%90%E3%82%92%E5%A7%8B%E3%82%81%E3%82%88%E3%81%86%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/n453a216d93ae",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/263828539/square_large_2818c0f89add2f491d4e2bca31e47932.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/n453a216d93ae",
+      "imageCount": 1,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153519151,
+      "type": "TextNote",
+      "status": "published",
+      "name": "米国テレコムセクター徹底解剖！$1,100億超M&Aラッシュと5層バリューチェーンの構造変化",
+      "description": null,
+      "likeCount": 1,
+      "price": 0,
+      "key": "nd8676bd58a0b",
+      "slug": "slug-nd8676bd58a0b",
+      "publishAt": "2026-03-31T23:03:24+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/263826640/rectangle_large_type_2_dbfd7a8d499fe2bb9f5a1502d0d6a33e.jpeg?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "総額$1,100億（約16兆円）。いま米国テレコム業界で同時進行しているM&A（合併・買収）の総額です。\nVerizon による Frontier 買収（$200億）、Charter と Cox の合併（$345億）、EchoStar のスペクトラム売却（$426億）など、かつてない規模の再編が一斉に動いています。背景には、5Gの本格普及、AIデータセンター需要の爆発、そしてファイバー・無線・衛星の融合という構造的変化があります。本記事では、主要11社の財務データと業界動向を",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#通信"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#ケーブル"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#タワー"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#スペクトラム"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#コミュニケーションサービス"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/nd8676bd58a0b&text=%E7%B1%B3%E5%9B%BD%E3%83%86%E3%83%AC%E3%82%B3%E3%83%A0%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E5%BE%B9%E5%BA%95%E8%A7%A3%E5%89%96%EF%BC%81%241%2C100%E5%84%84%E8%B6%85M%26A%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%81%A85%E5%B1%A4%E3%83%90%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%AE%E6%A7%8B%E9%80%A0%E5%A4%89%E5%8C%96%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/nd8676bd58a0b&t=%E7%B1%B3%E5%9B%BD%E3%83%86%E3%83%AC%E3%82%B3%E3%83%A0%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E5%BE%B9%E5%BA%95%E8%A7%A3%E5%89%96%EF%BC%81%241%2C100%E5%84%84%E8%B6%85M%26A%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%81%A85%E5%B1%A4%E3%83%90%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%AE%E6%A7%8B%E9%80%A0%E5%A4%89%E5%8C%96%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E7%B1%B3%E5%9B%BD%E3%83%86%E3%83%AC%E3%82%B3%E3%83%A0%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E5%BE%B9%E5%BA%95%E8%A7%A3%E5%89%96%EF%BC%81%241%2C100%E5%84%84%E8%B6%85M%26A%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%81%A85%E5%B1%A4%E3%83%90%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%AE%E6%A7%8B%E9%80%A0%E5%A4%89%E5%8C%96%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/nd8676bd58a0b",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/263826640/square_large_dbfd7a8d499fe2bb9f5a1502d0d6a33e.jpeg?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/nd8676bd58a0b",
+      "imageCount": 3,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153450647,
+      "type": "TextNote",
+      "status": "published",
+      "name": "日銀利上げと円安の構造分析：160円突破・4月利上げの現実味・原油ショックの複合危機",
+      "description": null,
+      "likeCount": 0,
+      "price": 0,
+      "key": "nae5a93e90241",
+      "slug": "slug-nae5a93e90241",
+      "publishAt": "2026-03-30T21:39:46+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/production/uploads/images/263421820/rectangle_large_type_2_ba7a9bbd89e06667834d8eafb471c828.png?fit=bounds&quality=85&width=1280",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "2026年3月末、ドル円相場は160.47円（2024年7月以来の円安水準）まで下落し、日本の為替当局が「断固たる措置」を警告する事態となっています。\n2025年12月に0.75%へ利上げした日銀は、3月19日の会合でも据え置きを決定しました。しかし状況は大きく変わりました。2月末に始まった米国・イスラエルによるイランへの軍事作戦で原油が$105/bblに急騰し、日銀が30日に公開した3月会合の意見要旨には「1970年代型スタグフレーション」への懸念まで記録されています。\n「",
+      "separator": "",
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#株式投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#経済"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#インフレ"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#日銀"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#原油"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#利上げ"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/nae5a93e90241&text=%E6%97%A5%E9%8A%80%E5%88%A9%E4%B8%8A%E3%81%92%E3%81%A8%E5%86%86%E5%AE%89%E3%81%AE%E6%A7%8B%E9%80%A0%E5%88%86%E6%9E%90%EF%BC%9A160%E5%86%86%E7%AA%81%E7%A0%B4%E3%83%BB4%E6%9C%88%E5%88%A9%E4%B8%8A%E3%81%92%E3%81%AE%E7%8F%BE%E5%AE%9F%E5%91%B3%E3%83%BB%E5%8E%9F%E6%B2%B9%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF%E3%81%AE%E8%A4%87%E5%90%88%E5%8D%B1%E6%A9%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/nae5a93e90241&t=%E6%97%A5%E9%8A%80%E5%88%A9%E4%B8%8A%E3%81%92%E3%81%A8%E5%86%86%E5%AE%89%E3%81%AE%E6%A7%8B%E9%80%A0%E5%88%86%E6%9E%90%EF%BC%9A160%E5%86%86%E7%AA%81%E7%A0%B4%E3%83%BB4%E6%9C%88%E5%88%A9%E4%B8%8A%E3%81%92%E3%81%AE%E7%8F%BE%E5%AE%9F%E5%91%B3%E3%83%BB%E5%8E%9F%E6%B2%B9%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF%E3%81%AE%E8%A4%87%E5%90%88%E5%8D%B1%E6%A9%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E6%97%A5%E9%8A%80%E5%88%A9%E4%B8%8A%E3%81%92%E3%81%A8%E5%86%86%E5%AE%89%E3%81%AE%E6%A7%8B%E9%80%A0%E5%88%86%E6%9E%90%EF%BC%9A160%E5%86%86%E7%AA%81%E7%A0%B4%E3%83%BB4%E6%9C%88%E5%88%A9%E4%B8%8A%E3%81%92%E3%81%AE%E7%8F%BE%E5%AE%9F%E5%91%B3%E3%83%BB%E5%8E%9F%E6%B2%B9%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF%E3%81%AE%E8%A4%87%E5%90%88%E5%8D%B1%E6%A9%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/nae5a93e90241",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/production/uploads/images/263421820/square_large_ba7a9bbd89e06667834d8eafb471c828.png?fit=bounds&format=jpeg&quality=85&width=360",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/nae5a93e90241",
+      "imageCount": 1,
+      "format": "4.1",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    },
+    {
+      "id": 153258961,
+      "type": "TextNote",
+      "status": "published",
+      "name": "インドネシア通信セクター完全ガイド：3社寡占体制で投資機会はどこに？",
+      "description": null,
+      "likeCount": 0,
+      "price": 0,
+      "key": "nf9816dd1e6ae",
+      "slug": "slug-nf9816dd1e6ae",
+      "publishAt": "2026-03-29T15:07:30+09:00",
+      "thumbnailExternalUrl": "",
+      "eyecatch": "https://assets.st-note.com/img/1774763913-lpQZU7t1uxsa5IVo6M8gG4Ck.png",
+      "user": {
+        "id": 13269384,
+        "key": "94a2b4326060b0f5b3d262e9d5779f58",
+        "name": "株投資ラボ",
+        "urlname": "kabutoushi_labo",
+        "nickname": "株投資ラボ",
+        "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/262797172/profile_b7ca9a2c1786c37984d593155e8b3081.png?fit=bounds&format=jpeg&quality=85&width=330",
+        "customDomain": null,
+        "disableSupport": false,
+        "disableGuestPurchase": false,
+        "emailConfirmedFlag": true,
+        "likeAppealText": "ありがとう！励みになります！",
+        "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_0.png",
+        "purchaseAppealTextNote": null,
+        "twitterNickname": null,
+        "shareAppeal": {
+          "text": null,
+          "image": null
+        },
+        "magazineAddAppeal": {
+          "text": null,
+          "image": null
+        }
+      },
+      "canRead": true,
+      "isAuthor": true,
+      "externalUrl": null,
+      "customDomain": null,
+      "body": "あなたのポートフォリオに、新興国テレコムはありますか？ インドネシアの通信セクターは今、大型合併を経て「稼げる寡占」へと変貌しつつあります。EV/EBITDA（企業価値÷EBITDA）3.8倍の割安圏から、配当性向89%の高配当銘柄まで、投資スタイルに応じた選択肢が揃っています。\n本記事では、人口2.7億人超のASEAN最大市場であるインドネシア通信セクターの主要銘柄（TLKM、ISAT、EXCL、TOWR、TBIG）を横断的に分析します。\n\nポイント\n\n2025年4月のXL",
+      "separator": null,
+      "isLimited": false,
+      "isTrial": false,
+      "canUpdate": true,
+      "tweetText": "",
+      "twitterRelatedAccounts": "note_PR",
+      "isRefund": false,
+      "isLiked": false,
+      "commentCount": 0,
+      "likes": [],
+      "anonymousLikeCount": 0,
+      "disableComment": false,
+      "hashtags": [
+        {
+          "hashtag": {
+            "name": "#投資"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#インドネシア"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#タワー"
+          }
+        },
+        {
+          "hashtag": {
+            "name": "#通信セクター"
+          }
+        }
+      ],
+      "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/kabutoushi_labo/n/nf9816dd1e6ae&text=%E3%82%A4%E3%83%B3%E3%83%89%E3%83%8D%E3%82%B7%E3%82%A2%E9%80%9A%E4%BF%A1%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89%EF%BC%9A3%E7%A4%BE%E5%AF%A1%E5%8D%A0%E4%BD%93%E5%88%B6%E3%81%A7%E6%8A%95%E8%B3%87%E6%A9%9F%E4%BC%9A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%AB%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C&related=note_PR",
+      "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/kabutoushi_labo/n/nf9816dd1e6ae&t=%E3%82%A4%E3%83%B3%E3%83%89%E3%83%8D%E3%82%B7%E3%82%A2%E9%80%9A%E4%BF%A1%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89%EF%BC%9A3%E7%A4%BE%E5%AF%A1%E5%8D%A0%E4%BD%93%E5%88%B6%E3%81%A7%E6%8A%95%E8%B3%87%E6%A9%9F%E4%BC%9A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%AB%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+      "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%82%A4%E3%83%B3%E3%83%89%E3%83%8D%E3%82%B7%E3%82%A2%E9%80%9A%E4%BF%A1%E3%82%BB%E3%82%AF%E3%82%BF%E3%83%BC%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89%EF%BC%9A3%E7%A4%BE%E5%AF%A1%E5%8D%A0%E4%BD%93%E5%88%B6%E3%81%A7%E6%8A%95%E8%B3%87%E6%A9%9F%E4%BC%9A%E3%81%AF%E3%81%A9%E3%81%93%E3%81%AB%EF%BC%9F%EF%BD%9C%E6%A0%AA%E6%8A%95%E8%B3%87%E3%83%A9%E3%83%9C%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/kabutoushi_labo/n/nf9816dd1e6ae",
+      "audio": {},
+      "pictures": [],
+      "limitedMessage": null,
+      "labels": [],
+      "priorSale": null,
+      "canMultipleLimitedNote": true,
+      "isMembershipConnected": false,
+      "hasAvailableCirclePlans": false,
+      "isPinned": false,
+      "pinnedUserNoteId": null,
+      "spEyecatch": "https://assets.st-note.com/img/1774763913-lpQZU7t1uxsa5IVo6M8gG4Ck.png",
+      "enableBacktoDraft": true,
+      "notificationMessages": [],
+      "isProfiled": false,
+      "isForWork": false,
+      "isCircleDescription": false,
+      "noteDraft": null,
+      "noteUrl": "https://note.com/kabutoushi_labo/n/nf9816dd1e6ae",
+      "imageCount": 1,
+      "format": "4.0",
+      "capabilities": {
+        "amazonpayCampaign": true,
+        "amazonpay": false,
+        "guestAmazonpay": false,
+        "rubyText": true,
+        "formulaText": true,
+        "duplication": true,
+        "noteComment": true
+      },
+      "discountCampaigns": [],
+      "remainedCharNum": 0,
+      "remainedImageNum": 0,
+      "remainedFileNum": 0,
+      "priceInfo": {
+        "isFree": true,
+        "lowestPrice": null,
+        "hasMultiple": false,
+        "hasSubscription": false,
+        "oneshotLowestPrice": null
+      }
+    }
+  ]
+}
