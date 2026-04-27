@@ -44,7 +44,7 @@ research_sources: 18
 # === Workflow ===
 workflow:
   research: done                 # pending | in_progress | done | skipped
-  draft: pending
+  draft: done
   critique: pending
   revision: pending
   publish: pending

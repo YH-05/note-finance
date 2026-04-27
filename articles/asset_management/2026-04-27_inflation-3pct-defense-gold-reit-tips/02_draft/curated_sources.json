@@ -1,0 +1,110 @@
+{
+  "curated_at": "2026-04-27",
+  "sources": [
+    {
+      "url": "https://www.boj.or.jp/mopo/outlook/gor2601b.pdf",
+      "title": "経済・物価情勢の展望（2026年1月）日本銀行",
+      "score": 98,
+      "rank": "S",
+      "reason": "日本銀行の公式展望レポート。インフレ・金利見通しの最高信頼性ソース"
+    },
+    {
+      "url": "https://www.dir.co.jp/report/research/economics/outlook/20260224_025595.pdf",
+      "title": "日本経済見通し 2026年2月 大和総研",
+      "score": 88,
+      "rank": "A",
+      "reason": "大手シンクタンク（大和総研）による公式レポート。コアCPI・GDP予測の根拠"
+    },
+    {
+      "url": "https://www.nippon.com/ja/in-depth/d01227/",
+      "title": "2026年春闘 賃上げ率5.26% nippon.com",
+      "score": 82,
+      "rank": "A",
+      "reason": "春闘結果の信頼性の高い報道。賃上げ率データの根拠"
+    },
+    {
+      "url": "https://www.smd-am.co.jp/market/ichikawa/2025/12/irepo251222_2/",
+      "title": "2025年12月 日本経済見通し 三井住友DS",
+      "score": 85,
+      "rank": "A",
+      "reason": "大手資産運用会社（三井住友DS）のアナリストレポート。インフレモメンタム分析"
+    },
+    {
+      "url": "https://www.gold.org/goldhub/research/identify-opportunities-gold-among-japanese-insurers-market-study/gold-brings-inflation-hedging-ability",
+      "title": "Gold brings inflation hedging ability World Gold Council",
+      "score": 92,
+      "rank": "S",
+      "reason": "World Gold Council（国際金業界の公的機関）の公式リサーチ。学術的インフレヘッジ効果の根拠"
+    },
+    {
+      "url": "https://www.gold.org/ja/goldhub/research/2025-japanese-gold-investor-insights-golden-opportunity",
+      "title": "2025年日本の金投資家に関する洞察 World Gold Council",
+      "score": 90,
+      "rank": "S",
+      "reason": "World Gold Councilによる日本市場特化レポート。円建て金価格データの根拠"
+    },
+    {
+      "url": "https://www.tr.mufg.jp/shisan-ken/pdf/shisan_keisei_52.pdf",
+      "title": "資産形成研究所レポート第52号 三菱UFJ信託銀行",
+      "score": 87,
+      "rank": "A",
+      "reason": "大手金融機関（MUFG）の研究機関による長期リターン・相関係数データ"
+    },
+    {
+      "url": "https://www.soico.jp/no1/news/securities/5147",
+      "title": "金ETFのおすすめはどこ？ soico.jp",
+      "score": 65,
+      "rank": "B",
+      "reason": "金融情報サイトによるETF比較記事。信託報酬・特徴の整理として有用"
+    },
+    {
+      "url": "https://www.nomura.co.jp/wealthstyle/article/0528/",
+      "title": "金利上昇でもJ-REITはなぜ上がる？ 野村証券",
+      "score": 84,
+      "rank": "A",
+      "reason": "大手証券会社（野村証券）による解説。J-REIT賃料上昇メカニズムのデータ根拠"
+    },
+    {
+      "url": "https://www.camri.or.jp/files/libs/2346/202602271420298521.pdf",
+      "title": "2025年のJ-REIT市場と2026年の展望 SMBC日興証券",
+      "score": 88,
+      "rank": "A",
+      "reason": "大手証券会社のアナリストレポート。REIT指数パフォーマンス・分配金成長率の根拠"
+    },
+    {
+      "url": "https://www.nomu.com/cre-navi/market/20260303.html",
+      "title": "日系不動産ファンド最新動向2025年度 野村不動産ソリューションズ",
+      "score": 83,
+      "rank": "A",
+      "reason": "大手不動産会社の市場レポート。不動産投資額・オフィス賃料データの根拠"
+    },
+    {
+      "url": "https://www.nam.co.jp/news/mpdf/260313_tjj.pdf",
+      "title": "J-REIT市場現状と今後の見通し 2026年3月 ニッセイAM",
+      "score": 86,
+      "rank": "A",
+      "reason": "大手運用会社（日本生命グループ）のREITレポート。NAV倍率・利回りデータの根拠"
+    },
+    {
+      "url": "https://tipswatch.com/2025/12/30/2025-an-inflation-watchers-year-in-review/",
+      "title": "2025 An Inflation Watcher's Year in Review tipswatch.com",
+      "score": 78,
+      "rank": "B",
+      "reason": "TIPS専門ウォッチサイト。実質利回りデータは有用だが独立系サイトのため評価B"
+    },
+    {
+      "url": "https://moneiro.jp/media/article/inflation-indexed-bonds",
+      "title": "物価連動国債とは？ マネイロメディア",
+      "score": 62,
+      "rank": "B",
+      "reason": "金融メディアによる解説記事。仕組み説明・日本人向けアクセス方法の整理として参考"
+    },
+    {
+      "url": "https://media.paypay-sec.co.jp/cat5/jisha260408",
+      "title": "インフレに強い高配当日米株10選 PayPay証券 2026年4月",
+      "score": 72,
+      "rank": "B",
+      "reason": "証券会社のメディア記事。銘柄情報・配当利回りデータの参考。証券会社の立場に注意"
+    }
+  ]
+}
