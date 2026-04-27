@@ -316,6 +316,10 @@ def _to_finance_news_format(article: dict[str, Any]) -> dict[str, Any]:
         "summary": article.get("summary") or "",
         "feed_source": article.get("source", ""),
         "published": article.get("published", ""),
+        "content": article.get("content") or "",
+        "category": article.get("category", ""),
+        "tags": article.get("tags") or [],
+        "author": article.get("author") or "",
     }
 
 

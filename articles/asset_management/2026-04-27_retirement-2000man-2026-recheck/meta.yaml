@@ -3,7 +3,7 @@ category: asset_management
 type: column
 status: published
 created_at: '2026-04-27'
-updated_at: '2026-04-27T03:19:31.692012+00:00'
+updated_at: '2026-04-27T03:32:35.939923+00:00'
 research_completed_at: '2026-04-27'
 tags:
 - 老後資金
@@ -29,7 +29,7 @@ experience:
     outcome: ''
 critic_score: 72
 revision_count: 0
-note_url: "https://editor.note.com/notes/n6d207cc9f3d9/edit/"
+note_url: https://editor.note.com/notes/n6d207cc9f3d9/edit/
 x_post_url: null
 research_sources: 12
 workflow:
@@ -49,5 +49,5 @@ legacy:
   old_path: null
   old_article_id: null
   migrated_at: null
-published_at: '2026-04-27T03:19:31.692012+00:00'
-draft_url: https://editor.note.com/notes/n6d207cc9f3d9/edit/
+published_at: '2026-04-27T03:32:35.939923+00:00'
+draft_url: https://editor.note.com/notes/nb56ddbca1d0a/edit/
