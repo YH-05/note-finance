@@ -1,7 +1,113 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-04-27_inflation-3pct-defense-gold-reit-tips",
+  "category": "asset_management",
+  "mode": "full",
+  "generated_at": "2026-04-27",
+  "critics": {
+    "fact": {
+      "score": 61,
+      "status": "warn",
+      "verified_facts": 30,
+      "issues_found": 7,
+      "issues": [
+        {"severity": "HIGH", "id": "F001", "description": "内閣府がCPI4-5%リスクシナリオを試算という記述に出典URLなし", "suggestion": "出典URLを付記するか「一部のエコノミストはリスクを指摘」に変更"},
+        {"severity": "HIGH", "id": "F002", "description": "「インカム成長型エクイティ商品」の帰属誤り。記事ではニッセイAMに帰属しているがSMBC日興証券（camri.or.jp）が正しい出典", "suggestion": "出典をSMBC日興証券に変更"},
+        {"severity": "MEDIUM", "id": "F003", "description": "「2026年は4,000ドルを超える水準」にソースURLなし", "suggestion": "WGCの最新データへのリンクを追加"},
+        {"severity": "MEDIUM", "id": "F004", "description": "シェブロン3.59%・フィリップ・モリス3.73%がsources.jsonのkey_factsに未記録", "suggestion": "時点を明記してリンクを付与"},
+        {"severity": "MEDIUM", "id": "F005", "description": "不動産投資額6.5兆円がsources.jsonのkey_factsに未記録", "suggestion": "帰属先レポートで確認後リンク付与"},
+        {"severity": "LOW", "id": "F006", "description": "中央銀行金購入1,000トン超の出典URLなし", "suggestion": "WGC Gold Demand Trendsへのリンクを追加"},
+        {"severity": "LOW", "id": "F007", "description": "SPDR1326の信託報酬0.40%の出典未記録", "suggestion": "東証ETFデータベースを出典として追記"}
+      ]
+    },
+    "compliance": {
+      "score": 85,
+      "status": "warn",
+      "disclaimer_present": true,
+      "closing_greeting_present": true,
+      "order_correct": true,
+      "issues": [
+        {"severity": "HIGH", "id": "CP001", "description": "免責事項がsnippets/disclaimer.mdの固定テキストと不一致。「本記事の内容により生じたいかなる損失についても責任を負いかねます。」の損害免責文言が欠落", "suggestion": "免責事項を固定テキストに完全差し替え"},
+        {"severity": "MEDIUM", "id": "CP002", "description": "まとめセクションで「新NISAの成長投資枠に金ETFやJ-REITを少額から組み入れることを検討する」という具体的行動誘導が投資助言的", "suggestion": "「本記事で紹介した資産クラスの特性を参考に、自分のリスク許容度に合った選択肢を調べてみる」に変更"},
+        {"severity": "LOW", "id": "CP003", "description": "「知っておくべき知識」の「べき」表現が断定的", "suggestion": "「知っておくと役立つ知識」に変更"}
+      ]
+    },
+    "structure": {
+      "score": 80,
+      "section_scores": {"introduction": 85, "flow": 80, "sections": 72, "conclusion": 85},
+      "required_sections": {
+        "found": ["はじめに", "インフレと資産価値の関係（基礎知識相当）", "まとめ"],
+        "missing": ["データで見る現状（独立）", "実践ガイド（独立）", "ケーススタディ", "注意点・リスク（独立）"]
+      },
+      "issues": [
+        {"severity": "HIGH", "description": "「ケーススタディ」セクションが存在しない", "suggestion": "年齢・資産規模別のモデルケースを800-1200字で追加"},
+        {"severity": "HIGH", "description": "「注意点・リスク」が独立H2セクションとして存在しない", "suggestion": "4資産共通リスクと個別リスクをまとめた独立セクションを追加"},
+        {"severity": "MEDIUM", "description": "「実践ガイド」が明示的なセクションとして存在しない", "suggestion": "組み合わせ戦略を実践ガイドに改名、手順を追加"},
+        {"severity": "MEDIUM", "description": "HTMLコメント形式の表データが2箇所残存", "suggestion": "コメントを削除"},
+        {"severity": "LOW", "description": "株式セクションのみ「向く人・向かない人」サブセクションなし", "suggestion": "他資産と構成統一"}
+      ]
+    },
+    "data_accuracy": {
+      "score": 86,
+      "linked_data_count": 30,
+      "unlinked_data_count": 5,
+      "markdown_tables_remaining": 0,
+      "issues": [
+        {"severity": "HIGH", "description": "金価格4,000ドル超にソースURLなし", "suggestion": "WGCのリンクを追加"},
+        {"severity": "MEDIUM", "description": "中央銀行金購入1,000トン超に直接リンクなし", "suggestion": "WGC Gold Demand Trendsのリンクを付与"},
+        {"severity": "MEDIUM", "description": "日銀政策金利0.75%の言及箇所に直接リンクなし", "suggestion": "日銀金融政策決定ページへのリンクを付与"},
+        {"severity": "MEDIUM", "description": "不動産投資額6.5兆円の帰属確認が必要", "suggestion": "野村不動産ソリューションズのレポートへのリンクを付与"},
+        {"severity": "LOW", "description": "普通預金金利0.1〜0.2%にリンクなし", "suggestion": "銀行公式サイトへの参照を追加"},
+        {"severity": "LOW", "description": "コメントアウトされたマークダウン表2件が残存", "suggestion": "コメントを削除"}
+      ]
+    },
+    "readability": {
+      "score": 82,
+      "style_check": {"desu_masu": true, "no_dash_marks": true, "proper_spacing": true},
+      "issues": [
+        {"severity": "HIGH", "description": "日銀金利説明段落の1文が65-80文字超で長すぎる", "suggestion": "3-4文に分割"},
+        {"severity": "HIGH", "description": "WGCデータ引用段落が複数情報を詰め込みすぎ", "suggestion": "数値と結論を別段落に分割"},
+        {"severity": "HIGH", "description": "ニッセイAM参照段落の1文平均60文字超", "suggestion": "短文化"},
+        {"severity": "MEDIUM", "description": "コストプッシュ型/デマンドプル型の用語に説明なし", "suggestion": "括弧内に簡潔な説明を追加"},
+        {"severity": "MEDIUM", "description": "NAV倍率の意味（1.0倍以下=割安）が未説明", "suggestion": "補足説明を追加"},
+        {"severity": "MEDIUM", "description": "TIPS実質利回りの具体的な計算例なし", "suggestion": "「インフレ3%+実質1.9%」の例を追加"},
+        {"severity": "MEDIUM", "description": "はじめに3段落でスクロール後に価値提示が遅い", "suggestion": "2段落目冒頭に価値提示の1文を前出し"},
+        {"severity": "MEDIUM", "description": "株式セクターの見出し（**太字**）が本文強調と混在", "suggestion": "####見出しに昇格"}
+      ]
+    },
+    "writer_rules": {
+      "score": 53,
+      "word_count": 9603,
+      "word_count_status": "ok",
+      "title_length": 38,
+      "title_status": "ok",
+      "image_count": 4,
+      "forbidden_words_found": [],
+      "issues": [
+        {"severity": "HIGH", "description": "必須セクション「基礎知識」が見出し名として存在しない", "suggestion": "「インフレと資産価値の関係を理解する」を分割して「基礎知識」セクションを設ける"},
+        {"severity": "HIGH", "description": "必須セクション「実践ガイド」が見出し名として存在しない", "suggestion": "「組み合わせ戦略」を改名しステップ形式を追加"},
+        {"severity": "HIGH", "description": "必須セクション「注意点・リスク」が独立H2として存在しない", "suggestion": "独立H2セクションとして追加"},
+        {"severity": "HIGH", "description": "meta.yamlにarticle_idフィールドが未設定", "suggestion": "article_id: 2026-04-27-inflation-3pct-defense を設定"},
+        {"severity": "MEDIUM", "description": "meta.yamlのtitleが43字で38字上限超過かつH1と不一致", "suggestion": "meta.yamlのtitleをH1タイトルと同一にする"},
+        {"severity": "MEDIUM", "description": "meta.yamlのthemeが「asset_management」になっており正しいテーマキーでない", "suggestion": "theme: asset_allocation に変更"},
+        {"severity": "MEDIUM", "description": "参考データソースセクションに分析期間の記載なし", "suggestion": "「※ データは2026年4月時点のものです。」を追加"},
+        {"severity": "MEDIUM", "description": "「ケーススタディ」セクション欠如（800-1200字の年齢別モデルケース）", "suggestion": "年齢別ケーススタディを追加"},
+        {"severity": "MEDIUM", "description": "具体的数値例（月3万円の積立、年利5%で20年等）がない", "suggestion": "ケーススタディに具体例を追加"},
+        {"severity": "LOW", "description": "はじめに対象読者の明示なし", "suggestion": "対象読者を明記する1文を追加"},
+        {"severity": "LOW", "description": "NAV倍率等の専門用語の平易化が不統一", "suggestion": "全専門用語に括弧書き説明を統一"}
+      ]
+    }
+  },
+  "overall_score": 75,
+  "priority_fixes": [
+    {"priority": 1, "source": "compliance", "severity": "HIGH", "action": "免責事項を固定テキスト（snippets/disclaimer.md）に差し替える"},
+    {"priority": 2, "source": "fact", "severity": "HIGH", "action": "「インカム成長型エクイティ商品」の出典をSMBC日興証券に修正する"},
+    {"priority": 3, "source": "fact", "severity": "HIGH", "action": "内閣府CPI4-5%試算の出典URLを追加するか表現を修正する"},
+    {"priority": 4, "source": "structure/writer_rules", "severity": "HIGH", "action": "「ケーススタディ」セクションを追加する（800-1200字、年齢別モデルケース）"},
+    {"priority": 5, "source": "structure/writer_rules", "severity": "HIGH", "action": "「注意点・リスク」を独立H2セクションとして追加する"},
+    {"priority": 6, "source": "writer_rules", "severity": "HIGH", "action": "meta.yamlにarticle_idを設定、themeをasset_allocation、titleをH1と統一する"},
+    {"priority": 7, "source": "data_accuracy", "severity": "HIGH", "action": "金価格4,000ドル超にWGCのソースURLを付与する"},
+    {"priority": 8, "source": "readability", "severity": "HIGH", "action": "長文段落（日銀金利・WGCデータ）を短文に分割する"},
+    {"priority": 9, "source": "compliance", "severity": "MEDIUM", "action": "まとめの行動誘導表現を中立的な情報提供表現に変更する"},
+    {"priority": 10, "source": "writer_rules", "severity": "MEDIUM", "action": "参考データソースに「※ データは2026年4月時点のものです。」を追加する"}
+  ]
 }
