@@ -30,6 +30,7 @@ from mappers.base import BaseMapper, ChunkProcessingContext
 from mappers.finance_full import FinanceFullMapper
 from mappers.finance_news import FinanceNewsMapper
 from mappers.market_report import MarketReportMapper
+from mappers.own_articles import OwnArticlesMapper
 from mappers.pdf_extraction import PdfExtractionMapper
 from mappers.reddit_topics import RedditTopicsMapper
 from mappers.topic_discovery import TopicDiscoveryMapper
@@ -46,6 +47,7 @@ __all__ = [
     "FinanceFullMapper",
     "FinanceNewsMapper",
     "MarketReportMapper",
+    "OwnArticlesMapper",
     "PdfExtractionMapper",
     "RedditTopicsMapper",
     "TopicDiscoveryMapper",
@@ -68,6 +70,7 @@ _asset_management_mapper = AssetManagementMapper()
 _finance_full_mapper = FinanceFullMapper()
 _finance_news_mapper = FinanceNewsMapper()
 _market_report_mapper = MarketReportMapper()
+_own_articles_mapper = OwnArticlesMapper()
 _pdf_extraction_mapper = PdfExtractionMapper()
 _reddit_topics_mapper = RedditTopicsMapper()
 _topic_discovery_mapper = TopicDiscoveryMapper()
@@ -81,6 +84,7 @@ COMMAND_MAPPERS: dict[str, _MapperFn] = {
     "finance-full": _finance_full_mapper.map,
     "finance-news-workflow": _finance_news_mapper.map,
     "generate-market-report": _market_report_mapper.map,
+    "own-articles": _own_articles_mapper.map,
     "pdf-extraction": _pdf_extraction_mapper.map,
     "reddit-finance-topics": _reddit_topics_mapper.map,
     "topic-discovery": _topic_discovery_mapper.map,
@@ -96,6 +100,7 @@ COMMAND_MAPPERS: dict[str, _MapperFn] = {
 - ``finance-full``           → FinanceFullMapper
 - ``finance-news-workflow``  → FinanceNewsMapper
 - ``generate-market-report`` → MarketReportMapper
+- ``own-articles``           → OwnArticlesMapper
 - ``pdf-extraction``         → PdfExtractionMapper
 - ``reddit-finance-topics``  → RedditTopicsMapper
 - ``topic-discovery``        → TopicDiscoveryMapper
