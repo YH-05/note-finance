@@ -1,0 +1,146 @@
+{
+  "fetched_at": "2026-04-27T06:28:14.724084+00:00",
+  "source": "FRED /release/dates API (estimated schedule from past dates)",
+  "note": "FRED does not pre-register future release dates. estimated_next_date is approximated from historical patterns.",
+  "window": {
+    "start": "2026-04-27",
+    "end": "2026-05-11"
+  },
+  "release_count": 11,
+  "in_window_count": 4,
+  "fetch_errors": [],
+  "releases": [
+    {
+      "release_id": 10,
+      "release_name": "Consumer Price Index",
+      "frequency": "monthly",
+      "latest_past_date": "2026-04-10",
+      "estimated_next_date": "2026-05-10",
+      "estimated_next_in_window": true,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 46,
+      "release_name": "Producer Price Index",
+      "frequency": "monthly",
+      "latest_past_date": "2026-04-14",
+      "estimated_next_date": "2026-05-14",
+      "estimated_next_in_window": false,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 50,
+      "release_name": "Employment Situation",
+      "frequency": "monthly",
+      "latest_past_date": "2026-04-03",
+      "estimated_next_date": "2026-05-03",
+      "estimated_next_in_window": true,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 54,
+      "release_name": "Personal Income and Outlays",
+      "frequency": "monthly",
+      "latest_past_date": "2026-04-09",
+      "estimated_next_date": "2026-05-09",
+      "estimated_next_in_window": true,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 53,
+      "release_name": "Gross Domestic Product",
+      "frequency": "quarterly",
+      "latest_past_date": "2026-04-09",
+      "estimated_next_date": "2026-07-09",
+      "estimated_next_in_window": false,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 9,
+      "release_name": "Advance Monthly Sales for Retail",
+      "frequency": "monthly",
+      "latest_past_date": "2026-04-21",
+      "estimated_next_date": "2026-05-21",
+      "estimated_next_in_window": false,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 13,
+      "release_name": "Industrial Production and Capacity Utilization",
+      "frequency": "monthly",
+      "latest_past_date": "2026-04-16",
+      "estimated_next_date": "2026-05-16",
+      "estimated_next_in_window": false,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 27,
+      "release_name": "New Residential Construction",
+      "frequency": "monthly",
+      "latest_past_date": "2026-03-19",
+      "estimated_next_date": "2026-05-18",
+      "estimated_next_in_window": false,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 180,
+      "release_name": "Unemployment Insurance Weekly Claims",
+      "frequency": "weekly",
+      "latest_past_date": "2026-04-23",
+      "estimated_next_date": "2026-04-30",
+      "estimated_next_in_window": true,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 101,
+      "release_name": "FOMC Press Release",
+      "frequency": "varies",
+      "latest_past_date": "2026-04-26",
+      "estimated_next_date": null,
+      "estimated_next_in_window": false,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    },
+    {
+      "release_id": 91,
+      "release_name": "Surveys of Consumers (Univ. of Michigan)",
+      "frequency": "monthly",
+      "latest_past_date": "2026-03-27",
+      "estimated_next_date": "2026-05-26",
+      "estimated_next_in_window": false,
+      "window": {
+        "start": "2026-04-27",
+        "end": "2026-05-11"
+      }
+    }
+  ]
+}

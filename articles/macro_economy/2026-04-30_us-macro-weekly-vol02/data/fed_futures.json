@@ -1,0 +1,38 @@
+{
+  "fetched_at": "2026-04-27T06:28:09.147528+00:00",
+  "source": "yfinance (CME 30-Day Federal Funds Futures, ZQ monthly symbols)",
+  "description": "implied_ff_rate_pct = 100 - futures_price. Represents market-implied FF rate at contract expiry.",
+  "symbols_tried": [
+    "ZQ=F",
+    "ZQJ26=F",
+    "ZQK26=F",
+    "ZQM26=F",
+    "ZQN26=F",
+    "ZQQ26=F",
+    "ZQU26=F",
+    "ZQV26=F",
+    "ZQX26=F",
+    "ZQZ26=F"
+  ],
+  "contract_count": 1,
+  "failed_symbols": [
+    "ZQJ26=F",
+    "ZQK26=F",
+    "ZQM26=F",
+    "ZQN26=F",
+    "ZQQ26=F",
+    "ZQU26=F",
+    "ZQV26=F",
+    "ZQX26=F",
+    "ZQZ26=F"
+  ],
+  "contracts": [
+    {
+      "symbol": "ZQ=F",
+      "last_price": 96.39,
+      "implied_ff_rate_pct": 3.61,
+      "currency": "USD",
+      "exchange": "CBT"
+    }
+  ]
+}

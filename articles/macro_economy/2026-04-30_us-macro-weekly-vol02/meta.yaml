@@ -1,0 +1,55 @@
+title: 米国マクロ経済 vol.2 ─ PCEとCPIの乗離 ─ Fedの目に映る物価の実貌
+slug: us-macro-weekly-vol02
+category: macro_economy
+created_at: '2026-04-27'
+updated_at: '2026-04-27'
+target_wordcount: 5500
+target_publish_date: '2026-04-30'
+status: draft
+series:
+  name: 米国マクロ経済 weekly
+  volume: 2
+  rotation_week: 4
+  rotation_theme: PCE・GDP & 消費者心理
+tags:
+- 米国マクロ
+- PCE
+- CPI
+- GDP
+- Fed
+- 消費者心理
+- インフレ
+indicators:
+- PCEPI
+- PCEPILFE
+- CPIAUCSL
+- CPILFESL
+- GDPC1
+- GDPNOW
+- UMCSENT
+- CB Consumer Confidence
+regions:
+- US
+research_context:
+  main_theme: PCE・GDP & 消費者心理
+  deepdive_focus: PCE と CPI の乗離 ─ Fedが見る物価の実貌
+  subtitle_pattern: b-divergence
+  data_sources:
+  - FRED
+  - BLS
+  - BEA
+  - University of Michigan
+  - Conference Board
+  - Atlanta Fed GDPNow
+workflow:
+  init: done
+  research: pending
+  data_collection: in_progress
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+related_discussions:
+- disc-2026-04-27-us-macro-vol02-design
+- disc-2026-04-08-us-macro-weekly-collectors
+- disc-2026-04-11-us-macro-vol01-design  # archived
