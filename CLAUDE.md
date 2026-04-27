@@ -37,7 +37,6 @@
 
 | コマンド | 説明 |
 |----------|------|
-| `/topic-discovery` | KGデータ優先で記事トピックを提案（旧: `/finance-suggest-topics`） |
 | `/kg-summary` | トピックのKGアセットをCypherで即時照会（LLM不使用） |
 | `/generate-market-report` | 週次マーケットレポートを自動生成 |
 | `/ai-research-collect` | AI投資バリューチェーン収集 |

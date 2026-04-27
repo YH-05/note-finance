@@ -273,4 +273,4 @@ LIMIT 10
 | `/kg-summary` | KGアセットの定量サマリー（LLM不使用、数値のみ） |
 | `/investment-research` | KG照会 + 外部検索でギャップを埋める |
 | `/research-enrichment` | KGの知識ギャップを自動拡充する |
-| `/topic-discovery` | KGデータからトピック候補を発掘する |
+| `topic-suggest` スキル | KGデータからトピック候補を発掘する（旧 `/topic-discovery` は廃止） |

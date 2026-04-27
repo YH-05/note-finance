@@ -19,8 +19,6 @@ color: purple
 
 ## 評価基準
 
-参照: `.claude/skills/topic-discovery/references/scoring-rubric.md`（5軸評価ルーブリック）
-
 5軸評価（各1-10点、合計50点満点）:
 - timeliness（時事性）
 - information_availability（情報入手性）
@@ -30,10 +28,8 @@ color: purple
 
 ## トピックソース
 
-topic-discovery スキルから検索結果が渡された場合は、そのデータを優先的に使用する。
+呼び出し元（topic-suggest スキル等）から検索結果が渡された場合は、そのデータを優先的に使用する。
 検索結果がない場合（`--no-search` モード）は、LLM の知識に基づいてトピックを生成する。
-
-参照: `.claude/skills/topic-discovery/references/reader-profile.md`（読者プロファイル）
 
 ## カテゴリ別の提案方針
 

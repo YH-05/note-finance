@@ -211,7 +211,7 @@ Phase 3: ニュース検索
 
 **注意**: Gemini CLI（`gemini`）によるWeb検索は使用禁止。Tavily MCP → WebSearch の順でフォールバック
 
-### パターン3: トピック発掘（`topic-discovery`）
+### パターン3: トピック発掘（`topic-suggest` スキル）
 
 ```
 トレンドリサーチ（8-12回）:
@@ -273,5 +273,4 @@ ToolSearch(query="+fetch")
 | Gemini Search コマンド | `.claude/commands/gemini-search.md` |
 | 検索テンプレート | `.claude/resources/search-templates/` |
 | 投資リサーチ検索戦略 | `.claude/skills/investment-research/references/search-strategy.md` |
-| トピック発掘検索戦略 | `.claude/skills/topic-discovery/references/search-strategy.md` |
 | マーケットレポート | `.claude/commands/generate-market-report.md` |

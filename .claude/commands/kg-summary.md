@@ -169,4 +169,4 @@ RETURN e.name AS entity,
 
 - `/article-init` — 完了時に自動実行（Phase 5）
 - `/article-research` — リサーチ実行（Step 0で同様のKG照会を実施）
-- `/topic-discovery` — トピック提案（Phase 0でKG照会を実施）
+- `topic-suggest` スキル — トピック提案（旧 `/topic-discovery` は廃止）
