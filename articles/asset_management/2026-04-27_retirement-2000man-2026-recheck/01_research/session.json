@@ -1,4 +1,47 @@
 {
-    "article_id": "",
-    "session": {}
+  "article_id": "2026-04-27_retirement-2000man-2026-recheck",
+  "session": {
+    "session_id": "article-research-retirement-2000man-20260427-1030",
+    "research_topic": "「老後2000万円問題」の終わり？2026年最新家計調査で再検証する令和の老後必要額",
+    "as_of_date": "2026-04-27",
+    "kg_gap_analysis": {
+      "existing_data": {
+        "entities": 2,
+        "facts": 2,
+        "claims": 5,
+        "sources": 0
+      },
+      "gaps_identified": [
+        {
+          "type": "stale_data",
+          "priority": "HIGH",
+          "description": "2025年家計調査（2026年2月公表）の最新データがKGにない"
+        },
+        {
+          "type": "no_coverage",
+          "priority": "HIGH",
+          "description": "2026年度年金額改定データがない"
+        },
+        {
+          "type": "missing_financials",
+          "priority": "MEDIUM",
+          "description": "インフレ調整後の試算がない"
+        },
+        {
+          "type": "no_coverage",
+          "priority": "MEDIUM",
+          "description": "NISA/iDeCoによる老後資金補填シミュレーションがない"
+        }
+      ]
+    },
+    "web_searches_performed": [
+      "老後2000万円問題 2026年 再試算 家計調査 最新",
+      "総務省 家計調査 2025年 65歳以上 老後 生活費 月額",
+      "厚生年金 受給額 2025 2026年度 平均 夫婦",
+      "老後資金 インフレ 物価上昇 必要額 2000万円 上方修正 2025 2026",
+      "新NISA iDeCo 老後資金 月3万円 積立 シミュレーション 25年 30年"
+    ],
+    "sources_collected": 12,
+    "status": "completed"
+  }
 }

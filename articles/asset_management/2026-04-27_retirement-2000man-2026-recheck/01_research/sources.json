@@ -1,4 +1,176 @@
 {
-    "article_id": "",
-    "sources": []
+  "article_id": "2026-04-27_retirement-2000man-2026-recheck",
+  "sources": [
+    {
+      "url": "https://www.stat.go.jp/data/kakei/sokuhou/tsuki/pdf/fies_gaikyo2025.pdf",
+      "title": "家計調査報告〔家計収支編〕2025年（令和7年）平均結果の概要",
+      "authority_level": "official",
+      "published_at": "2026-02-06",
+      "source_type": "official",
+      "key_data": {
+        "couple_65plus_income": 254395,
+        "couple_65plus_consumption": 263979,
+        "couple_65plus_deficit_monthly": 42434,
+        "single_65plus_income": 131456,
+        "single_65plus_consumption": 148445,
+        "single_65plus_deficit_monthly": 29980
+      }
+    },
+    {
+      "url": "https://news.yahoo.co.jp/articles/fbfb5dcbee20a03b8c5fbbe17598bb80a098ff16",
+      "title": "「老後2000万円問題から5年」結局いくら必要？最新の家計調査で探る《最低限の老後資金》とは？（LIMO）",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "source_type": "news",
+      "key_data": {
+        "2024_couple_income": 252818,
+        "2024_couple_expenditure": 286877,
+        "2024_couple_deficit": 34058,
+        "2017_couple_deficit": 54519
+      }
+    },
+    {
+      "url": "https://siaa.or.jp/column/175",
+      "title": "2026年度（令和8年度）の年金額が決定しました | 公的保険アドバイザー協会",
+      "authority_level": "official",
+      "published_at": "2026-01-29",
+      "source_type": "official",
+      "key_data": {
+        "kokuminnenkin_2026_full": 70608,
+        "kokuminnenkin_increase_rate": 0.019,
+        "koseinenkin_model_couple": 237279,
+        "koseinenkin_increase_rate": 0.020,
+        "model_case_husband_only": 173457,
+        "base_pension_part": 69951,
+        "earnings_related_part": 106842
+      }
+    },
+    {
+      "url": "https://finance.yahoo.co.jp/news/detail/15590e2f3486944f6f88d552756826c1ba6f1cd7",
+      "title": "【2026年版】年金はいつ、いくらもらえる？国民年金・厚生年金の平均受給額と65歳以上の家計収支を解説(LIMO)",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "source_type": "news",
+      "key_data": {
+        "koseinenkin_avg_all": 150289,
+        "koseinenkin_avg_male": 169967,
+        "koseinenkin_avg_female": 111413,
+        "kokuminnenkin_avg": 59310
+      }
+    },
+    {
+      "url": "https://note.com/kusuda_money/n/nbd2f27f1b3c4",
+      "title": "老後2,000万円問題は本当か？2026年の最新データで再計算してみた｜あきFP",
+      "authority_level": "blog",
+      "published_at": "2026-04-01",
+      "source_type": "blog",
+      "key_data": {
+        "2024_deficit": 61000,
+        "30yr_total": 21960000,
+        "insight": "2024年データでは月赤字6.1万円→30年で約2,196万円（物価上昇含む再試算）"
+      }
+    },
+    {
+      "url": "https://www.dlri.co.jp/report/macro/340975.html",
+      "title": "「老後資金4000万円必要」に対する誤解 | 第一ライフ資産運用経済研究所",
+      "authority_level": "analyst",
+      "published_at": "2025-01-01",
+      "source_type": "analyst",
+      "key_data": {
+        "2023_deficit_monthly": 38000,
+        "inflation_2pct_30yr": 12000000,
+        "age_65_69_deficit": 41000,
+        "age_70_74_deficit": 36000,
+        "age_75_79_deficit": 27000,
+        "age_80_84_deficit": 29000,
+        "age_85plus_deficit": 11000,
+        "conclusion": "年齢別支出減を加味+インフレ2%前提で老後資金は1,200万円弱で足りる"
+      }
+    },
+    {
+      "url": "https://fp-kane.com/%E8%80%81%E5%BE%8C2000%E4%B8%87%E5%86%86%E5%95%8F%E9%A1%8C%E3%81%AF%E5%8F%A4%E3%81%84%EF%BC%9F%E6%9C%80%E6%96%B0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%A7%E8%A6%8B%E3%82%8B%E3%80%8C%E6%9C%AC%E5%BD%93",
+      "title": "老後2000万円問題は古い？最新データで見る「本当の老後必要資金」",
+      "authority_level": "analyst",
+      "published_at": "2025-06-01",
+      "source_type": "analyst",
+      "key_data": {
+        "2024_25yr_total": 10200000,
+        "yutori_life_monthly": 391000,
+        "yutori_life_pension_gap": 158000,
+        "yutori_life_25yr_total": 47400000,
+        "average_care_cost": 5400000,
+        "nursing_monthly": 90000,
+        "nursing_duration_months": 55
+      }
+    },
+    {
+      "url": "https://media.rakuten-sec.net/articles/-/52211",
+      "title": "「老後に4,000万円」は本当？インフレ時代を生き抜く投資家のための思考法 | トウシル",
+      "authority_level": "media",
+      "published_at": "2026-01-01",
+      "source_type": "news",
+      "key_data": {
+        "cpi_2020_base": 100,
+        "cpi_2025": 111.9,
+        "5yr_inflation": 0.12,
+        "inflation_3pct_20yr_multiplier": 1.807,
+        "conclusion": "5年で+12%→2000万円が2,240万円相当。「老後3,000万円時代」の可能性"
+      }
+    },
+    {
+      "url": "https://www.nikkei.com/article/DGXZQOUA212ZW0R20C26A1000000/",
+      "title": "26年度の年金、夫婦2人で4495円増　抑制定着も将来給付に不安 - 日本経済新聞",
+      "authority_level": "media",
+      "published_at": "2026-01-23",
+      "source_type": "news",
+      "key_data": {
+        "2026_model_couple": 237279,
+        "2026_increase": 4495,
+        "2025_price_change": 0.032,
+        "2022_2024_wage_change": 0.021,
+        "macro_slide_consecutive_years": 4,
+        "future_risk": "経済成長ゼロ継続の場合、2052年度まで基礎年金の抑制続く可能性。30年後に夫婦2人の基礎年金3割低下"
+      }
+    },
+    {
+      "url": "https://xtrend.nikkei.com/atcl/contents/18/01234/00002/",
+      "title": "物価上昇で「年金2000万円問題」再燃　老後は実際いくら必要？：日経クロストレンド",
+      "authority_level": "media",
+      "published_at": "2025-09-04",
+      "source_type": "news",
+      "key_data": {
+        "inflation_scenario": "インフレ率2%継続の場合、必要資金は3,000万円規模",
+        "source": "日経トレンディ2025年10月号"
+      }
+    },
+    {
+      "url": "https://money-career.com/article/2880",
+      "title": "新NISAで月3万円の積立は意味ない？10～30年後の運用益をFPがシミュレーション",
+      "authority_level": "blog",
+      "published_at": "2025-01-01",
+      "source_type": "blog",
+      "key_data": {
+        "monthly_30k_5pct_30yr": 24461000,
+        "monthly_30k_7pct_30yr": 35084000,
+        "monthly_30k_3pct_30yr": 17482000,
+        "monthly_30k_5pct_25yr": 17572000,
+        "investment_30yr": 10800000,
+        "return_5pct_30yr": 13661000
+      }
+    },
+    {
+      "url": "https://www.dai-ichi-life.co.jp/promotion/first_step/basic/00084/index.html",
+      "title": "老後資金はいくらあれば安心？老後の生活に必要な金額と準備方法を紹介｜第一生命",
+      "authority_level": "analyst",
+      "published_at": "2025-01-01",
+      "source_type": "analyst",
+      "key_data": {
+        "2025_model_couple_monthly": 232784,
+        "hokenseikatsu_min_monthly": 239000,
+        "hokenseikatsu_yutori_monthly": 391000,
+        "average_lifespan_male": 81.09,
+        "average_lifespan_female": 87.14
+      }
+    }
+  ]
 }
