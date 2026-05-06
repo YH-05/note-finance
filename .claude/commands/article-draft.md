@@ -27,7 +27,7 @@ Step 1: 前提確認
 └── workflow.research = "done" を確認
 
 Step 2: カテゴリ別ライター実行
-├── stock_analysis / macro_economy / quant_analysis / investment_education / asset_management / market_report / earnings
+├── stock_analysis / macro_economy / quant_analysis / investment_education / asset_management / life_planning / market_report / earnings
 │   └── Skill("finance-article-writer") を起動（引数: article_dir）
 │       スキルが共通ルール + カテゴリ別ルールを読み込み、Agent をスポーンして初稿を生成
 ├── side_business (type: case_study)
@@ -76,7 +76,7 @@ Step 4: [HF5] 初稿レビュー
 
 ### Step 2: カテゴリ別ライター実行
 
-#### stock_analysis / macro_economy / quant_analysis / investment_education / asset_management / market_report / earnings
+#### stock_analysis / macro_economy / quant_analysis / investment_education / asset_management / life_planning / market_report / earnings
 
 ```
 スキル: finance-article-writer

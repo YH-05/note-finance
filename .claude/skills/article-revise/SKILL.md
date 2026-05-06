@@ -110,8 +110,10 @@ changes:
 以下は `.claude/rules/article-quality-standards.md` で定義されたルール。フィードバック反映時も必ず守る:
 
 1. **マークダウン表の画像化**: 修正で表を追加した場合は `/generate-table-image` で画像化
-2. **ソースURL埋め込み**: 数値データ・統計の引用にはソースURLをリンクとして埋め込む
+2. **ソースURLは「引用段落直後の単独段落」で配置**: `[text](url)` のマークダウンリンクは note.com 投稿時に URL が剥がれるため**禁止**。引用段落の直後に空行を挟んで URL のみの独立段落を置き、note.com の自動リンクカード化に乗せる
 3. **チャートの画像化**: データ可視化が必要なら `/generate-chart-image` で画像化
+
+詳細仕様: `.claude/rules/article-quality-standards.md` ルール2
 
 ### コンプライアンス（常に遵守）
 

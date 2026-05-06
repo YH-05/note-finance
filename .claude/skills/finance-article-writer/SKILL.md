@@ -9,7 +9,7 @@ note.com 向け金融記事の初稿を生成するオーケストレーター�
 
 ## 対象カテゴリ
 
-stock_analysis, macro_economy, investment_education, quant_analysis, market_report, asset_management, earnings
+stock_analysis, macro_economy, investment_education, quant_analysis, market_report, asset_management, earnings, life_planning
 
 ## 引数
 
@@ -38,6 +38,7 @@ stock_analysis, macro_economy, investment_education, quant_analysis, market_repo
 | market_report | `references/market-report.md` |
 | asset_management | `references/asset-management.md` |
 | earnings | `references/earnings.md` |
+| life_planning | `references/life-planning.md`（+ `references/cfp-grade-rules.md` を `quality_tier: cfp_grade` 時に追加読込） |
 
 ### Step 3: Agent ���ポーン
 

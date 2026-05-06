@@ -39,6 +39,7 @@ argument-hint: [トピック名]
    - `investment_education`: 投資教育・基礎知識
    - `quant_analysis`: クオンツ分析・戦略検証
    - `asset_management`: 資産形成・初心者向け投資
+   - `life_planning`: ライフプランニング・資金計画（CFP相当：年金/社保/住宅/教育/退職/保険）
 
    ユーザーに質問：
 
@@ -50,6 +51,7 @@ argument-hint: [トピック名]
    4. investment_education (投資教育・基礎知識)
    5. quant_analysis (クオンツ分析・戦略検証)
    6. asset_management (資産形成・初心者向け投資)
+   7. life_planning (ライフプランニング・資金計画 - CFP相当品質)
    ```
 
 3. **英語テーマ名の生成**
@@ -290,6 +292,7 @@ mkdir -p articles/
 | investment_education | beginner | topics |
 | quant_analysis | advanced | symbols, date_range, backtest_config |
 | asset_management | beginner | topics |
+| life_planning | intermediate | topics, theme, quality_tier |
 
 ## 関連コマンド・エージェント
 

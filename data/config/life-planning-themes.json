@@ -1,0 +1,191 @@
+{
+    "version": "1.0",
+    "category": "life_planning",
+    "description": "ライフプランニング・資金計画カテゴリ。CFP6分野のうち『ライフプランニングと資金計画』を中心に、社会保険・住宅・教育・退職設計を扱う。",
+    "themes": {
+        "pension": {
+            "name_ja": "公的年金",
+            "keywords_ja": [
+                "国民年金",
+                "厚生年金",
+                "年金",
+                "受給",
+                "繰上げ",
+                "繰下げ",
+                "在職老齢",
+                "加給年金",
+                "障害年金",
+                "遺族年金",
+                "ねんきん"
+            ],
+            "target_sources": ["nenkin", "mhlw", "fsa"],
+            "primary_sources": [
+                "https://www.nenkin.go.jp/",
+                "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/nenkin.html"
+            ],
+            "regulatory_notes": "個別年金額の確定計算は社労士法第27条の業独占に抵触する可能性。モデルケース計算に限定し、『個別の試算は年金事務所/社労士へ』を明記すること。"
+        },
+        "social_insurance": {
+            "name_ja": "社会保険",
+            "keywords_ja": [
+                "健康保険",
+                "国民健康保険",
+                "介護保険",
+                "雇用保険",
+                "労災",
+                "扶養",
+                "傷病手当金",
+                "出産手当金",
+                "高額療養費",
+                "標準報酬月額"
+            ],
+            "target_sources": ["mhlw", "kyoukaikenpo", "nenkin"],
+            "primary_sources": [
+                "https://www.mhlw.go.jp/",
+                "https://www.kyoukaikenpo.or.jp/"
+            ],
+            "regulatory_notes": "健保組合・協会けんぽ等で給付内容に差異あり。一般論に留め、個別判断は加入先窓口へ案内。"
+        },
+        "housing_loan": {
+            "name_ja": "住宅ローン",
+            "keywords_ja": [
+                "住宅ローン",
+                "変動金利",
+                "固定金利",
+                "フラット35",
+                "団信",
+                "住宅ローン控除",
+                "借換",
+                "繰上返済",
+                "ペアローン",
+                "返済比率"
+            ],
+            "target_sources": ["mlit", "jhf", "nta", "boj"],
+            "primary_sources": [
+                "https://www.mlit.go.jp/",
+                "https://www.jhf.go.jp/",
+                "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1213.htm"
+            ],
+            "regulatory_notes": "住宅ローン控除は年度ごとに改正多。執筆時点の最新通達を必ず参照。商品比較は金融機関名を例示する場合『〜の特徴を持つ商品もある』形式で記述。"
+        },
+        "education_fund": {
+            "name_ja": "教育資金",
+            "keywords_ja": [
+                "教育資金",
+                "学資保険",
+                "ジュニアNISA",
+                "こどもNISA",
+                "奨学金",
+                "教育ローン",
+                "教育費",
+                "贈与",
+                "暦年贈与",
+                "教育資金一括贈与"
+            ],
+            "target_sources": ["mext", "jasso", "nta", "fsa"],
+            "primary_sources": [
+                "https://www.mext.go.jp/",
+                "https://www.jasso.go.jp/",
+                "https://www.nta.go.jp/"
+            ],
+            "regulatory_notes": "教育資金一括贈与の特例は2026年改正適用。最新の非課税枠と要件を必ず確認。"
+        },
+        "retirement_design": {
+            "name_ja": "リタイアメント設計",
+            "keywords_ja": [
+                "退職金",
+                "退職所得",
+                "取り崩し",
+                "4%ルール",
+                "出口戦略",
+                "セカンドライフ",
+                "老後資金",
+                "公的年金等控除",
+                "在職老齢年金",
+                "繰下げ受給"
+            ],
+            "target_sources": ["mhlw", "nenkin", "nta", "fsa"],
+            "primary_sources": [
+                "https://www.nenkin.go.jp/",
+                "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1420.htm"
+            ],
+            "regulatory_notes": "退職所得控除は勤続年数で大きく変動。具体的計算式の明示と、複数勤続年数でのモデル提示が必須。"
+        },
+        "life_event_planning": {
+            "name_ja": "ライフイベント設計",
+            "keywords_ja": [
+                "ライフプラン",
+                "キャッシュフロー",
+                "結婚",
+                "出産",
+                "育児休業",
+                "介護",
+                "介護離職",
+                "教育費",
+                "住宅取得",
+                "ライフイベント表"
+            ],
+            "target_sources": ["mhlw", "cao", "fsa"],
+            "primary_sources": [
+                "https://www.mhlw.go.jp/",
+                "https://www.cao.go.jp/"
+            ],
+            "regulatory_notes": "個別キャッシュフロー作成は一般論として例示。読者ごとの実額計算は『個別はFP相談を』と案内。"
+        },
+        "insurance_basics": {
+            "name_ja": "保険基礎",
+            "keywords_ja": [
+                "生命保険",
+                "医療保険",
+                "がん保険",
+                "就業不能",
+                "収入保障",
+                "公的保障",
+                "高額療養費",
+                "傷病手当金",
+                "保険見直し",
+                "団信"
+            ],
+            "target_sources": ["seiho", "sonpo", "mhlw", "fsa"],
+            "primary_sources": [
+                "https://www.seiho.or.jp/",
+                "https://www.sonpo.or.jp/",
+                "https://www.fsa.go.jp/"
+            ],
+            "regulatory_notes": "保険業法第275条の募集行為に該当する表現は禁止。商品名・保険会社名を挙げての推奨は不可。『公的保障で何がカバーされ、何が不足するか』の構造解説に留め、個別商品検討は『代理店・保険会社へ』と案内。"
+        }
+    },
+    "content_rules": {
+        "target_audience": "intermediate",
+        "quality_tier_default": "cfp_grade",
+        "required_snippets": ["not-advice", "not-tax-advice", "not-insurance-recruitment"],
+        "note_char_range_standard": [8000, 10000],
+        "note_char_range_cfp_grade": [12000, 15000],
+        "x_char_limit": 280,
+        "minimum_personas": 3,
+        "minimum_sources": 10,
+        "primary_source_ratio_min": 0.5
+    },
+    "regulatory_framework": {
+        "shakaihoken_roumushi_law": {
+            "article": "社会保険労務士法 第27条",
+            "scope": "労働社会保険諸法令に基づく申請書等の作成・提出代行・相談業務の独占",
+            "compliance_pattern": "個別年金額・標準報酬月額・給付額の確定計算は禁止。モデルケース計算と一般論解説に限定。"
+        },
+        "zeirishi_law": {
+            "article": "税理士法 第52条",
+            "scope": "税務代理・税務書類作成・税務相談の独占",
+            "compliance_pattern": "個別税額の確定計算は禁止。税法の一般論解説とモデルケース計算（『年収500万円・40歳の場合』等の仮定値）に限定。"
+        },
+        "hoken_law": {
+            "article": "保険業法 第275条",
+            "scope": "保険募集（契約締結の代理・媒介）の規制",
+            "compliance_pattern": "特定商品の推奨、契約への誘引は禁止。公的保障の構造解説と保険要否の判断基準提示に限定。"
+        },
+        "kinshouhou": {
+            "article": "金融商品取引法 第28条・第29条",
+            "scope": "投資助言・代理業の登録要件",
+            "compliance_pattern": "個別銘柄・個別ファンドの売買推奨は禁止。一般論として『〜という特徴を持つ商品群がある』表現を使用。"
+        }
+    }
+}

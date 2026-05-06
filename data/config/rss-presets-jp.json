@@ -139,6 +139,87 @@
             "fetch_interval": "daily",
             "enabled": false,
             "note": "ibbotson.co.jpへ301リダイレクト。RSS配信終了"
+        },
+        {
+            "url": "https://www.mhlw.go.jp/stf/news.rdf",
+            "title": "厚生労働省 新着情報",
+            "category": "life_planning",
+            "source_id": "jp-government",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "note": "公的年金・社会保険・育児介護の一次出典"
+        },
+        {
+            "url": "https://www.nenkin.go.jp/oshirase/topics/index.rss",
+            "title": "日本年金機構 お知らせ",
+            "category": "life_planning",
+            "source_id": "jp-government",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "note": "年金制度・受給に関する一次出典。RSS未提供の場合は手動取り込みフォールバック"
+        },
+        {
+            "url": "https://www.nta.go.jp/news.rdf",
+            "title": "国税庁 新着情報",
+            "category": "life_planning",
+            "source_id": "jp-government",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "note": "所得税・住宅ローン控除・贈与税の一次出典"
+        },
+        {
+            "url": "https://www.mext.go.jp/news.rss",
+            "title": "文部科学省 新着情報",
+            "category": "life_planning",
+            "source_id": "jp-government",
+            "fetch_interval": "daily",
+            "enabled": true,
+            "note": "教育費・奨学金・教育資金贈与の一次出典"
+        },
+        {
+            "url": "https://www.jhf.go.jp/news/rss.xml",
+            "title": "住宅金融支援機構 ニュース",
+            "category": "life_planning",
+            "source_id": "jp-government",
+            "fetch_interval": "weekly",
+            "enabled": true,
+            "note": "フラット35・住宅ローン金利動向の一次出典"
+        },
+        {
+            "url": "https://www.kyoukaikenpo.or.jp/g7/cat750/rss.xml",
+            "title": "全国健康保険協会（協会けんぽ）",
+            "category": "life_planning",
+            "source_id": "jp-government",
+            "fetch_interval": "weekly",
+            "enabled": true,
+            "note": "健康保険・標準報酬月額・給付の一次出典"
+        },
+        {
+            "url": "https://www.seiho.or.jp/info/news/rss/index.xml",
+            "title": "生命保険協会 お知らせ",
+            "category": "life_planning",
+            "source_id": "jp-industry",
+            "fetch_interval": "weekly",
+            "enabled": true,
+            "note": "生命保険業界統計・契約者保護の業界団体出典"
+        },
+        {
+            "url": "https://www.sonpo.or.jp/news/rss/index.xml",
+            "title": "日本損害保険協会 お知らせ",
+            "category": "life_planning",
+            "source_id": "jp-industry",
+            "fetch_interval": "weekly",
+            "enabled": true,
+            "note": "損害保険業界統計の業界団体出典"
+        },
+        {
+            "url": "https://www.jasso.go.jp/news/rss.xml",
+            "title": "日本学生支援機構（JASSO）",
+            "category": "life_planning",
+            "source_id": "jp-government",
+            "fetch_interval": "weekly",
+            "enabled": true,
+            "note": "奨学金・教育ローン制度の一次出典"
         }
     ]
 }

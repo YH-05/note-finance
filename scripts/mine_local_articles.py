@@ -118,7 +118,7 @@ def load_article(meta_path: Path) -> dict | None:
         "draft_url": meta.get("draft_url"),
         "symbols": collect_symbols(meta),
         "keywords": extract_keywords(draft_text),
-        "has_draft": draft_path.exists(),
+        "has_draft": draft_path is not None,
         "draft_chars": len(draft_text),
         "meta_path": str(meta_path.relative_to(meta_path.parents[3])),
     }

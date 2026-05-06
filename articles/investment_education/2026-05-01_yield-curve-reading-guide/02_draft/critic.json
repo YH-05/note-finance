@@ -1,0 +1,207 @@
+{
+    "article_id": "2026-05-01_yield-curve-reading-guide",
+    "generated_at": "2026-05-01",
+    "critics": {
+        "structure": {
+            "critic_type": "structure",
+            "score": 78,
+            "issues": [
+                {
+                    "issue_id": "ST001",
+                    "severity": "high",
+                    "category": "sections",
+                    "location": {
+                        "section": "全体構成",
+                        "description": "テンプレート必須セクション「なぜ重要なのか」が独立セクションとして存在しない"
+                    },
+                    "issue": "investment_educationテンプレートで必須の「なぜ重要なのか」セクション（300-500字）が独立していない。重要性に関する記述は「イールドカーブとは」セクション冒頭と「はじめに」に分散しているが、独立した見出しとして明示されていない。",
+                    "suggestion": "「## なぜイールドカーブを読むのか」という独立セクションを「## イールドカーブとは」の直後に追加し、景気サイクル先読み・投資判断への活用・マクロ環境把握の3点を300-400字で明示する。"
+                },
+                {
+                    "issue_id": "ST002",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "FREDで確認する実践ガイド",
+                        "description": "実践ガイドのステップ形式がテンプレート要件と異なる"
+                    },
+                    "issue": "テンプレートは「実践ガイド（ステップ1〜3）」という番号付きステップ形式を想定しているが、本記事では「系列1・系列2・系列3」という確認対象のリストになっている。手順を追った操作ガイドではなく、データソースの紹介にとどまっている。",
+                    "suggestion": "「ステップ1: FREDにアクセスする」「ステップ2: T10Y2Yで逆イールドを確認する」「ステップ3: T10YIE・THREEFYTP10と重ね合わせて解釈する」という操作手順形式に再構成する。"
+                },
+                {
+                    "issue_id": "ST003",
+                    "severity": "medium",
+                    "category": "flow",
+                    "location": {
+                        "section": "長期金利の3つの構成要素 → タームプレミアムとは何か → 期待インフレ率の読み方",
+                        "description": "上級概念のセクションが連続し、基礎読者の離脱リスクがある"
+                    },
+                    "issue": "「長期金利の3つの構成要素」から「タームプレミアム」「期待インフレ率」「4つのカーブ変化パターン」「現在の局面」へと続く中盤部が計5セクション・約4500字に及び、概念負荷が高い。入門記事として想定される読者には難度の急上昇が生じる。",
+                    "suggestion": "「長期金利の3つの構成要素」セクション末尾に「以降は中級内容です。基本の確認だけであれば実践ガイドへお進みください」といった1文の誘導を追加し、読者が自分のレベルに合わせて読み飛ばせるよう配慮する。"
+                },
+                {
+                    "issue_id": "ST004",
+                    "severity": "medium",
+                    "category": "sections",
+                    "location": {
+                        "section": "全体",
+                        "description": "テンプレート想定7セクションに対して実際は12セクション"
+                    },
+                    "issue": "「2/10年スプレッドが示すもの」「長期金利の3つの構成要素」「タームプレミアムとは何か」「期待インフレ率の読み方」「絵で読む：4つのカーブ変化パターン」「現在の局面（2025〜2026年）」という6セクションが追加されており、investment_educationカテゴリの入門記事として想定されるボリュームを大幅に超えている。各セクションの内容は質が高いが、全体の読了時間が増大する。",
+                    "suggestion": "「長期金利の3つの構成要素」「タームプレミアムとは何か」「期待インフレ率の読み方」の3セクションを「## 長期金利を分解する3つの要素」という1セクションに統合し、各要素の説明を圧縮することで記事のテンポを改善する。"
+                },
+                {
+                    "issue_id": "ST005",
+                    "severity": "low",
+                    "category": "introduction",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "セクション末尾の読み進め誘導文"
+                    },
+                    "issue": "「ぜひ最後までお読みください」という誘導は汎用的で弱い。読者が記事を読み終えた後に得られる具体的スキルが提示されていない。",
+                    "suggestion": "「本記事を読み終えると、FREDの3系列を使って現在の景気サイクル位置を5分で判断できるようになります」など、読後に得られる具体的なスキルを明示する文に置き換える。"
+                },
+                {
+                    "issue_id": "ST006",
+                    "severity": "low",
+                    "category": "conclusion",
+                    "location": {
+                        "section": "まとめ",
+                        "description": "次のアクションへの誘導"
+                    },
+                    "issue": "まとめの「ぜひ活用してみてください」はアクション誘導として弱い。関連記事への導線や次に読むべきコンテンツの提案がなく、読者の次のステップが不明確。",
+                    "suggestion": "「次のステップとして、実質金利とドル円の関係を解説した記事もあわせてご覧ください」など、シリーズ内の関連記事への具体的な誘導を追加する。"
+                },
+                {
+                    "issue_id": "ST007",
+                    "severity": "low",
+                    "category": "readability",
+                    "location": {
+                        "section": "期待インフレ率の読み方",
+                        "description": "PCEとCPIの差異を扱う段落"
+                    },
+                    "issue": "「FRBが目標とするインフレ指標はPCE（個人消費支出デフレーター）で2%です。消費者物価指数（CPI）はPCEよりも0.2〜0.3%ポイント高めに出る傾向があるため、CPI換算では約2.3%程度がFRBの事実上の目標水準に相当します。」という段落はFRBの目標とPCE・CPIの差という2つの異なる論点を1文で接続しており、読者が一度に処理する情報量が多い。",
+                    "suggestion": "PCEの目標値の説明と、CPIとの差異の補足説明を別段落に分離する。"
+                }
+            ],
+            "section_analysis": [
+                {
+                    "section": "はじめに",
+                    "word_count": 279,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "イールドカーブとは",
+                    "word_count": 766,
+                    "subsections": 2,
+                    "balance": "適切"
+                },
+                {
+                    "section": "2/10年スプレッドが示すもの",
+                    "word_count": 1016,
+                    "subsections": 3,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "長期金利の3つの構成要素",
+                    "word_count": 528,
+                    "subsections": 3,
+                    "balance": "適切"
+                },
+                {
+                    "section": "タームプレミアムとは何か",
+                    "word_count": 1163,
+                    "subsections": 3,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "期待インフレ率の読み方",
+                    "word_count": 952,
+                    "subsections": 3,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "絵で読む：4つのカーブ変化パターン",
+                    "word_count": 1151,
+                    "subsections": 2,
+                    "balance": "長すぎ"
+                },
+                {
+                    "section": "現在の局面（2025〜2026年）",
+                    "word_count": 644,
+                    "subsections": 3,
+                    "balance": "適切"
+                },
+                {
+                    "section": "FREDで確認する実践ガイド",
+                    "word_count": 988,
+                    "subsections": 2,
+                    "balance": "適切"
+                },
+                {
+                    "section": "よくある疑問（FAQ）",
+                    "word_count": 1125,
+                    "subsections": 5,
+                    "balance": "適切"
+                },
+                {
+                    "section": "注意点とリスク",
+                    "word_count": 449,
+                    "subsections": 0,
+                    "balance": "適切"
+                },
+                {
+                    "section": "まとめ",
+                    "word_count": 687,
+                    "subsections": 0,
+                    "balance": "適切"
+                }
+            ],
+            "readability_metrics": {
+                "avg_sentence_length": 50,
+                "avg_paragraph_length": 2,
+                "technical_terms_explained": 11,
+                "technical_terms_unexplained": 2
+            }
+        },
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 83,
+            "status": "warning",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "high",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾（免責事項）",
+                        "line": "免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあります。株式、債券、投資信託、ETF等の金融商品は、市場の変動により価値が上下します。過去の実績は将来の運用成果を保証するものではありません。本記事に含まれる見通しや予測は、作成時点の情報に基づくものであり、将来の結果を保証するものではありません。NISA等の税制優遇制度の内容は、税制改正により変更される可能性があります。投資に関する最終決定は、ご自身の判断と責任において行ってください。"
+                    },
+                    "issue": "記事内の免責事項が snippets/disclaimer.md の固定テキストから逸脱している。記事版には「株式、債券、投資信託、ETF等の金融商品は、市場の変動により価値が上下します。」「本記事に含まれる見通しや予測は、作成時点の情報に基づくものであり、将来の結果を保証するものではありません。」「NISA等の税制優遇制度の内容は、税制改正により変更される可能性があります。」の3文が追加されており、スニペット固定テキストに含まれる「本記事の内容により生じたいかなる損失についても責任を負いかねます。」が欠落している。",
+                    "regulation": "金融商品取引法 第37条（広告等の規制）・コンプライアンス基準 必須免責事項（固定テキスト要件）",
+                    "suggestion": "snippets/disclaimer.md の全文に完全に置き換えること。固定テキスト: 「免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。」"
+                }
+            ],
+            "required_disclaimers": {
+                "closing_greeting": {
+                    "present": true,
+                    "location": "末尾（免責事項の直前）",
+                    "note": "line 345 に snippets/closing-greeting.md の全文が装飾なし段落として存在する。全文一致を確認済み。"
+                },
+                "disclaimer": {
+                    "present": true,
+                    "location": "末尾",
+                    "note": "免責事項は末尾1箇所に存在するが、snippets/disclaimer.md の固定テキストから逸脱しており内容が改変されている。「本記事の内容により生じたいかなる損失についても責任を負いかねます。」が欠落し、3文が独自追加されている。"
+                },
+                "order_correct": true
+            },
+            "prohibited_expressions_found": [],
+            "prohibited_symbols_found": []
+        }
+    },
+    "overall_score": null,
+    "priority_fixes": [
+        "免責事項を snippets/disclaimer.md の固定テキストに完全置換する（CP001）"
+    ]
+}

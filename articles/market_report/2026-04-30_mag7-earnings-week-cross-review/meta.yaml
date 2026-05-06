@@ -1,0 +1,29 @@
+article_id: "2026-04-30_mag7-earnings-week-cross-review"
+topic: "マグニフィセント7決算ウィーク横断レビュー：MSFT/META/AAPL/AMZNが示すAI Capex 700Bの現実"
+category: "market_report"
+type: "market_report"
+target_audience: "intermediate"
+target_wordcount: 5000
+symbols:
+  - MSFT
+  - META
+  - AAPL
+  - AMZN
+  - GOOGL
+date_range:
+  start: "2026-04-29"
+  end: "2026-05-02"
+status: "init"
+created_at: "2026-04-30"
+updated_at: "2026-04-30"
+workflow:
+  research: "pending"
+  draft: "pending"
+  critique: "pending"
+  revision: "pending"
+  publish: "pending"
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false

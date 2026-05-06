@@ -1,0 +1,375 @@
+{
+    "article_id": "2026-05-01_compound-interest-mechanics-72rule",
+    "generated_at": "2026-05-01",
+    "critics": {
+        "readability": {
+            "critic_type": "readability",
+            "score": 75,
+            "target_audience": "beginner",
+            "issues": [
+                {
+                    "issue_id": "RD001",
+                    "severity": "high",
+                    "category": "terminology",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "冒頭3段落（記事本文の最初の270文字）"
+                    },
+                    "issue": "「ボラティリティ減衰」「算術平均」「幾何平均」という専門用語が冒頭段落に説明なしで登場する。これらの用語の説明は記事の中盤（ボラティリティ減衰セクション）まで現れず、初心者読者は冒頭で離脱するリスクがある。",
+                    "suggestion": "はじめにの段落では専門用語を使わず、平易な言葉に置き換える。例：「算術平均と幾何平均の違い」→「広告に載っているリターンと実際のリターンの違い」、「ボラティリティ減衰」→「価格の上下動によって実際の利益が目減りする現象」とした上で、本文で用語を導入する。"
+                },
+                {
+                    "issue_id": "RD002",
+                    "severity": "high",
+                    "category": "terminology",
+                    "location": {
+                        "section": "72の法則の正体 > ln(2)＝0.693が答えの出発点",
+                        "description": "セクション見出しおよびコードブロック内の数式"
+                    },
+                    "issue": "「ln(2)＝0.693が答えの出発点」という見出しがbeginner読者に対してハードルが高い。コードブロック形式で `t = ln(2) / ln(1 + r/100)` と表示された数式は、プログラミング的な見た目も相まって数学的拒否感を生む。「難しい数学は不要」と冒頭で約束しているにもかかわらず、数式が唐突に登場するため信頼を損なう。",
+                    "suggestion": "見出しを「なぜ72なのか？答えは「半減期の数学」にあります」等に変更する。数式はコードブロックではなく引用ブロックか太字テキストで視覚的に柔らかく表示し、「この式は覚えなくてOKです」などの一文を前置きすることで拒否感を緩和する。"
+                },
+                {
+                    "issue_id": "RD003",
+                    "severity": "high",
+                    "category": "visual",
+                    "location": {
+                        "section": "全体",
+                        "description": "H1/H2見出し階層の誤用（全セクション共通）"
+                    },
+                    "issue": "記事タイトル以外の主要セクション（「複利とは何か」「72の法則の正体」等）がすべてH1（`#`）で記述されており、サブセクション（「単利と複利を比べてみましょう」「ln(2)＝0.693が答え」等）がH2（`##`）になっている。note.comではH1はタイトル1つのみが慣習であり、本文セクションはH2・H3を使うべき。現状の構成はレンダリング時に全セクションが「大見出し」として表示され、視覚的な階層が失われる。",
+                    "suggestion": "主要セクションをH2（`##`）、サブセクションをH3（`###`）に変更する。記事タイトルのH1は1つのみ残す。"
+                },
+                {
+                    "issue_id": "RD004",
+                    "severity": "medium",
+                    "category": "visual",
+                    "location": {
+                        "section": "全体（モバイル最適化）",
+                        "description": "120文字超の段落13箇所"
+                    },
+                    "issue": "スマホ画面（note.com読者の70%以上）で3〜4行を超える段落が13箇所存在する。特にFAQセクションの各回答（Q1〜Q5）は100〜200文字の単一段落で書かれており、スマホで読むと圧迫感がある。",
+                    "suggestion": "FAQ回答の段落を2〜3文ごとに改行で区切る。また「広告や資料の年率リターンはどちら？」セクション（168文字）など、長い段落は文の切れ目で段落を分割してスキャナビリティを高める。"
+                },
+                {
+                    "issue_id": "RD005",
+                    "severity": "medium",
+                    "category": "density",
+                    "location": {
+                        "section": "数式で見るボラティリティドラッグ",
+                        "description": "「幾何平均 ≈ 算術平均 - σ²/2」の導入部分"
+                    },
+                    "issue": "「σ²/2: ボラティリティドラッグ（損失の近似量）」のあとに突然「伊藤の補題」が登場する。beginner読者に「伊藤の補題」は馴染みのない概念であり、「細かい数学は不要ですが」という前置きがあるとはいえ、この言葉自体が離脱の引き金になる可能性がある。",
+                    "suggestion": "「伊藤の補題」への言及を削除するか、脚注・補足ブロックに移動する。代わりに「この近似式はファイナンス理論で数学的に証明されています」程度の記述にとどめ、専門名称を出さない。"
+                },
+                {
+                    "issue_id": "RD006",
+                    "severity": "medium",
+                    "category": "hook",
+                    "location": {
+                        "section": "はじめに",
+                        "description": "3段落目（本記事の内容案内の段落）"
+                    },
+                    "issue": "3段落目「本記事では、72の法則の数学的な正体をゼロから解説しながら、『算術平均と幾何平均の違い』『ボラティリティ減衰』『コスト・インフレ・税金という3つの複利の天敵』を数字で丁寧に追っていきます」は94文字の長文で、専門用語が3つ詰まっている。スマホで読んでいる初心者が「難しそう」と離脱するリスクがある。",
+                    "suggestion": "記事内容の案内は「①広告リターンの罠、②価格変動による目減り、③コスト・インフレ・税金の影響、の3点を解説します」のように、専門用語を使わない平易な日本語で書き直す。文長も50文字以内に抑える。"
+                },
+                {
+                    "issue_id": "RD007",
+                    "severity": "medium",
+                    "category": "density",
+                    "location": {
+                        "section": "コストの逆複利効果",
+                        "description": "「コストの逆複利効果についての詳細」の文（217文字段落）"
+                    },
+                    "issue": "「[コストの逆複利効果についての詳細](...）をご参照ください。[コスト差1%で最終資産が20〜25%減少する](...）という試算は、投資業界では広く共有されています。」という一文が217文字あり、同じURLが2回使われている。冗長かつモバイル表示で折り返しが多く読みにくい。",
+                    "suggestion": "同一URLへの2重リンクを1つにまとめ、「コスト差1%で最終資産が20〜25%減少するという試算は、投資業界では広く共有されています（[出典](URL)）」と1文に整理する。"
+                },
+                {
+                    "issue_id": "RD008",
+                    "severity": "low",
+                    "category": "terminology",
+                    "location": {
+                        "section": "ボラティリティ減衰の衝撃",
+                        "description": "「ボラティリティ減衰（Volatility Drag、ボラティリティドラッグ）」の初出説明"
+                    },
+                    "issue": "「ボラティリティ」という言葉は記事タイトル・はじめに・セクション見出しに先行登場しているが、定義は「ボラティリティ減衰の衝撃」セクションの冒頭まで提示されない。定義の前置きとして「価格の変動の大きさ（ボラティリティ）が高いほど…」という一文をセクション直前またははじめにに追加することで、初心者の理解がスムーズになる。",
+                    "suggestion": "はじめに段落か「ボラティリティ減衰の衝撃」セクション冒頭に「ボラティリティとは、価格の上下動の大きさを表す指標です」の一文を追加する。"
+                },
+                {
+                    "issue_id": "RD009",
+                    "severity": "low",
+                    "category": "visual",
+                    "location": {
+                        "section": "S&P500の実データで確認する",
+                        "description": "資産クラス比較表（3行3列）"
+                    },
+                    "issue": "マークダウン表（資産クラス比較）がnote.comでは正しくレンダリングされない。article-quality-standardsのルール（列数3以上は画像化必須）に該当する。同様に「72の法則と積立126の法則の比較表」も4行×3列で画像化対象。",
+                    "suggestion": "/generate-table-image スキルで両表をPNG画像に変換し、`![表タイトル](images/table_*.png)` 形式で埋め込む（article-quality-standards ルール1参照）。"
+                }
+            ],
+            "metrics": {
+                "avg_sentence_length": 60,
+                "avg_paragraph_length": 74,
+                "long_paragraphs": 13,
+                "technical_terms": {
+                    "total": 17,
+                    "explained": 9,
+                    "unexplained": 8
+                },
+                "visual_elements": {
+                    "tables": 2,
+                    "lists": 36,
+                    "charts": 0
+                }
+            },
+            "audience_fit": {
+                "appropriate": false,
+                "suggested_adjustments": [
+                    "はじめに段落で専門用語（算術平均・幾何平均・ボラティリティ減衰）を使わない平易な表現に置き換える",
+                    "ln(2)の数式セクションはbeginner向けに「なぜ72か」の直感的な説明を優先し、数式は補足扱いにする",
+                    "伊藤の補題への言及を削除するか脚注に移動する",
+                    "1文の平均長60文字はbeginner基準（30-40文字）を大きく超えており、文を短く分割する編集が必要"
+                ]
+            },
+            "engagement_tips": [
+                "冒頭の引用「年率7%で投資すれば、約10年で資産が2倍になる」は強力なフック。このリズムを活かして続く段落も短文・疑問文で展開するとモバイル読者の離脱を防げる",
+                "J字カーブ・逆複利効果・ボラティリティドラッグといった概念は視覚的なチャート1枚で理解速度が大幅に上がる。/generate-chart-imageでチャートを追加するとエンゲージメントが向上する",
+                "FAQセクションはnote.comでのスキャン読みに向いた形式。各回答の先頭に「一言まとめ（太字）」を追加すると、流し読みでも要点が伝わる",
+                "「天敵1/2/3」の構造は分かりやすいが、各天敵のダメージ量を数字で比較した小まとめ表があると記事の説得力が増す",
+                "実践ガイドのステップ1〜4は行動指針として優れている。各ステップに「難易度：低/中/高」や「優先度：★★★」等のラベルを付けると、読者が次のアクションを選びやすくなる"
+            ]
+        },
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 88,
+            "status": "warning",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "medium",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾免責事項",
+                        "line": "免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。"
+                    },
+                    "issue": "snippets/disclaimer.md の統合免責事項と比較すると、「見通し・予測は作成時点の情報に基づく旨」および「税制優遇制度（NISA等）は法改正により変更の可能性がある旨」の2要素が欠落している。記事内でNISAの非課税枠（年間360万円等）を具体的数値で言及しており、制度改正リスクの開示は特に重要度が高い。",
+                    "regulation": "金融商品取引法 第37条（広告等の規制）、消費者契約法",
+                    "suggestion": "免責事項を snippets/disclaimer.md の全文に差し替えること。具体的には「本記事に記載された見通し・予測は作成時点の情報に基づくものであり、将来の結果を保証するものではありません」および「税制優遇制度の内容は法改正等により変更される可能性があります。最新情報は金融庁・証券会社等の公式情報をご確認ください」の文言を追加する。"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "low",
+                    "category": "investment_advice",
+                    "location": {
+                        "section": "実践ガイド：複利を最大化する4ステップ > ステップ2: 低コスト商品を選ぶ",
+                        "line": "日本でも「eMAXIS Slim」シリーズのような低コスト商品が充実しています。商品を選ぶ際は必ず「信託報酬（Total Expense Ratio）」を確認してください。"
+                    },
+                    "issue": "特定の投資信託ブランド名（eMAXIS Slim）を具体的に名指しし、ポジティブな文脈で紹介している。当該記述単独では投資助言には該当しないが、教育コンテンツとしての公平性の観点から、特定商品ブランドへの言及は注意が必要。競合商品（楽天・SBI等の同等シリーズ）が言及されていないため、特定ブランドへの誘導と受け取られる可能性がある。",
+                    "regulation": "金融商品取引法 第37条の3（契約締結前交付書面）、note.com利用規約（特定商品の推奨・宣伝に関する条項）",
+                    "suggestion": "「eMAXIS Slim」という具体的商品名を削除し、「主要証券会社が提供する低コストインデックスファンドシリーズ」等の機能ベースの表現に置き換えるか、複数のシリーズ名を併記して公平性を確保する。あるいは「例：eMAXIS Slim、楽天・インデックスファンドシリーズ等」と複数例示する。"
+                },
+                {
+                    "issue_id": "CP003",
+                    "severity": "low",
+                    "category": "expression",
+                    "location": {
+                        "section": "実践ガイド：複利を最大化する4ステップ > ステップ1: NISAを最優先に使う",
+                        "line": "まだ使っていない方は、ここから始めてください。"
+                    },
+                    "issue": "「ここから始めてください」という表現は、投資行動を直接的に促す命令形であり、読者に特定の行動（NISA口座開設・投資開始）を指示する投資助言的なニュアンスを含む。NISAは制度利用の推奨であり特定金融商品の推奨ではないため直ちに違法ではないが、金融商品取引法の趣旨（無登録者による投資判断の代行禁止）に照らして表現を和らげることが望ましい。",
+                    "regulation": "金融商品取引法 第2条第8項（投資助言業の定義）",
+                    "suggestion": "「まだ使っていない方は、活用を検討する価値があります」または「まだ活用していない方は、制度の詳細を確認してみてください」等、読者自身の判断を促す表現に変更する。"
+                }
+            ],
+            "required_disclaimers": {
+                "closing_greeting": {
+                    "present": true,
+                    "location": "末尾（免責事項の直前）",
+                    "note": "snippets/closing-greeting.md の全文（いつも読んでいただきありがとうございます！〜励みになります！！）が、免責事項の直前に装飾なし段落として存在する。区切り線で挟まれた形式も適切。"
+                },
+                "disclaimer": {
+                    "present": true,
+                    "location": "末尾",
+                    "note": "免責事項は末尾1箇所に存在するが、snippets/disclaimer.md の統合免責事項と比較して「見通し・予測は作成時点の情報に基づく旨」および「税制優遇制度は改正により変更の可能性がある旨」の2要素が欠落している。CP001参照。"
+                },
+                "order_correct": true
+            },
+            "prohibited_expressions_found": [],
+            "prohibited_symbols_found": []
+        }
+    },
+    "fact": {
+      "critic_type": "fact",
+      "score": 88,
+      "status": "warning",
+      "verified_count": 35,
+      "issues": [
+        {
+          "issue_id": "FA001",
+          "severity": "low",
+          "category": "calculation_notation",
+          "location": {
+            "section": "数式で見るボラティリティドラッグ",
+            "description": "「σ=19.8% → σ²/2 = 19.8²÷2 ≒ 1.96%」の計算表現"
+          },
+          "issue": "「19.8²÷2 ≒ 1.96%」という表現は単位の扱いが不明確。19.8²=392.04であり、392.04÷2=196.02%となるため、数式のまま読むと誤解を招く。正しくはσを小数で表現（0.198）して0.198²÷2=0.0196=1.96%と示す必要がある。",
+          "suggestion": "「σ=0.198（19.8%）→ σ²/2 = 0.198²÷2 ≈ 0.0196 = 1.96%ポイント」と単位を明記する"
+        }
+      ]
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 87,
+      "status": "pass",
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "medium",
+          "category": "heading_hierarchy",
+          "location": {
+            "section": "全セクション",
+            "description": "主要セクション見出しレベル"
+          },
+          "issue": "主要セクション（「複利とは何か」「72の法則の正体」等）がH1（#）で記述されており、サブセクションがH2（##）になっている。note.comではH1はタイトルのみの慣習で、本文セクションはH2・H3を使うべき。",
+          "suggestion": "主要セクションを ## に、サブセクションを ### に変更する"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "low",
+          "category": "section_order",
+          "location": {
+            "section": "FAQ・注意点セクション",
+            "description": "FAQと注意点・リスクの順序"
+          },
+          "issue": "FAQが「注意点・リスク」の前に配置されている。投資教育記事では注意点→FAQの順序が望ましい（注意点でリスクを説明した上でFAQで疑問に答える流れ）。",
+          "suggestion": "FAQセクションを「注意点・リスク」の後に移動する"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 98,
+      "status": "pass",
+      "verified_count": 35,
+      "issues": [
+        {
+          "issue_id": "DA001",
+          "severity": "low",
+          "category": "notation",
+          "location": {
+            "section": "数式で見るボラティリティドラッグ",
+            "description": "σ²/2の計算表現（FA001と同一）"
+          },
+          "issue": "σ²/2の表記で%単位の扱いが不明確（FA001と同一指摘）",
+          "suggestion": "FA001の修正提案を参照"
+        }
+      ]
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 63,
+      "status": "warning",
+      "word_count": 8527,
+      "word_count_status": "pass",
+      "word_count_range": "8000-10000",
+      "issues": [
+        {
+          "issue_id": "WR001",
+          "severity": "high",
+          "category": "disclaimer",
+          "location": {
+            "section": "末尾免責事項"
+          },
+          "issue": "snippets/disclaimer.md の正式全文と一致しない。NISA税制変更リスクの文言および見通し・予測の作成時点情報であることの文言が欠落している（CP001と同一）。",
+          "suggestion": "snippets/disclaimer.md の全文をそのまま末尾に配置すること"
+        },
+        {
+          "issue_id": "WR002",
+          "severity": "high",
+          "category": "table_image",
+          "location": {
+            "section": "72の法則と積立126の法則の比較表（3列）、ボラティリティドラッグ比較表（4列）"
+          },
+          "issue": "マークダウン表が2箇所残存。article-quality-standards.md ルール1（列数3以上は画像化必須）に違反。",
+          "suggestion": "scripts/generate_table_image.py を使用してPNG画像に変換し、![表タイトル](images/table_N.png) に置換"
+        },
+        {
+          "issue_id": "WR003",
+          "severity": "medium",
+          "category": "source_date",
+          "location": {
+            "section": "参考データソース"
+          },
+          "issue": "データソースのリストに取得日時（参照日）が記載されていない",
+          "suggestion": "各ソースに「(参照日: 2026-05-01)」を追記"
+        },
+        {
+          "issue_id": "WR004",
+          "severity": "low",
+          "category": "writing_style",
+          "location": {
+            "section": "3つの天敵セクション",
+            "description": "「1%の差が30年で25%の差になる。」"
+          },
+          "issue": "常体（だ・である調）文が1文混在。記事全体はですます調統一が必要。",
+          "suggestion": "「1%の差が30年で25%の差になります。」とですます調に修正"
+        }
+      ]
+    }
+  },
+  "overall_score": 83,
+  "priority_fixes": [
+    {
+      "priority": "HIGH",
+      "item": "免責事項をsnippets/disclaimer.md の正式全文に置換（CP001/WR001）"
+    },
+    {
+      "priority": "HIGH",
+      "item": "2つのマークダウン表をPNG画像に変換（WR002）"
+    },
+    {
+      "priority": "HIGH",
+      "item": "全主要見出しをH1(#)からH2(##)に変更（ST001/RD003）"
+    },
+    {
+      "priority": "HIGH",
+      "item": "冒頭の専門用語（ボラティリティ減衰/算術平均/幾何平均）を平易表現に置換（RD001）"
+    },
+    {
+      "priority": "HIGH",
+      "item": "ln(2)数式導出の見出しを「なぜ72なのか？」の平易な説明に変更（RD002）"
+    },
+    {
+      "priority": "HIGH",
+      "item": "「伊藤の補題」への言及を削除（RD005）"
+    },
+    {
+      "priority": "MEDIUM",
+      "item": "σ²/2の計算式にパーセント単位を明記（FA001/DA001）"
+    },
+    {
+      "priority": "MEDIUM",
+      "item": "FAQセクションを注意点・リスクの後に移動（ST002）"
+    },
+    {
+      "priority": "MEDIUM",
+      "item": "130字超の長文段落を分割（RD004）"
+    },
+    {
+      "priority": "MEDIUM",
+      "item": "参考ソースに参照日を追記（WR003）"
+    },
+    {
+      "priority": "LOW",
+      "item": "eMAXIS Slim を例示形式（複数ブランド併記）に変更（CP002）"
+    },
+    {
+      "priority": "LOW",
+      "item": "「ここから始めてください」→「検討してみてください」に表現緩和（CP003）"
+    },
+    {
+      "priority": "LOW",
+      "item": "常体文1箇所をですます調に修正（WR004）"
+    }
+  ]
+}

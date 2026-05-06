@@ -1,0 +1,388 @@
+{
+    "article_id": "2026-05-01_index-vs-active-spiva-2026",
+    "category": "investment_education",
+    "mode": "full",
+    "generated_at": "2026-05-06",
+    "critics": {
+        "fact": {
+            "critic_type": "fact",
+            "score": 93,
+            "issues": [
+                {
+                    "issue_id": "F001",
+                    "severity": "medium",
+                    "location": {
+                        "section": "よくある疑問（FAQ）",
+                        "line": "2024年12月末時点で新NISA口座数は約2,559万口座に達しており"
+                    },
+                    "issue": "NISA口座数の四捨五入が過剰。正確な数値は2,558万6,460口座であり、「約2,559万口座」は万未満を切り上げており誤解を招く。「約2,558万口座」が正確な近似値。",
+                    "original": "約2,559万口座",
+                    "correct": "約2,558万口座（正確には2,558万6,460口座）",
+                    "source": "S001",
+                    "suggestion": "「約2,559万口座」を「約2,558万口座」に修正する。または「2,558万6,460口座」と正確な数値を記載する。"
+                },
+                {
+                    "issue_id": "F002",
+                    "severity": "low",
+                    "location": {
+                        "section": "SPIVA日本2025最新データ（2026年3月発表）",
+                        "line": "S&PダウジョーンズインデックスのSue Leeは「6カテゴリのうち5カテゴリで、80%以上のアクティブファンドがベンチマークをアンダーパフォームした」とコメントしています"
+                    },
+                    "issue": "Sue Leeの肩書き（シニアディレクター）が省略されている。リサーチノートではシニアディレクターとして記録されており、引用の信頼性担保のため肩書きを明記することが望ましい。",
+                    "original": "S&PダウジョーンズインデックスのSue Leeは",
+                    "correct": "S&Pダウ・ジョーンズ・インデックスのシニアディレクター、Sue Leeは",
+                    "source": "S001",
+                    "suggestion": "「S&PダウジョーンズインデックスのSue Leeは」を「S&Pダウ・ジョーンズ・インデックスのシニアディレクター、Sue Leeは」に修正する。"
+                }
+            ],
+            "verified_facts": 34,
+            "issues_found": 2,
+            "verification_rate": 97.1
+        },
+        "compliance": {
+            "critic_type": "compliance",
+            "score": 88,
+            "status": "pass",
+            "issues": [
+                {
+                    "issue_id": "CP001",
+                    "severity": "medium",
+                    "category": "prohibited_symbol",
+                    "location": {
+                        "section": "参考データソース（末尾区切り線）",
+                        "line": "---"
+                    },
+                    "issue": "Markdown 水平線 `---` がハイフン3連続で構成されており、禁止記号 `--`（ハイフン2連続）を内包する形式である。note.com 向け記事では区切り用途であっても `---` の使用を避け、記事構造上必要な区切りは見出し・空行で代替することが望ましい。",
+                    "regulation": "コンプライアンス基準 禁止記号リスト（--: ハイフン2連続）",
+                    "suggestion": "末尾の `---` 区切り線を削除し、セクション間の区切りは空行2行または見出しで代替する。"
+                },
+                {
+                    "issue_id": "CP002",
+                    "severity": "medium",
+                    "category": "expression",
+                    "location": {
+                        "section": "コストの差が30年でどう変わるか",
+                        "line": "楽天・プラス・オールカントリーは年0.05610%、eMAXIS Slim 全世界株式（オールカントリー）は年0.05775%というコストです。これらはアクティブファンドの典型的なコストの20〜30分の1以下です。"
+                    },
+                    "issue": "特定商品名を実名で挙げ「アクティブファンドの典型的なコストの20〜30分の1以下」という優位性を明示している。推奨・勧誘の明示的表現は伴っていないものの、特定商品の定量的優位性提示は実質的な購入誘引となり得る。金融商品取引法上の投資助言・代理業規制との境界領域にある表現。",
+                    "regulation": "金融商品取引法 第2条第8項（投資助言）、同法第37条（広告等の規制）",
+                    "suggestion": "「例えば〜など（参考例）」の例示であることを明示し、「コスト水準の比較はあくまで参考情報であり、特定商品の購入を推奨するものではありません」などの注記を付加する。"
+                },
+                {
+                    "issue_id": "CP003",
+                    "severity": "low",
+                    "category": "disclaimer",
+                    "location": {
+                        "section": "末尾（挨拶文前後）",
+                        "line": "---（挨拶文直前）"
+                    },
+                    "issue": "挨拶文の前後に `---` 区切り線が配置されており、装飾なし段落の要件と齟齬する。",
+                    "regulation": "コンプライアンス基準 必須の記事末尾テンプレート（挨拶文の装飾禁止規定）",
+                    "suggestion": "挨拶文直前の `---` を削除し、挨拶文を前後の区切りなしの独立段落として配置する。"
+                }
+            ],
+            "required_disclaimers": {
+                "closing_greeting": {
+                    "present": true,
+                    "location": "末尾（免責事項の直前）",
+                    "note": "全文と一致するテキストが存在する。ただし前後に `---` 区切り線が配置されており装飾禁止規定と齟齬あり（CP003参照）。"
+                },
+                "disclaimer": {
+                    "present": true,
+                    "location": "末尾",
+                    "note": "必須6要素（情報提供目的・元本割れリスク・過去実績の非保証・作成時点情報・税制改正可能性・投資判断の自己責任）を全て含んでいる。"
+                },
+                "order_correct": true
+            },
+            "prohibited_expressions_found": [],
+            "prohibited_symbols_found": [
+                {
+                    "symbol": "--- 水平線",
+                    "location": "末尾セクション複数箇所",
+                    "suggestion": "区切り線を削除し、空行またはセクション見出しで代替する"
+                }
+            ]
+        },
+        "structure": {
+            "critic_type": "structure",
+            "score": 82,
+            "issues": [
+                {
+                    "issue_id": "ST001",
+                    "severity": "high",
+                    "category": "missing_section",
+                    "location": {
+                        "section": "全体構成"
+                    },
+                    "issue": "investment_education カテゴリのルールで必須とされる「実践ガイド」セクション（インデックス投資を始めるための具体的ステップ1〜3）が存在しない。初心者向け記事として理論的説明だけでなく「では実際にどう動けばよいか」を示すセクションが必要。",
+                    "suggestion": "「インデックス投資を始める3ステップ」などのセクションを追加する。ステップ1: NISAつみたて投資枠を開設、ステップ2: インデックスファンドを選ぶ（コスト0.1%以下を目安）、ステップ3: 自動積立を設定して放置。500〜700字程度。"
+                },
+                {
+                    "issue_id": "ST002",
+                    "severity": "high",
+                    "category": "heading_hierarchy",
+                    "location": {
+                        "section": "全体"
+                    },
+                    "issue": "全てのセクション見出しがH1（`#`）で統一されており、見出し階層が存在しない。note.com での可読性・SEO観点から、大セクションはH2（`##`）、小セクションはH3（`###`）の階層構造が必要。",
+                    "suggestion": "大セクション（SPIVAとは、日本の最新データ、コスト比較など）をH2に変更し、その中のサブトピック（年別データ、長期データなど）をH3に変更する。"
+                },
+                {
+                    "issue_id": "ST003",
+                    "severity": "medium",
+                    "category": "section_order",
+                    "location": {
+                        "section": "サバイバーシップバイアスとは"
+                    },
+                    "issue": "サバイバーシップバイアスの説明がデータ紹介の後に配置されている。データを解釈するための概念説明は、データを提示する前（SPIVAの信頼性を説明する箇所）に配置するとより理解しやすい。",
+                    "suggestion": "「サバイバーシップバイアスとは」セクションを「SPIVAとは」の直後（データ提示セクションの前）に移動する。"
+                },
+                {
+                    "issue_id": "ST004",
+                    "severity": "medium",
+                    "category": "introduction",
+                    "location": {
+                        "section": "はじめに"
+                    },
+                    "issue": "「はじめに」が読者への問いかけとして始まるが、記事で何を学べるかの明示（学習成果）が不明確。初心者読者が「この記事を読む価値があるか」を判断できる情報が不足している。",
+                    "suggestion": "「この記事を読むと、〇〇・〇〇・〇〇の3点がわかります」という形式でlearning outcomesを明示する。"
+                },
+                {
+                    "issue_id": "ST005",
+                    "severity": "low",
+                    "category": "conclusion",
+                    "location": {
+                        "section": "まとめ"
+                    },
+                    "issue": "まとめセクションは存在するが、次のアクション（コール・トゥ・アクション）が弱い。実践ガイドセクション追加後は、まとめで「まず一歩」を促す文が必要。",
+                    "suggestion": "まとめの末尾に「今日から始められる小さな一歩として、NISAつみたて投資枠の開設を検討してみてください」などのCTAを追加する。"
+                }
+            ]
+        },
+        "data_accuracy": {
+            "critic_type": "data_accuracy",
+            "score": 97,
+            "issues": [
+                {
+                    "issue_id": "DA001",
+                    "severity": "low",
+                    "location": {
+                        "section": "コストの差が30年でどう変わるか"
+                    },
+                    "issue": "「アクティブファンドが仮に20年間手数料1.5%を毎年払うと、手数料として約26%のリターンが消える」という記述が本文内に見当たらない。リサーチノートに記載されているが記事には未反映。補足情報として有効なデータ。",
+                    "suggestion": "コスト試算のセクションで30年シミュレーション後に「20年で手数料分だけで約26%のリターン差が生じる計算になります」を追記することで数値の説得力が増す。"
+                },
+                {
+                    "issue_id": "DA002",
+                    "severity": "low",
+                    "location": {
+                        "section": "世界各国でも同様の結果が"
+                    },
+                    "issue": "SPIVA H1 2025（上半期版）のデータ（日本30%など）と年末版（日本49%）が混在する可能性がある。上半期と年末では数値が大きく異なるため、どちらのデータかを明示することが必要。",
+                    "suggestion": "各数値の出典期間（「2025年上半期版」「2025年末版」）を括弧書きで明示する。"
+                },
+                {
+                    "issue_id": "DA003",
+                    "severity": "low",
+                    "location": {
+                        "section": "コストの差が30年でどう変わるか"
+                    },
+                    "issue": "「つみたてiシェアーズ 米国株式（S&P500）の信託報酬0.05860%（2026年5月7日まで）」との注記があるが、記事内での記載がない。期間限定の信託報酬を参照している場合、その旨を明記すべき。",
+                    "suggestion": "信託報酬データの引用箇所に「※2026年5月時点の情報。信託報酬は変更される場合があります」などの注記を追加する。"
+                }
+            ],
+            "verified_calculations": [
+                {
+                    "id": "CALC001",
+                    "description": "30年シミュレーション（インデックス: 年率6.9%、アクティブ: 年率5.5%）",
+                    "result": "インデックス約730万円、アクティブ約495万円、差額約235万円（記事表記「約740万円」「約500万円」「約240万円」は概算として許容範囲内）",
+                    "status": "verified"
+                },
+                {
+                    "id": "CALC002",
+                    "description": "SPIVA米国20年間の94%アンダーパフォーム",
+                    "result": "リサーチノートの数値と一致",
+                    "status": "verified"
+                }
+            ]
+        },
+        "readability": {
+            "critic_type": "readability",
+            "score": 72,
+            "issues": [
+                {
+                    "issue_id": "RD001",
+                    "severity": "high",
+                    "category": "number_density",
+                    "location": {
+                        "section": "SPIVA日本2025最新データ、世界各国のデータ"
+                    },
+                    "issue": "複数のセクションで数字（パーセンテージ）が段落内に羅列されており、初心者が消化しにくい。例：「日本大型株49%、中小型株80%、グローバル株式87%、米国株式89%、国際株式88%、新興国株式88%」が1文で並ぶ。",
+                    "suggestion": "数字の羅列をまとめて「特に注目すべき数字だけ」をピックアップし、残りは「ちなみにその他のカテゴリでは80〜89%程度です」などとまとめる。または数字の前に「驚きの数字ですが…」等の感情的な橋渡し文を挿入する。"
+                },
+                {
+                    "issue_id": "RD002",
+                    "severity": "high",
+                    "category": "abstract_concept",
+                    "location": {
+                        "section": "なぜ長期では負けるのか—ウィリアム・シャープの算術"
+                    },
+                    "issue": "「ウィリアム・シャープの算術」という概念説明が論理的に正確だが、初心者にはわかりにくい。「コスト前の平均は市場リターンと等しい」という命題の直感的な説明がなく、読者が「なぜそうなるか」を理解できない可能性がある。",
+                    "suggestion": "「10人が株式市場に投資すると、10人の平均リターンは市場全体のリターンと同じになります（市場は全員で構成されているから）。そこから手数料を引くと、平均は必ずマイナスになります。これが算術の法則です」という具体例で説明する。"
+                },
+                {
+                    "issue_id": "RD003",
+                    "severity": "high",
+                    "category": "jargon",
+                    "location": {
+                        "section": "なぜ2025年の日本だけ例外だったのか"
+                    },
+                    "issue": "「銘柄間ディスパージョン」という専門用語が初出時に説明なく使用されている。初心者読者にはわかりにくい用語。",
+                    "suggestion": "初出時に「銘柄間ディスパージョン（上がる銘柄と下がる銘柄の格差の大きさ）」のように括弧で説明を付ける。"
+                },
+                {
+                    "issue_id": "RD004",
+                    "severity": "medium",
+                    "category": "term_definition",
+                    "location": {
+                        "section": "アンダーパフォーム（初出）"
+                    },
+                    "issue": "「アンダーパフォーム」という用語が初出時（第1セクション内）に説明なく使われている。記事タイトルで「インデックス vs アクティブ」を知らない読者には意味不明な可能性がある。",
+                    "suggestion": "初出箇所で「アンダーパフォーム（指数に劣る運用成績のこと）」と括弧説明を追加する。"
+                },
+                {
+                    "issue_id": "RD005",
+                    "severity": "medium",
+                    "category": "transition",
+                    "location": {
+                        "section": "セクション間の接続"
+                    },
+                    "issue": "一部のセクション間で接続文が弱く、読者が「なぜ次のトピックに移るのか」を理解しにくい箇所がある。特にデータ提示から「なぜ負けるのか」の理論説明への移行が唐突。",
+                    "suggestion": "「データで確認できたところで、なぜこれほど差が開くのか、理論的な根拠を見ていきましょう」などの橋渡し文を挿入する。"
+                },
+                {
+                    "issue_id": "RD006",
+                    "severity": "low",
+                    "category": "sentence_length",
+                    "location": {
+                        "section": "なぜ「勝てるファンドを選べばいい」がうまくいかないのか"
+                    },
+                    "issue": "一文が長い箇所が数カ所あり、初心者が読み通すには難易度が高い。",
+                    "suggestion": "80字以上の文を2文に分割する。特に「過去の優秀ファンドが…」の説明文。"
+                }
+            ]
+        },
+        "writer_rules": {
+            "critic_type": "writer_rules",
+            "score": 73,
+            "issues": [
+                {
+                    "issue_id": "WR-WC001",
+                    "severity": "high",
+                    "category": "word_count",
+                    "location": {
+                        "section": "全体"
+                    },
+                    "issue": "実測文字数が約7,576字で、investment_education カテゴリの最低基準8,000字を約424字下回っている。",
+                    "original": "約7,576字",
+                    "required": "8,000字以上（目標10,000字）",
+                    "suggestion": "実践ガイドセクション（500〜700字）の追加、はじめにの拡充（100字）、まとめのCTA強化（100字）で基準を超える。"
+                },
+                {
+                    "issue_id": "WR-SC001",
+                    "severity": "medium",
+                    "category": "required_section",
+                    "location": {
+                        "section": "全体構成"
+                    },
+                    "issue": "investment_education カテゴリで必須の「実践ガイド」セクション（具体的な行動ステップ）が欠落している。",
+                    "suggestion": "ST001と同じ: 「インデックス投資を始める3ステップ」セクションを追加する。"
+                },
+                {
+                    "issue_id": "WR-SC002",
+                    "severity": "medium",
+                    "category": "section_content",
+                    "location": {
+                        "section": "はじめに"
+                    },
+                    "issue": "「なぜ重要なのか（Why Now）」の観点が弱い。2026年の新NISA普及という現在進行形のトレンドをもっと強調できる。",
+                    "suggestion": "「いまNISA口座が2,558万口座に達し、多くの方がインデックス投資を始めています。だからこそ、そのメリットを正しく理解することが重要です」という時事的な文脈を追加する。"
+                },
+                {
+                    "issue_id": "WR-FM001",
+                    "severity": "low",
+                    "category": "frontmatter",
+                    "location": {
+                        "section": "frontmatter"
+                    },
+                    "issue": "frontmatterに `published_at` フィールドが存在しない。",
+                    "suggestion": "`published_at: 2026-05-06` を追加する。"
+                }
+            ],
+            "word_count_actual": 7576,
+            "word_count_required_min": 8000,
+            "word_count_required_max": 10000,
+            "sections_found": ["はじめに", "SPIVAとは", "SPIVA日本2025最新データ", "サバイバーシップバイアス", "長期では", "なぜ2025年例外", "コスト比較", "なぜ長期で負けるか", "「勝てるファンド選べばいい」反論", "FAQ", "まとめ", "参考データ"],
+            "sections_required": ["はじめに", "SPIVAとは/概念説明", "データ・統計", "実践ガイド", "FAQ", "まとめ"],
+            "sections_missing": ["実践ガイド（具体的行動ステップ）"]
+        }
+    },
+    "overall_score": 82,
+    "priority_fixes": [
+        {
+            "priority": "HIGH",
+            "issue_id": "WR-WC001",
+            "description": "文字数不足（7,576字→8,000字以上が必要）：実践ガイドセクション追加で解決"
+        },
+        {
+            "priority": "HIGH",
+            "issue_id": "ST001+WR-SC001",
+            "description": "実践ガイドセクション欠落：「インデックス投資を始める3ステップ」（500〜700字）を追加"
+        },
+        {
+            "priority": "HIGH",
+            "issue_id": "ST002",
+            "description": "見出し階層なし：全セクションがH1→H2/H3の階層構造に変更"
+        },
+        {
+            "priority": "HIGH",
+            "issue_id": "RD001",
+            "description": "数字の羅列が初心者に難解：重要数字をピックアップし、橋渡し文を挿入"
+        },
+        {
+            "priority": "HIGH",
+            "issue_id": "RD002",
+            "description": "ウィリアム・シャープの算術が抽象的：具体的な人数例で説明"
+        },
+        {
+            "priority": "HIGH",
+            "issue_id": "RD003",
+            "description": "「銘柄間ディスパージョン」の説明不足：初出時に括弧説明追加"
+        },
+        {
+            "priority": "MEDIUM",
+            "issue_id": "F001",
+            "description": "NISA口座数「約2,559万」→「約2,558万」に修正"
+        },
+        {
+            "priority": "MEDIUM",
+            "issue_id": "CP002",
+            "description": "特定ファンド名の優位性表現に例示注記を追加"
+        },
+        {
+            "priority": "MEDIUM",
+            "issue_id": "CP001",
+            "description": "末尾の --- 区切り線を削除し空行で代替"
+        },
+        {
+            "priority": "MEDIUM",
+            "issue_id": "ST003",
+            "description": "サバイバーシップバイアスの説明をデータ前に移動"
+        },
+        {
+            "priority": "MEDIUM",
+            "issue_id": "RD004",
+            "description": "「アンダーパフォーム」初出時に括弧で定義追加"
+        }
+    ]
+}

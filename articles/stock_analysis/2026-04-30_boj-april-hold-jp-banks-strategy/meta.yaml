@@ -1,0 +1,30 @@
+article_id: "2026-04-30_boj-april-hold-jp-banks-strategy"
+topic: "日銀4月据え置き後の銀行株戦略：3メガバンク vs 地銀、6月利上げ後退観測下のポジショニング"
+category: "stock_analysis"
+type: "data_analysis"
+target_audience: "intermediate"
+target_wordcount: 4500
+symbols:
+  - 8306.T
+  - 8316.T
+  - 8411.T
+  - 8331.T
+  - 8354.T
+  - 1615.T
+date_range:
+  start: "2026-04-01"
+  end: "2026-04-30"
+status: "init"
+created_at: "2026-04-30"
+updated_at: "2026-04-30"
+workflow:
+  research: "pending"
+  draft: "pending"
+  critique: "pending"
+  revision: "pending"
+  publish: "pending"
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false

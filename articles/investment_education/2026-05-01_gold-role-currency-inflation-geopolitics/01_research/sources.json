@@ -1,0 +1,206 @@
+{
+  "session_id": "article-research-gold-role-currency-inflation-geopolitics-20260506",
+  "research_topic": "金（ゴールド）の役割完全解説：通貨/インフレヘッジ/地政学リスクの3視点",
+  "as_of_date": "2026-05-06",
+  "total_sources": 22,
+  "sources": [
+    {
+      "url": "https://www.investopedia.com/ask/answers/09/gold-standard.asp",
+      "title": "Understanding the Gold Standard: History, Collapse, and Impact on the U.S. Dollar",
+      "authority_level": "analyst",
+      "published_at": "2024-01-01",
+      "source_type": "web",
+      "category": "currency_role",
+      "language": "en"
+    },
+    {
+      "url": "https://history.state.gov/milestones/1969-1976/nixon-shock",
+      "title": "Nixon and the End of the Bretton Woods System, 1971–1973",
+      "authority_level": "official",
+      "published_at": "2023-01-01",
+      "source_type": "web",
+      "category": "currency_role",
+      "language": "en"
+    },
+    {
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends",
+      "title": "Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls",
+      "authority_level": "official",
+      "published_at": "2022-01-01",
+      "source_type": "web",
+      "category": "currency_role",
+      "language": "en"
+    },
+    {
+      "url": "https://www.forbes.com/sites/investor-hub/2026/03/18/how-gold-really-works-in-a-portfolio/",
+      "title": "How Gold Really Works In A Portfolio",
+      "authority_level": "analyst",
+      "published_at": "2026-03-18",
+      "source_type": "web",
+      "category": "currency_role",
+      "language": "en"
+    },
+    {
+      "url": "https://fx-gold.jp/gold-price-factors",
+      "title": "ゴールド 価格 変動 要因 – GOLD ALPHA",
+      "authority_level": "blog",
+      "published_at": "2024-01-01",
+      "source_type": "web",
+      "category": "currency_role",
+      "language": "ja"
+    },
+    {
+      "url": "https://www.investopedia.com/gold-price-history-highs-and-lows-7375273",
+      "title": "Gold Price History: Highs and Lows",
+      "authority_level": "analyst",
+      "published_at": "2025-01-01",
+      "source_type": "web",
+      "category": "inflation_hedge",
+      "language": "en"
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2025-09-11/gold-surpasses-inflation-adjusted-record-high-set-in-1980",
+      "title": "Gold Surpasses Inflation-Adjusted Record High Set in 1980",
+      "authority_level": "media",
+      "published_at": "2025-09-11",
+      "source_type": "news",
+      "category": "inflation_hedge",
+      "language": "en"
+    },
+    {
+      "url": "https://www.wsj.com/finance/stocks/gold-buyers-this-isnt-the-1970s-9a7af920",
+      "title": "Gold Buyers, This Isn't the 1970s",
+      "authority_level": "media",
+      "published_at": "2025-01-01",
+      "source_type": "news",
+      "category": "inflation_hedge",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/were-in-a-metals-war-gold-silver-track-their-best-year-since-1970s-as-volatility-grips-trade-211053662.html",
+      "title": "Gold, silver track their best year since 1970s",
+      "authority_level": "media",
+      "published_at": "2025-04-01",
+      "source_type": "news",
+      "category": "inflation_hedge",
+      "language": "en"
+    },
+    {
+      "url": "https://www.cbsnews.com/news/whats-the-gold-price-outlook-for-the-rest-of-2025/",
+      "title": "What's the gold price outlook for the rest of 2025?",
+      "authority_level": "media",
+      "published_at": "2025-02-24",
+      "source_type": "news",
+      "category": "inflation_hedge",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/gold-safe-haven-demand-boosts-183127644.html",
+      "title": "Gold: Safe-Haven Demand Boosts Prices Ahead of PMI Data",
+      "authority_level": "media",
+      "published_at": "2024-11-01",
+      "source_type": "news",
+      "category": "geopolitical_risk",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/gold-2024-record-highs-fuelled-090000530.html",
+      "title": "Gold in 2024: Record Highs Fuelled by Geopolitical Tensions",
+      "authority_level": "media",
+      "published_at": "2024-12-01",
+      "source_type": "news",
+      "category": "geopolitical_risk",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/gold-demand-hits-record-levels-as-central-banks-buy-at-eye-watering-pace-205945413.html",
+      "title": "Gold demand hits record levels as central banks buy at 'eye-watering' pace",
+      "authority_level": "analyst",
+      "published_at": "2025-02-05",
+      "source_type": "news",
+      "category": "geopolitical_risk",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/economy/policy/articles/central-banks-buying-gold-record-153000043.html",
+      "title": "Central Banks Are Buying Gold at Record Levels",
+      "authority_level": "analyst",
+      "published_at": "2025-03-01",
+      "source_type": "news",
+      "category": "geopolitical_risk",
+      "language": "en"
+    },
+    {
+      "url": "https://www.bloomberg.co.jp/news/articles/2025-06-04/SXB5PFT1UM0W00",
+      "title": "各国・地域の中銀が積極的に金購入－月間80トン、85億ドルのペース",
+      "authority_level": "media",
+      "published_at": "2025-06-04",
+      "source_type": "news",
+      "category": "geopolitical_risk",
+      "language": "ja"
+    },
+    {
+      "url": "https://www.forbes.com/sites/timtreadgold/2025/02/05/gold-hits-an-all-time-record-2865oz-thanks-to-central-bank-buying/",
+      "title": "Gold Hits An All-Time Record $2865/Oz Thanks To Central Bank Buying",
+      "authority_level": "analyst",
+      "published_at": "2025-02-05",
+      "source_type": "news",
+      "category": "geopolitical_risk",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/markets/commodities/articles/low-cost-etf-buy-now-131742140.html",
+      "title": "The Low-Cost ETF to Buy Now That Gold Is Above $5,500 Again",
+      "authority_level": "analyst",
+      "published_at": "2026-01-01",
+      "source_type": "web",
+      "category": "investment_practice",
+      "language": "en"
+    },
+    {
+      "url": "https://www.investopedia.com/articles/investing/031913/most-affordable-way-buy-gold-physical-gold-or-etfs.asp",
+      "title": "Comparing Costs and Benefits of Physical Gold vs. ETFs",
+      "authority_level": "analyst",
+      "published_at": "2024-01-01",
+      "source_type": "web",
+      "category": "investment_practice",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/markets/commodities/articles/gold-prices-move-gld-iau-114955522.html",
+      "title": "Gold Prices Are on the Move: Is GLD or IAU the Better ETF Pick?",
+      "authority_level": "analyst",
+      "published_at": "2024-10-01",
+      "source_type": "web",
+      "category": "investment_practice",
+      "language": "en"
+    },
+    {
+      "url": "https://uk.finance.yahoo.com/news/gold-10-15-portfolio-says-104808038.html",
+      "title": "Gold should be 10-15% of portfolio, says Ray Dalio",
+      "authority_level": "analyst",
+      "published_at": "2025-10-01",
+      "source_type": "news",
+      "category": "investment_practice",
+      "language": "en"
+    },
+    {
+      "url": "https://finance.yahoo.com/news/jamie-dimon-says-first-time-125759755.html",
+      "title": "Jamie Dimon says it's semi-rational to buy gold",
+      "authority_level": "analyst",
+      "published_at": "2025-05-01",
+      "source_type": "news",
+      "category": "investment_practice",
+      "language": "en"
+    },
+    {
+      "url": "https://capital.com/en-int/analysis/gold-price-forecast",
+      "title": "Gold Forecast 2025–2030 – Capital.com",
+      "authority_level": "analyst",
+      "published_at": "2025-10-07",
+      "source_type": "web",
+      "category": "investment_practice",
+      "language": "en"
+    }
+  ]
+}

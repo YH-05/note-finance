@@ -1,0 +1,21 @@
+article_id: "2026-05-01_compound-interest-mechanics-72rule"
+topic: "「複利の魔法」を数字で殴る：72の法則・年率の罠・ボラティリティ減衰の正体"
+category: "investment_education"
+type: "column"
+target_audience: "beginner"
+target_wordcount: 3500
+status: "review"
+created_at: "2026-05-01"
+updated_at: "2026-05-01"
+
+workflow:
+  research: "done"
+  draft: "done"
+  critique: "done"
+  revision: "done"
+  publish: "pending"
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: true

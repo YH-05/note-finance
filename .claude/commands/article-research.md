@@ -38,6 +38,7 @@ Step 2: カテゴリ別リサーチ実行（ギャップ優先検索）
 ├── quant_analysis    → investment-research スキル
 ├── investment_education → investment-research スキル
 ├── asset_management   → investment-research スキル（JP RSSプリセット + Web検索）
+├── life_planning     → investment-research スキル（一次出典RSS（厚労省/年金機構/国税庁等）+ Web検索）
 ├── earnings          → investment-research スキル + quants DB（NASDAQ/yfinance/SEC EDGAR）
 ├── side_business (type: case_study)  → Web検索 + Reddit + RSS（事例収集+パターン抽出）
 ├── side_business (type: experience)  → experience-db-workflow Phase 1-2
@@ -178,6 +179,22 @@ Step 0 で特定されたギャップ情報を各スキルに渡し、**ギャ�
 - 公開日時フィルタリング
 - ソースキュレーション
 ```
+
+出力先: `01_research/` 配下にセッションデータとソースを保存
+
+#### life_planning
+
+`investment-research` スキルを使用し、一次出典系の JP RSSプリセット（厚労省/年金機構/国税庁/文科省/JHF/協会けんぽ/生保協会/損保協会/JASSO 等）と Web検索でソースを収集します。テーマ別キーワードは `data/config/life-planning-themes.json` を参照します。
+
+```
+実行内容:
+- 一次出典RSSから優先収集（信頼性ランクS）
+- テーマ別キーワードマッチング（pension/social_insurance/housing_loan/education_fund/retirement_design/life_event_planning/insurance_basics）
+- 法令・通達の参照URL抽出（e-Gov, タックスアンサー等）
+- ソースキュレーション（cfp_grade 時はランクS 50%以上必須）
+```
+
+`meta.yaml` の `quality_tier` が `cfp_grade`（既定）の場合、最低10件・一次出典50%以上のソース収集を目標とする。
 
 出力先: `01_research/` 配下にセッションデータとソースを保存
 
@@ -355,8 +372,8 @@ Step 2 で収集した検索結果を research-neo4j に永続化する。
 エラー: 不明なカテゴリです: {category}
 
 有効なカテゴリ:
-- asset_management, side_business, macro_economy
-- stock_analysis, market_report, quant_analysis, investment_education
+- asset_management, life_planning, side_business, macro_economy
+- stock_analysis, market_report, quant_analysis, investment_education, earnings
 ```
 
 ### Neo4j未起動

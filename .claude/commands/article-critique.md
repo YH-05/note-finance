@@ -36,7 +36,7 @@ Step 1: 前提確認
 └── workflow.draft = "done" を確認
 
 Step 2: 批評（カテゴリ別・並列）
-├── stock_analysis / macro_economy / quant_analysis / asset_management / investment_education
+├── stock_analysis / macro_economy / quant_analysis / asset_management / life_planning / investment_education
 │   ├── quick: finance-critic-fact, finance-critic-compliance
 │   └── full:  + finance-critic-structure, finance-critic-data, finance-critic-readability
 ├── side_business (type: case_study)
@@ -92,7 +92,7 @@ Step 5: ステータス更新・最終確認
 
 カテゴリに応じた批評エージェントを並列で実行します。
 
-#### stock_analysis / macro_economy / quant_analysis / asset_management / investment_education
+#### stock_analysis / macro_economy / quant_analysis / asset_management / life_planning / investment_education
 
 **quick モード**:
 ```
@@ -209,10 +209,18 @@ Task 1: wr-report-validator（レポート検証）
 
 6. **カテゴリ別リバイザー実行**
 
-   **stock_analysis / macro_economy / quant_analysis / asset_management / investment_education / market_report**:
+   **stock_analysis / macro_economy / quant_analysis / asset_management / life_planning / investment_education / market_report**:
    ```
    エージェント: finance-reviser
    入力: 02_draft/first_draft.md, 02_draft/critic.json, 01_research/sources.json
+   出力: 02_draft/revised_draft.md
+   ```
+
+   **life_planning カテゴリ専用の追加チェック**:
+   `meta.yaml` の `category` が `life_planning` の場合、批評で業際規制違反（社労士法/税理士法/保険業法/金商法）が `critical` として検出されたら、finance-reviser の代わりに `life-planning-reviser` エージェントに委譲する。業際規制対応の文言修正に特化したリバイザー。
+   ```
+   エージェント: life-planning-reviser（業際規制違反 critical 検出時のみ）
+   入力: 02_draft/first_draft.md, 02_draft/critic.json
    出力: 02_draft/revised_draft.md
    ```
 
@@ -327,10 +335,16 @@ revised_draft.md を生成した直後に、以下を**必ず実行する**。�
 参照: `.claude/rules/article-quality-standards.md`
 
 - [ ] マークダウン表が記事内に残っていないか（全て `/generate-table-image` で画像化済みか）
-- [ ] 主要な数値データ・統計にソースURLがマークダウンリンクで埋め込まれているか
+- [ ] **マークダウンリンク `[text](url)` が記事内に1件も残っていないか**（note.com 投稿時に URL が剥がれる禁止形式）
+  - 検出コマンド: `grep -E "(^|[^!])\[[^]]+\]\(https?://[^)]+\)" {article_dir}/02_draft/revised_draft.md`
+  - 1件でも検出されたら critic.json の compliance または writer_rules で `priority_fixes` に [HIGH] として追加
+- [ ] 主要な数値データ・統計の引用段落の直後に URL 単独段落が配置されているか（note.com リンクカード化）
+  - 配置パターン: `引用段落 → 空行 → URLのみの独立段落 → 空行 → 次段落`
+  - URL段落に句読点・空白・他文字が混在している場合はカード化されないため修正対象
 - [ ] チャートで表現すべきデータがテキストのままになっていないか（`/generate-chart-image` で画像化済みか）
 
-上記が未対応の場合、revised_draft.md 生成時に修正すること。
+上記が未対応の場合、revised_draft.md 生成時に finance-reviser / life-planning-reviser が修正すること。
+特にマークダウンリンク残存は、引用段落の直後に URL 単独段落を挿入する形式へ機械的に変換する。
 
 ## 完了報告
 

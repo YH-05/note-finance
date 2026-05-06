@@ -1,0 +1,323 @@
+{
+  "article_id": "2026-05-01_gold-role-currency-inflation-geopolitics",
+  "category": "investment_education",
+  "mode": "full",
+  "generated_at": "2026-05-06",
+  "critics": {
+    "compliance": {
+      "critic_type": "compliance",
+      "score": 71,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "high",
+          "category": "expression",
+          "location": {"section": "参考データソース", "line": "[Investopedia](https://www.investopedia.com/) — 金融教育"},
+          "issue": "参考データソースセクションに [text](url) 形式のマークダウンリンクが4件。note.com投稿時にURLが完全除去される。",
+          "regulation": "article-quality-standards.md ルール2",
+          "suggestion": "プレーンテキスト（サービス名 + URL独立段落）形式に変換する。"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "medium",
+          "category": "investment_advice",
+          "location": {"section": "実践ガイド / ステップ1", "line": "初心者の方には、**金ETF**か**純金積立**から始めることをお勧めします。"},
+          "issue": "「お勧めします」「おすすめ」が3箇所（ステップ1・FAQ Q3・まとめ）に存在。投資助言的表現に該当するリスク。",
+          "regulation": "金融商品取引法 第2条第8項",
+          "suggestion": "「選択肢として挙げられます」「検討に値します」に置換する。"
+        },
+        {
+          "issue_id": "CP003",
+          "severity": "medium",
+          "category": "disclaimer",
+          "location": {"section": "末尾 免責事項", "line": "免責事項: 本記事は一般的な情報提供を目的としており..."},
+          "issue": "免責事項に「本記事の内容により生じたいかなる損失についても責任を負いかねます」の記述が欠落。",
+          "regulation": "金融商品取引法 第37条の6",
+          "suggestion": "免責事項末尾に「本記事の内容により生じたいかなる損失についても責任を負いかねます。」を追記する。"
+        },
+        {
+          "issue_id": "CP004",
+          "severity": "low",
+          "category": "investment_advice",
+          "location": {"section": "実践ガイド / ステップ3", "line": "著名投資家・ファンドマネジャーのレイ・ダリオ氏は...10〜15%を金に配分することを推奨しています。"},
+          "issue": "第三者の推奨比率引用直後にガイドラインとして提示する構造。",
+          "suggestion": "「これはあくまでも一例であり、個人の状況によって最適な配分は異なります」等のヘッジ表現を追加。"
+        },
+        {
+          "issue_id": "CP005",
+          "severity": "low",
+          "category": "expression",
+          "location": {"section": "注意点・リスク / 集中投資は禁物", "line": "金はあくまでポートフォリオの一部（5〜15%程度）として活用するのが賢明です。"},
+          "issue": "「賢明です」という断定的な表現で具体的な配分比率を推奨。",
+          "suggestion": "「〜が一般的な考え方です」に変更する。"
+        }
+      ],
+      "required_disclaimers": {
+        "closing_greeting": {"present": true, "location": "末尾（免責事項の直前）", "note": "全文が装飾なし段落として存在。"},
+        "disclaimer": {"present": true, "location": "末尾", "note": "存在するが損害賠償免責文が欠落。"},
+        "order_correct": true
+      },
+      "prohibited_expressions_found": [
+        {"expression": "お勧めします", "location": "実践ガイド / ステップ1", "suggestion": "「選択肢として挙げられます」"},
+        {"expression": "おすすめです", "location": "FAQ / Q3", "suggestion": "「選択肢の一つです」"},
+        {"expression": "おすすめ", "location": "まとめ", "suggestion": "「選択肢として挙げられます」"}
+      ],
+      "prohibited_symbols_found": []
+    },
+    "fact": {
+      "critic_type": "fact",
+      "score": 63,
+      "issues": [
+        {
+          "issue_id": "F001",
+          "severity": "high",
+          "location": {"section": "視点1：通貨的役割", "line": "1944年に45カ国が合意したブレトンウッズ体制"},
+          "issue": "ブレトンウッズ会議参加国数が誤り。正確には44カ国（44 Allied nations）。",
+          "original": "1944年に45カ国が合意したブレトンウッズ体制",
+          "correct": "1944年に44カ国が参加したブレトンウッズ体制",
+          "source": "history.state.gov",
+          "suggestion": "「45カ国」→「44カ国」に修正する。"
+        },
+        {
+          "issue_id": "F002",
+          "severity": "high",
+          "location": {"section": "視点2：インフレヘッジ", "line": "金価格はおよそ15倍に上昇しました。"},
+          "issue": "1970年代スタグフレーション期の金価格上昇倍率が過小。1970年の35ドルから1980年1月850ドルへ約24倍上昇が正確。",
+          "original": "金価格はおよそ15倍に上昇しました",
+          "correct": "金価格はおよそ24倍（1970年の約35ドルから1980年1月の約850ドル）に上昇しました",
+          "source": "Investopedia金価格履歴",
+          "suggestion": "「約15倍」→「約24倍（1970年の35ドルから1980年1月の850ドルへ）」に修正する。"
+        },
+        {
+          "issue_id": "F003",
+          "severity": "high",
+          "location": {"section": "視点2：インフレヘッジ", "line": "さらに2025年には金がさらに約65%上昇し"},
+          "issue": "2025年の金65%上昇の出典が不整合。Bloomberg（2025-09-11）は実質ベース最高値更新を裏付けるが、65%という上昇率の一次出典が特定されない。",
+          "original": "さらに2025年には金がさらに約65%上昇し",
+          "correct": "出典の再確認が必要。確認できない場合は「大幅上昇」等の表現に変更する。",
+          "source": null,
+          "suggestion": "信頼できる一次ソースを特定してURLを追記する。確認できない場合は「大幅に上昇し」に変更する。"
+        },
+        {
+          "issue_id": "F004",
+          "severity": "medium",
+          "location": {"section": "視点1：通貨的役割", "line": "ドル指数（DXY）が5%上昇すると、金価格は約5〜10%下落する傾向があります。"},
+          "issue": "DXY5%上昇→金5〜10%下落の出典がblogレベル（fx-gold.jp）のみ。権威ある一次データが存在しない。",
+          "suggestion": "「一般的な傾向として」等で断定を弱めるか、WGCレポート等権威ある出典を追加する。"
+        },
+        {
+          "issue_id": "F005",
+          "severity": "low",
+          "location": {"section": "FAQ / Q2", "line": "「初めて金の保有がある程度合理的だと思う」"},
+          "issue": "ダイモン発言「semi-rational」の意訳が留保感を薄める。",
+          "suggestion": "「ある意味（半ば）合理的」等、semi-rationalのニュアンスを反映する。"
+        }
+      ],
+      "verified_facts": 35,
+      "issues_found": 5,
+      "verification_rate": 87.5
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 84,
+      "issues": [
+        {
+          "issue_id": "ST001",
+          "severity": "medium",
+          "category": "introduction",
+          "location": {"section": "はじめに", "description": "冒頭"},
+          "issue": "初心者の「難しすぎないか」という不安を払拭するひと言がない。",
+          "suggestion": "「難しい数式は一切出てきません」等を追加する。"
+        },
+        {
+          "issue_id": "ST002",
+          "severity": "medium",
+          "category": "sections",
+          "location": {"section": "金（ゴールド）とは何か", "description": "基本性質セクション全体"},
+          "issue": "「3つの役割」という記事構造とズレがある独立したセクションで読者の見通しが掴みにくい。",
+          "suggestion": "「視点0：金の基本性質」として番号付けするか、はじめに末尾に吸収する。"
+        },
+        {
+          "issue_id": "ST003",
+          "severity": "medium",
+          "category": "flow",
+          "location": {"section": "視点2：インフレヘッジ", "description": "2024〜2025年上昇局面サブセクション"},
+          "issue": "2024〜2025年価格上昇の主因は視点3（地政学・中銀購入）だが、視点2末尾に配置されており論点の帰属が曖昧。",
+          "suggestion": "2024〜2025年の価格データを視点3末尾か3視点の統合まとめに移動する。"
+        },
+        {
+          "issue_id": "ST004",
+          "severity": "low",
+          "category": "sections",
+          "location": {"section": "実践ガイド / ステップ2", "description": "ETFコスト比較表の後"},
+          "issue": "国内純金積立が「なお書き」として補足されており、日本人読者向けの優先順位が逆転している。",
+          "suggestion": "ステップ2で国内ETF・純金積立を対等に扱う。"
+        },
+        {
+          "issue_id": "ST005",
+          "severity": "low",
+          "category": "conclusion",
+          "location": {"section": "まとめ", "description": "末尾"},
+          "issue": "読了後の次アクション（関連記事等）への誘導がない。",
+          "suggestion": "「次は〇〇について解説します」等のCTAを1〜2文追加する。"
+        },
+        {
+          "issue_id": "ST006",
+          "severity": "low",
+          "category": "readability",
+          "location": {"section": "参考データソース", "description": "末尾リスト"},
+          "issue": "参考データソースが [text](url) 形式のマークダウンリンクで記述されている。",
+          "suggestion": "プレーンテキスト形式（サービス名のみ、URLは独立段落）に変換する。"
+        }
+      ],
+      "strengths": [
+        {"category": "flow", "description": "視点1→視点2→視点3→実践ガイドという論理的な順序が一貫。"},
+        {"category": "sections", "description": "FAQセクションが5問設けられており量・質ともに適切。"},
+        {"category": "sections", "description": "注意点・リスクセクションが5項目にわたりバランス良く列挙。"},
+        {"category": "introduction", "description": "冒頭の問いかけが初心者の実際の疑問に即している。"},
+        {"category": "readability", "description": "専門用語が全て初出時に定義されている。"}
+      ],
+      "section_scores": {
+        "introduction": 80,
+        "flow": 82,
+        "sections": 88,
+        "conclusion": 83,
+        "readability": 87
+      }
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 86,
+      "issues": [
+        {
+          "issue_id": "D001",
+          "severity": "medium",
+          "location": {"section": "視点1：通貨的役割", "line": "1944年に45カ国が合意したブレトンウッズ体制"},
+          "issue": "ブレトンウッズ参加国数「45カ国」→ IMF公式記録では44カ国が正確。",
+          "original": "1944年に45カ国が合意したブレトンウッズ体制",
+          "correct": "1944年に44カ国が参加したブレトンウッズ体制",
+          "suggestion": "「45カ国」→「44カ国」に修正する。"
+        },
+        {
+          "issue_id": "D002",
+          "severity": "medium",
+          "location": {"section": "FAQ / Q2", "line": "Goldman Sachsの2026年12月時点の予想価格は4,900ドル（2025年10月公表時点）でした。"},
+          "issue": "GS予測4,900ドルは2025年10月時点の旧予測で、2026年5月現在の実勢価格（5,000〜5,400ドル）をすでに下回っている。旧予測をそのまま提示すると誤解を招く。",
+          "original": "Goldman Sachsの2026年12月時点の予想価格は4,900ドル（2025年10月公表時点）でした。",
+          "correct": "2025年10月時点のGS予測は4,900ドルだったが、2026年5月現在の実勢価格はすでにこれを上回っている。",
+          "suggestion": "「でした」と過去形を明確にし、現在価格との差異に注記を加える。"
+        }
+      ],
+      "data_points_verified": 29,
+      "issues_found": 2
+    },
+    "readability": {
+      "critic_type": "readability",
+      "score": 82,
+      "issues": [
+        {
+          "issue_id": "RD001",
+          "severity": "high",
+          "category": "density",
+          "location": {"section": "全体", "description": "記事全体（約9,693字）"},
+          "issue": "beginner向けとして情報量が多い。長い段落をスマホで読む際に負担になる。",
+          "suggestion": "1段落あたり80〜120文字を目安に、長い段落を分割する。"
+        },
+        {
+          "issue_id": "RD002",
+          "severity": "medium",
+          "category": "density",
+          "location": {"section": "全体", "description": "60字超の長文が複数"},
+          "issue": "beginner基準（30〜40文字/文）に対して長文が多い。",
+          "suggestion": "長文を2〜3文に分割する。"
+        },
+        {
+          "issue_id": "RD003",
+          "severity": "medium",
+          "category": "terminology",
+          "location": {"section": "実践ガイド / ステップ1", "description": "投資手段比較表"},
+          "issue": "「ボラティリティ」が表のデメリット欄に説明なしで登場。beginner読者には意味が伝わらない。",
+          "suggestion": "「ボラティリティ（価格の振れ幅が大きい）」と括弧説明を追加する。"
+        },
+        {
+          "issue_id": "RD004",
+          "severity": "medium",
+          "category": "visual",
+          "location": {"section": "視点3：地政学リスク / 中央銀行が金を爆買いしている理由", "description": "URL行が4本連続"},
+          "issue": "URL行が4本連続して配置されており視覚的にノイズが増える。",
+          "suggestion": "「説明→URL→説明→URL」の交互配置にする。"
+        }
+      ],
+      "strengths": [
+        {"description": "Q&A形式の問いかけによるフックは有効。"},
+        {"description": "見出し・箇条書きが豊富で視覚的読みやすさは良好。"},
+        {"description": "「例えば」を使った具体例が各セクションに存在する。"}
+      ],
+      "title_evaluation": {
+        "char_count": 40,
+        "within_range": false,
+        "reader_benefit_clear": true
+      }
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 81,
+      "word_count": 9693,
+      "word_count_status": "ok",
+      "issues": [
+        {
+          "issue_id": "WR-SC001",
+          "severity": "high",
+          "sub_area": "sections",
+          "location": {"section": "overall", "line": null},
+          "issue": "investment_education テンプレートの必須セクション「なぜ重要なのか」（300-500字）が欠落している。",
+          "rule_reference": "investment-education.md#セクション構成テンプレート",
+          "suggestion": "「視点1：通貨的役割」の前に「なぜ金は重要なのか」（300-500字）を独立セクションとして追加する。"
+        },
+        {
+          "issue_id": "WR-SC002",
+          "severity": "low",
+          "sub_area": "sections",
+          "location": {"section": "はじめに", "line": "冒頭"},
+          "issue": "「はじめに」が313字で推奨範囲（200-300字）を超過。",
+          "suggestion": "1文短縮して300字以内に収める。"
+        },
+        {
+          "issue_id": "WR-TL001",
+          "severity": "low",
+          "sub_area": "frontmatter",
+          "location": {"section": "frontmatter", "line": "title: \"金（ゴールド）の3つの役割をゼロから理解する｜通貨・インフレ・地政学の視点で解説\""},
+          "issue": "タイトルが40字で推奨上限（38字以内）を超過。",
+          "suggestion": "「金（ゴールド）の3つの役割｜通貨・インフレ・地政学の視点で解説」（38字）に短縮する。"
+        }
+      ],
+      "checklist": {
+        "word_count_ok": true,
+        "required_sections_ok": false,
+        "frontmatter_ok": true,
+        "url_format_ok": true,
+        "desu_masu_ok": true,
+        "no_dash_symbols": true
+      },
+      "sections_found": 10,
+      "frontmatter_complete": true
+    }
+  },
+  "overall_score": 78,
+  "compliance_status": "warning",
+  "priority_fixes": [
+    {"priority": 1, "severity": "HIGH", "issue_id": "F001+D001", "description": "「45カ国」→「44カ国」（ブレトンウッズ参加国数の誤り）"},
+    {"priority": 2, "severity": "HIGH", "issue_id": "F002", "description": "「約15倍」→「約24倍（1970年の35ドルから1980年1月の850ドルへ）」に修正"},
+    {"priority": 3, "severity": "HIGH", "issue_id": "F003", "description": "2025年65%上昇の出典確認・修正。確認できない場合は「大幅に上昇し」に変更"},
+    {"priority": 4, "severity": "HIGH", "issue_id": "CP001+ST006", "description": "参考データソースセクションのマークダウンリンク4件をプレーンテキスト形式に変換"},
+    {"priority": 5, "severity": "HIGH", "issue_id": "WR-SC001", "description": "「なぜ金は重要なのか」セクション（300-500字）を視点1の前に追加"},
+    {"priority": 6, "severity": "MEDIUM", "issue_id": "CP002", "description": "「お勧めします/おすすめ」→「選択肢として挙げられます」等に変更（3箇所）"},
+    {"priority": 7, "severity": "MEDIUM", "issue_id": "CP003", "description": "免責事項末尾に「本記事の内容により生じたいかなる損失についても責任を負いかねます。」を追記"},
+    {"priority": 8, "severity": "MEDIUM", "issue_id": "ST003", "description": "2024〜2025年価格上昇データを視点3末尾に移動"},
+    {"priority": 9, "severity": "MEDIUM", "issue_id": "D002", "description": "GS予測4,900ドルに「旧予測」の注記と現在価格との差異を追加"},
+    {"priority": 10, "severity": "MEDIUM", "issue_id": "F004", "description": "DXY5%→金5〜10%下落を「一般的な傾向として」に弱める"},
+    {"priority": 11, "severity": "MEDIUM", "issue_id": "RD003", "description": "「ボラティリティ（価格の振れ幅が大きい）」と括弧説明を追加"},
+    {"priority": 12, "severity": "LOW", "issue_id": "WR-TL001", "description": "タイトルを38字以内に短縮する"}
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "article_id": "2026-05-01_shareholder-return-dividend-buyback-roe",
+  "category": "investment_education",
+  "mode": "full",
+  "generated_at": "2026-05-06",
+  "critics": {
+    "fact": {
+      "critic_type": "fact",
+      "score": 73,
+      "status": "warning",
+      "verified_facts": 38,
+      "issues_found": 4,
+      "issues": [
+        {
+          "issue_id": "F001",
+          "severity": "high",
+          "description": "東証PBR要請時期の誤り: 「2023年10月に要請を行った」と記載しているが、初回要請は2023年3月31日。2023年10月は継続フォローアップのタイミング。",
+          "original": "東京証券取引所（東証）が2023年10月にPBR（株価純資産倍率）1倍割れ企業に対して資本効率改善を求める要請を行ったことがあります",
+          "suggestion": "「東証が2023年3月に要請を開始し、同年10月以降も継続的なフォローアップを強化した」と修正する"
+        },
+        {
+          "issue_id": "F002",
+          "severity": "high",
+          "description": "記事内矛盾: 配当性向の健全範囲が「配当性向とは」セクションでは「30〜50%」、実践ガイドのステップ2では「30〜60%」と異なる数値を使用している。",
+          "original": "30〜60%程度が健全な目安です（実践ガイドのステップ2）",
+          "suggestion": "リサーチノートに基づき「30〜50%」に統一する"
+        },
+        {
+          "issue_id": "F003",
+          "severity": "medium",
+          "description": "PBR1倍割れ50%の基準時点: 記事は「2023年10月時点の約50%」と記載しているが、リサーチノートでは「2022年7月」が50%の基準時点。",
+          "original": "プライム市場のPBR1倍割れ企業の割合は2023年10月時点の約50%から",
+          "suggestion": "「2022年7月時点の約50%から2025年7月時点の約44%へと改善傾向」に修正する"
+        },
+        {
+          "issue_id": "F004",
+          "severity": "low",
+          "description": "DOE計算式: 記事は「配当総額÷株主資本×100」と会社全体ベースで表示しているが、一般的には1株ベースも多い。数学的には同等だが補足説明があるとよい。",
+          "suggestion": "両方の計算式を併記するか、より一般的な1株ベースを主式とする"
+        }
+      ]
+    },
+    "compliance": {
+      "critic_type": "compliance",
+      "score": 83,
+      "status": "warning",
+      "issues": [
+        {
+          "issue_id": "CP001",
+          "severity": "high",
+          "description": "免責事項が正規テンプレートと不一致。「本記事の内容により生じたいかなる損失についても責任を負いかねます」という損害不担責条項が欠落している。",
+          "suggestion": "免責事項を標準テンプレート全文に置き換えること: 「免責事項: 本記事は一般的な情報提供を目的としており、特定の金融商品の売買を推奨するものではありません。投資には元本割れリスクがあり、過去の実績は将来の運用成果を保証するものではありません。本記事の内容により生じたいかなる損失についても責任を負いかねます。投資に関する最終決定は、ご自身の判断と責任において行ってください。」"
+        },
+        {
+          "issue_id": "CP002",
+          "severity": "low",
+          "description": "「長期保有に適した特性を持ちます」（ステップ5）が特定の投資行動を推奨していると解釈される余地がある。",
+          "suggestion": "「長期的な視点で保有する投資家にとって参考となる指標といえます」に言い換える"
+        }
+      ]
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 83,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "medium",
+          "description": "「三本柱の第三：特別配当と記念配当」セクションが327文字と薄すぎる。配当セクション（1,724字）・自社株買いセクション（1,312字）と比較して大幅に不均衡。サブセクション（###見出し）もゼロ。",
+          "suggestion": "600〜800字に拡充し、具体的な企業事例や投資家への影響を追加する"
+        },
+        {
+          "severity": "medium",
+          "description": "まとめセクションにネクストアクション誘導が「ぜひ実際の銘柄分析に活用してみてください」の一文のみで弱い。",
+          "suggestion": "「今日から試せるチェックリスト」または「最初に確認すべき3つの指標」など具体的な行動提示を追加する"
+        },
+        {
+          "severity": "medium",
+          "description": "実践ガイドのステップが7つと初心者向けには認知負荷が高い。同一URLの重複も見られる。",
+          "suggestion": "最重要3ステップを強調ブロックで先出しし、残りを「さらに詳しく」として整理する"
+        },
+        {
+          "severity": "low",
+          "description": "参考データソースセクションが本文中のURL独立段落と二重構造になっている。",
+          "suggestion": "参考データソースセクションはURLなしの媒体名・レポート名のみに変更するか削除を検討"
+        },
+        {
+          "severity": "low",
+          "description": "「株主還元とは」セクションが344字・サブセクションなし。三本柱の全体像を示す比較表・概要があると導入として機能する。",
+          "suggestion": "三本柱の特徴比較表をこのセクションに追加する（画像化対象）"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 85,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "high",
+          "description": "PBR1倍割れ基準時点誤り: 記事「2023年10月時点の約50%」→正「2022年7月時点の約50%」（リサーチノート・第一生命経済研究所）",
+          "suggestion": "「2022年7月時点の約50%から2025年7月時点の約44%へ改善」と修正する"
+        },
+        {
+          "severity": "medium",
+          "description": "東証要請時期の不正確さ: 初回要請は2023年3月31日、2023年10月は第2弾フォローアップ。",
+          "suggestion": "「2023年3月に要請を開始し、同年10月にフォローアップ要請を行った」と修正する"
+        },
+        {
+          "severity": "medium",
+          "description": "配当26兆円（2023年度・財務省法人企業統計・大企業）と自社株買い16兆円（2024年度）を並べた後「総還元32兆円」とあるが26+16=42≠32。集計基準・年度が異なる点が未説明。",
+          "suggestion": "配当26兆円と総還元32兆円の段落を切り離し、「東証上場企業ベースの総還元額は2024年度で約32兆円」と集計基準を明示する"
+        },
+        {
+          "severity": "low",
+          "description": "米国総還元性向「約100%」について、リサーチノートには「約86%（2023年データ）」という別推計値も記載されており精度に幅がある。",
+          "suggestion": "「約80〜100%程度」と幅を持たせるか、時点を明記する"
+        }
+      ]
+    },
+    "readability": {
+      "critic_type": "readability",
+      "score": 78,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "high",
+          "description": "計算式が地の文に埋め込まれており、スマホ表示で式の範囲が視覚的に判別しにくい（配当性向式、配当利回り式等）。",
+          "suggestion": "計算式は独立行に配置し、太字またはインデントで視覚的に分離する"
+        },
+        {
+          "severity": "medium",
+          "description": "各セクション末尾から次セクションへのブリッジ文がほぼ全セクションで省略されている。",
+          "suggestion": "各メインセクションの末尾に1〜2行のブリッジ文を追加する"
+        },
+        {
+          "severity": "medium",
+          "description": "デュポン分解の3要素説明が段落形式のため、3要素の対比構造が視認しにくい。",
+          "suggestion": "3要素を箇条書きで並べる（収益性・効率性・資本構造のリスク）"
+        },
+        {
+          "severity": "medium",
+          "description": "「DOE（ドー）」の読み仮名が初心者には分かりにくい。",
+          "suggestion": "「DOE（ディーオーイー、またはドーとも呼ばれます）」のように両方の読み方を明記する"
+        },
+        {
+          "severity": "low",
+          "description": "実践ガイドのステップ6・7と注意点セクションのリスク4・2が内容的に重複している。",
+          "suggestion": "役割を明確に分けるか、どちらかを削除して情報を集約する"
+        }
+      ]
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 78,
+      "status": "warning",
+      "word_count": 9477,
+      "issues": [
+        {
+          "severity": "medium",
+          "description": "「なぜ重要なのか」セクション（300-500字）が欠落している。テンプレートでは「{テーマ}とは」の次に必須。",
+          "suggestion": "「## なぜ株主還元を理解することが重要なのか」セクション（300-500字）を追加する"
+        },
+        {
+          "severity": "medium",
+          "description": "参考データソースセクションにデータ収集時点の記載がない。",
+          "suggestion": "「※ データは2025年〜2026年時点のものです」等を末尾に追加する"
+        },
+        {
+          "severity": "low",
+          "description": "同一URLが本文中に重複して使用されている箇所がある（3URLが各2回）。",
+          "suggestion": "同一ソースは1回のみ配置する"
+        },
+        {
+          "severity": "low",
+          "description": "「特別配当と記念配当」セクションに具体的な数値例が少ない。",
+          "suggestion": "仮想事例か別の企業事例を1件追加する"
+        }
+      ]
+    }
+  },
+  "overall_score": 80,
+  "priority_fixes": [
+    {
+      "priority": "HIGH",
+      "source": ["fact", "data_accuracy"],
+      "description": "東証PBR要請時期の誤り修正: 「2023年10月」→「2023年3月（初回要請）、同年10月以降フォローアップ強化」"
+    },
+    {
+      "priority": "HIGH",
+      "source": ["fact", "data_accuracy"],
+      "description": "PBR1倍割れ基準時点の修正: 「2023年10月時点の約50%」→「2022年7月時点の約50%」"
+    },
+    {
+      "priority": "HIGH",
+      "source": ["fact"],
+      "description": "配当性向の健全範囲を記事内で統一: ステップ2の「30〜60%」→「30〜50%」"
+    },
+    {
+      "priority": "HIGH",
+      "source": ["compliance"],
+      "description": "免責事項を標準テンプレートに修正（損害不担責条項「本記事の内容により生じたいかなる損失についても責任を負いかねます」を追加）"
+    },
+    {
+      "priority": "HIGH",
+      "source": ["readability"],
+      "description": "計算式を地の文から独立させて視覚的に分離する（太字・インデントまたは独立行）"
+    },
+    {
+      "priority": "MEDIUM",
+      "source": ["data_accuracy"],
+      "description": "配当26兆円（2023年度）と総還元32兆円（2024年度）の集計基準の違いを明記"
+    },
+    {
+      "priority": "MEDIUM",
+      "source": ["writer_rules"],
+      "description": "「なぜ株主還元を理解することが重要なのか」セクションを追加（300-500字）"
+    },
+    {
+      "priority": "MEDIUM",
+      "source": ["structure"],
+      "description": "「三本柱の第三」セクションを600〜800字に拡充"
+    },
+    {
+      "priority": "MEDIUM",
+      "source": ["readability"],
+      "description": "デュポン分解の3要素を箇条書きで並べ直す"
+    },
+    {
+      "priority": "MEDIUM",
+      "source": ["compliance"],
+      "description": "「長期保有に適した特性を持ちます」を情報提供形式に言い換え"
+    }
+  ]
+}

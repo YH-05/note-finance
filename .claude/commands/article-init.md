@@ -1,6 +1,6 @@
 ---
 description: 新規記事フォルダを作成し、カテゴリ別テンプレートから初期構造を生成します。
-argument-hint: [トピック名] [--category <category>]
+argument-hint: [トピック名] [--category <category>] [--symbols <list>] [--theme <theme>] [--start <date>] [--end <date>] [--non-interactive]
 ---
 
 新規記事フォルダを作成し、統一ワークフローの準備をします。
@@ -10,7 +10,30 @@ argument-hint: [トピック名] [--category <category>]
 | パラメータ | 必須 | デフォルト | 説明 |
 |-----------|------|-----------|------|
 | トピック名 | ○ | - | 記事のテーマ（例: 新NISAつみたて投資枠の活用法、テスラ決算分析） |
-| --category | - | 対話で選択 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education / earnings） |
+| --category | - | 対話で選択 / 無人モードでは自動推定 | カテゴリ（asset_management / side_business / macro_economy / stock_analysis / market_report / quant_analysis / investment_education / earnings / life_planning） |
+| --symbols | - | 対話で入力 / 無人モードでは meta.yaml に空リスト | カンマ区切りのシンボル（stock_analysis / quant_analysis / earnings 用） |
+| --theme | - | 対話で選択 / 無人モードでは `shisan` | side_business のテーマ（konkatsu / sidehustle / shisan） |
+| --start | - | 対話で入力 / 無人モードでは `今日-90日` | 分析期間の開始日（YYYY-MM-DD） |
+| --end | - | 対話で入力 / 無人モードでは `今日` | 分析期間の終了日（YYYY-MM-DD） |
+| --non-interactive | - | false | true の場合、全ての対話質問をスキップして引数または自動補完で処理 |
+
+## 実行モード
+
+### 対話モード（デフォルト）
+
+ユーザーが直接 `/article-init` を実行した場合のデフォルト動作。引数で指定されていない情報は対話質問で取得します。
+
+### 無人モード（`--non-interactive` または `/article-full` から呼ばれた場合）
+
+`/article-full` などの統合コマンドから呼ばれた場合は **完全自動・無人実行** モードで動作します。
+
+- 全ての対話質問をスキップ
+- 引数で指定されていない情報は **引数 → 自動推定 → デフォルト値** の優先順で補完
+- カテゴリ未指定時は `finance-article-writer` の `judge_category` で自動推定
+- スラッグはトピック名から機械的に生成し、確認なしで採用
+- 期間未指定時は `今日-90日 〜 今日` をデフォルトとする
+- side_business のテーマ未指定時は `shisan` をデフォルトとする
+- 対象シンボル / FRED指標未指定時は meta.yaml に空リストを書き出す（後続フェーズで補完）
 
 ## 処理フロー
 
@@ -38,6 +61,7 @@ argument-hint: [トピック名] [--category <category>]
    6. quant_analysis     (クオンツ分析)
    7. investment_education (投資教育・基礎知識)
    8. earnings           (決算プレビュー・決算銘柄分析)
+   9. life_planning      (ライフプランニング・資金計画 - CFP相当: 年金/社保/住宅/教育/退職/保険)
    ```
 
 3. **英語スラッグの生成**

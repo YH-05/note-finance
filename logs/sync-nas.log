@@ -3584,3 +3584,42 @@
 [sync-nas]   ✓ data/config/
 [sync-nas] 完了: 2026-04-27T07:55:50Z
 ---
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-27T17:08:10+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-27T17:08:10+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-30T16:56:53+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-04-30T16:56:53+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了: 2026-04-30T07:57:29Z
+---
+2026-05-06T09:51:45+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:51:45+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:51:46+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:51:46+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:52:18+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:52:18+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:52:20+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:52:20+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:53:22+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+2026-05-06T09:53:22+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+[sync-nas] === PUSH: ローカル → NAS === 2026-05-06T09:57:48+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-05-06T09:57:48+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了: 2026-05-06T00:58:36Z
+---
+[sync-nas] === PUSH: ローカル → NAS === 2026-05-06T09:59:45+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-05-06T09:59:45+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了: 2026-05-06T01:00:28Z
+---
