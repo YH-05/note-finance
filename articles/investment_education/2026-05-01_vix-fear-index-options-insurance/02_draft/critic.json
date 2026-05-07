@@ -1,7 +1,160 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-05-01_vix-fear-index-options-insurance",
+  "category": "investment_education",
+  "mode": "full",
+  "generated_at": "2026-05-07",
+  "critics": {
+    "fact": {
+      "critic_type": "fact",
+      "score": 68,
+      "status": "warning",
+      "issues": [
+        {"severity": "high", "description": "リーマンショックVIX80.86の日付が誤り。記事は「2008年10月24日」→正しくは「2008年11月20日」", "suggestion": "「2008年10月24日のVIX終値は80.86」を「2008年11月20日のVIX終値は80.86」に修正する。"},
+        {"severity": "high", "description": "コロナショックVIX82.69の日付が誤り。記事は「2020年3月18日」→正しくは「2020年3月16日（月曜日）」", "suggestion": "「2020年3月18日、VIX終値は82.69」を「2020年3月16日、VIX終値は82.69」に修正する。"},
+        {"severity": "medium", "description": "VIX計算の「ブラックショールズ逆算」説明が現行方法論（2003年改訂・モデルフリー方式）と厳密には不一致", "suggestion": "「ブラックショールズを逆向きに行う」を「オプション価格から市場予想ボラティリティを逆算する（技術的にはモデルフリー方式）」に修正する。"},
+        {"severity": "medium", "description": "相関係数-0.667の出典・計測期間が不明", "suggestion": "「1993年以来の長期計測では-0.667〜-0.70の範囲で報告されている」など、計測期間と出典を付記する。"},
+        {"severity": "low", "description": "VIX÷√12とVIX÷√(365÷30)の2つの計算式が併記されており、変動率が微妙に不整合", "suggestion": "「±5.77%はVIX÷√12の概算値」と注釈を加えるか、数値を統一する。"}
+      ],
+      "summary": "2件のhigh日付誤りが要修正。リーマン（10/24→11/20 2008）とコロナ（3/18→3/16 2020）。数値自体は正確。"
+    },
+    "compliance": {
+      "critic_type": "compliance",
+      "score": 81,
+      "status": "warning",
+      "issues": [
+        {"severity": "medium", "category": "expression", "location": "まとめセクション", "description": "「必ず平均水準に戻ってきます」「必ず収束します」が断定的将来予測表現", "suggestion": "「歴史的に〜してきた傾向があります」と統計的傾向表現に修正。"},
+        {"severity": "medium", "category": "investment_advice", "location": "活用法1", "description": "「ポジション過大なら少し整理を検討」が具体的投資行動誘導表現", "suggestion": "「ポジションの見直しを検討する投資家もいます」など三人称客観表現に変更。"},
+        {"severity": "medium", "category": "disclaimer", "location": "末尾免責事項", "description": "責任限定条項「いかなる損失についても責任を負いかねます」が欠落", "suggestion": "免責事項に「本記事の内容により生じたいかなる損失についても責任を負いかねます」を追加。"},
+        {"severity": "low", "category": "expression", "location": "活用法1", "description": "「日経平均VIも参考にすることをおすすめします」推奨表現", "suggestion": "「参考になる場合があります」に変更。"},
+        {"severity": "low", "category": "expression", "location": "活用法2", "description": "「強くおすすめします」強調推奨表現", "suggestion": "「〜することが賢明です」に変更。"}
+      ],
+      "disclaimer_check": {"present": true, "adequate": false, "note": "免責事項は存在するが責任限定条項が欠落している。"},
+      "closing_greeting_check": {"present": true, "position_ok": true},
+      "summary": "critical問題なし。断定表現2件・投資行動誘導1件・免責事項不完全1件がmedium。全て修正可能。"
+    },
+    "structure": {
+      "critic_type": "structure",
+      "score": 85,
+      "status": "pass",
+      "section_analysis": [
+        {"section": "はじめに", "evaluation": "good", "note": "読者の悩みから入る良い構成"},
+        {"section": "VIX指数とは何か", "evaluation": "good", "note": "保険料アナロジーの導入が秀逸"},
+        {"section": "オプション取引と保険", "evaluation": "good", "note": "具体例（関税ショック40倍）が効果的"},
+        {"section": "計算の仕組み", "evaluation": "ok", "note": "初心者にはやや高度。BS方程式は難易度勾配が急"},
+        {"section": "VIX水準の読み方", "evaluation": "ok", "note": "散文のみで視覚整理が不足"},
+        {"section": "歴史的スパイク", "evaluation": "good", "note": "4事例が適切なバランス"},
+        {"section": "VIXの3つの特性", "evaluation": "good", "note": "論理的で明快"},
+        {"section": "個人投資家の活用法", "evaluation": "good", "note": "4活用法の具体性が高い"},
+        {"section": "FAQ", "evaluation": "good", "note": "5問とも読者の実際の疑問に対応"},
+        {"section": "注意点・リスク", "evaluation": "ok", "note": "FAQと一部重複あり"},
+        {"section": "まとめ", "evaluation": "good", "note": "哲学的な締めが印象的"}
+      ],
+      "issues": [
+        {"severity": "medium", "description": "H1見出しが記事タイトル以外にも複数存在。「# はじめに」「# VIX指数とは何か」等はH2（##）であるべき", "suggestion": "記事タイトルのみ # H1 とし、以降の大見出しを全て ## H2、小見出しを ### H3 に変更する。"},
+        {"severity": "medium", "description": "「計算の仕組み」セクションのBS方程式説明が初心者向けとしては難易度勾配が急すぎる", "suggestion": "BS方程式説明に「詳しく知りたい方向け」の一言を添えるか、簡略化する。"},
+        {"severity": "low", "description": "「注意点・リスク」とFAQ（Q2・Q3）に内容重複あり", "suggestion": "注意点をFAQの前に移動するか、重複部分を統合する。"},
+        {"severity": "low", "description": "歴史セクション末尾の予告「平均回帰性は次のセクションで」が実際の位置とずれている", "suggestion": "予告文を「3つの重要な特性（逆相関・平均回帰性・方向性の非予測）を解説します」に修正。"}
+      ],
+      "summary": "全体の流れは論理的で初心者向けの教育記事として完成度が高い。見出し階層の修正（H1→H2化）が最優先。"
+    },
+    "data_accuracy": {
+      "critic_type": "data_accuracy",
+      "score": 94,
+      "status": "pass",
+      "data_checks": [
+        {"item": "VIX10→30日変動率±2.89%", "claimed": "±2.89%", "verified": "2.8868%（VIX÷√12）", "status": "correct"},
+        {"item": "VIX15→30日変動率±4.33%", "claimed": "±4.33%", "verified": "4.3301%（VIX÷√12）", "status": "correct"},
+        {"item": "VIX20→30日変動率±5.77%", "claimed": "±5.77%", "verified": "5.7735%（VIX÷√12）", "status": "correct"},
+        {"item": "VIX30→30日変動率±8.66%", "claimed": "±8.66%", "verified": "8.6603%（VIX÷√12）", "status": "correct"},
+        {"item": "VIX40→30日変動率±11.55%", "claimed": "±11.55%", "verified": "11.5470%（VIX÷√12）", "status": "correct"},
+        {"item": "リーマンショック VIX終値80.86", "claimed": "80.86", "verified": "80.86（日付は別途fact要修正）", "status": "correct"},
+        {"item": "コロナショック VIX終値82.69", "claimed": "82.69", "verified": "82.69（日付は別途fact要修正）", "status": "correct"},
+        {"item": "令和ブラックマンデー VIX終値38.57・日中高値65.73", "claimed": "38.57/65.73", "verified": "38.57/65.73", "status": "correct"},
+        {"item": "日経平均 2024年8月5日下落幅 4,451円安", "claimed": "4,451円安", "verified": "4,451.28円安", "status": "correct"},
+        {"item": "関税ショック プレミアム約40倍急騰", "claimed": "約40倍", "verified": "20〜25円→900円台で36〜45倍。「約40倍」は妥当。", "status": "correct"},
+        {"item": "VIXとBXMの相関 約90%", "claimed": "約90%", "verified": "BXMの定義がオプションプレミアムと異なる。一次出典未確認。", "status": "approximate"}
+      ],
+      "issues": [
+        {"severity": "medium", "description": "「VIXとオプションプレミアム（BXM）の正の相関約90%」のBXM定義が不正確。BXMはバイライト戦略インデックスであり「オプションプレミアム」の代理指標ではない", "suggestion": "括弧書き「（BXM）」を削除するか、BXMの正確な定義を注記する。"},
+        {"severity": "low", "description": "VIX10の換算値±2.89%がVIX÷√12の正確値2.8868%から0.0032%上ぶれ（四捨五入誤差範囲内）", "suggestion": "現行表記で許容範囲内。変更不要。"}
+      ],
+      "summary": "16件中15件が正確。計算値はすべて整合性あり。BXMの定義表現修正のみ推奨。"
+    },
+    "readability": {
+      "critic_type": "readability",
+      "score": 76,
+      "status": "warning",
+      "strengths": [
+        "「保険料」アナロジーが終始一貫しており初心者が直感的に理解しやすい",
+        "関税ショックのプットオプション40倍という具体的数値事例が非常に説得力がある",
+        "歴史的スパイク事例（リーマン・コロナ・令和ブラックマンデー・2025年関税）が豊富",
+        "ですます調が全編通じて完全に統一されている",
+        "FAQが読者の疑問に先回りする構成で親切"
+      ],
+      "issues": [
+        {"severity": "high", "description": "目標文字数（investment_education: 8000-10000字）を上回り、beginner向けとして情報過多。計算セクション・注意点が密度が高すぎる", "suggestion": "計算セクションのBS方程式説明を大幅圧縮。水準帯説明を表化して散文を削減。"},
+        {"severity": "high", "description": "導入3文目が131文字の長文でモバイル読者の離脱リスクがある", "suggestion": "3文目を「読み終えると、VIX30超えのニュースを見ても慌てず対処できるようになります」と短縮する。"},
+        {"severity": "medium", "description": "VIX水準帯7段階が全て散文形式で、モバイル端末でスキャンしにくい", "suggestion": "水準帯説明の後に「水準・状態・推奨行動」3列の一覧表（画像化）を追加。"},
+        {"severity": "medium", "description": "「BXM」「相関係数」等の専門用語が説明なしで使用されている", "suggestion": "BXMへの言及を削除するか括弧で補足。相関係数に「（2つの動きの連動度を示す指標）」と補足する。"},
+        {"severity": "medium", "description": "計算セクションのBS方程式・年率換算が初心者向けとして難易度が高い", "suggestion": "「計算の詳細は読み飛ばしてOK」という一文を冒頭に追加するか、セクション全体を大幅圧縮する。"}
+      ],
+      "summary": "コアの「保険料」アナロジーと具体例の質は高い。最大の課題は情報量過多と視覚的整理の不足。圧縮と表化により大幅改善可能。"
+    },
+    "writer_rules": {
+      "critic_type": "writer_rules",
+      "score": 63,
+      "status": "warning",
+      "word_count": {"actual": 10927, "target_min": 8000, "target_max": 10000, "status": "over"},
+      "required_sections": {
+        "found": 5,
+        "total": 7,
+        "present": ["はじめに", "VIX指数とは何か", "FAQ（よくある誤解）", "注意点・リスク", "まとめ"],
+        "missing": ["なぜ重要なのか（独立見出し）", "実践ガイド（テンプレート規定の見出し名）"]
+      },
+      "frontmatter": {"yaml_present": false, "title_present": true, "heading_structure_ok": false, "note": "YAMLフロントマターブロックが完全に欠落"},
+      "title_check": {"text": "VIX恐怖指数をゼロから理解する｜市場の「保険料」で読む相場の温度", "length": 33, "format_ok": true},
+      "disclaimer": {"present": true, "adequate": true},
+      "closing_greeting": {"present": true},
+      "markdown_links": {"count": 0, "violations": []},
+      "url_paragraphs": {
+        "adequate": false,
+        "missing_count": 2,
+        "missing": [
+          {"claim": "相関係数-0.667", "location": "特性1セクション"},
+          {"claim": "VIX40超後1年間のリターンが平均プラス", "location": "活用法3セクション"}
+        ]
+      },
+      "markdown_tables": {"count": 0, "violations": []},
+      "tone_consistency": {"ok": true},
+      "issues": [
+        {"severity": "high", "description": "YAMLフロントマターブロックが完全に欠落（investment-education.mdが6フィールドを必須とする）", "suggestion": "記事先頭にYAMLブロック（title/article_id/category/topic/target_audience/status）を追加"},
+        {"severity": "medium", "description": "見出し階層が H1 多用で崩れている（記事タイトル以外の大見出しが全て # H1）", "suggestion": "記事タイトルのみ # H1 とし、以降の大見出しは全て ## H2、小見出しは ### H3 に変更"},
+        {"severity": "medium", "description": "「なぜ重要なのか」独立見出しセクションが欠落", "suggestion": "「VIXの土台」と「VIX水準の読み方」の間に独立セクションを追加"},
+        {"severity": "medium", "description": "「個人投資家の活用法4つ」がテンプレートの「実践ガイド」見出し名と不一致", "suggestion": "「# 実践ガイド：VIXを日常投資に活かす4つの方法」に見出し変更"},
+        {"severity": "medium", "description": "相関係数-0.667の直後にURL段落がない", "suggestion": "統計値の直後に出典URL段落を追加"},
+        {"severity": "medium", "description": "VIX40超後のリターン統計の直後にURL段落がない", "suggestion": "統計主張の直後に出典URL段落を追加"},
+        {"severity": "low", "description": "本文テキスト約10,927字（上限10,000字を約9%超過）", "suggestion": "計算セクション・水準帯説明を圧縮して9,000〜9,500字に収める"}
+      ],
+      "summary": "タイトル・免責・締め挨拶・マークダウンリンク禁止・表の画像化は規約適合。YAMLフロントマター欠落（high）と必須セクション見出し名不一致（medium×2）・URL段落欠落（medium×2）・見出し階層崩れ（medium）の修正が必要。"
+    }
+  },
+  "overall_score": 78,
+  "priority_fixes": [
+    {"priority": "HIGH", "area": "fact", "description": "リーマンショックのVIX記録日を修正：2008年10月24日→2008年11月20日"},
+    {"priority": "HIGH", "area": "fact", "description": "コロナショックのVIX記録日を修正：2020年3月18日→2020年3月16日"},
+    {"priority": "HIGH", "area": "writer_rules", "description": "YAMLフロントマターブロックを記事先頭に追加"},
+    {"priority": "MEDIUM", "area": "structure", "description": "見出し階層を修正：記事タイトル以外の # を全て ## に降格"},
+    {"priority": "MEDIUM", "area": "compliance", "description": "「必ず〜戻ってきます」「必ず収束します」を統計的傾向表現に修正"},
+    {"priority": "MEDIUM", "area": "compliance", "description": "「ポジション過大なら少し整理を検討」を三人称客観表現に修正"},
+    {"priority": "MEDIUM", "area": "compliance", "description": "免責事項に責任限定条項「いかなる損失についても責任を負いかねます」を追加"},
+    {"priority": "MEDIUM", "area": "fact", "description": "BS方程式の説明を現行VIX方法論（モデルフリー方式）に合わせて修正"},
+    {"priority": "MEDIUM", "area": "data", "description": "BXMを「オプションプレミアム」と括弧書きする表現を修正"},
+    {"priority": "MEDIUM", "area": "writer_rules", "description": "相関係数-0.667の直後にURL段落を追加"},
+    {"priority": "MEDIUM", "area": "writer_rules", "description": "VIX40超後リターン統計の直後にURL段落を追加"},
+    {"priority": "MEDIUM", "area": "writer_rules", "description": "「なぜ重要なのか」独立見出しセクションを追加"},
+    {"priority": "MEDIUM", "area": "writer_rules", "description": "「実践ガイド」見出し名をテンプレートに合わせる"},
+    {"priority": "LOW", "area": "readability", "description": "VIX水準帯を3列表（水準・状態・推奨行動）で表化して画像化"},
+    {"priority": "LOW", "area": "readability", "description": "計算セクションを圧縮し全体文字数を10,000字以内に"},
+    {"priority": "LOW", "area": "structure", "description": "FAQと注意点セクションの重複を整理"}
+  ]
 }
