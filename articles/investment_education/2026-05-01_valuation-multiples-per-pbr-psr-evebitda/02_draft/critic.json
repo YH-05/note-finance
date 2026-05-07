@@ -1,7 +1,222 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-05-01_valuation-multiples-per-pbr-psr-evebitda",
+  "category": "investment_education",
+  "mode": "full",
+  "generated_at": "2026-05-07",
+  "critics": {
+    "fact": {
+      "score": 78,
+      "status": "warning",
+      "verified_count": 22,
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "EV/EBITDAセクション冒頭",
+          "issue": "「税引前利益」と記述されているが、EBITDAの定義上「営業利益」が正確",
+          "suggestion": "「営業利益（Earnings Before Interest and Taxes）」に修正"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "PSRセクション・マネーフォワード倍率",
+          "issue": "「マネーフォワードのPSRは18.6倍」という具体的数値は時点が不明確で誤解を生む可能性",
+          "suggestion": "「一般的に10〜20倍程度」などの定性的な説明に変更するか、計測時点を明記"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "PSRセクション・PSR適正水準",
+          "issue": "「SaaS企業のPSR適正水準は9〜15倍」→ リサーチノートでは9〜16倍",
+          "suggestion": "「9〜16倍」に修正"
+        },
+        {
+          "severity": "LOW",
+          "location": "PBR1倍割れ統計",
+          "issue": "「東証プライム上場企業の約44%がPBR1倍割れ」の時点が不明確",
+          "suggestion": "「2025年時点で」など時点を明記"
+        }
+      ]
+    },
+    "compliance": {
+      "score": 83,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "免責事項",
+          "issue": "免責事項が省略版。標準版には「見通し・予測は作成時点の情報」「NISA等の税制優遇制度の内容は税制改正により変更される可能性」の文言が必要",
+          "suggestion": "snippets/disclaimer.md の標準版全文に差し替え"
+        },
+        {
+          "severity": "MEDIUM",
+          "location": "全体",
+          "issue": "「危険です」「危険な落とし穴」など不安を煽る表現がある",
+          "suggestion": "「注意が必要です」「見落としやすいポイント」に修正"
+        }
+      ]
+    },
+    "structure": {
+      "score": 86,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "LOW",
+          "location": "EV/EBITDAセクション",
+          "issue": "一文が長い箇所が複数あり、初心者には読みにくい",
+          "suggestion": "60字以上の文は分割する"
+        },
+        {
+          "severity": "LOW",
+          "location": "シーン別使い分けガイド",
+          "issue": "文章形式で説明されているが、箇条書きにした方が視認性が高い",
+          "suggestion": "各シーンを箇条書き・表形式に変換"
+        }
+      ]
+    },
+    "data_accuracy": {
+      "score": 89,
+      "status": "pass",
+      "issues": [
+        {
+          "severity": "LOW",
+          "location": "参考データソース",
+          "issue": "データの取得時点（年月）が一部不明確",
+          "suggestion": "各データソースに「2025年XX月時点」などの時点を付記"
+        }
+      ]
+    },
+    "readability": {
+      "score": 78,
+      "status": "warning",
+      "issues": [
+        {
+          "severity": "MEDIUM",
+          "location": "全体",
+          "issue": "「マグニフィセント7」「時価総額」「クロスボーダー」「解散価値」「債務超過」などの専門用語に初心者向け説明がない",
+          "suggestion": "各専門用語に括弧書きで簡易説明を追加"
+        },
+        {
+          "severity": "LOW",
+          "location": "EV/EBITDAセクション",
+          "issue": "計算式が複雑で初心者には追いにくい",
+          "suggestion": "具体的な数値例を1つ追加して計算プロセスを可視化"
+        }
+      ]
+    },
+    "writer_rules": {
+      "score": 63,
+      "status": "warning",
+      "word_count": {
+        "actual": 10372,
+        "target_min": 8000,
+        "target_max": 10000,
+        "status": "over"
+      },
+      "title_length": {
+        "actual": 43,
+        "limit": 38,
+        "status": "over",
+        "current": "PER・PBR・PSR・EV/EBITDAを図解で理解する｜4大指標の使い分け完全入門"
+      },
+      "issues": [
+        {
+          "severity": "HIGH",
+          "location": "タイトル",
+          "issue": "タイトルが43文字（制限38文字超過）かつ「図解で理解する」と記載があるが実際に図解画像がない",
+          "suggestion": "「PER・PBR・PSR・EV/EBITDA｜4大バリュエーション指標の使い分け入門」（36文字）に変更"
+        },
+        {
+          "severity": "HIGH",
+          "location": "本文全体",
+          "issue": "文字数10,372字が目標上限10,000字を超過",
+          "suggestion": "各セクション10〜15%を削減（概要・FAQ・まとめを中心に圧縮）"
+        },
+        {
+          "severity": "HIGH",
+          "location": "4指標比較セクション",
+          "issue": "「※この部分は後で画像化します（4指標の比較表）」というコメントが残存",
+          "suggestion": "実際の表を記述し `/generate-table-image` で画像化する"
+        }
+      ]
+    }
+  },
+  "overall_score": 80,
+  "priority_fixes": [
+    {
+      "priority": 1,
+      "severity": "HIGH",
+      "category": "fact",
+      "fix": "EBITDAの定義を「税引前利益」→「営業利益（EBIT）」に修正"
+    },
+    {
+      "priority": 2,
+      "severity": "HIGH",
+      "category": "compliance",
+      "fix": "免責事項を標準版全文（見通し・予測・NISA税制変更の注記含む）に差し替え"
+    },
+    {
+      "priority": 3,
+      "severity": "HIGH",
+      "category": "writer_rules",
+      "fix": "タイトルを「PER・PBR・PSR・EV/EBITDA｜4大バリュエーション指標の使い分け入門」（36文字）に変更"
+    },
+    {
+      "priority": 4,
+      "severity": "HIGH",
+      "category": "writer_rules",
+      "fix": "4指標比較セクションのプレースホルダーコメントを削除し、実際の比較表を生成・画像化"
+    },
+    {
+      "priority": 5,
+      "severity": "HIGH",
+      "category": "writer_rules",
+      "fix": "文字数を10,000字以内に削減（過剰な説明・重複表現を中心に約400字削減）"
+    },
+    {
+      "priority": 6,
+      "severity": "MEDIUM",
+      "category": "fact",
+      "fix": "マネーフォワードPSR「18.6倍」を削除し「一般的に10〜20倍程度」に変更"
+    },
+    {
+      "priority": 7,
+      "severity": "MEDIUM",
+      "category": "fact",
+      "fix": "PSR適正水準「9〜15倍」→「9〜16倍」に修正"
+    },
+    {
+      "priority": 8,
+      "severity": "MEDIUM",
+      "category": "compliance",
+      "fix": "「危険です」→「注意が必要です」、「危険な落とし穴」→「見落としやすいポイント」に修正"
+    },
+    {
+      "priority": 9,
+      "severity": "MEDIUM",
+      "category": "readability",
+      "fix": "「マグニフィセント7」「時価総額」「クロスボーダー」「解散価値」「債務超過」に初心者向け説明を追加"
+    },
+    {
+      "priority": 10,
+      "severity": "LOW",
+      "category": "fact",
+      "fix": "PBR1倍割れ統計に「2025年時点で」を追記"
+    },
+    {
+      "priority": 11,
+      "severity": "LOW",
+      "category": "data_accuracy",
+      "fix": "参考データソースの各データに取得時点（年月）を付記"
+    },
+    {
+      "priority": 12,
+      "severity": "LOW",
+      "category": "structure",
+      "fix": "EV/EBITDAセクションの長文を分割（60字超の文を2文に分ける）"
+    },
+    {
+      "priority": 13,
+      "severity": "LOW",
+      "category": "structure",
+      "fix": "シーン別使い分けガイドを箇条書き・リスト形式に変換して視認性向上"
+    }
+  ]
 }

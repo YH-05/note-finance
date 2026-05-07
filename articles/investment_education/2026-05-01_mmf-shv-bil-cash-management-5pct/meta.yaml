@@ -1,18 +1,19 @@
-article_id: "2026-05-01_mmf-shv-bil-cash-management-5pct"
-topic: "MMF・短期国債ETF・SHV/BIL：金利5%時代の『眠らせない現金』入門"
-category: "investment_education"
-type: "column"
-target_audience: "beginner"
+article_id: 2026-05-01_mmf-shv-bil-cash-management-5pct
+topic: MMF・短期国債ETF・SHV/BIL：金利5%時代の『眠らせない現金』入門
+category: investment_education
+type: column
+target_audience: beginner
 target_wordcount: 3500
-status: "research_done"
-created_at: "2026-05-01"
-updated_at: "2026-05-07"
+status: published
+created_at: '2026-05-01'
+updated_at: '2026-05-07'
+note_url: https://editor.note.com/notes/nead61b2205bf/edit/
 workflow:
-  research: "done"
-  draft: "done"
-  critique: "done"
-  revision: "done"
-  publish: "pending"
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
