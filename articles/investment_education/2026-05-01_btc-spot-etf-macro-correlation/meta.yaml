@@ -1,20 +1,25 @@
-article_id: "2026-05-01_btc-spot-etf-macro-correlation"
-topic: "暗号資産現物ETF入門：BTC ETFとマクロ資産の相関を整理"
-category: "investment_education"
-type: "column"
-target_audience: "beginner"
+article_id: 2026-05-01_btc-spot-etf-macro-correlation
+topic: 暗号資産現物ETF入門：BTC ETFとマクロ資産の相関を整理
+category: investment_education
+type: column
+target_audience: beginner
 target_wordcount: 3500
-status: "revised"
-created_at: "2026-05-01"
-updated_at: "2026-05-07"
+status: published
+created_at: '2026-05-01'
+updated_at: '2026-05-07T09:03:00.138376+00:00'
 workflow:
-  research: "done"
-  draft: "done"
-  critique: "done"
-  revision: "done"
-  publish: "pending"
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: true
   hf5_draft_reviewed: true
   hf6_final_approved: true
+published_at: '2026-05-07T09:03:00.138376+00:00'
+draft_url: https://editor.note.com/notes/n21a347111d1b/edit/
