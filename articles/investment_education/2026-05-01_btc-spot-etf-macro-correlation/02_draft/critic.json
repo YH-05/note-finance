@@ -1,7 +1,25 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+    "article_id": "2026-05-01_btc-spot-etf-macro-correlation",
+    "generated_at": "2026-05-07",
+    "critics": {
+        "fact": {"score": 88, "status": "pass"},
+        "data": {"score": 88, "status": "pass"},
+        "readability": {"score": 76, "status": "warning"},
+        "compliance": {"score": 70, "status": "warning"}
+    },
+    "overall_score": 80,
+    "priority_fixes": [
+        "末尾に snippets/closing-greeting.md の挨拶文を追加",
+        "冒頭の免責事項を削除し、末尾に snippets/disclaimer.md を統合",
+        "「5-10%以下に抑えるのが一般的な推奨」→ 出典付き一般論に修正",
+        "「税制面でETFが圧倒的に有利」→ 所得水準による条件付き表現に修正",
+        "「特筆すべきはIBIT寡占」→ 事実描写に修正",
+        "SBI×住信SBI連携の条件依存性を注記",
+        "71万BTC=6.3%の分母（時価総額ベース）を明示",
+        "IBIT β=2.77 の測定条件（vs S&P500）を補足",
+        "Q1 187億ドル÷営業日 ≒ 3億ドル/日 へ修正",
+        "ベータ・ロールコスト・カストディの一行解説を追加",
+        "冒頭フックを問い掛け型に変更（『株か金か』）",
+        "全体6,000字 → 4,500字程度に圧縮"
+    ]
 }

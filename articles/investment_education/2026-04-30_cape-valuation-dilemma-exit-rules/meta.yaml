@@ -1,20 +1,33 @@
-article_id: "2026-04-30_cape-valuation-dilemma-exit-rules"
-topic: "CAPE 39.8時代のバリュエーション・ジレンマ：S&P500高値追いの撤退ルール5選"
-category: "investment_education"
-type: "column"
-target_audience: "beginner"
+article_id: 2026-04-30_cape-valuation-dilemma-exit-rules
+topic: CAPE 39.8時代のバリュエーション・ジレンマ：S&P500高値追いの撤退ルール5選
+category: investment_education
+type: column
+target_audience: beginner
 target_wordcount: 3500
-status: "init"
-created_at: "2026-04-30"
-updated_at: "2026-04-30"
+status: published
+created_at: '2026-04-30'
+updated_at: '2026-05-07T08:54:24.987127+00:00'
 workflow:
-  research: "pending"
-  draft: "pending"
-  critique: "pending"
-  revision: "pending"
-  publish: "pending"
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: pending
+  publishing:
+    published: done
+    final_review: done
 human_feedback:
   hf1_topic_approved: true
-  hf3_claims_reviewed: false
-  hf5_draft_reviewed: false
-  hf6_final_approved: false
+  hf3_claims_reviewed: auto-approved
+  hf5_draft_reviewed: auto-approved
+  hf6_final_approved: auto-approved
+scores:
+  overall: 84
+  compliance: 92
+  fact: 88
+  structure: 85
+  data: 86
+  readability: 80
+  writer_rules: 78
+published_at: '2026-05-07T08:54:24.987127+00:00'
+draft_url: https://editor.note.com/notes/n988700db12ba/edit/

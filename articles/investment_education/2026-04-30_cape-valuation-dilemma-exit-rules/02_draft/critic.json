@@ -1,7 +1,75 @@
 {
-    "article_id": "",
-    "generated_at": "",
-    "critics": {},
-    "overall_score": null,
-    "priority_fixes": []
+  "article_id": "2026-04-30_cape-valuation-dilemma-exit-rules",
+  "category": "investment_education",
+  "mode": "full",
+  "evaluated_at": "2026-05-07",
+  "scores": {
+    "overall": 84,
+    "compliance": 92,
+    "fact": 88,
+    "structure": 85,
+    "data": 86,
+    "readability": 80,
+    "writer_rules": 78
+  },
+  "compliance": {
+    "verdict": "pass",
+    "issues": [],
+    "notes": "投資助言ではない旨の免責事項が冒頭・末尾に明記されている。具体的な売買推奨ではなくルール設計の枠組み提示にとどまっており、投資助言業・金商法上の問題なし。"
+  },
+  "fact": {
+    "verdict": "pass",
+    "issues": [],
+    "verified_facts": [
+      "Shiller PE 41.83 (2026-05-06) - multpl.com 一次データで確認",
+      "Excess CAPE Yield 1.42 (2026-04) - MacroMicro/GuruFocusで確認",
+      "1999年12月 CAPE 44.19 が史上最高値 - multpl.com",
+      "1929年9月 CAPE 約32.5 - Wikipedia/CMT",
+      "2026年5月CAPEは1999年以外で唯一40を超えた局面",
+      "Hussman式: forward operating P/E ≈ 2.5 + 0.5×CAPE - hussmanfunds.com",
+      "York大学トレンドフォロー研究 15-20%トレーリングストップ最適"
+    ],
+    "notes": "全主要数値が一次出典で裏付け済み。"
+  },
+  "structure": {
+    "verdict": "pass",
+    "strengths": [
+      "概要→現状→意味→ルール5選→バイアス→まとめ の論理展開",
+      "ルール毎の見出しでスキャナビリティ高い",
+      "5つのルールが互いに独立かつ相補的"
+    ],
+    "improvements": []
+  },
+  "data": {
+    "verdict": "pass",
+    "issues": [],
+    "notes": "数値はすべて出典明記、URLが独立段落で配置されており note.com でリンクカード化される。"
+  },
+  "readability": {
+    "verdict": "pass",
+    "improvements": [
+      "ルール1〜5の冒頭に1行のサマリーがあると読者がすぐ全体像を把握できる",
+      "ECYの計算式は数式アレルギーを避けるためテキストで補足"
+    ]
+  },
+  "writer_rules": {
+    "verdict": "pass_with_revisions",
+    "issues": [
+      {
+        "type": "table_to_image",
+        "severity": "high",
+        "description": "本文中のマークダウン表（CAPE歴史的高値）が3列×5行で画像化必須。画像は生成済みだが本文への差し替えが必要"
+      }
+    ],
+    "passed_rules": [
+      "ソースURLは独立段落で配置されている",
+      "マークダウンリンク [text](url) は使用していない",
+      "免責事項が冒頭と末尾に配置"
+    ]
+  },
+  "revision_directives": [
+    "マークダウン表を画像参照に置換: ![CAPE歴史的高値とその後の市場推移](images/table_cape_history.png)",
+    "ルール1〜5の冒頭に1行リード文を追加",
+    "ECYの計算式を文章表現に再構成"
+  ]
 }
