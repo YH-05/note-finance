@@ -1,0 +1,45 @@
+article_id: 2026-05-12_nvda-q1-fy2026-earnings-preview-blackwell-capex
+title: "NVIDIA FY2026 Q1決算プレビュー：Blackwell量産フル稼働とCSP Capex 700Bへの依存度検証"
+topic: "NVIDIA FY2026 Q1決算プレビュー：Blackwell量産フル稼働とCSP Capex 700Bへの依存度検証"
+category: earnings
+type: earnings_preview
+status: init
+created_at: '2026-05-12'
+updated_at: '2026-05-12'
+tags:
+- NVDA
+- NVIDIA
+- 決算プレビュー
+- Blackwell
+- AI Capex
+- ハイパースケーラー
+- Q1 FY2026
+target_audience: intermediate
+target_wordcount: 4000
+symbols:
+- NVDA
+earnings_date: '2026-05-28'
+fiscal_quarter: Q1 FY2026
+date_range:
+  start: '2026-02-01'
+  end: '2026-04-30'
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null

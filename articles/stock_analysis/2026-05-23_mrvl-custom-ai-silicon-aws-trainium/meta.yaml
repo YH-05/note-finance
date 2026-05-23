@@ -1,0 +1,58 @@
+# === Core (必須) ===
+article_id: "2026-05-23_mrvl-custom-ai-silicon-aws-trainium"
+topic: "Marvell Technology (MRVL)のカスタムAIシリコン戦略：AWS Trainiumと1.6Tb光ICで読むハイパースケーラーのコアイネーブラー化"
+title: ""
+category: "stock_analysis"
+type: "data_analysis"
+status: "init"
+
+# === Timestamps ===
+created_at: "2026-05-23"
+updated_at: "2026-05-23"
+
+# === Content ===
+tags: []
+target_audience: "intermediate"
+target_wordcount: 4000
+
+# === Category-Specific ===
+symbols:
+  - MRVL
+  - AMZN
+  - NVDA
+  - AVGO
+  - GOOGL
+  - MSFT
+date_range:
+  start: "2026-02-22"
+  end: "2026-05-23"
+fred_series: []
+theme: ""
+
+# === Tracking ===
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+
+# === Workflow ===
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+
+# === Human Feedback ===
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+
+# === Legacy ===
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null

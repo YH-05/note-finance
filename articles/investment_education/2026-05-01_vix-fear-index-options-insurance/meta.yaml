@@ -1,20 +1,22 @@
-article_id: "2026-05-01_vix-fear-index-options-insurance"
-topic: "VIX恐怖指数の読み方：オプション市場が示す『市場の保険料』の正体"
-category: "investment_education"
-type: "column"
-target_audience: "beginner"
+article_id: 2026-05-01_vix-fear-index-options-insurance
+topic: VIX恐怖指数の読み方：オプション市場が示す『市場の保険料』の正体
+category: investment_education
+type: column
+target_audience: beginner
 target_wordcount: 3500
-status: "init"
-created_at: "2026-05-01"
-updated_at: "2026-05-01"
+status: published
+created_at: '2026-05-01'
+updated_at: '2026-05-07T10:19:10.555414+00:00'
 workflow:
-  research: "done"
-  draft: "done"
-  critique: "pending"
-  revision: "pending"
-  publish: "pending"
+  research: done
+  draft: done
+  critique: done
+  revision: done
+  publish: done
 human_feedback:
   hf1_topic_approved: true
   hf3_claims_reviewed: false
   hf5_draft_reviewed: false
   hf6_final_approved: false
+published_at: '2026-05-07T10:19:10.555414+00:00'
+draft_url: https://editor.note.com/notes/n30336d9b8679/edit/

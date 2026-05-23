@@ -1,0 +1,27 @@
+{
+  "article_id": "2026-05-23_nvda-q1-fy2027-earnings-review-blackwell-china",
+  "generated_at": "2026-05-23",
+  "category": "earnings",
+  "mode": "full",
+  "overall_score": 84,
+  "critics": {
+    "compliance": {"score": 92, "pass": true},
+    "fact": {"score": 88, "pass": true},
+    "structure": {"score": 85, "pass": true},
+    "data_accuracy": {"score": 86, "pass": true},
+    "readability": {"score": 80, "pass": true},
+    "writer_rules": {"score": 82, "pass": true}
+  },
+  "priority_fixes": [
+    "セクション1: Whisper numberの簡易説明追加（初心者親切性向上）",
+    "セクション5: 粗利益率の段落を1パラグラフ拡充（balanced化）",
+    "セクション4: 顧客構成の集計差異注記追加（データ整合性）",
+    "全体: マークダウン表4点を /generate-table-image でPNG化",
+    "全体: 残存マークダウン表が無いか最終チェック"
+  ],
+  "critical_issues": [],
+  "decisions": {
+    "proceed_to_revision": true,
+    "proceed_to_publish": true
+  }
+}
