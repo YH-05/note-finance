@@ -3739,3 +3739,14 @@
 ---
 2026-05-18T14:37:50+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
 2026-05-18T14:37:50+0900 [sync-nas] ERROR: NASがマウントされていません: /Volumes/personal_folder
+[sync-nas] === PUSH: ローカル → NAS === 2026-05-23T19:03:07+0900
+[sync-nas] === PUSH: ローカル → NAS === 2026-05-23T19:03:07+0900
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .env
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .mcp.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ .claude/settings.json
+[sync-nas]   ✓ data/config/
+[sync-nas] 完了: 2026-05-23T10:03:12Z
+---
