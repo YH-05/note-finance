@@ -1,0 +1,41 @@
+article_id: 2026-06-05_micron-mu-hbm-memory-supercycle
+topic: メモリ・スーパーサイクル — Micron(MU)とHBMがAIデータセンターの隠れたボトルネック
+title: ""
+category: stock_analysis
+type: data_analysis
+status: init
+created_at: '2026-06-05'
+updated_at: '2026-06-05'
+tags: []
+target_audience: intermediate
+target_wordcount: 4000
+symbols:
+- MU
+- NVDA
+- 000660.KS
+- 005930.KS
+date_range:
+  start: '2026-03-07'
+  end: '2026-06-05'
+fred_series: []
+theme: ''
+critic_score: null
+revision_count: 0
+note_url: null
+x_post_url: null
+research_sources: 0
+workflow:
+  research: pending
+  draft: pending
+  critique: pending
+  revision: pending
+  publish: pending
+human_feedback:
+  hf1_topic_approved: true
+  hf3_claims_reviewed: false
+  hf5_draft_reviewed: false
+  hf6_final_approved: false
+legacy:
+  old_path: null
+  old_article_id: null
+  migrated_at: null
