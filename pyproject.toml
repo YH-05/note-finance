@@ -47,7 +47,7 @@ dev = [
     "pyright>=1.1.403",
     "ruff>=0.14.11",
     "pip-audit>=2.9.0",
-    "yfinance>=0.2.0",
+    "yfinance>=1.2.1",
     "bandit>=1.8.0",
     "cssselect>=1.2.0",
 ]
