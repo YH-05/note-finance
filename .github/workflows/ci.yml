@@ -35,7 +35,7 @@ jobs:
     outputs:
       python: ${{ steps.filter.outputs.python }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: dorny/paths-filter@v4
         id: filter
@@ -55,7 +55,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.python == 'true' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0  # full history for better blame info
 
@@ -100,7 +100,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.python == 'true' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
 
     - name: Install uv
       uses: astral-sh/setup-uv@v7
@@ -129,7 +129,7 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
 
     - name: Install uv
       uses: astral-sh/setup-uv@v7
@@ -189,7 +189,7 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
 
     - name: Install uv
       uses: astral-sh/setup-uv@v7
@@ -232,7 +232,7 @@ jobs:
   #   needs: [lint, type-check, test]
   #   runs-on: ubuntu-latest
   #   steps:
-  #   - uses: actions/checkout@v6
+  #   - uses: actions/checkout@v7
 
   #   - name: Install uv
   #     uses: astral-sh/setup-uv@v3
@@ -256,7 +256,7 @@ jobs:
   #   name: Build Documentation
   #   runs-on: ubuntu-latest
   #   steps:
-  #   - uses: actions/checkout@v6
+  #   - uses: actions/checkout@v7
 
   #   - name: Install uv
   #     uses: astral-sh/setup-uv@v3
@@ -287,7 +287,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.python == 'true' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
 
     - name: Install uv
       uses: astral-sh/setup-uv@v7
